@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--5fc6e408-f97c-5809-a003-0b2087e81d2a",
+  "id": "bundle--78597b43-6116-544b-8192-53315be16826",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -21,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1e87c488-efa7-5aff-bba1-a65a1ecb9a5a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--7806ef46-1eff-540e-ad95-98e64179506a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -38,8 +38,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--5ac7087f-874c-51cd-9f08-b5d9b60804e3",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-82954",
       "external_references": [
         {
@@ -53,8 +53,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--711902df-c605-5c90-86da-37ec3c53e189",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--68c75c48-65ea-5234-b1c9-d657835840a3",
       "target_ref": "vulnerability--5ac7087f-874c-51cd-9f08-b5d9b60804e3"
@@ -63,8 +63,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--7806ef46-1eff-540e-ad95-98e64179506a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Path Traversal Vulnerability in Dokploy",
       "description": "## Overview\n\nDokploy versions 0.29.7 and earlier contain a critical path traversal vulnerability (CVE-2026-82954) located within the `writeTraefikConfigInPath` function in `packages/server/src/utils/traefik/application.ts`. The flaw allows remote, unauthenticated attackers to manipulate the 'path' argument, leading to arbitrary file system access. This vulnerability permits the reading or overwriting of sensitive configuration files, which can be leveraged to gain unauthorized system control. The vulnerability is publicly disclosed, and given the nature of the software as a deployment management tool, successful exploitation carries a high risk of systemic compromise. The vendor has not provided a response or a patch as of the time of disclosure.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 9.9, reflecting its critical potential for unauthorized file access and system-level impact. Attackers targeting this vulnerability can extract sensitive environment variables, credentials, or Traefik configuration files, potentially escalating access to any containerized workloads managed by the Dokploy instance.\n\n## Recommendation\n\n- Monitor web application logs for suspicious path traversal patterns (e.g., directory indexing characters like \"../\") directed at Dokploy management endpoints.\n- Apply network segmentation to ensure Dokploy management interfaces are not exposed to the public internet until a security patch is released by the vendor.\n- Conduct an audit of the file system integrity in the Dokploy server environment to identify signs of unauthorized file modification or exfiltration.\n",
       "published": "2026-09-01T01:01:03Z",
@@ -90,8 +90,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -105,8 +105,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--21b51275-b961-56f4-9433-3c679c09291f",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--ea0a346a-d6bc-5ef6-a4b6-3e968b24e39f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -115,8 +115,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Command and Scripting Interpreter",
       "external_references": [
         {
@@ -130,8 +130,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3e05d36a-de9c-5d67-baba-80319dd01121",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--ea0a346a-d6bc-5ef6-a4b6-3e968b24e39f",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -147,8 +147,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--3441e511-6af6-5fe7-9399-9f229bfcac1f",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-82971",
       "external_references": [
         {
@@ -162,8 +162,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--93361ca0-fa1b-5b87-9ebd-92bf20d2ea3c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--ad0166e0-b0b8-55e0-849e-334be53869f0",
       "target_ref": "vulnerability--3441e511-6af6-5fe7-9399-9f229bfcac1f"
@@ -172,8 +172,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--ea0a346a-d6bc-5ef6-a4b6-3e968b24e39f",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Unauthenticated Remote Command Injection in QVidium Opera11",
       "description": "## Overview\n\nQVidium Opera11 version 3.3.2a26-Ax4x-opera11 contains a critical remote command injection vulnerability in the /cgi-bin/net_tr.cgi CGI script. An unauthenticated attacker can exploit this flaw by supplying malicious shell metacharacters via the ipaddr argument. Successful exploitation allows for arbitrary code execution with the privileges of the web service. Because the vendor, QVidium, has ceased all business operations, no patches or security support will be provided for this product, leaving existing deployments permanently exposed. Defenders must identify and isolate all instances of this software within their network to prevent exploitation, as public proof-of-concept code is available.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 10.0, indicating the highest level of severity. Successful exploitation results in complete system compromise, allowing an attacker to execute arbitrary commands, exfiltrate data, or install persistent backdoors. As the vendor is no longer active, the risk to operational environments is acute and cannot be mitigated through standard patching procedures. Organizations utilizing this legacy hardware should assume that internet-exposed devices are at high risk of compromise.\n\n## Recommendation\n\n1. Inventory all network-attached QVidium devices and verify if they are running the affected Opera11 firmware.\n2. Immediately restrict access to the /cgi-bin/net_tr.cgi endpoint at the network firewall or reverse proxy level for all internet-facing instances.\n3. Deploy the Sigma rule below to monitor web server logs for malicious requests targeting the vulnerable CGI script.\n4. Decommission or air-gap all affected QVidium devices as they no longer receive security updates.\n",
       "published": "2026-09-01T01:01:11Z",
@@ -201,8 +201,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -216,8 +216,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--52a4f644-43d9-54be-97ea-e0a15b8653a2",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--dbdb8105-b0e1-5e1d-b1b4-c2b81abb3e32",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -247,8 +247,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-83524",
       "external_references": [
         {
@@ -262,8 +262,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--71edb176-2304-5c44-b89b-a0ef7a9ea30c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--ec147c44-187c-5b39-a875-ab438e3ab443",
       "target_ref": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8"
@@ -272,8 +272,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--9b2da8d7-0b9c-59b6-b9b4-2cb5930ef613",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--c5937b42-530a-57fd-8847-544be3504bb8",
       "target_ref": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8"
@@ -282,8 +282,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c1b409a4-2189-5d35-888f-a554ce82b555",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--fac29015-0523-54fb-9329-5d347ed0be3f",
       "target_ref": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8"
@@ -292,8 +292,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--dbdb8105-b0e1-5e1d-b1b4-c2b81abb3e32",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Remote Command Injection in RedPort Optimizer wXa Series",
       "description": "## Overview\n\nA critical vulnerability (CVE-2026-83524) exists in the RedPort Optimizer wXa series, specifically models wXa-203, wXa-213, and wXa-223 running firmware versions up to 20260704. The flaw resides within the System Clock component, specifically inside the 'exec' function located in '/xgatev1/system/datetime.php'. An unauthenticated remote attacker can supply malicious input to this endpoint to achieve command injection. Because the exploitation of this vulnerability has been disclosed publicly, the risk of exploitation by opportunistic threat actors is significantly elevated. Despite notification, the vendor has not provided a response or a patch to remediate this issue, leaving deployed devices exposed to remote exploitation. Defenders should monitor for unexpected HTTP POST or GET requests to the specified URI on these network-attached devices.\n\n## Impact\n\nSuccessful exploitation of this vulnerability leads to unauthenticated remote code execution on the affected RedPort Optimizer network devices. This allows attackers to fully compromise the device, potentially facilitating lateral movement within the network, interception of satellite communication traffic routed through the Optimizer, or persistent access to the network edge. Given the nature of these devices as satellite gateways, a compromise could have severe operational consequences for maritime and remote-site connectivity.\n\n## Recommendation\n\n1. Restrict administrative access to the RedPort Optimizer management interface to trusted IP ranges only.\n2. Implement network egress filtering for these devices to prevent them from reaching unknown command-and-control infrastructure.\n3. Monitor web server logs for HTTP requests targeting '/xgatev1/system/datetime.php' containing suspicious parameters, such as shell metacharacters (e.g., ;, |, \u0026, $, `).\n4. Segment these devices into an isolated VLAN to minimize the impact if they are compromised.\n",
       "published": "2026-09-01T01:01:23Z",
@@ -316,8 +316,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Unsecured Credentials",
       "external_references": [
         {
@@ -331,8 +331,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--afc5e002-e6bc-51e1-9fe0-20405c6d7283",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--0fafcdd6-17a2-571d-bf4e-9ef7c9a2d348",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -348,8 +348,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--b863790d-a791-5b70-b4de-a487fd9ac38e",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-82882",
       "external_references": [
         {
@@ -363,8 +363,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--b63bd815-444c-5002-8480-2ca77a27bfff",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--3c473077-9626-5ccf-b6aa-f3a7c1a24925",
       "target_ref": "vulnerability--b863790d-a791-5b70-b4de-a487fd9ac38e"
@@ -373,8 +373,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--0fafcdd6-17a2-571d-bf4e-9ef7c9a2d348",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Devtron Authorization Bypass in Webhook API",
       "description": "## Overview\n\nDevtron versions 2.2.0 and earlier are affected by an authorization bypass vulnerability (CVE-2026-82882) located in the orchestrator webhook API. The vulnerability specifically affects the GET /orchestrator/api-token/webhook endpoint, which fails to validate the authorization level of the requesting user. An authenticated attacker, regardless of their original privilege level, can provide arbitrary project, environment, and application parameters to the endpoint to successfully query for and retrieve super-admin JSON Web Tokens (JWT) in plaintext. Successful exploitation provides the attacker with full platform control, enabling persistent access, configuration modifications, or unauthorized deployments within the Devtron environment. This vulnerability is critical for organizations using Devtron to manage CI/CD pipelines, as it allows for trivial privilege escalation to the highest administrative tier.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in full administrative control over the Devtron platform. Attackers can leverage the stolen super-admin tokens to perform any action the platform supports, including modifying deployment pipelines, accessing sensitive secrets managed by the platform, and pivoting into the underlying Kubernetes infrastructure. This allows for extensive persistence, data exfiltration, and potential supply chain compromise of the integrated CI/CD processes.\n\n## Recommendation\n\n1. Upgrade all Devtron instances to a version later than 2.2.0 immediately once a vendor patch is made available.\n2. Implement strict monitoring on access to the /orchestrator/api-token/webhook endpoint in API gateway or web server logs.\n3. Rotate all administrative tokens if it is suspected that an unauthorized user has accessed the platform.\n4. Perform an audit of audit logs to identify any anomalous access to the webhook API endpoint by non-administrative user accounts.\n",
       "published": "2026-09-01T01:01:31Z",
@@ -400,8 +400,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -415,8 +415,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--72e582ea-4b58-5e9b-884a-3f0204ced68c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--191c7441-a1c7-5475-a44f-4cbced7e8b8e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -425,8 +425,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -440,8 +440,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--d38e71f6-3c07-5b97-8693-ffaf91bb66f8",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--191c7441-a1c7-5475-a44f-4cbced7e8b8e",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -457,8 +457,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--68bd4e01-3cd4-57bc-b029-7f35e317ce1f",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-82921",
       "external_references": [
         {
@@ -472,8 +472,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c03185f2-dae5-5473-bf93-f3082502ef47",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--84d8da19-3c05-59ce-a10d-264c098d2adc",
       "target_ref": "vulnerability--68bd4e01-3cd4-57bc-b029-7f35e317ce1f"
@@ -482,8 +482,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--191c7441-a1c7-5475-a44f-4cbced7e8b8e",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Unrestricted File Upload Vulnerability in ShopEx ECShop",
       "description": "## Overview\n\nA vulnerability identified as CVE-2026-82921 affects ShopEx ECShop versions up to 2.5.1. The flaw exists within the check_img_type function located in the admin/pack.php script. An unauthenticated remote attacker can exploit this weakness by manipulating the pack_img parameter to bypass file type validation, allowing for the upload of arbitrary, potentially malicious files to the server. Successful exploitation of this vulnerability can lead to remote code execution (RCE) if the uploaded file is subsequently executed by the web server. Public exploit code for this vulnerability is available, and there is no indication that the vendor has addressed this issue following initial disclosure. Defenders should prioritize restricting access to the administrative directory and monitoring for suspicious file uploads.\n\n## Attack Chain\n\n1. Attacker identifies a target server running an unpatched version of ShopEx ECShop (\u003c= 2.5.1).\n2. Attacker performs reconnaissance to locate the admin/pack.php script.\n3. Attacker crafts a malicious payload (e.g., a PHP web shell) embedded within an image file structure.\n4. Attacker sends a crafted HTTP POST request to the admin/pack.php endpoint.\n5. Attacker manipulates the pack_img argument within the request to bypass server-side file type checks in check_img_type.\n6. The server saves the malicious file to the web root or an accessible upload directory.\n7. Attacker navigates to the uploaded file's URL to trigger code execution on the server.\n8. Attacker establishes persistent access or begins data exfiltration.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary file uploads, which provides a direct path for remote code execution. This can result in complete system compromise, unauthorized data access, and lateral movement within the network. Sectors relying on ECShop for e-commerce operations are at high risk of site defacement, financial data theft, and loss of customer information.\n\n## Recommendation\n\nPrioritized actions for detection engineering and security teams:\n- Implement strict ingress filtering for the /admin/ directory to ensure it is not reachable from the public internet.\n- Deploy the provided Sigma rule to detect suspicious HTTP requests targeting the admin/pack.php script.\n- Monitor web server access logs for anomalous POST requests to admin/pack.php that contain unexpected file extensions or script contents.\n- Configure file integrity monitoring on the web server's document root to alert on the creation of new executable files in upload directories.\n",
       "published": "2026-09-01T01:01:41Z",
@@ -517,8 +517,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -532,8 +532,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--befd2687-519f-53b3-b1cb-6918d94a4aab",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--45556ce1-0c4b-508f-9f95-afd93cfc0ccf",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -549,8 +549,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--4063ac7c-1813-5139-ac8d-f9d4a1393f36",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-82957",
       "external_references": [
         {
@@ -564,8 +564,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c108f45a-f838-5045-a909-fe80c732637c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--0a569847-25fc-5aae-b7d4-f0c29f0e9720",
       "target_ref": "vulnerability--4063ac7c-1813-5139-ac8d-f9d4a1393f36"
@@ -574,8 +574,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--45556ce1-0c4b-508f-9f95-afd93cfc0ccf",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "SSRF Vulnerability in Hyperledger FireFly Webhook Subscription Component",
       "description": "## Overview\n\nHyperledger FireFly versions up to and including 1.4.0 are vulnerable to a Server-Side Request Forgery (SSRF) flaw located in the ValidateOptions function within internal/events/webhooks/webhooks.go. This component, responsible for handling Webhook Subscriptions, fails to properly validate the 'url' parameter provided during configuration or execution. An unauthenticated remote attacker can exploit this flaw by supplying a crafted URL to the webhook service, forcing the application to perform requests on behalf of the server. This can lead to unauthorized access to internal services, metadata endpoints, or external resources. Public exploit code is currently available, and the vendor has not provided a patch or formal response to the disclosure, making this a high-priority risk for organizations running Hyperledger FireFly instances.\n\n## Impact\n\nSuccessful exploitation allows an attacker to bypass perimeter security to scan and interact with internal network resources, potentially leading to unauthorized data exfiltration or access to sensitive internal APIs. As the vulnerability is remote and requires no authentication, instances exposed to the internet are at immediate risk of exploitation.\n\n## Recommendation\n\nPrioritize network-level segmentation to restrict the ability of the Hyperledger FireFly service to make outbound connections to internal and private IP ranges (e.g., 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). Monitor webserver logs for unexpected requests to internal infrastructure or unusual URL patterns targeting administrative interfaces. Ensure that the FireFly service runs with the least privilege necessary to minimize the impact if an SSRF condition is successfully triggered.\n",
       "published": "2026-09-01T01:01:56Z",
@@ -596,8 +596,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -611,8 +611,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3f814251-a38f-52c5-9c4d-96957b44f3bb",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--47642b23-a472-5a6c-9c96-d8f0f17c6933",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -628,8 +628,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--5200bcd5-4cbe-5972-852b-8c5b478464ed",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2024-6028",
       "external_references": [
         {
@@ -643,8 +643,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--a2c8d104-ca99-5b73-9c26-36142d4b8ea4",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--d0829413-79b8-52f1-8334-f33a8b4f16de",
       "target_ref": "vulnerability--5200bcd5-4cbe-5972-852b-8c5b478464ed"
@@ -653,8 +653,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--47642b23-a472-5a6c-9c96-d8f0f17c6933",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Critical SQL Injection in Quiz Maker WordPress Plugin",
       "description": "## Overview\n\nCVE-2024-6028 is a high-severity time-based SQL injection vulnerability affecting the Ays-pro Quiz Maker WordPress plugin, versions 6.5.8.3 and lower. The vulnerability resides within the 'ays_questions' parameter processed by the 'ays_finish_quiz' action in the 'Quiz_Maker_Public' class. An unauthenticated attacker can exploit this flaw by sending a specially crafted HTTP POST request to the WordPress 'admin-ajax.php' endpoint. Due to the lack of sufficient input sanitization and parameter escaping, the attacker can inject malicious SQL commands that the application executes against the underlying WordPress database. Successful exploitation allows an attacker to infer sensitive information through time-based inferencing (e.g., using the MySQL SLEEP function). The vulnerability has a CVSS 9.8 rating, and a publicly available proof-of-concept exploit increases the risk of immediate exploitation by malicious actors.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to gain unauthorized access to the application database. This can result in the full compromise of sensitive data stored within the WordPress environment, including user accounts, site configurations, and potentially other plugins' data. Given the widespread use of WordPress plugins, this vulnerability presents a significant risk to the confidentiality and integrity of affected sites.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n- Update the Ays-pro Quiz Maker plugin to version 6.5.8.4 or later immediately.\n- Deploy the provided Sigma rule to monitor for suspicious POST requests targeting 'admin-ajax.php' containing SQL injection syntax in the 'ays_questions' parameter.\n- Review web server access logs for anomalous spikes in response times coupled with POST requests to 'admin-ajax.php', which may indicate active time-based SQL injection attempts.\n",
       "published": "2026-09-01T01:09:10Z",
@@ -679,8 +679,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploitation for Privilege Escalation",
       "external_references": [
         {
@@ -694,8 +694,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3906e8a7-dfc9-522b-913e-b128beb97329",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--80305a6e-e5c9-5d96-9852-5e8c6e866a6e",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -711,8 +711,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--76889f78-0550-58b2-a55b-af4f0273f213",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2025-27591",
       "external_references": [
         {
@@ -726,8 +726,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f7a4d326-3453-5b28-84d1-48f7d090ccaf",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--77c27c4a-9d2a-574a-a562-4a87a76940f6",
       "target_ref": "vulnerability--76889f78-0550-58b2-a55b-af4f0273f213"
@@ -736,8 +736,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--80305a6e-e5c9-5d96-9852-5e8c6e866a6e",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Local Privilege Escalation in Facebook Below (CVE-2025-27591)",
       "description": "## Overview\n\nCVE-2025-27591 is a local privilege escalation vulnerability affecting the Facebook 'below' system monitoring tool, specifically versions prior to 0.9.0. The vulnerability originates from the insecure management of log files when the application is executed with elevated privileges, specifically using the 'below record' command. An attacker with local access to the system can leverage a symlink attack to redirect the application's error logging to critical system files, such as /etc/passwd. By exploiting this behavior, an attacker can append a malicious user entry to the password file, effectively granting them unauthorized root-level access. The proof-of-concept exploit is publicly available, increasing the risk for environments where 'below' is installed and used with sudo permissions.\n\n## Attack Chain\n\n1. The attacker ensures the application's target log file, typically located at /var/log/below/error_root.log, does not already exist.\n2. The attacker creates a symbolic link at /var/log/below/error_root.log that points to the system's /etc/passwd file.\n3. The attacker executes the 'below' binary with elevated privileges using the 'sudo /usr/bin/below record' command.\n4. The application, running as root, attempts to write error logs to the path redirected by the attacker.\n5. The attacker provides crafted input designed to trigger an error, causing the application to write data into the target /etc/passwd file.\n6. The attacker verifies that a new, unauthorized user has been successfully appended to the /etc/passwd configuration.\n7. The attacker uses the newly created credentials to authenticate and obtain a root shell on the system.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-27591 results in full system compromise. An unprivileged attacker can escalate to root privileges, gaining complete control over the affected host. This vulnerability impacts systems where 'below' is installed and invoked via sudo, common in development, testing, or infrastructure monitoring environments.\n\n## Recommendation\n\nPrioritize the immediate upgrade of the Facebook 'below' monitoring tool to version 0.9.0 or later to remediate the insecure log file handling. If patching cannot be performed immediately, monitor for unauthorized symbolic link creation within the /var/log/below/ directory.\n\n## Tags\n- privilege-escalation\n- linux\n",
       "published": "2026-09-01T01:09:30Z",
@@ -752,8 +752,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -767,8 +767,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3e02db16-ff7c-59bd-b3de-4f8155a6974e",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--542634c5-4e08-591f-8f51-021cf93d2c93",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -777,8 +777,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -792,8 +792,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1eaaf2f7-21e1-5864-9de9-66650544891b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--542634c5-4e08-591f-8f51-021cf93d2c93",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -809,8 +809,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--79e33c11-5712-5072-a5f2-e2308600123f",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-75865",
       "external_references": [
         {
@@ -824,8 +824,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--feb7b1f5-f6c3-5422-9703-471f77641c95",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--c7d3ce9c-740e-5b2b-badc-8e4e9970535c",
       "target_ref": "vulnerability--79e33c11-5712-5072-a5f2-e2308600123f"
@@ -834,8 +834,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--542634c5-4e08-591f-8f51-021cf93d2c93",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Unauthenticated Remote Code Execution in WPLP Cookie Consent Plugin",
       "description": "## Overview\n\nThe WPLP Cookie Consent - Cookie Banner \u0026 Consent Management for GDPR, CCPA \u0026 Google Consent Mode plugin for WordPress (versions 4.4.1 and earlier) contains a critical security flaw allowing unauthenticated remote code execution (RCE). The vulnerability stems from a broken access control mechanism on the plugin's REST API connector endpoints, coupled with a lack of input validation within the saas_upload_logo() function. By bypassing authentication, an attacker can invoke the logo upload functionality to transmit arbitrary files, such as malicious PHP scripts, directly to the web server's filesystem. Once uploaded, these files can be executed by navigating to the file path, granting the attacker a persistent foothold on the affected WordPress site.\n\n## Attack Chain\n\n1. Attacker identifies a target running WPLP Cookie Consent plugin version 4.4.1 or lower.\n2. Attacker probes the REST API endpoints associated with the plugin to locate the vulnerable connector service.\n3. Attacker triggers the authorization bypass on the target REST endpoint, gaining unauthorized access to plugin functionality.\n4. Attacker sends an HTTP POST request targeting the saas_upload_logo() function.\n5. Attacker includes a malicious payload (e.g., a web shell disguised as an image file) in the file upload request.\n6. Server fails to validate the file extension or content, saving the payload to a publicly accessible directory.\n7. Attacker navigates to the URL of the uploaded file to trigger its execution on the server.\n8. Attacker achieves remote code execution for system compromise or further lateral movement.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-75865 allows unauthenticated actors to gain full control over the compromised WordPress server. This can lead to complete site compromise, data exfiltration of customer information, unauthorized site defacement, and the deployment of additional malware or backdoors. Given the ubiquity of cookie consent management plugins, a large number of internet-facing sites may be at risk.\n\n## Recommendation\n\nPrioritize the update of the WPLP Cookie Consent plugin to the latest version, ensuring all installations are patched beyond version 4.4.1.\n\n## Rules\n\ntitle: \"Detects CVE-2026-75865 Exploitation - Unauthenticated File Upload via WPLP REST API\"\ndescription: \"Detects exploitation attempts by monitoring for POST requests to the plugin's logo upload endpoint. High-risk indicators include requests lacking session headers or containing non-image file extensions.\"\nlogsource:\n category: webserver\ndetection:\n selection:\n cs-method: \"POST\"\n cs-uri-stem|contains: \"/wp-json/\"\n cs-uri-query|contains: \"saas_upload_logo\"\n filter:\n cs-uri-query|endswith:\n - \".jpg\"\n - \".jpeg\"\n - \".png\"\n - \".gif\"\n condition: selection and not filter\nlevel: critical\ntags:\n - attack.initial_access\n - attack.execution\n - attack.t1190\n - attack.t1203\ntests:\n positive:\n - name: \"Malicious upload to logo endpoint\"\n data:\n - cs-method: \"POST\"\n cs-uri-stem: \"/wp-json/wplp/v1/upload\"\n cs-uri-query: \"action=saas_upload_logo\u0026filename=shell.php\"\n negative:\n - name: \"Legitimate logo upload\"\n data:\n - cs-method: \"POST\"\n cs-uri-stem: \"/wp-json/wplp/v1/upload\"\n cs-uri-query: \"action=saas_upload_logo\u0026filename=logo.png\"\nfalsepositives:\n - \"Legitimate administrative file uploads if the webserver path mapping is inconsistent\"\nhandoff:\n detection_confidence: \"high\"\n required_telemetry:\n - log_source: \"webserver\"\n event_or_channel: \"access_logs\"\n required_fields:\n - \"cs-method\"\n - \"cs-uri-stem\"\n - \"cs-uri-query\"\n availability: \"available\"\n validation:\n status: \"needs_environment_validation\"\n",
       "published": "2026-09-01T05:02:26Z",
@@ -862,8 +862,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -877,8 +877,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--b918abcf-73b3-54ab-86b8-863225641b99",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--ac0ae119-af7c-5b19-8e63-8c23dd42e0f7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -887,8 +887,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Network Service Discovery",
       "external_references": [
         {
@@ -902,8 +902,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--9e9daea9-f536-543d-8451-a024d5cae7e6",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--ac0ae119-af7c-5b19-8e63-8c23dd42e0f7",
       "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
@@ -912,8 +912,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "File and Directory Discovery",
       "external_references": [
         {
@@ -927,8 +927,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--8cefb5f7-3ce8-53ca-a7db-f1bc070f1028",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--ac0ae119-af7c-5b19-8e63-8c23dd42e0f7",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -944,8 +944,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--5e639db1-9234-53d3-bb3d-7727cf29ebaa",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2019-6447",
       "external_references": [
         {
@@ -959,8 +959,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--6964b013-c7e0-5fb3-a71b-324bca858a7b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--731d94e3-d4d2-5c0a-a77c-9138eaa518c3",
       "target_ref": "vulnerability--5e639db1-9234-53d3-bb3d-7727cf29ebaa"
@@ -969,8 +969,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--ac0ae119-af7c-5b19-8e63-8c23dd42e0f7",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Unauthenticated Remote Access Vulnerability in ES File Explorer",
       "description": "## Overview\n\nCVE-2019-6447 is a high-severity vulnerability affecting ES File Explorer File Manager for Android (versions 4.1.9.7.4 and earlier). The application improperly initializes an unauthenticated HTTP server on TCP port 59777 immediately upon startup. This server remains active as long as the application process is running in the background or foreground. An attacker present on the same local Wi-Fi network can interface with this service to issue commands in JSON format via HTTP POST requests without any authentication. This vulnerability allows for unauthorized discovery of system and user data, exfiltration of sensitive files including photos, videos, and documents, and the ability to launch installed applications. Given the widespread installation of the application, this flaw poses a significant risk to the privacy and security of mobile device data when connected to untrusted or shared local networks.\n\n## Attack Chain\n\n1. The victim launches the ES File Explorer application, which automatically initializes an HTTP server on TCP port 59777.\n2. The attacker performs network scanning (e.g., using nmap or similar) to identify open TCP port 59777 on local network devices.\n3. The attacker determines the device IP address of the target hosting the vulnerable service.\n4. The attacker sends a crafted HTTP POST request to the target IP on port 59777 with a JSON body containing a command (e.g., {\"command\":\"listFiles\"}).\n5. The application service executes the command without authentication, responding with the requested data.\n6. The attacker iterates through specific commands (e.g., listPics, listVideos) to discover targets for exfiltration.\n7. The attacker performs an HTTP GET request to a specific file path identified in the discovery phase to exfiltrate the file content.\n8. The final objective is the exfiltration of sensitive user data or unauthorized control over installed applications.\n\n## Impact\n\nSuccessful exploitation allows for the complete exfiltration of personal data, including photos, videos, audio recordings, and documents, from the device. Attackers can also enumerate installed applications and trigger the execution of specific apps, potentially leading to unauthorized usage or exploitation of further device-side vulnerabilities.\n\n## Recommendation\n\n1. Identify devices within the organization's mobile fleet that have ES File Explorer (version 4.1.9.7.4 or earlier) installed.\n2. Enforce mobile device management (MDM) policies to uninstall or block the usage of vulnerable versions of the application.\n3. Advise users to avoid connecting mobile devices to unknown or shared public Wi-Fi networks where this vulnerability is easily reachable by malicious actors.\n4. Ensure all mobile applications are updated to the latest available versions, as developers may have patched or removed the problematic management port.\n",
       "published": "2026-09-01T05:10:48Z",
@@ -999,8 +999,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Phishing",
       "external_references": [
         {
@@ -1014,8 +1014,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c91e78dd-973a-557f-866c-4397a3006ef0",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--672ece31-a5ee-5d64-9e23-62ddd4c4cfe3",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
@@ -1031,8 +1031,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--c4f836ac-ac5a-50c5-83e1-8c3cad057d88",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2024-57429",
       "external_references": [
         {
@@ -1046,8 +1046,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f0989a59-c75d-5292-9d57-1e1477f2d0d6",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--6b72d6ed-2cfd-56c7-90db-4f867e9f4d3c",
       "target_ref": "vulnerability--c4f836ac-ac5a-50c5-83e1-8c3cad057d88"
@@ -1056,8 +1056,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--672ece31-a5ee-5d64-9e23-62ddd4c4cfe3",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CSRF Vulnerability in PHPJabbers Cinema Booking System",
       "description": "## Overview\n\nCVE-2024-57429 is a CSRF vulnerability identified in the PHPJabbers Cinema Booking System v2.0. The flaw exists within the 'pjActionUpdate' function, which fails to properly validate the authenticity of requests. An attacker can craft a malicious web page containing a hidden form that triggers an automated POST request to the application's administrative update endpoint. By tricking an authenticated administrator into visiting the attacker-controlled page, the victim's browser initiates the request under their active session. This allows the attacker to modify user attributes, including account roles and passwords, resulting in unauthorized privilege escalation or full account takeover of administrative profiles. Because the application lacks sufficient anti-CSRF protections on this sensitive function, it remains highly vulnerable to social engineering-based exploitation.\n\n## Impact\n\nSuccessful exploitation allows remote, unauthenticated attackers to escalate privileges to administrative level. This leads to complete administrative account takeover, including the ability to change passwords, modify user permissions, and potentially disrupt or compromise the booking platform. The vulnerability poses a medium risk due to the requirement for user interaction.\n\n## Recommendation\n\nPrioritize the implementation of anti-CSRF tokens for all state-changing operations within the PHPJabbers Cinema Booking System application. Until a vendor-supplied patch is available, instruct administrative users to avoid clicking unknown links while logged into the application dashboard. Implement strict Referer and Origin header validation on the 'pjActionUpdate' endpoint to verify that requests originate from legitimate platform pages.\n",
       "published": "2026-09-01T05:10:55Z",
@@ -1083,8 +1083,8 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--2f7e8391-2841-56ff-892d-b5f41afe71a7",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "domain: dontpad.com",
       "pattern": "[domain-name:value = 'dontpad.com']",
       "pattern_type": "stix",
@@ -1094,8 +1094,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1394f2b4-7e1f-5866-b03f-1011dc88a036",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--7b2172fc-3dbc-54fb-b9fd-e0827f5ca6d0",
       "target_ref": "indicator--2f7e8391-2841-56ff-892d-b5f41afe71a7"
@@ -1104,8 +1104,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Spearphishing Attachment",
       "external_references": [
         {
@@ -1119,8 +1119,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--a152e940-e7e7-5b2b-86ef-bab1cb6ab7fd",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--7b2172fc-3dbc-54fb-b9fd-e0827f5ca6d0",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
@@ -1129,8 +1129,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Registry Run Keys / Startup Folder",
       "external_references": [
         {
@@ -1144,8 +1144,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--d07a5201-ac70-524d-83c6-561522fd6a2a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--7b2172fc-3dbc-54fb-b9fd-e0827f5ca6d0",
       "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
@@ -1154,8 +1154,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Password Spraying",
       "external_references": [
         {
@@ -1169,8 +1169,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3f062a04-5f40-54ed-ba07-4e890dce294f",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--7b2172fc-3dbc-54fb-b9fd-e0827f5ca6d0",
       "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
@@ -1179,16 +1179,16 @@
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--46bc62d7-5842-5e8c-a9b3-a4aaeb100644",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "BREEZE COMET"
     },
     {
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--360aca12-0cda-5752-9a81-d2f2f5ce83e6",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--7b2172fc-3dbc-54fb-b9fd-e0827f5ca6d0",
       "target_ref": "threat-actor--46bc62d7-5842-5e8c-a9b3-a4aaeb100644"
@@ -1203,8 +1203,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--7b2172fc-3dbc-54fb-b9fd-e0827f5ca6d0",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "BREEZE COMET Targets Brazilian Financial Systems",
       "description": "## Overview\n\nBREEZE COMET (formerly UNC5669) is a financially motivated threat actor specializing in manipulating Brazilian financial and payment systems, including Pix, STR, and Boleto. Since 2024, the group has targeted banks, retailers, and fintech providers to conduct fraudulent transfers. Their operations are characterized by a sophisticated, custom malware suite including REALBREEZE for LDAP brute-forcing, COBALTSPIN for evasive SOCKS5 proxy tunneling, and LIGHTPAINT for VPN-based persistence. \n\nThe actor demonstrates high operational maturity, utilizing social engineering, password spraying, and exploitation of JBoss AS servers for initial access. They specifically target CI/CD pipelines and cloud environments to harvest API keys and administrative mTLS credentials. Google Threat Intelligence Group has observed the group leveraging generative AI for malware development and expanding their infrastructure to municipal domains in Africa and Latin America, suggesting an intent to scale operations beyond Brazil.\n\n## Attack Chain\n\n1. Initial access is gained via password spraying, voice phishing (impersonation of IT), or exploitation of JBoss AS vulnerabilities.\n2. RMM tools or infostealers (e.g., XWORM) are staged on compromised government websites and executed on victim endpoints.\n3. Attackers perform internal reconnaissance using tools like ADRecon and custom LDAP brute-forcing utilities (REALBREEZE) to identify privileged accounts.\n4. CI/CD pipelines are mined for hard-coded credentials, API keys, and cloud access tokens to escalate privileges within cloud environments.\n5. Lateral movement is performed via hijacked service accounts using RDP and SMB, often utilizing custom Rust-based routing malware (COBALTSPIN) for SOCKS5 tunneling.\n6. Persistence is maintained using LIGHTPAINT, which installs a legitimate VPN (SoftEther), modifies Windows Defender Firewall rules, and clears specific event logs to hide the connection.\n7. Search scripts query host files and environment variables for financial keywords (e.g., 'boleto', 'pix', 'remessa') to locate mTLS credentials.\n8. Stolen credentials are used to authenticate against financial API infrastructure to initiate fraudulent transfers.\n\n## Impact\n\nBREEZE COMET’s activity results in significant financial loss through fraudulent transfers executed via compromised payment systems. The group targets critical financial infrastructure and retail networks, affecting financial services, retail, and eCommerce sectors. If successful, the actor achieves sustained, persistent access to internal financial networks, allowing for long-term credential theft and repeated unauthorized transactions.\n\n## Recommendation\n\n1. Audit and restrict access to CI/CD environments; move secrets from hard-coded variables to secure vaulting solutions.\n2. Implement strict mTLS validation and monitor for anomalous outbound traffic from financial API integration nodes.\n3. Deploy detection for unauthorized VPN-based connections by monitoring Windows Defender Firewall rule modifications and VPN plugin service activity.\n4. Monitor for the execution of reconnaissance utilities like ADRecon and LDAP-querying scripts in high-privilege environments.\n5. Proactively hunt for indicators of COBALTSPIN tunnels by analyzing network traffic for long-lived, outbound WebSocket connections to unauthorized endpoints.\n6. Configure logging for the 'Windows Networking Vpn Plugin Platform' and alert on instances where these logs are cleared.\n",
       "published": "2026-09-01T05:56:33Z",
@@ -1228,8 +1228,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1243,8 +1243,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--85ee5bc7-faed-5060-b8bd-9906be2c06b5",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--a2b5f75c-3b22-583e-aa79-769f76db9944",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1253,8 +1253,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -1268,8 +1268,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--666b997b-57d5-5a7d-be96-68ff826751a3",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--a2b5f75c-3b22-583e-aa79-769f76db9944",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -1285,8 +1285,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--84562cfc-51e8-584a-84fa-44e43c64eb9f",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-83772",
       "external_references": [
         {
@@ -1300,8 +1300,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--032fff90-584a-5dfe-a262-e12c249c2219",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--d22a79e4-4bbb-53e0-aa30-2ba51fe902c8",
       "target_ref": "vulnerability--84562cfc-51e8-584a-84fa-44e43c64eb9f"
@@ -1310,8 +1310,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--a2b5f75c-3b22-583e-aa79-769f76db9944",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Command Injection in Cobham SATCOM VSAT7090 Maritime Satellite Router",
       "description": "## Overview\n\nThe Cobham SATCOM VSAT7090 Maritime Satellite Router, specifically firmware versions up to 20260704, is susceptible to a critical command injection vulnerability (CVE-2026-83772). The vulnerability resides in the c_set_reports_decode function within the mail-report.sh shell script. This component is responsible for parsing JSON data, but it fails to properly sanitize the sender and recipients arguments. \n\nAn unauthenticated remote attacker can exploit this flaw by sending a specially crafted JSON payload to the device. Because the application processes these arguments in a way that passes them to the underlying system shell, an attacker can inject arbitrary commands. Since the exploit is now public, this represents a significant risk for maritime organizations relying on these satellite communication terminals for external connectivity. The vendor has not provided a patch as of the disclosure date.\n\n## Impact\n\nSuccessful exploitation allows for full remote code execution on the satellite router. Impact includes potential loss of device control, interception of maritime communications, and potential lateral movement into networks connected via the router. All sectors utilizing the VSAT7090 for maritime operations are at risk.\n\n## Recommendation\n\nPrioritized, concrete actions for network and security teams:\n- Immediately isolate affected Cobham VSAT7090 devices from the public internet if remote management is not required.\n- Implement strict ingress filtering to limit access to the web interface or management API of the VSAT7090 to known, trusted management IP addresses only.\n- Monitor web traffic directed to the router for JSON payloads containing shell metacharacters such as semicolon, pipe, or backtick in the sender or recipient fields.\n- Contact Cobham support to inquire about firmware updates, as no official patch has been released for CVE-2026-83772.\n",
       "published": "2026-09-01T07:03:19Z",
@@ -1338,8 +1338,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1353,8 +1353,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f8ab4a6b-62ea-5e81-be40-ec2d49b7c142",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--f362ddb3-06f2-582a-b544-d4138e22639b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1363,8 +1363,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Command and Scripting Interpreter: JavaScript",
       "external_references": [
         {
@@ -1378,8 +1378,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--7d6dd52a-3c95-528c-9d94-3dbebb452bac",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--f362ddb3-06f2-582a-b544-d4138e22639b",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
@@ -1395,8 +1395,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--c3b0b382-6200-57d2-95b8-b1501574e98e",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-19573",
       "external_references": [
         {
@@ -1410,8 +1410,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--7bdf83bb-981a-58a8-b128-d7214c039356",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--530979d9-05c7-5251-ab28-a4f810a17628",
       "target_ref": "vulnerability--c3b0b382-6200-57d2-95b8-b1501574e98e"
@@ -1420,8 +1420,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--f362ddb3-06f2-582a-b544-d4138e22639b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Stored Cross-Site Scripting Vulnerability in Affiliate Super Assistent WordPress Plugin",
       "description": "## Overview\n\nThe Affiliate Super Assistent plugin for WordPress is vulnerable to a Stored Cross-Site Scripting (XSS) flaw identified as CVE-2026-19573. The issue exists within the ‘doCommentShortcode’ function, which fails to properly sanitize user-supplied input or escape output before rendering it in the browser. An unauthenticated attacker can leverage this weakness to inject malicious JavaScript into web pages served by the plugin. When a legitimate user or administrator views an affected page, the injected script executes within the victim's session, potentially leading to unauthorized actions, session hijacking, or the defacement of the site. This vulnerability affects all versions of the Affiliate Super Assistent plugin up to and including 1.10.2. Defending against this threat requires immediate patching or removal of the vulnerable plugin, as the lack of input sanitization provides a direct vector for script injection.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary web scripts in the browser of any user who visits the compromised page. This can lead to account takeover, the redirection of users to malicious domains, or the theft of sensitive session cookies. Given the nature of Stored XSS, these attacks persist until the malicious payload is manually removed from the database or the underlying vulnerability is remediated.\n\n## Recommendation\n\n- Update the Affiliate Super Assistent plugin to a version released after 1.10.2 to remediate CVE-2026-19573.\n- Audit database content associated with the Affiliate Super Assistent plugin for suspicious script tags or obfuscated JavaScript.\n- Monitor web server access logs for anomalous POST requests directed at endpoints responsible for comment submissions or form processing utilized by the plugin.\n",
       "published": "2026-09-01T07:03:27Z",
@@ -1448,8 +1448,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1463,8 +1463,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--cd27f368-44e6-530d-8320-e23bf35ef762",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--c7e16a3f-e5af-535a-b0ac-c34ebd84b9d4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1473,8 +1473,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "JavaScript",
       "external_references": [
         {
@@ -1488,8 +1488,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1cee7ef6-ad6e-50b3-be96-a27e7bf7328b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--c7e16a3f-e5af-535a-b0ac-c34ebd84b9d4",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
@@ -1505,8 +1505,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--859c9af8-4dde-55dc-b303-d8789e15c315",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-19796",
       "external_references": [
         {
@@ -1520,8 +1520,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--69167b19-c289-53d8-abea-4fe0b891c2ad",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--84e9fc37-8dda-5f5e-a4f4-1b0829abfff9",
       "target_ref": "vulnerability--859c9af8-4dde-55dc-b303-d8789e15c315"
@@ -1530,8 +1530,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--c7e16a3f-e5af-535a-b0ac-c34ebd84b9d4",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Stored XSS Vulnerability in Listdom WordPress Plugin",
       "description": "## Overview\n\nThe Listdom: AI-powered Business Directory with Classifieds Ads Listings plugin for WordPress contains a stored cross-site scripting (XSS) vulnerability, tracked as CVE-2026-19796. The vulnerability stems from insufficient sanitization and escaping of user-supplied input within the 'lsd[displ][style]' parameter.\n\nThe issue affects all plugin versions up to and including 5.8.1. Successful exploitation allows an unauthenticated attacker to inject malicious JavaScript into web pages rendered by the plugin. This script executes within the context of the browser session of any user who accesses the compromised page, potentially leading to session hijacking, unauthorized actions, or further client-side exploitation. This vulnerability requires non-default configurations to be present, specifically the activation of the Listdom Pro add-on and the enabling of the 'Display Options Per Listing' setting.\n\n## Impact\n\nSuccessful exploitation results in the execution of arbitrary JavaScript in the victim's browser session. This can lead to account takeover, unauthorized modification of content, or data theft. The vulnerability affects websites utilizing the Listdom plugin with specific premium add-ons enabled, creating a significant risk for directories and classified sites running these components.\n\n## Recommendation\n\n1. Update the Listdom: AI-powered Business Directory with Classifieds Ads Listings plugin to the latest version beyond 5.8.1 to incorporate input sanitization patches for CVE-2026-19796.\n2. If an immediate update is not possible, disable the Listdom Pro add-on or the 'Display Options Per Listing' functionality to mitigate the exploit path.\n3. Deploy web application firewall (WAF) rules to detect and block malicious script injection attempts in POST requests targeting the plugin's configuration parameters.\n",
       "published": "2026-09-01T07:03:36Z",
@@ -1558,8 +1558,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1573,8 +1573,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--bbb365c3-abce-5812-81cd-18347708bd68",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--6a545fd5-5395-531b-af7b-8e19e6401fa6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1583,8 +1583,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Unsecured Credentials",
       "external_references": [
         {
@@ -1598,8 +1598,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--b4b1acff-5e38-5c5e-b646-f2866e6960d0",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--6a545fd5-5395-531b-af7b-8e19e6401fa6",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -1615,8 +1615,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--4152f7bf-0860-5d2f-a146-f4e781e460cc",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-19806",
       "external_references": [
         {
@@ -1630,8 +1630,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c5fe14bb-99e8-575c-b1be-93b35d2927b4",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--b71407c8-3440-5032-8c37-ab23f140ea97",
       "target_ref": "vulnerability--4152f7bf-0860-5d2f-a146-f4e781e460cc"
@@ -1640,8 +1640,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--6a545fd5-5395-531b-af7b-8e19e6401fa6",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Authentication Bypass in Support Genix WordPress Plugin",
       "description": "## Overview\n\nThe Support Genix plugin for WordPress (all versions up to and including 1.4.52) contains a critical cryptographic weakness in its `guest_ticket_login()` function. The plugin derives its site-wide AES-256-CBC encryption key using low-entropy inputs, specifically three two-digit random integers and a Unix timestamp hashed with `md5()`. This results in approximately 19.5 bits of entropy, which allows an attacker with subscriber-level access to exhaust the 729,000-candidate keyspace offline. \n\nThe vulnerability is exposed via the publicly accessible `/sgnix/?p=\u0026lt;token\u003e` endpoint, which lacks nonces, capability checks, or session validation. By obtaining a single legitimate guest ticket token, an attacker can perform a known-plaintext attack to recover the site-wide encryption key. Once the key is recovered, the attacker can forge a ticket token for any administrator-owned ticket. Submitting this forged token to the endpoint triggers `wp_set_auth_cookie()` for the target administrator, granting the attacker full administrative access to the site.\n\n## Attack Chain\n\n1. Attacker obtains a legitimate guest ticket token to serve as a known-plaintext oracle.\n2. Attacker retrieves site metadata to estimate the plugin activation timestamp.\n3. Attacker uses the known-plaintext and estimated timestamp to perform an offline brute-force attack on the 729,000-candidate keyspace.\n4. Attacker successfully recovers the site-wide AES-256-CBC encryption key.\n5. Attacker crafts a forged ticket token referencing a target administrator user ID and ticket ID.\n6. Attacker sends an HTTP GET request to the `/sgnix/?p=` endpoint with the forged token as the parameter.\n7. The plugin fails to validate the token's origin or authenticity and invokes `wp_set_auth_cookie()` for the administrator.\n8. The WordPress site grants the attacker administrative privileges, completing the account takeover.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated or low-privileged attackers to gain full administrative access to WordPress sites running the vulnerable plugin. This enables complete site takeover, including the ability to exfiltrate data, modify content, install malicious themes or plugins, and establish persistence, affecting any organization relying on the Support Genix plugin for helpdesk operations.\n\n## Recommendation\n\nUpdate the Support Genix WordPress plugin to a version released after 1.4.52 to remediate the cryptographic flaw. Until patching is possible, restrict access to the `/sgnix/` endpoint via web application firewall (WAF) rules or server-side configuration to prevent unauthenticated access. Monitor web server access logs for anomalous GET requests to `/sgnix/` that contain unusually long or repetitive `p` parameter values.\n",
       "published": "2026-09-01T07:03:45Z",
@@ -1668,8 +1668,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1683,8 +1683,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--9c0a04eb-958e-567a-929a-e245531c778e",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--821c8bbe-f750-5d5b-84f1-78abf0e4a634",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1700,8 +1700,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--ff1d970b-14eb-56d5-bedd-1390cf0048fe",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-19952",
       "external_references": [
         {
@@ -1715,8 +1715,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--7eaaf144-c8ee-5fba-ae82-21f845db197a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--b283c99c-6e24-527e-9d85-8079c7cf2e79",
       "target_ref": "vulnerability--ff1d970b-14eb-56d5-bedd-1390cf0048fe"
@@ -1725,8 +1725,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--821c8bbe-f750-5d5b-84f1-78abf0e4a634",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Arbitrary File Deletion in Frontend Admin Plugin for WordPress",
       "description": "## Overview\n\nThe Frontend Admin by DynamiApps plugin for WordPress, in versions up to and including 3.29.12, contains a critical security flaw in the 'move_folders' function. The vulnerability arises from insufficient validation of file paths, which permits an attacker to delete arbitrary files on the underlying server. \n\nThis flaw is particularly dangerous because it is exploitable by unauthenticated users when a form is configured with public visibility settings (who_can_see='all'). In such cases, the nonce required to perform the action is exposed within the rendered form, allowing attackers to bypass standard authorization checks. Successful exploitation involves sending a crafted request to the plugin's endpoint, which, if successful, can lead to the deletion of sensitive files such as 'wp-config.php'. The removal of such core configuration files can trigger re-installation flows or expose database credentials, ultimately enabling an attacker to gain remote code execution or complete system compromise.\n\n## Impact\n\nThe vulnerability poses a severe risk to WordPress installations utilizing the Frontend Admin plugin. If exploited, an attacker can delete arbitrary files, leading to site defacement, service disruption, or total system compromise via remote code execution. The exploit is accessible to unauthenticated remote attackers, making it a high-priority target for automated scanning and mass exploitation efforts.\n\n## Recommendation\n\n- Update the Frontend Admin plugin to a version released after 3.29.12 immediately to incorporate necessary input validation patches.\n- Audit all forms configured within the Frontend Admin plugin and restrict visibility settings from 'all' to authenticated roles until the update is applied.\n- Monitor web server access logs for anomalous POST requests targeting the plugin's path and 'move_folders' related parameters.\n- Verify file system integrity for critical WordPress files such as 'wp-config.php' and '.htaccess'.\n",
       "published": "2026-09-01T07:03:52Z",
@@ -1753,8 +1753,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -1768,8 +1768,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--36d1e499-90d7-5aa3-8998-7c41422721e7",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--5aa9e86e-818d-5457-8ca2-4fb2e309b613",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -1778,8 +1778,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -1793,8 +1793,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--4a77f41f-53b3-5cdf-832e-59ea498b021a",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--5aa9e86e-818d-5457-8ca2-4fb2e309b613",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -1810,8 +1810,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--0e323e6a-c41e-5399-80fd-e9a76564e771",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-75921",
       "external_references": [
         {
@@ -1825,8 +1825,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--47b0a8db-157f-52f2-87af-793bd4a405e0",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--3928b695-34e5-5788-9d90-969790a51616",
       "target_ref": "vulnerability--0e323e6a-c41e-5399-80fd-e9a76564e771"
@@ -1835,8 +1835,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--5aa9e86e-818d-5457-8ca2-4fb2e309b613",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Arbitrary File Upload in Master Addons for Elementor",
       "description": "## Overview\n\nThe Master Addons for Elementor plugin for WordPress (versions 3.1.9 and earlier) contains an arbitrary file upload vulnerability within the upload_template_kit AJAX handler. The vulnerability stems from insufficient authorization requirements; the handler checks for 'upload_files' capability rather than the stricter 'manage_options' required by other administrative handlers in the plugin. Furthermore, the handler fails to implement adequate file type validation after the extraction of uploaded ZIP archives. An attacker with editor-level privileges can obtain the necessary nonces from the pages list screen and subsequently upload arbitrary, potentially executable files. This vulnerability enables authenticated attackers to execute arbitrary code on the underlying WordPress server.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-75921 grants an authenticated attacker with editor-level access the ability to execute remote code on the host server. This can lead to full site compromise, exfiltration of sensitive database information, or the establishment of persistent backdoors within the WordPress environment.\n\n## Recommendation\n\n- Upgrade the Master Addons for Elementor plugin to the latest available version (beyond 3.1.9) to patch the authorization logic and file validation routines.\n- Review WordPress user accounts and restrict editor-level permissions to trusted individuals to mitigate the potential impact of this credential-dependent vulnerability.\n- Audit web server logs for suspicious POST requests to the plugin's AJAX endpoints if indicators of compromise are suspected.\n",
       "published": "2026-09-01T07:03:59Z",
@@ -1858,8 +1858,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Drive-by Compromise",
       "external_references": [
         {
@@ -1873,8 +1873,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--4eab6296-0ddc-5044-b945-6f96706ba1e5",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--90563374-871a-511a-97d9-d3cfba2def6c",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
@@ -1890,8 +1890,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--a7da03e1-f814-56dd-bf3a-c907da8dbbf2",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "CVE-2026-19914",
       "external_references": [
         {
@@ -1905,8 +1905,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--20c1c17a-70ff-56c1-817a-55713cf05061",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "has",
       "source_ref": "software--b9897ec5-cc9a-5a39-986f-e3c5ab2f953c",
       "target_ref": "vulnerability--a7da03e1-f814-56dd-bf3a-c907da8dbbf2"
@@ -1915,8 +1915,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--90563374-871a-511a-97d9-d3cfba2def6c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Stored Cross-Site Scripting in Welcart e-Commerce Plugin",
       "description": "## Overview\n\nThe Welcart e-Commerce plugin for WordPress contains a Stored Cross-Site Scripting (XSS) vulnerability, tracked as CVE-2026-19914. The flaw exists in the 'custom_order' parameter, which fails to properly sanitize input or escape output during the guest checkout process. Versions up to and including 2.12.1 are affected. An unauthenticated attacker can supply a crafted script within the checkout form fields. When a site administrator navigates to the WordPress dashboard to review the processed order, the malicious script executes in their browser session. This can be leveraged to perform unauthorized administrative actions, steal session tokens, or redirect users to malicious domains, posing a significant risk to the integrity of the WordPress environment.\n\n## Impact\n\nThe vulnerability poses a high risk to WordPress installations using the Welcart plugin, specifically impacting administrative accounts. Successful exploitation allows for the execution of arbitrary scripts, potentially leading to full site compromise if an administrator session is hijacked. Given the nature of e-commerce plugins, this could result in unauthorized order modifications or the theft of sensitive administrative or customer data.\n\n## Recommendation\n\nPrioritized actions for security and IT teams:\n- Update the Welcart e-Commerce plugin to the latest version beyond 2.12.1 immediately to patch CVE-2026-19914.\n- Implement a Web Application Firewall (WAF) to inspect POST requests to the guest checkout endpoint for common XSS patterns, specifically targeting the 'custom_order' parameter.\n- Audit administrative access logs for unusual activity originating from the plugin's order management pages.\n- Review the WordPress admin panel for any injected malicious scripts in order descriptions or custom order fields.\n",
       "published": "2026-09-01T11:05:11Z",
@@ -1947,8 +1947,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "BITS Jobs",
       "external_references": [
         {
@@ -1962,8 +1962,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--d843c756-af71-5c5f-893f-c697b9ed6214",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--1f32c9ac-cb6b-5bda-8fde-b0b6a1c50948",
       "target_ref": "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b"
@@ -1972,8 +1972,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--1f32c9ac-cb6b-5bda-8fde-b0b6a1c50948",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Suspicious File Extensions in BITS Transfer Jobs",
       "description": "## Overview\n\nBackground Intelligent Transfer Service (BITS) is a legitimate Windows component designed for asynchronous, prioritized, and throttled file transfers. Adversaries frequently abuse BITS to download malicious payloads or exfiltrate data, leveraging its ability to bypass certain proxy configurations and maintain persistence across system reboots. This detection focuses on identifying BITS transfer jobs that result in the creation of files with extensions commonly associated with script execution or binary deployment, such as .exe, .dll, .bat, or .ps1. By monitoring the BITS service logs for specific file extensions being written to disk, defenders can identify potential stage-one malware delivery or secondary payload acquisition that might otherwise blend in with legitimate update traffic.\n\n## Impact\n\nSuccessful abuse of BITS for payload delivery can lead to remote code execution, persistence establishment, or data exfiltration. Attackers exploit the trusted nature of the BITS service to download malicious files to sensitive directories, potentially bypassing standard application whitelisting or endpoint protection heuristics that prioritize the BITS process over the underlying payload content.\n\n## Recommendation\n\nDeploy the following detection logic to monitor BITS-client event logs for suspicious file write operations. Prior to enabling, tune the exclusions (filters) based on local baselines to account for authorized software update processes, specifically those utilizing standard paths like AppData.\n\n- Deploy the Sigma rule below to track BITS-client Event ID 16403.\n- Establish a baseline of legitimate BITS transfers in the environment to refine filtering and reduce false positives.\n- Investigate any hits against this rule to confirm if the source (RemoteName) and destination (LocalName) are consistent with expected business operations.\n",
       "published": "2026-09-01T11:05:19Z",
@@ -1992,8 +1992,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Ingress Tool Transfer",
       "external_references": [
         {
@@ -2007,8 +2007,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c594bcec-628d-5901-92cc-d5e3c81db7b4",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--303d3b70-db3b-5796-a79e-ed1ccb835497",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
@@ -2017,8 +2017,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--303d3b70-db3b-5796-a79e-ed1ccb835497",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Suspicious Outbound Network Connections Initiated by Script Interpreters",
       "description": "## Overview\n\nWindows Script Host (WSH) engines, specifically wscript.exe and cscript.exe, are frequently leveraged by adversaries to facilitate malicious operations within compromised environments. Because these binaries are signed, trusted, and built-in components of the Windows operating system, they are commonly used to execute scripts that retrieve secondary payloads from remote servers or establish command and control (C2) channels. This activity is a common indicator of the staging or delivery phase of an attack. Defenders should prioritize visibility into network connections initiated by these processes, as benign use of VBScript or JScript for external network communication is increasingly uncommon in modern enterprise environments. Monitoring these processes for non-local network traffic can help identify initial access or persistence mechanisms attempting to beacon out or pull down further tooling.\n\n## Impact\n\nSuccessful abuse of script interpreters allows attackers to bypass application execution restrictions, evade basic security controls, and establish persistent access. If left undetected, this activity leads to the deployment of follow-on malware, data exfiltration, or lateral movement within the network.\n\n## Recommendation\n\nDeploy detection rules to identify and investigate outbound network connections originating from wscript.exe or cscript.exe processes. Ensure that network telemetry (e.g., Sysmon Event ID 3 or equivalent firewall logs) is integrated into your SIEM and that local/private IP ranges are excluded from alerts to reduce noise. Investigate any instances where these interpreters attempt to contact external IP addresses, particularly those not associated with known update services or enterprise-approved infrastructure.\n",
       "published": "2026-09-01T11:05:26Z",
@@ -2046,8 +2046,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "OS Credential Dumping",
       "external_references": [
         {
@@ -2061,8 +2061,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--06e4bff0-3142-53a2-9efe-a389dd9aeb28",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--21b8fd71-23cc-560e-87e6-547fc2ba4a66",
       "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
@@ -2071,8 +2071,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--21b8fd71-23cc-560e-87e6-547fc2ba4a66",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Credential Access via Volume Shadow Copy Creation",
       "description": "## Overview\n\nAdversaries often attempt to bypass file system locks to access sensitive system files that are otherwise protected by the Windows operating system. By programmatically creating a Volume Shadow Copy (VSS) via PowerShell using the Win32_ShadowCopy WMI class, an attacker can create a point-in-time snapshot of the volume. This snapshot provides access to a consistent, offline copy of files such as the Active Directory database (ntds.dit) and security hive (SAM), which contain credentials. This technique is a frequent component of post-exploitation phases aimed at credential harvesting and offline cracking. Defenders must monitor PowerShell Script Block logs for the specific WMI class method calls associated with VSS creation to detect unauthorized snapshots of system volumes.\n\n## Attack Chain\n\n1. Attacker establishes interactive shell access to a Windows host.\n2. Attacker enumerates system volumes to identify the drive containing the NTDS database.\n3. Attacker executes a PowerShell script to invoke the Win32_ShadowCopy WMI class.\n4. Script execution triggers the Create method on the Win32_ShadowCopy class with ClientAccessible parameters.\n5. The Windows VSS service generates a shadow copy of the specified volume.\n6. Attacker maps the shadow copy using 'mklink' or 'vssadmin' to expose the file contents.\n7. Attacker copies the sensitive ntds.dit file from the shadow copy location to a staging folder.\n8. Attacker exfiltrates the database for offline credential recovery.\n\n## Impact\n\nSuccessful execution of this technique allows unauthorized access to domain credentials, potentially leading to full domain compromise, lateral movement, and persistent access to the enterprise environment.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect suspicious PowerShell script blocks invoking the Win32_ShadowCopy WMI class. Enable PowerShell Script Block Logging (Event ID 4104) across all Windows endpoints to ensure visibility into the script execution. Regularly audit and limit the use of administrative PowerShell privileges to authorized service accounts and administrators.\n",
       "published": "2026-09-01T11:05:34Z",
@@ -2090,8 +2090,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "OS Credential Dumping",
       "external_references": [
         {
@@ -2105,8 +2105,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--44fda4ac-688d-50d0-9cf1-e47fc3726f63",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--0bb3b79d-e5e8-5df4-93b2-a042f403b5b2",
       "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
@@ -2115,8 +2115,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--0bb3b79d-e5e8-5df4-93b2-a042f403b5b2",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Detection of DSInternals Get-ADReplAccount Usage",
       "description": "## Overview\n\nThe DSInternals PowerShell module is a powerful toolkit designed for Active Directory and Azure Active Directory auditing. While it serves legitimate administrative and security research purposes, it is also highly valued by attackers for its ability to extract credentials, manipulate offline NTDS.dit files, and perform password hash calculations. Specifically, the Get-ADReplAccount cmdlet is often utilized to retrieve account objects and their associated secrets directly from a domain controller. Detection is critical as the use of this cmdlet in a production environment by unauthorized users or non-standard administrative accounts is a strong indicator of credential access activities, particularly during the post-exploitation phase when an actor attempts to harvest domain secrets.\n\n## Impact\n\nSuccessful use of this tool allows an adversary to obtain sensitive account information and password hashes. If exploited, this leads to complete domain compromise, allowing the attacker to perform pass-the-hash attacks, escalate privileges, or maintain persistent access to the enterprise identity infrastructure.\n\n## Recommendation\n\nDetection engineering teams should implement PowerShell Script Block Logging (Event ID 4104) and deploy the provided detection rule to identify the execution of the Get-ADReplAccount command. Because the tool can be used for authorized auditing, alerts should be tuned against known administrative workstations and service accounts performing scheduled domain audits.\n\n- Enable PowerShell Script Block Logging (Event ID 4104) across all Domain Controllers and high-value internal workstations to capture script execution details.\n- Deploy the Sigma rule provided below to SIEM to identify suspicious credential access attempts.\n- Correlate alerts with account authorization logs to determine if the activity is performed by sanctioned administrative staff.\n",
       "published": "2026-09-01T11:05:41Z",
@@ -2144,8 +2144,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--54500921-0f86-5a32-bf2e-550a4f6013ef",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Software Discovery",
       "external_references": [
         {
@@ -2159,8 +2159,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--da5be311-c9ce-5ce4-b44d-19cff02a2574",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--a93f8752-99ed-5feb-b592-51741926e775",
       "target_ref": "attack-pattern--54500921-0f86-5a32-bf2e-550a4f6013ef"
@@ -2169,8 +2169,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--a93f8752-99ed-5feb-b592-51741926e775",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Security Software Discovery via PowerShell",
       "description": "## Overview\n\nAdversaries often perform reconnaissance on compromised systems to identify installed security controls, such as antivirus, EDR agents, and firewall configurations. A common technique for this discovery phase is the use of PowerShell to query the current running process list and filter the output for specific keywords associated with defensive vendors or products. By leveraging native cmdlets like 'Get-Process' (or the alias 'gps') in conjunction with 'Where-Object', attackers can programmatically determine which security sensors are active on a host. This information allows the attacker to tailor their subsequent actions, such as bypassing specific security product features, terminating processes, or avoiding specific file paths. The activity is observable through PowerShell Script Block Logging (Event ID 4104), which captures the full script content executed in a session.\n\n## Attack Chain\n\n1. An attacker gains initial access to a Windows host through a secondary vector.\n2. The attacker initiates a PowerShell session to execute discovery commands.\n3. The attacker executes a 'Get-Process' or 'gps' cmdlet to retrieve a list of all active system processes.\n4. The output is piped to a 'Where-Object' (or '?') filter to parse the process list.\n5. The script block evaluates process attributes such as 'Company', 'Description', 'Name', 'Path', or 'Product' against known security-related strings.\n6. The script uses wildcards to match variants of security software names like 'defender', 'sentinel', or 'carbonblack'.\n7. The attacker parses the filtered output to confirm which specific security agents are running.\n8. Based on the findings, the attacker proceeds to tailor their post-exploitation behavior or evasion tactics.\n\n## Impact\n\nSuccessful discovery allows attackers to map the defensive landscape of an organization. By identifying the specific EDR or antivirus solution, an attacker can look up known bypasses, disable sensor features, or identify areas where security telemetry is lacking. This information gathering is a precursor to more severe impact, such as lateral movement, persistent access, or data exfiltration.\n\n## Recommendation\n\n1. Enable PowerShell Script Block Logging (Event ID 4104) via Group Policy to ensure visibility into script execution.\n2. Deploy the provided Sigma rule to monitor for suspicious process enumeration patterns targeting security software.\n3. Analyze telemetry for PowerShell scripts containing frequent usage of 'Get-Process' piped to 'Where-Object' filters looking for process attributes.\n4. Establish a baseline of administrative scripts that utilize process enumeration to reduce false positives.\n",
       "published": "2026-09-01T11:05:50Z",
@@ -2189,8 +2189,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Command and Scripting Interpreter",
       "external_references": [
         {
@@ -2204,8 +2204,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--15e11267-b637-5f50-b24d-be79916fa004",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--75b32101-ed08-5aeb-b81a-dc15f3d394d2",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -2214,8 +2214,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--75b32101-ed08-5aeb-b81a-dc15f3d394d2",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Detection of PowerShell Execution Policy Weakening",
       "description": "## Overview\n\nAttackers frequently attempt to bypass PowerShell's built-in security features, specifically the Execution Policy, to facilitate the execution of malicious scripts or payloads. The Set-ExecutionPolicy cmdlet is a common target for modification to lower security standards, specifically moving from default constrained settings to 'Unrestricted' or 'Bypass' states. This behavior is a common precursor to deploying lateral movement tools, credential harvesters, or secondary backdoors within a compromised Windows environment. Defensive teams should be aware that while some legitimate administrative tasks or automated installers (such as Chocolatey) may require such modifications, unauthorized execution of these commands by user-level processes or unexpected service accounts represents a significant indicator of malicious activity during the post-exploitation phase.\n\n## Attack Chain\n\n1. Initial access is established through phishing or exploit delivery to a workstation.\n2. The attacker executes a primary stager or drops a malicious script to disk.\n3. The attacker determines that the current PowerShell execution policy prevents the execution of the unsigned or remote-origin script.\n4. The attacker executes \"Set-ExecutionPolicy -ExecutionPolicy Bypass\" or \"Unrestricted\" via an interactive shell or automated script block.\n5. The system policy is downgraded, allowing the subsequent execution of the malicious script or payload without further prompt.\n6. The malicious payload executes, performing objectives such as credential dumping, discovery, or C2 beaconing.\n\n## Impact\n\nSuccessful execution policy downgrades enable attackers to bypass security restrictions designed to prevent unauthorized script execution. This facilitates the deployment of malware, administrative tools, or weaponized scripts that would otherwise be blocked, increasing the likelihood of successful lateral movement and data exfiltration.\n\n## Recommendation\n\n- Enable PowerShell Script Block Logging (Event ID 4104) across the environment to capture the command line content necessary to identify this activity.\n- Deploy the Sigma rule below to monitor for unauthorized execution policy modifications.\n- Audit administrative usage of execution policy changes and establish a baseline of legitimate deployment processes to reduce noise from installers like Chocolatey.\n",
       "published": "2026-09-01T11:05:58Z",
@@ -2242,8 +2242,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Direct Volume Access",
       "external_references": [
         {
@@ -2257,8 +2257,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2d586c82-84e1-5c24-9f01-b4ca667cc72b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--8c32fdd5-c74d-5668-bf83-80ff7766f4e1",
       "target_ref": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1"
@@ -2267,8 +2267,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--8c32fdd5-c74d-5668-bf83-80ff7766f4e1",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Detection of Direct Volume Access via PowerShell IO.FileStream",
       "description": "## Overview\n\nThis brief addresses the risk of unauthorized direct disk volume access initiated through PowerShell. Attackers leverage the .NET IO.FileStream class to interact with volume objects using the Windows DOS device path syntax (starting with '\\\\\\\\.\\\\'). By accessing the raw volume handle, threat actors can bypass standard Windows API restrictions, potentially reading sensitive data or examining raw file system structures. This technique is often associated with efforts to circumvent file-level security, perform stealthy data exfiltration, or inspect disk sectors for forensic artifacts. Defenders must monitor PowerShell Script Block Logging for the instantiation of IO.FileStream objects targeting raw device paths to identify potential administrative abuse or malicious post-exploitation activity.\n\n## Impact\n\nSuccessful exploitation allows an adversary to read raw data from disk volumes, potentially bypassing file system permissions, auditing, and access control lists (ACLs). This can lead to the exposure of sensitive files, configuration data, or security logs that are otherwise protected from standard user-mode access.\n\n## Recommendation\n\n* Enable PowerShell Script Block Logging (Event ID 4104) across all endpoints to capture the full command syntax necessary for detection.\n* Deploy the provided Sigma rule to identify instances where the IO.FileStream class is used in conjunction with device path identifiers.\n* Investigate detected activity to determine if it stems from administrative scripts or unauthorized post-exploitation tools.\n",
       "published": "2026-09-01T11:06:05Z",
@@ -2296,8 +2296,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Subvert Trust Controls",
       "external_references": [
         {
@@ -2311,8 +2311,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--6a66677c-fe44-5216-bcd7-fefff717728b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--a152c9ca-c842-5881-b801-6c2af275012c",
       "target_ref": "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb"
@@ -2321,8 +2321,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--a152c9ca-c842-5881-b801-6c2af275012c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Suspicious Usage of Unblock-File PowerShell Cmdlet",
       "description": "## Overview\n\nThe Unblock-File PowerShell cmdlet is a legitimate administrative tool used to remove the Zone.Identifier alternate data stream (ADS) from files downloaded from the internet. When a file is downloaded on Windows, the operating system attaches this stream to flag the file as potentially untrusted, which subsequently triggers security prompts or blocks execution of macros and scripts. Attackers frequently abuse this cmdlet to programmatically remove these protections from malicious payloads, such as droppers or scripts, to ensure they execute without user intervention or security warnings. Defenders should monitor for the use of this command in scripts, as its execution on non-standard files or in suspicious contexts is a common indicator of defense evasion.\n\n## Attack Chain\n\n1. Attacker delivers a malicious payload (e.g., LNK file or script) to the target host via phishing or web drive-by.\n2. The file is saved to the disk and receives a 'Zone.Identifier' alternate data stream identifying it as untrusted.\n3. The attacker executes a secondary script or payload wrapper on the host.\n4. The script identifies the downloaded file path.\n5. The attacker invokes the Unblock-File cmdlet targeting the malicious file.\n6. The PowerShell engine removes the Zone.Identifier ADS from the file system.\n7. The operating system no longer treats the file as originating from the internet.\n8. The attacker executes the now-trusted payload to achieve persistent access or secondary stage download.\n\n## Impact\n\nSuccessful abuse of this cmdlet allows attackers to bypass Windows security features designed to prevent the execution of untrusted code. This leads to the silent execution of malware, increased probability of successful macro-based attacks, and the evasion of host-based security warnings, potentially resulting in full system compromise.\n\n## Recommendation\n\n1. Enable PowerShell Script Block Logging (Event ID 4104) across the environment to capture full command execution strings.\n2. Deploy the provided Sigma rule to detect the execution of Unblock-File.\n3. Baseline the usage of Unblock-File in your environment to identify legitimate automated deployment scripts and suppress them in the detection logic.\n4. Implement strict AppLocker or Windows Defender Application Control (WDAC) policies to restrict the execution of scripts that have been unblocked in unauthorized locations.\n",
       "published": "2026-09-01T11:06:12Z",
@@ -2340,8 +2340,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Brute Force",
       "external_references": [
         {
@@ -2355,8 +2355,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--633872d8-8349-5d02-aede-ed6da634ffc5",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--94c88b43-21d2-5eaa-8e0e-b0c96504e4bd",
       "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
@@ -2365,8 +2365,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--94c88b43-21d2-5eaa-8e0e-b0c96504e4bd",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Detection of Hashcat Password Cracker Execution",
       "description": "## Overview\n\nHashcat is a widely used advanced password recovery tool that supports various hashing algorithms. In offensive operations, adversaries utilize Hashcat to crack password hashes extracted from compromised systems, such as SAM database exports or NTDS.dit files. Defenders must monitor for the execution of hashcat.exe, particularly when used in conjunction with command-line arguments specifying attack modes (-a), hash types (-m), or rule-based cracking files (-r). While legitimate security assessments and authorized penetration tests employ this tool, its presence on endpoints often signals active credential access or post-exploitation activity where an attacker has already successfully bypassed system-level protections to obtain credentials.\n\n## Impact\n\nSuccessful execution of Hashcat by unauthorized actors leads to the recovery of plaintext passwords, facilitating lateral movement, privilege escalation, and persistent access to the organization's network.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect unauthorized Hashcat process creation events.\n- Investigate any detected execution of hashcat.exe to determine if it aligns with authorized penetration testing or security assessment activity.\n- Proactively secure sensitive credential stores such as the SAM registry hive and NTDS.dit file by implementing strict access control lists and monitoring for unauthorized file access.\n",
       "published": "2026-09-01T11:06:25Z",
@@ -2385,8 +2385,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--6dacaef4-e3be-5d8a-8603-3ced05dc26b3",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "System Binary Proxy Execution",
       "external_references": [
         {
@@ -2400,8 +2400,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--b50dd665-8bae-570d-b1fe-3655409fc145",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--4ef5825e-e64a-5f5c-9836-c82fcb1c23e2",
       "target_ref": "attack-pattern--6dacaef4-e3be-5d8a-8603-3ced05dc26b3"
@@ -2410,8 +2410,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--4ef5825e-e64a-5f5c-9836-c82fcb1c23e2",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Pubprn.vbs Proxy Execution via LOLBAS",
       "description": "## Overview\n\n'Pubprn.vbs' is a built-in, digitally signed Windows script located in the System32 directory, intended for printer administration. Threat actors abuse this living-off-the-land binary (LOLBAS) to bypass application control policies and execution restrictions. By invoking the script with specific arguments, an attacker can point the script to a remote or local malicious .sct (Script Component) file, causing 'Pubprn.vbs' to load and execute the code within that file. Because 'Pubprn.vbs' is a trusted, signed Microsoft component, its usage to launch malicious payloads can often bypass signature-based detection mechanisms that rely on process reputation. Defenders must monitor for command-line arguments that utilize 'Pubprn.vbs' to load external scripts, as this is a known technique for proxying execution and maintaining stealth during the post-exploitation phase.\n\n## Impact\n\nSuccessful exploitation allows attackers to execute arbitrary code with the privileges of the user running the script. This facilitates defense evasion, persistence, and potential escalation if the script is invoked by a process with elevated permissions. This technique is observed in various campaigns involving fileless malware, credential harvesting, and staged payload delivery.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to detect the specific command-line usage of 'Pubprn.vbs' for proxy execution.\n* Establish a baseline for legitimate printer management activities in your environment to minimize false positives related to administrative scripts.\n* Utilize EDR telemetry to audit all child processes spawned by 'cscript.exe' or 'wscript.exe' when 'Pubprn.vbs' is present in the parent process path.\n",
       "published": "2026-09-01T11:06:32Z",
@@ -2434,8 +2434,8 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--429196a4-403b-51c2-a713-8ad27de3adea",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "hash_md5: 2DD44C3C29D667F5C0EF5F9D7C7FFB8B",
       "pattern": "[file:hashes.MD5 = '2DD44C3C29D667F5C0EF5F9D7C7FFB8B']",
       "pattern_type": "stix",
@@ -2445,8 +2445,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--f082831e-6aab-5192-bb10-264137596e09",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--878bf8ba-4e21-5d98-89a1-ecd300559936",
       "target_ref": "indicator--429196a4-403b-51c2-a713-8ad27de3adea"
@@ -2455,8 +2455,8 @@
       "type": "indicator",
       "spec_version": "2.1",
       "id": "indicator--a4ec4970-45df-51c6-a89b-d27acea80f94",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "hash_sha256: F266609E91985F0FE3E31C5E8FAEEEC4FFA5E0322D8B6F15FE69F4C5165B9559",
       "pattern": "[file:hashes.'SHA-256' = 'F266609E91985F0FE3E31C5E8FAEEEC4FFA5E0322D8B6F15FE69F4C5165B9559']",
       "pattern_type": "stix",
@@ -2466,8 +2466,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1e0d873f-227b-5768-ae7d-b18b82f9efef",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--878bf8ba-4e21-5d98-89a1-ecd300559936",
       "target_ref": "indicator--a4ec4970-45df-51c6-a89b-d27acea80f94"
@@ -2476,8 +2476,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Ingress Tool Transfer",
       "external_references": [
         {
@@ -2491,8 +2491,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--5bc4d69f-6119-5bb2-9aa3-5970a6c4bfc5",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--878bf8ba-4e21-5d98-89a1-ecd300559936",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
@@ -2501,8 +2501,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--878bf8ba-4e21-5d98-89a1-ecd300559936",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Detection of Nimgrab Utility Usage",
       "description": "## Overview\n\nNimgrab is a command-line utility associated with the Nim programming language ecosystem. While it serves legitimate functions for developers within the Nim framework, it has been identified as a Potentially Unwanted Application (PUA) due to its capability to perform remote file downloads. Defenders should be aware that threat actors may leverage this legitimate, standalone binary to download secondary payloads or additional tooling during an intrusion. Its ability to facilitate arbitrary file retrieval makes it a potential indicator of unauthorized post-exploitation activity when observed outside of authorized development environments.\n\n## Attack Chain\n\n1. An attacker gains initial access to a target system.\n2. The attacker stages or uploads the nimgrab.exe binary to the target filesystem.\n3. The attacker executes nimgrab.exe via a command-line interface.\n4. The tool initiates a network connection to an attacker-controlled remote server.\n5. The remote server hosts a malicious payload or additional script.\n6. Nimgrab retrieves the remote resource and saves it to a specified local directory.\n7. The attacker executes the downloaded payload to further their objective (exfiltration or persistence).\n\n## Impact\n\nSuccessful abuse of the Nimgrab utility allows an attacker to fetch malicious payloads, tools, or scripts from remote infrastructure. This behavior facilitates lateral movement, privilege escalation, or the establishment of persistent backdoors within the victim's environment, potentially leading to data exfiltration or ransomware deployment.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for the execution of nimgrab.exe on all Windows endpoints.\n- Investigate any occurrences of nimgrab.exe execution outside of verified software development directories.\n- Utilize the provided file hashes and import hash (IMPHASH) to identify pre-existing instances of this utility across the environment.\n- Review network logs for traffic patterns associated with the execution of this utility if suspicious file activity is noted.\n",
       "published": "2026-09-01T11:06:41Z",
@@ -2522,8 +2522,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Unsecured Credentials",
       "external_references": [
         {
@@ -2537,8 +2537,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--45c1e196-b138-5114-a6be-9300f12dee9b",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--d1522e8b-157f-566c-ad2d-ac549ca72831",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -2547,8 +2547,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--d1522e8b-157f-566c-ad2d-ac549ca72831",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Private Keys Reconnaissance Via Command Line Tools",
       "description": "## Overview\n\nAdversaries frequently perform reconnaissance on compromised endpoints to identify sensitive cryptographic material stored in insecure locations. By leveraging standard command line interfaces and built-in Windows utilities, attackers can recursively search for common file extensions associated with private keys, PGP/GPG configurations, and certificates. This activity is a common precursor to credential theft and lateral movement, as these files may grant unauthorized access to remote services, encrypted data, or developer environments. Detecting this behavior is essential, as the tools used (cmd, PowerShell, findstr) are native to the operating system and often blend into normal administrative activity.\n\n## Attack Chain\n\n1. Attacker gains interactive command execution access on a Windows endpoint.\n2. Attacker identifies potential directory paths of interest (e.g., user profiles, SSH configs, or development folders).\n3. Attacker initiates a search for specific file extensions using `dir`, `Get-ChildItem`, or `findstr` /s.\n4. The search targets extensions including .key, .pgp, .gpg, .ppk, .p12, .pem, .pfx, .cer, .p7b, or .asc.\n5. Attacker observes command output to verify the presence of keys on the local disk.\n6. Attacker exfiltrates or directly utilizes discovered private keys for persistence or unauthorized access.\n\n## Impact\n\nSuccessful reconnaissance of private keys leads to the compromise of identity-based assets, potential exfiltration of encrypted communications, and the bypass of multi-factor authentication systems that rely on certificate-based authentication. If attackers secure these keys, they can establish long-term persistence within development or infrastructure environments, leading to potential supply chain or data integrity breaches.\n\n## Recommendation\n\nDeploy detection rules to monitor for recursive file listing operations that target sensitive cryptographic file extensions.\n- Implement the provided Sigma rule to alert on suspicious combinations of file search commands and key-related extensions.\n- Review baseline administrative scripts in the environment to identify legitimate automated key management tasks and tune out noise.\n- Use endpoint detection and response (EDR) telemetry to correlate the reconnaissance activity with subsequent suspicious file access or egress traffic.\n",
       "published": "2026-09-01T11:06:49Z",
@@ -2565,8 +2565,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Modify Registry",
       "external_references": [
         {
@@ -2580,8 +2580,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--8641d313-d4b6-55b9-9c6c-e4daea3a678d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--c1d4a983-f68c-5535-9166-ea6ff8dbb689",
       "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
@@ -2590,8 +2590,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--c1d4a983-f68c-5535-9166-ea6ff8dbb689",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Detection of Windows Service Binaries in Suspicious Directories",
       "description": "## Overview\n\nPersistence mechanisms on Windows often involve the registration of new services that execute arbitrary binaries. To avoid detection, attackers frequently place these malicious service binaries in directories that are commonly writeable by users or are used for temporary storage, such as \\Users\\Public\\, \\Perflogs\\, or \\Temp\\. This technique allows for the execution of malicious payloads with high privileges once the service is started. Security teams should monitor modifications to the HKLM\\System\\CurrentControlSet\\Services registry hive, specifically focusing on the ImagePath and Start values, to identify when services are configured to execute binaries from non-standard or suspicious file paths.\n\n## Impact\n\nSuccessful exploitation of this technique allows attackers to gain persistence, execute arbitrary code with SYSTEM privileges, and potentially impair security controls. This is a common TTP observed across various intrusion campaigns targeting Windows endpoints.\n\n## Recommendation\n\nDetection engineering teams should monitor registry modifications to identify unauthorized service creation.\n- Deploy the Sigma rule below to detect service registration pointing to suspicious directories.\n- Review registry events for modifications to HKLM\\System\\CurrentControlSet\\Services.\n- Investigate any service binary path that resides outside of standard system directories like C:\\Windows\\System32 or C:\\Program Files.\n",
       "published": "2026-09-01T11:06:56Z",
@@ -2610,8 +2610,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Modify Registry",
       "external_references": [
         {
@@ -2625,8 +2625,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--604b9f25-8529-5b51-bee8-0312bd2c2a1c",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--d52ff9e5-76e9-5798-afce-621ba0f360df",
       "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
@@ -2635,8 +2635,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--d52ff9e5-76e9-5798-afce-621ba0f360df",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Detection of Windows Registry Modifications to Disable System Features",
       "description": "## Overview\n\nAdversaries frequently target the Windows Registry to disable critical system features, a technique used by various malware families such as Agent Tesla and Batloader to impair defensive capabilities and maintain persistence. By modifying specific registry keys under the HKEY_LOCAL_MACHINE or HKEY_CURRENT_USER hives, an attacker can prevent the execution of administrative tools like the Command Prompt, Task Manager, or the Control Panel. This behavior is often observed during the post-compromise stage of an attack, where the objective is to reduce the visibility of the attacker's activities and limit the ability of a user or administrator to remediate the infection. Detecting these specific registry modifications provides high-fidelity signals for identifying active defense impairment attempts.\n\n## Attack Chain\n\n1. Initial payload delivery via spearphishing or malicious drive-by downloads.\n2. Execution of a downloader or dropper on the target endpoint.\n3. Escalation of privileges, if necessary, to access sensitive registry hives.\n4. Modification of registry keys under `SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\` to disable tools like `Taskmgr`, `CMD`, or `DisableRegistryTools`.\n5. Setting specific DWORD values to '1' to enforce the restriction of the targeted system feature.\n6. Final stage of the attack, such as data exfiltration or the deployment of secondary ransomware modules, while administrative response tools remain disabled.\n\n## Impact\n\nSuccessful exploitation of this technique prevents users and administrators from performing routine system maintenance, terminating malicious processes, or modifying system settings. This impact is significant in incident response, as it forces defenders to rely on external forensic tools or offline analysis when local recovery tools have been incapacitated by the malware.\n\n## Recommendation\n\nDeploy the provided Sigma rule to your SIEM to monitor for unauthorized modifications to security-critical registry keys. Enable Sysmon Event ID 13 (RegistryEvent) to capture these events effectively. Focus hunting efforts on changes made by non-system accounts or unexpected parent processes.\n",
       "published": "2026-09-01T11:07:05Z",
@@ -2669,8 +2669,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--10aef198-9a8f-56ab-83b2-c15a5e1d778d",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Defacement",
       "external_references": [
         {
@@ -2684,8 +2684,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2f9583bb-c771-5eae-ada3-c40e9cd18ba0",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "relationship_type": "uses",
       "source_ref": "report--02d63e54-b13a-5000-88fe-68f72ba31ace",
       "target_ref": "attack-pattern--10aef198-9a8f-56ab-83b2-c15a5e1d778d"
@@ -2694,8 +2694,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--02d63e54-b13a-5000-88fe-68f72ba31ace",
-      "created": "2026-09-01T11:14:23Z",
-      "modified": "2026-09-01T11:14:23Z",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
       "name": "Suspicious Modification of Windows Legal Notice Registry Keys",
       "description": "## Overview\n\nAdversaries often target the Windows Registry to influence system behavior at login. By modifying the LegalNoticeCaption and LegalNoticeText registry keys located in HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System, an attacker can force the operating system to display a message box to the user before they can log in. In the context of ransomware or extortion operations, threat actors use this capability to present victims with instructions for data recovery, contact information for extortion negotiations, or proof-of-compromise declarations. This technique provides a persistent, highly visible method of communication that survives system reboots and forces interaction from any user attempting to access the workstation. Detecting unauthorized modifications to these specific registry keys is a high-fidelity indicator of potential system tampering for the purpose of coercion.\n\n## Attack Chain\n\n1. Attacker gains administrative access to the target endpoint.\n2. Attacker identifies the target registry hive (HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System).\n3. Attacker uses command-line utilities like reg.exe or PowerShell to modify registry values.\n4. Attacker updates the LegalNoticeCaption value to a warning header.\n5. Attacker updates the LegalNoticeText value to contain specific ransom-related keywords.\n6. The system configuration is updated to enforce the display of these strings on the next login attempt.\n7. The user is presented with the adversary's message upon the next login process.\n8. Final objective of extortion or psychological pressure on the victim is achieved.\n\n## Impact\n\nSuccessful exploitation of this technique results in the immediate, high-visibility notification of compromised systems to end users and administrators. While the modification itself is not destructive, it is an indicator of an adversary with administrative privileges on the endpoint who is engaged in extortion activity. Failure to detect this can delay incident response during a broader ransomware or data exfiltration event, as the adversary controls the primary interface for system interaction.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for suspicious modifications to LegalNotice registry keys. Filter for legitimate administrative activity (e.g., corporate policy banners) to reduce noise. Investigate any process modifying these keys that is not associated with authorized configuration management software.\n",
       "published": "2026-09-01T11:07:14Z",
@@ -2707,6 +2707,190 @@
       ],
       "object_refs": [
         "attack-pattern--10aef198-9a8f-56ab-83b2-c15a5e1d778d"
+      ],
+      "confidence": 80
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d52e82e2-0995-5cc8-a3a0-e0a96789f7e8",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "hash_md5: 1ea83e4e4592b01e4acab63eb867bee5",
+      "pattern": "[file:hashes.MD5 = '1ea83e4e4592b01e4acab63eb867bee5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-01T11:56:59Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cda1822e-ece8-54ed-80fd-8b522f746991",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "target_ref": "indicator--d52e82e2-0995-5cc8-a3a0-e0a96789f7e8"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8c31a056-b3cb-5e83-a8c1-8d4a17bdd9a3",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "url: https://plugplay.azurewebsites.net",
+      "pattern": "[url:value = 'https://plugplay.azurewebsites.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-01T11:56:59Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--31ec4544-338e-51f5-ab5c-f7aa6a2d3e42",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "target_ref": "indicator--8c31a056-b3cb-5e83-a8c1-8d4a17bdd9a3"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--0b48a28b-e5c4-5633-b43e-c7507a18b13a",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "url: https://rgbteller.azurewebsites.net",
+      "pattern": "[url:value = 'https://rgbteller.azurewebsites.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-01T11:56:59Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--24b1346c-41ce-594c-b333-49339aef5553",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "target_ref": "indicator--0b48a28b-e5c4-5633-b43e-c7507a18b13a"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e4e1f62b-a344-5c3c-b75b-93f5c353275f",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "url: https://wslwebui.azurewebsites.net",
+      "pattern": "[url:value = 'https://wslwebui.azurewebsites.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-01T11:56:59Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b1ddda98-1ab5-5d73-8eaf-2642609b5453",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "target_ref": "indicator--e4e1f62b-a344-5c3c-b75b-93f5c353275f"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "Phishing",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566",
+          "url": "https://attack.mitre.org/techniques/T1566"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e73757eb-2c6e-594d-a06f-5d092b6698d0",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "Boot or Logon Autostart Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1547",
+          "url": "https://attack.mitre.org/techniques/T1547"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--804c54b8-0289-54e4-806c-945efbbcfd4e",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--2cd5df1a-fb94-5855-9994-c05f4bb739be",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "Mirage Kitten"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2312dc7b-6df7-5afa-92d8-e49056272944",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "target_ref": "threat-actor--2cd5df1a-fb94-5855-9994-c05f4bb739be"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3882e518-947d-578c-8b24-3198c348b5bb",
+      "created": "2026-09-01T11:57:37Z",
+      "modified": "2026-09-01T11:57:37Z",
+      "name": "Mirage Kitten APT Deploys NodeRabbit and PollCat Backdoors via Trojanized Coding Challenges",
+      "description": "## Overview\n\nThe Mirage Kitten APT group has launched a new campaign targeting software engineers within the aviation and FinTech sectors. The campaign utilizes a sophisticated delivery mechanism involving fake recruiter outreach on professional networking platforms like LinkedIn. Victims are invited to complete technical coding assessments, which are hosted on Amazon S3 buckets. These archives contain trojanized software development projects - specifically an application named TaskFlow - that include malicious npm packages such as 'colorized_terminal' (v2.1.0) and 'pretty-log' (v2.1.0).\n\nOnce executed, these packages trigger the installation of 'NodeRabbit', a previously undocumented, cross-platform remote access trojan (RAT) written in Node.js. NodeRabbit is capable of executing arbitrary shell commands, performing system reconnaissance, and establishing persistent backdoors on Windows, Linux, and macOS systems. During the same investigation, researchers identified a secondary RAT named 'PollCat', written in obfuscated JavaScript. This represents a significant shift in the group's tradecraft from native C/C++ or Go malware to high-level language-based implants, likely intended to blend into developer environments.\n\n## Attack Chain\n\n1. Mirage Kitten operators perform reconnaissance and reach out to targets on job search platforms posing as recruiters.\n2. The target receives a link to a project archive (e.g., Front-Technical-Challenge.zip) hosted on Amazon S3.\n3. The victim downloads and extracts the archive, which includes a malicious npm package dependency in the `node_modules` directory.\n4. Upon running the development project, the malicious package executes an implant from `node_modules/.cache/.320697f1/index.js` as a background process.\n5. The implant (NodeRabbit) generates a unique agent ID based on host system metadata and attempts to bind to a local TCP port to ensure single-instance operation.\n6. Persistence is established: via Windows Registry `Run` keys for `nodew.exe`, cron jobs on Linux, or LaunchAgents on macOS.\n7. The malware initiates beaconing to Azure-hosted C2 infrastructure using AES-256-GCM encrypted JSON payloads.\n8. The final objective is achieved via arbitrary command execution and exfiltration of system information or developer assets.\n\n## Impact\n\nThe campaign targets high-value individuals within the aviation and FinTech sectors, posing a significant risk of intellectual property theft, unauthorized access to secure development environments, and potential follow-on compromise of critical corporate infrastructure. The usage of job search lures exploits the trust relationship inherent in the hiring process, making it difficult for standard email filters to flag the activity.\n\n## Recommendation\n\n1. Deploy the Sigma rules below to monitor for suspicious process execution patterns related to Node.js implants.\n2. Block outbound connections to the identified Azure-hosted C2 infrastructure at the network perimeter.\n3. Implement strict controls on the execution of developer environments; verify the integrity of `node_modules` and external project dependencies before execution.\n4. Hunt for the presence of the identified malicious file paths and registry modifications on developer workstations.\n",
+      "published": "2026-09-01T11:56:59Z",
+      "labels": [
+        "phishing",
+        "malware",
+        "rat",
+        "developer-targeting"
+      ],
+      "object_refs": [
+        "indicator--d52e82e2-0995-5cc8-a3a0-e0a96789f7e8",
+        "indicator--8c31a056-b3cb-5e83-a8c1-8d4a17bdd9a3",
+        "indicator--0b48a28b-e5c4-5633-b43e-c7507a18b13a",
+        "indicator--e4e1f62b-a344-5c3c-b75b-93f5c353275f",
+        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
+        "threat-actor--2cd5df1a-fb94-5855-9994-c05f4bb739be"
+      ],
+      "external_references": [
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/mirage-kitten-new-backdoors-noderabbit-pollcat/121244/"
+        }
       ],
       "confidence": 80
     }
