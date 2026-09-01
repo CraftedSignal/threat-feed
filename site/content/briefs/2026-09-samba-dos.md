@@ -3,7 +3,7 @@ title: Samba Denial of Service Vulnerability
 slug: 2026-09-samba-dos
 description: A vulnerability in Samba tracked as CVE-2024-4323 allows a remote, authenticated attacker to trigger a Denial of Service condition through specific request handling.
 date: "2026-09-01T12:02:29Z"
-lastmod: "2026-09-01T12:02:53Z"
+lastmod: "2026-09-01T12:04:15Z"
 type: advisory
 types:
   - advisory
@@ -37,6 +37,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0588
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-4323
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3128
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3125
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +71,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3128
+  - at: "2026-09-01T12:04:15Z"
+    level: L1
+    summary: added coverage for Samba
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3125
 ---
 
 A security vulnerability exists in Samba that allows a remote, authenticated attacker to cause a Denial of Service (DoS) condition. The issue stems from the improper handling of specific requests processed by the Samba service. By sending a maliciously crafted request, an attacker who has already obtained legitimate access to the network and authentication credentials can cause the service to crash or become unresponsive. This disruption affects the availability of file and print services managed by the vulnerable Samba instance. Defenders should prioritize patching affected Samba installations to the version addressed by the vendor to prevent service outages.
