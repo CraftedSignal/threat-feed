@@ -3,6 +3,7 @@ title: Detection of Windows Registry Modifications to Disable System Features
 slug: 2026-09-registry-feature-disable
 description: Adversaries, including operators of Agent Tesla and Batloader, modify Windows Registry keys to disable system administration tools and security features, hindering incident response and persistence.
 date: "2026-09-01T11:07:05Z"
+lastmod: "2026-09-01T12:09:32Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - persistence
   - windows
   - registry
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -32,6 +37,7 @@ references:
   - https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1112/T1112.md
   - https://www.mandiant.com/resources/unc2165-shifts-to-evade-sanctions
   - https://blogs.vmware.com/security/2022/11/batloader-the-evasive-downloader-malware.html
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_disable_function_user.yml
 rules:
   - title: Detect Windows Registry Modifications Disabling System Tools
     description: Detects registry modifications that change features of internal Windows tools such as Task Manager, CMD, and Registry Editor.
@@ -64,6 +70,14 @@ action_plan:
     - priority: medium_term
       action: Ensure Group Policy objects are the sole authority for registry policy settings to override unauthorized modifications.
       owner: IT Operations
+updates:
+  - at: "2026-09-01T12:09:32Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/registry/registry_set/registry_set_disable_function_user.yml
 ---
 
 Adversaries frequently target the Windows Registry to disable critical system features, a technique used by various malware families such as Agent Tesla and Batloader to impair defensive capabilities and maintain persistence. By modifying specific registry keys under the HKEY_LOCAL_MACHINE or HKEY_CURRENT_USER hives, an attacker can prevent the execution of administrative tools like the Command Prompt, Task Manager, or the Control Panel. This behavior is often observed during the post-compromise stage of an attack, where the objective is to reduce the visibility of the attacker's activities and limit the ability of a user or administrator to remediate the infection. Detecting these specific registry modifications provides high-fidelity signals for identifying active defense impairment attempts.
