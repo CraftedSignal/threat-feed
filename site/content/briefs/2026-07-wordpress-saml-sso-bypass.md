@@ -3,11 +3,17 @@ title: Authentication Bypass in miniOrange SAML SSO Login Plugin for WordPress (
 slug: 2026-07-wordpress-saml-sso-bypass
 description: A critical authentication bypass vulnerability (CVE-2026-15013) exists in the SAML Single Sign On - SSO Login plugin for WordPress, affecting all versions up to and including 5.4.3, enabling unauthenticated attackers to forge SAML assertions and achieve full administrator-level account takeover due to signature algorithm confusion.
 date: "2026-07-16T05:17:59Z"
+lastmod: "2026-09-01T14:31:50Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:miniorange:saml_single_sign_on_sso_login_plugin_for_wordpress:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://www.exploit-db.com/exploits/52668
 tags:
   - wordpress
   - authentication-bypass
@@ -36,8 +42,21 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: forge a SAML assertion targeting any WordPress account — including administrators — obtain valid WordPress authentication cookies, and achieve full administrator-level account takeover
     confidence_band: high
+cves:
+  - id: CVE-2026-15013
+    cvss: 9.8
+    epss: 0.00482
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15013
+  - https://www.exploit-db.com/exploits/52668
+updates:
+  - at: "2026-09-01T14:31:50Z"
+    level: L2
+    summary: poc_available; added CVE-2026-15013
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52668
 ---
 
 A critical authentication bypass vulnerability (CVE-2026-15013) exists in the SAML Single Sign On - SSO Login plugin for WordPress, affecting all versions up to and including 5.4.3. The flaw stems from the plugin's `Mo_SAML_Utilities::mo_saml_cast_key()` function, which incorrectly reads the `SignatureMethod` Algorithm attribute directly from an attacker-controlled `SAMLResponse` parameter. This misconfiguration allows the plugin to be tricked into recasting the Identity Provider's RSA public key as an HMAC-SHA1 shared secret. Consequently, unauthenticated attackers can forge SAML assertions. Successful exploitation leads to the issuance of valid WordPress authentication cookies, enabling complete administrator-level account takeover. This vulnerability poses a significant risk to the integrity and confidentiality of affected WordPress installations, potentially allowing full control over the website and its data.
