@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--929227e1-447a-512d-83c4-192dba591a84",
+  "id": "bundle--5d2f6a5d-6ae3-5d95-8e23-d272ccf87049",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -21,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--1e87c488-efa7-5aff-bba1-a65a1ecb9a5a",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--7806ef46-1eff-540e-ad95-98e64179506a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -38,8 +38,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--5ac7087f-874c-51cd-9f08-b5d9b60804e3",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "CVE-2026-82954",
       "external_references": [
         {
@@ -53,8 +53,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--711902df-c605-5c90-86da-37ec3c53e189",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--68c75c48-65ea-5234-b1c9-d657835840a3",
       "target_ref": "vulnerability--5ac7087f-874c-51cd-9f08-b5d9b60804e3"
@@ -63,8 +63,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--7806ef46-1eff-540e-ad95-98e64179506a",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Path Traversal Vulnerability in Dokploy",
       "description": "## Overview\n\nDokploy versions 0.29.7 and earlier contain a critical path traversal vulnerability (CVE-2026-82954) located within the `writeTraefikConfigInPath` function in `packages/server/src/utils/traefik/application.ts`. The flaw allows remote, unauthenticated attackers to manipulate the 'path' argument, leading to arbitrary file system access. This vulnerability permits the reading or overwriting of sensitive configuration files, which can be leveraged to gain unauthorized system control. The vulnerability is publicly disclosed, and given the nature of the software as a deployment management tool, successful exploitation carries a high risk of systemic compromise. The vendor has not provided a response or a patch as of the time of disclosure.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 9.9, reflecting its critical potential for unauthorized file access and system-level impact. Attackers targeting this vulnerability can extract sensitive environment variables, credentials, or Traefik configuration files, potentially escalating access to any containerized workloads managed by the Dokploy instance.\n\n## Recommendation\n\n- Monitor web application logs for suspicious path traversal patterns (e.g., directory indexing characters like \"../\") directed at Dokploy management endpoints.\n- Apply network segmentation to ensure Dokploy management interfaces are not exposed to the public internet until a security patch is released by the vendor.\n- Conduct an audit of the file system integrity in the Dokploy server environment to identify signs of unauthorized file modification or exfiltration.\n",
       "published": "2026-09-01T01:01:03Z",
@@ -90,8 +90,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -105,8 +105,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--21b51275-b961-56f4-9433-3c679c09291f",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--ea0a346a-d6bc-5ef6-a4b6-3e968b24e39f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -115,8 +115,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Command and Scripting Interpreter",
       "external_references": [
         {
@@ -130,8 +130,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--3e05d36a-de9c-5d67-baba-80319dd01121",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--ea0a346a-d6bc-5ef6-a4b6-3e968b24e39f",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -147,8 +147,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--3441e511-6af6-5fe7-9399-9f229bfcac1f",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "CVE-2026-82971",
       "external_references": [
         {
@@ -162,8 +162,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--93361ca0-fa1b-5b87-9ebd-92bf20d2ea3c",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--ad0166e0-b0b8-55e0-849e-334be53869f0",
       "target_ref": "vulnerability--3441e511-6af6-5fe7-9399-9f229bfcac1f"
@@ -172,8 +172,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--ea0a346a-d6bc-5ef6-a4b6-3e968b24e39f",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Unauthenticated Remote Command Injection in QVidium Opera11",
       "description": "## Overview\n\nQVidium Opera11 version 3.3.2a26-Ax4x-opera11 contains a critical remote command injection vulnerability in the /cgi-bin/net_tr.cgi CGI script. An unauthenticated attacker can exploit this flaw by supplying malicious shell metacharacters via the ipaddr argument. Successful exploitation allows for arbitrary code execution with the privileges of the web service. Because the vendor, QVidium, has ceased all business operations, no patches or security support will be provided for this product, leaving existing deployments permanently exposed. Defenders must identify and isolate all instances of this software within their network to prevent exploitation, as public proof-of-concept code is available.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 10.0, indicating the highest level of severity. Successful exploitation results in complete system compromise, allowing an attacker to execute arbitrary commands, exfiltrate data, or install persistent backdoors. As the vendor is no longer active, the risk to operational environments is acute and cannot be mitigated through standard patching procedures. Organizations utilizing this legacy hardware should assume that internet-exposed devices are at high risk of compromise.\n\n## Recommendation\n\n1. Inventory all network-attached QVidium devices and verify if they are running the affected Opera11 firmware.\n2. Immediately restrict access to the /cgi-bin/net_tr.cgi endpoint at the network firewall or reverse proxy level for all internet-facing instances.\n3. Deploy the Sigma rule below to monitor web server logs for malicious requests targeting the vulnerable CGI script.\n4. Decommission or air-gap all affected QVidium devices as they no longer receive security updates.\n",
       "published": "2026-09-01T01:01:11Z",
@@ -201,8 +201,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -216,8 +216,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--52a4f644-43d9-54be-97ea-e0a15b8653a2",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--dbdb8105-b0e1-5e1d-b1b4-c2b81abb3e32",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -247,8 +247,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "CVE-2026-83524",
       "external_references": [
         {
@@ -262,8 +262,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--71edb176-2304-5c44-b89b-a0ef7a9ea30c",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--ec147c44-187c-5b39-a875-ab438e3ab443",
       "target_ref": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8"
@@ -272,8 +272,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--9b2da8d7-0b9c-59b6-b9b4-2cb5930ef613",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--c5937b42-530a-57fd-8847-544be3504bb8",
       "target_ref": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8"
@@ -282,8 +282,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c1b409a4-2189-5d35-888f-a554ce82b555",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--fac29015-0523-54fb-9329-5d347ed0be3f",
       "target_ref": "vulnerability--afd76469-f15b-59b1-ac11-f29132cc9ee8"
@@ -292,8 +292,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--dbdb8105-b0e1-5e1d-b1b4-c2b81abb3e32",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Remote Command Injection in RedPort Optimizer wXa Series",
       "description": "## Overview\n\nA critical vulnerability (CVE-2026-83524) exists in the RedPort Optimizer wXa series, specifically models wXa-203, wXa-213, and wXa-223 running firmware versions up to 20260704. The flaw resides within the System Clock component, specifically inside the 'exec' function located in '/xgatev1/system/datetime.php'. An unauthenticated remote attacker can supply malicious input to this endpoint to achieve command injection. Because the exploitation of this vulnerability has been disclosed publicly, the risk of exploitation by opportunistic threat actors is significantly elevated. Despite notification, the vendor has not provided a response or a patch to remediate this issue, leaving deployed devices exposed to remote exploitation. Defenders should monitor for unexpected HTTP POST or GET requests to the specified URI on these network-attached devices.\n\n## Impact\n\nSuccessful exploitation of this vulnerability leads to unauthenticated remote code execution on the affected RedPort Optimizer network devices. This allows attackers to fully compromise the device, potentially facilitating lateral movement within the network, interception of satellite communication traffic routed through the Optimizer, or persistent access to the network edge. Given the nature of these devices as satellite gateways, a compromise could have severe operational consequences for maritime and remote-site connectivity.\n\n## Recommendation\n\n1. Restrict administrative access to the RedPort Optimizer management interface to trusted IP ranges only.\n2. Implement network egress filtering for these devices to prevent them from reaching unknown command-and-control infrastructure.\n3. Monitor web server logs for HTTP requests targeting '/xgatev1/system/datetime.php' containing suspicious parameters, such as shell metacharacters (e.g., ;, |, \u0026, $, `).\n4. Segment these devices into an isolated VLAN to minimize the impact if they are compromised.\n",
       "published": "2026-09-01T01:01:23Z",
@@ -316,8 +316,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Unsecured Credentials",
       "external_references": [
         {
@@ -331,8 +331,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--afc5e002-e6bc-51e1-9fe0-20405c6d7283",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--0fafcdd6-17a2-571d-bf4e-9ef7c9a2d348",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -348,8 +348,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--b863790d-a791-5b70-b4de-a487fd9ac38e",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "CVE-2026-82882",
       "external_references": [
         {
@@ -363,8 +363,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--b63bd815-444c-5002-8480-2ca77a27bfff",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--3c473077-9626-5ccf-b6aa-f3a7c1a24925",
       "target_ref": "vulnerability--b863790d-a791-5b70-b4de-a487fd9ac38e"
@@ -373,8 +373,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--0fafcdd6-17a2-571d-bf4e-9ef7c9a2d348",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Devtron Authorization Bypass in Webhook API",
       "description": "## Overview\n\nDevtron versions 2.2.0 and earlier are affected by an authorization bypass vulnerability (CVE-2026-82882) located in the orchestrator webhook API. The vulnerability specifically affects the GET /orchestrator/api-token/webhook endpoint, which fails to validate the authorization level of the requesting user. An authenticated attacker, regardless of their original privilege level, can provide arbitrary project, environment, and application parameters to the endpoint to successfully query for and retrieve super-admin JSON Web Tokens (JWT) in plaintext. Successful exploitation provides the attacker with full platform control, enabling persistent access, configuration modifications, or unauthorized deployments within the Devtron environment. This vulnerability is critical for organizations using Devtron to manage CI/CD pipelines, as it allows for trivial privilege escalation to the highest administrative tier.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in full administrative control over the Devtron platform. Attackers can leverage the stolen super-admin tokens to perform any action the platform supports, including modifying deployment pipelines, accessing sensitive secrets managed by the platform, and pivoting into the underlying Kubernetes infrastructure. This allows for extensive persistence, data exfiltration, and potential supply chain compromise of the integrated CI/CD processes.\n\n## Recommendation\n\n1. Upgrade all Devtron instances to a version later than 2.2.0 immediately once a vendor patch is made available.\n2. Implement strict monitoring on access to the /orchestrator/api-token/webhook endpoint in API gateway or web server logs.\n3. Rotate all administrative tokens if it is suspected that an unauthorized user has accessed the platform.\n4. Perform an audit of audit logs to identify any anomalous access to the webhook API endpoint by non-administrative user accounts.\n",
       "published": "2026-09-01T01:01:31Z",
@@ -400,8 +400,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -415,8 +415,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--72e582ea-4b58-5e9b-884a-3f0204ced68c",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--191c7441-a1c7-5475-a44f-4cbced7e8b8e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -425,8 +425,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Exploitation for Client Execution",
       "external_references": [
         {
@@ -440,8 +440,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--d38e71f6-3c07-5b97-8693-ffaf91bb66f8",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--191c7441-a1c7-5475-a44f-4cbced7e8b8e",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -457,8 +457,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--68bd4e01-3cd4-57bc-b029-7f35e317ce1f",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "CVE-2026-82921",
       "external_references": [
         {
@@ -472,8 +472,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c03185f2-dae5-5473-bf93-f3082502ef47",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--84d8da19-3c05-59ce-a10d-264c098d2adc",
       "target_ref": "vulnerability--68bd4e01-3cd4-57bc-b029-7f35e317ce1f"
@@ -482,8 +482,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--191c7441-a1c7-5475-a44f-4cbced7e8b8e",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Unrestricted File Upload Vulnerability in ShopEx ECShop",
       "description": "## Overview\n\nA vulnerability identified as CVE-2026-82921 affects ShopEx ECShop versions up to 2.5.1. The flaw exists within the check_img_type function located in the admin/pack.php script. An unauthenticated remote attacker can exploit this weakness by manipulating the pack_img parameter to bypass file type validation, allowing for the upload of arbitrary, potentially malicious files to the server. Successful exploitation of this vulnerability can lead to remote code execution (RCE) if the uploaded file is subsequently executed by the web server. Public exploit code for this vulnerability is available, and there is no indication that the vendor has addressed this issue following initial disclosure. Defenders should prioritize restricting access to the administrative directory and monitoring for suspicious file uploads.\n\n## Attack Chain\n\n1. Attacker identifies a target server running an unpatched version of ShopEx ECShop (\u003c= 2.5.1).\n2. Attacker performs reconnaissance to locate the admin/pack.php script.\n3. Attacker crafts a malicious payload (e.g., a PHP web shell) embedded within an image file structure.\n4. Attacker sends a crafted HTTP POST request to the admin/pack.php endpoint.\n5. Attacker manipulates the pack_img argument within the request to bypass server-side file type checks in check_img_type.\n6. The server saves the malicious file to the web root or an accessible upload directory.\n7. Attacker navigates to the uploaded file's URL to trigger code execution on the server.\n8. Attacker establishes persistent access or begins data exfiltration.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary file uploads, which provides a direct path for remote code execution. This can result in complete system compromise, unauthorized data access, and lateral movement within the network. Sectors relying on ECShop for e-commerce operations are at high risk of site defacement, financial data theft, and loss of customer information.\n\n## Recommendation\n\nPrioritized actions for detection engineering and security teams:\n- Implement strict ingress filtering for the /admin/ directory to ensure it is not reachable from the public internet.\n- Deploy the provided Sigma rule to detect suspicious HTTP requests targeting the admin/pack.php script.\n- Monitor web server access logs for anomalous POST requests to admin/pack.php that contain unexpected file extensions or script contents.\n- Configure file integrity monitoring on the web server's document root to alert on the creation of new executable files in upload directories.\n",
       "published": "2026-09-01T01:01:41Z",
@@ -517,8 +517,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -532,8 +532,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--befd2687-519f-53b3-b1cb-6918d94a4aab",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "uses",
       "source_ref": "report--45556ce1-0c4b-508f-9f95-afd93cfc0ccf",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -549,8 +549,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--4063ac7c-1813-5139-ac8d-f9d4a1393f36",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "CVE-2026-82957",
       "external_references": [
         {
@@ -564,8 +564,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c108f45a-f838-5045-a909-fe80c732637c",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "relationship_type": "has",
       "source_ref": "software--0a569847-25fc-5aae-b7d4-f0c29f0e9720",
       "target_ref": "vulnerability--4063ac7c-1813-5139-ac8d-f9d4a1393f36"
@@ -574,8 +574,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--45556ce1-0c4b-508f-9f95-afd93cfc0ccf",
-      "created": "2026-09-01T01:02:34Z",
-      "modified": "2026-09-01T01:02:34Z",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
       "name": "SSRF Vulnerability in Hyperledger FireFly Webhook Subscription Component",
       "description": "## Overview\n\nHyperledger FireFly versions up to and including 1.4.0 are vulnerable to a Server-Side Request Forgery (SSRF) flaw located in the ValidateOptions function within internal/events/webhooks/webhooks.go. This component, responsible for handling Webhook Subscriptions, fails to properly validate the 'url' parameter provided during configuration or execution. An unauthenticated remote attacker can exploit this flaw by supplying a crafted URL to the webhook service, forcing the application to perform requests on behalf of the server. This can lead to unauthorized access to internal services, metadata endpoints, or external resources. Public exploit code is currently available, and the vendor has not provided a patch or formal response to the disclosure, making this a high-priority risk for organizations running Hyperledger FireFly instances.\n\n## Impact\n\nSuccessful exploitation allows an attacker to bypass perimeter security to scan and interact with internal network resources, potentially leading to unauthorized data exfiltration or access to sensitive internal APIs. As the vulnerability is remote and requires no authentication, instances exposed to the internet are at immediate risk of exploitation.\n\n## Recommendation\n\nPrioritize network-level segmentation to restrict the ability of the Hyperledger FireFly service to make outbound connections to internal and private IP ranges (e.g., 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). Monitor webserver logs for unexpected requests to internal infrastructure or unusual URL patterns targeting administrative interfaces. Ensure that the FireFly service runs with the least privilege necessary to minimize the impact if an SSRF condition is successfully triggered.\n",
       "published": "2026-09-01T01:01:56Z",
@@ -589,6 +589,162 @@
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82957"
         }
+      ],
+      "confidence": 80
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "name": "Exploit Public-Facing Application",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1190",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3f814251-a38f-52c5-9c4d-96957b44f3bb",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "relationship_type": "uses",
+      "source_ref": "report--47642b23-a472-5a6c-9c96-d8f0f17c6933",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "software",
+      "id": "software--d0829413-79b8-52f1-8334-f33a8b4f16de",
+      "name": "Quiz Maker (\u003c= 6.5.8.3)",
+      "vendor": "Ays-pro",
+      "cpe": "cpe:2.3:a:ays-pro:quiz_maker:*:*:*:*:*:wordpress:*:*"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5200bcd5-4cbe-5972-852b-8c5b478464ed",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "name": "CVE-2024-6028",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-6028",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6028"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a2c8d104-ca99-5b73-9c26-36142d4b8ea4",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "relationship_type": "has",
+      "source_ref": "software--d0829413-79b8-52f1-8334-f33a8b4f16de",
+      "target_ref": "vulnerability--5200bcd5-4cbe-5972-852b-8c5b478464ed"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--47642b23-a472-5a6c-9c96-d8f0f17c6933",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "name": "Critical SQL Injection in Quiz Maker WordPress Plugin",
+      "description": "## Overview\n\nCVE-2024-6028 is a high-severity time-based SQL injection vulnerability affecting the Ays-pro Quiz Maker WordPress plugin, versions 6.5.8.3 and lower. The vulnerability resides within the 'ays_questions' parameter processed by the 'ays_finish_quiz' action in the 'Quiz_Maker_Public' class. An unauthenticated attacker can exploit this flaw by sending a specially crafted HTTP POST request to the WordPress 'admin-ajax.php' endpoint. Due to the lack of sufficient input sanitization and parameter escaping, the attacker can inject malicious SQL commands that the application executes against the underlying WordPress database. Successful exploitation allows an attacker to infer sensitive information through time-based inferencing (e.g., using the MySQL SLEEP function). The vulnerability has a CVSS 9.8 rating, and a publicly available proof-of-concept exploit increases the risk of immediate exploitation by malicious actors.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to gain unauthorized access to the application database. This can result in the full compromise of sensitive data stored within the WordPress environment, including user accounts, site configurations, and potentially other plugins' data. Given the widespread use of WordPress plugins, this vulnerability presents a significant risk to the confidentiality and integrity of affected sites.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n- Update the Ays-pro Quiz Maker plugin to version 6.5.8.4 or later immediately.\n- Deploy the provided Sigma rule to monitor for suspicious POST requests targeting 'admin-ajax.php' containing SQL injection syntax in the 'ays_questions' parameter.\n- Review web server access logs for anomalous spikes in response times coupled with POST requests to 'admin-ajax.php', which may indicate active time-based SQL injection attempts.\n",
+      "published": "2026-09-01T01:09:10Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "software--d0829413-79b8-52f1-8334-f33a8b4f16de",
+        "vulnerability--5200bcd5-4cbe-5972-852b-8c5b478464ed"
+      ],
+      "external_references": [
+        {
+          "source_name": "reference",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/wordpress-plugins/quiz-maker/quiz-maker-6583-unauthenticated-sql-injection-via-ays-questions-parameter"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GMH5225-CVE-2024-6028-POC"
+        }
+      ],
+      "confidence": 80
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "name": "Exploitation for Privilege Escalation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1068",
+          "url": "https://attack.mitre.org/techniques/T1068"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3906e8a7-dfc9-522b-913e-b128beb97329",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80305a6e-e5c9-5d96-9852-5e8c6e866a6e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "software",
+      "id": "software--77c27c4a-9d2a-574a-a562-4a87a76940f6",
+      "name": "Below (\u003c 0.9.0)",
+      "vendor": "Facebook",
+      "cpe": "cpe:2.3:a:facebook:below:*:*:*:*:*:rust:*:*"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--76889f78-0550-58b2-a55b-af4f0273f213",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "name": "CVE-2025-27591",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-27591",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27591"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f7a4d326-3453-5b28-84d1-48f7d090ccaf",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "relationship_type": "has",
+      "source_ref": "software--77c27c4a-9d2a-574a-a562-4a87a76940f6",
+      "target_ref": "vulnerability--76889f78-0550-58b2-a55b-af4f0273f213"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--80305a6e-e5c9-5d96-9852-5e8c6e866a6e",
+      "created": "2026-09-01T01:09:58Z",
+      "modified": "2026-09-01T01:09:58Z",
+      "name": "Local Privilege Escalation in Facebook Below (CVE-2025-27591)",
+      "description": "## Overview\n\nCVE-2025-27591 is a local privilege escalation vulnerability affecting the Facebook 'below' system monitoring tool, specifically versions prior to 0.9.0. The vulnerability originates from the insecure management of log files when the application is executed with elevated privileges, specifically using the 'below record' command. An attacker with local access to the system can leverage a symlink attack to redirect the application's error logging to critical system files, such as /etc/passwd. By exploiting this behavior, an attacker can append a malicious user entry to the password file, effectively granting them unauthorized root-level access. The proof-of-concept exploit is publicly available, increasing the risk for environments where 'below' is installed and used with sudo permissions.\n\n## Attack Chain\n\n1. The attacker ensures the application's target log file, typically located at /var/log/below/error_root.log, does not already exist.\n2. The attacker creates a symbolic link at /var/log/below/error_root.log that points to the system's /etc/passwd file.\n3. The attacker executes the 'below' binary with elevated privileges using the 'sudo /usr/bin/below record' command.\n4. The application, running as root, attempts to write error logs to the path redirected by the attacker.\n5. The attacker provides crafted input designed to trigger an error, causing the application to write data into the target /etc/passwd file.\n6. The attacker verifies that a new, unauthorized user has been successfully appended to the /etc/passwd configuration.\n7. The attacker uses the newly created credentials to authenticate and obtain a root shell on the system.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-27591 results in full system compromise. An unprivileged attacker can escalate to root privileges, gaining complete control over the affected host. This vulnerability impacts systems where 'below' is installed and invoked via sudo, common in development, testing, or infrastructure monitoring environments.\n\n## Recommendation\n\nPrioritize the immediate upgrade of the Facebook 'below' monitoring tool to version 0.9.0 or later to remediate the insecure log file handling. If patching cannot be performed immediately, monitor for unauthorized symbolic link creation within the /var/log/below/ directory.\n\n## Tags\n- privilege-escalation\n- linux\n",
+      "published": "2026-09-01T01:09:30Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "software--77c27c4a-9d2a-574a-a562-4a87a76940f6",
+        "vulnerability--76889f78-0550-58b2-a55b-af4f0273f213"
       ],
       "confidence": 80
     }
