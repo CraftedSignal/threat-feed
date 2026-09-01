@@ -3,15 +3,18 @@ title: Stored XSS via SNMP and Syslog in LibreNMS
 slug: 2026-08-librenms-xss
 description: LibreNMS is vulnerable to stored cross-site scripting (XSS) due to improper output encoding of SNMP-polled data and syslog messages in legacy PHP templates, allowing attackers to execute arbitrary JavaScript in the browsers of authenticated users.
 date: "2026-08-26T20:20:57Z"
+lastmod: "2026-09-01T13:06:17Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:librenms:librenms:*:*:*:*:*:*:*:*
 vendors:
   - LibreNMS
 products:
-  - LibreNMS
+  - LibreNMS (< 26.5.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -19,8 +22,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An attacker who controls a monitored network device (via compromised SNMP agent or syslog sender) can inject arbitrary JavaScript that executes when any authenticated LibreNMS user views the affected pages.
     confidence_band: high
+cves:
+  - id: CVE-2026-84189
+    cvss: 8.1
 references:
   - https://github.com/advisories/GHSA-7w8c-qgxg-m7jx
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84189
 rules:
   - title: Detect XSS Payload in Web Requests to LibreNMS
     description: Detects potential XSS exploitation attempts against LibreNMS by searching for common JavaScript injection patterns in web server logs, specifically targeting parameters likely to be rendered in health or alert templates.
@@ -52,6 +59,14 @@ action_plan:
       confidence: medium
       disposition: convert_to_detection
       evidence: Legacy PHP templates echo raw values directly into HTML
+updates:
+  - at: "2026-09-01T13:06:17Z"
+    level: L2
+    summary: added CVE-2026-84189; librenms version < 26.5.0
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-84189
 ---
 
 LibreNMS versions prior to 26.5.0 contain multiple stored cross-site scripting (XSS) vulnerabilities within legacy PHP templates located in the `includes/html/` directory. The vulnerability stems from the direct echoing of data retrieved from SNMP-monitored network devices and incoming syslog messages without appropriate output encoding or escaping. 
