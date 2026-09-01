@@ -3,7 +3,7 @@ title: Multiple Vulnerabilities in Google Chrome and Microsoft Edge
 slug: 2026-08-chrome-edge-vulnerabilities
 description: Multiple vulnerabilities in Google Chrome and Microsoft Edge allow remote, unauthenticated attackers to achieve arbitrary code execution, bypass sandbox protections, and perform information disclosure.
 date: "2026-08-27T11:33:16Z"
-lastmod: "2026-09-01T12:00:25Z"
+lastmod: "2026-09-01T12:01:47Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,7 @@ vendors:
 products:
   - Chrome (< 124.0.6367.201)
   - Edge
+  - Chrome (< 124.0.6367.201)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -37,6 +38,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1901
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1445
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0673
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0178
 action_plan:
   priority: elevated
   owners:
@@ -63,6 +65,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0673
+  - at: "2026-09-01T12:01:47Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0178
 ---
 
 Multiple vulnerabilities have been identified in the Google Chrome and Microsoft Edge web browsers, both of which are based on the Chromium engine. These flaws allow a remote, unauthenticated attacker to exploit browser-based weaknesses to achieve arbitrary code execution, escape the browser's sandbox environment, and disclose sensitive information. While specific vulnerability identifiers were not detailed in the source advisory, these flaws represent a significant threat to browser security. Defenders should treat these as high-priority updates for all enterprise endpoints, as browser-based exploitation is a common vector for initial access and payload delivery.
