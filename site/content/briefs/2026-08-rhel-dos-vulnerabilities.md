@@ -3,7 +3,7 @@ title: Denial of Service Vulnerabilities in RHEL pipewire and dbus-broker
 slug: 2026-08-rhel-dos-vulnerabilities
 description: Multiple vulnerabilities in the pipewire and dbus-broker components of Red Hat Enterprise Linux allow an attacker to trigger a Denial of Service condition through system instability or service disruption.
 date: "2026-08-31T11:57:33Z"
-lastmod: "2026-08-31T11:58:53Z"
+lastmod: "2026-09-01T12:02:43Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,10 @@ severities:
   - medium
 cpes:
   - cpe:2.3:a:cyberchimps:responsive_addons:*:*:*:*:*:wordpress:*:*
+tags:
+  - privilege-escalation
+  - linux
+  - red-hat
 vendors:
   - Red Hat
 products:
@@ -26,6 +30,12 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: An attacker can utilize several vulnerabilities in Red Hat Enterprise Linux to perform a Denial of Service attack.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Ein lokaler Angreifer kann eine Schwachstelle in Red Hat Enterprise Linux ausnutzen, um beliebigen Programmcode mit Administratorrechten auszuführen.
+    confidence_band: high
 cves:
   - id: CVE-2024-5222
     cvss: 6.4
@@ -37,6 +47,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3095
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3078
   - https://nvd.nist.gov/vuln/detail/CVE-2023-34440
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-1001
 action_plan:
   priority: elevated
   owners:
@@ -56,6 +67,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3078
+  - at: "2026-09-01T12:02:43Z"
+    level: L1
+    summary: added coverage for Enterprise Linux
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-1001
 ---
 
 The German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities in Red Hat Enterprise Linux (RHEL). These vulnerabilities specifically affect the 'pipewire' multimedia framework and the 'dbus-broker' message bus implementation. An attacker can leverage these flaws to induce a Denial of Service (DoS) state, potentially resulting in system instability or the crash of critical background services. This impact is significant for production environments relying on these components for inter-process communication or audio-visual processing. Defenders should prioritize updating affected systems to the latest security releases provided by Red Hat to mitigate these risks.
