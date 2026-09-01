@@ -3,7 +3,7 @@ title: Remote Stack-Based Buffer Overflow in D-Link DIR-825M
 slug: 2026-08-dlink-buffer-overflow
 description: A critical stack-based buffer overflow vulnerability in D-Link DIR-825M firmware allows unauthenticated remote attackers to achieve code execution via the /boafrm/formDiskFormat endpoint.
 date: "2026-08-31T01:12:58Z"
-lastmod: "2026-08-31T01:13:06Z"
+lastmod: "2026-09-01T13:31:06Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:h:dlink:dir-825m:1.1.8:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=AE38148F-C00C-5A5C-87F5-DA9FEA8D6FD9&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - buffer-overflow
@@ -35,9 +38,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-82592
     cvss: 9.9
+    epss: 0.00767
+  - id: CVE-2026-82593
+    cvss: 9.9
+    epss: 0.00511
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82592
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82593
+  - https://sploitus.com/exploit?id=AE38148F-C00C-5A5C-87F5-DA9FEA8D6FD9&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-82592 Exploitation - Malicious POST to Disk Formatting Endpoint
     description: Detects exploitation attempts against CVE-2026-82592 by monitoring for POST requests to the /boafrm/formDiskFormat endpoint with potentially malicious partition parameters.
@@ -81,6 +89,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82593
+  - at: "2026-09-01T13:31:06Z"
+    level: L2
+    summary: poc_available; added CVE-2026-82593
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=AE38148F-C00C-5A5C-87F5-DA9FEA8D6FD9&utm_source=rss&utm_medium=rss
 ---
 
 D-Link DIR-825M firmware version 1.1.8 contains a critical stack-based buffer overflow vulnerability identified as CVE-2026-82592. The vulnerability is located within the sub_46725C function of the Disk Formatting Handler component, specifically triggered through the /boafrm/formDiskFormat endpoint. By sending a maliciously crafted HTTP request containing an overly long 'partition' argument, an unauthenticated remote attacker can corrupt the stack, potentially leading to arbitrary code execution on the affected router. The exploit is currently public, significantly increasing the risk of exploitation by threat actors targeting small office/home office (SOHO) network infrastructure.
