@@ -3,6 +3,7 @@ title: Threat Actors Impersonate AI Crawlers to Exfiltrate Sensitive Credentials
 slug: 2026-08-ai-crawler-impersonation
 description: Threat actors are using forged User-Agent strings to masquerade as AI crawlers from OpenAI, Anthropic, and other firms to scan for and exfiltrate environment files and cloud credentials from misconfigured web servers.
 date: "2026-08-28T15:12:38Z"
+lastmod: "2026-09-01T00:08:36Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:vitejs:vite:*:*:*:*:*:node.js:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THUMPBO-CVE-2025-30208-EXP&utm_source=rss&utm_medium=rss
 tags:
   - credential-theft
   - web-scraping
@@ -36,6 +40,8 @@ cves:
   - id: CVE-2025-30208
     cvss: 5.3
     epss: 0.74784
+references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THUMPBO-CVE-2025-30208-EXP&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Unauthorized Access to Sensitive Configuration Files
     description: Detects HTTP GET requests for sensitive configuration files often targeted by credential-harvesting scanners
@@ -68,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: All web applications
       evidence: GreyNoise recommendation for Security Leadership
+updates:
+  - at: "2026-09-01T00:08:36Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THUMPBO-CVE-2025-30208-EXP&utm_source=rss&utm_medium=rss
 ---
 
 GreyNoise has identified a campaign involving automated scanners impersonating legitimate AI crawlers, including those from OpenAI, Anthropic, and DeepSeek. These actors use forged User-Agent strings - matching character-for-character with known crawlers like ClaudeBot - to bypass simple access controls that rely solely on the User-Agent header. Unlike legitimate bots, these scanners do not request /robots.txt files and originate from IP addresses that do not match the published IP ranges of the impersonated organizations.
