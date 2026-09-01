@@ -3,6 +3,7 @@ title: Unrestricted File Upload Vulnerability in ShopEx ECShop
 slug: 2026-09-shopex-ecshop-upload
 description: ShopEx ECShop versions up to 2.5.1 contain an unrestricted file upload vulnerability in the check_img_type function that allows unauthenticated remote attackers to upload malicious files via the pack_img argument.
 date: "2026-09-01T01:01:41Z"
+lastmod: "2026-09-01T01:01:51Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - web-application-vulnerability
   - remote-code-execution
   - file-upload
+  - web-vulnerability
+  - sql-injection
+  - cve-2026-82922
 vendors:
   - ShopEx
 products:
@@ -36,6 +40,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82921
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82922
 rules:
   - title: Detects CVE-2026-82921 Exploitation - Unrestricted File Upload
     description: Detects exploitation of CVE-2026-82921 by identifying POST requests to the vulnerable admin/pack.php endpoint.
@@ -49,7 +54,17 @@ rules:
       - T1203
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-82922 Exploitation - SQL Injection in ECShop
+    description: Detects attempted SQL injection against the ShopEx ECShop flow_update_cart function by monitoring for suspicious characters in the rec_id query parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -75,6 +90,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82921
       evidence: Vulnerability in admin/pack.php allows remote exploitation.
+updates:
+  - at: "2026-09-01T01:01:51Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-82922 Exploitation - SQL Injection in ECShop'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82922
 ---
 
 A vulnerability identified as CVE-2026-82921 affects ShopEx ECShop versions up to 2.5.1. The flaw exists within the check_img_type function located in the admin/pack.php script. An unauthenticated remote attacker can exploit this weakness by manipulating the pack_img parameter to bypass file type validation, allowing for the upload of arbitrary, potentially malicious files to the server. Successful exploitation of this vulnerability can lead to remote code execution (RCE) if the uploaded file is subsequently executed by the web server. Public exploit code for this vulnerability is available, and there is no indication that the vendor has addressed this issue following initial disclosure. Defenders should prioritize restricting access to the administrative directory and monitoring for suspicious file uploads.
