@@ -3,6 +3,7 @@ title: Stored Cross-Site Scripting in Welcart e-Commerce Plugin
 slug: 2026-09-welcart-xss
 description: An unauthenticated stored XSS vulnerability in the Welcart e-Commerce WordPress plugin (CVE-2026-19914) allows attackers to inject malicious scripts that execute in the context of administrative sessions.
 date: "2026-09-01T11:05:11Z"
+lastmod: "2026-09-01T11:13:46Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:welcart:welcart_e-commerce:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-19914&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - xss
@@ -31,6 +35,7 @@ cves:
     cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19914
+  - https://sploitus.com/exploit?id=CVE-2026-19914&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-19914 Exploitation - Stored XSS via Guest Checkout
     description: Detects HTTP POST requests containing potential XSS payloads directed at the Welcart checkout endpoint.
@@ -59,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19914
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-09-01T11:13:46Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-19914&utm_source=rss&utm_medium=rss
 ---
 
 The Welcart e-Commerce plugin for WordPress contains a Stored Cross-Site Scripting (XSS) vulnerability, tracked as CVE-2026-19914. The flaw exists in the 'custom_order' parameter, which fails to properly sanitize input or escape output during the guest checkout process. Versions up to and including 2.12.1 are affected. An unauthenticated attacker can supply a crafted script within the checkout form fields. When a site administrator navigates to the WordPress dashboard to review the processed order, the malicious script executes in their browser session. This can be leveraged to perform unauthorized administrative actions, steal session tokens, or redirect users to malicious domains, posing a significant risk to the integrity of the WordPress environment.
