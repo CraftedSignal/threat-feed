@@ -3,6 +3,7 @@ title: Critical SSRF Vulnerability in SonicWall SMA1000 Appliances
 slug: 2026-09-sonicwall-sma1000-ssrf
 description: SonicWall SMA1000 appliances are vulnerable to an unauthenticated server-side request forgery (SSRF) flaw, enabling remote attackers to access sensitive internal functionality and perform unauthorized operations.
 date: "2026-09-02T17:56:31Z"
+lastmod: "2026-09-02T18:00:06Z"
 type: advisory
 types:
   - advisory
@@ -27,11 +28,14 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-83548
+  - id: CVE-2026-83549
+    cvss: 7.8
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-83548
   - https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0016
   - https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
   - https://nvd.nist.gov/vuln.nist.gov/vuln/detail/CVE-2026-83548
+  - https://www.sophos.com/en-us/blog/sonicwall-83548-83549
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +52,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-83548
       evidence: SSRF nature of the vulnerability
+updates:
+  - at: "2026-09-02T18:00:06Z"
+    level: L2
+    summary: added CVE-2026-83549
+    sources:
+      - sophos-xops
+    source_urls:
+      - https://www.sophos.com/en-us/blog/sonicwall-83548-83549
 ---
 
 SonicWall has disclosed a critical server-side request forgery (SSRF) vulnerability, tracked as CVE-2026-83548, affecting SMA1000 series appliances. This vulnerability allows an unauthenticated remote attacker to bypass security controls by coercing the appliance into making unintended internal network requests. By leveraging this SSRF, an adversary can access administrative interfaces, internal services, or sensitive metadata not intended for public access, potentially leading to unauthorized configuration changes or further exploitation of the internal network. Given the appliance's role as a secure access gateway, successful exploitation provides a strategic foothold within the organization's perimeter. This vulnerability has been included in CISA’s Known Exploited Vulnerabilities (KEV) catalog, mandating remediation for federal agencies and high-risk environments under BOD 26-04. Defenders should prioritize auditing the exposure of these appliances and applying vendor-supplied security updates immediately.
