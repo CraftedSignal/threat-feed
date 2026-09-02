@@ -3,6 +3,7 @@ title: Remote Code Execution in Orval via Malicious Zod Schema Generation
 slug: 2026-09-orval-rce
 description: Orval versions prior to 8.21.0 are vulnerable to remote code execution during module import due to improper sanitization of OpenAPI query parameter default values in generated Zod schemas.
 date: "2026-09-02T18:03:05Z"
+lastmod: "2026-09-02T18:03:14Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,8 @@ tags:
   - rce
   - nodejs
   - typescript
+vendors:
+  - Orval
 products:
   - Orval (< 8.21.0)
 mitre_ttps:
@@ -30,6 +33,10 @@ cves:
 references:
   - https://github.com/advisories/GHSA-p4cg-3328-rvfg
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72716
+  - https://github.com/advisories/GHSA-6mr6-jvcr-2f25
+  - https://github.com/user-attachments/files/29426038/maintainer-report.txt
+  - https://github.com/user-attachments/files/29426039/make_spec.py
+  - https://github.com/user-attachments/files/29426040/reproduce.sh
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +53,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-72716
       evidence: Source advisory recommends escaping default values or ensuring no interpolation is possible
+updates:
+  - at: "2026-09-02T18:03:14Z"
+    level: L2
+    summary: added coverage for orval (< 8.21.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6mr6-jvcr-2f25
 ---
 
 Orval, a popular tool for generating TypeScript clients and Zod schemas from OpenAPI specifications, contains a critical vulnerability (CVE-2026-72716) that allows for remote code execution. The issue stems from the way the tool emits query parameter default values within the generated Zod schema modules. Specifically, these values are written as module-level template literals (e.g., `export const …Default = `&lt;default>`;`) without adequate escaping of backticks or the `${` character sequence.
