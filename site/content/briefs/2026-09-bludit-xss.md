@@ -3,11 +3,12 @@ title: Stored XSS Vulnerability in Bludit CMS
 slug: 2026-09-bludit-xss
 description: Bludit CMS version 3.22.0 contains a stored XSS vulnerability in its SVG upload process, allowing attackers to execute arbitrary JavaScript via malicious XML processing instructions.
 date: "2026-09-01T14:31:44Z"
+lastmod: "2026-09-02T15:43:46Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - webapps
   - xss
@@ -16,6 +17,7 @@ vendors:
   - Bludit
 products:
   - Bludit CMS (3.22.0)
+  - Bludit CMS (3.0.0 through 3.20.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,8 +31,22 @@ mitre_ttps:
     technique_name: 'Server Software Component: Web Shell'
     evidence: Uploading an SVG with <?xml-stylesheet?> XSLT (method=html) results in stored XSS when the file is opened.
     confidence_band: med
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: The vulnerability allows an attacker to execute malicious scripts in a victim's browser, potentially leading to session cookie theft.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: The exploit builds a crafted URL containing JavaScript code to be executed in the victim's browser.
+    confidence_band: high
 references:
   - https://www.exploit-db.com/exploits/52670
+  - https://www.exploit-db.com/exploits/52678
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-41456
 rules:
   - title: Detect Malicious SVG Uploads with XML Stylesheet
     description: Detects attempts to upload SVG files containing XML processing instructions commonly used for XSS in Bludit CMS
@@ -42,7 +58,18 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-41456 Exploitation - Reflected XSS in Bludit CMS
+    description: Detects attempts to exploit CVE-2026-41456 by identifying HTML breakout characters and script tags in the /search/ path of Bludit CMS.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1189
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -59,6 +86,14 @@ action_plan:
       owner: IT Operations
       addresses: Bludit CMS (3.22.0)
       evidence: The source confirms version 3.22.0 is affected.
+updates:
+  - at: "2026-09-02T15:43:46Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-41456 Exploitation - Reflected XSS in Bludit CMS'
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52678
 ---
 
 Bludit CMS version 3.22.0 is susceptible to a stored Cross-Site Scripting (XSS) vulnerability due to incomplete sanitization of SVG files. The application's `sanitizeSVG()` function fails to remove XML processing instructions, specifically the `<?xml-stylesheet?>` directive. An attacker can craft a malicious SVG file containing an XSLT transformation that points to a local or remote stylesheet. When this file is uploaded through the administrative interface and subsequently viewed by a user, the XSLT processor executes the embedded JavaScript. This allows an attacker to achieve unauthorized script execution in the context of the user's browser, which can lead to session hijacking, administrative credential theft, or further actions performed on behalf of the victim.
