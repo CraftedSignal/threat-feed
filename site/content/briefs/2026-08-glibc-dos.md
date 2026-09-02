@@ -3,7 +3,7 @@ title: Denial of Service Vulnerability in GNU C Library
 slug: 2026-08-glibc-dos
 description: A local attacker can exploit a vulnerability in the GNU C Library (glibc) to cause application crashes or service instability, resulting in a Denial of Service.
 date: "2026-08-11T11:35:50Z"
-lastmod: "2026-08-29T12:44:21Z"
+lastmod: "2026-09-02T12:04:45Z"
 type: advisory
 types:
   - advisory
@@ -37,6 +37,7 @@ vendors:
 products:
   - GNU C Library
   - Active IQ Unified Manager
+  - glibc
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -52,6 +53,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2740
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-2961
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KYOTOZX-CVE-2024-2961-REMOTE-FILE-READ&utm_source=rss&utm_medium=rss
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-0926
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +72,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KYOTOZX-CVE-2024-2961-REMOTE-FILE-READ&utm_source=rss&utm_medium=rss
+  - at: "2026-09-02T12:04:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-0926
 ---
 
 The BSI has reported a vulnerability within the GNU C Library (glibc), identified as CVE-2024-2961. This flaw permits a local attacker to trigger a Denial of Service (DoS) condition on affected Linux systems. The vulnerability stems from improper handling of specific inputs by the library during runtime, which can cause applications linked against the compromised version of glibc to crash or become unstable. Given that glibc is a fundamental component of most Linux distributions, this vulnerability impacts a wide range of services and applications that rely on its core functions for memory management, string manipulation, and system calls. Defenders should prioritize patching the glibc packages provided by their distribution maintainers to mitigate the risk of local service disruption.
