@@ -3,6 +3,7 @@ title: Authentication Bypass in APITable InternalUserController
 slug: 2026-08-apitable-auth-bypass
 description: APITable versions up to 1.13.0-beta.1 contain an authentication bypass vulnerability in the InternalUserController, allowing unauthenticated attackers to permanently delete user accounts currently in a cooling-off period.
 date: "2026-08-27T19:10:05Z"
+lastmod: "2026-09-02T03:11:12Z"
 type: threat
 types:
   - threat
@@ -13,10 +14,13 @@ tags:
   - authentication-bypass
   - web-application-vulnerability
   - data-destruction
+  - information-disclosure
+  - cloud
 vendors:
   - APITable
 products:
   - APITable
+  - APITable (<= 1.13.0-beta.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -24,11 +28,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The nginx gateway shipped with the product proxies every /api request to the backend server, so both endpoints are reachable by any unauthenticated client that can reach the gateway.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Reconnaissance
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Attackers can query the endpoint with space identifiers obtained from shared links or public templates to enumerate the complete member directory of any workspace.
+    confidence_band: high
 cves:
   - id: CVE-2026-80208
     cvss: 8.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-80208
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84485
 rules:
   - title: Detect Exploitation of CVE-2026-80208 - Unauthorized Access to InternalUserController
     description: Detects unauthenticated access attempts to internal account management endpoints in APITable
@@ -58,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-80208
       evidence: NVD vulnerability notice
+updates:
+  - at: "2026-09-02T03:11:12Z"
+    level: L2
+    summary: added coverage for APITable (<= 1.13.0-beta.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-84485
 ---
 
 APITable versions up to and including 1.13.0-beta.1 contain an authentication bypass vulnerability in the `InternalUserController` class. The endpoints `getUserHistories` and `closePausedUserAccount` are incorrectly annotated with `requiredLogin = false`. The application's `ResourceInterceptor` honors this annotation by skipping session or API key validation for these routes. Because the product's bundled nginx gateway proxies all `/api` requests to the backend, these sensitive administrative functions are exposed to any unauthenticated client with network access to the gateway. An attacker can exploit this to enumerate accounts awaiting permanent deletion and finalize the removal process, thereby bypassing the 30-day account recovery cooling-off period. This leads to irreversible data loss for targeted users.
