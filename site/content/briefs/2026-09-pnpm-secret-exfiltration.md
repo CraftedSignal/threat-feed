@@ -3,6 +3,7 @@ title: Environment Secret Exfiltration via pnpm-workspace.yaml Proxy Settings
 slug: 2026-09-pnpm-secret-exfiltration
 description: A vulnerability in pnpm allows local environment variable exfiltration when a user executes 'pnpm install' in a malicious repository containing a crafted 'pnpm-workspace.yaml' file.
 date: "2026-09-02T00:01:10Z"
+lastmod: "2026-09-02T18:06:09Z"
 type: advisory
 types:
   - advisory
@@ -12,11 +13,14 @@ tags:
   - supply-chain
   - exfiltration
   - pnpm
+  - vulnerability
+  - path-traversal
 vendors:
   - pnpm
 products:
   - pnpm (>= 11.0.0, < 11.11.0)
   - pnpm (>= 10.7.0, < 10.34.5)
+  - pnpm (< 10.34.5, >= 11.0.0, < 11.11.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,9 +34,17 @@ mitre_ttps:
     technique_name: Exfiltration Over Alternative Protocol
     evidence: The secret is exfiltrated during config loading, before any lifecycle script runs.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The attacker's postinstall script then executes with the victim's shell access.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-vx52-2968-3vc6
   - https://github.com/orgs/pnpm/discussions/13598
+  - https://github.com/advisories/GHSA-c59q-g84q-2gj5
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82392
 action_plan:
   priority: elevated
   owners:
@@ -49,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: All pnpm-based projects
       evidence: Prevent exfiltration to attacker-controlled proxies.
+updates:
+  - at: "2026-09-02T18:06:09Z"
+    level: L2
+    summary: added coverage for pnpm (< 10.34.5, >= 11.0.0, < 11.11.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-c59q-g84q-2gj5
 ---
 
 pnpm versions 10.7.0 through 10.34.4 and 11.0.0 through 11.10.9 are susceptible to an environment variable exfiltration vulnerability. The issue occurs because pnpm expands environment variable placeholders (e.g., `${NPM_TOKEN}`) within `httpProxy`, `httpsProxy`, `noProxy`, `proxy`, and `noproxy` settings when read from a project's `pnpm-workspace.yaml` file. 
