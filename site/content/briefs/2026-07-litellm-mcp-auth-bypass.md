@@ -3,6 +3,7 @@ title: LiteLLM MCP Authentication Bypass via OAuth2 Passthrough Fallback
 slug: 2026-07-litellm-mcp-auth-bypass
 description: An authentication bypass vulnerability (CVE-2026-59822) exists in LiteLLM's MCP Streamable HTTP endpoint, affecting versions prior to 1.84.0, allowing an unauthenticated attacker to exploit a fallback path that replaces failed key validation with an empty authentication object, leading to the establishment of an authenticated MCP session using arbitrary Bearer tokens, enabling access to configured MCP tools and connected services.
 date: "2026-07-22T22:39:57Z"
+lastmod: "2026-09-02T17:56:08Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - BerriAI
 products:
   - LiteLLM (< 1.84.0)
+  - LiteLLM (< 1.84.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -28,11 +30,20 @@ mitre_ttps:
 cves:
   - id: CVE-2026-59822
     cvss: 8.2
-    epss: 0.00243
+    epss: 0.00516
 references:
   - https://github.com/advisories/GHSA-7488-6r32-c95q
   - https://github.com/BerriAI/litellm/releases/tag/v1.84.0
   - CVE-2026-59822
+  - https://www.cve.org/CVERecord?id=CVE-2026-59822
+updates:
+  - at: "2026-09-02T17:56:08Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-59822
 ---
 
 A critical authentication bypass vulnerability, tracked as CVE-2026-59822, has been discovered in LiteLLM's MCP (Microservice Communication Protocol) Streamable HTTP endpoint. This flaw, present in versions prior to 1.84.0, allows an unauthenticated attacker to establish an authenticated MCP session by exploiting a specific fallback mechanism in the OAuth2 passthrough handler. When a legitimate LiteLLM key validation fails, the vulnerable system inappropriately replaces the authentication object with an empty one. This behavior permits requests with any fabricated `Authorization: Bearer` token to be processed as authenticated, thereby granting unauthorized access to internal MCP tooling and connected services. The vulnerability puts organizations using LiteLLM at risk of unauthorized data access, command execution via MCP tools, and potential broader system compromise.
