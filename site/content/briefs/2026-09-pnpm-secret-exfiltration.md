@@ -3,7 +3,7 @@ title: Environment Secret Exfiltration via pnpm-workspace.yaml Proxy Settings
 slug: 2026-09-pnpm-secret-exfiltration
 description: A vulnerability in pnpm allows local environment variable exfiltration when a user executes 'pnpm install' in a malicious repository containing a crafted 'pnpm-workspace.yaml' file.
 date: "2026-09-02T00:01:10Z"
-lastmod: "2026-09-02T18:06:09Z"
+lastmod: "2026-09-02T18:06:19Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,7 @@ products:
   - pnpm (>= 11.0.0, < 11.11.0)
   - pnpm (>= 10.7.0, < 10.34.5)
   - pnpm (< 10.34.5, >= 11.0.0, < 11.11.0)
+  - pnpm (< 10.34.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -40,11 +41,25 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The attacker's postinstall script then executes with the victim's shell access.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: Windows Command Shell
+    evidence: Attacker controls the destination, filenames, and contents; arbitrary file write leading to code execution via shell configuration or hooks.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1547.001
+    technique_name: DLL Search Order Hijacking
+    evidence: The ability to overwrite .git/hooks/pre-commit or shell profiles allows for persistent code execution.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-vx52-2968-3vc6
   - https://github.com/orgs/pnpm/discussions/13598
   - https://github.com/advisories/GHSA-c59q-g84q-2gj5
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82392
+  - https://github.com/advisories/GHSA-vq4v-j7r6-jq4m
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82393
 action_plan:
   priority: elevated
   owners:
@@ -69,6 +84,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-c59q-g84q-2gj5
+  - at: "2026-09-02T18:06:19Z"
+    level: L2
+    summary: added coverage for pnpm (< 10.34.5) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vq4v-j7r6-jq4m
 ---
 
 pnpm versions 10.7.0 through 10.34.4 and 11.0.0 through 11.10.9 are susceptible to an environment variable exfiltration vulnerability. The issue occurs because pnpm expands environment variable placeholders (e.g., `${NPM_TOKEN}`) within `httpProxy`, `httpsProxy`, `noProxy`, `proxy`, and `noproxy` settings when read from a project's `pnpm-workspace.yaml` file. 
