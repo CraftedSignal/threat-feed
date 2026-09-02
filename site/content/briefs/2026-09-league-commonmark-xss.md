@@ -3,6 +3,7 @@ title: Stored XSS via Attribute Filter Bypass in league/commonmark
 slug: 2026-09-league-commonmark-xss
 description: An XSS vulnerability in league/commonmark allows attackers to execute arbitrary JavaScript by prepending a U+000C form feed character to malicious attribute names, bypassing security filters in the AttributesExtension.
 date: "2026-09-02T00:00:45Z"
+lastmod: "2026-09-02T00:00:54Z"
 type: advisory
 types:
   - advisory
@@ -13,10 +14,13 @@ tags:
   - web-vulnerability
   - php
   - supply-chain
+  - denial-of-service
+  - algorithmic-complexity
 vendors:
   - thephpleague
 products:
   - commonmark (>= 2.7.0, < 2.9.1)
+  - commonmark (>= 0.6.0, < 2.9.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +34,14 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: This results in the validator failing to identify restricted attributes... leading to arbitrary JavaScript execution in the victim's browser.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: An unauthenticated attacker who can submit Markdown for conversion can use a comparatively small request to consume disproportionate CPU time.
+    confidence_band: high
+references:
+  - https://github.com/advisories/GHSA-j8pm-gj4c-rq4x
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +58,14 @@ action_plan:
       owner: Development Team
       addresses: XSS filter bypass
       evidence: Setting an explicit allow list takes the other branch of filterAttributes, which drops the form-feed name.
+updates:
+  - at: "2026-09-02T00:00:54Z"
+    level: L2
+    summary: added coverage for commonmark (>= 0.6.0, < 2.9.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-j8pm-gj4c-rq4x
 ---
 
 The `AttributesExtension` for the `league/commonmark` library fails to correctly sanitize attributes when a U+000C form feed character (`\x0C`) is prepended to the attribute name. The library's `AttributesHelper` uses PHP's `trim()` function to clean input, but since `\x0C` is excluded from the default trim character list, the character is preserved. This results in the validator failing to identify restricted attributes (such as `onclick` or `onerror`) or unsafe `javascript:` URIs. Because the subsequent HTML renderer does not escape attribute names, browsers interpret the malformed tag as a valid HTML element containing the malicious handler or URI. This vulnerability affects `league/commonmark` versions 2.7.0 through 2.9.0 and persists even when developers enable recommended security configurations, such as disabling `allow_unsafe_links`.
