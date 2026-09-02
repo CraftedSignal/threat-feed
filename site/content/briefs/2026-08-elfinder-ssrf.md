@@ -3,6 +3,7 @@ title: SSRF Protection Bypass in elFinder via DNS Rebinding
 slug: 2026-08-elfinder-ssrf
 description: elFinder 2.1.69 and earlier are vulnerable to a DNS rebinding SSRF attack when PHP cURL is unavailable, allowing attackers to access internal or loopback network services.
 date: "2026-08-31T23:58:45Z"
+lastmod: "2026-09-02T18:04:36Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,16 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:studio-42:elfinder:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - rce
+  - file-upload
+  - cve-2026-81891
 vendors:
   - Studio-42
 products:
   - elFinder (<= 2.1.69)
+  - elFinder (< 2.1.70)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -27,12 +34,37 @@ mitre_ttps:
     technique_name: Impair Defenses
     evidence: The application uses a secondary fsockopen() fallback that fails to pin the IP address validated during the initial security check.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1505
+    technique_name: Server Software Component
+    evidence: An attacker who is permitted to upload ZIP archives can therefore extract PHP-executable files into the web-accessible files/ directory... resulting in Remote Code Execution.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: The attacker can achieve remote code execution by extracting and then accessing the files via a web-accessible directory.
+    confidence_band: high
 cves:
   - id: CVE-2026-81889
     cvss: 8.6
 references:
   - https://github.com/advisories/GHSA-8x3q-jpjh-qh5c
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81889
+  - https://github.com/advisories/GHSA-gxmj-r5rf-ggwq
+rules:
+  - title: Detect Exploitation of CVE-2026-81891 - Suspicious Access to PHP-Executable Extensions
+    description: Detects HTTP GET requests for files with common PHP-executable extensions in the elFinder upload directory, which may indicate access to a successfully extracted malicious payload.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1204.002
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -49,6 +81,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-81889
       evidence: Suggested remediation in GHSA advisory.
+updates:
+  - at: "2026-09-02T18:04:36Z"
+    level: L2
+    summary: 'added detection rule: Detect Exploitation of CVE-2026-81891 - Suspicious Access to PHP-Executable Extensions'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gxmj-r5rf-ggwq
 ---
 
 elFinder version 2.1.69 is vulnerable to a Server-Side Request Forgery (SSRF) bypass when the PHP cURL extension is unavailable. In this scenario, elFinder falls back to using `fsock_get_contents()` for URL uploads. While the application performs an initial hostname validation to block private and loopback IP addresses, it fails to pin the validated IP address for the subsequent socket connection. 
