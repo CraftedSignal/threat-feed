@@ -3,7 +3,7 @@ title: Multiple Vulnerabilities in Google Chrome and Microsoft Edge
 slug: 2026-08-chrome-edge-vulnerabilities
 description: Multiple vulnerabilities in Google Chrome and Microsoft Edge allow remote, unauthenticated attackers to achieve arbitrary code execution, bypass sandbox protections, and perform information disclosure.
 date: "2026-08-27T11:33:16Z"
-lastmod: "2026-09-02T12:03:15Z"
+lastmod: "2026-09-02T12:03:20Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ products:
   - Edge
   - Chrome (< 124.0.6367.201)
   - Chrome (< 125.0.6422.60)
+  - Chrome (< 124.0.6367.201)
   - Chrome (< 124.0.6367.201)
 mitre_ttps:
   - tactic_id: TA0002
@@ -43,6 +44,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0178
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-3585
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1436
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1340
 action_plan:
   priority: elevated
   owners:
@@ -55,13 +57,6 @@ action_plan:
       addresses: Multiple browser vulnerabilities
       evidence: Source advisory recommends updating to mitigate known flaws.
 updates:
-  - at: "2026-08-27T11:33:22Z"
-    level: L2
-    summary: added CVE-2024-4671
-    sources:
-      - bsi
-    source_urls:
-      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0420
   - at: "2026-09-01T12:00:25Z"
     level: L2
     summary: chrome version < 124.0.6367.201
@@ -90,6 +85,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1436
+  - at: "2026-09-02T12:03:20Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1340
 ---
 
 Multiple vulnerabilities have been identified in the Google Chrome and Microsoft Edge web browsers, both of which are based on the Chromium engine. These flaws allow a remote, unauthenticated attacker to exploit browser-based weaknesses to achieve arbitrary code execution, escape the browser's sandbox environment, and disclose sensitive information. While specific vulnerability identifiers were not detailed in the source advisory, these flaws represent a significant threat to browser security. Defenders should treat these as high-priority updates for all enterprise endpoints, as browser-based exploitation is a common vector for initial access and payload delivery.
