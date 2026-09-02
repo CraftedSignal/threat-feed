@@ -3,6 +3,7 @@ title: Command Injection Vulnerability in Coolify
 slug: 2026-09-coolify-command-injection
 description: Coolify versions before 4.2.0 are vulnerable to command injection via environment variable keys, allowing authenticated attackers to execute arbitrary commands on the underlying host server.
 date: "2026-09-02T03:10:31Z"
+lastmod: "2026-09-02T12:02:08Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ tags:
 vendors:
   - Coolify
 products:
+  - Coolify (< 4.2.0)
   - Coolify (< 4.2.0)
 mitre_ttps:
   - tactic_id: TA0002
@@ -36,6 +38,7 @@ cves:
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84694
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3150
 action_plan:
   priority: immediate_escalation
   owners:
@@ -52,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-84694
       evidence: Vulnerability allows execution via SSH-based Docker management commands.
+updates:
+  - at: "2026-09-02T12:02:08Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3150
 ---
 
 Coolify versions prior to 4.2.0 contain a critical vulnerability identified as CVE-2026-84694. The flaw exists in how the application handles environment variable key names when constructing Docker commands for execution over SSH on managed host servers. Specifically, the application fails to properly sanitize or escape input, enabling an authenticated attacker to inject shell metacharacters into the environment variable key fields. When Coolify triggers a Docker command (such as 'docker run' or 'docker exec') using these unsanitized variables, the injected characters are interpreted by the host shell, resulting in arbitrary code execution outside the container context. This vulnerability poses a high risk to infrastructure security, as it allows escalation from the Coolify application interface to full host-level access on connected managed servers.
