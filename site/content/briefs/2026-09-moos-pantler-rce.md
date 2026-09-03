@@ -3,6 +3,7 @@ title: Remote Code Execution in MOOS essential-moos pAntler
 slug: 2026-09-moos-pantler-rce
 description: The pAntler component in essential-moos versions 10.0.1 and earlier allows unauthenticated attackers to achieve remote code execution by publishing a crafted MISSION_FILE message to the MOOSDB.
 date: "2026-09-03T23:25:50Z"
+lastmod: "2026-09-03T23:27:36Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - remote-code-execution
   - vulnerability
   - cve
+  - network-security
 vendors:
   - MOOS
 products:
@@ -25,11 +27,24 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: An attacker can trigger this by sending a specially crafted MISSION_FILE message to the MOOSDB.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can send crafted UDP packets to the configured port to inject arbitrary variables into the local MOOS community.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Attackers can inject arbitrary variables into the local MOOS community.
+    confidence_band: high
 cves:
   - id: CVE-2026-85427
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85427
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85431
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-85427
       evidence: Vulnerability fixed in releases following 10.0.1
+updates:
+  - at: "2026-09-03T23:27:36Z"
+    level: L2
+    summary: added coverage for essential-moos (<= 10.0.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85431
 ---
 
 The MOOS-IvP open-source project essential-moos suite, specifically the pAntler component through version 10.0.1, contains a critical remote code execution vulnerability. pAntler is designed to manage and launch various MOOS processes defined within a mission file. An unauthenticated attacker capable of communicating with the MOOSDB can publish a specially crafted 'MISSION_FILE' message. The pAntler application reads the contents of this message and parses it for 'Run' entries. Due to a lack of authentication and input validation on these entries, pAntler passes the user-supplied strings directly to the execvp() system call, resulting in the execution of arbitrary programs with the privileges of the pAntler process. This vulnerability is significant for autonomous systems and research platforms that utilize the MOOS-IvP architecture, as it allows for full command execution on the host machine.
