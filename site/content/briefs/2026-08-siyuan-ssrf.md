@@ -3,7 +3,7 @@ title: SSRF Vulnerability in SiYuan via DNS Rebinding
 slug: 2026-08-siyuan-ssrf
 description: SiYuan versions prior to 3.8.1 are vulnerable to server-side request forgery through a DNS rebinding attack, enabling unauthorized access to cloud metadata services and internal network resources.
 date: "2026-08-28T15:13:11Z"
-lastmod: "2026-09-03T13:22:16Z"
+lastmod: "2026-09-03T13:22:25Z"
 type: advisory
 types:
   - advisory
@@ -21,11 +21,14 @@ tags:
   - information-disclosure
   - credential-access
   - cve-2026-85174
+  - path-traversal
+  - security-misconfiguration
 vendors:
   - SiYuan
 products:
   - SiYuan (< 3.8.1)
   - SiYuan (< 3.8.2)
+  - SiYuan (<= 3.8.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -59,6 +62,19 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82653
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82654
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85174
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85175
+rules:
+  - title: Detects CVE-2026-85175 Exploitation - Unauthorized Access to Configuration Files
+    description: Detects exploitation of CVE-2026-85175 where an attacker attempts to retrieve sensitive configuration keys via the /api/file/getFile endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1552.001
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -97,6 +113,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85174
+  - at: "2026-09-03T13:22:25Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-85175 Exploitation - Unauthorized Access to Configuration Files'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85175
 ---
 
 SiYuan versions before 3.8.1 are susceptible to a critical server-side request forgery (SSRF) vulnerability identified as CVE-2026-82234. The flaw exists within the 'http_request' and 'web_fetch' agent tools, which perform DNS resolution checks only at the time of the request guard. Because the application fails to validate the IP address resolved during the subsequent connection phase, it becomes vulnerable to DNS rebinding attacks. An attacker can supply a domain that resolves to a benign public IP address during the initial guard check and then switches to a private, restricted, or cloud metadata IP address (e.g., 169.254.169.254) during the actual connection. This allows remote attackers to bypass security filters and interact with internal network services or exfiltrate sensitive environment metadata that would otherwise be protected from external access. This vulnerability poses a significant risk to cloud-hosted deployments of SiYuan.
