@@ -3,12 +3,17 @@ title: Remote Code Execution in Adminer via PDO DSN Injection
 slug: 2026-08-adminer-rce
 description: Adminer versions prior to 5.4.3 are vulnerable to unauthenticated remote code execution via DSN injection, allowing attackers to write arbitrary PHP files to the web root.
 date: "2026-08-25T04:05:07Z"
-lastmod: "2026-08-25T04:06:00Z"
+lastmod: "2026-09-03T03:48:20Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:vrana:adminer:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOREAS37-CVE-2026-56705&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - rce
@@ -19,7 +24,7 @@ tags:
 vendors:
   - Vrana
 products:
-  - Adminer
+  - Adminer (<= 5.4.3)
   - Adminer (< 5.4.3)
 mitre_ttps:
   - tactic_id: TA0001
@@ -37,6 +42,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-56705
     cvss: 9.8
+    epss: 0.00497
+  - id: CVE-2026-34968
+    cvss: 8.1
+    epss: 0.00331
+  - id: CVE-2026-56702
+    cvss: 8.8
+    epss: 0.00343
+  - id: CVE-2026-56703
+    cvss: 7.2
+    epss: 0.01134
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56705
   - https://github.com/vrana/adminer/security/advisories/GHSA-r4x9-5m63-3vxw
@@ -50,6 +65,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56703
   - https://github.com/vrana/adminer/security/advisories/GHSA-gmx3-g29w-77wf
   - https://www.vulncheck.com/advisories/adminer-before-remote-code-execution-via-sqlite-vacuum-into
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOREAS37-CVE-2026-56705&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-56705 Exploitation - Adminer DSN Injection
     description: Detects exploitation attempts against Adminer by searching for semicolon-injected DSN parameters in HTTP requests.
@@ -129,6 +145,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-56703
+  - at: "2026-09-03T03:48:20Z"
+    level: L2
+    summary: poc_available; added CVE-2026-34968 +2
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOREAS37-CVE-2026-56705&utm_source=rss&utm_medium=rss
 ---
 
 Adminer versions prior to 5.4.3 contain a critical vulnerability (CVE-2026-56705) due to the failure to properly sanitize the server field during the construction of a PHP Data Objects (PDO) Data Source Name (DSN) string. This flaw enables unauthenticated remote attackers to perform DSN injection by providing malicious input containing semicolons. By injecting specific ODBC parameters, such as 'TraceFile' and 'TraceOn', an attacker can force the application to write arbitrary content to a file on the server. If this file is placed within the web root, the attacker can execute the written PHP code, leading to full system compromise. This vulnerability represents a high-risk vector for organizations running instances of Adminer exposed to the internet.
