@@ -1,8 +1,8 @@
 ---
-title: Suspicious PowerShell Get-Process LSASS Execution
+title: Detection of PowerShell Get-Process Execution on LSASS
 slug: 2026-09-powershell-lsass-getprocess
-description: Detection of suspicious PowerShell activity involving Get-Process calls targeting the Local Security Authority Subsystem Service (LSASS) process, a common precursor to credential dumping.
-date: "2026-09-03T12:36:37Z"
+description: Adversaries may use PowerShell to enumerate the Local Security Authority Subsystem Service (LSASS) process as a precursor to credential dumping or process injection.
+date: "2026-09-03T12:40:53Z"
 type: advisory
 types:
   - advisory
@@ -17,76 +17,53 @@ affected_os:
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1003
-    technique_name: OS Credential Dumping
-    evidence: Detects a Get-Process command on lsass process, which is in almost all cases a sign of malicious activity
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Detects a Get-Process cmdlet and its aliases on lsass process, which is in almost all cases a sign of malicious activity.
     confidence_band: high
 references:
-  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_susp_getprocess_lsass.yml
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_getprocess_lsass.yml
   - https://web.archive.org/web/20220205033028/https://twitter.com/PythonResponder/status/1385064506049630211
 rules:
-  - title: Detect Suspicious Get-Process LSASS Call
-    description: Detects the use of Get-Process targeting the LSASS process within PowerShell Script Blocks, often indicative of credential access reconnaissance.
+  - title: Detect PowerShell Get-Process LSASS Enumeration
+    description: Detects the use of PowerShell Get-Process, ps, or gps cmdlets targeting the LSASS process, which is often indicative of malicious credential access reconnaissance.
     platform: sigma
     severity: high
     tactics:
-      - credential_access
+      - credential-access
     techniques:
-      - T1003.001
+      - T1552.004
     data_sources:
-      - ps_script
+      - process_creation
       - windows
 rules_count: 1
 action_plan:
   priority: elevated
   owners:
-    - Detection Engineering
     - SOC
+    - Detection Engineering
   immediate_actions:
-    - action: Enable PowerShell Script Block Logging across domain-joined Windows endpoints
-      owner: IT Operations
-      due: 72h
-      evidence: Required for visibility into PowerShell script execution
-    - action: Deploy Sigma detection rule to SIEM
+    - action: Deploy Sigma rule to SIEM to detect LSASS enumeration.
       owner: Detection Engineering
       due: 48h
-      evidence: Detects reconnaissance of LSASS process
+      evidence: Source provides specific cmdlet patterns observed in malicious activity.
   hunt_leads:
-    - lead: Search for instances of Get-Process targeting LSASS in historical logs
-      technique_id: T1003.001
+    - lead: Search historic process creation logs for 'Get-Process lsass' to identify past unauthorized access attempts.
+      technique_id: T1552.004
       data_needed:
-        - Event ID 4104
+        - CommandLine
       priority: medium
       confidence: high
       disposition: hunt_now
-      evidence: Attacker reconnaissance pattern
-  mitigation_plan:
-    - priority: medium_term
-      action: Restrict access to LSASS process memory via Attack Surface Reduction (ASR) rules
-      owner: Endpoint Security
-      addresses: T1003.001
-      evidence: Reduces impact of credential dumping
+      evidence: Historical telemetry can reveal if the environment has been previously probed.
 ---
 
-This brief addresses a common technique used by threat actors to identify or interact with the Local Security Authority Subsystem Service (LSASS) using PowerShell. By executing 'Get-Process lsass' within a script block, attackers can verify the running status and PID of the LSASS process as a precursor to credential access attempts, such as memory dumping or injection. Monitoring for this specific pattern is critical for identifying early-stage reconnaissance activities within a Windows environment. Because legitimate administrative or certificate-related tasks may occasionally interact with process information, detection tuning is required to account for known benign internal tooling.
-
-## Attack Chain
-
-1. Initial access is established on a Windows endpoint via phishing, exploit, or other means.
-2. Attacker initiates PowerShell process (powershell.exe or pwsh.exe).
-3. Attacker executes reconnaissance scripts to identify security-sensitive processes.
-4. Attacker runs 'Get-Process lsass' to confirm target process availability and PID.
-5. Attacker attempts to elevate privileges to gain necessary access rights for process memory interaction.
-6. Attacker leverages tools like Mimikatz or procdump to dump LSASS process memory.
-7. Attacker exfiltrates memory dump for offline credential extraction.
+Monitoring for the execution of PowerShell cmdlets targeting the Local Security Authority Subsystem Service (LSASS) process is a critical detection capability for identifying credential access activities. Attackers often leverage built-in PowerShell commands like Get-Process (or its aliases 'ps' and 'gps') to enumerate the LSASS process handle or existence within a compromised environment. While these cmdlets can be used for administrative purposes, their application against LSASS is highly anomalous and frequently serves as a reconnaissance step before attempting to access LSASS memory to extract credentials (e.g., via tools like Mimikatz). Defenders should establish baseline activity for administrative scripts and alert on direct PowerShell interactions with this critical system process.
 
 ## Impact
 
-Successful interaction with the LSASS process often leads to credential theft, including plaintext passwords, NTLM hashes, and Kerberos tickets. This allows adversaries to escalate privileges, move laterally through the network, and maintain persistence. In high-value environments, this may lead to full domain compromise and significant data exfiltration.
+Successful reconnaissance of the LSASS process is often the first stage in credential theft campaigns. Unauthorized access to LSASS memory allows attackers to extract cleartext passwords, NTLM hashes, and Kerberos tickets, which facilitates lateral movement, privilege escalation, and persistent access to the enterprise domain.
 
 ## Recommendation
 
-- Enable PowerShell Script Block Logging (Event ID 4104) to capture the executed script content.
-- Deploy the provided Sigma rule to detect 'Get-Process lsass' activity within script block logs.
-- Tune the detection logic by comparing it against known administrative certificate management scripts or legacy monitoring tools in your environment.
-- Investigate any hits returned by the detection, focusing on the parent process and user context.
+Deploy the provided Sigma rule to your SIEM environment to detect enumeration of the LSASS process via PowerShell. Ensure that PowerShell script block logging (Event ID 4104) and process creation events (Sysmon Event ID 1) are enabled to capture these command lines. Investigate any instances where administrative service accounts or user accounts execute these commands against LSASS, as they likely indicate credential access attempts.
