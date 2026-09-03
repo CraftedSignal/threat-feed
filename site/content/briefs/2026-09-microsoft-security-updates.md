@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-03T23:24:01Z"
+lastmod: "2026-09-03T23:24:03Z"
 type: threat
 types:
   - threat
@@ -18,9 +18,12 @@ cves:
     product: Entra ID
     cvss: 9.1
   - id: CVE-2026-70352
+    product: Azure AI Language
     cvss: 10
+  - id: CVE-2026-80098
+    cvss: 9.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-70352
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-80098
 updates:
   - at: "2026-09-03T23:23:58Z"
     level: L1
@@ -31,20 +34,22 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62916
   - at: "2026-09-03T23:24:01Z"
     level: L2
-    summary: added CVE-2026-70352
+    summary: added CVE-2026-70352, CVE-2026-80098
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70352
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-80098
 ---
 
-This roundup covers 1 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Entra ID.
+This roundup covers 2 Microsoft security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Entra ID.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
-| [CVE-2026-62916](#cve-2026-62916) | Entra ID |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62916) (authoritative) |
+| [CVE-2026-62916](#cve-2026-62916) | Entra ID | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62916) (authoritative) |
+| [CVE-2026-70352](#cve-2026-70352) | Azure AI Language | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70352) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -55,3 +60,12 @@ Affected products:
 - Entra ID
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+
+## CVE-2026-70352
+
+CVE-2026-70352 describes a critical vulnerability in Microsoft's Azure AI Language service where a missing authentication control on a critical function allows an unauthorized remote attacker to perform privilege escalation. The vulnerability carries a CVSS base score of 10.0, indicating high severity and potential for exploitation over a network.
+
+Affected products:
+- Azure AI Language
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70352
