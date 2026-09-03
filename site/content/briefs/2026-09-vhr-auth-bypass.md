@@ -1,79 +1,61 @@
 ---
-title: Authorization Bypass in vhr HR Profile Endpoint
+title: Authentication Bypass in vhr PUT /hr/pass Endpoint
 slug: 2026-09-vhr-auth-bypass
-description: The vhr application contains an authorization bypass vulnerability in the PUT /hr/info endpoint that allows authenticated users to modify arbitrary HR profiles, including administrator accounts.
-date: "2026-09-03T15:22:43Z"
+description: An authentication flaw in the vhr application through commit 03abbd3 allows authenticated attackers to perform unauthorized password changes for arbitrary accounts by manipulating the account ID in PUT requests.
+date: "2026-09-03T17:22:10Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:vhr:vhr:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:vhr_project:vhr:*:*:*:*:*:*:*:*
 tags:
-  - authorization-bypass
+  - authentication-bypass
+  - privilege-escalation
   - web-vulnerability
-vendors:
-  - vhr
 products:
-  - vhr
+  - vhr (<= 03abbd3)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: vhr fails to validate user authorization in the PUT /hr/info endpoint, allowing authenticated users to modify arbitrary HR profiles.
+    technique_id: T1531
+    technique_name: Account Access Removal
+    evidence: Authenticated attackers can change arbitrary account passwords by supplying a target account ID and that account's current password in the request body.
     confidence_band: high
 cves:
-  - id: CVE-2026-85214
-    cvss: 8.1
+  - id: CVE-2026-85182
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-85214
-rules:
-  - title: Detect CVE-2026-85214 Exploitation - PUT Request to /hr/info
-    description: Detects potential exploitation of CVE-2026-85214 where an authenticated user attempts to modify HR info via the PUT /hr/info endpoint.
-    platform: sigma
-    severity: high
-    tactics:
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - webserver
-rules_count: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85182
 action_plan:
   priority: elevated
   owners:
-    - SOC
-    - Detection Engineering
+    - IT Operations
+    - Security Operations
   immediate_actions:
-    - action: Deploy Sigma detection for PUT /hr/info requests
-      owner: Detection Engineering
-      due: 24h
-      evidence: CVE-2026-85214 vulnerability disclosure
-  hunt_leads:
-    - lead: Search for PUT requests to /hr/info that are not tied to legitimate administrative accounts
-      technique_id: T1068
-      data_needed:
-        - Web server logs
-      priority: high
-      confidence: medium
-      disposition: hunt_now
-      evidence: Authorization bypass via PUT /hr/info
+    - action: Patch vhr to a version newer than 03abbd3.
+      owner: IT Operations
+      due: 48h
+      evidence: CVE-2026-85182
   mitigation_plan:
     - priority: immediate
-      action: Identify authorized administrators and monitor their activity; await official vendor patch
+      action: Upgrade vhr to a non-vulnerable commit.
       owner: IT Operations
-      addresses: CVE-2026-85214
-      evidence: Authorization bypass vulnerability
+      addresses: CVE-2026-85182
+      evidence: NVD vulnerability notice
 ---
 
-The vhr application exhibits a critical authorization flaw (CVE-2026-85214) within the PUT /hr/info endpoint. This vulnerability stems from improper validation of user authorization when processing update requests. Authenticated users can manipulate the application state by supplying an arbitrary profile ID within the request body, bypassing intended access controls. This allows a malicious actor to overwrite sensitive HR data, such as addresses and display names, or maliciously modify account statuses, including those of administrative users. Successful exploitation results in data integrity loss and potential denial of service by disabling critical administrative accounts. This issue is specific to the vhr platform and represents a significant risk for organizations relying on this software for employee lifecycle and personnel management.
+The vhr application, through commit 03abbd3, contains a critical authentication vulnerability that allows an authenticated user to reset the password of any account within the system. The flaw exists within the PUT /hr/pass endpoint, which fails to enforce a proper authorization check to verify that the account ID specified in the request body matches the identity of the authenticated user performing the request. 
+
+By supplying an arbitrary account ID along with that account's current password in the request body, an attacker can successfully overwrite the credentials for that target account. This vulnerability is highly impactful as it enables privilege escalation or total account takeover, provided the attacker has valid authentication to the platform. This issue was identified as CVE-2026-85182 and represents a failure in backend access control logic that requires immediate attention for systems running vhr versions at or below commit 03abbd3.
 
 ## Impact
 
-Successful exploitation allows authenticated users to perform unauthorized modifications of arbitrary HR profiles. The impact includes the corruption of sensitive employee information and a denial-of-service capability by disabling administrator accounts, potentially leading to a total loss of application control and organizational disruption.
+Successful exploitation of this vulnerability allows an authenticated attacker to gain unauthorized access to any user account on the platform, including administrative accounts. This leads to complete loss of account integrity and potential exfiltration of sensitive personnel or HR data managed by the application. Because the vulnerability allows an attacker to control the authentication credentials of any target account, the impact is severe, potentially compromising the entire instance of the vhr application.
 
 ## Recommendation
 
-Deploy the Sigma rule below to detect abnormal PUT requests targeting the /hr/info endpoint that may indicate unauthorized profile modification attempts. Ensure audit logging is enabled for all modifications to HR records within the vhr application to assist in the identification of unauthorized profile ID changes. Prioritize patching the vhr platform as soon as a fix is provided by the vendor.
+1. Patch the vhr application immediately by updating to a commit version later than 03abbd3 that includes the authorization fix for the PUT /hr/pass endpoint.
+2. Implement request validation logging for the PUT /hr/pass endpoint to identify requests where the authenticated user ID differs from the account ID provided in the payload.
+3. Audit application access logs for multiple password change requests originating from a single authenticated session that target different account IDs.
