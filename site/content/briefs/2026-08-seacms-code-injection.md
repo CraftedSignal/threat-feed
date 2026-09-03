@@ -3,7 +3,7 @@ title: Remote Code Injection in SeaCMS Template Engine
 slug: 2026-08-seacms-code-injection
 description: SeaCMS versions 13.6 and earlier contain a code injection vulnerability in the search.php file, allowing remote attackers to execute arbitrary code via the searchtype parameter.
 date: "2026-08-31T03:13:38Z"
-lastmod: "2026-08-31T03:13:48Z"
+lastmod: "2026-09-03T17:22:28Z"
 type: advisory
 types:
   - advisory
@@ -41,6 +41,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82598
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82600
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85137
 rules:
   - title: Detects CVE-2026-82600 Exploitation - SQL Injection in SeaCMS
     description: Detects potential SQL injection attempts against the SeaCMS /zyapi.php endpoint by monitoring the 'ids' parameter for common SQL injection patterns.
@@ -52,7 +53,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-85137 Exploitation - Remote Code Injection in SeaCMS
+    description: Detects potential remote code injection attempts targeting the seacms_locoy_news.php file via the pwd parameter
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -77,6 +88,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82600
+  - at: "2026-09-03T17:22:28Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-85137 Exploitation - Remote Code Injection in SeaCMS'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85137
 ---
 
 SeaCMS versions up to 13.6 are vulnerable to a remote code injection vulnerability located within the Template Engine component. The flaw resides in the 'parseIf' function within the 'search.php' file. An unauthenticated remote attacker can exploit this by sending a crafted HTTP request that manipulates the 'searchtype' argument. Successful exploitation allows for the execution of arbitrary code on the underlying web server, potentially leading to full system compromise. This vulnerability has been publicly disclosed and is considered actively exploitable, posing a high risk to organizations utilizing this content management system. 
