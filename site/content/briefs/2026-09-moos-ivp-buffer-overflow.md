@@ -3,7 +3,7 @@ title: Buffer Overflow Vulnerabilities in MOOS-IvP
 slug: 2026-09-moos-ivp-buffer-overflow
 description: Multiple buffer overflow vulnerabilities in MOOS-IvP versions up to 24.8.1 allow for remote code execution via malformed IvP function strings.
 date: "2026-09-03T23:25:05Z"
-lastmod: "2026-09-03T23:27:58Z"
+lastmod: "2026-09-03T23:28:31Z"
 type: advisory
 types:
   - advisory
@@ -51,6 +51,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85437
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85438
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85439
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85444
 action_plan:
   priority: elevated
   owners:
@@ -77,6 +78,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85439
+  - at: "2026-09-03T23:28:31Z"
+    level: L1
+    summary: added coverage for MOOS-IvP (<= 24.8.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85444
 ---
 
 MOOS-IvP through version 24.8.1 contains multiple buffer overflow vulnerabilities located within its IvP function string decoders. The vulnerability arises due to the application's failure to adequately validate length fields provided in attacker-controlled input. By crafting malicious encoded strings where the declared field length differs significantly from the actual field length, an attacker can induce heap or stack buffer overflows. These memory corruption events can be leveraged to achieve arbitrary remote code execution. The vulnerability is triggered when the affected components process malicious MOOS variables or malformed alog files, which are central to the MOOS-IvP communication and logging architecture. Defenders should prioritize patching, as these vulnerabilities are classified with a CVSS v3.1 base score of 9.8, indicating high potential for exploitation.
