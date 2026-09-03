@@ -3,7 +3,7 @@ title: Omnigent Shared Agent Bundle Overwrite Leads to Runner RCE
 slug: 2026-09-omnigent-rce
 description: An improper access control vulnerability in Omnigent allows authenticated users to overwrite shared agent bundles, enabling arbitrary command execution on runner infrastructure via malicious MCP server configuration.
 date: "2026-09-03T00:02:51Z"
-lastmod: "2026-09-03T00:04:13Z"
+lastmod: "2026-09-03T00:04:22Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:omnigent:omnigent:*:*:*:*:*:*:*:*
+tags:
+  - rce
+  - vulnerability
+  - webserver
 vendors:
   - Omnigent
 products:
@@ -61,6 +65,8 @@ references:
   - https://github.com/advisories/GHSA-7mqg-cx4g-x2rf
   - https://github.com/advisories/GHSA-p8rw-8qj3-hf33
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62677
+  - https://github.com/advisories/GHSA-756x-9hf6-q4h4
+  - https://github.com/omnigent-ai/omnigent/blob/23d42d9a7d46a3b6a0b40d5bf4125b91193bf831/omnigent/runner/tool_dispatch.py
 rules:
   - title: Detect Potential CVE-2026-62674 Exploitation - Agent Bundle Overwrite
     description: Detects authenticated PUT requests to the agent bundle upload endpoint, which may indicate exploitation of CVE-2026-62674.
@@ -72,7 +78,18 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-62675 Exploitation - POST request to /v1/sessions with callable tool path
+    description: Detects potential exploitation attempts by identifying suspicious POST requests to the session creation endpoint containing tool callable definitions.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -103,6 +120,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-p8rw-8qj3-hf33
+  - at: "2026-09-03T00:04:22Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-62675 Exploitation - POST request to /v1/sessions with callable tool path'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-756x-9hf6-q4h4
 ---
 
 Omnigent versions prior to 0.3.0 are vulnerable to an authenticated Remote Code Execution (RCE) flaw due to insufficient validation of shared/template agents. The endpoint `PUT /sessions/{session_id}/agent` allows authenticated users to upload full agent bundles. While the application UI and secondary endpoints correctly identify shared/template agents (where `agent.session_id` is `None`) as read-only and block modification, the primary bundle upload route fails to enforce this check.
