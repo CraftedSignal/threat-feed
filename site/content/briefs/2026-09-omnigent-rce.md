@@ -3,7 +3,7 @@ title: Omnigent Shared Agent Bundle Overwrite Leads to Runner RCE
 slug: 2026-09-omnigent-rce
 description: An improper access control vulnerability in Omnigent allows authenticated users to overwrite shared agent bundles, enabling arbitrary command execution on runner infrastructure via malicious MCP server configuration.
 date: "2026-09-03T00:02:51Z"
-lastmod: "2026-09-03T00:03:37Z"
+lastmod: "2026-09-03T00:04:13Z"
 type: advisory
 types:
   - advisory
@@ -40,6 +40,18 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Unix Shell'
     evidence: The parser fails to properly split command chains and interpret shell flags, allowing unauthorized git push operations.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The agent's sys_os_read/write/edit/shell tools now operate over the whole host filesystem, and (sandbox inactive) inherit the runner's full environment exposing host secrets via e.g. sys_os_shell('env').
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: The agent's sys_os_read/write/edit/shell tools now operate over the whole host filesystem.
+    confidence_band: high
 cves:
   - id: CVE-2026-62674
     cvss: 9
@@ -47,6 +59,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-jrrm-9hc7-2v3h
   - https://github.com/advisories/GHSA-7mqg-cx4g-x2rf
+  - https://github.com/advisories/GHSA-p8rw-8qj3-hf33
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62677
 rules:
   - title: Detect Potential CVE-2026-62674 Exploitation - Agent Bundle Overwrite
     description: Detects authenticated PUT requests to the agent bundle upload endpoint, which may indicate exploitation of CVE-2026-62674.
@@ -82,6 +96,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-7mqg-cx4g-x2rf
+  - at: "2026-09-03T00:04:13Z"
+    level: L2
+    summary: added coverage for Omnigent (< 0.3.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-p8rw-8qj3-hf33
 ---
 
 Omnigent versions prior to 0.3.0 are vulnerable to an authenticated Remote Code Execution (RCE) flaw due to insufficient validation of shared/template agents. The endpoint `PUT /sessions/{session_id}/agent` allows authenticated users to upload full agent bundles. While the application UI and secondary endpoints correctly identify shared/template agents (where `agent.session_id` is `None`) as read-only and block modification, the primary bundle upload route fails to enforce this check.
