@@ -3,6 +3,7 @@ title: Veeam ONE Security Bypass Vulnerability
 slug: 2026-08-veeam-one-bypass
 description: A vulnerability in Veeam ONE allows a remote, unauthenticated attacker to bypass security protections, potentially leading to unauthorized access to monitoring functions.
 date: "2026-08-26T14:05:37Z"
+lastmod: "2026-09-03T21:57:57Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:veeam:veeam_backup_\&_replication:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SINSINOLOGY-CVE-2024-29849&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - remote-access
@@ -31,6 +35,7 @@ cves:
     epss: 0.38433
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3008
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SINSINOLOGY-CVE-2024-29849&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-29849
       evidence: Standard defensive practice for remote code execution or bypass vulnerabilities
+updates:
+  - at: "2026-09-03T21:57:57Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SINSINOLOGY-CVE-2024-29849&utm_source=rss&utm_medium=rss
 ---
 
 Veeam has disclosed a security vulnerability affecting Veeam ONE that permits a remote, unauthenticated attacker to bypass existing security controls. The flaw primarily impacts the monitoring and reporting capabilities of the application. By exploiting this weakness, an attacker could potentially gain unauthorized access to the Veeam ONE interface or manipulate its monitoring functions without needing legitimate credentials. This vulnerability poses a significant risk to organizations relying on Veeam ONE for infrastructure visibility and backup oversight. Defenders should prioritize patching, as this vulnerability represents an initial access vector into a sensitive management component of the IT environment. 
