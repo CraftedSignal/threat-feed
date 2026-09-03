@@ -3,6 +3,7 @@ title: SeaweedFS Unauthenticated IAM gRPC Service Authentication Bypass
 slug: 2026-09-seaweedfs-iam-auth-bypass
 description: SeaweedFS versions prior to 4.24 contain an authentication bypass in the IAM gRPC service, allowing unauthenticated network actors to mint administrative S3 credentials and gain full control over object storage via CVE-2026-72920.
 date: "2026-09-02T18:03:20Z"
+lastmod: "2026-09-03T00:03:19Z"
 type: advisory
 types:
   - advisory
@@ -34,6 +35,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-2v6v-25fm-p4fg
   - https://github.com/seaweedfs/seaweedfs/pull/9442
+  - https://github.com/advisories/GHSA-gv5w-hfx8-8cwq
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72921
 action_plan:
   priority: immediate_escalation
   owners:
@@ -54,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-72920
       evidence: 'Patches: Fixed in 4.24.'
+updates:
+  - at: "2026-09-03T00:03:19Z"
+    level: L2
+    summary: added coverage for SeaweedFS (< 4.24)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gv5w-hfx8-8cwq
 ---
 
 SeaweedFS versions prior to 4.24 are vulnerable to an authentication bypass vulnerability (CVE-2026-72920) within the filer IAM gRPC service. The SeaweedIdentityAccessManagement service was registered without authentication requirements, meaning any client with network access to the filer gRPC port could invoke administrative RPC methods such as CreateUser, CreateAccessKey, and PutUserPolicy. This vulnerability persists even if JWT signing keys are configured or if mTLS is in use, as the service lacked specific internal authorization checks. By exploiting this, an attacker can create new administrative users and access keys, granting themselves full read and write control over all S3-compatible object storage managed by the affected filer. This represents a critical risk to data confidentiality, integrity, and availability. Operators must upgrade to version 4.24, which mandates that all IAM RPCs utilize a Bearer token signed by the filer admin signing key.
