@@ -3,6 +3,7 @@ title: Buffer Overflow Vulnerabilities in MOOS-IvP
 slug: 2026-09-moos-ivp-buffer-overflow
 description: Multiple buffer overflow vulnerabilities in MOOS-IvP versions up to 24.8.1 allow for remote code execution via malformed IvP function strings.
 date: "2026-09-03T23:25:05Z"
+lastmod: "2026-09-03T23:25:13Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,9 @@ tags:
   - cve
   - rce
   - memory-corruption
+  - buffer-overflow
+  - research-robotics
+  - cve-2026-85438
 vendors:
   - MOOS-IvP
 products:
@@ -26,11 +30,18 @@ mitre_ttps:
     technique_name: Exploitation of Remote Services
     evidence: Attackers can craft malicious encoded strings with mismatched declared and actual field lengths to overflow heap and stack buffers, potentially achieving remote code execution.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can supply crafted payloads with mismatched dimension values to write attacker-controlled doubles past the end of the IvPBox weight array.
+    confidence_band: high
 cves:
   - id: CVE-2026-85437
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85437
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85438
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-85437
       evidence: NVD vulnerability disclosure identifies the issue as present in versions through 24.8.1.
+updates:
+  - at: "2026-09-03T23:25:13Z"
+    level: L2
+    summary: added coverage for MOOS-IvP (<= 24.8.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85438
 ---
 
 MOOS-IvP through version 24.8.1 contains multiple buffer overflow vulnerabilities located within its IvP function string decoders. The vulnerability arises due to the application's failure to adequately validate length fields provided in attacker-controlled input. By crafting malicious encoded strings where the declared field length differs significantly from the actual field length, an attacker can induce heap or stack buffer overflows. These memory corruption events can be leveraged to achieve arbitrary remote code execution. The vulnerability is triggered when the affected components process malicious MOOS variables or malformed alog files, which are central to the MOOS-IvP communication and logging architecture. Defenders should prioritize patching, as these vulnerabilities are classified with a CVSS v3.1 base score of 9.8, indicating high potential for exploitation.
