@@ -1,18 +1,19 @@
 ---
-title: Detection of Malicious RDP Configuration Tampering
+title: Detection of RDP Configuration Tampering via Reg.exe
 slug: 2026-09-rdp-registry-tampering
-description: This brief documents registry-based techniques used to impair RDP security by disabling authentication or enabling unauthorized remote access.
-date: "2026-09-01T12:28:16Z"
+description: Adversaries frequently target Windows Registry keys related to Terminal Services to enable remote access, bypass session restrictions, or weaken security layers during lateral movement and persistence.
+date: "2026-09-03T12:41:48Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - persistence
+  - lateral-movement
   - defense-impairment
   - windows
-  - registry
+  - rdp
 affected_os:
   - Windows
 mitre_ttps:
@@ -20,20 +21,32 @@ mitre_ttps:
     tactic_name: Persistence
     technique_id: T1112
     technique_name: Modify Registry
-    evidence: The rule detects tampering of RDP Terminal Service/Server sensitive settings.
+    evidence: Adversaries modify registry keys to enable RDP for persistence.
     confidence_band: high
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021.001
+    technique_name: Remote Desktop Protocol
+    evidence: Attackers enable RDP to facilitate lateral movement.
+    confidence_band: high
+references:
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_reg_rdp_keys_tamper.yml
+  - https://thedfirreport.com/2022/02/21/qbot-and-zerologon-lead-to-full-domain-compromise/
+  - https://www.trendmicro.com/en_us/research/25/i/unmasking-the-gentlemen-ransomware.html
 rules:
-  - title: Detect Suspicious RDP Configuration Registry Changes
-    description: Detects tampering of RDP Terminal Server settings, specifically the disabling of authentication or enabling of remote connections by setting registry values to zero.
+  - title: Potential Tampering With RDP Related Registry Keys Via Reg.EXE
+    description: Detects the execution of reg.exe for enabling or disabling the RDP service on the host by tampering with 'CurrentControlSet\Control\Terminal Server' registry values.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - defense-impairment
+      - lateral-movement
       - persistence
     techniques:
+      - T1021.001
       - T1112
     data_sources:
-      - registry_set
+      - process_creation
       - windows
 rules_count: 1
 action_plan:
@@ -42,37 +55,46 @@ action_plan:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy Sigma rule a2863fbc-d5cb-48d5-83fb-d976d4b1743b to monitor RDP registry modification.
+    - action: Deploy the provided Sigma rule for reg.exe activity.
       owner: Detection Engineering
       due: 48h
-      evidence: Source material defines these registry modifications as suspicious.
+      evidence: SigmaHQ registry tampering detection logic.
+  hunt_leads:
+    - lead: Search for reg.exe activity modifying Terminal Server registry keys.
+      technique_id: T1112
+      data_needed:
+        - Process creation events
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Known technique used by ransomware affiliates.
   mitigation_plan:
-    - priority: immediate
-      action: Enforce RDP security settings through rigid Group Policy Objects (GPO) to prevent local tampering.
+    - priority: medium_term
+      action: Restrict registry edit permissions for non-administrative service accounts.
       owner: IT Operations
-      addresses: RDP configuration security
-      evidence: Registry modifications identified as a common TTP.
+      addresses: T1112
+      evidence: General security hardening practices.
 ---
 
-Attackers frequently modify Windows Registry keys related to Terminal Services to maintain persistence, bypass security controls, or gain unauthorized remote access to a compromised system. By altering specific DWORD values within the HKLM hive, an attacker can downgrade RDP security posture without triggering standard administrative alerts. Key targets include disabling Network Level Authentication (NLA), enabling RDP connections when they are otherwise restricted, and allowing multiple concurrent sessions per user. These modifications allow attackers to circumvent security policies and facilitate lateral movement. Defenders should monitor for unexpected registry modifications that change these critical RDP configuration values to zero, as this is a common precursor to session hijacking and remote control activity.
+Adversaries often use the built-in Windows utility 'reg.exe' to manipulate Remote Desktop Protocol (RDP) settings as part of post-exploitation activity. By modifying specific registry keys under 'HKLM\System\CurrentControlSet\Control\Terminal Server', threat actors can enable unauthorized remote access, disable security layers to lower defense barriers, or configure concurrent session settings to facilitate persistent remote presence. This technique has been observed across various ransomware and malware campaigns, including Qakbot, Phobos, and Gentlemen ransomware. Monitoring for these modifications is critical for detecting lateral movement and unauthorized persistence establishment within an enterprise environment.
 
 ## Attack Chain
 
-1. Attacker achieves initial execution on the target Windows system via a malicious dropper or script.
-2. Attacker checks current RDP configuration settings using registry queries or standard administrative tools.
-3. Attacker modifies the 'fDenyTSConnections' registry key to 0 to enable Remote Desktop services.
-4. Attacker modifies the 'UserAuthentication' registry key to 0 to disable mandatory Network Level Authentication (NLA).
-5. Attacker modifies 'fSingleSessionPerUser' to 0 to permit multiple simultaneous remote sessions.
-6. Attacker initiates an RDP connection to the target system, potentially using compromised credentials.
-7. Attacker performs credential dumping or sensitive data exfiltration from the newly established session.
+1. Attacker gains initial access or escalation of privilege on a Windows endpoint.
+2. Attacker identifies target RDP configuration parameters within the registry.
+3. Attacker executes 'reg.exe' via command line or automated script.
+4. Attacker uses 'reg.exe add' to modify specific values under 'CurrentControlSet\Control\Terminal Server'.
+5. Attacker specifies '/f' to force the registry overwrite without manual confirmation.
+6. Configuration changes take effect, enabling RDP or weakening authentication/encryption security layers.
+7. Attacker utilizes the altered configuration to initiate a remote session or maintain persistent access.
 
 ## Impact
 
-Successful manipulation of these RDP settings allows unauthorized remote access to internal workstations and servers. Impact includes complete system compromise, potential for credential theft, and the ability for attackers to remain persistent while bypassing security features such as NLA, which is designed to prevent pre-authentication exploitation.
+Successful tampering allows unauthorized remote access, bypasses intended security controls like Network Level Authentication (NLA) or TLS requirements, and assists in lateral movement. This can lead to total system compromise, exfiltration of sensitive data, and widespread ransomware deployment across the internal network.
 
 ## Recommendation
 
-- Deploy the provided Sigma rule to monitor for registry modifications targeting RDP-related keys.
-- Investigate any non-standard modification of these keys, especially when performed by processes other than standard Group Policy Object (GPO) update tasks.
-- Enable Sysmon event ID 13 (RegistryEvent) to capture 'registry_set' activity effectively.
-- Audit RDP configuration via Group Policy to ensure these security settings are enforced and cannot be overridden by local user-level changes.
+Prioritize the implementation of process-creation logging to identify suspicious use of the 'reg.exe' utility. 
+- Deploy the provided Sigma rule to monitor for unauthorized modifications to Terminal Server registry keys.
+- Establish an audit policy to alert on any modification of keys under 'HKLM\System\CurrentControlSet\Control\Terminal Server' by non-administrative service accounts or unauthorized processes.
+- Review and baseline legitimate RDP configurations to differentiate between standard IT management tasks and malicious tampering attempts.
