@@ -3,7 +3,7 @@ title: 'CVE-2026-85440: Heap Overflow in MOOS core-moos'
 slug: 2026-09-moos-heap-overflow
 description: A pre-authentication heap overflow vulnerability in the MOOSCommPkt packet handling of MOOS core-moos versions up to 10.4.0 allows remote unauthenticated attackers to perform arbitrary memory writes via crafted packets.
 date: "2026-09-03T23:25:19Z"
-lastmod: "2026-09-03T23:29:17Z"
+lastmod: "2026-09-03T23:29:25Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,7 @@ tags:
   - denial-of-service
   - network-vulnerability
   - vulnerability
+  - network-security
 vendors:
   - MOOS-IvP
   - MOOS
@@ -58,6 +59,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85442
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85443
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85450
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85451
 action_plan:
   priority: immediate_escalation
   owners:
@@ -75,13 +77,6 @@ action_plan:
       addresses: CVE-2026-85440
       evidence: Vulnerability is exploitable pre-authentication via remote network connection.
 updates:
-  - at: "2026-09-03T23:27:43Z"
-    level: L2
-    summary: added coverage for core-moos (<= 10.4.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-85432
   - at: "2026-09-03T23:28:07Z"
     level: L1
     summary: added coverage for core-moos (<= 10.4.0)
@@ -110,6 +105,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85450
+  - at: "2026-09-03T23:29:25Z"
+    level: L1
+    summary: added coverage for core-moos (<= 10.4.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85451
 ---
 
 MOOS core-moos versions up to 10.4.0 contain a critical heap-based buffer overflow vulnerability within the MOOSCommPkt packet handling logic. The issue resides in the HandShake phase, which occurs before authentication is established. An unauthenticated remote attacker can supply a negative value in the packet length field, which bypasses existing signed integer checks within the InflateTo() function. This discrepancy leads to an improper size conversion when the data is passed to the recv() function, causing a heap overflow of a four-byte buffer. Successful exploitation allows an attacker to write arbitrary data into the process memory, potentially leading to remote code execution or application crashes. Given the pre-authentication nature of this flaw, defenders should prioritize patching or restricting access to the MOOS communication ports.
