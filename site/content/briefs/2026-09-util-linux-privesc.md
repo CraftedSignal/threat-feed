@@ -3,6 +3,7 @@ title: Local Privilege Escalation in util-linux via Race Condition
 slug: 2026-09-util-linux-privesc
 description: A vulnerability in util-linux allows unprivileged local users to perform arbitrary bind mounts and change file ownership or permissions by exploiting a race condition in SUID mount(8) handling of fstab entries.
 date: "2026-09-02T17:16:02Z"
+lastmod: "2026-09-03T13:21:23Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,12 @@ tags:
   - privilege-escalation
   - linux
   - local-exploit
+  - kernel
 vendors:
   - Kernel.org
 products:
   - util-linux
+  - util-linux (<= 2.41.5, <= 2.42.2)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -30,6 +33,7 @@ cves:
     cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-78410
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76642
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +46,14 @@ action_plan:
       evidence: Source confirms vulnerability in util-linux requiring update.
   gaps:
     - Need to identify all systems with fstab entries containing X-mount options.
+updates:
+  - at: "2026-09-03T13:21:23Z"
+    level: L2
+    summary: added coverage for util-linux (<= 2.41.5, <= 2.42.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76642
 ---
 
 CVE-2026-78410 describes a critical security flaw in the util-linux package, specifically within the handling of restricted bind mounts. The vulnerability stems from the mount(8) command failing to properly pin the source path defined in the fstab file before executing the mount operation. This creates a time-of-check to time-of-use (TOCTOU) race condition. An unprivileged local user who has the ability to manipulate the directory structure or replace the source path can redirect the mount(8) operation to an arbitrary directory on the host. When the fstab entry includes administrative mount options such as X-mount.owner, X-mount.group, or X-mount.mode, the SUID-root mount binary inadvertently applies these permissions changes to the redirected target directory, leading to full privilege escalation. This issue impacts systems where users have permission to trigger mounts defined in fstab.
