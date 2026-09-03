@@ -3,6 +3,7 @@ title: Remote Code Execution in Grav via Blueprint dynamicData
 slug: 2026-09-grav-rce
 description: An attacker with administrative page-editing permissions can achieve remote code execution in Grav versions prior to 2.0.7 by injecting arbitrary callables into page frontmatter, which are subsequently triggered by visitor requests.
 date: "2026-09-02T18:04:09Z"
+lastmod: "2026-09-03T00:04:04Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,14 @@ tags:
   - remote-code-execution
   - cms
   - web-vulnerability
+  - authentication-bypass
+  - 2fa
+  - web-application-vulnerability
 vendors:
   - Grav
 products:
   - Grav (< 2.0.7)
+  - Grav (< 2.0.4)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -31,12 +36,31 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The vulnerability allows unauthenticated visitors to trigger the execution, crossing the trust boundary from page editing to RCE.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: An attacker who knows the victim's password can bypass TOTP-based 2FA by forcing a secret rotation during the pending-challenge window.
+    confidence_band: high
 cves:
   - id: CVE-2026-64850
     epss: 0.00343
 references:
   - https://github.com/advisories/GHSA-fj2p-qj2f-74v5
   - https://nvd.nist.gov/vuln/detail/CVE-2026-64850
+  - https://github.com/advisories/GHSA-7mgc-c7pq-3rr3
+rules:
+  - title: Detect Exploitation of CVE-2026-62669 - Unauthorized 2FA Secret Regeneration
+    description: Detects unauthorized access to the Grav login regeneration task which is used to bypass 2FA.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1552.001
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +77,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-64850
       evidence: Source advises upgrading to v2.0.7 to remediate Blueprint::dynamicData() vulnerability.
+updates:
+  - at: "2026-09-03T00:04:04Z"
+    level: L1
+    summary: 'added detection rule: Detect Exploitation of CVE-2026-62669 - Unauthorized 2FA Secret Regeneration'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-7mgc-c7pq-3rr3
 ---
 
 Grav CMS versions prior to 2.0.7 are susceptible to a remote code execution (RCE) vulnerability identified as CVE-2026-64850. The vulnerability stems from the `Blueprint::dynamicData()` method, which performs insufficient validation on class method inputs. Specifically, the application uses `call_user_func_array()` with input derived from page frontmatter without implementing an allowlist. 
