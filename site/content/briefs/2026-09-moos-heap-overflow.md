@@ -3,7 +3,7 @@ title: 'CVE-2026-85440: Heap Overflow in MOOS core-moos'
 slug: 2026-09-moos-heap-overflow
 description: A pre-authentication heap overflow vulnerability in the MOOSCommPkt packet handling of MOOS core-moos versions up to 10.4.0 allows remote unauthenticated attackers to perform arbitrary memory writes via crafted packets.
 date: "2026-09-03T23:25:19Z"
-lastmod: "2026-09-03T23:28:16Z"
+lastmod: "2026-09-03T23:28:24Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,7 @@ tags:
   - middleware
   - denial-of-service
   - network-vulnerability
+  - vulnerability
 vendors:
   - MOOS-IvP
   - MOOS
@@ -41,6 +42,12 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: An unauthenticated attacker can send a crafted message with a negative length value to the MOOSDB port, causing an unhandled exception that terminates the database process.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: An attacker can open a TCP connection to the MOOSDB port and send no data, causing the accept thread to block indefinitely while holding the socket-list lock.
+    confidence_band: high
 cves:
   - id: CVE-2026-85440
     cvss: 9.8
@@ -49,6 +56,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85432
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85441
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85442
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85443
 action_plan:
   priority: immediate_escalation
   owners:
@@ -87,6 +95,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85442
+  - at: "2026-09-03T23:28:24Z"
+    level: L1
+    summary: added coverage for core-moos (<= 10.4.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85443
 ---
 
 MOOS core-moos versions up to 10.4.0 contain a critical heap-based buffer overflow vulnerability within the MOOSCommPkt packet handling logic. The issue resides in the HandShake phase, which occurs before authentication is established. An unauthenticated remote attacker can supply a negative value in the packet length field, which bypasses existing signed integer checks within the InflateTo() function. This discrepancy leads to an improper size conversion when the data is passed to the recv() function, causing a heap overflow of a four-byte buffer. Successful exploitation allows an attacker to write arbitrary data into the process memory, potentially leading to remote code execution or application crashes. Given the pre-authentication nature of this flaw, defenders should prioritize patching or restricting access to the MOOS communication ports.
