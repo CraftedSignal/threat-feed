@@ -1,18 +1,18 @@
 ---
-title: Detection of PowerShell Download Patterns
+title: Suspicious PowerShell Download and Execution Patterns
 slug: 2026-09-powershell-download-patterns
-description: This brief details a detection strategy for identifying PowerShell command-line activity associated with common file download patterns used by various threat actors.
-date: "2026-09-01T12:23:10Z"
+description: Adversaries frequently leverage specific PowerShell cmdlets to download and execute malicious payloads, a common technique observed in stagers and ransomware deployment campaigns.
+date: "2026-09-03T12:41:32Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
-  - detection-engineering
+  - windows
   - powershell
   - execution
-  - living-off-the-land
+  - stager
 affected_os:
   - Windows
 mitre_ttps:
@@ -20,18 +20,17 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: Detects a Powershell process that contains download commands in its command line string.
+    evidence: Detects suspicious PowerShell download patterns that are often used in malicious scripts, stagers or downloaders.
     confidence_band: high
 references:
-  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_download_patterns.yml
-  - https://blog.redteam.pl/2020/06/black-kingdom-ransomware.html
-  - https://lab52.io/blog/winter-vivern-all-summer/
-  - https://hatching.io/blog/powershell-analysis/
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_powershell_susp_download_patterns.yml
+  - https://gist.github.com/jivoi/c354eaaf3019352ce32522f916c03d70
+  - https://www.trendmicro.com/en_us/research/22/j/lv-ransomware-exploits-proxyshell-in-attack.html
 rules:
-  - title: Detect Suspicious PowerShell Download Patterns
-    description: Detects a PowerShell process that contains download commands in its command line string using .NET WebClient class
+  - title: Detect Suspicious PowerShell Download and Execute Pattern
+    description: Detects common PowerShell command patterns used to download and execute remote payloads via Net.WebClient
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - execution
     techniques:
@@ -43,28 +42,34 @@ rules_count: 1
 action_plan:
   priority: elevated
   owners:
+    - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy the Sigma rule to the SIEM and monitor for high-volume hits that may indicate legitimate internal tooling.
+    - action: Deploy the Sigma detection rule to monitor for PowerShell download patterns.
       owner: Detection Engineering
       due: 48h
+      evidence: Source provided Sigma rule content.
   hunt_leads:
-    - lead: Search for historical process creation events containing 'net.webclient' in the command line over the past 30 days.
+    - lead: Search for instances of Net.WebClient in PowerShell command lines within the last 30 days.
       technique_id: T1059.001
       data_needed:
-        - Process creation telemetry
-      priority: medium
-      confidence: medium
+        - Process creation logs
+      priority: high
+      confidence: high
       disposition: hunt_now
-      evidence: This pattern is a frequent indicator of malicious PowerShell usage.
+      evidence: Known malicious stager behavior.
 ---
 
-This detection focuses on identifying suspicious use of the .NET WebClient class within PowerShell to download files or strings from the internet. This technique is frequently utilized by threat actors during the initial access or post-exploitation phases to fetch secondary payloads, modular malware, or remote access trojans (RATs). While the use of PowerShell for legitimate administrative tasks is common, the specific combination of 'new-object', 'net.webclient', and 'download' methods within the command line is highly indicative of malicious activity. This detection is designed to capture standard PowerShell (powershell.exe), PowerShell ISE (powershell_ise.exe), and PowerShell Core (pwsh.exe).
+Security research and incident response data from various campaigns, including LV ransomware operations, identify a consistent pattern of abuse involving PowerShell's System.Net.WebClient class. Attackers use these cmdlets to fetch remote scripts or binaries directly into memory or the local filesystem for execution. By leveraging commands like DownloadString or DownloadFile, malicious actors bypass traditional file-based detection mechanisms. This behavior is commonly observed in the initial stager phases of an attack, where a small script is used to bootstrap more complex malware or C2 agents. Defenders should focus on process-creation logging to identify these specific command-line strings, as they are rarely used by legitimate business-critical applications.
 
 ## Impact
 
-Successful exploitation of this technique allows attackers to download and execute arbitrary code on a compromised host. This can lead to full system compromise, exfiltration of sensitive information, or the deployment of ransomware. Attackers leverage these patterns to maintain stealth while bypassing standard file-based security controls by executing payloads directly into memory or saving them to temporary directories.
+Successful execution of these commands leads to the unauthorized retrieval of malicious code or secondary payloads, often resulting in complete system compromise, credential theft, or the deployment of ransomware. These patterns have been historically associated with exploitation of vulnerabilities in public-facing services like Microsoft Exchange (e.g., ProxyShell) and subsequent lateral movement or impact.
 
 ## Recommendation
 
-Deploy the provided Sigma rule to your SIEM and tune it to baseline legitimate administrative scripts that may utilize .NET classes. Ensure that PowerShell script block logging (Event ID 4104) is enabled, as it provides higher visibility into obfuscated command lines that might bypass simple process-creation based detection.
+Deploy the provided Sigma rule to your SIEM to monitor for PowerShell command lines matching the suspicious download and execution patterns. Ensure your logging backend processes these strings as case-insensitive to avoid evasion via mixed-case variations.
+
+- Enable Sysmon or Windows Event ID 4688 to capture the command-line arguments of all spawned PowerShell processes.
+- Implement an allowlist for known, legitimate software installers or management scripts that utilize remote downloads to reduce false positives.
+- Prioritize alerts for these command patterns when originating from web servers or public-facing applications.
