@@ -1,28 +1,38 @@
 ---
-title: Suspicious PowerShell Command Line Invocation Patterns
+title: Suspicious PowerShell Command Pattern Detection
 slug: 2026-09-suspicious-powershell-invocations
-description: Detection logic identifying common obfuscated and malicious PowerShell command line patterns frequently used for staging, persistence, and C2 activity.
-date: "2026-09-01T12:23:18Z"
+description: This brief documents patterns of PowerShell invocation commonly associated with malicious activities such as payload downloading, fileless execution, and persistence establishment.
+date: "2026-09-03T12:35:26Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - windows
   - powershell
-  - detection-engineering
+  - execution
+  - persistence
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Detects suspicious PowerShell invocation command parameters.
+    confidence_band: high
 rules:
   - title: Detect Suspicious PowerShell Invocation Patterns
-    description: Detects suspicious PowerShell command line invocation patterns including obfuscated arguments, base64 decoding, and network downloads.
+    description: Detects multiple patterns of suspicious PowerShell invocation, including base64 encoded command execution, registry persistence modification, and remote payload downloading.
     platform: sigma
-    severity: medium
+    severity: high
     tactics:
       - execution
     techniques:
       - T1059.001
     data_sources:
-      - process_creation
+      - ps_module
       - windows
 rules_count: 1
 action_plan:
@@ -30,29 +40,30 @@ action_plan:
   owners:
     - Detection Engineering
   immediate_actions:
-    - action: Deploy the provided Sigma rule to the SIEM.
+    - action: Deploy the provided Sigma rule to the SIEM
       owner: Detection Engineering
       due: 48h
-      evidence: Source provides specific command line flags for detection.
+      evidence: Rule mapping to common post-exploitation PowerShell patterns
   hunt_leads:
-    - lead: Search for instances of PowerShell with -nop, -w hidden, and iex in command line logs.
+    - lead: Search for high-frequency hidden PowerShell executions
       technique_id: T1059.001
       data_needed:
-        - Process creation events with CommandLine field.
-      priority: medium
+        - Event ID 4103 / 4104
+      priority: high
       confidence: medium
       disposition: hunt_now
-      evidence: Source documents these as common suspicious patterns.
+      evidence: Source documents patterns of hidden execution
 ---
 
-This detection brief highlights specific PowerShell command line patterns frequently used by attackers to execute malicious code, download payloads, or maintain persistence on Windows systems. The patterns focus on suspicious flag combinations such as hidden windows, bypass policies, and base64-encoded strings, alongside common techniques like using System.Net.WebClient for remote script execution. 
-
-Defenders should note that while these patterns are highly indicative of malicious activity, they are intentionally broad to cover multiple stages of an attack lifecycle. Detecting these specific invocation patterns provides a robust mechanism to identify early-stage command-and-control communication, lateral movement attempts, and payload delivery before more severe impacts occur.
+This brief outlines specific PowerShell invocation command patterns identified via PowerShell Module logging (Event ID 4103). These patterns are frequently observed in post-exploitation scenarios, including the use of encoded commands, network-based file downloads via WebClient, and the manipulation of Windows Registry Run keys for persistence. These techniques allow attackers to execute arbitrary code directly in memory or establish stealthy persistence mechanisms that survive system reboots. Defenders should monitor for combinations of flags that reduce logging visibility or bypass execution policies, such as the simultaneous use of '-nop' (NoProfile), '-w hidden' (WindowStyle Hidden), and network-related objects. 
 
 ## Impact
 
-Successful exploitation of these PowerShell invocation methods allows attackers to gain unauthorized command execution, bypass local security policy restrictions, and facilitate the download of second-stage malware such as backdoors or infostealers. Failure to detect these initial invocations may lead to full system compromise, data exfiltration, or the deployment of ransomware within the environment.
+Successful exploitation of these patterns enables unauthorized code execution, credential harvesting, lateral movement, and long-term persistence within a target environment. By bypassing default execution policies, adversaries can execute sophisticated multi-stage malware, infostealers, or ransomware components without relying on traditional dropped binaries.
 
 ## Recommendation
 
-Deploy the provided Sigma rules to your SIEM to monitor for suspicious process execution patterns. Integrate process creation logging (Sysmon Event ID 1) across all Windows endpoints. Perform regular tuning to filter out legitimate administrative tools or software deployment scripts (e.g., Chocolatey) that may trigger these patterns.
+- Deploy the provided Sigma rule to your SIEM to monitor PowerShell Module logging (Event ID 4103).
+- Prioritize alerts containing combinations of 'System.Net.WebClient' and 'Download' as these indicate potential stages for remote malware retrieval.
+- Tune the detection logic by filtering for legitimate administrative or software deployment scripts, such as those used by Chocolatey.
+- Enable Script Block Logging (Event ID 4104) in conjunction with Module Logging to capture the full de-obfuscated script content if the command line is obfuscated.
