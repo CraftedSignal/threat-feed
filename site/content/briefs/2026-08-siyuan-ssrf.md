@@ -3,7 +3,7 @@ title: SSRF Vulnerability in SiYuan via DNS Rebinding
 slug: 2026-08-siyuan-ssrf
 description: SiYuan versions prior to 3.8.1 are vulnerable to server-side request forgery through a DNS rebinding attack, enabling unauthorized access to cloud metadata services and internal network resources.
 date: "2026-08-28T15:13:11Z"
-lastmod: "2026-08-30T17:11:51Z"
+lastmod: "2026-09-03T13:22:16Z"
 type: advisory
 types:
   - advisory
@@ -18,10 +18,14 @@ tags:
   - web-vulnerability
   - xss
   - SiYuan
+  - information-disclosure
+  - credential-access
+  - cve-2026-85174
 vendors:
   - SiYuan
 products:
   - SiYuan (< 3.8.1)
+  - SiYuan (< 3.8.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -41,6 +45,12 @@ mitre_ttps:
     technique_name: JavaScript
     evidence: Attackers can submit malicious bazaar packages with HTML/script payloads in the name field that execute in users' browsers.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Authenticated attackers can read the log file via the getFile endpoint to recover admin API tokens and gain permanent administrative access.
+    confidence_band: high
 cves:
   - id: CVE-2026-82234
     cvss: 8.2
@@ -48,6 +58,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82234
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82653
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82654
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85174
 action_plan:
   priority: elevated
   owners:
@@ -79,6 +90,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82654
+  - at: "2026-09-03T13:22:16Z"
+    level: L2
+    summary: added coverage for SiYuan (< 3.8.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85174
 ---
 
 SiYuan versions before 3.8.1 are susceptible to a critical server-side request forgery (SSRF) vulnerability identified as CVE-2026-82234. The flaw exists within the 'http_request' and 'web_fetch' agent tools, which perform DNS resolution checks only at the time of the request guard. Because the application fails to validate the IP address resolved during the subsequent connection phase, it becomes vulnerable to DNS rebinding attacks. An attacker can supply a domain that resolves to a benign public IP address during the initial guard check and then switches to a private, restricted, or cloud metadata IP address (e.g., 169.254.169.254) during the actual connection. This allows remote attackers to bypass security filters and interact with internal network services or exfiltrate sensitive environment metadata that would otherwise be protected from external access. This vulnerability poses a significant risk to cloud-hosted deployments of SiYuan.
