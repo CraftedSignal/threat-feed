@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-03T23:23:58Z"
+lastmod: "2026-09-03T23:24:01Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,11 @@ vendors:
 cves:
   - id: CVE-2026-62916
     product: Entra ID
+    cvss: 9.1
+  - id: CVE-2026-70352
+    cvss: 10
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70352
 updates:
   - at: "2026-09-03T23:23:58Z"
     level: L1
@@ -24,6 +29,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+  - at: "2026-09-03T23:24:01Z"
+    level: L2
+    summary: added CVE-2026-70352
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70352
 ---
 
 This roundup covers 1 Microsoft security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Entra ID.
