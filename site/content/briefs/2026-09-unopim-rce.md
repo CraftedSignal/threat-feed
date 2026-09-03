@@ -3,6 +3,7 @@ title: Authenticated Arbitrary File Upload in UnoPim
 slug: 2026-09-unopim-rce
 description: UnoPim versions prior to 2.1.5 allow authenticated administrators to execute arbitrary code via an insecure TinyMCE image upload endpoint that fails to validate file extensions.
 date: "2026-09-02T21:16:04Z"
+lastmod: "2026-09-03T19:23:05Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - UnoPim
 products:
   - UnoPim (< 2.1.5)
+  - UnoPim (< 2.1.3)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,11 +34,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Execute arbitrary operating system commands on the server by accessing the uploaded file.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: This vulnerability allows an attacker with minimal administrative privileges to bypass authorization checks... and escalate their system permissions.
+    confidence_band: high
 cves:
   - id: CVE-2026-82524
     cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82524
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85395
 rules:
   - title: Detects CVE-2026-82524 Exploitation - Arbitrary File Upload
     description: Detects potential exploitation of CVE-2026-82524 by identifying POST requests to the TinyMCE upload endpoint containing non-image file extensions.
@@ -75,6 +84,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82524
       evidence: UnoPim version 2.1.5 patch availability.
+updates:
+  - at: "2026-09-03T19:23:05Z"
+    level: L2
+    summary: added coverage for UnoPim (< 2.1.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85395
 ---
 
 UnoPim versions before 2.1.5 are vulnerable to an authenticated arbitrary file upload flaw (CVE-2026-82524). The vulnerability resides in the TinyMCE image upload endpoint, which lacks sufficient validation of file extensions and MIME types. An attacker with administrative privileges can upload a PHP web shell to the application's public storage directory. Once uploaded, the attacker can trigger the malicious script by navigating to the file path returned in the server's HTTP response, resulting in remote code execution (RCE) on the underlying server. This vulnerability is significant because it allows a compromised administrative account to achieve full system control, bypassing intended restrictions on the file upload functionality.
