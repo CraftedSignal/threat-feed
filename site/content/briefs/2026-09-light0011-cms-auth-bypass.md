@@ -3,6 +3,7 @@ title: Authorization Bypass in light0011 CMS
 slug: 2026-09-light0011-cms-auth-bypass
 description: An authorization bypass vulnerability in the light0011 CMS AuthController component allows remote, unauthenticated attackers to access restricted administrative functions.
 date: "2026-09-03T23:25:42Z"
+lastmod: "2026-09-04T01:24:15Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:light0011:cms:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - sql-injection
+  - cve-2026-85379
 vendors:
   - light0011
 products:
@@ -26,6 +31,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85378
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85379
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-85378
       evidence: Public exploit is available
+updates:
+  - at: "2026-09-04T01:24:15Z"
+    level: L2
+    summary: added coverage for cms
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85379
 ---
 
 A security vulnerability (CVE-2026-85378) exists in the light0011 CMS due to an authorization bypass flaw in the AuthController::_initialize function within the ChapterController component. This vulnerability allows remote, unauthenticated attackers to circumvent security controls, potentially granting unauthorized access to administrative functionality. The product utilizes a rolling release model without discrete versioning, and as of the reporting date, no patch or remediation update has been released by the project maintainers. Publicly available exploit code for this flaw increases the risk of immediate exploitation. Defenders should restrict network access to the administrative interfaces of this CMS while awaiting a vendor response.
