@@ -3,7 +3,7 @@ title: WordPress Super Forms Plugin Arbitrary File Upload (CVE-2026-14894)
 slug: 2026-07-super-forms-rce
 description: An unauthenticated arbitrary file upload vulnerability (CVE-2026-14894) exists in the Super Forms - Drag & Drop Form Builder plugin for WordPress, affecting all versions up to and including 6.3.313, allowing unauthenticated attackers to upload executable files via the `submit_form` AJAX handler, leading to remote code execution after trivial nonce bypass.
 date: "2026-07-10T04:19:23Z"
-lastmod: "2026-07-11T14:01:30Z"
+lastmod: "2026-09-04T09:42:10Z"
 type: advisory
 types:
   - advisory
@@ -42,14 +42,36 @@ mitre_ttps:
 cves:
   - id: CVE-2026-14894
     cvss: 9.8
-    epss: 0.00523
+    epss: 0.03484
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14894
   - https://sploitus.com/exploit?id=ED9BCDF7-AF28-577D-BF6D-43E2548BC780&utm_source=rss&utm_medium=rss
+  - https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html
 iocs:
   - type: url
     value: https://sploitus.com/exploit?id=ED9BCDF7-AF28-577D-BF6D-43E2548BC780
+  - type: ip
+    value: 103.168.147.235
+  - type: ip
+    value: 103.168.146.131
+  - type: ip
+    value: 103.154.152.178
+  - type: ip
+    value: 103.170.97.7
+  - type: ip
+    value: 182.10.130.51
+  - type: ip
+    value: 189.4.122.140
+  - type: ip
+    value: 129.227.46.143
+  - type: ip
+    value: 64.176.209.104
+  - type: ip
+    value: 103.164.182.122
+  - type: ip
+    value: 37.9.33.62
 ioc_counts:
+  ip: 10
   url: 1
 rules:
   - title: Detects CVE-2026-14894 Exploitation - Web Shell Access via Super Forms Upload
@@ -73,6 +95,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=ED9BCDF7-AF28-577D-BF6D-43E2548BC780&utm_source=rss&utm_medium=rss
+  - at: "2026-09-04T09:42:10Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html
 ---
 
 A critical arbitrary file upload vulnerability, identified as CVE-2026-14894, affects the Super Forms - Drag & Drop Form Builder plugin for WordPress, impacting all versions up to and including 6.3.313. This flaw stems from a critical absence of file type validation and capability checks within the `submit_form` nopriv AJAX handler. This means that unauthenticated attackers can upload executable files, paving the way for remote code execution (RCE) on the compromised WordPress instance. The primary hurdle for exploitation, a session nonce, is easily circumvented. Attackers can obtain a valid `sf_nonce` and session cookie through a separate, also unauthenticated, `super_create_nonce` AJAX action with a single prior request. This reduces the exploitation path to a simple two-step process, enabling an unauthenticated attacker to achieve full system compromise.
