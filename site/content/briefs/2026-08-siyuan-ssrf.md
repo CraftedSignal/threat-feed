@@ -3,12 +3,12 @@ title: SSRF Vulnerability in SiYuan via DNS Rebinding
 slug: 2026-08-siyuan-ssrf
 description: SiYuan versions prior to 3.8.1 are vulnerable to server-side request forgery through a DNS rebinding attack, enabling unauthorized access to cloud metadata services and internal network resources.
 date: "2026-08-28T15:13:11Z"
-lastmod: "2026-09-03T13:22:25Z"
+lastmod: "2026-09-04T00:03:50Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 cpes:
   - cpe:2.3:a:siyuan:siyuan:*:*:*:*:*:*:*:*
 tags:
@@ -23,12 +23,16 @@ tags:
   - cve-2026-85174
   - path-traversal
   - security-misconfiguration
+  - sql-injection
+  - backend
+  - cve-2026-72811
 vendors:
   - SiYuan
 products:
   - SiYuan (< 3.8.1)
   - SiYuan (< 3.8.2)
   - SiYuan (<= 3.8.1)
+  - SiYuan (< 0.0.0-20260723004839-1a5b3431d5ab)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -54,6 +58,12 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Authenticated attackers can read the log file via the getFile endpoint to recover admin API tokens and gain permanent administrative access.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The concatenated statement reaches query() on the global read-write siyuan.db handle, allowing arbitrary SQL execution via statement stacking.
+    confidence_band: high
 cves:
   - id: CVE-2026-82234
     cvss: 8.2
@@ -63,6 +73,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82654
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85174
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85175
+  - https://github.com/advisories/GHSA-q2vg-7qgx-x5fc
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72811
 rules:
   - title: Detects CVE-2026-85175 Exploitation - Unauthorized Access to Configuration Files
     description: Detects exploitation of CVE-2026-85175 where an attacker attempts to retrieve sensitive configuration keys via the /api/file/getFile endpoint.
@@ -74,7 +86,17 @@ rules:
       - T1552.001
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-72811 Exploitation - SQL Injection via Backlink API
+    description: Detects exploitation attempts against the SiYuan backlink/mention API where a single quote is present in the keyword parameter, indicating a SQL injection attempt.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -120,6 +142,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85175
+  - at: "2026-09-04T00:03:50Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-72811 Exploitation - SQL Injection via Backlink API'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-q2vg-7qgx-x5fc
 ---
 
 SiYuan versions before 3.8.1 are susceptible to a critical server-side request forgery (SSRF) vulnerability identified as CVE-2026-82234. The flaw exists within the 'http_request' and 'web_fetch' agent tools, which perform DNS resolution checks only at the time of the request guard. Because the application fails to validate the IP address resolved during the subsequent connection phase, it becomes vulnerable to DNS rebinding attacks. An attacker can supply a domain that resolves to a benign public IP address during the initial guard check and then switches to a private, restricted, or cloud metadata IP address (e.g., 169.254.169.254) during the actual connection. This allows remote attackers to bypass security filters and interact with internal network services or exfiltrate sensitive environment metadata that would otherwise be protected from external access. This vulnerability poses a significant risk to cloud-hosted deployments of SiYuan.
