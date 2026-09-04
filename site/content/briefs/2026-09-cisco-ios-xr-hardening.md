@@ -3,6 +3,7 @@ title: Cisco IOS XR Software Security Hardening Updates
 slug: 2026-09-cisco-ios-xr-hardening
 description: Cisco has released critical security hardening updates for IOS XR Software addressing seven internally discovered vulnerabilities (CVE-2026-20274 through CVE-2026-20280) that have no known workarounds.
 date: "2026-09-02T18:06:34Z"
+lastmod: "2026-09-04T00:10:42Z"
 type: threat
 types:
   - threat
@@ -20,8 +21,8 @@ vendors:
 products:
   - IOS XR Software
 cves:
-  - id: CVE-2026-20280
-    cvss: 8.8
+  - id: CVE-2026-20274
+    cvss: 9.8
   - id: CVE-2026-20275
     cvss: 8.8
   - id: CVE-2026-20276
@@ -30,8 +31,13 @@ cves:
     cvss: 8.2
   - id: CVE-2026-20278
     cvss: 8.8
+  - id: CVE-2026-20279
+    cvss: 9.8
+  - id: CVE-2026-20280
+    cvss: 8.8
 references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxr-qg64NcM
+  - https://cyber.gc.ca/en/alerts-advisories/cisco-security-advisory-av26-876
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +49,14 @@ action_plan:
       owner: Network Engineering
       addresses: CVE-2026-20274, CVE-2026-20275, CVE-2026-20276, CVE-2026-20277, CVE-2026-20278, CVE-2026-20279, CVE-2026-20280
       evidence: Cisco reports there are no workarounds that address these vulnerabilities.
+updates:
+  - at: "2026-09-04T00:10:42Z"
+    level: L2
+    summary: added CVE-2026-20274 +1
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/cisco-security-advisory-av26-876
 ---
 
 Cisco has released a series of security hardening updates for the IOS XR Software platform. This release addresses seven internally discovered vulnerabilities identified as CVE-2026-20274, CVE-2026-20275, CVE-2026-20276, CVE-2026-20277, CVE-2026-20278, CVE-2026-20279, and CVE-2026-20280. These issues were uncovered during internal product testing and security reviews.
