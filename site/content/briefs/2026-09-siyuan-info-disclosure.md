@@ -3,7 +3,7 @@ title: Information Disclosure in SiYuan Kernel Enabling Offline Password Crackin
 slug: 2026-09-siyuan-info-disclosure
 description: An information disclosure vulnerability in SiYuan's API allows unauthorized remote readers to retrieve cryptographic material necessary for offline, unthrottled GPU-based cracking of encrypted notebook master passwords.
 date: "2026-09-04T00:04:19Z"
-lastmod: "2026-09-04T00:04:32Z"
+lastmod: "2026-09-04T00:04:50Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +15,14 @@ tags:
   - info-disclosure
   - cve
   - cryptanalysis
+  - authentication-bypass
+  - webserver
 vendors:
   - SiYuan
 products:
   - SiYuan Kernel (< 0.0.0-20260724102025-3bc014c7dc32)
   - SiYuan kernel (< 0.0.0-20260724091654-82e9ded423e4)
+  - SiYuan Kernel (< 0.0.0-20260723031701-9c16e9851f0b)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -39,6 +42,18 @@ mitre_ttps:
     technique_name: Data from Local System
     evidence: An anonymous reader ... can therefore retrieve that document's per-block content and its reference/backlink topology.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: By code inspection, a request forwarded through this proxy would reach the kernel with RemoteAddr = 127.0.0.1.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: CheckAuth grants RoleAdministrator to any request whose RemoteAddr is loopback (127.0.0.1), for a specific set of endpoints.
+    confidence_band: high
 cves:
   - id: CVE-2026-72801
     cvss: 7.5
@@ -48,6 +63,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72801
   - https://github.com/advisories/GHSA-vpjw-wf5h-cgpq
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
+  - https://github.com/advisories/GHSA-3mp7-4rh5-jrv9
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72809
 rules:
   - title: Detects CVE-2026-72801 Exploitation - Unauthorized API Access to Notebook Crypto
     description: Detects unauthorized access to the getConf or getNotebookConf API endpoints by identifying requests that reveal sensitive cryptographic metadata.
@@ -94,6 +111,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-vpjw-wf5h-cgpq
+  - at: "2026-09-04T00:04:50Z"
+    level: L2
+    summary: added coverage for SiYuan Kernel (< 0.0.0-20260723031701-9c16e9851f0b)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-3mp7-4rh5-jrv9
 ---
 
 SiYuan kernel versions prior to 0.0.0-20260724102025-3bc014c7dc32 contain an information disclosure vulnerability (CVE-2026-72801) affecting the handling of encrypted notebook configuration metadata. Specifically, two API endpoints, `/api/system/getConf` and `/api/notebook/getNotebookConf`, fail to properly redact sensitive cryptographic material when accessed by non-administrator roles. 
