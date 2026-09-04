@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in Sangoma Switchvox
 slug: 2026-09-sangoma-switchvox-sqli
 description: Sangoma Switchvox is vulnerable to an unauthenticated SQL injection flaw that allows remote attackers to execute arbitrary SQL commands on the backend PostgreSQL database, potentially leading to remote code execution.
 date: "2026-09-02T17:56:24Z"
+lastmod: "2026-09-04T14:06:15Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,7 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:sangoma:switchvox:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:sangoma:switchvox:*:*:*:*:on-premises:*:*:*
 tags:
   - webserver
   - sql-injection
@@ -18,6 +20,7 @@ tags:
 vendors:
   - Sangoma
 products:
+  - Switchvox (< 8.4.0.2)
   - Switchvox (< 8.4.0.2)
 mitre_ttps:
   - tactic_id: TA0001
@@ -34,12 +37,14 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-9586
-    epss: 0.00695
+    cvss: 9.8
+    epss: 0.11845
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-9586
   - https://sangomakb.atlassian.net/wiki/spaces/Switchvox/pages/1802371073/Switchvox+-+Release+Notes+Version+8.4.0.2+July+14+2026
   - https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9586
+  - https://www.securityweek.com/sangoma-switchvox-vulnerabilities-exploited-in-the-wild/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -56,6 +61,14 @@ action_plan:
       owner: Network Security
       addresses: CVE-2026-9586
       evidence: General mitigation for public-facing RCE/SQLi vulnerabilities.
+updates:
+  - at: "2026-09-04T14:06:15Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/sangoma-switchvox-vulnerabilities-exploited-in-the-wild/
 ---
 
 Sangoma Switchvox versions prior to 8.4.0.2 are affected by a critical SQL injection vulnerability (CVE-2026-9586). This flaw enables an unauthenticated, remote attacker to interact with the backend PostgreSQL database by sending a single, specifically crafted HTTP request to the appliance. Successful exploitation grants the attacker the ability to execute arbitrary SQL statements. Depending on the database configuration and permissions, this capability may be leveraged to manipulate sensitive data or achieve remote code execution on the underlying appliance, which is typically used for telecommunications and VoIP services. Given the nature of these appliances, they are often internet-facing, increasing the risk of widespread automated scanning and exploitation. Organizations utilizing Switchvox must prioritize upgrading to version 8.4.0.2 or later in accordance with CISA Binding Operational Directive 26-04.
