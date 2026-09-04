@@ -3,7 +3,7 @@ title: Information Disclosure in SiYuan Kernel Enabling Offline Password Crackin
 slug: 2026-09-siyuan-info-disclosure
 description: An information disclosure vulnerability in SiYuan's API allows unauthorized remote readers to retrieve cryptographic material necessary for offline, unthrottled GPU-based cracking of encrypted notebook master passwords.
 date: "2026-09-04T00:04:19Z"
-lastmod: "2026-09-04T00:04:50Z"
+lastmod: "2026-09-04T00:05:15Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ products:
   - SiYuan Kernel (< 0.0.0-20260724102025-3bc014c7dc32)
   - SiYuan kernel (< 0.0.0-20260724091654-82e9ded423e4)
   - SiYuan Kernel (< 0.0.0-20260723031701-9c16e9851f0b)
+  - SiYuan kernel (< 0.0.0-20260721013353-69db783b782a)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -54,6 +55,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: CheckAuth grants RoleAdministrator to any request whose RemoteAddr is loopback (127.0.0.1), for a specific set of endpoints.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: An anonymous reader... can read the full rendered content of a document that has been explicitly marked publish-disabled.
+    confidence_band: high
 cves:
   - id: CVE-2026-72801
     cvss: 7.5
@@ -65,6 +72,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
   - https://github.com/advisories/GHSA-3mp7-4rh5-jrv9
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72809
+  - https://github.com/advisories/GHSA-69mh-gvh4-8gp7
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-68587
 rules:
   - title: Detects CVE-2026-72801 Exploitation - Unauthorized API Access to Notebook Crypto
     description: Detects unauthorized access to the getConf or getNotebookConf API endpoints by identifying requests that reveal sensitive cryptographic metadata.
@@ -86,7 +95,17 @@ rules:
       - T1005
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect CVE-2026-68587 Exploitation Attempt
+    description: Detects unauthorized access attempts to SiYuan transaction endpoints that return sensitive rendered document content.
+    platform: sigma
+    severity: high
+    tactics:
+      - collection
+    techniques:
+      - T1592
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -118,6 +137,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-3mp7-4rh5-jrv9
+  - at: "2026-09-04T00:05:15Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-68587 Exploitation Attempt'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-69mh-gvh4-8gp7
 ---
 
 SiYuan kernel versions prior to 0.0.0-20260724102025-3bc014c7dc32 contain an information disclosure vulnerability (CVE-2026-72801) affecting the handling of encrypted notebook configuration metadata. Specifically, two API endpoints, `/api/system/getConf` and `/api/notebook/getNotebookConf`, fail to properly redact sensitive cryptographic material when accessed by non-administrator roles. 
