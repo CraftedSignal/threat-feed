@@ -3,6 +3,7 @@ title: Information Disclosure in SiYuan Kernel Enabling Offline Password Crackin
 slug: 2026-09-siyuan-info-disclosure
 description: An information disclosure vulnerability in SiYuan's API allows unauthorized remote readers to retrieve cryptographic material necessary for offline, unthrottled GPU-based cracking of encrypted notebook master passwords.
 date: "2026-09-04T00:04:19Z"
+lastmod: "2026-09-04T00:04:32Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - SiYuan
 products:
   - SiYuan Kernel (< 0.0.0-20260724102025-3bc014c7dc32)
+  - SiYuan kernel (< 0.0.0-20260724091654-82e9ded423e4)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -31,6 +33,12 @@ mitre_ttps:
     technique_name: 'Unsecured Credentials: Credentials in Files'
     evidence: The response's notebookCrypto object contains MasterSalt, KDFParams, KEKVerifier, VerifierNonce, and KEKMAC.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1005
+    technique_name: Data from Local System
+    evidence: An anonymous reader ... can therefore retrieve that document's per-block content and its reference/backlink topology.
+    confidence_band: high
 cves:
   - id: CVE-2026-72801
     cvss: 7.5
@@ -38,6 +46,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-8x84-r2ff-h8pq
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72801
+  - https://github.com/advisories/GHSA-vpjw-wf5h-cgpq
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72804
 rules:
   - title: Detects CVE-2026-72801 Exploitation - Unauthorized API Access to Notebook Crypto
     description: Detects unauthorized access to the getConf or getNotebookConf API endpoints by identifying requests that reveal sensitive cryptographic metadata.
@@ -49,7 +59,17 @@ rules:
       - T1110.002
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-72804 Exploitation - Unauthorized Access to Graph Endpoints
+    description: Detects potential exploitation of CVE-2026-72804 by monitoring for POST requests to graph endpoints that return successful status codes.
+    platform: sigma
+    severity: high
+    tactics:
+      - exfiltration
+    techniques:
+      - T1005
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -66,6 +86,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-72801
       evidence: Endpoints are reachable by publish readers; restricting access prevents unauthorized disclosure.
+updates:
+  - at: "2026-09-04T00:04:32Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-72804 Exploitation - Unauthorized Access to Graph Endpoints'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vpjw-wf5h-cgpq
 ---
 
 SiYuan kernel versions prior to 0.0.0-20260724102025-3bc014c7dc32 contain an information disclosure vulnerability (CVE-2026-72801) affecting the handling of encrypted notebook configuration metadata. Specifically, two API endpoints, `/api/system/getConf` and `/api/notebook/getNotebookConf`, fail to properly redact sensitive cryptographic material when accessed by non-administrator roles. 
