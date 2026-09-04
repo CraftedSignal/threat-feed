@@ -3,7 +3,7 @@ title: Argument Injection Vulnerability in CodeWhale git_show Tool
 slug: 2026-08-codewhale-argument-injection
 description: An argument injection vulnerability (CVE-2026-75913) in the CodeWhale git_show tool allows attackers to perform arbitrary file writes under the user's privilege level by manipulating the 'rev' parameter.
 date: "2026-08-18T16:55:25Z"
-lastmod: "2026-09-04T18:09:25Z"
+lastmod: "2026-09-04T18:09:34Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,9 @@ tags:
   - vulnerability
   - code-execution
   - authorization-bypass
+  - path-traversal
+  - data-exfiltration
+  - arbitrary-file-read
 vendors:
   - CodeWhale
 products:
@@ -24,6 +27,7 @@ products:
   - codewhale-tui (>= 0.8.41, < 0.8.64)
   - CodeWhale (< 0.8.64)
   - CodeWhale (0.8)
+  - deepseek-tui (>= 0.8.32, <= 0.8.41)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -36,6 +40,18 @@ mitre_ttps:
     technique_id: T1059.003
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: An attacker who can inject instructions via untrusted content the agent ingests can cause commands to run at the privilege level of that approved process.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The model can invoke image_analyze on any turn without a user prompt, enabling unprompted file reads.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1048
+    technique_name: Exfiltration Over Alternative Protocol
+    evidence: The bytes are then base64-encoded and embedded as data:<mime>;base64,<bytes> in the chat-completion payload that is POSTed to ${base_url}/chat/completions.
     confidence_band: high
 cves:
   - id: CVE-2026-75913
@@ -51,6 +67,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75913
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75911
   - https://github.com/advisories/GHSA-7j5w-7r7x-9v27
+  - https://github.com/advisories/GHSA-w7wx-5q49-r59w
+  - CVE-2026-75914
 rules:
   - title: Detect CVE-2026-75913 - Potential Argument Injection in git via CodeWhale
     description: Detects the use of the --output flag in git commands spawned by CodeWhale, indicating a potential attempt to exploit CVE-2026-75913 for arbitrary file write.
@@ -102,6 +120,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-7j5w-7r7x-9v27
+  - at: "2026-09-04T18:09:34Z"
+    level: L2
+    summary: added coverage for deepseek-tui (>= 0.8.32, <= 0.8.41) +2 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-w7wx-5q49-r59w
 ---
 
 CodeWhale and codewhale-tui versions 0.8.41 through 0.8.63 contain an argument injection vulnerability within the `git_show` tool, assigned as CVE-2026-75913. The vulnerability stems from the tool failing to properly validate the `rev` parameter before passing it to the `git show` command line. By supplying an input starting with `--output=`, an attacker can inject malicious flags into the git execution process. Because the tool is registered for auto-approval and marketed as a read-only utility, it is often trusted by users and automated workflows. An attacker can leverage this trust, potentially in combination with prompt injection within a malicious repository, to cause the `git` binary to overwrite sensitive files such as `~/.ssh/authorized_keys`, `~/.bashrc`, or `~/.gitconfig` with attacker-controlled content. This flaw allows for lateral movement, persistence, or credential harvesting at the privilege level of the user executing the tool. The issue is resolved in version 0.8.64 by implementing input validation for the `rev` parameter.
