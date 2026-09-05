@@ -3,6 +3,7 @@ title: Arbitrary File Upload Vulnerability in Gravity Forms
 slug: 2026-09-gravity-forms-arbitrary-upload
 description: An arbitrary file upload vulnerability in the Gravity Forms WordPress plugin (<= 3.0.2) allows unauthenticated attackers to write arbitrary files to the temporary upload directory, potentially leading to remote code execution or stored XSS.
 date: "2026-09-01T15:07:06Z"
+lastmod: "2026-09-05T07:30:24Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +16,12 @@ tags:
   - vulnerability
   - rce
   - xss
+  - application-security
 vendors:
   - Gravity Forms
 products:
   - Gravity Forms (<= 3.0.2)
+  - Gravity Forms (<= 2.10.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,11 +35,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: This can lead to remote code execution on WordPress systems that use NGINX or other non .htaccess respecting web servers.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.
+    confidence_band: high
 cves:
   - id: CVE-2026-19513
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19513
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16649
 rules:
   - title: Detect Potential Gravity Forms Arbitrary File Upload Attempt
     description: Detects unauthorized attempts to write files with executable extensions via the Gravity Forms upload handler, targeting CVE-2026-19513.
@@ -67,6 +77,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-19513
       evidence: The source notes that .htaccess files are used to block exploitation.
+updates:
+  - at: "2026-09-05T07:30:24Z"
+    level: L2
+    summary: added coverage for Gravity Forms (<= 2.10.5)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-16649
 ---
 
 Gravity Forms versions up to and including 3.0.2 contain a critical vulnerability in the `GFAsyncUpload::upload()` function. The flaw stems from insufficient validation of multi-file upload chunk state, allowing the reuse of public form state URL hashes as chunk continuation hashes. Attackers can leverage this to influence the temporary filename used during the upload process. 
