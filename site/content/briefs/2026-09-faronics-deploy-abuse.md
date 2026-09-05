@@ -3,6 +3,7 @@ title: Abuse of Faronics Deploy for Remote Execution and Persistence
 slug: 2026-09-faronics-deploy-abuse
 description: Threat actors are exploiting compromised Faronics Deploy management consoles to push malicious scripts and binaries, enabling unauthorized remote code execution and persistence across managed enterprise endpoints.
 date: "2026-09-02T05:07:13Z"
+lastmod: "2026-09-05T09:23:42Z"
 type: rumour
 types:
   - rumour
@@ -17,6 +18,8 @@ vendors:
   - Faronics
 products:
   - Faronics Deploy
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -27,6 +30,7 @@ mitre_ttps:
 references:
   - https://www.huntress.com/blog/faronics-deploy-abuse
   - https://www.reddit.com/r/blueteamsec/comments/1w4ymz2/daisychaining_trust_investigating_faronics_deploy/
+  - https://www.reddit.com/r/blueteamsec/comments/1w7vobq/daisychaining_trust_investigating_faronics_deploy/
 rules:
   - title: Detect Faronics Agent Spawning Suspicious Child Processes
     description: Detects the Faronics agent process spawning command processors, which is indicative of administrative script execution via the management console.
@@ -65,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: Unauthorized console access
       evidence: Source attributes abuse to initial console access
+updates:
+  - at: "2026-09-05T09:23:42Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1w7vobq/daisychaining_trust_investigating_faronics_deploy/
 ---
 
 Security researchers have identified a campaign involving the abuse of Faronics Deploy, a cloud-based IT management and endpoint administration platform. Attackers who gain unauthorized access to the Faronics Deploy management console leverage the platform's legitimate "Deploy" and "Scripting" features to push malicious payloads and administrative commands to registered endpoints. Because these actions are executed by the legitimate Faronics management agent (typically running with elevated system-level privileges), the activity often appears as benign administrative traffic. This technique allows adversaries to establish long-term persistence, move laterally, and deploy additional tooling across an organization without triggering traditional security alerts that focus on external initial access. The lack of anomalous process behavior, combined with the trusted nature of the management agent, makes this a high-impact vector for organizations relying on centralized administration tools.
