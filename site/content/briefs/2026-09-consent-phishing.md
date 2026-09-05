@@ -3,6 +3,7 @@ title: OAuth Consent Phishing Campaigns Targeting Account Permissions
 slug: 2026-09-consent-phishing
 description: Malicious actors are using social engineering to lure victims into granting high-level OAuth permissions to attacker-controlled applications, enabling persistent access that bypasses password and multi-factor authentication.
 date: "2026-09-02T00:08:08Z"
+lastmod: "2026-09-05T17:25:43Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,10 @@ tags:
   - account-takeover
   - cloud-security
   - identity
+vendors:
+  - Microsoft
+products:
+  - Microsoft 365
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,6 +40,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://www.ic3.gov/PSA/2026/PSA260901
+  - https://www.reddit.com/r/blueteamsec/comments/1w86pnp/malicious_cyber_actors_gain_access_to_victim/
 action_plan:
   priority: elevated
   owners:
@@ -60,6 +66,14 @@ action_plan:
       owner: Identity and Access Management
       addresses: T1528
       evidence: Mitigation strategies include... only grant authorization to trusted applications.
+updates:
+  - at: "2026-09-05T17:25:43Z"
+    level: L1
+    summary: new product
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1w86pnp/malicious_cyber_actors_gain_access_to_victim/
 ---
 
 Since late 2025, malicious actors have been leveraging OAuth consent phishing to gain unauthorized access to user accounts. By impersonating government officials, media figures, or event coordinators via commercial messaging applications (CMA), attackers deceive victims into clicking links that lead to legitimate OAuth permission request screens. Unlike credential harvesting, this technique does not require the user's password; instead, it tricks the user into granting a malicious application broad access to their account data, such as email read/write permissions. Once granted, the attacker maintains persistent access to the account even if the victim changes their password. The victim must manually revoke the token through their account security settings to terminate the unauthorized access. This technique effectively bypasses multi-factor authentication (MFA) because the access is authorized via a legitimate service provider protocol.
