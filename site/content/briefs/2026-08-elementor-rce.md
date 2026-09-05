@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in Elementor Pro
 slug: 2026-08-elementor-rce
 description: Elementor Pro versions 4.2.1 and below contain a critical file upload vulnerability (CVE-2026-32475) that allows unauthenticated attackers to achieve remote code execution by bypassing extension validation.
 date: "2026-08-20T07:09:14Z"
+lastmod: "2026-09-05T13:18:59Z"
 type: advisory
 types:
   - advisory
@@ -32,14 +33,9 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Successful exploitation of the flaw could allow an attacker to upload arbitrary files, including PHP scripts, that could then be used to achieve remote code execution.
     confidence_band: high
-cves:
-  - id: CVE-2026-32475
-    cvss: 9
-  - id: CVE-2026-65640
-    cvss: 8.8
-    epss: 0.00814
 references:
   - https://thehackernews.com/2026/08/elementor-pro-flaw-could-let.html
+  - https://www.securityweek.com/elementor-pro-wordpress-plugin-vulnerability-exploited-to-hack-sites/
 rules:
   - title: Detect CVE-2026-32475 Exploitation - PHP File Upload in Elementor Forms
     description: Detects the creation of .php files in the Elementor forms upload directory which is indicative of CVE-2026-32475 exploitation.
@@ -78,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-32475
       evidence: The uploaded file is written as 'wp-content/uploads/elementor/forms/<uniqid>.php'.
+updates:
+  - at: "2026-09-05T13:18:59Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/elementor-pro-wordpress-plugin-vulnerability-exploited-to-hack-sites/
 ---
 
 Security researchers have identified a critical vulnerability, tracked as CVE-2026-32475, affecting the Elementor Pro WordPress plugin. The flaw resides in the Forms module's File Upload field, where an improper validation sequence allows attackers to bypass extension blocklists. By submitting two file parts for the same field, an unauthenticated attacker can effectively neutralize the extension check and move a malicious PHP file into a public directory. The resulting file is written to 'wp-content/uploads/elementor/forms/&lt;uniqid>.php'. 
