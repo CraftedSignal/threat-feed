@@ -3,6 +3,7 @@ title: MLflow Statsmodels Flavor Security Control Bypass
 slug: 2026-09-mlflow-statsmodels-bypass
 description: The MLflow 'statsmodels' flavor fails to implement the 'MLFLOW_ALLOW_PICKLE_DESERIALIZATION' security control, allowing unauthenticated attackers to achieve arbitrary code execution via crafted pickle model artifacts.
 date: "2026-09-01T18:00:04Z"
+lastmod: "2026-09-05T05:16:04Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:lfprojects:mlflow:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BEN-SLATES-CVE-2024-37054&utm_source=rss&utm_medium=rss
 vendors:
   - LF Projects
 products:
@@ -34,8 +38,12 @@ cves:
   - id: CVE-2024-37060
     cvss: 8.8
     epss: 0.00775
+  - id: CVE-2024-37054
+    cvss: 8.8
+    epss: 0.00703
 references:
   - https://github.com/advisories/GHSA-gqvg-gmmx-x4hm
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BEN-SLATES-CVE-2024-37054&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: Unauthenticated artifact store access
       evidence: Default MLflow deployments lack authentication by default.
+updates:
+  - at: "2026-09-05T05:16:04Z"
+    level: L2
+    summary: poc_available; added CVE-2024-37054
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BEN-SLATES-CVE-2024-37054&utm_source=rss&utm_medium=rss
 ---
 
 MLflow contains a security vulnerability where the `mlflow.statsmodels` flavor bypasses the `MLFLOW_ALLOW_PICKLE_DESERIALIZATION` security control. This control was originally introduced to prevent unsafe `pickle.load` execution during model loading, specifically to mitigate risks associated with CVE-2024-37052 through CVE-2024-37060. When operators set this variable to `False`, they intend to block all pickle-based deserialization. However, the `mlflow.statsmodels` implementation completely omits this security guard. An attacker who can upload or place a crafted MLmodel artifact into an accessible artifact store can trigger arbitrary code execution on any system or process that invokes `mlflow.pyfunc.load_model()` against the malicious model, regardless of the environment configuration. This vulnerability effectively nullifies a primary defense-in-depth measure against remote code execution in MLflow deployments.
