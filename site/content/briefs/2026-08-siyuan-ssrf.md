@@ -3,7 +3,7 @@ title: SSRF Vulnerability in SiYuan via DNS Rebinding
 slug: 2026-08-siyuan-ssrf
 description: SiYuan versions prior to 3.8.1 are vulnerable to server-side request forgery through a DNS rebinding attack, enabling unauthorized access to cloud metadata services and internal network resources.
 date: "2026-08-28T15:13:11Z"
-lastmod: "2026-09-04T00:04:59Z"
+lastmod: "2026-09-05T00:08:13Z"
 type: advisory
 types:
   - advisory
@@ -37,6 +37,7 @@ products:
   - SiYuan (<= 3.8.1)
   - SiYuan (< 0.0.0-20260723004839-1a5b3431d5ab)
   - SiYuan (< 0.0.0-20260723013612-ba948639d7f6)
+  - siyuan (< 0.0.0-20260725123945-77421530be4a)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -68,6 +69,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The concatenated statement reaches query() on the global read-write siyuan.db handle, allowing arbitrary SQL execution via statement stacking.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The endpoint returns Conf.CookieKey, the key used to sign the server's session cookies in its response body.
+    confidence_band: high
 cves:
   - id: CVE-2026-82234
     cvss: 8.2
@@ -81,6 +88,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72811
   - https://github.com/advisories/GHSA-mw8r-mw84-88v2
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72810
+  - https://github.com/advisories/GHSA-34fj-mwm6-fjfg
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72794
 rules:
   - title: Detects CVE-2026-85175 Exploitation - Unauthorized Access to Configuration Files
     description: Detects exploitation of CVE-2026-85175 where an attacker attempts to retrieve sensitive configuration keys via the /api/file/getFile endpoint.
@@ -120,13 +129,6 @@ action_plan:
       addresses: CVE-2026-82234
       evidence: Source confirms cloud metadata service access is a primary target of the SSRF.
 updates:
-  - at: "2026-08-30T17:11:51Z"
-    level: L2
-    summary: added coverage for SiYuan (< 3.8.1)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-82654
   - at: "2026-09-03T13:22:16Z"
     level: L2
     summary: added coverage for SiYuan (< 3.8.2)
@@ -155,6 +157,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-mw8r-mw84-88v2
+  - at: "2026-09-05T00:08:13Z"
+    level: L2
+    summary: added coverage for siyuan (< 0.0.0-20260725123945-77421530be4a)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-34fj-mwm6-fjfg
 ---
 
 SiYuan versions before 3.8.1 are susceptible to a critical server-side request forgery (SSRF) vulnerability identified as CVE-2026-82234. The flaw exists within the 'http_request' and 'web_fetch' agent tools, which perform DNS resolution checks only at the time of the request guard. Because the application fails to validate the IP address resolved during the subsequent connection phase, it becomes vulnerable to DNS rebinding attacks. An attacker can supply a domain that resolves to a benign public IP address during the initial guard check and then switches to a private, restricted, or cloud metadata IP address (e.g., 169.254.169.254) during the actual connection. This allows remote attackers to bypass security filters and interact with internal network services or exfiltrate sensitive environment metadata that would otherwise be protected from external access. This vulnerability poses a significant risk to cloud-hosted deployments of SiYuan.
