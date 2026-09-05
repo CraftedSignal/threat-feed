@@ -3,7 +3,7 @@ title: Active Exploitation of PaperCut MF and NG
 slug: 2026-08-papercut-vulnerabilities
 description: PaperCut MF and NG are impacted by two actively exploited vulnerabilities, CVE-2026-82078 and CVE-2026-81578, which allow unauthenticated remote attackers to achieve arbitrary code execution and full system control.
 date: "2026-08-28T14:28:32Z"
-lastmod: "2026-09-02T18:08:56Z"
+lastmod: "2026-09-05T07:52:06Z"
 type: advisory
 types:
   - advisory
@@ -34,6 +34,13 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: en zelf code uit te voeren.
     confidence_band: high
+cves:
+  - id: CVE-2026-82078
+    cvss: 9.1
+    epss: 0.00926
+  - id: CVE-2026-81578
+    cvss: 9.8
+    epss: 0.00771
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheden-in-papercut-mf-en-ng-met-actief-misbruik-update-onmiddellijk
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/
@@ -45,6 +52,14 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-81578
   - https://www.securityweek.com/papercut-exploitation-escalates-to-active-intrusions/
   - https://socprime.com/blog/cve-2026-81578-analysis/
+  - https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html
+iocs:
+  - type: ip
+    value: 45.142.193.132
+  - type: ip
+    value: 194.180.48.134
+ioc_counts:
+  ip: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -100,6 +115,13 @@ updates:
       - socprime
     source_urls:
       - https://socprime.com/blog/cve-2026-81578-analysis/
+  - at: "2026-09-05T07:52:06Z"
+    level: L2
+    summary: added CVE-2026-81578 +1
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html
 ---
 
 The Netherlands National Cyber Security Centre (NCSC-NL) has issued an urgent alert regarding the active exploitation of two critical vulnerabilities within PaperCut MF and PaperCut NG print management software. Identified as CVE-2026-82078 and CVE-2026-81578, these flaws enable unauthenticated remote attackers to compromise the print management environment. By bypassing authentication mechanisms, adversaries can gain full control over the application, leading to arbitrary code execution. This level of access provides a significant foothold within an organization's network, increasing the risk of lateral movement, data theft, and operational disruption. Given that exploitation is currently observed in the wild, the NCSC strongly advises organizations to verify their version status against the vendor's security bulletin and apply the provided patches immediately.
