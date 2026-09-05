@@ -3,6 +3,7 @@ title: Remote Command Injection Vulnerability in Tenda CP3
 slug: 2026-09-tenda-cp3-rce
 description: An unauthenticated remote command injection vulnerability in Tenda CP3 firmware version 27.5.57.101 allows attackers to execute arbitrary system commands via the AlarmVoiceURL argument.
 date: "2026-09-05T23:34:40Z"
+lastmod: "2026-09-05T23:34:48Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - remote-code-execution
   - firmware-vulnerability
   - iot
+  - network-appliance
 vendors:
   - Tenda
 products:
@@ -36,6 +38,7 @@ cves:
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86148
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86149
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86148
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-05T23:34:48Z"
+    level: L2
+    summary: added coverage for CP3 (27.5.57.101)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86149
 ---
 
 A critical command injection vulnerability, identified as CVE-2026-86148, has been discovered in the Tenda CP3 security camera firmware version 27.5.57.101. The vulnerability resides in the SystemAsh function within the Apis/system.c file of the Kylin component. An attacker can exploit this flaw by sending a crafted HTTP request that includes malicious shell metacharacters within the AlarmVoiceURL argument. Successful exploitation allows an unauthenticated remote attacker to execute arbitrary operating system commands with the privileges of the underlying firmware process, potentially leading to a full system compromise. This is a network-exploitable vulnerability requiring no user interaction, posing a significant risk to affected devices exposed to the internet.
