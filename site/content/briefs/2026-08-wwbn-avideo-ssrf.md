@@ -3,7 +3,7 @@ title: WWBN AVideo SSRF Filter Bypass via NAT64 Hex Encoding
 slug: 2026-08-wwbn-avideo-ssrf
 description: WWBN AVideo is vulnerable to a Server-Side Request Forgery (SSRF) bypass in the isSSRFSafeURL function due to improper normalization of hex-encoded NAT64 addresses.
 date: "2026-08-30T17:11:37Z"
-lastmod: "2026-09-03T13:21:57Z"
+lastmod: "2026-09-05T13:31:42Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ tags:
   - session-management
   - sqli
   - vulnerability
+  - rce
 vendors:
   - WWBN
 products:
@@ -92,6 +93,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84482
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85154
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85155
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86189
 rules:
   - title: Detect CVE-2026-82644 Exploitation - Brute Force Bypass via User-Agent Manipulation
     description: Detects potential brute-force attempts on login endpoints by identifying high-frequency POST requests with missing or common bot User-Agent strings, which characterize the CVE-2026-82644 bypass vector.
@@ -125,7 +127,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 3
+  - title: Detect CVE-2026-86189 Exploitation Attempt - Path Traversal in AVideo
+    description: Detects exploitation attempts against notify.ffmpeg.json.php using path traversal sequences in the avideoRelativePath parameter.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 4
 action_plan:
   priority: elevated
   owners:
@@ -143,13 +155,6 @@ action_plan:
       addresses: CVE-2026-82648
       evidence: Source confirms vulnerability in AVideo isSSRFSafeURL function
 updates:
-  - at: "2026-09-02T01:10:49Z"
-    level: L2
-    summary: added coverage for AVideo
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-84476
   - at: "2026-09-02T01:10:59Z"
     level: L2
     summary: 'added detection rule: Detect CVE-2026-84478 Exploitation - Path Traversal in AVideo API'
@@ -178,6 +183,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85155
+  - at: "2026-09-05T13:31:42Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-86189 Exploitation Attempt - Path Traversal in AVideo'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86189
 ---
 
 WWBN AVideo contains a server-side request forgery (SSRF) vulnerability identified as CVE-2026-82648, located within the isSSRFSafeURL function. The vulnerability stems from a failure to correctly normalize NAT64 addresses when they are presented in a hexadecimal format. Because the function does not account for these specific representations, attackers can bypass existing URL filtering protections. By crafting malicious requests containing NAT64 addresses such as 64:ff9b::a9fe:a9fe, an unauthorized actor can force the application to perform requests against restricted internal resources, including cloud metadata services (e.g., 169.254.169.254) and local loopback interfaces. This flaw is particularly significant in cloud-hosted environments where metadata services store sensitive IAM credentials or instance configuration details. Successful exploitation allows an attacker to interact with internal network segments that are otherwise protected from external reach, potentially resulting in credential theft or further lateral movement within the hosting infrastructure.
