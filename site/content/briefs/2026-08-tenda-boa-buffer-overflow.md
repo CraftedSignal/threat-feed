@@ -3,6 +3,7 @@ title: Buffer Overflow Vulnerability in Tenda HG10 Boa Web Server
 slug: 2026-08-tenda-boa-buffer-overflow
 description: A critical buffer overflow vulnerability (CVE-2026-82542) in the Boa Web Server component of Tenda HG10 allows remote unauthenticated attackers to trigger a crash or achieve code execution via the formIPv6Routing function.
 date: "2026-08-30T15:10:52Z"
+lastmod: "2026-09-06T04:43:33Z"
 type: advisory
 types:
   - advisory
@@ -26,6 +27,7 @@ cves:
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82542
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86165
 rules:
   - title: Detects CVE-2026-82542 Exploitation - Buffer Overflow Attempt in formIPv6Routing
     description: Detects HTTP requests containing suspiciously long 'destNet' parameters directed at the Boa Web Server admin endpoint, indicative of a buffer overflow attempt.
@@ -37,7 +39,18 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-86165 Exploitation - Malicious POST to formURL
+    description: Detects exploitation attempts against CVE-2026-86165 by monitoring POST requests to /boaform/admin/formURL containing potential buffer overflow payloads in the Keywd or urlFQDN parameters.
+    platform: sigma
+    severity: critical
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -54,6 +67,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82542
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-09-06T04:43:33Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-86165 Exploitation - Malicious POST to formURL'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86165
 ---
 
 CVE-2026-82542 describes a critical buffer overflow vulnerability found in the Tenda HG10 firmware version 300001138. The flaw resides in the 'formIPv6Routing' function within the '/boaform/admin/formIPv6Routing' URI, handled by the Boa Web Server component. An unauthenticated remote attacker can exploit this weakness by supplying a maliciously crafted 'destNet' argument in an HTTP request. Successful exploitation can lead to memory corruption, resulting in a denial-of-service condition or potentially remote code execution with the privileges of the web server. Given that public proof-of-concept exploit code is available, this vulnerability presents an immediate risk for network-connected devices.
