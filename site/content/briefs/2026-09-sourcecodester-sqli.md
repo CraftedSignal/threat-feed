@@ -3,7 +3,7 @@ title: SQL Injection in SourceCodester Online Voting System
 slug: 2026-09-sourcecodester-sqli
 description: SourceCodester Online Voting System 1.0 is vulnerable to remote SQL injection via the 'id' parameter in the '/ajax.php?action=save_user' endpoint, enabling unauthenticated attackers to manipulate database queries.
 date: "2026-09-06T03:35:58Z"
-lastmod: "2026-09-06T03:36:10Z"
+lastmod: "2026-09-06T03:36:18Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,7 @@ cpes:
 tags:
   - sqli
   - web-vulnerability
+  - sql-injection
 vendors:
   - SourceCodester
 products:
@@ -31,6 +32,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86159
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86161
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86162
 rules:
   - title: Detects CVE-2026-86159 Exploitation - SQL Injection via ajax.php
     description: Detects exploitation attempts against SourceCodester Online Voting System by looking for SQL injection metacharacters within the id parameter of the save_user action.
@@ -52,7 +54,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detects CVE-2026-86162 Exploitation - SQL Injection in Login Endpoint
+    description: Detects SQL injection attempts via the Username parameter on the /ajax.php login endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -77,6 +89,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-86161
+  - at: "2026-09-06T03:36:18Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-86162 Exploitation - SQL Injection in Login Endpoint'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86162
 ---
 
 SourceCodester Online Voting System version 1.0 contains a SQL injection vulnerability within the /ajax.php endpoint. The flaw is specifically triggered through the 'id' parameter when the action is set to 'save_user'. An unauthenticated remote attacker can inject arbitrary SQL commands into the application's database queries. This vulnerability is significant because the exploit code has been publicly released, increasing the likelihood of exploitation. Successful exploitation allows an attacker to bypass authentication, extract sensitive voter information, modify database records, or potentially gain further control over the underlying web application environment. Defenders should prioritize auditing web server access logs for requests to the /ajax.php endpoint containing SQL metacharacters.
