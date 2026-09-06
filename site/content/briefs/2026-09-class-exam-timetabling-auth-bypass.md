@@ -3,6 +3,7 @@ title: Authorization Bypass in SourceCodester Class and Exam Timetabling System
 slug: 2026-09-class-exam-timetabling-auth-bypass
 description: SourceCodester Class and Exam Timetabling System version 1.0 is vulnerable to a remote authorization bypass via the ID argument in /admin/session.php, enabling unauthenticated access to administrative functions.
 date: "2026-09-04T11:25:24Z"
+lastmod: "2026-09-06T18:47:14Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:sourcecodester:class_and_exam_timetabling_system:1.0:*:*:*:*:*:*:*
+tags:
+  - sql-injection
+  - vulnerability
+  - web-application
 vendors:
   - SourceCodester
 products:
@@ -26,6 +31,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85512
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86220
 rules:
   - title: Detect CVE-2026-85512 Exploitation - Authorization Bypass in /admin/session.php
     description: Detects exploitation attempts against CVE-2026-85512 by identifying requests to /admin/session.php with anomalous ID argument manipulation patterns.
@@ -37,7 +43,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-86220 Exploitation - SQL Injection in Class and Exam Timetabling System
+    description: Detects potential SQL injection attempts targeting the 'course' parameter in the modal_add_course.php script.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +70,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-85512
       evidence: Public exploit code availability
+updates:
+  - at: "2026-09-06T18:47:14Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-86220 Exploitation - SQL Injection in Class and Exam Timetabling System'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86220
 ---
 
 SourceCodester Class and Exam Timetabling System version 1.0 contains a critical missing authorization vulnerability identified as CVE-2026-85512. The flaw resides within the /admin/session.php file, where the ID argument is insufficiently validated. This vulnerability allows remote, unauthenticated attackers to bypass access controls and perform actions intended for administrative users. With exploit code currently available in the public domain, this vulnerability poses a significant risk to any organization deploying this specific version of the system. Defenders should prioritize identifying instances of this software within their environments and restricting access to administrative endpoints while awaiting a vendor patch or remediation.
