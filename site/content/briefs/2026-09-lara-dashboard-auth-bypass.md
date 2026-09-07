@@ -3,6 +3,7 @@ title: Authentication Bypass in Lara Dashboard
 slug: 2026-09-lara-dashboard-auth-bypass
 description: Lara Dashboard versions prior to 1.3.0 are vulnerable to an authentication bypass in the screenshot-login route that permits unauthenticated access to any user account when APP_ENV is not set to production.
 date: "2026-09-05T13:31:30Z"
+lastmod: "2026-09-07T23:38:00Z"
 type: advisory
 types:
   - advisory
@@ -10,8 +11,15 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:lara_dashboard_project:lara_dashboard:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - authorization-bypass
+  - remote-code-execution
+vendors:
+  - Lara Dashboard
 products:
   - Lara Dashboard (< 1.3.0)
+  - Lara Dashboard (< 1.3.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -19,11 +27,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Lara Dashboard before 1.3.0 contains an authentication bypass vulnerability in the screenshot-login route that allows unauthenticated attackers to authenticate as any user
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Attackers can download and auto-activate arbitrary PHP modules from the marketplace over unsigned HTTP requests, achieving remote code execution.
+    confidence_band: high
 cves:
   - id: CVE-2026-86184
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86184
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86438
 rules:
   - title: Detects CVE-2026-86184 Exploitation - Unauthenticated Access via screenshot-login
     description: Detects exploitation attempts against CVE-2026-86184 by monitoring for GET requests to the screenshot-login route
@@ -56,6 +71,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86184
       evidence: Vulnerability triggers when APP_ENV is not production
+updates:
+  - at: "2026-09-07T23:38:00Z"
+    level: L2
+    summary: added coverage for Lara Dashboard (< 1.3.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86438
 ---
 
 Lara Dashboard versions prior to 1.3.0 contain an authentication bypass vulnerability in the screenshot-login route that allows unauthenticated attackers to authenticate as any user by specifying their email address. This vulnerability is active when the application environment (APP_ENV) is configured to anything other than 'production'. By sending a crafted GET request to the /screenshot-login/{email} endpoint, an unauthenticated attacker can obtain a fully authenticated session for the specified user account. This provides the attacker with immediate access to sensitive system administration panels, application settings, and database contents. Furthermore, the elevated access granted by this bypass allows for the use of the module installer to execute arbitrary code on the underlying server, presenting a significant risk to organizational infrastructure.
