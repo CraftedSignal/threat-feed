@@ -3,6 +3,7 @@ title: Critical RCE Vulnerability in N-able N-central
 slug: 2026-09-n-central-rce
 description: A critical unauthenticated remote code execution vulnerability (CVE-2026-86218) in N-able N-central is under active exploitation, allowing attackers to gain full system control.
 date: "2026-09-07T12:55:57Z"
+lastmod: "2026-09-07T13:33:41Z"
 type: threat
 types:
   - threat
@@ -20,6 +21,7 @@ vendors:
   - N-able
 products:
   - N-central (< 2026.3.1.14)
+  - N-Central (< 2026.3.1.14)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,6 +34,7 @@ cves:
     epss: 0.00411
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheid-in-n-central-van-n-able-update-nu
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3205
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86218
       evidence: All versions of N-central older than 2026.3.1.14 are vulnerable.
+updates:
+  - at: "2026-09-07T13:33:41Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3205
 ---
 
 N-able has identified a critical vulnerability, CVE-2026-86218, affecting its N-central remote monitoring and management platform. This vulnerability carries a CVSS score of 10 and permits unauthenticated, remote attackers to execute arbitrary code on the underlying system. The flaw is currently being exploited in the wild, posing an immediate risk to IT service providers and organizations managing IT systems via this software. N-central is frequently used by IT service providers, making it a high-value target for attackers aiming to pivot into the downstream environments of managed clients. All on-premises instances prior to version 2026.3.1.14 are susceptible to compromise, which results in full system take-over. Hosted N-able N-central (NCOD) instances have been patched by the vendor.
