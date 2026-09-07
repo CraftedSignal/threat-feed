@@ -3,6 +3,7 @@ title: Authorization Bypass in sfturing hosp_order via userIdenf Parameter
 slug: 2026-09-hosp-order-auth-bypass
 description: An unpatched authorization bypass vulnerability in the sfturing hosp_order component allows remote attackers to manipulate the userIdenf parameter within OrderController.java to gain unauthorized access.
 date: "2026-09-07T04:49:55Z"
+lastmod: "2026-09-07T04:50:03Z"
 type: threat
 types:
   - threat
@@ -11,10 +12,15 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:sfturing:hosp_order:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - authorization-bypass
+  - cve-2026-86262
 vendors:
   - sfturing
 products:
   - hosp_order (< 627f426331da8086ce8fff2017d65b1ddef384f8)
+  - hosp_order
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -22,11 +28,18 @@ mitre_ttps:
     technique_name: Active Scanning
     evidence: The attack can be executed remotely.
     confidence_band: med
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The manipulation of the argument userID/id leads to authorization bypass.
+    confidence_band: high
 cves:
   - id: CVE-2026-86261
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86261
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86262
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +56,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86261
       evidence: No current patch available.
+updates:
+  - at: "2026-09-07T04:50:03Z"
+    level: L2
+    summary: added coverage for hosp_order
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86262
 ---
 
 A security vulnerability (CVE-2026-86261) has been identified in the sfturing hosp_order component, affecting versions up to the commit hash 627f426331da8086ce8fff2017d65b1ddef384f8. The flaw is located in the OrderController.java file, specifically within the Order Controller component. An attacker can perform a remote authorization bypass by manipulating the 'userIdenf' argument passed to the controller. This vulnerability allows for unauthorized access to hospital order data or functionality. 
