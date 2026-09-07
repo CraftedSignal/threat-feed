@@ -3,12 +3,14 @@ title: Stored XSS via Attribute Filter Bypass in league/commonmark
 slug: 2026-09-league-commonmark-xss
 description: An XSS vulnerability in league/commonmark allows attackers to execute arbitrary JavaScript by prepending a U+000C form feed character to malicious attribute names, bypassing security filters in the AttributesExtension.
 date: "2026-09-02T00:00:45Z"
-lastmod: "2026-09-02T00:00:54Z"
+lastmod: "2026-09-07T13:37:11Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:thephpleague:commonmark:*:*:*:*:*:*:*:*
 tags:
   - xss
   - web-vulnerability
@@ -40,8 +42,12 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: An unauthenticated attacker who can submit Markdown for conversion can use a comparatively small request to consume disproportionate CPU time.
     confidence_band: high
+cves:
+  - id: CVE-2026-86431
+    cvss: 7.2
 references:
   - https://github.com/advisories/GHSA-j8pm-gj4c-rq4x
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86431
 action_plan:
   priority: elevated
   owners:
@@ -66,6 +72,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-j8pm-gj4c-rq4x
+  - at: "2026-09-07T13:37:11Z"
+    level: L2
+    summary: added CVE-2026-86431
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86431
 ---
 
 The `AttributesExtension` for the `league/commonmark` library fails to correctly sanitize attributes when a U+000C form feed character (`\x0C`) is prepended to the attribute name. The library's `AttributesHelper` uses PHP's `trim()` function to clean input, but since `\x0C` is excluded from the default trim character list, the character is preserved. This results in the validator failing to identify restricted attributes (such as `onclick` or `onerror`) or unsafe `javascript:` URIs. Because the subsequent HTML renderer does not escape attribute names, browsers interpret the malformed tag as a valid HTML element containing the malicious handler or URI. This vulnerability affects `league/commonmark` versions 2.7.0 through 2.9.0 and persists even when developers enable recommended security configurations, such as disabling `allow_unsafe_links`.
