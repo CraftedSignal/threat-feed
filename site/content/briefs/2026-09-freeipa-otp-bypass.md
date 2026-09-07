@@ -3,6 +3,7 @@ title: Unauthenticated Administrative Compromise in FreeIPA via OTP ACI Flaw
 slug: 2026-09-freeipa-otp-bypass
 description: An unauthenticated remote attacker can exploit a flaw in FreeIPA's self-managed OTP token access control instructions to create arbitrary Kerberos principals and grant them administrator group membership.
 date: "2026-09-07T13:36:06Z"
+lastmod: "2026-09-07T13:36:29Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +16,16 @@ tags:
   - authentication-bypass
   - privilege-escalation
   - ldap
+  - vulnerability
+  - cve
+  - linux
 vendors:
   - FreeIPA
 products:
   - FreeIPA (all versions)
+  - FreeIPA
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,11 +39,18 @@ mitre_ttps:
     technique_name: 'Account Manipulation: Additional Cloud or Domain Roles'
     evidence: have it added to the administrators group... obtain genuine FreeIPA administrator-group membership.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The flaw allows input to reach a constrained eval() call before LDAP access control checks are enforced.
+    confidence_band: high
 cves:
   - id: CVE-2026-76578
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76578
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-79678
 action_plan:
   priority: immediate_escalation
   owners:
@@ -63,6 +77,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76578
       evidence: Source explicitly identifies CVE-2026-76578 as the vulnerability root cause
+updates:
+  - at: "2026-09-07T13:36:29Z"
+    level: L2
+    summary: added coverage for FreeIPA
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-79678
 ---
 
 A critical vulnerability (CVE-2026-76578) exists within FreeIPA's self-managed OTP token mechanism. The Access Control Instructions (ACI) associated with self-managed tokens fail to enforce authentication requirements and do not validate attributes added alongside a token entry. An unauthenticated attacker can interact with the LDAP interface to inject arbitrary attributes. When chained with a related, independently tracked vulnerability in the underlying 389 Directory Server's ACI evaluation logic, the attacker can successfully create a malicious Kerberos principal and append it to the administrator group. This enables full administrative control over the FreeIPA environment, including directory management and potential impact on integrated IdM services in SID-enabled deployments. Because the attack originates from the network-accessible LDAP service without requiring prior authentication, it poses a severe risk to identity infrastructure.
