@@ -3,6 +3,7 @@ title: Detection of AWS SES Identity Verify-Use-Delete Abusive Pattern
 slug: 2026-08-aws-ses-abuse
 description: Adversaries with unauthorized access to AWS Simple Email Service (SES) credentials may verify an attacker-controlled identity, send phishing or spam emails, and promptly delete the identity to evade detection and attribution.
 date: "2026-08-31T17:52:25Z"
+lastmod: "2026-09-07T10:42:51Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - ses
   - resource-development
   - defense-evasion
+  - discovery
+  - credential-abuse
 vendors:
   - Amazon
 products:
   - Simple Email Service (SES)
+  - Simple Email Service
 mitre_ttps:
   - tactic_id: TA0042
     tactic_name: Resource Development
@@ -31,10 +35,31 @@ mitre_ttps:
     technique_name: Indicator Removal
     evidence: An adversary who obtains SES credentials may... delete the identity to remove evidence of the sending domain from the account's verified identity list.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1526
+    technique_name: Cloud Service Discovery
+    evidence: Adversaries who obtain a long-term key may enumerate SES to discover verified email identities, sending quotas, and DKIM/MAIL FROM domain configurations.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html
   - https://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html
   - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/
+  - https://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html
+  - https://stratus-red-team.cloud/attack-techniques/AWS/aws.discovery.ses-enumerate/
+rules:
+  - title: Detect AWS SES Enumeration via Long-Term Access Key
+    description: Detects discovery of AWS SES resources using long-term IAM access keys (AKIA* prefix), which is a common indicator of reconnaissance following credential exfiltration.
+    platform: sigma
+    severity: low
+    tactics:
+      - discovery
+    techniques:
+      - T1526
+    data_sources:
+      - process_creation
+      - aws
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +76,14 @@ action_plan:
       owner: IT Operations
       addresses: T1583.001
       evidence: Standard IAM best practice to reduce the blast radius of compromised credentials.
+updates:
+  - at: "2026-09-07T10:42:51Z"
+    level: L1
+    summary: 'added detection rule: Detect AWS SES Enumeration via Long-Term Access Key'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ses_enumeration_via_long_term_access_key.toml
 ---
 
 Adversaries who obtain unauthorized AWS credentials with SES permissions often abuse the service to send bulk unsolicited email using the victim account's reputation and sending quota. To minimize the forensic footprint, attackers employ a specific 'verify-use-delete' technique. This involves programmatically verifying a domain or email identity they control, utilizing the account to send malicious traffic, and subsequently deleting the identity within a short timeframe (typically under 30 minutes). This deletion removes the evidence from the account's verified identity list, complicating post-incident forensic review and attribution. Defenders must monitor CloudTrail management events to identify this rapid lifecycle of SES identities.
