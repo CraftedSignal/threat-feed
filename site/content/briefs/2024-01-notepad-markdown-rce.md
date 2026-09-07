@@ -3,11 +3,17 @@ title: Potential Notepad Markdown RCE Exploitation (CVE-2026-20841)
 slug: 2024-01-notepad-markdown-rce
 description: A Windows Notepad markdown parsing vulnerability (CVE-2026-20841) can lead to arbitrary code execution, detected by identifying unexpected child processes spawned by Notepad when opening a markdown file.
 date: "2024-01-03T12:00:00Z"
+lastmod: "2026-09-07T02:54:57Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:microsoft:windows_notepad:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BTTEA-CVE-2026-20841-POC&utm_source=rss&utm_medium=rss
 tags:
   - notepad
   - markdown
@@ -16,16 +22,21 @@ tags:
 vendors:
   - Microsoft
 products:
-  - Notepad
+  - Notepad (< 11.2510)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1203
     technique_name: Exploitation for Client Execution
+cves:
+  - id: CVE-2026-20841
+    cvss: 7.8
+    epss: 0.1165
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20841
   - https://attack.mitre.org/techniques/T1203/
   - https://attack.mitre.org/tactics/TA0002/
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BTTEA-CVE-2026-20841-POC&utm_source=rss&utm_medium=rss
 rules:
   - title: Notepad Spawning Suspicious Processes
     description: Detects suspicious processes spawned by Notepad, potentially indicating CVE-2026-20841 exploitation.
@@ -48,6 +59,14 @@ rules:
       - file_event
       - windows
 rules_count: 2
+updates:
+  - at: "2026-09-07T02:54:57Z"
+    level: L2
+    summary: poc_available; added CVE-2026-20841
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BTTEA-CVE-2026-20841-POC&utm_source=rss&utm_medium=rss
 ---
 
 This threat brief focuses on the potential exploitation of CVE-2026-20841, a remote code execution vulnerability in Windows Notepad related to markdown parsing. The vulnerability allows an attacker to execute arbitrary code by crafting a malicious markdown file that, when opened with Notepad, spawns unauthorized child processes. This exploit can lead to further malicious activities on the compromised system. The Elastic detection rule, published on 2026-03-23, detects child processes spawned by `notepad.exe` when opening `.md` files. Successful exploitation could allow an attacker to execute arbitrary code, potentially leading to credential theft, lateral movement, or data exfiltration. This poses a significant risk, especially in environments where users frequently handle markdown files from untrusted sources.
