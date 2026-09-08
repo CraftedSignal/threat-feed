@@ -3,12 +3,24 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-03T23:25:27Z"
+lastmod: "2026-09-08T19:32:30Z"
 type: threat
 types:
   - threat
 severities:
   - high
+cpes:
+  - cpe:2.3:a:microsoft:entra_id:-:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:fabric:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_23h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_24h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_25h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_11_26h1:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_server_2025:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -17,30 +29,29 @@ cves:
   - id: CVE-2026-62916
     product: Entra ID
     cvss: 9.1
+    epss: 0.00582
   - id: CVE-2026-70352
     product: Azure AI Language
     cvss: 10
-  - id: CVE-2026-80098
-    product: Copilot Studio
-    cvss: 9.3
+    epss: 0.00623
   - id: CVE-2026-83711
     product: Azure Active Directory B2C
     cvss: 10
-  - id: CVE-2026-62906
-    product: Discovery Studio
-    cvss: 7.4
-  - id: CVE-2026-65818
+    epss: 0.00582
+  - id: CVE-2026-70178
     cvss: 8.5
+    epss: 0.00414
+  - id: CVE-2026-81963
+    cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69857
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70178
 updates:
-  - at: "2026-09-03T23:24:01Z"
+  - at: "2026-09-03T23:24:03Z"
     level: L2
-    summary: added CVE-2026-70352, CVE-2026-80098, CVE-2026-83711
+    summary: added CVE-2026-80098, CVE-2026-83711
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-70352
       - https://nvd.nist.gov/vuln/detail/CVE-2026-80098
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83711
   - at: "2026-09-03T23:25:23Z"
@@ -51,9 +62,16 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62906
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69857
+  - at: "2026-09-08T19:32:30Z"
+    level: L2
+    summary: added CVE-2026-70178 +1
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-81963
 ---
 
-This roundup covers 6 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Copilot Studio, Discovery Studio, Entra ID, Power Automate.
+This roundup covers 8 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Discovery Studio, Entra ID, Fabric, Power Automate.
 
 ## Summary
 
@@ -64,7 +82,9 @@ This roundup covers 6 Microsoft security vulnerabilities. CVSS base scores range
 | [CVE-2026-80098](#cve-2026-80098) | Copilot Studio | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-80098) (authoritative) |
 | [CVE-2026-83711](#cve-2026-83711) | Azure Active Directory B2C | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83711) (authoritative) |
 | [CVE-2026-62906](#cve-2026-62906) | Discovery Studio | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62906) (authoritative) |
-| [CVE-2026-65818](#cve-2026-65818) | Power Automate |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65818) (authoritative) |
+| [CVE-2026-65818](#cve-2026-65818) | Power Automate | High | 8.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65818) (authoritative) |
+| [CVE-2026-69857](#cve-2026-69857) | Azure Cosmos DB |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69857) (authoritative) |
+| [CVE-2026-70178](#cve-2026-70178) | Fabric |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70178) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -120,3 +140,21 @@ Affected products:
 - Power Automate
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65818
+
+## CVE-2026-69857
+
+CVE-2026-69857 describes an authorization bypass vulnerability in Azure Cosmos DB, where a user-controlled key allows an already authorized attacker to perform network spoofing, potentially escalating access or manipulating data communication.
+
+Affected products:
+- Azure Cosmos DB
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69857
+
+## CVE-2026-70178
+
+CVE-2026-70178 is a privilege escalation vulnerability in Microsoft Fabric caused by a missing authorization check, which allows an attacker with existing network access to gain unauthorized elevated privileges.
+
+Affected products:
+- Fabric
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70178
