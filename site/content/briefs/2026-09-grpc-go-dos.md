@@ -3,6 +3,7 @@ title: gRPC-Go Denial of Service via HTTP/2 Fragmentation
 slug: 2026-09-grpc-go-dos
 description: An unauthenticated remote attacker can exploit HTTP/2 DATA frame fragmentation in gRPC-Go versions <= 1.83.0 to cause heap memory exhaustion and application crashes.
 date: "2026-09-02T00:00:00Z"
+lastmod: "2026-09-08T21:50:26Z"
 type: advisory
 types:
   - advisory
@@ -14,11 +15,23 @@ vendors:
   - Google
 products:
   - gRPC-Go (<= 1.83.0)
+  - gRPC-Go (< 1.82.2)
+  - gRPC-Go (>= 1.83.0, < 1.83.2)
+  - gRPC-Go (>= 1.84.0-dev, < 1.85.0-dev.0.20260825072537-93e31b48545e)
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: An attacker can cause a complete outage of the gRPC server by sending a request missing both :authority and Host headers.
+    confidence_band: high
 cves:
   - id: CVE-2026-84304
 references:
   - https://github.com/advisories/GHSA-vp52-pcj8-j9qc
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-84304
+  - https://github.com/advisories/GHSA-2v4p-qf9q-27wj
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-84445
 action_plan:
   priority: elevated
   owners:
@@ -35,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-84304
       evidence: This behavior is enabled by default.
+updates:
+  - at: "2026-09-08T21:50:26Z"
+    level: L1
+    summary: added coverage for gRPC-Go (< 1.82.2) +2 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2v4p-qf9q-27wj
 ---
 
 The gRPC-Go library is susceptible to a remote Denial of Service (DoS) attack due to improper handling of HTTP/2 DATA frame fragmentation. By purposefully sending millions of tiny (e.g., 1-byte) HTTP/2 DATA frames within a gRPC stream, an attacker can bypass flow-control windows while inflating heap memory consumption. Each small frame incurs significant memory overhead caused by internal tracking structures and queue allocations within the gRPC-Go runtime. 
