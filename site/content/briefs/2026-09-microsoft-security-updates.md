@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:45:32Z"
+lastmod: "2026-09-08T19:46:30Z"
 type: threat
 types:
   - threat
@@ -86,6 +86,8 @@ cves:
     cvss: 9.3
   - id: CVE-2026-69408
     cvss: 9.8
+  - id: CVE-2026-69463
+    cvss: 9.8
   - id: CVE-2026-69493
     cvss: 9.8
   - id: CVE-2026-69496
@@ -112,20 +114,16 @@ cves:
     cvss: 9.8
   - id: CVE-2026-70296
     cvss: 9.8
+  - id: CVE-2026-72982
+    cvss: 9.8
   - id: CVE-2026-72983
     cvss: 9.8
   - id: CVE-2026-73009
+    product: Windows Secure Socket Tunneling Protocol
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73009
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-47297
 updates:
-  - at: "2026-09-08T19:45:10Z"
-    level: L2
-    summary: added CVE-2026-69768
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69845
   - at: "2026-09-08T19:45:18Z"
     level: L2
     summary: added CVE-2026-69496 +2
@@ -148,9 +146,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-73009
+  - at: "2026-09-08T19:46:30Z"
+    level: L2
+    summary: added CVE-2026-69463 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-47297
 ---
 
-This roundup covers 37 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Standard XPS, UxTheme Library, Windows, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
+This roundup covers 45 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, UxTheme Library, Visual Studio Code, Windows, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Secure Socket Tunneling Protocol, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -192,7 +197,15 @@ This roundup covers 37 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-70296](#cve-2026-70296) | Windows Imaging Component | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70296) (authoritative) |
 | [CVE-2026-72979](#cve-2026-72979) | Windows DHCP Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72979) (authoritative) |
 | [CVE-2026-72982](#cve-2026-72982) | Netlogon |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72982) (authoritative) |
-| [CVE-2026-72983](#cve-2026-72983) | Internet Connection Sharing |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72983) (authoritative) |
+| [CVE-2026-72983](#cve-2026-72983) | Internet Connection Sharing | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72983) (authoritative) |
+| [CVE-2026-73009](#cve-2026-73009) | Windows Secure Socket Tunneling Protocol | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73009) (authoritative) |
+| [CVE-2026-73010](#cve-2026-73010) | Windows Failover Cluster |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73010) (authoritative) |
+| [CVE-2026-73025](#cve-2026-73025) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73025) (authoritative) |
+| [CVE-2026-77493](#cve-2026-77493) | Graphics Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77493) (authoritative) |
+| [CVE-2026-78445](#cve-2026-78445) | Windows Services for NFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-78445) (authoritative) |
+| [CVE-2026-81376](#cve-2026-81376) | Visual Studio Code |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-81376) (authoritative) |
+| [CVE-2026-83941](#cve-2026-83941) | Entra ID |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83941) (authoritative) |
+| [CVE-2026-66302](#cve-2026-66302) | Skype for Business |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-66302) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -203,6 +216,9 @@ Affected products:
 - Entra ID
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+
+
+Related in this roundup: [CVE-2026-83941](#cve-2026-83941).
 
 ## CVE-2026-70352
 
@@ -303,7 +319,15 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
-Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-85880
 
@@ -341,7 +365,15 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-65669
 
@@ -378,6 +410,14 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
+
+
+
+
+
+
+
+
 
 
 
@@ -456,7 +496,15 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-69525
 
@@ -500,7 +548,15 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69768](#cve-2026-69768).
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-69590
 
@@ -520,6 +576,11 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69595
 
+
+
+
+Related in this roundup: [CVE-2026-78445](#cve-2026-78445).
+
 ## CVE-2026-69641
 
 CVE-2026-69641 is a privilege escalation vulnerability in Microsoft Exchange Server resulting from a missing authorization check. An attacker who has already gained authorized access to the network can exploit this flaw to elevate their privileges, potentially gaining administrative control over the affected server instance.
@@ -528,6 +589,14 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
+
+
+
+
+
+
+
+
 
 
 
@@ -579,7 +648,15 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586).
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-69769
 
@@ -619,6 +696,14 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
 
 
 
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-72979](#cve-2026-72979).
 
 ## CVE-2026-69910
@@ -650,6 +735,14 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72979
 
 
 
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-69845](#cve-2026-69845).
 
 ## CVE-2026-72982
@@ -669,3 +762,90 @@ Affected products:
 - Internet Connection Sharing
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72983
+
+## CVE-2026-73009
+
+CVE-2026-73009 is a critical use-after-free vulnerability within the Windows Secure Socket Tunneling Protocol (SSTP) that permits a remote, unauthorized attacker to achieve arbitrary code execution over a network connection.
+
+Affected products:
+- Windows Secure Socket Tunneling Protocol
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73009
+
+## CVE-2026-73010
+
+CVE-2026-73010 is a critical use-after-free vulnerability in the Windows Failover Cluster component. An unauthorized remote attacker can trigger this vulnerability to execute arbitrary code over a network with a CVSS v3.1 base score of 9.8.
+
+Affected products:
+- Windows Failover Cluster
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73010
+
+## CVE-2026-73025
+
+CVE-2026-73025 describes a critical vulnerability in the Windows iSCSI implementation involving weak authentication mechanisms. This flaw allows an unauthorized, network-based attacker to bypass security features, potentially leading to unauthorized access or control over iSCSI targets/initiators.
+
+Affected products:
+- Windows
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73025
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
+
+## CVE-2026-77493
+
+A double free vulnerability exists in the Microsoft Graphics Component, allowing a remote, unauthorized attacker to achieve arbitrary code execution over a network. The vulnerability carries a high CVSS base score of 9.8.
+
+Affected products:
+- Graphics Component
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-77493
+
+## CVE-2026-78445
+
+A use-after-free vulnerability exists in the ONCRPC XDR driver within Microsoft Windows Services for NFS. An unauthorized remote attacker can exploit this flaw to trigger memory corruption and achieve remote code execution over a network.
+
+Affected products:
+- Windows Services for NFS
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78445
+
+
+
+
+Related in this roundup: [CVE-2026-69595](#cve-2026-69595).
+
+## CVE-2026-81376
+
+CVE-2026-81376 is a vulnerability in Visual Studio Code involving an incomplete comparison with missing factors, which allows an unauthorized remote attacker to bypass security features, potentially leading to unauthorized access or control within the application environment.
+
+Affected products:
+- Visual Studio Code
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-81376
+
+## CVE-2026-83941
+
+CVE-2026-83941 describes a missing authorization vulnerability in Microsoft Entra ID. An authorized attacker can exploit this flaw to perform privilege escalation over a network, potentially leading to unauthorized access or administrative control within the identity environment.
+
+Affected products:
+- Entra ID
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83941
+
+
+Related in this roundup: [CVE-2026-62916](#cve-2026-62916).
+
+## CVE-2026-66302
+
+CVE-2026-66302 describes a vulnerability in Microsoft Skype for Business resulting from external control of a file name or path. This flaw allows an unauthorized remote attacker to achieve code execution over a network with a CVSS base score of 9.8, indicating a critical security risk.
+
+Affected products:
+- Skype for Business
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66302
