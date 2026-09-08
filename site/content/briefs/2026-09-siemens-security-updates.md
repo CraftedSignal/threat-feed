@@ -3,7 +3,7 @@ title: Siemens Security Updates - September 2026
 slug: 2026-09-siemens-security-updates
 description: Roundup of Siemens security advisories published in September 2026.
 date: "2026-09-08T09:40:10Z"
-lastmod: "2026-09-08T09:40:14Z"
+lastmod: "2026-09-08T09:40:16Z"
 type: threat
 types:
   - threat
@@ -18,9 +18,12 @@ cves:
     product: Siveillance Control Pro (< V3.0.12.2173)
     cvss: 9
   - id: CVE-2026-62645
+    product: Reyrolle 7SR5 (< V2.70)
     cvss: 9.8
+  - id: CVE-2026-34223
+    cvss: 8.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62645
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-34223
 updates:
   - at: "2026-09-08T09:40:10Z"
     level: L1
@@ -31,20 +34,22 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50093
   - at: "2026-09-08T09:40:14Z"
     level: L2
-    summary: added CVE-2026-62645
+    summary: added CVE-2026-34223, CVE-2026-62645
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62645
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-34223
 ---
 
-This roundup covers 1 Siemens security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Siveillance Control Pro.
+This roundup covers 2 Siemens security vulnerabilities. CVSS base scores range from 9.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect Reyrolle 7SR5, Siveillance Control Pro.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
-| [CVE-2026-50093](#cve-2026-50093) | Siveillance Control Pro (< V3.0.12.2173) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50093) (authoritative) |
+| [CVE-2026-50093](#cve-2026-50093) | Siveillance Control Pro (< V3.0.12.2173) | Critical | 9.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50093) (authoritative) |
+| [CVE-2026-62645](#cve-2026-62645) | Reyrolle 7SR5 (< V2.70) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62645) (authoritative) |
 
 
 ## CVE-2026-50093
@@ -58,3 +63,12 @@ Affected products:
 - Siveillance Control (< V4.0.11.2177)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-50093
+
+## CVE-2026-62645
+
+A vulnerability in the Reyrolle 7SR5 web interface allows for the calculation of valid session IDs due to weak session management. An attacker can exploit this to bypass authentication and gain unauthorized administrative access to the device, potentially leading to full control over the relay unit.
+
+Affected products:
+- Reyrolle 7SR5 (< V2.70)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62645
