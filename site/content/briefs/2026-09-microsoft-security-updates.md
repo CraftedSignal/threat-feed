@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:43:34Z"
+lastmod: "2026-09-08T19:43:39Z"
 type: threat
 types:
   - threat
@@ -91,25 +91,28 @@ cves:
   - id: CVE-2026-69579
     product: Windows Message Queuing
     cvss: 9.8
+  - id: CVE-2026-69590
+    cvss: 9.8
   - id: CVE-2026-69715
+    product: Direct Show
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69715
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 updates:
-  - at: "2026-09-08T19:43:13Z"
+  - at: "2026-09-08T19:43:15Z"
     level: L2
     summary: added CVE-2026-69356 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69493
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69496
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69579
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69590
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69715
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 ---
 
-This roundup covers 25 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows USB Mass Storage Class Driver.
+This roundup covers 27 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, UxTheme Library, Windows, Windows DNS, Windows Event Logging Service, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -140,6 +143,8 @@ This roundup covers 25 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69590](#cve-2026-69590) | Routing and Remote Access Service |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69590) (authoritative) |
 | [CVE-2026-69595](#cve-2026-69595) | Windows Services for NFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69595) (authoritative) |
 | [CVE-2026-69641](#cve-2026-69641) | Exchange Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69641) (authoritative) |
+| [CVE-2026-69715](#cve-2026-69715) | Direct Show | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69715) (authoritative) |
+| [CVE-2026-69730](#cve-2026-69730) | Windows DNS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69730) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -238,6 +243,8 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-85880
@@ -248,6 +255,8 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
+
 
 
 
@@ -302,6 +311,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 
+
+
 Related in this roundup: [CVE-2026-69641](#cve-2026-69641).
 
 ## CVE-2026-69408
@@ -355,6 +366,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-69525
@@ -383,6 +396,8 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
+
+
 
 
 
@@ -416,4 +431,24 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
 
+
+
 Related in this roundup: [CVE-2026-69356](#cve-2026-69356).
+
+## CVE-2026-69715
+
+CVE-2026-69715 is an out-of-bounds read vulnerability in the Windows Direct Show component. This flaw can be exploited by an unauthorized remote attacker to achieve remote code execution over a network, presenting a critical risk to affected Windows systems.
+
+Affected products:
+- Direct Show
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69715
+
+## CVE-2026-69730
+
+CVE-2026-69730 is a critical use-after-free vulnerability in the Windows DNS component that allows remote, unauthenticated attackers to achieve remote code execution (RCE) over the network. With a CVSS base score of 9.8, this flaw poses a significant risk to the integrity and availability of affected Windows systems by allowing potential full system compromise.
+
+Affected products:
+- Windows DNS
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69730
