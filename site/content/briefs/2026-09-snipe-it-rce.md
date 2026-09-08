@@ -3,6 +3,7 @@ title: Arbitrary Command Execution in Snipe-IT Backup Restoration
 slug: 2026-09-snipe-it-rce
 description: Snipe-IT versions prior to 8.7.0 are vulnerable to OS command injection when a superadministrator restores a crafted backup archive, allowing arbitrary command execution via the MySQL client.
 date: "2026-09-08T17:45:43Z"
+lastmod: "2026-09-08T17:45:51Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - remote-code-execution
   - cve
   - vulnerability
+  - web-vulnerability
+  - css-injection
+  - account-takeover
 vendors:
   - Snipe-IT
 products:
@@ -25,11 +29,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: An authenticated superadministrator who uploads a crafted ZIP backup... can execute arbitrary OS commands.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: Superusers can plant malicious CSS payloads using @import and url() references to exfiltrate CSRF tokens.
+    confidence_band: high
 cves:
   - id: CVE-2026-86733
     cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86733
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86738
 action_plan:
   priority: elevated
   owners:
@@ -45,6 +56,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86733
       evidence: Configuration mitigates lack of sanitizer parameter
+updates:
+  - at: "2026-09-08T17:45:51Z"
+    level: L2
+    summary: added coverage for Snipe-IT (< 8.7.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86738
 ---
 
 Snipe-IT versions before 8.7.0 contain a critical vulnerability (CVE-2026-86733) that allows an authenticated superadministrator to achieve arbitrary operating-system command execution. The vulnerability exists within the backup restoration process, where the application streams SQL content from an uploaded backup archive directly into the `mysql` or `mariadb` command-line client. Because the client is invoked without the `--binary-mode` flag, it interprets sequences starting with backslashes as local shell commands. An attacker with superadministrator privileges can supply a malicious ZIP archive containing a crafted SQL file to the `/admin/backups/upload` endpoint and trigger a restore via `POST /admin/backups/restore/{filename}`. If the `clean` sanitizer parameter is omitted, which is the default configuration unless `DB_SANITIZE_BY_DEFAULT` is enabled, the embedded shell directives are executed by the underlying operating system user running the web application. This leads to full system compromise, including the exfiltration of application secrets like `APP_KEY` and database credentials.
