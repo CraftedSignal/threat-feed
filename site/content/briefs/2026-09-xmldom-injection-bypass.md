@@ -3,7 +3,7 @@ title: xmldom requireWellFormed Serialization Bypass
 slug: 2026-09-xmldom-injection-bypass
 description: The xmldom serializer fails to properly validate element and attribute names when the requireWellFormed option is enabled, allowing attackers to inject arbitrary markup via line-terminated strings.
 date: "2026-09-08T21:50:46Z"
-lastmod: "2026-09-08T21:51:00Z"
+lastmod: "2026-09-08T21:52:48Z"
 type: advisory
 types:
   - advisory
@@ -20,12 +20,20 @@ vendors:
 products:
   - xmldom (0.9.11)
   - xmldom (0.9.0 - 0.9.11)
+  - xmldom (<= 0.6.0)
+  - '@xmldom/xmldom (0.7.0-0.8.14, 0.9.0-0.9.11)'
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
     evidence: The malformed name is accepted into the DOM and subsequently serialized verbatim, leading to markup or structure injection, which can facilitate XSS.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: A single request holds one event-loop thread for seconds; a handful of concurrent requests can saturate CPU and stall the process.
     confidence_band: high
 cves:
   - id: CVE-2026-83617
@@ -35,6 +43,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-83617
   - https://github.com/advisories/GHSA-3px3-54cx-rmw9
   - https://nvd.nist.gov/vuln/detail/CVE-2026-83609
+  - https://github.com/advisories/GHSA-8344-3jmq-59r6
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83613
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +68,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-3px3-54cx-rmw9
+  - at: "2026-09-08T21:52:48Z"
+    level: L1
+    summary: added coverage for xmldom (<= 0.6.0) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8344-3jmq-59r6
 ---
 
 The xmldom package is vulnerable to a security bypass affecting the `requireWellFormed` option in `XMLSerializer`. The issue stems from the use of a regular expression compiled with the `m` (multiline) flag to validate XML element and attribute names. Under these conditions, the `$` anchor matches line terminators rather than the end of the entire string. Consequently, the validator only verifies that the first line of an element or attribute name is well-formed, allowing any content following a line terminator (U+000A, U+000D, U+2028, or U+2029) to be serialized verbatim.
