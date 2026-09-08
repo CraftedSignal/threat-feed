@@ -3,7 +3,7 @@ title: Unauthenticated Administrative Compromise in FreeIPA via OTP ACI Flaw
 slug: 2026-09-freeipa-otp-bypass
 description: An unauthenticated remote attacker can exploit a flaw in FreeIPA's self-managed OTP token access control instructions to create arbitrary Kerberos principals and grant them administrator group membership.
 date: "2026-09-07T13:36:06Z"
-lastmod: "2026-09-07T13:36:29Z"
+lastmod: "2026-09-08T11:45:35Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,7 @@ vendors:
 products:
   - FreeIPA (all versions)
   - FreeIPA
+  - 389 Directory Server
 affected_os:
   - Linux
 mitre_ttps:
@@ -48,9 +49,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-76578
     cvss: 9.8
+  - id: CVE-2026-76560
+    cvss: 7.5
+  - id: CVE-2026-79678
+    cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76578
   - https://nvd.nist.gov/vuln/detail/CVE-2026-79678
+  - https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -85,6 +91,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-79678
+  - at: "2026-09-08T11:45:35Z"
+    level: L2
+    summary: added CVE-2026-76560 +1
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/09/freeipa-flaw-chain-lets-anonymous.html
 ---
 
 A critical vulnerability (CVE-2026-76578) exists within FreeIPA's self-managed OTP token mechanism. The Access Control Instructions (ACI) associated with self-managed tokens fail to enforce authentication requirements and do not validate attributes added alongside a token entry. An unauthenticated attacker can interact with the LDAP interface to inject arbitrary attributes. When chained with a related, independently tracked vulnerability in the underlying 389 Directory Server's ACI evaluation logic, the attacker can successfully create a malicious Kerberos principal and append it to the administrator group. This enables full administrative control over the FreeIPA environment, including directory management and potential impact on integrated IdM services in SID-enabled deployments. Because the attack originates from the network-accessible LDAP service without requiring prior authentication, it poses a severe risk to identity infrastructure.
