@@ -3,7 +3,7 @@ title: SAP Security Updates - September 2026
 slug: 2026-09-sap-security-updates
 description: Roundup of SAP security advisories published in September 2026.
 date: "2026-09-08T01:38:00Z"
-lastmod: "2026-09-08T01:38:23Z"
+lastmod: "2026-09-08T01:38:26Z"
 type: threat
 types:
   - threat
@@ -24,9 +24,12 @@ cves:
     product: '@sap/cds-mtxs'
     cvss: 9.4
   - id: CVE-2026-66767
+    product: NetWeaver Application Server for ABAP
     cvss: 7.7
+  - id: CVE-2026-76958
+    cvss: 8.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-66767
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76958
 updates:
   - at: "2026-09-08T01:38:00Z"
     level: L1
@@ -37,16 +40,17 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-58240
   - at: "2026-09-08T01:38:03Z"
     level: L2
-    summary: added CVE-2026-66767, CVE-2026-66768, CVE-2026-76969
+    summary: added CVE-2026-66767 +3
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-66768
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76969
       - https://nvd.nist.gov/vuln/detail/CVE-2026-66767
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76958
 ---
 
-This roundup covers 3 SAP security vulnerabilities. CVSS base scores range from 9.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect @sap/cds-mtxs, NetWeaver Message Server, SAP GUI for Java.
+This roundup covers 4 SAP security vulnerabilities. CVSS base scores range from 7.7 to 9.8. None are reported as actively exploited at the time of release. The issues affect @sap/cds-mtxs, NetWeaver Application Server for ABAP, NetWeaver Message Server, SAP GUI for Java.
 
 ## Summary
 
@@ -55,6 +59,7 @@ This roundup covers 3 SAP security vulnerabilities. CVSS base scores range from 
 | [CVE-2026-58240](#cve-2026-58240) | NetWeaver Message Server | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58240) (authoritative) |
 | [CVE-2026-66768](#cve-2026-66768) | SAP GUI for Java | Critical | 9.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-66768) (authoritative) |
 | [CVE-2026-76969](#cve-2026-76969) | @sap/cds-mtxs | Critical | 9.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76969) (authoritative) |
+| [CVE-2026-66767](#cve-2026-66767) | NetWeaver Application Server for ABAP | High | 7.7 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-66767) (authoritative) |
 
 
 ## CVE-2026-58240
@@ -83,3 +88,13 @@ Affected products:
 - @sap/cds-mtxs
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76969
+
+## CVE-2026-66767
+
+CVE-2026-66767 is a vulnerability in SAP NetWeaver Application Server for ABAP and the ABAP Platform that allows unauthenticated attackers to trigger the reprocessing of buffered user requests. By sending a specially crafted packet under specific timing conditions, an attacker can hijack another user's session, leading to significant impacts on data confidentiality and integrity.
+
+Affected products:
+- NetWeaver Application Server for ABAP
+- ABAP Platform
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66767
