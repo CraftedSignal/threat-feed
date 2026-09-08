@@ -3,7 +3,7 @@ title: Siemens Security Updates - September 2026
 slug: 2026-09-siemens-security-updates
 description: Roundup of Siemens security advisories published in September 2026.
 date: "2026-09-08T09:40:10Z"
-lastmod: "2026-09-08T09:40:24Z"
+lastmod: "2026-09-08T09:40:33Z"
 type: threat
 types:
   - threat
@@ -30,24 +30,27 @@ cves:
     product: Reyrolle 7SR5 (< V2.70)
     cvss: 7.4
   - id: CVE-2026-62648
+    product: Reyrolle 7SR5 (< V2.70)
     cvss: 7.5
+  - id: CVE-2026-62650
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62648
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-67367
 updates:
-  - at: "2026-09-08T09:40:14Z"
+  - at: "2026-09-08T09:40:16Z"
     level: L2
     summary: added CVE-2026-34223 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62645
       - https://nvd.nist.gov/vuln/detail/CVE-2026-34223
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62646
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62647
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62648
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-67367
 ---
 
-This roundup covers 5 Siemens security vulnerabilities. CVSS base scores range from 7.4 to 9.8. None are reported as actively exploited at the time of release. The issues affect Desigo CC ClickOnce Client, Reyrolle 7SR5, Siveillance Control Pro.
+This roundup covers 8 Siemens security vulnerabilities. CVSS base scores range from 7.4 to 9.8. None are reported as actively exploited at the time of release. The issues affect Desigo CC ClickOnce Client, Reyrolle 7SR5, Siveillance Control Pro.
 
 ## Summary
 
@@ -58,6 +61,9 @@ This roundup covers 5 Siemens security vulnerabilities. CVSS base scores range f
 | [CVE-2026-34223](#cve-2026-34223) | Desigo CC ClickOnce Client | High | 8.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-34223) (authoritative) |
 | [CVE-2026-62646](#cve-2026-62646) | Reyrolle 7SR5 (< V2.70) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62646) (authoritative) |
 | [CVE-2026-62647](#cve-2026-62647) | Reyrolle 7SR5 (< V2.70) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62647) (authoritative) |
+| [CVE-2026-62648](#cve-2026-62648) | Reyrolle 7SR5 (< V2.70) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62648) (authoritative) |
+| [CVE-2026-62649](#cve-2026-62649) | Reyrolle 7SR5 (< V2.70) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62649) (authoritative) |
+| [CVE-2026-62650](#cve-2026-62650) | Reyrolle 7SR5 (< V2.70) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62650) (authoritative) |
 
 
 ## CVE-2026-50093
@@ -82,7 +88,10 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62645
 
 
-Related in this roundup: [CVE-2026-62646](#cve-2026-62646), [CVE-2026-62647](#cve-2026-62647).
+
+
+
+Related in this roundup: [CVE-2026-62646](#cve-2026-62646), [CVE-2026-62647](#cve-2026-62647), [CVE-2026-62648](#cve-2026-62648), [CVE-2026-62649](#cve-2026-62649), [CVE-2026-62650](#cve-2026-62650).
 
 ## CVE-2026-34223
 
@@ -106,7 +115,10 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62646
 
 
-Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62647](#cve-2026-62647).
+
+
+
+Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62647](#cve-2026-62647), [CVE-2026-62648](#cve-2026-62648), [CVE-2026-62649](#cve-2026-62649), [CVE-2026-62650](#cve-2026-62650).
 
 ## CVE-2026-62647
 
@@ -117,4 +129,43 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62647
 
-Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62646](#cve-2026-62646).
+
+
+
+Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62646](#cve-2026-62646), [CVE-2026-62648](#cve-2026-62648), [CVE-2026-62649](#cve-2026-62649), [CVE-2026-62650](#cve-2026-62650).
+
+## CVE-2026-62648
+
+A vulnerability in the Reyrolle 7SR5 protective relay device allows an unauthenticated remote attacker to trigger an out-of-bounds write via an overly long URL component in pre-authenticated HTTP messages. This vulnerability results in a device crash and reboot, leading to a denial-of-service condition.
+
+Affected products:
+- Reyrolle 7SR5 (< V2.70)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62648
+
+
+
+Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62646](#cve-2026-62646), [CVE-2026-62647](#cve-2026-62647), [CVE-2026-62649](#cve-2026-62649), [CVE-2026-62650](#cve-2026-62650).
+
+## CVE-2026-62649
+
+A denial-of-service vulnerability exists in the web server component of Siemens Reyrolle 7SR5 devices. An unauthenticated remote attacker can exploit the improper management of system resources during high-volume HTTP request processing to trigger a device crash and reboot.
+
+Affected products:
+- Reyrolle 7SR5 (< V2.70)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62649
+
+
+Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62646](#cve-2026-62646), [CVE-2026-62647](#cve-2026-62647), [CVE-2026-62648](#cve-2026-62648), [CVE-2026-62650](#cve-2026-62650).
+
+## CVE-2026-62650
+
+A vulnerability in the web-based management interface of Reyrolle 7SR5 relays allows an authenticated, low-privileged remote attacker to bypass RBAC restrictions due to insufficient server-side authorization checks. This flaw enables privilege escalation to an administrative level.
+
+Affected products:
+- Reyrolle 7SR5 (< V2.70)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62650
+
+Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62646](#cve-2026-62646), [CVE-2026-62647](#cve-2026-62647), [CVE-2026-62648](#cve-2026-62648), [CVE-2026-62649](#cve-2026-62649).
