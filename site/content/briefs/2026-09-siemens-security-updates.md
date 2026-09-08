@@ -3,7 +3,7 @@ title: Siemens Security Updates - September 2026
 slug: 2026-09-siemens-security-updates
 description: Roundup of Siemens security advisories published in September 2026.
 date: "2026-09-08T09:40:10Z"
-lastmod: "2026-09-08T09:40:10Z"
+lastmod: "2026-09-08T09:40:14Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,11 @@ vendors:
 cves:
   - id: CVE-2026-50093
     product: Siveillance Control Pro (< V3.0.12.2173)
+    cvss: 9
+  - id: CVE-2026-62645
+    cvss: 9.8
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62645
 updates:
   - at: "2026-09-08T09:40:10Z"
     level: L1
@@ -24,6 +29,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-50093
+  - at: "2026-09-08T09:40:14Z"
+    level: L2
+    summary: added CVE-2026-62645
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62645
 ---
 
 This roundup covers 1 Siemens security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Siveillance Control Pro.
