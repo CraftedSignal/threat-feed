@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-09-08T13:37:45Z"
+lastmod: "2026-09-08T13:37:48Z"
 type: advisory
 types:
   - advisory
@@ -90,6 +90,7 @@ products:
   - DocSend
   - NetSupport Manager
   - Chrome
+  - Google Sheets
 affected_os:
   - Windows
   - macOS
@@ -121,6 +122,7 @@ references:
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_content_copied_from_browser_was_executed.yml
   - https://github.com/elastic/detection-rules/blob/main/rules/macos/command_and_control_etherhiding_c2_via_blockchain_rpc_request.toml
   - https://blog.talosintelligence.com/clearfake-webdav-infection-chain/
+  - https://blog.talosintelligence.com/clickfix-moves-into-the-browser/
 iocs:
   - type: domain
     value: justwatch.com
@@ -184,13 +186,6 @@ ioc_counts:
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-22T01:12:10Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - malware-traffic-analysis
-    source_urls:
-      - https://www.malware-traffic-analysis.net/2026/08/21/index.html
   - at: "2026-08-26T00:48:44Z"
     level: L1
     summary: new product
@@ -219,6 +214,13 @@ updates:
       - talos
     source_urls:
       - https://blog.talosintelligence.com/clearfake-webdav-infection-chain/
+  - at: "2026-09-08T13:37:48Z"
+    level: L1
+    summary: new product
+    sources:
+      - talos
+    source_urls:
+      - https://blog.talosintelligence.com/clickfix-moves-into-the-browser/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
