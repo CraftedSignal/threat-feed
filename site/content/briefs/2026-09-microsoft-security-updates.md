@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:42:47Z"
+lastmod: "2026-09-08T19:42:55Z"
 type: threat
 types:
   - threat
@@ -76,16 +76,19 @@ cves:
   - id: CVE-2026-85880
     product: Windows
     cvss: 7.8
+  - id: CVE-2026-65669
+    cvss: 9.6
+  - id: CVE-2026-68839
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-65669
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 updates:
-  - at: "2026-09-03T23:25:23Z"
+  - at: "2026-09-03T23:25:27Z"
     level: L2
-    summary: added CVE-2026-62906, CVE-2026-65818
+    summary: added CVE-2026-65818
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-62906
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69857
   - at: "2026-09-08T19:32:30Z"
     level: L2
@@ -108,9 +111,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-65669
+  - at: "2026-09-08T19:42:55Z"
+    level: L2
+    summary: added CVE-2026-65669 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 ---
 
-This roundup covers 10 Microsoft security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Discovery Studio, Entra ID, Fabric, Power Automate, Windows.
+This roundup covers 13 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Discovery Studio, Entra ID, Fabric, Power Automate, SQL Server, UxTheme Library, Windows, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -118,14 +128,17 @@ This roundup covers 10 Microsoft security vulnerabilities. CVSS base scores rang
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-62916](#cve-2026-62916) | Entra ID | Critical | 9.1 | 0.58% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62916) (authoritative) |
 | [CVE-2026-70352](#cve-2026-70352) | Azure AI Language | Critical | 10.0 | 0.62% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70352) (authoritative) |
-| [CVE-2026-80098](#cve-2026-80098) | Copilot Studio |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-80098) (authoritative) |
+| [CVE-2026-80098](#cve-2026-80098) | Copilot Studio | Critical | 9.3 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-80098) (authoritative) |
 | [CVE-2026-83711](#cve-2026-83711) | Azure Active Directory B2C | Critical | 10.0 | 0.58% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83711) (authoritative) |
-| [CVE-2026-62906](#cve-2026-62906) | Discovery Studio |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62906) (authoritative) |
+| [CVE-2026-62906](#cve-2026-62906) | Discovery Studio | High | 7.4 | 0.67% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62906) (authoritative) |
 | [CVE-2026-65818](#cve-2026-65818) | Power Automate | High | 8.5 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65818) (authoritative) |
 | [CVE-2026-69857](#cve-2026-69857) | Azure Cosmos DB | High | 8.5 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69857) (authoritative) |
 | [CVE-2026-70178](#cve-2026-70178) | Fabric | High | 8.5 | 0.41% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70178) (authoritative) |
 | [CVE-2026-81963](#cve-2026-81963) | Windows | High | 7.8 |  | no | [source](https://www.cve.org/CVERecord?id=CVE-2026-81963) (authoritative) |
 | [CVE-2026-85880](#cve-2026-85880) | Windows | High | 7.8 |  | no | [source](https://www.cve.org/CVERecord?id=CVE-2026-85880) (authoritative) |
+| [CVE-2026-65669](#cve-2026-65669) | SQL Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65669) (authoritative) |
+| [CVE-2026-68839](#cve-2026-68839) | Windows USB Mass Storage Class Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68839) (authoritative) |
+| [CVE-2026-69276](#cve-2026-69276) | UxTheme Library |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69276) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -209,6 +222,9 @@ Affected products:
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
+
+
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880).
 
 ## CVE-2026-85880
@@ -220,4 +236,34 @@ Affected products:
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963).
+
+## CVE-2026-65669
+
+CVE-2026-65669 describes an injection vulnerability in Microsoft SQL Server that allows an unauthorized network-based attacker to escalate privileges. The vulnerability stems from improper neutralization of special elements in output used by a downstream component.
+
+Affected products:
+- SQL Server
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65669
+
+## CVE-2026-68839
+
+CVE-2026-68839 is a heap-based buffer overflow vulnerability within the Windows USB Mass Storage Class Driver. An unauthorized remote attacker can exploit this flaw to achieve remote code execution, indicating a significant security risk for Windows systems that interact with malicious USB mass storage devices over a network context.
+
+Affected products:
+- Windows USB Mass Storage Class Driver
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68839
+
+## CVE-2026-69276
+
+CVE-2026-69276 describes an integer underflow vulnerability within the Microsoft UxTheme Library (uxtheme.dll). An unauthenticated attacker can exploit this flaw to achieve remote code execution over a network, carrying a CVSS base score of 9.8.
+
+Affected products:
+- UxTheme Library
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69276
