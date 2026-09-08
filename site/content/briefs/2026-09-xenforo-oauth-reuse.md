@@ -3,7 +3,7 @@ title: XenForo OAuth2 Authorization Code Reuse Vulnerability
 slug: 2026-09-xenforo-oauth-reuse
 description: XenForo versions prior to 2.3.13 contain an OAuth2 authorization code reuse vulnerability (CVE-2026-73311) that allows attackers to obtain unauthorized token pairs by submitting previously used codes.
 date: "2026-09-08T15:41:35Z"
-lastmod: "2026-09-08T17:42:31Z"
+lastmod: "2026-09-08T19:46:08Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,8 @@ tags:
   - web-application
   - vulnerability
   - authentication-bypass
+  - cve-2026-73309
+  - web-application-vulnerability
 vendors:
   - XenForo
 products:
@@ -45,6 +47,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73311
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73315
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73314
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73309
 rules:
   - title: Detect Potential SSRF via XenForo PayPal Webhook
     description: Detects exploitation attempts against CVE-2026-73315 by monitoring for suspicious POST requests to the PayPal webhook path containing potentially malicious URL parameters
@@ -66,7 +69,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detects CVE-2026-73309 Exploitation - Empty OAuth2 Parameter Submission
+    description: Detects potential exploitation of CVE-2026-73309 by identifying POST requests to the OAuth2 token endpoint where required security parameters are missing or empty.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -92,6 +105,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-73314
+  - at: "2026-09-08T19:46:08Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-73309 Exploitation - Empty OAuth2 Parameter Submission'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73309
 ---
 
 XenForo software versions prior to 2.3.13 contain a critical vulnerability in the handling of OAuth2 authorization codes, tracked as CVE-2026-73311. The application fails to properly invalidate or mark authorization codes as consumed after the initial token issuance. This oversight allows an attacker to replay a previously used authorization code to the token endpoint, bypassing the mandatory single-use security guarantee required by the OAuth2 specification. By successfully re-submitting the code, the attacker can receive an independent, unauthorized token pair for the same user and associated scopes. This vulnerability represents a significant risk to user account integrity and session security, as it facilitates unauthorized access to account data and privileges without requiring further interaction from the target user. Defenders should prioritize updating to version 2.3.13 or later to ensure compliance with OAuth2 security standards.
