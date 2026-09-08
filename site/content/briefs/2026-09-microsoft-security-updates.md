@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:47:58Z"
+lastmod: "2026-09-08T19:48:01Z"
 type: threat
 types:
   - threat
@@ -135,18 +135,15 @@ cves:
     cvss: 9.8
   - id: CVE-2026-78445
     cvss: 9.8
+  - id: CVE-2026-66302
+    cvss: 9.8
   - id: CVE-2026-50349
     cvss: 7
+  - id: CVE-2026-56177
+    cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-56172
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-56177
 updates:
-  - at: "2026-09-08T19:45:32Z"
-    level: L2
-    summary: added CVE-2026-72983 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-73009
   - at: "2026-09-08T19:46:30Z"
     level: L2
     summary: added CVE-2026-69463 +1
@@ -175,9 +172,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-56172
+  - at: "2026-09-08T19:48:01Z"
+    level: L2
+    summary: added CVE-2026-56177 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-56177
 ---
 
-This roundup covers 48 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Secure Socket Tunneling Protocol, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
+This roundup covers 49 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Secure Socket Tunneling Protocol, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -206,7 +210,7 @@ This roundup covers 48 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69579](#cve-2026-69579) | Windows Message Queuing | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69579) (authoritative) |
 | [CVE-2026-69586](#cve-2026-69586) | Windows | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69586) (authoritative) |
 | [CVE-2026-69590](#cve-2026-69590) | Routing and Remote Access Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69590) (authoritative) |
-| [CVE-2026-69595](#cve-2026-69595) | Windows Services for NFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69595) (authoritative) |
+| [CVE-2026-69595](#cve-2026-69595) | Windows Services for NFS | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69595) (authoritative) |
 | [CVE-2026-69641](#cve-2026-69641) | Exchange Server | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69641) (authoritative) |
 | [CVE-2026-69715](#cve-2026-69715) | Direct Show | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69715) (authoritative) |
 | [CVE-2026-69730](#cve-2026-69730) | Windows DNS | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69730) (authoritative) |
@@ -217,7 +221,7 @@ This roundup covers 48 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69845](#cve-2026-69845) | Windows DHCP Server | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69845) (authoritative) |
 | [CVE-2026-69910](#cve-2026-69910) | Hyper-V | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69910) (authoritative) |
 | [CVE-2026-70296](#cve-2026-70296) | Windows Imaging Component | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70296) (authoritative) |
-| [CVE-2026-72979](#cve-2026-72979) | Windows DHCP Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72979) (authoritative) |
+| [CVE-2026-72979](#cve-2026-72979) | Windows DHCP Server | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72979) (authoritative) |
 | [CVE-2026-72982](#cve-2026-72982) | Netlogon | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72982) (authoritative) |
 | [CVE-2026-72983](#cve-2026-72983) | Internet Connection Sharing | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72983) (authoritative) |
 | [CVE-2026-73009](#cve-2026-73009) | Windows Secure Socket Tunneling Protocol | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73009) (authoritative) |
@@ -231,6 +235,7 @@ This roundup covers 48 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-47297](#cve-2026-47297) | SQL Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-47297) (authoritative) |
 | [CVE-2026-50349](#cve-2026-50349) | Windows Ancillary Function Driver for WinSock | High | 7.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-50349) (authoritative) |
 | [CVE-2026-55007](#cve-2026-55007) | Exchange Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-55007) (authoritative) |
+| [CVE-2026-56172](#cve-2026-56172) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-56172) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -241,6 +246,7 @@ Affected products:
 - Entra ID
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+
 
 
 
@@ -358,7 +364,8 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
-Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
+
+Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-85880
 
@@ -407,7 +414,8 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-65669
 
@@ -417,6 +425,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65669
+
 
 
 
@@ -448,6 +457,7 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
+
 
 
 
@@ -548,7 +558,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-69525
 
@@ -603,7 +614,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-69590
 
@@ -629,6 +641,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69595
 
 
 
+
 Related in this roundup: [CVE-2026-78445](#cve-2026-78445).
 
 ## CVE-2026-69641
@@ -639,6 +652,7 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
+
 
 
 
@@ -712,7 +726,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-73025](#cve-2026-73025).
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-69769
 
@@ -763,6 +778,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
 
 
 
+
 Related in this roundup: [CVE-2026-72979](#cve-2026-72979).
 
 ## CVE-2026-69910
@@ -791,6 +807,7 @@ Affected products:
 - Windows DHCP Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72979
+
 
 
 
@@ -860,7 +877,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73025
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-77493
 
@@ -879,6 +897,7 @@ Affected products:
 - Windows Services for NFS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78445
+
 
 
 
@@ -910,6 +929,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83941
 
 
 
+
 Related in this roundup: [CVE-2026-62916](#cve-2026-62916).
 
 ## CVE-2026-66302
@@ -929,6 +949,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-47297
+
 
 
 
@@ -952,4 +973,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-55007
 
+
 Related in this roundup: [CVE-2026-69356](#cve-2026-69356), [CVE-2026-69641](#cve-2026-69641).
+
+## CVE-2026-56172
+
+A use-after-free vulnerability exists in the Windows VHD miniport driver, which can be exploited by a local, authorized attacker to achieve privilege escalation on the host system.
+
+Affected products:
+- Windows
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-56172
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
