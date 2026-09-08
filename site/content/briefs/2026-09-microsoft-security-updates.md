@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:32:32Z"
+lastmod: "2026-09-08T19:42:47Z"
 type: threat
 types:
   - threat
@@ -37,6 +37,7 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:microsoft:copilot_studio:-:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -50,10 +51,16 @@ cves:
     product: Azure AI Language
     cvss: 10
     epss: 0.00623
+  - id: CVE-2026-80098
+    cvss: 9.3
+    epss: 0.00293
   - id: CVE-2026-83711
     product: Azure Active Directory B2C
     cvss: 10
     epss: 0.00582
+  - id: CVE-2026-62906
+    cvss: 7.4
+    epss: 0.00666
   - id: CVE-2026-65818
     cvss: 8.5
     epss: 0.00329
@@ -67,17 +74,11 @@ cves:
     product: Windows
     cvss: 7.8
   - id: CVE-2026-85880
+    product: Windows
     cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-70178
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-65669
 updates:
-  - at: "2026-09-03T23:24:06Z"
-    level: L2
-    summary: added CVE-2026-83711
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-83711
   - at: "2026-09-03T23:25:23Z"
     level: L2
     summary: added CVE-2026-62906, CVE-2026-65818
@@ -100,9 +101,16 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-85880
+  - at: "2026-09-08T19:42:47Z"
+    level: L2
+    summary: added CVE-2026-62906 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-65669
 ---
 
-This roundup covers 9 Microsoft security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Discovery Studio, Entra ID, Fabric, Power Automate, Windows.
+This roundup covers 10 Microsoft security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Discovery Studio, Entra ID, Fabric, Power Automate, Windows.
 
 ## Summary
 
@@ -113,10 +121,11 @@ This roundup covers 9 Microsoft security vulnerabilities. CVSS base scores range
 | [CVE-2026-80098](#cve-2026-80098) | Copilot Studio |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-80098) (authoritative) |
 | [CVE-2026-83711](#cve-2026-83711) | Azure Active Directory B2C | Critical | 10.0 | 0.58% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83711) (authoritative) |
 | [CVE-2026-62906](#cve-2026-62906) | Discovery Studio |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62906) (authoritative) |
-| [CVE-2026-65818](#cve-2026-65818) | Power Automate |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65818) (authoritative) |
-| [CVE-2026-69857](#cve-2026-69857) | Azure Cosmos DB |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69857) (authoritative) |
+| [CVE-2026-65818](#cve-2026-65818) | Power Automate | High | 8.5 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65818) (authoritative) |
+| [CVE-2026-69857](#cve-2026-69857) | Azure Cosmos DB | High | 8.5 | 0.42% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69857) (authoritative) |
 | [CVE-2026-70178](#cve-2026-70178) | Fabric | High | 8.5 | 0.41% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70178) (authoritative) |
 | [CVE-2026-81963](#cve-2026-81963) | Windows | High | 7.8 |  | no | [source](https://www.cve.org/CVERecord?id=CVE-2026-81963) (authoritative) |
+| [CVE-2026-85880](#cve-2026-85880) | Windows | High | 7.8 |  | no | [source](https://www.cve.org/CVERecord?id=CVE-2026-85880) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -199,3 +208,16 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
+
+Related in this roundup: [CVE-2026-85880](#cve-2026-85880).
+
+## CVE-2026-85880
+
+A heap-based buffer overflow vulnerability exists in the Microsoft Windows Advanced Local Procedure Call (ALPC) component, which can be exploited by a local attacker to achieve privilege escalation.
+
+Affected products:
+- Windows
+
+Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963).
