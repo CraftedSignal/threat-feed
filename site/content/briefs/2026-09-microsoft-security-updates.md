@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:48:10Z"
+lastmod: "2026-09-08T19:48:18Z"
 type: threat
 types:
   - threat
@@ -146,16 +146,11 @@ cves:
   - id: CVE-2026-56177
     product: Windows Server
     cvss: 7.8
+  - id: CVE-2026-57098
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-57099
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58611
 updates:
-  - at: "2026-09-08T19:47:55Z"
-    level: L2
-    summary: added CVE-2026-50349 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-55007
   - at: "2026-09-08T19:47:58Z"
     level: L2
     summary: added CVE-2026-69595 +1
@@ -172,15 +167,16 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-56177
   - at: "2026-09-08T19:48:05Z"
     level: L2
-    summary: added CVE-2026-69491, CVE-2026-77493
+    summary: added CVE-2026-57098, CVE-2026-69491, CVE-2026-77493
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-56198
       - https://nvd.nist.gov/vuln/detail/CVE-2026-57099
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58611
 ---
 
-This roundup covers 52 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, Trace Data Helper, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows RDP Client, Windows Secure Socket Tunneling Protocol, Windows Server, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
+This roundup covers 55 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, Trace Data Helper, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows Codecs Library, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows RDP Client, Windows Secure Socket Tunneling Protocol, Windows Server, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -226,7 +222,7 @@ This roundup covers 52 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-73009](#cve-2026-73009) | Windows Secure Socket Tunneling Protocol | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73009) (authoritative) |
 | [CVE-2026-73010](#cve-2026-73010) | Windows Failover Cluster | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73010) (authoritative) |
 | [CVE-2026-73025](#cve-2026-73025) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73025) (authoritative) |
-| [CVE-2026-77493](#cve-2026-77493) | Graphics Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77493) (authoritative) |
+| [CVE-2026-77493](#cve-2026-77493) | Graphics Component | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77493) (authoritative) |
 | [CVE-2026-78445](#cve-2026-78445) | Windows Services for NFS | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-78445) (authoritative) |
 | [CVE-2026-81376](#cve-2026-81376) | Visual Studio Code |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-81376) (authoritative) |
 | [CVE-2026-83941](#cve-2026-83941) | Entra ID |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83941) (authoritative) |
@@ -238,6 +234,9 @@ This roundup covers 52 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-56177](#cve-2026-56177) | Windows Server | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-56177) (authoritative) |
 | [CVE-2026-56198](#cve-2026-56198) | Trace Data Helper |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-56198) (authoritative) |
 | [CVE-2026-57098](#cve-2026-57098) | Windows RDP Client |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-57098) (authoritative) |
+| [CVE-2026-57099](#cve-2026-57099) | ASP.NET Core |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-57099) (authoritative) |
+| [CVE-2026-58599](#cve-2026-58599) | Windows Codecs Library |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58599) (authoritative) |
+| [CVE-2026-58600](#cve-2026-58600) | Windows Codecs Library |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58600) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -248,6 +247,9 @@ Affected products:
 - Entra ID
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+
+
+
 
 
 
@@ -373,6 +375,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-85880
@@ -383,6 +388,9 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
+
+
 
 
 
@@ -443,6 +451,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65669
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-47297](#cve-2026-47297).
 
 ## CVE-2026-68839
@@ -471,6 +482,9 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
+
+
+
 
 
 
@@ -579,6 +593,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-69525
@@ -607,6 +624,9 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
+
+
+
 
 
 
@@ -668,6 +688,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69595
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-78445](#cve-2026-78445).
 
 ## CVE-2026-69641
@@ -678,6 +701,9 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
+
+
+
 
 
 
@@ -759,6 +785,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-69769
@@ -814,6 +843,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-72979](#cve-2026-72979).
 
 ## CVE-2026-69910
@@ -842,6 +874,9 @@ Affected products:
 - Windows DHCP Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72979
+
+
+
 
 
 
@@ -919,6 +954,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73025
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-77493
@@ -938,6 +976,9 @@ Affected products:
 - Windows Services for NFS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78445
+
+
+
 
 
 
@@ -977,6 +1018,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83941
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-62916](#cve-2026-62916).
 
 ## CVE-2026-66302
@@ -996,6 +1040,9 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-47297
+
+
+
 
 
 
@@ -1027,6 +1074,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-55007
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-69356](#cve-2026-69356), [CVE-2026-69641](#cve-2026-69641).
 
 ## CVE-2026-56172
@@ -1037,6 +1087,9 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-56172
+
+
+
 
 
 
@@ -1069,3 +1122,34 @@ Affected products:
 - Windows RDP Client
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-57098
+
+## CVE-2026-57099
+
+CVE-2026-57099 is a denial-of-service vulnerability in ASP.NET Core resulting from improper allocation of resources without limits or throttling. An unauthorized remote attacker can exploit this flaw to exhaust system resources, leading to service unavailability.
+
+Affected products:
+- ASP.NET Core
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-57099
+
+## CVE-2026-58599
+
+A heap-based buffer overflow vulnerability in the Microsoft Windows Codecs Library allows a local, unauthorized attacker to execute arbitrary code. The vulnerability is triggered by parsing malformed media files or data streams handled by the library, potentially leading to remote or local code execution.
+
+Affected products:
+- Windows Codecs Library
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-58599
+
+Related in this roundup: [CVE-2026-58600](#cve-2026-58600).
+
+## CVE-2026-58600
+
+A heap-based buffer overflow vulnerability exists in the Microsoft Windows Codecs Library that allows an unauthorized local attacker to execute arbitrary code with elevated privileges, resulting in local privilege escalation.
+
+Affected products:
+- Windows Codecs Library
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-58600
+
+Related in this roundup: [CVE-2026-58599](#cve-2026-58599).
