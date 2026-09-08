@@ -3,7 +3,7 @@ title: Denial of Service Vulnerability in nltk PorterStemmer
 slug: 2026-08-nltk-dos
 description: An algorithmic complexity vulnerability in the nltk PorterStemmer module allows unauthenticated attackers to cause high CPU usage via specially crafted inputs.
 date: "2026-08-27T19:13:59Z"
-lastmod: "2026-09-01T23:59:55Z"
+lastmod: "2026-09-08T20:05:36Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +14,7 @@ tags:
   - rce
   - python
   - java
+  - sandbox-bypass
 vendors:
   - NLTK
 products:
@@ -25,6 +26,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The library fails to validate the 'options' parameter when passed per-call to the internal 'java()' function, allowing attackers to supply arbitrary JVM flags.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1554
+    technique_name: Compromise Software Dependencies
+    evidence: The bug is reliably triggerable by caller-controlled path input and exposes data outside the intended trust boundary.
+    confidence_band: high
 cves:
   - id: CVE-2026-81722
     cvss: 7.5
@@ -32,6 +39,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81722
   - https://github.com/advisories/GHSA-m4rf-3fr8-xwx3
   - https://nvd.nist.gov/vuln/detail/CVE-2026-79675
+  - https://github.com/advisories/GHSA-3gq4-3j92-5w49
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +59,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-m4rf-3fr8-xwx3
+  - at: "2026-09-08T20:05:36Z"
+    level: L2
+    summary: added coverage for NLTK (<= 3.10.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-3gq4-3j92-5w49
 ---
 
 The Natural Language Toolkit (nltk) library, specifically in versions 3.10.2 and earlier, is susceptible to an algorithmic complexity denial of service vulnerability (CVE-2026-81722). The vulnerability resides within the PorterStemmer.stem() method, where the _is_consonant() helper function exhibits O(n^2) performance degradation when processing tokens containing long sequences of the character 'y'. By providing a relatively small untrusted input (20-50 KB) consisting of a repeated 'y' string followed by a suffix such as 'ness', an attacker can force the application to consume significant CPU resources. This can pin a CPU core for extended periods, potentially leading to a denial of service if the application processes these inputs synchronously or within limited worker threads. Developers using nltk for text processing are advised to upgrade to version 3.10.3 to mitigate this performance-based attack vector.
