@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:46:30Z"
+lastmod: "2026-09-08T19:47:52Z"
 type: threat
 types:
   - threat
@@ -112,6 +112,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69829
     cvss: 9.8
+  - id: CVE-2026-69910
+    cvss: 9.8
   - id: CVE-2026-70296
     cvss: 9.8
   - id: CVE-2026-72982
@@ -121,16 +123,13 @@ cves:
   - id: CVE-2026-73009
     product: Windows Secure Socket Tunneling Protocol
     cvss: 9.8
+  - id: CVE-2026-73010
+    cvss: 9.8
+  - id: CVE-2026-78445
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-47297
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-50349
 updates:
-  - at: "2026-09-08T19:45:18Z"
-    level: L2
-    summary: added CVE-2026-69496 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69910
   - at: "2026-09-08T19:45:21Z"
     level: L2
     summary: added CVE-2026-69730, CVE-2026-70296
@@ -153,9 +152,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-47297
+  - at: "2026-09-08T19:47:52Z"
+    level: L2
+    summary: added CVE-2026-69910 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-50349
 ---
 
-This roundup covers 45 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, UxTheme Library, Visual Studio Code, Windows, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Secure Socket Tunneling Protocol, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
+This roundup covers 46 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, UxTheme Library, Visual Studio Code, Windows, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Secure Socket Tunneling Protocol, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -176,7 +182,7 @@ This roundup covers 45 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69276](#cve-2026-69276) | UxTheme Library | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69276) (authoritative) |
 | [CVE-2026-69356](#cve-2026-69356) | Exchange Server | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69356) (authoritative) |
 | [CVE-2026-69408](#cve-2026-69408) | Windows Media Foundation | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69408) (authoritative) |
-| [CVE-2026-69463](#cve-2026-69463) | NTFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69463) (authoritative) |
+| [CVE-2026-69463](#cve-2026-69463) | NTFS | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69463) (authoritative) |
 | [CVE-2026-69491](#cve-2026-69491) | DirectMusic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69491) (authoritative) |
 | [CVE-2026-69493](#cve-2026-69493) | Windows Event Logging Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69493) (authoritative) |
 | [CVE-2026-69496](#cve-2026-69496) | Windows | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69496) (authoritative) |
@@ -196,7 +202,7 @@ This roundup covers 45 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69910](#cve-2026-69910) | Hyper-V |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69910) (authoritative) |
 | [CVE-2026-70296](#cve-2026-70296) | Windows Imaging Component | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70296) (authoritative) |
 | [CVE-2026-72979](#cve-2026-72979) | Windows DHCP Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72979) (authoritative) |
-| [CVE-2026-72982](#cve-2026-72982) | Netlogon |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72982) (authoritative) |
+| [CVE-2026-72982](#cve-2026-72982) | Netlogon | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72982) (authoritative) |
 | [CVE-2026-72983](#cve-2026-72983) | Internet Connection Sharing | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72983) (authoritative) |
 | [CVE-2026-73009](#cve-2026-73009) | Windows Secure Socket Tunneling Protocol | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73009) (authoritative) |
 | [CVE-2026-73010](#cve-2026-73010) | Windows Failover Cluster |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73010) (authoritative) |
@@ -206,6 +212,7 @@ This roundup covers 45 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-81376](#cve-2026-81376) | Visual Studio Code |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-81376) (authoritative) |
 | [CVE-2026-83941](#cve-2026-83941) | Entra ID |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83941) (authoritative) |
 | [CVE-2026-66302](#cve-2026-66302) | Skype for Business |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-66302) (authoritative) |
+| [CVE-2026-47297](#cve-2026-47297) | SQL Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-47297) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -216,6 +223,7 @@ Affected products:
 - Entra ID
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+
 
 
 Related in this roundup: [CVE-2026-83941](#cve-2026-83941).
@@ -327,6 +335,7 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-85880
@@ -337,6 +346,7 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
 
 
 
@@ -384,6 +394,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65669
 
+Related in this roundup: [CVE-2026-47297](#cve-2026-47297).
+
 ## CVE-2026-68839
 
 CVE-2026-68839 is a heap-based buffer overflow vulnerability within the Windows USB Mass Storage Class Driver. An unauthorized remote attacker can exploit this flaw to achieve remote code execution, indicating a significant security risk for Windows systems that interact with malicious USB mass storage devices over a network context.
@@ -410,6 +422,7 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
+
 
 
 
@@ -504,6 +517,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-69525
@@ -556,6 +570,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-69590
@@ -579,6 +594,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69595
 
 
 
+
 Related in this roundup: [CVE-2026-78445](#cve-2026-78445).
 
 ## CVE-2026-69641
@@ -589,6 +605,7 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
+
 
 
 
@@ -656,6 +673,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-73025](#cve-2026-73025).
 
 ## CVE-2026-69769
@@ -704,6 +722,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
 
 
 
+
 Related in this roundup: [CVE-2026-72979](#cve-2026-72979).
 
 ## CVE-2026-69910
@@ -732,6 +751,7 @@ Affected products:
 - Windows DHCP Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72979
+
 
 
 
@@ -795,6 +815,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73025
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
 
 ## CVE-2026-77493
@@ -814,6 +835,7 @@ Affected products:
 - Windows Services for NFS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78445
+
 
 
 
@@ -839,6 +861,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83941
 
 
+
 Related in this roundup: [CVE-2026-62916](#cve-2026-62916).
 
 ## CVE-2026-66302
@@ -849,3 +872,14 @@ Affected products:
 - Skype for Business
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66302
+
+## CVE-2026-47297
+
+CVE-2026-47297 is a deserialization vulnerability in Microsoft SQL Server that enables an unauthorized remote attacker to execute arbitrary code via a network connection. Successful exploitation relies on the application failing to properly validate untrusted data before processing it through insecure deserialization functions, potentially leading to full system compromise.
+
+Affected products:
+- SQL Server
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-47297
+
+Related in this roundup: [CVE-2026-65669](#cve-2026-65669).
