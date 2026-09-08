@@ -3,7 +3,7 @@ title: Authorization Bypass in Craft CMS assets/move-asset Endpoint
 slug: 2026-09-craft-cms-auth-bypass
 description: Craft CMS versions prior to 5.10.11 contain an authorization bypass in the assets/move-asset endpoint, allowing authenticated users with insufficient permissions to move and delete arbitrary assets by supplying the force=1 parameter.
 date: "2026-09-02T13:13:44Z"
-lastmod: "2026-09-02T13:14:24Z"
+lastmod: "2026-09-08T17:45:38Z"
 type: advisory
 types:
   - advisory
@@ -18,12 +18,16 @@ tags:
   - web-application
   - vulnerability
   - privilege-escalation
+  - web-application-vulnerability
+  - rce
+  - craft-cms
 vendors:
   - Craft CMS
 products:
   - Craft CMS (< 5.10.11)
   - Craft CMS (>= 5.0.0-RC1, < 5.10.11)
   - Craft CMS (5.0.0-RC1 to 5.10.10)
+  - Craft CMS (< 5.10.12)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -43,6 +47,12 @@ mitre_ttps:
     technique_name: Abuse Elevation Control Mechanism
     evidence: Non-admin users with administrateUsers permission can generate password reset URLs for administrator accounts.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: "Use a PHP gadget chain with yii\rbac\PhpManager to execute code."
+    confidence_band: high
 cves:
   - id: CVE-2026-84794
     cvss: 7.1
@@ -52,6 +62,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84798
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84800
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84801
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86732
 rules:
   - title: Detects CVE-2026-84794 Exploitation - Unauthorized Asset Move Request
     description: Detects POST requests to the assets/move-asset endpoint containing the force=1 parameter, which may indicate an attempt to exploit the authorization bypass vulnerability.
@@ -63,7 +74,17 @@ rules:
       - T1068
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-86732 Exploitation Attempt - PHP Payload in User-Agent
+    description: Detects potential exploitation of CVE-2026-86732 where a PHP payload is injected into the User-Agent header for inclusion in request logs.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -109,6 +130,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-84801
+  - at: "2026-09-08T17:45:38Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-86732 Exploitation Attempt - PHP Payload in User-Agent'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86732
 ---
 
 Craft CMS versions before 5.10.11 are vulnerable to an authorization bypass vulnerability (CVE-2026-84794) within the assets/move-asset endpoint. The vulnerability arises when an authenticated user, even without the necessary peer asset permissions, submits a specifically crafted request to move an asset. By supplying the 'force=1' parameter, the attacker can manipulate the move operation to target folders owned by other users. This action can force the deletion of conflicting files already present in the target destination, leading to unauthorized asset replacement and permanent data loss. This flaw highlights a failure in the application's access control logic regarding asset management operations. Organizations utilizing Craft CMS 5.x should upgrade to version 5.10.11 or later to remediate this vulnerability.
