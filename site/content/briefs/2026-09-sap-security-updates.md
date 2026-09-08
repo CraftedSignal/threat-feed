@@ -3,7 +3,7 @@ title: SAP Security Updates - September 2026
 slug: 2026-09-sap-security-updates
 description: Roundup of SAP security advisories published in September 2026.
 date: "2026-09-08T01:38:00Z"
-lastmod: "2026-09-08T01:38:00Z"
+lastmod: "2026-09-08T01:38:03Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,11 @@ vendors:
 cves:
   - id: CVE-2026-58240
     product: NetWeaver Message Server
+    cvss: 9.8
+  - id: CVE-2026-66768
+    cvss: 9
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-66768
 updates:
   - at: "2026-09-08T01:38:00Z"
     level: L1
@@ -24,6 +29,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-58240
+  - at: "2026-09-08T01:38:03Z"
+    level: L2
+    summary: added CVE-2026-66768
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-66768
 ---
 
 This roundup covers 1 SAP security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect NetWeaver Message Server.
