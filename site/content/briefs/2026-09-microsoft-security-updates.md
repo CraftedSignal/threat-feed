@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:48:23Z"
+lastmod: "2026-09-08T19:48:32Z"
 type: threat
 types:
   - threat
@@ -150,19 +150,14 @@ cves:
     cvss: 7.5
   - id: CVE-2026-58611
     cvss: 7.8
+  - id: CVE-2026-62694
+    cvss: 7
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62697
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62810
 updates:
-  - at: "2026-09-08T19:48:01Z"
-    level: L2
-    summary: added CVE-2026-56177 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-56177
   - at: "2026-09-08T19:48:05Z"
     level: L2
-    summary: added CVE-2026-57098 +3
+    summary: added CVE-2026-57098 +4
     sources:
       - nvd
     source_urls:
@@ -170,9 +165,10 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-57099
       - https://nvd.nist.gov/vuln/detail/CVE-2026-58611
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62697
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62810
 ---
 
-This roundup covers 57 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, Trace Data Helper, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows Codecs Library, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Installer, Windows Media Foundation, Windows Message Queuing, Windows RDP Client, Windows Secure Socket Tunneling Protocol, Windows Server, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver, XBox Gaming Services.
+This roundup covers 60 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Skype for Business, Standard XPS, Trace Data Helper, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows Codecs Library, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows Failover Cluster, Windows HTTP Print Provider, Windows Imaging Component, Windows Installer, Windows Media Foundation, Windows Message Queuing, Windows Netlogon, Windows Push Notifications, Windows RDP Client, Windows Secure Socket Tunneling Protocol, Windows Server, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver, XBox Gaming Services.
 
 ## Summary
 
@@ -233,8 +229,11 @@ This roundup covers 57 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-57099](#cve-2026-57099) | ASP.NET Core |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-57099) (authoritative) |
 | [CVE-2026-58599](#cve-2026-58599) | Windows Codecs Library |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58599) (authoritative) |
 | [CVE-2026-58600](#cve-2026-58600) | Windows Codecs Library |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58600) (authoritative) |
-| [CVE-2026-58611](#cve-2026-58611) | XBox Gaming Services |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58611) (authoritative) |
+| [CVE-2026-58611](#cve-2026-58611) | XBox Gaming Services | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-58611) (authoritative) |
 | [CVE-2026-62694](#cve-2026-62694) | Windows Installer |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62694) (authoritative) |
+| [CVE-2026-62697](#cve-2026-62697) | Windows Push Notifications |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62697) (authoritative) |
+| [CVE-2026-62744](#cve-2026-62744) | Windows Media Foundation |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62744) (authoritative) |
+| [CVE-2026-62759](#cve-2026-62759) | Windows Netlogon |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62759) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -245,6 +244,9 @@ Affected products:
 - Entra ID
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+
+
+
 
 
 
@@ -380,6 +382,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-85880
@@ -438,6 +443,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-65669
@@ -448,6 +456,9 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65669
+
+
+
 
 
 
@@ -521,6 +532,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-69641](#cve-2026-69641), [CVE-2026-55007](#cve-2026-55007).
 
 ## CVE-2026-69408
@@ -531,6 +545,9 @@ Affected products:
 - Windows Media Foundation
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69408
+
+
+Related in this roundup: [CVE-2026-62744](#cve-2026-62744).
 
 ## CVE-2026-69463
 
@@ -567,6 +584,9 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
+
+
+
 
 
 
@@ -670,6 +690,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-69590
@@ -705,6 +728,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69595
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-78445](#cve-2026-78445).
 
 ## CVE-2026-69641
@@ -715,6 +741,9 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
+
+
+
 
 
 
@@ -806,6 +835,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-69769
@@ -866,6 +898,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-72979](#cve-2026-72979).
 
 ## CVE-2026-69910
@@ -894,6 +929,9 @@ Affected products:
 - Windows DHCP Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72979
+
+
+
 
 
 
@@ -981,6 +1019,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73025
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-56172](#cve-2026-56172).
 
 ## CVE-2026-77493
@@ -1000,6 +1041,9 @@ Affected products:
 - Windows Services for NFS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78445
+
+
+
 
 
 
@@ -1049,6 +1093,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83941
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-62916](#cve-2026-62916).
 
 ## CVE-2026-66302
@@ -1068,6 +1115,9 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-47297
+
+
+
 
 
 
@@ -1109,6 +1159,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-55007
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-69356](#cve-2026-69356), [CVE-2026-69641](#cve-2026-69641).
 
 ## CVE-2026-56172
@@ -1119,6 +1172,9 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-56172
+
+
+
 
 
 
@@ -1177,6 +1233,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-58599
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-58600](#cve-2026-58600).
 
 ## CVE-2026-58600
@@ -1187,6 +1246,9 @@ Affected products:
 - Windows Codecs Library
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-58600
+
+
+
 
 
 
@@ -1209,3 +1271,33 @@ Affected products:
 - Windows Installer
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62694
+
+## CVE-2026-62697
+
+A use-after-free vulnerability in the Windows Push Notifications component allows an authenticated local attacker to achieve privilege escalation. The vulnerability exists within the memory management of the notification service, enabling potential code execution or system state manipulation with elevated permissions.
+
+Affected products:
+- Windows Push Notifications
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62697
+
+## CVE-2026-62744
+
+CVE-2026-62744 is a heap-based buffer overflow vulnerability in Microsoft Windows Media Foundation that allows an unauthenticated, remote attacker to execute arbitrary code. The flaw exists within the component's handling of media data, potentially leading to system compromise when processing specially crafted media content.
+
+Affected products:
+- Windows Media Foundation
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62744
+
+
+Related in this roundup: [CVE-2026-69408](#cve-2026-69408).
+
+## CVE-2026-62759
+
+CVE-2026-62759 describes an authentication bypass vulnerability in the Windows Netlogon service. An unauthorized attacker located on an adjacent network can exploit this flaw to perform spoofing attacks, potentially leading to unauthorized access or privilege escalation within a Windows environment.
+
+Affected products:
+- Windows Netlogon
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62759
