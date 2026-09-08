@@ -3,12 +3,14 @@ title: Unauthenticated Remote Command Execution in Next.js on Windows
 slug: 2026-08-nextjs-rce
 description: A critical path traversal vulnerability (CVE-2026-75604) in the Next.js FileSystemCache on Windows allows unauthenticated attackers to steal Server Action encryption keys and execute arbitrary commands.
 date: "2026-08-26T13:04:25Z"
-lastmod: "2026-08-26T23:16:43Z"
+lastmod: "2026-09-08T21:49:08Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:vercel:next_js:*:*:*:*:*:*:*:*
 tags:
   - web-vulnerability
   - rce
@@ -37,11 +39,16 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: By reading the sensitive server-reference-manifest.json file, an attacker can steal the Server Action encryption key to forge requests and execute arbitrary system commands.
     confidence_band: high
+cves:
+  - id: CVE-2026-75604
+    cvss: 9
+    epss: 0.01057
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75604
   - https://github.com/vercel/next.js/security/advisories/GHSA-p293-qw3h-jr36
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3027
   - https://cyber.gc.ca/en/alerts-advisories/nextjs-security-advisory-av26-851
+  - https://github.com/advisories/GHSA-p293-qw3h-jr36
 rules:
   - title: Detect CVE-2026-75604 Exploitation Attempt - Path Traversal
     description: Detects exploitation attempts against Next.js utilizing path traversal sequences targeting the FileSystemCache to retrieve manifest files.
@@ -85,6 +92,13 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/nextjs-security-advisory-av26-851
+  - at: "2026-09-08T21:49:08Z"
+    level: L2
+    summary: added CVE-2026-75604
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-p293-qw3h-jr36
 ---
 
 CVE-2026-75604 is a critical vulnerability affecting Next.js applications hosted on Windows environments. The flaw originates in the `FileSystemCache` component, which fails to correctly identify backslashes (`\`) as path separators on Windows systems. This improper validation enables path traversal attacks via the `..%5C` sequence. An unauthenticated attacker can exploit this to access the sensitive `server-reference-manifest.json` file, which contains the `encryptionKey` used for Server Actions. Possession of this key allows an attacker to forge legitimate-looking, closure-based Server Action requests. When these forged requests are processed by the server, they lead to unauthenticated remote command execution (RCE) on the underlying host. The vulnerability specifically impacts configurations that utilize both the Pages Router and the App Router without Cache Components enabled.
