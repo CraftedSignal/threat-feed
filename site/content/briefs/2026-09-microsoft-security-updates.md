@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:43:25Z"
+lastmod: "2026-09-08T19:43:34Z"
 type: threat
 types:
   - threat
@@ -91,19 +91,14 @@ cves:
   - id: CVE-2026-69579
     product: Windows Message Queuing
     cvss: 9.8
+  - id: CVE-2026-69715
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69590
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69715
 updates:
-  - at: "2026-09-08T19:42:58Z"
-    level: L2
-    summary: added CVE-2026-69276
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69408
   - at: "2026-09-08T19:43:13Z"
     level: L2
-    summary: added CVE-2026-69356 +3
+    summary: added CVE-2026-69356 +4
     sources:
       - nvd
     source_urls:
@@ -111,9 +106,10 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69496
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69579
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69590
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69715
 ---
 
-This roundup covers 22 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows Message Queuing, Windows USB Mass Storage Class Driver.
+This roundup covers 25 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -132,7 +128,7 @@ This roundup covers 22 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-65669](#cve-2026-65669) | SQL Server | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65669) (authoritative) |
 | [CVE-2026-68839](#cve-2026-68839) | Windows USB Mass Storage Class Driver | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68839) (authoritative) |
 | [CVE-2026-69276](#cve-2026-69276) | UxTheme Library | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69276) (authoritative) |
-| [CVE-2026-69356](#cve-2026-69356) | Exchange Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69356) (authoritative) |
+| [CVE-2026-69356](#cve-2026-69356) | Exchange Server | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69356) (authoritative) |
 | [CVE-2026-69408](#cve-2026-69408) | Windows Media Foundation | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69408) (authoritative) |
 | [CVE-2026-69463](#cve-2026-69463) | NTFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69463) (authoritative) |
 | [CVE-2026-69491](#cve-2026-69491) | DirectMusic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69491) (authoritative) |
@@ -141,6 +137,9 @@ This roundup covers 22 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69525](#cve-2026-69525) | Remote Desktop Services |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69525) (authoritative) |
 | [CVE-2026-69579](#cve-2026-69579) | Windows Message Queuing | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69579) (authoritative) |
 | [CVE-2026-69586](#cve-2026-69586) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69586) (authoritative) |
+| [CVE-2026-69590](#cve-2026-69590) | Routing and Remote Access Service |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69590) (authoritative) |
+| [CVE-2026-69595](#cve-2026-69595) | Windows Services for NFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69595) (authoritative) |
+| [CVE-2026-69641](#cve-2026-69641) | Exchange Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69641) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -236,6 +235,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-85880
@@ -246,6 +248,9 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
+
+
 
 
 
@@ -297,6 +302,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 
+Related in this roundup: [CVE-2026-69641](#cve-2026-69641).
+
 ## CVE-2026-69408
 
 CVE-2026-69408 describes an integer overflow or wraparound vulnerability within the Microsoft Windows Media Foundation component. This flaw can be exploited by a remote, unauthorized attacker to achieve remote code execution (RCE) over a network, presenting a high risk as indicated by a CVSS v3.1 base score of 9.8.
@@ -345,6 +352,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-69525
@@ -374,4 +384,36 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
 
+
+
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496).
+
+## CVE-2026-69590
+
+CVE-2026-69590 describes a critical Remote Code Execution (RCE) vulnerability within the Microsoft Windows Routing and Remote Access Service (RRAS). An unauthenticated attacker can exploit this flaw to execute arbitrary code with elevated privileges on the target system, potentially leading to a full system compromise. The vulnerability is characterized by a CVSS v3.1 base score of 9.8, indicating high severity.
+
+Affected products:
+- Routing and Remote Access Service
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69590
+
+## CVE-2026-69595
+
+CVE-2026-69595 describes a use-after-free vulnerability in the Windows Services for NFS ONCRPC XDR driver. An unauthorized remote attacker can exploit this flaw to execute arbitrary code with elevated privileges, resulting in a CVSS v3.1 base score of 9.8.
+
+Affected products:
+- Windows Services for NFS
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69595
+
+## CVE-2026-69641
+
+CVE-2026-69641 is a privilege escalation vulnerability in Microsoft Exchange Server resulting from a missing authorization check. An attacker who has already gained authorized access to the network can exploit this flaw to elevate their privileges, potentially gaining administrative control over the affected server instance.
+
+Affected products:
+- Exchange Server
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
+
+Related in this roundup: [CVE-2026-69356](#cve-2026-69356).
