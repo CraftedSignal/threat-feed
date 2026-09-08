@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in strongSwan
 slug: 2026-09-strongswan-vulnerabilities
 description: Multiple vulnerabilities, including remote code execution and security policy bypass, have been disclosed in strongSwan versions prior to 6.1.0.
 date: "2026-09-08T13:34:45Z"
+lastmod: "2026-09-08T13:35:05Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - strongSwan
 products:
   - strongSwan (< 6.1.0)
+  - strongSwan
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1129/
   - https://www.strongswan.org/blog/2026/09/07/strongswan-vulnerability-(cve-2026-78127).html
@@ -28,6 +30,7 @@ references:
   - https://www.strongswan.org/blog/2026/09/07/strongswan-vulnerability-(cve-2026-78133).html
   - https://www.strongswan.org/blog/2026/09/07/strongswan-vulnerability-(cve-2026-78134).html
   - https://www.strongswan.org/blog/2026/09/07/strongswan-vulnerability-(cve-2026-78135).html
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3230
 action_plan:
   priority: immediate_escalation
   owners:
@@ -44,6 +47,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-78127 through CVE-2026-78135
       evidence: ANSSI advisory CERTFR-2026-AVI-1129
+updates:
+  - at: "2026-09-08T13:35:05Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3230
 ---
 
 The French National Cybersecurity Agency (ANSSI) has released an advisory regarding multiple critical vulnerabilities affecting the strongSwan IPsec VPN suite. These vulnerabilities, identified as CVE-2026-78127, CVE-2026-78129, CVE-2026-78130, CVE-2026-78131, CVE-2026-78132, CVE-2026-78133, CVE-2026-78134, and CVE-2026-78135, impact all versions of strongSwan prior to 6.1.0. Depending on the specific flaw, an unauthenticated remote attacker could potentially trigger arbitrary remote code execution, perform denial-of-service attacks, or bypass existing security policy configurations. Organizations utilizing strongSwan for secure network connectivity are advised to review the vendor-provided security bulletins and apply updates immediately. Given the nature of these vulnerabilities, the potential for service disruption or compromise of network security boundaries is high for internet-facing VPN gateways.
