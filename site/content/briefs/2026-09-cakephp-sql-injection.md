@@ -3,6 +3,7 @@ title: SQL Injection in CakePHP FunctionsBuilder
 slug: 2026-09-cakephp-sql-injection
 description: The CakePHP framework contains an SQL injection vulnerability in the FunctionsBuilder::jsonValue() method when using the Postgres driver, allowing unauthorized database command execution via user-controlled jsonPath input.
 date: "2026-09-08T21:49:04Z"
+lastmod: "2026-09-08T21:53:09Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
 products:
   - cakephp (5.1.x, 5.2.x, 5.3.x)
   - database (5.1.x, 5.2.x, 5.3.x)
+  - CakePHP (4.5.0-4.5.11, 4.6.0-4.6.4, 5.0.0-5.1.8, 5.2.0-5.2.13, 5.3.0-5.3.6)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,6 +33,8 @@ cves:
     epss: 0.00294
 references:
   - https://github.com/advisories/GHSA-fxf7-vhh8-7vpq
+  - https://github.com/advisories/GHSA-2qh5-382h-3jpc
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77634
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +51,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-77635
       evidence: Source workaround recommendation.
+updates:
+  - at: "2026-09-08T21:53:09Z"
+    level: L2
+    summary: added coverage for CakePHP (4.5.0-4.5.11, 4.6.0-4.6.4, 5.0.0-5.1.8, 5.2.0-5.2.13, 5.3.0-5.3.6)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2qh5-382h-3jpc
 ---
 
 The CakePHP framework contains a critical SQL injection vulnerability identified as CVE-2026-77635. The flaw exists within the `FunctionsBuilder::jsonValue($field, $jsonPath)` method specifically when utilizing the Postgres driver. Attackers can exploit this vulnerability by supplying malicious, user-controlled input to the `$jsonPath` parameter. Because the framework does not adequately sanitize this parameter before incorporating it into SQL queries sent to the PostgreSQL backend, an attacker can append arbitrary SQL commands, potentially leading to unauthorized data extraction, modification, or deletion within the database. The vulnerability affects versions 5.1.x, 5.2.x, and 5.3.x of the `cakephp/cakephp` and `cakephp/database` packages. 
