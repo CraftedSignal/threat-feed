@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in LiquidJS strip_html Filter
 slug: 2026-09-liquidjs-infinite-loop
 description: An infinite loop vulnerability in the LiquidJS strip_html filter, tracked as CVE-2026-61556, allows attackers to trigger a process-wide denial of service by providing specific malformed HTML strings.
 date: "2026-09-03T18:04:10Z"
+lastmod: "2026-09-08T20:05:22Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - LiquidJS
 products:
   - liquidjs (>= 10.26.0, < 10.27.1)
+  - liquidjs (<= 10.27.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -31,6 +33,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-m7fp-h3p4-hr49
   - https://cwe.mitre.org/data/definitions/835.html
+  - https://github.com/advisories/GHSA-4r6h-5v86-94p3
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69222
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-61556
       evidence: Source Recommended Fix
+updates:
+  - at: "2026-09-08T20:05:22Z"
+    level: L1
+    summary: added coverage for liquidjs (<= 10.27.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-4r6h-5v86-94p3
 ---
 
 LiquidJS versions 10.26.0 through 10.27.0 contain a vulnerability in the `strip_html` filter that leads to an infinite loop, resulting in a denial of service (DoS). The flaw exists in `src/filters/html.ts` due to improper state management during string parsing. When an input string contains a `<` character that is not followed by a matching `>` (or a corresponding closing tag for script, style, or comment blocks), the loop index `i` fails to increment. Because the loop logic repeatedly encounters the same unclosed `<` at the same index, the process hangs indefinitely. This vulnerability is highly accessible, requiring only a two-character input (e.g., "a<") to exhaust system resources. Given the prevalence of template engines in web applications, this vulnerability poses a significant risk for server-side resource exhaustion.
