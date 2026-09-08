@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:45:10Z"
+lastmod: "2026-09-08T19:45:18Z"
 type: threat
 types:
   - threat
@@ -88,10 +88,14 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69493
     cvss: 9.8
+  - id: CVE-2026-69496
+    cvss: 9.8
   - id: CVE-2026-69525
     cvss: 9.8
   - id: CVE-2026-69579
     product: Windows Message Queuing
+    cvss: 9.8
+  - id: CVE-2026-69586
     cvss: 9.8
   - id: CVE-2026-69590
     cvss: 9.8
@@ -102,16 +106,17 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69768
     cvss: 9.8
+  - id: CVE-2026-69829
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69845
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69910
 updates:
-  - at: "2026-09-08T19:43:25Z"
+  - at: "2026-09-08T19:43:34Z"
     level: L2
-    summary: added CVE-2026-69356, CVE-2026-69590, CVE-2026-69715
+    summary: added CVE-2026-69590, CVE-2026-69715
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69590
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69715
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69768
   - at: "2026-09-08T19:45:07Z"
@@ -128,9 +133,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69845
+  - at: "2026-09-08T19:45:18Z"
+    level: L2
+    summary: added CVE-2026-69496 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69910
 ---
 
-This roundup covers 31 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Standard XPS, UxTheme Library, Windows, Windows DNS, Windows Event Logging Service, Windows HTTP Print Provider, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
+This roundup covers 32 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Standard XPS, UxTheme Library, Windows, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows HTTP Print Provider, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -163,10 +175,11 @@ This roundup covers 31 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69641](#cve-2026-69641) | Exchange Server | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69641) (authoritative) |
 | [CVE-2026-69715](#cve-2026-69715) | Direct Show | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69715) (authoritative) |
 | [CVE-2026-69730](#cve-2026-69730) | Windows DNS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69730) (authoritative) |
-| [CVE-2026-69768](#cve-2026-69768) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69768) (authoritative) |
+| [CVE-2026-69768](#cve-2026-69768) | Windows | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69768) (authoritative) |
 | [CVE-2026-69769](#cve-2026-69769) | Windows HTTP Print Provider |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69769) (authoritative) |
 | [CVE-2026-69824](#cve-2026-69824) | Standard XPS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69824) (authoritative) |
 | [CVE-2026-69829](#cve-2026-69829) | Windows Shell |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69829) (authoritative) |
+| [CVE-2026-69845](#cve-2026-69845) | Windows DHCP Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69845) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -271,6 +284,7 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
 
 ## CVE-2026-85880
@@ -281,6 +295,7 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
 
 
 
@@ -347,6 +362,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 
 
 
+
 Related in this roundup: [CVE-2026-69641](#cve-2026-69641).
 
 ## CVE-2026-69408
@@ -406,6 +422,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
 
 ## CVE-2026-69525
@@ -434,6 +451,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
+
 
 
 
@@ -479,6 +497,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
 
 
 
+
 Related in this roundup: [CVE-2026-69356](#cve-2026-69356).
 
 ## CVE-2026-69715
@@ -511,6 +530,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-69769
@@ -539,3 +559,12 @@ Affected products:
 - Windows Shell
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69829
+
+## CVE-2026-69845
+
+A heap-based buffer overflow vulnerability exists in the Windows DHCP Server service, enabling an unauthenticated remote attacker to achieve remote code execution over the network with a CVSS score of 9.8.
+
+Affected products:
+- Windows DHCP Server
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
