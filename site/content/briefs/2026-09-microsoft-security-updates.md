@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:43:13Z"
+lastmod: "2026-09-08T19:43:15Z"
 type: threat
 types:
   - threat
@@ -84,16 +84,11 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69408
     cvss: 9.8
+  - id: CVE-2026-69493
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69493
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 updates:
-  - at: "2026-09-08T19:32:32Z"
-    level: L2
-    summary: added CVE-2026-65818 +2
-    sources:
-      - cisa-kev
-    source_urls:
-      - https://www.cve.org/CVERecord?id=CVE-2026-85880
   - at: "2026-09-08T19:42:47Z"
     level: L2
     summary: added CVE-2026-62906 +1
@@ -117,14 +112,15 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69408
   - at: "2026-09-08T19:43:13Z"
     level: L2
-    summary: added CVE-2026-69408
+    summary: added CVE-2026-69408, CVE-2026-69493
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69493
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 ---
 
-This roundup covers 17 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, SQL Server, UxTheme Library, Windows, Windows Media Foundation, Windows USB Mass Storage Class Driver.
+This roundup covers 18 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -144,9 +140,10 @@ This roundup covers 17 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-68839](#cve-2026-68839) | Windows USB Mass Storage Class Driver | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68839) (authoritative) |
 | [CVE-2026-69276](#cve-2026-69276) | UxTheme Library | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69276) (authoritative) |
 | [CVE-2026-69356](#cve-2026-69356) | Exchange Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69356) (authoritative) |
-| [CVE-2026-69408](#cve-2026-69408) | Windows Media Foundation |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69408) (authoritative) |
+| [CVE-2026-69408](#cve-2026-69408) | Windows Media Foundation | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69408) (authoritative) |
 | [CVE-2026-69463](#cve-2026-69463) | NTFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69463) (authoritative) |
 | [CVE-2026-69491](#cve-2026-69491) | DirectMusic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69491) (authoritative) |
+| [CVE-2026-69493](#cve-2026-69493) | Windows Event Logging Service |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69493) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -237,6 +234,7 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880).
 
 ## CVE-2026-85880
@@ -247,6 +245,7 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
 
 
 
@@ -319,3 +318,12 @@ Affected products:
 - DirectMusic
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69491
+
+## CVE-2026-69493
+
+CVE-2026-69493 describes an out-of-bounds read vulnerability in the Windows Event Logging Service that can be exploited by an unauthorized remote attacker to achieve remote code execution. The vulnerability is rated with a CVSS v3.1 base score of 9.8, indicating a critical severity due to the potential for network-based exploitation.
+
+Affected products:
+- Windows Event Logging Service
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69493
