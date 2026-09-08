@@ -3,7 +3,7 @@ title: SAP Security Updates - September 2026
 slug: 2026-09-sap-security-updates
 description: Roundup of SAP security advisories published in September 2026.
 date: "2026-09-08T01:38:00Z"
-lastmod: "2026-09-08T01:38:26Z"
+lastmod: "2026-09-08T01:38:28Z"
 type: threat
 types:
   - threat
@@ -27,20 +27,16 @@ cves:
     product: NetWeaver Application Server for ABAP
     cvss: 7.7
   - id: CVE-2026-76958
+    product: Integration Suite
     cvss: 8.5
+  - id: CVE-2026-76967
+    cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-76958
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76967
 updates:
-  - at: "2026-09-08T01:38:00Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-58240
   - at: "2026-09-08T01:38:03Z"
     level: L2
-    summary: added CVE-2026-66767 +3
+    summary: added CVE-2026-66767 +4
     sources:
       - nvd
     source_urls:
@@ -48,9 +44,10 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76969
       - https://nvd.nist.gov/vuln/detail/CVE-2026-66767
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76958
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76967
 ---
 
-This roundup covers 4 SAP security vulnerabilities. CVSS base scores range from 7.7 to 9.8. None are reported as actively exploited at the time of release. The issues affect @sap/cds-mtxs, NetWeaver Application Server for ABAP, NetWeaver Message Server, SAP GUI for Java.
+This roundup covers 5 SAP security vulnerabilities. CVSS base scores range from 7.7 to 9.8. None are reported as actively exploited at the time of release. The issues affect @sap/cds-mtxs, Integration Suite, NetWeaver Application Server for ABAP, NetWeaver Message Server, SAP GUI for Java.
 
 ## Summary
 
@@ -60,6 +57,7 @@ This roundup covers 4 SAP security vulnerabilities. CVSS base scores range from 
 | [CVE-2026-66768](#cve-2026-66768) | SAP GUI for Java | Critical | 9.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-66768) (authoritative) |
 | [CVE-2026-76969](#cve-2026-76969) | @sap/cds-mtxs | Critical | 9.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76969) (authoritative) |
 | [CVE-2026-66767](#cve-2026-66767) | NetWeaver Application Server for ABAP | High | 7.7 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-66767) (authoritative) |
+| [CVE-2026-76958](#cve-2026-76958) | Integration Suite | High | 8.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76958) (authoritative) |
 
 
 ## CVE-2026-58240
@@ -98,3 +96,12 @@ Affected products:
 - ABAP Platform
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66767
+
+## CVE-2026-76958
+
+SAP Integration Suite is vulnerable to an XML External Entity (XXE) injection flaw due to insufficient validation of XML documents from untrusted sources. An attacker with low privileges can exploit this to read sensitive files from the server, exfiltrating the contents via monitoring or logging outputs, or cause a denial-of-service condition through resource exhaustion.
+
+Affected products:
+- Integration Suite
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76958
