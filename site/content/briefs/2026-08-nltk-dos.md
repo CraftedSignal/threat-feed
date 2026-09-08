@@ -3,7 +3,7 @@ title: Denial of Service Vulnerability in nltk PorterStemmer
 slug: 2026-08-nltk-dos
 description: An algorithmic complexity vulnerability in the nltk PorterStemmer module allows unauthenticated attackers to cause high CPU usage via specially crafted inputs.
 date: "2026-08-27T19:13:59Z"
-lastmod: "2026-09-08T20:05:54Z"
+lastmod: "2026-09-08T20:06:02Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ vendors:
 products:
   - nltk (<= 3.10.2)
   - nltk (3.10.0, 3.10.1)
+  - nltk (<= 3.9.4)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -51,6 +52,8 @@ references:
   - https://github.com/advisories/GHSA-3gq4-3j92-5w49
   - https://github.com/advisories/GHSA-f833-7jw8-xwrv
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62384
+  - https://github.com/advisories/GHSA-568f-pv23-39p4
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62385
 action_plan:
   priority: elevated
   owners:
@@ -84,6 +87,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-f833-7jw8-xwrv
+  - at: "2026-09-08T20:06:02Z"
+    level: L2
+    summary: added coverage for nltk (<= 3.9.4)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-568f-pv23-39p4
 ---
 
 The Natural Language Toolkit (nltk) library, specifically in versions 3.10.2 and earlier, is susceptible to an algorithmic complexity denial of service vulnerability (CVE-2026-81722). The vulnerability resides within the PorterStemmer.stem() method, where the _is_consonant() helper function exhibits O(n^2) performance degradation when processing tokens containing long sequences of the character 'y'. By providing a relatively small untrusted input (20-50 KB) consisting of a repeated 'y' string followed by a suffix such as 'ness', an attacker can force the application to consume significant CPU resources. This can pin a CPU core for extended periods, potentially leading to a denial of service if the application processes these inputs synchronously or within limited worker threads. Developers using nltk for text processing are advised to upgrade to version 3.10.3 to mitigate this performance-based attack vector.
