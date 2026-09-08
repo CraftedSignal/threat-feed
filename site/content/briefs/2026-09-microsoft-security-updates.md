@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T20:11:57Z"
+lastmod: "2026-09-08T20:12:02Z"
 type: threat
 types:
   - threat
@@ -308,6 +308,8 @@ cves:
     cvss: 7
   - id: CVE-2026-69277
     cvss: 7.8
+  - id: CVE-2026-69279
+    cvss: 7
   - id: CVE-2026-69280
     cvss: 7
   - id: CVE-2026-69281
@@ -359,22 +361,19 @@ cves:
     cvss: 6.5
   - id: CVE-2026-70091
     cvss: 5.9
+  - id: CVE-2026-85360
+    cvss: 7
   - id: CVE-2026-67629
     cvss: 6.5
   - id: CVE-2026-67633
     cvss: 6.5
   - id: CVE-2026-68833
     cvss: 6.8
+  - id: CVE-2026-69337
+    cvss: 7.1
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69333
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69339
 updates:
-  - at: "2026-09-08T20:10:26Z"
-    level: L2
-    summary: added CVE-2026-67638
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68881
   - at: "2026-09-08T20:11:44Z"
     level: L2
     summary: added CVE-2026-68833 +1
@@ -403,6 +402,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69333
+  - at: "2026-09-08T20:12:02Z"
+    level: L2
+    summary: added CVE-2026-69279 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69339
 ---
 
 This roundup covers 197 Microsoft security vulnerabilities. CVSS base scores range from 5.9 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Account, Active Directory Certificate Services, Active Directory Domain Services, Azure AI Language, Azure Active Directory B2C, Azure Arc, Azure Cosmos DB, BranchCache, COM, Copilot Studio, DNS Server, Direct Show, DirectMusic, Discovery Studio, Dynamics 365, Entra ID, Exchange Server, Fabric, GDI+, Graphics Component, Hyper-V, Internet Connection Sharing, JScript, Local Security Authority Server, NTFS, Netlogon, Office, Power Automate, PowerShell, Remote Desktop Client, Remote Desktop Gateway Service, Remote Desktop Services, Routing and Remote Access Service, SQL Server, SharePoint, Skype for Business, Standard XPS, Trace Data Helper, UxTheme Library, Visual Studio, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows Audio Service, Windows Bind Filter Driver, Windows Biometric Service, Windows Bluetooth Port Driver, Windows Cloud Files Mini Filter Driver, Windows Codecs Library, Windows Connected User Experiences and Telemetry, Windows DHCP Server, Windows DNS, Windows Error Reporting, Windows Event Logging Service, Windows Failover Cluster, Windows Fast FAT Driver, Windows File History Service, Windows HTTP Print Provider, Windows Image Acquisition, Windows Imaging Component, Windows Installer, Windows Kernel, Windows License Manager, Windows Media Foundation, Windows Message Queuing, Windows Netlogon, Windows Performance Monitor, Windows Print Spooler, Windows Program Compatibility Assistant Service, Windows Push Notifications, Windows RDP Client, Windows Remote Access Connection Manager, Windows Remote Desktop Licensing Service, Windows Search Component, Windows Secure Socket Tunneling Protocol, Windows Server, Windows Services for NFS, Windows Shell, Windows Storage, Windows Storage Spaces Controller, Windows USB Driver, Windows USB Mass Storage Class Driver, Windows USB Video Driver, Windows Universal Plug and Play, Windows Volume Manager Extension Driver, XBox Gaming Services.
