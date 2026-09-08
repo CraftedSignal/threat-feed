@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-08-30T09:07:29Z"
+lastmod: "2026-09-08T13:37:45Z"
 type: advisory
 types:
   - advisory
@@ -41,6 +41,7 @@ vendors:
   - Siemens
   - Moxa
   - Dropbox
+  - NetSupport
 products:
   - open source packages
   - GitHub repositories
@@ -87,6 +88,8 @@ products:
   - S7-1500
   - Google Docs
   - DocSend
+  - NetSupport Manager
+  - Chrome
 affected_os:
   - Windows
   - macOS
@@ -115,6 +118,9 @@ references:
   - https://www.huntress.com/blog/defcon-phishing-google-doc-malware
   - https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/
   - https://thehackernews.com/2026/08/terminalfix-uses-fake-cloudflare.html
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_content_copied_from_browser_was_executed.yml
+  - https://github.com/elastic/detection-rules/blob/main/rules/macos/command_and_control_etherhiding_c2_via_blockchain_rpc_request.toml
+  - https://blog.talosintelligence.com/clearfake-webdav-infection-chain/
 iocs:
   - type: domain
     value: justwatch.com
@@ -168,19 +174,16 @@ iocs:
     value: bestsocialmedianewspapper.com
   - type: domain
     value: offlineupdater.com
+  - type: domain
+    value: leaguejazire.com
+  - type: domain
+    value: riyazinikokar.xyz
 ioc_counts:
-  domain: 15
+  domain: 17
   hash_sha256: 1
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-18T20:50:59Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - huntress
-    source_urls:
-      - https://www.huntress.com/blog/mac-crypto-draining-malware
   - at: "2026-08-22T01:12:10Z"
     level: L1
     summary: new IOCs
@@ -209,6 +212,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/08/terminalfix-uses-fake-cloudflare.html
+  - at: "2026-09-08T13:37:45Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - talos
+    source_urls:
+      - https://blog.talosintelligence.com/clearfake-webdav-infection-chain/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
