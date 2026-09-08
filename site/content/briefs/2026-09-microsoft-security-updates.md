@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T20:56:21Z"
+lastmod: "2026-09-08T20:56:25Z"
 type: threat
 types:
   - threat
@@ -779,6 +779,8 @@ cves:
     cvss: 6.5
   - id: CVE-2026-69683
     cvss: 6.5
+  - id: CVE-2026-69529
+    cvss: 8.8
   - id: CVE-2026-69759
     cvss: 8.8
   - id: CVE-2026-69767
@@ -831,6 +833,8 @@ cves:
     cvss: 8.8
   - id: CVE-2026-81349
     cvss: 7.2
+  - id: CVE-2026-81355
+    cvss: 7.5
   - id: CVE-2026-81356
     cvss: 8.2
   - id: CVE-2026-81381
@@ -857,15 +861,8 @@ cves:
   - id: CVE-2026-68852
     cvss: 5.5
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69329
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69332
 updates:
-  - at: "2026-09-08T20:54:34Z"
-    level: L2
-    summary: added CVE-2026-62762
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69303
   - at: "2026-09-08T20:54:38Z"
     level: L2
     summary: added CVE-2026-68842 +1
@@ -894,6 +891,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69329
+  - at: "2026-09-08T20:56:25Z"
+    level: L2
+    summary: added CVE-2026-69529 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69332
 ---
 
 This roundup covers 538 Microsoft security vulnerabilities. CVSS base scores range from 4.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Account, Active Directory Certificate Services, Active Directory Domain Services, Active Directory Federation Services, Azure AI Language, Azure Active Directory B2C, Azure Arc, Azure Cosmos DB, Azure CycleCloud, Azure HDInsight, BitLocker, BranchCache, COM, Connected Devices Platform Service, Connected User Experiences and Telemetry, Copilot Studio, DNS Server, Direct Show, DirectMusic, Discovery Studio, Dynamics 365, Entra ID, Excel, Exchange Server, Fabric, GDI+, GitHub Copilot, Graphic Fonts, Graphics Component, Hyper-V, IP Address Management, Install Service, Internet Connection Sharing, Internet Storage Name Service, JScript, Local Security Authority Server, Microsoft Account, NTFS, Netlogon, Office, Office Access, Office Excel, Office PowerPoint, Office Publisher, Office Word, Outlook, Paint, Power Automate, PowerPoint, PowerShell, Push Message Routing Service, Raw Image Extension, Remote Access Connection Manager, Remote Desktop Client, Remote Desktop Gateway Service, Remote Desktop Services, Resilient File System, Routing and Remote Access Service, SQL Server, SharePoint, Skype for Business, Standard XPS, Storage Port Driver, Trace Data Helper, UxTheme Library, Virtual Hard Disk, Visual Studio, Visual Studio Code, Volume Manager Driver, WebP Image Extension, Windows, Windows Ancillary Function Driver for WinSock, Windows Audio Service, Windows Bind Filter Driver, Windows Biometric Service, Windows Bluetooth Port Driver, Windows Boot Manager, Windows Broadcast DVR User Service, Windows Broker Infrastructure Service, Windows CD-ROM Driver, Windows Cloud Files Mini Filter Driver, Windows Codecs Library, Windows Connected User Experiences and Telemetry, Windows Container Manager Service, Windows Core Messaging, Windows Credential Guard, Windows Credential Providers, Windows DHCP Server, Windows DNS, Windows DNS Server, Windows Defender Firewall Service, Windows Deployment Services, Windows Device Association Broker service, Windows Device Association Service, Windows Device Health Attestation, Windows Enterprise App Management, Windows Error Reporting, Windows Event Logging Service, Windows Failover Cluster, Windows Fast FAT Driver, Windows Fax Service, Windows File History Service, Windows GDI+, Windows HTTP Print Provider, Windows Hello, Windows Image Acquisition, Windows Imaging Component, Windows Installer, Windows Internet Key Exchange, Windows Kernel, Windows Key Distribution Center, Windows License Manager, Windows Link Layer Topology Discovery Protocol, Windows MIDI Service Module, Windows Management Instrumentation, Windows Media Foundation, Windows Message Queuing, Windows Modern Device Management, Windows Modern Execution Server, Windows NFS Portmapper, Windows NTFS, Windows Netlogon, Windows Network Connection Broker, Windows Network File System, Windows Overlay Filter, Windows Partition Management Driver, Windows Performance Monitor, Windows Print Spooler, Windows Program Compatibility Assistant Service, Windows Push Notifications, Windows RDP Client, Windows Remote Access Connection Manager, Windows Remote Desktop, Windows Remote Desktop Licensing Service, Windows Remote Desktop Protocol, Windows Routing and Remote Access Service, Windows SMB Client, Windows Search Component, Windows Secure Socket Tunneling Protocol, Windows Security Center, Windows Server, Windows Services for NFS, Windows Shell, Windows Storage, Windows Storage Management Provider, Windows Storage Port Driver, Windows Storage Spaces Controller, Windows TCP/IP, Windows Task Scheduler, Windows USB Audio Class Driver, Windows USB Driver, Windows USB Mass Storage Class Driver, Windows USB Video Driver, Windows Universal Disk Format File System Driver, Windows Universal Plug and Play, Windows Virtual Trusted Platform Module, Windows Volume Manager Extension Driver, Windows Wireless Wide Area Network Service, Windows Work Folder Service, Windows Work Folders, Windows iSCSI, Windows iSCSI Target Service, Word, XBox Gaming Services.
