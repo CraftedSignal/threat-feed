@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:56:14Z"
+lastmod: "2026-09-08T19:56:17Z"
 type: threat
 types:
   - threat
@@ -214,6 +214,8 @@ cves:
     cvss: 8.5
   - id: CVE-2026-67639
     cvss: 8.8
+  - id: CVE-2026-67642
+    cvss: 8.8
   - id: CVE-2026-67643
     cvss: 8.8
   - id: CVE-2026-68775
@@ -247,15 +249,8 @@ cves:
   - id: CVE-2026-69266
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69271
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69272
 updates:
-  - at: "2026-09-08T19:54:32Z"
-    level: L2
-    summary: added CVE-2026-68832
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-68894
   - at: "2026-09-08T19:55:58Z"
     level: L2
     summary: added CVE-2026-67378 +1
@@ -284,9 +279,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69271
+  - at: "2026-09-08T19:56:17Z"
+    level: L2
+    summary: added CVE-2026-67642
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69272
 ---
 
-This roundup covers 126 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Account, Active Directory Certificate Services, Active Directory Domain Services, Azure AI Language, Azure Active Directory B2C, Azure Arc, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Dynamics 365, Entra ID, Exchange Server, Fabric, GDI+, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Client, Remote Desktop Services, Routing and Remote Access Service, SQL Server, SharePoint, Skype for Business, Standard XPS, Trace Data Helper, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows Bind Filter Driver, Windows Codecs Library, Windows Connected User Experiences and Telemetry, Windows DHCP Server, Windows DNS, Windows Error Reporting, Windows Event Logging Service, Windows Failover Cluster, Windows Fast FAT Driver, Windows File History Service, Windows HTTP Print Provider, Windows Imaging Component, Windows Installer, Windows Kernel, Windows Media Foundation, Windows Message Queuing, Windows Netlogon, Windows Print Spooler, Windows Program Compatibility Assistant Service, Windows Push Notifications, Windows RDP Client, Windows Remote Desktop Licensing Service, Windows Search Component, Windows Secure Socket Tunneling Protocol, Windows Server, Windows Services for NFS, Windows Shell, Windows Storage Spaces Controller, Windows USB Driver, Windows USB Mass Storage Class Driver, XBox Gaming Services.
+This roundup covers 127 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Account, Active Directory Certificate Services, Active Directory Domain Services, Azure AI Language, Azure Active Directory B2C, Azure Arc, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Dynamics 365, Entra ID, Exchange Server, Fabric, GDI+, Graphics Component, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Client, Remote Desktop Services, Routing and Remote Access Service, SQL Server, SharePoint, Skype for Business, Standard XPS, Trace Data Helper, UxTheme Library, Visual Studio Code, Windows, Windows Ancillary Function Driver for WinSock, Windows Bind Filter Driver, Windows Codecs Library, Windows Connected User Experiences and Telemetry, Windows DHCP Server, Windows DNS, Windows Error Reporting, Windows Event Logging Service, Windows Failover Cluster, Windows Fast FAT Driver, Windows File History Service, Windows HTTP Print Provider, Windows Imaging Component, Windows Installer, Windows Kernel, Windows Media Foundation, Windows Message Queuing, Windows Netlogon, Windows Print Spooler, Windows Program Compatibility Assistant Service, Windows Push Notifications, Windows RDP Client, Windows Remote Desktop Licensing Service, Windows Search Component, Windows Secure Socket Tunneling Protocol, Windows Server, Windows Services for NFS, Windows Shell, Windows Storage Spaces Controller, Windows USB Driver, Windows USB Mass Storage Class Driver, XBox Gaming Services.
 
 ## Summary
 
@@ -385,7 +387,7 @@ This roundup covers 126 Microsoft security vulnerabilities. CVSS base scores ran
 | [CVE-2026-68827](#cve-2026-68827) | GDI+ | High | 8.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68827) (authoritative) |
 | [CVE-2026-68828](#cve-2026-68828) | Remote Desktop Client | High | 8.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68828) (authoritative) |
 | [CVE-2026-68832](#cve-2026-68832) | Windows | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68832) (authoritative) |
-| [CVE-2026-68834](#cve-2026-68834) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68834) (authoritative) |
+| [CVE-2026-68834](#cve-2026-68834) | Windows | High | 8.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68834) (authoritative) |
 | [CVE-2026-68835](#cve-2026-68835) | Windows Print Spooler |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68835) (authoritative) |
 | [CVE-2026-68837](#cve-2026-68837) | Windows File History Service |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68837) (authoritative) |
 | [CVE-2026-68838](#cve-2026-68838) | Windows | High | 8.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68838) (authoritative) |
@@ -414,10 +416,11 @@ This roundup covers 126 Microsoft security vulnerabilities. CVSS base scores ran
 | [CVE-2026-68896](#cve-2026-68896) | Windows Search Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68896) (authoritative) |
 | [CVE-2026-68897](#cve-2026-68897) | Standard XPS | High | 7.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68897) (authoritative) |
 | [CVE-2026-69265](#cve-2026-69265) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69265) (authoritative) |
-| [CVE-2026-69266](#cve-2026-69266) | Windows DHCP Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69266) (authoritative) |
+| [CVE-2026-69266](#cve-2026-69266) | Windows DHCP Server | High | 8.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69266) (authoritative) |
 | [CVE-2026-69268](#cve-2026-69268) | SharePoint |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69268) (authoritative) |
 | [CVE-2026-69269](#cve-2026-69269) | Standard XPS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69269) (authoritative) |
 | [CVE-2026-69270](#cve-2026-69270) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69270) (authoritative) |
+| [CVE-2026-69271](#cve-2026-69271) | Standard XPS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69271) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -428,6 +431,7 @@ Affected products:
 - Entra ID
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62916
+
 
 
 
@@ -701,6 +705,7 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-85880
@@ -828,6 +833,7 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-65669
@@ -838,6 +844,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-65669
+
 
 
 
@@ -1049,6 +1056,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 
 
 
+
 Related in this roundup: [CVE-2026-69641](#cve-2026-69641), [CVE-2026-55007](#cve-2026-55007).
 
 ## CVE-2026-69408
@@ -1059,6 +1067,7 @@ Affected products:
 - Windows Media Foundation
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69408
+
 
 
 
@@ -1272,6 +1281,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-69525
@@ -1305,6 +1315,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69579
 
 
 
+
 Related in this roundup: [CVE-2026-68887](#cve-2026-68887).
 
 ## CVE-2026-69586
@@ -1315,6 +1326,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
+
 
 
 
@@ -1524,6 +1536,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69595
 
 
 
+
 Related in this roundup: [CVE-2026-78445](#cve-2026-78445).
 
 ## CVE-2026-69641
@@ -1534,6 +1547,7 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
+
 
 
 
@@ -1763,6 +1777,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-69769
@@ -1797,7 +1812,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69824
 
 
 
-Related in this roundup: [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269).
+
+Related in this roundup: [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-69829
 
@@ -1816,6 +1832,7 @@ Affected products:
 - Windows DHCP Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
+
 
 
 
@@ -1936,6 +1953,7 @@ Affected products:
 - Windows DHCP Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72979
+
 
 
 
@@ -2161,6 +2179,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73025
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-77493
@@ -2180,6 +2199,7 @@ Affected products:
 - Windows Services for NFS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78445
+
 
 
 
@@ -2367,6 +2387,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83941
 
 
 
+
 Related in this roundup: [CVE-2026-62916](#cve-2026-62916).
 
 ## CVE-2026-66302
@@ -2386,6 +2407,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-47297
+
 
 
 
@@ -2565,6 +2587,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-55007
 
 
 
+
 Related in this roundup: [CVE-2026-69356](#cve-2026-69356), [CVE-2026-69641](#cve-2026-69641).
 
 ## CVE-2026-56172
@@ -2575,6 +2598,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-56172
+
 
 
 
@@ -2771,6 +2795,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-58599
 
 
 
+
 Related in this roundup: [CVE-2026-58600](#cve-2026-58600).
 
 ## CVE-2026-58600
@@ -2781,6 +2806,7 @@ Affected products:
 - Windows Codecs Library
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-58600
+
 
 
 
@@ -2890,6 +2916,7 @@ Affected products:
 - Windows Media Foundation
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62744
+
 
 
 
@@ -3075,6 +3102,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66814
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-66818
@@ -3085,6 +3113,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66818
+
 
 
 
@@ -3216,6 +3245,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66819
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-66820
@@ -3226,6 +3256,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-66820
+
 
 
 
@@ -3353,6 +3384,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67368
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67370
@@ -3363,6 +3395,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67370
+
 
 
 
@@ -3486,6 +3519,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67373
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67376
@@ -3496,6 +3530,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67376
+
 
 
 
@@ -3615,6 +3650,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67378
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67379
@@ -3625,6 +3661,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67379
+
 
 
 
@@ -3740,6 +3777,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67380
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67381
@@ -3750,6 +3788,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67381
+
 
 
 
@@ -3861,6 +3900,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67384
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67385
@@ -3871,6 +3911,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67385
+
 
 
 
@@ -3978,6 +4019,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67388
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67631
@@ -3988,6 +4030,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67631
+
 
 
 
@@ -4091,6 +4134,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67636
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67638
@@ -4101,6 +4145,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67638
+
 
 
 
@@ -4200,6 +4245,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67639
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-67642
@@ -4210,6 +4256,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67642
+
 
 
 
@@ -4305,6 +4352,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-67643
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-68775
@@ -4315,6 +4363,7 @@ Affected products:
 - SQL Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68775
+
 
 
 
@@ -4406,6 +4455,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68786
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68787](#cve-2026-68787).
 
 ## CVE-2026-68787
@@ -4455,6 +4505,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68787
 
 
 
+
 Related in this roundup: [CVE-2026-65669](#cve-2026-65669), [CVE-2026-47297](#cve-2026-47297), [CVE-2026-66814](#cve-2026-66814), [CVE-2026-66818](#cve-2026-66818), [CVE-2026-66819](#cve-2026-66819), [CVE-2026-66820](#cve-2026-66820), [CVE-2026-67368](#cve-2026-67368), [CVE-2026-67370](#cve-2026-67370), [CVE-2026-67373](#cve-2026-67373), [CVE-2026-67376](#cve-2026-67376), [CVE-2026-67378](#cve-2026-67378), [CVE-2026-67379](#cve-2026-67379), [CVE-2026-67380](#cve-2026-67380), [CVE-2026-67381](#cve-2026-67381), [CVE-2026-67384](#cve-2026-67384), [CVE-2026-67385](#cve-2026-67385), [CVE-2026-67388](#cve-2026-67388), [CVE-2026-67631](#cve-2026-67631), [CVE-2026-67636](#cve-2026-67636), [CVE-2026-67638](#cve-2026-67638), [CVE-2026-67639](#cve-2026-67639), [CVE-2026-67642](#cve-2026-67642), [CVE-2026-67643](#cve-2026-67643), [CVE-2026-68775](#cve-2026-68775), [CVE-2026-68786](#cve-2026-68786).
 
 ## CVE-2026-68824
@@ -4465,6 +4516,7 @@ Affected products:
 - Windows Connected User Experiences and Telemetry
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68824
+
 
 
 
@@ -4560,6 +4612,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68832
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-68834
@@ -4570,6 +4623,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68834
+
 
 
 
@@ -4636,6 +4690,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68835
 
 
 
+
 Related in this roundup: [CVE-2026-68848](#cve-2026-68848).
 
 ## CVE-2026-68837
@@ -4655,6 +4710,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68838
+
 
 
 
@@ -4732,6 +4788,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68841
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-68844
@@ -4771,6 +4828,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68845
 
 
 
+
 Related in this roundup: [CVE-2026-68876](#cve-2026-68876).
 
 ## CVE-2026-68846
@@ -4781,6 +4839,7 @@ Affected products:
 - Windows Kernel
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68846
+
 
 
 
@@ -4831,6 +4890,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68847
 
 
 
+
 Related in this roundup: [CVE-2026-68824](#cve-2026-68824).
 
 ## CVE-2026-68848
@@ -4841,6 +4901,7 @@ Affected products:
 - Windows Print Spooler
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68848
+
 
 
 
@@ -4904,6 +4965,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68875
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-68876
@@ -4934,6 +4996,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68876
 
 
 
+
 Related in this roundup: [CVE-2026-68845](#cve-2026-68845).
 
 ## CVE-2026-68877
@@ -4944,6 +5007,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68877
+
 
 
 
@@ -4999,6 +5063,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68880
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-69265](#cve-2026-69265), [CVE-2026-69270](#cve-2026-69270).
 
 ## CVE-2026-68884
@@ -5009,6 +5074,7 @@ Affected products:
 - Windows Kernel
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68884
+
 
 
 
@@ -5050,7 +5116,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68885
 
 
 
-Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269).
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-68887
 
@@ -5060,6 +5127,7 @@ Affected products:
 - Windows Message Queuing
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68887
+
 
 
 
@@ -5097,7 +5165,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68888
 
 
 
-Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269).
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-68889
 
@@ -5119,7 +5188,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68889
 
 
 
-Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269).
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-68890
 
@@ -5140,7 +5210,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68890
 
 
 
-Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269).
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-68892
 
@@ -5160,7 +5231,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68892
 
 
 
-Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269).
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-68893
 
@@ -5203,7 +5275,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-68897
 
 
 
-Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-69269](#cve-2026-69269).
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-69269](#cve-2026-69269), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-69265
 
@@ -5213,6 +5286,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69265
+
 
 
 
@@ -5228,6 +5302,7 @@ Affected products:
 - Windows DHCP Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69266
+
 
 
 
@@ -5253,7 +5328,8 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69269
 
 
-Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897).
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69271](#cve-2026-69271).
 
 ## CVE-2026-69270
 
@@ -5264,4 +5340,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69270
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768), [CVE-2026-73025](#cve-2026-73025), [CVE-2026-56172](#cve-2026-56172), [CVE-2026-68832](#cve-2026-68832), [CVE-2026-68834](#cve-2026-68834), [CVE-2026-68838](#cve-2026-68838), [CVE-2026-68841](#cve-2026-68841), [CVE-2026-68875](#cve-2026-68875), [CVE-2026-68877](#cve-2026-68877), [CVE-2026-68880](#cve-2026-68880), [CVE-2026-69265](#cve-2026-69265).
+
+## CVE-2026-69271
+
+CVE-2026-69271 is a heap-based buffer overflow vulnerability in Microsoft Standard XPS. The vulnerability allows an authorized attacker with network access to achieve privilege escalation on the affected system by exploiting memory corruption within the XPS processing component.
+
+Affected products:
+- Standard XPS
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69271
+
+Related in this roundup: [CVE-2026-69824](#cve-2026-69824), [CVE-2026-68885](#cve-2026-68885), [CVE-2026-68888](#cve-2026-68888), [CVE-2026-68889](#cve-2026-68889), [CVE-2026-68890](#cve-2026-68890), [CVE-2026-68892](#cve-2026-68892), [CVE-2026-68897](#cve-2026-68897), [CVE-2026-69269](#cve-2026-69269).
