@@ -3,6 +3,7 @@ title: Remote Stack-Based Buffer Overflow in D-Link DIR-822A
 slug: 2026-09-dlink-buffer-overflow
 description: A stack-based buffer overflow vulnerability in the udhcpcd component of D-Link DIR-822A routers allows unauthenticated remote attackers to execute arbitrary code.
 date: "2026-09-07T12:52:41Z"
+lastmod: "2026-09-08T03:38:18Z"
 type: advisory
 types:
   - advisory
@@ -25,11 +26,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The attack is possible to be carried out remotely.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Affected is the function tunnel_set_params of the component L2TP Control Message Parser. Such manipulation leads to out-of-bounds write.
+    confidence_band: high
 cves:
   - id: CVE-2026-86296
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86296
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86510
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86296
       evidence: High CVSS severity (10.0) and confirmed remote exploitability.
+updates:
+  - at: "2026-09-08T03:38:18Z"
+    level: L2
+    summary: added coverage for DIR-822A (A_101)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86510
 ---
 
 A critical stack-based buffer overflow vulnerability (CVE-2026-86296) exists in the udhcpcd component of the D-Link DIR-822A router, specifically within the strcpy function found in serverpacket.c. This flaw allows an unauthenticated remote attacker to send maliciously crafted network packets to the vulnerable service. By exceeding the allocated buffer size, an attacker can overwrite adjacent memory on the stack, potentially leading to arbitrary code execution or a denial of service condition. The vulnerability has been publicly disclosed, and exploit code is available, increasing the risk of widespread exploitation. Given the router's role in network edge security, successful exploitation allows an attacker to gain full control over the gateway device, facilitating further lateral movement or traffic interception within the target network.
