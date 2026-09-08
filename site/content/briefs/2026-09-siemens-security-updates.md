@@ -3,7 +3,7 @@ title: Siemens Security Updates - September 2026
 slug: 2026-09-siemens-security-updates
 description: Roundup of Siemens security advisories published in September 2026.
 date: "2026-09-08T09:40:10Z"
-lastmod: "2026-09-08T09:40:22Z"
+lastmod: "2026-09-08T09:40:24Z"
 type: threat
 types:
   - threat
@@ -27,20 +27,16 @@ cves:
     product: Reyrolle 7SR5 (< V2.70)
     cvss: 7.4
   - id: CVE-2026-62647
+    product: Reyrolle 7SR5 (< V2.70)
     cvss: 7.4
+  - id: CVE-2026-62648
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-62647
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62648
 updates:
-  - at: "2026-09-08T09:40:10Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-50093
   - at: "2026-09-08T09:40:14Z"
     level: L2
-    summary: added CVE-2026-34223 +3
+    summary: added CVE-2026-34223 +4
     sources:
       - nvd
     source_urls:
@@ -48,9 +44,10 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-34223
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62646
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62647
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-62648
 ---
 
-This roundup covers 4 Siemens security vulnerabilities. CVSS base scores range from 7.4 to 9.8. None are reported as actively exploited at the time of release. The issues affect Desigo CC ClickOnce Client, Reyrolle 7SR5, Siveillance Control Pro.
+This roundup covers 5 Siemens security vulnerabilities. CVSS base scores range from 7.4 to 9.8. None are reported as actively exploited at the time of release. The issues affect Desigo CC ClickOnce Client, Reyrolle 7SR5, Siveillance Control Pro.
 
 ## Summary
 
@@ -60,6 +57,7 @@ This roundup covers 4 Siemens security vulnerabilities. CVSS base scores range f
 | [CVE-2026-62645](#cve-2026-62645) | Reyrolle 7SR5 (< V2.70) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62645) (authoritative) |
 | [CVE-2026-34223](#cve-2026-34223) | Desigo CC ClickOnce Client | High | 8.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-34223) (authoritative) |
 | [CVE-2026-62646](#cve-2026-62646) | Reyrolle 7SR5 (< V2.70) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62646) (authoritative) |
+| [CVE-2026-62647](#cve-2026-62647) | Reyrolle 7SR5 (< V2.70) | High | 7.4 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-62647) (authoritative) |
 
 
 ## CVE-2026-50093
@@ -83,7 +81,8 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62645
 
-Related in this roundup: [CVE-2026-62646](#cve-2026-62646).
+
+Related in this roundup: [CVE-2026-62646](#cve-2026-62646), [CVE-2026-62647](#cve-2026-62647).
 
 ## CVE-2026-34223
 
@@ -106,4 +105,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62646
 
-Related in this roundup: [CVE-2026-62645](#cve-2026-62645).
+
+Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62647](#cve-2026-62647).
+
+## CVE-2026-62647
+
+Siemens Reyrolle 7SR5 relays prior to version V2.70 utilize an insufficiently initialized random number generator for security-sensitive values, such as session identifiers. This flaw allows an unauthenticated remote attacker to predict these values, facilitating session hijacking and unauthorized access to the device.
+
+Affected products:
+- Reyrolle 7SR5 (< V2.70)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-62647
+
+Related in this roundup: [CVE-2026-62645](#cve-2026-62645), [CVE-2026-62646](#cve-2026-62646).
