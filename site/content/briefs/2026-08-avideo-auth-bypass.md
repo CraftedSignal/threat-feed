@@ -3,7 +3,7 @@ title: Authentication Bypass in AVideo via Parameter Manipulation
 slug: 2026-08-avideo-auth-bypass
 description: An authentication bypass vulnerability in AVideo (CVE-2026-59808) allows attackers with upload access to hijack administrative sessions via improper video ownership verification.
 date: "2026-08-22T15:30:44Z"
-lastmod: "2026-09-03T13:22:07Z"
+lastmod: "2026-09-08T17:43:12Z"
 type: advisory
 types:
   - advisory
@@ -28,6 +28,7 @@ products:
   - AVideo (<= e01e41ecc)
   - AVideo (<= 29.0)
   - AVideo (<= c91b5975d)
+  - AVideo (<= c3edcc274c)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -89,6 +90,12 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: AVideo through commit c91b5975d contains a cross-site request forgery and path traversal vulnerability in stopLive.php.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1565
+    technique_name: Data Manipulation
+    evidence: Attackers can publish to any user's RTMP stream without authentication by using the known constant stream key value to hijack live broadcasts.
+    confidence_band: high
 cves:
   - id: CVE-2026-59808
     cvss: 8.8
@@ -100,6 +107,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84187
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84208
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85160
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86721
 rules:
   - title: Detect CVE-2026-82645 Exploitation Attempt - Unauthorized Access to GetLiveKey
     description: Detects unauthorized attempts to access the getLiveKey.json.php endpoint by monitoring for anomalous requests that bypass standard authentication flows, specifically targeting the restream credential extraction endpoint.
@@ -142,7 +150,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 4
+  - title: Detects CVE-2026-86721 Exploitation - Unauthorized RTMP Stream Access
+    description: Detects attempts to exploit CVE-2026-86721 by monitoring for requests to saveLive.php containing the specific 'key' cookie used for authorization bypass.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1565.001
+    data_sources:
+      - webserver
+rules_count: 5
 action_plan:
   priority: elevated
   owners:
@@ -160,13 +178,6 @@ action_plan:
       addresses: CVE-2026-59808
       evidence: Source describes auth bypass via hash manipulation
 updates:
-  - at: "2026-08-30T17:11:31Z"
-    level: L2
-    summary: 'added detection rule: Detect CVE-2026-82645 Exploitation Attempt - Unauthorized Access to GetLiveKey'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-82645
   - at: "2026-09-01T13:06:00Z"
     level: L1
     summary: added coverage for AVideo
@@ -195,6 +206,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85160
+  - at: "2026-09-08T17:43:12Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-86721 Exploitation - Unauthorized RTMP Stream Access'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86721
 ---
 
 AVideo through commit 9c39d8c8 contains a critical authentication bypass vulnerability due to flawed validation logic within the `deduplicateByEncoderQueueId()` and `useVideoHashOrLogin()` functions. The software fails to perform proper ownership verification when the `videos_id` parameter is omitted during an upload process, causing the system to return a `video_id_hash` belonging to any video, including those owned by administrators. Because the `useVideoHashOrLogin()` function treats this hash as a valid credential for passwordless login, an attacker can leverage a captured hash to authenticate as the video owner. This flaw allows an attacker with low-privileged upload access to escalate privileges to the administrator level, enabling full system configuration control. This vulnerability highlights the risks of implicit trust in video identifier hashes for session management.
