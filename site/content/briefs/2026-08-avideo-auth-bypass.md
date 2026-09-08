@@ -3,7 +3,7 @@ title: Authentication Bypass in AVideo via Parameter Manipulation
 slug: 2026-08-avideo-auth-bypass
 description: An authentication bypass vulnerability in AVideo (CVE-2026-59808) allows attackers with upload access to hijack administrative sessions via improper video ownership verification.
 date: "2026-08-22T15:30:44Z"
-lastmod: "2026-09-08T17:44:54Z"
+lastmod: "2026-09-08T17:45:02Z"
 type: advisory
 types:
   - advisory
@@ -117,6 +117,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85160
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86721
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86723
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86725
 rules:
   - title: Detect CVE-2026-82645 Exploitation Attempt - Unauthorized Access to GetLiveKey
     description: Detects unauthorized attempts to access the getLiveKey.json.php endpoint by monitoring for anomalous requests that bypass standard authentication flows, specifically targeting the restream credential extraction endpoint.
@@ -198,13 +199,6 @@ action_plan:
       addresses: CVE-2026-59808
       evidence: Source describes auth bypass via hash manipulation
 updates:
-  - at: "2026-09-01T13:06:14Z"
-    level: L2
-    summary: 'added detection rule: Detects CVE-2026-84187 Exploitation - Unauthenticated Broadcast Manipulation'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-84187
   - at: "2026-09-02T01:10:32Z"
     level: L2
     summary: 'added detection rule: Detects CVE-2026-84208 Exploitation - SQL Injection in User_Location Plugin'
@@ -233,6 +227,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-86723
+  - at: "2026-09-08T17:45:02Z"
+    level: L2
+    summary: added coverage for AVideo (<= c3edcc274c389816d434acadac07ee78eaf330c1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86725
 ---
 
 AVideo through commit 9c39d8c8 contains a critical authentication bypass vulnerability due to flawed validation logic within the `deduplicateByEncoderQueueId()` and `useVideoHashOrLogin()` functions. The software fails to perform proper ownership verification when the `videos_id` parameter is omitted during an upload process, causing the system to return a `video_id_hash` belonging to any video, including those owned by administrators. Because the `useVideoHashOrLogin()` function treats this hash as a valid credential for passwordless login, an attacker can leverage a captured hash to authenticate as the video owner. This flaw allows an attacker with low-privileged upload access to escalate privileges to the administrator level, enabling full system configuration control. This vulnerability highlights the risks of implicit trust in video identifier hashes for session management.
