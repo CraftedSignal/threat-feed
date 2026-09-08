@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:42:58Z"
+lastmod: "2026-09-08T19:43:13Z"
 type: threat
 types:
   - threat
@@ -82,16 +82,11 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69276
     cvss: 9.8
+  - id: CVE-2026-69408
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69408
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69493
 updates:
-  - at: "2026-09-08T19:32:30Z"
-    level: L2
-    summary: added CVE-2026-70178 +1
-    sources:
-      - cisa-kev
-    source_urls:
-      - https://www.cve.org/CVERecord?id=CVE-2026-81963
   - at: "2026-09-08T19:32:32Z"
     level: L2
     summary: added CVE-2026-65818 +2
@@ -120,9 +115,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69408
+  - at: "2026-09-08T19:43:13Z"
+    level: L2
+    summary: added CVE-2026-69408
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69493
 ---
 
-This roundup covers 14 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Discovery Studio, Entra ID, Exchange Server, Fabric, Power Automate, SQL Server, UxTheme Library, Windows, Windows USB Mass Storage Class Driver.
+This roundup covers 17 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, SQL Server, UxTheme Library, Windows, Windows Media Foundation, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -140,8 +142,11 @@ This roundup covers 14 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-85880](#cve-2026-85880) | Windows | High | 7.8 |  | no | [source](https://www.cve.org/CVERecord?id=CVE-2026-85880) (authoritative) |
 | [CVE-2026-65669](#cve-2026-65669) | SQL Server | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-65669) (authoritative) |
 | [CVE-2026-68839](#cve-2026-68839) | Windows USB Mass Storage Class Driver | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-68839) (authoritative) |
-| [CVE-2026-69276](#cve-2026-69276) | UxTheme Library |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69276) (authoritative) |
+| [CVE-2026-69276](#cve-2026-69276) | UxTheme Library | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69276) (authoritative) |
 | [CVE-2026-69356](#cve-2026-69356) | Exchange Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69356) (authoritative) |
+| [CVE-2026-69408](#cve-2026-69408) | Windows Media Foundation |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69408) (authoritative) |
+| [CVE-2026-69463](#cve-2026-69463) | NTFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69463) (authoritative) |
+| [CVE-2026-69491](#cve-2026-69491) | DirectMusic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69491) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -229,6 +234,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880).
 
 ## CVE-2026-85880
@@ -239,6 +247,9 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
+
+
 
 
 
@@ -281,3 +292,30 @@ Affected products:
 - Exchange Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
+
+## CVE-2026-69408
+
+CVE-2026-69408 describes an integer overflow or wraparound vulnerability within the Microsoft Windows Media Foundation component. This flaw can be exploited by a remote, unauthorized attacker to achieve remote code execution (RCE) over a network, presenting a high risk as indicated by a CVSS v3.1 base score of 9.8.
+
+Affected products:
+- Windows Media Foundation
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69408
+
+## CVE-2026-69463
+
+CVE-2026-69463 is a heap-based buffer overflow vulnerability located in the Windows NTFS implementation. The vulnerability allows an unauthorized attacker to achieve remote code execution over a network, carrying a CVSS v3.1 base score of 9.8.
+
+Affected products:
+- NTFS
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69463
+
+## CVE-2026-69491
+
+CVE-2026-69491 is a critical heap-based buffer overflow vulnerability within the Microsoft DirectMusic component of Windows. An unauthenticated attacker can exploit this flaw remotely over a network to achieve arbitrary code execution on the target system.
+
+Affected products:
+- DirectMusic
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69491
