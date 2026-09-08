@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:43:20Z"
+lastmod: "2026-09-08T19:43:25Z"
 type: threat
 types:
   - threat
@@ -82,22 +82,18 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69276
     cvss: 9.8
+  - id: CVE-2026-69356
+    cvss: 9.3
   - id: CVE-2026-69408
     cvss: 9.8
   - id: CVE-2026-69493
     cvss: 9.8
   - id: CVE-2026-69579
+    product: Windows Message Queuing
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69579
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69590
 updates:
-  - at: "2026-09-08T19:42:55Z"
-    level: L2
-    summary: added CVE-2026-65669 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69356
   - at: "2026-09-08T19:42:58Z"
     level: L2
     summary: added CVE-2026-69276
@@ -107,16 +103,17 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69408
   - at: "2026-09-08T19:43:13Z"
     level: L2
-    summary: added CVE-2026-69408, CVE-2026-69493, CVE-2026-69579
+    summary: added CVE-2026-69356 +3
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69493
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69496
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69579
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69590
 ---
 
-This roundup covers 20 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows USB Mass Storage Class Driver.
+This roundup covers 22 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows Message Queuing, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -142,6 +139,8 @@ This roundup covers 20 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69493](#cve-2026-69493) | Windows Event Logging Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69493) (authoritative) |
 | [CVE-2026-69496](#cve-2026-69496) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69496) (authoritative) |
 | [CVE-2026-69525](#cve-2026-69525) | Remote Desktop Services |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69525) (authoritative) |
+| [CVE-2026-69579](#cve-2026-69579) | Windows Message Queuing | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69579) (authoritative) |
+| [CVE-2026-69586](#cve-2026-69586) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69586) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -235,7 +234,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
-Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496).
+
+
+Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-85880
 
@@ -256,7 +257,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496).
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-65669
 
@@ -340,7 +343,9 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880).
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586).
 
 ## CVE-2026-69525
 
@@ -350,3 +355,23 @@ Affected products:
 - Remote Desktop Services
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69525
+
+## CVE-2026-69579
+
+A use-after-free vulnerability in Windows Message Queuing enables an unauthorized remote attacker to execute arbitrary code. The vulnerability allows for exploitation over the network with a CVSS score of 9.8, indicating a critical severity level requiring immediate patching.
+
+Affected products:
+- Windows Message Queuing
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69579
+
+## CVE-2026-69586
+
+CVE-2026-69586 describes an integer overflow or wraparound vulnerability within the Microsoft Windows PDF component. This flaw permits an unauthorized remote attacker to execute arbitrary code over the network, carrying a high CVSS base score of 9.8.
+
+Affected products:
+- Windows
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496).
