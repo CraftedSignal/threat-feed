@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:45:29Z"
+lastmod: "2026-09-08T19:45:32Z"
 type: threat
 types:
   - threat
@@ -112,16 +112,13 @@ cves:
     cvss: 9.8
   - id: CVE-2026-70296
     cvss: 9.8
+  - id: CVE-2026-72983
+    cvss: 9.8
+  - id: CVE-2026-73009
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-72983
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73009
 updates:
-  - at: "2026-09-08T19:45:07Z"
-    level: L2
-    summary: added CVE-2026-69525 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69829
   - at: "2026-09-08T19:45:10Z"
     level: L2
     summary: added CVE-2026-69768
@@ -144,9 +141,16 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70296
       - https://nvd.nist.gov/vuln/detail/CVE-2026-72983
+  - at: "2026-09-08T19:45:32Z"
+    level: L2
+    summary: added CVE-2026-72983 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73009
 ---
 
-This roundup covers 36 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Hyper-V, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Standard XPS, UxTheme Library, Windows, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
+This roundup covers 37 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, Direct Show, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, Hyper-V, Internet Connection Sharing, NTFS, Netlogon, Power Automate, Remote Desktop Services, Routing and Remote Access Service, SQL Server, Standard XPS, UxTheme Library, Windows, Windows DHCP Server, Windows DNS, Windows Event Logging Service, Windows HTTP Print Provider, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing, Windows Services for NFS, Windows Shell, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -185,9 +189,10 @@ This roundup covers 36 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69829](#cve-2026-69829) | Windows Shell | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69829) (authoritative) |
 | [CVE-2026-69845](#cve-2026-69845) | Windows DHCP Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69845) (authoritative) |
 | [CVE-2026-69910](#cve-2026-69910) | Hyper-V |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69910) (authoritative) |
-| [CVE-2026-70296](#cve-2026-70296) | Windows Imaging Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70296) (authoritative) |
+| [CVE-2026-70296](#cve-2026-70296) | Windows Imaging Component | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70296) (authoritative) |
 | [CVE-2026-72979](#cve-2026-72979) | Windows DHCP Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72979) (authoritative) |
 | [CVE-2026-72982](#cve-2026-72982) | Netlogon |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72982) (authoritative) |
+| [CVE-2026-72983](#cve-2026-72983) | Internet Connection Sharing |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72983) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -297,6 +302,7 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
+
 Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
 
 ## CVE-2026-85880
@@ -307,6 +313,7 @@ Affected products:
 - Windows
 
 Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
+
 
 
 
@@ -383,6 +390,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69356
 
 
 
+
 Related in this roundup: [CVE-2026-69641](#cve-2026-69641).
 
 ## CVE-2026-69408
@@ -447,6 +455,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
 
 
 
+
 Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69586](#cve-2026-69586), [CVE-2026-69768](#cve-2026-69768).
 
 ## CVE-2026-69525
@@ -475,6 +484,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69586
+
 
 
 
@@ -530,6 +540,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69641
 
 
 
+
 Related in this roundup: [CVE-2026-69356](#cve-2026-69356).
 
 ## CVE-2026-69715
@@ -558,6 +569,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69768
+
 
 
 
@@ -606,6 +618,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69845
 
 
+
 Related in this roundup: [CVE-2026-72979](#cve-2026-72979).
 
 ## CVE-2026-69910
@@ -636,6 +649,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72979
 
 
+
 Related in this roundup: [CVE-2026-69845](#cve-2026-69845).
 
 ## CVE-2026-72982
@@ -646,3 +660,12 @@ Affected products:
 - Netlogon
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72982
+
+## CVE-2026-72983
+
+CVE-2026-72983 is a use-after-free vulnerability within the Windows Internet Connection Sharing (ICS) component. An unauthorized remote attacker can leverage this flaw to achieve remote code execution over a network, posing a critical security risk to systems with ICS enabled.
+
+Affected products:
+- Internet Connection Sharing
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-72983
