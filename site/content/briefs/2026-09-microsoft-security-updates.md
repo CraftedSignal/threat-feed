@@ -3,7 +3,7 @@ title: Microsoft Security Updates - September 2026
 slug: 2026-09-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in September 2026.
 date: "2026-09-03T23:23:58Z"
-lastmod: "2026-09-08T19:43:15Z"
+lastmod: "2026-09-08T19:43:20Z"
 type: threat
 types:
   - threat
@@ -86,16 +86,11 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69493
     cvss: 9.8
+  - id: CVE-2026-69579
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-69496
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-69579
 updates:
-  - at: "2026-09-08T19:42:47Z"
-    level: L2
-    summary: added CVE-2026-62906 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-65669
   - at: "2026-09-08T19:42:55Z"
     level: L2
     summary: added CVE-2026-65669 +1
@@ -112,15 +107,16 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69408
   - at: "2026-09-08T19:43:13Z"
     level: L2
-    summary: added CVE-2026-69408, CVE-2026-69493
+    summary: added CVE-2026-69408, CVE-2026-69493, CVE-2026-69579
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69493
       - https://nvd.nist.gov/vuln/detail/CVE-2026-69496
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-69579
 ---
 
-This roundup covers 18 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows USB Mass Storage Class Driver.
+This roundup covers 20 Microsoft security vulnerabilities. CVSS base scores range from 7.4 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure AI Language, Azure Active Directory B2C, Azure Cosmos DB, Copilot Studio, DirectMusic, Discovery Studio, Entra ID, Exchange Server, Fabric, NTFS, Power Automate, Remote Desktop Services, SQL Server, UxTheme Library, Windows, Windows Event Logging Service, Windows Media Foundation, Windows USB Mass Storage Class Driver.
 
 ## Summary
 
@@ -143,7 +139,9 @@ This roundup covers 18 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-69408](#cve-2026-69408) | Windows Media Foundation | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69408) (authoritative) |
 | [CVE-2026-69463](#cve-2026-69463) | NTFS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69463) (authoritative) |
 | [CVE-2026-69491](#cve-2026-69491) | DirectMusic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69491) (authoritative) |
-| [CVE-2026-69493](#cve-2026-69493) | Windows Event Logging Service |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69493) (authoritative) |
+| [CVE-2026-69493](#cve-2026-69493) | Windows Event Logging Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69493) (authoritative) |
+| [CVE-2026-69496](#cve-2026-69496) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69496) (authoritative) |
+| [CVE-2026-69525](#cve-2026-69525) | Remote Desktop Services |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69525) (authoritative) |
 
 
 ## CVE-2026-62916
@@ -235,7 +233,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-81963
 
 
 
-Related in this roundup: [CVE-2026-85880](#cve-2026-85880).
+
+
+Related in this roundup: [CVE-2026-85880](#cve-2026-85880), [CVE-2026-69496](#cve-2026-69496).
 
 ## CVE-2026-85880
 
@@ -254,7 +254,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-85880
 
 
 
-Related in this roundup: [CVE-2026-81963](#cve-2026-81963).
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-69496](#cve-2026-69496).
 
 ## CVE-2026-65669
 
@@ -327,3 +329,24 @@ Affected products:
 - Windows Event Logging Service
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69493
+
+## CVE-2026-69496
+
+CVE-2026-69496 is a heap-based buffer overflow vulnerability within the Windows Compressed Folder feature. This vulnerability allows an unauthenticated, remote attacker to achieve remote code execution on an affected system via network-based exploitation.
+
+Affected products:
+- Windows
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69496
+
+
+Related in this roundup: [CVE-2026-81963](#cve-2026-81963), [CVE-2026-85880](#cve-2026-85880).
+
+## CVE-2026-69525
+
+CVE-2026-69525 is a critical use-after-free vulnerability in Microsoft Windows Remote Desktop Services that can be exploited by an unauthenticated attacker to achieve remote code execution over a network with a CVSS v3.1 score of 9.8.
+
+Affected products:
+- Remote Desktop Services
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69525
