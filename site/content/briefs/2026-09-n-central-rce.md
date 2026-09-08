@@ -3,13 +3,12 @@ title: Critical RCE Vulnerability in N-able N-central
 slug: 2026-09-n-central-rce
 description: A critical unauthenticated remote code execution vulnerability (CVE-2026-86218) in N-able N-central is under active exploitation, allowing attackers to gain full system control.
 date: "2026-09-07T12:55:57Z"
-lastmod: "2026-09-07T13:33:41Z"
+lastmod: "2026-09-08T10:45:59Z"
 type: threat
 types:
   - threat
 severities:
   - critical
-exploited: true
 cpes:
   - cpe:2.3:a:n_able:n_central:*:*:*:*:*:*:*:*
 tags:
@@ -22,6 +21,7 @@ vendors:
 products:
   - N-central (< 2026.3.1.14)
   - N-Central (< 2026.3.1.14)
+  - N-central (< 2026.3.1.14)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,12 +29,10 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: This vulnerability makes it possible for unauthorized individuals to execute harmful code remotely without login credentials.
     confidence_band: high
-cves:
-  - id: CVE-2026-86218
-    epss: 0.00411
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheid-in-n-central-van-n-able-update-nu
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3205
+  - https://www.securityweek.com/n-able-patches-critical-zero-day-in-n-central/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -59,6 +57,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3205
+  - at: "2026-09-08T10:45:59Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/n-able-patches-critical-zero-day-in-n-central/
 ---
 
 N-able has identified a critical vulnerability, CVE-2026-86218, affecting its N-central remote monitoring and management platform. This vulnerability carries a CVSS score of 10 and permits unauthenticated, remote attackers to execute arbitrary code on the underlying system. The flaw is currently being exploited in the wild, posing an immediate risk to IT service providers and organizations managing IT systems via this software. N-central is frequently used by IT service providers, making it a high-value target for attackers aiming to pivot into the downstream environments of managed clients. All on-premises instances prior to version 2026.3.1.14 are susceptible to compromise, which results in full system take-over. Hosted N-able N-central (NCOD) instances have been patched by the vendor.
