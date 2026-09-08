@@ -3,7 +3,7 @@ title: Remote Code Execution in GitPython via Git Config Injection
 slug: 2026-08-gitpython-rce
 description: GitPython versions before 3.1.59 contain a vulnerability where improper sanitization of multi-line configuration values allows attackers to inject arbitrary git directives, leading to remote code execution.
 date: "2026-08-25T04:05:22Z"
-lastmod: "2026-09-08T20:04:36Z"
+lastmod: "2026-09-08T20:05:04Z"
 type: advisory
 types:
   - advisory
@@ -11,16 +11,32 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:gitpython_project:gitpython:*:*:*:*:*:python:*:*
+tags:
+  - vulnerability
+  - path-traversal
+  - gitpython
+  - supply-chain
 vendors:
   - GitPython
 products:
   - GitPython (< 3.1.59)
+  - GitPython (<= 3.1.58)
+affected_os:
+  - Linux
+  - Windows
+  - MacOS
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
     evidence: Attackers can craft config files with embedded newlines that become live git directives after any unrelated GitPython config write, enabling arbitrary code execution via hook invocation.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The PoC confirms the option reaches the real git clone subprocess unguarded.
     confidence_band: high
 cves:
   - id: CVE-2026-78676
@@ -31,6 +47,7 @@ references:
   - https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-284h-m62q-gf8w
   - https://www.vulncheck.com/advisories/gitpython-before-remote-code-execution-via-config-injection
   - https://github.com/advisories/GHSA-284h-m62q-gf8w
+  - https://github.com/advisories/GHSA-8mcc-hrx5-hvxc
 action_plan:
   priority: immediate_escalation
   owners:
@@ -55,6 +72,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-284h-m62q-gf8w
+  - at: "2026-09-08T20:05:04Z"
+    level: L2
+    summary: added coverage for GitPython (<= 3.1.58)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8mcc-hrx5-hvxc
 ---
 
 GitPython is a Python library used to interact with Git repositories. A critical vulnerability (CVE-2026-78676) exists in versions prior to 3.1.59 due to improper re-serialization of multi-line configuration values during git-config write operations. An attacker can supply a specially crafted configuration value containing embedded newlines. When GitPython performs a write operation on the configuration file, these newlines cause the injected content to be interpreted as new, live git configuration directives. A primary vector involves the injection of a malicious `core.hooksPath`, which directs Git to execute arbitrary code from a location controlled by the attacker whenever a Git hook is triggered. This vulnerability enables unauthenticated remote code execution in environments where GitPython processes untrusted configuration data.
