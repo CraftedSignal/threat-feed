@@ -3,6 +3,7 @@ title: Arbitrary Code Execution in cPanel/WHM
 slug: 2026-08-cpanel-whm-rce
 description: A vulnerability in cPanel/WHM allows a remote, authenticated attacker to execute arbitrary code with administrative privileges on the host system.
 date: "2026-08-28T09:10:43Z"
+lastmod: "2026-09-09T10:54:45Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - cPanel
 products:
   - cPanel/WHM
+  - cPanel & WHM
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -19,8 +21,11 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: A vulnerability in cPanel/WHM allows a remote, authenticated attacker to execute arbitrary code with administrator privileges.
     confidence_band: high
+cves:
+  - id: CVE-2026-67401
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3061
+  - https://sploitus.com/exploit?id=C2DC4E64-B910-5B86-8BFD-1D410F8EE5B7&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: Account takeover leading to exploitation
       evidence: Vulnerability requires authentication
+updates:
+  - at: "2026-09-09T10:54:45Z"
+    level: L2
+    summary: added CVE-2026-67401
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=C2DC4E64-B910-5B86-8BFD-1D410F8EE5B7&utm_source=rss&utm_medium=rss
 ---
 
 A security vulnerability identified by the BSI (WID-SEC-2026-3061) exists in cPanel/WHM that permits an authenticated attacker to achieve remote code execution (RCE) with administrative privileges. Because cPanel/WHM runs with elevated permissions to manage system services, users, and web hosting configurations, this vulnerability represents a significant risk to the integrity and confidentiality of the entire host environment. Defenders should prioritize auditing authentication logs and web server access logs for anomalous behavior originating from administrative accounts. The specific mechanism for exploitation requires the attacker to have valid administrative access to the cPanel/WHM interface, making account compromise or the use of compromised administrative credentials the primary initial attack vector. Organizations using cPanel/WHM should monitor for unusual child processes spawned by the cPanel web server processes and ensure that administrative access is restricted to trusted networks.
