@@ -3,6 +3,7 @@ title: Critical Security Updates for Ivanti Endpoint Manager Mobile, Neurons for
 slug: 2026-09-08-ivanti-security-advisory
 description: Ivanti released security patches for multiple products, including Endpoint Manager Mobile, Neurons for ITSM, and Sentry, addressing vulnerabilities identified as CVE-2026-18851 and CVE-2026-83527.
 date: "2026-09-08T22:23:53Z"
+lastmod: "2026-09-09T12:49:22Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ products:
   - Neurons for ITSM (Cloud/SaaS < mo2026.2)
   - Neurons for ITSM On-Prem (multiple versions < Sept 2026 patch)
   - Sentry (< R10.8.2, < R10.7.3, < R10.6.4)
+  - Endpoint Manager Mobile
 cves:
   - id: CVE-2026-18851
     cvss: 8.8
@@ -29,6 +31,7 @@ references:
   - https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Neurons-for-ITSM-Multiple-CVEs?language=en_US
   - https://hub.ivanti.com/s/article/Security-Advisory---Ivanti-Endpoint-Manager-Mobile-CVE-2026-18851?language=en_US
   - https://hub.ivanti.com/s/article/Security-Advisory-Ivanti-Sentry-CVE-2026-83527?language=en_US
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3270
 action_plan:
   priority: immediate_escalation
   owners:
@@ -45,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-18851, CVE-2026-83527
       evidence: Vendor security advisory
+updates:
+  - at: "2026-09-09T12:49:22Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3270
 ---
 
 On September 8, 2026, Ivanti issued a comprehensive security advisory addressing multiple vulnerabilities across its product portfolio. The affected product families include Endpoint Manager Mobile, Neurons for ITSM (both Cloud/SaaS and On-Premises), and Sentry. Specific vulnerabilities disclosed include CVE-2026-18851, which impacts Endpoint Manager Mobile, and CVE-2026-83527, affecting Ivanti Sentry. These flaws pose significant security risks if left unpatched. Organizations are urged to review the vendor-provided advisories for each specific component and apply the necessary patches immediately to secure their infrastructure. The scope of affected versions is broad, necessitating a review of all current deployments to ensure they meet the minimum version requirements or include the September 2026 security patches.
