@@ -3,12 +3,12 @@ title: CVE-2026-0308 Stored XSS in PAN-OS Web Interface
 slug: 2026-09-panos-xss
 description: A stored cross-site scripting (XSS) vulnerability in the PAN-OS web interface allows an authenticated administrator to execute arbitrary JavaScript within the context of the management interface.
 date: "2026-09-09T18:58:08Z"
-lastmod: "2026-09-09T18:58:38Z"
-type: advisory
+lastmod: "2026-09-09T18:58:48Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
-  - medium
+  - high
 cpes:
   - cpe:2.3:o:palo_alto_networks:pan-os:12.1.2:*:*:*:*:*:*:*
   - cpe:2.3:o:palo_alto_networks:pan-os:11.2.13:*:*:*:*:*:*
@@ -20,6 +20,8 @@ tags:
   - cve
   - rce
   - network-security
+  - vulnerability
+  - panos
 vendors:
   - Palo Alto Networks
 products:
@@ -31,6 +33,11 @@ products:
   - PAN-OS (11.2 < 11.2.13-h2)
   - PAN-OS (11.1 < 11.1.16-h2)
   - PAN-OS (10.2 < 10.2.18-h10)
+  - Panorama
+  - VM-Series
+  - PA-Series
+  - Prisma Access
+  - Cloud NGFW
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -44,9 +51,22 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: A command injection vulnerability in Palo Alto Networks PAN-OS software enables an authenticated administrator to bypass system restrictions and run arbitrary commands as a root user.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: A buffer overflow vulnerability in the XML processing functionality of Palo Alto Networks PAN-OS software enables an unauthenticated attacker with network access to the management web or dataplane interface to cause a denial of service (DoS) condition on VM-Series firewalls or execute arbitrary code with root privileges on the PA-Series firewalls.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: execute arbitrary code with root privileges on the PA-Series firewalls.
+    confidence_band: high
 references:
   - https://security.paloaltonetworks.com/CVE-2026-0308
   - https://security.paloaltonetworks.com/CVE-2026-0309
+  - https://security.paloaltonetworks.com/CVE-2026-0310
 action_plan:
   priority: elevated
   owners:
@@ -71,6 +91,13 @@ updates:
       - palo-alto-networks
     source_urls:
       - https://security.paloaltonetworks.com/CVE-2026-0309
+  - at: "2026-09-09T18:58:48Z"
+    level: L2
+    summary: added coverage for PAN-OS (12.2 < 12.2.3) +9 products
+    sources:
+      - palo-alto-networks
+    source_urls:
+      - https://security.paloaltonetworks.com/CVE-2026-0310
 ---
 
 CVE-2026-0308 is a stored cross-site scripting (XSS) vulnerability affecting Palo Alto Networks PAN-OS software. The vulnerability resides in the web-based management interface, enabling a malicious authenticated administrator to inject and store arbitrary JavaScript payloads. When other users access the affected web interface, the stored payload executes in their browser context. The vulnerability is applicable to PA-Series and VM-Series firewalls, as well as Panorama management appliances. Although the vulnerability requires high privileges (authenticated administrator access), it is accessible over the network. Palo Alto Networks has confirmed that no malicious exploitation has been observed in the wild. Customers are advised to upgrade to the specified patched versions to remediate the vulnerability, as no workarounds are currently available.
