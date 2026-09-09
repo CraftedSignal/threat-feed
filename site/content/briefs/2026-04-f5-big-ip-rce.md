@@ -3,12 +3,15 @@ title: F5 BIG-IP APM CVE-2025-53521 Reclassified as Actively Exploited Unauthent
 slug: 2026-04-f5-big-ip-rce
 description: F5 has reclassified CVE-2025-53521, a vulnerability in BIG-IP APM, as a critical unauthenticated remote code execution vulnerability and reports it is being actively exploited in the wild.
 date: "2026-04-01T12:00:00Z"
-severities:
-  - critical
-exploited: true
+lastmod: "2026-09-09T09:51:20Z"
 type: threat
 types:
   - threat
+severities:
+  - critical
+exploited: true
+cpes:
+  - cpe:2.3:a:f5:big-ip_access_policy_manager:*:*:*:*:*:*:*:*
 tags:
   - f5
   - big-ip
@@ -16,6 +19,8 @@ tags:
   - cve-2025-53521
   - rce
   - vulnerability
+vendors:
+  - F5
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -24,9 +29,10 @@ mitre_ttps:
 cves:
   - id: CVE-2025-53521
     cvss: 9.8
-    epss: 0.07452
+    epss: 0.02213
 references:
   - https://arcticwolf.com/resources/blog/cve-2025-53521/
+  - https://thehackernews.com/2026/09/f5-big-ip-apm-malware-injects-php-web.html
 rules:
   - title: Detect CVE-2025-53521 Exploitation Attempt via HTTP Request
     description: Detects potential exploitation attempts of CVE-2025-53521 by monitoring for suspicious HTTP requests to BIG-IP APM.
@@ -51,6 +57,14 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-09-09T09:51:20Z"
+    level: L1
+    summary: new vendor
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/09/f5-big-ip-apm-malware-injects-php-web.html
 ---
 
 On March 28, 2026, F5 issued a revised security advisory regarding CVE-2025-53521, a vulnerability affecting BIG-IP APM. Initially disclosed in October 2025 and categorized as a medium-severity denial-of-service (DoS) issue, it has been reclassified as a critical remote code execution (RCE) vulnerability. F5 has confirmed that CVE-2025-53521 is now being actively exploited by unauthenticated attackers. The updated classification significantly elevates the risk associated with this vulnerability, necessitating immediate action from organizations utilizing affected BIG-IP APM instances to prevent potential system compromise and unauthorized access.
