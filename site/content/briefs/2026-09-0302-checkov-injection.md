@@ -3,6 +3,7 @@ title: OS Command Injection in Checkov by Prisma Cloud
 slug: 2026-09-0302-checkov-injection
 description: CVE-2026-0302 allows local users with low privileges to achieve OS command injection by influencing input consumed during Checkov scanning processes.
 date: "2026-09-09T18:57:51Z"
+lastmod: "2026-09-09T18:58:23Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,14 @@ tags:
   - vulnerability
   - command-injection
   - prisma-cloud
+  - rce
+  - checkov
+  - supply-chain
 vendors:
   - Palo Alto Networks
 products:
   - Checkov by Prisma Cloud (3.2.0 - 3.2.501)
+  - Checkov by Prisma Cloud (3.2.0 <= version < 3.2.532)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -27,6 +32,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://security.paloaltonetworks.com/CVE-2026-0302
+  - https://security.paloaltonetworks.com/CVE-2026-0303
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-0302
       evidence: Vendor advisory guidance.
+updates:
+  - at: "2026-09-09T18:58:23Z"
+    level: L1
+    summary: added coverage for Checkov by Prisma Cloud (3.2.0 <= version < 3.2.532)
+    sources:
+      - palo-alto-networks
+    source_urls:
+      - https://security.paloaltonetworks.com/CVE-2026-0303
 ---
 
 Palo Alto Networks has disclosed an OS command injection vulnerability (CVE-2026-0302) affecting Checkov by Prisma Cloud versions 3.2.0 through 3.2.501. The vulnerability is classified under CWE-78: Improper Neutralization of Special Elements used in an OS Command. It enables a local, low-privileged user to execute arbitrary commands within the context of the running Checkov process. 
