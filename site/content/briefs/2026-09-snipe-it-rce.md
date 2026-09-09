@@ -3,7 +3,7 @@ title: Arbitrary Command Execution in Snipe-IT Backup Restoration
 slug: 2026-09-snipe-it-rce
 description: Snipe-IT versions prior to 8.7.0 are vulnerable to OS command injection when a superadministrator restores a crafted backup archive, allowing arbitrary command execution via the MySQL client.
 date: "2026-09-08T17:45:43Z"
-lastmod: "2026-09-09T14:59:02Z"
+lastmod: "2026-09-09T14:59:10Z"
 type: advisory
 types:
   - advisory
@@ -56,6 +56,24 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Snipe-IT before 8.7.0 fails to properly sanitize markdown image syntax in note fields, allowing authenticated users to read arbitrary server files and issue server-side HTTP requests.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Attackers can trick administrators into approving consent screens
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1136.002
+    technique_name: ""
+    evidence: exchange authorization codes for bearer tokens inheriting full admin API permissions lasting up to 40 years
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1550.001
+    technique_name: 'Use Alternate Authentication Material: Application Access Token'
+    evidence: exchange authorization codes for bearer tokens inheriting full admin API permissions
+    confidence_band: high
 cves:
   - id: CVE-2026-86733
     cvss: 7.2
@@ -64,6 +82,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86738
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86741
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86751
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86754
 action_plan:
   priority: elevated
   owners:
@@ -101,6 +120,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-86751
+  - at: "2026-09-09T14:59:10Z"
+    level: L2
+    summary: added coverage for Snipe-IT (< 8.7.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86754
 ---
 
 Snipe-IT versions before 8.7.0 contain a critical vulnerability (CVE-2026-86733) that allows an authenticated superadministrator to achieve arbitrary operating-system command execution. The vulnerability exists within the backup restoration process, where the application streams SQL content from an uploaded backup archive directly into the `mysql` or `mariadb` command-line client. Because the client is invoked without the `--binary-mode` flag, it interprets sequences starting with backslashes as local shell commands. An attacker with superadministrator privileges can supply a malicious ZIP archive containing a crafted SQL file to the `/admin/backups/upload` endpoint and trigger a restore via `POST /admin/backups/restore/{filename}`. If the `clean` sanitizer parameter is omitted, which is the default configuration unless `DB_SANITIZE_BY_DEFAULT` is enabled, the embedded shell directives are executed by the underlying operating system user running the web application. This leads to full system compromise, including the exfiltration of application secrets like `APP_KEY` and database credentials.
