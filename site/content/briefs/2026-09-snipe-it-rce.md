@@ -3,7 +3,7 @@ title: Arbitrary Command Execution in Snipe-IT Backup Restoration
 slug: 2026-09-snipe-it-rce
 description: Snipe-IT versions prior to 8.7.0 are vulnerable to OS command injection when a superadministrator restores a crafted backup archive, allowing arbitrary command execution via the MySQL client.
 date: "2026-09-08T17:45:43Z"
-lastmod: "2026-09-09T14:59:42Z"
+lastmod: "2026-09-09T16:58:13Z"
 type: advisory
 types:
   - advisory
@@ -27,10 +27,12 @@ tags:
   - saml
   - identity-management
   - patch-management
+  - privilege-escalation
 vendors:
   - Snipe-IT
 products:
   - Snipe-IT (< 8.7.0)
+  - Snipe-IT (<= 8.6.3)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -110,6 +112,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Snipe-IT versions before 8.7.0 fail to HTML-escape the employee_num field in the acceptance PDF generator, allowing attackers with users.edit permission to inject img tags.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: a non-superuser holding users.create (or users.edit on a target user) can submit company identifiers for companies outside their scope causing the account row to be committed to the database before authorization is checked.
+    confidence_band: high
 cves:
   - id: CVE-2026-86733
     cvss: 7.2
@@ -123,6 +131,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86762
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86770
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86771
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86750
 rules:
   - title: Detect CVE-2026-86759 Exploitation - Unauthorized POST to /hardware/history
     description: Detects unauthorized attempts to modify hardware history by monitoring POST requests to the /hardware/history endpoint.
@@ -151,13 +160,6 @@ action_plan:
       addresses: CVE-2026-86733
       evidence: Configuration mitigates lack of sanitizer parameter
 updates:
-  - at: "2026-09-09T14:59:10Z"
-    level: L2
-    summary: added coverage for Snipe-IT (< 8.7.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-86754
   - at: "2026-09-09T14:59:19Z"
     level: L2
     summary: 'added detection rule: Detect CVE-2026-86759 Exploitation - Unauthorized POST to /hardware/history'
@@ -186,6 +188,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-86771
+  - at: "2026-09-09T16:58:13Z"
+    level: L2
+    summary: added coverage for Snipe-IT (<= 8.6.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86750
 ---
 
 Snipe-IT versions before 8.7.0 contain a critical vulnerability (CVE-2026-86733) that allows an authenticated superadministrator to achieve arbitrary operating-system command execution. The vulnerability exists within the backup restoration process, where the application streams SQL content from an uploaded backup archive directly into the `mysql` or `mariadb` command-line client. Because the client is invoked without the `--binary-mode` flag, it interprets sequences starting with backslashes as local shell commands. An attacker with superadministrator privileges can supply a malicious ZIP archive containing a crafted SQL file to the `/admin/backups/upload` endpoint and trigger a restore via `POST /admin/backups/restore/{filename}`. If the `clean` sanitizer parameter is omitted, which is the default configuration unless `DB_SANITIZE_BY_DEFAULT` is enabled, the embedded shell directives are executed by the underlying operating system user running the web application. This leads to full system compromise, including the exfiltration of application secrets like `APP_KEY` and database credentials.
