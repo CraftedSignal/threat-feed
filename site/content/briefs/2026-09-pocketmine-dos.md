@@ -3,7 +3,7 @@ title: Denial of Service Vulnerability in PocketMine-MP
 slug: 2026-09-pocketmine-dos
 description: PocketMine-MP versions prior to 4.7.2 are vulnerable to a denial-of-service attack due to improper exception handling when parsing skin geometry data.
 date: "2026-09-06T12:45:39Z"
-lastmod: "2026-09-09T14:57:57Z"
+lastmod: "2026-09-09T14:58:06Z"
 type: advisory
 types:
   - advisory
@@ -20,12 +20,19 @@ vendors:
 products:
   - PocketMine-MP (< 4.7.2)
   - PocketMine-MP (< 5.3.1, < 4.23.1)
+  - PocketMine-MP (< 5.11.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1498
     technique_name: Network Denial of Service
     evidence: Attackers can send login or skin packets with invalid geometry JSON to trigger an unhandled RuntimeException, causing server crash.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: PocketMine-MP before 5.11.1 contains a denial of service vulnerability in LoginPacket JSON processing that allows remote attackers to crash the server by sending malformed JSON data.
     confidence_band: high
 cves:
   - id: CVE-2022-51009
@@ -34,6 +41,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2022-51009
   - https://nvd.nist.gov/vuln/detail/CVE-2023-54355
   - https://nvd.nist.gov/vuln/detail/CVE-2023-54390
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-58381
 action_plan:
   priority: elevated
   owners:
@@ -65,6 +73,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2023-54390
+  - at: "2026-09-09T14:58:06Z"
+    level: L1
+    summary: added coverage for PocketMine-MP (< 5.11.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2024-58381
 ---
 
 PocketMine-MP versions prior to 4.7.2 contain a vulnerability in the handling of skin geometry data parsed via the adhocore/json-comment library. The issue arises from the application's failure to properly handle exceptions triggered during the parsing of malformed or invalid JSON input within skin geometry packets. An unauthenticated attacker can exploit this by sending specially crafted login or skin packets containing invalid JSON structure. When the application attempts to parse this data, it triggers an unhandled RuntimeException, which leads to an immediate server crash, resulting in a denial-of-service (DoS) condition. This vulnerability (CVE-2022-51009) is significant because it allows remote, unauthenticated attackers to disrupt server availability by sending malicious packets. Defenders should prioritize patching to version 4.7.2 or later to mitigate this risk.
