@@ -3,12 +3,31 @@ title: Active Exploitation of Google Chromium V8 Type Confusion Vulnerability
 slug: 2026-09-chromium-v8-type-confusion
 description: A type confusion vulnerability in the Google Chromium V8 engine is being actively exploited in the wild, allowing remote attackers to achieve arbitrary code execution within the sandbox environment via crafted HTML pages.
 date: "2026-09-04T18:00:22Z"
+lastmod: "2026-09-09T12:57:03Z"
 type: threat
 types:
   - threat
 severities:
   - critical
 exploited: true
+cpes:
+  - cpe:2.3:a:google:chrome:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:google:v8:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:arm64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x64:*
+  - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - chromium
@@ -22,6 +41,16 @@ products:
   - Google Chrome (< 152.0.7977.82)
   - Microsoft Edge
   - Opera
+  - Chrome (< 152.0.7977.82)
+  - Edge
+  - Windows 10
+  - Windows 11
+  - Windows Server
+affected_os:
+  - Windows 10
+  - Windows 11
+  - Windows Server 2019
+  - Windows Server 2022
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,11 +61,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-85046
     cvss: 8.8
+    epss: 0.01162
+  - id: CVE-2026-85880
+    cvss: 7.8
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-85046
   - https://chromereleases.googleblog.com/2026/09/stable-channel-update-for-desktop_01882797386.html
   - https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85046
+  - https://www.cisa.gov/news-events/alerts/2026/09/04/cisa-adds-one-known-exploited-vulnerability-catalog
+  - https://www.proofpoint.com/us/blog/threat-insight/once-bluemoon-multiple-state-aligned-threat-actors-rapidly-adopt-novel-exploit
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +87,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-85046
       evidence: Chromium Stable Channel Update release note
+updates:
+  - at: "2026-09-09T12:57:03Z"
+    level: L2
+    summary: added CVE-2026-85880; OS windows 10; OS windows 11; OS windows server 2019; OS windows server 2022
+    sources:
+      - proofpoint
+    source_urls:
+      - https://www.proofpoint.com/us/blog/threat-insight/once-bluemoon-multiple-state-aligned-threat-actors-rapidly-adopt-novel-exploit
 ---
 
 CVE-2026-85046 is a type confusion vulnerability residing within the Google Chromium V8 engine. This flaw enables a remote attacker to gain control over the browser environment by tricking a user into navigating to a malicious or compromised webpage. Successful exploitation allows for arbitrary code execution within the browser's sandbox. Given the ubiquity of the Chromium engine, the impact extends across multiple major web browsers including Google Chrome, Microsoft Edge, and Opera. CISA has added this CVE to the Known Exploited Vulnerabilities (KEV) catalog due to evidence of in-the-wild exploitation. Defenders must prioritize patching according to BOD 26-04 requirements to mitigate the risk of remote code execution on endpoint devices.
