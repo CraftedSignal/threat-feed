@@ -3,6 +3,7 @@ title: Authentication Bypass in passport-saml-encrypted via Unsigned SAML Assert
 slug: 2026-09-passport-saml-bypass
 description: The passport-saml-encrypted library versions up to 0.1.13 contain a critical vulnerability where SAML signature verification is skipped if a specific configuration is omitted, allowing attackers to forge and inject arbitrary authentication assertions.
 date: "2026-09-10T19:07:39Z"
+lastmod: "2026-09-10T21:08:24Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - authentication-bypass
   - saml
   - supply-chain
+  - vulnerability
+  - cve-2026-89043
 products:
   - passport-saml-encrypted (<= 0.1.13)
 mitre_ttps:
@@ -23,11 +26,18 @@ mitre_ttps:
     technique_name: Use Alternate Authentication Material
     evidence: The library allows attackers to post forged SAML responses with arbitrary NameID and attributes to the assertion consumer service endpoint to receive authenticated profiles without valid signatures.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The passport-saml-encrypted package up to version 0.1.13 is vulnerable to XML signature wrapping (XSW) due to independent XPath lookups for signature verification and assertion extraction.
+    confidence_band: high
 cves:
   - id: CVE-2026-89042
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-89042
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-89043
 action_plan:
   priority: immediate_escalation
   owners:
@@ -44,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-89042
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-10T21:08:24Z"
+    level: L2
+    summary: added coverage for passport-saml-encrypted (<= 0.1.13)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-89043
 ---
 
 CVE-2026-89042 affects the passport-saml-encrypted library through version 0.1.13. The vulnerability stems from an insecure implementation of SAML signature verification logic, where the library makes the verification process conditional based on an optional 'cert' configuration parameter. When this parameter is absent or misconfigured, the library fails to validate the signature of the SAML response. This design flaw allows a remote, unauthenticated attacker to inject forged SAML responses directly into the application's Assertion Consumer Service (ACS) endpoint. By providing an unsigned assertion containing arbitrary 'NameID' fields and malicious user attributes, the attacker can successfully impersonate any user within the target system, bypassing primary authentication mechanisms. The severity is elevated due to the ease of exploitation and the direct impact on system-wide access control.
