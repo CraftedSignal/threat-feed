@@ -3,6 +3,7 @@ title: Stack-Based Buffer Overflow in IBM Db2 DRDA Client Implementation
 slug: 2026-09-ibm-db2-buffer-overflow
 description: IBM Db2 versions 11.5.0-11.5.9 and 12.1.0-12.1.5 are vulnerable to a stack-based buffer overflow via malicious DRDA server responses, potentially leading to arbitrary command execution on clients.
 date: "2026-09-10T23:13:57Z"
+lastmod: "2026-09-10T23:14:05Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,8 @@ tags:
   - vulnerability
   - cve
   - remote-code-execution
+  - denial-of-service
+  - database-security
 vendors:
   - IBM
 products:
@@ -26,11 +29,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: IBM Db2 ... could allow an attacker ... to execute arbitrary commands on Db2 clients due to a stack-based buffer overflow.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: IBM Db2 11.5.0 through 11.5.9, and 12.1.0 through 12.1.5 is vulnerable to a denial of service where a specific functionality on a Db2 server can be disabled by a privileged user under certain conditions.
+    confidence_band: high
 cves:
   - id: CVE-2026-86093
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86093
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-87958
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +57,14 @@ action_plan:
       owner: Network Security
       addresses: CVE-2026-86093
       evidence: Mitigation for rogue DRDA server impersonation
+updates:
+  - at: "2026-09-10T23:14:05Z"
+    level: L1
+    summary: added coverage for Db2 (11.5.0-11.5.9, 12.1.0-12.1.5)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-87958
 ---
 
 IBM Db2 versions 11.5.0 through 11.5.9 and 12.1.0 through 12.1.5 contain a critical stack-based buffer overflow vulnerability (CVE-2026-86093). The vulnerability resides in the Distributed Relational Database Architecture (DRDA) client-side implementation. When a Db2 client connects to a compromised or malicious DRDA server endpoint, the server can transmit specially crafted, oversized data packets. The Db2 client copies this user-controlled data into a fixed-size stack buffer without performing adequate bounds checking. This flaw allows an attacker who controls the endpoint to overwrite adjacent memory, which can be leveraged to achieve arbitrary command execution within the context of the client application process. Given that Db2 is often used in high-privilege enterprise environments, this vulnerability presents a significant risk to data integrity and internal network security.
