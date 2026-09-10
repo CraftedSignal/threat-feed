@@ -3,7 +3,7 @@ title: Remote Code Execution in IBM Langflow OSS via A2A Endpoint
 slug: 2026-08-langflow-rce
 description: IBM Langflow OSS versions 1.0.0 through 1.11.1 contain an unauthenticated remote code execution vulnerability in the A2A public endpoint.
 date: "2026-08-28T23:34:49Z"
-lastmod: "2026-09-10T23:11:03Z"
+lastmod: "2026-09-10T23:13:31Z"
 type: advisory
 types:
   - advisory
@@ -58,6 +58,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19306
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85025
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76059
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81941
 action_plan:
   priority: immediate_escalation
   owners:
@@ -96,6 +97,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76059
+  - at: "2026-09-10T23:13:31Z"
+    level: L2
+    summary: added coverage for Langflow OSS (1.0.0 through 1.11.5)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81941
 ---
 
 IBM Langflow OSS versions 1.0.0 through 1.11.1 are susceptible to a critical remote code execution (RCE) vulnerability identified as CVE-2026-19286. The issue arises from the improper enforcement of security restrictions on the A2A public endpoint. This flaw allows unauthenticated remote attackers to bypass authorization controls and execute arbitrary code on the underlying host. Given the nature of Langflow as a workflow automation and LLM orchestration tool, successful exploitation could grant an attacker full control over the application server, potentially allowing for data exfiltration, lateral movement, and the deployment of additional malicious payloads.
