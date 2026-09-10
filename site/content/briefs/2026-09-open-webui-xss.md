@@ -3,6 +3,7 @@ title: Open WebUI Same-Origin XSS via Terminal Port Preview
 slug: 2026-09-open-webui-xss
 description: An insecure sandbox configuration in the Open WebUI terminal port preview feature allows authenticated users to execute arbitrary JavaScript in the application's origin, leading to session token theft and account takeover.
 date: "2026-09-10T18:53:33Z"
+lastmod: "2026-09-10T18:53:42Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +16,14 @@ tags:
   - web-vulnerability
   - xss
   - session-theft
+  - web-application
+  - ssrf
+  - cve-2026-87996
 vendors:
   - Open WebUI
 products:
   - Open WebUI (0.8.11-0.11.0)
+  - Open WebUI (0.9.6 - 0.11.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,11 +37,19 @@ mitre_ttps:
     technique_name: Steal Web Session Cookie
     evidence: The previewed page runs in the application origin, so it can reach the parent window, read the session token out of localStorage and exfiltrate it.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1537
+    technique_name: Transfer Data to Cloud Account
+    evidence: On a cloud host with IMDSv1 reachable, that is enough to take instance IAM credentials.
+    confidence_band: high
 cves:
   - id: CVE-2026-87995
     cvss: 8.7
 references:
   - https://github.com/advisories/GHSA-jmc6-2wr8-h3wj
+  - https://github.com/advisories/GHSA-4v28-j6q3-5m4r
+  - https://github.com/open-webui/open-webui/commit/27402ff21
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-87995
       evidence: An operator who had already set a restrictive Content-Security-Policy through either was not exposed.
+updates:
+  - at: "2026-09-10T18:53:42Z"
+    level: L1
+    summary: added coverage for Open WebUI (0.9.6 - 0.11.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-4v28-j6q3-5m4r
 ---
 
 Open WebUI versions 0.8.11 through 0.11.0 contain a high-severity Cross-Site Scripting (XSS) vulnerability (CVE-2026-87995) within the terminal port-preview component. The application renders content from a terminal connection inside an iframe; however, the sandbox attribute for this iframe incorrectly included the `allow-same-origin` directive. Because the terminal proxy is served from the same origin as the primary application, this configuration effectively disables iframe isolation. 
