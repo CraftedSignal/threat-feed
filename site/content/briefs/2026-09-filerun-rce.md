@@ -3,6 +3,7 @@ title: OS Command Injection in FileRun
 slug: 2026-09-filerun-rce
 description: FileRun versions prior to 2026.3.0 contain an OS command injection vulnerability via an improper redefinition of escapeshellcmd() that allows unauthenticated or authenticated users to execute arbitrary commands.
 date: "2026-09-10T19:07:46Z"
+lastmod: "2026-09-10T19:07:54Z"
 type: advisory
 types:
   - advisory
@@ -25,11 +26,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: FileRun before 2026.3.0 contains an OS command injection vulnerability caused by a no-op redefinition of escapeshellcmd() in CLI.php that strips shell-metacharacter escaping.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: attackers can manipulate the df_users_permissions table to escalate a delegated administrator account to superuser privileges
+    confidence_band: high
 cves:
   - id: CVE-2026-73694
     cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73694
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73698
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-73694
       evidence: NVD vulnerability notice.
+updates:
+  - at: "2026-09-10T19:07:54Z"
+    level: L2
+    summary: added coverage for FileRun (< 2026.3.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73698
 ---
 
 FileRun versions prior to 2026.3.0 are susceptible to OS command injection due to the insecure redefinition of the PHP function 'escapeshellcmd()' within the 'CLI.php' file. This flaw effectively disables necessary character escaping for shell metacharacters, permitting unsanitized user input to reach an 'exec()' sink. The vulnerability presents two primary attack vectors: an interactive path requiring superuser privileges via 'image_preview.php' using the 'args' parameter, and a persistent vector where malicious payloads are injected into 'thumbnails_ffmpeg_args' or 'thumbnails_ffmpeg_ss'. In the latter scenario, the attacker-controlled code is executed whenever a user triggers the video thumbnail generation process, potentially leading to unauthorized system access or remote code execution.
