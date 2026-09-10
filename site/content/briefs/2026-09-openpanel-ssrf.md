@@ -3,7 +3,7 @@ title: Unauthenticated SSRF in Openpanel Site Checker
 slug: 2026-09-openpanel-ssrf
 description: Openpanel versions before 2.3.0 are vulnerable to an unauthenticated server-side request forgery (SSRF) flaw in the /tools/site-checker endpoint that allows internal network probing and cloud metadata access.
 date: "2026-09-04T13:26:07Z"
-lastmod: "2026-09-10T15:15:56Z"
+lastmod: "2026-09-10T15:16:18Z"
 type: advisory
 types:
   - advisory
@@ -18,11 +18,15 @@ tags:
   - remote-code-execution
   - injection
   - openpanel
+  - privilege-escalation
+  - web-application
+  - cve-2026-88891
 vendors:
   - Openpanel
 products:
   - Openpanel (< 2.3.0)
   - OpenPanel (<= commit cd24bb8)
+  - OpenPanel
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -54,6 +58,12 @@ mitre_ttps:
     technique_name: Exfiltration Over Alternative Protocol
     evidence: An authenticated attacker... can inject arbitrary ClickHouse SQL to bypass project isolation and read other organizations' analytics data and profile PII via blind boolean oracle techniques.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: OpenPanel fails to enforce read-only project access level on 26 of 29 mutating procedures, allowing read-level members to modify, delete, and publish project data.
+    confidence_band: high
 cves:
   - id: CVE-2026-85609
     cvss: 7.5
@@ -62,6 +72,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85610
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85613
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88890
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88891
 rules:
   - title: Detect CVE-2026-85609 Exploitation Attempt - SSRF via Site Checker
     description: Detects exploitation attempts against the Openpanel /tools/site-checker endpoint by identifying suspicious internal IP addresses or metadata service addresses in the URL query parameter.
@@ -113,6 +124,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-88890
+  - at: "2026-09-10T15:16:18Z"
+    level: L2
+    summary: added coverage for OpenPanel
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-88891
 ---
 
 Openpanel versions prior to 2.3.0 contain a critical server-side request forgery (SSRF) vulnerability identified as CVE-2026-85609. The flaw exists in the GET /tools/site-checker endpoint, located in apps/api/src/controllers/tools.controller.ts, which fails to validate user-supplied URL inputs. An unauthenticated attacker can exploit this endpoint by providing a malicious URL parameter to the fetchWithRedirects function. 
