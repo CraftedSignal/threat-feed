@@ -3,7 +3,7 @@ title: Cross-Site Scripting Vulnerability in AVideo YPTSocket Plugin
 slug: 2026-09-avideo-xss
 description: An unauthenticated XSS vulnerability in the AVideo YPTSocket plugin allows attackers to execute arbitrary JavaScript in victim browsers via crafted websocket callback messages.
 date: "2026-09-05T13:32:19Z"
-lastmod: "2026-09-10T15:07:54Z"
+lastmod: "2026-09-10T15:10:46Z"
 type: advisory
 types:
   - advisory
@@ -40,12 +40,19 @@ mitre_ttps:
     technique_name: JavaScript
     evidence: allowing execution of arbitrary JavaScript in an administrator's browser session
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: Authenticated users with canStream permissions can bypass ownership validation to generate tokens for arbitrary restreams.
+    confidence_band: high
 cves:
   - id: CVE-2026-86188
     cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86188
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88869
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88865
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +77,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-88869
+  - at: "2026-09-10T15:10:46Z"
+    level: L2
+    summary: added coverage for AVideo (<= c3edcc274c389816d434acadac07ee78eaf330c1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-88865
 ---
 
 AVideo, an open-source video platform, contains a critical cross-site scripting (XSS) vulnerability (CVE-2026-86188) within its YPTSocket plugin. The vulnerability stems from insecure handling of websocket callback messages. An unauthenticated attacker can send a crafted socket message to the platform, specifying a callback name that triggers existing global functions, such as 'avideoConfirmHTML'. These functions improperly process untrusted data by assigning it directly to the innerHTML property of an element within the Document Object Model (DOM).
