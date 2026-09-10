@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in IBM DataStage
 slug: 2026-09-ibm-datastage-path-traversal
 description: IBM DataStage on Cloud Pak for Data 5.4.0.0 is vulnerable to path traversal during archive extraction, allowing an authenticated remote attacker to create arbitrary files on the host system.
 date: "2026-09-10T23:09:54Z"
+lastmod: "2026-09-10T23:13:02Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - vulnerability
   - path-traversal
   - cloud-security
+  - idor
 vendors:
   - IBM
 products:
@@ -26,11 +28,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The ability to create arbitrary files during extraction allows for the placement of malicious scripts to achieve persistence.
     confidence_band: med
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: DataStage job logs routinely carry connection strings, {dsnextenc} ciphertexts (decryptable via d2-f023), and customer-data row samples.
+    confidence_band: high
 cves:
   - id: CVE-2026-80424
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-80424
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81210
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-80424
       evidence: NVD advisory indicates vulnerability in version 5.4.0.0
+updates:
+  - at: "2026-09-10T23:13:02Z"
+    level: L2
+    summary: added coverage for DataStage (5.4.0.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81210
 ---
 
 IBM DataStage, a component of Cloud Pak for Data version 5.4.0.0, contains a critical path traversal vulnerability (CVE-2026-80424). This vulnerability arises during the processing and extraction of archive files. A remote, authenticated attacker can exploit this flaw by crafting malicious archive content that includes path traversal sequences, such as dot-dot-slash (../). If successful, the attacker can force the application to write files to arbitrary locations outside of the intended directory. This allows for the overwrite of critical system configuration files or the placement of malicious scripts, potentially leading to unauthorized system modifications, privilege escalation, or remote code execution within the environment.
