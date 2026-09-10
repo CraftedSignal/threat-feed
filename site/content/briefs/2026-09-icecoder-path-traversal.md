@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in ICEcoder (CVE-2026-64836)
 slug: 2026-09-icecoder-path-traversal
 description: ICEcoder versions 8.1 and earlier are vulnerable to path traversal via a logic error in the file-control endpoint, enabling authenticated attackers to perform arbitrary file reads, writes, and deletions.
 date: "2026-09-10T15:09:14Z"
+lastmod: "2026-09-10T15:09:34Z"
 type: advisory
 types:
   - advisory
@@ -27,11 +28,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Successful exploitation allows for the reading, writing, or deletion of sensitive files, potentially leading to remote code execution.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: Attackers can use path traversal sequences in oldFileName to move files writable by the PHP process into the web-accessible project directory, disclosing file contents.
+    confidence_band: high
 cves:
   - id: CVE-2026-64836
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-64836
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-64838
 rules:
   - title: Detects CVE-2026-64836 Exploitation - Path Traversal in ICEcoder
     description: Detects attempted path traversal via the file-control endpoint in ICEcoder by monitoring for traversal sequences in the file parameter.
@@ -69,6 +77,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-64836
       evidence: Vulnerability reported in versions through 8.1
+updates:
+  - at: "2026-09-10T15:09:34Z"
+    level: L2
+    summary: added coverage for ICEcoder (<= 8.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-64838
 ---
 
 CVE-2026-64836 is a path traversal vulnerability affecting ICEcoder up to and including version 8.1. The flaw exists within the file-control endpoint, specifically due to a logic error in the File::check() validation function. This function attempts to verify that requested file paths remain within the defined document root by comparing realpath() results to boolean true, a comparison that consistently fails. As a result, the confinement check is bypassed. An authenticated attacker can exploit this by submitting traversal sequences (e.g., ../) or absolute paths in the file parameter. Successful exploitation allows for the reading, writing, or deletion of sensitive files on the underlying filesystem, potentially leading to remote code execution or complete system compromise. Organizations running these versions should restrict access to the file-control endpoint or upgrade to a remediated version once available.
