@@ -3,6 +3,7 @@ title: Improper Link Header Validation in Renovate
 slug: 2026-09-renovate-link-header-vuln
 description: Renovate versions prior to 44.11.3 fail to validate Link header destinations during GitLab server pagination, enabling attackers to exfiltrate credentials via malicious redirects.
 date: "2026-09-10T15:12:41Z"
+lastmod: "2026-09-10T15:15:28Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +20,20 @@ vendors:
   - Renovate
 products:
   - Renovate (< 44.11.3)
+  - Renovate (< 44.14.7)
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Attackers can inject shell metacharacters through malicious dependency names to execute arbitrary commands as the Renovate user during Go module major version updates.
+    confidence_band: high
 cves:
   - id: CVE-2026-88880
     cvss: 8.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88880
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88885
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-88880
       evidence: Source document specifies remediation via upgrade to 44.11.3
+updates:
+  - at: "2026-09-10T15:15:28Z"
+    level: L2
+    summary: added coverage for Renovate (< 44.14.7)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-88885
 ---
 
 Renovate versions prior to 44.11.3 contain a vulnerability (CVE-2026-88880) related to the improper handling of 'Link' headers during GitLab server pagination. When Renovate follows pagination links provided by a GitLab server, it fails to sufficiently validate the destination URL. An attacker who has compromised or controls a GitLab instance can supply a malicious 'Link' header that redirects the Renovate service to attacker-controlled infrastructure. Because the requests initiated by Renovate may contain sensitive authentication credentials intended for the GitLab API, this redirection can result in the exfiltration of those credentials. This vulnerability poses a significant risk to CI/CD pipelines where Renovate is used to automate dependency updates, as successful exploitation allows for credential theft and potential lateral movement into the organization's software supply chain.
