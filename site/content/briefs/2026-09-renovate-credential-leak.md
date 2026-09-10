@@ -3,7 +3,7 @@ title: Credential Disclosure in Renovate via Malicious Pagination Links
 slug: 2026-09-renovate-credential-leak
 description: Renovate improperly validates HTTP 'Link' headers during GitHub API interactions, allowing a compromised GitHub server to exfiltrate configured credentials by redirecting pagination requests to an attacker-controlled host.
 date: "2026-09-10T15:14:41Z"
-lastmod: "2026-09-10T15:15:16Z"
+lastmod: "2026-09-10T15:15:39Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +27,7 @@ products:
   - Mend Renovate Enterprise Edition (< 10.4.0)
   - Renovate (< 44.11.2)
   - mend-renovate-enterprise-edition (< 10.4.0)
+  - mend-renovate-enterprise-edition Helm chart (< 10.4.0)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -40,6 +41,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88881
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88882
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88887
 action_plan:
   priority: elevated
   owners:
@@ -64,6 +66,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-88882
+  - at: "2026-09-10T15:15:39Z"
+    level: L2
+    summary: added coverage for Renovate (< 44.11.2) +2 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-88887
 ---
 
 Renovate, a widely used dependency update tool, contains a vulnerability (CVE-2026-88881) where it fails to validate the hostname of pagination links provided in HTTP 'Link' headers when interacting with GitHub-compatible servers. Under normal operation, Renovate follows 'next' page links provided by the server to traverse API results. However, if a GitHub-compatible server (repository host or datasource) is compromised or controlled by an attacker, it can supply a 'next' link pointing to an arbitrary, attacker-controlled domain. Renovate will subsequently send its configured credentials for the original host to this malicious destination. This impacts organizations using Renovate versions prior to 44.11.3, as well as Mend Renovate CE/EE and Enterprise Edition versions 15.4.0 and 10.4.0 respectively. There is no configuration-based workaround; the existing RENOVATE_X_REBASE_PAGINATION_LINKS option serves to disable the new host check and should not be used as a mitigation.
