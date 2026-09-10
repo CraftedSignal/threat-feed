@@ -3,6 +3,7 @@ title: GlobalProtect App Local Privilege Escalation Vulnerabilities
 slug: 2026-09-globalprotect-lpe
 description: Multiple local privilege escalation vulnerabilities in the Palo Alto Networks GlobalProtect application allow a local user to gain administrative privileges (SYSTEM/root) due to an untrusted search path issue.
 date: "2026-09-09T18:57:59Z"
+lastmod: "2026-09-10T12:54:58Z"
 type: threat
 types:
   - threat
@@ -22,6 +23,7 @@ products:
   - GlobalProtect App (< 6.3.3-h15, < 6.2.8-h14, < 6.0.15)
   - PAN-OS (12.2.0-12.2.2, 12.1.2-12.1.9, 11.2.0-11.2.13, 11.1.0-11.1.16, 10.2.0-10.2.18)
   - Prisma Access (12.1.2-12.1.*, 11.2.0-11.2.*, 10.2.0-10.2.*)
+  - GlobalProtect App
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -31,6 +33,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://security.paloaltonetworks.com/CVE-2026-0307
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3283
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +50,14 @@ action_plan:
       owner: Network Engineering
       addresses: CVE-2026-0307
       evidence: Source Solution section
+updates:
+  - at: "2026-09-10T12:54:58Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3283
 ---
 
 Palo Alto Networks has disclosed multiple local privilege escalation vulnerabilities (CVE-2026-0307) affecting the GlobalProtect app across Windows, macOS, and Linux platforms. The issue stems from CWE-426, an untrusted search path vulnerability, which allows a local non-administrative user to manipulate the execution flow of the application to run arbitrary commands with elevated privileges (NT AUTHORITY\SYSTEM on Windows and root on macOS/Linux). 
