@@ -3,6 +3,7 @@ title: Unauthenticated Category Addition in Rizwan17 inventory-management-system
 slug: 2026-09-inventory-system-auth-bypass
 description: An authentication bypass vulnerability in the AJAX backend of Rizwan17 inventory-management-system allows remote attackers to execute unauthorized category additions via the userid parameter.
 date: "2026-09-09T23:02:46Z"
+lastmod: "2026-09-10T01:02:56Z"
 type: threat
 types:
   - threat
@@ -19,6 +20,7 @@ vendors:
   - Rizwan17
 products:
   - inventory-management-system (up to bfe78a330d01bb26b9daec5dc9ecd5c77900e03f)
+  - inventory-management-system (<= bfe78a330d01bb26b9daec5dc9ecd5c77900e03f)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,6 +33,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-87922
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-87921
 rules:
   - title: Detect CVE-2026-87922 Exploitation - Unauthenticated Category Addition
     description: Detects exploitation attempts against the AJAX backend by monitoring for unauthorized access to the process.php endpoint with suspicious userid parameters.
@@ -59,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-87922
       evidence: Public exploit availability
+updates:
+  - at: "2026-09-10T01:02:56Z"
+    level: L2
+    summary: added coverage for inventory-management-system (<= bfe78a330d01bb26b9daec5dc9ecd5c77900e03f)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-87921
 ---
 
 A security vulnerability exists in the Rizwan17 inventory-management-system (commits up to bfe78a330d01bb26b9daec5dc9ecd5c77900e03f). The flaw is located within the DBOperation.addCategory function in the includes/process.php file, which handles AJAX backend requests. An attacker can manipulate the userid argument to bypass authentication checks, allowing for unauthorized modifications to the inventory categories. Because the project utilizes a rolling release model, no specific version numbers are assigned to the affected or patched code. Publicly available exploit code currently exists for this vulnerability, increasing the risk of active exploitation by remote threat actors. The project maintainers have been notified of the issue but have not yet provided a fix or response.
