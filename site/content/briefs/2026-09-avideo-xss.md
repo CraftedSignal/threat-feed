@@ -3,7 +3,7 @@ title: Cross-Site Scripting Vulnerability in AVideo YPTSocket Plugin
 slug: 2026-09-avideo-xss
 description: An unauthenticated XSS vulnerability in the AVideo YPTSocket plugin allows attackers to execute arbitrary JavaScript in victim browsers via crafted websocket callback messages.
 date: "2026-09-05T13:32:19Z"
-lastmod: "2026-09-10T15:10:46Z"
+lastmod: "2026-09-10T15:12:29Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,7 @@ vendors:
 products:
   - AVideo (YPTSocket plugin enabled)
   - AVideo (<= c3edcc274c389816d434acadac07ee78eaf330c1)
+  - AVideo (<= 2026-08-23)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -46,6 +47,12 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: Authenticated users with canStream permissions can bypass ownership validation to generate tokens for arbitrary restreams.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: A remote, unauthenticated attacker can therefore retrieve the stream key and decryption key and watch a password-protected live transmission without supplying the configured password.
+    confidence_band: high
 cves:
   - id: CVE-2026-86188
     cvss: 7.2
@@ -53,6 +60,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86188
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88869
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88865
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88874
 action_plan:
   priority: elevated
   owners:
@@ -84,6 +92,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-88865
+  - at: "2026-09-10T15:12:29Z"
+    level: L2
+    summary: added coverage for AVideo (<= 2026-08-23)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-88874
 ---
 
 AVideo, an open-source video platform, contains a critical cross-site scripting (XSS) vulnerability (CVE-2026-86188) within its YPTSocket plugin. The vulnerability stems from insecure handling of websocket callback messages. An unauthenticated attacker can send a crafted socket message to the platform, specifying a callback name that triggers existing global functions, such as 'avideoConfirmHTML'. These functions improperly process untrusted data by assigning it directly to the innerHTML property of an element within the Document Object Model (DOM).
