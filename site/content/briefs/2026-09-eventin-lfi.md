@@ -3,6 +3,7 @@ title: Local File Inclusion in Eventin WordPress Plugin
 slug: 2026-09-eventin-lfi
 description: The Eventin WordPress plugin contains a local file inclusion vulnerability in the event_layout parameter, allowing authenticated contributors to execute arbitrary PHP code.
 date: "2026-09-09T03:51:49Z"
+lastmod: "2026-09-11T17:33:05Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:themewinter:eventin:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=B5E02320-D782-51C7-85DF-546AC7E50E64&utm_source=rss&utm_medium=rss
 tags:
   - lfi
   - vulnerability
@@ -29,8 +33,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-15667
     cvss: 7.5
+    epss: 0.00565
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15667
+  - https://sploitus.com/exploit?id=B5E02320-D782-51C7-85DF-546AC7E50E64&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-15667 Exploitation - LFI via Eventin REST API
     description: Detects suspicious REST API requests to the Eventin plugin where the event_layout parameter contains path traversal sequences indicative of LFI exploitation.
@@ -68,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-15667
       evidence: Source confirms contributor-level access can perform the exploit
+updates:
+  - at: "2026-09-11T17:33:05Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=B5E02320-D782-51C7-85DF-546AC7E50E64&utm_source=rss&utm_medium=rss
 ---
 
 The Eventin WordPress plugin (versions 4.1.22 and earlier) contains a Local File Inclusion (LFI) vulnerability identified as CVE-2026-15667. The flaw resides in the handling of the 'event_layout' parameter within the plugin's REST API functionality. Authenticated users with the 'etn_manage_event' capability - which is assigned to the Contributor role by default - can exploit this parameter to point the application to arbitrary local files. If an attacker can upload a file with a .php extension to the server, this vulnerability allows them to include and execute that code, resulting in remote code execution (RCE). This issue is significant as it provides a pathway for lateral movement, privilege escalation, and sensitive data exfiltration by users who are already within the WordPress site's administrative hierarchy.
