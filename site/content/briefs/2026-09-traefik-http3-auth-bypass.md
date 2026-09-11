@@ -3,6 +3,7 @@ title: Traefik HTTP/3 Backend Authentication Bypass via Connection Reuse
 slug: 2026-09-traefik-http3-auth-bypass
 description: Traefik fails to isolate connection-bound NTLM and Negotiate authentication on HTTP/3 routes, allowing unrelated clients to inherit victim-authenticated backend connections.
 date: "2026-09-11T00:52:59Z"
+lastmod: "2026-09-11T00:53:36Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +16,28 @@ tags:
   - auth-bypass
   - webserver
   - proxy
+  - request-smuggling
+  - authorization-bypass
 vendors:
   - Traefik
 products:
   - Traefik (v2.11.0-v2.11.56)
   - Traefik (v3.0.0-v3.7.12)
+  - Traefik (< v2.11.57)
+  - Traefik (v3.4.2 - v3.6)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The vulnerability is exploitable when an attacker reaches a router without security middleware and establishes an h2c tunnel.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1212
+    technique_name: Exploitation for Credential Access
+    evidence: The attacker bypasses BasicAuth and other security middleware via the established tunnel.
+    confidence_band: high
 cves:
   - id: CVE-2026-88007
 references:
@@ -27,6 +45,19 @@ references:
   - https://github.com/traefik/traefik/releases/tag/v2.11.57
   - https://github.com/traefik/traefik/releases/tag/v3.7.13
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88007
+  - https://github.com/advisories/GHSA-w4v4-9rw7-5326
+rules:
+  - title: Detect Traefik h2c Upgrade Attempt
+    description: 'Detects HTTP requests containing Upgrade: h2c headers, which may indicate an attempt to exploit request smuggling vulnerabilities in Traefik'
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -43,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-88007
       evidence: Source workaround description
+updates:
+  - at: "2026-09-11T00:53:36Z"
+    level: L2
+    summary: 'added detection rule: Detect Traefik h2c Upgrade Attempt'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-w4v4-9rw7-5326
 ---
 
 Traefik (v2.11.0-v2.11.56 and v3.0.0-v3.7.12) contains a critical authorization bypass vulnerability (CVE-2026-88007) when configured with HTTP/3. The vulnerability stems from a protocol-parity gap where the HTTP/3 entrypoint fails to initialize a connection-scoped transport holder, unlike the HTTP/1.1 and HTTP/2 paths. 
