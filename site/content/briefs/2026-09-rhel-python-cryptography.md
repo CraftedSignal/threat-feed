@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Red Hat Enterprise Linux python-cryptography 
 slug: 2026-09-rhel-python-cryptography
 description: Multiple vulnerabilities in the python-cryptography package for Red Hat Enterprise Linux, including CVE-2024-26130, may allow a remote, unauthenticated attacker to bypass security controls or cause a denial-of-service condition.
 date: "2026-09-08T13:37:26Z"
+lastmod: "2026-09-11T12:54:16Z"
 type: advisory
 types:
   - advisory
@@ -15,12 +16,21 @@ tags:
   - vulnerability
   - linux
   - cryptography
+  - low-severity
 vendors:
   - Red Hat
 products:
   - Enterprise Linux (python-cryptography)
+  - Enterprise Linux
 affected_os:
   - RHEL
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: Ein lokaler Angreifer kann eine Schwachstelle in Red Hat Enterprise Linux ausnutzen, um einen Denial of Service Angriff durchzuführen.
+    confidence_band: high
 cves:
   - id: CVE-2024-26130
     cvss: 7.5
@@ -28,6 +38,7 @@ cves:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3214
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-26130
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3319
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-26130
       evidence: Source advisory recommends standard patch management for the identified vulnerabilities.
+updates:
+  - at: "2026-09-11T12:54:16Z"
+    level: L1
+    summary: added coverage for Enterprise Linux
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3319
 ---
 
 The python-cryptography library included in Red Hat Enterprise Linux (RHEL) is affected by multiple security vulnerabilities, most notably CVE-2024-26130. These flaws stem from improper handling of specific cryptographic operations within the library. A remote, unauthenticated attacker could leverage these weaknesses to bypass security restrictions or trigger a denial-of-service (DoS) condition, potentially leading to application crashes or the compromise of integrity in services relying on affected cryptographic functions. Defenders should prioritize updating the python-cryptography package across all RHEL distributions, as it is a foundational library for many Python-based services and management utilities.
