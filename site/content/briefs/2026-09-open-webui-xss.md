@@ -3,7 +3,7 @@ title: Open WebUI Same-Origin XSS via Terminal Port Preview
 slug: 2026-09-open-webui-xss
 description: An insecure sandbox configuration in the Open WebUI terminal port preview feature allows authenticated users to execute arbitrary JavaScript in the application's origin, leading to session token theft and account takeover.
 date: "2026-09-10T18:53:33Z"
-lastmod: "2026-09-11T00:54:09Z"
+lastmod: "2026-09-11T00:54:51Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,9 @@ tags:
   - denial-of-service
   - cloud
   - oidc
+  - authentication-bypass
+  - sqlite
+  - cve-2026-87016
 vendors:
   - Open WebUI
 products:
@@ -31,6 +34,7 @@ products:
   - Open WebUI (0.10.0-0.11.0)
   - Open WebUI (< 0.11.1)
   - Open WebUI (0.9.0 - 0.11.0)
+  - Open WebUI (>= 0.6.41, < 0.11.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -74,6 +78,8 @@ references:
   - https://github.com/advisories/GHSA-34r3-9m95-vq73
   - https://github.com/open-webui/open-webui/pull/27823
   - https://github.com/advisories/GHSA-3g9q-v48f-hh9w
+  - https://github.com/advisories/GHSA-wpmr-8h3q-fwj7
+  - https://github.com/open-webui/open-webui/pull/28624
 rules:
   - title: Detect CVE-2026-87998 Exploitation - Unauthorized Knowledge Base Deletion
     description: Detects potentially unauthorized attempts to delete knowledge bases by monitoring DELETE requests to the /api/v1/knowledge endpoint.
@@ -148,6 +154,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-3g9q-v48f-hh9w
+  - at: "2026-09-11T00:54:51Z"
+    level: L2
+    summary: added coverage for Open WebUI (>= 0.6.41, < 0.11.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wpmr-8h3q-fwj7
 ---
 
 Open WebUI versions 0.8.11 through 0.11.0 contain a high-severity Cross-Site Scripting (XSS) vulnerability (CVE-2026-87995) within the terminal port-preview component. The application renders content from a terminal connection inside an iframe; however, the sandbox attribute for this iframe incorrectly included the `allow-same-origin` directive. Because the terminal proxy is served from the same origin as the primary application, this configuration effectively disables iframe isolation. 
