@@ -1,8 +1,8 @@
 ---
-title: Abuse of Azure WireServer for Credential Access and Discovery
+title: Azure WireServer Metadata Service Abuse via Unauthorized CMS Decryption
 slug: 2026-09-azure-wireserver-abuse
-description: Adversaries with code execution on Azure Virtual Machines abuse the host-only WireServer endpoint at 168.63.129.16 to exfiltrate sensitive configuration data, certificates, and VM settings.
-date: "2026-09-11T18:49:36Z"
+description: Threat actors are abusing the Azure WireServer metadata service to decrypt sensitive VM extension protectedSettings by minting unauthorized identity certificates and performing unauthorized CMS/PKCS7 decryption.
+date: "2026-09-11T18:49:49Z"
 type: advisory
 types:
   - advisory
@@ -10,47 +10,52 @@ severities:
   - medium
 tags:
   - credential-access
-  - discovery
+  - defense-evasion
   - cloud
+  - linux
   - azure
 vendors:
   - Microsoft
 products:
-  - Azure Virtual Machines
+  - Azure Linux Agent
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1552
     technique_name: Unsecured Credentials
-    evidence: Adversaries abuse access to the Azure WireServer to exfiltrate sensitive configuration data.
+    evidence: Adversaries can scrape WireServer certificates, mint a LinuxTransport identity, and decrypt extension protectedSettings.
     confidence_band: high
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1082
-    technique_name: System Information Discovery
-    evidence: Attackers interact with the fabric endpoint to enumerate versions.
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1140
+    technique_name: Deobfuscate/Decode Files or Information
+    evidence: Adversaries... decrypt extension protectedSettings with openssl cms -decrypt or smime -decrypt.
     confidence_band: high
 references:
-  - https://www.netspi.com/blog/technical-blog/cloud-pentesting/decrypting-vm-extension-settings-with-azure-wireserver/
   - https://cybercx.com.au/blog/azure-ssrf-metadata/
+  - https://www.netspi.com/blog/technical-blog/cloud-pentesting/decrypting-vm-extension-settings-with-azure-wireserver/
   - https://cloud.google.com/blog/topics/threat-intelligence/escalating-privileges-azure-kubernetes-services
-  - https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
+  - https://gtfobins.github.io/gtfobins/openssl/
 iocs:
   - type: ip
     value: 168.63.129.16
 ioc_counts:
   ip: 1
 rules:
-  - title: Azure WireServer Unusual Process Connection
-    description: Detects unauthorized shells, scripting runtimes, and system utilities connecting to the Azure WireServer (168.63.129.16) on ports 80 or 32526.
+  - title: Detect Anomalous OpenSSL CMS Decryption or LinuxTransport Generation
+    description: Detects OpenSSL performing CMS/PKCS7 decryption or generating certificates with /CN=LinuxTransport outside of the expected Azure Linux Agent execution path.
     platform: sigma
     severity: medium
     tactics:
       - credential_access
     techniques:
+      - T1140
       - T1552.005
     data_sources:
-      - network_connection
+      - process_creation
+      - linux
 rules_count: 1
 action_plan:
   priority: elevated
@@ -58,44 +63,52 @@ action_plan:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy Sigma rule for WireServer network connections
+    - action: Deploy OpenSSL detection rule to environment.
       owner: Detection Engineering
-      due: 24h
+      due: 48h
+      evidence: Source provides explicit rule logic for identifying WireServer abuse.
+  enrichment_needed:
+    - item: StorageRead logs
+      owner: SOC
+      reason: Check for anonymous or SAS GetBlob requests following detected decryption attempts.
+      evidence: Investigation guide note.
   hunt_leads:
-    - lead: Search for processes (curl, openssl) communicating with 168.63.129.16
-      technique_id: T1552.005
-      priority: high
-      confidence: high
+    - lead: Search for generated key files like temp.key or wireserver.key in /tmp.
+      technique_id: T1140
+      data_needed:
+        - File system auditing or EDR file creation events.
+      priority: medium
+      confidence: medium
       disposition: hunt_now
+      evidence: Suggested investigation step in source.
   mitigation_plan:
-    - priority: medium
-      action: Enable Azure Metadata Security Protocol
+    - priority: immediate
+      action: Rotate VM managed identity and secrets found in protectedSettings.
       owner: IT Operations
-      addresses: Unauthorized access to WireServer
+      addresses: Credential access TTPs
+      evidence: Response and remediation section.
 ---
 
-Adversaries with established code execution on Azure Virtual Machines are targeting the Azure internal WireServer and HostGAPlugin service, located at the non-routable IP 168.63.129.16, to conduct discovery and credential theft. This internal fabric endpoint is utilized by the Azure Guest Agent to manage GoalState, transport certificates, and VM settings. 
-
-By executing unauthorized commands against TCP ports 80 or 32526 on this endpoint, attackers can extract metadata and decrypt extension settings, facilitating further lateral movement or privilege escalation within the cloud environment. Attackers typically employ common system utilities such as curl, PowerShell, openssl, or scripting runtimes to interact with this service. This activity bypasses the intended agent-based communication flow. Defenders must distinguish legitimate Guest Agent traffic from unauthorized process execution, which often manifests as descendants of the Azure Guest Agent when utilizing features like Run Command or Custom Script Extensions.
+Adversaries are targeting Azure virtual machines by exploiting the WireServer metadata service (accessible at 168.63.129.16) to gain unauthorized access to sensitive VM extension settings. By using the OpenSSL binary to generate certificates with the common name (CN) of 'LinuxTransport' or by using custom keys to decrypt CMS/PKCS7-encoded blobs, attackers can bypass the intended security controls of the Azure Linux Agent. This activity allows the retrieval of plaintext credentials, such as Shared Access Signature (SAS) tokens, database connection strings, and contents of custom script extensions. The attack is significant because it allows for privilege escalation and further movement within the cloud environment by extracting secrets managed by the VM extension framework. Defenders should focus on identifying OpenSSL invocations that perform cryptographic operations against metadata-related payloads without the expected provenance of the Azure Linux Agent.
 
 ## Attack Chain
 
-1. Attacker gains initial code execution on an Azure VM via techniques like command injection or compromised credentials.
-2. Attacker enumerates available services and identifies the local Azure fabric endpoint at 168.63.129.16.
-3. Attacker executes unauthorized commands using system tools (curl, PowerShell, openssl) to reach WireServer ports 80 or 32526.
-4. Attacker performs discovery by pulling version information and VM configuration state from the endpoint.
-5. Attacker requests transport certificates or specific URI paths like /vmSettings from the HostGAPlugin.
-6. Attacker uses openssl or other utilities to decrypt the retrieved sensitive blobs.
-7. Attacker utilizes exfiltrated secrets or identity tokens to escalate privileges or pivot within the Azure environment.
+1. Attacker establishes initial access on an Azure virtual machine, typically via an interactive shell or a malicious Run Command execution.
+2. Attacker uses a locally available OpenSSL binary to generate a self-signed X.509 certificate with the Subject common name set to '/CN=LinuxTransport'.
+3. Attacker interacts with the Azure WireServer metadata endpoint (168.63.129.16) to register the newly minted public certificate via the 'comp=certificates' component.
+4. Attacker retrieves the target protectedSettings payload from the metadata service.
+5. Attacker locates or generates a private key file (e.g., 'wireserver.key' or 'temp.key') to facilitate decryption.
+6. Attacker invokes 'openssl cms -decrypt' or 'openssl smime -decrypt' using the retrieved blob and the unauthorized private key.
+7. Attacker parses the resulting plaintext output to extract secrets, connection strings, and SAS tokens.
+8. Attacker uses extracted credentials to access secondary cloud storage or database resources for further exfiltration or privilege escalation.
 
 ## Impact
 
-Successful exploitation allows attackers to gain unauthorized access to transport certificates, managed identity tokens, and sensitive VM configuration data. This compromise can lead to full VM control, lateral movement to other cloud services, and persistent access within the target's Azure tenant.
+Successful exploitation leads to the compromise of sensitive credentials stored within Azure VM extension configurations. This can expose SAS tokens providing storage account access, database connection strings, and embedded scripts, facilitating lateral movement and privilege escalation across the cloud environment.
 
 ## Recommendation
 
-Prioritize the implementation of process-to-network monitoring focusing on the WireServer IP 168.63.129.16.
-- Deploy the provided Sigma rule to alert on unauthorized binaries connecting to the specified WireServer ports.
-- Audit Azure Activity Logs for frequent `runCommand` or `CustomScriptExtension` actions that may indicate automation of this credential access technique.
-- Implement Azure Metadata Security Protocol (audit or enforce mode) to restrict which processes are permitted to communicate with the WireServer fabric.
-- Rotate managed identities and Service Access Signatures (SAS) immediately if unauthorized access to vmSettings or certificate blobs is detected.
+- Deploy the provided detection rule to identify anomalous OpenSSL activity and audit process execution paths.
+- Review all VM extension configurations for unnecessary secrets and ensure managed identities are used instead of static connection strings.
+- Rotate secrets, including SAS tokens and managed identity credentials, if signs of unauthorized decryption are observed.
+- Isolate compromised VMs and purge attacker-created artifacts such as 'temp.key' or 'wireserver.key' files from /tmp or other temporary directories.
