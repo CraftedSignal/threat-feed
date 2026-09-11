@@ -3,7 +3,7 @@ title: SigV4 Authentication Bypass in rclone serve s3
 slug: 2026-09-rclone-auth-bypass
 description: A critical authentication bypass vulnerability in rclone's S3 serving mode allows unauthenticated attackers to spoof identity via forged SigV4 signatures when '--auth-proxy' is used without '--auth-key'.
 date: "2026-09-11T00:53:08Z"
-lastmod: "2026-09-11T00:53:18Z"
+lastmod: "2026-09-11T00:53:53Z"
 type: advisory
 types:
   - advisory
@@ -17,11 +17,16 @@ tags:
   - rclone
   - cve-2026-88018
   - vulnerability
+  - ftp
+  - session-hijacking
+  - authentication
+  - cve-2026-88017
 vendors:
   - rclone
 products:
   - rclone (< 1.75.1)
   - rclone (v1.70.0 - v1.75.0)
+  - rclone (v1.64.0 - v1.75.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,6 +40,12 @@ mitre_ttps:
     technique_name: Impair Defenses
     evidence: The FTP and S3 RC adapters parse that object and pass it to their server constructors, but the constructors decide whether proxy authentication is enabled by checking the process-global proxy.Opt.AuthProxy instead of the supplied proxyOpt.AuthProxy.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The victim or an automated client must log in after the attacker, and the attacker must keep the original FTP session open, allowing the attacker to inherit the authorization of another.
+    confidence_band: high
 cves:
   - id: CVE-2026-88018
     cvss: 9.8
@@ -43,6 +54,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88018
   - https://github.com/advisories/GHSA-p569-5gjg-9cmj
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88044
+  - https://github.com/advisories/GHSA-c476-6w5q-jw77
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88017
 action_plan:
   priority: immediate_escalation
   owners:
@@ -67,6 +80,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-p569-5gjg-9cmj
+  - at: "2026-09-11T00:53:53Z"
+    level: L2
+    summary: added coverage for rclone (v1.64.0 - v1.75.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-c476-6w5q-jw77
 ---
 
 The rclone `serve s3` command contains a critical vulnerability (CVE-2026-88018) in its authentication middleware chain. When a user configures `rclone serve s3` with the `--auth-proxy` flag but fails to provide an `--auth-key`, the application incorrectly handles the credential registration process. Specifically, the `authPairMiddleware` parses the `AccessKeyID` directly from the client-controlled `Authorization` header and registers it into the internal credential store with an empty string as the secret key.
