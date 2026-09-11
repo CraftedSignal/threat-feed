@@ -3,7 +3,7 @@ title: Open WebUI Same-Origin XSS via Terminal Port Preview
 slug: 2026-09-open-webui-xss
 description: An insecure sandbox configuration in the Open WebUI terminal port preview feature allows authenticated users to execute arbitrary JavaScript in the application's origin, leading to session token theft and account takeover.
 date: "2026-09-10T18:53:33Z"
-lastmod: "2026-09-10T18:54:02Z"
+lastmod: "2026-09-11T00:54:09Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ tags:
   - vulnerability
   - denial-of-service
   - cloud
+  - oidc
 vendors:
   - Open WebUI
 products:
@@ -29,6 +30,7 @@ products:
   - Open WebUI (0.9.6 - 0.11.0)
   - Open WebUI (0.10.0-0.11.0)
   - Open WebUI (< 0.11.1)
+  - Open WebUI (0.9.0 - 0.11.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -54,6 +56,12 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: An ordinary user removes instance-wide configuration that only administrators can create or manage.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: A small number of requests carrying a worthless token was therefore enough to make the whole instance stop answering.
+    confidence_band: high
 cves:
   - id: CVE-2026-87995
     cvss: 8.7
@@ -65,6 +73,7 @@ references:
   - https://github.com/open-webui/open-webui/pull/28113
   - https://github.com/advisories/GHSA-34r3-9m95-vq73
   - https://github.com/open-webui/open-webui/pull/27823
+  - https://github.com/advisories/GHSA-3g9q-v48f-hh9w
 rules:
   - title: Detect CVE-2026-87998 Exploitation - Unauthorized Knowledge Base Deletion
     description: Detects potentially unauthorized attempts to delete knowledge bases by monitoring DELETE requests to the /api/v1/knowledge endpoint.
@@ -84,7 +93,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect Excessive Unauthenticated OIDC Logout Requests
+    description: Detects high-frequency POST requests to the back-channel logout endpoint from a single source, which may indicate exploitation of CVE-2026-87011
+    platform: sigma
+    severity: high
+    tactics:
+      - impact
+    techniques:
+      - T1498
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -122,6 +141,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-34r3-9m95-vq73
+  - at: "2026-09-11T00:54:09Z"
+    level: L1
+    summary: 'added detection rule: Detect Excessive Unauthenticated OIDC Logout Requests'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-3g9q-v48f-hh9w
 ---
 
 Open WebUI versions 0.8.11 through 0.11.0 contain a high-severity Cross-Site Scripting (XSS) vulnerability (CVE-2026-87995) within the terminal port-preview component. The application renders content from a terminal connection inside an iframe; however, the sandbox attribute for this iframe incorrectly included the `allow-same-origin` directive. Because the terminal proxy is served from the same origin as the primary application, this configuration effectively disables iframe isolation. 
