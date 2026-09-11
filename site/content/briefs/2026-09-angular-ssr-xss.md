@@ -3,6 +3,7 @@ title: Cross-Site Scripting in Angular Platform Server SSR
 slug: 2026-09-angular-ssr-xss
 description: An XSS vulnerability in Angular's server-side rendering serializer fails to escape closing tags within <template> content nested inside fallback raw-content elements, allowing arbitrary script execution.
 date: "2026-09-11T00:55:05Z"
+lastmod: "2026-09-11T00:55:15Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:google:angular:*:*:*:*:*:*:*:*
+tags:
+  - ssrf
+  - angular
+  - vulnerability
 vendors:
   - Google
 products:
@@ -17,6 +22,9 @@ products:
   - Angular platform-server (>= 21.0.0, < 21.2.22)
   - Angular platform-server (>= 20.0.0, < 20.3.30)
   - Angular platform-server (<= 19.2.25)
+  - Angular platform-server (22.0.0 <= version < 22.1.4)
+  - Angular platform-server (21.0.0 <= version < 21.2.22)
+  - Angular platform-server (20.0.0 <= version < 20.3.30)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,11 +38,19 @@ mitre_ttps:
     technique_name: JavaScript
     evidence: The injected payload prematurely terminates the fallback container and executes trailing markup as active DOM elements.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: The vulnerability allows attackers to bypass same-origin validation, triggering Server-Side Request Forgery (SSRF).
+    confidence_band: high
 cves:
   - id: CVE-2026-88060
 references:
   - https://github.com/advisories/GHSA-v3p8-whq6-r5jg
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-88060
+  - https://github.com/advisories/GHSA-f6mr-pjwc-34m4
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88056
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +67,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-88060
       evidence: Source provided guidance on avoiding problematic template structures.
+updates:
+  - at: "2026-09-11T00:55:15Z"
+    level: L2
+    summary: added coverage for Angular platform-server (22.0.0 <= version < 22.1.4) +3 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-f6mr-pjwc-34m4
 ---
 
 A high-severity Cross-Site Scripting (XSS) vulnerability, identified as CVE-2026-88060, affects the `@angular/platform-server` package used for server-side rendering (SSR). The flaw occurs because the HTML serializer fails to correctly identify and escape closing tags when processing `<template>` content that resides within fallback raw-content elements, such as `<noscript>`, `<iframe>`, `<noembed>`, or `<noframes>`. 
