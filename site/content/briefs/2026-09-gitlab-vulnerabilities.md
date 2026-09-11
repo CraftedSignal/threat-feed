@@ -1,8 +1,8 @@
 ---
-title: Multiple Vulnerabilities in GitLab
+title: Multiple Vulnerabilities in GitLab CE and EE
 slug: 2026-09-gitlab-vulnerabilities
-description: Multiple vulnerabilities in GitLab allow remote attackers to achieve arbitrary code execution, escalate privileges, bypass security controls, and perform other malicious actions.
-date: "2026-09-11T12:54:37Z"
+description: GitLab has released security patches addressing a large set of vulnerabilities across Community and Enterprise editions, including flaws leading to remote code execution and data confidentiality compromises.
+date: "2026-09-11T18:55:51Z"
 type: advisory
 types:
   - advisory
@@ -10,50 +10,44 @@ severities:
   - high
 tags:
   - vulnerability
+  - remote-code-execution
   - gitlab
-  - rce
-  - webserver
 vendors:
   - GitLab
 products:
-  - GitLab
-mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: An attacker can exploit multiple vulnerabilities in GitLab to perform various attacks.
-    confidence_band: high
+  - GitLab Community Edition (< 19.1.8, 19.2.x < 19.2.6, 19.3.x < 19.3.2)
+  - GitLab Enterprise Edition (< 19.1.8, 19.2.x < 19.2.6, 19.3.x < 19.3.2)
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3315
+  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1160/
+  - https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-3-2-released/
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
     - SOC
   immediate_actions:
-    - action: Subscribe to GitLab security release notifications to receive patch information as soon as it is published.
+    - action: Upgrade GitLab instances to versions 19.1.8, 19.2.6, or 19.3.2.
       owner: IT Operations
       due: 24h
-      evidence: BSI advisory alerts to multiple vulnerabilities.
+      evidence: GitLab security bulletin provided in CERT-FR advisory.
   mitigation_plan:
     - priority: immediate
-      action: Patch GitLab instances to the latest version immediately upon release of the security update.
+      action: Patch GitLab to 19.1.8, 19.2.6, or 19.3.2.
       owner: IT Operations
-      addresses: Multiple vulnerabilities in GitLab
-      evidence: BSI vulnerability report
+      addresses: Multiple CVEs
+      evidence: Source documentation for patch release.
 ---
 
-The German Federal Office for Information Security (BSI) has reported the existence of multiple vulnerabilities within GitLab. These security flaws allow remote, unauthenticated, or authenticated attackers to perform a variety of malicious activities, including arbitrary code execution (ACE), privilege escalation, and security control bypasses. Additionally, the vulnerabilities enable cross-site scripting (XSS), unauthorized sensitive information disclosure, data manipulation, and the potential for denial-of-service (DoS) conditions. Because these vulnerabilities affect the core functionality of GitLab instances, they pose a significant risk to organizations managing software development lifecycles and source code repositories. Defenders should monitor the BSI advisory for specific version updates and patches, as the ability to execute arbitrary code or gain administrative access could lead to full instance compromise.
+On September 10, 2026, GitLab released critical security patches for its Community Edition (CE) and Enterprise Edition (EE) platforms. The update addresses a significant number of vulnerabilities reported by the CERT-FR in advisory CERTFR-2026-AVI-1160. These vulnerabilities affect GitLab versions prior to 19.1.8, as well as 19.2.x prior to 19.2.6, and 19.3.x prior to 19.3.2. 
+
+The disclosed flaws include critical impacts such as remote code execution (RCE), denial-of-service (DoS), security policy bypasses, and unauthorized access to sensitive data. Given the breadth of vulnerabilities - ranging from RCE to cross-site scripting (XSS) - these patches are essential to maintain the integrity of development environments and source code repositories. Defenders should prioritize auditing internet-facing GitLab instances for these versions and applying the security patches immediately to mitigate the risk of exploitation.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities can lead to complete compromise of a GitLab instance, unauthorized access to sensitive proprietary source code, escalation of privileges to administrator level, and the disruption of critical development infrastructure. The potential for arbitrary code execution poses a severe risk to the integrity of the software supply chain within any affected organization.
+Successful exploitation of these vulnerabilities could result in full system compromise, exfiltration of proprietary source code, internal network reconnaissance, or localized denial-of-service, impacting the development lifecycle and data confidentiality for any organization running affected GitLab versions.
 
 ## Recommendation
 
-Prioritize monitoring for official patch releases from the vendor and apply them to all internet-facing and internal GitLab infrastructure immediately upon availability.
-
-- Monitor the official GitLab security blog and the BSI WID portal for the release of specific CVE identifiers and remediated version numbers.
-- Audit access logs for unusual patterns involving unauthorized privilege escalation attempts or atypical API requests.
-- Ensure that GitLab instances are not exposed to the public internet unless absolutely necessary, and employ web application firewalls (WAF) to filter common exploit vectors.
+- Upgrade all instances of GitLab Community Edition and Enterprise Edition to the latest patched versions: 19.1.8, 19.2.6, or 19.3.2 as specified in the official GitLab security release.
+- Review web server access logs for anomalous POST requests or unusual URI patterns targeting common GitLab endpoints, which could indicate exploitation attempts against these CVEs.
+- Patch the following CVEs: CVE-2024-11222, CVE-2025-14871, CVE-2026-1168, CVE-2026-12910, CVE-2026-13210, CVE-2026-16794, CVE-2026-19619, CVE-2026-3855, CVE-2026-7514, CVE-2026-78252, CVE-2026-79708, CVE-2026-8030, CVE-2026-82837, CVE-2026-85706, CVE-2026-86340, CVE-2026-86341, CVE-2026-87719, and CVE-2026-88765.
