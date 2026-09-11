@@ -3,6 +3,7 @@ title: Remote Code Execution in SPIP via editer_objet Action
 slug: 2026-09-spip-rce
 description: SPIP versions before 4.4.18 are vulnerable to remote code execution due to improper validation of the arg parameter in the editer_objet action, allowing attackers to inject malicious serialized data into the job queue.
 date: "2026-09-11T19:14:44Z"
+lastmod: "2026-09-11T19:15:21Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - rce
   - vulnerability
   - web-application
+  - sql-injection
+  - cve
 vendors:
   - SPIP
 products:
@@ -25,11 +28,30 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The vulnerability leads to arbitrary PHP function execution on the underlying system.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can supply a crafted value such as a time-based payload through the annee parameter in squelettes-dist/sitemap.xml.html to embed arbitrary SQL
+    confidence_band: high
 cves:
   - id: CVE-2026-72710
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72710
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72708
+rules:
+  - title: Detects CVE-2026-72708 Exploitation - Blind SQL Injection via Sitemap Endpoint
+    description: Detects attempts to exploit CVE-2026-72708 by monitoring for time-based SQL injection payloads within the 'annee' parameter of requests to the sitemap.xml.html endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +68,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-72710
       evidence: Source advisory specifies version 4.4.18 as the fix.
+updates:
+  - at: "2026-09-11T19:15:21Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-72708 Exploitation - Blind SQL Injection via Sitemap Endpoint'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72708
 ---
 
 SPIP versions prior to 4.4.18 are affected by a critical remote code execution (RCE) vulnerability within the editer_objet action. The vulnerability arises because the arg parameter resolves SQL table names without validating them against an editable columns allowlist. An attacker possessing a valid nonce can exploit this to inject arbitrary, attacker-controlled rows into the spip_jobs database table. 
