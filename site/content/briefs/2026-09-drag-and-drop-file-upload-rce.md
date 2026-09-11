@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in Drag and Drop File Upload for El
 slug: 2026-09-drag-and-drop-file-upload-rce
 description: An arbitrary file upload vulnerability in the Drag and Drop File Upload for Elementor Forms WordPress plugin allows unauthenticated attackers to execute arbitrary code via MIME type validation bypass.
 date: "2026-09-10T03:03:37Z"
+lastmod: "2026-09-11T04:27:56Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:drag_and_drop_file_upload_for_elementor_forms_project:drag_and_drop_file_upload_for_elementor_forms:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=72B56444-A6B0-5501-BBC8-ADA512B55501&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - rce
@@ -37,6 +41,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-18351
+  - https://sploitus.com/exploit?id=72B56444-A6B0-5501-BBC8-ADA512B55501&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-18351 Exploitation - Arbitrary File Upload via Elementor Forms Plugin
     description: Detects suspicious POST requests to the elementor_file_upload endpoint involving file uploads
@@ -74,6 +79,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-18351
       evidence: Source states versions up to 1.6.0 are vulnerable
+updates:
+  - at: "2026-09-11T04:27:56Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=72B56444-A6B0-5501-BBC8-ADA512B55501&utm_source=rss&utm_medium=rss
 ---
 
 The Drag and Drop File Upload for Elementor Forms WordPress plugin, version 1.6.0 and earlier, contains a critical arbitrary file upload vulnerability tracked as CVE-2026-18351. The vulnerability exists within the 'is_file_type_valid()' function, which improperly handles the 'type' parameter during file uploads. Specifically, the function uses this attacker-controlled parameter as a regex key when checking against MIME type allowlists. By crafting a request that influences this logic, an unauthenticated attacker can bypass existing file type restrictions. The 'sanitize_file_name()' function subsequently normalizes the filename, potentially converting a manipulated input into a executable PHP script. If successfully exploited, this flaw allows for unauthenticated remote code execution on the underlying WordPress server. Defenders should identify instances of this plugin in their environment and ensure they are patched beyond version 1.6.0.
