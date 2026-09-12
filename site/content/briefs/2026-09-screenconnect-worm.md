@@ -3,11 +3,14 @@ title: Worm-like Campaign Leveraging Modified ScreenConnect Clients
 slug: 2026-09-screenconnect-worm
 description: Threat actors are using social engineering to deploy modified, backdoored ScreenConnect clients that automate multi-stage payload execution and self-propagation across connected remote hosts.
 date: "2026-09-07T11:55:13Z"
+lastmod: "2026-09-12T00:50:00Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:connectwise:screenconnect:*:*:*:*:*:*:*:*
 tags:
   - remote-access
   - worm
@@ -43,8 +46,13 @@ mitre_ttps:
     technique_name: Bypass User Account Control
     evidence: erases staging evidence, attempts UAC bypass, and installs and conceals a ScreenConnect client
     confidence_band: high
+cves:
+  - id: CVE-2026-84869
+    cvss: 9.9
+    epss: 0.00382
 references:
   - https://www.securityweek.com/modified-screenconnect-clients-used-in-worm-like-campaign/
+  - https://www.cve.org/CVERecord?id=CVE-2026-84869
 rules:
   - title: Detect Suspicious wscript.exe Activity from ScreenConnect
     description: Detects wscript.exe spawning from ScreenConnect temporary directories, a behavior associated with the reported worm-like campaign.
@@ -83,6 +91,14 @@ action_plan:
       owner: IT Operations
       addresses: ScreenConnect
       evidence: ConnectWise suggests admins apply extra scrutiny to any on-premises ScreenConnect installations.
+updates:
+  - at: "2026-09-12T00:50:00Z"
+    level: L2
+    summary: added CVE-2026-84869
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-84869
 ---
 
 Since late August 2026, threat actors have been executing a worm-like campaign involving rogue, backdoored ScreenConnect client instances. The attack typically begins with social engineering, where victims are tricked into installing malicious software under the guise of technical support. Once the rogue ScreenConnect instance is active, it immediately initiates a multi-stage execution chain using Windows Script Host to launch VBScript files from the ScreenConnect temporary directory. 
