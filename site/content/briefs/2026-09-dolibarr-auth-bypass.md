@@ -3,6 +3,7 @@ title: Authorization Bypass in Dolibarr Document Storage
 slug: 2026-09-dolibarr-auth-bypass
 description: An unauthenticated authorization bypass vulnerability in Dolibarr allows remote attackers to access arbitrary sensitive files via the document storage endpoints.
 date: "2026-09-11T17:14:22Z"
+lastmod: "2026-09-12T00:37:51Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:dolibarr:dolibarr:23.0.4:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=BAAF8349-AB02-5C71-B94E-0F3276B4A5E9&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - authorization-bypass
@@ -29,6 +33,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-89013
+  - https://sploitus.com/exploit?id=BAAF8349-AB02-5C71-B94E-0F3276B4A5E9&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-89013 Exploitation - Unauthenticated File Access via hashp parameter
     description: Detects exploitation attempts where an unauthenticated user injects 'hashp=shared' into document endpoint queries to bypass authorization.
@@ -66,6 +71,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-89013
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-12T00:37:51Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=BAAF8349-AB02-5C71-B94E-0F3276B4A5E9&utm_source=rss&utm_medium=rss
 ---
 
 Dolibarr versions 23.0.4 through 24.0.0 contain an authorization bypass vulnerability (CVE-2026-89013) that enables unauthenticated remote attackers to retrieve arbitrary files from the application server. The vulnerability exists within the document storage handling logic found in htdocs/document.php and htdocs/viewimage.php. By supplying a crafted 'hashp=shared' parameter in an HTTP request, an attacker can trick the application into skipping necessary token validation checks. This allows the attacker to bypass access controls and satisfy the authorization conditions required to read sensitive data. Impacted files include application logs, confidential business documents, database backups containing password hashes, and files stored across different multicompany entities. This vulnerability is critical due to the potential for full database compromise and unauthorized exposure of business-critical information.
