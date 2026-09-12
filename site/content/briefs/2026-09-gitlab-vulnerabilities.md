@@ -3,7 +3,7 @@ title: Multiple Vulnerabilities in GitLab CE and EE
 slug: 2026-09-gitlab-vulnerabilities
 description: GitLab has released security patches addressing a large set of vulnerabilities across Community and Enterprise editions, including flaws leading to remote code execution and data confidentiality compromises.
 date: "2026-09-11T18:55:51Z"
-lastmod: "2026-09-11T23:36:56Z"
+lastmod: "2026-09-12T00:50:03Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,8 @@ products:
   - GitLab Enterprise Edition (< 19.1.8, 19.2.x < 19.2.6, 19.3.x < 19.3.2)
   - GitLab Community Edition
   - GitLab Enterprise Edition
+  - Community Edition
+  - Enterprise Edition
 cves:
   - id: CVE-2026-85706
 references:
@@ -30,6 +32,7 @@ references:
   - https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-3-2-released/
   - https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-one-known-exploited-vulnerability-catalog
   - https://sploitus.com/exploit?id=CB41C932-3F63-547C-8278-6162A20CA9E3&utm_source=rss&utm_medium=rss
+  - https://www.cve.org/CVERecord?id=CVE-2026-85706
 action_plan:
   priority: immediate_escalation
   owners:
@@ -61,6 +64,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=CB41C932-3F63-547C-8278-6162A20CA9E3&utm_source=rss&utm_medium=rss
+  - at: "2026-09-12T00:50:03Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-85706
 ---
 
 On September 10, 2026, GitLab released critical security patches for its Community Edition (CE) and Enterprise Edition (EE) platforms. The update addresses a significant number of vulnerabilities reported by the CERT-FR in advisory CERTFR-2026-AVI-1160. These vulnerabilities affect GitLab versions prior to 19.1.8, as well as 19.2.x prior to 19.2.6, and 19.3.x prior to 19.3.2. 
