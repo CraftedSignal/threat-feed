@@ -3,6 +3,7 @@ title: Authorization Bypass in Shopper Framework CollectionProducts Component
 slug: 2026-09-shopper-auth-bypass
 description: An authorization bypass vulnerability in the Shopper framework allows authenticated users with limited privileges to perform unauthorized product deletions across any collection in the database.
 date: "2026-09-12T00:57:35Z"
+lastmod: "2026-09-12T00:57:44Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - web-application
   - privilege-escalation
   - auth-bypass
+  - web-vulnerability
+  - authorization-bypass
+  - shopper
 vendors:
   - Shopper
 products:
@@ -25,9 +29,17 @@ mitre_ttps:
     technique_name: Data Manipulation
     evidence: An authenticated user with only browse privileges can manipulate the collection ID to detach products from any collection in the database.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: The combination of missing authorization and an unlocked model binding lets the attacker both bypass the permission gate and redirect the mutation to an arbitrary variant in the database.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-2cg9-97gq-9mqp
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56825
+  - https://github.com/advisories/GHSA-g3f9-g5vj-p62f
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-56829
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-56825
       evidence: Fixed version provided in advisory
+updates:
+  - at: "2026-09-12T00:57:44Z"
+    level: L2
+    summary: added coverage for shopper/framework (< 2.9.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-g3f9-g5vj-p62f
 ---
 
 Shopper framework versions prior to 2.9.2 are vulnerable to an authorization bypass in the `CollectionProducts` Livewire component. The vulnerability stems from two primary issues: the `collection` property is not locked, allowing arbitrary modification of the collection ID by the client, and the delete and bulk-delete actions lack proper authorization checks. An authenticated user possessing only the `browse_collections` role can manipulate Livewire network payloads to target and empty any collection within the store's database. This vulnerability effectively escalates a user's privileges, allowing them to perform destructive actions against storefront catalog groupings and promotions without the necessary `edit_collections` permissions. This impacts organizations relying on Shopper for e-commerce catalog management, as an attacker can systematically detach products from collections, disrupting site functionality and promotional campaigns.
