@@ -3,6 +3,7 @@ title: Cyclops Blink Modular Linux Implant Targeting Network-Edge Appliances
 slug: 2026-09-cyclops-blink-linux
 description: The IRON VIKING threat group has deployed an updated modular Cyclops Blink variant on Cisco Firewall Management Center devices, using SysV persistence and masquerading as a kernel thread to conduct reconnaissance and remote operations.
 date: "2026-09-11T18:53:15Z"
+lastmod: "2026-09-12T13:07:11Z"
 type: threat
 types:
   - threat
@@ -18,12 +19,16 @@ tags:
   - network-edge
 vendors:
   - Cisco
+  - WatchGuard
 products:
   - Firewall Management Center
+  - Firebox
+  - XTM
 affected_os:
   - Linux
 references:
   - https://www.sophos.com/en-us/blog/-eye-spy-cyclops-blink-returns-with-extended-capabilities
+  - https://www.reddit.com/r/blueteamsec/comments/1weam99/eye_spy_cyclops_blink_returns_with_extended/
 rules:
   - title: Detect Suspicious Process Masquerading as Kernel Thread
     description: Detects non-kernel processes masquerading as kworker threads by matching the common kworker naming convention applied to standard user-space binaries.
@@ -37,6 +42,14 @@ rules:
       - process_creation
       - linux
 rules_count: 1
+updates:
+  - at: "2026-09-12T13:07:11Z"
+    level: L1
+    summary: new product
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1weam99/eye_spy_cyclops_blink_returns_with_extended/
 ---
 
 In August 2026, researchers identified a sophisticated 64-bit Linux modular implant named 'timezone_check' operating on Cisco Firewall Management Center (FMC) appliances. Attributed to the Russia-based IRON VIKING (also known as Sandworm) threat group, this variant represents a significant evolution from the 2022 firmware-based Cyclops Blink implants. By leveraging standard System V (SysV) initialization scripts for persistence instead of vendor-specific firmware modifications, the malware achieves broader compatibility across Linux-based network-edge devices. 
