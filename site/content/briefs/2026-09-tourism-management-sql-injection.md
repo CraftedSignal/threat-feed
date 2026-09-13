@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in Tourism-Management-System
 slug: 2026-09-tourism-management-sql-injection
 description: The Tourism-Management-System contains a critical SQL injection vulnerability in the CommonDao component allowing remote unauthenticated attackers to execute arbitrary database queries.
 date: "2026-09-07T08:51:39Z"
+lastmod: "2026-09-13T13:26:01Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - jaychouchannel
 products:
   - Tourism-Management-System (commits up to 8122bf020d91199eddfff3ee02d1632a70a9a132)
+  - Tourism-Management-System (<= d984d172dceca907f8b447efbdb06dc233f7938d)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +32,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86282
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90522
 rules:
   - title: Detects CVE-2026-86282 Exploitation - SQL Injection in CommonController
     description: Detects exploitation attempts against the Tourism-Management-System CommonController by identifying SQL injection payloads in the table or column parameters.
@@ -58,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86282
       evidence: NVD vulnerability mitigation recommendation
+updates:
+  - at: "2026-09-13T13:26:01Z"
+    level: L2
+    summary: added coverage for Tourism-Management-System (<= d984d172dceca907f8b447efbdb06dc233f7938d)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-90522
 ---
 
 A SQL injection vulnerability exists in the Tourism-Management-System repository maintained by jaychouchannel. The flaw resides within the CommonDao component, specifically inside the 'travel/src/main/java/com/controller/CommonController.java' file. An attacker can exploit this remotely by injecting malicious input into the 'table', 'column', 'xColumn', or 'yColumn' parameters. Because the application fails to properly sanitize these inputs before including them in SQL queries, an attacker can bypass authentication, exfiltrate sensitive data, or modify database contents. 
