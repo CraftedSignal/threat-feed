@@ -1,12 +1,12 @@
 module github.com/craftedsignal/threat-feed
 
-go 1.25.8
+go 1.26.0
 
 require (
 	cloud.google.com/go/compute/metadata v0.9.0
 	cloud.google.com/go/firestore v1.25.0
 	golang.org/x/net v0.58.0
-	golang.org/x/sync v0.22.0
+	golang.org/x/sync v0.23.0
 	golang.org/x/text v0.41.0
 	google.golang.org/api v0.294.0
 	google.golang.org/grpc v1.83.2
