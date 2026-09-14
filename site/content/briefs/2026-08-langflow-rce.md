@@ -3,7 +3,7 @@ title: Remote Code Execution in IBM Langflow OSS via A2A Endpoint
 slug: 2026-08-langflow-rce
 description: IBM Langflow OSS versions 1.0.0 through 1.11.1 contain an unauthenticated remote code execution vulnerability in the A2A public endpoint.
 date: "2026-08-28T23:34:49Z"
-lastmod: "2026-09-10T23:13:31Z"
+lastmod: "2026-09-14T23:36:28Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,10 @@ tags:
   - web-application
   - security-scanner-bypass
   - cve-2026-76059
+  - rce
+  - cloud-security
+  - injection
+  - cve-2026-12944
 vendors:
   - IBM
 products:
@@ -25,6 +29,7 @@ products:
   - Langflow OSS (1.0.0-1.11.2)
   - Langflow OSS (1.0.0-1.11.5)
   - Langflow OSS (1.0.0 through 1.11.5)
+  - Langflow OSS (1.0.0 through 1.10.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -50,6 +55,30 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: the attacker could cause arbitrary operating system commands to execute on the server in-process.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    evidence: The submission of components containing socket or urllib imports facilitates arbitrary Python code execution.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552.001
+    technique_name: 'Unsecured Credentials: Credentials In Files'
+    evidence: This enables AWS credential theft via IMDSv1 SSRF.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1537
+    technique_name: Transfer Data to Cloud Account
+    evidence: This enables arbitrary file exfiltration from the container filesystem.
+    confidence_band: high
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+    evidence: Lateral movement to internal services (PostgreSQL, Redis) within the Docker network is possible.
+    confidence_band: high
 cves:
   - id: CVE-2026-19286
     cvss: 9.8
@@ -59,6 +88,19 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85025
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76059
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81941
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12944
+rules:
+  - title: Detects CVE-2026-12944 Exploitation - Malicious Component Submission
+    description: Detects attempts to submit Langflow components containing unauthorized Python imports indicative of RCE exploitation attempts.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1059.007
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -104,6 +146,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-81941
+  - at: "2026-09-14T23:36:28Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-12944 Exploitation - Malicious Component Submission'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-12944
 ---
 
 IBM Langflow OSS versions 1.0.0 through 1.11.1 are susceptible to a critical remote code execution (RCE) vulnerability identified as CVE-2026-19286. The issue arises from the improper enforcement of security restrictions on the A2A public endpoint. This flaw allows unauthenticated remote attackers to bypass authorization controls and execute arbitrary code on the underlying host. Given the nature of Langflow as a workflow automation and LLM orchestration tool, successful exploitation could grant an attacker full control over the application server, potentially allowing for data exfiltration, lateral movement, and the deployment of additional malicious payloads.
