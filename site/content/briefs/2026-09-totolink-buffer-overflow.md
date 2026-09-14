@@ -3,6 +3,7 @@ title: Remote Buffer Overflow in Totolink A3002MU Router
 slug: 2026-09-totolink-buffer-overflow
 description: A critical buffer overflow vulnerability in the Totolink A3002MU router allows unauthenticated remote attackers to trigger memory corruption via the /boafrm/formFilter endpoint.
 date: "2026-09-14T01:28:44Z"
+lastmod: "2026-09-14T01:28:56Z"
 type: advisory
 types:
   - advisory
@@ -32,6 +33,19 @@ cves:
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90605
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90607
+rules:
+  - title: Detects CVE-2026-90607 Exploitation - Buffer Overflow via /boafrm/formNewSchedule
+    description: Detects exploitation attempts against the formNewSchedule function by monitoring POST requests to the vulnerable path.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-90605
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-14T01:28:56Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-90607 Exploitation - Buffer Overflow via /boafrm/formNewSchedule'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-90607
 ---
 
 A critical buffer overflow vulnerability (CVE-2026-90605) has been identified in the Totolink A3002MU router running firmware version Hh-B20211125.1046. The flaw exists within the 'formFilter' function of the 'boa' web server component. An unauthenticated remote attacker can exploit this vulnerability by sending a maliciously crafted HTTP request to the '/boafrm/formFilter' URI, specifically by manipulating the 'ip6addr' argument. Successful exploitation of this buffer overflow may result in arbitrary code execution or a denial of service condition. Given that exploit code for this vulnerability is publicly available, organizations using the affected router models face an immediate risk of compromise. Defenders should prioritize restricting access to the management interface and monitoring for anomalous HTTP traffic targeting the vulnerable endpoint.
