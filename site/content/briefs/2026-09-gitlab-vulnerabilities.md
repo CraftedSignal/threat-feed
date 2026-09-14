@@ -3,7 +3,7 @@ title: Multiple Vulnerabilities in GitLab CE and EE
 slug: 2026-09-gitlab-vulnerabilities
 description: GitLab has released security patches addressing a large set of vulnerabilities across Community and Enterprise editions, including flaws leading to remote code execution and data confidentiality compromises.
 date: "2026-09-11T18:55:51Z"
-lastmod: "2026-09-12T00:50:03Z"
+lastmod: "2026-09-14T19:10:33Z"
 type: advisory
 types:
   - advisory
@@ -21,18 +21,24 @@ vendors:
 products:
   - GitLab Community Edition (< 19.1.8, 19.2.x < 19.2.6, 19.3.x < 19.3.2)
   - GitLab Enterprise Edition (< 19.1.8, 19.2.x < 19.2.6, 19.3.x < 19.3.2)
-  - GitLab Community Edition
+  - GitLab Community Edition (< 19.1.8)
   - GitLab Enterprise Edition
-  - Community Edition
-  - Enterprise Edition
+  - Community Edition (< 19.1.8)
+  - Enterprise Edition (< 19.1.8)
+  - GitLab Community Edition (>= 18.7, < 19.1.8, >= 19.2, < 19.2.6, >= 19.3, < 19.3.2)
+  - GitLab Enterprise Edition (>= 18.7, < 19.1.8, >= 19.2, < 19.2.6, >= 19.3, < 19.3.2)
 cves:
-  - id: CVE-2026-85706
+  - id: CVE-2026-87719
+    cvss: 9.9
+    epss: 0.00612
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1160/
   - https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-3-2-released/
   - https://www.cisa.gov/news-events/alerts/2026/09/11/cisa-adds-one-known-exploited-vulnerability-catalog
   - https://sploitus.com/exploit?id=CB41C932-3F63-547C-8278-6162A20CA9E3&utm_source=rss&utm_medium=rss
   - https://www.cve.org/CVERecord?id=CVE-2026-85706
+  - https://www.rapid7.com/blog/post/etr-cve-2026-85706-critical-gitlab-path-traversal-exploited-in-the-wild
+  - https://socprime.com/blog/cve-2026-85706-critical-gitlab-path-traversal-flaw/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -71,6 +77,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-85706
+  - at: "2026-09-14T19:10:33Z"
+    level: L2
+    summary: added CVE-2026-87719;
+    sources:
+      - socprime
+    source_urls:
+      - https://socprime.com/blog/cve-2026-85706-critical-gitlab-path-traversal-flaw/
 ---
 
 On September 10, 2026, GitLab released critical security patches for its Community Edition (CE) and Enterprise Edition (EE) platforms. The update addresses a significant number of vulnerabilities reported by the CERT-FR in advisory CERTFR-2026-AVI-1160. These vulnerabilities affect GitLab versions prior to 19.1.8, as well as 19.2.x prior to 19.2.6, and 19.3.x prior to 19.3.2. 
