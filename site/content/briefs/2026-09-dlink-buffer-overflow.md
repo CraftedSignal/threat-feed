@@ -3,6 +3,7 @@ title: Remote Stack-based Buffer Overflow in D-Link DIR-878
 slug: 2026-09-dlink-buffer-overflow
 description: A critical stack-based buffer overflow vulnerability in the D-Link DIR-878 router enables remote code execution via malformed Dynamic DNS IPv6 configuration parameters.
 date: "2026-09-14T07:31:01Z"
+lastmod: "2026-09-14T09:31:55Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ cpes:
 tags:
   - remote-code-execution
   - network-security
+  - buffer-overflow
+  - network-device
+  - vulnerability
 vendors:
   - D-Link
 products:
@@ -30,11 +34,18 @@ mitre_ttps:
     technique_name: Exploitation of Remote Services
     evidence: The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Remote exploitation of the attack is possible.
+    confidence_band: high
 cves:
   - id: CVE-2026-90692
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90692
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90693
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-90692
       evidence: Vulnerability documented in NVD.
+updates:
+  - at: "2026-09-14T09:31:55Z"
+    level: L2
+    summary: added coverage for DIR-878 (120B05)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-90693
 ---
 
 D-Link DIR-878 routers running firmware version 120B05 contain a critical stack-based buffer overflow vulnerability in the SetDynamicDNSIPv6Settings function. This vulnerability resides within the device's Dynamic DNS IPv6 settings component. An unauthenticated remote attacker can exploit this flaw by sending a specially crafted request containing malicious input in the IPv6Address or Hostname arguments to the vulnerable function. Successful exploitation allows for arbitrary code execution with the privileges of the web service process. Given the nature of the overflow, it likely facilitates remote exploitation without requiring local access or previous authentication. This poses a significant risk to the availability and integrity of affected network edge devices.
