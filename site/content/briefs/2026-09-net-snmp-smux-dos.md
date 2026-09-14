@@ -3,6 +3,7 @@ title: Net-SNMP Denial of Service via SMUX Module
 slug: 2026-09-net-snmp-smux-dos
 description: An unauthenticated denial of service vulnerability in Net-SNMP versions up to 5.9.5.2 allows remote attackers to hang the snmpd process by initiating idle connections to the SMUX module.
 date: "2026-09-11T13:13:17Z"
+lastmod: "2026-09-14T13:03:02Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - Net-SNMP
 products:
   - Net-SNMP (<= 5.9.5.2)
+  - Net-SNMP
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -28,8 +30,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-89147
     cvss: 7.5
+    epss: 0.00276
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-89147
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3341
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-89147
       evidence: Source identifies vulnerability in versions through 5.9.5.2
+updates:
+  - at: "2026-09-14T13:03:02Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3341
 ---
 
 Net-SNMP versions through 5.9.5.2 are susceptible to a critical denial of service vulnerability within the SMUX (SNMP Multiplexing) protocol module. The issue originates from the smux_accept() function, which performs an unauthenticated blocking read on incoming connections without implementing a timeout mechanism. Because the primary snmpd process operates in a single-threaded architecture, an attacker can trigger this flaw by establishing a connection to the SMUX listener and intentionally sending no data. This forces the process to block indefinitely while awaiting input, effectively suspending all SNMP monitoring and management capabilities for the target device. This vulnerability presents a high impact to network availability as it allows unauthenticated remote actors to disable monitoring instrumentation without requiring complex payloads or elevated privileges.
