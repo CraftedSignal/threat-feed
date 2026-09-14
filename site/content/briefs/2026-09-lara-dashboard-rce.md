@@ -3,6 +3,7 @@ title: Arbitrary File Upload and RCE in Lara Dashboard
 slug: 2026-09-lara-dashboard-rce
 description: Lara Dashboard versions prior to 1.3.2 are vulnerable to arbitrary file upload via the core-upgrades endpoint, allowing unauthorized administrators to achieve remote code execution.
 date: "2026-09-07T23:37:52Z"
+lastmod: "2026-09-14T13:34:15Z"
 type: advisory
 types:
   - advisory
@@ -12,8 +13,13 @@ tags:
   - web-application-vulnerability
   - rce
   - file-upload
+  - path-traversal
+  - web-vulnerability
+vendors:
+  - LaraDashboard
 products:
   - Lara Dashboard (< 1.3.2)
+  - LaraDashboard (0.9.2 - 1.2.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,6 +38,7 @@ cves:
     cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86437
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90932
 rules:
   - title: Detects CVE-2026-86437 Exploitation - Malicious POST to core-upgrades
     description: Detects unauthorized attempts to access the core-upgrades upload endpoint; while authorization logic occurs within the application, monitor requests to this endpoint for anomalies.
@@ -43,7 +50,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-90932 Exploitation - Path Traversal in Backup Parameters
+    description: Detects path traversal sequences in backup_file or filename parameters targeting LaraDashboard backup endpoints.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -60,6 +77,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86437
       evidence: NVD vulnerability report
+updates:
+  - at: "2026-09-14T13:34:15Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-90932 Exploitation - Path Traversal in Backup Parameters'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-90932
 ---
 
 Lara Dashboard versions before 1.3.2 contain an authorization flaw in the /admin/settings/core-upgrades/upload endpoint. The application incorrectly restricts access to this endpoint to the 'settings.edit' permission rather than enforcing 'Superadmin' status. This vulnerability allows an authenticated administrator with limited permissions to upload and extract arbitrary ZIP archives. By crafting a malicious archive, an attacker can overwrite critical application files, such as 'routes/web.php', with payloads containing system commands. These commands execute in the context of the web server user, providing the attacker with full control over the application environment, including access to database credentials and environment secrets. This attack allows for persistence and full system compromise, impacting the confidentiality, integrity, and availability of the host application.
