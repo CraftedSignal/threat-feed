@@ -3,7 +3,7 @@ title: Cisco Security Updates - September 2026
 slug: 2026-09-cisco-security-updates
 description: Roundup of Cisco security advisories published in September 2026.
 date: "2026-09-02T18:06:39Z"
-lastmod: "2026-09-14T17:34:33Z"
+lastmod: "2026-09-14T19:10:35Z"
 type: threat
 types:
   - threat
@@ -34,16 +34,15 @@ cves:
   - id: CVE-2026-20353
     product: Secure Email Gateway
     cvss: 9.8
+  - id: CVE-2026-76441
+    cvss: 9.8
+  - id: CVE-2026-76461
+    cvss: 9.8
+  - id: CVE-2026-76442
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-76440
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-esa-dfCrfXkm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20and%20Secure%20Email%20and%20Web%20Manager%20Security%20Hardening%20Release:%20September%202026%26vs_k=1
 updates:
-  - at: "2026-09-02T18:06:39Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1
   - at: "2026-09-02T18:06:42Z"
     level: L2
     summary: added CVE-2026-20355
@@ -72,9 +71,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76440
+  - at: "2026-09-14T19:10:35Z"
+    level: L2
+    summary: added CVE-2026-76441 +2
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-esa-dfCrfXkm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20and%20Secure%20Email%20and%20Web%20Manager%20Security%20Hardening%20Release:%20September%202026%26vs_k=1
 ---
 
-This roundup covers 6 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.8. None are reported as actively exploited at the time of release. The issues affect Desk Phone 9800 Series, Nexus 9000 Series Switches, Secure Email, Secure Email Gateway, UCS Servers.
+This roundup covers 11 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.8. None are reported as actively exploited at the time of release. The issues affect AsyncOS Software, Desk Phone 9800 Series, Nexus 9000 Series Switches, Secure Email, Secure Email Gateway, UCS Servers.
 
 ## Summary
 
@@ -82,10 +88,15 @@ This roundup covers 6 Cisco security vulnerabilities. CVSS base scores range fro
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-20354](#cve-2026-20354) | Secure Email | Medium | 5.9 | 0.15% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1) (authoritative) |
 | [CVE-2026-20355](#cve-2026-20355) | Secure Email | Medium | 5.9 | 0.15% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1) (authoritative) |
-| [CVE-2026-20212](#cve-2026-20212) | Nexus 9000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-n9k-s1-rce-EH8dEtr?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Switches%20Silicon%20One%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20212](#cve-2026-20212) | Nexus 9000 Series Switches | Critical | 9.8 | 0.53% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-n9k-s1-rce-EH8dEtr?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Switches%20Silicon%20One%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20281](#cve-2026-20281) | Desk Phone 9800 Series | High | 7.5 | 0.33% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-phone-dos-txMYNRzv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Desk%20Phone%209800%20Series,%20IP%20Phone%207800%20and%208800%20Series,%20and%20Video%20Phone%208875%20with%20SIP%20Software%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20293](#cve-2026-20293) | UCS Servers | High | 7.1 | 0.13% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20293) (authoritative) |
 | [CVE-2026-20353](#cve-2026-20353) | Secure Email Gateway | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20353) (authoritative) |
+| [CVE-2026-76440](#cve-2026-76440) | Secure Email Gateway |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76440) (authoritative) |
+| [CVE-2026-76441](#cve-2026-76441) | Secure Email Gateway |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76441) (authoritative) |
+| [CVE-2026-76443](#cve-2026-76443) | Secure Email Gateway |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76443) (authoritative) |
+| [CVE-2026-76461](#cve-2026-76461) | AsyncOS Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76461) (authoritative) |
+| [CVE-2026-76442](#cve-2026-76442) | Secure Email Gateway |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76442) (authoritative) |
 
 
 ## CVE-2026-20354
@@ -101,6 +112,11 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
+
+
+
 Related in this roundup: [CVE-2026-20355](#cve-2026-20355).
 
 ## CVE-2026-20355
@@ -111,6 +127,11 @@ Affected products:
 - Secure Email
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1
+
+
+
+
+
 
 
 
@@ -158,3 +179,76 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20353
+
+
+
+
+
+Related in this roundup: [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
+
+## CVE-2026-76440
+
+CVE-2026-76440 identifies a path traversal vulnerability in Cisco Secure Email Gateway and Cisco Secure Email and Web Manager, discovered during an internal security review. The vulnerability allows for unauthorized file system access due to improper input validation, carrying a CVSS base score of 9.8.
+
+Affected products:
+- Secure Email Gateway
+- Secure Email and Web Manager
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76440
+
+
+
+
+
+Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
+
+## CVE-2026-76441
+
+CVE-2026-76441 identifies multiple improper access control vulnerabilities within Cisco Secure Email Gateway and Cisco Secure Email and Web Manager, discovered during an internal security review. These vulnerabilities carry a high CVSS score of 9.8 and highlight a failure to properly restrict access to sensitive components, requiring updates to the affected software.
+
+Affected products:
+- Secure Email Gateway
+- Secure Email and Web Manager
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76441
+
+
+
+
+Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
+
+## CVE-2026-76443
+
+Cisco has released patches for multiple internally discovered vulnerabilities in the Cisco Secure Email Gateway and Cisco Secure Email and Web Manager, tracked under CVE-2026-76443. The vulnerabilities are identified as improper neutralization issues (CWE-707) and carry a CVSS base score of 9.8, indicating a critical severity level requiring immediate attention from administrators.
+
+Affected products:
+- Secure Email Gateway
+- Secure Email and Web Manager
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76443
+
+
+
+Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76442](#cve-2026-76442).
+
+## CVE-2026-76461
+
+CVE-2026-76461 is a critical vulnerability in Cisco AsyncOS Software for Secure Email Gateway caused by insufficient validation during email parsing. An unauthenticated remote attacker can leverage a crafted email containing malicious SQL statements to achieve arbitrary command execution with root privileges on the underlying operating system.
+
+Affected products:
+- AsyncOS Software
+- Secure Email Gateway
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76461
+
+## CVE-2026-76442
+
+CVE-2026-76442 describes a vulnerability in Cisco Secure Email Gateway and Cisco Secure Email and Web Manager identified during an internal security review. The vulnerability relates to improper validation of input quantity (CWE-1284), which can lead to potential service disruption or security bypass. Remediation involves applying the provided software hardening releases from the vendor.
+
+Affected products:
+- Secure Email Gateway
+- Secure Email and Web Manager
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76442
+
+Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443).
