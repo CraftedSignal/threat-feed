@@ -3,19 +3,21 @@ title: Suspicious Shell Execution via Velociraptor
 slug: 2024-01-velociraptor-shell-execution
 description: Attackers are abusing the Velociraptor endpoint visibility and response tool to execute shell commands (cmd, PowerShell, rundll32) on compromised Windows systems, blending in with legitimate system processes.
 date: "2024-01-02T12:00:00Z"
+lastmod: "2026-09-14T12:54:27Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:solarwinds:web_help_desk:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:solarwinds:web_help_desk:12.8.7:-:*:*:*:*:*:*
 tags:
   - velociraptor
   - command-and-control
   - windows
-vendors:
-  - SolarWinds
-products:
-  - SolarWinds Web Help Desk
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -25,9 +27,14 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2025-26399
+    cvss: 9.8
+    epss: 0.895
 references:
   - https://www.huntress.com/blog/active-exploitation-solarwinds-web-help-desk-cve-2025-26399
   - https://attack.mitre.org/techniques/T1219/
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/command_and_control_rmm_software_installation_from_commonly_abused_web_service.toml
 rules:
   - title: Suspicious Shell Execution via Velociraptor
     description: Detects shell executions (cmd, PowerShell, rundll32) spawned by Velociraptor.
@@ -56,6 +63,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-09-14T12:54:27Z"
+    level: L2
+    summary: added CVE-2025-26399; OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/command_and_control_rmm_software_installation_from_commonly_abused_web_service.toml
 ---
 
 Velociraptor is a legitimate open-source endpoint visibility and response tool. Threat actors are abusing Velociraptor by installing it on compromised Windows systems and using it to execute shell commands (cmd, PowerShell, rundll32), effectively hiding their malicious activity within normal system processes. This allows attackers to perform various actions on the compromised host, such as data exfiltration, lateral movement, and credential access, while evading traditional detection methods. The activity was observed in relation to exploitation of CVE-2025-26399, a vulnerability in SolarWinds Web Help Desk. Defenders need to differentiate between legitimate and malicious use of Velociraptor to prevent further compromise.
