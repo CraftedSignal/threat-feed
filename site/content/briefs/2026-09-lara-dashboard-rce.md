@@ -3,7 +3,7 @@ title: Arbitrary File Upload and RCE in Lara Dashboard
 slug: 2026-09-lara-dashboard-rce
 description: Lara Dashboard versions prior to 1.3.2 are vulnerable to arbitrary file upload via the core-upgrades endpoint, allowing unauthorized administrators to achieve remote code execution.
 date: "2026-09-07T23:37:52Z"
-lastmod: "2026-09-14T13:34:15Z"
+lastmod: "2026-09-14T13:34:23Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,7 @@ vendors:
 products:
   - Lara Dashboard (< 1.3.2)
   - LaraDashboard (0.9.2 - 1.2.2)
+  - Laradashboard (<= 1.2.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,6 +40,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86437
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90932
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90933
 rules:
   - title: Detects CVE-2026-86437 Exploitation - Malicious POST to core-upgrades
     description: Detects unauthorized attempts to access the core-upgrades upload endpoint; while authorization logic occurs within the application, monitor requests to this endpoint for anomalies.
@@ -60,7 +62,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect Unauthorized Access to Laradashboard License API
+    description: Detects unauthorized attempts to access Laradashboard License API endpoints by non-administrative users (requires mapping user roles to API access logs)
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege_escalation
+    techniques:
+      - T1068
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -85,6 +97,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-90932
+  - at: "2026-09-14T13:34:23Z"
+    level: L2
+    summary: 'added detection rule: Detect Unauthorized Access to Laradashboard License API'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-90933
 ---
 
 Lara Dashboard versions before 1.3.2 contain an authorization flaw in the /admin/settings/core-upgrades/upload endpoint. The application incorrectly restricts access to this endpoint to the 'settings.edit' permission rather than enforcing 'Superadmin' status. This vulnerability allows an authenticated administrator with limited permissions to upload and extract arbitrary ZIP archives. By crafting a malicious archive, an attacker can overwrite critical application files, such as 'routes/web.php', with payloads containing system commands. These commands execute in the context of the web server user, providing the attacker with full control over the application environment, including access to database credentials and environment secrets. This attack allows for persistence and full system compromise, impacting the confidentiality, integrity, and availability of the host application.
