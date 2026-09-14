@@ -1,67 +1,66 @@
 ---
-title: Remote Code Execution via HNAP1 in D-Link DIR-823G
+title: Remote Stack-based Buffer Overflow in D-Link DIR-878
 slug: 2026-09-dlink-buffer-overflow
-description: A stack-based buffer overflow vulnerability in the HNAP1 component of D-Link DIR-823G allows remote attackers to execute arbitrary code via malformed parameters in SetStaticRouteSettings.
-date: "2026-09-14T05:30:19Z"
+description: A critical stack-based buffer overflow vulnerability in the D-Link DIR-878 router enables remote code execution via malformed Dynamic DNS IPv6 configuration parameters.
+date: "2026-09-14T07:31:01Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 cpes:
-  - cpe:2.3:a:d_link:dir_823g:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:d_link:dir_878:*:*:*:*:*:*:*:*
 tags:
   - remote-code-execution
-  - network-infrastructure
-  - cve-2026-90680
+  - network-security
 vendors:
   - D-Link
 products:
-  - DIR-823G (1.0.2B05_20181207)
+  - DIR-878 (120B05)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1210
     technique_name: Exploitation of Remote Services
-    evidence: The attack can be launched remotely.
+    evidence: The attack may be launched remotely.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1210
     technique_name: Exploitation of Remote Services
-    evidence: The manipulation of the argument PAddress/SubnetMask/Gateway results in stack-based buffer overflow.
+    evidence: The manipulation of the argument IPv6Address/Hostname results in stack-based buffer overflow.
     confidence_band: high
 cves:
-  - id: CVE-2026-90680
+  - id: CVE-2026-90692
     cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-90680
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90692
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
-    - SOC
     - IT Operations
+    - SOC
   immediate_actions:
-    - action: Isolate D-Link DIR-823G routers from internet-facing network segments.
+    - action: Restrict access to the router web management interface to trusted internal IP ranges only.
       owner: IT Operations
       due: 24h
-      evidence: Critical severity (9.9) RCE vulnerability.
+      evidence: Vulnerability is remotely exploitable.
   mitigation_plan:
     - priority: immediate
-      action: Restrict access to HNAP1 web interface to trusted internal IP addresses only.
+      action: Check D-Link support site for firmware patches addressing CVE-2026-90692 and apply to all identified DIR-878 units.
       owner: IT Operations
-      addresses: CVE-2026-90680
-      evidence: Vulnerability in /HNAP1/SetStaticRouteSettings.
+      addresses: CVE-2026-90692
+      evidence: Vulnerability documented in NVD.
 ---
 
-A critical security vulnerability, identified as CVE-2026-90680, has been disclosed in the D-Link DIR-823G router, specifically affecting firmware version 1.0.2B05_20181207. The vulnerability resides within the HNAP1 (Home Network Administration Protocol) component. Specifically, the function responsible for processing static route settings, located at /HNAP1/SetStaticRouteSettings, improperly handles input parameters.
-
-An attacker can exploit this via the PAddress, SubnetMask, or Gateway arguments. The underlying issue is an unsafe call to the strcpy function, which leads to a stack-based buffer overflow when provided with excessively long input strings. Because this interface is reachable over the network, a remote, unauthenticated attacker could leverage this flaw to crash the device or achieve remote code execution (RCE) with the privileges of the HNAP1 service. This impacts the integrity and availability of the affected network infrastructure.
+D-Link DIR-878 routers running firmware version 120B05 contain a critical stack-based buffer overflow vulnerability in the SetDynamicDNSIPv6Settings function. This vulnerability resides within the device's Dynamic DNS IPv6 settings component. An unauthenticated remote attacker can exploit this flaw by sending a specially crafted request containing malicious input in the IPv6Address or Hostname arguments to the vulnerable function. Successful exploitation allows for arbitrary code execution with the privileges of the web service process. Given the nature of the overflow, it likely facilitates remote exploitation without requiring local access or previous authentication. This poses a significant risk to the availability and integrity of affected network edge devices.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows for full remote compromise of the D-Link DIR-823G router. Given the position of these devices on the network perimeter, an attacker could intercept traffic, modify DNS settings, or gain a foothold for lateral movement into the internal network. The vulnerability carries a CVSS v3.1 base score of 9.9, reflecting its critical nature.
+Successful exploitation of this vulnerability allows an attacker to achieve remote code execution on the router. This can lead to total device compromise, allowing the attacker to intercept network traffic, modify DNS settings for man-in-the-middle attacks, or utilize the compromised device as a pivot point for further lateral movement within the local area network.
 
 ## Recommendation
 
-Defenders should prioritize identifying any D-Link DIR-823G devices currently active within their environment. Since the vendor has not provided an updated firmware patch in the provided disclosure, immediate isolation or removal of these devices from internet-facing positions is required. Implement strict firewall controls to limit access to the HNAP1 interface to only trusted internal management subnets.
+* Monitor for unauthorized attempts to access or modify dynamic DNS configurations on network edge devices.
+* Audit network access control lists to ensure web management interfaces of routers like the D-Link DIR-878 are not exposed to the public internet.
+* Contact D-Link support or check official vendor channels immediately for firmware updates that address the identified CVE-2026-90692 vulnerability.
