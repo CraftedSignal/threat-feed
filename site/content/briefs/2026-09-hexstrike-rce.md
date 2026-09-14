@@ -3,6 +3,7 @@ title: Remote Command Injection in 0x4m4 HexStrike AI
 slug: 2026-09-hexstrike-rce
 description: A command injection vulnerability in HexStrike AI allows remote unauthenticated attackers to execute arbitrary OS commands via the Execute Endpoint.
 date: "2026-09-14T03:29:56Z"
+lastmod: "2026-09-14T03:30:04Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,12 @@ tags:
   - remote-code-execution
   - vulnerability
   - command-injection
+  - api-security
 vendors:
   - 0x4m4
 products:
   - HexStrike AI (<= d689933ff579d839c676c82b231f8e98326c5f04)
+  - HexStrike AI (up to commit d689933ff579d839c676c82b231f8e98326c5f04)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,11 +34,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: It is possible to initiate the attack remotely.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack can be initiated remotely.
+    confidence_band: high
 cves:
   - id: CVE-2026-90619
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90619
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90620
 rules:
   - title: Detects CVE-2026-90619 Exploitation - Remote OS Command Injection
     description: Detects HTTP requests to HexStrike AI containing shell metacharacters in the code or script arguments.
@@ -65,6 +75,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-90619
       evidence: Vulnerability allows unauthenticated remote command injection
+updates:
+  - at: "2026-09-14T03:30:04Z"
+    level: L2
+    summary: added coverage for HexStrike AI (up to commit d689933ff579d839c676c82b231f8e98326c5f04)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-90620
 ---
 
 HexStrike AI, an open-source project by 0x4m4, contains a remote code execution vulnerability (CVE-2026-90619) affecting all releases up to commit d689933ff579d839c676c82b231f8e98326c5f04. The flaw resides within the 'Execute Endpoint' component inside the 'hexstrike_server.py' file. An attacker can trigger this vulnerability by sending a maliciously crafted request to the application, specifically targeting the 'code' or 'script' arguments. Because the input is processed without adequate sanitization, the application passes the user-supplied data directly to the underlying operating system's shell, resulting in arbitrary command execution. This vulnerability is remotely exploitable without authentication, and public proof-of-concept exploits exist, posing a high risk to organizations utilizing this component in production environments. As the project follows a continuous delivery model without versioned releases, users must monitor the project repository for updates.
