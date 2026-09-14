@@ -3,6 +3,7 @@ title: Stored Cross-Site Scripting Vulnerability in Strapi Content Manager
 slug: 2026-09-strapi-xss
 description: Strapi versions 4.x through 4.26.2 and 5.x before 5.48.1 are vulnerable to stored XSS via the WYSIWYG preview component, allowing an authenticated Author to trigger script execution in high-privilege sessions.
 date: "2026-09-13T11:25:30Z"
+lastmod: "2026-09-14T13:04:08Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ vendors:
   - Strapi
 products:
   - Strapi (4.x <= 4.26.2, 5.x < 5.48.1)
+  - Strapi (4.x-4.26.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,6 +34,7 @@ cves:
     cvss: 8.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90561
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3324
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +45,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-90561
       evidence: Strapi versions 4.x through 4.26.2 and 5.x before 5.48.1 contain a stored cross-site scripting vulnerability
+updates:
+  - at: "2026-09-14T13:04:08Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3324
 ---
 
 Strapi versions 4.x through 4.26.2 and 5.x before 5.48.1 contain a stored cross-site scripting (XSS) vulnerability within the content manager's WYSIWYG preview component. The vulnerability exists because the application fails to adequately sanitize rich text fields, allowing for the injection of malicious script tags. An authenticated user possessing the 'Author' role can inject these scripts into content fields. When an 'Editor' or 'Super Admin' accesses the content and expands the preview pane, the malicious payload executes within their browser session. This flaw poses a significant risk for account takeover and unauthorized administrative access. Defenders should prioritize updating Strapi to the patched versions.
