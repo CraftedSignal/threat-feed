@@ -3,6 +3,7 @@ title: Authorization Bypass Vulnerability in Casdoor /api/mcp Endpoint
 slug: 2026-09-casdoor-auth-bypass
 description: Casdoor versions through 4.4.0 contain an authorization bypass vulnerability (CVE-2026-91998) in the /api/mcp endpoint, allowing authenticated attackers to perform unauthorized administrative actions across all organizations.
 date: "2026-09-15T13:40:35Z"
+lastmod: "2026-09-15T15:31:29Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:casdoor:casdoor:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-91998&utm_source=rss&utm_medium=rss
 vendors:
   - Casdoor
 products:
@@ -19,6 +23,7 @@ cves:
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91998
+  - https://sploitus.com/exploit?id=CVE-2026-91998&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-91998 Exploitation - Unauthorized /api/mcp Access
     description: Detects potential exploitation of CVE-2026-91998 by identifying administrative requests to the /api/mcp endpoint that deviate from expected application scope.
@@ -46,6 +51,14 @@ action_plan:
       action: Restrict access to the /api/mcp endpoint via network policy or WAF rules
       owner: IT Operations
       addresses: CVE-2026-91998
+updates:
+  - at: "2026-09-15T15:31:29Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-91998&utm_source=rss&utm_medium=rss
 ---
 
 Casdoor versions up to and including 4.4.0 are affected by a severe authorization bypass vulnerability (CVE-2026-91998) located within the /api/mcp endpoint. This vulnerability allows an attacker who possesses valid credentials (clientId and clientSecret) for any single application registered within the Casdoor instance to gain elevated administrative privileges. 
