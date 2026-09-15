@@ -3,6 +3,7 @@ title: Authentication Bypass in pig via Password Reset Endpoint
 slug: 2026-09-pig-auth-bypass
 description: An authentication bypass vulnerability in pig versions prior to 4.1.0 allows remote attackers to perform unauthorized account takeovers by exploiting improper password verification in the /register/password endpoint.
 date: "2026-09-15T13:40:26Z"
+lastmod: "2026-09-15T15:31:32Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:pig_project:pig:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-91995&utm_source=rss&utm_medium=rss
 products:
   - pig (< 4.1.0)
 mitre_ttps:
@@ -30,6 +34,7 @@ cves:
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91995
+  - https://sploitus.com/exploit?id=CVE-2026-91995&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-91995 Exploitation - Unauthorized Password Reset Attempt
     description: Detects exploitation attempts against the /register/password endpoint of the pig application where password verification is bypassed.
@@ -59,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-91995
       evidence: Source provided version requirements
+updates:
+  - at: "2026-09-15T15:31:32Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-91995&utm_source=rss&utm_medium=rss
 ---
 
 The pig application, in versions prior to 4.1.0, is affected by a critical authentication bypass vulnerability located in the /register/password endpoint. The vulnerability stems from the application discarding the results of the password verification process during the account credential update flow. Consequently, an attacker can supply an arbitrary value as the current password, bypass the validation check, and successfully overwrite the credentials for any user account, including administrative accounts. This flaw provides remote attackers with an unauthenticated path to achieve full administrative control over the affected application. Because the vulnerability allows for complete account takeover, it poses a significant risk to the integrity and confidentiality of the environment hosting the pig service.
