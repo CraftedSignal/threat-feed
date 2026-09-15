@@ -3,7 +3,7 @@ title: Oracle Security Updates - September 2026
 slug: 2026-09-oracle-security-updates
 description: Roundup of Oracle security advisories published in September 2026.
 date: "2026-09-15T21:42:32Z"
-lastmod: "2026-09-15T21:47:38Z"
+lastmod: "2026-09-15T21:49:09Z"
 type: threat
 types:
   - threat
@@ -104,16 +104,17 @@ cves:
     cvss: 9.8
   - id: CVE-2026-83061
     cvss: 9.8
+  - id: CVE-2026-83062
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-83062
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83066
 updates:
-  - at: "2026-09-15T21:46:27Z"
+  - at: "2026-09-15T21:46:38Z"
     level: L2
-    summary: added CVE-2026-82997, CVE-2026-83039
+    summary: added CVE-2026-82997
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-83043
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83057
   - at: "2026-09-15T21:47:24Z"
     level: L2
@@ -136,9 +137,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83062
+  - at: "2026-09-15T21:49:09Z"
+    level: L2
+    summary: added CVE-2026-83062
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83066
 ---
 
-This roundup covers 49 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Fusion Middleware, Identity Manager, Internet Directory, JDeveloper, Managed File Transfer, Oracle Access Manager, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Internet Directory, Service Delivery Platform, WebCenter Enterprise Capture, WebCenter Portal, WebCenter Sites, WebLogic Server.
+This roundup covers 51 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Fusion Middleware, Identity Manager, Internet Directory, JDeveloper, Managed File Transfer, Oracle Access Manager, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle Internet Directory, Service Delivery Platform, WebCenter Enterprise Capture, WebCenter Portal, WebCenter Sites, WebLogic Server.
 
 ## Summary
 
@@ -188,11 +196,13 @@ This roundup covers 49 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-83054](#cve-2026-83054) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83054) (authoritative) |
 | [CVE-2026-83055](#cve-2026-83055) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83055) (authoritative) |
 | [CVE-2026-83056](#cve-2026-83056) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83056) (authoritative) |
-| [CVE-2026-83057](#cve-2026-83057) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83057) (authoritative) |
+| [CVE-2026-83057](#cve-2026-83057) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83057) (authoritative) |
 | [CVE-2026-83058](#cve-2026-83058) | n/a | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83058) (authoritative) |
 | [CVE-2026-83059](#cve-2026-83059) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83059) (authoritative) |
 | [CVE-2026-83060](#cve-2026-83060) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83060) (authoritative) |
-| [CVE-2026-83061](#cve-2026-83061) | Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83061) (authoritative) |
+| [CVE-2026-83061](#cve-2026-83061) | Internet Directory (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83061) (authoritative) |
+| [CVE-2026-83062](#cve-2026-83062) | Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83062) (authoritative) |
+| [CVE-2026-83064](#cve-2026-83064) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83064) (authoritative) |
 
 
 ## CVE-2026-70748
@@ -203,6 +213,8 @@ Affected products:
 - WebLogic Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70748
+
+
 
 
 
@@ -309,6 +321,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70756
 
 
 
+
+
 Related in this roundup: [CVE-2026-70748](#cve-2026-70748), [CVE-2026-70757](#cve-2026-70757), [CVE-2026-83021](#cve-2026-83021), [CVE-2026-83038](#cve-2026-83038).
 
 ## CVE-2026-70757
@@ -319,6 +333,8 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70757
+
+
 
 
 
@@ -429,6 +445,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71133
 
 
 
+
+
 Related in this roundup: [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944), [CVE-2026-73946](#cve-2026-73946), [CVE-2026-73947](#cve-2026-73947), [CVE-2026-73950](#cve-2026-73950), [CVE-2026-73962](#cve-2026-73962), [CVE-2026-83001](#cve-2026-83001).
 
 ## CVE-2026-71163
@@ -439,6 +457,8 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71163
+
+
 
 
 
@@ -536,6 +556,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73940
 
 
 
+
+
 Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73944](#cve-2026-73944), [CVE-2026-73946](#cve-2026-73946), [CVE-2026-73947](#cve-2026-73947), [CVE-2026-73950](#cve-2026-73950), [CVE-2026-73962](#cve-2026-73962), [CVE-2026-83001](#cve-2026-83001).
 
 ## CVE-2026-73944
@@ -546,6 +568,8 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73944
+
+
 
 
 
@@ -644,6 +668,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73946
 
 
 
+
+
 Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944), [CVE-2026-73947](#cve-2026-73947), [CVE-2026-73950](#cve-2026-73950), [CVE-2026-73962](#cve-2026-73962), [CVE-2026-83001](#cve-2026-83001).
 
 ## CVE-2026-73947
@@ -654,6 +680,8 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73947
+
+
 
 
 
@@ -739,6 +767,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73948
 
 
 
+
+
 Related in this roundup: [CVE-2026-73952](#cve-2026-73952), [CVE-2026-73953](#cve-2026-73953), [CVE-2026-73956](#cve-2026-73956), [CVE-2026-83039](#cve-2026-83039).
 
 ## CVE-2026-73950
@@ -749,6 +779,8 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73950
+
+
 
 
 
@@ -832,6 +864,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73952
 
 
 
+
+
 Related in this roundup: [CVE-2026-73948](#cve-2026-73948), [CVE-2026-73953](#cve-2026-73953), [CVE-2026-73956](#cve-2026-73956), [CVE-2026-83039](#cve-2026-83039).
 
 ## CVE-2026-73953
@@ -877,6 +911,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73953
 
 
 
+
+
 Related in this roundup: [CVE-2026-73948](#cve-2026-73948), [CVE-2026-73952](#cve-2026-73952), [CVE-2026-73956](#cve-2026-73956), [CVE-2026-83039](#cve-2026-83039).
 
 ## CVE-2026-73956
@@ -887,6 +923,8 @@ Affected products:
 - WebCenter Portal (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73956
+
+
 
 
 
@@ -977,6 +1015,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73962
 
 
 
+
+
 Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944), [CVE-2026-73946](#cve-2026-73946), [CVE-2026-73947](#cve-2026-73947), [CVE-2026-73950](#cve-2026-73950), [CVE-2026-83001](#cve-2026-83001).
 
 ## CVE-2026-73963
@@ -1005,6 +1045,8 @@ Affected products:
 - Service Delivery Platform (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82997
+
+
 
 
 
@@ -1061,6 +1103,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82998
 
 
 
+
+
 Related in this roundup: [CVE-2026-83020](#cve-2026-83020).
 
 ## CVE-2026-82999
@@ -1071,6 +1115,8 @@ Affected products:
 - Service Delivery Platform (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82999
+
+
 
 
 
@@ -1130,6 +1176,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83000
 
 
 
+
+
 Related in this roundup: [CVE-2026-82997](#cve-2026-82997), [CVE-2026-82999](#cve-2026-82999).
 
 ## CVE-2026-83001
@@ -1140,6 +1188,8 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83001
+
+
 
 
 
@@ -1203,6 +1253,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83020
 
 
 
+
+
 Related in this roundup: [CVE-2026-82998](#cve-2026-82998).
 
 ## CVE-2026-83021
@@ -1213,6 +1265,8 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83021
+
+
 
 
 
@@ -1277,6 +1331,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83031
 
 
 
+
+
 Related in this roundup: [CVE-2026-83035](#cve-2026-83035), [CVE-2026-83036](#cve-2026-83036), [CVE-2026-83037](#cve-2026-83037).
 
 ## CVE-2026-83035
@@ -1287,6 +1343,8 @@ Affected products:
 - WebCenter Sites (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83035
+
+
 
 
 
@@ -1328,6 +1386,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83036
 
 
 
+
+
 Related in this roundup: [CVE-2026-83031](#cve-2026-83031), [CVE-2026-83035](#cve-2026-83035), [CVE-2026-83037](#cve-2026-83037).
 
 ## CVE-2026-83037
@@ -1338,6 +1398,8 @@ Affected products:
 - WebCenter Sites (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83037
+
+
 
 
 
@@ -1375,6 +1437,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83038
 
 
 
+
+
 Related in this roundup: [CVE-2026-70748](#cve-2026-70748), [CVE-2026-70756](#cve-2026-70756), [CVE-2026-70757](#cve-2026-70757), [CVE-2026-83021](#cve-2026-83021).
 
 ## CVE-2026-83039
@@ -1385,6 +1449,8 @@ Affected products:
 - WebCenter Portal (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83039
+
+
 
 
 
@@ -1434,7 +1500,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83054
 
 
 
-Related in this roundup: [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83060](#cve-2026-83060).
+
+
+Related in this roundup: [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83060](#cve-2026-83060), [CVE-2026-83062](#cve-2026-83062).
 
 ## CVE-2026-83055
 
@@ -1456,7 +1524,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83056
 
 
 
-Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83060](#cve-2026-83060).
+
+
+Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83060](#cve-2026-83060), [CVE-2026-83062](#cve-2026-83062).
 
 ## CVE-2026-83057
 
@@ -1471,7 +1541,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83057
 
 
 
-Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83060](#cve-2026-83060).
+
+
+Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83060](#cve-2026-83060), [CVE-2026-83062](#cve-2026-83062).
 
 ## CVE-2026-83058
 
@@ -1490,7 +1562,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83059
 
 
 
-Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83060](#cve-2026-83060).
+
+
+Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83060](#cve-2026-83060), [CVE-2026-83062](#cve-2026-83062).
 
 ## CVE-2026-83060
 
@@ -1502,7 +1576,9 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83060
 
 
-Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83059](#cve-2026-83059).
+
+
+Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83062](#cve-2026-83062).
 
 ## CVE-2026-83061
 
@@ -1512,3 +1588,21 @@ Affected products:
 - Internet Directory (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83061
+
+## CVE-2026-83062
+
+CVE-2026-83062 is a critical vulnerability in the Oracle Internet Directory component of Oracle Fusion Middleware. The vulnerability allows an unauthenticated, network-adjacent attacker to perform a complete takeover of the OID LDAP server. With a CVSS score of 9.8, this exploit targets the LDAP service, impacting confidentiality, integrity, and availability without requiring user interaction.
+
+Affected products:
+- Oracle Internet Directory (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83062
+
+
+Related in this roundup: [CVE-2026-83054](#cve-2026-83054), [CVE-2026-83056](#cve-2026-83056), [CVE-2026-83057](#cve-2026-83057), [CVE-2026-83059](#cve-2026-83059), [CVE-2026-83060](#cve-2026-83060).
+
+## CVE-2026-83064
+
+Oracle WebCenter Portal 12.2.1.4.0 and 14.1.2.0.0 contains a vulnerability in the Runtime Tools component that allows a high-privileged attacker with network access via HTTP to perform a full system takeover. The vulnerability has a CVSS 3.1 base score of 9.1 and supports a scope change, meaning exploitation can lead to impact beyond the vulnerable product itself.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83064
