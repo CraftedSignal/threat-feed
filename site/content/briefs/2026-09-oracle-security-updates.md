@@ -3,7 +3,7 @@ title: Oracle Security Updates - September 2026
 slug: 2026-09-oracle-security-updates
 description: Roundup of Oracle security advisories published in September 2026.
 date: "2026-09-15T21:42:32Z"
-lastmod: "2026-09-15T21:43:08Z"
+lastmod: "2026-09-15T21:43:19Z"
 type: threat
 types:
   - threat
@@ -36,16 +36,19 @@ cves:
     cvss: 9.8
   - id: CVE-2026-73944
     cvss: 9.1
+  - id: CVE-2026-73945
+    cvss: 9.9
+  - id: CVE-2026-73946
+    cvss: 9.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73946
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73947
 updates:
-  - at: "2026-09-15T21:42:41Z"
+  - at: "2026-09-15T21:42:53Z"
     level: L2
-    summary: added CVE-2026-70913, CVE-2026-71133, CVE-2026-71163
+    summary: added CVE-2026-71133, CVE-2026-71163
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-70913
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71133
       - https://nvd.nist.gov/vuln/detail/CVE-2026-71163
   - at: "2026-09-15T21:43:02Z"
@@ -56,9 +59,16 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-73944
       - https://nvd.nist.gov/vuln/detail/CVE-2026-73946
+  - at: "2026-09-15T21:43:19Z"
+    level: L2
+    summary: added CVE-2026-73945 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73947
 ---
 
-This roundup covers 9 Oracle security vulnerabilities. CVSS base scores range from 9.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Identity Manager, Oracle Access Manager, WebLogic Server.
+This roundup covers 10 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Identity Manager, Oracle Access Manager, WebLogic Server.
 
 ## Summary
 
@@ -71,8 +81,9 @@ This roundup covers 9 Oracle security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-71133](#cve-2026-71133) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71133) (authoritative) |
 | [CVE-2026-71163](#cve-2026-71163) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71163) (authoritative) |
 | [CVE-2026-73940](#cve-2026-73940) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73940) (authoritative) |
-| [CVE-2026-73944](#cve-2026-73944) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73944) (authoritative) |
+| [CVE-2026-73944](#cve-2026-73944) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73944) (authoritative) |
 | [CVE-2026-73945](#cve-2026-73945) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73945) (authoritative) |
+| [CVE-2026-73946](#cve-2026-73946) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73946) (authoritative) |
 
 
 ## CVE-2026-70748
@@ -83,6 +94,7 @@ Affected products:
 - WebLogic Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70748
+
 
 
 
@@ -109,6 +121,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70756
 
 
 
+
 Related in this roundup: [CVE-2026-70748](#cve-2026-70748), [CVE-2026-70757](#cve-2026-70757).
 
 ## CVE-2026-70757
@@ -119,6 +132,7 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70757
+
 
 
 
@@ -149,7 +163,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71133
 
 
 
-Related in this roundup: [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944).
+
+Related in this roundup: [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944), [CVE-2026-73946](#cve-2026-73946).
 
 ## CVE-2026-71163
 
@@ -163,7 +178,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71163
 
 
 
-Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944).
+
+Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944), [CVE-2026-73946](#cve-2026-73946).
 
 ## CVE-2026-73940
 
@@ -176,7 +192,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73940
 
 
 
-Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73944](#cve-2026-73944).
+
+Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73944](#cve-2026-73944), [CVE-2026-73946](#cve-2026-73946).
 
 ## CVE-2026-73944
 
@@ -188,10 +205,22 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73944
 
 
-Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940).
+
+Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73946](#cve-2026-73946).
 
 ## CVE-2026-73945
 
 CVE-2026-73945 is a critical vulnerability in the Authentication Engine component of Oracle Access Manager within Oracle Fusion Middleware. A low-privileged attacker with network access can exploit this via HTTP to achieve a full takeover of the Oracle Access Manager instance, potentially affecting other products due to a scope change. The vulnerability carries a CVSS base score of 9.9 and impacts confidentiality, integrity, and availability.
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73945
+
+## CVE-2026-73946
+
+CVE-2026-73946 is a high-severity vulnerability in the Oracle Access Manager component of Oracle Fusion Middleware. An attacker with high privileges can exploit this vulnerability over HTTP to achieve a full takeover of the Oracle Access Manager service, with potential for scope change impacting additional connected products. The vulnerability has a CVSS 3.1 base score of 9.1.
+
+Affected products:
+- Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73946
+
+Related in this roundup: [CVE-2026-71133](#cve-2026-71133), [CVE-2026-71163](#cve-2026-71163), [CVE-2026-73940](#cve-2026-73940), [CVE-2026-73944](#cve-2026-73944).
