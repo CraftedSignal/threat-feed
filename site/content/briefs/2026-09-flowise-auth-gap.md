@@ -3,7 +3,7 @@ title: Flowise Cross-Tenant Authorization Vulnerability
 slug: 2026-09-flowise-auth-gap
 description: Flowise versions before 3.1.4 contain authorization gaps in Enterprise endpoints that allow authenticated users to perform cross-tenant operations including unauthorized workspace deletion and SSO credential access.
 date: "2026-09-15T17:42:48Z"
-lastmod: "2026-09-15T17:43:23Z"
+lastmod: "2026-09-15T17:43:29Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,9 @@ tags:
   - arbitrary-file-write
   - rce
   - xss
+  - vulnerability
+  - nosql-injection
+  - web-application
 vendors:
   - Flowise
 products:
@@ -48,6 +51,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91931
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91934
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91935
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-91937
 action_plan:
   priority: elevated
   owners:
@@ -86,6 +90,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91935
+  - at: "2026-09-15T17:43:29Z"
+    level: L2
+    summary: added coverage for Flowise (< 3.1.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91937
 ---
 
 Flowise versions prior to 3.1.4 are affected by critical cross-tenant authorization flaws within their Enterprise endpoint implementations. The vulnerability arises from a failure to validate resource ownership during API operations. An attacker who has legitimate access to an Enterprise instance can exploit these endpoints to interact with resources belonging to other tenants within the same installation.
