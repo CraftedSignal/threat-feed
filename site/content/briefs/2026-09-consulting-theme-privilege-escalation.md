@@ -3,6 +3,7 @@ title: Privilege Escalation in Consulting Theme for WordPress via Improper Acces
 slug: 2026-09-consulting-theme-privilege-escalation
 description: The Consulting theme for WordPress in versions 6.7.16 and earlier contains a vulnerability allowing authenticated users to escalate privileges to administrator by manipulating insecure transient-based authentication mechanisms.
 date: "2026-09-15T13:41:01Z"
+lastmod: "2026-09-15T15:31:06Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:stylemixthemes:consulting:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-14805&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - web-application
@@ -30,6 +34,7 @@ cves:
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14805
+  - https://sploitus.com/exploit?id=CVE-2026-14805&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-14805 Exploitation - Unauthorized Transient Modification
     description: Detects exploitation attempts targeting the masterstudy_ms_stm_set_discard_transient AJAX endpoint used for privilege escalation.
@@ -66,6 +71,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-14805
       evidence: NVD advisory
+updates:
+  - at: "2026-09-15T15:31:06Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-14805&utm_source=rss&utm_medium=rss
 ---
 
 The Consulting theme for WordPress (up to and including version 6.7.16) is susceptible to privilege escalation due to insecure implementation of AJAX endpoints and developer access login mechanisms. The vulnerability stems from two primary issues in the theme's codebase: the `masterstudy_ms_stm_set_discard_transient` AJAX action in `admin/admin-notices/classes/STMHandler.php` lacks capability checks and nonce validation, and the login logic in `admin/classes/stm-theme-support.php` relies on a transient value for authentication that can be bypassed if the site is in legacy string mode. An attacker with minimal subscriber-level access can set the `stm_developer_access_token` transient to a known value and subsequently trigger the authentication mechanism to impersonate any user, including administrators. This allows for full administrative access to the WordPress site.
