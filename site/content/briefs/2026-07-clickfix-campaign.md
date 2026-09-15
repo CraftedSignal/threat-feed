@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-09-08T13:37:48Z"
+lastmod: "2026-09-15T09:27:47Z"
 type: advisory
 types:
   - advisory
@@ -123,6 +123,8 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/macos/command_and_control_etherhiding_c2_via_blockchain_rpc_request.toml
   - https://blog.talosintelligence.com/clearfake-webdav-infection-chain/
   - https://blog.talosintelligence.com/clickfix-moves-into-the-browser/
+  - https://www.malware-traffic-analysis.net/2026/09/11/index.html
+  - https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/
 iocs:
   - type: domain
     value: justwatch.com
@@ -180,19 +182,14 @@ iocs:
     value: leaguejazire.com
   - type: domain
     value: riyazinikokar.xyz
+  - type: domain
+    value: hbomaxx.us
 ioc_counts:
-  domain: 17
+  domain: 18
   hash_sha256: 1
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-26T00:48:44Z"
-    level: L1
-    summary: new product
-    sources:
-      - huntress
-    source_urls:
-      - https://www.huntress.com/blog/defcon-phishing-google-doc-malware
   - at: "2026-08-29T09:10:33Z"
     level: L1
     summary: new IOCs
@@ -221,6 +218,13 @@ updates:
       - talos
     source_urls:
       - https://blog.talosintelligence.com/clickfix-moves-into-the-browser/
+  - at: "2026-09-15T09:27:47Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
