@@ -1,18 +1,18 @@
 ---
-title: Iranian State Cyber Activity Targeting Dissidents via CHOSEN BRICK Malware
+title: Iranian State-Sponsored Espionage Campaign Utilizing CHOSEN BRICK Spyware
 slug: 2026-09-chosen-brick
-description: Iranian state-sponsored actors are using the modular CHOSEN BRICK malware to target dissidents, journalists, and activists globally, employing social engineering and legitimate cloud services for exfiltration.
-date: "2026-09-15T19:04:20Z"
+description: Iranian state-sponsored actors are targeting dissidents, activists, and journalists with the CHOSEN BRICK spyware, delivered via tailored social engineering on messaging platforms to facilitate surveillance and data exfiltration.
+date: "2026-09-15T19:04:29Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - surveillance
   - espionage
-  - malware
+  - spyware
   - social-engineering
+  - surveillance
 affected_os:
   - Windows
 mitre_ttps:
@@ -20,73 +20,59 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1566
     technique_name: Phishing
-    evidence: The actor often purports to be an individual previously known to the target or technical support from the social messaging platform.
+    evidence: Iranian state actors have been observed impersonating contacts over messaging apps such as WhatsApp and Telegram, building rapport with targets before deploying CHOSEN BRICK.
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1547
     technique_name: Boot or Logon Autostart Execution
-    evidence: CHOSEN BRICK is persistent and will survive a reboot of the target device. To do this it uses registry keys, most often the Run key.
+    evidence: The advisory warns CHOSEN BRICK is persistent and will survive a reboot of the target device.
     confidence_band: high
 references:
-  - https://www.ncsc.gov.uk/news/iranian-cyber-targeting-of-dissidents-activists-and-journalists
-iocs:
-  - type: domain
-    value: api.telegram.org
-  - type: domain
-    value: backblazeb2.com
-  - type: domain
-    value: vultrobjects.com
-  - type: domain
-    value: storjshare.io
-  - type: domain
-    value: iproyal.com
-  - type: domain
-    value: lightningproxies.net
-ioc_counts:
-  domain: 6
+  - https://www.ncsc.gov.uk/news/uk-allies-expose-spyware-iranian-state-actors-target-dissidents-activists-journalists
+  - https://www.ic3.gov/CSA/2026/260915.pdf
 action_plan:
   priority: elevated
   owners:
     - SOC
-    - Detection Engineering
+    - CTI
   immediate_actions:
-    - action: Deploy hunting queries for registry modifications to HKCU Run keys and unusual Microsoft Defender exclusions.
-      owner: Detection Engineering
+    - action: Review endpoint logs for suspicious persistence entries on Windows devices associated with high-risk individuals.
+      owner: SOC
       due: 24h
-      evidence: Source provides specific registry paths and evasion tactics.
+      evidence: The advisory warns CHOSEN BRICK is persistent and will survive a reboot of the target device.
   hunt_leads:
-    - lead: Search for processes executing from non-standard locations like C:\Windows\SysWOW64 (note the space character).
-      technique_id: T1204
+    - lead: Identification of anomalous file executions originating from messaging application directories or temporary folders.
+      technique_id: T1566
       data_needed:
-        - Process creation logs
+        - Sysmon Event ID 1
       priority: high
       confidence: high
       disposition: hunt_now
-      evidence: The most common observed is C:\Windows \SysWOW64; note there is a space after Windows.
+      evidence: Targets are tricked into downloading software enabled by spear-phishing.
 ---
 
-Since at least 2025, Iranian state-linked cyber actors have been deploying the CHOSEN BRICK malware family to surveil and target dissidents, activists, and journalists across the UK, US, and the Netherlands. The operation is characterized by highly tailored social engineering, often leveraging messaging platforms like WhatsApp and Telegram to build rapport before distributing malicious payloads disguised as legitimate software or documents. Once installed, CHOSEN BRICK provides operators with extensive surveillance capabilities, including audio interception, screen capturing, and the exfiltration of sensitive communications. The actors often target corporate or work-related devices initially, transitioning to personal hardware if detection risks rise. Collected data has previously been published on pro-Iranian leak sites to harass victims.
+The UK National Cyber Security Centre (NCSC), in coordination with the US FBI and the Netherlands AIVD, has identified a persistent espionage campaign by Iranian state-sponsored actors targeting dissidents, activists, and journalists globally. The primary tool of this campaign is a Windows-based spyware family dubbed CHOSEN BRICK. Actors employ highly tailored social engineering techniques, often building rapport with victims over messaging applications such as WhatsApp and Telegram, to trick them into executing the malware. The campaign is characterized by the use of contextually relevant lures, including fabricated documents such as fake medical test results. Once deployed, CHOSEN BRICK establishes persistence and provides the attackers with comprehensive surveillance capabilities, including exfiltration of emails, contact lists, and social media communications, as well as real-time monitoring through screen captures and microphone access. The exfiltrated data is subsequently leveraged to intimidate targets, with sensitive information appearing on public leak sites.
 
 ## Attack Chain
 
-1. Initial contact is established via messaging platforms (WhatsApp, Telegram) using persona-driven social engineering (T1566.003).
-2. The target is convinced to download a malicious file masquerading as legitimate software (e.g., Norton Antivirus, KeePass) or document types (e.g., MRI scan results) (T1204.002).
-3. Upon execution, the malware establishes persistence by creating an entry in the HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run registry key (T1547.001).
-4. The malware attempts to evade detection by modifying Microsoft Defender configuration to add specific folder or file exclusions (T1685).
-5. The malware connects to a unique Telegram bot ID associated with the specific victim for command and control (T1102.002).
-6. The actor executes discovery and collection tasks, such as process enumeration, screen capture (T1113), or microphone activation (T1123).
-7. Data exfiltration occurs via the Telegram C2 channel or direct uploads to cloud object stores like VultrObjects and StorjShare (T1567.002).
-8. If directed, the malware can download secondary payloads or perform destructive actions such as file or system wiping (T1485).
+1. Initial contact is established with the target via encrypted messaging platforms like WhatsApp or Telegram by actors masquerading as known associates.
+2. Attackers engage in prolonged social engineering to build rapport, often utilizing highly specific, relevant lures such as fake MRI test results to gain the victim's trust.
+3. The target is persuaded to download and execute the payload, masquerading as a legitimate file or document.
+4. CHOSEN BRICK executes on the Windows endpoint and modifies system configuration to ensure persistence across reboots.
+5. The malware initiates a callback to attacker-controlled infrastructure to receive commands and establish C2.
+6. The spyware performs internal reconnaissance and harvests sensitive data, including emails, contacts, and social media messaging history.
+7. CHOSEN BRICK enables unauthorized remote monitoring through background screen capture and active microphone recording.
+8. Stolen data is exfiltrated to the attackers, who subsequently publish sensitive information on pro-regime leak sites to maximize intimidation.
 
 ## Impact
 
-The impact of CHOSEN BRICK includes the unauthorized collection of sensitive personal data, monitoring of movements and communications, and the potential for severe physical safety risks. Victims have been subjected to harassment via the publication of stolen private details on public websites. The targeting of activists and journalists specifically undermines the privacy and security of individuals opposing the Iranian regime.
+The campaign focuses on the transnational repression of critics of the Iranian regime. Targets include journalists, activists, and dissidents worldwide, including those based in the UK. The primary consequences include severe privacy loss, physical safety risks due to the public exposure of private communications on leak sites, and sustained psychological intimidation. The use of stolen data for public shaming serves as a mechanism to silence opposition and deter further dissent.
 
 ## Recommendation
 
-* Run the PowerShell command 'reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run' to inspect for unrecognized persistence mechanisms.
-* Monitor DNS and proxy logs for connections to command-and-control and exfiltration domains including api.telegram.org, backblazeb2.com, vultrobjects.com, storjshare.io, iproyal.com, and lightningproxies.net.
-* Deploy endpoint security monitoring to detect modifications to Microsoft Defender exclusions (T1685).
-* Educate high-risk personnel on social engineering lures distributed via messaging applications, particularly those purporting to be technical support.
-* Verify that corporate and personal devices are regularly audited for suspicious files, particularly in non-standard directories like 'C:\Windows \SysWOW64' (note the space in the folder name).
+1. Deploy endpoint detection capabilities to identify unauthorized persistence mechanisms as described in the CHOSEN BRICK technical analysis (refer to the FBI report https://www.ic3.gov/CSA/2026/260915.pdf).
+2. Implement strict organizational policies regarding the download and execution of unsolicited files sent via messaging platforms, even from seemingly known contacts.
+3. Conduct security awareness training for high-risk individuals focusing on the recognition of sophisticated, tailored social engineering lures.
+4. Review and monitor for anomalous data egress patterns that align with exfiltration TTPs observed in the campaign.
+5. Encourage high-risk individuals to sign up for government-provided cyber defense services and follow the specific mitigation advice published in the joint NCSC/FBI/AIVD advisory.
