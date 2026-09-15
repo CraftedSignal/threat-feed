@@ -3,7 +3,7 @@ title: Flowise Cross-Tenant Authorization Vulnerability
 slug: 2026-09-flowise-auth-gap
 description: Flowise versions before 3.1.4 contain authorization gaps in Enterprise endpoints that allow authenticated users to perform cross-tenant operations including unauthorized workspace deletion and SSO credential access.
 date: "2026-09-15T17:42:48Z"
-lastmod: "2026-09-15T17:43:16Z"
+lastmod: "2026-09-15T17:43:23Z"
 type: advisory
 types:
   - advisory
@@ -34,6 +34,12 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Attacker-controlled npm packages to execute code on the Flowise server.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1562.001
+    technique_name: 'Impair Defenses: Disable or Modify System Firewall'
+    evidence: Attackers with chatflows:create or chatflows:update permissions can exfiltrate LLM provider API keys by redirecting requests to cloud metadata services or internal hosts.
+    confidence_band: high
 cves:
   - id: CVE-2026-91929
     cvss: 7.1
@@ -41,6 +47,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91929
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91931
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91934
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-91935
 action_plan:
   priority: elevated
   owners:
@@ -72,6 +79,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91934
+  - at: "2026-09-15T17:43:23Z"
+    level: L2
+    summary: added coverage for Flowise (< 3.1.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91935
 ---
 
 Flowise versions prior to 3.1.4 are affected by critical cross-tenant authorization flaws within their Enterprise endpoint implementations. The vulnerability arises from a failure to validate resource ownership during API operations. An attacker who has legitimate access to an Enterprise instance can exploit these endpoints to interact with resources belonging to other tenants within the same installation.
