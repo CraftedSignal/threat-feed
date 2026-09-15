@@ -3,11 +3,12 @@ title: Unauthenticated Rate Limiting Vulnerability in Vikunja Authentication End
 slug: 2026-09-vikunja-rate-limiting
 description: Vikunja versions before 2.6.0 lack rate limiting on public /api/v2 authentication endpoints, enabling credential stuffing, account enumeration, and password-reset flooding.
 date: "2026-09-15T17:44:15Z"
+lastmod: "2026-09-15T17:44:24Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 cpes:
   - cpe:2.3:a:vikunja:vikunja:*:*:*:*:*:*:*:*
 vendors:
@@ -26,6 +27,19 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91972
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-91973
+rules:
+  - title: Detect Excessive Auth Requests to Vikunja CalDAV
+    description: Detects potential brute-force activity against Vikunja CalDAV endpoints by tracking high volumes of unauthorized (401) requests.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1110.001
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +56,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-91972
       evidence: Source notes lack of rate limiting on /api/v2 endpoints
+updates:
+  - at: "2026-09-15T17:44:24Z"
+    level: L2
+    summary: 'added detection rule: Detect Excessive Auth Requests to Vikunja CalDAV'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91973
 ---
 
 Vikunja versions prior to 2.6.0 contain a critical vulnerability in the handling of public API requests. The platform fails to apply rate limiting or throttling mechanisms to key /api/v2 authentication endpoints, including those responsible for user login, registration, password resets, and OAuth token exchanges. This architectural oversight allows remote, unauthenticated attackers to perform unbounded high-volume requests against these services. The absence of defensive controls such as IP-based throttling or request rate limiting facilitates automated brute-force attacks, large-scale account enumeration, and denial-of-service scenarios via password-reset flooding. Given the exposure of these endpoints to the public internet, defenders should prioritize upgrading to version 2.6.0 or implementing external rate-limiting controls at the web application firewall (WAF) or reverse proxy level to mitigate potential exploitation.
