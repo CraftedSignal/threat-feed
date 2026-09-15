@@ -3,6 +3,7 @@ title: Authentication Bypass in Mendix SAML Module
 slug: 2026-09-mendix-saml-bypass
 description: An authentication bypass vulnerability (CVE-2026-80465) in multiple Mendix SAML module versions allows unauthenticated attackers to hijack user sessions via improper SAML response signature validation.
 date: "2026-09-03T13:21:28Z"
+lastmod: "2026-09-15T16:31:44Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ tags:
   - mendix
 vendors:
   - Mendix
+  - Siemens
 products:
   - Mendix SAML (Mendix 10 compatible) (< V4.2.3)
   - Mendix SAML (Mendix 11 compatible) (< V4.2.3)
@@ -24,8 +26,10 @@ products:
 cves:
   - id: CVE-2026-80465
     cvss: 8.7
+    epss: 0.00176
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-80465
+  - https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-06
 action_plan:
   priority: elevated
   owners:
@@ -37,6 +41,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-80465
       evidence: Source explicitly identifies these versions as secure.
+updates:
+  - at: "2026-09-15T16:31:44Z"
+    level: L1
+    summary: new vendor
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/ics-advisories/icsa-26-258-06
 ---
 
 CVE-2026-80465 is a critical authentication bypass vulnerability affecting specific versions of the Mendix SAML module. The vulnerability stems from the module's failure to properly validate SAML response signatures. By exploiting this flaw, unauthenticated remote attackers can forge or manipulate SAML assertions, potentially gaining unauthorized access to user sessions within Single Sign-On (SSO) environments. This vulnerability impacts several compatibility versions of the module, specifically Mendix SAML (Mendix 10 compatible) versions prior to 4.2.3, Mendix SAML (Mendix 11 compatible) versions prior to 4.2.3, and Mendix SAML (Mendix 9.24 compatible) versions prior to 3.6.27. Defenders should prioritize patching, as successful exploitation results in complete account takeover for affected SSO configurations.
