@@ -3,6 +3,7 @@ title: Heap-Based Buffer Overflow in GIMP PSP File Loader
 slug: 2026-09-gimp-psp-overflow
 description: A heap-based buffer overflow in GIMP's PSP file loader, tracked as CVE-2026-90949, allows attackers to trigger crashes or arbitrary code execution via crafted image files.
 date: "2026-09-14T15:33:53Z"
+lastmod: "2026-09-15T13:05:09Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - GIMP
 products:
   - GIMP (affected versions)
+  - GIMP
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -29,6 +31,7 @@ cves:
     cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90949
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3358
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +42,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-90949
       evidence: A flaw was found in GIMP's PSP (Paint Shop Pro) file loader.
+updates:
+  - at: "2026-09-15T13:05:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3358
 ---
 
 CVE-2026-90949 is a vulnerability identified in the Paint Shop Pro (PSP) file loader component of the GIMP image manipulation software. The issue arises during the processing of compressed selection channels within PSP files. A mismatch between the allocated buffer size and the actual amount of data decompressed by the loader results in a heap-based buffer overflow. An attacker can leverage this flaw by distributing a specially crafted PSP file to a victim. When the victim opens the malicious file using an affected version of GIMP, the resulting memory corruption may cause the application to crash or enable the execution of arbitrary code in the context of the user running the application. This vulnerability poses a significant risk to end-users who may interact with untrusted image files.
