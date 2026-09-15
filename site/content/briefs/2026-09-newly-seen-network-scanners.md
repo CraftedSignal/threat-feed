@@ -3,6 +3,7 @@ title: Detection of Newly Observed Legitimate Network Scanning Tools
 slug: 2026-09-newly-seen-network-scanners
 description: Adversaries frequently utilize legitimate network scanning utilities like SoftPerfect Network Scanner and Advanced IP Scanner for reconnaissance following initial compromise to map internal network topology and identify lateral movement targets.
 date: "2026-09-14T18:54:55Z"
+lastmod: "2026-09-15T12:56:44Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,13 @@ tags:
   - reconnaissance
   - windows
   - endpoint-detection
+vendors:
+  - SoftPerfect
+  - Famatech
+products:
+  - SoftPerfect Network Scanner
+  - Advanced IP Scanner
+  - Advanced Port Scanner
 affected_os:
   - Windows
 mitre_ttps:
@@ -32,6 +40,7 @@ references:
   - https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-319a
   - https://thedfirreport.com/2025/06/30/hide-your-rdp-password-spray-leads-to-ransomhub-deployment/
   - https://www.microsoft.com/en-us/security/blog/2023/07/06/the-five-day-job-a-blackbyte-ransomware-intrusion-case-study/
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/discovery_newly_seen_abused_scanners.toml
 rules:
   - title: Newly Seen Commonly Abused Network Scanner Execution
     description: Detects the first-time execution of SoftPerfect Network Scanner or Advanced IP/Port Scanner on a Windows host, a common technique for post-compromise network discovery.
@@ -64,6 +73,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Historical execution history can reveal undetected, previous compromises.
+updates:
+  - at: "2026-09-15T12:56:44Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/windows/discovery_newly_seen_abused_scanners.toml
 ---
 
 Post-compromise reconnaissance relies heavily on tools that can quickly enumerate network assets, open ports, and reachable services. Threat actors consistently abuse legitimate, dual-use administrative utilities, specifically SoftPerfect Network Scanner and Advanced IP/Port Scanner, to gain situational awareness within a victim network. These tools are lightweight, portable, and often overlooked by security controls because they are signed, legitimate software.
