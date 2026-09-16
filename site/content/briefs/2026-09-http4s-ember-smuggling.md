@@ -3,6 +3,7 @@ title: HTTP Request Smuggling Vulnerability in http4s Ember
 slug: 2026-09-http4s-ember-smuggling
 description: The http4s Ember HTTP/1.1 parser fails to reject messages containing both 'Transfer-Encoding' and 'Content-Length' headers, enabling CL.TE request smuggling attacks.
 date: "2026-09-16T01:05:04Z"
+lastmod: "2026-09-16T01:05:29Z"
 type: advisory
 types:
   - advisory
@@ -14,11 +15,16 @@ tags:
   - request-smuggling
   - cve-2026-69204
   - http-vulnerability
+  - denial-of-service
+  - vulnerability
+  - http2
 vendors:
   - http4s
 products:
   - http4s-ember-core (<= 0.23.34)
   - http4s-ember-core (1.0.0-M1 - 1.0.0-M46)
+  - http4s-ember-core (<= 0.23.36)
+  - http4s-ember-core (1.0.0-M1 - 1.0.0-M47)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,11 +32,19 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An attacker can exploit this to perform request smuggling, bypassing authentication filters, performing cross-user request hijacking, or poisoning backend caches.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: An unauthenticated peer can make Ember's HTTP/2 read loop hold 16 MiB of a single frame in memory... uncontrolled resource consumption leading to unauthenticated remote denial of service.
+    confidence_band: high
 cves:
   - id: CVE-2026-69204
 references:
   - https://github.com/advisories/GHSA-8h4c-x2wg-6xp8
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69204
+  - https://github.com/advisories/GHSA-gq9p-f254-h286
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88975
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-69204
       evidence: RFC 9112 §6.1 compliance
+updates:
+  - at: "2026-09-16T01:05:29Z"
+    level: L1
+    summary: added coverage for http4s-ember-core (<= 0.23.36) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gq9p-f254-h286
 ---
 
 The http4s Ember HTTP/1.1 parser (CVE-2026-69204) fails to comply with RFC 9112 §6.1, which mandates that servers treat any HTTP/1.1 message containing both 'Transfer-Encoding' and 'Content-Length' headers as a framing error and close the connection. Because Ember accepts both, discrepancies arise when it is deployed behind an intermediary that frames the request based on 'Content-Length' while Ember frames based on 'Transfer-Encoding' (chunked). This desynchronization creates a CL.TE request smuggling condition. Attackers can exploit this to perform request smuggling, bypassing authentication filters, performing cross-user request hijacking, or poisoning backend caches. The vulnerability affects both 'ember-server' (origin) and 'ember-client' (response processing), with the latter vulnerable to desynchronization from a malicious upstream source.
