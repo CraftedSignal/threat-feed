@@ -3,7 +3,7 @@ title: Multi-tenant Isolation Bypass in djust via WebSocket/SSE
 slug: 2026-09-djust-tenant-isolation
 description: A vulnerability in djust caused multi-tenant isolation to fail open on WebSocket and SSE paths, allowing unauthorized cross-tenant data disclosure due to improper tenant context propagation.
 date: "2026-09-16T19:07:43Z"
-lastmod: "2026-09-16T19:07:51Z"
+lastmod: "2026-09-16T19:08:07Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,9 @@ tags:
   - web-application
   - mass-assignment
   - cve-2026-61598
+  - remote-code-execution
+  - information-disclosure
+  - cve-2026-61590
 vendors:
   - djust
 products:
@@ -26,12 +29,26 @@ mitre_ttps:
     technique_name: Data Manipulation
     evidence: The client can set any public, existing view attribute—not just the fields actually bound with dj-model=—leading to state tampering, IDOR, or authz-flag manipulation.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The localhost restriction was an opt-in middleware that the documented setup omits; the views themselves enforced only DEBUG.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: observability endpoints expose... a remote method-invocation surface (eval_handler).
+    confidence_band: high
 cves:
   - id: CVE-2026-61595
     cvss: 7.7
 references:
   - https://github.com/advisories/GHSA-3492-cvg7-9mr2
   - https://github.com/advisories/GHSA-cc7c-9jff-58wj
+  - https://github.com/advisories/GHSA-8g2f-g3gq-5rjv
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-61590
 action_plan:
   priority: immediate_escalation
   owners:
@@ -56,6 +73,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-cc7c-9jff-58wj
+  - at: "2026-09-16T19:08:07Z"
+    level: L2
+    summary: added coverage for djust (< 1.0.7)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8g2f-g3gq-5rjv
 ---
 
 The djust package (versions prior to 1.0.7) suffers from a critical multi-tenant isolation failure affecting WebSocket and Server-Sent Events (SSE) connections. The vulnerability stems from the implementation of tenant identification, which relied on `threading.local()` and an HTTP-only middleware. Because this middleware was not invoked on persistent connection paths (WebSocket/SSE), the `get_current_tenant()` function returned `None`. 
