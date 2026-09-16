@@ -3,7 +3,7 @@ title: Cisco Security Updates - September 2026
 slug: 2026-09-cisco-security-updates
 description: Roundup of Cisco security advisories published in September 2026.
 date: "2026-09-02T18:06:39Z"
-lastmod: "2026-09-16T17:51:21Z"
+lastmod: "2026-09-16T18:59:14Z"
 type: threat
 types:
   - threat
@@ -34,6 +34,7 @@ cves:
   - id: CVE-2026-20353
     product: Secure Email Gateway
     cvss: 9.8
+    epss: 0.00373
   - id: CVE-2026-76440
     cvss: 9.8
     epss: 0.00428
@@ -48,16 +49,11 @@ cves:
     cvss: 7.5
   - id: CVE-2026-20234
     cvss: 9.9
+  - id: CVE-2026-20306
+    cvss: 9.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20306
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76420
 updates:
-  - at: "2026-09-14T17:34:31Z"
-    level: L2
-    summary: added CVE-2026-20281 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20353
   - at: "2026-09-14T17:34:33Z"
     level: L2
     summary: added CVE-2026-20212
@@ -86,9 +82,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20306
+  - at: "2026-09-16T18:59:14Z"
+    level: L2
+    summary: added CVE-2026-20306
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-76460
 ---
 
-This roundup covers 13 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.8. None are reported as actively exploited at the time of release. The issues affect AsyncOS Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Email, Secure Email Gateway, UCS Servers.
+This roundup covers 17 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.9. None are reported as actively exploited at the time of release. The issues affect AsyncOS Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Adaptive Security Appliance Software, Secure Email, Secure Email Gateway, Secure FMC Software, UCS Servers.
 
 ## Summary
 
@@ -105,8 +108,12 @@ This roundup covers 13 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-76443](#cve-2026-76443) | Secure Email Gateway | Critical | 9.8 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76443) (authoritative) |
 | [CVE-2026-76461](#cve-2026-76461) | AsyncOS Software | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76461) (authoritative) |
 | [CVE-2026-76442](#cve-2026-76442) | Secure Email Gateway | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76442) (authoritative) |
-| [CVE-2026-20234](#cve-2026-20234) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20234) (authoritative) |
+| [CVE-2026-20234](#cve-2026-20234) | Identity Services Engine | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20234) (authoritative) |
 | [CVE-2026-20305](#cve-2026-20305) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20305) (authoritative) |
+| [CVE-2026-20306](#cve-2026-20306) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20306) (authoritative) |
+| [CVE-2026-20307](#cve-2026-20307) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20307) (authoritative) |
+| [CVE-2026-20331](#cve-2026-20331) | Secure Adaptive Security Appliance Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20331) (authoritative) |
+| [CVE-2026-76420](#cve-2026-76420) | Secure FMC Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76420) (authoritative) |
 
 
 ## CVE-2026-20354
@@ -129,6 +136,10 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
+
+
 Related in this roundup: [CVE-2026-20355](#cve-2026-20355).
 
 ## CVE-2026-20355
@@ -139,6 +150,10 @@ Affected products:
 - Secure Email
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1
+
+
+
+
 
 
 
@@ -200,6 +215,10 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20353
 
 
 
+
+
+
+
 Related in this roundup: [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76440
@@ -211,6 +230,10 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76440
+
+
+
+
 
 
 
@@ -235,6 +258,10 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76441
 
 
 
+
+
+
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76443
@@ -246,6 +273,10 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76443
+
+
+
+
 
 
 
@@ -275,6 +306,10 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76442
 
 
 
+
+
+
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443).
 
 ## CVE-2026-20234
@@ -287,7 +322,11 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20234
 
-Related in this roundup: [CVE-2026-20305](#cve-2026-20305).
+
+
+
+
+Related in this roundup: [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307).
 
 ## CVE-2026-20305
 
@@ -299,4 +338,56 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20305
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234).
+
+
+
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307).
+
+## CVE-2026-20306
+
+CVE-2026-20306 is a command injection vulnerability in the REST API of Cisco Identity Services Engine (ISE) and ISE-PIC. An authenticated remote attacker with administrative credentials can supply crafted commands to the management interface, leading to arbitrary code execution with root privileges or a denial-of-service condition.
+
+Affected products:
+- Identity Services Engine
+- ISE-PIC
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20306
+
+
+
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20307](#cve-2026-20307).
+
+## CVE-2026-20307
+
+CVE-2026-20307 is a critical remote code execution vulnerability in the web management interface of Cisco Identity Services Engine (ISE). The vulnerability arises from insecure deserialization of Java byte streams, allowing an authenticated, low-privileged administrator to execute arbitrary commands as root on the underlying operating system. Successful exploitation can lead to full system compromise or a denial of service condition affecting network authentication.
+
+Affected products:
+- Identity Services Engine
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20307
+
+
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306).
+
+## CVE-2026-20331
+
+CVE-2026-20331 refers to a set of internally discovered vulnerabilities affecting Cisco Secure Adaptive Security Appliance (ASA), Firepower Threat Defense (FTD), and Firepower Management Center (FMC) software. These vulnerabilities are classified under CWE-693 (Protection Mechanism Failure) and carry a CVSS base score of 9.6, indicating critical security implications requiring software hardening updates.
+
+Affected products:
+- Secure Adaptive Security Appliance Software
+- Secure Firewall Threat Defense Software
+- Secure Firewall Management Center Software
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20331
+
+## CVE-2026-76420
+
+CVE-2026-76420 is a critical vulnerability in the Apache JServ Protocol (AJP) connector within Cisco Secure FMC Software caused by improper encryption parameter initialization during boot. An unauthenticated, remote attacker can exploit this via crafted packets when the sftunnel connection to Cisco Secure FTD Software is inactive, potentially achieving remote code execution as root and gaining unauthorized control over the FMC REST APIs.
+
+Affected products:
+- Secure FMC Software
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76420
