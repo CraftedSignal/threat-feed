@@ -3,11 +3,15 @@ title: Hard-Coded JWT Key in Issabel Framework Enabling RCE
 slug: 2026-09-issabel-rce
 description: A hard-coded HS256 signing key in the Issabel Framework allows unauthenticated attackers to forge JWTs and execute arbitrary commands via the Asterisk manager originate endpoint.
 date: "2026-09-15T17:42:18Z"
+lastmod: "2026-09-16T18:56:38Z"
 type: threat
 types:
   - threat
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=C45DA87D-ABC5-5D6C-88FA-49A45DFF6A53&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - pbx
@@ -17,6 +21,7 @@ vendors:
 products:
   - Issabel Framework (< commit b97dbaf)
   - Issabel PBX
+  - Issabel Framework
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,6 +40,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-89026
+  - https://sploitus.com/exploit?id=C45DA87D-ABC5-5D6C-88FA-49A45DFF6A53&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -60,6 +66,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-89026
       evidence: Hard-coded key allows unauthenticated RCE from remote attackers.
+updates:
+  - at: "2026-09-16T18:56:38Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=C45DA87D-ABC5-5D6C-88FA-49A45DFF6A53&utm_source=rss&utm_medium=rss
 ---
 
 The Issabel Framework, which serves as the web management interface for Issabel PBX software, contains a critical security vulnerability (CVE-2026-89026) due to a hard-coded HS256 JWT signing key present in the 'pbxapi/index.php' file. This key is identical across all Issabel PBX installations, enabling unauthenticated remote attackers to generate valid bearer tokens. By utilizing these forged tokens, an attacker can authenticate to the 'manager originate' endpoint. This endpoint, intended for administrative control of the telephony system, accepts an 'Application' parameter that supports the 'System' command. Attackers can leverage this to execute arbitrary OS commands on the host system running with the privileges of the Asterisk user. The Shadowserver Foundation first observed exploitation of this vulnerability in the wild on September 9, 2026. This issue affects versions of the Issabel Framework prior to commit b97dbaf.
