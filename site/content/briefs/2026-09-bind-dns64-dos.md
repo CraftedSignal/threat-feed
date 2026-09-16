@@ -3,6 +3,7 @@ title: BIND 9 Denial of Service via Malformed DNS64 Response
 slug: 2026-09-bind-dns64-dos
 description: A vulnerability in BIND 9 resolvers configured with DNS64 allows an authoritative server to cause a process crash through malformed responses, resulting in a denial of service.
 date: "2026-09-16T15:51:04Z"
+lastmod: "2026-09-16T19:51:35Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - denial-of-service
   - network-infrastructure
   - vulnerability
+  - dns
+  - infrastructure
 vendors:
   - ISC
 products:
@@ -22,11 +25,20 @@ products:
   - BIND (9.21.0-9.21.25)
   - BIND (9.11.3-S1-9.18.50-S1)
   - BIND (9.20.9-S1-9.20.27-S1)
+  - BIND (9.18.0-9.18.50, 9.20.0-9.20.27, 9.21.0-9.21.25, 9.18.11-S1-9.18.50-S1, 9.20.9-S1-9.20.27-S1)
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: The resolver will spend disproportionate CPU time constructing the response.
+    confidence_band: high
 cves:
   - id: CVE-2026-19666
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19666
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81736
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +52,14 @@ action_plan:
       evidence: Source NVD advisory confirms the vulnerability in specific BIND versions
   gaps:
     - Lack of specific IDS signatures for the malformed response prevents blocking at the network edge.
+updates:
+  - at: "2026-09-16T19:51:35Z"
+    level: L1
+    summary: added coverage for BIND (9.18.0-9.18.50, 9.20.0-9.20.27, 9.21.0-9.21.25, 9.18.11-S1-9.18.50-S1, 9.20.9-S1-9.20.27-S1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81736
 ---
 
 The Internet Systems Consortium (ISC) BIND 9 software contains a vulnerability (CVE-2026-19666) that affects resolvers specifically configured to utilize the DNS64 function. When the resolver receives a maliciously crafted or malformed response from an authoritative DNS server, the `named` process encounters an unhandled state, causing the service to exit unexpectedly. This leads to a denial of service (DoS) for all clients relying on the affected resolver. The vulnerability impacts a wide range of BIND 9 versions, including the 9.11, 9.20, and 9.21 branches, as well as their subscription versions. Because this requires an authoritative server to provide specific malformed data, the scope of risk is primarily limited to environments where the resolver configuration allows for such upstream responses, or where an attacker can influence the traffic returned to the recursive resolver.
