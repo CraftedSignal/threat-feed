@@ -3,6 +3,7 @@ title: Remote Argument Injection in HKUDS nanobot
 slug: 2026-09-hku-nanobot-argument-injection
 description: HKUDS nanobot versions up to 0.2.1 contain an argument injection vulnerability in the ExecTool component that allows remote attackers to execute arbitrary commands.
 date: "2026-09-14T19:36:08Z"
+lastmod: "2026-09-16T23:52:28Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - vulnerability
   - rce
   - command-injection
+  - ssrf
+  - cloud-security
 vendors:
   - HKUDS
 products:
   - nanobot (<= 0.2.1)
+  - nanobot (< 0.3.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -25,11 +29,24 @@ mitre_ttps:
     technique_name: Indirect Command Execution
     evidence: Such manipulation leads to argument injection.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Attackers can send messages instructing the bot to fetch cloud metadata endpoints, localhost services, and RFC 1918 addresses to extract IAM credentials and internal service data.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1530
+    technique_name: Data from Cloud Storage
+    evidence: Attackers can send messages instructing the bot to fetch cloud metadata endpoints, localhost services, and RFC 1918 addresses to extract IAM credentials and internal service data.
+    confidence_band: high
 cves:
   - id: CVE-2026-90809
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90809
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92576
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +58,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-90809
       evidence: It is best practice to apply a patch to resolve this issue.
+updates:
+  - at: "2026-09-16T23:52:28Z"
+    level: L2
+    summary: added coverage for nanobot (< 0.3.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92576
 ---
 
 HKUDS nanobot versions up to 0.2.1 are vulnerable to remote argument injection within the ExecTool component. The flaw exists in the `ExecTool._guard_command` and `ExecTool._spawn` functions located in `nanobot/agent/tools/shell.py`. An attacker can manipulate arguments passed to these functions, leading to command injection on the host system. This vulnerability allows for remote execution, significantly impacting the confidentiality, integrity, and availability of the affected environment. Organizations utilizing versions 0.2.1 and earlier should apply patch `af582246f141311d574551b7571a517bcc3df750` immediately to mitigate potential exploitation.
