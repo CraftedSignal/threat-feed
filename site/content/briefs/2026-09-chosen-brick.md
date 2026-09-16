@@ -1,18 +1,18 @@
 ---
-title: Iranian State-Sponsored Espionage Campaign Utilizing CHOSEN BRICK Spyware
+title: 'Iranian State-Sponsored Surveillance Malware: Chosen Brick'
 slug: 2026-09-chosen-brick
-description: Iranian state-sponsored actors are targeting dissidents, activists, and journalists with the CHOSEN BRICK spyware, delivered via tailored social engineering on messaging platforms to facilitate surveillance and data exfiltration.
-date: "2026-09-15T19:04:29Z"
+description: Iranian state-sponsored actors are leveraging the 'Chosen Brick' Windows malware to conduct surveillance on global activists and journalists via social engineering and Telegram-based command-and-control.
+date: "2026-09-16T12:51:18Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 tags:
-  - espionage
-  - spyware
-  - social-engineering
   - surveillance
+  - nation-state
+  - windows
+  - espionage
 affected_os:
   - Windows
 mitre_ttps:
@@ -20,59 +20,85 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1566
     technique_name: Phishing
-    evidence: Iranian state actors have been observed impersonating contacts over messaging apps such as WhatsApp and Telegram, building rapport with targets before deploying CHOSEN BRICK.
+    evidence: The attack chain typically begins on messaging platforms such as WhatsApp and Telegram.
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1547
     technique_name: Boot or Logon Autostart Execution
-    evidence: The advisory warns CHOSEN BRICK is persistent and will survive a reboot of the target device.
+    evidence: Chosen Brick establishes persistence across reboots using registry Run keys.
     confidence_band: high
-references:
-  - https://www.ncsc.gov.uk/news/uk-allies-expose-spyware-iranian-state-actors-target-dissidents-activists-journalists
-  - https://www.ic3.gov/CSA/2026/260915.pdf
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+    evidence: attempts to evade local security tools by adding exclusions in Microsoft Defender.
+    confidence_band: high
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1071
+    technique_name: Application Layer Protocol
+    evidence: For command-and-control (C&C) operations, the malware assigns each infected endpoint a unique Telegram bot ID.
+    confidence_band: high
+rules:
+  - title: Detect Chosen Brick Persistence via Registry Run Key
+    description: Detects potential persistence mechanism used by Chosen Brick by monitoring for additions to Windows Run keys
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1547.001
+    data_sources:
+      - registry_set
+      - windows
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
     - SOC
-    - CTI
+    - Detection Engineering
   immediate_actions:
-    - action: Review endpoint logs for suspicious persistence entries on Windows devices associated with high-risk individuals.
-      owner: SOC
+    - action: Deploy registry persistence detection rule to all Windows endpoints
+      owner: Detection Engineering
       due: 24h
-      evidence: The advisory warns CHOSEN BRICK is persistent and will survive a reboot of the target device.
+      evidence: Chosen Brick persistence TTP
   hunt_leads:
-    - lead: Identification of anomalous file executions originating from messaging application directories or temporary folders.
-      technique_id: T1566
+    - lead: Search for unknown processes initiating outbound connections to api.telegram.org
+      technique_id: T1071
       data_needed:
-        - Sysmon Event ID 1
+        - Network connection logs / Proxy logs
       priority: high
       confidence: high
       disposition: hunt_now
-      evidence: Targets are tricked into downloading software enabled by spear-phishing.
+      evidence: Malware utilizes Telegram for C2
+  mitigation_plan:
+    - priority: immediate
+      action: Enable attack surface reduction rules to block persistence mechanisms and unauthorized Defender exclusions
+      owner: IT Operations
+      addresses: Persistence and Defense Evasion TTPs
+      evidence: Source reporting on Chosen Brick TTPs
 ---
 
-The UK National Cyber Security Centre (NCSC), in coordination with the US FBI and the Netherlands AIVD, has identified a persistent espionage campaign by Iranian state-sponsored actors targeting dissidents, activists, and journalists globally. The primary tool of this campaign is a Windows-based spyware family dubbed CHOSEN BRICK. Actors employ highly tailored social engineering techniques, often building rapport with victims over messaging applications such as WhatsApp and Telegram, to trick them into executing the malware. The campaign is characterized by the use of contextually relevant lures, including fabricated documents such as fake medical test results. Once deployed, CHOSEN BRICK establishes persistence and provides the attackers with comprehensive surveillance capabilities, including exfiltration of emails, contact lists, and social media communications, as well as real-time monitoring through screen captures and microphone access. The exfiltrated data is subsequently leveraged to intimidate targets, with sensitive information appearing on public leak sites.
+Since at least 2025, Iranian state-sponsored actors have deployed a Windows-based surveillance malware family dubbed 'Chosen Brick' to target dissidents, activists, and journalists worldwide. The threat actors engage targets through messaging platforms like WhatsApp and Telegram, often masquerading as acquaintances or technical support personnel to build rapport. The campaign focuses on harvesting sensitive data, including contact lists, emails, and social media messages, to track the targets' physical location and life patterns. In instances where corporate security controls prevent initial infection, the actors actively maneuver the target toward using personal devices to bypass enterprise-grade protections. The surveillance data is subsequently used for harassment, with stolen information occasionally posted to pro-Iranian leak sites to intimidate victims.
 
 ## Attack Chain
 
-1. Initial contact is established with the target via encrypted messaging platforms like WhatsApp or Telegram by actors masquerading as known associates.
-2. Attackers engage in prolonged social engineering to build rapport, often utilizing highly specific, relevant lures such as fake MRI test results to gain the victim's trust.
-3. The target is persuaded to download and execute the payload, masquerading as a legitimate file or document.
-4. CHOSEN BRICK executes on the Windows endpoint and modifies system configuration to ensure persistence across reboots.
-5. The malware initiates a callback to attacker-controlled infrastructure to receive commands and establish C2.
-6. The spyware performs internal reconnaissance and harvests sensitive data, including emails, contacts, and social media messaging history.
-7. CHOSEN BRICK enables unauthorized remote monitoring through background screen capture and active microphone recording.
-8. Stolen data is exfiltrated to the attackers, who subsequently publish sensitive information on pro-regime leak sites to maximize intimidation.
+1. Initial contact is established via messaging platforms (WhatsApp or Telegram) using social engineering to build trust.
+2. Attackers deliver weaponized files disguised as legitimate utility software or medical documentation (e.g., MRI scan results).
+3. The victim executes the malicious file, which triggers a decoy document while the malware runs in the background.
+4. Chosen Brick establishes persistence on the host by creating entries in Windows Registry Run keys.
+5. The malware performs defense evasion by programmatically adding itself to Microsoft Defender exclusion lists.
+6. The malware registers with a unique Telegram bot ID to initiate C2 communication.
+7. The operator exfiltrates data or executes secondary payloads to gain further control over the host.
 
 ## Impact
 
-The campaign focuses on the transnational repression of critics of the Iranian regime. Targets include journalists, activists, and dissidents worldwide, including those based in the UK. The primary consequences include severe privacy loss, physical safety risks due to the public exposure of private communications on leak sites, and sustained psychological intimidation. The use of stolen data for public shaming serves as a mechanism to silence opposition and deter further dissent.
+The Chosen Brick campaign represents a targeted surveillance operation supporting state-sponsored repression. Victims include individuals perceived as threats to the Iranian regime, such as journalists and activists. The malware enables comprehensive spying capabilities including microphone audio recording, screenshot capture, credential harvesting from browser data, and data wiping. The public release of stolen personal information on leak sites has been observed as a tactic to harass and silence targeted individuals.
 
 ## Recommendation
 
-1. Deploy endpoint detection capabilities to identify unauthorized persistence mechanisms as described in the CHOSEN BRICK technical analysis (refer to the FBI report https://www.ic3.gov/CSA/2026/260915.pdf).
-2. Implement strict organizational policies regarding the download and execution of unsolicited files sent via messaging platforms, even from seemingly known contacts.
-3. Conduct security awareness training for high-risk individuals focusing on the recognition of sophisticated, tailored social engineering lures.
-4. Review and monitor for anomalous data egress patterns that align with exfiltration TTPs observed in the campaign.
-5. Encourage high-risk individuals to sign up for government-provided cyber defense services and follow the specific mitigation advice published in the joint NCSC/FBI/AIVD advisory.
+* Deploy the provided Sigma rule to detect suspicious Registry Run key modifications that attempt to facilitate malware persistence.
+* Monitor for unauthorized modifications to Microsoft Defender exclusion lists via Group Policy or local security log auditing.
+* Enhance endpoint visibility to detect unusual communication patterns associated with Telegram bot API endpoints (api.telegram.org) from non-browser processes.
+* Advise personnel to avoid opening files from unverified messaging platform contacts and discourage the use of personal devices for accessing sensitive corporate communications.
