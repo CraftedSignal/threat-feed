@@ -1,8 +1,8 @@
 ---
 title: Remote Code Execution Vulnerability in Netgate pfSense
 slug: 2026-09-pfsense-rce
-description: A remote code execution vulnerability in Netgate pfSense CE and Plus allows unauthenticated attackers to execute arbitrary code on affected firewall appliances.
-date: "2026-09-16T13:06:35Z"
+description: An authenticated remote attacker can exploit a vulnerability in Netgate pfSense to bypass security controls and execute arbitrary PHP code and shell commands.
+date: "2026-09-16T13:09:38Z"
 type: advisory
 types:
   - advisory
@@ -10,43 +10,57 @@ severities:
   - high
 tags:
   - vulnerability
-  - remote-code-execution
-  - firewall
+  - rce
+  - network-security
 vendors:
   - Netgate
 products:
-  - pfSense CE (< 2.9.0)
-  - pfSense Plus (< 26.07)
+  - pfSense
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: Une vulnérabilité a été découverte dans Netgate pfSense. Elle permet à un attaquant de provoquer une exécution de code arbitraire à distance.
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: A remote, authenticated attacker can exploit a vulnerability in Netgate pfSense to bypass security measures and execute arbitrary PHP code and shell commands.
     confidence_band: high
 references:
-  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1181/
-  - https://docs.netgate.com/downloads/pfSense-SA-26_22.webgui.asc
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3386
 action_plan:
   priority: elevated
   owners:
+    - SOC
     - IT Operations
+  immediate_actions:
+    - action: Restrict administrative web interface access to trusted IP ranges.
+      owner: IT Operations
+      due: 24h
+      evidence: Source identifies vulnerability is exploitable by authenticated remote attackers.
+  hunt_leads:
+    - lead: Unauthorized shell commands initiated by the web management process user.
+      technique_id: T1059
+      data_needed:
+        - Process creation logs from pfSense appliance.
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Vulnerability allows execution of arbitrary shell commands.
   mitigation_plan:
     - priority: immediate
-      action: Upgrade pfSense CE to 2.9.0 or pfSense Plus to 26.07 or later.
+      action: Review and apply vendor security updates for pfSense.
       owner: IT Operations
-      addresses: Netgate pfSense vulnerabilities in versions prior to 2.9.0 and 26.07.
-      evidence: Netgate security advisory pfSense-SA-26_22.
+      addresses: Generic pfSense RCE
+      evidence: Source identifies a vulnerability in Netgate pfSense.
 ---
 
-The French National Cybersecurity Agency (ANSSI) has released a security advisory regarding a remote code execution (RCE) vulnerability in Netgate pfSense software. This vulnerability, documented in Netgate security advisory pfSense-SA-26_22, affects pfSense Community Edition (CE) versions prior to 2.9.0 and pfSense Plus versions prior to 26.07. An unauthenticated attacker may leverage this vulnerability to gain unauthorized remote code execution capabilities on the underlying operating system of the firewall appliance. Given that pfSense devices typically act as the security perimeter for internal networks, successful exploitation poses a severe risk to organizational infrastructure, potentially allowing for full system compromise, network traffic interception, or lateral movement into protected network segments.
+Netgate pfSense contains a critical security vulnerability that permits a remote, authenticated attacker to bypass established security measures. By leveraging this flaw, an attacker with valid credentials can execute arbitrary PHP code and underlying system shell commands on the appliance. This vulnerability poses a significant risk to the integrity and confidentiality of the network infrastructure managed by the affected pfSense device, as it allows for post-authentication lateral movement or further exploitation of the host system. Defenders should review the official Netgate security advisories for patches and restrict administrative interface access to trusted networks.
 
 ## Impact
 
-Successful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary code on the affected pfSense firewall appliances. This can lead to a total compromise of the security appliance, potentially enabling unauthorized access to internal network traffic, manipulation of firewall rules, and the ability to pivot into the internal network environment. All organizations utilizing pfSense CE version 2.9.0 or earlier, or pfSense Plus version 26.07 or earlier, are potentially vulnerable and should prioritize patching.
+Successful exploitation results in full remote code execution on the pfSense firewall, allowing an attacker to manipulate network traffic, bypass firewall rules, steal configuration data, or gain a foothold within the internal network. The scope affects all deployments of pfSense where the administrative interface is accessible to potentially compromised or malicious user accounts.
 
 ## Recommendation
 
-- Patch affected firewall appliances immediately by updating to pfSense CE 2.9.0 or pfSense Plus 26.07 or later versions as specified in the Netgate security advisory pfSense-SA-26_22.
-- Restrict access to the pfSense web configuration interface to trusted management networks only to minimize the exposure of this vulnerability to unauthenticated external actors.
-- Review firewall logs for unusual management interface access patterns from unauthorized or external IP addresses.
+* Monitor system logs for unexpected shell process execution originating from the pfSense web management service.
+* Limit access to the pfSense administrative web interface to specific, trusted management IP addresses only.
+* Audit administrative user accounts and rotate credentials to mitigate the impact of potentially compromised accounts used to access the management interface.
+* Apply security patches from Netgate immediately upon release to address the identified code execution vulnerability.
