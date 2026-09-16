@@ -3,7 +3,7 @@ title: Cisco Security Updates - September 2026
 slug: 2026-09-cisco-security-updates
 description: Roundup of Cisco security advisories published in September 2026.
 date: "2026-09-02T18:06:39Z"
-lastmod: "2026-09-16T21:51:25Z"
+lastmod: "2026-09-16T21:51:28Z"
 type: threat
 types:
   - threat
@@ -66,31 +66,33 @@ cves:
     product: Secure Firewall Adaptive Security Appliance Software
     cvss: 8.6
     epss: 0.0062
+  - id: CVE-2026-20343
+    cvss: 7.5
   - id: CVE-2026-20290
     cvss: 5.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20211
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20322
 updates:
-  - at: "2026-09-16T19:19:24Z"
+  - at: "2026-09-16T19:19:30Z"
     level: L2
-    summary: added CVE-2024-20260, CVE-2026-20305, CVE-2026-20307
+    summary: added CVE-2026-20305, CVE-2026-20307
     sources:
       - cisco-psirt
     source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftdvirtual-dos-MuenGnYR?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-javarce-y2NypXwk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Java%20Deserialization%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-multi-hrP9jQSQ?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Vulnerabilities%26vs_k=1
   - at: "2026-09-16T21:51:22Z"
     level: L2
-    summary: added CVE-2026-20290, CVE-2026-76420
+    summary: added CVE-2026-20290, CVE-2026-20343, CVE-2026-76420
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20176
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20211
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20322
 ---
 
-This roundup covers 70 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.9. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance Software, AsyncOS Software, BroadWorks CommPilot Application Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Adaptive Security Appliance Software, Secure Email, Secure Email Gateway, Secure FMC Software, Secure Firewall Adaptive Security Appliance Software, Secure Firewall Management Center, Secure Firewall Management Center Software, Secure Firewall Threat Defense Software, ThousandEyes Virtual Appliance, UCS Servers.
+This roundup covers 71 Cisco security vulnerabilities. CVSS base scores range from 5.8 to 9.9. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance Software, AsyncOS Software, BroadWorks CommPilot Application Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Adaptive Security Appliance Software, Secure Email, Secure Email Gateway, Secure FMC Software, Secure Firewall Adaptive Security Appliance Software, Secure Firewall Management Center, Secure Firewall Management Center Software, Secure Firewall Threat Defense Software, ThousandEyes Virtual Appliance, UCS Servers.
 
 ## Summary
 
@@ -139,7 +141,7 @@ This roundup covers 70 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20344](#cve-2026-20344) | Secure Firewall Management Center |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-mulivulns-4PsnFwvx?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Vulnerabilities%26vs_k=1) (authoritative) |
 | [CVE-2026-20248](#cve-2026-20248) | Secure Firewall Adaptive Security Appliance Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tcpdns-dos-p6dUnjr5?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20TCP%20DNS%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20350](#cve-2026-20350) | ThousandEyes Virtual Appliance |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-teva-os-command-W4GAO6jp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20ThousandEyes%20Virtual%20Appliance%20Authenticated%20Web%20Interface%20Command%20Injection%20Vulnerability%26vs_k=1) (authoritative) |
-| [CVE-2026-20290](#cve-2026-20290) | Secure Firewall Threat Defense Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ftd-snort2-ssldos-Mw7WYX9c?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Threat%20Defense%20Software%20Snort%202%20SSL/TLS%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20290](#cve-2026-20290) | Secure Firewall Threat Defense Software | Medium | 5.8 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ftd-snort2-ssldos-Mw7WYX9c?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Threat%20Defense%20Software%20Snort%202%20SSL/TLS%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-76431](#cve-2026-76431) | Identity Services Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-multi-traversal-WDTgYCdn?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Multiple%20Path%20Traversal%20Vulnerabilities%26vs_k=1) (authoritative) |
 | [CVE-2026-76432](#cve-2026-76432) | Identity Services Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-multi-traversal-WDTgYCdn?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Multiple%20Path%20Traversal%20Vulnerabilities%26vs_k=1) (authoritative) |
 | [CVE-2026-76433](#cve-2026-76433) | Identity Services Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-multi-traversal-WDTgYCdn?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Multiple%20Path%20Traversal%20Vulnerabilities%26vs_k=1) (authoritative) |
@@ -166,6 +168,7 @@ This roundup covers 70 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20324](#cve-2026-20324) | Secure Firewall Management Center Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-sftunn-codex-c3O4Jft2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20sftunnel%20Root%20Arbitrary%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20235](#cve-2026-20235) | Identity Services Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-inf-disc-LFWvcCu?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20176](#cve-2026-20176) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20176) (authoritative) |
+| [CVE-2026-20211](#cve-2026-20211) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20211) (authoritative) |
 
 
 ## CVE-2026-20354
@@ -220,6 +223,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20355](#cve-2026-20355).
 
 ## CVE-2026-20355
@@ -230,6 +234,7 @@ Affected products:
 - Secure Email
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -355,6 +360,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20353
 
 
 
+
 Related in this roundup: [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76440
@@ -366,6 +372,7 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76440
+
 
 
 
@@ -454,6 +461,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76441
 
 
 
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76443
@@ -465,6 +473,7 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76443
+
 
 
 
@@ -558,6 +567,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76442
 
 
 
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443).
 
 ## CVE-2026-20234
@@ -602,7 +612,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20234
 
 
 
-Related in this roundup: [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20305
 
@@ -646,7 +657,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20305
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20306
 
@@ -689,7 +701,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20306
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20307
 
@@ -730,7 +743,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20307
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20331
 
@@ -789,7 +803,8 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-76460
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2024-20260
 
@@ -800,6 +815,7 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftdvirtual-dos-MuenGnYR?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
 
 
 
@@ -858,6 +874,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20295](#cve-2026-20295), [CVE-2026-20323](#cve-2026-20323), [CVE-2026-20324](#cve-2026-20324).
 
 ## CVE-2026-20282
@@ -892,7 +909,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20283
 
@@ -926,7 +944,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20284
 
@@ -960,7 +979,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76423
 
@@ -994,7 +1014,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76424
 
@@ -1028,7 +1049,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76425
 
@@ -1062,7 +1084,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76426
 
@@ -1096,7 +1119,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76427
 
@@ -1130,7 +1154,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76428
 
@@ -1164,7 +1189,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20352
 
@@ -1196,7 +1222,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20295
 
@@ -1207,6 +1234,7 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmcftd-sftun-multivulns-WGVHOrN3?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20sftunnel%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -1260,6 +1288,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20242](#cve-2026-20242), [CVE-2026-20295](#cve-2026-20295), [CVE-2026-20324](#cve-2026-20324).
 
 ## CVE-2026-20135
@@ -1270,6 +1299,7 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ftd-tls1.3-dos-dLxwFWgF?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Threat%20Defense%20Software%20TLS%201.3%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
 
 
 
@@ -1314,7 +1344,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20072
 
@@ -1343,7 +1374,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20340
 
@@ -1353,6 +1385,7 @@ Affected products:
 - Secure Firewall Management Center
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-mulivulns-4PsnFwvx?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -1399,6 +1432,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20340](#cve-2026-20340), [CVE-2026-20342](#cve-2026-20342), [CVE-2026-20343](#cve-2026-20343), [CVE-2026-20344](#cve-2026-20344).
 
 ## CVE-2026-20342
@@ -1409,6 +1443,7 @@ Affected products:
 - Secure Firewall Management Center
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-mulivulns-4PsnFwvx?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -1455,6 +1490,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20340](#cve-2026-20340), [CVE-2026-20341](#cve-2026-20341), [CVE-2026-20342](#cve-2026-20342), [CVE-2026-20344](#cve-2026-20344).
 
 ## CVE-2026-20344
@@ -1465,6 +1501,7 @@ Affected products:
 - Secure Firewall Management Center
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-mulivulns-4PsnFwvx?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -1494,6 +1531,7 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tcpdns-dos-p6dUnjr5?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20TCP%20DNS%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
 
 
 
@@ -1545,6 +1583,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20135](#cve-2026-20135).
 
 ## CVE-2026-76431
@@ -1570,7 +1609,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76432
 
@@ -1595,7 +1635,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76433
 
@@ -1620,7 +1661,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76434
 
@@ -1645,7 +1687,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20309
 
@@ -1668,7 +1711,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20120
 
@@ -1679,6 +1723,7 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ftd-acl-bypass-8p6vFvw?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Object%20Group%20Access%20Control%20List%20Bypass%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -1714,6 +1759,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2024-20260](#cve-2024-20260), [CVE-2026-20248](#cve-2026-20248), [CVE-2026-20120](#cve-2026-20120), [CVE-2026-20222](#cve-2026-20222), [CVE-2026-20154](#cve-2026-20154), [CVE-2026-20249](#cve-2026-20249).
 
 ## CVE-2026-20285
@@ -1736,7 +1782,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20286
 
@@ -1758,7 +1805,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76438
 
@@ -1787,6 +1835,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2024-20260](#cve-2024-20260), [CVE-2026-20248](#cve-2026-20248), [CVE-2026-20120](#cve-2026-20120), [CVE-2026-20121](#cve-2026-20121), [CVE-2026-20154](#cve-2026-20154), [CVE-2026-20249](#cve-2026-20249).
 
 ## CVE-2026-20154
@@ -1798,6 +1847,7 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asa-ftd-logging-dos-ZXXNesfN?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20Logging%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
 
 
 
@@ -1824,7 +1874,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76444
 
@@ -1842,7 +1893,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76446
 
@@ -1860,7 +1912,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76447
 
@@ -1878,7 +1931,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20249
 
@@ -1889,6 +1943,7 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-ikev2cert-dos-uWyc2xtv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20IKEv2%20Certificate%20Authentication%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
 
 
 
@@ -1911,7 +1966,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76449
 
@@ -1927,7 +1983,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76450
 
@@ -1943,7 +2000,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-76451
 
@@ -1959,7 +2017,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20247
 
@@ -1973,7 +2032,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20300
 
@@ -1987,7 +2047,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20324
 
@@ -1997,6 +2058,7 @@ Affected products:
 - Secure Firewall Management Center Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-sftunn-codex-c3O4Jft2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20sftunnel%20Root%20Arbitrary%20Code%20Execution%20Vulnerability%26vs_k=1
+
 
 
 
@@ -2012,7 +2074,8 @@ Affected products:
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-inf-disc-LFWvcCu?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Information%20Disclosure%20Vulnerability%26vs_k=1
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20176](#cve-2026-20176).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20176](#cve-2026-20176), [CVE-2026-20211](#cve-2026-20211).
 
 ## CVE-2026-20176
 
@@ -2023,4 +2086,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20176
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235).
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20211](#cve-2026-20211).
+
+## CVE-2026-20211
+
+Cisco Identity Services Engine (ISE) is susceptible to a remote code execution vulnerability caused by insecure deserialization of Java objects. An authenticated, high-privileged attacker can exploit this by sending a crafted serialized object to the device, leading to arbitrary command execution on the underlying OS, privilege escalation to root, and potential denial-of-service in single-node deployments.
+
+Affected products:
+- Identity Services Engine
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20211
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284), [CVE-2026-76423](#cve-2026-76423), [CVE-2026-76424](#cve-2026-76424), [CVE-2026-76425](#cve-2026-76425), [CVE-2026-76426](#cve-2026-76426), [CVE-2026-76427](#cve-2026-76427), [CVE-2026-76428](#cve-2026-76428), [CVE-2026-20352](#cve-2026-20352), [CVE-2026-20071](#cve-2026-20071), [CVE-2026-20072](#cve-2026-20072), [CVE-2026-76431](#cve-2026-76431), [CVE-2026-76432](#cve-2026-76432), [CVE-2026-76433](#cve-2026-76433), [CVE-2026-76434](#cve-2026-76434), [CVE-2026-20309](#cve-2026-20309), [CVE-2026-20285](#cve-2026-20285), [CVE-2026-20286](#cve-2026-20286), [CVE-2026-76439](#cve-2026-76439), [CVE-2026-76444](#cve-2026-76444), [CVE-2026-76446](#cve-2026-76446), [CVE-2026-76447](#cve-2026-76447), [CVE-2026-76448](#cve-2026-76448), [CVE-2026-76449](#cve-2026-76449), [CVE-2026-76450](#cve-2026-76450), [CVE-2026-76451](#cve-2026-76451), [CVE-2026-20247](#cve-2026-20247), [CVE-2026-20300](#cve-2026-20300), [CVE-2026-20235](#cve-2026-20235), [CVE-2026-20176](#cve-2026-20176).
