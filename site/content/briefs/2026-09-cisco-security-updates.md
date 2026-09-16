@@ -3,12 +3,14 @@ title: Cisco Security Updates - September 2026
 slug: 2026-09-cisco-security-updates
 description: Roundup of Cisco security advisories published in September 2026.
 date: "2026-09-02T18:06:39Z"
-lastmod: "2026-09-16T19:19:30Z"
+lastmod: "2026-09-16T19:19:36Z"
 type: threat
 types:
   - threat
 severities:
   - high
+cpes:
+  - cpe:2.3:o:cisco:asyncos:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -45,6 +47,7 @@ cves:
     epss: 0.00366
   - id: CVE-2026-76461
     cvss: 9.8
+    epss: 0.02162
   - id: CVE-2026-76442
     cvss: 7.5
     epss: 0.00331
@@ -54,20 +57,15 @@ cves:
     cvss: 9.1
   - id: CVE-2026-20306
     cvss: 9.1
+  - id: CVE-2026-20307
+    cvss: 9.9
   - id: CVE-2024-20260
     product: Secure Firewall Adaptive Security Appliance Software
     cvss: 8.6
     epss: 0.0062
 references:
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-javarce-y2NypXwk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Java%20Deserialization%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-multi-hrP9jQSQ?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Vulnerabilities%26vs_k=1
 updates:
-  - at: "2026-09-16T17:51:11Z"
-    level: L2
-    summary: added CVE-2026-76440 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20305
   - at: "2026-09-16T17:51:21Z"
     level: L2
     summary: added CVE-2026-20234
@@ -84,15 +82,16 @@ updates:
       - https://www.cve.org/CVERecord?id=CVE-2026-76460
   - at: "2026-09-16T19:19:24Z"
     level: L2
-    summary: added CVE-2024-20260, CVE-2026-20305
+    summary: added CVE-2024-20260, CVE-2026-20305, CVE-2026-20307
     sources:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftdvirtual-dos-MuenGnYR?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-javarce-y2NypXwk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Java%20Deserialization%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-multi-hrP9jQSQ?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Vulnerabilities%26vs_k=1
 ---
 
-This roundup covers 20 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.9. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance Software, AsyncOS Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Adaptive Security Appliance Software, Secure Email, Secure Email Gateway, Secure FMC Software, Secure Firewall Adaptive Security Appliance Software, UCS Servers.
+This roundup covers 24 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.9. None are reported as actively exploited at the time of release. The issues affect Adaptive Security Appliance Software, AsyncOS Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Adaptive Security Appliance Software, Secure Email, Secure Email Gateway, Secure FMC Software, Secure Firewall Adaptive Security Appliance Software, Secure Firewall Management Center Software, UCS Servers.
 
 ## Summary
 
@@ -107,10 +106,10 @@ This roundup covers 20 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-76440](#cve-2026-76440) | Secure Email Gateway | Critical | 9.8 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76440) (authoritative) |
 | [CVE-2026-76441](#cve-2026-76441) | Secure Email Gateway | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76441) (authoritative) |
 | [CVE-2026-76443](#cve-2026-76443) | Secure Email Gateway | Critical | 9.8 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76443) (authoritative) |
-| [CVE-2026-76461](#cve-2026-76461) | AsyncOS Software | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76461) (authoritative) |
+| [CVE-2026-76461](#cve-2026-76461) | AsyncOS Software | Critical | 9.8 | 2.16% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76461) (authoritative) |
 | [CVE-2026-76442](#cve-2026-76442) | Secure Email Gateway | High | 7.5 | 0.33% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76442) (authoritative) |
 | [CVE-2026-20234](#cve-2026-20234) | Identity Services Engine | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20234) (authoritative) |
-| [CVE-2026-20305](#cve-2026-20305) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20305) (authoritative) |
+| [CVE-2026-20305](#cve-2026-20305) | Identity Services Engine | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20305) (authoritative) |
 | [CVE-2026-20306](#cve-2026-20306) | Identity Services Engine | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20306) (authoritative) |
 | [CVE-2026-20307](#cve-2026-20307) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20307) (authoritative) |
 | [CVE-2026-20331](#cve-2026-20331) | Secure Adaptive Security Appliance Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20331) (authoritative) |
@@ -118,6 +117,10 @@ This roundup covers 20 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-76460](#cve-2026-76460) | Identity Services Engine |  |  |  | no | [source](https://www.cve.org/CVERecord?id=CVE-2026-76460) (authoritative) |
 | [CVE-2024-20260](#cve-2024-20260) | Secure Firewall Adaptive Security Appliance Software | High | 8.6 | 0.62% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftdvirtual-dos-MuenGnYR?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20SSL%20VPN%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20250](#cve-2026-20250) | Adaptive Security Appliance Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-dtls-dos-Kp57HkyO?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20for%20Secure%20Firewall%203100%20and%204200%20Series%20DTLS%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20242](#cve-2026-20242) | Secure Firewall Management Center Software |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-javarce-y2NypXwk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Java%20Deserialization%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20282](#cve-2026-20282) | Identity Services Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-mult-vul-ymSsTLCc?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Authenticated%20Remote%20Code%20Execution%20and%20API%20Vulnerabilities%26vs_k=1) (authoritative) |
+| [CVE-2026-20283](#cve-2026-20283) | Identity Services Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-mult-vul-ymSsTLCc?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Authenticated%20Remote%20Code%20Execution%20and%20API%20Vulnerabilities%26vs_k=1) (authoritative) |
+| [CVE-2026-20284](#cve-2026-20284) | Identity Services Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-mult-vul-ymSsTLCc?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Authenticated%20Remote%20Code%20Execution%20and%20API%20Vulnerabilities%26vs_k=1) (authoritative) |
 
 
 ## CVE-2026-20354
@@ -147,6 +150,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
 Related in this roundup: [CVE-2026-20355](#cve-2026-20355).
 
 ## CVE-2026-20355
@@ -157,6 +162,8 @@ Affected products:
 - Secure Email
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1
+
+
 
 
 
@@ -232,6 +239,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20353
 
 
 
+
+
 Related in this roundup: [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76440
@@ -243,6 +252,8 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76440
+
+
 
 
 
@@ -281,6 +292,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76441
 
 
 
+
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76443
@@ -292,6 +305,8 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76443
+
+
 
 
 
@@ -335,6 +350,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76442
 
 
 
+
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443).
 
 ## CVE-2026-20234
@@ -354,7 +371,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20234
 
 
 
-Related in this roundup: [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460).
+
+
+Related in this roundup: [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284).
 
 ## CVE-2026-20305
 
@@ -373,7 +392,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20305
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460).
+
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284).
 
 ## CVE-2026-20306
 
@@ -391,7 +412,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20306
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460).
+
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284).
 
 ## CVE-2026-20307
 
@@ -407,7 +430,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20307
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-76460](#cve-2026-76460).
+
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284).
 
 ## CVE-2026-20331
 
@@ -441,7 +466,9 @@ Source: https://www.cve.org/CVERecord?id=CVE-2026-76460
 
 
 
-Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307).
+
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284).
 
 ## CVE-2024-20260
 
@@ -462,3 +489,45 @@ Affected products:
 - Secure Firewall Threat Defense Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-dtls-dos-Kp57HkyO?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Adaptive%20Security%20Appliance%20and%20Secure%20Firewall%20Threat%20Defense%20Software%20for%20Secure%20Firewall%203100%20and%204200%20Series%20DTLS%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
+## CVE-2026-20242
+
+A critical remote code execution vulnerability exists in the External Database Access feature of Cisco Secure Firewall Management Center (FMC) Software. The flaw arises from insecure deserialization of user-supplied Java byte streams. An unauthenticated, remote attacker who already controls a host authorized in the external database access list can send a crafted Java object to a specific TCP port to execute arbitrary commands as the root user.
+
+Affected products:
+- Secure Firewall Management Center Software
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-fmc-javarce-y2NypXwk?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Firewall%20Management%20Center%20Software%20Java%20Deserialization%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
+
+## CVE-2026-20282
+
+Cisco Identity Services Engine (ISE) contains multiple vulnerabilities allowing authenticated, remote attackers to perform SQL injections, modify database contents, and execute arbitrary operating system commands. These vulnerabilities are particularly severe as they can be leveraged to escalate privileges to the root level on the affected device.
+
+Affected products:
+- Identity Services Engine
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-mult-vul-ymSsTLCc?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Authenticated%20Remote%20Code%20Execution%20and%20API%20Vulnerabilities%26vs_k=1
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20283](#cve-2026-20283), [CVE-2026-20284](#cve-2026-20284).
+
+## CVE-2026-20283
+
+Cisco Identity Services Engine (ISE) contains multiple vulnerabilities allowing authenticated, remote attackers to perform SQL injections, modify database contents, and execute arbitrary operating system commands. These vulnerabilities are particularly severe as they can be leveraged to escalate privileges to the root level on the affected device.
+
+Affected products:
+- Identity Services Engine
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-mult-vul-ymSsTLCc?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Authenticated%20Remote%20Code%20Execution%20and%20API%20Vulnerabilities%26vs_k=1
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20284](#cve-2026-20284).
+
+## CVE-2026-20284
+
+Cisco Identity Services Engine (ISE) contains multiple vulnerabilities allowing authenticated, remote attackers to perform SQL injections, modify database contents, and execute arbitrary operating system commands. These vulnerabilities are particularly severe as they can be leveraged to escalate privileges to the root level on the affected device.
+
+Affected products:
+- Identity Services Engine
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-mult-vul-ymSsTLCc?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Identity%20Services%20Engine%20Authenticated%20Remote%20Code%20Execution%20and%20API%20Vulnerabilities%26vs_k=1
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234), [CVE-2026-20305](#cve-2026-20305), [CVE-2026-20306](#cve-2026-20306), [CVE-2026-20307](#cve-2026-20307), [CVE-2026-76460](#cve-2026-76460), [CVE-2026-20282](#cve-2026-20282), [CVE-2026-20283](#cve-2026-20283).
