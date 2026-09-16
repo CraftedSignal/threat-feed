@@ -3,7 +3,7 @@ title: Cross-Site Scripting Vulnerability in AVideo YPTSocket Plugin
 slug: 2026-09-avideo-xss
 description: An unauthenticated XSS vulnerability in the AVideo YPTSocket plugin allows attackers to execute arbitrary JavaScript in victim browsers via crafted websocket callback messages.
 date: "2026-09-05T13:32:19Z"
-lastmod: "2026-09-16T23:52:36Z"
+lastmod: "2026-09-16T23:52:49Z"
 type: advisory
 types:
   - advisory
@@ -62,6 +62,18 @@ mitre_ttps:
     technique_name: System Information Discovery
     evidence: The get_api_video endpoint returns user-group-restricted videos with owner PII to anonymous callers.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: An unauthenticated remote attacker can therefore lure an authenticated administrator into planting a malicious password.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: The plugin's documented crontab entry executes the injected command with no further administrator action.
+    confidence_band: high
 cves:
   - id: CVE-2026-86188
     cvss: 7.2
@@ -71,6 +83,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88865
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88874
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92577
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92580
 action_plan:
   priority: elevated
   owners:
@@ -116,6 +129,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92577
+  - at: "2026-09-16T23:52:49Z"
+    level: L2
+    summary: added coverage for AVideo (<= 29.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92580
 ---
 
 AVideo, an open-source video platform, contains a critical cross-site scripting (XSS) vulnerability (CVE-2026-86188) within its YPTSocket plugin. The vulnerability stems from insecure handling of websocket callback messages. An unauthenticated attacker can send a crafted socket message to the platform, specifying a callback name that triggers existing global functions, such as 'avideoConfirmHTML'. These functions improperly process untrusted data by assigning it directly to the innerHTML property of an element within the Document Object Model (DOM).
