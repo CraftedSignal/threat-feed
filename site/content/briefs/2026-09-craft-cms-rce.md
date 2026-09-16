@@ -3,6 +3,7 @@ title: Remote Code Execution in Craft CMS via HMAC Signature Misuse
 slug: 2026-09-craft-cms-rce
 description: Craft CMS versions 4.8.0 through 4.18.5 and 5.0.0 through 5.10.12 contain a critical vulnerability allowing authenticated users to achieve remote code execution by injecting malicious payloads into improperly validated redirect parameters.
 date: "2026-09-16T23:53:06Z"
+lastmod: "2026-09-16T23:53:20Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,16 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:craftcms:craft_cms:*:*:*:*:*:*:*:*
+tags:
+  - cve
+  - authorization
+  - graphql
+  - web-vulnerability
 vendors:
   - Craft CMS
 products:
   - Craft CMS (4.8.0-4.18.5, 5.0.0-5.10.12)
+  - Craft CMS (< 5.11.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -27,11 +34,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: on a successful login, Craft validates the signature and renders the authenticated bytes as an unsandboxed Twig template, where Twig's map filter accepts a string callback and allows PHP system() to execute arbitrary operating-system commands
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Collection
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: A client holding only the drafts or revisions scope can therefore harvest the email addresses, usernames, full names, and postal addresses of all draft/revision creators.
+    confidence_band: high
 cves:
   - id: CVE-2026-92592
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92592
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92594
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92592
       evidence: Exploitation requires an account using password authentication without active 2FA
+updates:
+  - at: "2026-09-16T23:53:20Z"
+    level: L2
+    summary: added coverage for Craft CMS (< 5.11.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92594
 ---
 
 Craft CMS versions 4.8.0 through 4.18.5 and 5.0.0 through 5.10.12 are susceptible to a remote code execution vulnerability identified as CVE-2026-92592. The issue stems from the application using the same securityKey to sign both internal license-shun cookies and redirect parameters without binding the HMAC signature to a specific purpose. 
