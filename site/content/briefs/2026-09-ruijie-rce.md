@@ -3,6 +3,7 @@ title: Remote Command Injection in Ruijie RG-EW3000GX
 slug: 2026-09-ruijie-rce
 description: A critical remote OS command injection vulnerability in the Ruijie RG-EW3000GX router allows unauthenticated attackers to execute arbitrary commands via the configChange component.
 date: "2026-09-16T17:51:03Z"
+lastmod: "2026-09-16T17:51:40Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - critical
 cpes:
   - cpe:2.3:h:ruijie:rg-ew3000gx:ew_3.0\(1\)b11p380:*:*:*:*:*:*:*
+tags:
+  - remote-code-execution
+  - cve-2026-92398
+  - command-injection
 vendors:
   - Ruijie
 products:
@@ -32,6 +37,19 @@ cves:
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92397
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92398
+rules:
+  - title: Detects CVE-2026-92398 Exploitation - Command Injection via Name Parameter
+    description: Detects attempts to exploit CVE-2026-92398 by monitoring for suspicious shell metacharacters in the Name argument sent to the affected path.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92397
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-16T17:51:40Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-92398 Exploitation - Command Injection via Name Parameter'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92398
 ---
 
 A critical security vulnerability (CVE-2026-92397) has been identified in the Ruijie RG-EW3000GX router, specifically within firmware version EW_3.0(1)B11P380. The vulnerability exists within the 'cc_set' function of the 'unifyframe-sgi.elf' binary, which is part of the 'configChange' component. An attacker can trigger this vulnerability by supplying a malicious payload to the 'data.url' argument. Because the router fails to properly sanitize this input before passing it to the underlying operating system, remote attackers can achieve command injection. This flaw is particularly dangerous as it allows for unauthenticated remote code execution on the networking device, potentially leading to a full compromise of the router, interception of network traffic, or use of the device as a pivot point within the local network. Proof-of-concept exploits have been disclosed publicly, making the risk of exploitation high.
