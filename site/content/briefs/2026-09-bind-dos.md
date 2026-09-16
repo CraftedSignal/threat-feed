@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in BIND Named Service
 slug: 2026-09-bind-dos
 description: A memory management flaw in BIND 9 allows an attacker-controlled authoritative DNS server to trigger a service abort by providing a maliciously crafted 65536-byte negative DNS response.
 date: "2026-09-16T15:50:09Z"
+lastmod: "2026-09-16T15:50:26Z"
 type: advisory
 types:
   - advisory
@@ -20,11 +21,22 @@ products:
   - BIND (9.21.0 - 9.21.25)
   - BIND Subscription Edition (9.11.3-S1 - 9.18.50-S1)
   - BIND Subscription Edition (9.20.9-S1 - 9.20.27-S1)
+  - BIND (9.18.0 - 9.18.50)
+  - BIND (9.18.11-S1 - 9.18.50-S1)
+  - BIND (9.20.9-S1 - 9.20.27-S1)
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Improper resource deallocation during the processing of these records can lead to memory exhaustion, preventing the resolver from performing recursive lookups and causing a denial-of-service condition.
+    confidence_band: high
 cves:
   - id: CVE-2026-19667
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19667
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81563
 action_plan:
   priority: elevated
   owners:
@@ -36,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19667
       evidence: Source advisory confirms the vulnerability and mandates an update
+updates:
+  - at: "2026-09-16T15:50:26Z"
+    level: L1
+    summary: added coverage for BIND (9.18.0 - 9.18.50) +4 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81563
 ---
 
 Internet Systems Consortium (ISC) BIND 9 is susceptible to a denial-of-service (DoS) vulnerability, tracked as CVE-2026-19667. The vulnerability occurs when the `named` process receives a negative DNS response from an authoritative server that is precisely 65536 bytes in size. Under these specific conditions, the software creates a cache entry with a size of zero bytes. Subsequent attempts by the `named` service to read this invalid entry result in an assertion failure, forcing the process to abort. 
