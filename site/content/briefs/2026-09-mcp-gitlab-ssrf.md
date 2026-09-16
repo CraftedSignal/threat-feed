@@ -3,6 +3,7 @@ title: SSRF Vulnerability in mcp-gitlab Enables GitLab Credential Theft
 slug: 2026-09-mcp-gitlab-ssrf
 description: The mcp-gitlab server is vulnerable to Server-Side Request Forgery (SSRF) when ENABLE_DYNAMIC_API_URL is enabled, allowing attackers to force the server to forward victim GitLab tokens to an arbitrary host.
 date: "2026-09-16T01:04:47Z"
+lastmod: "2026-09-16T01:04:58Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,16 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:zereight:mcp-gitlab:*:*:*:*:*:*:*:*
+tags:
+  - dns-rebinding
+  - mcp
+  - gitlab
+  - cve-2026-61568
 vendors:
   - zereight
 products:
   - mcp-gitlab (>= 0.0.1, <= 2.1.27)
+  - mcp-gitlab (< 2.1.30)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -27,12 +34,19 @@ mitre_ttps:
     technique_name: 'Unsecured Credentials: Credentials In Files'
     evidence: The server then attaches the victim's Private-Token to every outbound fetch that uses the redirected URL.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1557.001
+    technique_name: 'Adversary-in-the-Middle: LLMNR/NBT-NS Poisoning and SMB Relay'
+    evidence: A malicious web page can use DNS rebinding to route browser requests to a victim's local MCP listener while preserving an attacker-controlled Host and Origin.
+    confidence_band: high
 cves:
   - id: CVE-2026-61559
     cvss: 9.6
 references:
   - https://github.com/advisories/GHSA-2h44-8472-frjj
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61559
+  - https://github.com/advisories/GHSA-vmp7-252j-cwp7
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +67,14 @@ action_plan:
       owner: Detection Engineering
       addresses: CVE-2026-61559
       evidence: Remediation section of GHSA-2h44-8472-frjj
+updates:
+  - at: "2026-09-16T01:04:58Z"
+    level: L2
+    summary: added coverage for mcp-gitlab (< 2.1.30)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vmp7-252j-cwp7
 ---
 
 The npm package @zereight/mcp-gitlab contains a critical SSRF vulnerability (CVE-2026-61559) in all versions through commit 74a8c83. When the configuration variable `ENABLE_DYNAMIC_API_URL` is set to `true`, the application blindly trusts the `X-GitLab-API-URL` HTTP header provided by a requester. The server validates that the header is a well-formed URL but fails to perform any allowlist check or hostname restriction against the destination. 
