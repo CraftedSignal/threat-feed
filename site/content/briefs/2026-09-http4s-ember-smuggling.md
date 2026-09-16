@@ -3,7 +3,7 @@ title: HTTP Request Smuggling Vulnerability in http4s Ember
 slug: 2026-09-http4s-ember-smuggling
 description: The http4s Ember HTTP/1.1 parser fails to reject messages containing both 'Transfer-Encoding' and 'Content-Length' headers, enabling CL.TE request smuggling attacks.
 date: "2026-09-16T01:05:04Z"
-lastmod: "2026-09-16T01:05:43Z"
+lastmod: "2026-09-16T01:06:01Z"
 type: advisory
 types:
   - advisory
@@ -26,6 +26,7 @@ products:
   - http4s-ember-core (<= 0.23.36)
   - http4s-ember-core (1.0.0-M1 - 1.0.0-M47)
   - http4s-ember-core (<= 0.23.34, >= 1.0.0-M1 and <= 1.0.0-M46)
+  - http4s-ember-core (>= 1.0.0-M1, <= 1.0.0-M46)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -54,6 +55,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88975
   - https://github.com/advisories/GHSA-cp4q-fqw9-4hf6
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69218
+  - https://github.com/advisories/GHSA-9998-894r-fwvr
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-69205
 action_plan:
   priority: immediate_escalation
   owners:
@@ -85,6 +88,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-cp4q-fqw9-4hf6
+  - at: "2026-09-16T01:06:01Z"
+    level: L2
+    summary: added coverage for http4s-ember-core (<= 0.23.34) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9998-894r-fwvr
 ---
 
 The http4s Ember HTTP/1.1 parser (CVE-2026-69204) fails to comply with RFC 9112 §6.1, which mandates that servers treat any HTTP/1.1 message containing both 'Transfer-Encoding' and 'Content-Length' headers as a framing error and close the connection. Because Ember accepts both, discrepancies arise when it is deployed behind an intermediary that frames the request based on 'Content-Length' while Ember frames based on 'Transfer-Encoding' (chunked). This desynchronization creates a CL.TE request smuggling condition. Attackers can exploit this to perform request smuggling, bypassing authentication filters, performing cross-user request hijacking, or poisoning backend caches. The vulnerability affects both 'ember-server' (origin) and 'ember-client' (response processing), with the latter vulnerable to desynchronization from a malicious upstream source.
