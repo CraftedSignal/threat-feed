@@ -3,7 +3,7 @@ title: Cisco Security Updates - September 2026
 slug: 2026-09-cisco-security-updates
 description: Roundup of Cisco security advisories published in September 2026.
 date: "2026-09-02T18:06:39Z"
-lastmod: "2026-09-16T17:51:11Z"
+lastmod: "2026-09-16T17:51:21Z"
 type: threat
 types:
   - threat
@@ -46,16 +46,11 @@ cves:
     cvss: 9.8
   - id: CVE-2026-76442
     cvss: 7.5
+  - id: CVE-2026-20234
+    cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-20305
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20306
 updates:
-  - at: "2026-09-08T17:45:54Z"
-    level: L2
-    summary: added CVE-2026-20212 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20293
   - at: "2026-09-14T17:34:31Z"
     level: L2
     summary: added CVE-2026-20281 +1
@@ -84,9 +79,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20305
+  - at: "2026-09-16T17:51:21Z"
+    level: L2
+    summary: added CVE-2026-20234
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20306
 ---
 
-This roundup covers 12 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.8. None are reported as actively exploited at the time of release. The issues affect AsyncOS Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Email, Secure Email Gateway, UCS Servers.
+This roundup covers 13 Cisco security vulnerabilities. CVSS base scores range from 5.9 to 9.8. None are reported as actively exploited at the time of release. The issues affect AsyncOS Software, Desk Phone 9800 Series, Identity Services Engine, Nexus 9000 Series Switches, Secure Email, Secure Email Gateway, UCS Servers.
 
 ## Summary
 
@@ -98,12 +100,13 @@ This roundup covers 12 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20281](#cve-2026-20281) | Desk Phone 9800 Series | High | 7.5 | 0.33% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-phone-dos-txMYNRzv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Desk%20Phone%209800%20Series,%20IP%20Phone%207800%20and%208800%20Series,%20and%20Video%20Phone%208875%20with%20SIP%20Software%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20293](#cve-2026-20293) | UCS Servers | High | 7.1 | 0.13% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20293) (authoritative) |
 | [CVE-2026-20353](#cve-2026-20353) | Secure Email Gateway | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20353) (authoritative) |
-| [CVE-2026-76440](#cve-2026-76440) | Secure Email Gateway |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76440) (authoritative) |
+| [CVE-2026-76440](#cve-2026-76440) | Secure Email Gateway | Critical | 9.8 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76440) (authoritative) |
 | [CVE-2026-76441](#cve-2026-76441) | Secure Email Gateway | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76441) (authoritative) |
-| [CVE-2026-76443](#cve-2026-76443) | Secure Email Gateway |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76443) (authoritative) |
+| [CVE-2026-76443](#cve-2026-76443) | Secure Email Gateway | Critical | 9.8 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76443) (authoritative) |
 | [CVE-2026-76461](#cve-2026-76461) | AsyncOS Software | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76461) (authoritative) |
 | [CVE-2026-76442](#cve-2026-76442) | Secure Email Gateway | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76442) (authoritative) |
 | [CVE-2026-20234](#cve-2026-20234) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20234) (authoritative) |
+| [CVE-2026-20305](#cve-2026-20305) | Identity Services Engine |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20305) (authoritative) |
 
 
 ## CVE-2026-20354
@@ -125,6 +128,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20355](#cve-2026-20355).
 
 ## CVE-2026-20355
@@ -135,6 +139,7 @@ Affected products:
 - Secure Email
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-smime-disc-dzw4rEdY?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Secure/Multipurpose%20Internet%20Mail%20Extensions%20Ciphertext%20Decryption%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -194,6 +199,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20353
 
 
 
+
 Related in this roundup: [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76440
@@ -205,6 +211,7 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76440
+
 
 
 
@@ -227,6 +234,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76441
 
 
 
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76443](#cve-2026-76443), [CVE-2026-76442](#cve-2026-76442).
 
 ## CVE-2026-76443
@@ -238,6 +246,7 @@ Affected products:
 - Secure Email and Web Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76443
+
 
 
 
@@ -265,6 +274,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76442
 
 
+
 Related in this roundup: [CVE-2026-20353](#cve-2026-20353), [CVE-2026-76440](#cve-2026-76440), [CVE-2026-76441](#cve-2026-76441), [CVE-2026-76443](#cve-2026-76443).
 
 ## CVE-2026-20234
@@ -276,3 +286,17 @@ Affected products:
 - ISE Passive Identity Connector
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20234
+
+Related in this roundup: [CVE-2026-20305](#cve-2026-20305).
+
+## CVE-2026-20305
+
+CVE-2026-20305 is a command injection vulnerability within the diagnostic tools of Cisco ISE and ISE-PIC. An authenticated remote attacker with administrative credentials can exploit improper input validation via the web-based management interface to execute arbitrary code with root privileges. Successful exploitation may result in a denial of service condition by rendering the affected node unavailable.
+
+Affected products:
+- Identity Services Engine
+- ISE-PIC
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20305
+
+Related in this roundup: [CVE-2026-20234](#cve-2026-20234).
