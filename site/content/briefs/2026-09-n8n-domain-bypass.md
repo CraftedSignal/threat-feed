@@ -3,7 +3,7 @@ title: Domain-Restriction Bypass in n8n OpenAI Chat Model Node
 slug: 2026-09-n8n-domain-bypass
 description: An unauthenticated credential access vulnerability in n8n allows users to bypass domain restrictions in the OpenAI Chat Model node via the model-search endpoint, leading to unauthorized credential exposure.
 date: "2026-09-10T18:53:11Z"
-lastmod: "2026-09-11T00:54:58Z"
+lastmod: "2026-09-16T13:09:10Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,7 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:n8n:n8n:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:n8n:n8n:*:*:*:*:*:node.js:*:*
 tags:
   - vulnerability
   - webserver
@@ -31,6 +32,7 @@ products:
   - n8n (2.38.0 - 2.38.1)
   - n8n (< 1.123.76)
   - n8n (2.0.0 - 2.37.6)
+  - n8n (< 1.123.76)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -52,7 +54,11 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-86082
-    epss: 0.00246
+    cvss: 6.5
+    epss: 0.00238
+  - id: CVE-2026-86075
+    cvss: 7.5
+    epss: 0.00339
 references:
   - https://github.com/advisories/GHSA-34ff-336r-5q23
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86082
@@ -60,6 +66,7 @@ references:
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-86075
   - https://github.com/advisories/GHSA-hw8v-xxg5-vvvx
   - https://github.com/advisories/GHSA-6xcw-7xm6-48c6
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3393
 action_plan:
   priority: elevated
   owners:
@@ -98,6 +105,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-6xcw-7xm6-48c6
+  - at: "2026-09-16T13:09:10Z"
+    level: L2
+    summary: added CVE-2026-86075
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3393
 ---
 
 A security vulnerability in n8n (CVE-2026-86082) allows authenticated users to bypass configured domain restrictions within the OpenAI Chat Model node. While the primary OpenAI request path correctly validated custom base URLs against allowed-domain configurations, the secondary model-search dropdown endpoint failed to perform this check. An attacker able to manipulate request options could define a custom base URL that directed sensitive requests to an arbitrary, attacker-controlled host while still including the original, valid OpenAI credentials. This flaw enables the exfiltration of API keys or the use of credentials against unauthorized third-party infrastructure. This vulnerability affects multiple versions of n8n across the 1.x and 2.x branches and necessitates a prompt upgrade to the patched versions to ensure consistent credential protection across all API call sites.
