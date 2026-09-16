@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in WuzhiCMS
 slug: 2026-09-wuzhicms-sql-injection
 description: WuzhiCMS versions up to 4.1.0 contain a SQL injection vulnerability in the article::getDataOfJson function, allowing remote attackers to execute arbitrary SQL commands via the title or master_table parameters.
 date: "2026-09-15T17:42:41Z"
+lastmod: "2026-09-16T15:52:07Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - sql-injection
   - vulnerability
   - web-application
+  - ssrf
+  - web-vulnerability
 vendors:
   - WuzhiCMS
 products:
@@ -30,6 +33,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91848
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92380
 rules:
   - title: Detects CVE-2026-91848 Exploitation - SQL Injection in WuzhiCMS
     description: Detects potential exploitation of CVE-2026-91848 by identifying SQL injection attempts in the title or master_table parameters of the article::getDataOfJson endpoint.
@@ -41,7 +45,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-92380 Exploitation - SSRF in WuzhiCMS Remote Image Fetch
+    description: Detects exploitation of the SSRF vulnerability in WuzhiCMS by identifying POST requests to the index.php attachment handler containing the source[] parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +72,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-91848
       evidence: NVD vulnerability report
+updates:
+  - at: "2026-09-16T15:52:07Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-92380 Exploitation - SSRF in WuzhiCMS Remote Image Fetch'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92380
 ---
 
 A SQL injection vulnerability has been identified in WuzhiCMS in versions up to and including 4.1.0. The vulnerability resides within the article::getDataOfJson function, which is reachable via the endpoint /index.php?m=content&f=article&v=getDataOfJson. By manipulating the 'title' or 'master_table' arguments within an HTTP request, an unauthenticated remote attacker can inject arbitrary SQL commands. This flaw allows for potential unauthorized database access, including data exfiltration, modification, or deletion, depending on the privileges of the database user configured for the CMS. As of the disclosure date, the vulnerability is publicly documented with an available exploit, and the vendor has not yet addressed the issue. Organizations running affected WuzhiCMS instances should implement web application firewalls or similar controls to inspect incoming requests for SQL injection patterns targeting the specified endpoint.
