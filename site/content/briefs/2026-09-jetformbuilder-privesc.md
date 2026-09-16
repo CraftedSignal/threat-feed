@@ -3,6 +3,7 @@ title: Privilege Escalation in JetFormBuilder Plugin for WordPress
 slug: 2026-09-jetformbuilder-privesc
 description: An unauthenticated privilege escalation vulnerability (CVE-2026-12793) in the JetFormBuilder plugin allows attackers to register arbitrary administrator accounts via improper server-side validation.
 date: "2026-09-16T05:46:20Z"
+lastmod: "2026-09-16T16:56:06Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:jetformbuilder:dynamic_blocks_form_builder:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=0C977A49-52F9-5070-AD85-782B6DDFFD63&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - plugin
@@ -31,6 +35,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12793
+  - https://sploitus.com/exploit?id=0C977A49-52F9-5070-AD85-782B6DDFFD63&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -56,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-12793
       evidence: NVD advisory for CVE-2026-12793
+updates:
+  - at: "2026-09-16T16:56:06Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=0C977A49-52F9-5070-AD85-782B6DDFFD63&utm_source=rss&utm_medium=rss
 ---
 
 The JetFormBuilder - Dynamic Blocks Form Builder plugin for WordPress is affected by a critical privilege escalation vulnerability, assigned CVE-2026-12793. The vulnerability exists in versions up to and including 3.6.2. The security flaw stems from a lack of server-side validation concerning submitted form IDs. Specifically, the plugin fails to verify if a provided form ID is legitimate before parsing the referenced post's content as a form schema. This oversight enables the execution of an Advanced Validation server-side callback using attacker-controlled input. An unauthenticated attacker can exploit this mechanism to facilitate the creation of an administrative-level user account on the WordPress site. Given the plugin's functionality, this flaw represents a significant risk to site integrity and control.
