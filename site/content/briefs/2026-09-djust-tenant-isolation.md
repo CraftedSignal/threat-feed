@@ -3,7 +3,7 @@ title: Multi-tenant Isolation Bypass in djust via WebSocket/SSE
 slug: 2026-09-djust-tenant-isolation
 description: A vulnerability in djust caused multi-tenant isolation to fail open on WebSocket and SSE paths, allowing unauthorized cross-tenant data disclosure due to improper tenant context propagation.
 date: "2026-09-16T19:07:43Z"
-lastmod: "2026-09-17T01:07:57Z"
+lastmod: "2026-09-17T01:08:03Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,8 @@ tags:
   - idor
   - broken-access-control
   - vulnerability
+  - privilege-escalation
+  - injection
 vendors:
   - djust
 products:
@@ -44,6 +46,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: observability endpoints expose... a remote method-invocation surface (eval_handler).
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: A client could edit the unsigned state_json in their page and return it in the reconnect mount frame to inject arbitrary view attributes escalating privilege.
+    confidence_band: high
 cves:
   - id: CVE-2026-61595
     cvss: 7.7
@@ -56,6 +64,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61594
   - https://github.com/advisories/GHSA-c7c5-5j6r-q957
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61596
+  - https://github.com/advisories/GHSA-c67v-vqrp-m5wj
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-61591
 action_plan:
   priority: immediate_escalation
   owners:
@@ -101,6 +111,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-c7c5-5j6r-q957
+  - at: "2026-09-17T01:08:03Z"
+    level: L2
+    summary: added coverage for djust (< 1.0.7)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-c67v-vqrp-m5wj
 ---
 
 The djust package (versions prior to 1.0.7) suffers from a critical multi-tenant isolation failure affecting WebSocket and Server-Sent Events (SSE) connections. The vulnerability stems from the implementation of tenant identification, which relied on `threading.local()` and an HTTP-only middleware. Because this middleware was not invoked on persistent connection paths (WebSocket/SSE), the `get_current_tenant()` function returned `None`. 
