@@ -1,68 +1,57 @@
 ---
-title: Multiple Arbitrary Code Execution Vulnerabilities in vm2
+title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
 slug: 2026-09-vm2-sandbox-escape
-description: Multiple vulnerabilities in the vm2 JavaScript sandbox library, including CVE-2023-30547, CVE-2023-32314, and CVE-2023-32675, allow attackers to escape the sandbox and execute arbitrary code on the host system.
-date: "2026-09-04T18:06:45Z"
+description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
+date: "2026-09-17T15:57:37Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 cpes:
   - cpe:2.3:a:vm2_project:vm2:*:*:*:*:*:node.js:*:*
-  - cpe:2.3:a:vyperlang:vyper:*:*:*:*:*:*:*:*
-tags:
-  - vulnerability
-  - sandbox-escape
-  - code-execution
 products:
-  - vm2 (<= 3.9.16)
+  - vm2 (>= 3.11.4 and <= 3.11.6)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: Multiple vulnerabilities in the vm2 JavaScript sandbox library allow an attacker to escape the sandbox and execute arbitrary code on the host system.
+    evidence: An attacker... can execute arbitrary commands with the privileges of the host Node.js process, escaping the sandbox.
     confidence_band: high
 cves:
-  - id: CVE-2023-30547
-    cvss: 9.8
-    epss: 0.72087
-  - id: CVE-2023-32314
-    cvss: 9.8
-    epss: 0.08127
-  - id: CVE-2023-32675
-    cvss: 3.7
-    epss: 0.00553
+  - id: CVE-2026-92935
+    cvss: 9
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3189
-  - https://nvd.nist.gov/vuln/detail/CVE-2023-30547
-  - https://nvd.nist.gov/vuln/detail/CVE-2023-32314
-  - https://nvd.nist.gov/vuln/detail/CVE-2023-32675
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92935
 action_plan:
   priority: elevated
   owners:
-    - Security Operations
-    - Development Teams
+    - Development
+    - AppSec
   immediate_actions:
-    - action: Perform dependency scan to locate all instances of vm2
-      owner: Security Operations
-      due: 24h
-      evidence: Source notes the library is deprecated and vulnerable.
+    - action: Upgrade all instances of vm2 to version 3.11.7.
+      owner: Development
+      due: 48h
+      evidence: This issue is fixed in vm2 3.11.7.
   mitigation_plan:
     - priority: immediate
-      action: Replace vm2 library with secure alternatives
-      owner: Development Teams
-      addresses: CVE-2023-30547, CVE-2023-32314, CVE-2023-32675
-      evidence: vm2 is deprecated and contains multiple sandbox escapes.
+      action: Upgrade to vm2 3.11.7.
+      owner: IT Operations
+      addresses: CVE-2026-92935
+      evidence: NVD vulnerability disclosure.
 ---
 
-The JavaScript library vm2, widely used for running untrusted code in a sandboxed environment, contains multiple critical vulnerabilities that permit attackers to break out of the sandbox. These vulnerabilities, tracked under CVE-2023-30547, CVE-2023-32314, and CVE-2023-32675, stem from improper sanitization of error objects and mishandling of asynchronous operations. By exploiting these flaws, an attacker can bypass the security boundaries intended to isolate the guest code, leading to arbitrary code execution on the underlying host operating system. Given the library's role in security-sensitive isolation tasks, this risk is severe for any application or platform that processes user-supplied JavaScript using vulnerable versions of the vm2 sandbox. Defenders should prioritize auditing dependencies and migrating to alternative isolation mechanisms, as vm2 has been deprecated due to persistent sandbox escape issues.
+The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
+
+This logic flaw allows an attacker to manipulate the `makeResolverFromLegacyOptions()` function, leading to the creation of a resolver that exposes the host's `vm2` module. By supplying a payload that initiates a `NodeVM` with `nesting: true` and a malicious `require` array, an attacker can escape the sandbox boundaries. Once escaped, the attacker can create an inner `NodeVM` with arbitrary builtin privileges, such as `child_process`, enabling the execution of arbitrary commands under the context of the host Node.js process. This vulnerability is addressed in vm2 version 3.11.7.
 
 ## Impact
 
-Successful exploitation allows a guest user to elevate privileges from the sandbox to the host environment. This can lead to full system compromise, data exfiltration, or lateral movement within the network. These flaws impact a wide range of Node.js applications that utilize vm2 for security-critical sandboxing of user-provided content.
+Successful exploitation allows for full sandbox escape and arbitrary code execution within the host environment. This impacts any application relying on vm2 for isolation of untrusted JavaScript, potentially leading to unauthorized data access, system-level command execution, and full compromise of the Node.js application process.
 
 ## Recommendation
 
-Identify all applications within the environment that utilize the vm2 library via software composition analysis tools. Since the library is deprecated and no longer receives security updates, migration to a more secure isolation alternative such as Web Workers or dedicated virtual machines is required. Review all instances of code executing user-supplied JavaScript to ensure the sandbox is removed or replaced.
+- Upgrade the vm2 dependency to version 3.11.7 or later across all applications utilizing this library to mitigate CVE-2026-92935.
+- Audit all application code utilizing the `NodeVM` constructor to ensure the `require` configuration is strictly defined as an object rather than an array.
+- Implement process-level sandboxing (e.g., containers, gVisor) as a secondary defense layer to limit the impact of a potential sandbox escape.
