@@ -3,6 +3,7 @@ title: Authorization Bypass in SigNoz Trace-Funnel Analytics
 slug: 2026-09-signoz-auth-bypass
 description: SigNoz versions 0.88.0 through 0.141.0 contain an authorization bypass vulnerability allowing unauthenticated remote attackers to query sensitive trace analytics via the trace-funnel endpoint.
 date: "2026-09-16T19:52:24Z"
+lastmod: "2026-09-17T17:59:30Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,14 @@ tags:
   - authorization-bypass
   - api-security
   - observability
+  - sql-injection
+  - vulnerability
+  - web-application
 vendors:
   - SigNoz
 products:
   - SigNoz (0.88.0 - 0.141.0)
+  - SigNoz (0.88.0 <= v < 0.142.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +35,7 @@ cves:
     cvss: 8.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92729
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93292
 rules:
   - title: Detect Unauthenticated Access to SigNoz Trace-Funnel Endpoint
     description: Detects potential exploitation of CVE-2026-92729 by identifying unauthorized access to the trace-funnel analytics endpoint.
@@ -41,7 +47,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-93292 Exploitation - SQL Injection in SigNoz Analytics
+    description: Detects potential SQL injection attempts via POST requests to SigNoz analytics endpoints involving service_name or span_name fields.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +83,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92729
       evidence: Vulnerability fixed in newer versions
+updates:
+  - at: "2026-09-17T17:59:30Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-93292 Exploitation - SQL Injection in SigNoz Analytics'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93292
 ---
 
 SigNoz versions 0.88.0 through 0.141.0 contain a critical authorization bypass vulnerability within the application's trace-funnel analytics endpoints. The vulnerability stems from a failure to implement necessary authorization wrappers on specific HTTP handlers responsible for processing trace-funnel requests. This oversight allows unauthenticated remote attackers to submit arbitrary funnel definitions to the API. By interacting with these unprotected endpoints, attackers can exfiltrate sensitive observability data, including trace identifiers, request durations, span counts, internal service topology, and error activity metrics. Because these endpoints do not validate user credentials, this vulnerability poses a significant risk for unauthorized information disclosure of internal system architecture and operational telemetry. Defending against this threat requires identifying and restricting access to the affected funnel analytics endpoints or upgrading to a patched version once available.
