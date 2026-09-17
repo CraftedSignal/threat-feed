@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in HUBzero CMS
 slug: 2026-09-hubzero-path-traversal
 description: Authenticated users can exploit a path traversal vulnerability in HUBzero CMS project file upload handlers to achieve arbitrary file writes, potentially leading to remote code execution.
 date: "2026-09-17T15:59:42Z"
+lastmod: "2026-09-17T16:00:17Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - vulnerability
   - cve-2026-92970
   - path-traversal
+  - web-application
+  - session-fixation
+  - authentication
 vendors:
   - HUBzero
 products:
@@ -25,11 +29,18 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: Attackers can supply traversal sequences in upload parameters to write files to attacker-chosen paths with web server privileges, potentially enabling code execution.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1185
+    technique_name: Browser Session Hijacking
+    evidence: Attackers can obtain a valid session identifier, send victims a crafted link containing it, and replay the identifier after the victim authenticates to hijack their account and access.
+    confidence_band: high
 cves:
   - id: CVE-2026-92970
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92970
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92984
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92970
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-17T16:00:17Z"
+    level: L2
+    summary: added coverage for HUBzero CMS (<= 2.2.32)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92984
 ---
 
 HUBzero CMS versions up to and including 2.2.32 are vulnerable to a path traversal flaw within their project file upload handlers. An authenticated project member can craft malicious input containing directory traversal sequences (e.g., ../) within the upload parameters. When processed by the application, these sequences allow the user to bypass intended storage constraints and write files to arbitrary locations on the underlying host filesystem. Because the application performs these operations with the privileges of the web server process, this vulnerability can be leveraged to place malicious scripts or configuration files into executable directories, facilitating remote code execution. Given the impact on system integrity and the potential for full server compromise, organizations running affected versions should prioritize mitigation.
