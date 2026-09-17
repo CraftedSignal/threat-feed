@@ -3,7 +3,7 @@ title: Protocol Desynchronization and Frame Injection in RabbitMQ amqp091-go
 slug: 2026-09-rabbitmq-amqp091-desync
 description: A critical integer overflow vulnerability in the amqp091-go parser causes protocol desynchronization, allowing remote attackers to inject arbitrary AMQP frames into the network stream.
 date: "2026-09-17T19:09:40Z"
-lastmod: "2026-09-17T19:11:45Z"
+lastmod: "2026-09-17T19:12:08Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,7 @@ tags:
   - vulnerability
   - credential-exposure
   - information-disclosure
+  - injection
 vendors:
   - RabbitMQ
 products:
@@ -50,6 +51,12 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Because this sensitive data is retained permanently in-memory within an exported field structure, any peripheral code, internal package, reflective logger, dependency, or automated debugging utility with access to the core *Connection object can read and expose the raw credentials.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An attacker who has partial control over directory naming conventions or environmental variables used to specify local infrastructure paths can execute a parameter injection attack.
+    confidence_band: high
 cves:
   - id: CVE-2026-77411
 references:
@@ -64,6 +71,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77410
   - https://github.com/advisories/GHSA-27gv-rfvv-22mv
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77407
+  - https://github.com/advisories/GHSA-465g-fh3v-9jw4
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77404
 action_plan:
   priority: immediate_escalation
   owners:
@@ -81,13 +90,6 @@ action_plan:
       addresses: CVE-2026-77411
       evidence: GHSA-c5pq-fr2g-9jpf
 updates:
-  - at: "2026-09-17T19:09:49Z"
-    level: L1
-    summary: added coverage for amqp091-go (< 1.13.0)
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-j497-x9hr-x34x
   - at: "2026-09-17T19:09:57Z"
     level: L2
     summary: added coverage for amqp091-go (< 1.13.0)
@@ -116,6 +118,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-27gv-rfvv-22mv
+  - at: "2026-09-17T19:12:08Z"
+    level: L1
+    summary: added coverage for amqp091-go (< 1.13.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-465g-fh3v-9jw4
 ---
 
 The amqp091-go library (vulnerable versions prior to 1.13.0) contains a critical vulnerability (CVE-2026-77411) in the readLongstr function used to process AMQP wire-protocol data. When the parser encounters a string length field exceeding the maximum signed 32-bit integer (2^31 - 1), it triggers an improper error-handling condition. Instead of rejecting the malformed packet, the function performs a silent return, indicating a successful read of an empty string while failing to consume the associated bytes from the network buffer.
