@@ -3,6 +3,7 @@ title: Remote Code Execution in SiYuan via Malicious Bookmark Labels
 slug: 2026-09-siyuan-xss-rce
 description: SiYuan versions prior to 3.8.4 contain a cross-site scripting vulnerability in bookmark label rendering that enables remote code execution due to insecure Electron configuration.
 date: "2026-09-17T16:00:22Z"
+lastmod: "2026-09-17T16:01:58Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - vulnerability
   - rce
   - electron
+  - xss
 vendors:
   - SiYuan
 products:
@@ -36,6 +38,7 @@ cves:
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92985
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92986
 action_plan:
   priority: immediate_escalation
   owners:
@@ -52,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92985
       evidence: Source provided vulnerability window
+updates:
+  - at: "2026-09-17T16:01:58Z"
+    level: L2
+    summary: added coverage for SiYuan (< 3.8.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92986
 ---
 
 SiYuan versions prior to 3.8.4 contain a critical vulnerability that allows attackers to achieve remote code execution (RCE). The application fails to properly sanitize or escape bookmark labels when importing and rendering .sy notebook files within the dock tree. Because the underlying Electron framework is configured with nodeIntegration enabled, the rendering of malicious HTML payloads within these bookmark attributes allows for the execution of arbitrary JavaScript. This execution occurs within the context of the renderer process, granting the attacker access to Node.js primitives, including the child_process module, which can be leveraged to execute arbitrary system commands on the host machine. This affects all platforms where SiYuan is deployed, as it relies on the Electron-based architecture.
