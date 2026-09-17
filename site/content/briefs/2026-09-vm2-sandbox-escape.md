@@ -3,7 +3,7 @@ title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
 slug: 2026-09-vm2-sandbox-escape
 description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
 date: "2026-09-17T15:57:37Z"
-lastmod: "2026-09-17T15:57:53Z"
+lastmod: "2026-09-17T15:58:00Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,7 @@ tags:
   - sandbox-escape
   - nodejs
   - code-execution
+  - vulnerability
 products:
   - vm2 (>= 3.11.4 and <= 3.11.6)
   - vm2 (3.11.6)
@@ -44,6 +45,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: SQLite loads the library into the Node.js host process and invokes its native entry point, giving the sandboxed plugin arbitrary native code execution.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1611
+    technique_name: Escape to Host
+    evidence: The builtin loader wraps host modules in a read-only proxy, but method calls such as Agent.prototype.on() are forwarded to the underlying host object, so sandbox code can register a listener for the agent's 'free' event.
+    confidence_band: high
 cves:
   - id: CVE-2026-92935
     cvss: 9
@@ -52,6 +59,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92937
   - https://github.com/advisories/GHSA-m283-3h24-438v
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92938
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92940
 action_plan:
   priority: elevated
   owners:
@@ -83,6 +91,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92938
+  - at: "2026-09-17T15:58:00Z"
+    level: L2
+    summary: added coverage for vm2 (3.11.3-3.11.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92940
 ---
 
 The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
