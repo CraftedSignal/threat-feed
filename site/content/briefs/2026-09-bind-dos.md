@@ -3,7 +3,7 @@ title: Denial of Service Vulnerability in BIND Named Service
 slug: 2026-09-bind-dos
 description: A memory management flaw in BIND 9 allows an attacker-controlled authoritative DNS server to trigger a service abort by providing a maliciously crafted 65536-byte negative DNS response.
 date: "2026-09-16T15:50:09Z"
-lastmod: "2026-09-16T17:52:00Z"
+lastmod: "2026-09-17T13:13:20Z"
 type: advisory
 types:
   - advisory
@@ -30,6 +30,7 @@ products:
   - BIND (9.20.9-S1 - 9.20.27-S1)
   - BIND (9.20.0-9.20.27, 9.21.0-9.21.25, 9.20.9-S1-9.20.27-S1)
   - BIND (9.11.0 - 9.18.50, 9.20.0 - 9.20.27, 9.21.0 - 9.21.25, 9.11.3-S1 - 9.18.50-S1, 9.20.9-S1 - 9.20.27-S1)
+  - BIND (9.20.0 <= version < 9.20.29, 9.21.0 <= version < 9.21.26)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -40,11 +41,22 @@ mitre_ttps:
 cves:
   - id: CVE-2026-19667
     cvss: 7.5
+  - id: CVE-2026-76163
+    cvss: 7.5
+  - id: CVE-2026-19666
+    cvss: 7.5
+  - id: CVE-2026-81563
+    cvss: 7.5
+  - id: CVE-2026-77692
+    cvss: 7.5
+  - id: CVE-2026-81736
+    cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19667
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81563
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76163
   - https://nvd.nist.gov/vuln/detail/CVE-2026-80274
+  - https://www.securityweek.com/isc-patches-14-vulnerabilities-in-bind-9-security-update/
 action_plan:
   priority: elevated
   owners:
@@ -78,6 +90,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-80274
+  - at: "2026-09-17T13:13:20Z"
+    level: L2
+    summary: added CVE-2026-19666 +4
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/isc-patches-14-vulnerabilities-in-bind-9-security-update/
 ---
 
 Internet Systems Consortium (ISC) BIND 9 is susceptible to a denial-of-service (DoS) vulnerability, tracked as CVE-2026-19667. The vulnerability occurs when the `named` process receives a negative DNS response from an authoritative server that is precisely 65536 bytes in size. Under these specific conditions, the software creates a cache entry with a size of zero bytes. Subsequent attempts by the `named` service to read this invalid entry result in an assertion failure, forcing the process to abort. 
