@@ -3,7 +3,7 @@ title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
 slug: 2026-09-vm2-sandbox-escape
 description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
 date: "2026-09-17T15:57:37Z"
-lastmod: "2026-09-17T15:58:50Z"
+lastmod: "2026-09-17T15:58:57Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +29,7 @@ products:
   - vm2 (< 3.11.7)
   - vm2 (>= 3.9.6, <= 3.11.6)
   - vm2 (3.11.0-3.11.7)
+  - vm2 (3.10.1 - 3.11.6)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -80,6 +81,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92946
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92948
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92953
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92956
+  - https://github.com/advisories/GHSA-6j2x-vhqr-qr7q
 action_plan:
   priority: elevated
   owners:
@@ -97,13 +100,6 @@ action_plan:
       addresses: CVE-2026-92935
       evidence: NVD vulnerability disclosure.
 updates:
-  - at: "2026-09-17T15:58:08Z"
-    level: L2
-    summary: added coverage for vm2 (3.11.3 - 3.11.6)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-92941
   - at: "2026-09-17T15:58:15Z"
     level: L2
     summary: added coverage for vm2 (3.10.2 - 3.11.6)
@@ -132,6 +128,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92953
+  - at: "2026-09-17T15:58:57Z"
+    level: L2
+    summary: added coverage for vm2 (3.10.1 - 3.11.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92956
 ---
 
 The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
