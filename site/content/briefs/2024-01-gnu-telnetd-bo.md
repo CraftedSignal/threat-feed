@@ -3,11 +3,14 @@ title: GNU telnetd Buffer Overflow Vulnerability (CVE-2026-32746)
 slug: 2024-01-gnu-telnetd-bo
 description: A critical buffer overflow vulnerability exists in GNU telnetd (CVE-2026-32746), potentially allowing remote code execution on affected Linux systems.
 date: "2024-01-03T12:00:00Z"
+lastmod: "2026-09-17T15:40:41Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:gnu:inetutils:*:*:*:*:*:*:*:*
 tags:
   - cve-2026-32746
   - telnetd
@@ -16,7 +19,7 @@ tags:
 vendors:
   - GNU
 products:
-  - telnetd
+  - inetutils-telnetd
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,9 +29,14 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-32746
+    cvss: 9.8
+    epss: 0.23674
 references:
   - https://www.reddit.com/r/netsec/comments/1rxl75t/cve202632746_gnu_telnetd_buffer_overflow_poc/
   - https://pwn.guide/free/other/cve-2026-32746
+  - https://www.reddit.com/r/blueteamsec/comments/1wiv0ec/a_32yearold_bug_walks_into_a_telnet_server_gnu/
 rules:
   - title: Detect Telnetd Process Creation
     description: Detects the creation of the telnetd process on Linux systems, which is often an indicator of a server running
@@ -64,6 +72,14 @@ rules:
       - process_creation
       - linux
 rules_count: 3
+updates:
+  - at: "2026-09-17T15:40:41Z"
+    level: L2
+    summary: added CVE-2026-32746
+    sources:
+      - reddit-blueteamsec
+    source_urls:
+      - https://www.reddit.com/r/blueteamsec/comments/1wiv0ec/a_32yearold_bug_walks_into_a_telnet_server_gnu/
 ---
 
 A critical buffer overflow vulnerability, tracked as CVE-2026-32746, has been identified in GNU telnetd. This vulnerability, if exploited, could allow an unauthenticated attacker to execute arbitrary code on a vulnerable system. A proof-of-concept (PoC) exploit is publicly available, increasing the risk of exploitation. The vulnerability affects Linux systems running vulnerable versions of GNU telnetd. Defenders should prioritize patching and implementing detection measures to mitigate potential exploitation. This vulnerability poses a significant threat to system integrity and confidentiality.
