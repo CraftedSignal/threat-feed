@@ -3,11 +3,17 @@ title: Unauthenticated Administrative Account Creation in UVdesk Community Skele
 slug: 2026-09-uvdesk-skeleton-auth-bypass
 description: A vulnerability in UVdesk Community Skeleton versions through 1.1.8 allows unauthenticated attackers to reconfigure the database and create super administrator accounts via wizard endpoints.
 date: "2026-09-16T21:51:47Z"
+lastmod: "2026-09-17T18:11:20Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:uvdesk:community_skeleton:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=AB910EDC-7848-5F2F-AEA9-EC3D6603C682&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - authentication-bypass
@@ -29,8 +35,12 @@ mitre_ttps:
     technique_name: 'Create Account: Domain Account'
     evidence: Unauthenticated attackers can ... create super administrator accounts by submitting crafted requests.
     confidence_band: high
+cves:
+  - id: CVE-2026-92805
+    cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92805
+  - https://sploitus.com/exploit?id=AB910EDC-7848-5F2F-AEA9-EC3D6603C682&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92805
       evidence: Source identifies vulnerability in versions through 1.1.8.
+updates:
+  - at: "2026-09-17T18:11:20Z"
+    level: L2
+    summary: poc_available; added CVE-2026-92805
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=AB910EDC-7848-5F2F-AEA9-EC3D6603C682&utm_source=rss&utm_medium=rss
 ---
 
 UVdesk Community Skeleton versions through 1.1.8 contain a critical authentication and validation vulnerability within the ConfigureHelpdesk controller's wizard endpoints. This flaw allows unauthenticated remote attackers to interact with the application installation wizard, which fails to verify whether the system is already configured. By submitting specially crafted HTTP requests to these endpoints, an attacker can redefine the database connection parameters and proceed to register a new super administrator account. This grants the attacker full administrative control over the helpdesk instance, enabling complete data exfiltration, service disruption, or further compromise of the underlying environment. Defenders should treat any unauthorized access to the application's wizard or installation pathways as a critical security incident.
