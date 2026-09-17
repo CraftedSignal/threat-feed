@@ -1,0 +1,59 @@
+---
+title: Protocol Desynchronization and Frame Injection in RabbitMQ amqp091-go
+slug: 2026-09-rabbitmq-amqp091-desync
+description: A critical integer overflow vulnerability in the amqp091-go parser causes protocol desynchronization, allowing remote attackers to inject arbitrary AMQP frames into the network stream.
+date: "2026-09-17T19:09:40Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - critical
+cpes:
+  - cpe:2.3:a:rabbitmq:amqp091-go:*:*:*:*:*:*:*:*
+vendors:
+  - RabbitMQ
+products:
+  - amqp091-go (< 1.13.0)
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: The parser interprets arbitrary offsets within the remaining payload bytes as valid AMQP frame headers, leading to potential Remote Code Execution.
+    confidence_band: high
+cves:
+  - id: CVE-2026-77411
+references:
+  - https://github.com/advisories/GHSA-c5pq-fr2g-9jpf
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77411
+action_plan:
+  priority: immediate_escalation
+  owners:
+    - IT Operations
+    - Development
+  immediate_actions:
+    - action: Upgrade amqp091-go to 1.13.0 or later
+      owner: Development
+      due: 24h
+      evidence: Source states versions < 1.13.0 are vulnerable
+  mitigation_plan:
+    - priority: immediate
+      action: Upgrade amqp091-go to 1.13.0 or later
+      owner: Development
+      addresses: CVE-2026-77411
+      evidence: GHSA-c5pq-fr2g-9jpf
+---
+
+The amqp091-go library (vulnerable versions prior to 1.13.0) contains a critical vulnerability (CVE-2026-77411) in the readLongstr function used to process AMQP wire-protocol data. When the parser encounters a string length field exceeding the maximum signed 32-bit integer (2^31 - 1), it triggers an improper error-handling condition. Instead of rejecting the malformed packet, the function performs a silent return, indicating a successful read of an empty string while failing to consume the associated bytes from the network buffer.
+
+This failure leaves the unprocessed payload in the TCP stream, causing the parser to become desynchronized from the actual frame boundaries. As subsequent read operations occur, the parser interprets attacker-controlled bytes as valid AMQP frame headers. This alignment shift allows an unauthenticated attacker to inject malicious AMQP frames - such as channel management or message publication commands - leading to potential connection hijacking or remote code execution within the application context.
+
+## Impact
+
+The vulnerability affects any Go-based application utilizing the rabbitmq/amqp091-go library for AMQP communication. Successful exploitation allows for complete bypass of the AMQP protocol state machine, enabling attackers to issue unauthorized commands or extract data processed by the library. This poses a significant risk to messaging infrastructure relying on the library for secure inter-service communication.
+
+## Recommendation
+
+- Upgrade the amqp091-go package to version 1.13.0 or later immediately.
+- Audit network traffic logs for oversized string length parameters in AMQP payloads if deep packet inspection (DPI) or custom application-layer logging is available.
+- Implement strict input validation at the application firewall level if upgrading is not immediately feasible, specifically targeting AMQP frame structures with anomalous length values.
