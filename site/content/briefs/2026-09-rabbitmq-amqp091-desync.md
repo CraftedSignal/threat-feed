@@ -3,7 +3,7 @@ title: Protocol Desynchronization and Frame Injection in RabbitMQ amqp091-go
 slug: 2026-09-rabbitmq-amqp091-desync
 description: A critical integer overflow vulnerability in the amqp091-go parser causes protocol desynchronization, allowing remote attackers to inject arbitrary AMQP frames into the network stream.
 date: "2026-09-17T19:09:40Z"
-lastmod: "2026-09-17T19:11:30Z"
+lastmod: "2026-09-17T19:11:37Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,10 @@ tags:
   - data-integrity
   - serialization-vulnerability
   - protocol-corruption
+  - denial-of-service
+  - memory-exhaustion
+  - amqp
+  - vulnerability
 vendors:
   - RabbitMQ
 products:
@@ -48,6 +52,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77405
   - https://github.com/advisories/GHSA-4v58-74mf-rjx3
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77412
+  - https://github.com/advisories/GHSA-r9c8-gcjp-xfwh
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77410
 action_plan:
   priority: immediate_escalation
   owners:
@@ -86,6 +92,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-4v58-74mf-rjx3
+  - at: "2026-09-17T19:11:37Z"
+    level: L1
+    summary: added coverage for amqp091-go (< 1.13.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-r9c8-gcjp-xfwh
 ---
 
 The amqp091-go library (vulnerable versions prior to 1.13.0) contains a critical vulnerability (CVE-2026-77411) in the readLongstr function used to process AMQP wire-protocol data. When the parser encounters a string length field exceeding the maximum signed 32-bit integer (2^31 - 1), it triggers an improper error-handling condition. Instead of rejecting the malformed packet, the function performs a silent return, indicating a successful read of an empty string while failing to consume the associated bytes from the network buffer.
