@@ -3,6 +3,7 @@ title: Fulgur HTML-to-PDF Denial of Service via Resource Exhaustion
 slug: 2026-09-fulgur-dos
 description: Fulgur versions prior to 0.26.0 are vulnerable to a denial-of-service attack where an attacker-supplied HTML payload causes CPU and memory exhaustion by forcing the rendering of thousands of blank PDF pages.
 date: "2026-09-17T19:10:23Z"
+lastmod: "2026-09-17T19:10:31Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,15 @@ severities:
   - medium
 cpes:
   - cpe:2.3:a:fulgur-rs:fulgur:*:*:*:*:*:rust:*:*
+tags:
+  - denial-of-service
+  - vulnerability
+  - rust
 vendors:
   - fulgur-rs
 products:
   - fulgur (< 0.26.0)
+  - fulgur (< 0.19.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -24,6 +30,9 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-4rf6-qx84-q9fv
   - https://github.com/fulgur-rs/fulgur/pull/575
+  - https://github.com/advisories/GHSA-j5cx-ph8g-95v3
+  - https://github.com/fulgur-rs/fulgur/pull/501
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-68523
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +49,14 @@ action_plan:
       owner: Development
       addresses: CVE-2026-68537
       evidence: Validate or constrain untrusted CSS (in particular very large height / vh on elements) before passing HTML to fulgur.
+updates:
+  - at: "2026-09-17T19:10:31Z"
+    level: L1
+    summary: added coverage for fulgur (< 0.19.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-j5cx-ph8g-95v3
 ---
 
 Fulgur is a Rust-based library for converting HTML/CSS into PDF documents. Versions prior to 0.26.0 contain a critical resource exhaustion vulnerability identified as CVE-2026-68537. The library's existing \"childless-collapse\" defense, intended to prevent the rendering of excessively large or pathologically tall elements, was flawed because it only checked for tag-specific \"replaced content.\" Consequently, non-painting replaced elements, such as images with missing sources, hidden visibility, undecodable formats, or empty `<svg>` elements, could bypass this defense. 
