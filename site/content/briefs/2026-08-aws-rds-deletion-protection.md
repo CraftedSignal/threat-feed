@@ -3,6 +3,7 @@ title: AWS RDS Deletion Protection Disabled
 slug: 2026-08-aws-rds-deletion-protection
 description: Adversaries with elevated IAM permissions may disable deletion protection on AWS RDS instances or clusters as a prerequisite for unauthorized data destruction.
 date: "2026-08-24T09:50:10Z"
+lastmod: "2026-09-18T19:35:27Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - Amazon
 products:
   - RDS
+  - AWS RDS
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -31,6 +33,8 @@ mitre_ttps:
     technique_name: Modify Cloud Compute Infrastructure
     evidence: This rule alerts when deletionProtection is explicitly set to false on an RDS DB instance or cluster.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_rds_instance_cluster_deletion_protection_disabled.toml
 rules:
   - title: Detect AWS RDS Deletion Protection Disabled
     description: Detects unauthorized modification of AWS RDS DB instance or cluster to disable the deletionProtection feature, a precursor to data destruction.
@@ -71,6 +75,14 @@ action_plan:
       owner: IT Operations
       addresses: T1578.005
       evidence: Restriction of API permissions limits the attacker's ability to lower defenses.
+updates:
+  - at: "2026-09-18T19:35:27Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_rds_instance_cluster_deletion_protection_disabled.toml
 ---
 
 This threat brief addresses the unauthorized modification of AWS RDS DB instances or clusters to disable the deletionProtection feature. Deletion protection is a security safeguard intended to prevent accidental or malicious deletion of database resources. Attackers who have obtained sufficient IAM permissions to modify cloud compute infrastructure often target this setting as a deliberate precursor to destructive activities, such as the total deletion of databases containing sensitive or business-critical information. Monitoring for the explicit removal of this safeguard provides a critical detection window for incident responders to intervene before data loss occurs. Defenders should distinguish between legitimate infrastructure-as-code deployments and interactive manual modifications by unauthorized users.
