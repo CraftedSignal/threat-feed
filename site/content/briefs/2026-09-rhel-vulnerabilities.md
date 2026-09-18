@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Red Hat Enterprise Linux Components
 slug: 2026-09-rhel-vulnerabilities
 description: Multiple vulnerabilities in corosync, libevent, and libsoup within Red Hat Enterprise Linux could allow attackers to execute arbitrary code, bypass security controls, disclose data, or cause denial-of-service.
 date: "2026-09-17T13:12:26Z"
+lastmod: "2026-09-18T13:14:48Z"
 type: advisory
 types:
   - advisory
@@ -30,14 +31,24 @@ vendors:
   - Red Hat
 products:
   - Enterprise Linux (RHEL)
+  - Enterprise Linux
 affected_os:
   - RHEL
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: A remote, unauthenticated attacker can exploit this issue to trigger an application crash or service interruption, effectively resulting in a Denial of Service (DoS) condition.
+    confidence_band: high
 cves:
   - id: CVE-2024-50602
     cvss: 5.9
     epss: 0.01033
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3419
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3447
+  - https://nvd.nist.gov/vuln/detail/CVE-2024-25620
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-50602, CVE-2024-50604, CVE-2024-50605
       evidence: Source identifies package-specific vulnerabilities.
+updates:
+  - at: "2026-09-18T13:14:48Z"
+    level: L1
+    summary: added coverage for Enterprise Linux
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3447
 ---
 
 The German Federal Office for Information Security (BSI) has reported multiple security vulnerabilities affecting specific software components within the Red Hat Enterprise Linux (RHEL) ecosystem. The affected packages include corosync, libevent, and libsoup. These vulnerabilities, tracked under CVE-2024-50602, CVE-2024-50604, and CVE-2024-50605, present varying levels of risk depending on the implementation. Potential impacts of successful exploitation range from arbitrary code execution and security control bypass to unauthorized data manipulation, data disclosure, and the induction of denial-of-service conditions. Organizations utilizing these RHEL components should prioritize patching to mitigate potential exposure, as these libraries are fundamental to various cluster and network-related operations on Linux systems.
