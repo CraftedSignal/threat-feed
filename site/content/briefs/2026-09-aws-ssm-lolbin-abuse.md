@@ -3,11 +3,12 @@ title: Abuse of AWS Systems Manager for Remote LOLBin Execution
 slug: 2026-09-aws-ssm-lolbin-abuse
 description: Adversaries are abusing the AWS Systems Manager SendCommand API to remotely execute commands on EC2 instances by leveraging legitimate system utilities (LOLBins) to bypass CloudTrail parameter redaction.
 date: "2026-09-18T19:14:20Z"
+lastmod: "2026-09-18T19:27:06Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - cloud
   - linux
@@ -15,6 +16,7 @@ tags:
   - living-off-the-land
   - execution
   - command-and-control
+  - defense-evasion
 vendors:
   - Amazon
 products:
@@ -29,12 +31,41 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Adversaries may abuse SSM to execute malicious commands remotely without requiring SSH or RDP access, using legitimate system utilities.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562
+    technique_name: Impair Defenses
+    evidence: Adversaries may enable this feature to establish an out-of-band communication channel that evades network-based security monitoring, firewalls, and VPC controls.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1578
+    technique_name: Modify Cloud Compute Infrastructure
+    evidence: This rule detects successful EnableSerialConsoleAccess API calls, which may indicate an adversary attempting to establish an out-of-band access channel.
+    confidence_band: high
 references:
   - https://www.mitiga.io/blog/abusing-the-amazon-web-services-ssm-agent-as-a-remote-access-trojan
   - https://www.kali.org/tools/pacu/
   - https://www.100daysofredteam.com/p/ghost-in-the-cloud-abusing-aws-ssm
   - https://hackingthe.cloud/aws/post_exploitation/run_shell_commands_on_ec2/
   - https://gtfobins.github.io/
+  - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html
+  - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html
+  - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+rules:
+  - title: AWS EC2 Serial Console Access Enabled
+    description: Detects successful EnableSerialConsoleAccess API calls, which may indicate an adversary attempting to establish an out-of-band communication channel to evade network security controls.
+    platform: sigma
+    severity: high
+    tactics:
+      - defense_evasion
+    techniques:
+      - T1562.001
+      - T1578.005
+    data_sources:
+      - cloud
+      - aws
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -61,6 +92,14 @@ action_plan:
       owner: Cloud Security
       addresses: Credential compromise risk
       evidence: Source recommends MFA to reduce risk of credential compromise.
+updates:
+  - at: "2026-09-18T19:27:06Z"
+    level: L2
+    summary: 'added detection rule: AWS EC2 Serial Console Access Enabled'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/defense_evasion_ec2_serial_console_access_enabled.toml
 ---
 
 Adversaries are increasingly abusing the AWS Systems Manager (SSM) SendCommand API to achieve remote code execution on EC2 instances. By invoking the AWS-RunShellScript document, attackers can execute arbitrary commands without requiring SSH or RDP access to the instance. Because AWS redacts sensitive command parameters within CloudTrail logs, traditional cloud-only monitoring often fails to capture the malicious intent behind these API calls. 
