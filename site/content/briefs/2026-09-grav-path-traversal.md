@@ -3,6 +3,7 @@ title: Grav CMS Path Traversal in MediaUploadTrait Leading to Arbitrary File Del
 slug: 2026-09-grav-path-traversal
 description: An authenticated path traversal vulnerability in Grav CMS's MediaUploadTrait allows users with media management permissions to delete arbitrary files on the server by providing crafted file paths.
 date: "2026-09-18T01:11:09Z"
+lastmod: "2026-09-18T01:12:23Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +16,13 @@ tags:
   - cms
   - path-traversal
   - cve-2026-72695
+  - file-disclosure
+  - web-application
 vendors:
   - GetGrav
 products:
   - Grav CMS (<= 2.0.15)
+  - Grav CMS (2.0.15)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,12 +36,19 @@ mitre_ttps:
     technique_name: Data Destruction
     evidence: An authenticated user with media management permissions can delete arbitrary files on the server.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: A user who can enter page content that gets processed as Twig can point media_directory() at any directory the web server process can read.
+    confidence_band: high
 cves:
   - id: CVE-2026-72695
     cvss: 8.1
     epss: 0.00567
 references:
   - https://github.com/advisories/GHSA-jq29-c7v8-rg55
+  - https://github.com/advisories/GHSA-47ch-6w46-6xm7
 action_plan:
   priority: immediate_escalation
   owners:
@@ -54,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-72695
       evidence: Attack requires authenticated session
+updates:
+  - at: "2026-09-18T01:12:23Z"
+    level: L2
+    summary: added coverage for Grav CMS (2.0.15)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-47ch-6w46-6xm7
 ---
 
 Grav CMS versions 2.0.15 and earlier are vulnerable to a path traversal vulnerability in the `MediaUploadTrait::deleteFile()` method within `system/src/Grav/Common/Media/Traits/MediaUploadTrait.php`. The vulnerability arises because the application only performs filename validation on the basename using `Utils::checkFilename()` while failing to sanitize the directory path component. An authenticated user with media management permissions can exploit this by submitting specially crafted filenames containing directory traversal sequences (e.g., `../`). When passed to the `doRemove()` method, these sequences allow the application to bypass directory restrictions and invoke `unlink()` on files located outside the intended media storage path. This vulnerability can be used to cause a denial of service by deleting critical system configurations, application logic, or authentication-related files, potentially resulting in privilege escalation or complete system disruption.
