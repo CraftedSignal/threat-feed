@@ -3,7 +3,7 @@ title: Use-After-Free Vulnerability in GPAC Compositor
 slug: 2026-09-gpac-uaf
 description: A use-after-free vulnerability in the GPAC compositor component (CVE-2026-91087) allows remote attackers to trigger memory corruption via malicious media files.
 date: "2026-09-15T07:39:39Z"
-lastmod: "2026-09-16T17:52:13Z"
+lastmod: "2026-09-18T04:02:44Z"
 type: advisory
 types:
   - advisory
@@ -21,12 +21,14 @@ vendors:
 products:
   - GPAC (< abi-16.24)
   - GPAC (26.07.0)
+  - GPAC (26.08-DEV)
 cves:
   - id: CVE-2026-91087
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91087
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92399
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93331
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +53,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92399
+  - at: "2026-09-18T04:02:44Z"
+    level: L2
+    summary: added coverage for GPAC (26.08-DEV)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93331
 ---
 
 A use-after-free vulnerability has been identified in the GPAC multimedia framework, specifically affecting the 'gf_mo_get_od_id' function within 'compositor/media_object.c'. The flaw exists in all versions up to f1219cde. This vulnerability allows for remote exploitation when a user processes a specifically crafted malicious media file. Successful exploitation leads to memory corruption, which may result in application crashes or the potential for arbitrary code execution. As public exploit code for this vulnerability is currently available, it poses a significant risk to systems processing untrusted media content. The issue is addressed in the GPAC project by upgrading to version 'abi-16.24' or applying the patch identified by commit 'e34f4ba349d55cd1849f0bcf4cf46552732e2db7'. Organizations using GPAC as a library or standalone tool should prioritize patching.
