@@ -1,8 +1,9 @@
 ---
-title: CVE-2026-93605 Sandbox Escape in vm2 NodeVM
+title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
 slug: 2026-09-vm2-sandbox-escape
-description: CVE-2026-93605 is a sandbox escape vulnerability in the vm2 library that allows attackers to execute arbitrary system commands via the improperly restricted child_process module.
-date: "2026-09-18T16:06:43Z"
+description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
+date: "2026-09-17T15:57:37Z"
+lastmod: "2026-09-18T16:07:51Z"
 type: advisory
 types:
   - advisory
@@ -11,52 +12,150 @@ severities:
 cpes:
   - cpe:2.3:a:vm2_project:vm2:*:*:*:*:*:node.js:*:*
 tags:
-  - vulnerability
-  - rce
+  - sandbox-escape
   - nodejs
+  - code-execution
+  - vulnerability
+  - vm2
+  - rce
+  - javascript
+  - cve
+  - privilege-escalation
 products:
-  - NodeVM (< 3.12.1)
+  - vm2 (>= 3.11.4 and <= 3.11.6)
+  - vm2 (3.11.6)
+  - vm2 (3.11.3-3.11.6)
+  - vm2 (3.11.3 - 3.11.6)
+  - vm2 (3.10.2 - 3.11.6)
+  - vm2 (< 3.11.7)
+  - vm2 (>= 3.9.6, <= 3.11.6)
+  - vm2 (3.11.0-3.11.7)
+  - vm2 (3.10.1 - 3.11.6)
+  - vm2 (<= 3.11.6)
+  - vm2 (<= 3.12.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: Attackers can require child_process and execute arbitrary commands on the host system when NodeVM is configured with builtin:['*'] or explicit child_process allowance.
+    evidence: An attacker... can execute arbitrary commands with the privileges of the host Node.js process, escaping the sandbox.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.006
+    technique_name: JavaScript
+    evidence: An attacker within the sandbox can then utilize these leaked host objects to access 'child_process' or other privileged modules, resulting in arbitrary code execution.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Sandboxed code can create an in-memory DatabaseSync with extension loading enabled and call DatabaseSync.loadExtension() on a native library.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: SQLite loads the library into the Node.js host process and invokes its native entry point, giving the sandboxed plugin arbitrary native code execution.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1611
+    technique_name: Escape to Host
+    evidence: The builtin loader wraps host modules in a read-only proxy, but method calls such as Agent.prototype.on() are forwarded to the underlying host object, so sandbox code can register a listener for the agent's 'free' event.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    evidence: Attackers can use prototype-walking primitives to reach and modify host Uint8Array.prototype, %TypedArray%.prototype, and ArrayBuffer.prototype.
     confidence_band: high
 cves:
-  - id: CVE-2026-93605
-    cvss: 10
+  - id: CVE-2026-92935
+    cvss: 9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-93605
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92935
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92937
+  - https://github.com/advisories/GHSA-m283-3h24-438v
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92938
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92940
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92941
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92944
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92946
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92948
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92953
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92956
+  - https://github.com/advisories/GHSA-6j2x-vhqr-qr7q
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92957
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92942
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92951
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92958
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93603
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93604
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
-    - IT Operations
-    - Application Security
+    - Development
+    - AppSec
   immediate_actions:
-    - action: Upgrade vm2 to 3.12.1 or later
-      owner: IT Operations
-      due: 24h
-      evidence: CVE-2026-93605 remediation guidance
+    - action: Upgrade all instances of vm2 to version 3.11.7.
+      owner: Development
+      due: 48h
+      evidence: This issue is fixed in vm2 3.11.7.
   mitigation_plan:
     - priority: immediate
-      action: Remove child_process from NodeVM built-in allowlist configurations
-      owner: Application Security
-      addresses: CVE-2026-93605
-      evidence: Source describes child_process exclusion failure in denylist
+      action: Upgrade to vm2 3.11.7.
+      owner: IT Operations
+      addresses: CVE-2026-92935
+      evidence: NVD vulnerability disclosure.
+updates:
+  - at: "2026-09-17T15:59:18Z"
+    level: L1
+    summary: added coverage for vm2 (<= 3.11.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92942
+  - at: "2026-09-17T17:58:21Z"
+    level: L2
+    summary: added coverage for vm2 (< 3.11.7)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92951
+  - at: "2026-09-17T17:58:33Z"
+    level: L2
+    summary: added coverage for vm2 (<= 3.11.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92958
+  - at: "2026-09-18T16:06:37Z"
+    level: L2
+    summary: added coverage for vm2 (<= 3.12.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93603
+  - at: "2026-09-18T16:07:51Z"
+    level: L2
+    summary: added coverage for vm2 (<= 3.12.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93604
 ---
 
-CVE-2026-93605 describes a critical sandbox escape vulnerability affecting versions of the vm2 library prior to 3.12.1. The flaw exists within the NodeVM component, which is designed to provide an isolated execution environment for untrusted JavaScript code. Analysis reveals that the DANGEROUS_BUILTINS denylist, intended to restrict access to sensitive host-level functionality, fails to exclude the child_process module. 
+The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
 
-When NodeVM is initialized with a configuration that allows built-in modules - specifically via the builtin:['*'] setting or explicit child_process inclusion - the sandbox fails to enforce boundaries. An attacker capable of injecting or controlling the code executed within the NodeVM instance can invoke child_process to interact with the underlying host operating system. This vulnerability enables arbitrary command execution with the privileges of the Node.js process, potentially leading to full system compromise depending on the container or host permissions. Organizations using vm2 to execute untrusted user input must upgrade to version 3.12.1 or later to ensure the denylist is correctly enforced.
+This logic flaw allows an attacker to manipulate the `makeResolverFromLegacyOptions()` function, leading to the creation of a resolver that exposes the host's `vm2` module. By supplying a payload that initiates a `NodeVM` with `nesting: true` and a malicious `require` array, an attacker can escape the sandbox boundaries. Once escaped, the attacker can create an inner `NodeVM` with arbitrary builtin privileges, such as `child_process`, enabling the execution of arbitrary commands under the context of the host Node.js process. This vulnerability is addressed in vm2 version 3.11.7.
 
 ## Impact
 
-Successful exploitation of this vulnerability results in arbitrary remote code execution (RCE) on the host machine hosting the Node.js application. This poses a critical risk to any environment relying on vm2 for server-side code sandboxing, potentially allowing attackers to exfiltrate sensitive files, pivot within the network, or deploy persistent malware.
+Successful exploitation allows for full sandbox escape and arbitrary code execution within the host environment. This impacts any application relying on vm2 for isolation of untrusted JavaScript, potentially leading to unauthorized data access, system-level command execution, and full compromise of the Node.js application process.
 
 ## Recommendation
 
-* Upgrade the vm2 library to version 3.12.1 or higher immediately to apply the patch for CVE-2026-93605.
-* Audit applications utilizing vm2 to determine if NodeVM is configured with built-in modules enabled.
-* Implement defense-in-depth measures by running sandboxed Node.js processes in containers with restricted syscalls and minimal filesystem access to limit the impact of potential escapes.
-* Transition away from vm2 if possible, as the library has historically faced multiple sandbox escape vulnerabilities.
+- Upgrade the vm2 dependency to version 3.11.7 or later across all applications utilizing this library to mitigate CVE-2026-92935.
+- Audit all application code utilizing the `NodeVM` constructor to ensure the `require` configuration is strictly defined as an object rather than an array.
+- Implement process-level sandboxing (e.g., containers, gVisor) as a secondary defense layer to limit the impact of a potential sandbox escape.
