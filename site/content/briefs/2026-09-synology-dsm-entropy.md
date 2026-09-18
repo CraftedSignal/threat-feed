@@ -3,7 +3,7 @@ title: Insufficient Entropy Vulnerability in Synology DiskStation Manager Login 
 slug: 2026-09-synology-dsm-entropy
 description: Synology DiskStation Manager (DSM) contains an insufficient entropy vulnerability in its login logic that allows remote, unauthenticated attackers to perform arbitrary file read/write operations and trigger a denial-of-service condition.
 date: "2026-09-18T10:04:35Z"
-lastmod: "2026-09-18T13:12:34Z"
+lastmod: "2026-09-18T13:12:53Z"
 type: advisory
 types:
   - advisory
@@ -34,6 +34,7 @@ products:
   - DiskStation Manager (< 7.3.2-86009-2)
   - DiskStation Manager (< 7.2.1-69057-10, < 7.2.2-72806-7, < 7.3.2-86009-2)
   - DiskStation Manager (< 7.2.1-69057-12)
+  - DiskStation Manager (< 7.2.1-69057-12)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -62,6 +63,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-40539
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6205
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1125
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3463
 action_plan:
   priority: immediate_escalation
   owners:
@@ -78,13 +80,6 @@ action_plan:
       addresses: CVE-2026-13639
       evidence: The vulnerability allows remote unauthenticated access.
 updates:
-  - at: "2026-09-18T10:05:47Z"
-    level: L1
-    summary: added coverage for DiskStation Manager (7.2.1-69057-12, 7.2.2-72806-9, 7.3.2-86009-4, 7.4-90075)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-13673
   - at: "2026-09-18T10:05:53Z"
     level: L1
     summary: added coverage for DiskStation Manager (< 7.2.1-69057-10) +2 products
@@ -113,6 +108,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1125
+  - at: "2026-09-18T13:12:53Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3463
 ---
 
 Synology DiskStation Manager (DSM) is affected by a critical vulnerability categorized as insufficient entropy within the system's authentication and login logic. This flaw, tracked as CVE-2026-13639, enables remote, unauthenticated attackers to manipulate session generation or authentication tokens due to predictable or weak entropy sources. Exploitation of this vulnerability grants unauthorized actors the ability to read or write arbitrary files on the underlying filesystem, potentially leading to full system compromise. Additionally, attackers can leverage this flaw to induce a denial-of-service (DoS) condition, rendering the NAS device unresponsive. The vulnerability affects multiple versions of DSM, including those prior to 7.2.1-69057-12, 7.2.2-72806-9, 7.3.2-86009-4, and 7.4-90075. Organizations utilizing Synology NAS devices are urged to apply the vendor-provided patches immediately to mitigate the risk of remote file system exploitation.
