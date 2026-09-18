@@ -3,6 +3,7 @@ title: Unauthenticated Routing Table Poisoning in SGLang
 slug: 2026-09-sglang-route-poisoning
 description: SGLang versions up to 0.5.19 in disaggregation mode expose an unauthenticated PUT /route endpoint allowing remote attackers to poison KV transfer tables and redirect sensitive data.
 date: "2026-09-17T17:58:41Z"
+lastmod: "2026-09-18T18:08:39Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - sglang
   - routing-poisoning
   - cve-2026-92972
+  - denial-of-service
+  - vulnerability
 vendors:
   - SGLang
 products:
@@ -25,11 +28,18 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: Attackers can supply arbitrary rank_ip and rank_port values to redirect decode workers to attacker-controlled endpoints, causing denial of service.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Unauthenticated attackers can reach the decode engine's POST /generate endpoint and submit arbitrary bootstrap_room values to exhaust prefill process memory until out-of-memory termination.
+    confidence_band: high
 cves:
   - id: CVE-2026-92972
     cvss: 8.6
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92972
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93688
 rules:
   - title: Detect Unauthenticated PUT /route Request to SGLang
     description: Detects exploitation attempts against CVE-2026-92972 where an attacker sends a PUT request to the /route endpoint of the SGLang service.
@@ -63,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92972
       evidence: NVD vulnerability entry
+updates:
+  - at: "2026-09-18T18:08:39Z"
+    level: L1
+    summary: added coverage for SGLang (<= 0.5.19)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93688
 ---
 
 SGLang versions through 0.5.19 are vulnerable to a critical routing table poisoning flaw when operating in prefill/decode disaggregation mode. The prefill bootstrap service exposes an unauthenticated PUT /route endpoint, which lacks access controls, allowing unauthorized actors to inject arbitrary 'rank_ip' and 'rank_port' values into the internal KV transfer routing table. By manipulating this table, attackers can redirect traffic destined for decode workers to attacker-controlled infrastructure. Successful exploitation results in a denial-of-service condition for the affected model pipeline and the exfiltration of sensitive KV transfer metadata, including session identifiers and internal tensor-parallel topology parameters. This vulnerability is particularly impactful for distributed inference deployments relying on the disaggregated architecture of SGLang.
