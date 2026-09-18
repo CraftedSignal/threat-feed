@@ -3,15 +3,24 @@ title: Path Traversal Vulnerability in Grav CMS ImageMedium Class
 slug: 2026-08-grav-cms-traversal
 description: Grav CMS 2.0.10 is vulnerable to path traversal in the ImageMedium::watermark() method, allowing unauthenticated attackers to disclose arbitrary image files by traversing outside the media sandbox.
 date: "2026-08-03T16:06:24Z"
+lastmod: "2026-09-18T01:12:47Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:grav_cms:grav_cms:*:*:*:*:*:*:*:*
+tags:
+  - web-vulnerability
+  - twig
+  - information-disclosure
 vendors:
   - Grav CMS
+  - Grav
 products:
   - Grav CMS (2.0.10)
+  - Grav CMS (<= 2.0.15)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -19,11 +28,20 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Grav CMS 2.0.10 contains a path traversal vulnerability in ImageMedium::watermark() allowing arbitrary image files outside Grav's media sandbox to be disclosed.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: An attacker with the ability to inject or edit page content processed with Twig can read sensitive configuration data.
+    confidence_band: high
 cves:
   - id: CVE-2026-69089
     cvss: 7.5
+    epss: 0.00373
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69089
+  - https://github.com/advisories/GHSA-w3f4-8pj2-599w
+  - https://github.com/advisories/GHSA-p597-crqc-m349
 rules:
   - title: Detect CVE-2026-69089 Exploitation Attempt
     description: Detects path traversal sequences in HTTP requests targeting image parameters in Grav CMS.
@@ -45,6 +63,14 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: CVE-2026-69089
+updates:
+  - at: "2026-09-18T01:12:47Z"
+    level: L2
+    summary: added coverage for Grav CMS (<= 2.0.15)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-p597-crqc-m349
 ---
 
 Grav CMS version 2.0.10 contains a path traversal vulnerability in the ImageMedium::watermark() method. The vulnerability arises because the application passes an unsanitized image argument to the RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator::findResource() method. The implementation of the file:// scheme branch fails to perform a proper realpath or containment check, relying only on lexical collapse of '..' path segments. 
