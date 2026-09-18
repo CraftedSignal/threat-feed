@@ -3,6 +3,7 @@ title: CVE-2026-93453 Password Reset Poisoning in SOGo
 slug: 2026-09-sogo-reset-poisoning
 description: SOGo versions before 5.12.11 are vulnerable to password reset poisoning, allowing unauthenticated attackers to manipulate reset links by injecting malicious values into the Origin header.
 date: "2026-09-18T02:01:41Z"
+lastmod: "2026-09-18T09:27:01Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:alinto:sogo:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=8D42E2DA-4559-5F60-A8C3-DF95BE8B7FD0&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - credential-theft
@@ -18,6 +22,7 @@ vendors:
   - Alinto
 products:
   - SOGo (< 5.12.11)
+  - SOGo (<= 5.12.10)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -30,6 +35,7 @@ cves:
     cvss: 8.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93453
+  - https://sploitus.com/exploit?id=8D42E2DA-4559-5F60-A8C3-DF95BE8B7FD0&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93453
       evidence: Improper use of the client-supplied Origin header
+updates:
+  - at: "2026-09-18T09:27:01Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=8D42E2DA-4559-5F60-A8C3-DF95BE8B7FD0&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-93453 affects SOGo, a collaborative software suite, in versions prior to 5.12.11. The vulnerability exists due to improper input validation where the application uses the client-supplied 'Origin' HTTP header to construct the base URL for password-reset links sent via email. 
