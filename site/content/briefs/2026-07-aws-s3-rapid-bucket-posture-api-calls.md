@@ -3,6 +3,7 @@ title: AWS S3 Rapid Bucket Posture API Calls from a Single Principal
 slug: 2026-07-aws-s3-rapid-bucket-posture-api-calls
 description: This detection rule identifies suspicious activity in AWS environments where a single principal, from a consistent source IP, rapidly performs read-only S3 control-plane API calls across more than 15 distinct S3 buckets within a 10-second window, indicative of automated reconnaissance, security scanning, or post-compromise enumeration aiming to map S3 bucket access, policies, and versioning.
 date: "2026-07-20T13:09:51Z"
+lastmod: "2026-09-18T19:29:52Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +22,7 @@ vendors:
 products:
   - S3
   - CloudTrail
+  - AWS S3
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
@@ -49,6 +51,14 @@ mitre_ttps:
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_s3_rapid_bucket_posture_api_calls.toml
   - https://kudelskisecurity.com/research/investigating-two-variants-of-the-trivy-supply-chain-compromise
+updates:
+  - at: "2026-09-18T19:29:52Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_s3_rapid_bucket_posture_api_calls.toml
 ---
 
 This brief describes a detection rule designed to identify AWS S3 reconnaissance activity where a single principal, originating from the same source IP address, executes a high volume of read-only S3 control-plane API calls across numerous distinct S3 buckets within a very short timeframe. Specifically, the rule flags more than 15 distinct S3 bucket posture API calls, such as `GetBucketAcl`, `GetBucketPublicAccessBlock`, `GetBucketPolicy`, `GetBucketPolicyStatus`, and `GetBucketVersioning`, within a 10-second window. This pattern is often associated with automated security scanning tools, Cloud Security Posture Management (CSPM) products, or post-compromise enumeration attempts by threat actors like Team PCP seeking to map an organization's S3 assets and identify potential misconfigurations. The detection explicitly filters out AWS service principals and focuses on programmatic sessions rather than AWS Management Console activity, requiring valid resource and identity fields for accurate cardinality.
