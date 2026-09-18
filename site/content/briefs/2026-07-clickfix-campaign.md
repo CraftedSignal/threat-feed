@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-09-15T09:27:47Z"
+lastmod: "2026-09-18T10:28:09Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +42,7 @@ vendors:
   - Moxa
   - Dropbox
   - NetSupport
+  - Brevo
 products:
   - open source packages
   - GitHub repositories
@@ -91,6 +92,8 @@ products:
   - NetSupport Manager
   - Chrome
   - Google Sheets
+  - brevo.com
+  - sibforms.com
 affected_os:
   - Windows
   - macOS
@@ -125,6 +128,7 @@ references:
   - https://blog.talosintelligence.com/clickfix-moves-into-the-browser/
   - https://www.malware-traffic-analysis.net/2026/09/11/index.html
   - https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/
+  - https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/
 iocs:
   - type: domain
     value: justwatch.com
@@ -190,13 +194,6 @@ ioc_counts:
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-29T09:10:33Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - microsoft-threat-intel
-    source_urls:
-      - https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/
   - at: "2026-08-30T09:07:29Z"
     level: L1
     summary: new IOCs
@@ -225,6 +222,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/
+  - at: "2026-09-18T10:28:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
