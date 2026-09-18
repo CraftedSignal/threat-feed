@@ -3,6 +3,7 @@ title: Perses Filesystem Path Traversal Vulnerability
 slug: 2026-09-perses-path-traversal
 description: The Perses project, when configured with a filesystem database, fails to validate the project parameter in list requests, enabling unauthorized directory traversal and arbitrary file read access.
 date: "2026-09-18T19:49:24Z"
+lastmod: "2026-09-18T19:50:02Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - web-vulnerability
   - path-traversal
   - security-misconfiguration
+  - authorization-bypass
+  - cve-2026-63458
 vendors:
   - Perses
 products:
   - Perses (< 0.54.0-rc.0)
+  - Perses (< 0.54.0-beta.3)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,6 +33,8 @@ cves:
   - id: CVE-2026-63445
 references:
   - https://github.com/advisories/GHSA-vr5f-w35q-98jp
+  - https://github.com/advisories/GHSA-cjgj-2fwf-4c2w
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63458
 rules:
   - title: Detect CVE-2026-63445 Exploitation - Path Traversal in Perses List Endpoints
     description: Detects path traversal attempts targeting Perses list endpoints by monitoring for directory traversal characters in the project query parameter.
@@ -57,6 +63,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-63445
       evidence: Source Workarounds section
+updates:
+  - at: "2026-09-18T19:50:02Z"
+    level: L2
+    summary: added coverage for Perses (< 0.54.0-beta.3)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-cjgj-2fwf-4c2w
 ---
 
 Perses, an open-source project, contains a security vulnerability (CVE-2026-63445) involving improper validation of the project parameter in its list API endpoints when utilizing a filesystem database backend. The application binds the user-supplied project value directly from the request into a query structure without sanitizing directory-traversal sequences. 
