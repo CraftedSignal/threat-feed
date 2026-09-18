@@ -3,6 +3,7 @@ title: SSRF Vulnerability in Obot via Remote MCP Server URLs
 slug: 2026-09-obot-ssrf
 description: Obot versions 0.22.1 and earlier are vulnerable to server-side request forgery (SSRF) allowing authenticated privileged users to probe internal network resources and cloud instance metadata services.
 date: "2026-09-18T19:48:33Z"
+lastmod: "2026-09-18T19:48:44Z"
 type: advisory
 types:
   - advisory
@@ -12,10 +13,15 @@ tags:
   - ssrf
   - cloud-security
   - vulnerability
+  - oauth
+  - authentication-bypass
+  - token-theft
+  - mcp
 vendors:
   - Obot
 products:
   - Obot (<= 0.22.1)
+  - Obot (<= v0.22.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,8 +35,27 @@ mitre_ttps:
     technique_name: 'Unsecured Credentials: Credentials In Files'
     evidence: Against 169.254.169.254 this can disclose the host's cloud IAM credentials, enabling a pivot into the cloud account.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Exploitation requires a logged-in victim to visit a single attacker-controlled authorization URL.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1185
+    technique_name: Browser Session Hijacking
+    evidence: An authorization code was delivered to the attacker's redirect URI and exchanged for an access token.
+    confidence_band: high
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1550.001
+    technique_name: 'Use Alternate Authentication Material: Application Access Token'
+    evidence: That token was minted with the victim's full set of groups, so it could be used as a bearer token against the Obot API endpoints.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-jgh3-fggc-mcpm
+  - https://github.com/advisories/GHSA-xwmw-prc4-v3cr
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +72,14 @@ action_plan:
       owner: IT Operations
       addresses: SSRF vulnerability via MCP server URL
       evidence: The patch applies a single outbound egress chokepoint rejecting loopback, link-local, and RFC1918 ranges.
+updates:
+  - at: "2026-09-18T19:48:44Z"
+    level: L2
+    summary: added coverage for Obot (<= v0.22.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-xwmw-prc4-v3cr
 ---
 
 Obot versions 0.22.1 and earlier contain a server-side request forgery (SSRF) vulnerability that allows authenticated users with the Power User, Power User Plus, or Admin role to coerce the application into making unauthorized outbound HTTP requests. During the registration of a remote Model Context Protocol (MCP) server, the application accepts a user-provided URL without adequate validation of the destination. 
