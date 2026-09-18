@@ -3,6 +3,7 @@ title: CoreDNS DoH/DoQ/gRPC RFC 2136 UPDATE Bypass
 slug: 2026-09-coredns-dns-update-bypass
 description: CoreDNS versions up to 1.14.6 fail to validate DNS UPDATE opcodes over DoH, DoH3, DoQ, and gRPC, allowing attackers to relay unauthorized updates to upstream servers.
 date: "2026-09-18T01:11:17Z"
+lastmod: "2026-09-18T01:11:37Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,9 @@ tags:
   - coredns
   - vulnerability
   - rfc-2136
+  - denial-of-service
+  - cve-2026-82399
+  - networking
 vendors:
   - CoreDNS
 products:
@@ -32,12 +36,30 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: A successful attack can redirect traffic, take over names, alter mail routing, or disrupt the writable zone.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: An unauthenticated client can use DNS name compression to make one 65,533-byte request allocate more than 10 MiB while it is unpacked. Concurrent requests can exhaust memory and terminate CoreDNS.
+    confidence_band: high
 cves:
   - id: CVE-2026-86003
     cvss: 7.5
 references:
   - https://github.com/advisories/GHSA-9gm5-9rfh-m6vx
   - https://datatracker.ietf.org/doc/html/rfc2136
+  - https://github.com/advisories/GHSA-mrg3-qvqr-jw29
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82399
+rules:
+  - title: Detect Potential CoreDNS DoS Attempt via Large Payloads
+    description: Detects oversized DNS queries sent to web-based transport endpoints which may indicate attempts to trigger memory exhaustion in CoreDNS.
+    platform: sigma
+    severity: high
+    tactics:
+      - impact
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +76,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-86003
       evidence: Requiring and validating end-to-end TSIG prevents the demonstrated attack.
+updates:
+  - at: "2026-09-18T01:11:37Z"
+    level: L1
+    summary: 'added detection rule: Detect Potential CoreDNS DoS Attempt via Large Payloads'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-mrg3-qvqr-jw29
 ---
 
 CoreDNS versions 1.14.6 and earlier contain a vulnerability where DNS-over-HTTPS (DoH), DNS-over-HTTPS3 (DoH3), DNS-over-QUIC (DoQ), and DNS-over-gRPC listeners do not enforce the same request policy applied to standard UDP and TCP listeners. Specifically, these modern transports failed to filter out RFC 2136 UPDATE messages. When CoreDNS is configured with the 'forward' or 'proxy' plugin, it forwards these unauthorized UPDATE messages to an upstream authoritative DNS server. 
