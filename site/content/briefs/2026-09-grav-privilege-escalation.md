@@ -3,7 +3,7 @@ title: Grav Privilege Escalation via Group Blueprint ACL Bypass
 slug: 2026-09-grav-privilege-escalation
 description: A missing 'security@' guard in Grav's group blueprint allows an 'admin.users' operator to escalate privileges to 'admin.super' by modifying group access configurations.
 date: "2026-09-18T01:10:51Z"
-lastmod: "2026-09-18T01:11:02Z"
+lastmod: "2026-09-18T01:12:31Z"
 type: advisory
 types:
   - advisory
@@ -18,11 +18,14 @@ tags:
   - web-application-vulnerability
   - path-traversal
   - cve-2026-74907
+  - twig
+  - security-misconfiguration
 vendors:
   - getgrav
 products:
   - Grav (<= 2.0.12)
   - grav (<= 2.0.14)
+  - grav (<= 2.0.15)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -36,6 +39,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An unauthenticated attacker can achieve RCE, exfiltrate site data, or gain admin-equivalent control.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Attacker crafts a malicious Twig template to execute unauthorized code or access sensitive data through the rendering engine.
+    confidence_band: high
 cves:
   - id: CVE-2026-75837
     cvss: 9.1
@@ -45,6 +54,8 @@ references:
   - CVE-2026-75837
   - https://github.com/advisories/GHSA-4v9q-p283-qc2m
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74907
+  - https://github.com/advisories/GHSA-3jhr-mxmx-38cx
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76839
 rules:
   - title: Detect CVE-2026-74907 Exploitation Attempt - Path Traversal
     description: Detects path traversal attempts targeting the Grav static asset server by looking for directory traversal sequences within requests to potential asset routes.
@@ -90,6 +101,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-4v9q-p283-qc2m
+  - at: "2026-09-18T01:12:31Z"
+    level: L1
+    summary: added coverage for grav (<= 2.0.15)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-3jhr-mxmx-38cx
 ---
 
 Grav version 2.0.12 and earlier contains a privilege escalation vulnerability within its Flex group management functionality. The core group blueprint file located at `system/blueprints/user/group.yaml` omits a mandatory `security@: admin.super` guard on the group access field. In the Grav Flex architecture, the `security@` guard is the primary mechanism that flags fields for exclusion during the data save path for non-super users.
