@@ -3,6 +3,7 @@ title: SSRF Vulnerability in ArcadeDB via IPv6 Transition Addressing
 slug: 2026-09-arcadedb-ssrf
 description: Authenticated attackers can exploit a validation flaw in ArcadeDB's SSRF guard to reach internal services or cloud metadata endpoints by using specifically crafted IPv6 transition addresses.
 date: "2026-09-18T16:07:43Z"
+lastmod: "2026-09-18T18:07:08Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - ssrf
   - vulnerability
   - database
+  - access-control
 vendors:
   - ArcadeData
 products:
@@ -25,11 +27,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Authenticated attackers can supply URLs resolving to NAT64, 6to4, or Teredo addresses embedding RFC 1918 or loopback IPv4 payloads to reach internal services and cloud metadata endpoints.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: An authenticated low-privilege user can read or insert TimeSeries samples despite explicit deny rules by exploiting the missing type-name-based access check.
+    confidence_band: high
 cves:
   - id: CVE-2026-93597
     cvss: 7.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93597
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93593
 action_plan:
   priority: elevated
   owners:
@@ -45,6 +54,14 @@ action_plan:
       owner: Network Security
       addresses: CVE-2026-93597
       evidence: Network controls mitigate SSRF impacts.
+updates:
+  - at: "2026-09-18T18:07:08Z"
+    level: L2
+    summary: added coverage for ArcadeDB (< 26.9.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93593
 ---
 
 ArcadeDB versions prior to 26.9.1 contain an SSRF vulnerability within the security guards protecting the 'IMPORT DATABASE' and internal server commands. The vulnerability stems from the application's failure to properly validate IPv6 transition mechanisms, such as NAT64, 6to4, and Teredo, when parsing user-supplied URLs. 
