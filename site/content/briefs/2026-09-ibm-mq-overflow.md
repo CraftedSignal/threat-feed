@@ -1,59 +1,59 @@
 ---
-title: Heap Buffer Overflow in IBM MQ via Malformed Distribution Headers
+title: Stack Buffer Overflow in IBM MQ XA Transaction Processing
 slug: 2026-09-ibm-mq-overflow
-description: IBM MQ is vulnerable to a heap-based buffer overflow during the processing of MQPUT operations, allowing an authenticated attacker to execute a denial of service or escalate privileges.
-date: "2026-09-18T18:07:35Z"
-type: advisory
+description: IBM MQ is vulnerable to a stack buffer overflow triggered by malicious XA transaction identifiers, allowing an authenticated attacker to cause a denial of service or achieve arbitrary code execution.
+date: "2026-09-18T18:07:59Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploited: true
 cpes:
   - cpe:2.3:a:ibm:mq:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
-  - ibm-mq
-  - buffer-overflow
+  - remote-code-execution
+  - denial-of-service
 vendors:
   - IBM
 products:
   - MQ
-mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: IBM MQ could allow an authenticated attacker to cause a denial of service or potentially escalate privileges due to a heap buffer overflow
-    confidence_band: high
 cves:
-  - id: CVE-2026-10575
+  - id: CVE-2026-11375
     cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-10575
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-11375
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Security Operations
+    - SOC
   immediate_actions:
-    - action: Inventory all IBM MQ instances and apply patches identified in the forthcoming IBM security bulletin for CVE-2026-10575
+    - action: Patch IBM MQ for CVE-2026-11375
       owner: IT Operations
       due: 72h
-      evidence: CVE-2026-10575 vulnerability identification
+      evidence: Source CVE-2026-11375 vulnerability notice.
   mitigation_plan:
     - priority: immediate
-      action: Review and harden MQ security profiles to ensure only authorized users have MQPUT permissions
-      owner: Security Operations
-      addresses: CVE-2026-10575
-      evidence: Authenticated attacker requirement for exploitation
+      action: Restrict network access to IBM MQ management and transaction ports to authorized sources only.
+      owner: IT Operations
+      addresses: CVE-2026-11375
+      evidence: Vulnerability requires authenticated access.
 ---
 
-IBM MQ is susceptible to a heap-based buffer overflow vulnerability, tracked as CVE-2026-10575, which occurs when the application processes malformed distribution headers during MQPUT operations. This flaw can be triggered by an authenticated attacker who has the ability to send specifically crafted messages to the message queue manager. Successful exploitation of this vulnerability results in either a denial of service (DoS) caused by an application crash or potentially the escalation of privileges within the security context of the affected service. Given the role of IBM MQ in enterprise middleware, this vulnerability poses a significant risk to the availability and integrity of messaging infrastructures. Organizations should review their IBM MQ configurations and apply relevant security updates provided by IBM to mitigate the risk of exploitation.
+IBM MQ, a message-oriented middleware solution, contains a critical security vulnerability identified as CVE-2026-11375. The flaw originates from improper handling of XA (eXtended Architecture) transaction identifiers during processing. An authenticated attacker can exploit this buffer overflow condition by submitting specially crafted transaction identifiers to the message queuing service. 
+
+Successful exploitation results in memory corruption, which can lead to the instability of the MQ process, resulting in a denial of service (DoS), or potentially allow for arbitrary code execution in the context of the service. Due to the high CVSS v3.1 score of 8.8, this vulnerability poses a significant risk to the integrity and availability of messaging infrastructure. Organizations utilizing IBM MQ should evaluate their exposure and prioritize patching to mitigate the risk of exploitation by authenticated malicious actors.
 
 ## Impact
 
-Successful exploitation of CVE-2026-10575 allows an authenticated attacker to disrupt messaging services, impacting critical business processes that rely on MQ for inter-application communication. Furthermore, the potential for privilege escalation could allow an attacker to gain unauthorized control over the queue manager or associated system resources, leading to potential data compromise or further lateral movement within the enterprise environment.
+Successful exploitation of CVE-2026-11375 enables authenticated attackers to disrupt core messaging services via DoS or gain unauthorized execution capabilities on the host system. This vulnerability affects enterprise environments relying on IBM MQ for transactional data exchange, potentially leading to service outages or lateral movement following code execution.
 
 ## Recommendation
 
-Prioritize the identification and patching of all IBM MQ instances within the environment. Consult the official IBM security bulletins associated with CVE-2026-10575 to identify the specific patched versions for your deployed MQ release. Restrict the ability of users to send messages to queues that do not require such access, adhering to the principle of least privilege for all MQ service users.
+Prioritize the identification of IBM MQ instances within the network environment and apply security updates provided by IBM as soon as they become available. Given the authentication requirement, implement strict access controls on the MQ interface to minimize the number of users capable of interacting with the service.
+
+* Patch CVE-2026-11375 immediately upon the release of security updates from IBM.
+* Monitor MQ service logs for frequent restarts or crashes that could indicate DoS attempts.
+* Audit access lists for the MQ interface to ensure only authorized users have connectivity, as the exploit requires authenticated access.
