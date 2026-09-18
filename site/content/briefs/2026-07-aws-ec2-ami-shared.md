@@ -3,6 +3,7 @@ title: AWS EC2 AMI Shared with Another Account
 slug: 2026-07-aws-ec2-ami-shared
 description: Adversaries with existing AWS access may exfiltrate sensitive data by sharing Amazon Machine Images (AMIs) containing secrets, bash histories, or code artifacts with external, attacker-controlled AWS accounts, detectable via `ModifyImageAttribute` actions in AWS CloudTrail logs.
 date: "2026-07-15T14:06:41Z"
+lastmod: "2026-09-18T19:31:53Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ products:
   - Amazon EC2
   - Amazon Machine Image
   - AWS CloudTrail
+  - AWS EC2
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration
@@ -30,6 +32,7 @@ references:
   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html
   - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.ec2-share-ami/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_ec2_ami_shared_with_separate_account.toml
 iocs:
   - type: domain
     value: ec2.amazonaws.com
@@ -53,6 +56,14 @@ rules:
     data_sources:
       - aws
 rules_count: 1
+updates:
+  - at: "2026-09-18T19:31:53Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_ec2_ami_shared_with_separate_account.toml
 ---
 
 This threat brief details how adversaries can exploit Amazon Machine Image (AMI) sharing functionality within AWS to exfiltrate sensitive data. Once an attacker gains privileged access to an AWS account, they may identify valuable AMIs that could contain secrets, bash histories, code artifacts, and other confidential information. They then share these AMIs with an external AWS account under their control, effectively moving the data out of the victim's environment. This activity is primarily detected by monitoring `ModifyImageAttribute` actions in AWS CloudTrail logs, specifically when AMI launch permissions are modified to include additional user accounts. While legitimate AMI sharing is common, unauthorized sharing poses a significant data exfiltration risk. It is crucial for defenders to distinguish between legitimate and malicious sharing events, particularly by filtering out actions initiated by AWS services such as Marketplace, WorkSpaces, or Backup.
