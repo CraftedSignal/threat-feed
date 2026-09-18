@@ -3,7 +3,7 @@ title: AWS IAM Virtual MFA Device Registration Attempt with Session Token
 slug: 2026-07-aws-iam-virtual-mfa-device-registration
 description: Adversaries are exploiting compromised temporary AWS session credentials (access keys starting with 'ASIA') to register or enable virtual MFA devices, establishing persistence and maintaining access to high-privilege accounts even after credential rotation or password resets.
 date: "2026-07-15T14:14:33Z"
-lastmod: "2026-07-20T13:11:18Z"
+lastmod: "2026-09-18T19:37:43Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,7 @@ tags:
 vendors:
   - AWS
   - Amazon Web Services
+  - Amazon
 products:
   - IAM
   - CloudTrail
@@ -67,6 +68,13 @@ updates:
   - at: "2026-07-20T13:11:18Z"
     level: L1
     summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_aws_attempt_to_register_virtual_mfa_device.toml
+  - at: "2026-09-18T19:37:43Z"
+    level: L1
+    summary: new vendor
     sources:
       - elastic
     source_urls:
