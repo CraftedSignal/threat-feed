@@ -3,11 +3,14 @@ title: Multiple Vulnerabilities in Microsoft Edge
 slug: 2026-09-microsoft-edge-vulnerabilities
 description: Multiple vulnerabilities in Microsoft Edge allow remote attackers to achieve arbitrary code execution and escalate privileges on the host system.
 date: "2026-09-16T13:08:21Z"
+lastmod: "2026-09-18T22:11:26Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:microsoft:edge:*:*:*:*:*:*:*:*
 tags:
   - browser
   - vulnerability
@@ -29,8 +32,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: An attacker can exploit several vulnerabilities in Microsoft Edge to obtain extended privileges.
     confidence_band: high
+cves:
+  - id: CVE-2026-88097
+    cvss: 8.1
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3405
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88097
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: Microsoft Edge vulnerabilities
       evidence: Standard security practice for browser-based threats.
+updates:
+  - at: "2026-09-18T22:11:26Z"
+    level: L2
+    summary: added CVE-2026-88097
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-88097
 ---
 
 Microsoft has disclosed multiple security vulnerabilities affecting the Microsoft Edge browser. These vulnerabilities, documented by the BSI, pose a significant risk to end-user workstations as they permit unauthenticated remote attackers to execute arbitrary code and gain elevated privileges on the underlying host system. The flaws likely stem from memory safety issues or logic errors inherent in the browser's engine components. Given the browser's position as a primary interface for web-based threats, these vulnerabilities allow for effective delivery of malicious payloads through crafted websites or embedded advertisements. Defenders should focus on deploying browser updates immediately across all organizational assets, as these vulnerabilities are prone to exploitation via standard user web navigation.
