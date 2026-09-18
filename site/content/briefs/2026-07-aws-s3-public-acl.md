@@ -3,6 +3,7 @@ title: AWS S3 Bucket ACL Modification to Public Access by New Identity
 slug: 2026-07-aws-s3-public-acl
 description: Detection of unauthorized S3 bucket ACL modifications to public-read or public-read-write by previously unseen identities, potentially indicating credential compromise for data exfiltration.
 date: "2026-07-30T13:31:46Z"
+lastmod: "2026-09-18T19:24:54Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Amazon
 products:
   - AWS S3
+  - S3
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
@@ -24,6 +26,8 @@ mitre_ttps:
     technique_name: Data from Cloud Storage
     evidence: Monitoring for new identities performing this change helps surface freshly compromised credentials being used to stage data for exfiltration or inadvertently expose sensitive content.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/collection_s3_bucket_acl_public_access_new_identity.toml
 rules:
   - title: Detect AWS S3 Bucket ACL Modified to Public Access
     description: Detects PutBucketAcl API calls setting public canned ACLs by identities not previously seen performing this action.
@@ -37,6 +41,14 @@ rules:
       - cloud
       - aws
 rules_count: 1
+updates:
+  - at: "2026-09-18T19:24:54Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/collection_s3_bucket_acl_public_access_new_identity.toml
 ---
 
 This detection monitors for the `PutBucketAcl` API action in AWS CloudTrail where the request parameters set a canned ACL of `public-read` or `public-read-write`. S3 bucket ACLs are a legacy access control mechanism that can, in certain configurations, bypass modern S3 Block Public Access (BPA) controls, inadvertently exposing sensitive object data to unauthenticated internet users. 
