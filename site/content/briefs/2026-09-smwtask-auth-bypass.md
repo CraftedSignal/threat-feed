@@ -3,6 +3,7 @@ title: Unauthenticated Administrative Access in Semantic MediaWiki smwtask API
 slug: 2026-09-smwtask-auth-bypass
 description: The Semantic MediaWiki smwtask API module fails to enforce authorization, enabling unauthenticated remote attackers to perform sensitive information disclosure, queue administrative maintenance jobs, and manipulate stored semantic data.
 date: "2026-09-18T19:52:03Z"
+lastmod: "2026-09-18T19:52:12Z"
 type: threat
 types:
   - threat
@@ -13,10 +14,15 @@ tags:
   - api-security
   - broken-access-control
   - webserver
+  - web-security
+  - xss
+  - cms
 vendors:
   - Semantic MediaWiki
+  - SemanticMediaWiki
 products:
   - Semantic MediaWiki (3.0.0-7.2.1)
+  - Semantic MediaWiki (3.1.0 - 7.0.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,6 +32,8 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://github.com/advisories/GHSA-jr78-w6w5-m8f8
+  - https://github.com/advisories/GHSA-hg8h-557g-q8pp
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-61682
 rules:
   - title: Detect Unauthenticated Access to Semantic MediaWiki smwtask
     description: Detects HTTP POST requests to the smwtask API module, which lacks proper authorization checks.
@@ -67,6 +75,14 @@ action_plan:
       owner: IT Operations
       addresses: API authorization bypass
       evidence: Source recommended mitigation snippet.
+updates:
+  - at: "2026-09-18T19:52:12Z"
+    level: L2
+    summary: added coverage for Semantic MediaWiki (3.1.0 - 7.0.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-hg8h-557g-q8pp
 ---
 
 Semantic MediaWiki versions 3.0.0 through 7.2.1 contain a critical authorization vulnerability in the `smwtask` API module. The module implements a `needsToken('csrf')` check, but because MediaWiki provides a fixed, public CSRF token (`+\`) to anonymous users, this check fails to prevent unauthenticated access. Consequently, an attacker can invoke administrative tasks that are otherwise restricted to users with the `smw-admin` right via the `Special:SMWAdmin` web interface. The vulnerability allows attackers to query internal database statistics, enumerate object IDs, inject arbitrary maintenance jobs (such as fulltext search rebuilds or entity disposal), and force synchronous job execution, leading to both information disclosure and potential data integrity loss.
