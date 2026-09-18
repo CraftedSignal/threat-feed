@@ -3,6 +3,7 @@ title: AWS GuardDuty Member Account Manipulation
 slug: 2026-07-aws-guardduty-manipulation
 description: Adversaries manipulate Amazon GuardDuty member accounts within an AWS organization by using API calls such as `DisassociateFromAdministratorAccount`, `DeleteMembers`, `StopMonitoringMembers`, or `DeleteInvitations` to break centralized security visibility, enabling them to operate undetected in compromised member accounts.
 date: "2026-07-15T13:59:10Z"
+lastmod: "2026-09-18T19:27:13Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Amazon
 products:
   - Amazon GuardDuty
+  - GuardDuty
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -30,6 +32,7 @@ references:
   - https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html
   - https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_accounts.html
   - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/defense_evasion_guardduty_member_manipulation.toml
 rules:
   - title: AWS GuardDuty Member Account Manipulation
     description: Detects attempts to disassociate or manipulate Amazon GuardDuty member accounts within an AWS organization by observing successful API calls to disrupt centralized security visibility.
@@ -45,6 +48,14 @@ rules:
       - aws
       - cloudtrail
 rules_count: 1
+updates:
+  - at: "2026-09-18T19:27:13Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/defense_evasion_guardduty_member_manipulation.toml
 ---
 
 Adversaries targeting AWS environments may attempt to disrupt security monitoring capabilities, specifically Amazon GuardDuty, to operate undetected within compromised accounts. In multi-account GuardDuty deployments, a delegated administrator account aggregates security findings from member accounts, providing critical centralized visibility. This threat involves an attacker, having gained initial access to an AWS account (either a member or administrator account), executing specific GuardDuty API calls to disassociate member accounts, delete member relationships, stop monitoring members, or delete pending invitations. These actions, which include `DisassociateFromAdministratorAccount`, `DeleteMembers`, `StopMonitoringMembers`, `DeleteInvitations`, and `DisassociateMembers`, are rare in legitimate operations and serve as a strong indicator of defense evasion. Successful manipulation allows attackers to bypass detection, potentially preceding more significant malicious activities like complete GuardDuty detector deletion or undetected resource compromise.
