@@ -3,6 +3,7 @@ title: Insufficient Entropy Vulnerability in Synology DiskStation Manager Login 
 slug: 2026-09-synology-dsm-entropy
 description: Synology DiskStation Manager (DSM) contains an insufficient entropy vulnerability in its login logic that allows remote, unauthenticated attackers to perform arbitrary file read/write operations and trigger a denial-of-service condition.
 date: "2026-09-18T10:04:35Z"
+lastmod: "2026-09-18T10:04:43Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,12 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:synology:diskstation_manager:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - critical
+  - remote-code-execution
+  - file-read-write
+  - dsm
 vendors:
   - Synology
 products:
@@ -19,6 +26,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13639
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-13684
 action_plan:
   priority: immediate_escalation
   owners:
@@ -34,6 +42,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-13639
       evidence: The vulnerability allows remote unauthenticated access.
+updates:
+  - at: "2026-09-18T10:04:43Z"
+    level: L1
+    summary: added coverage for DiskStation Manager (< 7.2.1-69057-12, < 7.2.2-72806-9, < 7.3.2-86009-4, < 7.4-90075)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-13684
 ---
 
 Synology DiskStation Manager (DSM) is affected by a critical vulnerability categorized as insufficient entropy within the system's authentication and login logic. This flaw, tracked as CVE-2026-13639, enables remote, unauthenticated attackers to manipulate session generation or authentication tokens due to predictable or weak entropy sources. Exploitation of this vulnerability grants unauthorized actors the ability to read or write arbitrary files on the underlying filesystem, potentially leading to full system compromise. Additionally, attackers can leverage this flaw to induce a denial-of-service (DoS) condition, rendering the NAS device unresponsive. The vulnerability affects multiple versions of DSM, including those prior to 7.2.1-69057-12, 7.2.2-72806-9, 7.3.2-86009-4, and 7.4-90075. Organizations utilizing Synology NAS devices are urged to apply the vendor-provided patches immediately to mitigate the risk of remote file system exploitation.
