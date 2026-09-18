@@ -3,18 +3,21 @@ title: Denial of Service Vulnerability in Netty StompSubframeDecoder
 slug: 2026-09-netty-stomp-dos
 description: A memory leak vulnerability in the Netty StompSubframeDecoder component (CVE-2026-93494) allows remote attackers to cause a Denial of Service by sending malformed STOMP frames.
 date: "2026-09-18T12:05:00Z"
-lastmod: "2026-09-18T16:07:09Z"
+lastmod: "2026-09-18T16:08:18Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 cpes:
   - cpe:2.3:a:netty:netty:*:*:*:*:*:*:*:*
 tags:
   - denial-of-service
   - vulnerability
   - netty
+  - cve-2026-93565
+  - rtsp
+  - input-validation
 vendors:
   - Netty
 products:
@@ -33,6 +36,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93494
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93575
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93565
 action_plan:
   priority: elevated
   owners:
@@ -57,6 +61,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-93575
+  - at: "2026-09-18T16:08:18Z"
+    level: L2
+    summary: added coverage for Netty
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93565
 ---
 
 A memory leak vulnerability (CVE-2026-93494) exists within the StompSubframeDecoder component of the Netty framework. The flaw is triggered when an attacker sends a STOMP frame body that lacks the expected terminating null byte. Upon receiving such a frame, the decoder performs a ByteBuf allocation that is never subsequently released by the application logic. Because the allocation persists in memory, repeated submission of these crafted frames leads to cumulative, uncontrolled memory consumption. This resource exhaustion eventually causes the host application to crash or become unresponsive, effectively resulting in a Denial of Service (DoS) for any services utilizing the affected STOMP codec. Defenders should prioritize identifying applications leveraging Netty for STOMP protocol handling to evaluate exposure and schedule patches.
