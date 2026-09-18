@@ -3,7 +3,7 @@ title: Google Security Updates - September 2026
 slug: 2026-09-google-security-updates
 description: Roundup of Google security advisories published in September 2026.
 date: "2026-09-12T21:22:19Z"
-lastmod: "2026-09-12T21:22:19Z"
+lastmod: "2026-09-18T02:01:36Z"
 type: threat
 types:
   - threat
@@ -15,6 +15,12 @@ vendors:
   - Google
 cves:
   - id: CVE-2026-90559
+    cvss: 7.5
+    epss: 0.0035
+  - id: CVE-2026-93452
+    cvss: 7.5
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93452
 updates:
   - at: "2026-09-12T21:22:19Z"
     level: L1
@@ -23,6 +29,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-90559
+  - at: "2026-09-18T02:01:36Z"
+    level: L2
+    summary: added CVE-2026-93452
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93452
 ---
 
 This roundup covers 1 Google security vulnerabilities. None are reported as actively exploited at the time of release.
