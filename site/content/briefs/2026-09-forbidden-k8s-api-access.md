@@ -3,6 +3,7 @@ title: Detection of Unauthorized Interactive Kubernetes API Probing
 slug: 2026-09-forbidden-k8s-api-access
 description: Adversaries performing hands-on-keyboard enumeration within compromised containers are detected by correlating interactive process execution with forbidden Kubernetes API audit responses.
 date: "2026-09-18T19:15:00Z"
+lastmod: "2026-09-18T19:15:09Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - kubernetes
   - cloud-native
   - container-security
+  - container
+  - threat-detection
 vendors:
   - Kubernetes
 products:
@@ -55,6 +58,14 @@ action_plan:
       owner: Cloud Security Team
       addresses: T1613
       evidence: Response and remediation section
+updates:
+  - at: "2026-09-18T19:15:09Z"
+    level: L1
+    summary: added coverage for Kubernetes (all versions)
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_d4c_k8s_mda_kubernetes_api_activity_by_unusual_utilities.toml
 ---
 
 This detection pattern identifies unauthorized interactive access attempts within a Kubernetes cluster. When an attacker gains access to a container, they often utilize shell environments to perform discovery and lateral movement. By leveraging utilities such as kubectl, curl, or openssl, attackers attempt to communicate with the Kubernetes API server to enumerate resources, probe for secrets, or test service account privileges. Because these actions are often performed by under-privileged accounts or against sensitive endpoints, they result in 'forbid' decisions within the Kubernetes audit logs. This rule provides a mechanism for detection engineers to correlate the specific interactive shell activity within a container with these denied API requests, identifying potential hands-on-keyboard probing even when the attacker lacks the necessary permissions to succeed. This visibility is critical for identifying compromised workloads that are being repurposed for cluster-level discovery.
