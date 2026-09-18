@@ -3,6 +3,7 @@ title: CVE-2026-87796 - Arbitrary File Upload in Multi Uploader for Gravity Form
 slug: 2026-09-multi-uploader-rce
 description: The Multi Uploader for Gravity Forms WordPress plugin is vulnerable to unauthenticated arbitrary file upload due to improper validation in the move_file function, enabling potential remote code execution.
 date: "2026-09-17T05:53:46Z"
+lastmod: "2026-09-18T01:22:39Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:multi_uploader_for_gravity_forms_project:multi_uploader_for_gravity_forms:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=50DBF5BF-01EC-5C75-8FD8-ADF17DA2C4CE&utm_source=rss&utm_medium=rss
 vendors:
   - WordPress
 products:
@@ -26,6 +30,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-87796
+  - https://sploitus.com/exploit?id=50DBF5BF-01EC-5C75-8FD8-ADF17DA2C4CE&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -42,6 +47,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-87796
       evidence: Arbitrary File Upload vulnerability in move_file function
+updates:
+  - at: "2026-09-18T01:22:39Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=50DBF5BF-01EC-5C75-8FD8-ADF17DA2C4CE&utm_source=rss&utm_medium=rss
 ---
 
 The Multi Uploader for Gravity Forms plugin for WordPress (versions up to and including 1.1.9) contains a critical vulnerability (CVE-2026-87796) in its chunked upload handling logic. The vulnerability resides in the move_file function, which fails to adequately validate the type of files being processed during the upload sequence. 
