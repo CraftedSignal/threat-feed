@@ -3,21 +3,26 @@ title: Denial of Service Vulnerability in Quarkus WebSockets Next
 slug: 2026-09-quarkus-websockets-dos
 description: A vulnerability in quarkus-websockets-next allows a remote attacker to cause a Denial of Service via heap exhaustion by streaming WebSocket messages faster than the application can process them.
 date: "2026-09-17T15:59:57Z"
+lastmod: "2026-09-18T12:05:16Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 cpes:
   - cpe:2.3:a:redhat:quarkus:*:*:*:*:*:*:*:*
 tags:
   - denial-of-service
   - java
   - application-security
+  - web-application
+  - security-flaw
+  - authorization-bypass
 vendors:
   - Red Hat
 products:
   - Quarkus (quarkus-websockets-next)
+  - Quarkus
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -30,6 +35,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-87742
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-87743
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-87742
       evidence: NVD vulnerability entry
+updates:
+  - at: "2026-09-18T12:05:16Z"
+    level: L2
+    summary: added coverage for Quarkus
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-87743
 ---
 
 A vulnerability exists in the quarkus-websockets-next component of the Red Hat Quarkus framework, identified as CVE-2026-87742. This issue stems from the lack of read backpressure and the implementation of unbounded message buffering within the WebSocket handling logic. A remote, unauthenticated attacker can exploit this flaw by flooding a single WebSocket connection with high-frequency messages. Because the application fails to regulate the data ingress rate, the incoming messages accumulate in the system's memory heap. This rapid, uncontrolled allocation of memory leads to a java.lang.OutOfMemoryError, ultimately forcing the JVM to crash and resulting in a complete Denial of Service for the affected service.
