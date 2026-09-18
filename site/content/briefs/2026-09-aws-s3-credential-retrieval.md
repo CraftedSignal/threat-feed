@@ -3,7 +3,7 @@ title: Unauthorized Access to Sensitive Files in AWS S3
 slug: 2026-09-aws-s3-credential-retrieval
 description: This detection brief addresses the risk of unauthorized access to sensitive credential and secret files stored in AWS S3 buckets, a common tactic for credential harvesting and lateral movement.
 date: "2026-09-18T13:02:32Z"
-lastmod: "2026-09-18T19:33:05Z"
+lastmod: "2026-09-18T19:33:20Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,10 @@ tags:
   - aws
   - exfiltration
   - s3
+  - cloud
+  - discovery
+  - impact
+  - collection
 vendors:
   - Amazon
 products:
@@ -38,6 +42,24 @@ mitre_ttps:
     technique_name: Exfiltration Over Web Service
     evidence: Threat actors have been observed using these tools for their intuitive interface and bulk data transfer capabilities during post-compromise data theft operations.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1657
+    technique_name: Financial Theft
+    evidence: This activity can indicate attempts to collect bucket objects or cause an increase in billing to an account via internal AccessDenied errors.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1580
+    technique_name: Cloud Infrastructure Discovery
+    evidence: Identifies a high number of failed S3 operations against a single bucket... This activity can indicate attempts to collect bucket objects.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1619
+    technique_name: Cloud Storage Object Discovery
+    evidence: This activity can indicate attempts to collect bucket objects or cause an increase in billing.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_credentials_in_s3_bucket.toml
@@ -45,6 +67,8 @@ references:
   - https://cyberduck.io/
   - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
   - https://attackevals.github.io/ael/enterprise/scattered_spider/emulation_plan/scattered_spider_scenario/
+  - https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1
+  - https://docs.aws.amazon.com/AmazonS3/latest/userguide/ErrorCodeBilling.html
 rules:
   - title: Detect AWS S3 Credential File Retrieved
     description: Detects S3 GetObject calls targeting common credential and secret files such as .aws/credentials, SSH keys, and .env files.
@@ -67,7 +91,20 @@ rules:
       - T1567.002
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect AWS S3 Bucket Enumeration or Brute Force
+    description: Detects a high volume of 403 AccessDenied errors against a single S3 bucket from a single source, indicating potential enumeration or cost-driven attacks.
+    platform: sigma
+    severity: low
+    tactics:
+      - discovery
+      - impact
+    techniques:
+      - T1580
+      - T1619
+      - T1657
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -101,6 +138,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_s3_uncommon_client_user_agent.toml
+  - at: "2026-09-18T19:33:20Z"
+    level: L1
+    summary: 'added detection rule: Detect AWS S3 Bucket Enumeration or Brute Force'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_aws_s3_bucket_enumeration_or_brute_force.toml
 ---
 
 Attackers frequently target cloud storage environments to harvest sensitive files that facilitate lateral movement and persistence. AWS S3 buckets are often misconfigured or over-privileged, leading to the exposure of configuration files (e.g., .aws/credentials, .env), SSH keys, and PEM/PuTTY private keys. This threat brief highlights the importance of monitoring S3 Data Events to detect when these high-value assets are accessed via 'GetObject' calls. Defenders should focus on identifying access by non-automation identities, as legitimate CI/CD pipelines and administrative tools may also retrieve these files. Ensuring that S3 Data Events are explicitly enabled in CloudTrail is a prerequisite for observability, as management plane events do not capture individual object access.
