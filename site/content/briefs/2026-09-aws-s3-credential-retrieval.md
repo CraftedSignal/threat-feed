@@ -3,6 +3,7 @@ title: Unauthorized Access to Sensitive Files in AWS S3
 slug: 2026-09-aws-s3-credential-retrieval
 description: This detection brief addresses the risk of unauthorized access to sensitive credential and secret files stored in AWS S3 buckets, a common tactic for credential harvesting and lateral movement.
 date: "2026-09-18T13:02:32Z"
+lastmod: "2026-09-18T19:33:05Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,8 @@ tags:
   - cloud-security
   - credential-access
   - aws
+  - exfiltration
+  - s3
 vendors:
   - Amazon
 products:
@@ -29,9 +32,19 @@ mitre_ttps:
     technique_name: Data from Cloud Storage
     evidence: Detects successful S3 GetObject calls targeting high-value credential and secret files.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1567
+    technique_name: Exfiltration Over Web Service
+    evidence: Threat actors have been observed using these tools for their intuitive interface and bulk data transfer capabilities during post-compromise data theft operations.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_credentials_in_s3_bucket.toml
+  - https://s3browser.com/
+  - https://cyberduck.io/
+  - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+  - https://attackevals.github.io/ael/enterprise/scattered_spider/emulation_plan/scattered_spider_scenario/
 rules:
   - title: Detect AWS S3 Credential File Retrieved
     description: Detects S3 GetObject calls targeting common credential and secret files such as .aws/credentials, SSH keys, and .env files.
@@ -44,7 +57,17 @@ rules:
       - T1552.001
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect AWS API Activity from Uncommon S3 Client
+    description: Detects successful AWS S3 API activity originating from S3 Browser or Cyberduck, which are often used for bulk data exfiltration.
+    platform: sigma
+    severity: low
+    tactics:
+      - exfiltration
+    techniques:
+      - T1567.002
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +93,14 @@ action_plan:
       owner: IT Operations
       addresses: Credential exposure
       evidence: Rotate any credentials stored in the accessed object - treat them as compromised.
+updates:
+  - at: "2026-09-18T19:33:05Z"
+    level: L1
+    summary: 'added detection rule: Detect AWS API Activity from Uncommon S3 Client'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_s3_uncommon_client_user_agent.toml
 ---
 
 Attackers frequently target cloud storage environments to harvest sensitive files that facilitate lateral movement and persistence. AWS S3 buckets are often misconfigured or over-privileged, leading to the exposure of configuration files (e.g., .aws/credentials, .env), SSH keys, and PEM/PuTTY private keys. This threat brief highlights the importance of monitoring S3 Data Events to detect when these high-value assets are accessed via 'GetObject' calls. Defenders should focus on identifying access by non-automation identities, as legitimate CI/CD pipelines and administrative tools may also retrieve these files. Ensuring that S3 Data Events are explicitly enabled in CloudTrail is a prerequisite for observability, as management plane events do not capture individual object access.
