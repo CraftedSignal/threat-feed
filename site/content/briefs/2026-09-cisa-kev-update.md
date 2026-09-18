@@ -3,6 +3,7 @@ title: CISA Adds Two Exploited Linux Kernel Vulnerabilities to KEV Catalog
 slug: 2026-09-cisa-kev-update
 description: CISA has added CVE-2025-39964 and CVE-2026-53266, two actively exploited Linux kernel vulnerabilities, to its Known Exploited Vulnerabilities catalog.
 date: "2026-09-18T18:33:02Z"
+lastmod: "2026-09-18T19:03:43Z"
 type: threat
 types:
   - threat
@@ -32,6 +33,7 @@ vendors:
   - Linux
 products:
   - Linux Kernel
+  - Kernel
 cves:
   - id: CVE-2025-39964
     cvss: 7.8
@@ -60,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-39964 and CVE-2026-53266
       evidence: CISA KEV catalog guidance.
+updates:
+  - at: "2026-09-18T19:03:43Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2025-39964
 ---
 
 On September 18, 2026, CISA updated its Known Exploited Vulnerabilities (KEV) Catalog to include two Linux kernel vulnerabilities that are currently being leveraged in active exploitation campaigns. The vulnerabilities include CVE-2025-39964, a race condition vulnerability, and CVE-2026-53266, an out-of-bounds write vulnerability. Both flaws reside within the core Linux kernel, making them high-risk entry points or escalation vectors for attackers seeking to gain unauthorized control over affected systems. Per Binding Operational Directive (BOD) 26-04, Federal Civilian Executive Branch (FCEB) agencies are required to prioritize the remediation of these vulnerabilities on internet-facing assets. CISA strongly recommends that all organizations, regardless of sector, apply the latest security updates provided by their Linux distribution maintainers to mitigate these risks.
