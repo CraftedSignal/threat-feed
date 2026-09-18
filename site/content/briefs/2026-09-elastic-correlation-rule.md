@@ -3,6 +3,7 @@ title: Cross-Telemetry Correlation of Endpoint and Network Security Alerts
 slug: 2026-09-elastic-correlation-rule
 description: Detection engineering logic that correlates Elastic Defend endpoint alerts with network security events from PAN-OS, FortiGate, and Suricata to identify potentially compromised hosts based on multi-source telemetry.
 date: "2026-09-18T19:21:05Z"
+lastmod: "2026-09-18T19:21:12Z"
 type: advisory
 types:
   - advisory
@@ -13,16 +14,21 @@ tags:
   - multi-datasource
   - network-security
   - endpoint-security
+  - phishing
+  - email-security
 vendors:
   - Elastic
   - Palo Alto Networks
   - Fortinet
   - OISF
+  - Check Point
 products:
   - Elastic Defend (8.18+)
   - PAN-OS
   - FortiGate
   - Suricata
+  - Elastic Defend
+  - Harmony Email & Collaboration
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
@@ -36,9 +42,16 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Fortigate suspicious events (event.action in ('outbreak-prevention', 'infected', 'blocked') or message like 'backdoor*' ... 'exploit_detected').
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: This rule correlates any Elastic Defend alert with an email security related alert by target user name. This may indicate the successful execution of a phishing attack.
+    confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_elastic_defend_netsecurity_by_host.toml
   - https://www.elastic.co/docs/solutions/security/configure-elastic-defend/configure-data-volume-for-elastic-endpoint#host-fields
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_email_elastic_defend_correlation.toml
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +67,14 @@ action_plan:
       owner: IT Operations
       addresses: Rule prerequisite
       evidence: Source documentation for version 8.18+
+updates:
+  - at: "2026-09-18T19:21:12Z"
+    level: L2
+    summary: added coverage for Elastic Defend +1 products
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_email_elastic_defend_correlation.toml
 ---
 
 This detection brief details a higher-order correlation rule designed for the Elastic Security platform to identify system compromises by analyzing telemetry across heterogeneous security sources. The rule monitors for concurrent suspicious activity reported by both host-based endpoint protection (Elastic Defend) and perimeter or network-level security controls, including Palo Alto Networks PAN-OS, Fortinet FortiGate, and Suricata.
