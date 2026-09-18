@@ -1,72 +1,63 @@
 ---
-title: Denial of Service Vulnerability in HAPI FHIR SHCParser
+title: Unbounded DEFLATE Decompression Vulnerability in HAPI FHIR
 slug: 2026-09-hapi-fhir-dos
-description: An infinite loop vulnerability in HAPI FHIR's SHCParser (CVE-2026-81876) allows attackers to cause resource exhaustion by submitting malformed or truncated DEFLATE-compressed Smart Health Card content.
-date: "2026-09-18T01:11:43Z"
-type: threat
+description: The HAPI FHIR SHCParser component contains an unbounded DEFLATE decompression flaw (CVE-2026-81875) allowing attackers to trigger memory exhaustion and denial-of-service.
+date: "2026-09-18T01:11:51Z"
+type: advisory
 types:
-  - threat
+  - advisory
 severities:
-  - medium
-exploited: true
+  - low
+cpes:
+  - cpe:2.3:a:hl7:hapi_fhir:*:*:*:*:*:*:*:*
+tags:
+  - denial-of-service
+  - vulnerability
+  - cve-2026-81875
 vendors:
   - HL7
 products:
-  - org.hl7.fhir.r5 (<= 6.9.11)
-  - org.hl7.fhir.validation (<= 6.9.11)
-  - org.hl7.fhir.validation.cli (<= 6.9.11)
+  - HAPI FHIR (<= 6.9.11)
+  - HAPI FHIR validation.cli (<= 5.0.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
-    evidence: 'A malformed Smart Health Card (SHC) JWT with zip: "DEF" and an empty or truncated DEFLATE payload causes SHCParser.inflate() to loop forever.'
+    evidence: An attacker who can submit SHC content for validation can craft a small compressed JWT payload that expands to a very large byte array, causing memory exhaustion or severe garbage collection pressure.
     confidence_band: high
 cves:
-  - id: CVE-2026-81876
+  - id: CVE-2026-81875
     cvss: 7.5
 references:
-  - https://github.com/advisories/GHSA-gq9c-wmrm-5hvr
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-81876
+  - https://github.com/advisories/GHSA-3w98-rrpr-fprr
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Security Engineering
+    - Application Security
   immediate_actions:
-    - action: Upgrade HAPI FHIR packages to version > 6.9.11
+    - action: Upgrade HAPI FHIR libraries to versions exceeding 6.9.11
       owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-81876 advisory notes version 6.9.11 is vulnerable
+      due: 72h
+      evidence: Source advisory notes vulnerability in versions <= 6.9.11
   mitigation_plan:
     - priority: immediate
-      action: Implement request timeouts on SHC validation endpoints
-      owner: Security Engineering
-      addresses: CVE-2026-81876
-      evidence: Source documents thread hanging via infinite loop
+      action: Implement strict payload size limits at the API gateway
+      owner: Application Security
+      addresses: CVE-2026-81875
+      evidence: The parser lacks internal size limits, requiring external mitigation
 ---
 
-HAPI FHIR versions 6.9.11 and earlier are vulnerable to a denial-of-service (DoS) condition in the `SHCParser` component, identified as CVE-2026-81876. The vulnerability resides in the `inflate()` and `decompress()` methods of `SHCParser.java`, which process Smart Health Card (SHC) tokens. When the JWT header contains the `"zip":"DEF"` parameter, the parser attempts to decompress the payload. However, the implementation fails to validate the return state of the `Inflater` class, specifically ignoring `needsInput()` or zero-progress output. When provided with an empty or truncated raw DEFLATE stream, the parser enters an infinite loop, continuously consuming CPU cycles on the JVM worker thread. An attacker can exploit this by submitting crafted SHC content - either via file upload or URI input - to trigger validation, leading to thread exhaustion and potential service disruption in environments processing untrusted health records.
-
-## Attack Chain
-
-1. Attacker crafts a malicious SHC JWT where the header specifies `{"zip":"DEF"}`.
-2. The payload is set to an empty or truncated byte sequence that fails standard DEFLATE expansion.
-3. The malicious SHC is submitted to an application utilizing the HAPI FHIR library for health record processing.
-4. The application triggers the validation workflow, passing the input to the `SHCParser` for processing.
-5. The `SHCParser` reads the header, identifies the compression flag, and initiates the `inflate()` method.
-6. The `Inflater.inflate()` method returns a zero-length result, causing the parser's `while` loop to execute indefinitely.
-7. The JVM thread becomes pinned at 100% CPU usage for that core.
-8. Concurrent requests overwhelm the thread pool, leading to complete service unavailability for legitimate users.
+The HAPI FHIR library contains a vulnerability (CVE-2026-81875) in its `SHCParser` component, specifically within the `inflate()` and `decompress()` methods found in `SHCParser.java`. The library improperly handles the decompression of Smart Health Card (SHC) JWT payloads when the header specifies `"zip":"DEF"`. Because the `inflate()` function uses a `ByteArrayOutputStream` without enforcing a maximum output size, a small, highly compressed malicious payload can be expanded into an arbitrarily large byte array in memory. An attacker who can supply SHC content for validation can exploit this to force extreme heap allocation. This vulnerability leads to severe garbage collection pressure, performance degradation, and potential application crashes due to `OutOfMemoryError`. The flaw affects `org.hl7.fhir.r5` and `org.hl7.fhir.validation` versions up to and including 6.9.11, as well as `org.hl7.fhir.validation.cli` up to version 5.0.0.
 
 ## Impact
 
-Successful exploitation results in denial of service. Attackers can render applications incapable of processing legitimate health records by exhausting worker threads. The vulnerability affects critical infrastructure using HAPI FHIR, including FHIR validation servers, clinical portals, and health information exchange nodes. A minimal number of requests can effectively hang the service, impacting availability across sectors reliant on standard health record validation.
+The primary impact is a denial-of-service (DoS) condition affecting any validator or application utilizing the vulnerable HAPI FHIR components. Successful exploitation results in significant heap memory exhaustion, high CPU utilization during the decompression process, and potential application unavailability. This poses a high risk to healthcare-related infrastructure that processes Smart Health Cards, as an attacker can repeatedly submit crafted payloads to cause sustained service disruption or process termination.
 
 ## Recommendation
 
-Prioritize patching vulnerable HAPI FHIR components to mitigate CVE-2026-81876.
-* Upgrade `org.hl7.fhir.r5`, `org.hl7.fhir.validation`, and `org.hl7.fhir.validation.cli` to a version beyond 6.9.11.
-* Implement strict input validation on incoming SHC content before passing it to the HAPI FHIR library, specifically rejecting empty or non-compliant DEFLATE payloads.
-* Monitor JVM thread activity for consistent high CPU utilization spikes originating from validation threads.
-* Apply resource limits (timeouts) to file processing and validation threads to prevent single requests from pinning worker threads indefinitely.
+1. Upgrade HAPI FHIR components to versions beyond 6.9.11 to incorporate the necessary decompression size limits.
+2. For applications using `org.hl7.fhir.validation.cli`, ensure an upgrade path to a version beyond 5.0.0 is utilized.
+3. Implement strict input validation or size constraints at the perimeter or API gateway level for any service that accepts and validates SHC/JWT payloads to reject oversized input before it reaches the `SHCParser`.
+4. Monitor application heap usage and garbage collection metrics for anomalous spikes coinciding with the processing of incoming FHIR validation requests.
