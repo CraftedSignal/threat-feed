@@ -3,16 +3,19 @@ title: Detection of AWS Route 53 Resolver Query Log Deletion
 slug: 2026-09-route53-log-deletion
 description: Adversaries may delete Amazon Route 53 Resolver Query Log configurations to evade detection by disabling DNS query and response logging for VPC-based resources.
 date: "2026-09-18T19:27:35Z"
+lastmod: "2026-09-18T19:41:05Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - cloud
   - aws
   - defense-evasion
   - log-auditing
+  - persistence
+  - resource-development
 vendors:
   - Amazon
 products:
@@ -23,6 +26,18 @@ mitre_ttps:
     technique_id: T1562
     technique_name: Impair Defenses
     evidence: Adversaries may delete these configurations to evade detection, suppress forensic evidence, or degrade security monitoring capabilities.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098
+    technique_name: Account Manipulation
+    evidence: Adversaries who gain access to domain-management permissions may disable the lock as a precursor to unauthorized domain transfer, takeover, or service disruption.
+    confidence_band: high
+  - tactic_id: TA0042
+    tactic_name: Resource Development
+    technique_id: T1584
+    technique_name: Compromise Infrastructure
+    evidence: Disabling this lock removes an important safeguard against domain hijacking.
     confidence_band: high
 references:
   - https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverQueryLogConfig.html
@@ -38,7 +53,20 @@ rules:
     data_sources:
       - cloud
       - aws
-rules_count: 1
+  - title: Detect AWS Route 53 Domain Transfer Lock Disablement
+    description: Detects successful execution of DisableDomainTransferLock in AWS CloudTrail
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+    techniques:
+      - T1098
+      - T1562
+      - T1584.001
+    data_sources:
+      - cloud
+      - aws
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -64,6 +92,14 @@ action_plan:
       owner: IT Operations
       addresses: T1562.008
       evidence: Best practice to prevent unauthorized defense impairment.
+updates:
+  - at: "2026-09-18T19:41:05Z"
+    level: L2
+    summary: 'added detection rule: Detect AWS Route 53 Domain Transfer Lock Disablement'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_route_53_domain_transfer_lock_disabled.toml
 ---
 
 Adversaries targeting AWS environments may attempt to disable security monitoring by deleting Amazon Route 53 Resolver Query Log configurations. These logs provide critical visibility into DNS activity across VPCs, including queries initiated by EC2 instances, containerized workloads, and Lambda functions. By successfully invoking the `DeleteResolverQueryLogConfig` API call, an attacker immediately halts DNS logging, effectively creating a blind spot that hides evidence of command-and-control (C2) communication, lateral movement, and data exfiltration. This tactic is classified as a method of impairing defenses within cloud environments, forcing defenders to rely on fragmented telemetry when investigating unauthorized resource access or configuration tampering.
