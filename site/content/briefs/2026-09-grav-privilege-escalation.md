@@ -3,6 +3,7 @@ title: Grav Privilege Escalation via Group Blueprint ACL Bypass
 slug: 2026-09-grav-privilege-escalation
 description: A missing 'security@' guard in Grav's group blueprint allows an 'admin.users' operator to escalate privileges to 'admin.super' by modifying group access configurations.
 date: "2026-09-18T01:10:51Z"
+lastmod: "2026-09-18T01:11:02Z"
 type: advisory
 types:
   - advisory
@@ -14,16 +15,26 @@ tags:
   - privilege-escalation
   - cms
   - vulnerability
+  - web-application-vulnerability
+  - path-traversal
+  - cve-2026-74907
 vendors:
   - getgrav
 products:
   - Grav (<= 2.0.12)
+  - grav (<= 2.0.14)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
     evidence: 'A delegated non-super operator holding admin.users.update can therefore save a group whose access map contains admin.super: true, which UserGroupObject::authorize then grants to every member of that group, a full privilege escalation to super-admin.'
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An unauthenticated attacker can achieve RCE, exfiltrate site data, or gain admin-equivalent control.
     confidence_band: high
 cves:
   - id: CVE-2026-75837
@@ -32,6 +43,20 @@ cves:
 references:
   - https://github.com/advisories/GHSA-xhfv-7758-r9hx
   - CVE-2026-75837
+  - https://github.com/advisories/GHSA-4v9q-p283-qc2m
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74907
+rules:
+  - title: Detect CVE-2026-74907 Exploitation Attempt - Path Traversal
+    description: Detects path traversal attempts targeting the Grav static asset server by looking for directory traversal sequences within requests to potential asset routes.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -57,6 +82,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-75837
       evidence: Suggested fix from source advisory
+updates:
+  - at: "2026-09-18T01:11:02Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-74907 Exploitation Attempt - Path Traversal'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-4v9q-p283-qc2m
 ---
 
 Grav version 2.0.12 and earlier contains a privilege escalation vulnerability within its Flex group management functionality. The core group blueprint file located at `system/blueprints/user/group.yaml` omits a mandatory `security@: admin.super` guard on the group access field. In the Grav Flex architecture, the `security@` guard is the primary mechanism that flags fields for exclusion during the data save path for non-super users.
