@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in Netty StompSubframeDecoder
 slug: 2026-09-netty-stomp-dos
 description: A memory leak vulnerability in the Netty StompSubframeDecoder component (CVE-2026-93494) allows remote attackers to cause a Denial of Service by sending malformed STOMP frames.
 date: "2026-09-18T12:05:00Z"
+lastmod: "2026-09-18T16:07:09Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - Netty
 products:
   - Netty
+  - Netty (< 4.2.13.Final)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -30,6 +32,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93494
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93575
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93494
       evidence: Source identifies this as a fixable vulnerability
+updates:
+  - at: "2026-09-18T16:07:09Z"
+    level: L1
+    summary: added coverage for Netty (< 4.2.13.Final)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93575
 ---
 
 A memory leak vulnerability (CVE-2026-93494) exists within the StompSubframeDecoder component of the Netty framework. The flaw is triggered when an attacker sends a STOMP frame body that lacks the expected terminating null byte. Upon receiving such a frame, the decoder performs a ByteBuf allocation that is never subsequently released by the application logic. Because the allocation persists in memory, repeated submission of these crafted frames leads to cumulative, uncontrolled memory consumption. This resource exhaustion eventually causes the host application to crash or become unresponsive, effectively resulting in a Denial of Service (DoS) for any services utilizing the affected STOMP codec. Defenders should prioritize identifying applications leveraging Netty for STOMP protocol handling to evaluate exposure and schedule patches.
