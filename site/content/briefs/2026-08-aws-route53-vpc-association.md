@@ -3,6 +3,7 @@ title: Detection of Unauthorized AWS Route 53 Private Hosted Zone Associations
 slug: 2026-08-aws-route53-vpc-association
 description: Adversaries with high-level IAM permissions may associate unauthorized VPCs with AWS Route 53 private hosted zones to intercept internal DNS traffic, establish persistence, or perform reconnaissance.
 date: "2026-08-24T09:51:09Z"
+lastmod: "2026-09-18T19:41:10Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Amazon
 products:
   - AWS Route 53
+  - Route 53
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -36,6 +38,8 @@ mitre_ttps:
     technique_name: Adversary-in-the-Middle
     evidence: Associating additional VPCs expands the scope of what networks can resolve internal DNS records. Adversaries with sufficient permissions may associate unauthorized VPCs to intercept, observe, or reroute internal traffic.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_route_53_hosted_zone_associated_with_a_vpc.toml
 rules:
   - title: Detect AWS Route 53 Private Hosted Zone Associated With a VPC
     description: Detects when a VPC is associated with a private Route 53 hosted zone, excluding known infrastructure-as-code automation tools.
@@ -69,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: Permissions management
       evidence: AWS Knowledge Center Security Best Practices
+updates:
+  - at: "2026-09-18T19:41:10Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_route_53_hosted_zone_associated_with_a_vpc.toml
 ---
 
 Adversaries possessing sufficient AWS IAM permissions can manipulate Route 53 private hosted zone associations to expand their reach across an internal network. By associating an unauthorized Virtual Private Cloud (VPC) with a private hosted zone, an attacker can resolve internal DNS records that would otherwise be inaccessible, allowing for internal reconnaissance, traffic interception, or service discovery manipulation. This activity, while sometimes legitimate during environment restructuring or infrastructure-as-code (IaC) deployments, can also serve as a method for maintaining persistence within a cloud environment. Defenders should monitor for unexpected `AssociateVPCWithHostedZone` API events and validate these associations against known infrastructure management patterns to identify unauthorized access or malicious configuration changes.
