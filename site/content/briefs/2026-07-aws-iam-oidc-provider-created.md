@@ -3,6 +3,7 @@ title: AWS IAM OpenID Connect Provider Creation by Rare User
 slug: 2026-07-aws-iam-oidc-provider-created
 description: Adversaries with administrative access to an AWS account may create rogue OpenID Connect (OIDC) Identity Providers to establish persistent, federated access that bypasses credential rotation and allows them to assume IAM roles using tokens from an attacker-controlled Identity Provider.
 date: "2026-07-15T14:17:51Z"
+lastmod: "2026-09-18T19:40:11Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - Amazon
 products:
   - IAM
+  - AWS IAM
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -59,6 +61,14 @@ rules:
       - aws
       - cloudtrail
 rules_count: 1
+updates:
+  - at: "2026-09-18T19:40:11Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_iam_oidc_provider_created.toml
 ---
 
 This threat brief details the creation of OpenID Connect (OIDC) Identity Providers within AWS Identity and Access Management (IAM) by uncommon users or roles, a technique frequently abused by adversaries. OIDC providers are legitimately used to enable web identity federation, allowing users authenticated by external identity providers (like Google, GitHub, or custom OIDC-compliant services) to assume IAM roles and access AWS resources. However, if an attacker gains administrative access to an AWS environment, they can create a malicious OIDC provider to establish a highly persistent backdoor. This allows them to maintain federated access, often surviving credential rotation, by generating tokens from an Identity Provider (IdP) they control to assume trusted IAM roles. This activity, especially when performed by a user or role that has not previously created such providers, is a strong indicator of compromise or unauthorized access and requires immediate investigation.
