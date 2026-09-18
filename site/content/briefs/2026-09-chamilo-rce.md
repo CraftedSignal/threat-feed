@@ -3,6 +3,7 @@ title: Chamilo LMS CStudio Unauthenticated Remote Code Execution
 slug: 2026-09-chamilo-rce
 description: An unauthenticated remote code execution vulnerability in the Chamilo LMS CStudio upload flow allows attackers to gain server-level access by exploiting improper file handling (CVE-2026-45140).
 date: "2026-09-18T01:10:40Z"
+lastmod: "2026-09-18T19:45:20Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:chamilo:chamilo_lms:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=5BD031A7-1596-56B4-A7CD-0362166F2282&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - web-application
@@ -37,6 +41,7 @@ cves:
 references:
   - https://github.com/advisories/GHSA-g4c3-4g96-6g4m
   - https://github.com/chamilo/chamilo-lms/releases/tag/v2.0.1
+  - https://sploitus.com/exploit?id=5BD031A7-1596-56B4-A7CD-0362166F2282&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-45140 Exploitation - Suspicious File Upload to CStudio
     description: Detects potential exploitation of CVE-2026-45140 by monitoring for POST requests to the CStudio upload flow that include path traversal or attempt to upload executable extensions.
@@ -79,6 +84,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-45140
       evidence: Official fix version provided in GHSA
+updates:
+  - at: "2026-09-18T19:45:20Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=5BD031A7-1596-56B4-A7CD-0362166F2282&utm_source=rss&utm_medium=rss
 ---
 
 Chamilo LMS versions 2.0.0 and earlier are vulnerable to an unauthenticated remote code execution (RCE) flaw in the CStudio file upload component. The vulnerability, tracked as CVE-2026-45140, stems from a combination of path traversal (CWE-22) and unrestricted file upload (CWE-434) issues. Attackers can leverage the upload flow to store malicious files within the web document root, which can subsequently be executed by the server. This allows for total compromise of the application and potentially the underlying server infrastructure. Given the lack of required privileges and user interaction, this vulnerability represents a critical risk for deployments of Chamilo LMS. Users are strongly advised to upgrade to version 2.0.1 or later to remediate the flaw.
