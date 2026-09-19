@@ -3,6 +3,7 @@ title: Arbitrary Shortcode Execution in Forminator WordPress Plugin
 slug: 2026-09-forminator-shortcode-exec
 description: The Forminator plugin for WordPress contains an arbitrary shortcode execution vulnerability (CVE-2026-92229) allowing unauthenticated attackers to execute arbitrary shortcodes by leveraging improper input validation.
 date: "2026-09-19T04:08:46Z"
+lastmod: "2026-09-19T21:59:32Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:wpmu_dev:forminator:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=011DBBCC-8BF5-55B8-B490-87EE45256BCF&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - vulnerability
@@ -30,6 +34,7 @@ cves:
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92229
+  - https://sploitus.com/exploit?id=011DBBCC-8BF5-55B8-B490-87EE45256BCF&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92229
       evidence: The vulnerability allows execution of arbitrary shortcodes due to lack of input validation.
+updates:
+  - at: "2026-09-19T21:59:32Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=011DBBCC-8BF5-55B8-B490-87EE45256BCF&utm_source=rss&utm_medium=rss
 ---
 
 The Forminator Forms - Contact Form, Payment Form & Custom Form Builder plugin for WordPress is affected by a critical vulnerability (CVE-2026-92229) impacting all versions up to and including 1.57.2. The vulnerability originates from a failure in the plugin to properly validate user-supplied input before passing it to the WordPress `do_shortcode()` function. By manipulating specific actions within the plugin, an unauthenticated attacker can force the application to execute arbitrary shortcodes. Because many WordPress plugins and themes register shortcodes that can perform sensitive operations, file modifications, or information disclosure, this flaw provides a vector for unauthorized system interaction. Depending on the environment and the shortcodes available in the installed plugin ecosystem, this can escalate to remote code execution (RCE) or full site compromise. Defenders should prioritize updating to the latest patched version and audit active shortcodes for potential exploitation.
