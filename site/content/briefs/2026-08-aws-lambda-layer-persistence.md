@@ -3,6 +3,7 @@ title: Detection of Unauthorized AWS Lambda Layer Modifications
 slug: 2026-08-aws-lambda-layer-persistence
 description: Adversaries with compromised credentials may modify AWS Lambda configurations by injecting unauthorized layers to establish persistence, run arbitrary code, or intercept data.
 date: "2026-08-24T09:47:20Z"
+lastmod: "2026-09-19T13:23:51Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - Amazon
 products:
   - AWS Lambda
+  - Lambda
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -35,6 +37,7 @@ references:
   - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-persistence/aws-lambda-persistence/aws-lambda-layers-persistence
   - https://docs.aws.amazon.com/lambda/latest/api/API_PublishLayerVersion.html
   - https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_lambda_external_layer_added_to_function.toml
 rules:
   - title: Detect Unauthorized AWS Lambda Layer Modifications
     description: Detects when a Lambda layer is added or a function is updated using AWS CloudTrail, excluding activity from known IaC tools like Terraform or Pulumi.
@@ -69,6 +72,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Source provides query parameters to identify Lambda modifications.
+updates:
+  - at: "2026-09-19T13:23:51Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_lambda_external_layer_added_to_function.toml
 ---
 
 Adversaries possessing sufficient permissions to interact with the AWS Lambda API can exploit the service's layer architecture to maintain stealthy persistence. By adding a malicious or unauthorized Lambda layer to an existing function, an attacker can inject code into the function's execution environment without modifying the primary source code. This technique allows for the interception of sensitive data, execution of unauthorized backend tasks, or modification of function output.
