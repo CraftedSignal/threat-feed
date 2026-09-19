@@ -3,7 +3,7 @@ title: Detection of AWS SES Identity Verify-Use-Delete Abusive Pattern
 slug: 2026-08-aws-ses-abuse
 description: Adversaries with unauthorized access to AWS Simple Email Service (SES) credentials may verify an attacker-controlled identity, send phishing or spam emails, and promptly delete the identity to evade detection and attribution.
 date: "2026-08-31T17:52:25Z"
-lastmod: "2026-09-07T10:42:51Z"
+lastmod: "2026-09-19T13:22:37Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ vendors:
 products:
   - Simple Email Service (SES)
   - Simple Email Service
+  - Amazon SES
 mitre_ttps:
   - tactic_id: TA0042
     tactic_name: Resource Development
@@ -47,6 +48,7 @@ references:
   - https://permiso.io/blog/s/aws-ses-pionage-detecting-ses-abuse/
   - https://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html
   - https://stratus-red-team.cloud/attack-techniques/AWS/aws.discovery.ses-enumerate/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ses_enumeration_via_long_term_access_key.toml
 rules:
   - title: Detect AWS SES Enumeration via Long-Term Access Key
     description: Detects discovery of AWS SES resources using long-term IAM access keys (AKIA* prefix), which is a common indicator of reconnaissance following credential exfiltration.
@@ -80,6 +82,13 @@ updates:
   - at: "2026-09-07T10:42:51Z"
     level: L1
     summary: 'added detection rule: Detect AWS SES Enumeration via Long-Term Access Key'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ses_enumeration_via_long_term_access_key.toml
+  - at: "2026-09-19T13:22:37Z"
+    level: L1
+    summary: new product
     sources:
       - elastic
     source_urls:
