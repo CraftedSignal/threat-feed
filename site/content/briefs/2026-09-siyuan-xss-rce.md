@@ -3,7 +3,7 @@ title: Remote Code Execution in SiYuan via Malicious Bookmark Labels
 slug: 2026-09-siyuan-xss-rce
 description: SiYuan versions prior to 3.8.4 contain a cross-site scripting vulnerability in bookmark label rendering that enables remote code execution due to insecure Electron configuration.
 date: "2026-09-17T16:00:22Z"
-lastmod: "2026-09-18T16:07:23Z"
+lastmod: "2026-09-19T02:07:36Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +19,14 @@ tags:
   - web-application-vulnerability
   - sql-injection
   - data-exfiltration
+  - web-vulnerability
+  - remote-code-execution
 vendors:
   - SiYuan
 products:
   - SiYuan (< 3.8.4)
   - SiYuan (< 3.8.3)
+  - SiYuan (<= 3.8.4)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -43,6 +46,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An unauthenticated user or a visitor in publish-mode can exploit this by injecting malicious SQL payloads within inline HTML span tags sent via the getGraph API endpoint.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Attackers can supply crafted notebooks... to inject malicious style values
+    confidence_band: med
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: execute in the Electron renderer with full system access
+    confidence_band: med
 cves:
   - id: CVE-2026-92985
     cvss: 8.8
@@ -50,6 +65,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92985
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92986
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93591
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93923
 rules:
   - title: Detects CVE-2026-93591 Exploitation - SQL Injection via getGraph
     description: Detects exploitation attempts against SiYuan by identifying SQL injection payloads (e.g., single quotes, union, select) within requests to the getGraph endpoint.
@@ -93,6 +109,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-93591
+  - at: "2026-09-19T02:07:36Z"
+    level: L2
+    summary: added coverage for SiYuan (<= 3.8.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93923
 ---
 
 SiYuan versions prior to 3.8.4 contain a critical vulnerability that allows attackers to achieve remote code execution (RCE). The application fails to properly sanitize or escape bookmark labels when importing and rendering .sy notebook files within the dock tree. Because the underlying Electron framework is configured with nodeIntegration enabled, the rendering of malicious HTML payloads within these bookmark attributes allows for the execution of arbitrary JavaScript. This execution occurs within the context of the renderer process, granting the attacker access to Node.js primitives, including the child_process module, which can be leveraged to execute arbitrary system commands on the host machine. This affects all platforms where SiYuan is deployed, as it relies on the Electron-based architecture.
