@@ -3,6 +3,7 @@ title: Suspicious Instance Metadata Service API Requests
 slug: 2026-09-imds-credential-theft
 description: Attackers with initial code execution on cloud-hosted virtual machines query the Instance Metadata Service (IMDS) at 169.254.169.254 to harvest sensitive instance details and temporary security credentials for unauthorized cloud control-plane access.
 date: "2026-09-18T19:08:56Z"
+lastmod: "2026-09-19T13:10:56Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,10 @@ tags:
   - linux
   - windows
   - macos
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -23,6 +28,8 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: A common attacker pattern is gaining code execution on a Linux or Windows VM, then using curl, PowerShell, or a script dropped in a temporary directory to query 169.254.169.254 and harvest the attached role credentials for follow-on cloud access.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_suspicious_instance_metadata_service_api_request.toml
 iocs:
   - type: ip
     value: 169.254.169.254
@@ -59,6 +66,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Pattern described in source as common for IMDS credential harvesting
+updates:
+  - at: "2026-09-19T13:10:56Z"
+    level: L1
+    summary: OS linux; OS macos; OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_suspicious_instance_metadata_service_api_request.toml
 ---
 
 Attackers frequently leverage access to cloud-hosted virtual machines to target the Instance Metadata Service (IMDS). By querying the well-known, non-routable IP address 169.254.169.254, adversaries can retrieve instance-specific metadata, such as public IP addresses, instance IDs, and - most critically - temporary IAM role credentials or managed identity tokens. This technique is often used as a post-exploitation step to escalate privileges into the cloud control plane. Defenders should monitor for unexpected network traffic directed at this endpoint from shell interpreters, scripting engines, or binaries executing from user-writable and temporary directories. The activity is distinct from legitimate bootstrap or configuration scripts, which typically execute from authorized system paths at startup.
