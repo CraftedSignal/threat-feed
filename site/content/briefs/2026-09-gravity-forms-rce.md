@@ -3,6 +3,7 @@ title: Unauthenticated Arbitrary File Upload in Gravity Forms
 slug: 2026-09-gravity-forms-rce
 description: The Gravity Forms WordPress plugin (<= 3.1.0.4) is susceptible to unauthenticated remote code execution due to a validation flaw in the upload_file function allowing hidden file upload fields to bypass extension checks.
 date: "2026-09-19T04:08:31Z"
+lastmod: "2026-09-19T21:59:26Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:rocketgenius:gravity_forms:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D48A2A44-5438-5A55-BB24-83D12D1BEF4A&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - wordpress
@@ -37,6 +41,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84434
+  - https://sploitus.com/exploit?id=D48A2A44-5438-5A55-BB24-83D12D1BEF4A&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-84434 Exploitation - Suspicious File Upload to Gravity Forms
     description: Detects potential exploitation attempts of CVE-2026-84434 by identifying requests to common Gravity Forms endpoints involving suspicious file extensions via POST methods.
@@ -76,6 +81,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-84434
       evidence: Exploitation requires File Upload field with Hidden visibility
+updates:
+  - at: "2026-09-19T21:59:26Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D48A2A44-5438-5A55-BB24-83D12D1BEF4A&utm_source=rss&utm_medium=rss
 ---
 
 Gravity Forms, a popular form-building plugin for WordPress, contains a critical vulnerability (CVE-2026-84434) in versions up to and including 3.1.0.4. The flaw exists within the upload_file() function and stems from a validation bypass when processing File Upload fields configured with 'Hidden' visibility. Because the field validation pipeline and file persistence pipeline operate independently, hidden fields are not subjected to the same extension restrictions as standard fields. Furthermore, rejected files may still be processed by the upload_file() function without secondary validation, enabling unauthenticated remote attackers to upload executable scripts to the web server. Successful exploitation facilitates remote code execution (RCE) on the underlying WordPress environment, representing a severe risk for any site utilizing hidden file upload components on public-facing forms.
