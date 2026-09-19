@@ -3,6 +3,7 @@ title: Arbitrary Shortcode Execution in WP Recipe Maker Plugin
 slug: 2026-09-wp-recipe-maker-rce
 description: The WP Recipe Maker plugin for WordPress (<= 10.8.1) is vulnerable to arbitrary shortcode execution due to recursive do_shortcode calls on user-supplied metadata fields.
 date: "2026-09-19T04:08:39Z"
+lastmod: "2026-09-19T21:59:29Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:wp_recipe_maker:wp_recipe_maker:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D6E93E8E-94F1-5A30-A541-24A9B186A2C1&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - wordpress
@@ -30,6 +34,7 @@ cves:
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-89274
+  - https://sploitus.com/exploit?id=D6E93E8E-94F1-5A30-A541-24A9B186A2C1&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -45,6 +50,14 @@ action_plan:
       owner: Site Administrators
       addresses: CVE-2026-89274
       evidence: Exploitation requires comment approval
+updates:
+  - at: "2026-09-19T21:59:29Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D6E93E8E-94F1-5A30-A541-24A9B186A2C1&utm_source=rss&utm_medium=rss
 ---
 
 The WP Recipe Maker plugin for WordPress contains a critical vulnerability (CVE-2026-89274) in its metadata sanitization logic. The function `WPRM_Metadata::sanitize_metadata()` recursively processes recipe structured metadata arrays by invoking `do_shortcode()` on scalar fields. Specifically, the `reviewBody` field is populated using the raw `comment_content` of user-submitted `wprm-comment-rating` comments. Because the plugin performs tag and shortcode stripping only after the `do_shortcode()` call has been executed, it fails to sanitize malicious shortcode tokens. This flaw permits unauthenticated attackers to trigger server-side execution of registered WordPress shortcodes when a recipe page is rendered. Successful exploitation allows for the disclosure of sensitive information, such as private post data or attachment details, which are then rendered into the page's JSON-LD metadata for all visitors to see. The exploit requires the malicious comment to be approved, either through site settings or human intervention.
