@@ -3,6 +3,7 @@ title: AWS KMS Customer Managed Key Lifecycle Manipulation
 slug: 2026-08-aws-kms-lifecycle-manipulation
 description: Adversaries may disable or schedule the deletion of AWS KMS keys to sabotage business operations, render encrypted data unrecoverable, and obstruct forensic investigation or incident response efforts.
 date: "2026-08-24T09:49:47Z"
+lastmod: "2026-09-19T13:26:01Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Amazon
 products:
   - AWS Key Management Service
+  - AWS KMS
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -27,6 +29,7 @@ mitre_ttps:
 references:
   - https://docs.aws.amazon.com/cli/latest/reference/kms/disable-key.html
   - https://docs.aws.amazon.com/cli/latest/reference/kms/schedule-key-deletion.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_kms_cmk_disabled_or_scheduled_for_deletion.toml
 rules:
   - title: Detect AWS KMS Key Lifecycle Modification
     description: Detects unauthorized attempts to disable or schedule the deletion of AWS customer managed KMS keys, which may indicate sabotage or malicious intent to destroy data access.
@@ -72,6 +75,14 @@ action_plan:
       evidence: Use AWS Organizations SCPs to prevent KMS key deletion in production accounts.
   gaps:
     - Lack of automated response playbooks for immediate CancelKeyDeletion actions.
+updates:
+  - at: "2026-09-19T13:26:01Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_kms_cmk_disabled_or_scheduled_for_deletion.toml
 ---
 
 Adversaries targeting AWS environments may attempt to disable or schedule the deletion of Customer Managed KMS keys to disrupt service availability and cause permanent data loss. Because KMS keys underpin the encryption for critical services such as S3, EBS, RDS, Secrets Manager, and Lambda, controlling these keys provides an attacker with a high-impact lever to sabotage an organization. This activity is typically observed in later stages of an intrusion, where an attacker seeks to hide evidence of prior exfiltration, prevent recovery from ransomware, or impede incident response by destroying access to encrypted forensic data and backups. Defenders should monitor for highly privileged KMS lifecycle API calls that deviate from established infrastructure-as-code deployment patterns.
