@@ -3,6 +3,7 @@ title: Detection of Privilege Escalation via Unauthorized Sudoers Modification
 slug: 2026-09-sudoers-modification
 description: Adversaries may attempt to gain elevated privileges on Unix-like systems by using the echo command to inject NOPASSWD directives into the sudoers file, allowing passwordless execution of commands as root.
 date: "2026-09-18T19:22:59Z"
+lastmod: "2026-09-19T13:18:12Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ tags:
   - defense-evasion
   - linux
   - macos
+affected_os:
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -26,6 +30,8 @@ mitre_ttps:
     technique_name: Abuse Elevation Control Mechanism
     evidence: Adversaries may exploit this by modifying the file to allow unauthorized privilege escalation, often using the NOPASSWD directive to bypass password prompts.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/privilege_escalation_echo_nopasswd_sudoers.toml
 rules:
   - title: Detect Potential Privilege Escalation via Sudoers Modification
     description: Detects the use of echo to append NOPASSWD directives to sudoers configuration files, a common technique for privilege escalation.
@@ -63,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: T1548.003
       evidence: Best practice for sudoers file management
+updates:
+  - at: "2026-09-19T13:18:12Z"
+    level: L1
+    summary: OS linux; OS macos
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/privilege_escalation_echo_nopasswd_sudoers.toml
 ---
 
 Adversaries targeting Linux and macOS environments frequently attempt to achieve persistent privilege escalation by manipulating system configuration files. A common technique involves modifying the /etc/sudoers file to grant specific users or groups passwordless sudo access. By leveraging the echo command, an attacker can append a line containing the NOPASSWD: ALL directive to the sudoers file or a file within the sudoers.d directory. This configuration change effectively bypasses authentication requirements for elevated operations, granting the attacker persistent root-level command execution capabilities. Defenders should monitor for suspicious execution patterns involving the echo utility directed toward sensitive system configuration files.
