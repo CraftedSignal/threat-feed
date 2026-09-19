@@ -3,6 +3,7 @@ title: Detection of Multi-Cloud CLI Token and Credential Harvesting
 slug: 2026-09-multi-cloud-cli-token-harvesting
 description: Threat actors harvest cloud and container platform authentication tokens by abusing legitimate CLI utilities to output secrets to standard streams, which can be detected via anomalous multi-provider access patterns.
 date: "2026-09-18T19:08:23Z"
+lastmod: "2026-09-19T13:10:49Z"
 type: advisory
 types:
   - advisory
@@ -28,6 +29,10 @@ products:
   - Kubernetes
   - DigitalOcean CLI
   - Oracle Cloud Infrastructure CLI
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -44,6 +49,7 @@ mitre_ttps:
 references:
   - https://attack.mitre.org/techniques/T1528/
   - https://attack.mitre.org/techniques/T1552/
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_multi_cloud_cli_token_harvesting.toml
 action_plan:
   priority: elevated
   owners:
@@ -72,6 +78,14 @@ action_plan:
       evidence: Source notes that automation and CI runners may legitimately print tokens, implying this is a common exposure point.
   gaps:
     - Lack of native auditing for token usage post-exfiltration across all providers
+updates:
+  - at: "2026-09-19T13:10:49Z"
+    level: L1
+    summary: OS windows; OS linux; OS macos
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_multi_cloud_cli_token_harvesting.toml
 ---
 
 Adversaries frequently target cloud-native environments by exploiting legitimate CLI tools to exfiltrate session tokens and credentials. By executing commands such as 'az account get-access-token', 'gcloud auth print-access-token', or 'kubectl get secret', attackers can capture sensitive authentication material from a host's local session. When these actions target multiple cloud providers (AWS, GCP, Azure, GitHub, OCI, or DigitalOcean) within a short window, it strongly indicates malicious reconnaissance or automated credential harvesting rather than standard administrative tasks. This activity is critical to identify, as printed tokens can be used to pivot deeper into the cloud infrastructure, bypass MFA, or maintain persistence in the target environment. Detection engineers should baseline existing CI/CD pipelines to distinguish legitimate service-principal activity from interactive or unauthorized shell-based token access.
