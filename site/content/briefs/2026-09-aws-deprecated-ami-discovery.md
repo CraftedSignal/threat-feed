@@ -3,7 +3,7 @@ title: Detection of AWS EC2 Deprecated AMI Discovery
 slug: 2026-09-aws-deprecated-ami-discovery
 description: Detection of reconnaissance activity where AWS users or roles query the EC2 API for deprecated Amazon Machine Images, a technique used by adversaries to identify vulnerable or outdated system images for potential exploitation.
 date: "2026-09-18T19:29:29Z"
-lastmod: "2026-09-18T19:32:19Z"
+lastmod: "2026-09-19T13:29:36Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,8 @@ tags:
   - cloud
   - exfiltration
   - collection
+  - persistence
+  - defense-evasion
 vendors:
   - Amazon
 products:
@@ -51,11 +53,27 @@ mitre_ttps:
     technique_name: Network Sniffing
     evidence: Detects successful creation of an Amazon EC2 Traffic Mirroring session.
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1578
+    technique_name: Modify Cloud Compute Infrastructure
+    evidence: Route table or association modifications can be used by attackers to disrupt network traffic, reroute communications, or maintain persistence in a compromised environment.
+    confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1578
+    technique_name: Modify Cloud Compute Infrastructure
+    evidence: Route table or association modifications can be used by attackers to disrupt network traffic, reroute communications, or maintain persistence in a compromised environment.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html
   - https://attack.mitre.org/techniques/T1580/
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TrafficMirrorSession.html
   - https://rhinosecuritylabs.com/aws/abusing-vpc-traffic-mirroring-in-aws/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ec2_deprecated_ami_discovery.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_ec2_route_table_modified_or_deleted.toml
+  - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReplaceRoute.html
+  - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteTable.html
 rules:
   - title: AWS EC2 Deprecated AMI Discovery
     description: Detects when an AWS identity queries for deprecated Amazon Machine Images via the DescribeImages API call.
@@ -80,7 +98,18 @@ rules:
     data_sources:
       - cloud
       - aws
-rules_count: 2
+  - title: Detect AWS EC2 Route Table Modification or Deletion
+    description: Detects potentially unauthorized modifications or deletions of AWS route tables via CloudTrail events which may indicate persistence or network disruption attempts.
+    platform: sigma
+    severity: low
+    tactics:
+      - persistence
+    techniques:
+      - T1578.005
+    data_sources:
+      - cloud
+      - aws
+rules_count: 3
 action_plan:
   priority: monitor_or_close
   owners:
@@ -114,6 +143,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_ec2_full_network_packet_capture_detected.toml
+  - at: "2026-09-19T13:29:36Z"
+    level: L1
+    summary: 'added detection rule: Detect AWS EC2 Route Table Modification or Deletion'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_ec2_route_table_modified_or_deleted.toml
 ---
 
 This detection brief addresses the reconnaissance technique where an AWS identity queries for deprecated Amazon Machine Images (AMIs). Attackers often perform this discovery during the post-compromise or initial access phases to identify outdated or unpatched system images that may contain known vulnerabilities. By leveraging the `DescribeImages` API call with the `includeDeprecated` parameter set to `true`, an adversary can enumerate images that are no longer recommended for use but may still be available in the environment. While these queries are not inherently malicious and can occur during legitimate maintenance or security assessments, they provide a strong signal of unauthorized discovery when originating from unexpected identities or sources. Defenders should monitor these API calls to correlate them with subsequent instance launch activity or lateral movement attempts within the AWS account.
