@@ -3,6 +3,7 @@ title: Detection of Web Server Access Log Deletion
 slug: 2026-09-websvr-log-deletion
 description: Adversaries often delete web server access logs to destroy forensic evidence and evade detection after unauthorized activity, a behavior monitorable through file deletion events on common web server log paths.
 date: "2026-09-18T19:09:28Z"
+lastmod: "2026-09-19T13:11:06Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,12 @@ tags:
   - file-integrity
   - logs
   - cross-platform
+vendors:
+  - Apache
+  - Microsoft
+products:
+  - HTTP Server
+  - IIS
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -20,6 +27,8 @@ mitre_ttps:
     technique_name: Indicator Removal
     evidence: Adversaries may delete these logs to cover their tracks, hindering forensic investigations.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_deleting_websvr_access_logs.toml
 rules:
   - title: Detect Web Server Access Log Deletion
     description: Detects the deletion of web server access logs, which may indicate an attempt to evade detection or destroy forensic evidence.
@@ -49,6 +58,14 @@ action_plan:
     - priority: short_term
       action: Review and restrict write/delete permissions on web server log directories
       owner: IT Operations
+updates:
+  - at: "2026-09-19T13:11:06Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_deleting_websvr_access_logs.toml
 ---
 
 Adversaries frequently target web server access logs during the post-exploitation phase to cover their tracks and impede incident response. By deleting these files, attackers aim to destroy records of their initial access, C2 communication, or internal reconnaissance activities. This behavior is cross-platform, affecting common web server architectures including Microsoft IIS, Apache, and HTTPd. Detection engineering teams should monitor for file deletion events occurring within standard directory paths dedicated to log storage. While this activity is often malicious, defenders must differentiate between attacker-led indicator removal and routine administrative tasks such as log rotation, automated backups, or environment resets.
