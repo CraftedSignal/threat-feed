@@ -3,6 +3,7 @@ title: Web Server Potential Command Injection via HTTP Requests
 slug: 2026-09-web-server-command-injection
 description: Threat actors are exploiting web application command injection vulnerabilities to execute arbitrary code by submitting crafted HTTP requests containing interpreter invocations, downloader utilities, or shell commands.
 date: "2026-09-18T19:22:47Z"
+lastmod: "2026-09-19T13:18:07Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +20,13 @@ vendors:
   - Nginx
   - Apache
   - Traefik
+  - Microsoft
 products:
   - Nginx
   - Apache HTTP Server
   - Apache Tomcat
   - Traefik
+  - IIS
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -66,6 +69,14 @@ action_plan:
       evidence: Recommendation section in source metadata
   gaps:
     - Requires fine-tuning to minimize false positives from legitimate application diagnostics
+updates:
+  - at: "2026-09-19T13:18:07Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/persistence_web_server_potential_command_injection.toml
 ---
 
 Attackers are leveraging command injection vulnerabilities in web applications to achieve remote code execution and establish persistence. By submitting HTTP requests with crafted payloads in URL parameters, threat actors invoke interpreters (e.g., Python, Perl, Ruby, PHP) or shell commands (e.g., /bin/bash, /bin/sh) to gain control over the web server. This activity often aims to download secondary payloads, modify cron jobs, or exfiltrate sensitive files such as /etc/passwd or SSH keys. Because successful exploitation frequently returns a 200 OK status code, detection relies on identifying patterns of shell metacharacters and suspicious command-line utilities within request logs. This threat is particularly dangerous as it allows adversaries to operate within the context of the web server process, potentially leading to full host compromise or lateral movement if egress is not restricted.
