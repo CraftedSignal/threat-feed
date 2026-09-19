@@ -3,6 +3,7 @@ title: Unauthenticated External Exposure of Ollama LLM API
 slug: 2026-09-ollama-api-exposure
 description: Improper configuration of the Ollama LLM server can expose the API to the internet without authentication, enabling remote attackers to conduct model theft, prompt injection, and resource hijacking.
 date: "2026-09-18T19:19:14Z"
+lastmod: "2026-09-19T13:14:47Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,10 @@ vendors:
   - Ollama
 products:
   - Ollama
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,6 +34,8 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Since Ollama lacks authentication, exposed instances allow unauthenticated model theft, prompt injection, and resource hijacking.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/initial_access_ollama_api_external_access.toml
 rules:
   - title: Detect Ollama API Access from External Network
     description: Detects network connections to the Ollama API port (11434) originating from non-local and non-internal IP address ranges, indicating potential unauthenticated external exposure.
@@ -67,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: Public-facing Ollama instances
       evidence: Ollama lacks authentication; exposure allows unauthenticated theft
+updates:
+  - at: "2026-09-19T13:14:47Z"
+    level: L1
+    summary: OS windows; OS linux; OS macos
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/initial_access_ollama_api_external_access.toml
 ---
 
 The Ollama Large Language Model (LLM) server is designed to bind to localhost (127.0.0.1) by default, but it can be configured to listen on all interfaces via the OLLAMA_HOST environment variable. Because the Ollama API lacks built-in authentication, instances exposed to the internet are accessible to any remote user. Attackers are actively scanning for these exposed API endpoints on port 11434 to perform malicious operations. These operations include unauthorized model theft, malicious model injection, prompt injection to bypass safety controls, and hijacking compute resources for unauthorized inference tasks. Defenders must ensure that Ollama is either bound strictly to local interfaces or protected by a robust network-level authentication layer or firewall.
