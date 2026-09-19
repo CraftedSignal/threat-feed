@@ -3,6 +3,7 @@ title: Automated LLM-Based User Account Compromise Triage
 slug: 2026-08-llm-compromised-user-triage
 description: An automated detection framework that uses Large Language Models to correlate disparate security alerts and assess potential account compromise based on behavioral indicators.
 date: "2026-08-01T01:42:24Z"
+lastmod: "2026-09-19T13:16:30Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Elastic
 products:
   - Elastic Stack (9.3.0)
+  - Elastic Stack
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,6 +41,15 @@ mitre_ttps:
 references:
   - https://www.elastic.co/docs/reference/query-languages/esql/esql-commands#esql-completion
   - https://www.elastic.co/security-labs/elastic-advances-llm-security
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_compromised_user_triage.toml
+updates:
+  - at: "2026-09-19T13:16:30Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_compromised_user_triage.toml
 ---
 
 This detection capability, introduced for the Elastic Stack (version 9.3.0+), implements an automated triage mechanism using Large Language Models (LLM) to identify compromised user accounts. The rule functions as a higher-order detection, aggregating existing security alerts within a 30-minute window to look for patterns indicative of credential theft or unauthorized access. By analyzing cross-host activity, MITRE ATT&CK tactic progression, and source anomalies, the integrated LLM generates a confidence score and a verdict for each user. This automated analysis assists SOC analysts in filtering through high volumes of signal, specifically highlighting cases where multiple rules have triggered against a single user across different data sources, such as endpoint authentication logs or cloud provider activity.
