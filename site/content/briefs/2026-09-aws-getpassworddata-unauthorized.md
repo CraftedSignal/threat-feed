@@ -3,12 +3,12 @@ title: Detection of Unauthorized AWS EC2 GetPasswordData API Access
 slug: 2026-09-aws-getpassworddata-unauthorized
 description: Adversaries may attempt to retrieve EC2 administrator passwords via the GetPasswordData API to facilitate privilege escalation or lateral movement within AWS environments.
 date: "2026-09-18T19:25:10Z"
-lastmod: "2026-09-19T13:18:37Z"
+lastmod: "2026-09-19T13:27:38Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - aws
   - cloud
@@ -21,12 +21,14 @@ tags:
   - cloud-security
   - discovery
   - credential-validation
+  - lateral-movement
 vendors:
   - Amazon
 products:
   - AWS EC2
   - AWS STS
   - EC2
+  - AWS Systems Manager
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -82,6 +84,12 @@ mitre_ttps:
     technique_name: Account Discovery
     evidence: Adversaries who steal instance role credentials often verify them with GetCallerIdentity from infrastructure outside your normal egress paths.
     confidence_band: high
+  - tactic_id: TA0008
+    tactic_name: Lateral Movement
+    technique_id: T1021
+    technique_name: Remote Services
+    evidence: Adversaries may use AWS Session Manager to establish a session to an EC2 instance to execute commands on the instance.
+    confidence_band: high
 references:
   - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-ec2-privesc
   - https://attack.mitre.org/techniques/T1552/005/
@@ -92,6 +100,10 @@ references:
   - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-acl-entry.html
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkAclEntry.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_aws_getpassword_for_ec2_instance.toml
+  - https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartSession.html
+  - https://hackingthe.cloud/aws/post_exploitation/intercept_ssm_communications/
+  - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-privilege-escalation/aws-ssm-privesc
+  - https://unit42.paloaltonetworks.com/cloud-lateral-movement-techniques
 rules:
   - title: AWS EC2 Unauthorized Admin Credential Fetch via Assumed Role
     description: Detects unauthorized attempts by an AWS role to use GetPasswordData to access the administrator password of an EC2 instance, indicated by an UnauthorizedOperation error.
@@ -138,7 +150,17 @@ rules:
       - T1087.004
     data_sources:
       - webserver
-rules_count: 4
+  - title: AWS SSM Session Started to EC2 Instance
+    description: Detects the first occurrence of an AWS user or role establishing an SSM session to an EC2 instance, which may indicate lateral movement.
+    platform: sigma
+    severity: high
+    tactics:
+      - lateral_movement
+    techniques:
+      - T1021.007
+    data_sources:
+      - webserver
+rules_count: 5
 action_plan:
   priority: elevated
   owners:
@@ -193,6 +215,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_aws_getpassword_for_ec2_instance.toml
+  - at: "2026-09-19T13:27:38Z"
+    level: L2
+    summary: 'added detection rule: AWS SSM Session Started to EC2 Instance'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/lateral_movement_aws_ssm_start_session_to_ec2_instance.toml
 ---
 
 This threat brief identifies the risk of unauthorized use of the `GetPasswordData` API call within AWS environments. Adversaries who have gained initial access to a cloud account through compromised or over-privileged credentials may attempt to leverage this API to obtain the initial administrator password for Windows-based EC2 instances. This technique is often used to facilitate privilege escalation or lateral movement across the target network. While the API is a legitimate feature for system administration, its use by unexpected or unauthorized IAM roles is a high-signal indicator of reconnaissance or exploitation. Organizations should monitor for `Client.UnauthorizedOperation` errors returned by CloudTrail for this specific API call to identify potential malicious intent by threat actors attempting to discover misconfigured or highly privileged instance credentials.
