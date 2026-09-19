@@ -3,7 +3,7 @@ title: Detection of Unauthorized AWS EC2 GetPasswordData API Access
 slug: 2026-09-aws-getpassworddata-unauthorized
 description: Adversaries may attempt to retrieve EC2 administrator passwords via the GetPasswordData API to facilitate privilege escalation or lateral movement within AWS environments.
 date: "2026-09-18T19:25:10Z"
-lastmod: "2026-09-18T19:38:21Z"
+lastmod: "2026-09-19T01:06:23Z"
 type: advisory
 types:
   - advisory
@@ -18,10 +18,14 @@ tags:
   - ransomware
   - persistence
   - defense-evasion
+  - cloud-security
+  - discovery
+  - credential-validation
 vendors:
   - Amazon
 products:
   - AWS EC2
+  - AWS STS
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -71,6 +75,12 @@ mitre_ttps:
     technique_name: Modify Cloud Compute Infrastructure
     evidence: Adversaries may exploit ACLs to establish persistence or exfiltrate data by creating permissive rules.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1087
+    technique_name: Account Discovery
+    evidence: Adversaries who steal instance role credentials often verify them with GetCallerIdentity from infrastructure outside your normal egress paths.
+    confidence_band: high
 references:
   - https://cloud.hacktricks.xyz/pentesting-cloud/aws-security/aws-ec2-privesc
   - https://attack.mitre.org/techniques/T1552/005/
@@ -116,7 +126,17 @@ rules:
     data_sources:
       - cloudtrail
       - aws
-rules_count: 3
+  - title: Detect AWS EC2 Role GetCallerIdentity from New Source AS
+    description: Detects the first time an EC2 instance role session calls AWS STS GetCallerIdentity from a source AS organization not seen in the previous 10 days, excluding standard Amazon and Google infrastructure.
+    platform: sigma
+    severity: medium
+    tactics:
+      - discovery
+    techniques:
+      - T1087.004
+    data_sources:
+      - webserver
+rules_count: 4
 action_plan:
   priority: elevated
   owners:
@@ -157,6 +177,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_ec2_network_acl_creation.toml
+  - at: "2026-09-19T01:06:23Z"
+    level: L1
+    summary: 'added detection rule: Detect AWS EC2 Role GetCallerIdentity from New Source AS'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_new_terms_sts_getcalleridentity_ec2_role_new_source_as.toml
 ---
 
 This threat brief identifies the risk of unauthorized use of the `GetPasswordData` API call within AWS environments. Adversaries who have gained initial access to a cloud account through compromised or over-privileged credentials may attempt to leverage this API to obtain the initial administrator password for Windows-based EC2 instances. This technique is often used to facilitate privilege escalation or lateral movement across the target network. While the API is a legitimate feature for system administration, its use by unexpected or unauthorized IAM roles is a high-signal indicator of reconnaissance or exploitation. Organizations should monitor for `Client.UnauthorizedOperation` errors returned by CloudTrail for this specific API call to identify potential malicious intent by threat actors attempting to discover misconfigured or highly privileged instance credentials.
