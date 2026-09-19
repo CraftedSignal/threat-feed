@@ -3,6 +3,7 @@ title: Abuse of OpenSSL Utility for Data Encryption
 slug: 2026-09-openssl-encryption
 description: Adversaries leverage the legitimate OpenSSL command-line utility to encrypt sensitive files for ransomware extortion or to obfuscate data prior to exfiltration.
 date: "2026-09-18T19:09:19Z"
+lastmod: "2026-09-19T13:11:04Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - collection
   - openssl
   - ransomware
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -26,6 +31,8 @@ mitre_ttps:
     technique_name: Data Staged
     evidence: Adversaries may attempt to hold the organization's data to ransom for the purposes of extortion.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_data_encrypted_via_openssl.toml
 rules:
   - title: Detect Malicious Use of OpenSSL for File Encryption
     description: Detects execution of openssl with enc, -in, and -out flags, which is often used to encrypt data for exfiltration or ransomware extortion.
@@ -65,6 +72,14 @@ action_plan:
       action: Restrict OpenSSL execution to authorized service accounts and administrative paths
       owner: IT Operations
       evidence: Response and remediation section
+updates:
+  - at: "2026-09-19T13:11:04Z"
+    level: L1
+    summary: OS macos; OS windows; OS linux
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_data_encrypted_via_openssl.toml
 ---
 
 Threat actors are increasingly utilizing the legitimate OpenSSL command-line utility as part of their post-compromise activity. By invoking OpenSSL with specific encryption flags, attackers can encrypt business-critical data to facilitate ransomware-style extortion or obfuscate sensitive information collected from a host before exfiltration. This technique is platform-agnostic and relies on the pre-installed presence of OpenSSL on many Linux, macOS, and some Windows environments. 
