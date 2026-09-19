@@ -3,6 +3,7 @@ title: Detection of Unauthorized Kubernetes API Interaction via CLI Tools
 slug: 2026-09-kubernetes-direct-api-access
 description: Adversaries leverage standard command-line tools like curl or wget to perform unauthorized discovery and credential access by querying sensitive Kubernetes API endpoints directly, bypassing legitimate management tooling.
 date: "2026-09-18T19:15:29Z"
+lastmod: "2026-09-19T13:13:03Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - Kubernetes
 products:
   - Kubernetes API
+  - Kubernetes
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -67,6 +69,14 @@ action_plan:
       priority: medium
       confidence: high
       disposition: convert_to_detection
+updates:
+  - at: "2026-09-19T13:13:03Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_kubernetes_direct_api_request_via_curl_or_wget.toml
 ---
 
 Adversaries often attempt to interact with Kubernetes environments by directly querying the Kubernetes API server using native command-line tools like curl or wget. This technique allows attackers to evade monitoring associated with legitimate Kubernetes administration tools like kubectl and facilitates the discovery of cluster resources, including pods, deployments, and sensitive configurations such as secrets and config maps. This unauthorized interaction is used for both situational awareness within the target cluster and the direct exfiltration of sensitive material. Detecting these attempts requires visibility into process execution command lines that specifically target sensitive paths within the Kubernetes API. The activity poses a significant risk to the confidentiality and integrity of the containerized environment.
