@@ -3,6 +3,7 @@ title: Stored XSS in Concrete CMS Community Store
 slug: 2026-09-concrete-cms-xss
 description: An unauthenticated stored XSS vulnerability in Concrete CMS Community Store versions prior to 2.7.8 allows attackers to execute malicious scripts in manager sessions via order fields.
 date: "2026-09-18T16:09:09Z"
+lastmod: "2026-09-19T14:53:37Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:concretecms:community_store:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=0D2F82E9-C0B9-5A1E-A8C0-A47810C7816C&utm_source=rss&utm_medium=rss
 vendors:
   - Concrete CMS
 products:
@@ -32,6 +36,7 @@ cves:
     cvss: 8.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93659
+  - https://sploitus.com/exploit?id=0D2F82E9-C0B9-5A1E-A8C0-A47810C7816C&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93659
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-09-19T14:53:37Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=0D2F82E9-C0B9-5A1E-A8C0-A47810C7816C&utm_source=rss&utm_medium=rss
 ---
 
 Concrete CMS Community Store versions before 2.7.8 are susceptible to a stored cross-site scripting (XSS) vulnerability due to improper input sanitization. The vulnerability exists because customer-supplied fields, specifically billing name, email, and phone, are rendered in the store's checkout and administrative interfaces without adequate HTML escaping. An unauthenticated attacker can exploit this flaw by submitting malicious JavaScript payloads through these fields during the order process. When an administrator or manager subsequently views the order details within the Concrete CMS dashboard, the malicious script executes within the context of the manager's authenticated session. This allows the attacker to perform unauthorized actions, including the creation of rogue administrative accounts or the exfiltration of sensitive order and customer data.
