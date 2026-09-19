@@ -3,7 +3,7 @@ title: Detection of Unauthorized AWS EC2 GetPasswordData API Access
 slug: 2026-09-aws-getpassworddata-unauthorized
 description: Adversaries may attempt to retrieve EC2 administrator passwords via the GetPasswordData API to facilitate privilege escalation or lateral movement within AWS environments.
 date: "2026-09-18T19:25:10Z"
-lastmod: "2026-09-19T01:06:23Z"
+lastmod: "2026-09-19T13:18:37Z"
 type: advisory
 types:
   - advisory
@@ -26,6 +26,7 @@ vendors:
 products:
   - AWS EC2
   - AWS STS
+  - EC2
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -90,6 +91,7 @@ references:
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkAcl.html
   - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-acl-entry.html
   - https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkAclEntry.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_aws_getpassword_for_ec2_instance.toml
 rules:
   - title: AWS EC2 Unauthorized Admin Credential Fetch via Assumed Role
     description: Detects unauthorized attempts by an AWS role to use GetPasswordData to access the administrator password of an EC2 instance, indicated by an UnauthorizedOperation error.
@@ -184,6 +186,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_new_terms_sts_getcalleridentity_ec2_role_new_source_as.toml
+  - at: "2026-09-19T13:18:37Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_aws_getpassword_for_ec2_instance.toml
 ---
 
 This threat brief identifies the risk of unauthorized use of the `GetPasswordData` API call within AWS environments. Adversaries who have gained initial access to a cloud account through compromised or over-privileged credentials may attempt to leverage this API to obtain the initial administrator password for Windows-based EC2 instances. This technique is often used to facilitate privilege escalation or lateral movement across the target network. While the API is a legitimate feature for system administration, its use by unexpected or unauthorized IAM roles is a high-signal indicator of reconnaissance or exploitation. Organizations should monitor for `Client.UnauthorizedOperation` errors returned by CloudTrail for this specific API call to identify potential malicious intent by threat actors attempting to discover misconfigured or highly privileged instance credentials.
