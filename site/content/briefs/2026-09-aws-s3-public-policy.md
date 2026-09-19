@@ -3,6 +3,7 @@ title: Detection of Unauthorized S3 Bucket Public Access Policies
 slug: 2026-09-aws-s3-public-policy
 description: Adversaries may modify Amazon S3 bucket policies to include a wildcard ('*') principal with 'Allow' permissions, effectively making bucket contents publicly accessible for data exfiltration.
 date: "2026-09-18T19:32:52Z"
+lastmod: "2026-09-19T13:24:30Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Amazon
 products:
   - S3
+  - Amazon S3
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration
@@ -33,6 +35,7 @@ mitre_ttps:
 references:
   - https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.s3-backdoor-bucket-policy/
   - https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_s3_bucket_policy_added_for_public_access.toml
 rules:
   - title: Detect AWS S3 Bucket Policy Added to Allow Public Access
     description: Detects PutBucketPolicy API calls that grant public access via a wildcard principal, potentially leading to unauthorized data exfiltration.
@@ -72,6 +75,14 @@ action_plan:
       owner: Cloud Security
       addresses: All S3 buckets
       evidence: Standard security hardening practice for AWS S3.
+updates:
+  - at: "2026-09-19T13:24:30Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_s3_bucket_policy_added_for_public_access.toml
 ---
 
 Adversaries and malicious actors exploit AWS S3 bucket policies by updating them to include a wildcard (Principal:"*") statement alongside an "Effect: Allow" directive. This configuration change grants access to all AWS identities, including unauthenticated users, thereby exposing bucket contents to the public internet. This technique is frequently used to facilitate data exfiltration or to store malicious content, leveraging open storage for credential harvesting and log access. 
