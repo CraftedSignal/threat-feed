@@ -3,6 +3,7 @@ title: Detection of Unauthorized Cloud Instance Metadata Service Access
 slug: 2026-09-imds-credential-access
 description: Attackers exploit cloud instance metadata service (IMDS) endpoints by using command-line tools to exfiltrate temporary security credentials and sensitive configuration data, facilitating unauthorized access to cloud resources.
 date: "2026-09-18T19:08:45Z"
+lastmod: "2026-09-19T13:10:53Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - cloud
   - discovery
   - imds
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -26,6 +31,8 @@ mitre_ttps:
     technique_name: System Network Configuration Discovery
     evidence: The rule detects activity identifying system information through metadata service queries.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_suspicious_instance_metadata_service_api_cli.toml
 iocs:
   - type: ip
     value: 169.254.169.254
@@ -66,6 +73,14 @@ action_plan:
       action: Require IMDSv2 and restrict metadata access to authorized service accounts
       owner: Cloud Engineering
       addresses: T1552.005
+updates:
+  - at: "2026-09-19T13:10:53Z"
+    level: L1
+    summary: OS windows; OS linux; OS macos
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_suspicious_instance_metadata_service_api_cli.toml
 ---
 
 This threat involves the exploitation of the cloud Instance Metadata Service (IMDS) by adversaries to perform credential theft and environment discovery. By gaining command execution on a cloud-resident virtual machine, attackers use common utilities such as curl, wget, or native shell commands to query the IMDS endpoint. This technique allows attackers to retrieve highly sensitive information, including instance identity, public IP addresses, and, most critically, temporary IAM role credentials or managed identity tokens. Once acquired, these credentials are used to authenticate to cloud APIs - such as storage buckets, secrets managers, or subscription management services - without the need for long-term passwords. This activity is often a precursor to broader lateral movement and privilege escalation within a cloud environment. Monitoring for command-line access to these specific metadata URIs is essential for detecting post-exploitation discovery and exfiltration phases.
