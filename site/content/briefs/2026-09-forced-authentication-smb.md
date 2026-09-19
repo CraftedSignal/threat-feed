@@ -3,6 +3,7 @@ title: Detection of Forced Authentication via SMB Named Pipes
 slug: 2026-09-forced-authentication-smb
 description: Adversaries leverage Linux-based systems to coerce Windows hosts into authenticating against attacker-controlled resources via SMB named pipes, facilitating NTLM hash capture and SMB relay attacks.
 date: "2026-09-19T01:05:48Z"
+lastmod: "2026-09-19T13:09:37Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - Microsoft
 products:
   - Active Directory
+  - Windows
 affected_os:
   - Windows
   - Linux
@@ -33,6 +35,7 @@ references:
   - https://github.com/p0dalirius/windows-coerced-authentication-methods
   - https://www.thehacker.recipes/a-d/movement/mitm-and-coerced-authentications
   - https://attack.mitre.org/techniques/T1187/
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_forced_authentication_pipes.toml
 rules:
   - title: Detect Forced Authentication via SMB Named Pipes
     description: Detects suspicious SMB connection attempts from Linux hosts targeting sensitive Windows RPC named pipes indicative of coerced authentication.
@@ -71,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: Coerced authentication relay attacks
       evidence: Standard security posture to mitigate NTLM relay.
+updates:
+  - at: "2026-09-19T13:09:37Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_forced_authentication_pipes.toml
 ---
 
 This threat involves the abuse of Remote Procedure Call (RPC) interfaces over SMB to force Active Directory-joined Windows hosts to authenticate to an attacker-controlled system. By initiating SMB connections from a Linux host to sensitive Windows named pipes - such as Spoolss, lsarpc, efsrpc, or samr - an attacker can trigger an authentication request. If successful, this process allows the attacker to intercept NTLM hashes for offline cracking or to perform SMB relay attacks to escalate privileges or move laterally. This technique is a well-documented method for credential access and network-based movement within an environment. Defenders must monitor cross-platform SMB traffic patterns and ensure that Windows environments are hardened against coerced authentication, particularly where Linux-based systems interact with critical AD infrastructure.
