@@ -3,6 +3,7 @@ title: Detection of Anomalous SOCKS Proxy Traffic via FortiGate Integration
 slug: 2026-09-socks-proxy-detection
 description: This detection leverages cross-platform correlation between FortiGate network application logs and endpoint telemetry to identify processes acting as SOCKS proxies for potential command and control obfuscation.
 date: "2026-09-18T19:05:31Z"
+lastmod: "2026-09-19T13:09:13Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,10 @@ vendors:
   - Fortinet
 products:
   - FortiGate
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
@@ -50,6 +55,14 @@ action_plan:
       action: Restrict outbound SOCKS traffic at the network perimeter via ACLs
       owner: Network Security
       addresses: T1090
+updates:
+  - at: "2026-09-19T13:09:13Z"
+    level: L1
+    summary: OS linux; OS macos; OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_socks_fortigate_endpoint.toml
 ---
 
 Adversaries frequently employ connection proxies, such as SOCKS4 and SOCKS5, to direct network traffic through intermediaries. This technique obfuscates the origin of command and control (C2) traffic, allowing attackers to bypass perimeter security controls and avoid direct connections to their infrastructure.
