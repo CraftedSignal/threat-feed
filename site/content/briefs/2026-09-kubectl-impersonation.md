@@ -3,6 +3,7 @@ title: Potential Kubernetes Impersonation via Kubectl Flags
 slug: 2026-09-kubectl-impersonation
 description: Adversaries may perform unauthorized impersonation within Kubernetes clusters by executing the 'kubectl' command-line tool with sensitive flags like '--as' or '--token' to escalate privileges or bypass access controls.
 date: "2026-09-18T19:11:10Z"
+lastmod: "2026-09-19T13:11:31Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,10 @@ tags:
   - defense-evasion
   - kubernetes
   - container-security
+vendors:
+  - Kubernetes
+products:
+  - kubectl
 affected_os:
   - Linux
   - macOS
@@ -28,6 +33,8 @@ mitre_ttps:
     technique_name: Steal Application Access Token
     evidence: This technique allows attackers to leverage valid accounts or stolen authentication materials to escalate privileges.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_potential_kubectl_impersonation.toml
 rules:
   - title: Detect Potential Impersonation Attempt via Kubectl
     description: Detects kubectl process execution with impersonation flags such as --as, --token, or --kubeconfig, often initiated from suspicious parent processes or locations.
@@ -67,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: T1078
       evidence: Source highlights impersonation as a risk
+updates:
+  - at: "2026-09-19T13:11:31Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_potential_kubectl_impersonation.toml
 ---
 
 Adversaries targeting containerized environments may exploit the 'kubectl' command-line interface to perform unauthorized impersonation. By utilizing specific flags such as '--as', '--as-group', '--as-uid', '--token', or '--kubeconfig', an attacker can assume the identity of another user or service account within a Kubernetes cluster. This technique allows adversaries to leverage valid accounts or stolen authentication materials to escalate privileges, bypass existing access controls, and move laterally across the cluster. This activity is often detected when 'kubectl' is executed from unconventional or high-risk locations, such as temporary directories ('/tmp', '/var/tmp') or via shell scripts, which may indicate that the command is being invoked by automated malicious payloads rather than an interactive administrator session. Organizations should monitor process execution logs for these specific flags to identify potentially malicious cluster interactions.
