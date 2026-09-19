@@ -3,6 +3,7 @@ title: Abuse of AWS EC2 Export APIs for Data Exfiltration
 slug: 2026-09-aws-ec2-export-abuse
 description: Adversaries with compromised AWS credentials can exploit EC2 export APIs to copy entire virtual machine states or images to external storage for data exfiltration.
 date: "2026-09-19T01:06:35Z"
+lastmod: "2026-09-19T13:24:18Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Amazon
 products:
   - Elastic Compute Cloud (EC2)
+  - AWS EC2
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration
@@ -34,6 +36,7 @@ references:
   - https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html
   - https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html
   - https://cloud.hacktricks.wiki/en/pentesting-cloud/aws-security/aws-post-exploitation/aws-ec2-ebs-ssm-and-vpc-post-exploitation/aws-ami-store-s3-exfiltration.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_ec2_export_task.toml
 rules:
   - title: Detect AWS EC2 Export Task
     description: Detects successful execution of EC2 export APIs (CreateInstanceExportTask, ExportImage, CreateStoreImageTask) which can be used to exfiltrate VM images.
@@ -72,6 +75,14 @@ action_plan:
       owner: IT Operations
       addresses: T1567.002
       evidence: Official AWS guidance and rule triage advice
+updates:
+  - at: "2026-09-19T13:24:18Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/exfiltration_ec2_export_task.toml
 ---
 
 Adversaries possessing sufficient IAM permissions within an AWS environment can leverage specific EC2 management APIs to exfiltrate sensitive data. By invoking the CreateInstanceExportTask, ExportImage, or CreateStoreImageTask actions, an attacker can create a copy of an EC2 instance or an Amazon Machine Image (AMI) and export it to an external destination, such as an Amazon S3 bucket. While these operations are standard for legitimate workflows like disaster recovery, cloud migration, or backup processes, they provide a powerful mechanism for unauthorized actors to bypass traditional data egress controls by extracting entire virtual machine disks or system snapshots. Once the data is moved to an S3 bucket or transferred off-account, it becomes significantly harder for organizations to monitor or prevent the exposure of sensitive workloads, including production databases and critical configuration files.
