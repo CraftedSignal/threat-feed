@@ -3,6 +3,7 @@ title: Unauthenticated AWS S3 Bucket Access via Misconfigured Policies
 slug: 2026-09-aws-s3-unauth-access
 description: Adversaries leverage misconfigured S3 bucket policies to perform unauthenticated data collection, discovery, and manipulation using tools like the AWS CLI without authentication.
 date: "2026-09-19T01:06:12Z"
+lastmod: "2026-09-19T13:18:35Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - Amazon
 products:
   - Amazon S3
+  - S3
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
@@ -72,6 +74,14 @@ action_plan:
       owner: Cloud Security
       addresses: S3 Misconfiguration
       evidence: AWS S3 Block Public Access settings prevent unintended public access.
+updates:
+  - at: "2026-09-19T13:18:35Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/collection_s3_unauthenticated_bucket_access_by_rare_source.toml
 ---
 
 This threat involves adversaries exploiting misconfigured AWS S3 bucket policies or Access Control Lists (ACLs) that inadvertently allow public, unauthenticated access. By using the AWS CLI with the --no-sign-request parameter, unauthorized actors can interact with S3 buckets without needing valid IAM credentials. This activity exposes organizations to data exfiltration, unauthorized content modification, and potential data destruction. Defenders should monitor CloudTrail data events for S3 API calls where the account identifier is marked as anonymous, particularly from rare or previously unseen source IP addresses. The scope of this threat affects any organization with S3 buckets, especially those where public access settings are not enforced or bucket policies are overly permissive (e.g., using 'Principal: *').
