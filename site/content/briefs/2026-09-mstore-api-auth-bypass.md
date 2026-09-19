@@ -3,6 +3,7 @@ title: Authentication Bypass in Mstore Api Plugin for WordPress via JWT Forgery
 slug: 2026-09-mstore-api-auth-bypass
 description: The Mstore Api plugin for WordPress (<= 4.20.0) is vulnerable to authentication bypass via JWT forgery, allowing unauthenticated attackers to impersonate any user by crafting illegitimate Firebase Phone Auth tokens.
 date: "2026-09-05T07:29:49Z"
+lastmod: "2026-09-19T21:59:54Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:mstore:mstore_api:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=98B032FC-3D87-5CAB-B661-7E65A2E87FF2&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - cve
@@ -17,6 +21,7 @@ tags:
   - web-application
 vendors:
   - Mstore
+  - InspireUI
 products:
   - Mstore Api (<= 4.20.0)
 mitre_ttps:
@@ -29,8 +34,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-13447
     cvss: 9.8
+    epss: 0.0038
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13447
+  - https://sploitus.com/exploit?id=98B032FC-3D87-5CAB-B661-7E65A2E87FF2&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-13447
       evidence: Plugin is vulnerable to authentication bypass
+updates:
+  - at: "2026-09-19T21:59:54Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=98B032FC-3D87-5CAB-B661-7E65A2E87FF2&utm_source=rss&utm_medium=rss
 ---
 
 The Mstore Api plugin for WordPress is susceptible to an authentication bypass vulnerability, tracked as CVE-2026-13447, affecting all versions up to and including 4.20.0. The vulnerability resides in the FirebasePhoneAuthHelper::verify_id_token() function, which is responsible for validating Firebase identity tokens. The implementation properly decodes JWT claims such as 'alg', 'kid', 'aud', and 'iss', but completely fails to perform cryptographic signature verification. Specifically, the function neglects to call openssl_verify() or utilize any mechanism to validate the token against Google's public key infrastructure. Consequently, an unauthenticated attacker can supply a forged JWT signed with a custom RSA key pair, effectively bypassing authentication checks. This allows for unauthorized access to existing WordPress user accounts associated with specific phone numbers or the creation of new, arbitrary accounts with elevated privileges.
