@@ -3,6 +3,7 @@ title: AWS S3 Bucket MFA Delete Disablement
 slug: 2026-09-aws-s3-mfa-delete-disabled
 description: Adversaries may disable MFA Delete on versioned Amazon S3 buckets to enable the permanent destruction of object version history, a critical step in ransomware attacks targeting cloud-native backups.
 date: "2026-09-07T13:29:32Z"
+lastmod: "2026-09-19T13:27:08Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,7 @@ vendors:
   - Amazon
 products:
   - AWS S3
+  - S3
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -19,6 +21,8 @@ mitre_ttps:
     technique_name: Inhibit System Recovery
     evidence: Disabling MFA Delete removes this safeguard and is a recognized ransomware preparation step.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_s3_mfa_delete_disabled.toml
 rules:
   - title: Detect AWS S3 Bucket MFA Delete Disabled
     description: Detects PutBucketVersioning API calls that disable the MFA Delete feature, indicating a potential ransomware preparation step.
@@ -48,6 +52,14 @@ action_plan:
       owner: Cloud Security Team
       addresses: T1490
       evidence: Source documentation for Multi-Factor Authentication Delete
+updates:
+  - at: "2026-09-19T13:27:08Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_s3_mfa_delete_disabled.toml
 ---
 
 Disabling MFA Delete on an Amazon S3 bucket removes a mandatory security control that requires multi-factor authentication to permanently delete object versions or change versioning status. This capability is specifically designed to prevent the unauthorized destruction of data backups. Adversaries who have compromised long-term access keys or gained administrative control over an S3 environment can use the PutBucketVersioning API call to set the MfaDelete parameter to Disabled. By neutralizing this safeguard, attackers gain the ability to permanently delete previous object versions, effectively destroying the organization's ability to recover from ransomware encryption. Because only the AWS root user can modify MFA Delete settings, the occurrence of this API call is a high-confidence indicator of root credential compromise or unauthorized escalation of privileges.
