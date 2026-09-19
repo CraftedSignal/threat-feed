@@ -3,7 +3,7 @@ title: Unauthorized Command Execution via Self-Hosted GitHub Actions Runners
 slug: 2026-09-github-runner-execution
 description: Adversaries gaining unauthorized workflow trigger access can abuse GitHub Actions runners to execute arbitrary system commands, potentially leading to credential harvesting, reconnaissance, and CI/CD supply chain compromise.
 date: "2026-09-18T19:18:04Z"
-lastmod: "2026-09-18T19:18:09Z"
+lastmod: "2026-09-19T13:14:19Z"
 type: advisory
 types:
   - advisory
@@ -18,9 +18,11 @@ vendors:
   - GitHub
 products:
   - GitHub Actions
+  - GitHub Actions Runner
 affected_os:
   - Linux
   - macOS
+  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -78,6 +80,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_via_github_runner_with_runner_tracking_id_tampering_via_env_vars.toml
+  - at: "2026-09-19T13:14:19Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_via_github_actions_runner.toml
 ---
 
 This threat concerns the abuse of self-hosted GitHub Actions runners to execute arbitrary commands on the host environment. When an adversary gains unauthorized access to a repository, they can modify or trigger malicious workflows that execute commands via the `Runner.Worker` process or bootstrapped runner entrypoint scripts. This technique is frequently observed in CI/CD supply chain compromises where attackers seek to leverage the runner's access to cloud infrastructure, secrets, or internal network segments. Attackers utilize a wide range of living-off-the-land (LotL) binaries, including shell interpreters, infrastructure CLIs (e.g., `kubectl`, `vault`, `gh`), and network utilities, to conduct reconnaissance, stage data, or maintain persistence. Protecting these runners is critical, as they often hold high-privilege credentials and network reachability to sensitive internal environments.
