@@ -3,7 +3,7 @@ title: Abuse of AWS Systems Manager Session Manager for Remote Execution
 slug: 2026-09-aws-ssm-abuse
 description: Adversaries abuse AWS Systems Manager (SSM) Session Manager to gain interactive shell access and perform remote command execution on EC2 instances or managed hybrid nodes.
 date: "2026-09-18T19:14:31Z"
-lastmod: "2026-09-18T19:37:24Z"
+lastmod: "2026-09-19T13:22:46Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +13,10 @@ tags:
   - cloud-security
   - remote-execution
   - lateral-movement
+  - cloud
+  - aws
+  - discovery
+  - reconnaissance
 vendors:
   - Amazon
 products:
@@ -35,12 +39,34 @@ mitre_ttps:
     technique_name: Cloud Administration Command
     evidence: Session Manager provides interactive shell access to EC2 instances and hybrid nodes without bastion hosts or open inbound ports.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1518
+    technique_name: Software Discovery
+    evidence: Adversaries leverage AWS Systems Manager (SSM) inventory APIs to perform reconnaissance on managed EC2 instances.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1538
+    technique_name: Cloud Service Dashboard
+    evidence: By querying software inventory, patch compliance, and configuration details, attackers identify targets for lateral movement.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1580
+    technique_name: Cloud Infrastructure Discovery
+    evidence: Adversaries leverage AWS Systems Manager (SSM) inventory APIs to perform reconnaissance on managed EC2 instances.
+    confidence_band: high
 references:
   - https://www.mitiga.io/blog/abusing-the-amazon-web-services-ssm-agent-as-a-remote-access-trojan
   - https://hackingthe.cloud/aws/post_exploitation/run_shell_commands_on_ec2/
   - https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ssm_inventory_reconnaissance.toml
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/lateral_movement_aws_ssm_start_session_to_ec2_instance.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_aws_ssm_session_manager_child_process.toml
+  - https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud
+  - https://www.cisa.gov/sites/default/files/2023-11/aa23-320a_scattered_spider_0.pdf
+  - https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html
 rules:
   - title: Detect Suspicious Child Process Execution from AWS SSM Session Worker
     description: Detects potentially unauthorized process execution spawned by AWS Systems Manager (SSM) worker processes.
@@ -53,7 +79,19 @@ rules:
       - T1651
     data_sources:
       - process_creation
-rules_count: 1
+  - title: Detect AWS SSM Inventory Reconnaissance
+    description: Detects unauthorized or anomalous access to AWS Systems Manager inventory APIs, including software inventory gathering and patch status description.
+    platform: sigma
+    severity: medium
+    tactics:
+      - discovery
+    techniques:
+      - T1518
+      - T1538
+    data_sources:
+      - cloud
+      - aws
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -88,6 +126,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/lateral_movement_aws_ssm_start_session_to_ec2_instance.toml
+  - at: "2026-09-19T13:22:46Z"
+    level: L1
+    summary: 'added detection rule: Detect AWS SSM Inventory Reconnaissance'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ssm_inventory_reconnaissance.toml
 ---
 
 AWS Systems Manager (SSM) Session Manager is a service designed to provide interactive shell access to EC2 instances and managed hybrid nodes without the need for bastion hosts or open inbound network ports. While this functionality is intended for legitimate administrative access, it presents a significant vector for post-exploitation activity. Adversaries with access to valid AWS credentials or those who have compromised an instance role with `ssm:StartSession` permissions can leverage the SSM agent to spawn arbitrary processes. 
