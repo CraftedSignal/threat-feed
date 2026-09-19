@@ -3,6 +3,7 @@ title: Detection of Adversary-in-the-Middle Session Theft via Geographic Implaus
 slug: 2026-09-aws-console-geo-anomaly
 description: This brief describes a method for detecting Adversary-in-the-Middle (AiTM) phishing and session theft in AWS environments by identifying IAM user console logins originating from geographically distinct locations within a short timeframe.
 date: "2026-09-18T19:35:59Z"
+lastmod: "2026-09-19T13:27:16Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Amazon
 products:
   - AWS Management Console
+  - AWS IAM
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -49,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: Adversary-in-the-middle session relay
       evidence: Source response and remediation documentation.
+updates:
+  - at: "2026-09-19T13:27:16Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_console_login_iam_user_multiple_geolocations.toml
 ---
 
 Adversary-in-the-middle (AiTM) phishing kits represent a significant threat to cloud authentication by capturing both credentials and multi-factor authentication (MFA) tokens in real-time. When an attacker utilizes these stolen session cookies to access the AWS Management Console, they operate from their own infrastructure, which is often geographically divergent from the legitimate user's location. This activity results in physically implausible login patterns where the same IAM user account authenticates from two or more distinct countries within a very brief window. 
