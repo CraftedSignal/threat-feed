@@ -3,6 +3,7 @@ title: Monitoring AWS CloudTrail Creation for Unauthorized Log Diversion
 slug: 2026-09-aws-cloudtrail-creation
 description: Adversaries may use the CreateTrail API to establish unauthorized logging configurations that redirect audit data to attacker-controlled destinations or circumvent existing monitoring controls.
 date: "2026-09-18T19:24:52Z"
+lastmod: "2026-09-19T13:22:35Z"
 type: advisory
 types:
   - advisory
@@ -12,10 +13,13 @@ tags:
   - cloud
   - aws
   - log-auditing
+  - discovery
+  - cloudtrail
 vendors:
   - Amazon
 products:
   - AWS CloudTrail
+  - AWS Service Quotas
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
@@ -29,10 +33,26 @@ mitre_ttps:
     technique_name: Impair Defenses
     evidence: Adversaries may create new trails to capture sensitive data or cover their tracks.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1526
+    technique_name: Cloud Service Discovery
+    evidence: Adversaries commonly enumerate this quota across regions to assess capacity for large-scale instance deployment.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1580
+    technique_name: Cloud Infrastructure Discovery
+    evidence: This behavior may indicate cloud infrastructure discovery using compromised credentials or a compromised workload.
+    confidence_band: high
 references:
   - https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html
   - https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/create-trail.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/collection_cloudtrail_logging_created.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/defense_evasion_cloudtrail_logging_deleted.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_servicequotas_multi_region_service_quota_requests.toml
+  - https://www.sentinelone.com/labs/exploring-fbot-python-based-malware-targeting-cloud-and-payment-services/
+  - https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_GetServiceQuota.html
 rules:
   - title: Detect AWS CloudTrail Log Created
     description: Detects creation of a new AWS CloudTrail trail via the CreateTrail API. Unauthorized trails should be validated for destination ownership and audit scope.
@@ -64,6 +84,14 @@ action_plan:
       owner: IT Operations
       addresses: T1562.008
       evidence: Source hardening section
+updates:
+  - at: "2026-09-19T13:22:35Z"
+    level: L1
+    summary: added coverage for AWS CloudTrail +1 products
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_servicequotas_multi_region_service_quota_requests.toml
 ---
 
 The creation of new AWS CloudTrail trails is a critical security event that requires rigorous validation to ensure account integrity. While often associated with legitimate administrative onboarding or architectural changes, malicious actors utilize the `CreateTrail` API to deploy secondary trails. These trails can be configured to exfiltrate logs to attacker-controlled S3 buckets, limit regions to avoid detection of cross-region activity, or exclude specific event types to hide illicit actions. 
