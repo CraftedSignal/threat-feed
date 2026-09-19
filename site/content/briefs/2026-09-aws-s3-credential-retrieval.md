@@ -3,7 +3,7 @@ title: Unauthorized Access to Sensitive Files in AWS S3
 slug: 2026-09-aws-s3-credential-retrieval
 description: This detection brief addresses the risk of unauthorized access to sensitive credential and secret files stored in AWS S3 buckets, a common tactic for credential harvesting and lateral movement.
 date: "2026-09-18T13:02:32Z"
-lastmod: "2026-09-18T19:33:20Z"
+lastmod: "2026-09-19T13:18:48Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ vendors:
   - Amazon
 products:
   - AWS S3
+  - Amazon S3
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -145,6 +146,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_aws_s3_bucket_enumeration_or_brute_force.toml
+  - at: "2026-09-19T13:18:48Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_credentials_in_s3_bucket.toml
 ---
 
 Attackers frequently target cloud storage environments to harvest sensitive files that facilitate lateral movement and persistence. AWS S3 buckets are often misconfigured or over-privileged, leading to the exposure of configuration files (e.g., .aws/credentials, .env), SSH keys, and PEM/PuTTY private keys. This threat brief highlights the importance of monitoring S3 Data Events to detect when these high-value assets are accessed via 'GetObject' calls. Defenders should focus on identifying access by non-automation identities, as legitimate CI/CD pipelines and administrative tools may also retrieve these files. Ensuring that S3 Data Events are explicitly enabled in CloudTrail is a prerequisite for observability, as management plane events do not capture individual object access.
