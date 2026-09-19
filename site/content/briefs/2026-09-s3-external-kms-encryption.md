@@ -3,6 +3,7 @@ title: Detecting S3 Ransomware via Cross-Account KMS Encryption
 slug: 2026-09-s3-external-kms-encryption
 description: Adversaries leverage S3 CopyObject API calls to encrypt data within victim buckets using external, attacker-controlled KMS keys, effectively denying access to the bucket owner.
 date: "2026-09-18T19:35:48Z"
+lastmod: "2026-09-19T13:27:11Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,8 @@ vendors:
 products:
   - S3
   - KMS
+  - Amazon S3
+  - AWS Key Management Service
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -30,6 +33,7 @@ references:
   - https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html/
   - https://www.gem.security/post/cloud-ransomware-a-new-take-on-an-old-attack-pattern/
   - https://rhinosecuritylabs.com/aws/s3-ransomware-part-1-attack-vector/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_s3_object_encryption_with_external_key.toml
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: T1486
       evidence: Restore accessible previous versions if versioning is enabled.
+updates:
+  - at: "2026-09-19T13:27:11Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/impact_s3_object_encryption_with_external_key.toml
 ---
 
 This threat involves the exploitation of S3 bucket permissions where an adversary performs a `CopyObject` operation on objects in a target bucket while applying server-side encryption using an AWS KMS key located in a different AWS account. By forcing the encryption of these objects with an external key that the bucket owner cannot access, the attacker effectively renders the data unusable, mirroring traditional ransomware tactics within a cloud-native environment. This technique is often a precursor to further destructive activity or extortion. Defenders must differentiate these malicious events from legitimate cross-account data governance or migration workflows, which may involve centralized encryption accounts. The activity is particularly dangerous if object versioning is disabled, as the original unencrypted or differently encrypted data may be overwritten during the copy process.
