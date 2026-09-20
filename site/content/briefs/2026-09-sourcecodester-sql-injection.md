@@ -1,38 +1,34 @@
 ---
-title: SQL Injection in SourceCodester Online Faculty Clearance System
+title: SQL Injection in SourceCodester Drug Recommendation System
 slug: 2026-09-sourcecodester-sql-injection
-description: SourceCodester Online Faculty Clearance System 1.0 is vulnerable to remote SQL injection in /delete_requirement.php via the ID argument, allowing unauthorized database access.
-date: "2026-09-15T05:38:38Z"
+description: SourceCodester Drug Recommendation System 1.0 is vulnerable to remote SQL injection via the ID argument in /Admin/edit_symptom.php, allowing unauthenticated attackers to manipulate backend database queries.
+date: "2026-09-20T12:21:04Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:sourcecodester:online_faculty_clearance_system:1.0:*:*:*:*:*:*:*
-tags:
-  - web-vulnerability
-  - sql-injection
-  - sourcecodester
+  - cpe:2.3:a:sourcecodester:drug_recommendation_system:1.0:*:*:*:*:*:*:*
 vendors:
   - SourceCodester
 products:
-  - Online Faculty Clearance System (1.0)
+  - Drug Recommendation System (1.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely.
+    evidence: The attack is possible to be carried out remotely.
     confidence_band: high
 cves:
-  - id: CVE-2026-90876
+  - id: CVE-2026-93997
     cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-90876
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93997
 rules:
-  - title: Detect CVE-2026-90876 Exploitation - SQL Injection in delete_requirement.php
-    description: Detects exploitation attempts against the Online Faculty Clearance System via SQL injection strings in the ID parameter of /delete_requirement.php.
+  - title: Detects CVE-2026-93997 Exploitation - SQL Injection in edit_symptom.php
+    description: Detects exploitation attempts targeting the ID parameter of /Admin/edit_symptom.php using common SQL injection characters
     platform: sigma
     severity: high
     tactics:
@@ -48,26 +44,27 @@ action_plan:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy the webserver-based Sigma rule to identify and log exploitation attempts targeting /delete_requirement.php.
+    - action: Deploy Sigma detection rule to web application firewalls or SIEM
       owner: Detection Engineering
       due: 24h
-      evidence: Publicly available exploit disclosure.
+      evidence: Source confirms public availability of exploit
   mitigation_plan:
     - priority: immediate
-      action: Sanitize the ID parameter input and use parameterized SQL queries in the Online Faculty Clearance System 1.0 codebase.
+      action: Restrict external access to the /Admin/ directory
       owner: IT Operations
-      addresses: CVE-2026-90876
-      evidence: Vulnerability analysis identifies SQL injection in /delete_requirement.php via ID parameter.
+      addresses: CVE-2026-93997
+      evidence: Vulnerability allows remote, unauthenticated SQL injection
 ---
 
-The SourceCodester Online Faculty Clearance System version 1.0 contains a SQL injection vulnerability within the /delete_requirement.php script. The vulnerability exists due to insufficient sanitization of the ID argument passed during HTTP requests to this endpoint. A remote, unauthenticated attacker can exploit this flaw to inject malicious SQL commands, which are executed directly against the application database. This can lead to unauthorized data retrieval, modification, or potential administrative control over the underlying database. The vulnerability has been confirmed with public exploit availability, increasing the risk of exploitation by opportunistic actors targeting known vulnerabilities in small, publicly available web applications. Defenders should prioritize auditing web server logs for suspicious requests to this specific endpoint and ensure all inputs are properly validated at the application layer.
+A SQL injection vulnerability has been identified in SourceCodester Drug Recommendation System version 1.0. The vulnerability resides within the /Admin/edit_symptom.php script, specifically affecting the handling of the 'ID' argument. This flaw allows remote, unauthenticated attackers to inject arbitrary SQL commands into the backend database. Publicly available exploit code exists, increasing the risk of unauthorized data access, modification, or complete database compromise. Organizations utilizing this software should restrict access to the administrative interface and review all application logs for anomalous SQL patterns originating from the /Admin/ directory.
 
 ## Impact
 
-Successful exploitation allows a remote attacker to perform unauthorized database operations, potentially resulting in the compromise of faculty clearance records and personal information stored within the application. Given the nature of SQL injection, this could result in complete data exfiltration, unauthorized deletion of records, or the modification of authentication data.
+Successful exploitation of this vulnerability permits remote attackers to execute arbitrary SQL queries against the application database. This can lead to the unauthorized disclosure of sensitive medical or system data, modification of existing records, or potentially administrative account takeover. Given the nature of the application as a drug recommendation system, the integrity of the data is critical.
 
 ## Recommendation
 
-1. Deploy web application firewall (WAF) rules to inspect and filter input for SQL syntax characters within the ID parameter of requests to /delete_requirement.php.
-2. Implement strict input validation and parameterized queries in the affected PHP source code to neutralize SQL injection vectors.
-3. Review web server access logs for anomalous behavior targeting the /delete_requirement.php endpoint, specifically looking for attempts to inject SQL keywords or special characters.
+- Restrict access to the /Admin/ directory to known, authorized IP addresses via web server access control lists.
+- Deploy the provided Sigma rule to detect anomalous characters in the 'ID' parameter of the edit_symptom.php endpoint.
+- Audit database logs for unusual queries or UNION-based SQL injection patterns associated with the user account running the web application service.
+- Prioritize migration away from legacy, unsupported SourceCodester systems if patching is unavailable.
