@@ -3,6 +3,7 @@ title: SQL Injection in SourceCodester Online Reviewer Management System
 slug: 2026-09-sql-injection-online-reviewer
 description: SourceCodester Online Reviewer Management System 1.0 is vulnerable to remote SQL injection via the 'Course' parameter, allowing unauthenticated attackers to manipulate database queries.
 date: "2026-09-20T04:17:23Z"
+lastmod: "2026-09-20T08:19:02Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ cpes:
 tags:
   - sql-injection
   - web-vulnerability
+  - web-application
+  - vulnerability
 vendors:
   - SourceCodester
 products:
@@ -29,6 +32,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93959
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93972
 rules:
   - title: Detects CVE-2026-93959 Exploitation - SQL Injection in btn_functions.php
     description: Detects attempts to exploit SQL injection in the 'Course' parameter of btn_functions.php by looking for common SQL injection keywords and syntax.
@@ -40,7 +44,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-93972 Exploitation - SQL Injection in Online Reviewer Management System
+    description: Detects exploitation attempts against CVE-2026-93972 by monitoring for SQL injection syntax in the courseID parameter within the vulnerable btn_functions.php endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -66,6 +80,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93959
       evidence: Vulnerability allows remote SQL injection.
+updates:
+  - at: "2026-09-20T08:19:02Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-93972 Exploitation - SQL Injection in Online Reviewer Management System'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93972
 ---
 
 SourceCodester Online Reviewer Management System version 1.0 contains a critical SQL injection vulnerability identified as CVE-2026-93959. The flaw exists within the 'btn_functions.php' script located in the '/reviewer_0/admins/assessments/course/' directory. An unauthenticated remote attacker can exploit this by sending a crafted HTTP request containing malicious SQL syntax within the 'Course' argument. Successful exploitation allows the attacker to manipulate the underlying database queries, which may lead to unauthorized data exfiltration, modification of database contents, or in some configurations, administrative access. Given that public exploit code is already disclosed, defenders should prioritize patching or restricting access to the affected web directory.
