@@ -3,6 +3,7 @@ title: Arbitrary File Upload Vulnerability in NivoCart File Manager
 slug: 2026-09-nivocart-rce
 description: NivoCart versions 2.4.0 and earlier are vulnerable to remote code execution via an arbitrary file upload flaw in the File Manager multi() endpoint.
 date: "2026-09-20T12:21:31Z"
+lastmod: "2026-09-20T12:21:45Z"
 type: advisory
 types:
   - advisory
@@ -26,11 +27,18 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: Attackers with view-only back-office access can upload PHP files to the web-accessible image/data/ directory and execute them for remote code execution.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1589.002
+    technique_name: 'Gather Victim Org Information: Email Addresses'
+    evidence: Attackers who know an administrator's email address can request a password reset and predict the token to gain administrative account access.
+    confidence_band: high
 cves:
   - id: CVE-2026-94104
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94104
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-94107
 rules:
   - title: Detect CVE-2026-94104 Exploitation - Arbitrary File Upload in NivoCart
     description: Detects exploitation of CVE-2026-94104 by monitoring for POST requests to the File Manager multi() endpoint with a chunks parameter greater than 1.
@@ -59,6 +67,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-94104
       evidence: Vulnerability requires back-office access
+updates:
+  - at: "2026-09-20T12:21:45Z"
+    level: L2
+    summary: added coverage for NivoCart (<= 2.4.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-94107
 ---
 
 NivoCart versions 2.4.0 and earlier contain a critical arbitrary file upload vulnerability within the File Manager multi() endpoint. The application fails to validate file extensions during the upload process, particularly when the chunks parameter is set to 2 or higher. This security defect allows an attacker, even one with limited view-only back-office privileges, to bypass intended restrictions and upload malicious PHP scripts to the web-accessible image/data/ directory. Once the file is uploaded, the attacker can execute the script by directly navigating to the file path through a web browser, resulting in full remote code execution on the underlying server. This vulnerability presents a significant risk to NivoCart installations as it grants attackers the ability to compromise server-side operations and data.
