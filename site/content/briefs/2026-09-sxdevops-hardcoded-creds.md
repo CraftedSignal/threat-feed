@@ -3,6 +3,7 @@ title: Hard-coded Credential Vulnerability in SxDevOps
 slug: 2026-09-sxdevops-hardcoded-creds
 description: SxDevOps versions 1.0 and 1.1 contain a hard-coded credential vulnerability in the ensure_default_superuser function, allowing remote attackers to bypass authentication and gain unauthorized access.
 date: "2026-09-20T08:18:45Z"
+lastmod: "2026-09-20T08:18:54Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - vulnerability
   - authentication-bypass
   - credential-exposure
+  - cve
 vendors:
   - aiyiyi121
 products:
@@ -25,11 +27,18 @@ mitre_ttps:
     technique_name: 'Brute Force: Password Guessing'
     evidence: The manipulation leads to hard-coded credentials.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The manipulation results in hard-coded credentials.
+    confidence_band: high
 cves:
   - id: CVE-2026-93969
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93969
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93970
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93969
       evidence: The identifier of the patch is 2b4bf8585c3e731e7a8af30801ea46680bc783f9.
+updates:
+  - at: "2026-09-20T08:18:54Z"
+    level: L2
+    summary: added coverage for SxDevOps (1.0, 1.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93970
 ---
 
 A security vulnerability (CVE-2026-93969) has been identified in aiyiyi121 SxDevOps versions 1.0 and 1.1. The flaw exists within the 'ensure_default_superuser' function located in 'rbac/services.py', where hard-coded credentials are utilized. This vulnerability enables remote attackers to authenticate to the application without authorization. The issue is critical as it provides a direct path to administrative access by leveraging credentials embedded within the source code. A patch (commit identifier 2b4bf8585c3e731e7a8af30801ea46680bc783f9) has been released by the vendor to remediate this flaw. Defenders should prioritize auditing instances of SxDevOps 1.0 and 1.1 and applying the provided fix immediately to prevent unauthorized access.
