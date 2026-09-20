@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in Internship Management System
 slug: 2026-09-internship-management-system-sqli
 description: Internship Management System version 1.0 is vulnerable to unauthenticated remote SQL injection via the Password parameter in login.php, for which public exploit code is available.
 date: "2026-09-20T12:20:43Z"
+lastmod: "2026-09-20T12:20:54Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:code-projects:internship_management_system:1.0:*:*:*:*:*:*:*
+tags:
+  - cve-2026-93979
+  - sql-injection
+  - web-vulnerability
 vendors:
   - code-projects
 products:
@@ -26,6 +31,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93978
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-93979
 rules:
   - title: Detects CVE-2026-93978 Exploitation - SQL Injection in login.php
     description: Detects attempted SQL injection via the Password parameter in login.php, characteristic of CVE-2026-93978 exploitation
@@ -61,6 +67,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Source states SQL injection via Password parameter in login.php
+updates:
+  - at: "2026-09-20T12:20:54Z"
+    level: L2
+    summary: added coverage for Internship Management System (1.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-93979
 ---
 
 Internship Management System version 1.0 contains a critical SQL injection vulnerability identified as CVE-2026-93978. The flaw exists within the login.php file and specifically affects the 'Password' input parameter. An unauthenticated remote attacker can inject arbitrary SQL commands into the application database by manipulating this field during the authentication process. Because the exploit is publicly available, the risk of automated or manual exploitation by threat actors is elevated. This vulnerability is significant as it potentially allows for bypass of authentication mechanisms, unauthorized data extraction, or administrative access to the underlying database environment. Organizations running this specific version of the Internship Management System are encouraged to restrict network access to the application login interface until a patch or mitigation is applied by the maintainers.
