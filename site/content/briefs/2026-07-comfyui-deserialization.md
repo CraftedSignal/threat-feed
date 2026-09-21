@@ -3,11 +3,17 @@ title: Unauthenticated Remote Code Execution in ComfyUI via Unsafe Deserializati
 slug: 2026-07-comfyui-deserialization
 description: ComfyUI version 0.23.0 is vulnerable to unauthenticated remote code execution via unsafe deserialization of malicious pickle files.
 date: "2026-07-31T23:46:59Z"
+lastmod: "2026-09-21T09:17:15Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:comfyui:comfyui:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=E3EA906F-6404-5DA8-A270-D14E7A001E29&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - deserialization
@@ -16,6 +22,7 @@ vendors:
   - ComfyUI
 products:
   - ComfyUI (0.23.0)
+  - ComfyUI (v0.23.0 and earlier)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,8 +39,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-68771
     cvss: 9.8
+    epss: 0.00781
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-68771
+  - https://sploitus.com/exploit?id=E3EA906F-6404-5DA8-A270-D14E7A001E29&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-68771 Exploitation - Unauthorized Pickle Upload and Prompting
     description: Detects exploitation of CVE-2026-68771 by identifying sequential POST requests to /upload/image and /prompt in webserver logs, indicative of loading a malicious pickle dataset.
@@ -47,6 +56,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-09-21T09:17:15Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=E3EA906F-6404-5DA8-A270-D14E7A001E29&utm_source=rss&utm_medium=rss
 ---
 
 ComfyUI version 0.23.0 contains a critical vulnerability (CVE-2026-68771) within the LoadTrainingDataset node, stemming from the unsafe deserialization of pickle files. This flaw allows an unauthenticated remote attacker to execute arbitrary Python code on the host system. The attack vector involves uploading a crafted, malicious pickle file (typically named in the shard_*.pkl format) via the application's file upload interface. Once the file is hosted, the attacker triggers its deserialization by queuing a workflow graph that references the malicious file. Because the application utilizes the torch.load function to process these files, an attacker can leverage the pickle protocol's __reduce__ method to execute arbitrary system commands under the security context of the ComfyUI process. This vulnerability poses a significant risk to any publicly accessible ComfyUI instance, as it requires no prior authentication to achieve full system compromise.
