@@ -3,7 +3,7 @@ title: Remote Code Execution in vLLM LlavaOnevision2 Processor Loader
 slug: 2026-09-vllm-rce
 description: A vulnerability in vLLM versions prior to 0.28.0 allows remote code execution by bypassing the trust_remote_code parameter during the loading of malicious LlavaOnevision2 processor classes.
 date: "2026-09-12T13:20:03Z"
-lastmod: "2026-09-18T16:07:31Z"
+lastmod: "2026-09-21T22:31:04Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,7 @@ references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3327
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93436
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93592
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-94623
 rules:
   - title: Detect CVE-2026-93592 Exploitation - Negative Token ID in vLLM API Request
     description: Detects HTTP requests to vLLM embedding or pooling endpoints containing negative integer values in the token IDs parameter, indicative of CVE-2026-93592 exploitation.
@@ -96,6 +97,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-93592
+  - at: "2026-09-21T22:31:04Z"
+    level: L1
+    summary: added coverage for vLLM (<= 0.29.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-94623
 ---
 
 vLLM versions prior to 0.28.0 are susceptible to a high-severity remote code execution vulnerability (CVE-2026-90553) located within the LlavaOnevision2 processor loader. The vulnerability stems from a flaw in the loader logic that fails to respect the trust_remote_code configuration parameter when initializing remote processor classes. Under normal security configurations, setting trust_remote_code to False is intended to prevent the execution of arbitrary code from model repositories. However, in this implementation, the loader ignores this directive, enabling attackers to include malicious Python code within a crafted processing_llava_onevision2.py file inside a model. When the vLLM application attempts to load the malicious model, the embedded code executes with the privileges of the vLLM process. This flaw significantly impacts organizations deploying vLLM for model serving, as it allows arbitrary code execution even when users follow established security best practices.
