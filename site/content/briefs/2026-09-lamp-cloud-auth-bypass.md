@@ -3,7 +3,7 @@ title: Unauthenticated Information Disclosure in lamp-cloud via CVE-2026-91996
 slug: 2026-09-lamp-cloud-auth-bypass
 description: An authentication bypass vulnerability in lamp-cloud versions 5.10.0 and earlier allows unauthenticated attackers to exfiltrate sensitive JVM system properties via insecurely whitelisted API endpoints.
 date: "2026-09-15T13:40:52Z"
-lastmod: "2026-09-21T22:30:37Z"
+lastmod: "2026-09-21T22:30:45Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,10 @@ tags:
   - information-disclosure
   - web-application-vulnerability
   - api-security
+  - cve
+  - authorization-bypass
+  - webserver
+  - lamp-cloud
 vendors:
   - lamp-cloud
 products:
@@ -40,6 +44,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91996
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94534
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-94535
 rules:
   - title: Detect CVE-2026-91996 Exploitation Attempt
     description: Detects unauthenticated access attempts to the sensitive /anno/getProperties endpoint which discloses JVM system properties.
@@ -51,7 +56,15 @@ rules:
       - T1082
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect Exploitation of CVE-2026-94535 - Authorization Bypass in lamp-cloud
+    description: Detects potential exploitation attempts of the deleteMyNotice endpoint where the request method is DELETE and the URI contains the vulnerable path.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -85,6 +98,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-94534
+  - at: "2026-09-21T22:30:45Z"
+    level: L2
+    summary: 'added detection rule: Detect Exploitation of CVE-2026-94535 - Authorization Bypass in lamp-cloud'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-94535
 ---
 
 CVE-2026-91996 is an authentication bypass vulnerability affecting lamp-cloud versions up to and including 5.10.0. The vulnerability originates from an overly permissive whitelist configuration that allows unauthenticated access to the path pattern /*/anno/**. Defenders should be aware that this configuration enables remote, unauthenticated actors to access sensitive internal endpoints without valid session credentials.
