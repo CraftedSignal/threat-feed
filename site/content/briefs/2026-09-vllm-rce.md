@@ -3,7 +3,7 @@ title: Remote Code Execution in vLLM LlavaOnevision2 Processor Loader
 slug: 2026-09-vllm-rce
 description: A vulnerability in vLLM versions prior to 0.28.0 allows remote code execution by bypassing the trust_remote_code parameter during the loading of malicious LlavaOnevision2 processor classes.
 date: "2026-09-12T13:20:03Z"
-lastmod: "2026-09-21T22:31:04Z"
+lastmod: "2026-09-21T22:31:11Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,8 @@ tags:
   - denial-of-service
   - vllm
   - vulnerability
+  - inference-engine
+  - cve-2026-94624
 vendors:
   - vLLM
 products:
@@ -37,6 +39,12 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: Remote attackers can submit requests with max_tokens=0 to exhaust decode-worker memory without bound until the worker restarts.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: Attackers can supply arbitrary remote host and port values in kv_transfer_params to create unreachable peer sessions that retain ZeroMQ sockets until the context quota is exhausted, causing an uncaught ZMQError that crashes EngineCore and stops all inference.
+    confidence_band: high
 cves:
   - id: CVE-2026-90553
     cvss: 7.8
@@ -47,6 +55,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93436
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93592
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94623
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-94624
 rules:
   - title: Detect CVE-2026-93592 Exploitation - Negative Token ID in vLLM API Request
     description: Detects HTTP requests to vLLM embedding or pooling endpoints containing negative integer values in the token IDs parameter, indicative of CVE-2026-93592 exploitation.
@@ -104,6 +113,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-94623
+  - at: "2026-09-21T22:31:11Z"
+    level: L1
+    summary: added coverage for vLLM (<= 0.29.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-94624
 ---
 
 vLLM versions prior to 0.28.0 are susceptible to a high-severity remote code execution vulnerability (CVE-2026-90553) located within the LlavaOnevision2 processor loader. The vulnerability stems from a flaw in the loader logic that fails to respect the trust_remote_code configuration parameter when initializing remote processor classes. Under normal security configurations, setting trust_remote_code to False is intended to prevent the execution of arbitrary code from model repositories. However, in this implementation, the loader ignores this directive, enabling attackers to include malicious Python code within a crafted processing_llava_onevision2.py file inside a model. When the vLLM application attempts to load the malicious model, the embedded code executes with the privileges of the vLLM process. This flaw significantly impacts organizations deploying vLLM for model serving, as it allows arbitrary code execution even when users follow established security best practices.
