@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-09-18T10:28:09Z"
+lastmod: "2026-09-21T06:59:22Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +43,7 @@ vendors:
   - Dropbox
   - NetSupport
   - Brevo
+  - MeshCentral
 products:
   - open source packages
   - GitHub repositories
@@ -94,6 +95,7 @@ products:
   - Google Sheets
   - brevo.com
   - sibforms.com
+  - MeshAgent
 affected_os:
   - Windows
   - macOS
@@ -129,6 +131,7 @@ references:
   - https://www.malware-traffic-analysis.net/2026/09/11/index.html
   - https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/
   - https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/
+  - https://www.malware-traffic-analysis.net/2026/09/15/index.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -194,13 +197,6 @@ ioc_counts:
   ip: 2
   url: 8
 updates:
-  - at: "2026-08-30T09:07:29Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/08/terminalfix-uses-fake-cloudflare.html
   - at: "2026-09-08T13:37:45Z"
     level: L1
     summary: new IOCs
@@ -229,6 +225,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/
+  - at: "2026-09-21T06:59:22Z"
+    level: L1
+    summary: new product
+    sources:
+      - malware-traffic-analysis
+    source_urls:
+      - https://www.malware-traffic-analysis.net/2026/09/15/index.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
