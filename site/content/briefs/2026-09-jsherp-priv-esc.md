@@ -3,7 +3,7 @@ title: Privilege Escalation in jshERP 3.6 via updateOneValueByKeyIdAndType
 slug: 2026-09-jsherp-priv-esc
 description: jshERP 3.6 contains an improper access control vulnerability in the updateOneValueByKeyIdAndType endpoint allowing authenticated users to escalate privileges to tenant administrator.
 date: "2026-09-21T20:30:00Z"
-lastmod: "2026-09-21T20:30:16Z"
+lastmod: "2026-09-21T20:30:23Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,8 @@ tags:
   - privilege-escalation
   - web-application
   - authorization-bypass
+  - idor
+  - insecure-direct-object-reference
 vendors:
   - jshERP
 products:
@@ -46,6 +48,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94411
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94412
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94495
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-94497
 rules:
   - title: Detect CVE-2026-94411 Exploitation - Privilege Escalation in jshERP
     description: Detects exploitation of CVE-2026-94411 by monitoring for POST requests to the vulnerable API endpoint with parameters used for privilege escalation.
@@ -100,6 +103,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-94495
+  - at: "2026-09-21T20:30:23Z"
+    level: L1
+    summary: added coverage for jshERP (<= 3.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-94497
 ---
 
 jshERP version 3.6 is vulnerable to a privilege escalation flaw located within the updateOneValueByKeyIdAndType endpoint. This vulnerability stems from improper access control, enabling an authenticated low-privilege tenant user to modify their own account permissions. By submitting a crafted POST request, an attacker can specify the type parameter as UserRole and supply a chosen role ID list, effectively granting themselves administrative privileges within the tenant environment. This vulnerability, tracked as CVE-2026-94411, carries a CVSS v3.1 base score of 8.8. It represents a significant security risk for organizations relying on jshERP for multi-tenant enterprise resource planning, as it allows for horizontal and vertical privilege escalation without requiring existing administrative access.
