@@ -3,11 +3,17 @@ title: Krayin CRM Installer Authentication Bypass Vulnerability
 slug: 2026-08-krayin-auth-bypass
 description: Krayin CRM 2.2.4 contains a missing authentication vulnerability in the installer middleware, allowing unauthenticated remote attackers to overwrite the administrator account via crafted HTTP POST requests.
 date: "2026-08-03T18:05:46Z"
+lastmod: "2026-09-21T01:12:14Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:krayin:crm:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1E9EDCF7-75FB-570E-BDA1-A52BB4C5808C&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - crm
@@ -26,8 +32,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-41452
     cvss: 9.8
+    epss: 0.02454
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41452
+  - https://sploitus.com/exploit?id=1E9EDCF7-75FB-570E-BDA1-A52BB4C5808C&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-41452 Exploitation - Unauthenticated Admin Overwrite via Installer Middleware
     description: Detects exploitation attempts against CVE-2026-41452 where an unauthenticated actor attempts to interact with the admin-config-setup endpoint using the X-Requested-With bypass header.
@@ -56,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-41452
       evidence: Vulnerability exists in the installer middleware.
+updates:
+  - at: "2026-09-21T01:12:14Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1E9EDCF7-75FB-570E-BDA1-A52BB4C5808C&utm_source=rss&utm_medium=rss
 ---
 
 Krayin CRM version 2.2.4 is affected by a critical missing authentication vulnerability (CVE-2026-41452) located within the installer middleware. An unauthenticated remote attacker can bypass the CanInstall middleware redirect by including a specific HTTP header, 'X-Requested-With: XMLHttpRequest', in a POST request directed at the application's configuration endpoint. This flaw permits the attacker to interact with the 'admin-config-setup' endpoint, which contains an 'updateOrInsert' function targeting the hardcoded primary administrator user ID. By submitting arbitrary name, email, and password values, an attacker can overwrite existing administrator credentials, resulting in full administrative compromise of the CRM instance. This vulnerability is of high concern due to the ease of exploitation and the potential for full data access and administrative control over the target CRM environment.
