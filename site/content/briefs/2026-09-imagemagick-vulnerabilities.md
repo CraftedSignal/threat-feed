@@ -1,62 +1,44 @@
 ---
 title: Multiple Vulnerabilities in ImageMagick
 slug: 2026-09-imagemagick-vulnerabilities
-description: ImageMagick contains multiple vulnerabilities that could allow an attacker to trigger information disclosure, denial-of-service, or remote code execution by processing specially crafted image files.
-date: "2026-09-09T12:54:41Z"
+description: Multiple vulnerabilities in ImageMagick, including CVE-2022-44267 and CVE-2022-44268, allow attackers to trigger denial-of-service, bypass security restrictions, or perform unauthorized disclosure of sensitive information via malformed image files.
+date: "2026-09-22T13:57:58Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
-tags:
-  - vulnerability
-  - application-security
+  - medium
+cpes:
+  - cpe:2.3:a:imagemagick:imagemagick:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:imagemagick:imagemagick:7.1.0-49:*:*:*:*:*:*:*
 vendors:
   - ImageMagick
 products:
   - ImageMagick
-mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: An attacker can exploit multiple vulnerabilities in ImageMagick to execute arbitrary code.
-    confidence_band: high
+cves:
+  - id: CVE-2022-44267
+    cvss: 6.5
+    epss: 0.76581
+  - id: CVE-2022-44268
+    cvss: 6.5
+    epss: 0.89855
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-1813
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3486
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - SOC
-  immediate_actions:
-    - action: Inventory all servers running ImageMagick and apply latest security updates.
-      owner: IT Operations
-      due: 48h
-      evidence: Source advisory recommends addressing multiple vulnerabilities.
-  hunt_leads:
-    - lead: Identify image processing workflows handling user-uploaded content.
-      technique_id: T1203
-      data_needed:
-        - Process lineage for image manipulation binaries
-      priority: medium
-      confidence: medium
-      disposition: hunt_now
-      evidence: Vulnerability is triggered by processing specially crafted files.
-  mitigation_plan:
-    - priority: immediate
-      action: Upgrade ImageMagick to the latest version.
-      owner: IT Operations
-      addresses: Multiple ImageMagick vulnerabilities
-      evidence: Source advisory
+    - Security Operations
 ---
 
-The BSI has reported multiple vulnerabilities within the ImageMagick software suite. These flaws expose systems to significant risks, including unauthorized information disclosure, the triggering of denial-of-service conditions, and the potential for remote code execution. The vulnerabilities are triggered through the processing of specially crafted image files, making any application, web service, or backend process that relies on ImageMagick for image manipulation or transformation a potential target. Given ImageMagick's widespread use in content management systems, automated image processing pipelines, and user-uploaded file handling, the attack surface is broad. Organizations should prioritize updating their ImageMagick installations to the latest patched versions to mitigate the risk of arbitrary code execution and system instability.
+The BSI has released an advisory regarding multiple vulnerabilities in the ImageMagick software suite. These vulnerabilities, identified as CVE-2022-44267 and CVE-2022-44268, affect various implementations of the library. Attackers can leverage these flaws by providing specifically crafted or malformed image files to applications that utilize the ImageMagick engine for image processing. Successful exploitation may allow an unauthenticated attacker to cause a denial-of-service condition through resource exhaustion, bypass intended security controls, or gain unauthorized access to sensitive information stored on the host system. Given that ImageMagick is widely integrated into web applications, content management systems, and backend image-processing pipelines, the impact can be significant for organizations relying on these services. Defenders should prioritize updating ImageMagick to the latest vendor-supplied version to remediate these risks.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities can lead to full system compromise if remote code execution is achieved, or operational disruption via denial-of-service. Information disclosure could lead to the exposure of sensitive data processed by the application. These vulnerabilities pose a significant threat to any infrastructure that exposes image processing functionality to untrusted user input, as no authentication is typically required to trigger the malicious processing logic.
+Successful exploitation of these vulnerabilities can lead to service outages through process crashes or high resource consumption, unauthorized disclosure of local files, and the potential compromise of security restrictions within the application processing the image. These issues affect any system, web server, or desktop application that depends on ImageMagick for handling untrusted image data.
 
 ## Recommendation
 
-Prioritize updating the ImageMagick software suite across all production environments to the latest vendor-supplied version. Monitor web server and application logs for process executions originating from image processing service accounts. Identify and inventory all instances of ImageMagick within the enterprise environment to ensure comprehensive patching.
+- Upgrade ImageMagick installations to the latest secure version provided by your distribution or the vendor immediately.
+- Audit applications that utilize ImageMagick for image processing to identify potential exposure points to untrusted user-submitted files.
+- Implement strict input validation and sandboxing for processes that handle file uploads and image transformation to limit the impact of potential exploitation.
