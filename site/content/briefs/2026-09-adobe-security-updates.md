@@ -3,7 +3,7 @@ title: Adobe Security Updates - September 2026
 slug: 2026-09-adobe-security-updates
 description: Roundup of Adobe security advisories published in September 2026.
 date: "2026-09-03T19:22:39Z"
-lastmod: "2026-09-08T22:21:15Z"
+lastmod: "2026-09-22T18:38:06Z"
 type: threat
 types:
   - threat
@@ -30,19 +30,71 @@ cpes:
   - cpe:2.3:a:adobe:commerce:2.4.4:p7:*:*:*:*:*:*
   - cpe:2.3:a:adobe:commerce:2.4.4:p8:*:*:*:*:*:*
   - cpe:2.3:a:adobe:commerce:2.4.4:p9:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:magento:*:*:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:-:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:b1:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:b2:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:beta3:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p1:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p10:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p2:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p3:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p4:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p5:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p6:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p7:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p8:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.7:p9:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.8:-:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.8:beta1:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.8:beta2:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.8:p1:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:magento:2.4.8:p2:*:*:open_source:*:*:*
+  - cpe:2.3:a:adobe:campaign:*:*:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.4:9400:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.4:9401:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:-:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update1:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update10:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update11:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update12:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update13:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update14:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update15:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update16:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update17:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update18:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update19:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update2:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update20:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update21:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update22:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update23:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update3:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update4:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:coldfusion:2023:update5:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
   - Adobe
 cves:
-  - id: CVE-2026-75650
-    product: Adobe Commerce
-    cvss: 10
-    epss: 0.00676
+  - id: CVE-2026-76200
+    cvss: 9.3
+    epss: 0.00459
   - id: CVE-2026-76201
     cvss: 9.3
+    epss: 0.00459
+  - id: CVE-2026-82004
+    cvss: 10
+    epss: 0.01437
+  - id: CVE-2026-48273
+    cvss: 9.9
+    epss: 0.019
+  - id: CVE-2026-75746
+    cvss: 9.1
+    epss: 0.01066
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-75746
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73369
 updates:
   - at: "2026-09-03T19:22:39Z"
     level: L1
@@ -65,9 +117,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-75746
+  - at: "2026-09-22T18:38:06Z"
+    level: L2
+    summary: added CVE-2026-48273 +3
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-73369
 ---
 
-This roundup covers 7 Adobe security vulnerabilities. All have a CVSS base score of 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Campaign Classic, ColdFusion, Commerce, Experience Manager, Substance 3D Sampler.
+This roundup covers 8 Adobe security vulnerabilities. CVSS base scores range from 9.3 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Campaign Classic, ColdFusion, Commerce, Experience Manager, Substance 3D Sampler.
 
 ## Summary
 
@@ -76,10 +135,11 @@ This roundup covers 7 Adobe security vulnerabilities. All have a CVSS base score
 | [CVE-2026-83959](#cve-2026-83959) | Substance 3D Sampler |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83959) (authoritative) |
 | [CVE-2026-75650](#cve-2026-75650) | Adobe Commerce | Critical | 10.0 | 0.68% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75650) (authoritative) |
 | [CVE-2026-76200](#cve-2026-76200) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76200) (authoritative) |
-| [CVE-2026-76201](#cve-2026-76201) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76201) (authoritative) |
+| [CVE-2026-76201](#cve-2026-76201) | Commerce | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76201) (authoritative) |
 | [CVE-2026-82004](#cve-2026-82004) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-82004) (authoritative) |
 | [CVE-2026-19232](#cve-2026-19232) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-19232) (authoritative) |
 | [CVE-2026-48273](#cve-2026-48273) | ColdFusion |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48273) (authoritative) |
+| [CVE-2026-75746](#cve-2026-75746) | ColdFusion |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75746) (authoritative) |
 
 
 ## CVE-2026-83959
@@ -112,6 +172,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76200
 
 
 
+
 Related in this roundup: [CVE-2026-76201](#cve-2026-76201).
 
 ## CVE-2026-76201
@@ -122,6 +183,7 @@ Affected products:
 - Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76201
+
 
 
 
@@ -154,3 +216,16 @@ Affected products:
 - ColdFusion
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48273
+
+Related in this roundup: [CVE-2026-75746](#cve-2026-75746).
+
+## CVE-2026-75746
+
+Adobe ColdFusion is vulnerable to a high-severity SQL injection flaw (CVE-2026-75746) that allows a highly privileged attacker to achieve remote code execution. The vulnerability does not require user interaction and impacts the integrity and availability of the application environment.
+
+Affected products:
+- ColdFusion
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75746
+
+Related in this roundup: [CVE-2026-48273](#cve-2026-48273).
