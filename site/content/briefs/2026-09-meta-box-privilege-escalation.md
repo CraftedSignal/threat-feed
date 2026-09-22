@@ -3,17 +3,23 @@ title: Unauthenticated Privilege Escalation in Meta Box AIO for WordPress
 slug: 2026-09-meta-box-privilege-escalation
 description: An unauthenticated privilege escalation vulnerability (CVE-2026-13355) in the Meta Box AIO plugin allows attackers to overwrite post content with arbitrary shortcodes to register administrative accounts.
 date: "2026-09-22T06:33:18Z"
+lastmod: "2026-09-22T07:38:12Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1AEB15AD-540E-553B-89AA-F0854ADA2F6E&utm_source=rss&utm_medium=rss
 vendors:
   - Meta Box
 products:
   - Meta Box AIO (<= 3.11.0)
   - Meta Box Frontend Submission (<= 4.5.6)
   - Meta Box User Profile (<= 3.11.0)
+  - MB Frontend Submission (<= 4.5.6)
+  - MB User Profile (<= 3.11.0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -26,6 +32,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-13355
+  - https://sploitus.com/exploit?id=1AEB15AD-540E-553B-89AA-F0854ADA2F6E&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -51,6 +58,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-13355
       evidence: NVD vulnerability disclosure.
+updates:
+  - at: "2026-09-22T07:38:12Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1AEB15AD-540E-553B-89AA-F0854ADA2F6E&utm_source=rss&utm_medium=rss
 ---
 
 The Meta Box AIO plugin for WordPress, along with its standalone components Meta Box Frontend Submission and Meta Box User Profile, is affected by a critical vulnerability (CVE-2026-13355) that enables unauthenticated privilege escalation to the Administrator role. The vulnerability exists due to a chained flaw between the mb-frontend-submission and mb-user-profile components. 
