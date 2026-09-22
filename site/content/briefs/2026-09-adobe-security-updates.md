@@ -3,7 +3,7 @@ title: Adobe Security Updates - September 2026
 slug: 2026-09-adobe-security-updates
 description: Roundup of Adobe security advisories published in September 2026.
 date: "2026-09-03T19:22:39Z"
-lastmod: "2026-09-22T18:38:06Z"
+lastmod: "2026-09-22T18:38:09Z"
 type: threat
 types:
   - threat
@@ -73,6 +73,12 @@ cpes:
   - cpe:2.3:a:adobe:coldfusion:2023:update3:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update4:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update5:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:*:-:*:*:lts:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:*:*:*:*:aem_cloud_service:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:6.5:-:*:*:lts:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:6.5:sp1:*:*:lts:*:*:*
+  - cpe:2.3:a:adobe:experience_manager:6.5:sp2:*:*:lts:*:*:*
 tags:
   - roundup
 vendors:
@@ -87,14 +93,19 @@ cves:
   - id: CVE-2026-82004
     cvss: 10
     epss: 0.01437
+  - id: CVE-2026-19232
+    cvss: 9.9
+    epss: 0.00573
   - id: CVE-2026-48273
     cvss: 9.9
     epss: 0.019
   - id: CVE-2026-75746
     cvss: 9.1
     epss: 0.01066
+  - id: CVE-2026-75699
+    cvss: 10
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-73369
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75699
 updates:
   - at: "2026-09-03T19:22:39Z"
     level: L1
@@ -124,22 +135,30 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-73369
+  - at: "2026-09-22T18:38:09Z"
+    level: L2
+    summary: added CVE-2026-19232 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75699
 ---
 
-This roundup covers 8 Adobe security vulnerabilities. CVSS base scores range from 9.3 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Campaign Classic, ColdFusion, Commerce, Experience Manager, Substance 3D Sampler.
+This roundup covers 9 Adobe security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Campaign Classic, ColdFusion, Commerce, Experience Manager, Substance 3D Sampler.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-83959](#cve-2026-83959) | Substance 3D Sampler |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83959) (authoritative) |
-| [CVE-2026-75650](#cve-2026-75650) | Adobe Commerce | Critical | 10.0 | 0.68% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75650) (authoritative) |
-| [CVE-2026-76200](#cve-2026-76200) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76200) (authoritative) |
-| [CVE-2026-76201](#cve-2026-76201) | Commerce | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76201) (authoritative) |
-| [CVE-2026-82004](#cve-2026-82004) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-82004) (authoritative) |
+| [CVE-2026-75650](#cve-2026-75650) | Adobe Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75650) (authoritative) |
+| [CVE-2026-76200](#cve-2026-76200) | Commerce | Critical | 9.3 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76200) (authoritative) |
+| [CVE-2026-76201](#cve-2026-76201) | Commerce | Critical | 9.3 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76201) (authoritative) |
+| [CVE-2026-82004](#cve-2026-82004) | Campaign Classic | Critical | 10.0 | 1.44% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-82004) (authoritative) |
 | [CVE-2026-19232](#cve-2026-19232) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-19232) (authoritative) |
-| [CVE-2026-48273](#cve-2026-48273) | ColdFusion |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48273) (authoritative) |
-| [CVE-2026-75746](#cve-2026-75746) | ColdFusion |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75746) (authoritative) |
+| [CVE-2026-48273](#cve-2026-48273) | ColdFusion | Critical | 9.9 | 1.90% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48273) (authoritative) |
+| [CVE-2026-75746](#cve-2026-75746) | ColdFusion | Critical | 9.1 | 1.07% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75746) (authoritative) |
+| [CVE-2026-73369](#cve-2026-73369) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-73369) (authoritative) |
 
 
 ## CVE-2026-83959
@@ -173,6 +192,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76200
 
 
 
+
 Related in this roundup: [CVE-2026-76201](#cve-2026-76201).
 
 ## CVE-2026-76201
@@ -188,6 +208,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76201
 
 
 
+
 Related in this roundup: [CVE-2026-76200](#cve-2026-76200).
 
 ## CVE-2026-82004
@@ -198,6 +219,8 @@ Affected products:
 - Campaign Classic
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82004
+
+Related in this roundup: [CVE-2026-73369](#cve-2026-73369).
 
 ## CVE-2026-19232
 
@@ -217,6 +240,7 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48273
 
+
 Related in this roundup: [CVE-2026-75746](#cve-2026-75746).
 
 ## CVE-2026-75746
@@ -228,4 +252,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75746
 
+
 Related in this roundup: [CVE-2026-48273](#cve-2026-48273).
+
+## CVE-2026-73369
+
+Adobe Campaign Classic (ACC) is vulnerable to a code injection vulnerability (CVE-2026-73369) that allows for remote code execution in the context of the current user. The vulnerability does not require user interaction for exploitation and is classified as having a CVSS v3.1 base score of 10.0.
+
+Affected products:
+- Campaign Classic
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73369
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004).
