@@ -3,7 +3,7 @@ title: Adobe Security Updates - September 2026
 slug: 2026-09-adobe-security-updates
 description: Roundup of Adobe security advisories published in September 2026.
 date: "2026-09-03T19:22:39Z"
-lastmod: "2026-09-22T18:38:21Z"
+lastmod: "2026-09-22T18:38:44Z"
 type: threat
 types:
   - threat
@@ -109,16 +109,11 @@ cves:
   - id: CVE-2026-75699
     product: Campaign Classic
     cvss: 10
+  - id: CVE-2026-82009
+    cvss: 9.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-75728
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82013
 updates:
-  - at: "2026-09-07T21:36:29Z"
-    level: L2
-    summary: added CVE-2026-75650
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-75650
   - at: "2026-09-08T22:21:15Z"
     level: L2
     summary: added CVE-2026-76201
@@ -142,20 +137,21 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-75699
   - at: "2026-09-22T18:38:21Z"
     level: L2
-    summary: added CVE-2026-83959
+    summary: added CVE-2026-82009, CVE-2026-83959
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-75728
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82013
 ---
 
-This roundup covers 13 Adobe security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Campaign Classic, ColdFusion, Commerce, Experience Manager, Substance 3D Sampler.
+This roundup covers 18 Adobe security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Campaign Classic, ColdFusion, Commerce, Experience Manager, Substance 3D Sampler.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
-| [CVE-2026-83959](#cve-2026-83959) | Substance 3D Sampler |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83959) (authoritative) |
+| [CVE-2026-83959](#cve-2026-83959) | Substance 3D Sampler | High | 7.8 | 0.17% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83959) (authoritative) |
 | [CVE-2026-75650](#cve-2026-75650) | Adobe Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75650) (authoritative) |
 | [CVE-2026-76200](#cve-2026-76200) | Commerce | Critical | 9.3 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76200) (authoritative) |
 | [CVE-2026-76201](#cve-2026-76201) | Commerce | Critical | 9.3 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76201) (authoritative) |
@@ -168,6 +164,11 @@ This roundup covers 13 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-75703](#cve-2026-75703) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75703) (authoritative) |
 | [CVE-2026-75721](#cve-2026-75721) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75721) (authoritative) |
 | [CVE-2026-75723](#cve-2026-75723) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75723) (authoritative) |
+| [CVE-2026-75728](#cve-2026-75728) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75728) (authoritative) |
+| [CVE-2026-82008](#cve-2026-82008) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-82008) (authoritative) |
+| [CVE-2026-82009](#cve-2026-82009) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-82009) (authoritative) |
+| [CVE-2026-82010](#cve-2026-82010) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-82010) (authoritative) |
+| [CVE-2026-82011](#cve-2026-82011) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-82011) (authoritative) |
 
 
 ## CVE-2026-83959
@@ -206,6 +207,11 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76200
 
 
 
+
+
+
+
+
 Related in this roundup: [CVE-2026-76201](#cve-2026-76201).
 
 ## CVE-2026-76201
@@ -216,6 +222,11 @@ Affected products:
 - Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76201
+
+
+
+
+
 
 
 
@@ -241,7 +252,12 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82004
 
 
 
-Related in this roundup: [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723).
+
+
+
+
+
+Related in this roundup: [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
 
 ## CVE-2026-19232
 
@@ -266,6 +282,11 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48273
 
 
 
+
+
+
+
+
 Related in this roundup: [CVE-2026-75746](#cve-2026-75746).
 
 ## CVE-2026-75746
@@ -276,6 +297,11 @@ Affected products:
 - ColdFusion
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75746
+
+
+
+
+
 
 
 
@@ -297,7 +323,12 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-73369
 
 
 
-Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723).
+
+
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
 
 ## CVE-2026-75699
 
@@ -311,7 +342,12 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75699
 
 
 
-Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723).
+
+
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
 
 ## CVE-2026-75703
 
@@ -324,7 +360,12 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75703
 
 
 
-Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723).
+
+
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
 
 ## CVE-2026-75721
 
@@ -336,7 +377,12 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75721
 
 
-Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75723](#cve-2026-75723).
+
+
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
 
 ## CVE-2026-75723
 
@@ -347,4 +393,74 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75723
 
-Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721).
+
+
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
+
+## CVE-2026-75728
+
+Adobe Campaign Classic (ACC) contains an incorrect authorization vulnerability that allows an unauthenticated attacker to achieve arbitrary code execution. The vulnerability does not require user interaction, making it a critical risk for deployments of the affected software.
+
+Affected products:
+- Campaign Classic
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75728
+
+
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
+
+## CVE-2026-82008
+
+Adobe Campaign Classic (ACC) is vulnerable to an improper input validation flaw that allows a low-privileged attacker to achieve remote code execution in the context of the current user without requiring user interaction. The vulnerability is considered high severity due to the potential for arbitrary code execution.
+
+Affected products:
+- Campaign Classic
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82008
+
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
+
+## CVE-2026-82009
+
+Adobe Campaign Classic (ACC) is vulnerable to a high-severity SQL injection flaw (CVE-2026-82009) that allows authenticated attackers with high privileges to execute arbitrary SQL commands. Successful exploitation can lead to arbitrary code execution within the context of the current user without requiring user interaction.
+
+Affected products:
+- Campaign Classic
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82009
+
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82010](#cve-2026-82010), [CVE-2026-82011](#cve-2026-82011).
+
+## CVE-2026-82010
+
+Adobe Campaign Classic (ACC) contains an SQL injection vulnerability that can be exploited by a low-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the overall scope of the target application.
+
+Affected products:
+- Campaign Classic
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82010
+
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82011](#cve-2026-82011).
+
+## CVE-2026-82011
+
+Adobe Campaign Classic is vulnerable to an SQL injection vulnerability that allows low-privileged attackers to bypass security measures, resulting in unauthorized read and limited write access to the application data. The vulnerability does not require user interaction and impacts the overall security scope of the affected system.
+
+Affected products:
+- Campaign Classic
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-82011
+
+Related in this roundup: [CVE-2026-82004](#cve-2026-82004), [CVE-2026-73369](#cve-2026-73369), [CVE-2026-75699](#cve-2026-75699), [CVE-2026-75703](#cve-2026-75703), [CVE-2026-75721](#cve-2026-75721), [CVE-2026-75723](#cve-2026-75723), [CVE-2026-75728](#cve-2026-75728), [CVE-2026-82008](#cve-2026-82008), [CVE-2026-82009](#cve-2026-82009), [CVE-2026-82010](#cve-2026-82010).
