@@ -1,55 +1,68 @@
 ---
 title: Unauthenticated Remote Code Execution in SolarWinds Observability Self-Hosted
 slug: 2026-09-solarwinds-rce
-description: An unauthenticated remote code execution vulnerability (CVE-2026-28324) exists in SolarWinds Observability Self-Hosted due to insufficient integrity checks in non-default, non-secure configurations.
-date: "2026-09-22T20:39:08Z"
+description: SolarWinds Observability Self-Hosted is vulnerable to unauthenticated remote code execution via insecure deserialization, allowing remote attackers to execute arbitrary code.
+date: "2026-09-22T20:40:02Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 cpes:
   - cpe:2.3:a:solarwinds:observability_self-hosted:*:*:*:*:*:*:*:*
 tags:
-  - remote-code-execution
   - vulnerability
-  - cve-2026-28324
+  - rce
+  - solarwinds
 vendors:
   - SolarWinds
 products:
-  - Observability Self-Hosted
+  - SolarWinds Observability Self-Hosted
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: SolarWinds Observability Self-Hosted was found to be affected by an unauthenticated remote code execution vulnerability stemming from deserialization of untrusted data.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1555
+    technique_name: Insecure Deserialization
+    evidence: The flaw originates from the insecure deserialization of untrusted data processed by the application.
+    confidence_band: high
 cves:
-  - id: CVE-2026-28324
-    cvss: 9.8
+  - id: CVE-2026-28325
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-28324
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-28325
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
     - IT Operations
     - SOC
   immediate_actions:
-    - action: Audit server configurations for non-default settings in SolarWinds Observability
+    - action: Inventory all SolarWinds Observability Self-Hosted instances
       owner: IT Operations
       due: 24h
-      evidence: NVD vulnerability disclosure regarding non-default configurations
+      evidence: CVE-2026-28325 remediation requirement
   mitigation_plan:
     - priority: immediate
-      action: Review SolarWinds support portal for the specific patch release for CVE-2026-28324
+      action: Patch SolarWinds Observability Self-Hosted to the version addressing CVE-2026-28325
       owner: IT Operations
-      addresses: CVE-2026-28324
+      addresses: CVE-2026-28325
+      evidence: CVE-2026-28325
 ---
 
-SolarWinds Observability Self-Hosted contains a critical remote code execution vulnerability, tracked as CVE-2026-28324, arising from insufficient integrity checks during processing. This vulnerability allows an unauthenticated, remote attacker to execute arbitrary code on the underlying host. The flaw is specifically present in installations that have been deployed using non-default and non-secure configurations. Given the high CVSS score of 9.8, the vulnerability poses a severe risk to confidentiality, integrity, and availability. Defenders should identify any SolarWinds Observability instances that have deviated from default configuration hardening profiles and verify if integrity controls are properly enforced in their environment.
+SolarWinds Observability Self-Hosted contains an unauthenticated remote code execution (RCE) vulnerability identified as CVE-2026-28325. The flaw originates from the insecure deserialization of untrusted data processed by the application when it is configured to operate in a specific communication mode. This vulnerability allows an unauthenticated remote attacker to send specially crafted data to the application, which is then deserialized without adequate validation, leading to the execution of arbitrary code with the privileges of the application process. Given that SolarWinds observability components often run with elevated service accounts on critical infrastructure, successful exploitation could lead to full system compromise. Organizations running self-hosted instances should verify their current configuration against the vulnerability requirements provided by SolarWinds and prioritize patching or disabling the vulnerable communication mode until updates are applied.
 
 ## Impact
 
-Successful exploitation of CVE-2026-28324 permits an unauthenticated attacker to gain full remote code execution on the target server. This may result in total system compromise, exfiltration of sensitive monitoring data, lateral movement into the internal network, or the deployment of secondary payloads such as ransomware or persistent backdoors. The scope of impact is limited to instances configured in non-default, insecure states.
+Successful exploitation of CVE-2026-28325 allows a remote, unauthenticated attacker to execute arbitrary code on the underlying host, potentially leading to unauthorized data access, lateral movement within the network, and full compromise of the affected server.
 
 ## Recommendation
 
-Prioritized actions for security and IT operations teams:
-
-- Review all SolarWinds Observability Self-Hosted deployments to identify instances using non-default or hardened configurations that may have disabled mandatory integrity checks.
-- Audit logs for unexpected process execution or suspicious network activity originating from the SolarWinds application server.
-- Apply security patches or configuration updates provided by SolarWinds to remediate the insufficient integrity check vulnerability identified in CVE-2026-28324.
+- Identify all SolarWinds Observability Self-Hosted instances in the environment.
+- Review SolarWinds security advisories to determine if your specific configuration utilizes the vulnerable communication mode.
+- Apply patches provided by SolarWinds immediately upon release to remediate CVE-2026-28325.
+- Monitor web server and application logs for anomalous POST requests to internal API endpoints that may signify attempts to inject serialized objects.
