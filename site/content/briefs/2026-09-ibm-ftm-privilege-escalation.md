@@ -3,6 +3,7 @@ title: Privilege Escalation in IBM Financial Transaction Manager for Red Hat Ope
 slug: 2026-09-ibm-ftm-privilege-escalation
 description: IBM Financial Transaction Manager (FTM) for Red Hat OpenShift contains a critical privilege management flaw, CVE-2026-17645, that allows a remote authenticated attacker to escalate privileges.
 date: "2026-09-22T22:40:03Z"
+lastmod: "2026-09-22T22:41:16Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - IBM
 products:
   - Financial Transaction Manager (FTM) for Red Hat OpenShift
+  - Financial Transaction Manager (FTM) for RedHat OpenShift
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -25,11 +27,18 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: IBM Financial Transaction Manager (FTM) for RedHat OpenShift could allow a remote authenticated attacker to gain elevated privileges due to improper privilege management.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: IBM Financial Transaction Manager (FTM) for RedHat OpenShift could allow a local attacker to obtain sensitive information and trigger unauthorized actions due to server-side request forgery.
+    confidence_band: high
 cves:
   - id: CVE-2026-17645
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-17645
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18066
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +55,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-17645
       evidence: Vulnerability requires authentication, mitigating initial access via MFA reduces the threat surface
+updates:
+  - at: "2026-09-22T22:41:16Z"
+    level: L2
+    summary: added coverage for Financial Transaction Manager (FTM) for RedHat OpenShift
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18066
 ---
 
 IBM Financial Transaction Manager (FTM) for Red Hat OpenShift contains a critical vulnerability, tracked as CVE-2026-17645, stemming from improper privilege management within the application. This vulnerability allows an attacker who has already achieved an authenticated session to bypass existing authorization controls and escalate their privileges within the FTM environment. Given the nature of FTM in handling sensitive financial transaction processing, the ability for an authenticated user to gain elevated access could lead to unauthorized transaction manipulation, unauthorized access to sensitive financial data, or administrative control over the transaction processing lifecycle. Defenders should prioritize identifying administrative accounts and monitoring privilege change events within the FTM management interface.
