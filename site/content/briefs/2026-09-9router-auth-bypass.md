@@ -1,38 +1,36 @@
 ---
-title: Authentication Bypass in 9router Public LLM API
+title: Unauthenticated API Access in 9router via Reverse Proxy Locality Misconfiguration
 slug: 2026-09-9router-auth-bypass
-description: 9router is vulnerable to an authentication bypass via a spoofable X-9r-Real-Ip HTTP header, allowing unauthenticated attackers to access LLM API endpoints.
-date: "2026-09-22T19:53:39Z"
+description: 9router versions <= 0.4.80 contain an authentication bypass vulnerability where traffic from a local reverse proxy is incorrectly trusted as local loopback, allowing unauthenticated access to restricted /v1/ APIs.
+date: "2026-09-23T19:59:21Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:9router:9router:*:*:*:*:*:*:*:*
 tags:
-  - web-application
-  - auth-bypass
-vendors:
-  - 9router
+  - authentication-bypass
+  - api-security
+  - webserver
 products:
-  - 9router-app (<= 0.5.4)
+  - 9router (<= 0.4.80)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: The authorization layer makes a security decision based on a client-controllable HTTP header.
+    evidence: The vulnerability allows unauthenticated remote attackers to access restricted /v1/ API endpoints.
     confidence_band: high
 cves:
-  - id: CVE-2026-56681
-    cvss: 7.3
+  - id: CVE-2026-56675
+    cvss: 8.3
+    epss: 0.00501
 references:
-  - https://github.com/advisories/GHSA-5mj8-gf6m-fhw8
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-56681
+  - https://github.com/advisories/GHSA-x5c9-v98j-722r
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-56675
 rules:
-  - title: Detects CVE-2026-56681 Exploitation - 9router Auth Bypass
-    description: Detects unauthorized access to 9router API endpoints via spoofed X-9r-Real-Ip header
+  - title: Detect Unauthenticated Access to 9router API
+    description: Detects potential exploitation of CVE-2026-56675 where 9router returns HTTP 200 for /v1/ API paths without an Authorization header.
     platform: sigma
     severity: high
     tactics:
@@ -46,39 +44,32 @@ action_plan:
   priority: immediate_escalation
   owners:
     - SOC
-    - Detection Engineering
+    - IT Operations
   immediate_actions:
-    - action: Block X-9r-Real-Ip header from public traffic at WAF/edge
-      owner: SOC
+    - action: Upgrade 9router instances to version > 0.4.80
+      owner: IT Operations
       due: 24h
-      evidence: 'Source states: do not trust X-9r-Real-Ip when received directly from clients.'
+      evidence: Source advisory recommends version fix
   mitigation_plan:
     - priority: immediate
-      action: Upgrade 9router to latest version or ensure custom-server.js usage
+      action: Configure reverse proxy to drop requests to /v1/ without valid Authorization header
       owner: IT Operations
-      addresses: CVE-2026-56681
-      evidence: Source remediation section
+      addresses: CVE-2026-56675
+      evidence: Advisory describes bypass due to improper proxy trust
 ---
 
-9router versions 0.5.4 and earlier contain a critical authentication bypass vulnerability (CVE-2026-56681) within the public LLM API layer. The application improperly trusts the user-supplied 'X-9r-Real-Ip' HTTP header to determine if a request originates from the local host (localhost). Under default deployment modes where the intended 'custom-server.js' security wrapper is absent, the application fails to strip or sanitize this header from inbound client traffic. A remote, unauthenticated attacker can inject 'X-9r-Real-Ip: 127.0.0.1' into HTTP requests to 'isLocalRequest()', which then instructs 'canAccessPublicLlmApi()' to waive mandatory API key validation. This vulnerability permits unauthorized access to the LLM provider resources configured by the instance owner, potentially leading to significant financial loss and account abuse.
+9router versions up to 0.4.80 exhibit an authentication bypass vulnerability triggered by the application's reliance on network socket locality to determine API authorization. In a standard reverse-proxy deployment (e.g., using Nginx), the backend identifies all incoming traffic from the proxy as originating from `127.0.0.1`. The application logic interprets this loopback address as a trusted internal client, thereby bypassing the mandatory API key check for all endpoints under the `/v1/` prefix.
 
-## Attack Chain
-
-1. Attacker identifies a target 9router instance exposed via port 80/443 without the custom-server.js wrapper.
-2. Attacker crafts an HTTP GET request to a protected endpoint, such as '/api/v1/models'.
-3. Attacker adds the header 'X-9r-Real-Ip: 127.0.0.1' to the HTTP request.
-4. The 9router application receives the request and executes 'isLocalRequest()' in 'src/dashboardGuard.js'.
-5. The application erroneously reads the spoofed header value and returns 'true' for local origin validation.
-6. The logic proceeds to 'canAccessPublicLlmApi()', which identifies the request as 'local' and skips API key authentication.
-7. The application returns '200 OK', granting the attacker access to the model catalog and provider proxy.
+This vulnerability impacts any organization deploying 9router behind a reverse proxy that forwards traffic via local loopback. An attacker can perform unauthenticated requests to the `/v1/models` endpoint or, more critically, abuse `/v1/chat/completions` to consume the operator's upstream provider quotas without possessing a valid API key. Because the application logic fails to validate the original client IP despite headers like `X-Forwarded-For`, the bypass remains effective for any non-browser client that does not include an `Origin` header.
 
 ## Impact
 
-Successful exploitation allows unauthenticated remote attackers to bypass API key enforcement on the public LLM API. Impact includes the unauthorized consumption of the instance owner's paid LLM API credits, unauthorized access to configured provider infrastructure, enumeration of private model configurations, and potential abuse of upstream LLM provider accounts.
+Successful exploitation allows unauthenticated attackers to enumerate model catalogs and potentially hijack the organization's upstream API provider credentials. This results in direct financial impact due to unauthorized usage of provider quotas and potentially the exposure of sensitive system configuration details. The attack is trivial to execute, requiring only a standard HTTP request to the target proxy port.
 
 ## Recommendation
 
-- Upgrade 9router to a version that implements secure transport-level source validation, or ensure deployment uses the required 'custom-server.js' wrapper to sanitize headers.
-- Implement a web application firewall (WAF) rule to block or strip the 'X-9r-Real-Ip' header from any incoming public traffic.
-- Deploy the Sigma rule below to detect attempts to access the '/api/v1/' path with the malicious header present in web server logs.
-- Audit current environment configurations to ensure 'custom-server.js' is correctly protecting all public-facing instances.
+Prioritize patching to version > 0.4.80 to resolve the underlying trust logic flaw. For teams unable to patch immediately, implement strict request filtering at the reverse proxy layer to ensure that only authorized IP addresses or specific request origins are permitted to reach the 9router upstream service.
+
+* Upgrade 9router to a version later than 0.4.80 immediately.
+* Configure the reverse proxy (e.g., Nginx) to enforce API key validation or block requests to `/v1/*` that lack required authentication headers at the edge, rather than relying on the backend's internal trust model.
+* Monitor web server access logs for repeated HTTP 200 responses to `/v1/*` endpoints originating from untrusted external IPs.
