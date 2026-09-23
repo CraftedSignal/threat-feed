@@ -3,11 +3,16 @@ title: Wire Protobuf Negative Length Vulnerability (CVE-2026-45799)
 slug: 2026-05-wire-negative-length-protobuf
 description: A vulnerability in Wire's protobuf group-skipping logic allows a crafted payload with a negative length to cause a runtime exception and potentially crash services decoding untrusted protobuf, addressed in version 6.3.0.
 date: "2026-05-19T19:55:35Z"
+lastmod: "2026-09-23T19:57:23Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:squareup:wire:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:squareup:wire:7.0.0:alpha01:*:*:*:*:*:*
+  - cpe:2.3:a:squareup:wire:7.0.0:alpha02:*:*:*:*:*:*
 tags:
   - protobuf
   - denial-of-service
@@ -16,8 +21,8 @@ tags:
 vendors:
   - Square
 products:
-  - wire-runtime
-  - wire-runtime-jvm
+  - wire-runtime (< 6.3.0)
+  - wire-runtime-jvm (< 6.3.0)
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
@@ -27,12 +32,17 @@ mitre_ttps:
     tactic_name: Impact
     technique_id: T1499.004
     technique_name: 'Endpoint Denial of Service: Resource Exhaustion'
+cves:
+  - id: CVE-2026-45799
+    cvss: 7.5
+    epss: 0.00546
 references:
   - https://github.com/advisories/GHSA-7xpr-hc2w-34m9
   - CVE-2026-45799
+  - https://github.com/advisories/GHSA-86wm-r4c5-2rc9
 rules:
   - title: Detect Wire Protobuf Negative Length Exploitation Attempt
-    description: Detects CVE-2026-45799 exploitation attempt - crafted protobuf payload with negative length leading to ArrayIndexOutOfBoundsException in Wire library.
+    description: Detects CVE-2026-45799 exploitation attempt — crafted protobuf payload with negative length leading to ArrayIndexOutOfBoundsException in Wire library.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +53,7 @@ rules:
       - process_creation
       - linux
   - title: Detect Wire Protobuf Negative Length Exploitation Attempt - Exception
-    description: Detects CVE-2026-45799 exploitation - monitors for the specific ArrayIndexOutOfBoundsException thrown by vulnerable Wire versions.
+    description: Detects CVE-2026-45799 exploitation — monitors for the specific ArrayIndexOutOfBoundsException thrown by vulnerable Wire versions.
     platform: sigma
     severity: high
     tactics:
@@ -54,6 +64,14 @@ rules:
       - application
       - java
 rules_count: 2
+updates:
+  - at: "2026-09-23T19:57:23Z"
+    level: L2
+    summary: added CVE-2026-45799; wire-runtime version < 6.3.0; wire-runtime-jvm version < 6.3.0
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-86wm-r4c5-2rc9
 ---
 
 A vulnerability exists in Square's Wire protobuf library where the group-skipping logic does not reject negative lengths before skipping a length-delimited field inside a group. This issue, identified as CVE-2026-45799, allows an attacker to craft a malicious protobuf payload that causes Wire to throw an unchecked runtime exception (ArrayIndexOutOfBoundsException) during decoding, instead of the expected IOException. This can crash services that decode untrusted protobuf payloads while only handling Wire's documented checked decoding failures. The vulnerability affects `wire-runtime` versions before 6.3.0, `wire-runtime-jvm` legacy releases including 5.3.1 and 5.3.3, and Wire 7 alpha releases prior to the fix being merged. The fix is implemented in Wire version 6.3.0, released by Square.
