@@ -3,7 +3,7 @@ title: Security Misconfiguration in IBM Financial Transaction Manager for RedHat
 slug: 2026-09-ibm-ftm-security-misconfiguration
 description: IBM Financial Transaction Manager for RedHat OpenShift is vulnerable to an improper configuration of HTTP method-based security constraints, allowing remote unauthenticated attackers to bypass access controls.
 date: "2026-09-22T22:39:56Z"
-lastmod: "2026-09-22T22:40:55Z"
+lastmod: "2026-09-23T16:43:23Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,8 @@ tags:
   - security-misconfiguration
   - financial-services
   - cve-2026-17635
+  - cross-site-scripting
+  - cve-2026-18872
 vendors:
   - IBM
 products:
@@ -34,12 +36,19 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: An authenticated remote attacker can exploit this flaw to execute arbitrary code within the context of the application.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: A malicious actor can inject script into stored network acknowledgement data that executes in authenticated operator browsers.
+    confidence_band: high
 cves:
   - id: CVE-2026-17635
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-17635
   - https://nvd.nist.gov/vuln/detail/CVE-2026-17636
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-18872
 action_plan:
   priority: immediate_escalation
   owners:
@@ -64,6 +73,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-17636
+  - at: "2026-09-23T16:43:23Z"
+    level: L2
+    summary: added coverage for Financial Transaction Manager for RedHat OpenShift
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-18872
 ---
 
 IBM Financial Transaction Manager (FTM) for RedHat OpenShift suffers from a critical security misconfiguration related to the enforcement of HTTP method-based security constraints. This vulnerability, identified as CVE-2026-17635, permits a remote, unauthenticated attacker to manipulate HTTP requests to evade intended access control mechanisms. By utilizing specific HTTP methods that were not properly restricted during the application's configuration, an attacker can perform unauthorized actions within the transaction management environment. Given the nature of this software in processing financial transactions, the successful exploitation of this vulnerability poses a significant risk to the integrity and confidentiality of high-value transaction data. Defenders should prioritize auditing the configuration of their FTM instances and monitoring for unusual HTTP method usage directed at the application API.
