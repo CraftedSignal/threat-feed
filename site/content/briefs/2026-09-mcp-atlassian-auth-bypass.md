@@ -3,7 +3,7 @@ title: Authentication Bypass in mcp-atlassian HTTP Transport
 slug: 2026-09-mcp-atlassian-auth-bypass
 description: The mcp-atlassian package contains an authentication bypass vulnerability (CVE-2026-77244) that allows unauthenticated network-adjacent attackers to execute tools using the operator's Jira and Confluence credentials.
 date: "2026-09-23T01:54:36Z"
-lastmod: "2026-09-23T01:58:10Z"
+lastmod: "2026-09-23T01:58:17Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,8 @@ tags:
   - vulnerability
   - authorization-bypass
   - cve-2026-77243
+  - remote-code-execution
+  - data-exfiltration
 vendors:
   - Atlassian
 products:
@@ -60,6 +62,18 @@ mitre_ttps:
     technique_name: Gather Victim Host Information
     evidence: Any user with access to the server endpoint that knows a tool name can invoke it directly.
     confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: An agent can force the privileged MCP process to read and upload any file it has access to—including its own environment variables and host configuration.
+    confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1552.003
+    technique_name: Unsecured Credentials
+    evidence: The host's global configuration file (containing tokens for GitLab, Slack, and other services) is successfully exfiltrated to the cloud.
+    confidence_band: high
 cves:
   - id: CVE-2026-77244
     cvss: 10
@@ -74,6 +88,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77247
   - https://github.com/advisories/GHSA-6529-c226-h328
   - https://github.com/advisories/GHSA-3r68-hf9h-887v
+  - https://github.com/advisories/GHSA-2xj6-xx86-cwwc
 rules:
   - title: Detect Unauthorized MCP Tool Execution Attempt
     description: Detects exploitation attempts against CVE-2026-77243 where a client attempts to call a tool that was not authorized via ENABLED_TOOLS or TOOLSETS configuration.
@@ -140,6 +155,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-3r68-hf9h-887v
+  - at: "2026-09-23T01:58:17Z"
+    level: L2
+    summary: added coverage for mcp-atlassian (< 0.22.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2xj6-xx86-cwwc
 ---
 
 The `mcp-atlassian` Python package is vulnerable to a critical authentication bypass (CVE-2026-77244) due to improper validation in the `AtlassianOpaqueTokenVerifier` utility. The implementation of `verify_token()` explicitly accepts any non-empty string as a valid credential. Furthermore, the `mcp-atlassian` HTTP transport defaults to disabled OAuth proxy authentication and fails to reject requests lacking an `Authorization` header.
