@@ -3,6 +3,7 @@ title: Stored XSS in Popup Maker WordPress Plugin (CVE-2026-87915)
 slug: 2026-09-wp-popup-maker-xss
 description: The Popup Maker WordPress plugin is vulnerable to Stored Cross-Site Scripting via the 'values[Name]' parameter, allowing unauthenticated attackers to inject malicious scripts that execute in the wp-admin dashboard.
 date: "2026-09-18T12:05:29Z"
+lastmod: "2026-09-23T02:50:43Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:popup_maker:popup_maker:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1C62E152-AB35-510B-88B8-AE64E9E46BD9&utm_source=rss&utm_medium=rss
 vendors:
   - WordPress
 products:
@@ -30,8 +34,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-87915
     cvss: 7.2
+    epss: 0.00473
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-87915
+  - https://sploitus.com/exploit?id=1C62E152-AB35-510B-88B8-AE64E9E46BD9&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +53,14 @@ action_plan:
       action: Update Popup Maker plugin to a version released after 1.24.0.
       owner: IT Operations
       addresses: CVE-2026-87915
+updates:
+  - at: "2026-09-23T02:50:43Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1C62E152-AB35-510B-88B8-AE64E9E46BD9&utm_source=rss&utm_medium=rss
 ---
 
 The Popup Maker - Boost Sales, Conversions, Optins, Subscribers with the Ultimate WP Popup Builder plugin for WordPress contains a Stored Cross-Site Scripting (XSS) vulnerability, tracked as CVE-2026-87915, affecting all versions up to and including 1.24.0. The vulnerability exists due to inadequate input sanitization and output escaping of the 'values[Name]' parameter. 
