@@ -3,7 +3,7 @@ title: Improper RBAC Configuration in IBM Concert
 slug: 2026-09-ibm-concert-rbac
 description: IBM Concert versions 1.0.0 through 3.0.0 contain an access control vulnerability due to wildcard usage in RBAC permissions that allows authenticated attackers to access or modify unauthorized resources.
 date: "2026-09-22T22:39:49Z"
-lastmod: "2026-09-23T22:45:17Z"
+lastmod: "2026-09-23T22:45:28Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,7 @@ tags:
   - rce
   - webserver
   - buffer-overflow
+  - memory-corruption
 vendors:
   - IBM
 products:
@@ -58,6 +59,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6721
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6730
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6928
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-6794
 action_plan:
   priority: elevated
   owners:
@@ -96,6 +98,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-6928
+  - at: "2026-09-23T22:45:28Z"
+    level: L2
+    summary: added coverage for Concert (1.0.0 through 3.0.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-6794
 ---
 
 IBM Concert versions 1.0.0 through 3.0.0 are affected by an authorization bypass vulnerability identified as CVE-2026-17472. The issue stems from the implementation of wildcard characters within Role-Based Access Control (RBAC) permission definitions. This flaw permits a remote authenticated attacker to bypass intended authorization constraints, granting them the capability to access or modify resources outside the scope of their assigned privileges. Given the high CVSS score of 9.6, this vulnerability poses a significant risk of unauthorized data exposure or system manipulation for organizations utilizing affected versions of IBM Concert. Defenders should prioritize updating to a patched version to remediate the insecure permission logic.
