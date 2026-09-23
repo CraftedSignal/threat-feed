@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-09-21T06:59:22Z"
+lastmod: "2026-09-23T08:02:35Z"
 type: advisory
 types:
   - advisory
@@ -96,6 +96,7 @@ products:
   - brevo.com
   - sibforms.com
   - MeshAgent
+  - Brevo
 affected_os:
   - Windows
   - macOS
@@ -132,6 +133,10 @@ references:
   - https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/
   - https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/
   - https://www.malware-traffic-analysis.net/2026/09/15/index.html
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_finger_exe_connecting_to_a_remote_host.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_node_exe_executing_js_script_in_immediate_folder.yml
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_accessing_ironlanguages_repository_on_github.yml
+  - https://www.bleepingcomputer.com/news/security/brevo-supply-chain-attack-injected-clickfix-scripts-on-customer-sites
 iocs:
   - type: domain
     value: justwatch.com
@@ -197,13 +202,6 @@ ioc_counts:
   ip: 2
   url: 8
 updates:
-  - at: "2026-09-08T13:37:45Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - talos
-    source_urls:
-      - https://blog.talosintelligence.com/clearfake-webdav-infection-chain/
   - at: "2026-09-08T13:37:48Z"
     level: L1
     summary: new product
@@ -232,6 +230,13 @@ updates:
       - malware-traffic-analysis
     source_urls:
       - https://www.malware-traffic-analysis.net/2026/09/15/index.html
+  - at: "2026-09-23T08:02:35Z"
+    level: L1
+    summary: new product
+    sources:
+      - risky-biz
+    source_urls:
+      - https://www.bleepingcomputer.com/news/security/brevo-supply-chain-attack-injected-clickfix-scripts-on-customer-sites
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
