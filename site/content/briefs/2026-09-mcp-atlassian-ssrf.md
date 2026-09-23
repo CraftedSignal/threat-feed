@@ -3,6 +3,7 @@ title: SSRF Protection Bypass in mcp-atlassian
 slug: 2026-09-mcp-atlassian-ssrf
 description: The mcp-atlassian library is vulnerable to an SSRF bypass (CVE-2026-77274) due to a URL parsing discrepancy between the security validator and the HTTP client, allowing attackers to access internal or loopback services.
 date: "2026-09-23T01:57:29Z"
+lastmod: "2026-09-23T01:57:45Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +30,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-hgcf-4mq8-5266
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77274
+  - https://github.com/advisories/GHSA-5wf4-jqxh-8gm3
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77267
 rules:
   - title: Detect CVE-2026-77274 Exploitation - SSRF Header Injection
     description: Detects potential SSRF exploitation via the injection of backslashes in Atlassian integration headers
@@ -70,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-77274
       evidence: 'Vulnerable: < 0.22.0'
+updates:
+  - at: "2026-09-23T01:57:45Z"
+    level: L2
+    summary: added coverage for mcp-atlassian (< 0.22.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-5wf4-jqxh-8gm3
 ---
 
 The mcp-atlassian library (prior to version 0.22.0) contains a vulnerability in the `validate_url_for_ssrf()` function that allows for Server-Side Request Forgery (SSRF). The issue stems from a URL parser mismatch between Python's `urllib.parse.urlparse()`, used for validation, and the downstream `requests.Session` client used to execute requests. By crafting a URL containing a backslash preceding a domain-like string (e.g., `http://127.0.0.1:6666\@www.baidu.com`), an attacker can cause the security validator to evaluate a public domain while the underlying HTTP client resolves the internal host. This vulnerability allows an attacker to bypass SSRF protections and interact with internal-only services or the loopback interface, potentially leading to unauthorized data access or service exploitation.
