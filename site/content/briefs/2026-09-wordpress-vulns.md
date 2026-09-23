@@ -3,11 +3,17 @@ title: Multiple Vulnerabilities in WordPress
 slug: 2026-09-wordpress-vulns
 description: WordPress is susceptible to multiple vulnerabilities that may allow unauthenticated attackers to achieve remote code execution, bypass security controls, perform cross-site scripting, or access sensitive data.
 date: "2026-09-21T13:51:42Z"
+lastmod: "2026-09-23T01:50:56Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:wordpress:wordpress:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=5F650CE9-222D-5AA8-A6CC-240BDBDE6253&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - web-vulnerability
@@ -29,8 +35,13 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: An attacker can exploit multiple vulnerabilities in WordPress to execute arbitrary program code.
     confidence_band: high
+cves:
+  - id: CVE-2026-87902
+    cvss: 8.1
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3472
+  - https://www.securityweek.com/wordpress-patches-click2shell-vulnerability/
+  - https://sploitus.com/exploit?id=5F650CE9-222D-5AA8-A6CC-240BDBDE6253&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +58,14 @@ action_plan:
       owner: IT Operations
       addresses: Multiple WordPress vulnerabilities
       evidence: Standard security practice for reported platform vulnerabilities
+updates:
+  - at: "2026-09-23T01:50:56Z"
+    level: L2
+    summary: poc_available; added CVE-2026-87902
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=5F650CE9-222D-5AA8-A6CC-240BDBDE6253&utm_source=rss&utm_medium=rss
 ---
 
 The BSI has reported multiple vulnerabilities affecting WordPress, a widely used content management system. These flaws collectively expose environments to critical risks, including remote code execution (RCE), the bypassing of established security restrictions, cross-site scripting (XSS), and unauthorized data manipulation or disclosure. The vulnerabilities affect the core platform, potentially impacting any deployment currently utilizing unpatched versions. Defenders should prioritize auditing their WordPress instances to identify active versions and assess exposure based on the underlying vulnerability landscape. Organizations are advised to monitor official vendor security updates to address these weaknesses, as exploitation could lead to full site compromise or data breach depending on the specific attack vector employed against these vulnerabilities.
