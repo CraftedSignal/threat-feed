@@ -3,7 +3,7 @@ title: Authentication Bypass in mcp-atlassian HTTP Transport
 slug: 2026-09-mcp-atlassian-auth-bypass
 description: The mcp-atlassian package contains an authentication bypass vulnerability (CVE-2026-77244) that allows unauthenticated network-adjacent attackers to execute tools using the operator's Jira and Confluence credentials.
 date: "2026-09-23T01:54:36Z"
-lastmod: "2026-09-23T01:58:17Z"
+lastmod: "2026-09-23T01:58:33Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +25,10 @@ tags:
   - cve-2026-77243
   - remote-code-execution
   - data-exfiltration
+  - jira
+  - confluence
+  - filter-bypass
+  - cve
 vendors:
   - Atlassian
 products:
@@ -89,6 +93,7 @@ references:
   - https://github.com/advisories/GHSA-6529-c226-h328
   - https://github.com/advisories/GHSA-3r68-hf9h-887v
   - https://github.com/advisories/GHSA-2xj6-xx86-cwwc
+  - https://github.com/advisories/GHSA-w66g-j6c4-hcfc
 rules:
   - title: Detect Unauthorized MCP Tool Execution Attempt
     description: Detects exploitation attempts against CVE-2026-77243 where a client attempts to call a tool that was not authorized via ENABLED_TOOLS or TOOLSETS configuration.
@@ -127,13 +132,6 @@ action_plan:
       addresses: CVE-2026-77244
       evidence: Source recommends binding HTTP transport to 127.0.0.1 by default
 updates:
-  - at: "2026-09-23T01:55:55Z"
-    level: L2
-    summary: added coverage for mcp-atlassian (< 0.22.0)
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-93xw-j965-9mx3
   - at: "2026-09-23T01:56:03Z"
     level: L2
     summary: added coverage for mcp-atlassian (< 0.22.0)
@@ -162,6 +160,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-2xj6-xx86-cwwc
+  - at: "2026-09-23T01:58:33Z"
+    level: L2
+    summary: added coverage for mcp-atlassian (< 0.22.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-w66g-j6c4-hcfc
 ---
 
 The `mcp-atlassian` Python package is vulnerable to a critical authentication bypass (CVE-2026-77244) due to improper validation in the `AtlassianOpaqueTokenVerifier` utility. The implementation of `verify_token()` explicitly accepts any non-empty string as a valid credential. Furthermore, the `mcp-atlassian` HTTP transport defaults to disabled OAuth proxy authentication and fails to reject requests lacking an `Authorization` header.
