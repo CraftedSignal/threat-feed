@@ -3,6 +3,7 @@ title: Authentication Bypass in 9router via Mass Assignment
 slug: 2026-09-9router-mass-assignment
 description: 9router versions 0.5.2 and earlier are vulnerable to mass assignment in the PATCH /api/settings endpoint, allowing an authenticated user to disable authentication globally and access protected API routes.
 date: "2026-09-23T19:57:48Z"
+lastmod: "2026-09-23T19:59:13Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - mass-assignment
   - cve
   - authentication-bypass
+  - ssrf
+  - dns-rebinding
 vendors:
   - 9router
 products:
   - 9router (<= 0.5.2)
+  - 9router (<= 0.4.80)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -25,12 +29,20 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: An authenticated user can set security-critical fields that are not meant to be modifiable here, notably requireLogin, which disables authentication for the whole application.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The application performs a DNS resolution to validate the host before fetching, but performs a secondary, independent DNS resolution during the actual HTTP fetch, allowing SSRF.
+    confidence_band: high
 cves:
   - id: CVE-2026-56679
     epss: 0.00519
 references:
   - https://github.com/advisories/GHSA-vmjq-hvgq-2wv4
   - https://nvd.nist.gov/vuln/detail/CVE-2026-56679
+  - https://github.com/advisories/GHSA-cmhj-wh2f-9cgx
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-56676
 rules:
   - title: Detect Suspicious PATCH /api/settings Configuration Changes
     description: Detects unauthorized attempts to modify security-critical settings in 9router by identifying PATCH requests to /api/settings that include the requireLogin flag
@@ -68,6 +80,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-56679
       evidence: Vulnerability allows global auth bypass
+updates:
+  - at: "2026-09-23T19:59:13Z"
+    level: L2
+    summary: added coverage for 9router (<= 0.4.80)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-cmhj-wh2f-9cgx
 ---
 
 9router versions 0.5.2 and earlier contain a mass assignment vulnerability (CVE-2026-56679) within the `PATCH /api/settings` endpoint. The application fails to whitelist fields provided in the request body, allowing arbitrary fields to be written to the database. An authenticated attacker can specifically target the `requireLogin` field, setting it to `false`. Because the `dashboardGuard.js` middleware uses this setting to determine authentication status, disabling it effectively removes the authentication requirement for the entire application. This exposes sensitive endpoints like `/api/keys` and `/api/providers` to unauthenticated access, potentially leading to total system compromise when combined with known default credentials or previously obtained session tokens.
