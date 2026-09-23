@@ -3,6 +3,7 @@ title: Authorization Bypass in Klever-Go KleverUpdateAccountPermission Built-in
 slug: 2026-09-klever-vm-auth-bypass
 description: An authorization flaw in the Klever-Go VM allows attackers to execute an account takeover by leveraging an incorrectly validated RecipientAddr parameter during indirect smart contract calls.
 date: "2026-09-23T19:57:00Z"
+lastmod: "2026-09-23T19:57:14Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,10 @@ tags:
   - smart-contract
   - vulnerability
   - privilege-escalation
+  - klever-go
+  - log-manipulation
+  - unauthenticated-access
+  - websocket-vulnerability
 vendors:
   - Klever
 products:
@@ -26,8 +31,28 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: 'The harm asserted is the takeover itself: after the call, V''s permission set is a single Owner permission whose sole signer is the attacker''s key.'
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The node processes the first message sent by the client as a logger 'Profile', which is applied globally.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-97cv-x867-6xhm
+  - https://github.com/advisories/GHSA-9v8p-frvj-2pcm
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86064
+rules:
+  - title: Detect Unauthenticated WebSocket Log Profile Manipulation
+    description: Detects exploitation of CVE-2026-86064 where an unauthenticated client sends a logging profile mutation payload to the /log endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -44,6 +69,14 @@ action_plan:
       owner: Development
       addresses: CVE-2026-82405
       evidence: Code walkthrough indicates incorrect variable usage in handler
+updates:
+  - at: "2026-09-23T19:57:14Z"
+    level: L2
+    summary: 'added detection rule: Detect Unauthenticated WebSocket Log Profile Manipulation'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9v8p-frvj-2pcm
 ---
 
 A critical authorization vulnerability (CVE-2026-82405) exists in the `KleverUpdateAccountPermission` built-in function within the `klever-go` repository, affecting versions 1.7.19 and earlier. The vulnerability occurs because the function validates permissions against the `vmInput.RecipientAddr` field rather than the authenticated `vmInput.CallerAddr`. 
