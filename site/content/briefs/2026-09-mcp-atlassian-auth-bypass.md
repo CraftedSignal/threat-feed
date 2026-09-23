@@ -3,7 +3,7 @@ title: Authentication Bypass in mcp-atlassian HTTP Transport
 slug: 2026-09-mcp-atlassian-auth-bypass
 description: The mcp-atlassian package contains an authentication bypass vulnerability (CVE-2026-77244) that allows unauthenticated network-adjacent attackers to execute tools using the operator's Jira and Confluence credentials.
 date: "2026-09-23T01:54:36Z"
-lastmod: "2026-09-23T01:56:03Z"
+lastmod: "2026-09-23T01:57:54Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,12 @@ mitre_ttps:
     technique_name: Data from Local System
     evidence: An AI agent connected via MCP (or an attacker influencing that agent through prompt injection) can read any file on the host and exfiltrate it by uploading it as a Confluence page attachment.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: AWS IAM credentials (or other internal service data) are returned to the attacker.
+    confidence_band: high
 cves:
   - id: CVE-2026-77244
     cvss: 10
@@ -58,6 +64,7 @@ references:
   - https://github.com/advisories/GHSA-93xw-j965-9mx3
   - https://github.com/advisories/GHSA-f6pj-qv47-g96w
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77247
+  - https://github.com/advisories/GHSA-6529-c226-h328
 action_plan:
   priority: immediate_escalation
   owners:
@@ -98,6 +105,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-f6pj-qv47-g96w
+  - at: "2026-09-23T01:57:54Z"
+    level: L2
+    summary: added coverage for mcp-atlassian (< 0.22.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6529-c226-h328
 ---
 
 The `mcp-atlassian` Python package is vulnerable to a critical authentication bypass (CVE-2026-77244) due to improper validation in the `AtlassianOpaqueTokenVerifier` utility. The implementation of `verify_token()` explicitly accepts any non-empty string as a valid credential. Furthermore, the `mcp-atlassian` HTTP transport defaults to disabled OAuth proxy authentication and fails to reject requests lacking an `Authorization` header.
