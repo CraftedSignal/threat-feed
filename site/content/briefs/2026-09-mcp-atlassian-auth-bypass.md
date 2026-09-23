@@ -3,7 +3,7 @@ title: Authentication Bypass in mcp-atlassian HTTP Transport
 slug: 2026-09-mcp-atlassian-auth-bypass
 description: The mcp-atlassian package contains an authentication bypass vulnerability (CVE-2026-77244) that allows unauthenticated network-adjacent attackers to execute tools using the operator's Jira and Confluence credentials.
 date: "2026-09-23T01:54:36Z"
-lastmod: "2026-09-23T01:55:55Z"
+lastmod: "2026-09-23T01:56:03Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,8 @@ tags:
   - mcp
   - path-traversal
   - ai-security
+  - exfiltration
+  - vulnerability
 vendors:
   - Atlassian
 products:
@@ -54,6 +56,8 @@ references:
   - https://github.com/advisories/GHSA-wrhw-j3f9-8vc6
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77244
   - https://github.com/advisories/GHSA-93xw-j965-9mx3
+  - https://github.com/advisories/GHSA-f6pj-qv47-g96w
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77247
 action_plan:
   priority: immediate_escalation
   owners:
@@ -87,6 +91,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-93xw-j965-9mx3
+  - at: "2026-09-23T01:56:03Z"
+    level: L2
+    summary: added coverage for mcp-atlassian (< 0.22.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-f6pj-qv47-g96w
 ---
 
 The `mcp-atlassian` Python package is vulnerable to a critical authentication bypass (CVE-2026-77244) due to improper validation in the `AtlassianOpaqueTokenVerifier` utility. The implementation of `verify_token()` explicitly accepts any non-empty string as a valid credential. Furthermore, the `mcp-atlassian` HTTP transport defaults to disabled OAuth proxy authentication and fails to reject requests lacking an `Authorization` header.
