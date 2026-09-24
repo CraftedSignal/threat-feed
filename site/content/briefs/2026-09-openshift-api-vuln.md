@@ -3,6 +3,7 @@ title: Unauthenticated SSRF and DoS in OpenShift Console
 slug: 2026-09-openshift-api-vuln
 description: An unauthenticated vulnerability in the OpenShift console /api/devfile/ endpoints allows remote attackers to perform Server-Side Request Forgery (SSRF) and cause Denial of Service (DoS) via memory exhaustion.
 date: "2026-09-19T00:07:25Z"
+lastmod: "2026-09-24T00:45:30Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - vulnerability
   - cloud
   - web-application
+  - path-traversal
+  - openshift
 vendors:
   - Red Hat
 products:
@@ -25,11 +28,31 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Unauthenticated access to the /api/devfile/ and /api/devfile/samples/ endpoints allows a remote attacker to send crafted devfile payloads.
     confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: This allows the attacker to read sensitive *.json files from the pod filesystem, including plugin manifests and configuration files.
+    confidence_band: high
 cves:
   - id: CVE-2026-75885
     cvss: 9.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75885
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75887
+rules:
+  - title: Detects CVE-2026-75887 Exploitation - Path Traversal in OpenShift Console
+    description: Detects exploitation attempts against CVE-2026-75887 where path traversal characters are injected into the lng or ns parameters of the /locales/resource.json endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - discovery
+      - initial_access
+    techniques:
+      - T1083
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-75885
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-24T00:45:30Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-75887 Exploitation - Path Traversal in OpenShift Console'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75887
 ---
 
 CVE-2026-75885 affects the OpenShift console, exposing internal services to unauthorized interaction and threatening service availability. The vulnerability resides in the improper validation of inputs provided to the `/api/devfile/` and `/api/devfile/samples/` endpoints. By submitting crafted devfile payloads, an unauthenticated remote attacker can force the console pod to perform requests against internal infrastructure, facilitating Server-Side Request Forgery (SSRF) and potentially exposing sensitive internal data through reflected responses. Furthermore, the absence of Content-Length header enforcement allows an attacker to stream large, unconstrained request bodies. This triggers uncontrolled memory allocation within the console pod, leading to pod instability and Denial of Service (DoS). This vulnerability is critical for organizations relying on OpenShift for container orchestration, as the console pod often possesses high-level access within the cluster environment.
