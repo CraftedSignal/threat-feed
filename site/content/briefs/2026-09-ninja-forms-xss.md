@@ -3,6 +3,7 @@ title: Stored Cross-Site Scripting in Ninja Forms Plugin
 slug: 2026-09-ninja-forms-xss
 description: CVE-2026-94504 describes a stored cross-site scripting vulnerability in Ninja Forms version 3.15.3, allowing attackers to execute arbitrary scripts in an administrator's browser session via the legacy submission editor.
 date: "2026-09-22T08:34:19Z"
+lastmod: "2026-09-24T04:07:30Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:ninja_forms:ninja_forms:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=34ADA71A-08D7-59AD-8BE3-8926666DB8A2&utm_source=rss&utm_medium=rss
 tags:
   - xss
   - web-vulnerability
@@ -34,8 +38,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-94504
     cvss: 7.2
+    epss: 0.00292
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94504
+  - https://sploitus.com/exploit?id=34ADA71A-08D7-59AD-8BE3-8926666DB8A2&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -56,6 +62,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Stored XSS via textarea inputs
+updates:
+  - at: "2026-09-24T04:07:30Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=34ADA71A-08D7-59AD-8BE3-8926666DB8A2&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-94504 is a security vulnerability in the Ninja Forms plugin (version 3.15.3) that stems from improper input sanitization of anonymous non-RTE (Rich Text Editor) textarea fields. The plugin stores user-provided input in these fields and fails to perform adequate HTML encoding when rendering the data within the legacy submission editor interface. An attacker can supply malicious JavaScript payloads within these textarea inputs. When a site administrator accesses the specific direct submission URL associated with the malicious entry, the injected script executes within the context of the WordPress admin origin. This flaw allows attackers to perform unauthorized actions or gain access to sensitive information by leveraging the trust associated with the administrator's authenticated session.
