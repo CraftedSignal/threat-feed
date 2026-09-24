@@ -3,6 +3,7 @@ title: SQL Injection in phpMyFAQ StopWords::add()
 slug: 2026-09-phpmyfaq-sqli
 description: An authenticated administrator can exploit an unescaped SQL insertion vulnerability in the phpMyFAQ StopWords::add() method (CVE-2026-56738) to execute arbitrary database commands.
 date: "2026-09-24T20:05:37Z"
+lastmod: "2026-09-24T20:05:47Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,15 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:phpmyfaq:phpmyfaq:*:*:*:*:*:*:*:*
+tags:
+  - cve-2026-56737
+  - authentication-bypass
+  - web-security
 vendors:
   - phpMyFAQ
 products:
   - phpMyFAQ (<= 4.1.5)
+  - phpMyFAQ (3.2.0 - 4.1.5)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -21,10 +27,29 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: An authenticated administrator who can reach the stop-word management feature can submit a crafted value as the word parameter that breaks out of the SQL string literal and injects arbitrary SQL.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: The endpoint fails to verify the user's password before initiating a session based on a provided TOTP token.
+    confidence_band: high
 cves:
   - id: CVE-2026-56738
 references:
   - https://github.com/advisories/GHSA-rw77-vq4g-x3hp
+  - https://github.com/advisories/GHSA-8gpw-xvpf-hvx5
+rules:
+  - title: Detect CVE-2026-56737 Exploitation - Brute Force on /check Endpoint
+    description: Detects potential brute force exploitation attempts against the phpMyFAQ 2FA /check endpoint by monitoring high-frequency POST requests.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1550
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +65,14 @@ action_plan:
       owner: Development
       addresses: CVE-2026-56738
       evidence: The omission is isolated to the add() code path
+updates:
+  - at: "2026-09-24T20:05:47Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-56737 Exploitation - Brute Force on /check Endpoint'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8gpw-xvpf-hvx5
 ---
 
 phpMyFAQ versions up to and including 4.1.5 contain a SQL injection vulnerability within the `StopWords::add()` method in `src/phpMyFAQ/StopWords.php`. The vulnerability occurs because the application uses `sprintf()` to construct SQL queries but fails to sanitize the user-supplied stop word input using the database driver's `escape()` method. While sibling methods like `StopWords::update()` correctly implement escaping, the `add()` method omits this security control, creating an inconsistency that allows authenticated administrative users to break out of the SQL string literal. 
