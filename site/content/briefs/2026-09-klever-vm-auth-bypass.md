@@ -3,7 +3,7 @@ title: Authorization Bypass in Klever-Go KleverUpdateAccountPermission Built-in
 slug: 2026-09-klever-vm-auth-bypass
 description: An authorization flaw in the Klever-Go VM allows attackers to execute an account takeover by leveraging an incorrectly validated RecipientAddr parameter during indirect smart contract calls.
 date: "2026-09-23T19:57:00Z"
-lastmod: "2026-09-24T01:57:29Z"
+lastmod: "2026-09-24T01:57:38Z"
 type: advisory
 types:
   - advisory
@@ -23,10 +23,15 @@ tags:
   - consensus-failure
   - denial-of-service
   - blockchain-security
+  - injection
+  - elasticsearch
+  - cve-2026-82409
 vendors:
   - Klever
+  - Elastic
 products:
   - klever-go (<= 1.7.19)
+  - Elasticsearch (< 1.7.20)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -46,11 +51,30 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: The protocol deserializes these keys at the start of each slot, an invalid key causes a deterministic failure in the multi-signature process, leading to a consensus failure and missed slots.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: The attacker broadcasts an ordinary signed transaction to the blockchain.
+    confidence_band: med
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The attacker injects raw JSON/NDJSON syntax into the indexer's bulk stream, manipulating ES document state.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1136
+    technique_name: Create Account
+    evidence: The malicious payload is written into the consensus account state, ensuring it is re-indexed by current and future nodes.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-97cv-x867-6xhm
   - https://github.com/advisories/GHSA-9v8p-frvj-2pcm
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86064
   - https://github.com/advisories/GHSA-9wh6-9hq7-9688
+  - https://github.com/advisories/GHSA-7c7c-373r-gfjj
 rules:
   - title: Detect Unauthenticated WebSocket Log Profile Manipulation
     description: Detects exploitation of CVE-2026-86064 where an unauthenticated client sends a logging profile mutation payload to the /log endpoint.
@@ -94,6 +118,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-9wh6-9hq7-9688
+  - at: "2026-09-24T01:57:38Z"
+    level: L1
+    summary: added coverage for klever-go (<= 1.7.19) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-7c7c-373r-gfjj
 ---
 
 A critical authorization vulnerability (CVE-2026-82405) exists in the `KleverUpdateAccountPermission` built-in function within the `klever-go` repository, affecting versions 1.7.19 and earlier. The vulnerability occurs because the function validates permissions against the `vmInput.RecipientAddr` field rather than the authenticated `vmInput.CallerAddr`. 
