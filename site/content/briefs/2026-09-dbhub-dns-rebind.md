@@ -3,6 +3,7 @@ title: DNS Rebinding Vulnerability in DBHub HTTP Transport
 slug: 2026-09-dbhub-dns-rebind
 description: DBHub 0.21.2 fails to securely validate hostnames in its HTTP transport mode, allowing attackers to use DNS rebinding to execute arbitrary SQL queries via a victim's browser.
 date: "2026-09-24T20:03:55Z"
+lastmod: "2026-09-24T20:05:22Z"
 type: threat
 types:
   - threat
@@ -13,10 +14,13 @@ tags:
   - web-vulnerability
   - dns-rebinding
   - database-security
+  - vulnerability
+  - rce
 vendors:
   - Bytebase
 products:
   - DBHub (0.21.2)
+  - dbhub (< 0.22.6)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +34,22 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: a malicious website can deterministically invoke DBHub MCP tools from the victim's browser
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The HTTP transport is unauthenticated and binds to 0.0.0.0 by default, so this is reachable by any network caller of /mcp.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: SELECT dblink_exec('dbname=app', $$COPY (SELECT 1) TO PROGRAM 'id > /tmp/pwned'$$); -- runs a shell command
+    confidence_band: high
+references:
+  - https://github.com/advisories/GHSA-mwwr-p57h-56pf
+  - https://github.com/bytebase/dbhub/pull/342
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-61788
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +66,14 @@ action_plan:
       owner: IT Operations
       addresses: DNS rebinding via local network access
       evidence: Remediation guidance provided in source
+updates:
+  - at: "2026-09-24T20:05:22Z"
+    level: L2
+    summary: added coverage for dbhub (< 0.22.6)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-mwwr-p57h-56pf
 ---
 
 DBHub version 0.21.2, when deployed using the `--transport http` configuration, contains a critical flaw in its DNS rebinding protection mechanism. The server attempts to prevent unauthorized cross-origin requests by validating that the `Origin` header matches the `Host` header. However, this check is insufficient as it does not enforce a whitelist of trusted hostnames. An attacker can perform a DNS rebinding attack to cause a victim's browser to resolve an attacker-controlled domain to the IP address where DBHub is running. Because both the `Host` and `Origin` headers in the rebind request will match the attacker-controlled hostname, the server erroneously trusts the request. This allows an attacker to interact with the `/mcp` endpoint and dispatch JSON-RPC tool calls, such as `execute_sql`, directly from the victim's browser. This vulnerability bypasses traditional local network boundaries and does not require authentication, potentially exposing sensitive database contents to exfiltration.
