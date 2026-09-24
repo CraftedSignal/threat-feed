@@ -3,17 +3,20 @@ title: Stored XSS in Snipe-IT Uploaded Files API
 slug: 2026-09-snipe-it-xss
 description: Snipe-IT contains a stored XSS vulnerability in the uploaded-files API due to the failure to apply safe-inline allowlists to XML documents, allowing authenticated attackers to execute arbitrary JavaScript in the victim's session context via CVE-2026-63498.
 date: "2026-09-24T20:07:51Z"
+lastmod: "2026-09-24T20:08:14Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 cpes:
   - cpe:2.3:a:snipe_it:snipe_it:*:*:*:*:*:*:*:*
 tags:
   - web-application
   - xss
   - cve-2026-63498
+  - web-vulnerability
+  - privilege-escalation
 vendors:
   - Snipe-IT
 products:
@@ -31,12 +34,26 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: JavaScript'
     evidence: An attacker can execute arbitrary JavaScript in the Snipe-IT origin when a victim opens the malicious attachment URL.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: A user with the customfields.create permission can store HTML/JS in a Custom Field name, which is later rendered as an asset-list column title.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: An account holding ONLY customfields.create planted a payload that, when a superuser opened /hardware, issued an authenticated request in that session and granted the attacker's own account the superuser permission.
+    confidence_band: high
 cves:
   - id: CVE-2026-63498
     cvss: 8.7
 references:
   - https://github.com/advisories/GHSA-396x-xmvh-p563
   - https://github.com/grokability/snipe-it/commit/e929b31f0b183c5810bd2b833c1f6f643cbe5284
+  - https://github.com/advisories/GHSA-p9h3-gvpq-5539
+  - https://github.com/grokability/snipe-it/commit/58754e4e3b86b58a0c4523012ef04a2ae990d2c8
 action_plan:
   priority: elevated
   owners:
@@ -53,6 +70,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-63498
       evidence: 'Affected Packages: composer/snipe/snipe-it (vulnerable: < 8.7.0)'
+updates:
+  - at: "2026-09-24T20:08:14Z"
+    level: L2
+    summary: added coverage for Snipe-IT (< 8.7.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-p9h3-gvpq-5539
 ---
 
 Snipe-IT is vulnerable to stored cross-site scripting (XSS) via its uploaded-files API (CVE-2026-63498). The vulnerability exists because the API endpoint `GET /api/v1/{object_type}/{id}/files/{file_id}` honors an attacker-controlled `inline=true` query parameter for all uploaded files without verifying the safety of the content. While the non-API web controller correctly utilizes `StorageHelper::allowSafeInline()` to sanitize inline responses, the API controller fails to perform this check.
