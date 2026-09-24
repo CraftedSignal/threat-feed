@@ -3,6 +3,7 @@ title: compliance-trestle Arbitrary File Write via Path Traversal
 slug: 2026-05-compliance-trestle-arbitrary-file-write
 description: The compliance-trestle application is vulnerable to arbitrary file write via path traversal; the `-o/--output` argument in `trestle author jinja` allows writing files outside the intended workspace due to improper validation of path traversal characters, leading to potential CI/CD compromise or local code execution by overwriting sensitive files such as `.github/workflows/*.yml` or `.git/hooks/*`.
 date: "2026-05-28T17:56:59Z"
+lastmod: "2026-09-24T20:04:35Z"
 type: advisory
 types:
   - advisory
@@ -16,8 +17,9 @@ tags:
   - CI/CD compromise
 vendors:
   - GitHub
+  - IBM
 products:
-  - compliance-trestle
+  - compliance-trestle (<= 3.12.1)
   - github.com
 affected_os:
   - Windows 11
@@ -34,9 +36,14 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+cves:
+  - id: CVE-2026-46345
+    cvss: 8.4
+    epss: 0.00232
 references:
   - https://github.com/advisories/GHSA-4q5v-7g7x-j79w
   - CVE-2026-46345
+  - https://github.com/advisories/GHSA-r4vp-3vw6-r2x5
 rules:
   - title: Detect CVE-2026-46345 Exploitation Attempt - Compliance Trestle Path Traversal
     description: Detects CVE-2026-46345 exploitation attempt by monitoring process execution with suspicious output paths in compliance-trestle.
@@ -63,6 +70,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-09-24T20:04:35Z"
+    level: L2
+    summary: added CVE-2026-46345; compliance-trestle version <= 3.12.1
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-r4vp-3vw6-r2x5
 ---
 
 The compliance-trestle application, specifically the `trestle author jinja` command, is susceptible to an arbitrary file write vulnerability due to insufficient validation of the output path. By manipulating the `-o/--output` argument, an attacker can write files to locations outside the intended workspace directory. This is because the application fails to properly sanitize path traversal characters such as `../` and `..\`, as well as absolute paths. This vulnerability was reported on May 28, 2026. Successful exploitation can lead to overwriting critical files, potentially compromising CI/CD pipelines or enabling local code execution. This poses a significant risk to systems using compliance-trestle, particularly in automated environments where file integrity is crucial. The vulnerability affects compliance-trestle versions prior to 4.0.3 and versions up to 3.12.1.
