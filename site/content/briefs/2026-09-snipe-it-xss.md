@@ -3,7 +3,7 @@ title: Stored XSS in Snipe-IT Uploaded Files API
 slug: 2026-09-snipe-it-xss
 description: Snipe-IT contains a stored XSS vulnerability in the uploaded-files API due to the failure to apply safe-inline allowlists to XML documents, allowing authenticated attackers to execute arbitrary JavaScript in the victim's session context via CVE-2026-63498.
 date: "2026-09-24T20:07:51Z"
-lastmod: "2026-09-24T20:08:14Z"
+lastmod: "2026-09-24T20:08:24Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: An account holding ONLY customfields.create planted a payload that, when a superuser opened /hardware, issued an authenticated request in that session and granted the attacker's own account the superuser permission.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1550.001
+    technique_name: Use Alternate Authentication Material
+    evidence: An attacker who knows a victim's password fully bypasses that account's 2FA and obtains a persistent token with full API access.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1078.004
+    technique_name: Valid Accounts
+    evidence: The token is long-lived (40-year expiry by default) and grants full API access as the user.
+    confidence_band: high
 cves:
   - id: CVE-2026-63498
     cvss: 8.7
@@ -54,6 +66,20 @@ references:
   - https://github.com/grokability/snipe-it/commit/e929b31f0b183c5810bd2b833c1f6f643cbe5284
   - https://github.com/advisories/GHSA-p9h3-gvpq-5539
   - https://github.com/grokability/snipe-it/commit/58754e4e3b86b58a0c4523012ef04a2ae990d2c8
+  - https://github.com/advisories/GHSA-hxcx-9h4f-42xx
+  - https://github.com/snipe/snipe-it/pull/19294
+rules:
+  - title: Detect Suspicious Personal Access Token Creation
+    description: Detects potential exploitation of CVE-2026-63493 by monitoring for API requests to generate personal access tokens, which should be correlated with authentication logs showing incomplete 2FA.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1550.001
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -78,6 +104,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-p9h3-gvpq-5539
+  - at: "2026-09-24T20:08:24Z"
+    level: L2
+    summary: 'added detection rule: Detect Suspicious Personal Access Token Creation'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-hxcx-9h4f-42xx
 ---
 
 Snipe-IT is vulnerable to stored cross-site scripting (XSS) via its uploaded-files API (CVE-2026-63498). The vulnerability exists because the API endpoint `GET /api/v1/{object_type}/{id}/files/{file_id}` honors an attacker-controlled `inline=true` query parameter for all uploaded files without verifying the safety of the content. While the non-API web controller correctly utilizes `StorageHelper::allowSafeInline()` to sanitize inline responses, the API controller fails to perform this check.
