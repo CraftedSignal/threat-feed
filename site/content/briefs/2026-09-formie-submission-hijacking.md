@@ -3,7 +3,7 @@ title: Unauthenticated Submission Overwrite in Formie Plugin for Craft CMS
 slug: 2026-09-formie-submission-hijacking
 description: The Formie plugin for Craft CMS is vulnerable to an unauthenticated submission hijacking flaw (CVE-2026-76087) where attackers can overwrite other users' in-progress forms by supplying arbitrary submission IDs.
 date: "2026-09-23T19:57:29Z"
-lastmod: "2026-09-23T19:57:39Z"
+lastmod: "2026-09-24T01:57:52Z"
 type: advisory
 types:
   - advisory
@@ -15,12 +15,18 @@ tags:
   - web-vulnerability
   - ssrf
   - credential-theft
+  - web-application
+  - cms
+  - vulnerability
+  - access-control
 vendors:
   - Verbb
 products:
   - Formie (3.0.0 - 3.1.30)
   - Formie (< 2.2.23)
   - Formie (< 3.1.31)
+  - Formie (3.x < 3.1.31)
+  - Formie (2.x < 2.2.23)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -40,6 +46,12 @@ mitre_ttps:
     technique_name: 'Unsecured Credentials: Credentials In Files'
     evidence: The action applied request-supplied settings to a fully configured integration... allowing the server to send stored API keys or OAuth tokens to the attacker-controlled host.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: The controller failed to perform object-level authorization checks, allowing authenticated users to access data beyond their assigned permissions.
+    confidence_band: high
 cves:
   - id: CVE-2026-76087
     cvss: 8.2
@@ -48,6 +60,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76087
   - https://github.com/advisories/GHSA-v3f3-cmj4-cvj9
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76086
+  - https://github.com/advisories/GHSA-9rg8-2wvr-fgjh
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76089
 action_plan:
   priority: elevated
   owners:
@@ -81,6 +95,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-v3f3-cmj4-cvj9
+  - at: "2026-09-24T01:57:52Z"
+    level: L2
+    summary: added coverage for Formie (3.x < 3.1.31) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9rg8-2wvr-fgjh
 ---
 
 The Formie plugin for Craft CMS is susceptible to an unauthenticated submission hijacking vulnerability, tracked as CVE-2026-76087. The vulnerability exists within the `formie/submissions/submit` action, which fails to verify that the submission ID provided by the client belongs to the active user's session. Specifically, the `SubmissionsController::actionSubmit` method trusts the user-supplied `submissionId` without enforcing ownership checks or validating an edit token for incomplete submissions. 
