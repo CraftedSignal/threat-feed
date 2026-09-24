@@ -3,7 +3,7 @@ title: Authorization Bypass in Klever-Go KleverUpdateAccountPermission Built-in
 slug: 2026-09-klever-vm-auth-bypass
 description: An authorization flaw in the Klever-Go VM allows attackers to execute an account takeover by leveraging an incorrectly validated RecipientAddr parameter during indirect smart contract calls.
 date: "2026-09-23T19:57:00Z"
-lastmod: "2026-09-24T01:57:38Z"
+lastmod: "2026-09-24T01:57:46Z"
 type: advisory
 types:
   - advisory
@@ -26,12 +26,14 @@ tags:
   - injection
   - elasticsearch
   - cve-2026-82409
+  - theft
 vendors:
   - Klever
   - Elastic
 products:
   - klever-go (<= 1.7.19)
   - Elasticsearch (< 1.7.20)
+  - klever-go
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -69,6 +71,12 @@ mitre_ttps:
     technique_name: Create Account
     evidence: The malicious payload is written into the consensus account state, ensuring it is re-indexed by current and future nodes.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: Windows Command Shell
+    evidence: The logic flaw resides in the marketplace handler execution path.
+    confidence_band: low
 references:
   - https://github.com/advisories/GHSA-97cv-x867-6xhm
   - https://github.com/advisories/GHSA-9v8p-frvj-2pcm
@@ -125,6 +133,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-7c7c-373r-gfjj
+  - at: "2026-09-24T01:57:46Z"
+    level: L2
+    summary: added coverage for klever-go
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-26r5-4mm2-px5c
 ---
 
 A critical authorization vulnerability (CVE-2026-82405) exists in the `KleverUpdateAccountPermission` built-in function within the `klever-go` repository, affecting versions 1.7.19 and earlier. The vulnerability occurs because the function validates permissions against the `vmInput.RecipientAddr` field rather than the authenticated `vmInput.CallerAddr`. 
