@@ -3,6 +3,7 @@ title: Authentication Bypass Vulnerability in Pangolin
 slug: 2026-08-pangolin-auth-bypass
 description: Pangolin versions prior to 1.22.0 are vulnerable to an authentication bypass in the share-link endpoint, allowing unauthenticated access to arbitrary resources.
 date: "2026-08-31T19:58:46Z"
+lastmod: "2026-09-24T22:17:45Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:pangolin:pangolin:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=FC438F4D-24B9-5795-A4EF-41B5E5897C38&utm_source=rss&utm_medium=rss
 tags:
   - authentication-bypass
   - cve-2026-72001
@@ -28,8 +32,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-72001
     cvss: 8.1
+    epss: 0.00278
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72001
+  - https://sploitus.com/exploit?id=FC438F4D-24B9-5795-A4EF-41B5E5897C38&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-72001
       evidence: Vulnerability resides within the share-link authentication endpoint
+updates:
+  - at: "2026-09-24T22:17:45Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=FC438F4D-24B9-5795-A4EF-41B5E5897C38&utm_source=rss&utm_medium=rss
 ---
 
 Pangolin versions prior to 1.22.0 contain a critical authentication bypass vulnerability (CVE-2026-72001) within the application's share-link authentication mechanism. This flaw stems from improper input validation during the token verification process. Specifically, the share-link authentication endpoint fails to enforce the inclusion of the resource identifier in the verification call, allowing an attacker to manipulate URL parameters to gain unauthorized access to protected content. By utilizing a single valid share link - which can be obtained for any low-security resource - an attacker can bypass all configured authentication controls, including SSO, resource passwords, PIN requirements, email allowlists, and header-based authentication. This allows for unauthorized traversal and access to arbitrary resources across different organizations within the Pangolin ecosystem. The vulnerability is rated with a CVSS 3.1 base score of 8.1, indicating high risk for organizations relying on Pangolin for secure document or resource sharing.
