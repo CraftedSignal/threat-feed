@@ -3,7 +3,7 @@ title: Authorization Bypass in Klever-Go KleverUpdateAccountPermission Built-in
 slug: 2026-09-klever-vm-auth-bypass
 description: An authorization flaw in the Klever-Go VM allows attackers to execute an account takeover by leveraging an incorrectly validated RecipientAddr parameter during indirect smart contract calls.
 date: "2026-09-23T19:57:00Z"
-lastmod: "2026-09-23T19:57:14Z"
+lastmod: "2026-09-24T01:57:29Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,9 @@ tags:
   - log-manipulation
   - unauthenticated-access
   - websocket-vulnerability
+  - consensus-failure
+  - denial-of-service
+  - blockchain-security
 vendors:
   - Klever
 products:
@@ -37,10 +40,17 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The node processes the first message sent by the client as a logger 'Profile', which is applied globally.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: The protocol deserializes these keys at the start of each slot, an invalid key causes a deterministic failure in the multi-signature process, leading to a consensus failure and missed slots.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-97cv-x867-6xhm
   - https://github.com/advisories/GHSA-9v8p-frvj-2pcm
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86064
+  - https://github.com/advisories/GHSA-9wh6-9hq7-9688
 rules:
   - title: Detect Unauthenticated WebSocket Log Profile Manipulation
     description: Detects exploitation of CVE-2026-86064 where an unauthenticated client sends a logging profile mutation payload to the /log endpoint.
@@ -77,6 +87,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-9v8p-frvj-2pcm
+  - at: "2026-09-24T01:57:29Z"
+    level: L1
+    summary: added coverage for klever-go (<= 1.7.19)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9wh6-9hq7-9688
 ---
 
 A critical authorization vulnerability (CVE-2026-82405) exists in the `KleverUpdateAccountPermission` built-in function within the `klever-go` repository, affecting versions 1.7.19 and earlier. The vulnerability occurs because the function validates permissions against the `vmInput.RecipientAddr` field rather than the authenticated `vmInput.CallerAddr`. 
