@@ -1,8 +1,8 @@
 ---
-title: Command Injection Vulnerability in rpm rpmbuild
+title: Command Injection in RPM Package Manager
 slug: 2026-09-rpm-command-injection
-description: A command injection vulnerability (CVE-2026-84837) in the rpmbuild -t* functionality allows attackers to execute arbitrary commands by supplying malicious tarball filenames or paths in build workflows.
-date: "2026-09-02T17:16:17Z"
+description: A command injection vulnerability (CVE-2026-95521) in the rpm package manager allows arbitrary command execution when processing maliciously crafted source RPM files containing %() macro constructs.
+date: "2026-09-24T14:47:26Z"
 type: advisory
 types:
   - advisory
@@ -12,53 +12,49 @@ cpes:
   - cpe:2.3:a:rpm:rpm:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
-  - ci-cd
-  - rpm
+  - command-injection
+  - supply-chain
 vendors:
-  - RPM Software Management
+  - RPM.org
 products:
   - rpm
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
-    technique_id: T1059.004
-    technique_name: 'Command and Scripting Interpreter: Unix Shell'
-    evidence: Successful exploitation allows for arbitrary command execution with the privileges of the build user.
+    technique_id: T1202
+    technique_name: Indirect Command Execution
+    evidence: Installing or rebuilding a source RPM whose source or spec file basenames contain a %() macro construct causes rpm to execute an attacker-controlled shell command via popen().
     confidence_band: high
 cves:
-  - id: CVE-2026-84837
+  - id: CVE-2026-95521
     cvss: 7.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-84837
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-95521
 action_plan:
   priority: elevated
   owners:
-    - DevOps
-    - Security Engineering
+    - IT Operations
+    - Detection Engineering
   immediate_actions:
-    - action: Audit CI/CD pipeline configurations for automated use of rpmbuild -t
-      owner: DevOps
+    - action: Inventory all systems using rpm for package building.
+      owner: IT Operations
       due: 48h
-      evidence: Source notes the vulnerability is relevant in automated build or CI workflows.
   mitigation_plan:
     - priority: immediate
-      action: Patch rpm package when vendors release updates for CVE-2026-84837
+      action: Monitor for patched versions of rpm from primary Linux distribution vendors.
       owner: IT Operations
-      addresses: CVE-2026-84837
-      evidence: NVD vulnerability disclosure
+      addresses: CVE-2026-95521
 ---
 
-CVE-2026-84837 is a command injection vulnerability found in the rpm package manager, specifically affecting the `rpmbuild -t*` functionality. The vulnerability arises when the utility processes tarballs with filenames or paths containing shell metacharacters. If an automated build process or continuous integration (CI) pipeline accepts externally sourced or untrusted filenames, an attacker can craft a filename that breaks the command structure, leading to arbitrary code execution.
-
-The impact of this vulnerability is significant in CI/CD environments where build systems often run with elevated privileges or have access to sensitive development secrets. Exploitation occurs during the build process, allowing the attacker to run commands under the context of the user executing the `rpmbuild` command. Defenders should audit automated build scripts that use `rpmbuild` to ensure inputs are sanitized and to assess whether they are currently processing untrusted or unverified tarball artifacts.
+CVE-2026-95521 is a high-severity command injection vulnerability identified in the rpm package manager. The flaw arises from insecure handling of source RPM files during installation or rebuild operations. When rpm processes a source RPM where the source or spec file basenames contain a %() macro construct, the package manager improperly invokes popen() to relocate the source file list. This execution path results in the arbitrary execution of attacker-supplied shell commands under the context of the user running the command, which may include build agents, developers, or system administrators. Because this logic is triggered by standard package processing workflows, it poses a significant risk to CI/CD pipelines and environments that ingest untrusted or third-party source packages.
 
 ## Impact
 
-Successful exploitation allows for arbitrary command execution with the privileges of the build user, leading to potential information disclosure of source code, theft of build credentials, or disruption of development and delivery pipelines. This flaw poses a high risk to automated environments processing third-party artifacts.
+Successful exploitation allows for arbitrary code execution on any system that processes a malicious .src.rpm file. The impact is significant for build infrastructure, development environments, and automated packaging systems, as an attacker can gain the privileges of the user running the rpm command to perform post-exploitation activities, such as credential theft or lateral movement within the build environment.
 
 ## Recommendation
 
-- Identify all automated CI/CD pipelines and developer workstations utilizing `rpmbuild -t`.
-- Audit build scripts to determine if filenames or paths processed by `rpmbuild` are derived from user-controlled or external, untrusted sources.
-- Apply security patches for rpm provided by distribution vendors as they become available to remediate CVE-2026-84837.
-- Implement strict input validation and sanitization for all file artifacts passed to build utilities in CI/CD pipelines.
+- Identify all systems and CI/CD runners utilizing the rpm package manager for rebuilding or installing source packages.
+- Prioritize patching the rpm package as soon as security updates are provided by the vendor.
+- Implement strict verification controls for incoming .src.rpm files from untrusted third-party sources.
+- Audit build logs for occurrences of unexpected subshell execution or shell metacharacters within filenames handled by rpm.
