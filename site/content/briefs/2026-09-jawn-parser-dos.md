@@ -3,6 +3,7 @@ title: Jawn AsyncParser Denial of Service via Quadratic Parsing Complexity
 slug: 2026-09-jawn-parser-dos
 description: The jawn-parser library is vulnerable to a denial-of-service condition where fragmented input triggers quadratic parsing effort, leading to CPU exhaustion.
 date: "2026-09-24T01:57:57Z"
+lastmod: "2026-09-24T01:58:04Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - low
 cpes:
   - cpe:2.3:a:typelevel:jawn-parser:*:*:*:*:*:*:*:*
+tags:
+  - denial-of-service
+  - library-vulnerability
+  - jvm
 vendors:
   - Typelevel
 products:
@@ -27,6 +32,7 @@ cves:
 references:
   - https://github.com/advisories/GHSA-w4cm-gvhj-cgw6
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61814
+  - https://github.com/advisories/GHSA-cc4v-rvgp-2pf3
 action_plan:
   priority: elevated
   owners:
@@ -38,6 +44,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-61814
       evidence: Fixed in jawn-parser-1.7.0.
+updates:
+  - at: "2026-09-24T01:58:04Z"
+    level: L1
+    summary: added coverage for jawn-parser (<= 1.6.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-cc4v-rvgp-2pf3
 ---
 
 The jawn-parser library contains a vulnerability (CVE-2026-61814) in its `AsyncParser` component that allows for a denial-of-service (DoS) attack through CPU exhaustion. When the parser processes JSON tokens delivered in small, fragmented chunks, it performs redundant rescanning of the incomplete token during each `absorb` call. This quadratic complexity (O(n^2)) on the input length allows an attacker who can influence the size and delivery frequency of JSON chunks to force the application to consume excessive CPU resources. This affects users of `jawn-parser` versions 1.6.0 and earlier across Scala versions 2.12, 2.13, and 3. Defenders should prioritize upgrading to version 1.7.0 or switching to the synchronous `Parser` implementation if an immediate upgrade is not feasible.
