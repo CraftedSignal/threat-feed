@@ -3,7 +3,7 @@ title: Unauthenticated Remote Code Execution in IBM Guardium Data Protection
 slug: 2026-09-ibm-guardium-rce
 description: IBM Guardium Data Protection version 12.2 is vulnerable to a critical deserialization flaw allowing remote, unauthenticated attackers to execute arbitrary code (CVE-2026-81657).
 date: "2026-09-18T22:07:18Z"
-lastmod: "2026-09-25T16:54:00Z"
+lastmod: "2026-09-25T16:54:13Z"
 type: advisory
 types:
   - advisory
@@ -91,6 +91,10 @@ cves:
     epss: 0.00558
   - id: CVE-2026-84884
     cvss: 7.5
+  - id: CVE-2026-84882
+    cvss: 7.5
+  - id: CVE-2026-84862
+    cvss: 7.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-81657
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82340
@@ -102,6 +106,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85542
   - https://sploitus.com/exploit?id=CVE-2026-85542&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84884
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84862
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84882
 action_plan:
   priority: immediate_escalation
   owners:
@@ -119,13 +125,6 @@ action_plan:
       addresses: CVE-2026-81657
       evidence: Vulnerability allows remote unauthenticated access
 updates:
-  - at: "2026-09-18T22:10:48Z"
-    level: L2
-    summary: added coverage for Guardium Data Protection (12.2)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-84083
   - at: "2026-09-19T00:07:19Z"
     level: L2
     summary: added coverage for Guardium Data Protection (12.2)
@@ -154,6 +153,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-84884
+  - at: "2026-09-25T16:54:13Z"
+    level: L2
+    summary: added CVE-2026-84862 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-84882
 ---
 
 IBM Guardium Data Protection version 12.2 contains a critical security vulnerability, tracked as CVE-2026-81657, which allows for remote code execution by an unauthenticated attacker. The vulnerability is rooted in the improper deserialization of untrusted data processed by the application. Because the flaw can be triggered without authentication, it represents a high-risk entry point for threat actors seeking to gain unauthorized access to database monitoring and security infrastructure. Given the sensitivity of the data managed by Guardium, successful exploitation could lead to full system compromise, data exfiltration, and lateral movement within the database environment. Defenders must prioritize the identification of Guardium 12.2 instances and apply the vendor-provided patches or mitigations to neutralize this vector.
