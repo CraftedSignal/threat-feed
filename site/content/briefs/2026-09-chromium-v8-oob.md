@@ -3,7 +3,7 @@ title: Chromium V8 Engine Out-of-Bounds Memory Access Vulnerability
 slug: 2026-09-chromium-v8-oob
 description: CVE-2026-0899 is an out-of-bounds memory access vulnerability in the Chromium V8 JavaScript engine that may result in memory corruption, process crashes, or arbitrary code execution.
 date: "2026-09-18T07:20:15Z"
-lastmod: "2026-09-23T14:04:20Z"
+lastmod: "2026-09-25T14:11:19Z"
 type: advisory
 types:
   - advisory
@@ -16,11 +16,21 @@ tags:
   - vulnerability
   - chromium
   - browser-security
+  - browser
+  - cve-2026-4450
 vendors:
   - Google
 products:
   - Chromium (< 144.0.7559.59)
   - Chromium (< 153.0.8010.36)
+  - Chromium (< 146.0.7680.153)
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Exploitation of this flaw could allow a remote attacker to execute arbitrary code by enticing a user to visit a malicious webpage.
+    confidence_band: high
 cves:
   - id: CVE-2026-0899
     cvss: 8.8
@@ -28,6 +38,7 @@ cves:
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-0899
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-87536
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-4450
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +57,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-87536
+  - at: "2026-09-25T14:11:19Z"
+    level: L2
+    summary: added coverage for Chromium (< 146.0.7680.153)
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-4450
 ---
 
 CVE-2026-0899 represents a security vulnerability identified within the V8 JavaScript engine, which serves as the core execution environment for Chromium-based web browsers. This vulnerability is classified as an out-of-bounds (OOB) memory access issue. Such flaws typically arise when the engine fails to properly validate the bounds of an array or memory buffer during JIT (Just-In-Time) compilation or execution of JavaScript code. If successfully exploited by an attacker via a maliciously crafted webpage, this vulnerability could allow for heap-based memory corruption. Potential consequences of this memory corruption include the application crashing, which leads to a denial of service, or the attainment of arbitrary code execution within the security context of the browser process. As Chromium serves as the foundation for Google Chrome, Microsoft Edge, and many other browser platforms, this vulnerability affects a wide range of browser users across Windows, Linux, and macOS environments.
