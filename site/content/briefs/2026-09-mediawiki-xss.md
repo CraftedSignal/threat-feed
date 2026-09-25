@@ -1,44 +1,54 @@
 ---
-title: Multiple Cross-Site Scripting Vulnerabilities in MediaWiki
+title: Cross-Site Scripting Vulnerability in MediaWiki CirrusSearch Extension
 slug: 2026-09-mediawiki-xss
-description: Multiple vulnerabilities in MediaWiki allow remote, unauthenticated attackers to conduct Cross-Site Scripting (XSS) attacks by exploiting insufficient input validation within the application.
-date: "2026-09-14T13:06:47Z"
+description: A vulnerability in the CirrusSearch extension for MediaWiki allows remote, unauthenticated attackers to execute cross-site scripting (XSS) attacks through improper input sanitization.
+date: "2026-09-25T14:01:12Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
+tags:
+  - xss
+  - web-vulnerability
+  - mediawiki
 vendors:
   - MediaWiki
 products:
-  - MediaWiki
+  - CirrusSearch
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1189
-    technique_name: Drive-by Compromise
-    evidence: An unauthenticated attacker can exploit multiple vulnerabilities in MediaWiki to perform a Cross-Site Scripting attack.
+    technique_id: T1505
+    technique_name: Server Software Component
+    evidence: The vulnerability exists in the CirrusSearch extension of MediaWiki, enabling XSS attacks.
     confidence_band: high
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-0083
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3566
 action_plan:
-  priority: monitor_or_close
+  priority: elevated
   owners:
     - IT Operations
-  mitigation_plan:
-    - priority: medium_term
-      action: Upgrade MediaWiki instances to the latest security-hardened release provided by the maintainers.
+    - SOC
+  immediate_actions:
+    - action: Update CirrusSearch extension to the latest version.
       owner: IT Operations
-      addresses: Insufficient input validation in MediaWiki
-      evidence: Source states vulnerabilities enable XSS via input validation failure.
+      due: 72h
+      evidence: General security recommendation for software vulnerabilities.
+  mitigation_plan:
+    - priority: immediate
+      action: Review and harden Content Security Policy (CSP) to mitigate XSS risks.
+      owner: IT Operations
+      addresses: XSS vulnerability in CirrusSearch
+      evidence: Standard defensive measure against XSS.
 ---
 
-MediaWiki contains multiple vulnerabilities that permit remote, unauthenticated attackers to execute Cross-Site Scripting (XSS) attacks. These vulnerabilities stem from insufficient input validation and sanitization of user-supplied data before it is processed and rendered by the web application. When successfully exploited, an attacker can execute arbitrary scripts within the context of a victim's browser session. This can lead to the theft of session cookies, redirection to malicious websites, or unauthorized actions performed on behalf of the authenticated user within the MediaWiki environment. Defenders should focus on applying patches provided by the MediaWiki project to address these input handling flaws.
+The CirrusSearch extension for MediaWiki, which provides search functionality via Elasticsearch, contains a cross-site scripting (XSS) vulnerability. An unauthenticated remote attacker can exploit this flaw by supplying specially crafted input to the search functionality that is not properly sanitized before being reflected in the user's browser. If successful, this attack allows for the execution of arbitrary JavaScript within the context of a victim's session, potentially leading to session hijacking, credential theft, or unauthorized actions performed on behalf of the user. This vulnerability highlights the importance of rigorous input validation in extensions that handle user-supplied query parameters and render output dynamically in the application interface. Defenders should monitor for unexpected script injection patterns in web server logs or via browser-based security telemetry.
 
 ## Impact
 
-Successful exploitation allows unauthenticated remote attackers to perform XSS attacks against MediaWiki users. The potential impact includes the compromise of user accounts, theft of sensitive session data, and the potential for defacement or unauthorized content manipulation within the wiki environment.
+Successful exploitation of this vulnerability allows for the execution of malicious scripts in the browser of an authenticated or unauthenticated MediaWiki user. This can lead to account takeover, unauthorized modification of wiki content, or redirection to malicious sites, impacting the integrity and confidentiality of the affected MediaWiki instance.
 
 ## Recommendation
 
-Prioritize the installation of security updates for all MediaWiki instances to address known input validation vulnerabilities. Monitor web application access logs for anomalous patterns of script injection attempts, such as unusual character strings in query parameters or URL paths.
+Update the CirrusSearch extension to the latest available version provided by the MediaWiki project to remediate the underlying sanitization flaw. Implement or update Content Security Policy (CSP) headers to restrict the execution of inline scripts and prevent unauthorized script injection.
