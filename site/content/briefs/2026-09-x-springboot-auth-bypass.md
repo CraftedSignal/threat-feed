@@ -3,7 +3,7 @@ title: Information Disclosure and Account Hijacking in X-SpringBoot
 slug: 2026-09-x-springboot-auth-bypass
 description: The X-SpringBoot application up to version 6.0 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve login verification codes and hijack user accounts.
 date: "2026-09-25T20:55:09Z"
-lastmod: "2026-09-25T20:55:21Z"
+lastmod: "2026-09-25T20:55:27Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,9 @@ tags:
   - web-application
   - authentication-bypass
   - cve
+  - webserver
+  - vulnerability
+  - privilege-escalation
 vendors:
   - X-SpringBoot
 products:
@@ -38,12 +41,19 @@ mitre_ttps:
     technique_name: 'Unsecured Credentials: Credentials in Files'
     evidence: X-SpringBoot through 6.0 ships with a hardcoded static master login verification code 172839 enabled by default in the database seed.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Insufficient object-level authorization allows sub-administrators to perform unauthorized actions such as resetting passwords for any account, including super administrators, reassigning roles, or deleting users.
+    confidence_band: high
 cves:
   - id: CVE-2026-97063
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-97063
   - https://nvd.nist.gov/vuln/detail/CVE-2026-97064
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-97060
 rules:
   - title: Detect X-SpringBoot Verification Code Information Disclosure
     description: Detects potential exploitation of CVE-2026-97063 where unauthenticated requests to verification endpoints result in successful code disclosure.
@@ -94,6 +104,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-97064
+  - at: "2026-09-25T20:55:27Z"
+    level: L2
+    summary: added coverage for X-SpringBoot (<= 6.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-97060
 ---
 
 X-SpringBoot versions 6.0 and earlier contain a critical vulnerability where sensitive login verification codes are returned directly in the HTTP response body for unauthenticated API endpoints. Specifically, the endpoints '/sys/mobile/code' and '/sys/email/code' leak these codes without requiring authentication and without sending the codes to the intended account owners. An attacker can supply a target's mobile number or email address as a parameter to these endpoints and receive the valid verification code in the server response. With this code, the attacker can then authenticate as the victim via the '/sys/emailOrMobileLogin/login' endpoint. This flaw enables widespread account hijacking by bypassing standard MFA or verification workflows. Defenders should identify instances of X-SpringBoot 6.0 or lower and restrict access to these endpoints or upgrade to a patched version once available.
