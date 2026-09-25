@@ -3,7 +3,7 @@ title: Remote Code Execution in ClipBucket via Unrestricted File Upload
 slug: 2026-09-clipbucket-rce
 description: Authenticated users can exploit a file upload vulnerability in ClipBucket v5 before 5.5.3-#182 to achieve remote code execution by bypassing MIME validation.
 date: "2026-09-18T16:07:59Z"
-lastmod: "2026-09-23T02:40:38Z"
+lastmod: "2026-09-25T20:55:44Z"
 type: advisory
 types:
   - advisory
@@ -19,10 +19,13 @@ tags:
   - cve-2026-96272
   - sqli
   - web-vulnerability
+  - web-application
+  - path-traversal
 vendors:
   - ClipBucket
 products:
   - ClipBucket (< 5.5.3-#182)
+  - ClipBucket (< 5.5.3-#197)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -42,12 +45,19 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Unauthenticated attackers can exploit time-based blind SQL injection techniques to extract user credentials, email addresses, and administrator password hashes for account takeover.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Attackers... to modify executable PHP files and achieve remote code execution as the web server user.
+    confidence_band: high
 cves:
   - id: CVE-2026-77929
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77929
   - https://nvd.nist.gov/vuln/detail/CVE-2026-96272
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100372
 rules:
   - title: Detect CVE-2026-77929 Exploitation - Suspicious File Upload
     description: Detects potential exploitation attempts of CVE-2026-77929 by monitoring for PHP files being accessed within the upload directory structure.
@@ -95,6 +105,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-96272
+  - at: "2026-09-25T20:55:44Z"
+    level: L2
+    summary: added coverage for ClipBucket (< 5.5.3-#197)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100372
 ---
 
 ClipBucket v5 versions prior to 5.5.3-#182 are susceptible to a critical remote code execution (RCE) vulnerability. The flaw exists within the FileUpload::manageFile() function located in fileupload.class.php. Attackers with valid application accounts can bypass the existing MIME type validation by crafting a malicious PHP payload that includes valid image magic bytes. Because the application logic fails to correctly enforce or update the file extension during the processing phase, the server saves the attacker-supplied file with a .php extension to the web-accessible filesystem. Once uploaded, an attacker can trigger the execution of this file via PHP-FPM by navigating to the file path, resulting in arbitrary code execution on the underlying host. This vulnerability represents a significant risk for organizations running ClipBucket in internet-facing configurations, as it allows full system compromise upon successful authentication and upload.
