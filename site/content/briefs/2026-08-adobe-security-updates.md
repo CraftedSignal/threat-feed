@@ -3,7 +3,7 @@ title: Adobe Security Updates — August 2026
 slug: 2026-08-adobe-security-updates
 description: Roundup of Adobe security advisories published in August 2026.
 date: "2026-08-03T23:42:20Z"
-lastmod: "2026-08-27T19:09:44Z"
+lastmod: "2026-09-25T01:16:59Z"
 type: threat
 types:
   - threat
@@ -31,6 +31,19 @@ cpes:
   - cpe:2.3:a:adobe:coldfusion:2023:update5:*:*:*:*:*:*
   - cpe:2.3:a:adobe:coldfusion:2023:update6:*:*:*:*:*:*
   - cpe:2.3:a:adobe:substance_3d_designer:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:campaign:*:*:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.1:9383:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.2:9390:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.2:9391:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.3:9394:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.3:9396:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.3:9397:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.3:9398:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.3:9399:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:campaign:7.4.4:9400:*:*:classic:*:*:*
+  - cpe:2.3:a:adobe:c2pa:*:*:*:*:*:rust:*:*
+  - cpe:2.3:a:adobe:c2patool:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:adobe:substance_3d_painter:*:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -40,27 +53,21 @@ cves:
     product: ColdFusion 2025 (<= 2025.0.11)
     cvss: 10
     epss: 0.04312
-  - id: CVE-2026-21279
-    cvss: 8.2
-    epss: 0.00475
-  - id: CVE-2026-48424
+  - id: CVE-2026-48386
+    cvss: 7.5
+    epss: 0.00808
+  - id: CVE-2026-76195
+    cvss: 10
+    epss: 0.01586
+  - id: CVE-2026-71443
+    cvss: 7.5
+    epss: 0.00508
+  - id: CVE-2026-75766
     cvss: 7.8
-    epss: 0.002
-  - id: CVE-2026-48432
-    cvss: 7.8
-    epss: 0.002
-  - id: CVE-2026-34674
-    cvss: 7.8
+    epss: 0.00186
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34674
 updates:
-  - at: "2026-08-25T18:54:01Z"
-    level: L2
-    summary: added CVE-2026-75766
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-75766
   - at: "2026-08-25T18:55:17Z"
     level: L2
     summary: added CVE-2026-48447
@@ -89,64 +96,72 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-34674
+  - at: "2026-09-25T01:16:59Z"
+    level: L2
+    summary: added CVE-2026-48386 +3
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-71362
 ---
 
-This roundup covers 50 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, Adobe Substance 3D Designer, Adobe Substance 3D Painter, Adobe Substance 3D Sampler, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic, Substance 3D Painter, Substance 3D Sampler.
+This roundup covers 51 Adobe security vulnerabilities. CVSS base scores range from 7.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Campaign Classic, Adobe Commerce, Adobe Substance 3D Designer, Adobe Substance 3D Painter, Adobe Substance 3D Sampler, ColdFusion, ColdFusion 2025, Content Credentials Rust SDK, Lightroom Classic, Substance 3D Painter, Substance 3D Sampler, Substance3D - Sampler.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-48362](#cve-2026-48362) | ColdFusion 2025 (<= 2025.0.11) | Critical | 10.0 | 4.31% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48362) (authoritative) |
-| [CVE-2026-71384](#cve-2026-71384) | n/a | Critical | 9.6 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71384) (authoritative) |
+| [CVE-2026-71384](#cve-2026-71384) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71384) (authoritative) |
 | [CVE-2026-21273](#cve-2026-21273) | ColdFusion 2025 (<= 2025.0.11) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-21273) (authoritative) |
 | [CVE-2026-21279](#cve-2026-21279) | n/a | High | 8.2 | 0.47% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-21279) (authoritative) |
-| [CVE-2026-25652](#cve-2026-25652) | n/a | High | 7.8 | 0.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-25652) (authoritative) |
-| [CVE-2026-34635](#cve-2026-34635) | n/a | High | 8.4 | 0.18% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-34635) (authoritative) |
+| [CVE-2026-25652](#cve-2026-25652) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-25652) (authoritative) |
+| [CVE-2026-34635](#cve-2026-34635) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-34635) (authoritative) |
 | [CVE-2026-48385](#cve-2026-48385) | ColdFusion (<= 2025.0.11) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48385) (authoritative) |
 | [CVE-2026-48386](#cve-2026-48386) | ColdFusion 2025 (<= 2025.0.11) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48386) (authoritative) |
-| [CVE-2026-48439](#cve-2026-48439) | Content Credentials Rust SDK (<= c2pa-v0.90.5) | High | 7.5 | 0.51% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48439) (authoritative) |
-| [CVE-2026-48440](#cve-2026-48440) | n/a | High | 8.1 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48440) (authoritative) |
-| [CVE-2026-48442](#cve-2026-48442) | Content Credentials Rust SDK (<= c2pa-v0.90.5) | High | 7.1 | 0.24% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48442) (authoritative) |
-| [CVE-2026-27302](#cve-2026-27302) | Adobe Campaign Classic (<= 7.4.3 build 9399) | Critical | 10.0 | 0.71% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-27302) (authoritative) |
-| [CVE-2026-71362](#cve-2026-71362) | n/a | Critical | 9.1 | 25.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71362) (authoritative) |
-| [CVE-2026-71398](#cve-2026-71398) | Adobe Campaign Classic (<= 7.4.3 build 9399) | Critical | 10.0 | 0.79% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71398) (authoritative) |
+| [CVE-2026-48439](#cve-2026-48439) | Content Credentials Rust SDK (<= c2pa-v0.90.5) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48439) (authoritative) |
+| [CVE-2026-48440](#cve-2026-48440) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48440) (authoritative) |
+| [CVE-2026-48442](#cve-2026-48442) | Content Credentials Rust SDK (<= c2pa-v0.90.5) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48442) (authoritative) |
+| [CVE-2026-27302](#cve-2026-27302) | Adobe Campaign Classic (<= 7.4.3 build 9399) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-27302) (authoritative) |
+| [CVE-2026-71362](#cve-2026-71362) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71362) (authoritative) |
+| [CVE-2026-71398](#cve-2026-71398) | Adobe Campaign Classic (<= 7.4.3 build 9399) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71398) (authoritative) |
 | [CVE-2026-47940](#cve-2026-47940) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-47940) (authoritative) |
 | [CVE-2026-48397](#cve-2026-48397) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48397) (authoritative) |
-| [CVE-2026-48405](#cve-2026-48405) | n/a | High | 7.8 | 0.16% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48405) (authoritative) |
+| [CVE-2026-48405](#cve-2026-48405) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48405) (authoritative) |
 | [CVE-2026-48406](#cve-2026-48406) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48406) (authoritative) |
-| [CVE-2026-48407](#cve-2026-48407) | n/a | High | 7.8 | 0.16% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48407) (authoritative) |
-| [CVE-2026-48408](#cve-2026-48408) | Lightroom Classic (<= 15.4) | High | 7.8 | 0.16% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48408) (authoritative) |
-| [CVE-2026-48410](#cve-2026-48410) | n/a | High | 7.8 | 0.16% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48410) (authoritative) |
+| [CVE-2026-48407](#cve-2026-48407) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48407) (authoritative) |
+| [CVE-2026-48408](#cve-2026-48408) | Lightroom Classic (<= 15.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48408) (authoritative) |
+| [CVE-2026-48410](#cve-2026-48410) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48410) (authoritative) |
 | [CVE-2026-48413](#cve-2026-48413) | Adobe Commerce (<= 2026-07-31) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48413) (authoritative) |
-| [CVE-2026-48415](#cve-2026-48415) | n/a | High | 7.6 | 0.35% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48415) (authoritative) |
-| [CVE-2026-48416](#cve-2026-48416) | n/a | High | 7.5 | 0.50% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48416) (authoritative) |
-| [CVE-2026-48447](#cve-2026-48447) | n/a | High | 7.7 | 0.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48447) (authoritative) |
-| [CVE-2026-76193](#cve-2026-76193) | Adobe Campaign Classic (<= 7.4.4 build 9400) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76193) (authoritative) |
-| [CVE-2026-76195](#cve-2026-76195) | Adobe Campaign Classic (<= 7.4.4 build 9400) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76195) (authoritative) |
-| [CVE-2026-76197](#cve-2026-76197) | Adobe Campaign Classic (<= 7.4.4 build 9400) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76197) (authoritative) |
+| [CVE-2026-48415](#cve-2026-48415) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48415) (authoritative) |
+| [CVE-2026-48416](#cve-2026-48416) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48416) (authoritative) |
+| [CVE-2026-48447](#cve-2026-48447) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48447) (authoritative) |
+| [CVE-2026-76193](#cve-2026-76193) | Adobe Campaign Classic (<= 7.4.4 build 9400) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76193) (authoritative) |
+| [CVE-2026-76195](#cve-2026-76195) | Adobe Campaign Classic (<= 7.4.4 build 9400) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76195) (authoritative) |
+| [CVE-2026-76197](#cve-2026-76197) | Adobe Campaign Classic (<= 7.4.4 build 9400) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76197) (authoritative) |
 | [CVE-2026-48417](#cve-2026-48417) | Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48417) (authoritative) |
 | [CVE-2026-48418](#cve-2026-48418) | Adobe Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48418) (authoritative) |
-| [CVE-2026-48419](#cve-2026-48419) | Substance 3D Sampler (<= 6.0.1) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48419) (authoritative) |
-| [CVE-2026-48420](#cve-2026-48420) | Adobe Substance 3D Sampler (<= 6.0.1) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48420) (authoritative) |
-| [CVE-2026-48421](#cve-2026-48421) | Substance 3D Sampler (<= 6.0.1) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48421) (authoritative) |
-| [CVE-2026-48424](#cve-2026-48424) | Adobe Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48424) (authoritative) |
+| [CVE-2026-48419](#cve-2026-48419) | Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48419) (authoritative) |
+| [CVE-2026-48420](#cve-2026-48420) | Adobe Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48420) (authoritative) |
+| [CVE-2026-48421](#cve-2026-48421) | Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48421) (authoritative) |
+| [CVE-2026-48424](#cve-2026-48424) | Adobe Substance 3D Sampler (<= 6.0.1) | High | 7.8 | 0.20% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48424) (authoritative) |
 | [CVE-2026-48426](#cve-2026-48426) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48426) (authoritative) |
 | [CVE-2026-48427](#cve-2026-48427) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48427) (authoritative) |
 | [CVE-2026-48428](#cve-2026-48428) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48428) (authoritative) |
 | [CVE-2026-48430](#cve-2026-48430) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48430) (authoritative) |
-| [CVE-2026-48432](#cve-2026-48432) | Adobe Substance 3D Designer (<= 16.0.4) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48432) (authoritative) |
+| [CVE-2026-48432](#cve-2026-48432) | Adobe Substance 3D Designer (<= 16.0.4) | High | 7.8 | 0.20% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48432) (authoritative) |
 | [CVE-2026-48433](#cve-2026-48433) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48433) (authoritative) |
-| [CVE-2026-71360](#cve-2026-71360) | n/a | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71360) (authoritative) |
+| [CVE-2026-71360](#cve-2026-71360) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71360) (authoritative) |
 | [CVE-2026-71382](#cve-2026-71382) | Substance 3D Sampler (<= 6.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71382) (authoritative) |
 | [CVE-2026-71443](#cve-2026-71443) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71443) (authoritative) |
-| [CVE-2026-71564](#cve-2026-71564) | Adobe Substance 3D Designer (<= 16.0.4) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71564) (authoritative) |
+| [CVE-2026-71564](#cve-2026-71564) | Adobe Substance 3D Designer (<= 16.0.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-71564) (authoritative) |
 | [CVE-2026-75749](#cve-2026-75749) | Adobe Substance 3D Painter (<= 12.1.2) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75749) (authoritative) |
-| [CVE-2026-75750](#cve-2026-75750) | Adobe Substance 3D Painter (<= 12.1.2) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75750) (authoritative) |
-| [CVE-2026-75766](#cve-2026-75766) | Substance 3D Painter (<= 12.1.2) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75766) (authoritative) |
+| [CVE-2026-75750](#cve-2026-75750) | Adobe Substance 3D Painter (<= 12.1.2) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75750) (authoritative) |
+| [CVE-2026-75766](#cve-2026-75766) | Substance 3D Painter (<= 12.1.2) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75766) (authoritative) |
 | [CVE-2026-75768](#cve-2026-75768) | Substance 3D Painter (<= 12.1.2) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75768) (authoritative) |
-| [CVE-2026-75769](#cve-2026-75769) | Substance 3D Painter (<= 12.1.2) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75769) (authoritative) |
+| [CVE-2026-75769](#cve-2026-75769) | Substance 3D Painter (<= 12.1.2) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75769) (authoritative) |
 | [CVE-2026-75770](#cve-2026-75770) | Adobe Substance 3D Painter (<= 12.1.2) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75770) (authoritative) |
+| [CVE-2026-34674](#cve-2026-34674) | Substance3D - Sampler (<= 5.1.3) | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-34674) (authoritative) |
 
 
 ## CVE-2026-48362
@@ -158,6 +173,7 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48362
+
 
 
 
@@ -223,6 +239,7 @@ Affected products:
 - ColdFusion 2023 (<= 2023.0.22)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-21273
+
 
 
 
@@ -353,6 +370,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48386
 
 
 
+
 Related in this roundup: [CVE-2026-48362](#cve-2026-48362), [CVE-2026-21273](#cve-2026-21273).
 
 ## CVE-2026-48439
@@ -365,6 +383,7 @@ Affected products:
 - Content Credentials JS SDK (<= @contentauth/c2pa@0.14.2)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48439
+
 
 
 
@@ -463,6 +482,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48442
 
 
 
+
 Related in this roundup: [CVE-2026-48439](#cve-2026-48439).
 
 ## CVE-2026-27302
@@ -473,6 +493,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-27302
+
 
 
 
@@ -526,6 +547,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.3 build 9399)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71398
+
 
 
 
@@ -672,6 +694,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76193
 
 
 
+
 Related in this roundup: [CVE-2026-27302](#cve-2026-27302), [CVE-2026-71398](#cve-2026-71398), [CVE-2026-76195](#cve-2026-76195), [CVE-2026-76197](#cve-2026-76197).
 
 ## CVE-2026-76195
@@ -682,6 +705,7 @@ Affected products:
 - Adobe Campaign Classic (<= 7.4.4 build 9400)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76195
+
 
 
 
@@ -739,6 +763,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76197
 
 
 
+
 Related in this roundup: [CVE-2026-27302](#cve-2026-27302), [CVE-2026-71398](#cve-2026-71398), [CVE-2026-76193](#cve-2026-76193), [CVE-2026-76195](#cve-2026-76195).
 
 ## CVE-2026-48417
@@ -749,6 +774,7 @@ Affected products:
 - Substance 3D Sampler (<= 6.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48417
+
 
 
 
@@ -798,6 +824,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48418
 
 
 
+
 Related in this roundup: [CVE-2026-48420](#cve-2026-48420), [CVE-2026-48424](#cve-2026-48424).
 
 ## CVE-2026-48419
@@ -808,6 +835,7 @@ Affected products:
 - Substance 3D Sampler (<= 6.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48419
+
 
 
 
@@ -857,6 +885,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48420
 
 
 
+
 Related in this roundup: [CVE-2026-48418](#cve-2026-48418), [CVE-2026-48424](#cve-2026-48424).
 
 ## CVE-2026-48421
@@ -867,6 +896,7 @@ Affected products:
 - Substance 3D Sampler (<= 6.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48421
+
 
 
 
@@ -912,6 +942,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48424
 
 
 
+
 Related in this roundup: [CVE-2026-48418](#cve-2026-48418), [CVE-2026-48420](#cve-2026-48420).
 
 ## CVE-2026-48426
@@ -922,6 +953,7 @@ Affected products:
 - Adobe Substance 3D Designer (<= 16.0.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48426
+
 
 
 
@@ -962,6 +994,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48427
 
 
 
+
 Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48430](#cve-2026-48430), [CVE-2026-48432](#cve-2026-48432), [CVE-2026-48433](#cve-2026-48433), [CVE-2026-71564](#cve-2026-71564).
 
 ## CVE-2026-48428
@@ -972,6 +1005,7 @@ Affected products:
 - Adobe Substance 3D Designer (<= 16.0.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48428
+
 
 
 
@@ -1009,6 +1043,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48430
 
 
 
+
 Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48432](#cve-2026-48432), [CVE-2026-48433](#cve-2026-48433), [CVE-2026-71564](#cve-2026-71564).
 
 ## CVE-2026-48432
@@ -1031,6 +1066,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48432
 
 
 
+
 Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48430](#cve-2026-48430), [CVE-2026-48433](#cve-2026-48433), [CVE-2026-71564](#cve-2026-71564).
 
 ## CVE-2026-48433
@@ -1041,6 +1077,7 @@ Affected products:
 - Adobe Substance 3D Designer (<= 16.0.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48433
+
 
 
 
@@ -1077,6 +1114,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71382
 
 
 
+
 Related in this roundup: [CVE-2026-48417](#cve-2026-48417), [CVE-2026-48419](#cve-2026-48419), [CVE-2026-48421](#cve-2026-48421).
 
 ## CVE-2026-71443
@@ -1100,6 +1138,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-71564
 
 
 
+
 Related in this roundup: [CVE-2026-48426](#cve-2026-48426), [CVE-2026-48427](#cve-2026-48427), [CVE-2026-48428](#cve-2026-48428), [CVE-2026-48430](#cve-2026-48430), [CVE-2026-48432](#cve-2026-48432), [CVE-2026-48433](#cve-2026-48433).
 
 ## CVE-2026-75749
@@ -1110,6 +1149,7 @@ Affected products:
 - Adobe Substance 3D Painter (<= 12.1.2)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75749
+
 
 
 
@@ -1130,6 +1170,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75750
 
 
 
+
 Related in this roundup: [CVE-2026-75749](#cve-2026-75749), [CVE-2026-75770](#cve-2026-75770).
 
 ## CVE-2026-75766
@@ -1140,6 +1181,7 @@ Affected products:
 - Substance 3D Painter (<= 12.1.2)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75766
+
 
 
 
@@ -1156,6 +1198,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75768
 
 
 
+
 Related in this roundup: [CVE-2026-75766](#cve-2026-75766), [CVE-2026-75769](#cve-2026-75769).
 
 ## CVE-2026-75769
@@ -1166,6 +1209,7 @@ Affected products:
 - Substance 3D Painter (<= 12.1.2)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75769
+
 
 
 Related in this roundup: [CVE-2026-75766](#cve-2026-75766), [CVE-2026-75768](#cve-2026-75768).
@@ -1179,4 +1223,14 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75770
 
+
 Related in this roundup: [CVE-2026-75749](#cve-2026-75749), [CVE-2026-75750](#cve-2026-75750).
+
+## CVE-2026-34674
+
+Adobe Substance3D - Sampler versions 5.1.3 and earlier are susceptible to a heap-based buffer overflow vulnerability. Successful exploitation allows a remote attacker to achieve arbitrary code execution in the context of the logged-in user, provided the user is coerced into opening a specially crafted malicious file.
+
+Affected products:
+- Substance3D - Sampler (<= 5.1.3)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-34674
