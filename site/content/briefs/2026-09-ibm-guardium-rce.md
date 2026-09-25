@@ -3,7 +3,7 @@ title: Unauthenticated Remote Code Execution in IBM Guardium Data Protection
 slug: 2026-09-ibm-guardium-rce
 description: IBM Guardium Data Protection version 12.2 is vulnerable to a critical deserialization flaw allowing remote, unauthenticated attackers to execute arbitrary code (CVE-2026-81657).
 date: "2026-09-18T22:07:18Z"
-lastmod: "2026-09-19T00:07:19Z"
+lastmod: "2026-09-25T14:53:16Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,9 @@ tags:
   - linux
   - sql-injection
   - web-security
+  - command-injection
+  - ibm
+  - cve-2026-85542
 vendors:
   - IBM
 products:
@@ -53,6 +56,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: IBM Guardium Data Protection 12.2 could allow a local attacker to gain elevated privileges due to improper privilege management.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An authenticated attacker can provide a crafted GIM bundle that causes attacker-controlled arguments to be passed to the tar command, resulting in arbitrary command execution with elevated privileges on the Central Manager.
+    confidence_band: high
 cves:
   - id: CVE-2026-81657
     cvss: 9.8
@@ -64,6 +73,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82893
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84083
   - https://nvd.nist.gov/vuln/detail/CVE-2026-80441
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85542
 action_plan:
   priority: immediate_escalation
   owners:
@@ -81,13 +91,6 @@ action_plan:
       addresses: CVE-2026-81657
       evidence: Vulnerability allows remote unauthenticated access
 updates:
-  - at: "2026-09-18T22:07:36Z"
-    level: L2
-    summary: added coverage for Guardium Data Protection (12.2)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-82967
   - at: "2026-09-18T22:07:52Z"
     level: L2
     summary: added coverage for Guardium Data Protection (12.2)
@@ -116,6 +119,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-80441
+  - at: "2026-09-25T14:53:16Z"
+    level: L2
+    summary: added coverage for Guardium Data Protection (12.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85542
 ---
 
 IBM Guardium Data Protection version 12.2 contains a critical security vulnerability, tracked as CVE-2026-81657, which allows for remote code execution by an unauthenticated attacker. The vulnerability is rooted in the improper deserialization of untrusted data processed by the application. Because the flaw can be triggered without authentication, it represents a high-risk entry point for threat actors seeking to gain unauthorized access to database monitoring and security infrastructure. Given the sensitivity of the data managed by Guardium, successful exploitation could lead to full system compromise, data exfiltration, and lateral movement within the database environment. Defenders must prioritize the identification of Guardium 12.2 instances and apply the vendor-provided patches or mitigations to neutralize this vector.
