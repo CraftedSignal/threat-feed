@@ -3,6 +3,7 @@ title: Stored XSS Vulnerability in Code16 Sharp via iframe srcdoc Attribute
 slug: 2026-09-sharp-stored-xss
 description: A stored XSS vulnerability in the Code16 Sharp rich text editor allows authenticated attackers to execute arbitrary JavaScript by exploiting browser-side HTML entity decoding within the iframe srcdoc attribute.
 date: "2026-09-25T20:06:45Z"
+lastmod: "2026-09-25T20:06:52Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,11 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:code16:sharp:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - xss
+  - vulnerability
+  - cve-2026-61825
 vendors:
   - Code16
 products:
@@ -33,6 +39,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-qxg3-46rw-79j8
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61823
+  - https://github.com/advisories/GHSA-vj3q-vp3g-j9c8
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-61825
 action_plan:
   priority: elevated
   owners:
@@ -49,6 +57,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-61823
       evidence: Users who cannot upgrade immediately can manually sanitize all content of editor fields to strip srcdoc attributes.
+updates:
+  - at: "2026-09-25T20:06:52Z"
+    level: L2
+    summary: added coverage for Sharp (< 9.22.5)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vj3q-vp3g-j9c8
 ---
 
 Code16 Sharp versions prior to v9.22.5 are vulnerable to a Stored Cross-Site Scripting (XSS) attack originating from improper sanitization of the `srcdoc` attribute on `<iframe>` elements within the rich text editor. While the application utilizes the Symfony HtmlSanitizer to encode special characters, the HTML specification forces browsers to decode these HTML entities when processing the `srcdoc` attribute. This behavior effectively nullifies the existing sanitization, allowing attackers to inject and execute arbitrary JavaScript. An attacker with access to the Editor field can exploit this to perform session hijacking, unauthorized account actions, or data theft against other users, including administrative accounts. The vendor has addressed this in version v9.22.5 by explicitly removing `srcdoc` from the list of allowed iframe attributes in the sanitization logic.
