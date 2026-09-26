@@ -3,6 +3,7 @@ title: 'CVE-2026-100690: Symlink Traversal Vulnerability in Hugo Node.js Integra
 slug: 2026-09-hugo-symlink-traversal
 description: Hugo versions 0.161.0 through 0.165.0 contain a directory traversal vulnerability where the Node.js sandbox fails to resolve symbolic links correctly, allowing unauthorized disclosure of sensitive files during the build process.
 date: "2026-09-26T15:12:28Z"
+lastmod: "2026-09-26T15:12:43Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - vulnerability
   - path-traversal
   - static-site-generator
+  - webserver
+  - cve-2026-100693
 vendors:
   - Hugo
 products:
   - Hugo (0.161.0-0.165.0)
+  - Hugo (v0.162.0 - v0.165.x)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -36,6 +40,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100690
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100693
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +57,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-100690
       evidence: projects that do not invoke Node.js tools are unaffected
+updates:
+  - at: "2026-09-26T15:12:43Z"
+    level: L2
+    summary: added coverage for Hugo (v0.162.0 - v0.165.x)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100693
 ---
 
 Hugo versions 0.161.0 through v0.165.0 are affected by a directory traversal vulnerability that stems from improper validation of symbolic links within the integrated Node.js sandbox. Hugo utilizes the Node.js permission model to restrict file system access for integrated tools such as PostCSS, TailwindCSS, and Babel. However, because the permission model validates lexical paths rather than resolved paths, Hugo fails to detect when symbolic links point outside of the project directory or configured mounts. An attacker with the ability to influence project content, such as through a malicious pull request or compromised source repository, can commit a symbolic link that resolves to a sensitive system file (e.g., /etc/passwd). When the project is built, the integrated Node.js tools follow this symlink, potentially disclosing the content of the target file in the resulting site output. This vulnerability is fixed in version v0.166.0, which enforces strict resolution of all paths to ensure they remain within allowed boundaries.
