@@ -3,7 +3,7 @@ title: Arbitrary File Deletion in Froxlor via Symlink Following
 slug: 2026-09-froxlor-symlink-deletion
 description: Froxlor versions through 2.3.10 are vulnerable to arbitrary file deletion where authenticated users can plant symlinks to trigger recursive deletion by a root-privileged cron task, leading to potential data destruction.
 date: "2026-09-26T14:59:41Z"
-lastmod: "2026-09-26T15:14:15Z"
+lastmod: "2026-09-26T16:59:28Z"
 type: advisory
 types:
   - advisory
@@ -83,6 +83,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: This crosses a privilege boundary from customer to admin and can result in full administrator account takeover.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An administrator, or any actor able to write settings... can therefore inject acme.sh options such as --renew-hook, --pre-hook or --post-hook to obtain arbitrary command execution.
+    confidence_band: high
 cves:
   - id: CVE-2026-100715
     cvss: 9.6
@@ -95,6 +101,20 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100713
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100718
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100720
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100714
+rules:
+  - title: Detect Suspicious acme.sh Execution with Hook Arguments
+    description: Detects the execution of acme.sh with arguments that suggest command injection, such as --renew-hook, --pre-hook, or --post-hook.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.004
+    data_sources:
+      - process_creation
+      - linux
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -111,13 +131,6 @@ action_plan:
       addresses: CVE-2026-100715
       evidence: Froxlor through 2.3.10 is vulnerable to arbitrary file deletion via symlink following in the FTP data deletion cron task.
 updates:
-  - at: "2026-09-26T15:13:38Z"
-    level: L2
-    summary: added coverage for Froxlor (< 2.3.13)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-100708
   - at: "2026-09-26T15:13:52Z"
     level: L2
     summary: added coverage for froxlor (< 2.3.12)
@@ -146,6 +159,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100720
+  - at: "2026-09-26T16:59:28Z"
+    level: L2
+    summary: 'added detection rule: Detect Suspicious acme.sh Execution with Hook Arguments'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100714
 ---
 
 Froxlor versions through 2.3.10 contain a critical vulnerability in the deleteFtpData cron task (Task 8). When an FTP account is deleted, the application queues this task to clean up associated data. The task execution flow invokes FileDir::makeCorrectDir() without the $fixed_homedir argument, causing the system to skip necessary symlink component path walking. Subsequently, the application executes a recursive 'rm -rf' operation with root privileges on the resulting path. 
