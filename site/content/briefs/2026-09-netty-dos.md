@@ -1,64 +1,65 @@
 ---
-title: Denial of Service in Netty via Unbounded HTTP Pipelined Request Queue
+title: Denial-of-Service Vulnerability in Netty io.netty:netty-codec-http
 slug: 2026-09-netty-dos
-description: An unbounded memory growth vulnerability in Netty's HttpServerCodec allows remote, unauthenticated attackers to trigger a denial of service via excessive HTTP/1.1 pipelined requests.
-date: "2026-09-26T15:07:18Z"
+description: A memory exhaustion vulnerability in Netty's SpdySessionHandler allows remote attackers to trigger JVM OutOfMemoryErrors via unbounded concurrent SPDY stream allocation.
+date: "2026-09-26T15:06:56Z"
+lastmod: "2026-09-26T17:00:14Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 cpes:
   - cpe:2.3:a:netty:netty:*:*:*:*:*:*:*:*
 tags:
   - denial-of-service
-  - memory-exhaustion
   - vulnerability
-  - network-protocol
+  - java
+vendors:
+  - Netty
 products:
-  - netty-codec-http (4.2.0.Final-4.2.17.Final, <= 4.1.137.Final)
-mitre_ttps:
-  - tactic_id: TA0040
-    tactic_name: Impact
-    technique_id: T1499
-    technique_name: Endpoint Denial of Service
-    evidence: A remote, unauthenticated attacker who pipelines HTTP/1.1 requests on a single connection while withholding reads on their own end... can grow this queue without bound, causing unbounded heap growth and denial of service.
-    confidence_band: high
+  - netty-codec-http (<= 4.1.137.Final, 4.2.0.Final - 4.2.17.Final)
+  - netty-codec-http (4.2.0.Final <= 4.2.16.Final, <= 4.1.136.Final)
 cves:
-  - id: CVE-2026-100656
+  - id: CVE-2026-100655
     cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-100656
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100655
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100666
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Detection Engineering
+    - Security Engineering
   immediate_actions:
-    - action: Upgrade affected Netty packages to 4.2.18.Final or 4.1.138.Final
+    - action: Upgrade netty-codec-http to version 4.1.138.Final or 4.2.18.Final
       owner: IT Operations
-      due: 72h
-      evidence: CVE-2026-100656 fix version
+      due: 48h
+      evidence: Fixed in 4.1.138.Final and 4.2.18.Final.
   mitigation_plan:
     - priority: immediate
-      action: Patch CVE-2026-100656 on all internet-facing systems using Netty
-      owner: IT Operations
-      addresses: CVE-2026-100656
-      evidence: Source advisory
+      action: Identify services using vulnerable Netty versions via dependency scanning
+      owner: Security Engineering
+      addresses: CVE-2026-100655
+      evidence: Netty (io.netty:netty-codec-http) versions up to and including 4.1.137.Final and from 4.2.0.Final through 4.2.17.Final.
+updates:
+  - at: "2026-09-26T17:00:14Z"
+    level: L2
+    summary: added coverage for netty-codec-http (4.2.0.Final <= 4.2.16.Final, <= 4.1.136.Final)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100666
 ---
 
-Netty (io.netty:netty-codec-http) contains an unbounded per-connection queue growth flaw in the HttpServerCodec component. The codec tracks the HTTP method of each unanswered pipelined request. While the first 32 entries are optimized and bit-packed, any additional entries are appended to a methodOverflowQueue, which is an ArrayDeque with no size limit or rejection path.
-
-A remote, unauthenticated attacker can exploit this flaw by sending a large volume of HTTP/1.1 pipelined requests over a single connection. By simultaneously slowing down their own connection reads, the attacker prevents the server from flushing responses, which in turn forces the codec to keep the corresponding entries in the queue indefinitely. This behavior allows the queue to grow without bound, leading to excessive heap consumption and eventual denial of service (DoS) for the affected service. The vulnerability affects Netty versions 4.2.0.Final through 4.2.17.Final and all releases up to and including 4.1.137.Final.
+Netty (io.netty:netty-codec-http) versions up to and including 4.1.137.Final and from 4.2.0.Final through 4.2.17.Final contain a vulnerability in the SpdySessionHandler component. The handler defaults the maximum number of local concurrent streams to Integer.MAX_VALUE and lacks an API to override this limit. An attacker can initiate a SPDY connection and flood the target server with a high volume of SYN_STREAM frames where the FLAG_FIN bit is set to zero. This forces the server to allocate unbounded heap and direct memory to maintain the session state, eventually exhausting available system memory and triggering a JVM OutOfMemoryError. This leads to a complete service disruption for any application utilizing the affected Netty codec. The vulnerability is addressed in versions 4.1.138.Final and 4.2.18.Final.
 
 ## Impact
 
-Successful exploitation results in a denial of service for applications utilizing the affected Netty components. This impacts any service relying on Netty for high-performance HTTP networking, potentially disrupting connectivity for all users of the application. The severity is high due to the lack of authentication required to trigger the heap exhaustion and the ease with which an attacker can sustain the flood of requests.
+Successful exploitation results in a persistent denial-of-service condition affecting any Java application relying on the affected Netty codec for SPDY protocol support. This can lead to service downtime for critical infrastructure, APIs, and microservices. The impact is significant for organizations providing high-availability services where memory exhaustion leads to application crashes or service instability.
 
 ## Recommendation
 
-Prioritize patching all instances of the Netty framework identified in the environment.
-
-- Upgrade netty-codec-http to version 4.2.18.Final or 4.1.138.Final to include the necessary queue size limits and rejection logic.
-- Review network configurations to identify and limit excessively long-lived or slow-client HTTP/1.1 connections.
-- Patch CVE-2026-100656 on all servers running affected Netty versions immediately.
+- Upgrade the Netty (io.netty:netty-codec-http) library to version 4.1.138.Final or 4.2.18.Final immediately to resolve CVE-2026-100655.
+- Review network infrastructure logs to identify anomalous spikes in SPDY traffic or sustained connections from single remote peers that do not terminate streams.
+- If immediate patching is not possible, implement network-level rate limiting or SPDY protocol inspection to block traffic from unverified sources attempting to establish an excessive number of concurrent streams.
