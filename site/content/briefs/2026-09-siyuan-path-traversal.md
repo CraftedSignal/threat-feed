@@ -3,7 +3,7 @@ title: Path Traversal in SiYuan Export Functionality
 slug: 2026-09-siyuan-path-traversal
 description: SiYuan versions prior to v3.8.4 are vulnerable to a path traversal attack via the exportBrowserHTML endpoint, allowing authenticated administrators to overwrite arbitrary index.html files.
 date: "2026-09-26T15:03:37Z"
-lastmod: "2026-09-26T15:05:49Z"
+lastmod: "2026-09-26T15:05:54Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,7 @@ vendors:
   - SiYuan
 products:
   - SiYuan (< 3.8.4)
+  - SiYuan (>= 2.1.0, < 3.8.4)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -41,6 +42,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100636
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100639
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100641
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100642
 rules:
   - title: Detect CVE-2026-100636 Path Traversal Attempt
     description: Detects exploitation attempts against the SiYuan exportBrowserHTML endpoint using directory traversal sequences in the folder parameter.
@@ -93,6 +95,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100641
+  - at: "2026-09-26T15:05:54Z"
+    level: L2
+    summary: added coverage for SiYuan (>= 2.1.0, < 3.8.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100642
 ---
 
 SiYuan versions prior to v3.8.4 contain a critical path traversal vulnerability in the exportBrowserHTML endpoint. This flaw allows an authenticated administrator to manipulate the folder parameter by including directory traversal sequences. By successfully exploiting this, an attacker can escape the restricted export directory and overwrite the index.html file in any location that the application kernel has write permissions to. This vulnerability poses a significant risk for stored Cross-Site Scripting (XSS) attacks or workspace defacement, as it allows the injection of arbitrary HTML content into the application environment. Defenders should prioritize updating to SiYuan v3.8.4 or later to mitigate this risk.
