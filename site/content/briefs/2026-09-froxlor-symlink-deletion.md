@@ -3,7 +3,7 @@ title: Arbitrary File Deletion in Froxlor via Symlink Following
 slug: 2026-09-froxlor-symlink-deletion
 description: Froxlor versions through 2.3.10 are vulnerable to arbitrary file deletion where authenticated users can plant symlinks to trigger recursive deletion by a root-privileged cron task, leading to potential data destruction.
 date: "2026-09-26T14:59:41Z"
-lastmod: "2026-09-26T15:00:28Z"
+lastmod: "2026-09-26T15:13:38Z"
 type: advisory
 types:
   - advisory
@@ -11,10 +11,15 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:froxlor:froxlor:*:*:*:*:*:*:*:*
+tags:
+  - information-disclosure
+  - api-security
+  - credential-access
 vendors:
   - Froxlor
 products:
   - Froxlor (<= 2.3.10)
+  - Froxlor (< 2.3.13)
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
@@ -40,6 +45,12 @@ mitre_ttps:
     technique_name: Abuse Elevation Control Mechanism
     evidence: froxlor regenerates and reloads the web-server configuration as root, so the injected directives take effect server-wide.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Froxlor before 2.3.13 returns the ssl_key_file column — which stores the raw PEM TLS private-key content — verbatim in the JSON responses of the Certificates.get and Certificates.listing API commands.
+    confidence_band: high
 cves:
   - id: CVE-2026-100715
     cvss: 9.6
@@ -47,6 +58,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100715
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100717
   - https://github.com/Froxlor/Froxlor/security/advisories/GHSA-c3p2
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100708
 action_plan:
   priority: immediate_escalation
   owners:
@@ -70,6 +82,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100717
+  - at: "2026-09-26T15:13:38Z"
+    level: L2
+    summary: added coverage for Froxlor (< 2.3.13)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100708
 ---
 
 Froxlor versions through 2.3.10 contain a critical vulnerability in the deleteFtpData cron task (Task 8). When an FTP account is deleted, the application queues this task to clean up associated data. The task execution flow invokes FileDir::makeCorrectDir() without the $fixed_homedir argument, causing the system to skip necessary symlink component path walking. Subsequently, the application executes a recursive 'rm -rf' operation with root privileges on the resulting path. 
