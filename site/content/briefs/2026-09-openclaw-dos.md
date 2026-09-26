@@ -3,11 +3,14 @@ title: OpenClaw Denial of Service Vulnerability
 slug: 2026-09-openclaw-dos
 description: A vulnerability in OpenClaw allows a remote, authenticated attacker to trigger a denial of service condition, impacting system availability.
 date: "2026-09-21T13:51:06Z"
+lastmod: "2026-09-26T04:56:57Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:openclaw:openclaw:*:*:*:*:*:*:*:*
 tags:
   - denial-of-service
   - vulnerability
@@ -15,7 +18,8 @@ tags:
 vendors:
   - OpenClaw
 products:
-  - OpenClaw
+  - OpenClaw (< 2026.8.1)
+  - OpenClaw (< 2026.8.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -23,8 +27,12 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: Ein entfernter, authentisierter Angreifer kann eine Schwachstelle in OpenClaw ausnutzen, um einen Denial of Service Angriff durchzuführen.
     confidence_band: high
+cves:
+  - id: CVE-2026-100558
+    cvss: 7.5
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3478
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100558
 action_plan:
   priority: monitor_or_close
   owners:
@@ -35,6 +43,14 @@ action_plan:
       owner: IT Operations
       addresses: OpenClaw
       evidence: Source document identifies authenticated DoS vulnerability
+updates:
+  - at: "2026-09-26T04:56:57Z"
+    level: L2
+    summary: added CVE-2026-100558; openclaw version < 2026.8.1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100558
 ---
 
 The security advisory identifies a vulnerability within the OpenClaw software that exposes a potential for denial of service (DoS) attacks. An attacker who has achieved authenticated access to the target environment can leverage this vulnerability to disrupt service availability. The vulnerability manifests when the application processes specifically crafted inputs or requests, leading to resource exhaustion or service instability. Because the impact is limited to a denial of service and requires prior authentication, this flaw poses a moderate risk to systems utilizing OpenClaw. Defenders should monitor for unexpected application crashes or service restarts that coincide with authenticated user activity.
