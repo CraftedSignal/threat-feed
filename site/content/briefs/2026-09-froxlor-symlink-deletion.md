@@ -3,7 +3,7 @@ title: Arbitrary File Deletion in Froxlor via Symlink Following
 slug: 2026-09-froxlor-symlink-deletion
 description: Froxlor versions through 2.3.10 are vulnerable to arbitrary file deletion where authenticated users can plant symlinks to trigger recursive deletion by a root-privileged cron task, leading to potential data destruction.
 date: "2026-09-26T14:59:41Z"
-lastmod: "2026-09-26T15:13:52Z"
+lastmod: "2026-09-26T15:14:00Z"
 type: advisory
 types:
   - advisory
@@ -70,6 +70,7 @@ references:
   - https://github.com/Froxlor/Froxlor/security/advisories/GHSA-c3p2
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100708
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100711
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100713
 action_plan:
   priority: immediate_escalation
   owners:
@@ -107,6 +108,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100711
+  - at: "2026-09-26T15:14:00Z"
+    level: L2
+    summary: added coverage for Froxlor (<= 2.3.10)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100713
 ---
 
 Froxlor versions through 2.3.10 contain a critical vulnerability in the deleteFtpData cron task (Task 8). When an FTP account is deleted, the application queues this task to clean up associated data. The task execution flow invokes FileDir::makeCorrectDir() without the $fixed_homedir argument, causing the system to skip necessary symlink component path walking. Subsequently, the application executes a recursive 'rm -rf' operation with root privileges on the resulting path. 
