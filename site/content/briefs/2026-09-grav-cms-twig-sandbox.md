@@ -3,6 +3,7 @@ title: Grav CMS Session Hijacking via Twig Sandbox Injection
 slug: 2026-09-grav-cms-twig-sandbox
 description: Grav CMS versions 1.7.x and 2.0.0 through 2.0.24 are vulnerable to session hijacking due to an improperly restricted get_cookie() function within the Twig rendering engine.
 date: "2026-09-26T15:09:57Z"
+lastmod: "2026-09-26T17:00:21Z"
 type: threat
 types:
   - threat
@@ -11,11 +12,18 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:getgrav:grav:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - security-misconfiguration
+  - cve-2026-100669
 vendors:
   - Grav
 products:
   - Grav (1.7.x)
   - Grav (2.0.0 through 2.0.24)
+  - Grav (< 2.0.25)
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,11 +37,18 @@ mitre_ttps:
     technique_name: Browser Session Hijacking
     evidence: The attacker can replay the cookie to authenticate as that administrator.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An unauthenticated remote attacker can vary the case of a folder name or file extension so that no deny rule matches and the IIS static file handler resolves and returns the underlying file.
+    confidence_band: high
 cves:
   - id: CVE-2026-100671
     cvss: 8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100671
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100669
 action_plan:
   priority: immediate_escalation
   owners:
@@ -50,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-100671
       evidence: Twig content runs on every page with no frontmatter or operator action if enabled.
+updates:
+  - at: "2026-09-26T17:00:21Z"
+    level: L2
+    summary: added coverage for Grav (< 2.0.25)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100669
 ---
 
 Grav CMS versions 1.7.x and 2.0.0 through 2.0.24 contain a vulnerability in the Twig sandbox configuration. Specifically, the get_cookie() function is allowlisted for use within page content. A user with page-write permissions can inject Twig template code to read arbitrary browser cookies from any user who visits the crafted page. This attack bypasses standard security protections such as the HttpOnly, Secure, and SameSite attributes because the extraction occurs server-side.
