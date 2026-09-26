@@ -3,6 +3,7 @@ title: Authorization Bypass in Capgo Bundle Promotion API
 slug: 2026-09-capgo-auth-bypass
 description: An incorrect authorization flaw in the Capgo server backend allows users with app-level permissions to bypass per-channel restrictions when promoting bundles due to improper scope handling.
 date: "2026-09-26T15:03:19Z"
+lastmod: "2026-09-26T16:59:42Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - authorization-bypass
   - api-security
   - cloud
+  - vulnerability
+  - integrity
 vendors:
   - Capgo
 products:
   - Capgo
+  - Capgo (< 12.244.1)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -25,11 +29,18 @@ mitre_ttps:
     technique_name: Exploitation of Privilege Escalation Vulnerability
     evidence: A principal holding app-level channel.promote_bundle (granted by default to the app_developer and app_uploader roles) can therefore promote a bundle to a channel for which an explicit per-channel deny override exists
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: An authenticated attacker can place a victim tenant's image key in a row they control, causing the service-role worker to download and re-upload that object with sanitized metadata.
+    confidence_band: high
 cves:
   - id: CVE-2026-100627
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100627
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100614
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +57,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-100627
       evidence: The issue allows unauthorized update of public.channels.version
+updates:
+  - at: "2026-09-26T16:59:42Z"
+    level: L2
+    summary: added coverage for Capgo (< 12.244.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100614
 ---
 
 Capgo (Cap-go/capgo.app) server backend Supabase functions contain an incorrect authorization vulnerability in the API-key bundle promotion path (CVE-2026-100627). The PUT /bundle endpoint, which is accessible to API keys with "all" and "write" permissions, fails to include the request's channel_id when dispatching to the setChannel function. Consequently, the checkPermission function receives an SQL NULL value for the scope field. Because the RBAC logic evaluates channel-scope overrides only when a channel identifier is present, the system fails to verify explicit per-channel allow or deny configurations. This flaw allows a principal with app-level channel.promote_bundle permissions, typically granted to app_developer or app_uploader roles, to bypass intended restrictions and promote bundles to unauthorized channels, thereby modifying the public.channels.version for that specific channel. The vulnerability is confirmed in commit de66fa51e7ff2f50283cc1455c3d80ab3eb0ae43. No patch is currently available.
