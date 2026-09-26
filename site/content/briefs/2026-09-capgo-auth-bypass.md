@@ -3,7 +3,7 @@ title: Authorization Bypass in capgo.app via Channel Permission Overrides
 slug: 2026-09-capgo-auth-bypass
 description: A vulnerability in capgo.app allows authenticated administrators to bypass organization boundaries by assigning channel-specific permissions to arbitrary external user UUIDs.
 date: "2026-09-26T15:02:09Z"
-lastmod: "2026-09-26T15:02:34Z"
+lastmod: "2026-09-26T15:02:41Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +19,13 @@ tags:
   - cloud
   - ota-updates
   - rce
+  - exfiltration
 vendors:
   - Cap-go
   - Capgo
 products:
   - capgo.app
+  - capgo.app (<= 12.129.0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -43,6 +45,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100617
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100619
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100622
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +70,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100619
+  - at: "2026-09-26T15:02:41Z"
+    level: L2
+    summary: added coverage for capgo.app (<= 12.129.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100622
 ---
 
 Cap-go capgo.app contains a critical authorization vulnerability (CVE-2026-100617) stemming from improper input validation within the `channel_permission_overrides` function. The application fails to verify that user principals referenced in permission overrides actually belong to the target organization. This allows an authenticated administrator (at either the application or organization level) to maliciously associate arbitrary external user UUIDs with internal channel permissions. An attacker can leverage this flaw to grant sensitive permissions, such as `channel.promote_bundle`, to external entities that should have no access to the organization's private channels. This creates a significant risk of unauthorized access to sensitive deployment bundles and internal processes.
