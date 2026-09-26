@@ -3,6 +3,7 @@ title: Arbitrary File Read in Budibase OpenAPI Import Validator
 slug: 2026-09-budibase-file-read
 description: Budibase versions prior to 3.45.0 contain an arbitrary file read vulnerability caused by enabled external JSON reference resolution during OpenAPI/Swagger file imports.
 date: "2026-09-26T15:10:36Z"
+lastmod: "2026-09-26T15:12:01Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - vulnerability
   - web-application
   - data-exfiltration
+  - sql-injection
+  - cve
 vendors:
   - Budibase
 products:
@@ -31,11 +34,18 @@ mitre_ttps:
     technique_name: Data from Local System
     evidence: Attackers with builder access can embed file:// references in OpenAPI specifications submitted to the import endpoint to exfiltrate sensitive files
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.001
+    technique_name: PowerShell
+    evidence: 'Because the MySQL connection is opened with multipleStatements: true, stacked statements run as Budibase''s datasource user.'
+    confidence_band: high
 cves:
   - id: CVE-2026-100680
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100680
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100683
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-100680
       evidence: NVD advisory for CVE-2026-100680.
+updates:
+  - at: "2026-09-26T15:12:01Z"
+    level: L2
+    summary: added coverage for Budibase (< 3.45.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100683
 ---
 
 Budibase versions prior to 3.45.0 suffer from an arbitrary file read vulnerability located in the OpenAPI/Swagger import validation functionality. The issue arises because the application fails to restrict external JSON reference resolution during the import process. An attacker possessing authenticated access as a builder can exploit this misconfiguration by submitting a crafted OpenAPI specification file containing malicious file:// URI references. 
