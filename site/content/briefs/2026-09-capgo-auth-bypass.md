@@ -3,6 +3,7 @@ title: Authorization Bypass in capgo.app via Channel Permission Overrides
 slug: 2026-09-capgo-auth-bypass
 description: A vulnerability in capgo.app allows authenticated administrators to bypass organization boundaries by assigning channel-specific permissions to arbitrary external user UUIDs.
 date: "2026-09-26T15:02:09Z"
+lastmod: "2026-09-26T15:02:34Z"
 type: advisory
 types:
   - advisory
@@ -14,8 +15,13 @@ tags:
   - authorization-bypass
   - cloud-security
   - privilege-escalation
+  - vulnerability
+  - cloud
+  - ota-updates
+  - rce
 vendors:
   - Cap-go
+  - Capgo
 products:
   - capgo.app
 mitre_ttps:
@@ -25,11 +31,18 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: Attackers with admin privileges can insert override rows with arbitrary external user UUIDs to grant channel-scoped permissions to users outside the organization.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An attacker with appropriate API or user permissions can supply malicious file data via public.app_versions.manifest for versions configured with 'r2-direct' storage.
+    confidence_band: high
 cves:
   - id: CVE-2026-100617
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100617
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100619
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-100617
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-26T15:02:34Z"
+    level: L2
+    summary: added coverage for capgo.app
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100619
 ---
 
 Cap-go capgo.app contains a critical authorization vulnerability (CVE-2026-100617) stemming from improper input validation within the `channel_permission_overrides` function. The application fails to verify that user principals referenced in permission overrides actually belong to the target organization. This allows an authenticated administrator (at either the application or organization level) to maliciously associate arbitrary external user UUIDs with internal channel permissions. An attacker can leverage this flaw to grant sensitive permissions, such as `channel.promote_bundle`, to external entities that should have no access to the organization's private channels. This creates a significant risk of unauthorized access to sensitive deployment bundles and internal processes.
