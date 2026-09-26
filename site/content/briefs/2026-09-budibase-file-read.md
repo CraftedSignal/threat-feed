@@ -3,7 +3,7 @@ title: Arbitrary File Read in Budibase OpenAPI Import Validator
 slug: 2026-09-budibase-file-read
 description: Budibase versions prior to 3.45.0 contain an arbitrary file read vulnerability caused by enabled external JSON reference resolution during OpenAPI/Swagger file imports.
 date: "2026-09-26T15:10:36Z"
-lastmod: "2026-09-26T15:12:15Z"
+lastmod: "2026-09-26T15:12:21Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,8 @@ tags:
   - idor
   - broken-access-control
   - web-security
+  - privilege-escalation
+  - cve-2026-100686
 vendors:
   - Budibase
 products:
@@ -65,6 +67,12 @@ mitre_ttps:
     technique_name: Gather Victim Org Information
     evidence: The endpoint fails to properly scope data by workspace, allowing authenticated users with builder privileges to perform an insecure direct object reference (IDOR) to enumerate chat identity link records.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: A builder of a single workspace can exploit missing per-app authorization checks to grant themselves admin roles in other workspaces by modifying user group role mappings.
+    confidence_band: high
 cves:
   - id: CVE-2026-100680
     cvss: 8.1
@@ -73,6 +81,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100683
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100684
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100685
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100686
 action_plan:
   priority: elevated
   owners:
@@ -111,6 +120,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100685
+  - at: "2026-09-26T15:12:21Z"
+    level: L2
+    summary: added coverage for Budibase (< 3.45.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100686
 ---
 
 Budibase versions prior to 3.45.0 suffer from an arbitrary file read vulnerability located in the OpenAPI/Swagger import validation functionality. The issue arises because the application fails to restrict external JSON reference resolution during the import process. An attacker possessing authenticated access as a builder can exploit this misconfiguration by submitting a crafted OpenAPI specification file containing malicious file:// URI references. 
