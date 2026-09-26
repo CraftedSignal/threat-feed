@@ -1,75 +1,62 @@
 ---
-title: Authentication Bypass in Capgo via MFA Assurance Level Validation Failure
+title: Authorization Bypass in capgo.app via Channel Permission Overrides
 slug: 2026-09-capgo-auth-bypass
-description: Capgo contains an authentication bypass vulnerability allowing attackers with a user password to ignore MFA requirements and mint persistent administrative API keys by exploiting improper session assurance level validation.
-date: "2026-09-10T15:10:16Z"
+description: A vulnerability in capgo.app allows authenticated administrators to bypass organization boundaries by assigning channel-specific permissions to arbitrary external user UUIDs.
+date: "2026-09-26T15:02:09Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:capgo:capgo:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:cap_go:capgo_app:*:*:*:*:*:*:*:*
+tags:
+  - authorization-bypass
+  - cloud-security
+  - privilege-escalation
 vendors:
-  - Capgo
+  - Cap-go
 products:
-  - Capgo (all versions)
+  - capgo.app
 mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1556
-    technique_name: Modify Authentication Process
-    evidence: An attacker who knows only the victim's password can therefore authenticate, mint a persistent app-scoped app_admin API key that remains valid after the aal1 session is logged out.
-    confidence_band: high
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1550
-    technique_name: Use Alternate Authentication Material
-    evidence: mint a persistent app-scoped app_admin API key that remains valid after the aal1 session is logged out
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: Attackers with admin privileges can insert override rows with arbitrary external user UUIDs to grant channel-scoped permissions to users outside the organization.
     confidence_band: high
 cves:
-  - id: CVE-2026-88861
-    cvss: 8.3
+  - id: CVE-2026-100617
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-88861
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100617
 action_plan:
   priority: elevated
   owners:
     - SOC
     - IT Operations
   immediate_actions:
-    - action: Monitor administrative audit logs for API key generation events
+    - action: Review organization logs for unauthorized channel permission changes
       owner: SOC
       due: 24h
-      evidence: Exploitation allows minting persistent app-scoped API keys
-  hunt_leads:
-    - lead: Identification of API keys with administrative scopes generated during aal1 sessions
-      technique_id: T1550
-      data_needed:
-        - Capgo administrative audit logs
-        - Session assurance level metadata
-      priority: high
-      confidence: high
-      disposition: hunt_now
-      evidence: RBAC functions authorize by user ID without checking the session aal
+      evidence: Source documentation of arbitrary UUID injection via channel_permission_overrides
   mitigation_plan:
     - priority: immediate
-      action: Restrict administrative access to authorized IP ranges
+      action: Upgrade capgo.app to the latest patched version
       owner: IT Operations
-      addresses: CVE-2026-88861
-      evidence: No patch currently available for this vulnerability
+      addresses: CVE-2026-100617
+      evidence: NVD vulnerability disclosure
 ---
 
-Capgo (capgo.app) contains an authentication bypass vulnerability (CVE-2026-88861) that affects all versions, as no patch is currently available. The vulnerability exists within the Edge authorization path, where the middleware fails to validate the session authentication assurance level (aal). Specifically, the `foundJWT()` function in the Edge JWT middleware accepts JSON Web Tokens without confirming if the session met MFA requirements. Furthermore, the internal RBAC functions (`checkPermission()` and `checkPermissionPg()`) authorize administrative actions based solely on the user ID rather than the session aal. Consequently, an attacker who acquires a victim's password can initiate an aal1 session, effectively bypassing configured MFA to perform unauthorized operations, including the creation of persistent app-scoped API keys that remain active after the initial session is terminated. This impact is significant as it allows attackers to modify production Over-The-Air (OTA) channel configurations, potentially leading to unauthorized code distribution.
+Cap-go capgo.app contains a critical authorization vulnerability (CVE-2026-100617) stemming from improper input validation within the `channel_permission_overrides` function. The application fails to verify that user principals referenced in permission overrides actually belong to the target organization. This allows an authenticated administrator (at either the application or organization level) to maliciously associate arbitrary external user UUIDs with internal channel permissions. An attacker can leverage this flaw to grant sensitive permissions, such as `channel.promote_bundle`, to external entities that should have no access to the organization's private channels. This creates a significant risk of unauthorized access to sensitive deployment bundles and internal processes.
 
 ## Impact
 
-Successful exploitation allows an unauthenticated or partially authenticated attacker to bypass multi-factor authentication, gain persistent administrative access, and manipulate sensitive production OTA channel configurations. This vulnerability impacts all users of the Capgo platform, as no mitigation is currently available, creating a risk of unauthorized supply chain modification if production bundles are altered by unauthorized parties.
+Successful exploitation allows for the unauthorized granting of administrative channel permissions to users outside of the intended organization. This can lead to unauthorized modification of deployment bundles, unauthorized channel management, and potential supply chain compromise if external users gain the ability to influence code or asset promotion within the victim organization's infrastructure.
 
 ## Recommendation
 
-Prioritized actions for security operations and IT teams:
-- Implement strict IP-based access controls for the Capgo administrative dashboard to mitigate potential password-guessing or credential-stuffing attempts against the aal1-enabled endpoints.
-- Audit existing API keys for unexpected creation dates or unauthorized administrative scopes.
-- Monitor logs for unusual modifications to production OTA channel configurations, specifically looking for changes in bundle versions originating from unknown or unauthorized administrative sessions.
-- Enforce hardware-backed security keys or restrict administrative access to specific managed devices if the platform allows integration with external SSO/IAM providers.
+Prioritized, concrete actions for detection engineering teams:
+- Audit organizational audit logs for suspicious additions to `channel_permission_overrides` where the assigned UUID does not correspond to an existing member of the organization.
+- Review all current permission overrides within the capgo.app management interface to identify and remove entries involving unrecognized or external UUIDs.
+- Update capgo.app to the latest version that implements strict validation of principal organization membership.
