@@ -3,7 +3,7 @@ title: 'CVE-2026-100706: Path Traversal in Kyverno Policy apiCall Processing'
 slug: 2026-09-kyverno-path-traversal
 description: Kyverno versions before 1.19.1 contain a path traversal vulnerability in apiCall urlPath processing, enabling namespace-restricted users to perform unauthorized cluster-wide object manipulation via URL-encoded segments.
 date: "2026-09-26T14:59:10Z"
-lastmod: "2026-09-26T15:13:07Z"
+lastmod: "2026-09-26T15:13:14Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ vendors:
 products:
   - kyverno (< 1.19.1)
   - Kyverno (1.16.0 - 1.19.0)
+  - Kyverno (1.14.0 - 1.19.0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -30,12 +31,19 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: Attackers can exploit this by using percent-encoded directory traversal sequences to create MutatingWebhookConfiguration objects cluster-wide or PolicyException objects in the kyverno namespace, enabling privilege escalation to cluster admin.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1562.001
+    technique_name: 'Impair Defenses: Disable or Modify System Firewall'
+    evidence: Any PolicyException whose policyRefs and matchConditions match a resource causes image signature verification to be skipped for the entire resource rather than only for the listed images or values.
+    confidence_band: high
 cves:
   - id: CVE-2026-100706
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100706
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100703
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100704
 action_plan:
   priority: immediate_escalation
   owners:
@@ -60,6 +68,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100703
+  - at: "2026-09-26T15:13:14Z"
+    level: L2
+    summary: added coverage for Kyverno (1.14.0 - 1.19.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100704
 ---
 
 Kyverno versions prior to 1.19.1 are susceptible to a critical path traversal vulnerability within the Policy apiCall component. The vulnerability resides in the insufficient validation of URL-encoded path segments within the 'urlPath' field. This flaw allows a namespace-restricted tenant to bypass enforced namespace boundaries by using percent-encoded directory traversal sequences. When exploited, the attacker effectively elevates their privileges to that of the Kyverno admission-controller ServiceAccount. This level of access allows the attacker to create or modify sensitive cluster-wide resources, including MutatingWebhookConfiguration objects or PolicyException objects within the 'kyverno' namespace, ultimately resulting in full cluster-admin escalation.
