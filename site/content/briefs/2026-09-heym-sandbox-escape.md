@@ -3,6 +3,7 @@ title: Sandbox Escape in heym Expression Engine
 slug: 2026-09-heym-sandbox-escape
 description: The heym expression engine before version 0.0.91 is vulnerable to a sandbox escape via the DotList map/filter and fallback resolver, allowing authenticated users to achieve arbitrary Python code execution.
 date: "2026-09-27T03:08:00Z"
+lastmod: "2026-09-27T03:08:10Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,15 @@ tags:
   - sandbox-escape
   - code-execution
   - expression-engine
+  - web-vulnerability
+  - rce
+  - authentication-bypass
+  - plaintext-credentials
 vendors:
   - heym
 products:
   - heym (< 0.0.91)
+  - Heym (< 0.0.53)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -25,11 +31,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Attackers can craft workflow expressions using dunder attribute access through item expressions or the fallback resolver to access os.system and execute commands as the backend process.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: 'An attacker who registers a public OAuth client with a javascript: or data: redirect_uri and lures a victim to the consent screen receives the authorization code.'
+    confidence_band: high
 cves:
   - id: CVE-2026-100864
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100864
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100865
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-100864
       evidence: NVD vulnerability remediation guidance
+updates:
+  - at: "2026-09-27T03:08:10Z"
+    level: L2
+    summary: added coverage for Heym (< 0.0.53)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100865
 ---
 
 The heym automation and expression engine platform, in versions prior to 0.0.91, contains a critical security flaw involving sandbox escape within its expression processing logic. Specifically, the DotList map/filter functionality and the fallback resolver do not correctly enforce boundary controls on object attribute access. An authenticated attacker can leverage this vulnerability by crafting malicious workflow expressions that utilize Python dunder (double underscore) attributes to traverse the object graph. By accessing these restricted attributes, an attacker can reach the os.system module, ultimately leading to arbitrary code execution within the context of the backend application process. This vulnerability poses a significant risk to organizations using the heym platform for workflow automation, as it allows unauthorized users to transition from limited expression evaluation to full system command execution on the host environment.
