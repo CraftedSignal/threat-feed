@@ -3,6 +3,7 @@ title: Path Traversal and Arbitrary File Write in Flatpak
 slug: 2026-09-flatpak-traversal
 description: A vulnerability in Flatpak's extract_extra_data() allows malicious repositories to perform path traversal and write arbitrary files to the host filesystem, potentially leading to root access on system-wide installations.
 date: "2026-09-24T02:45:51Z"
+lastmod: "2026-09-27T23:11:19Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,7 @@ tags:
   - flatpak
   - vulnerability
   - path-traversal
+  - heap-overflow
 vendors:
   - Flatpak
 products:
@@ -34,11 +36,18 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The flaw allows a malicious or compromised repository to write arbitrary files to the host filesystem.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: An attacker controlling an OCI registry can craft a delta stream that triggers this during flatpak install/update, potentially achieving code execution on 32-bit systems.
+    confidence_band: high
 cves:
   - id: CVE-2026-96275
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-96275
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-96280
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-96275
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-09-27T23:11:19Z"
+    level: L2
+    summary: added coverage for Flatpak
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-96280
 ---
 
 CVE-2026-96275 identifies a critical flaw in Flatpak's handling of extra data sources, specifically within the extract_extra_data() function. The vulnerability stems from two combined weaknesses: the resolution of files/extra paths that incorrectly follow symbolic links and the failure to sanitize blob names defined in the xa.extra-data-sources configuration. An attacker operating a malicious or compromised Flatpak repository can use directory traversal sequences, such as '..', within these blob names to escape intended directories and write content to arbitrary locations on the host. When Flatpak is utilized for system-wide installations, this process executes with root privileges, allowing an attacker to overwrite system files, place unauthorized binaries, or modify configuration files. This impacts any system relying on Flatpak for application management where untrusted repositories might be configured.
