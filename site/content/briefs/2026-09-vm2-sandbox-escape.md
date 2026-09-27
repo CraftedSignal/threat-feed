@@ -3,6 +3,7 @@ title: Sandbox Escape in vm2 via NodeVM Module Resolver
 slug: 2026-09-vm2-sandbox-escape
 description: CVE-2026-100721 is a sandbox escape vulnerability in vm2 versions before 3.12.2, allowing untrusted guest code to execute arbitrary code in the host context via an authorization bypass in the external-module resolver.
 date: "2026-09-27T05:03:42Z"
+lastmod: "2026-09-27T05:03:54Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,7 @@ tags:
   - sandbox-escape
   - nodejs
   - code-execution
+  - memory-corruption
 products:
   - vm2 (< 3.12.2)
 mitre_ttps:
@@ -24,11 +26,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Untrusted guest code can therefore require the allowlisted module and then require the absolute path of a non-allowlisted sibling... resulting in a sandbox escape and arbitrary code execution in the host context.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Untrusted guest code can construct a full-width view of that ArrayBuffer to read and modify bytes belonging to unrelated host buffers, disclosing and corrupting host-realm memory across the sandbox boundary.
+    confidence_band: high
 cves:
   - id: CVE-2026-100721
     cvss: 9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100721
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100723
 action_plan:
   priority: elevated
   owners:
@@ -45,6 +54,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-100721
       evidence: Vendor vulnerability fix notification
+updates:
+  - at: "2026-09-27T05:03:54Z"
+    level: L2
+    summary: added coverage for vm2 (< 3.12.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100723
 ---
 
 CVE-2026-100721 identifies a critical sandbox escape vulnerability in the vm2 library (versions prior to 3.12.2). The vulnerability resides in the `NodeVM` external-module resolver when configured with a custom resolver and `context: 'host'`. The `LegacyResolver.customResolve` function in `lib/resolver-compat.js` improperly validates module paths by creating a regular expression that lacks path separators or end-of-string boundaries.
