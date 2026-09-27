@@ -3,6 +3,7 @@ title: Host Header Injection in Sylius Password Reset Mechanism
 slug: 2026-09-sylius-password-reset-poisoning
 description: Sylius versions before 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 are vulnerable to a password reset poisoning attack, allowing unauthenticated attackers to hijack administrator accounts via Host header manipulation.
 date: "2026-09-27T15:07:20Z"
+lastmod: "2026-09-27T15:07:30Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - vulnerability
   - web-application
   - account-takeover
+  - authentication-bypass
+  - privilege-escalation
 vendors:
   - Sylius
 products:
@@ -25,11 +28,24 @@ mitre_ttps:
     technique_name: Phishing
     evidence: An unauthenticated attacker can manipulate the Host header in a password reset request to redirect tokens to an external, attacker-controlled domain.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers can register a shop customer account using an administrator's email address and obtain a token that the Admin API resolves to that administrator.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Attackers can register a shop customer account using an administrator's email address and obtain a token that the Admin API resolves to that administrator, granting full administrative access.
+    confidence_band: high
 cves:
   - id: CVE-2026-100870
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100870
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100871
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +62,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-100870
       evidence: Mitigates Host header poisoning attempt.
+updates:
+  - at: "2026-09-27T15:07:30Z"
+    level: L2
+    summary: added coverage for Sylius (< 1.12.25, < 1.13.17, < 1.14.20, < 2.1.16, < 2.2.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100871
 ---
 
 Sylius versions released prior to 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 contain a critical vulnerability in the password reset workflow. The application incorrectly utilizes the HTTP 'Host' header provided in an incoming password reset request to construct the password reset link sent to the user. An unauthenticated attacker can exploit this by injecting a malicious domain into the 'Host' header while initiating a reset request for a target administrator's email address. The resulting reset email contains a link pointing to an attacker-controlled server, facilitating the theft of the reset token and leading to full account takeover. This vulnerability poses a significant risk to administrative access and underscores the necessity of validating input derived from HTTP headers against an allowlist of expected domains.
