@@ -3,6 +3,7 @@ title: Remote Code Execution in MONAI Bundle Configuration Engine
 slug: 2026-09-monai-rce
 description: MONAI versions through 1.6.0 are vulnerable to remote code execution due to insecure deserialization and evaluation of arbitrary Python callables within bundle configuration files.
 date: "2026-09-27T03:04:23Z"
+lastmod: "2026-09-27T03:04:32Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,15 @@ tags:
   - remote-code-execution
   - python
   - supply-chain
+  - vulnerability
+  - deserialization
+  - rce
+  - monai
 vendors:
   - MONAI
 products:
   - MONAI (<= 1.6.0)
+  - MONAI (1.6.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -30,6 +36,7 @@ cves:
     cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100840
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100841
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +53,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-100840
       evidence: Source notes vulnerability in bundle configuration engine
+updates:
+  - at: "2026-09-27T03:04:32Z"
+    level: L2
+    summary: added coverage for MONAI (1.6.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100841
 ---
 
 MONAI (Medical Open Network for AI) versions 1.6.0 and earlier contain a critical remote code execution (RCE) vulnerability within the bundle configuration engine. The vulnerability stems from the engine's failure to maintain an allow list when resolving '_target_' values to importable callables, combined with the unsafe passing of '$' expressions to the Python 'eval()' function. 
