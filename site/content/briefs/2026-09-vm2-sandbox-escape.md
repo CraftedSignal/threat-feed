@@ -1,162 +1,62 @@
 ---
-title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
+title: Sandbox Escape in vm2 via NodeVM Module Resolver
 slug: 2026-09-vm2-sandbox-escape
-description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
-date: "2026-09-17T15:57:37Z"
-lastmod: "2026-09-18T18:06:32Z"
+description: CVE-2026-100721 is a sandbox escape vulnerability in vm2 versions before 3.12.2, allowing untrusted guest code to execute arbitrary code in the host context via an authorization bypass in the external-module resolver.
+date: "2026-09-27T05:03:42Z"
 type: advisory
 types:
   - advisory
 severities:
-  - critical
+  - high
 cpes:
   - cpe:2.3:a:vm2_project:vm2:*:*:*:*:*:node.js:*:*
 tags:
+  - vm2
   - sandbox-escape
   - nodejs
   - code-execution
-  - vulnerability
-  - vm2
-  - rce
-  - javascript
-  - cve
-  - privilege-escalation
 products:
-  - vm2 (>= 3.11.4 and <= 3.11.6)
-  - vm2 (3.11.6)
-  - vm2 (3.11.3-3.11.6)
-  - vm2 (3.11.3 - 3.11.6)
-  - vm2 (3.10.2 - 3.11.6)
-  - vm2 (< 3.11.7)
-  - vm2 (>= 3.9.6, <= 3.11.6)
-  - vm2 (3.11.0-3.11.7)
-  - vm2 (3.10.1 - 3.11.6)
-  - vm2 (<= 3.11.6)
-  - vm2 (<= 3.12.0)
+  - vm2 (< 3.12.2)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
-    evidence: An attacker... can execute arbitrary commands with the privileges of the host Node.js process, escaping the sandbox.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.006
-    technique_name: JavaScript
-    evidence: An attacker within the sandbox can then utilize these leaked host objects to access 'child_process' or other privileged modules, resulting in arbitrary code execution.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: Sandboxed code can create an in-memory DatabaseSync with extension loading enabled and call DatabaseSync.loadExtension() on a native library.
-    confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: SQLite loads the library into the Node.js host process and invokes its native entry point, giving the sandboxed plugin arbitrary native code execution.
-    confidence_band: high
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1611
-    technique_name: Escape to Host
-    evidence: The builtin loader wraps host modules in a read-only proxy, but method calls such as Agent.prototype.on() are forwarded to the underlying host object, so sandbox code can register a listener for the agent's 'free' event.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
-    evidence: Attackers can use prototype-walking primitives to reach and modify host Uint8Array.prototype, %TypedArray%.prototype, and ArrayBuffer.prototype.
+    evidence: Untrusted guest code can therefore require the allowlisted module and then require the absolute path of a non-allowlisted sibling... resulting in a sandbox escape and arbitrary code execution in the host context.
     confidence_band: high
 cves:
-  - id: CVE-2026-92935
+  - id: CVE-2026-100721
     cvss: 9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92935
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92937
-  - https://github.com/advisories/GHSA-m283-3h24-438v
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92938
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92940
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92941
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92944
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92946
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92948
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92953
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92956
-  - https://github.com/advisories/GHSA-6j2x-vhqr-qr7q
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92957
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92942
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92951
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-92958
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-93603
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-93604
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-93606
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100721
 action_plan:
   priority: elevated
   owners:
-    - Development
-    - AppSec
+    - IT Operations
+    - Application Security
   immediate_actions:
-    - action: Upgrade all instances of vm2 to version 3.11.7.
-      owner: Development
+    - action: Upgrade vm2 to 3.12.2 or later in all Node.js projects
+      owner: IT Operations
       due: 48h
-      evidence: This issue is fixed in vm2 3.11.7.
+      evidence: CVE-2026-100721 fix requirement
   mitigation_plan:
     - priority: immediate
-      action: Upgrade to vm2 3.11.7.
-      owner: IT Operations
-      addresses: CVE-2026-92935
-      evidence: NVD vulnerability disclosure.
-updates:
-  - at: "2026-09-17T17:58:21Z"
-    level: L2
-    summary: added coverage for vm2 (< 3.11.7)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-92951
-  - at: "2026-09-17T17:58:33Z"
-    level: L2
-    summary: added coverage for vm2 (<= 3.11.6)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-92958
-  - at: "2026-09-18T16:06:37Z"
-    level: L2
-    summary: added coverage for vm2 (<= 3.12.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-93603
-  - at: "2026-09-18T16:07:51Z"
-    level: L2
-    summary: added coverage for vm2 (<= 3.12.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-93604
-  - at: "2026-09-18T18:06:32Z"
-    level: L2
-    summary: added coverage for vm2 (<= 3.12.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-93606
+      action: Patch vm2 to 3.12.2 or later
+      owner: Application Security
+      addresses: CVE-2026-100721
+      evidence: Vendor vulnerability fix notification
 ---
 
-The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
+CVE-2026-100721 identifies a critical sandbox escape vulnerability in the vm2 library (versions prior to 3.12.2). The vulnerability resides in the `NodeVM` external-module resolver when configured with a custom resolver and `context: 'host'`. The `LegacyResolver.customResolve` function in `lib/resolver-compat.js` improperly validates module paths by creating a regular expression that lacks path separators or end-of-string boundaries.
 
-This logic flaw allows an attacker to manipulate the `makeResolverFromLegacyOptions()` function, leading to the creation of a resolver that exposes the host's `vm2` module. By supplying a payload that initiates a `NodeVM` with `nesting: true` and a malicious `require` array, an attacker can escape the sandbox boundaries. Once escaped, the attacker can create an inner `NodeVM` with arbitrary builtin privileges, such as `child_process`, enabling the execution of arbitrary commands under the context of the host Node.js process. This vulnerability is addressed in vm2 version 3.11.7.
+This flaw allows an attacker to bypass security restrictions by providing a path that shares a prefix with an allowlisted module. For example, if 'foo' is allowlisted, an attacker can require a sibling module 'foo2' located in an absolute path that starts with the same prefix. The vulnerable resolver treats this as authorized, loading the non-allowlisted module into the host process. The top-level code of the malicious module executes before the guest exports are wrapped, enabling full host-context code execution. This is particularly dangerous for applications using vm2 to sandboxing untrusted scripts.
 
 ## Impact
 
-Successful exploitation allows for full sandbox escape and arbitrary code execution within the host environment. This impacts any application relying on vm2 for isolation of untrusted JavaScript, potentially leading to unauthorized data access, system-level command execution, and full compromise of the Node.js application process.
+Successful exploitation allows arbitrary code execution on the host machine hosting the Node.js application. This bypasses the intended security boundaries of the vm2 sandbox, potentially leading to full server compromise, data exfiltration, or lateral movement within the environment. Any application leveraging vm2 for processing user-supplied code is highly susceptible to this sandbox escape.
 
 ## Recommendation
 
-- Upgrade the vm2 dependency to version 3.11.7 or later across all applications utilizing this library to mitigate CVE-2026-92935.
-- Audit all application code utilizing the `NodeVM` constructor to ensure the `require` configuration is strictly defined as an object rather than an array.
-- Implement process-level sandboxing (e.g., containers, gVisor) as a secondary defense layer to limit the impact of a potential sandbox escape.
+* Upgrade the vm2 dependency to version 3.12.2 or higher to include the fix for the resolver path validation logic.
+* Audit applications currently utilizing the NodeVM 'context: host' configuration and a custom 'require.external' resolver to identify potential exposure.
+* Implement strict path sanitization or validation wrappers if immediate library updates are not feasible, though upgrading remains the primary defense.
