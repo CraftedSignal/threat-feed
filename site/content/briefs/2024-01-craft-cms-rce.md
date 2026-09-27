@@ -3,11 +3,15 @@ title: Craft CMS Authenticated Remote Code Execution via Malicious Attached Beha
 slug: 2024-01-craft-cms-rce
 description: Craft CMS versions before 4.17.12 and 5.9.18 are vulnerable to authenticated remote code execution via malicious behavior injection in the field layout hydration path.
 date: "2024-01-02T12:00:00Z"
+lastmod: "2026-09-27T20:59:09Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=A834BCF0-E023-51A9-8F2E-11A733CC2BAB&utm_source=rss&utm_medium=rss
 tags:
   - craft-cms
   - rce
@@ -17,6 +21,7 @@ vendors:
 products:
   - cms (< 4.17.12)
   - cms (< 5.9.18)
+  - Craft CMS (>=4.0.0, <5.9.18)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -26,9 +31,13 @@ mitre_ttps:
     tactic_name: Discovery
     technique_id: T1082
     technique_name: System Information Discovery
+cves:
+  - id: CVE-2026-44011
+    epss: 0.00441
 references:
   - https://github.com/advisories/GHSA-qrgm-p9w5-rrfw
   - https://github.com/craftcms/cms/commit/ab85ca7f5f926994f723f60584054a1f4c4c5de3
+  - https://sploitus.com/exploit?id=A834BCF0-E023-51A9-8F2E-11A733CC2BAB&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Craft CMS RCE Attempt via Element Search
     description: Detects potential remote code execution attempts in Craft CMS by monitoring POST requests to /admin/actions/element-search/search with suspicious JSON payloads.
@@ -53,6 +62,14 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-09-27T20:59:09Z"
+    level: L2
+    summary: poc_available; added CVE-2026-44011
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A834BCF0-E023-51A9-8F2E-11A733CC2BAB&utm_source=rss&utm_medium=rss
 ---
 
 Craft CMS versions before 4.17.12 and 5.9.18 are vulnerable to authenticated remote code execution. The vulnerability stems from an input-handling flaw in a Yii object creation path, allowing any authenticated user to inject malicious configuration and execute arbitrary commands on the server. This is achieved by exploiting the dynamic object configuration feature of Yii, which Craft CMS utilizes to build parts of itself from a settings list. This vulnerability is related to a previously disclosed issue (GHSA-255j-qw47-wjh5) but utilizes a different, unmitigated path. The attack exploits the condition field layouts data conversion to a live FieldLayout object without proper sanitization.
