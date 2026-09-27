@@ -3,7 +3,7 @@ title: Host Header Injection in Sylius Password Reset Mechanism
 slug: 2026-09-sylius-password-reset-poisoning
 description: Sylius versions before 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 are vulnerable to a password reset poisoning attack, allowing unauthenticated attackers to hijack administrator accounts via Host header manipulation.
 date: "2026-09-27T15:07:20Z"
-lastmod: "2026-09-27T15:07:30Z"
+lastmod: "2026-09-27T15:07:38Z"
 type: advisory
 types:
   - advisory
@@ -17,10 +17,14 @@ tags:
   - account-takeover
   - authentication-bypass
   - privilege-escalation
+  - financial-fraud
+  - e-commerce
+  - cve-2026-100872
 vendors:
   - Sylius
 products:
   - Sylius (< 1.12.25, < 1.13.17, < 1.14.20, < 2.1.16, < 2.2.9)
+  - Sylius (2.1.x < 2.1.16, 2.2.x < 2.2.9)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -46,6 +50,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100870
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100871
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100872
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +75,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100871
+  - at: "2026-09-27T15:07:38Z"
+    level: L2
+    summary: added coverage for Sylius (2.1.x < 2.1.16, 2.2.x < 2.2.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100872
 ---
 
 Sylius versions released prior to 1.12.25, 1.13.17, 1.14.20, 2.1.16, and 2.2.9 contain a critical vulnerability in the password reset workflow. The application incorrectly utilizes the HTTP 'Host' header provided in an incoming password reset request to construct the password reset link sent to the user. An unauthenticated attacker can exploit this by injecting a malicious domain into the 'Host' header while initiating a reset request for a target administrator's email address. The resulting reset email contains a link pointing to an attacker-controlled server, facilitating the theft of the reset token and leading to full account takeover. This vulnerability poses a significant risk to administrative access and underscores the necessity of validating input derived from HTTP headers against an allowlist of expected domains.
