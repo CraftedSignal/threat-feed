@@ -3,7 +3,7 @@ title: AzuraCast DQL Injection Vulnerability in sortOrder Parameter
 slug: 2026-09-azuracast-dql-injection
 description: AzuraCast versions prior to 0.23.8 are vulnerable to a DQL injection flaw in the sortOrder API parameter, allowing attackers to exfiltrate sensitive database contents.
 date: "2026-09-27T03:05:15Z"
-lastmod: "2026-09-27T03:06:07Z"
+lastmod: "2026-09-27T03:06:15Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,9 @@ tags:
   - web-application
   - vulnerability
   - webserver
+  - broken-access-control
+  - api-security
+  - credential-exposure
 vendors:
   - AzuraCast
 products:
@@ -27,6 +30,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: AzuraCast before 0.23.8 contains a DQL injection vulnerability in the sortOrder API parameter.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: An authenticated user with restricted View Station Page permissions can exploit this flaw to retrieve sensitive plaintext credentials.
+    confidence_band: high
 cves:
   - id: CVE-2026-100847
     cvss: 7.5
@@ -34,6 +43,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100847
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100849
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100850
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100851
 rules:
   - title: Detects CVE-2026-100847 Exploitation - DQL Injection Attempt
     description: Detects exploitation attempts against the AzuraCast sortOrder parameter by identifying DQL-specific keywords and characters in web requests.
@@ -65,7 +75,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 3
+  - title: Detect Exploitation of CVE-2026-100851 - Broken Access Control in AzuraCast
+    description: Detects potential exploitation attempts by monitoring for requests to the vulnerable API endpoint profile which leaks administrative credentials.
+    platform: sigma
+    severity: high
+    tactics:
+      - credential_access
+    techniques:
+      - T1552
+    data_sources:
+      - webserver
+rules_count: 4
 action_plan:
   priority: elevated
   owners:
@@ -97,6 +117,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100850
+  - at: "2026-09-27T03:06:15Z"
+    level: L2
+    summary: 'added detection rule: Detect Exploitation of CVE-2026-100851 - Broken Access Control in AzuraCast'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100851
 ---
 
 AzuraCast versions before 0.23.8 are susceptible to a DQL injection vulnerability located within the 'sortOrder' API parameter of the 'AbstractSearchableListAction.php' file. An attacker can exploit this flaw by supplying specially crafted DQL (Doctrine Query Language) expressions via the 'sortOrder' parameter. Successful exploitation permits the attacker to bypass standard query logic, potentially leading to the unauthorized exfiltration of sensitive information from the application's database, including user credentials and station configuration settings. This vulnerability presents a significant risk to the integrity and confidentiality of the AzuraCast environment. Organizations should prioritize updating to version 0.23.8 or later to mitigate this risk.
