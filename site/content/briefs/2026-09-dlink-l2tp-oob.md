@@ -3,6 +3,7 @@ title: Remote Out-of-Bounds Write in D-Link DIR-895L L2TP Parser
 slug: 2026-09-dlink-l2tp-oob
 description: A critical out-of-bounds write vulnerability (CVE-2026-100740) in the D-Link DIR-895L L2TP control channel parser allows remote attackers to potentially achieve code execution.
 date: "2026-09-27T03:02:52Z"
+lastmod: "2026-09-27T06:49:53Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:o:dlink:dir-895l_firmware:a1_102b07:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=0BF14342-6D2A-54D8-BFAA-39D212F2E8C2&utm_source=rss&utm_medium=rss
 tags:
   - cve
   - remote-code-execution
@@ -37,6 +41,7 @@ cves:
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100740
+  - https://sploitus.com/exploit?id=0BF14342-6D2A-54D8-BFAA-39D212F2E8C2&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +58,14 @@ action_plan:
       owner: Network Operations
       addresses: CVE-2026-100740
       evidence: Remote out-of-bounds write via L2TP control channel.
+updates:
+  - at: "2026-09-27T06:49:53Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=0BF14342-6D2A-54D8-BFAA-39D212F2E8C2&utm_source=rss&utm_medium=rss
 ---
 
 D-Link DIR-895L firmware version A1_102b07 contains a critical security vulnerability identified as CVE-2026-100740. The flaw resides within the L2TP Control Channel Parser, specifically inside the tunnel_set_params function located in tunnel.c. An attacker can trigger an out-of-bounds write via a crafted remote request. Because this is a memory corruption vulnerability within a networking component, successful exploitation could lead to arbitrary code execution or a denial-of-service condition for the affected router. Publicly available exploit material exists, increasing the risk of exploitation. Defenders should treat this as a high-priority risk for edge network devices.
