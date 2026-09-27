@@ -3,6 +3,7 @@ title: Arbitrary Environment Variable Disclosure via pnpm-workspace.yaml
 slug: 2026-09-pnpm-env-expansion
 description: Vulnerable pnpm versions expand sensitive environment variables within proxy settings in malicious pnpm-workspace.yaml files, enabling credential exfiltration during configuration loading.
 date: "2026-09-27T19:08:52Z"
+lastmod: "2026-09-27T21:09:25Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +21,7 @@ vendors:
 products:
   - pnpm (11.0.0 <= version < 11.11.0)
   - pnpm (10.7.0 <= version < 10.34.5)
+  - pnpm (>=12.0.0-alpha.0 <12.0.0-alpha.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -33,11 +35,18 @@ mitre_ttps:
     technique_name: User Execution
     evidence: A victim who clones the repository and runs a pnpm command (e.g. pnpm install) to expand environment secrets.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.001
+    technique_name: PowerShell
+    evidence: The improper handling of dependency names allows for the creation of links and files outside the node_modules boundary, which could be leveraged for malicious execution.
+    confidence_band: med
 cves:
   - id: CVE-2026-101043
     cvss: 7.4
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101043
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101044
 action_plan:
   priority: elevated
   owners:
@@ -54,6 +63,14 @@ action_plan:
       owner: Development Security
       addresses: CVE-2026-101043
       evidence: Exfiltration of environment secrets such as NPM_TOKEN or GITHUB_TOKEN.
+updates:
+  - at: "2026-09-27T21:09:25Z"
+    level: L2
+    summary: added coverage for pnpm (>=12.0.0-alpha.0 <12.0.0-alpha.5)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101044
 ---
 
 CVE-2026-101043 affects pnpm versions 11.0.0 through 11.10.x and 10.7.0 through 10.34.4. The vulnerability arises from improper handling of environment variable expansion within the httpProxy, httpsProxy, and noProxy configuration keys located in a project's pnpm-workspace.yaml file. Unlike other sensitive keys that are protected from expansion to prevent untrusted manifest exploitation, these proxy keys are processed before lifecycle scripts execute. 
