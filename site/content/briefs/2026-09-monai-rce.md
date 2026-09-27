@@ -3,7 +3,7 @@ title: Remote Code Execution in MONAI Bundle Configuration Engine
 slug: 2026-09-monai-rce
 description: MONAI versions through 1.6.0 are vulnerable to remote code execution due to insecure deserialization and evaluation of arbitrary Python callables within bundle configuration files.
 date: "2026-09-27T03:04:23Z"
-lastmod: "2026-09-27T03:04:32Z"
+lastmod: "2026-09-27T03:04:39Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,8 @@ tags:
   - deserialization
   - rce
   - monai
+  - code-execution
+  - ml-ops
 vendors:
   - MONAI
 products:
@@ -31,12 +33,19 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Attackers can publish a malicious bundle with crafted configuration containing arbitrary code that executes when a victim loads the bundle using monai.bundle.load() or monai.bundle.run().
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The vulnerability allows an attacker to escape the eval sandbox via object introspection chains and achieve code execution in this non-default flow.
+    confidence_band: high
 cves:
   - id: CVE-2026-100840
     cvss: 7.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100840
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100841
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100842
 action_plan:
   priority: elevated
   owners:
@@ -61,6 +70,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100841
+  - at: "2026-09-27T03:04:39Z"
+    level: L2
+    summary: added coverage for MONAI (<= 1.6.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100842
 ---
 
 MONAI (Medical Open Network for AI) versions 1.6.0 and earlier contain a critical remote code execution (RCE) vulnerability within the bundle configuration engine. The vulnerability stems from the engine's failure to maintain an allow list when resolving '_target_' values to importable callables, combined with the unsafe passing of '$' expressions to the Python 'eval()' function. 
