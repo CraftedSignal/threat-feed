@@ -1,5 +1,8 @@
 {{- $items := slice -}}
-{{- range .Data.Terms.ByCount -}}
+{{- /* By displayed title, like the list.html grid. .Alphabetical sorts
+       by the raw term key, which disagrees with the title on spacing
+       and hyphens ("Better Messages" before "Better Auth"). */ -}}
+{{- range sort .Data.Terms.ByCount "Page.Title" -}}
   {{- $items = $items | append (dict "url" .Page.RelPermalink "title" .Page.Title "count" .Count) -}}
 {{- end -}}
 {{ $items | jsonify }}

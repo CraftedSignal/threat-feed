@@ -9,7 +9,7 @@
 {{ $type := .Params.type | default "threat" }}
 {{ $tags := .Params.tags | default slice }}
 {{ $actors := .Params.actors | default slice }}
-{{ $products := .Params.products | default slice }}
+{{ $products := .Params.products | default slice | uniq }}
 {{ $exploited := .Params.exploited | default false }}
 {{ $hasPOC := .Params.has_poc | default false }}
 {{ $pocRefs := .Params.poc_references | default slice }}
