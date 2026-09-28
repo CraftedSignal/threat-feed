@@ -3,7 +3,7 @@ title: Remote Command Injection in Netcore NR289-GE
 slug: 2026-09-netcore-cve
 description: Netcore NR289-GE version 1.4.5102 is vulnerable to remote unauthenticated OS command injection via the ip argument in the /ap_ip.cgi component.
 date: "2026-09-28T16:20:14Z"
-lastmod: "2026-09-28T16:20:31Z"
+lastmod: "2026-09-28T16:20:41Z"
 type: advisory
 types:
   - advisory
@@ -33,12 +33,19 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: The manipulation of the argument mac leads to os command injection.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack is possible to be carried out remotely.
+    confidence_band: high
 cves:
   - id: CVE-2026-101072
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101072
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101075
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101077
 rules:
   - title: Detects CVE-2026-101072 Exploitation - OS Command Injection via /ap_ip.cgi
     description: Detects exploitation attempts against Netcore NR289-GE where the ip argument contains common shell injection characters.
@@ -96,6 +103,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101075
+  - at: "2026-09-28T16:20:41Z"
+    level: L2
+    summary: added coverage for NR289-GE (1.4.5102)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101077
 ---
 
 A critical security vulnerability has been identified in the Netcore NR289-GE router, specifically in version 1.4.5102. The flaw resides within the CGI handler component, specifically the /ap_ip.cgi script. An unauthenticated remote attacker can inject arbitrary operating system commands by manipulating the 'ip' HTTP GET or POST parameter. Because the CGI handler processes this input without sufficient sanitization before passing it to a system shell, the vulnerability allows for full system compromise with the privileges of the web server process. The vendor has not responded to disclosure attempts, and proof-of-concept exploit code is publicly available, increasing the risk of exploitation by opportunistic threat actors targeting edge devices.
