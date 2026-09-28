@@ -3,7 +3,7 @@ title: Sandbox Escape in vm2 via NodeVM Module Resolver
 slug: 2026-09-vm2-sandbox-escape
 description: CVE-2026-100721 is a sandbox escape vulnerability in vm2 versions before 3.12.2, allowing untrusted guest code to execute arbitrary code in the host context via an authorization bypass in the external-module resolver.
 date: "2026-09-27T05:03:42Z"
-lastmod: "2026-09-27T05:03:54Z"
+lastmod: "2026-09-28T10:18:45Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:vm2_project:vm2:*:*:*:*:*:node.js:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=E4676EF8-66BD-52E8-A048-1B70924F40C5&utm_source=rss&utm_medium=rss
 tags:
   - vm2
   - sandbox-escape
@@ -35,9 +38,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-100721
     cvss: 9
+    epss: 0.004
+  - id: CVE-2026-100723
+    cvss: 7.5
+    epss: 0.00316
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100721
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100723
+  - https://sploitus.com/exploit?id=E4676EF8-66BD-52E8-A048-1B70924F40C5&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -62,6 +70,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100723
+  - at: "2026-09-28T10:18:45Z"
+    level: L2
+    summary: poc_available; added CVE-2026-100723
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=E4676EF8-66BD-52E8-A048-1B70924F40C5&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-100721 identifies a critical sandbox escape vulnerability in the vm2 library (versions prior to 3.12.2). The vulnerability resides in the `NodeVM` external-module resolver when configured with a custom resolver and `context: 'host'`. The `LegacyResolver.customResolve` function in `lib/resolver-compat.js` improperly validates module paths by creating a regular expression that lacks path separators or end-of-string boundaries.
