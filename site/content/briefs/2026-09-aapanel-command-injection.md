@@ -3,6 +3,7 @@ title: Command Injection in aaPanel BaoTa via File Merge Handler
 slug: 2026-09-aapanel-command-injection
 description: An unauthenticated remote command injection vulnerability in the aaPanel BaoTa File Merge Handler allows attackers to execute arbitrary system commands via the split_file_path parameter.
 date: "2026-09-28T08:49:19Z"
+lastmod: "2026-09-28T08:49:36Z"
 type: threat
 types:
   - threat
@@ -15,6 +16,10 @@ tags:
   - web-application-vulnerability
   - rce
   - command-injection
+  - remote-code-execution
+  - vulnerability
+  - linux
+  - webserver
 vendors:
   - aaPanel
 products:
@@ -26,11 +31,30 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An attacker can supply a malicious split_file_path argument to execute arbitrary system commands remotely.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Manipulation of the argument Password leads to os command injection.
+    confidence_band: high
 cves:
   - id: CVE-2026-101008
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101008
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101007
+rules:
+  - title: Detect CVE-2026-101007 Exploitation - Remote Command Injection in BaoTa
+    description: Detects exploitation of CVE-2026-101007 by identifying shell metacharacters within the Password argument of database backup requests.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +71,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-101008
       evidence: Source notes command injection via manipulation of split_file_path.
+updates:
+  - at: "2026-09-28T08:49:36Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-101007 Exploitation - Remote Command Injection in BaoTa'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101007
 ---
 
 aaPanel BaoTa versions up to 11.8.0 contain a critical command injection vulnerability in the merge_split_file function, located within the file /www/server/panel/class/files.py. The vulnerability exists within the File Merge Handler component. An unauthenticated remote attacker can exploit this by sending a specially crafted request containing a malicious split_file_path argument. Because the application fails to properly sanitize this input before passing it to the underlying system shell, it allows for the execution of arbitrary commands with the privileges of the web application user. This flaw is publicly disclosed and currently lacks a vendor-provided patch. Defenders should treat this as a high-priority exposure, as public exploit code increases the likelihood of active exploitation.
