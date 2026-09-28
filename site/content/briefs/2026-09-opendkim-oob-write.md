@@ -3,6 +3,7 @@ title: Remote Out-of-Bounds Write Vulnerability in OpenDKIM
 slug: 2026-09-opendkim-oob-write
 description: A memory corruption vulnerability in the OpenDKIM dkim_canon_selecthdrs function allows remote attackers to trigger an out-of-bounds write via crafted DKIM signature headers.
 date: "2026-09-28T01:11:25Z"
+lastmod: "2026-09-28T01:11:33Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ tags:
   - vulnerability
   - remote-code-execution
   - mail-infrastructure
+  - mail-security
 vendors:
   - Trusted Domain Project
 products:
@@ -30,6 +32,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100888
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100889
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-100888
       evidence: Public exploit code is available.
+updates:
+  - at: "2026-09-28T01:11:33Z"
+    level: L2
+    summary: added coverage for OpenDKIM (<= 2.11.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100889
 ---
 
 A security vulnerability (CVE-2026-100888) has been identified in the Trusted Domain Project OpenDKIM library up to version 2.11.0. The flaw resides within the dkim_canon_selecthdrs function located in libopendkim/dkim-canon.c, specifically within the DKIM Signature Header Selection component. By manipulating the 'h' argument in a malicious DKIM signature, a remote attacker can trigger an out-of-bounds write. This vulnerability is particularly concerning as public exploit code is already available, potentially enabling remote code execution in applications utilizing the affected library. The vendor was notified of the issue but has not provided a response or a patch as of the reporting date. Defenders should prioritize auditing mail infrastructure utilizing OpenDKIM for potential exploitation attempts or crashes indicating memory corruption.
