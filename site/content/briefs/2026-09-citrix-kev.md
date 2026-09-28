@@ -3,7 +3,7 @@ title: Active Exploitation of Citrix NetScaler Vulnerabilities CVE-2026-88771 an
 slug: 2026-09-citrix-kev
 description: CISA has added two Citrix NetScaler vulnerabilities to its Known Exploited Vulnerabilities catalog due to documented evidence of active in-the-wild exploitation.
 date: "2026-09-27T19:54:07Z"
-lastmod: "2026-09-28T10:13:55Z"
+lastmod: "2026-09-28T16:14:30Z"
 type: threat
 types:
   - threat
@@ -22,6 +22,7 @@ vendors:
 products:
   - NetScaler ADC (< 14.1-73.37)
   - NetScaler Gateway (< 14.1-73.37)
+  - NetScaler Application Delivery Controller
 cves:
   - id: CVE-2026-88771
   - id: CVE-2026-88772
@@ -31,6 +32,7 @@ references:
   - https://www.securityweek.com/citrix-confirms-2-netscaler-zero-days-after-admins-pulled-the-plug/
   - https://thehackernews.com/2026/09/cisa-says-attackers-are-exploiting-two.html
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3587
+  - https://www.sophos.com/en-us/blog/citrix-netscaler-cve-2026-88771-cve-2026-88772-in-active-exploitation
 updates:
   - at: "2026-09-27T21:59:19Z"
     level: L2
@@ -60,6 +62,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3587
+  - at: "2026-09-28T16:14:30Z"
+    level: L1
+    summary: new product
+    sources:
+      - sophos-xops
+    source_urls:
+      - https://www.sophos.com/en-us/blog/citrix-netscaler-cve-2026-88771-cve-2026-88772-in-active-exploitation
 ---
 
 CISA has officially added two vulnerabilities affecting Citrix NetScaler to its Known Exploited Vulnerabilities (KEV) Catalog, citing evidence of active exploitation in the wild. The identified vulnerabilities are CVE-2026-88771, which involves improper input validation, and CVE-2026-88772, which involves improper restriction of operations within the bounds of a memory buffer. These vulnerabilities are documented as frequent attack vectors that allow malicious actors to target organizations by exploiting weaknesses in input handling and memory management on network appliances. Given their inclusion in the KEV catalog, these flaws are considered high-risk, necessitating immediate remediation to prevent potential unauthorized access or system compromise. Defenders should prioritize patching all internet-facing NetScaler instances to mitigate the risk posed by these actively exploited CVEs.
