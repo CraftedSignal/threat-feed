@@ -3,6 +3,7 @@ title: CVE-2026-101066 Path Traversal in Dbgate
 slug: 2026-09-dbgate-path-traversal
 description: Dbgate versions up to 7.3.1 contain a path traversal vulnerability in the archive link creation component, allowing remote unauthenticated attackers to access arbitrary files on the filesystem via the linkedFolder parameter.
 date: "2026-09-28T14:14:49Z"
+lastmod: "2026-09-28T14:15:00Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ vendors:
   - dbgate
 products:
   - dbgate (<= 7.3.1)
+  - Dbgate (up to 6.8.1, 7.0.2, 7.1.8, 7.2.5, 7.3.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,6 +34,19 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101066
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101067
+rules:
+  - title: Detects CVE-2026-101067 Exploitation - Path Traversal in Dbgate
+    description: Detects exploitation attempts against the Dbgate save-uploaded-file endpoint by monitoring for directory traversal sequences in the filePath or fileName parameters.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +63,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-101066
       evidence: Source confirms path traversal in linkedFolder parameter
+updates:
+  - at: "2026-09-28T14:15:00Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-101067 Exploitation - Path Traversal in Dbgate'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101067
 ---
 
 Dbgate versions up to 7.3.1 are vulnerable to a path traversal vulnerability identified as CVE-2026-101066. The issue exists within the createLink function located in packages/api/src/controllers/archive.js. An attacker can manipulate the linkedFolder argument to break out of the intended directory structure and access sensitive files on the host server. This vulnerability is remotely exploitable without authentication and is currently subject to public disclosure with no available vendor patch. Given the nature of Dbgate as a database management tool, successful exploitation could lead to the exposure of database configuration files, credentials, and other sensitive system information stored on the host running the application.
