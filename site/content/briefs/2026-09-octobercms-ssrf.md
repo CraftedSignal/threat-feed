@@ -3,6 +3,7 @@ title: Server-Side Request Forgery in OctoberCMS
 slug: 2026-09-octobercms-ssrf
 description: An unauthenticated server-side request forgery (SSRF) vulnerability in OctoberCMS allows remote attackers to manipulate the realSourcePath argument to perform unauthorized internal network requests.
 date: "2026-09-28T06:47:15Z"
+lastmod: "2026-09-28T08:49:28Z"
 type: advisory
 types:
   - advisory
@@ -15,13 +16,23 @@ tags:
   - ssrf
 vendors:
   - OctoberCMS
+  - October CMS
 products:
   - OctoberCMS (<= 4.1.19, <= 4.2.25, <= 4.3.4)
+  - October CMS (<= 4.3.4)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack may be launched remotely.
+    confidence_band: high
 cves:
   - id: CVE-2026-100909
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100909
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101005
 action_plan:
   priority: immediate_escalation
   owners:
@@ -38,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-100909
       evidence: Mitigates SSRF impact by blocking internal network scanning.
+updates:
+  - at: "2026-09-28T08:49:28Z"
+    level: L2
+    summary: added coverage for October CMS (<= 4.3.4)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101005
 ---
 
 OctoberCMS versions up to 4.1.19, 4.2.25, and 4.3.4 contain a server-side request forgery (SSRF) vulnerability. The flaw exists within the getSourcePathForResize function located in modules/system/classes/ResizeImages.php. An attacker can supply a malicious value to the realSourcePath argument, which is processed by the application without sufficient validation, leading to SSRF. This vulnerability allows remote, unauthenticated actors to force the OctoberCMS server to initiate arbitrary HTTP requests to internal or external resources. Given the availability of public exploit information, this represents a significant risk for organizations hosting OctoberCMS instances. Defenders should immediately prioritize patching to version 4.3.5 or 4.4.0, which includes the necessary fix (patch ID 0e9736aa2c6d6bd3d60ff6ef9e0b4d32ce387f58) to restrict path access.
