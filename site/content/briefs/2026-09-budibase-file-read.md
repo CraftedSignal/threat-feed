@@ -3,7 +3,7 @@ title: Arbitrary File Read in Budibase OpenAPI Import Validator
 slug: 2026-09-budibase-file-read
 description: Budibase versions prior to 3.45.0 contain an arbitrary file read vulnerability caused by enabled external JSON reference resolution during OpenAPI/Swagger file imports.
 date: "2026-09-26T15:10:36Z"
-lastmod: "2026-09-26T15:12:21Z"
+lastmod: "2026-09-28T10:13:45Z"
 type: advisory
 types:
   - advisory
@@ -76,12 +76,20 @@ mitre_ttps:
 cves:
   - id: CVE-2026-100680
     cvss: 8.1
+    epss: 0.00234
+  - id: CVE-2026-100683
+    cvss: 8
+    epss: 0.00206
+  - id: CVE-2026-100686
+    cvss: 8.1
+    epss: 0.00209
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100680
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100683
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100684
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100685
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100686
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3590
 action_plan:
   priority: elevated
   owners:
@@ -127,6 +135,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100686
+  - at: "2026-09-28T10:13:45Z"
+    level: L2
+    summary: added CVE-2026-100683 +1
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3590
 ---
 
 Budibase versions prior to 3.45.0 suffer from an arbitrary file read vulnerability located in the OpenAPI/Swagger import validation functionality. The issue arises because the application fails to restrict external JSON reference resolution during the import process. An attacker possessing authenticated access as a builder can exploit this misconfiguration by submitting a crafted OpenAPI specification file containing malicious file:// URI references. 
