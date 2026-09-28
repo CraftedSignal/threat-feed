@@ -3,7 +3,7 @@ title: Command Injection in aaPanel BaoTa via File Merge Handler
 slug: 2026-09-aapanel-command-injection
 description: An unauthenticated remote command injection vulnerability in the aaPanel BaoTa File Merge Handler allows attackers to execute arbitrary system commands via the split_file_path parameter.
 date: "2026-09-28T08:49:19Z"
-lastmod: "2026-09-28T08:49:36Z"
+lastmod: "2026-09-28T08:49:44Z"
 type: threat
 types:
   - threat
@@ -20,6 +20,7 @@ tags:
   - vulnerability
   - linux
   - webserver
+  - aaPanel
 vendors:
   - aaPanel
 products:
@@ -43,6 +44,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101008
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101007
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101009
 rules:
   - title: Detect CVE-2026-101007 Exploitation - Remote Command Injection in BaoTa
     description: Detects exploitation of CVE-2026-101007 by identifying shell metacharacters within the Password argument of database backup requests.
@@ -79,6 +81,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101007
+  - at: "2026-09-28T08:49:44Z"
+    level: L2
+    summary: added coverage for BaoTa (<= 11.8.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101009
 ---
 
 aaPanel BaoTa versions up to 11.8.0 contain a critical command injection vulnerability in the merge_split_file function, located within the file /www/server/panel/class/files.py. The vulnerability exists within the File Merge Handler component. An unauthenticated remote attacker can exploit this by sending a specially crafted request containing a malicious split_file_path argument. Because the application fails to properly sanitize this input before passing it to the underlying system shell, it allows for the execution of arbitrary commands with the privileges of the web application user. This flaw is publicly disclosed and currently lacks a vendor-provided patch. Defenders should treat this as a high-priority exposure, as public exploit code increases the likelihood of active exploitation.
