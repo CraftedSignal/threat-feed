@@ -1,8 +1,8 @@
 ---
-title: Arbitrary File Access in DbGate via jsldata Controller
+title: CVE-2026-101066 Path Traversal in Dbgate
 slug: 2026-09-dbgate-path-traversal
-description: Authenticated attackers can exploit a path traversal vulnerability in the DbGate jsldata controller to achieve arbitrary file read and write access.
-date: "2026-09-03T15:21:46Z"
+description: Dbgate versions up to 7.3.1 contain a path traversal vulnerability in the archive link creation component, allowing remote unauthenticated attackers to access arbitrary files on the filesystem via the linkedFolder parameter.
+date: "2026-09-28T14:14:49Z"
 type: advisory
 types:
   - advisory
@@ -10,59 +10,56 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:dbgate:dbgate:*:*:*:*:*:*:*:*
-tags:
-  - web-application
-  - path-traversal
-  - data-exfiltration
 vendors:
-  - DbGate
+  - dbgate
 products:
-  - DbGate
+  - dbgate (<= 7.3.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1083
-    technique_name: File and Directory Discovery
-    evidence: Attackers can exploit getJslFileName() to bypass directory containment and access sensitive files.
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack may be initiated remotely.
     confidence_band: high
-  - tactic_id: TA0010
-    tactic_name: Exfiltration
+  - tactic_id: TA0009
+    tactic_name: Collection
     technique_id: T1005
     technique_name: Data from Local System
-    evidence: This allows the compromise of sensitive data, including encrypted database credentials stored in configuration files.
+    evidence: This manipulation of the argument linkedFolder causes path traversal.
     confidence_band: high
 cves:
-  - id: CVE-2026-85176
-    cvss: 8.8
+  - id: CVE-2026-101066
+    cvss: 7.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-85176
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101066
 action_plan:
   priority: elevated
   owners:
     - SOC
     - IT Operations
   immediate_actions:
-    - action: Review webserver access logs for 'file://' string in requests to jsldata controller
-      owner: SOC
+    - action: Restrict access to Dbgate via firewall/proxy
+      owner: IT Operations
       due: 24h
-      evidence: Source documentation of file:// scheme abuse
+      evidence: Remotely exploitable vulnerability
   mitigation_plan:
     - priority: immediate
-      action: Patch DbGate to the version containing the fix for CVE-2026-85176
-      owner: IT Operations
-      addresses: CVE-2026-85176
-      evidence: NVD vulnerability disclosure
+      action: Monitor web logs for directory traversal signatures
+      owner: SOC
+      addresses: CVE-2026-101066
+      evidence: Source confirms path traversal in linkedFolder parameter
 ---
 
-CVE-2026-85176 is a critical vulnerability affecting DbGate, specifically within the jsldata controller. The application fails to properly validate the jslid parameters, which are processed by the getJslFileName() function. An authenticated user can leverage the file:// scheme to bypass directory containment mechanisms. This flaw allows an attacker to access arbitrary files on the underlying host filesystem, including sensitive configuration files that store encrypted database credentials. Successful exploitation results in full file-read and file-write capabilities, potentially leading to total system compromise or further lateral movement by extracting stored credentials.
+Dbgate versions up to 7.3.1 are vulnerable to a path traversal vulnerability identified as CVE-2026-101066. The issue exists within the createLink function located in packages/api/src/controllers/archive.js. An attacker can manipulate the linkedFolder argument to break out of the intended directory structure and access sensitive files on the host server. This vulnerability is remotely exploitable without authentication and is currently subject to public disclosure with no available vendor patch. Given the nature of Dbgate as a database management tool, successful exploitation could lead to the exposure of database configuration files, credentials, and other sensitive system information stored on the host running the application.
 
 ## Impact
 
-The vulnerability poses a severe risk to organizations using DbGate, as it allows authenticated attackers to read sensitive local files and overwrite critical application or system data. This can lead to the exfiltration of sensitive connection strings and encrypted credentials. The impact is significant for environments where DbGate is used to manage multiple database connections, as it provides a pathway for an attacker to gain credentials for all managed databases.
+Successful exploitation allows remote attackers to read unauthorized files from the filesystem where Dbgate is installed. This can lead to full system compromise if configuration files containing database credentials are exfiltrated. The vulnerability affects all deployments of Dbgate versions 7.3.1 and earlier, regardless of the underlying operating system.
 
 ## Recommendation
 
-1. Identify all instances of DbGate within the infrastructure.
-2. Monitor web application access logs for requests targeting the /jsldata controller with file:// URI schemes in the jslid parameter.
-3. Apply patches provided by the vendor to address the improper validation in getJslFileName().
-4. Implement strict network segmentation to restrict access to the DbGate web interface to trusted administrative IP ranges.
+Prioritized actions for security teams:
+- Identify all instances of Dbgate deployed within the environment and audit their exposure to the internet.
+- Apply network-level access control lists (ACLs) to restrict access to Dbgate interfaces to trusted management subnets until a patch is released.
+- Monitor web server access logs for requests containing directory traversal patterns such as "../" in the linkedFolder parameter targeting the archive controller.
+- Implement file integrity monitoring (FIM) on critical application configuration files to detect unauthorized access attempts.
