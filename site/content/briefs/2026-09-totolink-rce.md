@@ -1,40 +1,42 @@
 ---
-title: Remote Command Injection in TOTOLINK X5000R
+title: Remote Code Execution in TOTOLINK N150RT
 slug: 2026-09-totolink-rce
-description: A remote OS command injection vulnerability in the TOTOLINK X5000R router allows unauthenticated attackers to execute arbitrary commands via the exportOvpn function.
-date: "2026-09-15T17:46:17Z"
-type: advisory
+description: An OS command injection vulnerability in the TOTOLINK N150RT web interface allows unauthenticated remote attackers to execute arbitrary commands via the wlanif parameter.
+date: "2026-09-28T03:11:42Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
-  - high
+  - critical
+exploited: true
 cpes:
-  - cpe:2.3:a:totolink:x5000r:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:totolink:n150rt:*:*:*:*:*:*:*:*
 tags:
+  - cve-2026-100896
+  - command-injection
   - remote-code-execution
-  - cve-2026-91853
-  - network-security
+  - network-appliance
 vendors:
   - TOTOLINK
 products:
-  - X5000R (9.1.0cu.2089_B20211224)
+  - N150RT (3.4.0-B20201030)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1203
     technique_name: Exploitation for Client Execution
-    evidence: The manipulation of the argument filetype leads to os command injection. The attack can be initiated remotely.
+    evidence: Remote exploitation of the attack is possible.
     confidence_band: high
 cves:
-  - id: CVE-2026-91853
-    cvss: 7.4
+  - id: CVE-2026-100896
+    cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-91853
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100896
 rules:
-  - title: Detects CVE-2026-91853 Exploitation - Command Injection in TOTOLINK ExportOvpn
-    description: Detects attempts to exploit CVE-2026-91853 by identifying suspicious manipulation of the filetype parameter in the exportOvpn cgi script.
+  - title: Detect CVE-2026-100896 Exploitation - OS Command Injection in TOTOLINK
+    description: Detects exploitation of CVE-2026-100896 by monitoring for malicious shell metacharacters within the wlanif parameter of the formWlSiteSurvey handler.
     platform: sigma
-    severity: high
+    severity: critical
     tactics:
       - execution
       - initial_access
@@ -44,33 +46,40 @@ rules:
       - webserver
 rules_count: 1
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - SOC
-    - Detection Engineering
+    - Network Security
   immediate_actions:
-    - action: Deploy Sigma detection rule for web server logs
-      owner: Detection Engineering
+    - action: Block external access to TOTOLINK web interfaces
+      owner: Network Security
       due: 24h
-  hunt_leads:
-    - lead: Search logs for requests to /cgi-bin/cstecgi.cgi containing shell metacharacters
-      technique_id: T1203
-      data_needed:
-        - webserver_logs
-      priority: high
-      confidence: high
-      disposition: hunt_now
-      evidence: Source documentation of command injection vulnerability in cstecgi.cgi
+      evidence: Publicly available exploit code exists, posing a high risk
+  mitigation_plan:
+    - priority: immediate
+      action: Disable remote management features on affected TOTOLINK devices
+      owner: IT Operations
+      addresses: CVE-2026-100896
+      evidence: Exploit targets Web Management Interface
 ---
 
-The TOTOLINK X5000R router, specifically version 9.1.0cu.2089_B20211224, is susceptible to an OS command injection vulnerability (CVE-2026-91853). The vulnerability resides within the exportOvpn handler, which is invoked via the /cgi-bin/cstecgi.cgi script. An attacker can trigger this flaw by manipulating the filetype argument during an export request. Because the application fails to properly sanitize user-supplied input before passing it to the underlying system shell, an unauthenticated remote attacker can achieve arbitrary code execution. This vulnerability is publicly disclosed, increasing the risk of exploitation by opportunistic actors targeting edge network infrastructure. Defenders should monitor web server logs for suspicious requests directed at the exportOvpn handler.
+TOTOLINK N150RT firmware version 3.4.0-B20201030 contains a critical command injection vulnerability (CVE-2026-100896) within its Web Management Interface. The flaw is located in the '/boafrm/formWlSiteSurvey' handler, which improperly sanitizes user-supplied input provided to the 'wlanif' argument. An unauthenticated remote attacker can leverage this vulnerability to inject and execute arbitrary system-level commands on the underlying device. Given that public exploit code is already available, the risk of active exploitation by threat actors is high. Defenders should ensure these devices are isolated from the public internet and monitored for suspicious HTTP POST requests directed at the identified handler.
+
+## Attack Chain
+
+1. Attacker performs network reconnaissance to identify accessible TOTOLINK N150RT web management interfaces.
+2. Attacker initiates an HTTP POST request to the target device endpoint: /boafrm/formWlSiteSurvey.
+3. Attacker crafts a malicious payload containing shell metacharacters (e.g., ;, |, &&) within the 'wlanif' parameter.
+4. The web server process parses the HTTP request and passes the tainted 'wlanif' argument to a system-level function call.
+5. The underlying OS executes the injected command with the privileges of the web management service.
+6. The attacker establishes a reverse shell or downloads secondary payloads to achieve persistent unauthorized access.
 
 ## Impact
 
-Successful exploitation allows unauthenticated remote attackers to execute arbitrary operating system commands on the affected router. This could result in full device compromise, unauthorized access to internal network traffic, and the use of the router as a pivot point for further lateral movement within the environment.
+Successful exploitation allows for full system compromise, including unauthorized code execution, potential exfiltration of sensitive configuration data, and the ability to repurpose the device for further malicious activities within the local network. 
 
 ## Recommendation
 
-- Monitor web server traffic for HTTP requests targeting /cgi-bin/cstecgi.cgi with suspicious parameters in the filetype argument.
-- Implement access control lists on edge firewalls to restrict access to the web management interface of affected TOTOLINK routers to trusted IP ranges only.
-- Audit network logs for anomalous outbound connections originating from router infrastructure.
+1. Immediately restrict access to the Web Management Interface of TOTOLINK devices from the public internet.
+2. Implement network-level monitoring to detect POST requests to '/boafrm/formWlSiteSurvey' containing shell metacharacters in the query parameters.
+3. Update firmware to the latest available version if a patch is provided by the manufacturer, as version 3.4.0-B20201030 is confirmed vulnerable.
