@@ -3,6 +3,7 @@ title: Arbitrary File Upload Vulnerability in Ultra Addons for Contact Form 7
 slug: 2026-09-ultra-addons-rce
 description: An arbitrary file upload vulnerability in the Ultra Addons for Contact Form 7 plugin, tracked as CVE-2026-82901, allows unauthenticated attackers to execute arbitrary code when the PDF Generator module is enabled.
 date: "2026-09-26T21:01:01Z"
+lastmod: "2026-09-29T10:33:29Z"
 type: advisory
 types:
   - advisory
@@ -10,8 +11,12 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:ultraaddons:ultra_addons_for_contact_form_7:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=172FA149-9828-57FE-BD97-95D3C7BF14C0&utm_source=rss&utm_medium=rss
 vendors:
   - Ultra Addons
+  - Themefic
 products:
   - Ultra Addons for Contact Form 7 (<= 3.5.50)
 mitre_ttps:
@@ -30,8 +35,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-82901
     cvss: 9.8
+    epss: 0.01109
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82901
+  - https://sploitus.com/exploit?id=172FA149-9828-57FE-BD97-95D3C7BF14C0&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82901
       evidence: 'Note: This is only exploitable when the plugin''s PDF Generator module is enabled'
+updates:
+  - at: "2026-09-29T10:33:29Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=172FA149-9828-57FE-BD97-95D3C7BF14C0&utm_source=rss&utm_medium=rss
 ---
 
 The Ultra Addons for Contact Form 7 plugin for WordPress is affected by a critical arbitrary file upload vulnerability, identified as CVE-2026-82901. The flaw resides within the 'uacf7_wpcf7_mail_components' function, which fails to adequately validate file types during upload operations. This vulnerability affects all versions of the plugin up to and including 3.5.50. 
