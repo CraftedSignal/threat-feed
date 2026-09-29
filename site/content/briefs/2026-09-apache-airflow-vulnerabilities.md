@@ -1,57 +1,63 @@
 ---
 title: Multiple Vulnerabilities in Apache Airflow Providers
 slug: 2026-09-apache-airflow-vulnerabilities
-description: Multiple vulnerabilities in Apache Airflow and its providers (FAB, Keycloak, Kafka, Akeyless) could allow unauthenticated or authenticated attackers to perform remote code execution, privilege escalation, or unauthorized data access.
-date: "2026-09-16T13:06:56Z"
+description: Multiple vulnerabilities in various Apache Airflow providers allow attackers to perform file manipulation, SQL injection, information disclosure, and security bypasses.
+date: "2026-09-29T16:17:59Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:apache:airflow:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:alf:alf:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:restsharp:restsharp:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - apache-airflow
-  - product-news
+  - pipeline-security
 vendors:
-  - Apache
+  - Apache Software Foundation
 products:
-  - Airflow
-mitre_ttps:
-  - tactic_id: TA0004
-    tactic_name: Privilege Escalation
-    technique_id: T1068
-    technique_name: Exploitation for Privilege Escalation
-    evidence: An attacker can exploit multiple vulnerabilities in Apache Airflow to increase their privileges.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: An attacker can exploit multiple vulnerabilities in Apache Airflow to execute arbitrary code.
-    confidence_band: high
+  - Apache Airflow (various provider packages)
+cves:
+  - id: CVE-2024-45300
+    cvss: 7.5
+    epss: 0.0042
+  - id: CVE-2024-45301
+    cvss: 5.3
+    epss: 0.0029
+  - id: CVE-2024-45302
+    cvss: 6.1
+    epss: 0.00316
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3385
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3630
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Security Operations
+    - DevOps
   immediate_actions:
-    - action: Upgrade Apache Airflow and providers to the latest versions.
-      owner: IT Operations
+    - action: Upgrade Apache Airflow to 2.0-M5 or later
+      owner: DevOps
       due: 48h
-      evidence: Source advisory recommends addressing identified vulnerabilities.
+      evidence: Source reporting of multiple vulnerabilities requiring patch.
+  mitigation_plan:
+    - priority: immediate
+      action: Upgrade Apache Airflow to 2.0-M5 or later
+      owner: DevOps
+      addresses: CVE-2024-45300, CVE-2024-45301, CVE-2024-45302
+      evidence: Vendor-recommended remediation path.
 ---
 
-The BSI has reported multiple vulnerabilities affecting Apache Airflow and several of its provider packages, including FAB (Flask AppBuilder), Keycloak, Kafka, and Akeyless. These vulnerabilities represent a significant risk to data pipeline infrastructure, as successful exploitation could lead to arbitrary code execution, privilege escalation, and unauthorized access to sensitive data or credentials stored within Airflow connections. Defenders should be aware that these vulnerabilities affect both the core framework and integration modules, which are frequently used to manage secrets and external system configurations. Organizations relying on Airflow for automated data workflows must audit their current provider versions and ensure they are patched to the latest releases recommended by the Apache Airflow project to prevent potential system compromise.
+The BSI has reported multiple vulnerabilities affecting various Apache Airflow provider packages. These security flaws allow remote attackers to manipulate files, execute SQL injection attacks, disclose sensitive information, or bypass established security controls. The issues affect the Apache Airflow ecosystem, specifically impacting the provider components that extend Airflow's functionality to various third-party services. Given that Apache Airflow is frequently used to orchestrate complex data pipelines and infrastructure workflows, successful exploitation of these vulnerabilities could lead to significant data integrity loss or unauthorized access to sensitive data processed within these pipelines. Defenders should prioritize auditing their Airflow environment dependencies and upgrading to the latest versions of the affected providers as released by the Apache Software Foundation.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities allows attackers to execute arbitrary code within the Airflow environment, potentially compromising the underlying infrastructure, accessing sensitive credentials stored in the Airflow connections database, and manipulating data workflows. This could lead to widespread service disruption, unauthorized exfiltration of proprietary data, and unauthorized administrative access to external systems integrated via the affected providers.
+Successful exploitation of these vulnerabilities could lead to unauthorized data exfiltration, modification of critical pipeline workflows, or full system compromise if Airflow-managed credentials are exposed. These flaws represent a high risk to organizations that rely on Apache Airflow for sensitive data orchestration and automated infrastructure management.
 
 ## Recommendation
 
-* Review the current version of Apache Airflow and installed providers across all production and development environments.
-* Update Apache Airflow and all associated providers (FAB, Keycloak, Kafka, Akeyless) to the latest versions released by the Apache Software Foundation.
-* Audit logs for unauthorized access or execution attempts targeting the Airflow web server and metadata database.
-* Implement strict access control for the Airflow web interface and verify the security configuration of all installed provider integrations.
+* Review all currently deployed Apache Airflow provider packages and update to the latest versions provided by the Apache Software Foundation to address CVE-2024-45300, CVE-2024-45301, and CVE-2024-45302.
+* Audit access logs for unauthorized access to the Airflow web interface or API endpoints that interact with the vulnerable provider plugins.
+* Monitor for anomalous database queries or unexpected file modifications originating from the Airflow service account.
