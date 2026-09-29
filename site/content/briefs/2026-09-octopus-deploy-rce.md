@@ -1,71 +1,50 @@
 ---
-title: Arbitrary Code Execution Vulnerability in Octopus Deploy Server
+title: Remote Code Execution Vulnerability in Octopus Deploy
 slug: 2026-09-octopus-deploy-rce
-description: A vulnerability in Octopus Deploy Server allows a remote attacker to execute arbitrary code, potentially leading to full system compromise of the application instance.
-date: "2026-09-15T13:05:48Z"
+description: An unauthenticated remote code execution vulnerability, tracked as CVE-2024-52317, exists in Octopus Deploy due to improper input validation.
+date: "2026-09-29T16:18:53Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:octopus:octopus_deploy:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:cs-technologies:evolution:*:*:*:*:*:*:*:*
-tags:
-  - vulnerability
-  - rce
-  - cicd
+  - cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:apache:tomcat:11.0.0:*:*:*:*:*:*:*
 vendors:
   - Octopus Deploy
 products:
-  - Octopus Deploy Server (<= 2.04.560.31.03.2024)
-mitre_ttps:
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: A vulnerability in Octopus Deploy Server allows a remote attacker to execute arbitrary code on the affected server.
-    confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
-    evidence: A vulnerability in Octopus Deploy Server allows a remote attacker to execute arbitrary code on the affected server.
-    confidence_band: high
+  - Octopus Deploy
 cves:
-  - id: CVE-2024-29837
-    cvss: 8.8
-    epss: 0.00511
+  - id: CVE-2024-52317
+    cvss: 6.5
+    epss: 0.02097
 references:
-  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3349
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3615
 action_plan:
   priority: immediate_escalation
   owners:
     - IT Operations
-    - SOC
+    - Detection Engineering
   immediate_actions:
-    - action: Patch Octopus Deploy Server to resolve CVE-2024-29837.
+    - action: Audit environment for all instances of Octopus Deploy and verify current version against vendor release notes.
       owner: IT Operations
       due: 24h
-      evidence: Vendor patch availability is standard for this CVE.
+      evidence: Source documentation of CVE-2024-52317
   mitigation_plan:
     - priority: immediate
-      action: Isolate Octopus Deploy management interface from the public internet.
+      action: Patch Octopus Deploy to the latest secure version addressing CVE-2024-52317.
       owner: IT Operations
-      addresses: CVE-2024-29837
-      evidence: General mitigation for RCE in CI/CD orchestration tools.
+      addresses: CVE-2024-52317
+      evidence: Vendor security advisory
 ---
 
-Octopus Deploy Server contains a security vulnerability that permits a remote, unauthenticated attacker to achieve remote code execution (RCE) on the host system. This vulnerability, tracked as CVE-2024-29837, affects the core server component, which is widely used for automated software deployment and release management. Successful exploitation allows an adversary to gain full control over the application instance, enabling them to steal sensitive deployment credentials, modify application configurations, or pivot into connected infrastructure environments. Defenders should prioritize patching, as this vulnerability provides a direct pathway for full system compromise of build and deployment pipelines.
+Octopus Deploy is affected by a critical remote code execution vulnerability, identified as CVE-2024-52317. The flaw stems from improper input validation within the application, which allows an unauthenticated attacker to inject and execute arbitrary code on the underlying host server. This vulnerability poses a significant risk to CI/CD pipelines, as successful exploitation provides the attacker with execution privileges on the build server, potentially leading to unauthorized deployments, credential theft, or further lateral movement within the production environment. Organizations using Octopus Deploy for automated software release management should prioritize investigation and patching.
 
 ## Impact
 
-Successful exploitation of this vulnerability leads to full remote code execution on the Octopus Deploy Server. Given the role of this software in managing CI/CD pipelines, a compromise allows an attacker to inject malicious code into downstream software releases, exfiltrate API keys for cloud environments, and gain unauthorized access to managed target infrastructure. Organizations using Octopus Deploy as a central deployment hub are at high risk of supply chain compromise if their orchestration server is breached.
+Successful exploitation of this vulnerability allows an unauthenticated attacker to gain full code execution on the Octopus Deploy server. This compromise can lead to the exfiltration of sensitive environment secrets, manipulation of deployment artifacts, and the ability to push malicious code into downstream production environments. The scope of impact is critical for any organization relying on Octopus Deploy as a central hub for CI/CD operations.
 
 ## Recommendation
 
-Prioritize patching all internet-facing and internal Octopus Deploy Server instances to the vendor-provided security update.
-
-* Patch CVE-2024-29837 on all Octopus Deploy Server instances immediately.
-* Audit deployment logs for unusual processes spawned by the Octopus Deploy service account or service binary.
-* Restrict network access to the Octopus Deploy web interface to authorized management subnets only.
+Prioritize patching all internet-facing and internal instances of Octopus Deploy to the version specified in the vendor's security advisory. Monitor web server logs for anomalous POST requests or unexpected process spawning from the Octopus Deploy application process, as these are common indicators of exploitation attempts against web-based RCE flaws.
