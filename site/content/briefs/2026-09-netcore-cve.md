@@ -1,123 +1,80 @@
 ---
-title: Remote Command Injection in Netcore NR289-GE
+title: OS Command Injection in Netcore NAP930 via Network Tools CGI
 slug: 2026-09-netcore-cve
-description: Netcore NR289-GE version 1.4.5102 is vulnerable to remote unauthenticated OS command injection via the ip argument in the /ap_ip.cgi component.
-date: "2026-09-28T16:20:14Z"
-lastmod: "2026-09-28T16:20:41Z"
+description: An unauthenticated remote OS command injection vulnerability in the Netcore NAP930 router allows attackers to execute arbitrary system commands via the sid argument in the network_tools CGI component.
+date: "2026-09-29T02:23:52Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 cpes:
-  - cpe:2.3:a:netcore:nr289_ge:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:netcore:nap930:*:*:*:*:*:*:*:*
 tags:
-  - cve
+  - vulnerability
   - remote-code-execution
   - network-device
-  - edge-security
 vendors:
   - Netcore
 products:
-  - NR289-GE (1.4.5102)
+  - NAP930 (0.1.241010.141410)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: The attack can be launched remotely.
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack may be performed from remote.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1203
     technique_name: Exploitation for Client Execution
-    evidence: The manipulation of the argument mac leads to os command injection.
-    confidence_band: high
-  - tactic_id: TA0001
-    tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: The attack is possible to be carried out remotely.
+    evidence: The manipulation of the argument sid results in os command injection.
     confidence_band: high
 cves:
-  - id: CVE-2026-101072
+  - id: CVE-2026-102240
     cvss: 10
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101072
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101075
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-101077
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102240
 rules:
-  - title: Detects CVE-2026-101072 Exploitation - OS Command Injection via /ap_ip.cgi
-    description: Detects exploitation attempts against Netcore NR289-GE where the ip argument contains common shell injection characters.
+  - title: Detect CVE-2026-102240 Exploitation - OS Command Injection in Netcore NAP930
+    description: Detects exploitation attempts against the Netcore NAP930 network_tools CGI endpoint via shell metacharacters in the sid argument
     platform: sigma
     severity: critical
     tactics:
-      - execution
       - initial_access
     techniques:
+      - T1190
       - T1203
     data_sources:
       - webserver
-  - title: Detects CVE-2026-101075 Exploitation - OS Command Injection via /location_time.cgi
-    description: Detects exploitation attempts against CVE-2026-101075 by identifying shell metacharacters in the mac parameter of the /location_time.cgi endpoint
-    platform: sigma
-    severity: critical
-    tactics:
-      - execution
-      - initial_access
-    techniques:
-      - T1203
-    data_sources:
-      - webserver
-rules_count: 2
+rules_count: 1
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
     - SOC
-    - Network Security
+    - Detection Engineering
   immediate_actions:
-    - action: Restrict access to /ap_ip.cgi on Netcore NR289-GE devices via ACLs
-      owner: Network Security
+    - action: Deploy the provided Sigma rule to web application firewalls or WAF/SIEM
+      owner: Detection Engineering
       due: 24h
-      evidence: Critical vulnerability with public exploit
-  hunt_leads:
-    - lead: Search logs for requests to /ap_ip.cgi containing shell metacharacters
-      technique_id: T1203
-      data_needed:
-        - Web server access logs
-      priority: high
-      confidence: high
-      disposition: hunt_now
-      evidence: Exploit targets /ap_ip.cgi via ip argument
+      evidence: Rule targets the identified vulnerable endpoint and parameter
   mitigation_plan:
     - priority: immediate
-      action: Disable external access to web management interface
-      owner: Network Security
-      addresses: CVE-2026-101072
-      evidence: Publicly available exploit
-updates:
-  - at: "2026-09-28T16:20:31Z"
-    level: L2
-    summary: 'added detection rule: Detects CVE-2026-101075 Exploitation - OS Command Injection via /location_time.cgi'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101075
-  - at: "2026-09-28T16:20:41Z"
-    level: L2
-    summary: added coverage for NR289-GE (1.4.5102)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101077
+      action: Restrict network access to the management web interface of affected routers
+      owner: IT Operations
+      addresses: CVE-2026-102240
+      evidence: Source notes vulnerability is remotely exploitable
 ---
 
-A critical security vulnerability has been identified in the Netcore NR289-GE router, specifically in version 1.4.5102. The flaw resides within the CGI handler component, specifically the /ap_ip.cgi script. An unauthenticated remote attacker can inject arbitrary operating system commands by manipulating the 'ip' HTTP GET or POST parameter. Because the CGI handler processes this input without sufficient sanitization before passing it to a system shell, the vulnerability allows for full system compromise with the privileges of the web server process. The vendor has not responded to disclosure attempts, and proof-of-concept exploit code is publicly available, increasing the risk of exploitation by opportunistic threat actors targeting edge devices.
+A critical OS command injection vulnerability, identified as CVE-2026-102240, affects the Netcore NAP930 router version 0.1.241010.141410. The vulnerability resides within the Network Tools CGI component, specifically in the /www/cgi-bin/network_tools script. The eval function within this script fails to sanitize the sid argument before processing, allowing unauthenticated remote attackers to inject and execute arbitrary operating system commands. This flaw is particularly dangerous as it grants the attacker execution capabilities with high system privileges. The exploit code is publicly available, increasing the risk of exploitation by opportunistic actors. Despite attempts to contact the vendor, no response or patch has been issued, leaving devices vulnerable. Defenders should monitor for unexpected HTTP requests directed at the network_tools CGI endpoint, particularly those containing shell metacharacters in the query string parameters.
 
 ## Impact
 
-Successful exploitation of this vulnerability results in full remote control of the affected Netcore NR289-GE device. Potential impacts include unauthorized access to internal network traffic, lateral movement into the local network, and the deployment of persistent malware or backdoors on the gateway device. Given the critical 10.0 CVSS score, this vulnerability poses a severe risk to any organization utilizing these routers in internet-facing configurations.
+Successful exploitation of this vulnerability allows for complete system compromise of the affected Netcore NAP930 router. An attacker can gain persistent unauthorized access, exfiltrate data, or utilize the device as a node in botnet infrastructure. Given the critical CVSS score of 10.0 and public availability of exploit material, there is a high likelihood of automated exploitation attempts across internet-facing devices.
 
 ## Recommendation
 
-Deploy network-level detection for the suspicious HTTP requests associated with this exploit. Since the vendor has not provided a patch, administrators should prioritize restricting access to the web management interface of the NR289-GE to trusted IP ranges only. If remote management is not required, disable the web management interface entirely until a vendor-supplied firmware update becomes available.
+* Block all inbound access to the web management interface of Netcore NAP930 routers from untrusted or public networks.
+* Implement strict access control lists (ACLs) to restrict access to the /www/cgi-bin/network_tools endpoint to known management IP addresses.
+* Monitor web server logs for incoming requests to /www/cgi-bin/network_tools that include characters such as semicolon, pipe, or backticks in the 'sid' parameter.
