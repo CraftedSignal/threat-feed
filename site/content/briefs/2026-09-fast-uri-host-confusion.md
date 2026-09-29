@@ -3,6 +3,7 @@ title: Host Confusion Vulnerability in fast-uri via Malformed URI Authority
 slug: 2026-09-fast-uri-host-confusion
 description: The fast-uri library incorrectly parses URI authorities containing unbalanced brackets, allowing attackers to bypass SSRF denylists and security filters by causing a discrepancy between the parsed host and the host resolved by underlying HTTP clients.
 date: "2026-09-28T22:15:18Z"
+lastmod: "2026-09-29T04:16:13Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,9 @@ tags:
   - web-security
 products:
   - fast-uri (< 4.1.4, < 3.1.7, < 2.4.6)
+  - fast-uri (< 2.4.6)
+  - fast-uri (>= 3.0.0, < 3.1.7)
+  - fast-uri (>= 4.0.0, < 4.1.4)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,6 +36,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-58mr-gqgx-xq4g
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84394
+  - https://github.com/advisories/GHSA-qw65-cvwx-89v3
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84292
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +54,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-84394
       evidence: If upgrading is not immediately possible, reject any URL whose host contains a [ or ] that is not a well-formed IPv6 literal before making a host decision.
+updates:
+  - at: "2026-09-29T04:16:13Z"
+    level: L2
+    summary: added coverage for fast-uri (< 2.4.6) +2 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-qw65-cvwx-89v3
 ---
 
 The fast-uri library (versions < 2.4.6, < 3.1.7, and < 4.1.4) contains a host confusion vulnerability identified as CVE-2026-84394. The library fails to properly validate the authority section of a URI when it contains unbalanced or misplaced brackets (e.g., `[` or `]`). Specifically, if a host string starts with `[` but does not contain a valid IPv6 literal, `fast-uri` treats it as a standard host string without triggering an error.
