@@ -3,6 +3,7 @@ title: Critical Remote Code Execution Vulnerabilities in libheif Affecting Sharp
 slug: 2026-09-sharp-libheif-vulnerabilities
 description: Multiple critical vulnerabilities in the libheif library, including CVE-2026-84383, enable potential remote code execution via malicious AVIF image processing in applications using the sharp npm package.
 date: "2026-09-08T21:50:11Z"
+lastmod: "2026-09-29T18:38:12Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +12,9 @@ severities:
 cpes:
   - cpe:2.3:a:struktur:libheif:*:*:*:*:*:*:*:*
   - cpe:2.3:a:sharp_project:sharp:*:*:*:*:*:node.js:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=6E724E10-E67C-58E0-BF40-C40EFAC4F6FA&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - rce
@@ -31,11 +35,16 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: The vulnerabilities can lead to possible remote code execution on glibc-based Linux when run under certain conditions.
     confidence_band: high
+cves:
+  - id: CVE-2026-84383
+    cvss: 9.8
+    epss: 0.00608
 references:
   - https://github.com/advisories/GHSA-rgj7-g3m4-5g8c
   - https://github.com/strukturag/libheif/security/advisories/GHSA-g89c-p67h-r497
   - https://github.com/strukturag/libheif/security/advisories/GHSA-2jg2-4ch7-h545
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84383
+  - https://sploitus.com/exploit?id=6E724E10-E67C-58E0-BF40-C40EFAC4F6FA&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -56,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: RCE exploitation mitigation
       evidence: Ensure you are using a node executable binary compiled as a Position Independent Executable.
+updates:
+  - at: "2026-09-29T18:38:12Z"
+    level: L2
+    summary: poc_available; added CVE-2026-84383
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=6E724E10-E67C-58E0-BF40-C40EFAC4F6FA&utm_source=rss&utm_medium=rss
 ---
 
 Security researchers have identified multiple critical vulnerabilities within the libheif library, a dependency used by the sharp npm package for image processing. The vulnerabilities, notably tracked as CVE-2026-84383, arise during the parsing of HEIF/AVIF image formats. If an application using an affected version of sharp processes a specially crafted, malicious AVIF image, it can trigger memory corruption leading to potential remote code execution (RCE) on glibc-based Linux systems. 
