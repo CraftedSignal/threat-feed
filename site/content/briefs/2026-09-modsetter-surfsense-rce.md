@@ -3,6 +3,7 @@ title: Remote Command Injection in MODSetter SurfSense
 slug: 2026-09-modsetter-surfsense-rce
 description: MODSetter SurfSense up to version 2.0.3 is vulnerable to remote command injection via the MCP Connector Integration component, allowing unauthenticated attackers to execute arbitrary system commands.
 date: "2026-09-29T04:24:40Z"
+lastmod: "2026-09-29T04:24:56Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:modsetter:surfsense:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - authentication-bypass
+  - cve-2026-102245
 vendors:
   - MODSetter
 products:
@@ -26,6 +31,7 @@ cves:
     cvss: 7.4
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102243
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102245
 rules:
   - title: Detect CVE-2026-102243 Exploitation - Command Injection via MCP Connector
     description: Detects exploitation attempts against CVE-2026-102243 where an attacker sends a POST request with shell metacharacters to the vulnerable test endpoint.
@@ -55,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-102243
       evidence: Exploit is publicly available
+updates:
+  - at: "2026-09-29T04:24:56Z"
+    level: L2
+    summary: added coverage for SurfSense (<= 2.0.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-102245
 ---
 
 A high-severity command injection vulnerability, identified as CVE-2026-102243, affects MODSetter SurfSense versions up to 2.0.3. The flaw resides within the MCP Connector Integration component, specifically within the /api/search-source/connectors/mcp/test endpoint. Remote attackers can leverage this unauthenticated endpoint to inject and execute arbitrary system commands on the underlying host. The vulnerability is confirmed to have publicly available exploit code, increasing the likelihood of exploitation. Despite early disclosure, the vendor has not provided a patch or formal response, leaving installations currently exposed. Defenders must prioritize restricting network access to the SurfSense application and monitoring for unusual process creation originating from the web server process.
