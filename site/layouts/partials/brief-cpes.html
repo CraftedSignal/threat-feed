@@ -1,0 +1,31 @@
+{{/* CPE identifiers sidebar section, shared by every brief layout.
+     NVD lists one CPE per build of a product version (coldfusion 2023
+     update1 through update22, windows_10_1607 on x64 and x86) and the label
+     below drops everything past the version, so builds share a label.
+     Render one row per label, linking to the first CPE; the tooltip
+     lists every CPE the row stands for. */}}
+{{ $cpes := .Params.cpes | default slice }}
+{{ if $cpes }}
+{{ $labels := slice }}
+{{ range $cpes }}
+  {{/* Strip cpe:2.3:{type}: prefix then trailing wildcard segments */}}
+  {{ $parts := split . ":" }}
+  {{ $label := . }}
+  {{ if ge (len $parts) 6 }}
+    {{ $label = printf "%s:%s" (index $parts 3) (index $parts 4) }}
+    {{ $version := index $parts 5 }}
+    {{ if and $version (ne $version "*") (ne $version "-") }}{{ $label = printf "%s:%s" $label $version }}{{ end }}
+  {{ end }}
+  {{ $labels = $labels | append $label }}
+{{ end }}
+<section class="rounded-xl border border-stroke bg-panel/60 p-4 space-y-2">
+  <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-muted">CPE identifiers</h2>
+  <div class="space-y-1">
+    {{ range $label := uniq $labels }}
+    {{ $members := slice }}
+    {{ range $i, $l := $labels }}{{ if eq $l $label }}{{ $members = $members | append (index $cpes $i) }}{{ end }}{{ end }}
+    <a href="/cpes/{{ index $members 0 | urlize }}/" class="block font-mono text-[11px] text-muted hover:text-accent transition break-all" title="{{ delimit $members "\n" }}">{{ $label }}</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
