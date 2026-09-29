@@ -3,6 +3,7 @@ title: Electron WebView Node.js Integration Bypass
 slug: 2026-09-electron-webview-node-integration
 description: A vulnerability in the Electron framework allows a <webview> tag to enable Node.js integration within Web Workers regardless of the embedder's restricted settings, potentially leading to unauthorized code execution.
 date: "2026-09-29T22:19:05Z"
+lastmod: "2026-09-29T22:19:13Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,17 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:openjsf:electron:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - code-execution
+  - framework
 vendors:
   - OpenJS Foundation
 products:
   - Electron (41.10.6, 42.9.2, 43.4.1, 44.0.0-beta.5)
+  - Electron (>= 42.3.3, < 42.10.0)
+  - Electron (>= 43.0.0-beta.1, < 43.5.0)
+  - Electron (>= 44.0.0-alpha.1, < 44.0.0-beta.6)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -21,12 +29,20 @@ mitre_ttps:
     technique_name: User Execution
     evidence: A <webview> could enable Node.js integration in its Web Workers even when its embedder had Node.js integration disabled, giving guest content more privilege than the embedder allowed.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: A compromised renderer could use this to run its own code in the preload context on a later load.
+    confidence_band: high
 cves:
   - id: CVE-2026-102676
     cvss: 8.3
 references:
   - https://github.com/advisories/GHSA-9qh4-3jw8-366w
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-102676
+  - https://github.com/advisories/GHSA-qmv3-fv6v-rmhq
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-102677
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +59,14 @@ action_plan:
       owner: Development Team
       addresses: CVE-2026-102676
       evidence: Workaround documentation from advisory.
+updates:
+  - at: "2026-09-29T22:19:13Z"
+    level: L2
+    summary: added coverage for Electron (>= 42.3.3, < 42.10.0) +2 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-qmv3-fv6v-rmhq
 ---
 
 The Electron framework is susceptible to a privilege escalation vulnerability (CVE-2026-102676) where a `<webview>` tag may enable Node.js integration in its associated Web Workers, even when the parent embedder has explicitly disabled Node.js integration. This flaw creates a scenario where untrusted guest content gains unauthorized access to Node.js APIs, bypassing the security boundaries established by the parent application. The vulnerability specifically impacts applications that utilize the `<webview>` tag in an unsandboxed state. The lack of proper isolation between the embedder and the guest process allows for potential sandbox escapes or cross-context code execution, as the guest worker context assumes permissions that the developer intended to restrict. Defenders should prioritize auditing Electron-based applications for the use of the `<webview>` component and ensuring that `nodeIntegrationInWorker` is correctly managed or that the `sandbox` mode is strictly enforced.
