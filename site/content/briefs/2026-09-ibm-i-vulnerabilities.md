@@ -3,11 +3,14 @@ title: Multiple Vulnerabilities in IBM i
 slug: 2026-09-ibm-i-vulnerabilities
 description: IBM i is affected by multiple security vulnerabilities that allow remote attackers to perform cross-site scripting (XSS), bypass security controls, and manipulate system files.
 date: "2026-09-25T13:59:30Z"
+lastmod: "2026-09-29T18:29:37Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:ibm:i:*:*:*:*:*:*:*:*
 vendors:
   - IBM
 products:
@@ -25,8 +28,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: An attacker can exploit multiple vulnerabilities in IBM i to perform a Cross-Site Scripting attack.
     confidence_band: med
+cves:
+  - id: CVE-2026-84414
+    cvss: 7.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3572
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84414
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: Multiple IBM i vulnerabilities
       evidence: General security best practice for identified software vulnerabilities.
+updates:
+  - at: "2026-09-29T18:29:37Z"
+    level: L2
+    summary: added CVE-2026-84414
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-84414
 ---
 
 IBM has reported multiple vulnerabilities affecting the IBM i operating environment. These flaws can be exploited by remote, unauthenticated attackers to perform cross-site scripting (XSS) attacks, circumvent existing security controls, and manipulate sensitive files within the system. The vulnerabilities expose systems to unauthorized data access and potential integrity loss. Organizations utilizing IBM i should review the latest security bulletins from IBM to identify affected software versions and apply the necessary patches. Given the nature of these vulnerabilities, they represent a risk to the availability and confidentiality of the IBM i platform. Defenders should focus on monitoring administrative access and web-based interfaces associated with IBM i for signs of exploitation.
