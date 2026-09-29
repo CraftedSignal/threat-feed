@@ -3,6 +3,7 @@ title: Detection of O365 Email Receive and Hard Delete Takeover Behavior
 slug: 2026-09-o365-email-deletion-takeover
 description: Threat actors are suppressing evidence of account compromise by receiving and then hard-deleting emails related to sensitive banking, payroll, or credential changes within Office 365 environments.
 date: "2026-09-29T10:11:25Z"
+lastmod: "2026-09-29T10:11:37Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,8 @@ tags:
   - o365
   - account-takeover
   - payroll-fraud
+  - exfiltration
+  - email-security
 vendors:
   - Microsoft
 products:
@@ -36,10 +39,23 @@ mitre_ttps:
     technique_name: Data Destruction
     evidence: The attacker is attempting to redirect the victims payroll to an attacker controlled bank account.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1114
+    technique_name: Email Collection
+    evidence: Threat actors may attempt to transfer data through email as a simple means of exfiltration from the compromised mailbox.
+    confidence_band: high
+  - tactic_id: TA0009
+    tactic_name: Collection
+    technique_id: T1070.008
+    technique_name: Indicator Removal on Host
+    evidence: The detection is part of the Office 365 Account Takeover and Suspicious Emails stories.
+    confidence_band: med
 references:
   - https://attack.mitre.org/techniques/T1114/
   - https://www.hhs.gov/sites/default/files/help-desk-social-engineering-sector-alert-tlpclear.pdf
   - https://intelligence.abnormalsecurity.com/attack-library/threat-actor-convincingly-impersonates-employee-requesting-direct-deposit-update-in-likely-ai-generated-attack
+  - https://github.com/splunk/security_content/blob/main/detections/cloud/o365_email_send_and_hard_delete_exfiltration_behavior.yml
 action_plan:
   priority: elevated
   owners:
@@ -59,6 +75,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Source search query structure.
+updates:
+  - at: "2026-09-29T10:11:37Z"
+    level: L1
+    summary: added coverage for Office 365
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/cloud/o365_email_send_attachments_excessive_volume.yml
 ---
 
 This threat involves the unauthorized manipulation of Microsoft Office 365 mailboxes by threat actors to facilitate financial fraud or maintain persistence. After gaining access to a user account, adversaries target sensitive incoming communications such as banking notifications, direct deposit updates, MFA requests, or password reset alerts. To avoid detection by the account owner, the actor performs a hard delete of these messages from the 'Sent Items' or 'Recoverable Items' folders. This behavior is a critical indicator of account takeover (ATO) and is often associated with payroll redirection scams. Defenders should monitor for the correlation between incoming messages containing sensitive keywords and subsequent mailbox management activities that bypass standard trash bin recovery paths.
