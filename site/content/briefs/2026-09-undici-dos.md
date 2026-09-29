@@ -3,19 +3,26 @@ title: Undici WebSocket Client Denial of Service via Unsolicited Subprotocol
 slug: 2026-09-undici-dos
 description: The undici WebSocket client library is vulnerable to a denial-of-service attack (CVE-2026-19534) that crashes the Node.js process when a server returns an unrequested Sec-WebSocket-Protocol header.
 date: "2026-09-29T22:18:30Z"
+lastmod: "2026-09-29T22:18:37Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 cpes:
   - cpe:2.3:a:nodejs:undici:*:*:*:*:*:node.js:*:*
+tags:
+  - supply-chain
+  - vulnerability
+  - tls
+  - nodejs
 vendors:
   - OpenJS Foundation
 products:
   - undici (>= 6.7.0, < 6.28.1)
   - undici (>= 7.0.0, < 7.29.1)
   - undici (>= 8.0.0, < 8.10.2)
+  - undici (>= 7.24.1, < 7.29.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -29,6 +36,7 @@ cves:
     epss: 0.00394
 references:
   - https://github.com/advisories/GHSA-rfgv-xxqx-mfg5
+  - https://github.com/advisories/GHSA-w293-vg96-wgc3
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-19534
       evidence: Patches for CVE-2026-19534 are available in versions 6.28.1, 7.29.1, or 8.10.2.
+updates:
+  - at: "2026-09-29T22:18:37Z"
+    level: L2
+    summary: added coverage for undici (>= 7.24.1, < 7.29.1) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-w293-vg96-wgc3
 ---
 
 The undici package, a popular HTTP/1.1 and WebSocket client for Node.js, contains a flaw in its WebSocket implementation that results in a process-wide denial of service. When establishing a WebSocket connection, the library fails to properly handle unexpected `Sec-WebSocket-Protocol` headers returned by a server in its `101 Switching Protocols` response. Specifically, if the client did not request a subprotocol but the server includes one, the internal logic throws an uncaught `TypeError` within a `queueMicrotask` callback. 
