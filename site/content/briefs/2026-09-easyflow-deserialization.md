@@ -3,6 +3,7 @@ title: Remote Code Execution in Digiwin EasyFlow .NET via Insecure Deserializati
 slug: 2026-09-easyflow-deserialization
 description: Digiwin EasyFlow .NET is vulnerable to an insecure deserialization flaw, enabling unauthenticated remote attackers to achieve arbitrary code execution via crafted serialized input.
 date: "2026-09-30T10:33:58Z"
+lastmod: "2026-09-30T10:34:11Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - remote-code-execution
   - deserialization
   - web-application
+  - vulnerability
+  - rce
 vendors:
   - Digiwin
 products:
@@ -31,11 +34,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Unauthenticated remote attackers can execute arbitrary code on the server
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1505.003
+    technique_name: 'Server Software Component: Web Shell'
+    evidence: upload and execute web shell backdoors
+    confidence_band: high
 cves:
   - id: CVE-2026-102455
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102455
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102454
 action_plan:
   priority: immediate_escalation
   owners:
@@ -52,6 +62,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-102455
       evidence: NVD vulnerability severity
+updates:
+  - at: "2026-09-30T10:34:11Z"
+    level: L2
+    summary: added coverage for EasyFlow .NET
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-102454
 ---
 
 Digiwin EasyFlow .NET contains a critical security vulnerability (CVE-2026-102455) arising from improper deserialization of untrusted data. An unauthenticated, remote attacker can exploit this flaw by sending a specially crafted serialized payload to the affected application. Successful exploitation results in remote code execution (RCE) with the privileges of the web service account. Given the nature of deserialization vulnerabilities in .NET applications, this typically occurs when the application uses insecure formatter settings or fails to validate object types during the deserialization process. This threat is particularly significant for enterprise environments using EasyFlow .NET for workflow management, as it provides a direct path for attackers to gain full control over the application server without prior authentication.
