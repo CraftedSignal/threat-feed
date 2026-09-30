@@ -3,7 +3,7 @@ title: Command Injection Vulnerability in AiSOC Actions Service
 slug: 2026-09-aisoc-cmd-injection
 description: AiSOC versions 7.2.0 through 11.9.9 are vulnerable to authenticated command injection via unescaped parameters in the actions service, allowing arbitrary command execution with elevated privileges.
 date: "2026-09-30T02:30:53Z"
-lastmod: "2026-09-30T02:31:01Z"
+lastmod: "2026-09-30T02:31:07Z"
 type: advisory
 types:
   - advisory
@@ -17,11 +17,15 @@ tags:
   - rce
   - authentication-bypass
   - cloud-security
+  - cve-2026-103055
+  - webserver
+  - realtime-services
 vendors:
   - AiSOC
 products:
   - AiSOC (7.2.0 - 11.9.9)
   - AiSOC (< 12.0.0)
+  - AiSOC (7.5.0-11.9.9)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -41,12 +45,19 @@ mitre_ttps:
     technique_name: Cloud Administration Command
     evidence: Authenticated attackers can exploit this flaw to associate arbitrary tenant UUIDs with their own portfolios, granting them unauthorized access to read sensitive security alerts.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Unauthenticated attackers can forge subscription tickets with arbitrary tenant identifiers to access cross-tenant live alerts.
+    confidence_band: high
 cves:
   - id: CVE-2026-103056
     cvss: 9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103056
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103054
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103055
 action_plan:
   priority: immediate_escalation
   owners:
@@ -71,6 +82,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-103054
+  - at: "2026-09-30T02:31:07Z"
+    level: L2
+    summary: added coverage for AiSOC (7.5.0-11.9.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103055
 ---
 
 AiSOC versions 7.2.0 through 11.9.9 contain a critical command injection vulnerability within the actions service. The flaw originates from the insecure handling of action parameters in the `crowdstrike_rtr.py` and `endpoint.py` modules, where inputs such as `file_path`, `path`, `script_name`, or `script_args` are interpolated into system command strings without proper escaping. Authenticated users can provide specially crafted input containing single quotes to break out of shell argument quoting. This enables the execution of arbitrary commands with the privileges of the AiSOC service, which typically operates as SYSTEM on Windows or root on Linux/macOS. This vulnerability is particularly severe because it allows an authenticated user to gain full control over managed endpoints, potentially leading to unauthorized data access, persistence, or lateral movement within the environment.
