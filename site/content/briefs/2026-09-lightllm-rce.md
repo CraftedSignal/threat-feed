@@ -3,7 +3,7 @@ title: Remote Code Execution in LightLLM Config Server via Insecure Deserializat
 slug: 2026-09-lightllm-rce
 description: LightLLM versions 1.2.0 and earlier are vulnerable to unauthenticated remote code execution via the Config Server's /visual_register WebSocket endpoint due to insecure pickle deserialization.
 date: "2026-09-14T13:33:20Z"
-lastmod: "2026-09-30T00:30:45Z"
+lastmod: "2026-09-30T00:30:57Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,8 @@ tags:
   - deserialization
   - python
   - lightllm
+  - denial-of-service
+  - remote-exploit
 vendors:
   - LightLLM
 products:
@@ -46,6 +48,12 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The service performs insecure deserialization of pickle objects... to execute arbitrary code.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: An unauthenticated attacker can exploit this by invoking the exposed_set_value method, which lacks proper size validation, to inject unbounded key-value pairs, leading to a KV-transfer worker process crash.
+    confidence_band: high
 cves:
   - id: CVE-2026-90919
     cvss: 9.8
@@ -54,6 +62,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93839
   - https://nvd.nist.gov/vuln/detail/CVE-2026-96560
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103041
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103042
 action_plan:
   priority: immediate_escalation
   owners:
@@ -92,6 +101,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-103041
+  - at: "2026-09-30T00:30:57Z"
+    level: L1
+    summary: added coverage for LightLLM (<= 1.2.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103042
 ---
 
 LightLLM versions through 1.2.0 contain a critical remote code execution (RCE) vulnerability in the Config Server component. The vulnerability resides in the /visual_register WebSocket endpoint, which fails to implement any authentication mechanisms. The application insecurely handles client-provided frames by passing the first frame directly to the Python pickle.loads() function. An unauthenticated attacker capable of reaching the Config Server network port can send a maliciously crafted, serialized pickle payload containing a __reduce__ method. Successful exploitation allows the attacker to execute arbitrary code within the context of the Config Server process. Given the nature of pickle-based deserialization vulnerabilities, this flaw poses a high risk to environment integrity, as it grants full execution capabilities to remote, unauthenticated parties.
