@@ -3,6 +3,7 @@ title: SQL Injection in SourceCodester Online Reviewer Management System
 slug: 2026-09-sourcecodester-sql-injection
 description: SourceCodester Online Reviewer Management System 1.0 contains a SQL injection vulnerability in the questions-view.php script, allowing remote attackers to execute unauthorized database queries.
 date: "2026-09-30T04:31:33Z"
+lastmod: "2026-09-30T04:31:53Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - sql-injection
   - web-application
   - cve-2026-102908
+  - web-application-vulnerability
+  - vulnerability-management
 vendors:
   - SourceCodester
 products:
@@ -30,6 +33,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102908
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102910
 rules:
   - title: Detect CVE-2026-102908 Exploitation - SQL Injection in questions-view.php
     description: Detects potential SQL injection attempts targeting the ID parameter in the vulnerable questions-view.php script.
@@ -41,7 +45,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-102910 Exploitation - SQL Injection in exam-delete.php
+    description: Detects attempts to exploit CVE-2026-102910 by identifying SQL syntax injection patterns within the test_id argument on the exam-delete.php endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +72,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-102908
       evidence: SQL injection vulnerability in specific script
+updates:
+  - at: "2026-09-30T04:31:53Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-102910 Exploitation - SQL Injection in exam-delete.php'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-102910
 ---
 
 A SQL injection vulnerability has been identified in SourceCodester Online Reviewer Management System version 1.0. The vulnerability resides within the file /reviewer_0/admins/assessments/examproper/questions-view.php. An attacker can perform remote exploitation by manipulating the ID parameter passed to this script. Successful exploitation allows for the execution of arbitrary SQL commands against the backend database, potentially leading to unauthorized data exfiltration, modification, or administrative access to the underlying management system. Given that the exploit has been publicly disclosed, organizations utilizing this software are at an elevated risk of automated or targeted exploitation attempts.
