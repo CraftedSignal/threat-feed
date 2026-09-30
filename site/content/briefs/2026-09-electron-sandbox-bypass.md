@@ -3,6 +3,7 @@ title: Electron Sandbox Restriction Bypass via Popups
 slug: 2026-09-electron-sandbox-bypass
 description: A vulnerability in Electron prevents popups opened from sandboxed iframes from inheriting security restrictions, allowing potentially malicious content to access the embedding application's full origin.
 date: "2026-09-29T22:18:52Z"
+lastmod: "2026-09-30T04:19:32Z"
 type: advisory
 types:
   - advisory
@@ -14,15 +15,23 @@ tags:
   - vulnerability
   - sandbox-bypass
   - web-application
+  - electron
+  - sandbox-escape
 vendors:
   - Electron
 products:
   - Electron (< 41.10.4, >= 42.0.0-alpha.1 < 42.5.2, >= 43.0.0-alpha.1 < 43.0.0)
+  - Electron (< 41.10.6)
+  - Electron (>= 42.0.0-alpha.1, < 42.9.2)
+  - Electron (>= 43.0.0-alpha.1, < 43.4.1)
+  - Electron (>= 44.0.0-alpha.1, < 44.0.0-beta.5)
 cves:
   - id: CVE-2026-102673
     cvss: 8.2
 references:
   - https://github.com/advisories/GHSA-hq2x-r82h-9wj4
+  - https://github.com/advisories/GHSA-gr2m-v5gq-v685
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-102674
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +48,14 @@ action_plan:
       owner: Software Development
       addresses: CVE-2026-102673
       evidence: Workarounds section of the advisory
+updates:
+  - at: "2026-09-30T04:19:32Z"
+    level: L2
+    summary: added coverage for Electron (< 41.10.6) +3 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gr2m-v5gq-v685
 ---
 
 Electron versions prior to 41.10.4, 42.5.2, and 43.0.0 contain a security flaw where popups initiated from a sandboxed iframe via OpenURLFromTab fail to inherit the necessary HTML sandbox attributes. When an application embeds untrusted content within an iframe using the 'allow-scripts' and 'allow-popups' sandbox permissions, a popup window triggered by that content (e.g., via target="_blank" or middle-click) defaults to the host application's full origin. This failure effectively strips the isolation meant to protect the application, granting the untrusted content access to the host's cookies, local storage, and the ability to execute same-origin scripts. This vulnerability poses a significant risk to Electron-based applications that render third-party or untrusted web content in sandboxed environments.
