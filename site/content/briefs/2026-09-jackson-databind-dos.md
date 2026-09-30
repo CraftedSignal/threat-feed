@@ -3,7 +3,7 @@ title: Denial of Service via Unbounded Numeric Deserialization in Jackson Databi
 slug: 2026-09-jackson-databind-dos
 description: A vulnerability in jackson-databind allows unauthenticated attackers to cause CPU exhaustion and denial of service by supplying specially crafted strings that bypass length constraints during XML datatype deserialization.
 date: "2026-09-28T22:15:35Z"
-lastmod: "2026-09-30T16:27:07Z"
+lastmod: "2026-09-30T16:27:17Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,8 @@ tags:
   - java
   - json
   - cve-2026-91777
+  - memory-exhaustion
+  - cve-2026-91776
 vendors:
   - FasterXML
 products:
@@ -32,6 +34,11 @@ products:
   - jackson-databind (2.22.0 - 2.22.2)
   - jackson-databind (3.0.0 - 3.1.6)
   - jackson-databind (3.2.0 - 3.2.2)
+  - jackson-databind (>= 2.0.0, <= 2.18.10)
+  - jackson-databind (>= 2.19.0, <= 2.21.6)
+  - jackson-databind (>= 2.22.0, <= 2.22.2)
+  - jackson-databind (>= 3.0.0, <= 3.1.6)
+  - jackson-databind (>= 3.2.0, <= 3.2.2)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -47,6 +54,7 @@ references:
   - https://github.com/advisories/GHSA-q4xh-88c3-wmh7
   - https://nvd.nist.gov/vuln/detail/CVE-2026-68497
   - https://github.com/advisories/GHSA-cxp5-3px4-pw24
+  - https://github.com/advisories/GHSA-wv8q-qhhj-9h54
 updates:
   - at: "2026-09-30T16:27:07Z"
     level: L1
@@ -55,6 +63,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-cxp5-3px4-pw24
+  - at: "2026-09-30T16:27:17Z"
+    level: L1
+    summary: added coverage for jackson-databind (>= 2.0.0, <= 2.18.10) +4 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wv8q-qhhj-9h54
 ---
 
 Jackson-databind versions 3.2.1 and earlier, along with specific versions of the 2.x branch, contain a denial of service vulnerability (CVE-2026-68497) triggered by the deserialization of `javax.xml.datatype.Duration` and `XMLGregorianCalendar` objects. The library passes raw JSON string tokens directly to the JDK's `DatatypeFactory.newDuration()` or `newXMLGregorianCalendar()` methods without applying length validation. While `jackson-core` enforces a `maxNumberLength` constraint for JSON number tokens, this guard does not apply to digits encapsulated within a JSON string token. 
