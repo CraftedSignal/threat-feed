@@ -3,11 +3,14 @@ title: Multiple Arbitrary Code Execution Vulnerabilities in RPM
 slug: 2026-09-rpm-vulnerabilities
 description: Multiple unpatched vulnerabilities in the RPM package manager allow an unauthenticated attacker to achieve arbitrary code execution on systems processing malicious packages.
 date: "2026-09-25T14:01:04Z"
+lastmod: "2026-09-30T12:34:31Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:rpm:rpm:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - linux
@@ -23,8 +26,12 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: An attacker can exploit multiple vulnerabilities in RPM to execute arbitrary program code.
     confidence_band: high
+cves:
+  - id: CVE-2026-103242
+    cvss: 7.1
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3567
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103242
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +59,14 @@ action_plan:
       evidence: Restricting ingestion to trusted sources mitigates arbitrary package execution.
   gaps:
     - Lack of specific CVE IDs hinders automated patch management tracking.
+updates:
+  - at: "2026-09-30T12:34:31Z"
+    level: L2
+    summary: added CVE-2026-103242
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103242
 ---
 
 The German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities within the RPM (RPM Package Manager) utility. These flaws are currently unpatched and present a significant risk to Linux distributions relying on RPM for software management. The vulnerabilities are triggered during the handling and installation of specially crafted RPM packages. An attacker capable of delivering a malicious package to a system administrator or automated package management process could exploit these flaws to execute arbitrary code with the privileges of the user or process performing the installation. Given the widespread use of RPM across enterprise Linux environments, this impact is considered critical for systems that frequently ingest third-party or untrusted software repositories.
