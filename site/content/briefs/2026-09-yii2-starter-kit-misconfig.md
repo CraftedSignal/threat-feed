@@ -3,6 +3,7 @@ title: Unauthenticated Exposure of Yii Debug and Gii Modules in yii2-starter-kit
 slug: 2026-09-yii2-starter-kit-misconfig
 description: Versions of yii2-starter-kit up to 4.2.0 are vulnerable to unauthorized access due to insecure default configurations allowing remote attackers to access debugging and code generation modules.
 date: "2026-09-30T18:35:59Z"
+lastmod: "2026-09-30T18:36:38Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,10 @@ tags:
   - misconfiguration
   - rce
   - information-disclosure
+  - file-upload
+  - vulnerability
+vendors:
+  - yii2-starter-kit
 products:
   - yii2-starter-kit (<= 4.2.0)
 mitre_ttps:
@@ -30,11 +35,18 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: access the Gii endpoint to generate and write PHP files into the application directory
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Attackers with manager role can upload PHP scripts to the web-accessible storage directory and request them to execute arbitrary code on the server.
+    confidence_band: high
 cves:
   - id: CVE-2026-103475
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103475
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103474
 rules:
   - title: Detect Exploitation Attempts against Yii Debug and Gii Modules
     description: Detects unauthorized access to Yii framework debugging and code generation endpoints which are exposed in vulnerable yii2-starter-kit configurations.
@@ -46,7 +58,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-103474 Exploitation - PHP File Upload to Web Storage
+    description: Detects potential exploitation of CVE-2026-103474 by identifying POST requests to backend storage upload paths that contain PHP file extensions.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1203
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -63,6 +85,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-103475
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-09-30T18:36:38Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-103474 Exploitation - PHP File Upload to Web Storage'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103474
 ---
 
 yii2-starter-kit versions through 4.2.0 contain a critical configuration vulnerability (CVE-2026-103475) that leaves the Yii debug and Gii modules exposed to all IP addresses. By default, the application sets the 'allowedIPs' parameter to ['*'], enabling unauthenticated remote access to these administrative endpoints.
