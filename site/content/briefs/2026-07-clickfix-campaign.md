@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-09-24T14:07:10Z"
+lastmod: "2026-09-30T15:43:40Z"
 type: advisory
 types:
   - advisory
@@ -140,6 +140,13 @@ references:
   - https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites
   - https://arcticwolf.com/resources/blog/psychedelic-stealer-fake-clickfix-captcha-targets-ukraine/
   - https://securelist.com/macsync-new-version/121383/
+  - https://www.malware-traffic-analysis.net/2026/09/24/index.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_clickfix_runmru.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/windows/execution_windows_phish_clickfix.toml
+  - https://www.huntress.com/blog/chatgpt-custom-gpts-clickfix-rat
+  - https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/
+  - https://www.crowdstrike.com/en-us/blog/how-clickfix-attacks-work-and-how-to-stop-them/
+  - https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -201,19 +208,14 @@ iocs:
     value: hbomaxx.us
   - type: url
     value: http://caldav.icloud.com/published/2/MTk1NDMwMDMzNTUxOTU0M1aHCZ-nMxiyGzBTzPiodOf44DtKJ6PpjftAG28_ui2NCYMpL_vu4pF4ddsJ8ysg0QI7pR0VEIEbZYdilVZRw08
+  - type: domain
+    value: chatgpt.com
 ioc_counts:
-  domain: 18
+  domain: 19
   hash_sha256: 1
   ip: 2
   url: 9
 updates:
-  - at: "2026-09-15T09:27:47Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/hacked-hbo-reddit-account-used-for-malware-delivery-via-clickfix-attack/
   - at: "2026-09-18T10:28:09Z"
     level: L1
     summary: new product
@@ -242,6 +244,13 @@ updates:
       - securelist
     source_urls:
       - https://securelist.com/macsync-new-version/121383/
+  - at: "2026-09-30T15:43:40Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
