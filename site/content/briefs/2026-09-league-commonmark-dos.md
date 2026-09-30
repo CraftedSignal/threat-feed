@@ -1,57 +1,61 @@
 ---
-title: Denial of Service Vulnerability in league/commonmark
+title: Quadratic Time Denial of Service in league/commonmark Table Extension
 slug: 2026-09-league-commonmark-dos
-description: The league/commonmark library is susceptible to a denial of service attack via crafted Markdown input that triggers quadratic CPU complexity in slug normalization.
-date: "2026-09-07T15:33:23Z"
+description: An unauthenticated remote attacker can cause denial of service by submitting large Markdown paragraphs that trigger O(M^2) CPU consumption in the league/commonmark TableStartParser.
+date: "2026-09-30T16:27:25Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
-cpes:
-  - cpe:2.3:a:league:commonmark:*:*:*:*:*:*:*:*
+  - medium
 vendors:
-  - league
+  - thephpleague
 products:
-  - commonmark (>= 2.0.0, < 2.8.4)
+  - commonmark (>= 2.0.0, <= 2.10.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
-    evidence: An unauthenticated attacker can force many headings onto a single base slug in a small Markdown document, consuming excessive CPU and denying service.
+    evidence: An unauthenticated user who submits a single large paragraph of pipe-free lines that do not begin with a letter drives seconds to tens of seconds of single-core CPU that grows quadratically with body size, enough to exhaust worker processes and deny service.
     confidence_band: high
-cves:
-  - id: CVE-2026-86434
-    cvss: 7.5
-references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-86434
 action_plan:
   priority: elevated
   owners:
-    - IT Operations
+    - Detection Engineering
     - Application Security
   immediate_actions:
-    - action: Upgrade league/commonmark to 2.9.0
-      owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-86434 mitigation
+    - action: Audit applications using league/commonmark and implement input length limits as an interim mitigation.
+      owner: Application Security
+      due: 24h
+      evidence: Source suggests capping the size of untrusted Markdown as a mitigation.
   mitigation_plan:
     - priority: immediate
-      action: Upgrade to 2.9.0 or later
-      owner: IT Operations
-      addresses: CVE-2026-86434
-      evidence: NVD advisory
+      action: Disable the Table extension for untrusted input processing until a patch is applied.
+      owner: Application Security
+      addresses: O(M^2) complexity path in TableStartParser
+      evidence: Source advises disabling the extension to reduce exposure.
 ---
 
-The league/commonmark library, versions 2.0.0 through 2.8.3, contains a denial of service (DoS) vulnerability in the UniqueSlugNormalizer::normalize() function. The issue arises when an application enables specific extensions, namely HeadingPermalinkExtension, FootnoteExtension, or TableOfContentsExtension. The vulnerability occurs because the normalization logic resets its numeric-suffix search from 1 every time a slug collision is detected, leading to O(K^2) time complexity relative to the number of headings (K) that resolve to the same base slug. An unauthenticated attacker can supply a small, crafted Markdown document containing a high volume of headings that collapse into a single base slug (such as empty ATX headings or punctuation-only strings). This consumes excessive CPU resources on the server during the parsing phase, resulting in service unavailability. The vulnerability is addressed in version 2.9.0.
+The `league/commonmark` library, specifically in versions 2.0.0 through 2.10.1, contains a quadratic-time complexity vulnerability in its GitHub Flavored Markdown (GFM) Table extension. The `TableStartParser` performs a full-buffer scan of the accumulated paragraph on every new line via `strpos()` to check for potential table headers. Because the paragraph buffer grows indefinitely as long as non-blank lines are provided, and the scan traverses this entire buffer repeatedly, the work required grows quadratically (O(M^2)) relative to the input size. An unauthenticated attacker can exploit this by submitting large paragraphs consisting of lines that do not start with a letter (bypassing the `SkipLinesStartingWithLettersParser`) and contain no pipe characters. This causes excessive CPU usage, which can exhaust available PHP worker processes and result in a denial of service.
+
+## Attack Chain
+
+1. **Exposure:** The attacker identifies an application using `league/commonmark` (specifically with `GithubFlavoredMarkdownConverter` or the `TableExtension` enabled) that processes untrusted Markdown content.
+2. **Control:** The attacker prepares a large Markdown body consisting of a single paragraph with no blank lines, no pipe (`|`) characters, and lines beginning with non-letter characters (e.g., digits).
+3. **Path:** As the parser processes the input, the `ParagraphParser` keeps the paragraph block open, causing the library to append each line to the growing `paragraph` buffer.
+4. **Bypass:** Since the input lines do not begin with a letter, the `SkipLinesStartingWithLettersParser` returns `BlockStart::abort()`, allowing the parser to continue searching for other block types.
+5. **Primitive:** The `MarkdownParser` dispatches the input to the `TableStartParser::tryStart()` on every line, which executes `strpos($paragraph, '|')` against the entire, continuously growing buffer.
+6. **Guard Absence:** No input-size caps or effective length guards prevent the cumulative buffer growth or the exhaustive scan, allowing the O(M^2) complexity to manifest.
+7. **Result:** The cumulative processing time leads to extreme CPU load, effectively exhausting server resources and denying service to legitimate users.
 
 ## Impact
 
-Successful exploitation allows an unauthenticated remote attacker to cause a denial of service on any application utilizing a vulnerable version of the library with the specified extensions enabled. By forcing significant CPU usage, attackers can degrade or completely halt web application services that process user-supplied Markdown content, impacting sites ranging from documentation platforms to content management systems.
+Successful exploitation results in a denial of service by consuming all available server resources or PHP worker threads. The impact is limited to availability, with no risk to data confidentiality or integrity. Applications rendering untrusted Markdown from external users are at the highest risk. Measured benchmarks demonstrate that doubling a multi-megabyte input quadruples the CPU time, with 200,000 lines taking approximately 27.81 seconds to parse.
 
 ## Recommendation
 
-1. Upgrade league/commonmark to version 2.9.0 or later immediately to resolve CVE-2026-86434.
-2. Audit applications utilizing the library to identify those that have HeadingPermalinkExtension, FootnoteExtension, or TableOfContentsExtension enabled.
-3. Implement input validation or size limits on user-supplied Markdown content to mitigate the potential for high-volume heading attacks if immediate patching is not feasible.
+1. Upgrade `league/commonmark` to a version where this vulnerability is remediated (as of this writing, no fix is available; monitor the upstream repository for updates).
+2. Implement application-level constraints on the total length of user-submitted Markdown content before passing it to the converter.
+3. If not required, disable the `TableExtension` in the `GithubFlavoredMarkdownConverter` configuration when processing untrusted input.
+4. Monitor application server CPU usage patterns specifically for PHP-FPM worker saturation coinciding with requests to Markdown rendering endpoints.
