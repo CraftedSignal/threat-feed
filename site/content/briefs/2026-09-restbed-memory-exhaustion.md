@@ -3,6 +3,7 @@ title: Memory Exhaustion Vulnerability in restbed Framework (CVE-2026-103471)
 slug: 2026-09-restbed-memory-exhaustion
 description: The restbed framework through version 5.0.0 is vulnerable to memory exhaustion due to the lack of a maximum size limit on incoming HTTP request headers.
 date: "2026-09-30T18:36:14Z"
+lastmod: "2026-09-30T18:36:22Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - denial-of-service
   - vulnerability
   - restbed
+  - websocket
+  - memory-exhaustion
 vendors:
   - Corvusoft
 products:
@@ -30,6 +33,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103471
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103472
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-103471
       evidence: NVD vulnerability disclosure.
+updates:
+  - at: "2026-09-30T18:36:22Z"
+    level: L1
+    summary: added coverage for restbed (<= 5.0.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103472
 ---
 
 The Corvusoft restbed framework through version 5.0.0 contains a vulnerability in its HTTP header processing logic that fails to enforce a maximum size limit on incoming buffers. This design flaw allows remote, unauthenticated attackers to perform a Denial of Service (DoS) attack by opening a TCP connection to the server and streaming data indefinitely without sending the HTTP header delimiter (typically `\r\n\r\n`). 
