@@ -3,6 +3,7 @@ title: MikroTik RouterOS Authentication Bypass and RCE
 slug: 2026-09-mikrotrick-rce
 description: The 'MikroTrick' campaign exploits vulnerabilities in the RouterOS SSH service to achieve unauthenticated remote code execution and administrative account persistence.
 date: "2026-09-30T15:12:59Z"
+lastmod: "2026-09-30T16:22:26Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +22,7 @@ products:
   - RouterOS (< 6.49.21)
   - RouterOS (7.0 <= 7.23.3)
   - RouterOS (7.24.0 <= 7.24.1)
+  - RouterOS
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -41,16 +43,17 @@ mitre_ttps:
     evidence: The default mode plants an account instead... /user add name=hacker group=full
     confidence_band: high
 cves:
-  - id: CVE-2026-67279
-    cvss: 6.5
-    epss: 0.01027
   - id: CVE-2026-86060
     cvss: 9.8
     epss: 0.01849
+  - id: CVE-2026-67279
+    cvss: 6.5
+    epss: 0.01027
 references:
   - https://www.exploit-db.com/exploits/52683
   - CVE-2026-86060
   - CVE-2026-67279
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3661
 action_plan:
   priority: immediate_escalation
   owners:
@@ -67,6 +70,14 @@ action_plan:
       owner: Network Operations
       addresses: CVE-2026-86060
       evidence: Exploit relies on unauthenticated SSH session initialization.
+updates:
+  - at: "2026-09-30T16:22:26Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3661
 ---
 
 The 'MikroTrick' campaign exploits a series of vulnerabilities in the MikroTik RouterOS SSH service to achieve unauthenticated remote code execution. Active since September 2026, this threat leverages a sequence of bugs in the SSH session handling mechanism to bypass authentication gates. By initiating an unauthenticated session and manipulating the state machine via a forced rekeying process, an attacker can escalate privileges to full administrative control (the 'full policy set'). The exploit essentially tricks the system into treating a custom, attacker-controlled policy mask as legitimate during the login helper process. Once control is gained, the attacker typically plants a persistent administrative account, 'hacker', to ensure ongoing access. This vulnerability affects multiple versions across both the 6.x and 7.x branches of RouterOS. Defenders should prioritize patching or restricting SSH access to trusted management subnets.
