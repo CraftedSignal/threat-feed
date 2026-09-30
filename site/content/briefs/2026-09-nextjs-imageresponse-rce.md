@@ -3,11 +3,15 @@ title: Critical RCE Vulnerability in Next.js ImageResponse via Crafted SVG Input
 slug: 2026-09-nextjs-imageresponse-rce
 description: A critical vulnerability (CVE-2026-94545) in the Next.js ImageResponse feature allows unauthenticated remote code execution when attacker-controlled input is improperly sanitized during SVG generation.
 date: "2026-09-23T07:52:50Z"
+lastmod: "2026-09-30T08:17:26Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=28FB37EE-2037-5C8D-9B64-06B744C53C66&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - rce
@@ -25,8 +29,11 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: A new security vulnerability in Next.js could allow attackers to run code on a server via ImageResponse.
     confidence_band: high
+cves:
+  - id: CVE-2026-94545
 references:
   - https://thehackernews.com/2026/09/critical-nextjs-imageresponse-flaw-can.html
+  - https://sploitus.com/exploit?id=28FB37EE-2037-5C8D-9B64-06B744C53C66&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -43,6 +50,14 @@ action_plan:
       owner: Development Team
       addresses: CVE-2026-94545
       evidence: The advisory's workaround is to keep attacker-controlled values out of the SVG content.
+updates:
+  - at: "2026-09-30T08:17:26Z"
+    level: L2
+    summary: poc_available; added CVE-2026-94545
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=28FB37EE-2037-5C8D-9B64-06B744C53C66&utm_source=rss&utm_medium=rss
 ---
 
 Vercel has disclosed a critical security vulnerability, tracked as CVE-2026-94545, affecting the ImageResponse feature in Next.js versions 16.2.0 through 16.3.5. The flaw originates in the underlying Satori library, which converts image layouts into SVG code. When applications pass attacker-controlled values, such as those derived from request URLs, into SVG content, attributes, or styles, the lack of proper sanitization allows the input to be interpreted as malicious SVG markup. 
