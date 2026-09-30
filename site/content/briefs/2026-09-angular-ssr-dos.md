@@ -1,63 +1,88 @@
 ---
-title: Angular SSR Denial of Service via Malformed DOCTYPE
+title: Denial of Service in Angular Router via Numeric URL Matrix Parameters
 slug: 2026-09-angular-ssr-dos
-description: A high-severity denial-of-service vulnerability in @angular/platform-server allows remote unauthenticated attackers to crash the Node.js event loop via a malformed DOCTYPE declaration.
-date: "2026-09-28T22:15:03Z"
+description: A high-severity denial of service vulnerability in @angular/router enables memory exhaustion in Node.js SSR environments through crafted URLs with numeric matrix parameters that trigger oversized V8 object allocation.
+date: "2026-09-30T16:26:49Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:google:angular:*:*:*:*:*:*:*:*
 tags:
   - denial-of-service
   - angular
   - nodejs
-  - cve-2026-101895
+  - v8
+  - cve-2026-101896
 vendors:
   - Google
 products:
-  - Angular platform-server (>= 22.0.0, < 22.1.6)
-  - Angular platform-server (>= 21.0.0, < 21.2.23)
-  - Angular platform-server (>= 20.0.0, < 20.3.31)
-  - Angular platform-server (<= 19.2.25)
+  - '@angular/router (>= 22.0.0, < 22.2.0)'
+  - '@angular/router (>= 21.0.0, < 21.2.24)'
+  - '@angular/router (>= 20.0.0, < 20.3.32)'
+  - '@angular/router (<= 19.2.25)'
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
-    evidence: The HTML parser enters an infinite synchronous loop, pegging CPU utilization at 100% and completely freezing the Node.js server process.
+    evidence: Successful exploitation allows an unauthenticated remote attacker to exhaust the Node.js old-space heap with modest request volume, terminating the SSR worker.
     confidence_band: high
 references:
-  - https://github.com/advisories/GHSA-f67j-2jqw-jpq7
+  - https://github.com/advisories/GHSA-ff3f-86qr-9cv3
+rules:
+  - title: Detect Potential SSR DoS Attempt via URL Matrix Parameters
+    description: Detects HTTP requests containing semicolons in the URL path, which is a required condition for CVE-2026-101896 exploitation
+    platform: sigma
+    severity: medium
+    tactics:
+      - impact
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
     - IT Operations
     - Application Security
   immediate_actions:
-    - action: 'Upgrade @angular/platform-server to fixed versions: 22.1.6, 21.2.23, 20.3.31, or > 19.2.25'
+    - action: Block semicolon-containing URLs at the perimeter reverse proxy for Angular-based SSR applications
       owner: IT Operations
       due: 24h
-      evidence: Source advisory specifies version ranges for remediation.
+      evidence: Source workaround recommendation
   mitigation_plan:
     - priority: immediate
-      action: Replace [innerHTML] bindings with [textContent] or {{ }} interpolation for untrusted user inputs
+      action: Upgrade @angular/router to version 22.2.0, 21.2.24, or 20.3.32
       owner: Application Security
-      addresses: CVE-2026-101895
-      evidence: Source provides explicit workarounds for reachability.
+      addresses: CVE-2026-101896
+      evidence: Source patch information
 ---
 
-A Denial of Service (DoS) vulnerability (CVE-2026-101895) exists in the @angular/platform-server library due to its reliance on the 'domino' DOM parser. When an Angular application performs server-side rendering (SSR) and processes untrusted input through template bindings like [innerHTML], the library may encounter a malformed DOCTYPE declaration ending with whitespace before the End-of-File (EOF) marker.
+A memory-exhaustion vulnerability (CVE-2026-101896) exists in `@angular/router` when Server-Side Rendering (SSR) is utilized within a Node.js/V8 environment. The vulnerability arises from how the router parses URL segments and matrix parameters into JavaScript objects. When these parameters contain numeric strings, the V8 engine interprets them as array indices rather than object keys. Due to V8's internal property-storage heuristics, these numeric keys cause the allocation of dense array backing stores instead of sparse dictionary storage.
 
-The underlying issue originates in the HTML parser's tokenizer, which fails to advance the character pointer when encountering an EOF condition in the after_doctype_name_state. This triggers an infinite synchronous loop, consuming 100% of the CPU and effectively locking the single-threaded Node.js process. This vulnerability affects multiple branches of the Angular platform-server, including versions in the 19.x, 20.x, 21.x, and 22.x series. Because the loop occurs synchronously within the event loop, the application becomes unresponsive to all concurrent and subsequent requests until the process is manually restarted.
+By crafting URLs with repeated numeric matrix parameters (e.g., `/a;990;2522`), an attacker achieves a memory amplification factor of approximately 350x. This allows an unauthenticated remote attacker to trigger a fatal `JavaScript heap out of memory` error in the SSR worker with relatively low concurrency. This vulnerability is specific to SSR implementations and does not affect pure client-side Single Page Applications (SPAs).
+
+## Attack Chain
+
+1. Attacker identifies a target application utilizing Angular SSR with Node.js.
+2. Attacker probes the endpoint to confirm the handling of URL matrix parameters (semicolons in path segments).
+3. Attacker crafts a long request path containing multiple segments, each featuring repeated numeric matrix parameters (e.g., `;990;2522`).
+4. Attacker sends multiple concurrent HTTP requests to the SSR endpoint, utilizing standard web-server buffer capacities (e.g., 2 KB to 8 KB path lengths).
+5. The `@angular/router` component parses the URL, populating a `parameters` object with the malicious numeric keys.
+6. V8 engine interprets these keys as dense array indices and allocates large, contiguous `HOLEY_ELEMENTS` backing stores for each segment.
+7. Heap memory consumption spikes rapidly due to the 350x memory amplification.
+8. Node.js process reaches the configured heap limit, triggering a process crash and resulting in a Denial of Service.
 
 ## Impact
 
-The vulnerability allows unauthenticated remote attackers to trigger a complete Denial of Service on any Angular application utilizing SSR that binds untrusted user input to DOM-rendering properties. Success leads to an immediate hang of the Node.js server process, causing service outages for all users. The flaw is particularly critical for enterprise applications that rely on server-side rendering for SEO or performance.
+Successful exploitation results in the termination of the SSR worker process, causing a service outage for users relying on server-side rendered content. An attacker can force this state with as few as 12 to 22 concurrent requests if the path length is near 8 KB, or 50 to 100 requests for smaller paths, effectively rendering the application unavailable.
 
 ## Recommendation
 
-* Patch immediately: Upgrade @angular/platform-server to the fixed versions (>= 22.1.6, >= 21.2.23, >= 20.3.31, or > 19.2.25).
-* Remediate code: Audit the codebase for instances where untrusted user input is bound directly to `[innerHTML]` in server-rendered templates.
-* Implement input validation: Use standard text interpolation `{{ userInput }}` or `[textContent]` instead of raw HTML rendering when the input source is user-controlled.
-* Apply perimeter filtering: Implement server-side input sanitization to strip or reject input strings matching the regex `/^<!DOCTYPE/i`.
+Prioritized actions for detection and remediation:
+- Upgrade `@angular/router` to version 22.2.0, 21.2.24, 20.3.32, or later to address CVE-2026-101896.
+- Configure upstream reverse proxies (Nginx, WAF) to block or strip semicolons (`;`) from incoming request URIs to prevent malicious parameters from reaching the Angular router.
+- Implement strict request path segment limits at the edge to reduce the maximum possible heap allocation per request.
+- Monitor SSR worker process memory usage via monitoring tools; sudden spikes in heap memory accompanied by high frequencies of semicolon-containing URLs indicate potential exploitation attempts.
