@@ -3,6 +3,7 @@ title: PyJWT Asymmetric-PEM Detection Bypass Leading to Algorithm Confusion
 slug: 2026-09-pyjwt-pem-bypass
 description: An incomplete asymmetric-key guard in PyJWT (CVE-2026-102268) allows specially formatted public keys to be used as HMAC secrets, enabling universal token forgery when applications misconfigure algorithm allow-lists.
 date: "2026-09-30T04:18:49Z"
+lastmod: "2026-09-30T04:19:12Z"
 type: advisory
 types:
   - advisory
@@ -17,8 +18,11 @@ tags:
   - authentication-bypass
   - cve-2026-102268
   - library-vulnerability
+vendors:
+  - PyJWT
 products:
   - PyJWT (<= 2.13.0)
+  - PyJWT (2.13.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,6 +39,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-ffc3-869f-jxw9
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102268
+  - https://github.com/advisories/GHSA-w2cx-738m-mc7w
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102273
 action_plan:
   priority: immediate_escalation
   owners:
@@ -51,6 +57,14 @@ action_plan:
       owner: AppSec
       addresses: CVE-2026-102268
       evidence: Source document identifies mixed algorithm allow-lists as the primary precondition for exploitation.
+updates:
+  - at: "2026-09-30T04:19:12Z"
+    level: L2
+    summary: added coverage for PyJWT (2.13.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-w2cx-738m-mc7w
 ---
 
 PyJWT versions 2.13.0 and earlier contain a security bypass in the `is_pem_format` utility that allows asymmetric public keys to be treated as symmetric HMAC secrets. This occurs because the library's internal regex-based PEM validator is overly strict, failing to recognize PEM-formatted keys that include marker-adjacent whitespace, bare carriage returns, or single-line folding. While the `cryptography` library correctly parses these mutated keys, PyJWT's guard mechanism - intended to prevent CVE-2022-29217 algorithm confusion - erroneously concludes they are not asymmetric keys. If an application's `jwt.decode` configuration includes both HMAC (e.g., HS256) and asymmetric algorithms, an attacker can leverage the public key as an HMAC secret to mint valid tokens with arbitrary claims. This vulnerability is critical for applications that fail to follow RFC 8725 best practices regarding algorithm allow-listing.
