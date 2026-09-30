@@ -3,6 +3,7 @@ title: Active Exploitation of Cisco Catalyst SD-WAN Manager Authentication Bypas
 slug: 2026-09-cisco-sdwan-auth-bypass
 description: Attackers are actively exploiting an unauthenticated API authentication bypass vulnerability (CVE-2026-76504) in Cisco Catalyst SD-WAN Manager to gain administrative control via URL-encoded HTTP requests.
 date: "2026-09-30T16:33:07Z"
+lastmod: "2026-09-30T19:39:20Z"
 type: threat
 types:
   - threat
@@ -29,6 +30,7 @@ vendors:
 products:
   - Catalyst SD-WAN Manager (earlier than 20.9.10.1, 20.9 to 20.12.8.2, 20.12 to 20.15.6.1, 20.15 to 20.18.4.1, 20.18 to 26.1.2.1, 26.1 to 26.2.1)
   - Cisco SD-WAN Cloud (< 20.15.605)
+  - Catalyst SD-WAN Manager
 cves:
   - id: CVE-2026-76504
     cvss: 9.8
@@ -41,6 +43,16 @@ cves:
 references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU
   - https://www.rapid7.com/blog/post/etr-critical-cisco-catalyst-sd-wan-manager-api-authentication-bypass-exploited-in-the-wild-cve-2026-76504
+  - https://www.cisa.gov/news-events/alerts/2026/09/30/cisa-adds-one-known-exploited-vulnerability-catalog
+  - https://www.cve.org/CVERecord?id=CVE-2026-76504
+updates:
+  - at: "2026-09-30T19:39:20Z"
+    level: L2
+    summary: added coverage for Catalyst SD-WAN Manager
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/alerts/2026/09/30/cisa-adds-one-known-exploited-vulnerability-catalog
 ---
 
 Cisco has disclosed a critical authentication bypass vulnerability, identified as CVE-2026-76504, affecting Cisco Catalyst SD-WAN Manager. The flaw stems from improper handling of URL encoding (CWE-177) within API authentication logic. An unauthenticated, remote attacker can leverage this weakness to bypass authentication rules by sending crafted HTTP requests to specific API endpoints, granting them unauthorized access with administrative privileges.
