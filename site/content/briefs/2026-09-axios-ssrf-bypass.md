@@ -3,23 +3,26 @@ title: Axios Fetch Adapter Fails to Enforce Redirect Limits
 slug: 2026-09-axios-ssrf-bypass
 description: 'The Axios fetch adapter fails to enforce the maxRedirects: 0 configuration, enabling redirect-based SSRF by allowing requests to follow unexpected internal redirects.'
 date: "2026-09-30T16:27:51Z"
-lastmod: "2026-09-30T16:28:01Z"
+lastmod: "2026-09-30T16:28:09Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 tags:
   - prototype-pollution
   - javascript
   - nodejs
   - supply-chain
+  - ssrf
+  - library-vulnerability
 vendors:
   - Axios
 products:
   - axios (< 1.18.1)
   - axios (>= 0.28.0, < 0.34.0)
   - axios (>= 1.15.1, < 1.20.0)
+  - Axios (>= 1.13.0, < 1.20.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -36,6 +39,8 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-x97p-jq2g-jp4f
   - CVE-2026-101909
+  - https://github.com/advisories/GHSA-3pq3-5fj3-cg6v
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-101898
 action_plan:
   priority: elevated
   owners:
@@ -60,6 +65,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-x97p-jq2g-jp4f
+  - at: "2026-09-30T16:28:09Z"
+    level: L2
+    summary: added coverage for Axios (>= 1.13.0, < 1.20.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-3pq3-5fj3-cg6v
 ---
 
 The Axios library provides a `maxRedirects` configuration option, frequently used by developers to mitigate redirect-based Server-Side Request Forgery (SSRF) by setting the limit to `0`. While the standard Node.js HTTP adapter correctly respects this constraint, the `fetch` adapter implemented in `lib/adapters/fetch.js` ignores this setting. 
