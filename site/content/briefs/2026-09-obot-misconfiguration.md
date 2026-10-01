@@ -3,7 +3,7 @@ title: Obot Docker Quickstart Authentication Misconfiguration
 slug: 2026-09-obot-misconfiguration
 description: Obot versions up to commit d7e6970 contain a default configuration vulnerability that exposes the application with administrative privileges and Docker socket access to unauthenticated network actors.
 date: "2026-09-27T23:10:17Z"
-lastmod: "2026-09-27T23:11:12Z"
+lastmod: "2026-10-01T12:44:55Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,8 @@ tags:
   - oauth
   - cve-2026-101062
   - cloud
+  - privilege-escalation
+  - web-application
 vendors:
   - Obot
 products:
@@ -26,6 +28,7 @@ products:
   - obot (< 0.21.1)
   - Obot (<= 0.22.1)
   - Obot (< 0.23.0)
+  - Obot (0.21.1 - 0.24.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -65,6 +68,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101084
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101062
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101064
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103758
 action_plan:
   priority: immediate_escalation
   owners:
@@ -103,6 +107,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101064
+  - at: "2026-10-01T12:44:55Z"
+    level: L2
+    summary: added coverage for Obot (0.21.1 - 0.24.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103758
 ---
 
 Obot, an open-source AI agent and Model Context Protocol (MCP) platform, contains a critical security misconfiguration in its documented Docker quickstart procedure affecting all versions up to and including commit d7e6970. The default configuration exposes the application on 0.0.0.0:8080 without enabling authentication. By design, unauthenticated requests are assigned to a synthetic 'nobody' user that possesses both Owner and Admin roles within the platform. 
