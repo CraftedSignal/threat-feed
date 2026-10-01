@@ -3,6 +3,7 @@ title: Suspicious Activity Detection from GenAI Coding Utilities
 slug: 2026-09-genai-utility-alerts
 description: This detection rule identifies suspicious endpoint activity, such as malicious file creation or shellcode execution, originating from or triggered by AI-assisted coding and assistant tools indicating potential supply chain or prompt injection abuse.
 date: "2026-09-18T19:18:49Z"
+lastmod: "2026-10-01T20:06:46Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,26 @@ tags:
   - endpoint-security
   - llm-security
   - unauthorized-ai-usage
+vendors:
+  - Cursor
+  - Anthropic
+  - GitHub
+  - Tabnine
+  - Codeium
+  - Continue
+products:
+  - Cursor
+  - Claude
+  - Windsurf
+  - Cody
+  - Continue
+  - Aider
+  - OpenClaw
+  - Moltbot
+  - Clawdbot
+  - Codeium
+  - Tabnine
+  - GitHub Copilot
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -20,6 +41,8 @@ mitre_ttps:
     technique_name: Supply Chain Compromise
     evidence: Activity from these tools can indicate prompt injection, malicious skills, or supply-chain abuse.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/initial_access_elastic_defend_alert_genai_utility_descendant.toml
 rules:
   - title: Detect Suspicious Descendant Process from GenAI Utility
     description: Detects Elastic Defend alerts originating from common GenAI coding assistants or automated skill bots, suggesting supply-chain abuse or prompt injection.
@@ -57,6 +80,14 @@ action_plan:
       owner: IT Operations
       addresses: T1195.002
       evidence: Supply chain compromise risk
+updates:
+  - at: "2026-10-01T20:06:46Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/initial_access_elastic_defend_alert_genai_utility_descendant.toml
 ---
 
 Modern AI-assisted development tools, including Cursor, Claude, Windsurf, Cody, Continue, and various automation bots like OpenClaw, Moltbot, and Clawdbot, have become vectors for supply-chain abuse and prompt injection attacks. Attackers leverage these utilities to execute malicious code, install rogue extensions, or run unauthorized skills that bypass traditional security controls. 
