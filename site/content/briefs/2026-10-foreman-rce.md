@@ -3,7 +3,7 @@ title: Remote Code Execution in Foreman via Safemode Sandbox Bypass
 slug: 2026-10-foreman-rce
 description: An authenticated, low-privileged attacker can achieve remote code execution in Foreman by bypassing the templating engine's safemode sandbox to invoke unauthorized functions.
 date: "2026-10-01T18:12:48Z"
-lastmod: "2026-10-01T18:13:28Z"
+lastmod: "2026-10-01T18:13:37Z"
 type: advisory
 types:
   - advisory
@@ -40,6 +40,12 @@ mitre_ttps:
     technique_id: T1566
     technique_name: Phishing
     evidence: The source does not explicitly document the initial access vector; the flaw requires an authenticated user.
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The flaw allows for Server-Side Template Injection and insecure deserialization via the foreman-rake initialization logic.
+    confidence_band: high
 cves:
   - id: CVE-2026-96658
     cvss: 9.9
@@ -47,6 +53,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-96658
   - https://nvd.nist.gov/vuln/detail/CVE-2026-96659
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12540
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12544
 action_plan:
   priority: elevated
   owners:
@@ -78,6 +85,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-12540
+  - at: "2026-10-01T18:13:37Z"
+    level: L2
+    summary: added coverage for Foreman
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-12544
 ---
 
 CVE-2026-96658 is a critical security vulnerability impacting Foreman, a lifecycle management tool for physical and virtual servers. The flaw exists within the application's templating engine, specifically regarding the implementation of the safemode sandbox designed to restrict untrusted code execution.
