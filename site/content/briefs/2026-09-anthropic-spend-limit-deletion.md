@@ -3,6 +3,7 @@ title: Unrestricted API Resource Consumption via Anthropic Spend Limit Deletion
 slug: 2026-09-anthropic-spend-limit-deletion
 description: The deletion of Anthropic extra-usage spend limits acts as a precursor for resource hijacking and financial abuse, allowing adversaries with compromised credentials to conduct large-scale, unrestricted API consumption.
 date: "2026-09-24T01:20:32Z"
+lastmod: "2026-10-01T20:09:30Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Anthropic
 products:
   - Anthropic API
+  - Claude
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -26,6 +28,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://platform.claude.com/docs/en/api/compliance/activities/list
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/anthropic/impact_anthropic_extra_usage_spend_limit_deleted.toml
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +54,14 @@ action_plan:
       owner: SOC
       addresses: Resource Hijacking (T1496)
       evidence: Deleting a spend limit removes that cap and can enable unrestricted API or Claude consumption.
+updates:
+  - at: "2026-10-01T20:09:30Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/anthropic/impact_anthropic_extra_usage_spend_limit_deleted.toml
 ---
 
 The removal of an extra-usage spend limit in the Anthropic platform serves as a critical configuration change that eliminates billing guardrails for an organization. This action allows API or Claude consumption to proceed without an upper financial or usage cap. Defenders should monitor for these events as they often precede resource hijacking or unauthorized high-volume automated workloads. This threat is particularly relevant to environments where administrative API keys or user credentials have been compromised, enabling attackers to burn through organizational budget or abuse platform resources for large-scale data processing or malicious chat operations. Detection engineering teams must differentiate between legitimate administrative billing consolidations and unauthorized attempts to remove spend protections.
