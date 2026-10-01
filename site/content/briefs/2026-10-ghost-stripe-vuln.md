@@ -3,7 +3,7 @@ title: Unauthenticated Stripe Checkout Manipulation in Ghost
 slug: 2026-10-ghost-stripe-vuln
 description: A vulnerability in Ghost versions 5.2.0 through 6.61.9 allows unauthenticated remote attackers to manipulate Stripe Checkout flows to modify member records and inject malicious content into newsletters.
 date: "2026-10-01T12:42:24Z"
-lastmod: "2026-10-01T12:44:25Z"
+lastmod: "2026-10-01T12:44:39Z"
 type: threat
 types:
   - threat
@@ -25,6 +25,7 @@ products:
   - Ghost (< 6.62.0)
   - Ghost (2.10.0 - 6.62.x)
   - Ghost (5.8.0 - 6.33.9)
+  - Ghost (0.5.3 - < 6.50.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -50,6 +51,18 @@ mitre_ttps:
     technique_name: Credentials from Password Stores
     evidence: This vulnerability allows an authenticated attacker... to perform an account takeover of staff users.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An authenticated user with limited privileges can inject unescaped content that is rendered as script in the published page.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: The vulnerability allows for Stored Cross-Site Scripting (XSS) attacks... enabling the injection of malicious scripts that execute in the context of a staff user's admin session.
+    confidence_band: high
 cves:
   - id: CVE-2026-103266
     cvss: 7.1
@@ -58,6 +71,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103268
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103272
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103278
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103292
 action_plan:
   priority: elevated
   owners:
@@ -96,6 +110,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-103278
+  - at: "2026-10-01T12:44:39Z"
+    level: L2
+    summary: added coverage for Ghost (0.5.3 - < 6.50.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103292
 ---
 
 Ghost versions 5.2.0 through 6.61.9 are susceptible to an unauthenticated vulnerability within the Stripe Checkout integration. An attacker can exploit this flaw to force an arbitrary paid subscription onto an existing member's account. This process allows the attacker to manipulate the member's profile, specifically the name field. Furthermore, the vulnerability enables the injection of malicious content, which is subsequently embedded into newsletters generated and distributed by the platform to the affected member. Depending on the email client's handling of the injected HTML, this can lead to successful HTML injection or Cross-Site Scripting (XSS) attacks. Defenders should prioritize patching, as this vulnerability allows for unauthorized modification of member data and potential delivery of malicious payloads via trusted communication channels.
