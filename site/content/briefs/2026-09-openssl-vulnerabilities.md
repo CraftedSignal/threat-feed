@@ -3,7 +3,7 @@ title: Multiple Vulnerabilities in OpenSSL
 slug: 2026-09-openssl-vulnerabilities
 description: Multiple security flaws in various OpenSSL versions allow remote attackers to perform denial of service, compromise confidentiality, and breach data integrity.
 date: "2026-09-30T16:19:31Z"
-lastmod: "2026-09-30T16:25:52Z"
+lastmod: "2026-10-01T14:18:09Z"
 type: advisory
 types:
   - advisory
@@ -28,26 +28,25 @@ products:
   - OpenSSL
 cves:
   - id: CVE-2026-35189
-  - id: CVE-2026-42772
-  - id: CVE-2026-54872
-    cvss: 3.7
-  - id: CVE-2026-54873
-  - id: CVE-2026-54875
-    cvss: 3.7
-  - id: CVE-2026-75805
     cvss: 5.3
+    epss: 0.00267
+  - id: CVE-2026-75806
+    cvss: 5.3
+    epss: 0.00387
   - id: CVE-2026-77696
     cvss: 3.7
+    epss: 0.00243
   - id: CVE-2026-84782
     cvss: 8.2
+    epss: 0.0039
   - id: CVE-2026-84783
     cvss: 7.5
-  - id: CVE-2026-84784
-    cvss: 7.5
+    epss: 0.00226
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1241/
   - https://openssl-library.org/news/secadv/20260929.txt
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3638
+  - https://cyber.gc.ca/en/alerts-advisories/openssl-security-advisory-av26-980
 action_plan:
   priority: elevated
   owners:
@@ -72,6 +71,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3638
+  - at: "2026-10-01T14:18:09Z"
+    level: L2
+    summary: added CVE-2026-75806
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/openssl-security-advisory-av26-980
 ---
 
 The OpenSSL project has released security advisories addressing multiple vulnerabilities across several versions of its library, ranging from legacy releases to current development branches. These vulnerabilities, identified as CVE-2026-35189, CVE-2026-35191, CVE-2026-42772, CVE-2026-54872, CVE-2026-54873, CVE-2026-54875, CVE-2026-72897, CVE-2026-75804, CVE-2026-75805, CVE-2026-75806, CVE-2026-77696, CVE-2026-84782, CVE-2026-84783, and CVE-2026-84784, enable a variety of attack vectors. Depending on the specific flaw, remote attackers may be able to induce denial-of-service conditions through resource exhaustion or crash-inducing malformed inputs, bypass security policies, or compromise the confidentiality and integrity of encrypted communications. Given the widespread use of OpenSSL in critical infrastructure, web servers, and distributed systems, these vulnerabilities pose a significant risk of service disruption and unauthorized data access across diverse enterprise environments.
