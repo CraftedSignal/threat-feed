@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--40569856-62a2-5f93-99fa-0150768c0377",
+  "id": "bundle--026e435d-008b-5fad-836c-bb52adbe0093",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "name": "File and Directory Discovery",
       "external_references": [
         {
@@ -21,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c7235a80-ff7d-5c09-ba47-b4eba4245ad0",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "relationship_type": "uses",
       "source_ref": "report--c484b441-320c-5f99-ab89-91ca1c85451a",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -38,8 +38,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--870b5205-5f8e-51be-bff4-6d847f431d35",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "name": "CVE-2026-103591",
       "external_references": [
         {
@@ -53,8 +53,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--73c13d77-352c-5530-98a1-4fe3cc102c4a",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "relationship_type": "has",
       "source_ref": "software--a93df91d-7183-5fb9-b95b-a542336ce27d",
       "target_ref": "vulnerability--870b5205-5f8e-51be-bff4-6d847f431d35"
@@ -63,8 +63,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--c484b441-320c-5f99-ab89-91ca1c85451a",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "name": "Unauthenticated Arbitrary File Read in DeepWiki-Open",
       "description": "## Overview\n\nDeepWiki-Open through commit d92819a contains an unauthenticated arbitrary file read vulnerability. The issue resides in the GET /codemap/file endpoint, which improperly validates the repo_url parameter. By supplying a non-URL value, an attacker can bypass intended path containment checks. This allows for the traversal of the filesystem and the retrieval of sensitive files accessible to the API process. This vulnerability poses a significant risk as it requires no authentication to exploit and provides a mechanism for attackers to exfiltrate configuration files, source code, or system credentials. Defenders should prioritize patching or restricting access to the affected endpoint.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to read arbitrary files from the host system with the privileges of the web application process. This can lead to the exposure of sensitive credentials, environment variables, and internal configuration details, potentially facilitating further system compromise or data exfiltration.\n\n## Recommendation\n\n* Apply the official patch or upgrade DeepWiki-Open to a commit post-d92819a.\n* Restrict network access to the /codemap/file endpoint using a Web Application Firewall or proxy server until the vulnerability is remediated.\n* Monitor web server logs for GET requests to /codemap/file that contain filesystem path patterns or absolute paths in the repo_url query parameter.\n",
       "published": "2026-10-01T00:37:22Z",
@@ -90,8 +90,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -105,8 +105,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2d1f8a76-56ec-59ca-ac58-75e0a28d80c2",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "relationship_type": "uses",
       "source_ref": "report--f09f0327-4c66-52b8-983f-36d7ca841efe",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -122,8 +122,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--f476ca28-dd83-5f9a-acb4-0c8322aee46f",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "name": "CVE-2026-103530",
       "external_references": [
         {
@@ -137,8 +137,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--6d93f4d7-cf8c-53ea-8323-d2761273b95e",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "relationship_type": "has",
       "source_ref": "software--7eb82374-6380-5966-9871-3826a70b1491",
       "target_ref": "vulnerability--f476ca28-dd83-5f9a-acb4-0c8322aee46f"
@@ -147,8 +147,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--f09f0327-4c66-52b8-983f-36d7ca841efe",
-      "created": "2026-10-01T00:38:07Z",
-      "modified": "2026-10-01T00:38:07Z",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
       "name": "SSRF Vulnerability in decolua 9Router",
       "description": "## Overview\n\nCVE-2026-103530 identifies a server-side request forgery (SSRF) vulnerability affecting decolua 9Router in all versions up to and including 0.5.55. The vulnerability resides within the fetch function of the file src/shared/utils/ssrfGuard.js, which is part of the application's Search Endpoint component. \n\nAn attacker can exploit this flaw by remotely sending a crafted request that manipulates the provider_options.baseUrl argument. This manipulation forces the application to perform unauthorized requests to arbitrary internal or external resources, potentially leading to unauthorized data access, internal service discovery, or interaction with internal APIs that expect requests only from the trusted server environment. Impact is significant given the ability to bypass network segmentation by leveraging the server's context.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to perform SSRF attacks, potentially leading to unauthorized interaction with internal infrastructure, sensitive service exposure, or exfiltration of metadata from cloud instances or internal systems.\n\n## Recommendation\n\nUpgrade 9Router to version 0.5.56 or later to apply the necessary security patch for the ssrfGuard.js component. Implement network egress filtering on the host running the 9Router service to restrict unauthorized outbound connections to internal segments.\n",
       "published": "2026-10-01T00:37:29Z",
@@ -169,6 +169,150 @@
         }
       ],
       "confidence": 80
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "name": "Exploit Public-Facing Application",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1190",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--37e55d99-8385-5274-9440-7f214867ab5a",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c360e8e7-3ab1-5921-afc9-0b46a173d9d7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "name": "Command and Scripting Interpreter: JavaScript",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.003",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c5f347b7-795f-5b33-81d3-40615e293414",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c360e8e7-3ab1-5921-afc9-0b46a173d9d7",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "software",
+      "id": "software--a80d6911-1d3d-5be8-a953-f291c9d88aba",
+      "name": "CommonsMetadata",
+      "vendor": "Wikimedia",
+      "cpe": "cpe:2.3:a:wikimedia:commonsmetadata:*:*:*:*:*:*:*:*"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bbf03fef-c5eb-572e-a2f2-6db97043d7ea",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "name": "CVE-2026-103584",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103584",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103584"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--46df39ea-d2cf-55b4-8bda-6e83fcb7a90b",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "relationship_type": "has",
+      "source_ref": "software--a80d6911-1d3d-5be8-a953-f291c9d88aba",
+      "target_ref": "vulnerability--bbf03fef-c5eb-572e-a2f2-6db97043d7ea"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--93989cee-2b99-51c0-85b6-0208af812c20",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "name": "CVE-2026-103585",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103585",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103585"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--104ac13e-ff9a-5884-b5af-60c5cc619a40",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "relationship_type": "has",
+      "source_ref": "software--a80d6911-1d3d-5be8-a953-f291c9d88aba",
+      "target_ref": "vulnerability--93989cee-2b99-51c0-85b6-0208af812c20"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c360e8e7-3ab1-5921-afc9-0b46a173d9d7",
+      "created": "2026-10-01T03:38:39Z",
+      "modified": "2026-10-01T03:38:39Z",
+      "name": "Stored XSS in CommonsMetadata via LicenseUrl",
+      "description": "## Overview\n\nCVE-2026-103584 is a stored XSS vulnerability identified in the CommonsMetadata component used within the Wikimedia ecosystem. The vulnerability exists because the component copies the 'licensetpl_link' value from file descriptions into the 'LicenseUrl' field of image metadata without performing necessary URL scheme validation. An attacker with low-level privileges can store a 'javascript:' URI within the metadata, which is subsequently rendered by the web interface. When a victim user interacts with this link, the embedded JavaScript executes in the context of the wiki origin. A secondary, related vulnerability, CVE-2026-103585, impacts the MediaSearch QuickView consumer path, demonstrating a broader issue with how metadata is consumed across the platform. This issue was reported by Marco Paciaroni (BomboBombone) and addressed via a patch in Gerrit.\n\n## Impact\n\nSuccessful exploitation results in arbitrary JavaScript execution within the context of the affected wiki origin. This could allow an attacker to hijack user sessions, perform unauthorized actions on behalf of the victim, or exfiltrate sensitive data accessible within the browser session. The vulnerability carries a low CVSS score (2.1), reflecting its reliance on user interaction and the requirement for specific metadata configuration, but it remains a security concern for platforms processing user-supplied image metadata.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Verify that the CommonsMetadata component is updated to the version containing the fix documented in Gerrit change 1346780.\n- Audit existing image metadata entries for suspicious URI schemes (e.g., 'javascript:') in the 'LicenseUrl' field if an automated check can be scripted against the API.\n- Implement strict Content Security Policy (CSP) headers to mitigate the impact of potential XSS vulnerabilities by restricting the sources from which scripts can be executed.\n",
+      "published": "2026-10-01T03:37:54Z",
+      "labels": [
+        "xss",
+        "web-vulnerability",
+        "wikimedia"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "software--a80d6911-1d3d-5be8-a953-f291c9d88aba",
+        "vulnerability--bbf03fef-c5eb-572e-a2f2-6db97043d7ea",
+        "vulnerability--93989cee-2b99-51c0-85b6-0208af812c20"
+      ],
+      "external_references": [
+        {
+          "source_name": "reference",
+          "url": "https://gerrit.wikimedia.org/r/1346780"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bombobombone.github.io/posts/cve-2026-103584/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://phabricator.wikimedia.org/T435999"
+        }
+      ],
+      "confidence": 40
     }
   ]
 }
