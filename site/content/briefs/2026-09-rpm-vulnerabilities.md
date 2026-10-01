@@ -3,7 +3,7 @@ title: Multiple Arbitrary Code Execution Vulnerabilities in RPM
 slug: 2026-09-rpm-vulnerabilities
 description: Multiple unpatched vulnerabilities in the RPM package manager allow an unauthenticated attacker to achieve arbitrary code execution on systems processing malicious packages.
 date: "2026-09-25T14:01:04Z"
-lastmod: "2026-09-30T12:34:31Z"
+lastmod: "2026-10-01T14:17:49Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +15,12 @@ tags:
   - vulnerability
   - linux
   - rpm
+  - local-exploitation
 vendors:
   - RPM
 products:
   - RPM
+  - RPM (7.0-7.8)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -26,12 +28,19 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: An attacker can exploit multiple vulnerabilities in RPM to execute arbitrary program code.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: A local attacker can exploit a vulnerability in RPM to potentially execute code, manipulate data, or cause a denial-of-service condition.
+    confidence_band: high
 cves:
   - id: CVE-2026-103242
     cvss: 7.1
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3567
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103242
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3676
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +76,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-103242
+  - at: "2026-10-01T14:17:49Z"
+    level: L1
+    summary: added coverage for RPM (7.0-7.8)
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3676
 ---
 
 The German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities within the RPM (RPM Package Manager) utility. These flaws are currently unpatched and present a significant risk to Linux distributions relying on RPM for software management. The vulnerabilities are triggered during the handling and installation of specially crafted RPM packages. An attacker capable of delivering a malicious package to a system administrator or automated package management process could exploit these flaws to execute arbitrary code with the privileges of the user or process performing the installation. Given the widespread use of RPM across enterprise Linux environments, this impact is considered critical for systems that frequently ingest third-party or untrusted software repositories.
