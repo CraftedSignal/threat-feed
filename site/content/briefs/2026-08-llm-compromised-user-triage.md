@@ -3,7 +3,7 @@ title: Automated LLM-Based User Account Compromise Triage
 slug: 2026-08-llm-compromised-user-triage
 description: An automated detection framework that uses Large Language Models to correlate disparate security alerts and assess potential account compromise based on behavioral indicators.
 date: "2026-08-01T01:42:24Z"
-lastmod: "2026-09-19T13:16:30Z"
+lastmod: "2026-10-01T20:07:04Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,7 @@ vendors:
 products:
   - Elastic Stack (9.3.0)
   - Elastic Stack
+  - Elastic Security
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -44,6 +45,13 @@ references:
   - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_compromised_user_triage.toml
 updates:
   - at: "2026-09-19T13:16:30Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/multiple_alerts_llm_compromised_user_triage.toml
+  - at: "2026-10-01T20:07:04Z"
     level: L1
     summary: new product
     sources:
