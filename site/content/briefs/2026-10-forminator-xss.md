@@ -1,19 +1,24 @@
 ---
 title: Stored Cross-Site Scripting in Forminator Forms WordPress Plugin
 slug: 2026-10-forminator-xss
-description: The Forminator Forms WordPress plugin is vulnerable to Stored Cross-Site Scripting via the Rich-Text Textarea field, allowing unauthenticated attackers to execute arbitrary scripts in an administrator's session.
-date: "2026-10-01T10:39:58Z"
+description: The Forminator Forms plugin for WordPress is vulnerable to Stored XSS via the 'postdata-1[post-custom]' parameter in versions 1.57.2 and below, allowing unauthenticated attackers to execute arbitrary scripts.
+date: "2026-10-01T10:40:46Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
 cpes:
-  - cpe:2.3:a:wordpress:forminator_forms_contact_form_payment_form_custom_form_builder:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:wpmu_dev:forminator_forms:*:*:*:*:*:*:*:*
+tags:
+  - web-application-vulnerability
+  - stored-xss
+  - wordpress
+  - cve-2026-92144
 vendors:
-  - WordPress
+  - WPMU DEV
 products:
-  - Forminator Forms – Contact Form, Payment Form & Custom Form Builder (<= 1.57.2)
+  - Forminator Forms (<= 1.57.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -21,55 +26,50 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.007
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
-    evidence: Successful exploitation requires an administrator to open the stored submission entry... at which point WordPress core's jQuery-based click handler... evaluates the entity-decoded href as HTML, firing the attacker's payload.
-    confidence_band: high
 cves:
-  - id: CVE-2026-85235
+  - id: CVE-2026-92144
     cvss: 7.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-85235
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92144
+rules:
+  - title: Detect CVE-2026-92144 Exploitation - Stored XSS in Forminator Forms
+    description: Detects exploitation attempts targeting CVE-2026-92144 where a user submits a POST request to Forminator endpoints containing HTML script tags or event handlers.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
+    - SOC
     - IT Operations
-    - Security Operations
   immediate_actions:
-    - action: Upgrade Forminator Forms to version > 1.57.2
-      owner: IT Operations
+    - action: Review logs for requests containing script tags toward form submission endpoints
+      owner: SOC
       due: 24h
-      evidence: CVE-2026-85235 disclosure
+      evidence: CVE-2026-92144 exploitation path
   mitigation_plan:
     - priority: immediate
-      action: Disable Rich-Text Textarea fields in Forminator settings
+      action: Upgrade Forminator Forms to the first patched version released after 1.57.2
       owner: IT Operations
-      addresses: CVE-2026-85235
-      evidence: Mitigation for lack of input sanitization in Forminator Rich-Text field
+      addresses: CVE-2026-92144
+      evidence: Source advisory
 ---
 
-Forminator Forms - Contact Form, Payment Form & Custom Form Builder for WordPress (all versions up to and including 1.57.2) contains a Stored Cross-Site Scripting (XSS) vulnerability. The flaw exists within the Rich-Text Textarea field due to insufficient input sanitization and output escaping. Unauthenticated attackers can submit malicious payloads through forms that store these scripts on the backend. The payload is triggered when a WordPress administrator views the submitted entry within the 'Forminator Entries' dashboard view. Upon interaction with a specific UI element, the WordPress core's jQuery-based click handler on the '.contextual-help-tabs a' element incorrectly processes the injected content, leading to script execution within the authenticated administrator's session context. This vulnerability can lead to unauthorized administrative actions, such as account creation or plugin configuration changes.
-
-## Attack Chain
-
-1. Attacker identifies a public-facing form created via the Forminator Forms plugin.
-2. Attacker submits a form entry containing a malicious XSS payload within the Rich-Text Textarea field.
-3. The malicious script is saved to the WordPress database as part of the form submission.
-4. An administrator logs into the WordPress dashboard (`/wp-admin`).
-5. The administrator navigates to the 'Forminator Entries' section to review submitted data.
-6. The attacker's payload is rendered on the page, and the administrator interacts with the UI element linked to the vulnerable jQuery handler.
-7. The browser executes the injected payload within the context of the administrator's authenticated session.
-8. The attacker achieves full control or performs unauthorized administrative actions via the compromised session.
+The Forminator Forms - Contact Form, Payment Form & Custom Form Builder plugin for WordPress is affected by a Stored Cross-Site Scripting (XSS) vulnerability, tracked as CVE-2026-92144. All versions up to and including 1.57.2 are impacted due to insufficient input sanitization and output escaping on the 'postdata-1[post-custom]' parameter. The vulnerability allows unauthenticated attackers to inject arbitrary web scripts into form submissions, which are subsequently stored and executed when a user or administrator views the page containing the injected content. The attack is highly accessible because the form submission nonce, typically a security barrier, is exposed to unauthenticated users via the publicly accessible 'wp_ajax_nopriv_forminator_get_nonce' endpoint. Successful exploitation results in the execution of unauthorized JavaScript in the context of the victim's session, potentially leading to session hijacking, defacement, or administrative action performance.
 
 ## Impact
 
-Successful exploitation allows unauthenticated attackers to gain administrative privileges on a WordPress site by executing malicious JavaScript in an active administrator session. This could result in unauthorized account creation, modifications to site settings, or the deployment of additional malicious plugins, impacting the integrity and availability of the affected WordPress instance.
+The vulnerability poses a significant risk to WordPress sites utilizing the Forminator plugin. Successful exploitation allows unauthenticated attackers to execute malicious scripts in the browsers of users or administrators viewing the site. This could lead to account takeover, unauthorized data access, or the redirection of site traffic to malicious domains. Given the plugin's broad utility in contact and payment forms, high-traffic sites may be particularly attractive targets.
 
 ## Recommendation
 
-1. Upgrade Forminator Forms - Contact Form, Payment Form & Custom Form Builder to a version beyond 1.57.2 immediately upon release of a security patch.
-2. Disable the Rich-Text Textarea field in form configurations as a temporary mitigation until the patch is applied.
-3. Implement Content Security Policy (CSP) headers to restrict the execution of inline scripts and unauthorized external domains.
-4. Use web application firewalls (WAF) to inspect form submissions for common XSS patterns, specifically targeting HTML tags and event handlers in input fields.
+Prioritized actions for security teams:
+- Update the Forminator Forms plugin to a version released after 1.57.2 immediately upon availability of a patch.
+- Monitor web server logs for requests to 'wp_ajax_nopriv_forminator_get_nonce' followed by POST requests to the plugin's submission endpoints containing script tags or abnormal characters in the 'postdata-1[post-custom]' parameter.
+- Deploy WAF rules to sanitize or block POST requests containing HTML tags or script-related keywords ('&lt;script>', 'onload=', 'onerror=') directed toward Forminator submission endpoints.
