@@ -3,6 +3,7 @@ title: pypdf Memory Exhaustion Vulnerability
 slug: 2026-10-pypdf-memory-exhaustion
 description: A vulnerability in the pypdf library, tracked as CVE-2026-103000, allows attackers to trigger excessive memory consumption and potential denial of service by providing crafted PDFs with large alphabetical page labels.
 date: "2026-10-01T20:23:09Z"
+lastmod: "2026-10-01T20:23:24Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ tags:
   - cve-2026-103000
 products:
   - pypdf (< 6.19.0)
+  - pypdf (< 6.18.1)
 cves:
   - id: CVE-2026-103000
     epss: 0.00524
@@ -24,6 +26,9 @@ references:
   - https://github.com/advisories/GHSA-w23x-9jrw-r45c
   - https://github.com/py-pdf/pypdf/releases/tag/6.19.0
   - https://github.com/py-pdf/pypdf/pull/4096
+  - https://github.com/advisories/GHSA-fp3h-c4fm-7vvf
+  - https://github.com/py-pdf/pypdf/releases/tag/6.18.1
+  - https://github.com/py-pdf/pypdf/pull/4071
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +45,14 @@ action_plan:
       owner: Development Team
       addresses: CVE-2026-103000
       evidence: Workaround documented in source
+updates:
+  - at: "2026-10-01T20:23:24Z"
+    level: L1
+    summary: added coverage for pypdf (< 6.18.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-fp3h-c4fm-7vvf
 ---
 
 The pypdf library contains a vulnerability, identified as CVE-2026-103000, that exposes applications to a denial-of-service (DoS) condition. The issue resides in the handling of alphabetical page labels within PDF documents. When the library processes a document containing specifically crafted, excessively large alphabetical page labels, it triggers a disproportionate increase in memory usage. This can lead to service instability, resource exhaustion, or application crashes depending on the environment where the library is deployed. This vulnerability affects all versions of pypdf prior to 6.19.0. Organizations using pypdf to process untrusted or user-uploaded PDF files are at risk and should prioritize upgrading to the patched version or applying the recommended code changes.
