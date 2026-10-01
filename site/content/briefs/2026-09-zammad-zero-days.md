@@ -3,6 +3,7 @@ title: Active Exploitation of Zammad Remote Code Execution and Privilege Escalat
 slug: 2026-09-zammad-zero-days
 description: Zammad helpdesk software is being actively exploited via two zero-day vulnerabilities, including an unauthenticated RCE (CVE-2026-102489) and an unpatched privilege escalation flaw (CVE-2026-102490).
 date: "2026-09-30T19:45:40Z"
+lastmod: "2026-10-01T14:14:25Z"
 type: threat
 types:
   - threat
@@ -21,6 +22,7 @@ vendors:
 products:
   - Zammad (6.3.0 - 6.5.4)
   - Zammad (all current versions)
+  - Zammad
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -35,10 +37,14 @@ mitre_ttps:
     evidence: The vulnerability, with characteristic CVE-2026-102490, allows an attacker with limited access to obtain the highest administrator rights (root rights) on the system.
     confidence_band: high
 cves:
-  - id: CVE-2026-102489
   - id: CVE-2026-102490
+    epss: 0.00319
+  - id: CVE-2026-102489
+    epss: 0.00709
 references:
   - https://www.ncsc.nl/alerts/actief-misbruik-van-zeroday-kwetsbaarheden-in-zammad-update-nu
+  - https://www.securityweek.com/zammad-zero-days-exploited-in-ai-powered-divd-hack/
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3694
 action_plan:
   priority: immediate_escalation
   owners:
@@ -60,6 +66,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-102489 and CVE-2026-102490
       evidence: Make a copy of the application and network logs before installing the update.
+updates:
+  - at: "2026-10-01T14:14:25Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3694
 ---
 
 Since September 21, 2026, threat actors have been actively exploiting two zero-day vulnerabilities within Zammad, a widely used helpdesk and customer support software. The first vulnerability, CVE-2026-102489, is a critical remote code execution (RCE) flaw that allows unauthenticated attackers to execute arbitrary code on the underlying server. This issue affects Zammad versions 6.3.0 through 6.5.4 and has been addressed with a security update.
