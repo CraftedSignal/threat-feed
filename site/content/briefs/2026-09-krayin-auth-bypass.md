@@ -3,6 +3,7 @@ title: Authorization Bypass in Krayin laravel-crm
 slug: 2026-09-krayin-auth-bypass
 description: An authorization bypass vulnerability in the Krayin laravel-crm CanInstall middleware allows remote attackers to manipulate the admin-config-setup endpoint to circumvent security controls.
 date: "2026-09-28T01:11:18Z"
+lastmod: "2026-10-01T14:11:23Z"
 type: threat
 types:
   - threat
@@ -11,6 +12,9 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:krayin:laravel-crm:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://www.exploit-db.com/exploits/52687
 tags:
   - vulnerability
   - web-application
@@ -22,8 +26,10 @@ products:
 cves:
   - id: CVE-2026-100885
     cvss: 7.3
+    epss: 0.00402
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100885
+  - https://www.exploit-db.com/exploits/52687
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +46,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-100885
       evidence: The manipulation results in authorization bypass.
+updates:
+  - at: "2026-10-01T14:11:23Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - exploit-db
+    source_urls:
+      - https://www.exploit-db.com/exploits/52687
 ---
 
 Krayin laravel-crm versions up to and including 2.2.4 are vulnerable to an authorization bypass flaw located within the CanInstall middleware (packages/Webkul/Installer/src/Http/Middleware/CanInstall.php). This vulnerability resides in the admin-config-setup API endpoint and enables remote, unauthenticated actors to bypass authorization checks. If successfully exploited, an attacker could interact with sensitive installation or configuration functions, potentially leading to a full compromise of the CRM application's setup state. A proof-of-concept exploit is publicly available, increasing the risk of active exploitation. Defenders should prioritize patching, as this vulnerability provides a direct pathway for unauthorized administrative access to the platform.
