@@ -3,7 +3,7 @@ title: Arbitrary File Read in Budibase OpenAPI Import Validator
 slug: 2026-09-budibase-file-read
 description: Budibase versions prior to 3.45.0 contain an arbitrary file read vulnerability caused by enabled external JSON reference resolution during OpenAPI/Swagger file imports.
 date: "2026-09-26T15:10:36Z"
-lastmod: "2026-09-28T10:13:45Z"
+lastmod: "2026-10-01T12:44:48Z"
 type: advisory
 types:
   - advisory
@@ -25,11 +25,13 @@ tags:
   - web-security
   - privilege-escalation
   - cve-2026-100686
+  - ssrf
 vendors:
   - Budibase
 products:
   - Budibase (< 3.45.0)
   - Budibase (3.41.0 - 3.44.x)
+  - Budibase (<= 3.41.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -90,6 +92,19 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100685
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100686
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3590
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103757
+rules:
+  - title: Detect CVE-2026-103757 Exploitation - POST to AI Tables with Internal URL
+    description: Detects potential SSRF attempts against the Budibase AI tables API by monitoring for internal IP addresses or metadata service patterns in the API request body.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -107,13 +122,6 @@ action_plan:
       addresses: CVE-2026-100680
       evidence: NVD advisory for CVE-2026-100680.
 updates:
-  - at: "2026-09-26T15:12:01Z"
-    level: L2
-    summary: added coverage for Budibase (< 3.45.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-100683
   - at: "2026-09-26T15:12:08Z"
     level: L2
     summary: added coverage for Budibase (3.41.0 - 3.44.x)
@@ -142,6 +150,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3590
+  - at: "2026-10-01T12:44:48Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-103757 Exploitation - POST to AI Tables with Internal URL'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103757
 ---
 
 Budibase versions prior to 3.45.0 suffer from an arbitrary file read vulnerability located in the OpenAPI/Swagger import validation functionality. The issue arises because the application fails to restrict external JSON reference resolution during the import process. An attacker possessing authenticated access as a builder can exploit this misconfiguration by submitting a crafted OpenAPI specification file containing malicious file:// URI references. 
