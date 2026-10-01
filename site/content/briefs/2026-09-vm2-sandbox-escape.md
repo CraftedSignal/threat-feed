@@ -3,7 +3,7 @@ title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
 slug: 2026-09-vm2-sandbox-escape
 description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
 date: "2026-09-17T15:57:37Z"
-lastmod: "2026-10-01T20:20:17Z"
+lastmod: "2026-10-01T20:22:01Z"
 type: advisory
 types:
   - advisory
@@ -114,6 +114,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93604
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93606
   - https://github.com/advisories/GHSA-8hr7-r645-pc6w
+  - https://github.com/advisories/GHSA-jxxv-8r27-vm4p
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92950
 action_plan:
   priority: elevated
   owners:
@@ -131,13 +133,6 @@ action_plan:
       addresses: CVE-2026-92935
       evidence: NVD vulnerability disclosure.
 updates:
-  - at: "2026-09-17T17:58:33Z"
-    level: L2
-    summary: added coverage for vm2 (<= 3.11.6)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-92958
   - at: "2026-09-18T16:06:37Z"
     level: L2
     summary: added coverage for vm2 (<= 3.12.0)
@@ -166,6 +161,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-8hr7-r645-pc6w
+  - at: "2026-10-01T20:22:01Z"
+    level: L2
+    summary: added coverage for vm2 (<= 3.11.6)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-jxxv-8r27-vm4p
 ---
 
 The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
