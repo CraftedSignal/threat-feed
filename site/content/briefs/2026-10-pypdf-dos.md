@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in pypdf
 slug: 2026-10-pypdf-dos
 description: The pypdf library contains a vulnerability, CVE-2026-102999, that allows an attacker to cause excessive execution times by providing a crafted PDF with numerous embedded files.
 date: "2026-10-01T20:22:57Z"
+lastmod: "2026-10-01T20:23:04Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ cpes:
 tags:
   - vulnerability
   - dos
+  - denial-of-service
+  - library-vulnerability
+  - python
 vendors:
   - py-pdf
 products:
@@ -23,6 +27,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-v247-6f48-mgcj
   - https://github.com/py-pdf/pypdf/releases/tag/6.19.0
+  - https://github.com/advisories/GHSA-php9-fj8v-98fj
+  - https://github.com/py-pdf/pypdf/pull/4087
 action_plan:
   priority: elevated
   owners:
@@ -33,6 +39,14 @@ action_plan:
       owner: Development Team
       addresses: CVE-2026-102999
       evidence: This has been fixed in pypdf==6.19.0.
+updates:
+  - at: "2026-10-01T20:23:04Z"
+    level: L1
+    summary: added coverage for pypdf (< 6.19.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-php9-fj8v-98fj
 ---
 
 The pypdf library is susceptible to a denial-of-service condition identified as CVE-2026-102999. This vulnerability stems from inefficient handling of embedded files within PDF documents. When an application uses the library's dictionary-based API to access embedded files, a specially crafted PDF containing a large number of these objects can trigger a performance degradation, resulting in excessively long runtimes and potential service exhaustion. This issue affects all versions of pypdf prior to 6.19.0. Organizations processing untrusted or user-supplied PDF documents using this library are at risk of resource depletion attacks targeting their document processing pipelines.
