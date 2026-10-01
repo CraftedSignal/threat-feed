@@ -3,7 +3,7 @@ title: Path Traversal in SiYuan Export Functionality
 slug: 2026-09-siyuan-path-traversal
 description: SiYuan versions prior to v3.8.4 are vulnerable to a path traversal attack via the exportBrowserHTML endpoint, allowing authenticated administrators to overwrite arbitrary index.html files.
 date: "2026-09-26T15:03:37Z"
-lastmod: "2026-09-28T22:23:00Z"
+lastmod: "2026-10-01T20:21:50Z"
 type: advisory
 types:
   - advisory
@@ -16,12 +16,16 @@ tags:
   - xss
   - rce
   - electron
+  - webserver
+  - sql-injection
+  - api-security
 vendors:
   - SiYuan
 products:
   - SiYuan (< 3.8.4)
   - SiYuan (>= 2.1.0, < 3.8.4)
   - SiYuan (< v3.8.4)
+  - SiYuan
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -47,6 +51,12 @@ mitre_ttps:
     technique_name: JavaScript
     evidence: in the Electron desktop app with nodeIntegration enabled, this leads to command execution with SiYuan process privileges.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The underlying database driver supports stacked queries, enabling the execution of arbitrary SQL commands through the injection point.
+    confidence_band: high
 cves:
   - id: CVE-2026-100636
     cvss: 7.6
@@ -57,6 +67,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100642
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100643
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101091
+  - https://github.com/advisories/GHSA-33jq-p8c2-q3q4
 rules:
   - title: Detect CVE-2026-100636 Path Traversal Attempt
     description: Detects exploitation attempts against the SiYuan exportBrowserHTML endpoint using directory traversal sequences in the folder parameter.
@@ -68,7 +79,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects SiYuan SQL Injection Exploitation Attempt
+    description: Detects potential SQL injection attempts against the SiYuan /api/filetree/searchDocs endpoint, specifically looking for common SQL injection markers used in statement stacking or UNION-based attacks within the keyword parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -95,13 +116,6 @@ action_plan:
       addresses: CVE-2026-100636
       evidence: NVD vulnerability notice
 updates:
-  - at: "2026-09-26T15:05:28Z"
-    level: L2
-    summary: added coverage for SiYuan (< 3.8.4)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-100639
   - at: "2026-09-26T15:05:49Z"
     level: L2
     summary: added coverage for SiYuan (< 3.8.4)
@@ -130,6 +144,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101091
+  - at: "2026-10-01T20:21:50Z"
+    level: L2
+    summary: 'added detection rule: Detects SiYuan SQL Injection Exploitation Attempt'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-33jq-p8c2-q3q4
 ---
 
 SiYuan versions prior to v3.8.4 contain a critical path traversal vulnerability in the exportBrowserHTML endpoint. This flaw allows an authenticated administrator to manipulate the folder parameter by including directory traversal sequences. By successfully exploiting this, an attacker can escape the restricted export directory and overwrite the index.html file in any location that the application kernel has write permissions to. This vulnerability poses a significant risk for stored Cross-Site Scripting (XSS) attacks or workspace defacement, as it allows the injection of arbitrary HTML content into the application environment. Defenders should prioritize updating to SiYuan v3.8.4 or later to mitigate this risk.
