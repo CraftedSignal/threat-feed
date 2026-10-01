@@ -3,7 +3,7 @@ title: Fastify Request Body Replacement Vulnerability via Async Validation Resul
 slug: 2026-10-fastify-validation-collision
 description: A vulnerability in Fastify's request validation logic (CVE-2026-84504) allows attackers to perform request body replacement when using $async JSON schema validators, leading to potential unauthorized state changes or data disclosure.
 date: "2026-10-01T04:21:02Z"
-lastmod: "2026-10-01T04:21:15Z"
+lastmod: "2026-10-01T04:21:22Z"
 type: advisory
 types:
   - advisory
@@ -17,11 +17,20 @@ tags:
   - vulnerability
   - cve
   - authentication-bypass
+  - security-bypass
+  - cve-2026-84428
 vendors:
   - Fastify
 products:
   - fastify (< 5.12.2)
   - Fastify (< 5.12.2, < 6.0.0)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An unauthenticated remote client can send the header that activates a privileged path while omitting the header the dependency was meant to require, bypassing a schema-enforced security control.
+    confidence_band: high
 cves:
   - id: CVE-2026-84504
     cvss: 8.1
@@ -32,6 +41,8 @@ references:
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-76169
   - https://github.com/advisories/GHSA-hwr6-493r-vm6h
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84469
+  - https://github.com/advisories/GHSA-9q9j-q6p8-xq58
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-84428
 action_plan:
   priority: elevated
   owners:
@@ -63,6 +74,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-hwr6-493r-vm6h
+  - at: "2026-10-01T04:21:22Z"
+    level: L2
+    summary: added coverage for fastify (< 5.12.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9q9j-q6p8-xq58
 ---
 
 Fastify suffers from a validation logic flaw (CVE-2026-84504) where the framework incorrectly processes results from asynchronous JSON schema validators. The framework is designed to unwrap results shaped like `{ value, error }` to support synchronous custom compilers, where the `value` replaces the request part and `error` triggers a failure. However, $async validators in JSON schema resolve to the validated data itself. Fastify incorrectly applied the same unwrapping logic to these asynchronous results. 
