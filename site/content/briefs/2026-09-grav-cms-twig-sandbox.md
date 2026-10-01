@@ -3,7 +3,7 @@ title: Grav CMS Session Hijacking via Twig Sandbox Injection
 slug: 2026-09-grav-cms-twig-sandbox
 description: Grav CMS versions 1.7.x and 2.0.0 through 2.0.24 are vulnerable to session hijacking due to an improperly restricted get_cookie() function within the Twig rendering engine.
 date: "2026-09-26T15:09:57Z"
-lastmod: "2026-09-26T17:00:21Z"
+lastmod: "2026-10-01T16:22:39Z"
 type: threat
 types:
   - threat
@@ -12,6 +12,9 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:getgrav:grav:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=3DFAC8E9-D9F9-52FD-934F-A3D04E7B38A4&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - security-misconfiguration
@@ -46,9 +49,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-100671
     cvss: 8
+    epss: 0.0029
+  - id: CVE-2026-100669
+    cvss: 7.5
+    epss: 0.00443
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100671
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100669
+  - https://sploitus.com/exploit?id=3DFAC8E9-D9F9-52FD-934F-A3D04E7B38A4&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -73,6 +81,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100669
+  - at: "2026-10-01T16:22:39Z"
+    level: L2
+    summary: poc_available; added CVE-2026-100669
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=3DFAC8E9-D9F9-52FD-934F-A3D04E7B38A4&utm_source=rss&utm_medium=rss
 ---
 
 Grav CMS versions 1.7.x and 2.0.0 through 2.0.24 contain a vulnerability in the Twig sandbox configuration. Specifically, the get_cookie() function is allowlisted for use within page content. A user with page-write permissions can inject Twig template code to read arbitrary browser cookies from any user who visits the crafted page. This attack bypasses standard security protections such as the HttpOnly, Secure, and SameSite attributes because the extraction occurs server-side.
