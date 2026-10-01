@@ -3,6 +3,7 @@ title: Lack of Integrity Verification in virtualenv Seed Wheel Downloads
 slug: 2026-10-virtualenv-integrity
 description: The virtualenv library lacks integrity checks for downloaded pip and setuptools seed wheels, enabling potential arbitrary code execution via compromised mirrors or MITM attacks.
 date: "2026-10-01T04:20:43Z"
+lastmod: "2026-10-01T20:22:47Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,12 @@ tags:
   - supply-chain
   - vulnerability
   - python
+  - command-injection
 vendors:
   - PyPA
 products:
   - virtualenv (<= 21.7.11)
+  - virtualenv (<= 21.7.12)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,12 +34,26 @@ mitre_ttps:
     technique_name: Data Manipulation
     evidence: virtualenv would cache and seed it into every environment created afterward.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.004
+    technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    evidence: The generated activate (bash/zsh) and activate.fish scripts interpolate a shlex.quote-ed value into a position that quotes it a second time.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.006
+    technique_name: 'Command and Scripting Interpreter: PowerShell'
+    evidence: This is the same defect class as GHSA-x78j-v8h9-3j2q, which covered activate.bat.
+    confidence_band: high
 cves:
   - id: CVE-2026-102930
 references:
   - https://github.com/advisories/GHSA-94p9-xgh2-xp45
   - https://github.com/pypa/virtualenv/pull/3251
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102930
+  - https://github.com/advisories/GHSA-p58f-9548-mpm2
+  - https://github.com/pypa/virtualenv/pull/3252
 action_plan:
   priority: elevated
   owners:
@@ -53,6 +70,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-102930
       evidence: GitHub GHSA-94p9-xgh2-xp45 and PR 3251.
+updates:
+  - at: "2026-10-01T20:22:47Z"
+    level: L2
+    summary: added coverage for virtualenv (<= 21.7.12)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-p58f-9548-mpm2
 ---
 
 The Python library virtualenv (versions up to 21.7.11) contains a critical security flaw where seed wheels, specifically pip and setuptools, are not verified for integrity when downloaded via the --download flag or the automatic periodic-update mechanism. While embedded wheels are protected by a hardcoded SHA256, wheels fetched dynamically over the network are trusted implicitly. This vulnerability, tracked as CVE-2026-102930, allows a malicious actor - such as an entity controlling a compromised PyPI mirror, a rogue index server, or an attacker performing a Man-in-the-Middle (MITM) interception - to substitute a legitimate wheel with a malicious one. If successful, virtualenv will cache the compromised wheel and inject it into every future virtual environment created on the affected host, resulting in persistent arbitrary code execution within those environments.
