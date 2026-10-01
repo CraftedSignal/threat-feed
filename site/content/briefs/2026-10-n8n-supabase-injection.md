@@ -3,7 +3,7 @@ title: Filter Injection Vulnerability in n8n Supabase Node
 slug: 2026-10-n8n-supabase-injection
 description: A filter injection vulnerability in the n8n Supabase node (CVE-2026-103248) allows attackers to perform unauthorized data exfiltration, modification, or deletion by injecting malicious filter expressions.
 date: "2026-10-01T12:41:21Z"
-lastmod: "2026-10-01T12:41:39Z"
+lastmod: "2026-10-01T12:41:46Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ vendors:
 products:
   - n8n (< 1.123.80, 2.0.0-2.39.5, 2.40.0)
   - n8n (< 2.39.6, 2.40.0)
+  - n8n (< 1.123.80)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -29,12 +30,19 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: Attackers can reference arbitrary credential IDs to decrypt and exfiltrate plaintext secrets to attacker-controlled hosts without ownership verification.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1537
+    technique_name: Transfer Data to Cloud Account
+    evidence: redirect secrets to attacker-controlled hosts.
+    confidence_band: high
 cves:
   - id: CVE-2026-103248
     cvss: 9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103248
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103246
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103247
 action_plan:
   priority: elevated
   owners:
@@ -59,6 +67,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-103246
+  - at: "2026-10-01T12:41:46Z"
+    level: L2
+    summary: added coverage for n8n (< 1.123.80)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103247
 ---
 
 n8n versions before 1.123.80, from 2.0.0 before 2.39.6, and from 2.40.0 before 2.40.1 contain a filter injection vulnerability within the Supabase node when operating in 'Filters (String)' mode. The vulnerability stems from the application's failure to properly escape or sanitize field values before constructing database queries. This flaw enables unauthenticated attackers to manipulate query logic by injecting arbitrary filter expressions. If successfully exploited, an attacker can bypass intended access controls to read, update, or delete records from the connected Supabase database, potentially leading to total data loss or unauthorized disclosure. Organizations running self-hosted n8n instances with Supabase integrations are advised to update to the patched versions immediately to mitigate the risk of unauthorized database operations.
