@@ -3,6 +3,7 @@ title: Detection of Unauthorized Amazon Bedrock Foundation Model Access Attempts
 slug: 2026-09-aws-bedrock-unauthorized-access
 description: Detection of failed API calls attempting to enable Amazon Bedrock foundation model access, serving as a high-signal indicator for credential boundary-testing and potential LLMjacking.
 date: "2026-09-18T19:37:56Z"
+lastmod: "2026-10-01T20:11:52Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - Amazon
 products:
   - Bedrock
+  - Amazon Bedrock
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -25,6 +27,10 @@ mitre_ttps:
     technique_name: Account Manipulation
     evidence: A principal that is repeatedly denied when attempting these actions may be a compromised or under-privileged identity probing for the ability to unlock expensive models (LLMjacking) or to establish a durable ability to invoke models.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_bedrock_resource_based_policy_denied_attempt.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_bedrock_foundation_model_access_denied_attempt.toml
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_bedrock_resource_based_policy_modified_or_deleted.toml
 rules:
   - title: AWS Bedrock Unauthorized Foundation Model Access Attempt
     description: Detects unauthorized attempts to enable account-level access to an Amazon Bedrock foundation model via failed API calls.
@@ -61,6 +67,14 @@ action_plan:
       owner: IT Operations
       addresses: Unauthorized Bedrock model access
       evidence: Source recommends constraining IAM permissions to only approved principals.
+updates:
+  - at: "2026-10-01T20:11:52Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/persistence_bedrock_foundation_model_access_denied_attempt.toml
 ---
 
 This threat brief focuses on detecting unauthorized attempts to enable account-level access to Amazon Bedrock foundation models. Attackers who compromise AWS identities may attempt to enable model entitlements or agree to model EULAs to unlock expensive foundation models for malicious usage, a technique often referred to as LLMjacking. By monitoring for denied control-plane API calls, defenders can identify compromised or under-privileged principals performing boundary-testing. This activity is critical to intercept, as successfully enabling these entitlements provides the necessary persistence for subsequent model invocation and abuse. While access-denied errors can stem from benign permission gaps in CI/CD pipelines or new employee onboarding, recurring unauthorized requests from unexpected source IPs or user agents are strong indicators of potential malicious reconnaissance.
