@@ -1,13 +1,13 @@
 {
   "type": "bundle",
-  "id": "bundle--f59305f3-55c2-54bb-a8c0-ae250e016e09",
+  "id": "bundle--946f3c06-f697-5177-9843-ac799af5a485",
   "objects": [
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "File and Directory Discovery",
       "external_references": [
         {
@@ -21,8 +21,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c7235a80-ff7d-5c09-ba47-b4eba4245ad0",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--c484b441-320c-5f99-ab89-91ca1c85451a",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -38,8 +38,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--870b5205-5f8e-51be-bff4-6d847f431d35",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-103591",
       "external_references": [
         {
@@ -53,8 +53,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--73c13d77-352c-5530-98a1-4fe3cc102c4a",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--a93df91d-7183-5fb9-b95b-a542336ce27d",
       "target_ref": "vulnerability--870b5205-5f8e-51be-bff4-6d847f431d35"
@@ -63,8 +63,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--c484b441-320c-5f99-ab89-91ca1c85451a",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Unauthenticated Arbitrary File Read in DeepWiki-Open",
       "description": "## Overview\n\nDeepWiki-Open through commit d92819a contains an unauthenticated arbitrary file read vulnerability. The issue resides in the GET /codemap/file endpoint, which improperly validates the repo_url parameter. By supplying a non-URL value, an attacker can bypass intended path containment checks. This allows for the traversal of the filesystem and the retrieval of sensitive files accessible to the API process. This vulnerability poses a significant risk as it requires no authentication to exploit and provides a mechanism for attackers to exfiltrate configuration files, source code, or system credentials. Defenders should prioritize patching or restricting access to the affected endpoint.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to read arbitrary files from the host system with the privileges of the web application process. This can lead to the exposure of sensitive credentials, environment variables, and internal configuration details, potentially facilitating further system compromise or data exfiltration.\n\n## Recommendation\n\n* Apply the official patch or upgrade DeepWiki-Open to a commit post-d92819a.\n* Restrict network access to the /codemap/file endpoint using a Web Application Firewall or proxy server until the vulnerability is remediated.\n* Monitor web server logs for GET requests to /codemap/file that contain filesystem path patterns or absolute paths in the repo_url query parameter.\n",
       "published": "2026-10-01T00:37:22Z",
@@ -90,8 +90,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -105,8 +105,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--2d1f8a76-56ec-59ca-ac58-75e0a28d80c2",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--f09f0327-4c66-52b8-983f-36d7ca841efe",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -122,8 +122,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--f476ca28-dd83-5f9a-acb4-0c8322aee46f",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-103530",
       "external_references": [
         {
@@ -137,8 +137,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--6d93f4d7-cf8c-53ea-8323-d2761273b95e",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--7eb82374-6380-5966-9871-3826a70b1491",
       "target_ref": "vulnerability--f476ca28-dd83-5f9a-acb4-0c8322aee46f"
@@ -147,8 +147,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--f09f0327-4c66-52b8-983f-36d7ca841efe",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "SSRF Vulnerability in decolua 9Router",
       "description": "## Overview\n\nCVE-2026-103530 identifies a server-side request forgery (SSRF) vulnerability affecting decolua 9Router in all versions up to and including 0.5.55. The vulnerability resides within the fetch function of the file src/shared/utils/ssrfGuard.js, which is part of the application's Search Endpoint component. \n\nAn attacker can exploit this flaw by remotely sending a crafted request that manipulates the provider_options.baseUrl argument. This manipulation forces the application to perform unauthorized requests to arbitrary internal or external resources, potentially leading to unauthorized data access, internal service discovery, or interaction with internal APIs that expect requests only from the trusted server environment. Impact is significant given the ability to bypass network segmentation by leveraging the server's context.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to perform SSRF attacks, potentially leading to unauthorized interaction with internal infrastructure, sensitive service exposure, or exfiltration of metadata from cloud instances or internal systems.\n\n## Recommendation\n\nUpgrade 9Router to version 0.5.56 or later to apply the necessary security patch for the ssrfGuard.js component. Implement network egress filtering on the host running the 9Router service to restrict unauthorized outbound connections to internal segments.\n",
       "published": "2026-10-01T00:37:29Z",
@@ -174,8 +174,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -189,8 +189,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--37e55d99-8385-5274-9440-7f214867ab5a",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--c360e8e7-3ab1-5921-afc9-0b46a173d9d7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -199,8 +199,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Command and Scripting Interpreter: JavaScript",
       "external_references": [
         {
@@ -214,8 +214,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--c5f347b7-795f-5b33-81d3-40615e293414",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--c360e8e7-3ab1-5921-afc9-0b46a173d9d7",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -231,8 +231,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--bbf03fef-c5eb-572e-a2f2-6db97043d7ea",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-103584",
       "external_references": [
         {
@@ -246,8 +246,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--46df39ea-d2cf-55b4-8bda-6e83fcb7a90b",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--a80d6911-1d3d-5be8-a953-f291c9d88aba",
       "target_ref": "vulnerability--bbf03fef-c5eb-572e-a2f2-6db97043d7ea"
@@ -256,8 +256,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--93989cee-2b99-51c0-85b6-0208af812c20",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-103585",
       "external_references": [
         {
@@ -271,8 +271,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--104ac13e-ff9a-5884-b5af-60c5cc619a40",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--a80d6911-1d3d-5be8-a953-f291c9d88aba",
       "target_ref": "vulnerability--93989cee-2b99-51c0-85b6-0208af812c20"
@@ -281,8 +281,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--c360e8e7-3ab1-5921-afc9-0b46a173d9d7",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Stored XSS in CommonsMetadata via LicenseUrl",
       "description": "## Overview\n\nCVE-2026-103584 is a stored XSS vulnerability identified in the CommonsMetadata component used within the Wikimedia ecosystem. The vulnerability exists because the component copies the 'licensetpl_link' value from file descriptions into the 'LicenseUrl' field of image metadata without performing necessary URL scheme validation. An attacker with low-level privileges can store a 'javascript:' URI within the metadata, which is subsequently rendered by the web interface. When a victim user interacts with this link, the embedded JavaScript executes in the context of the wiki origin. A secondary, related vulnerability, CVE-2026-103585, impacts the MediaSearch QuickView consumer path, demonstrating a broader issue with how metadata is consumed across the platform. This issue was reported by Marco Paciaroni (BomboBombone) and addressed via a patch in Gerrit.\n\n## Impact\n\nSuccessful exploitation results in arbitrary JavaScript execution within the context of the affected wiki origin. This could allow an attacker to hijack user sessions, perform unauthorized actions on behalf of the victim, or exfiltrate sensitive data accessible within the browser session. The vulnerability carries a low CVSS score (2.1), reflecting its reliance on user interaction and the requirement for specific metadata configuration, but it remains a security concern for platforms processing user-supplied image metadata.\n\n## Recommendation\n\nPrioritized actions for security teams:\n- Verify that the CommonsMetadata component is updated to the version containing the fix documented in Gerrit change 1346780.\n- Audit existing image metadata entries for suspicious URI schemes (e.g., 'javascript:') in the 'LicenseUrl' field if an automated check can be scripted against the API.\n- Implement strict Content Security Policy (CSP) headers to mitigate the impact of potential XSS vulnerabilities by restricting the sources from which scripts can be executed.\n",
       "published": "2026-10-01T03:37:54Z",
@@ -318,8 +318,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Supply Chain Compromise",
       "external_references": [
         {
@@ -333,8 +333,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--e3fec1b1-e46f-5628-b7e8-b41fc46b38f5",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--248346f9-68f5-5c4f-b461-3a35608ba684",
       "target_ref": "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb"
@@ -343,8 +343,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Data Manipulation",
       "external_references": [
         {
@@ -358,8 +358,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--383d4805-d7b0-5acd-b3c7-faef36bd1fed",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--248346f9-68f5-5c4f-b461-3a35608ba684",
       "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
@@ -375,8 +375,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--d9bd8baa-4831-5709-bc0a-9ee1db522102",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-102930",
       "external_references": [
         {
@@ -390,8 +390,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--fa9cb277-bd2f-5700-ade8-41bbb34993cb",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--c2b72497-4445-5812-9bee-a4e425d32e72",
       "target_ref": "vulnerability--d9bd8baa-4831-5709-bc0a-9ee1db522102"
@@ -400,8 +400,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--248346f9-68f5-5c4f-b461-3a35608ba684",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Lack of Integrity Verification in virtualenv Seed Wheel Downloads",
       "description": "## Overview\n\nThe Python library virtualenv (versions up to 21.7.11) contains a critical security flaw where seed wheels, specifically pip and setuptools, are not verified for integrity when downloaded via the --download flag or the automatic periodic-update mechanism. While embedded wheels are protected by a hardcoded SHA256, wheels fetched dynamically over the network are trusted implicitly. This vulnerability, tracked as CVE-2026-102930, allows a malicious actor - such as an entity controlling a compromised PyPI mirror, a rogue index server, or an attacker performing a Man-in-the-Middle (MITM) interception - to substitute a legitimate wheel with a malicious one. If successful, virtualenv will cache the compromised wheel and inject it into every future virtual environment created on the affected host, resulting in persistent arbitrary code execution within those environments.\n\n## Impact\n\nSuccessful exploitation results in arbitrary code execution within any virtual environment created using the compromised virtualenv instance. Because the malicious wheel is cached, the persistence of the compromise is high, affecting all subsequent project setups on the host. This vulnerability is particularly concerning in automated build environments, CI/CD pipelines, and developer workstations that frequently create new virtual environments for Python dependency management.\n\n## Recommendation\n\nPrioritized actions for security and engineering teams:\n\n- Update the virtualenv package to a version containing the fix for CVE-2026-102930 (ensure usage is beyond v21.7.11).\n- Audit existing virtualenv installations for suspicious wheel caches located in standard cache directories.\n- Implement strict transport security and trusted index configurations for internal Python development pipelines to minimize MITM risks.\n- Verify if environments are using private indices, as the security check is currently bypassed when custom indexes (PIP_INDEX_URL, PIP_EXTRA_INDEX_URL) are configured.\n",
       "published": "2026-10-01T04:20:43Z",
@@ -436,8 +436,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -451,8 +451,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--d1a3bc02-6035-50c7-adf2-8c1242fc471b",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--4e85eb74-d204-522c-9f02-0dd5d7378832",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -461,8 +461,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "File and Directory Discovery",
       "external_references": [
         {
@@ -476,8 +476,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--ad3785eb-053c-5f8f-9cb5-789f10406202",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--4e85eb74-d204-522c-9f02-0dd5d7378832",
       "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
@@ -492,8 +492,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--4e85eb74-d204-522c-9f02-0dd5d7378832",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Tornado StaticFileHandler Symlink Path Traversal",
       "description": "## Overview\n\nTornado versions 6.5.8 and earlier contain a path traversal vulnerability in the `StaticFileHandler` component that permits unauthenticated attackers to read arbitrary files from the filesystem. The vulnerability exists because `get_absolute_path` and `validate_absolute_path` utilize `os.path.abspath()` to normalize requested paths and validate them against the configured static root. While `os.path.abspath()` correctly normalizes directory traversal sequences like `..`, it fails to resolve symbolic links. Subsequent file access operations (such as `os.path.isfile()`) resolve these symlinks to their actual targets.\n\nIf an application serves a static directory containing symlinks - often introduced by build pipelines, web frameworks, or improper user-uploaded file handling - an attacker can traverse outside the intended static root by requesting a path that resolves through a symlink to sensitive files like configuration credentials, private keys, or system files. Defending organizations must ensure that `StaticFileHandler` is not used to serve directories containing untrusted or externally-linked content, or upgrade to a version incorporating `os.path.realpath()` for validation.\n\n## Attack Chain\n\n1. Attacker identifies a target application utilizing the `tornado.web.StaticFileHandler`.\n2. Attacker confirms the existence of a symbolic link within the application's static directory pointing to a sensitive file (e.g., `/etc/passwd` or `/app/config.json`).\n3. Attacker sends a GET request to the Tornado server targeting the identified symlink (e.g., `GET /static/symlink_name HTTP/1.1`).\n4. The `StaticFileHandler` invokes `validate_absolute_path`, which uses `os.path.abspath()` to check if the path starts with the configured static root.\n5. `os.path.abspath()` considers the path valid because it resides within the static directory structure as a string, ignoring that it is a symlink.\n6. The application proceeds to the file access stage where `os.path.isfile()` and subsequent read operations resolve the symlink target.\n7. The server reads the file content from the target location and returns the sensitive data to the attacker in the HTTP response body.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to read any file readable by the user account running the Tornado application process. Depending on the environment, this typically includes application configuration secrets, database connection strings, TLS private keys, SSH keys, source code, and sensitive system files like `/etc/shadow`. This vulnerability impacts any deployment where the static root contains symlinks, which is a common scenario in modern development environments using Docker volume mounts, webpack-based build tools, or `npm link`.\n\n## Recommendation\n\n* Upgrade Tornado to a version that implements `os.path.realpath()` for directory validation to resolve and restrict symlinks to the static root.\n* Identify and audit all directories served by `StaticFileHandler` for the presence of symbolic links using `find /path/to/static -type l`.\n* Implement file system permissions that restrict the Tornado process user from accessing sensitive files outside of its intended scope as a defense-in-depth measure.\n* Monitor web server logs for suspicious requests to files typically not served as static assets, such as files ending in `.conf`, `.key`, `.pem`, or system configuration files.\n",
       "published": "2026-10-01T04:20:55Z",
@@ -520,8 +520,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Exploit Public-Facing Application",
       "external_references": [
         {
@@ -535,8 +535,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--6bd3182c-655d-5355-a2f5-85721173d12d",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--9125c380-432f-5ce5-9540-7ef2ce8600cb",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -559,8 +559,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--4554c0cd-4f16-5f8b-a25d-4b66fb88c2df",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-84504",
       "external_references": [
         {
@@ -574,8 +574,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--af32ce2a-cc81-59fe-b8b4-0229f6a25d8f",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--b3c658c3-fb23-5cec-961e-1e2e56f0dfe8",
       "target_ref": "vulnerability--4554c0cd-4f16-5f8b-a25d-4b66fb88c2df"
@@ -584,8 +584,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--ec4710cc-00d0-5d5c-bfb6-ec92358c3b37",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--01f29580-c868-5078-9c61-96806c373b22",
       "target_ref": "vulnerability--4554c0cd-4f16-5f8b-a25d-4b66fb88c2df"
@@ -594,8 +594,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--9125c380-432f-5ce5-9540-7ef2ce8600cb",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Fastify Request Body Replacement Vulnerability via Async Validation Result",
       "description": "## Overview\n\nFastify suffers from a validation logic flaw (CVE-2026-84504) where the framework incorrectly processes results from asynchronous JSON schema validators. The framework is designed to unwrap results shaped like `{ value, error }` to support synchronous custom compilers, where the `value` replaces the request part and `error` triggers a failure. However, $async validators in JSON schema resolve to the validated data itself. Fastify incorrectly applied the same unwrapping logic to these asynchronous results. \n\nIf a request body processed by an $async schema contains a top-level `value` property, Fastify replaces the entire request part with that nested value before the application handler executes. An attacker can manipulate this behavior by crafting a payload containing controlled `value` or `error` properties, effectively bypassing the intended schema validation. This allows attackers to submit payloads that the application incorrectly believes have been validated, potentially leading to unauthorized state changes or information disclosure if the backend logic relies on the integrity of the schema-validated object.\n\n## Impact\n\nThe vulnerability affects applications built with Fastify versions prior to 5.12.2 and 6.0.0 that utilize $async request schemas. Successful exploitation allows an attacker to bypass data validation controls, potentially resulting in unauthorized administrative actions, privilege escalation, or unauthorized access to sensitive application data depending on the specific implementation of the endpoint logic.\n\n## Recommendation\n\n- Upgrade Fastify to version 5.12.2 or 6.0.0 immediately to apply the patch which prevents asynchronous validation results from triggering request part replacement.\n- Audit existing routes to identify those utilizing $async request schemas and perform secondary validation within 'onRequest' or 'preHandler' hooks as a temporary mitigation.\n- Refactor custom async validator compilers to signal failure by rejecting or throwing an exception, rather than returning an `{ error }` object, until a full patch is applied.\n",
       "published": "2026-10-01T04:21:02Z",
@@ -656,8 +656,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--99d3998b-2845-5a0d-b636-374b5c1c245e",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-102984",
       "external_references": [
         {
@@ -671,8 +671,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--698e9f31-db61-5dbd-b4bf-9796e7ec4aa3",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--ece7eaf2-5627-5e37-a3c7-6080e330e04e",
       "target_ref": "vulnerability--99d3998b-2845-5a0d-b636-374b5c1c245e"
@@ -681,8 +681,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--8edde6e9-9907-529f-bd71-501229cc6353",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Denial of Service in Astro Node Adapter via Malformed Host Header",
       "description": "## Overview\n\nA vulnerability (CVE-2026-102984) exists in the `@astrojs/node` adapter (versions 11.1.2 and earlier) where improper validation of the `Host` header can lead to a denial-of-service condition. An attacker can craft a request with an invalid port specification within the `Host` header, such as `example.com:65536` or `example.com:8080:8080`. When the adapter attempts to process these requests, the logic fails to correctly generate a request URL and enters a recursive failure state. This results in an uncaught `TypeError: Invalid URL` exception. If the server is configured with `staticHeaders: true`, this exception remains unhandled, causing the entire Node.js process to terminate. This vulnerability is limited to availability disruption and does not facilitate data exfiltration or remote code execution.\n\n## Impact\n\nThe vulnerability impacts applications using the `@astrojs/node` adapter, specifically those configured with the `staticHeaders: true` option, as these are susceptible to process termination. Successfully sending a crafted request to such an endpoint will crash the server, causing service downtime. Applications using the default `standalone` configuration will experience a `500 Internal Server Error` but will remain running. The attack surface is dependent on whether upstream infrastructure, such as CDNs or reverse proxies, filters malformed `Host` headers before they reach the Astro origin.\n\n## Recommendation\n\n- Upgrade to `@astrojs/node` version 11.1.3 or later immediately to incorporate the required host validation logic.\n- Implement strict request validation at the reverse proxy or CDN layer to block HTTP requests containing malformed `Host` headers or multiple port specifications.\n- Audit existing deployments to identify configurations utilizing `staticHeaders: true`, as these are at higher risk of process termination.\n",
       "published": "2026-10-01T04:21:27Z",
@@ -711,8 +711,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Command and Scripting Interpreter",
       "external_references": [
         {
@@ -726,8 +726,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--bd1308c5-642e-5a2c-ac61-5dec72df2171",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--23ea985a-e314-523d-9196-1a0a487cf1dd",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -743,8 +743,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--13950a0d-4cc9-5ce4-8a80-da90e13d1de4",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-87817",
       "external_references": [
         {
@@ -758,8 +758,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--4b36efee-2f79-5c92-ab9a-437f7a383490",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--7d855760-b57b-5846-b1c0-a9b41880cd6a",
       "target_ref": "vulnerability--13950a0d-4cc9-5ce4-8a80-da90e13d1de4"
@@ -768,8 +768,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--23ea985a-e314-523d-9196-1a0a487cf1dd",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "GitPython Repository Discovery Vulnerability Leading to RCE",
       "description": "## Overview\n\nGitPython versions through 3.1.59 contain a flaw in the `Repo.__init__` discovery logic that incorrectly resolves the git directory. The library tests candidate paths in an order that prioritizes arbitrary files over the actual `.git` directory. An attacker can place specially crafted files, including `hooks/`, `HEAD`, `config`, and `commondir`, at the root of a tracked repository. When a victim uses GitPython to clone or interact with this repository, the library misidentifies the working-tree root as the git directory. This allows the attacker to gain code execution by placing an executable `pre-commit` hook in the repository, which is triggered when `index.commit()` is called. Additionally, the library's misidentification allows for arbitrary file reading via malicious `config` includes, as the parser follows relative paths to sensitive files such as `~/.aws/credentials`. This vulnerability affects automated systems like CI runners, code-scanning services, and AI agents that process untrusted repositories.\n\n## Attack Chain\n\n1. Attacker creates a repository containing tracked files named `gitdir`, `commondir`, and `HEAD` at the root.\n2. Attacker places a malicious executable script in `hooks/pre-commit` (mode 100755).\n3. Victim application clones or opens the attacker-controlled repository using `git.Repo()`.\n4. GitPython discovery logic iterates through the root files and incorrectly resolves the working-tree root as the git directory.\n5. GitPython sets the internal `git_dir` to the attacker's chosen path.\n6. Victim application calls `index.commit()`, prompting GitPython to search for and execute hooks from the misidentified path.\n7. The `pre-commit` hook executes with the permissions of the victim process.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution in the context of the user or service running the GitPython library. This impacts automated CI/CD pipelines, code analysis services, and developer workstations. The vulnerability also enables unauthorized file disclosure by forcing the parser to merge malicious git configuration files, potentially exfiltrating sensitive credentials or system files.\n\n## Recommendation\n\n1. Upgrade GitPython to a patched version once available (as of publication, versions \u003c= 3.1.59 are confirmed vulnerable).\n2. Avoid processing untrusted or unverified repositories using GitPython `index.commit()` or similar methods that trigger hook execution.\n3. For CI/CD and automated pipelines, implement strict sandboxing or containerization when running GitPython to minimize the impact of potential command execution.\n4. Audit internal codebases for usage of `git.Repo.clone_from` or `git.Repo()` where the source repository is provided by external or untrusted users.\n",
       "published": "2026-10-01T04:21:35Z",
@@ -795,8 +795,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Windows Command Shell",
       "external_references": [
         {
@@ -810,8 +810,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--7433f771-fe68-510c-9cd3-a09ffee19c7b",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--81b88a20-e63a-5df3-89a6-ea26d74b7a31",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -827,8 +827,8 @@
       "type": "vulnerability",
       "spec_version": "2.1",
       "id": "vulnerability--e63a6995-21f5-5f59-82b6-645ac0ee0d99",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "CVE-2026-102823",
       "external_references": [
         {
@@ -842,8 +842,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--9190dffe-6e19-548c-b0a3-e9ef19119d27",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "has",
       "source_ref": "software--7ca48ffc-b574-5201-8724-603a7e83e96a",
       "target_ref": "vulnerability--e63a6995-21f5-5f59-82b6-645ac0ee0d99"
@@ -852,8 +852,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--81b88a20-e63a-5df3-89a6-ea26d74b7a31",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Improper Validation of SSH Channel IDs in russh Client",
       "description": "## Overview\n\nCVE-2026-102823 describes a security vulnerability in the russh library (versions \u003c= 0.63.0) where client-side processing of channel-scoped SSH messages lacks sufficient validation. While the server-side component of the library was updated to gate messages using `is_established_channel()`, the client-side implementation in `russh/src/client/encrypted.rs` incorrectly invokes public `Handler` trait methods for messages (such as `CHANNEL_DATA`, `CHANNEL_EOF`, `CHANNEL_CLOSE`, and `CHANNEL_REQUEST`) regardless of whether the `channel_num` corresponds to an existing, opened channel. \n\nThis issue is significant for developers of automation, orchestration, or CI/CD tools that use russh as an SSH client. Applications that trust the library's implicit contract - expecting that `Handler` callbacks only fire for valid, user-initiated channels - are vulnerable to state desynchronization. A malicious or compromised SSH server can inject spoofed events to manipulate internal application state, such as exit code trackers or completion futures, or trigger application panics if the developer performs unsafe indexing based on the provided channel ID.\n\n## Attack Chain\n\n1. Attacker controls or intercepts an SSH server (e.g., a rogue jump host or compromised build server).\n2. Client connects to the malicious server and completes SSH authentication.\n3. Attacker monitors for `SSH_MSG_CHANNEL_OPEN` or predicts future channel IDs based on the sequential allocation pattern starting at 1.\n4. Attacker transmits spoofed channel-scoped messages (e.g., `CHANNEL_REQUEST` for `exit-status` or `CHANNEL_CLOSE`) referencing an uninitialized or non-existent `channel_num`.\n5. The vulnerable `russh` client receives the message in `client_read_authenticated`.\n6. The library fails to perform a validation check against the known active channels.\n7. The library unconditionally invokes a `Handler` callback (e.g., `client.exit_status(...)` or `client.channel_close(...)`) with the attacker-supplied ID.\n8. Downstream application code processes the callback, leading to state corruption or an unhandled panic (DoS).\n\n## Impact\n\nSuccessful exploitation results in application-level denial-of-service (panics) or logic integrity violations. Automation tools relying on russh may incorrectly report success/failure of remote commands, leading to flawed deployment outcomes or bypassed security checks in CI/CD pipelines. The vulnerability affects any software utilizing `russh` versions up to 0.63.0 as an SSH client.\n\n## Recommendation\n\n1. Audit downstream applications using the `russh` library for logic that assumes the validity of `ChannelId` values provided via `Handler` trait methods.\n2. Upgrade the `russh` library immediately upon the availability of a patched version.\n3. Implement explicit channel validation logic within the `Handler` trait implementations as an interim defense-in-depth measure, ensuring the application maintains its own set of active, known channels and rejecting callbacks for unknown IDs.\n",
       "published": "2026-10-01T04:21:44Z",
@@ -878,8 +878,8 @@
       "type": "attack-pattern",
       "spec_version": "2.1",
       "id": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Impair Defenses",
       "external_references": [
         {
@@ -893,8 +893,8 @@
       "type": "relationship",
       "spec_version": "2.1",
       "id": "relationship--e431667c-0bbe-5bbe-9750-eace708f7f04",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "relationship_type": "uses",
       "source_ref": "report--92625bba-a46f-5724-95df-2595aaa90178",
       "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
@@ -909,8 +909,8 @@
       "type": "report",
       "spec_version": "2.1",
       "id": "report--92625bba-a46f-5724-95df-2595aaa90178",
-      "created": "2026-10-01T04:22:39Z",
-      "modified": "2026-10-01T04:22:39Z",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
       "name": "Abuse of Microsoft Defender Antivirus Exclusions for Malware Evasion",
       "description": "## Overview\n\nAdversaries are increasingly exploiting Microsoft Defender Antivirus (MDAV) exclusions to maintain undetected persistence and execute malicious binaries without triggering security alerts. By manipulating exclusion settings, attackers can bypass real-time monitoring, scheduled scans, and on-demand analysis for specific paths, processes, file extensions, or network traffic. \n\nThe technique requires elevated privileges (administrator or higher). Once elevated, attackers interact with the MDAV engine (MsMpEng.exe) through legitimate administrative interfaces, specifically PowerShell's `Set-MpPreference` or `Add-MpPreference` cmdlets, the `MSFT_MpPreference` WMI class, or by pushing Group Policy Objects (GPO) to target systems. These actions update registry keys under `HKLM\\SOFTWARE\\Microsoft\\Windows Defender\\Exclusions` or policy-based registry locations. Historical campaigns, including GootKit (2019), WhisperGate (2022), and Muddled Libra (2024), demonstrate that threat actors use these methods to exclude staging directories or entire drives (like C:\\) from protection, enabling the unhindered execution of malware.\n\n## Impact\n\nSuccessful abuse of MDAV exclusions renders endpoint protection ineffective, allowing attackers to deploy and execute ransomware, infostealers, or persistence mechanisms without interference. This evasion technique increases the dwell time of attackers within a network, as traditional signature-based and heuristic detection capabilities are blinded to the excluded content. This remains a significant risk for organizations where administrative privilege hygiene is poor, allowing attackers to easily modify security preferences to suit their campaign objectives.\n\n## Recommendation\n\n- Implement strict Principle of Least Privilege (PoLP) to limit the number of users and processes with the authority to modify Defender preferences.\n- Monitor PowerShell and WMI activity for calls to `Set-MpPreference` or `Add-MpPreference` using suspicious parameters like `ExclusionPath`.\n- Audit existing Defender exclusions across the fleet to identify unauthorized or broad directory exclusions, such as those targeting the entire C:\\ drive.\n- Deploy the Sigma rules below to detect unauthorized modifications to Defender settings via PowerShell and WMI.\n",
       "published": "2026-10-01T04:21:54Z",
@@ -922,6 +922,117 @@
       "object_refs": [
         "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
         "software--5ce4a731-a016-581d-a3ff-ca314227aad5"
+      ],
+      "confidence": 80
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
+      "name": "Exploit Public-Facing Application",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1190",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c0d74050-e08c-5f15-a22f-628973df4fa7",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f1e17cac-caa6-5281-a1f6-927d5a73aaf2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
+      "name": "Server Software Component: Web Shell",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1505.002",
+          "url": "https://attack.mitre.org/techniques/T1505/002"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7dcc3da7-a8f2-57c0-973e-4e7c6a31341d",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f1e17cac-caa6-5281-a1f6-927d5a73aaf2",
+      "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
+    },
+    {
+      "type": "software",
+      "id": "software--c6059c1f-d956-511a-b714-b7d8f2f685d1",
+      "name": "The AI Engine – The Chatbot, AI Framework \u0026 MCP for WordPress (\u003c= 3.8.0)",
+      "vendor": "Meow Apps",
+      "cpe": "cpe:2.3:a:meowapps:ai_engine:*:*:*:*:*:wordpress:*:*"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--23af1596-acb1-5e7e-966f-6c8fbe5eb8e0",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
+      "name": "CVE-2026-96561",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-96561",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96561"
+        }
+      ]
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fd7cf1ba-3395-5752-b2d4-ccdf6f600282",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
+      "relationship_type": "has",
+      "source_ref": "software--c6059c1f-d956-511a-b714-b7d8f2f685d1",
+      "target_ref": "vulnerability--23af1596-acb1-5e7e-966f-6c8fbe5eb8e0"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f1e17cac-caa6-5281-a1f6-927d5a73aaf2",
+      "created": "2026-10-01T04:39:06Z",
+      "modified": "2026-10-01T04:39:06Z",
+      "name": "Stored XSS via AI Engine Plugin for WordPress",
+      "description": "## Overview\n\nThe AI Engine - The Chatbot, AI Framework \u0026 MCP for WordPress plugin, versions 3.8.0 and earlier, contains a critical Stored Cross-Site Scripting (XSS) vulnerability. An unauthenticated attacker can exploit this by submitting crafted input to the '/mwai-ui/v1/chats/submit' REST endpoint. The vulnerability arises from an insufficient denylist in the plugin's key processing logic, which allows attackers to inject malicious strings, including carriage returns and line feeds, into the PHP error log. \n\nThe plugin's internal Advisor module parses these tainted log files and stores the data into the WordPress 'mwai_advisor_data' option without performing HTML sanitization or schema validation. When an administrator views the WordPress dashboard, the 'advisor_metabox' function retrieves this stored, malicious content and renders it directly into the dashboard widget. Because the output is not escaped via 'esc_html()' or 'wp_kses()', the injected payload executes within the context of the administrator's session. This flaw could be leveraged to perform unauthorized administrative actions or exfiltrate session data.\n\n## Attack Chain\n\n1. Unauthenticated attacker sends a malicious HTTP POST request to the '/mwai-ui/v1/chats/submit' REST endpoint.\n2. Attacker crafts input using key canonicalization bypasses (e.g., 'model_' instead of 'model') to inject malicious strings containing script tags.\n3. The plugin generates an Exception containing the raw malicious string and writes it to the server's PHP error log.\n4. The 'MeowKit_MWAI_Helpers::php_error_logs' parser reads the forged log lines as valid recent errors.\n5. The 'Meow_MWAI_Modules_Advisor::run_advisor' module appends the malicious content to the AI prompt and saves it to the database 'mwai_advisor_data' option.\n6. An administrator accesses the WordPress dashboard, triggering the 'advisor_metabox' widget to display the stored data.\n7. The widget renders the injected script directly into the admin page, executing in the administrator's browser.\n\n## Impact\n\nSuccessful exploitation results in arbitrary script execution in the administrator's browser context. An attacker could potentially perform actions such as creating new administrative accounts, modifying site settings, or stealing session cookies, leading to full site compromise. This vulnerability affects any WordPress installation running the AI Engine plugin versions 3.8.0 or earlier.\n\n## Recommendation\n\nPrioritize updating the AI Engine - The Chatbot, AI Framework \u0026 MCP for WordPress plugin to the latest version. Monitor web server access logs for anomalous POST requests directed at the '/mwai-ui/v1/chats/submit' path. Implement Web Application Firewall (WAF) rules to inspect and filter REST API requests for suspicious characters (such as '\u0026lt;script\u003e' tags or event handlers) targeting this specific endpoint.\n",
+      "published": "2026-10-01T04:38:28Z",
+      "labels": [
+        "wordpress",
+        "xss",
+        "injection",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975",
+        "software--c6059c1f-d956-511a-b714-b7d8f2f685d1",
+        "vulnerability--23af1596-acb1-5e7e-966f-6c8fbe5eb8e0"
+      ],
+      "external_references": [
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96561"
+        }
       ],
       "confidence": 80
     }
