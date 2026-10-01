@@ -3,6 +3,7 @@ title: Fastify Request Body Replacement Vulnerability via Async Validation Resul
 slug: 2026-10-fastify-validation-collision
 description: A vulnerability in Fastify's request validation logic (CVE-2026-84504) allows attackers to perform request body replacement when using $async JSON schema validators, leading to potential unauthorized state changes or data disclosure.
 date: "2026-10-01T04:21:02Z"
+lastmod: "2026-10-01T04:21:09Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,7 @@ tags:
   - web-application
   - vulnerability
   - cve
+  - authentication-bypass
 vendors:
   - Fastify
 products:
@@ -25,6 +27,8 @@ cves:
     epss: 0.00428
 references:
   - https://github.com/advisories/GHSA-667r-xxjv-c9mm
+  - https://github.com/advisories/GHSA-p68q-wchp-6fh7
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-76169
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +45,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-84504
       evidence: Perform the security-sensitive check in an onRequest or preHandler hook.
+updates:
+  - at: "2026-10-01T04:21:09Z"
+    level: L2
+    summary: added coverage for fastify (< 5.12.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-p68q-wchp-6fh7
 ---
 
 Fastify suffers from a validation logic flaw (CVE-2026-84504) where the framework incorrectly processes results from asynchronous JSON schema validators. The framework is designed to unwrap results shaped like `{ value, error }` to support synchronous custom compilers, where the `value` replaces the request part and `error` triggers a failure. However, $async validators in JSON schema resolve to the validated data itself. Fastify incorrectly applied the same unwrapping logic to these asynchronous results. 
