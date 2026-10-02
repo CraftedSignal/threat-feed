@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in Laranode File Manager
 slug: 2026-09-laranode-path-traversal
 description: Laranode versions prior to 1.2.1 are vulnerable to a path traversal attack via the /filemanager/upload-file endpoint, allowing authenticated users to achieve arbitrary file write and remote code execution.
 date: "2026-09-26T02:55:43Z"
+lastmod: "2026-10-02T11:34:32Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:laranode:laranode:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CB617279-9AA6-534B-8B61-04992CEFA920&utm_source=rss&utm_medium=rss
 vendors:
   - Laranode
 products:
@@ -30,8 +34,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-100520
     cvss: 8.8
+    epss: 0.00937
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100520
+  - https://sploitus.com/exploit?id=CB617279-9AA6-534B-8B61-04992CEFA920&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-100520 Exploitation - Path Traversal in File Manager
     description: Detects exploitation attempts against Laranode by identifying path traversal sequences in the POST request to the upload-file endpoint.
@@ -69,6 +75,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-100520
       evidence: Source recommends version 1.2.1.
+updates:
+  - at: "2026-10-02T11:34:32Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CB617279-9AA6-534B-8B61-04992CEFA920&utm_source=rss&utm_medium=rss
 ---
 
 Laranode versions before 1.2.1 contain a critical path traversal vulnerability in the POST /filemanager/upload-file endpoint. This vulnerability allows an authenticated attacker to manipulate the 'path' parameter within a file upload request to escape the intended directory constraints. By injecting directory traversal sequences (e.g., ../), an attacker can write arbitrary files to unauthorized locations on the host filesystem. This impact is significant in multi-tenant environments, as it allows attackers to upload malicious PHP scripts into the web root of other tenants, resulting in remote code execution (RCE) in the context of those tenants. Organizations utilizing Laranode should prioritize upgrading to version 1.2.1 or later to remediate this flaw.
