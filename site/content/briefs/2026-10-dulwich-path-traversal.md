@@ -3,6 +3,7 @@ title: Arbitrary File Write in Dulwich via Malicious Git Tree Paths
 slug: 2026-10-dulwich-path-traversal
 description: The Dulwich Git library for Python fails to validate DOS drive letter prefixes on Windows, allowing a malicious Git repository to write files to arbitrary locations outside the designated worktree.
 date: "2026-10-02T20:23:09Z"
+lastmod: "2026-10-02T20:23:18Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ vendors:
   - Dulwich
 products:
   - dulwich (< 1.2.9)
+  - dulwich (>= 0.24.0, <= 1.2.7)
 affected_os:
   - Windows
 mitre_ttps:
@@ -38,8 +40,15 @@ mitre_ttps:
     technique_name: Boot or Logon Autostart Execution
     evidence: Dropping a malicious executable into C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: Writing to .git/hooks/post-checkout achieves RCE on the next git checkout.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-8mcx-5rqc-vhmf
+  - https://github.com/advisories/GHSA-8w8g-wq8h-fq33
 action_plan:
   priority: elevated
   owners:
@@ -56,6 +65,14 @@ action_plan:
       owner: IT Operations
       addresses: dulwich < 1.2.9
       evidence: Source identifies 1.2.9 as the fixed version
+updates:
+  - at: "2026-10-02T20:23:18Z"
+    level: L2
+    summary: added coverage for dulwich (>= 0.24.0, <= 1.2.7)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-8w8g-wq8h-fq33
 ---
 
 Dulwich, a pure-Python implementation of the Git protocol, contains a critical path traversal vulnerability (versions < 1.2.9) when executing checkout operations on Windows. The library implements security checks in `validate_path_element_ntfs` and `_tree_to_fs_path` to block malicious path patterns like Alternate Data Streams (ADS) and reserved device names. However, these functions fail to identify or sanitize DOS drive letter prefixes (e.g., 'C:'). 
