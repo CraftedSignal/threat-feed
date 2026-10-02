@@ -3,6 +3,7 @@ title: Information Disclosure and Unauthorized File Deletion in PictShare
 slug: 2026-10-pictshare-info-disclosure
 description: PictShare versions prior to 3.7.1 are vulnerable to an unauthenticated information disclosure flaw in the API::info() endpoint, allowing attackers to retrieve sensitive metadata and delete arbitrary files.
 date: "2026-10-01T22:18:36Z"
+lastmod: "2026-10-02T11:34:30Z"
 type: advisory
 types:
   - advisory
@@ -10,12 +11,16 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:pictshare:pictshare:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=6CFCB492-25F8-5848-B5DF-C73516A62F1F&utm_source=rss&utm_medium=rss
 tags:
   - information-disclosure
   - api-vulnerability
   - cve-2026-104051
 vendors:
   - PictShare
+  - Haschek Solutions
 products:
   - PictShare (< 3.7.1)
 mitre_ttps:
@@ -30,6 +35,7 @@ cves:
     cvss: 8.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104051
+  - https://sploitus.com/exploit?id=6CFCB492-25F8-5848-B5DF-C73516A62F1F&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-104051
       evidence: NVD vulnerability details identify 3.7.1 as the fixed version.
+updates:
+  - at: "2026-10-02T11:34:30Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=6CFCB492-25F8-5848-B5DF-C73516A62F1F&utm_source=rss&utm_medium=rss
 ---
 
 PictShare versions prior to 3.7.1 contain an information disclosure vulnerability in the API::info() endpoint. The application fails to implement a field whitelist when returning metadata objects via this API. As a result, unauthenticated attackers can supply a file hash to the endpoint to retrieve the complete metadata object. This object contains highly sensitive information, including the secret 'delete_code', the original uploader's IP address, User Agent string, remote port, and the file's SHA-1 hash. The exposure of the 'delete_code' presents a significant security risk, as an attacker can use this value to invoke the application's delete API to permanently remove arbitrary files from the server, leading to a loss of data integrity and system availability. Defenders should prioritize patching this vulnerability by upgrading to version 3.7.1 or later.
