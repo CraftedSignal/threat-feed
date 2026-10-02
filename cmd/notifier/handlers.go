@@ -31,6 +31,8 @@ const (
 	maxBodyBytes = 64 * 1024
 	// /dispatch can receive a batch of brief metadata; cap higher.
 	maxDispatchBodyBytes = 1 * 1024 * 1024
+	// Cloud Scheduler reserves Authorization for its own OIDC/OAuth injection.
+	dispatchTokenHeader = "X-Dispatch-Token"
 )
 
 func (s *server) handleHealthz(w http.ResponseWriter, _ *http.Request) {
@@ -261,7 +263,7 @@ func (s *server) handleDispatch(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// POST /flush-pending - bearer-authed; called periodically by Cloud
+// POST /flush-pending - dispatch-token authed; called periodically by Cloud
 // Scheduler. Drains every queue with first_queued_at older than the
 // debounce window, batching all matched briefs per subscriber into
 // one delivery. The debounce window is fixed at 5 min server-side
@@ -289,12 +291,20 @@ func (s *server) handleFlushPending(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *server) checkDispatchAuth(r *http.Request, wantToken string) bool {
+	if token := r.Header.Get(dispatchTokenHeader); token != "" {
+		return constantTimeTokenEqual(token, wantToken)
+	}
+
 	auth := r.Header.Get("Authorization")
 	const prefix = "Bearer "
 	if !strings.HasPrefix(auth, prefix) {
 		return false
 	}
-	got := []byte(auth[len(prefix):])
+	return constantTimeTokenEqual(auth[len(prefix):], wantToken)
+}
+
+func constantTimeTokenEqual(gotToken, wantToken string) bool {
+	got := []byte(gotToken)
 	want := []byte(wantToken)
 	return subtle.ConstantTimeCompare(got, want) == 1
 }
@@ -385,7 +395,7 @@ func withCORS(next http.Handler, origin string) http.Handler {
 		if r.Header.Get("Origin") == origin {
 			w.Header().Set("Access-Control-Allow-Origin", origin)
 			w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Recaptcha-Token")
+			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Dispatch-Token, X-Recaptcha-Token")
 			w.Header().Set("Access-Control-Max-Age", "600")
 		}
 		if r.Method == http.MethodOptions {
