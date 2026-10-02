@@ -3,17 +3,20 @@ title: SQL Injection in UTMStack via UtmAssetGroupService
 slug: 2026-10-utmstack-sqli
 description: UTMStack versions prior to 11.2.16 are vulnerable to an authenticated SQL injection in the UtmAssetGroupService, allowing attackers to execute arbitrary commands with DBA privileges.
 date: "2026-10-02T20:27:13Z"
+lastmod: "2026-10-02T22:27:06Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 cpes:
   - cpe:2.3:a:utmstack:utmstack:*:*:*:*:*:*:*:*
 tags:
   - sql-injection
   - vulnerability
   - web-application
+  - remote-code-execution
+  - cve-2026-82041
 vendors:
   - UTMStack
 products:
@@ -25,11 +28,24 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: UTMStack before 11.2.16 contains a SQL injection vulnerability in UtmAssetGroupService.searchQueryBuilder() that allows authenticated attackers to inject arbitrary SQL
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Any authenticated user, regardless of role, can send arbitrary operating-system commands over gRPC to any connected agent, resulting in command execution on monitored endpoints.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: resulting in command execution on monitored endpoints where agent processes commonly run as root or SYSTEM.
+    confidence_band: high
 cves:
   - id: CVE-2026-82039
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82039
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82041
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +71,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-82039
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-02T22:27:06Z"
+    level: L2
+    summary: added coverage for UTMStack (< 11.2.16)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82041
 ---
 
 UTMStack versions prior to 11.2.16 contain a critical SQL injection vulnerability located within the UtmAssetGroupService.searchQueryBuilder() method. This vulnerability arises due to the unsanitized concatenation of user-supplied input into native PostgreSQL queries via String.format(). Specifically, an authenticated attacker can target the GET /api/utm-asset-groups/searchGroupsByFilter endpoint, passing malicious payloads through the assetType and groupName parameters. Because the application interacts with the backend database using DBA-level privileges, successful exploitation grants the attacker full access to the database, including the ability to read, modify, or delete sensitive data, and potentially escalate to filesystem access on the hosting server.
