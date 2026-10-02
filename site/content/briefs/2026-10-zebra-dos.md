@@ -3,11 +3,12 @@ title: Denial of Service Vulnerability in Zebra
 slug: 2026-10-zebra-dos
 description: Zebra versions prior to 6.0.0 are vulnerable to an unauthenticated denial-of-service attack via the submission of non-standard high-sigop P2SH transactions that exhaust system resources.
 date: "2026-10-02T14:24:50Z"
+lastmod: "2026-10-02T14:24:57Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 cpes:
   - cpe:2.3:a:zebra:zebra:*:*:*:*:*:*:*:*
 tags:
@@ -18,6 +19,7 @@ vendors:
   - Zebra
 products:
   - Zebra (< 6.0.0)
+  - Zebra (< 4.4.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -30,6 +32,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104431
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-104437
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +43,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-104431
       evidence: Source states Zebra before 6.0.0 contains a denial of service vulnerability.
+updates:
+  - at: "2026-10-02T14:24:57Z"
+    level: L1
+    summary: added coverage for Zebra (< 4.4.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-104437
 ---
 
 Zebra versions prior to 6.0.0 contain a denial-of-service (DoS) vulnerability that allows unauthenticated network peers to compromise node stability. The vulnerability stems from the way the node handles mempool transactions; specifically, it allows the submission of non-standard transactions with high signature operation (sigop) counts. These transactions reach the CachedFfiTransaction::is_valid() verification function before standard validation checks are performed. By flooding the node with these computationally expensive transactions, an attacker can saturate the verifier buffer and stall the underlying Tokio workers. This resource exhaustion forces the node to become unresponsive, impacting the availability of the Zebra service. This vulnerability highlights the risk of processing complex transaction data before validating it against standard consensus rules.
