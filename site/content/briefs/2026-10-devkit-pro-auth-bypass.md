@@ -3,6 +3,7 @@ title: Authentication Bypass in DevKit Pro Plugin for WordPress
 slug: 2026-10-devkit-pro-auth-bypass
 description: An authentication bypass vulnerability in the DevKit Pro WordPress plugin allows unauthenticated attackers to hijack administrator sessions via cookie manipulation and nonce collection.
 date: "2026-10-02T04:22:10Z"
+lastmod: "2026-10-02T07:31:57Z"
 type: advisory
 types:
   - advisory
@@ -10,8 +11,12 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:devkit:devkit_pro:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D91F1A3B-E1FE-5659-8FD6-9FEBAFD21FA0&utm_source=rss&utm_medium=rss
 vendors:
   - WordPress
+  - dplugins
 products:
   - DevKit Pro (<= 2.3.0)
 mitre_ttps:
@@ -32,6 +37,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14378
+  - https://sploitus.com/exploit?id=D91F1A3B-E1FE-5659-8FD6-9FEBAFD21FA0&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-14378 Exploitation - Unauthorized Access to revert_switch
     description: Detects unauthorized POST requests to the revert_switch handler by unauthenticated users.
@@ -60,6 +66,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-14378
       evidence: Source states versions up to 2.3.0 are vulnerable
+updates:
+  - at: "2026-10-02T07:31:57Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D91F1A3B-E1FE-5659-8FD6-9FEBAFD21FA0&utm_source=rss&utm_medium=rss
 ---
 
 The DevKit Pro plugin for WordPress (versions 2.3.0 and earlier) contains a critical authentication bypass vulnerability that facilitates full administrator account takeover. The flaw resides in the `revert_switch` handler, which incorrectly trusts an attacker-provided `original_user_id` cookie to define the target identity for session switching. 
