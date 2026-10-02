@@ -3,6 +3,7 @@ title: Authorization Bypass in WPMobile.App WordPress Plugin
 slug: 2026-10-wpmobile-auth-bypass
 description: An unauthenticated authorization bypass vulnerability in WPMobile.App (<= 11.82) allows attackers to exfiltrate password-reset URLs via the mail-to-push feature and perform account takeover.
 date: "2026-10-02T10:23:15Z"
+lastmod: "2026-10-02T12:34:31Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:wpmobile:wpmobile.app:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=81C43653-71B6-534E-92D7-A63D7A83829B&utm_source=rss&utm_medium=rss
 vendors:
   - WPMobile.App
 products:
@@ -26,6 +30,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-94541
+  - https://sploitus.com/exploit?id=81C43653-71B6-534E-92D7-A63D7A83829B&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-94541 Exploitation - Access to WPMobile Push Queue
     description: Detects unauthenticated attempts to access the WPMobile.App push notification queue which may contain sensitive password reset URLs.
@@ -61,6 +66,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Endpoint used to access the push queue
+updates:
+  - at: "2026-10-02T12:34:31Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=81C43653-71B6-534E-92D7-A63D7A83829B&utm_source=rss&utm_medium=rss
 ---
 
 The WPMobile.App - Android and iOS App Builder plugin for WordPress is affected by an authorization bypass vulnerability identified as CVE-2026-94541. The vulnerability exists in all versions up to and including 11.82. It stems from improper authorization checks when handling internal plugin data. Specifically, when the plugin's 'mail-to-push' feature (wpmobile_auto_mail=1) is active, WordPress password-reset emails - which contain sensitive password-reset URLs and tokens - are incorrectly mirrored into a push notification queue. Because this queue lacks sufficient access controls, unauthenticated remote attackers can query the endpoint, extract the reset tokens for arbitrary accounts (including administrative accounts), and subsequently perform account takeover. This flaw represents a significant risk to WordPress sites utilizing this plugin for mobile app synchronization, as it grants attackers a direct path to privilege escalation.
