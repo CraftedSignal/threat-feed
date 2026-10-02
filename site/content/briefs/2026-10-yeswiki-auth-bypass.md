@@ -3,7 +3,7 @@ title: YesWiki Triples Delete API Authentication Bypass
 slug: 2026-10-yeswiki-auth-bypass
 description: An authentication bypass vulnerability in the YesWiki triples delete API allows authenticated users to delete arbitrary semantic triples, potentially resulting in site-wide denial of service.
 date: "2026-10-02T12:24:44Z"
-lastmod: "2026-10-02T12:25:24Z"
+lastmod: "2026-10-02T12:25:36Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +23,7 @@ tags:
   - webserver
   - web-application
   - cve
+  - ssrf
 vendors:
   - YesWiki
 products:
@@ -68,6 +69,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104447
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104456
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104457
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-104463
 rules:
   - title: Detect CVE-2026-104444 Exploitation - Authorization Bypass in YesWiki
     description: Detects unauthorized attempts to edit comments via the YesWiki API by matching patterns indicative of parameter manipulation in the comments route.
@@ -107,13 +109,6 @@ action_plan:
       addresses: CVE-2026-104443
       evidence: NVD vulnerability disclosure
 updates:
-  - at: "2026-10-02T12:24:54Z"
-    level: L2
-    summary: 'added detection rule: Detect CVE-2026-104444 Exploitation - Authorization Bypass in YesWiki'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-104444
   - at: "2026-10-02T12:25:01Z"
     level: L2
     summary: 'added detection rule: Detects CVE-2026-104445 Exploitation - Potential ActivityPub Signature Manipulation'
@@ -142,6 +137,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-104457
+  - at: "2026-10-02T12:25:36Z"
+    level: L2
+    summary: added coverage for YesWiki (< 4.6.7)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-104463
 ---
 
 YesWiki versions prior to 4.6.7 are susceptible to an authentication bypass vulnerability residing in the triples delete API. The vulnerability stems from an empty-filter scope bypass, which allows any authenticated user to manipulate or delete semantic triples regardless of defined ownership or permissions. By supplying an empty filter to the triples delete endpoint, an attacker can target critical configuration triples, such as the membership data for the administrative group. Deleting these membership records effectively empties the administrator group, leading to a site-wide administrative lockout. This vulnerability primarily impacts the integrity and availability of YesWiki instances, as unauthorized users can escalate their impact to include a denial of service against the platform administrators.
