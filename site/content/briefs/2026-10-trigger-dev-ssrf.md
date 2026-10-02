@@ -3,7 +3,7 @@ title: Trigger.dev SSRF via Unvalidated Webhook Delivery URLs
 slug: 2026-10-trigger-dev-ssrf
 description: An authenticated user can configure malicious webhook endpoints in Trigger.dev (< 4.5.2) to perform server-side request forgery (SSRF) against internal services and cloud metadata endpoints.
 date: "2026-10-02T20:22:51Z"
-lastmod: "2026-10-02T22:50:14Z"
+lastmod: "2026-10-02T22:50:46Z"
 type: advisory
 types:
   - advisory
@@ -16,11 +16,15 @@ tags:
   - web-vulnerability
   - self-hosted
   - authentication-bypass
+  - idor
+  - broken-access-control
+  - web-application
 vendors:
   - Trigger.dev
 products:
   - trigger.dev (< 4.5.2)
   - trigger.dev (<= 4.5.5)
+  - trigger.dev (<= 4.5.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -52,10 +56,23 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: Attacker authenticates to the PostgreSQL database using default credentials.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1592.004
+    technique_name: Gather Victim Org Information
+    evidence: The friendlyId values are short, incrementing strings that can be enumerated.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: An attacker can replay task runs belonging to other organizations, executing tasks in the victim's environment.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-qxpp-qjg8-x4jv
   - https://github.com/advisories/GHSA-9q4r-4842-93vw
   - https://github.com/advisories/GHSA-pqxw-g93w-hj9x
+  - https://github.com/advisories/GHSA-pp95-gc86-jq6q
 rules:
   - title: Detect Cross-Tenant Replay Attempt in Trigger.dev
     description: Detects HTTP POST requests to the replay endpoint where the environment parameter is manually specified, potentially indicating an attempt to target an unauthorized tenant.
@@ -77,7 +94,18 @@ rules:
       - T1059.003
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect Potential Unauthorized Task Replay Attempt
+    description: Detects unauthorized POST requests to task replay endpoints which lack proper session-to-resource mapping validation
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1592.004
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: elevated
   owners:
@@ -116,6 +144,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-pqxw-g93w-hj9x
+  - at: "2026-10-02T22:50:46Z"
+    level: L2
+    summary: 'added detection rule: Detect Potential Unauthorized Task Replay Attempt'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-pp95-gc86-jq6q
 ---
 
 Trigger.dev versions prior to 4.5.2 contain a critical server-side request forgery (SSRF) vulnerability. The application allows authenticated organization members to configure webhook alert channels with arbitrary delivery URLs. These URLs are stored as unvalidated strings and are subsequently fetched by the Trigger.dev control plane to deliver alerts using POST requests. 
