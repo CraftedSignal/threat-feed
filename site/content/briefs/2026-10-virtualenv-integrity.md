@@ -3,7 +3,7 @@ title: Lack of Integrity Verification in virtualenv Seed Wheel Downloads
 slug: 2026-10-virtualenv-integrity
 description: The virtualenv library lacks integrity checks for downloaded pip and setuptools seed wheels, enabling potential arbitrary code execution via compromised mirrors or MITM attacks.
 date: "2026-10-01T04:20:43Z"
-lastmod: "2026-10-01T20:22:47Z"
+lastmod: "2026-10-02T02:19:13Z"
 type: advisory
 types:
   - advisory
@@ -16,11 +16,14 @@ tags:
   - vulnerability
   - python
   - command-injection
+  - windows
 vendors:
   - PyPA
 products:
   - virtualenv (<= 21.7.11)
   - virtualenv (<= 21.7.12)
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -46,6 +49,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: PowerShell'
     evidence: This is the same defect class as GHSA-x78j-v8h9-3j2q, which covered activate.bat.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: A prompt containing a double quote closes that string early, and whatever follows runs as live cmd.exe syntax.
+    confidence_band: high
 cves:
   - id: CVE-2026-102930
 references:
@@ -54,6 +63,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102930
   - https://github.com/advisories/GHSA-p58f-9548-mpm2
   - https://github.com/pypa/virtualenv/pull/3252
+  - https://github.com/advisories/GHSA-x78j-v8h9-3j2q
+  - https://github.com/pypa/virtualenv/pull/3250
 action_plan:
   priority: elevated
   owners:
@@ -78,6 +89,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-p58f-9548-mpm2
+  - at: "2026-10-02T02:19:13Z"
+    level: L2
+    summary: added coverage for virtualenv (<= 21.7.11)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-x78j-v8h9-3j2q
 ---
 
 The Python library virtualenv (versions up to 21.7.11) contains a critical security flaw where seed wheels, specifically pip and setuptools, are not verified for integrity when downloaded via the --download flag or the automatic periodic-update mechanism. While embedded wheels are protected by a hardcoded SHA256, wheels fetched dynamically over the network are trusted implicitly. This vulnerability, tracked as CVE-2026-102930, allows a malicious actor - such as an entity controlling a compromised PyPI mirror, a rogue index server, or an attacker performing a Man-in-the-Middle (MITM) interception - to substitute a legitimate wheel with a malicious one. If successful, virtualenv will cache the compromised wheel and inject it into every future virtual environment created on the affected host, resulting in persistent arbitrary code execution within those environments.
