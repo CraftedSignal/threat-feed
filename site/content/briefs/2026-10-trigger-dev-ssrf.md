@@ -3,7 +3,7 @@ title: Trigger.dev SSRF via Unvalidated Webhook Delivery URLs
 slug: 2026-10-trigger-dev-ssrf
 description: An authenticated user can configure malicious webhook endpoints in Trigger.dev (< 4.5.2) to perform server-side request forgery (SSRF) against internal services and cloud metadata endpoints.
 date: "2026-10-02T20:22:51Z"
-lastmod: "2026-10-02T20:23:02Z"
+lastmod: "2026-10-02T22:50:07Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,7 @@ vendors:
   - Trigger.dev
 products:
   - trigger.dev (< 4.5.2)
+  - trigger.dev (<= 4.5.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,8 +31,15 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The dashboard replay action authorizes the source run, but the target environment for the replayed run is taken verbatim from the request body and is never checked for org or project membership.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The compiler emits the attacker's raw subquery into the generated ClickHouse SQL string.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-qxpp-qjg8-x4jv
+  - https://github.com/advisories/GHSA-9q4r-4842-93vw
 rules:
   - title: Detect Cross-Tenant Replay Attempt in Trigger.dev
     description: Detects HTTP POST requests to the replay endpoint where the environment parameter is manually specified, potentially indicating an attempt to target an unauthorized tenant.
@@ -43,7 +51,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect Suspicious TSQL Window-Function Injection
+    description: Detects potential TSQL injection attempts via the /api/v1/query endpoint where window function names contain suspicious SQL subquery patterns.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.003
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -68,6 +86,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-qxpp-qjg8-x4jv
+  - at: "2026-10-02T22:50:07Z"
+    level: L2
+    summary: 'added detection rule: Detect Suspicious TSQL Window-Function Injection'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9q4r-4842-93vw
 ---
 
 Trigger.dev versions prior to 4.5.2 contain a critical server-side request forgery (SSRF) vulnerability. The application allows authenticated organization members to configure webhook alert channels with arbitrary delivery URLs. These URLs are stored as unvalidated strings and are subsequently fetched by the Trigger.dev control plane to deliver alerts using POST requests. 
