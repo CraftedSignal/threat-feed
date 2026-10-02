@@ -1,0 +1,63 @@
+---
+title: YesWiki Triples Delete API Authentication Bypass
+slug: 2026-10-yeswiki-auth-bypass
+description: An authentication bypass vulnerability in the YesWiki triples delete API allows authenticated users to delete arbitrary semantic triples, potentially resulting in site-wide denial of service.
+date: "2026-10-02T12:24:44Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+cpes:
+  - cpe:2.3:a:yeswiki:yeswiki:*:*:*:*:*:*:*:*
+vendors:
+  - YesWiki
+products:
+  - YesWiki (< 4.6.7)
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: An empty-filter scope bypass in the triples delete API that allows any authenticated user to delete or forge arbitrary semantic triples regardless of ownership.
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: Deleting the admins-group membership triple, emptying the admin group and causing a site-wide authorization lockout.
+    confidence_band: high
+cves:
+  - id: CVE-2026-104443
+    cvss: 8.1
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-104443
+action_plan:
+  priority: elevated
+  owners:
+    - IT Operations
+    - SOC
+  immediate_actions:
+    - action: Upgrade YesWiki to version 4.6.7 or later to patch CVE-2026-104443
+      owner: IT Operations
+      due: 48h
+      evidence: YesWiki before 4.6.7 contains an empty-filter scope bypass
+  mitigation_plan:
+    - priority: immediate
+      action: Upgrade YesWiki to 4.6.7 or later
+      owner: IT Operations
+      addresses: CVE-2026-104443
+      evidence: NVD vulnerability disclosure
+---
+
+YesWiki versions prior to 4.6.7 are susceptible to an authentication bypass vulnerability residing in the triples delete API. The vulnerability stems from an empty-filter scope bypass, which allows any authenticated user to manipulate or delete semantic triples regardless of defined ownership or permissions. By supplying an empty filter to the triples delete endpoint, an attacker can target critical configuration triples, such as the membership data for the administrative group. Deleting these membership records effectively empties the administrator group, leading to a site-wide administrative lockout. This vulnerability primarily impacts the integrity and availability of YesWiki instances, as unauthorized users can escalate their impact to include a denial of service against the platform administrators.
+
+## Impact
+
+Successful exploitation results in unauthorized modification or deletion of semantic data within the YesWiki application. The most severe consequence is the potential for site-wide administrative lockout, rendering the application unmanageable for legitimate administrators until manual remediation of the affected triples is performed.
+
+## Recommendation
+
+1. Upgrade all YesWiki instances to version 4.6.7 or later to remediate CVE-2026-104443.
+2. Audit application logs for anomalous requests to the triples delete API endpoint.
+3. Restrict authentication to the YesWiki management interface to trusted users only to reduce the attack surface.
