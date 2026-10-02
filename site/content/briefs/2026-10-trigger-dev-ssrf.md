@@ -3,7 +3,7 @@ title: Trigger.dev SSRF via Unvalidated Webhook Delivery URLs
 slug: 2026-10-trigger-dev-ssrf
 description: An authenticated user can configure malicious webhook endpoints in Trigger.dev (< 4.5.2) to perform server-side request forgery (SSRF) against internal services and cloud metadata endpoints.
 date: "2026-10-02T20:22:51Z"
-lastmod: "2026-10-02T22:50:07Z"
+lastmod: "2026-10-02T22:50:14Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +13,9 @@ tags:
   - authorization-bypass
   - insecure-design
   - cloud-security
+  - web-vulnerability
+  - self-hosted
+  - authentication-bypass
 vendors:
   - Trigger.dev
 products:
@@ -37,9 +40,22 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The compiler emits the attacker's raw subquery into the generated ClickHouse SQL string.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The hosting/docker/.env.example file contains hardcoded cryptographic secrets.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: Attacker authenticates to the PostgreSQL database using default credentials.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-qxpp-qjg8-x4jv
   - https://github.com/advisories/GHSA-9q4r-4842-93vw
+  - https://github.com/advisories/GHSA-pqxw-g93w-hj9x
 rules:
   - title: Detect Cross-Tenant Replay Attempt in Trigger.dev
     description: Detects HTTP POST requests to the replay endpoint where the environment parameter is manually specified, potentially indicating an attempt to target an unauthorized tenant.
@@ -93,6 +109,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-9q4r-4842-93vw
+  - at: "2026-10-02T22:50:14Z"
+    level: L2
+    summary: added coverage for trigger.dev (<= 4.5.5)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-pqxw-g93w-hj9x
 ---
 
 Trigger.dev versions prior to 4.5.2 contain a critical server-side request forgery (SSRF) vulnerability. The application allows authenticated organization members to configure webhook alert channels with arbitrary delivery URLs. These URLs are stored as unvalidated strings and are subsequently fetched by the Trigger.dev control plane to deliver alerts using POST requests. 
