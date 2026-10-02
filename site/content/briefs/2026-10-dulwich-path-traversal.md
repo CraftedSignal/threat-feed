@@ -3,7 +3,7 @@ title: Arbitrary File Write in Dulwich via Malicious Git Tree Paths
 slug: 2026-10-dulwich-path-traversal
 description: The Dulwich Git library for Python fails to validate DOS drive letter prefixes on Windows, allowing a malicious Git repository to write files to arbitrary locations outside the designated worktree.
 date: "2026-10-02T20:23:09Z"
-lastmod: "2026-10-02T20:23:18Z"
+lastmod: "2026-10-02T20:23:25Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,7 @@ vendors:
 products:
   - dulwich (< 1.2.9)
   - dulwich (>= 0.24.0, <= 1.2.7)
+  - dulwich (>= 0.23.1, <= 1.2.7)
 affected_os:
   - Windows
 mitre_ttps:
@@ -49,6 +50,7 @@ mitre_ttps:
 references:
   - https://github.com/advisories/GHSA-8mcx-5rqc-vhmf
   - https://github.com/advisories/GHSA-8w8g-wq8h-fq33
+  - https://github.com/advisories/GHSA-5fqc-mrg8-w798
 action_plan:
   priority: elevated
   owners:
@@ -73,6 +75,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-8w8g-wq8h-fq33
+  - at: "2026-10-02T20:23:25Z"
+    level: L2
+    summary: added coverage for dulwich (>= 0.23.1, <= 1.2.7)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-5fqc-mrg8-w798
 ---
 
 Dulwich, a pure-Python implementation of the Git protocol, contains a critical path traversal vulnerability (versions < 1.2.9) when executing checkout operations on Windows. The library implements security checks in `validate_path_element_ntfs` and `_tree_to_fs_path` to block malicious path patterns like Alternate Data Streams (ADS) and reserved device names. However, these functions fail to identify or sanitize DOS drive letter prefixes (e.g., 'C:'). 
