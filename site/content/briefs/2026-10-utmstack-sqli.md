@@ -3,7 +3,7 @@ title: SQL Injection in UTMStack via UtmAssetGroupService
 slug: 2026-10-utmstack-sqli
 description: UTMStack versions prior to 11.2.16 are vulnerable to an authenticated SQL injection in the UtmAssetGroupService, allowing attackers to execute arbitrary commands with DBA privileges.
 date: "2026-10-02T20:27:13Z"
-lastmod: "2026-10-02T22:27:06Z"
+lastmod: "2026-10-02T22:27:16Z"
 type: advisory
 types:
   - advisory
@@ -40,12 +40,37 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: resulting in command execution on monitored endpoints where agent processes commonly run as root or SYSTEM.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1199
+    technique_name: Trusted Relationship
+    evidence: The vulnerability allows attackers to gain full administrative API access by presenting a valid Utm-Internal-Key header.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552.003
+    technique_name: 'Unsecured Credentials: Credentials in Environment Variables'
+    evidence: The internal key is stored in the INTERNAL_KEY environment variable.
+    confidence_band: high
 cves:
   - id: CVE-2026-82039
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82039
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82041
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82042
+rules:
+  - title: Detect Unauthorized Access via Utm-Internal-Key
+    description: Detects potential exploitation of CVE-2026-82042 by monitoring for the presence of the 'Utm-Internal-Key' header in HTTP requests, which should generally not be present in legitimate client-facing traffic.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1199
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -79,6 +104,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82041
+  - at: "2026-10-02T22:27:16Z"
+    level: L2
+    summary: 'added detection rule: Detect Unauthorized Access via Utm-Internal-Key'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82042
 ---
 
 UTMStack versions prior to 11.2.16 contain a critical SQL injection vulnerability located within the UtmAssetGroupService.searchQueryBuilder() method. This vulnerability arises due to the unsanitized concatenation of user-supplied input into native PostgreSQL queries via String.format(). Specifically, an authenticated attacker can target the GET /api/utm-asset-groups/searchGroupsByFilter endpoint, passing malicious payloads through the assetType and groupName parameters. Because the application interacts with the backend database using DBA-level privileges, successful exploitation grants the attacker full access to the database, including the ability to read, modify, or delete sensitive data, and potentially escalate to filesystem access on the hosting server.
