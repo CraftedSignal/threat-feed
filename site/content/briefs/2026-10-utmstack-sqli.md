@@ -3,7 +3,7 @@ title: SQL Injection in UTMStack via UtmAssetGroupService
 slug: 2026-10-utmstack-sqli
 description: UTMStack versions prior to 11.2.16 are vulnerable to an authenticated SQL injection in the UtmAssetGroupService, allowing attackers to execute arbitrary commands with DBA privileges.
 date: "2026-10-02T20:27:13Z"
-lastmod: "2026-10-02T22:27:16Z"
+lastmod: "2026-10-02T22:27:31Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,8 @@ tags:
   - web-application
   - remote-code-execution
   - cve-2026-82041
+  - ssrf
+  - internal-reconnaissance
 vendors:
   - UTMStack
 products:
@@ -59,6 +61,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82039
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82041
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82042
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82044
 rules:
   - title: Detect Unauthorized Access via Utm-Internal-Key
     description: Detects potential exploitation of CVE-2026-82042 by monitoring for the presence of the 'Utm-Internal-Key' header in HTTP requests, which should generally not be present in legitimate client-facing traffic.
@@ -70,7 +73,17 @@ rules:
       - T1199
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-82044 Exploitation - SSRF via PdfService
+    description: Detects exploitation attempts against the /api/generate-pdf-report endpoint where the URL parameter attempts to access internal infrastructure.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -111,6 +124,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82042
+  - at: "2026-10-02T22:27:31Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-82044 Exploitation - SSRF via PdfService'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82044
 ---
 
 UTMStack versions prior to 11.2.16 contain a critical SQL injection vulnerability located within the UtmAssetGroupService.searchQueryBuilder() method. This vulnerability arises due to the unsanitized concatenation of user-supplied input into native PostgreSQL queries via String.format(). Specifically, an authenticated attacker can target the GET /api/utm-asset-groups/searchGroupsByFilter endpoint, passing malicious payloads through the assetType and groupName parameters. Because the application interacts with the backend database using DBA-level privileges, successful exploitation grants the attacker full access to the database, including the ability to read, modify, or delete sensitive data, and potentially escalate to filesystem access on the hosting server.
