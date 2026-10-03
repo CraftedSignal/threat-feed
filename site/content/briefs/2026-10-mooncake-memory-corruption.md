@@ -3,6 +3,7 @@ title: Arbitrary Memory Access Vulnerability in Mooncake Transfer Engine
 slug: 2026-10-mooncake-memory-corruption
 description: An untrusted pointer dereference vulnerability (CVE-2026-103764) in the Mooncake transfer engine allows unauthenticated attackers to perform arbitrary memory reads and writes, potentially leading to remote code execution.
 date: "2026-10-02T00:19:35Z"
+lastmod: "2026-10-03T00:49:42Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - Mooncake
 products:
   - transfer engine (< 0.3.13)
+  - transfer engine (< 0.3.12)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -25,11 +27,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Unauthenticated attackers can exploit this via the TCP transport data port by sending a crafted SessionHeader.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: An unauthenticated attacker can exploit this by sending a malformed zero-length handshake frame to the handshake port, triggering a service crash and terminating the hosting process.
+    confidence_band: high
 cves:
   - id: CVE-2026-103764
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103764
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-104433
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +55,14 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-103764
       evidence: Attack requires reachability to the TCP transport data port.
+updates:
+  - at: "2026-10-03T00:49:42Z"
+    level: L1
+    summary: added coverage for transfer engine (< 0.3.12)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-104433
 ---
 
 The Mooncake transfer engine prior to version 0.3.13 is susceptible to an untrusted pointer dereference vulnerability residing in the ServerSession::readHeader function. This flaw allows unauthenticated remote attackers to interact with the service over its TCP transport data port. By crafting a malicious SessionHeader containing arbitrary address and size fields, an attacker can issue READ or WRITE opcodes. These operations enable the unauthorized disclosure of sensitive internal information, such as KV cache contents, prompts, and system secrets. Furthermore, the ability to perform arbitrary memory writes allows for potential memory corruption, which may be leveraged to achieve remote code execution on the host running the transfer engine. Given the severity of this vulnerability and the lack of authentication requirements, defenders should prioritize patching to version 0.3.13 or later.
