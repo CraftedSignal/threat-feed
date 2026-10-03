@@ -3,6 +3,7 @@ title: Local Privilege Escalation in adm-zip via Unsafe Extraction of SUID/SGID 
 slug: 2026-09-adm-zip-suid-pe
 description: The adm-zip Node.js library fails to filter SUID/SGID bits when extracting ZIP archives with 'keepOriginalPermission' enabled, allowing for root-level privilege escalation when archives are extracted by privileged processes.
 date: "2026-09-29T22:18:23Z"
+lastmod: "2026-10-03T00:53:58Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,15 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:adm-zip_project:adm-zip:*:*:*:*:*:node.js:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=23482FFE-B5C9-5736-A66B-ABBDCFF4AFA5&utm_source=rss&utm_medium=rss
 tags:
   - privilege-escalation
   - nodejs
   - supply-chain
+vendors:
+  - cthackers
 products:
   - adm-zip (<= 0.6.0)
 affected_os:
@@ -26,9 +32,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: An attacker-crafted ZIP can produce an extracted binary with mode 04755, allowing unprivileged execution to run as root.
     confidence_band: high
+cves:
+  - id: CVE-2026-102282
 references:
   - https://github.com/advisories/GHSA-j5f4-cc29-5x44
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102282
+  - https://sploitus.com/exploit?id=23482FFE-B5C9-5736-A66B-ABBDCFF4AFA5&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -45,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-102282
       evidence: Source identifies this flag as the direct cause of the insecure permission application
+updates:
+  - at: "2026-10-03T00:53:58Z"
+    level: L2
+    summary: poc_available; added CVE-2026-102282
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=23482FFE-B5C9-5736-A66B-ABBDCFF4AFA5&utm_source=rss&utm_medium=rss
 ---
 
 The adm-zip library for Node.js (version <= 0.6.0) contains a critical flaw in how it handles file permissions during archive extraction. When the `keepOriginalPermission=true` flag is used with `extractAllTo()` or `extractEntryTo()`, the library reads Unix permission bits directly from the ZIP file headers and applies them to the filesystem using `fs.chmodSync()`. Critically, the library fails to sanitize these bits, preserving the SUID (set-user-ID), SGID (set-group-ID), and sticky bits (mask 0o7777).
