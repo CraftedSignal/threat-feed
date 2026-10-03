@@ -3,7 +3,7 @@ title: Remote Code Execution in Craft CMS via HMAC Signature Misuse
 slug: 2026-09-craft-cms-rce
 description: Craft CMS versions 4.8.0 through 4.18.5 and 5.0.0 through 5.10.12 contain a critical vulnerability allowing authenticated users to achieve remote code execution by injecting malicious payloads into improperly validated redirect parameters.
 date: "2026-09-16T23:53:06Z"
-lastmod: "2026-09-16T23:53:20Z"
+lastmod: "2026-10-03T07:57:33Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:craftcms:craft_cms:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=D0D7500F-3876-5BDE-970E-B3EF3F502004&utm_source=rss&utm_medium=rss
 tags:
   - cve
   - authorization
@@ -43,9 +46,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-92592
     cvss: 8.8
+    epss: 0.00647
+  - id: CVE-2026-92594
+    cvss: 7.5
+    epss: 0.00432
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92592
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92594
+  - https://sploitus.com/exploit?id=D0D7500F-3876-5BDE-970E-B3EF3F502004&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -70,6 +78,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92594
+  - at: "2026-10-03T07:57:33Z"
+    level: L2
+    summary: poc_available; added CVE-2026-92594
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=D0D7500F-3876-5BDE-970E-B3EF3F502004&utm_source=rss&utm_medium=rss
 ---
 
 Craft CMS versions 4.8.0 through 4.18.5 and 5.0.0 through 5.10.12 are susceptible to a remote code execution vulnerability identified as CVE-2026-92592. The issue stems from the application using the same securityKey to sign both internal license-shun cookies and redirect parameters without binding the HMAC signature to a specific purpose. 
