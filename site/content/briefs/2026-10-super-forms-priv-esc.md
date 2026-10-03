@@ -3,6 +3,7 @@ title: Unauthenticated Privilege Escalation in Super Forms WordPress Plugin
 slug: 2026-10-super-forms-priv-esc
 description: An unauthenticated privilege escalation vulnerability (CVE-2026-15989) in the Super Forms WordPress plugin allows attackers to register administrative accounts via registration form injection.
 date: "2026-10-01T08:39:24Z"
+lastmod: "2026-10-03T00:54:01Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:wordpress:super_forms_drag_drop_form_builder:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=9F5189C5-CE21-56B0-BC4D-0E6C71AE4BEA&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - wordpress
@@ -29,8 +33,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-15989
     cvss: 9.8
+    epss: 0.00294
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15989
+  - https://sploitus.com/exploit?id=9F5189C5-CE21-56B0-BC4D-0E6C71AE4BEA&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-15989 Exploitation - Unauthorized Role Injection
     description: Detects exploitation attempts against the Super Forms plugin by identifying the injection of role parameters in HTTP POST requests to registration endpoints.
@@ -60,6 +66,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-15989
       evidence: Plugin vulnerable up to and including 6.3.316
+updates:
+  - at: "2026-10-03T00:54:01Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=9F5189C5-CE21-56B0-BC4D-0E6C71AE4BEA&utm_source=rss&utm_medium=rss
 ---
 
 The Super Forms - Drag & Drop Form Builder plugin for WordPress is affected by a critical privilege escalation vulnerability (CVE-2026-15989) in all versions up to and including 6.3.316. The flaw exists within the Register & Login add-on, specifically inside the before_email_success_msg() function. This function improperly handles client-submitted data by whitelisting the 'role' key and passing it directly into the user-data array processed by wp_insert_user(). 
