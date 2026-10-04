@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-09-30T15:43:40Z"
+lastmod: "2026-10-04T12:53:45Z"
 type: advisory
 types:
   - advisory
@@ -147,6 +147,8 @@ references:
   - https://www.securityweek.com/hackers-use-chatgpt-custom-gpts-in-clickfix-attacks/
   - https://www.crowdstrike.com/en-us/blog/how-clickfix-attacks-work-and-how-to-stop-them/
   - https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html
+  - https://www.malware-traffic-analysis.net/2026/09/29/index.html
+  - https://www.malware-traffic-analysis.net/2026/09/30/index.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -210,19 +212,14 @@ iocs:
     value: http://caldav.icloud.com/published/2/MTk1NDMwMDMzNTUxOTU0M1aHCZ-nMxiyGzBTzPiodOf44DtKJ6PpjftAG28_ui2NCYMpL_vu4pF4ddsJ8ysg0QI7pR0VEIEbZYdilVZRw08
   - type: domain
     value: chatgpt.com
+  - type: ip
+    value: 195.63.128.106
 ioc_counts:
   domain: 19
   hash_sha256: 1
-  ip: 2
+  ip: 3
   url: 9
 updates:
-  - at: "2026-09-18T10:28:09Z"
-    level: L1
-    summary: new product
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/
   - at: "2026-09-21T06:59:22Z"
     level: L1
     summary: new product
@@ -251,6 +248,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html
+  - at: "2026-10-04T12:53:45Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - malware-traffic-analysis
+    source_urls:
+      - https://www.malware-traffic-analysis.net/2026/09/30/index.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
