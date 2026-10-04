@@ -3,6 +3,7 @@ title: Unauthenticated Arbitrary Shortcode Execution in Beaver Builder Plugin
 slug: 2026-10-beaver-builder-shortcode
 description: Beaver Builder Page Builder for WordPress (<= 2.11.0.5) is vulnerable to unauthenticated arbitrary shortcode execution via improper input validation in the Sidebar module.
 date: "2026-10-03T08:54:12Z"
+lastmod: "2026-10-04T12:06:37Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:beaver_builder:page_builder:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=32816D9B-A055-59DB-B7CD-C30F29C64215&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - wordpress
@@ -18,6 +22,7 @@ vendors:
   - Beaver Builder
 products:
   - Beaver Builder Page Builder (<= 2.11.0.5)
+  - Beaver Builder Lite (<= 2.11.0.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,8 +39,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-92084
     cvss: 9.1
+    epss: 0.00531
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92084
+  - https://sploitus.com/exploit?id=32816D9B-A055-59DB-B7CD-C30F29C64215&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92084
       evidence: Exploitation requires the target site to have a Beaver Builder page containing the Sidebar module populated with a widget that displays attacker-controllable text
+updates:
+  - at: "2026-10-04T12:06:37Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=32816D9B-A055-59DB-B7CD-C30F29C64215&utm_source=rss&utm_medium=rss
 ---
 
 The Beaver Builder Page Builder plugin for WordPress (versions up to and including 2.11.0.5) contains a critical security flaw involving improper input validation. The vulnerability allows unauthenticated attackers to execute arbitrary shortcodes within a WordPress environment. This occurs because the plugin's Sidebar module fails to sanitize or validate user-supplied values before passing them to the do_shortcode function. 
