@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in Ahsay AhsayCBS
 slug: 2026-10-ahsay-cbs-rce
 description: Ahsay AhsayCBS up to version 10.3.2 is vulnerable to unauthenticated remote OS command injection via the /rps/api/json/UpdateReceivers.do endpoint, enabling full system compromise.
 date: "2026-10-04T09:01:29Z"
+lastmod: "2026-10-04T09:01:54Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,15 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:ahsay:ahsaycbs:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - authentication-bypass
+  - remote-access
 vendors:
   - Ahsay
 products:
   - AhsayCBS (< 10.3.4)
+  - AhsayCBS (<= 10.3.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -27,11 +33,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Executing a manipulation of the argument random can lead to os command injection.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Performing a manipulation of the argument random results in improper authentication.
+    confidence_band: high
 cves:
   - id: CVE-2026-105134
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105134
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105133
 rules:
   - title: Detects CVE-2026-105134 Exploitation - Unauthenticated RCE via /rps/api/json/UpdateReceivers.do
     description: Detects exploitation attempts against CVE-2026-105134 by identifying suspicious command injection patterns in the 'random' parameter of the UpdateReceivers.do endpoint.
@@ -61,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-105134
       evidence: Upgrading to version 10.3.4 is able to resolve this issue.
+updates:
+  - at: "2026-10-04T09:01:54Z"
+    level: L2
+    summary: added coverage for AhsayCBS (<= 10.3.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-105133
 ---
 
 Ahsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.
