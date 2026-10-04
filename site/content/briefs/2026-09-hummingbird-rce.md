@@ -3,6 +3,7 @@ title: 'CVE-2026-83627: Unauthenticated RCE in Hummingbird WordPress Plugin'
 slug: 2026-09-hummingbird-rce
 description: An unauthenticated remote code execution vulnerability in the Hummingbird WordPress plugin allows attackers to inject and execute arbitrary PHP code via unsanitized cookie headers in the debug log.
 date: "2026-09-05T07:29:59Z"
+lastmod: "2026-10-04T18:58:25Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:wpmudev:hummingbird:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=B9E38545-85E4-5FA7-9AF5-E4B4801D4408&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - rce
@@ -28,8 +32,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-83627
     cvss: 9.8
+    epss: 0.01426
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-83627
+  - https://sploitus.com/exploit?id=B9E38545-85E4-5FA7-9AF5-E4B4801D4408&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-83627 Exploitation - Direct Access to Hummingbird Log
     description: Detects direct HTTP requests to the Hummingbird debug log file, which indicates potential RCE exploitation or reconnaissance.
@@ -58,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-83627
       evidence: Source notes file is web-accessible and designed to be protected.
+updates:
+  - at: "2026-10-04T18:58:25Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=B9E38545-85E4-5FA7-9AF5-E4B4801D4408&utm_source=rss&utm_medium=rss
 ---
 
 The Hummingbird - Speed Optimization, Caching, Minify, Compress & CDN plugin for WordPress (versions <= 3.21.0) is vulnerable to unauthenticated remote code execution (RCE). The vulnerability originates in the log_msg() function within the core/modules/class-page-cache.php file. The plugin maintains a debug log at 'wp-content/wphb-logs/page-caching-log.php', which is designed to prevent direct execution via a '<?php die(); ?>' header. However, due to a namespace resolution error in the class_exists() check, the header is omitted when the log is generated during a front-end request. 
