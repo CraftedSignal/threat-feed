@@ -3,6 +3,7 @@ title: Authentication Bypass in Totolink A3002MU via /bin/boa
 slug: 2026-10-totolink-auth-bypass
 description: The Totolink A3002MU router (v1.0.0-B20230403.1455) contains a critical authentication bypass vulnerability in the /bin/boa web server component, allowing remote unauthenticated access.
 date: "2026-10-05T09:39:21Z"
+lastmod: "2026-10-05T11:39:17Z"
 type: threat
 types:
   - threat
@@ -15,6 +16,9 @@ tags:
   - authentication-bypass
   - network-device
   - web-vulnerability
+  - buffer-overflow
+  - rce
+  - edge-security
 vendors:
   - Totolink
 products:
@@ -26,11 +30,18 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: Executing a manipulation can lead to improper authorization.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1210
+    technique_name: Exploitation of Remote Services
+    evidence: The manipulation of the argument addQos/comment/entry_name leads to stack-based buffer overflow, allowing remote exploitation.
+    confidence_band: high
 cves:
   - id: CVE-2026-105284
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105284
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105285
 action_plan:
   priority: elevated
   owners:
@@ -47,6 +58,14 @@ action_plan:
       owner: Network Operations
       addresses: CVE-2026-105284
       evidence: CVE-2026-105284 authentication bypass
+updates:
+  - at: "2026-10-05T11:39:17Z"
+    level: L2
+    summary: added coverage for A3002MU (1.0.0-B20230403.1455)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-105285
 ---
 
 A critical authentication bypass vulnerability has been identified in the Totolink A3002MU wireless router, specifically affecting firmware version 1.0.0-B20230403.1455. The vulnerability resides within the function `sub_40FCFC` located in the `/bin/boa` binary, which serves as the router's embedded web management interface. 
