@@ -3,6 +3,7 @@ title: SQL Injection in Online-Appointment-Booking-System
 slug: 2026-10-sql-injection-online-appointment
 description: An unauthenticated SQL injection vulnerability in the Patient Login Handler allows remote attackers to execute arbitrary SQL commands via the uname or psw parameters.
 date: "2026-10-05T20:48:01Z"
+lastmod: "2026-10-05T22:48:01Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +19,7 @@ vendors:
   - girishsaraf
 products:
   - Online-Appointment-Booking-System (<= f427b4757128ca253d33d0cc4e87bbb9c999a4d5)
+  - Online-Appointment-Booking-System (up to commit f427b4757128ca253d33d0cc4e87bbb9c999a4d5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +32,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105387
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105468
 rules:
   - title: Detect CVE-2026-105387 Exploitation - SQL Injection in cover.php
     description: Detects exploitation attempts against CVE-2026-105387 where SQL injection payloads are injected into the uname or psw parameters in cover.php
@@ -41,7 +44,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-105468 Exploitation - SQL Injection in mlogin.php
+    description: Detects SQL injection attempts against the login handler of the Online-Appointment-Booking-System by identifying common SQL syntax characters in login parameters.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +80,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-105387
       evidence: SQL injection vulnerability in Patient Login Handler
+updates:
+  - at: "2026-10-05T22:48:01Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-105468 Exploitation - SQL Injection in mlogin.php'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-105468
 ---
 
 A SQL injection vulnerability (CVE-2026-105387) has been identified in the Online-Appointment-Booking-System developed by girishsaraf. The vulnerability resides in the mysqli_query function within cover.php, specifically within the Patient Login Handler component. An unauthenticated remote attacker can exploit this flaw by sending specially crafted input to the uname or psw arguments. 
