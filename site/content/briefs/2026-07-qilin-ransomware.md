@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-08-29T23:17:41Z"
+lastmod: "2026-10-05T22:47:47Z"
 type: threat
 types:
   - threat
@@ -18,46 +18,33 @@ cpes:
   - cpe:2.3:o:watchguard:fireware:*:*:*:*:*:*:*:*
   - cpe:2.3:o:watchguard:fireware:2025.1:*:*:*:*:*:*:*
   - cpe:2.3:o:checkpoint:gaia_os:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:-:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_10:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_101:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_103:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_105:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_111:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_113:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_115:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_118:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_119:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_120:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_122:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_126:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_127:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_14:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_141:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_24:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_26:*:*:*:*:*:*
-  - cpe:2.3:o:checkpoint:gaia_os:r81.20:take_38:*:*:*:*:*:*
+  - cpe:2.3:o:checkpoint:gaia_os:r81.20:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:*:*:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:-:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h1:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h12:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h16:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h18:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h19:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h21:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h24:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h3:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h32:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h6:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:h8:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.8:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:10.2.9:*:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:-:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:h10:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:h12:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:h14:*:*:*:*:*:*
-  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:h17:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:*:*:*:*:*:*:*
   - cpe:2.3:a:solarwinds:web_help_desk:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:checkpoint:gaia_os:r82:*:*:*:*:*:*:*
+  - cpe:2.3:o:checkpoint:gaia_os:r82.10:*:*:*:*:*:*:*
+  - cpe:2.3:o:checkpoint:gaia_embedded:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:checkpoint:gaia_embedded:r81.10.17:*:*:*:*:*:*:*
+  - cpe:2.3:o:checkpoint:gaia_embedded:r82.00.10:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.11:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.12:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.13:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.14:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.15:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.16:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.17:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.18:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.0:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.1:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.2:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.3:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.4:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.5:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.6:*:*:*:*:*:*:*
 tags:
   - ransomware
   - qilin
@@ -95,6 +82,7 @@ vendors:
   - API
   - Microsoft
   - Palo Alto Networks
+  - Onsemi
 products:
   - www.acosol.es
   - vCenter
@@ -143,6 +131,7 @@ products:
   - higen.co.kr
   - winchesterky.com
   - bwrightdrywall.com
+  - onsemi.com
 affected_os:
   - Windows
   - Unix
@@ -234,19 +223,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-24061
     cvss: 9.8
-    epss: 0.97878
+    epss: 0.98984
   - id: CVE-2025-9242
     cvss: 9.8
     epss: 0.913
   - id: CVE-2026-50751
     cvss: 9.3
-    epss: 0.83771
+    epss: 0.06301
   - id: CVE-2026-0257
     cvss: 9.1
-    epss: 0.93905
+    epss: 0.96382
   - id: CVE-2025-40554
     cvss: 9.8
-    epss: 0.58447
+    epss: 0.60642
 references:
   - https://www.ransomware.live/group/qilin
   - https://www.secureworks.com/research/threat-profiles/gold-feather
@@ -642,13 +631,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-08-11T21:45:09Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-08-16T18:20:11Z"
     level: L1
     summary: new IOCs
@@ -673,6 +655,13 @@ updates:
   - at: "2026-08-29T23:17:41Z"
     level: L2
     summary: added CVE-2025-40554 +4
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-10-05T22:47:47Z"
+    level: L1
+    summary: new product
     sources:
       - ransomware-live
     source_urls:
