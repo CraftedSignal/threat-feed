@@ -3,6 +3,7 @@ title: Detection of Browser-Spawned Unix Shells with External Connectivity
 slug: 2026-09-cisco-nvm-browser-shell
 description: Anomalous execution pattern where Unix-based browser processes spawn shells to initiate outbound external network connections, a TTP indicative of potential drive-by exploitation or browser-based post-exploitation.
 date: "2026-09-05T18:02:59Z"
+lastmod: "2026-10-05T12:36:14Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,9 @@ tags:
   - macos
   - endpoint
   - cisco-nvm
+affected_os:
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -22,6 +26,8 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Detects a Unix-based (Linux or macOS) browser process spawning a Unix shell that establishes an outbound connection to an external destination.
     confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___browser_spawned_unix_shell_with_external_connection.yml
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +47,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Anomalous browser-to-shell execution chain observed in detection development.
+updates:
+  - at: "2026-10-05T12:36:14Z"
+    level: L1
+    summary: OS linux; OS macos
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/cisco_nvm___browser_spawned_unix_shell_with_external_connection.yml
 ---
 
 This threat brief focuses on detecting anomalous process execution chains on Linux and macOS systems where a web browser acts as a parent process to a Unix shell (e.g., bash, zsh, sh) that subsequently initiates an outbound connection to an external, non-private network destination. Observed through Cisco Network Visibility Module (NVM) flow data, this behavior frequently signals the exploitation of browser vulnerabilities, malicious drive-by downloads, or the abuse of browser extensions to establish command and control (C2). Defenders should monitor these patterns as they often represent the initial stages of post-exploitation, allowing attackers to leverage a browser's existing network context to bypass perimeter controls or perform lateral movement within the environment.
