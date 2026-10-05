@@ -3,6 +3,7 @@ title: Rejetto HFS Vulnerability Allows Remote Code Execution via Session Forger
 slug: 2026-07-rejetto-hfs-session-key
 description: A remote attacker can exploit a critical vulnerability, CVE-2026-61500, in Rejetto HFS versions 3.0.0 through 3.2.0 by recovering the session-cookie signing key due to poor randomness, forging an administrator session, and achieving remote code execution.
 date: "2026-07-13T18:17:56Z"
+lastmod: "2026-10-05T11:42:57Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - Rejetto
 products:
   - HFS (versions 3.0.0 through 3.2.0)
+  - HTTP File Server (< 3.2.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -44,8 +46,18 @@ mitre_ttps:
 cves:
   - id: CVE-2026-61500
     cvss: 9.8
+    epss: 0.00987
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61500
+  - https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai/
+updates:
+  - at: "2026-10-05T11:42:57Z"
+    level: L1
+    summary: new product
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai/
 ---
 
 CVE-2026-61500 details a critical vulnerability affecting Rejetto HFS, a popular HTTP File Server, specifically versions 3.0.0 through 3.2.0. The vulnerability stems from the application's use of a non-cryptographic `Math.random()` generator to derive its session-cookie signing key. Compounding this issue, outputs from this same predictable generator are inadvertently disclosed to unauthenticated clients during login responses. A sophisticated remote attacker can leverage this weakness by collecting a limited number of login responses, subsequently reconstructing the `Math.random()` generator's internal state. This allows the attacker to recover the session-cookie signing key, forge a valid administrator session cookie, and ultimately gain full administrative access. This administrative control can then be weaponized to achieve remote code execution via the server's `server_code` configuration feature, posing a severe risk to the compromised system.
