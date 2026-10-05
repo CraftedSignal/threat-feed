@@ -3,6 +3,7 @@ title: Path Traversal Vulnerability in Legcord Theme IPC Handlers
 slug: 2026-10-legcord-path-traversal
 description: Legcord versions 1.1.0 through 1.3.0 contain a path traversal vulnerability in IPC handlers that allows arbitrary file system manipulation and command execution when triggered via cross-origin script injection.
 date: "2026-10-05T01:43:38Z"
+lastmod: "2026-10-05T01:43:47Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - Legcord
 products:
   - Legcord (1.1.0 through 1.3.0)
+  - Legcord (1.1.0-1.3.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -26,11 +28,30 @@ mitre_ttps:
     technique_name: Indirect Command Execution
     evidence: Attackers... can abuse themes.folder, themes.uninstall, and themes.install to launch local executables.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Attackers exploiting a Discord XSS can set additionalArguments to persistently add --proxy-server and --ignore-certificate-errors switches.
+    confidence_band: high
 cves:
   - id: CVE-2026-105293
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105293
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105294
+rules:
+  - title: Detect Legcord Launched with Suspicious Proxy Switches
+    description: Detects the execution of Legcord with command-line arguments that force traffic through an external proxy, potentially indicating exploitation of CVE-2026-105294.
+    platform: sigma
+    severity: high
+    tactics:
+      - command_and_control
+    techniques:
+      - T1071.001
+    data_sources:
+      - process_creation
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +67,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-105293
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-05T01:43:47Z"
+    level: L2
+    summary: 'added detection rule: Detect Legcord Launched with Suspicious Proxy Switches'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-105294
 ---
 
 Legcord versions 1.1.0 through 1.3.0 are susceptible to a path traversal vulnerability within their theme inter-process communication (IPC) handlers. The flaw exists because the application fails to adequately validate 'theme id' parameters before processing them. An attacker who has achieved script execution within the Discord origin, perhaps through a secondary XSS attack, can leverage the 'themes.folder', 'themes.uninstall', and 'themes.install' IPC handlers to break out of the intended themes directory. This access grants the ability to perform unauthorized file operations, including recursive directory deletion and arbitrary file writes, as well as the execution of local binaries on the host system. This vulnerability poses a significant risk to host integrity for users of the affected Legcord versions.
