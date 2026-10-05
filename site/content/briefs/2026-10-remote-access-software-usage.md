@@ -1,8 +1,8 @@
 ---
-title: Detection of Unauthorized Remote Access Software Usage via DNS
+title: Detection of Unauthorized Remote Access Software via Web Traffic
 slug: 2026-10-remote-access-software-usage
-description: This detection analytic identifies unauthorized usage of remote access software by monitoring DNS queries directed at domains associated with tools such as AnyDesk, GoToMyPC, LogMeIn, and TeamViewer.
-date: "2026-10-05T12:34:03Z"
+description: This detection analytic identifies unauthorized usage of remote access utilities by monitoring web traffic for connections to known domains associated with tools such as AnyDesk, GoToMyPC, LogMeIn, and TeamViewer.
+date: "2026-10-05T12:35:37Z"
 type: advisory
 types:
   - advisory
@@ -11,64 +11,61 @@ severities:
 tags:
   - command-and-control
   - remote-access
-  - dns-monitoring
-  - t1219
+  - network-security
+  - T1219
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1219
     technique_name: Remote Access Software
-    evidence: Adversaries often use these tools to maintain access and control over compromised environments.
+    evidence: Adversaries often use these utilities to maintain unauthorized remote access.
     confidence_band: high
-rules:
-  - title: Detect Remote Access Software DNS Queries
-    description: Detects DNS queries to domains associated with known remote access software providers, often used for unauthorized C2 or persistent access.
-    platform: sigma
-    severity: medium
-    tactics:
-      - command_and_control
-    techniques:
-      - T1219
-    data_sources:
-      - dns_query
-rules_count: 1
 action_plan:
   priority: elevated
   owners:
-    - SOC
     - Detection Engineering
+    - SOC
   immediate_actions:
-    - action: Deploy DNS query detection rule.
+    - action: Deploy web traffic logging for remote access domains to SIEM
       owner: Detection Engineering
       due: 72h
-      evidence: Source provides analytic methodology for identifying T1219 via DNS logs.
+      evidence: Source documentation on required network telemetry
   hunt_leads:
-    - lead: Identify all historical DNS traffic to known remote access domains.
+    - lead: Identify outbound web traffic to known remote access domains from workstations
       technique_id: T1219
       data_needed:
-        - DNS query logs
-      priority: medium
+        - Firewall or Web Proxy logs
+      priority: high
       confidence: high
       disposition: hunt_now
-      evidence: Source identifies this as a primary mechanism for T1219 discovery.
+      evidence: Source analytic identifies unauthorized remote access tool usage
   mitigation_plan:
-    - priority: medium
-      action: Implement application control policies to block unauthorized remote access software execution.
-      owner: IT Operations
-      addresses: T1219
-      evidence: Mitigation of remote access software usage reduces risk of C2 and persistence.
+    - priority: medium_term
+      action: Establish a formal process for reviewing and updating the remote access software allowlist
+      owner: SOC
+      addresses: False positive management for IT remote tools
+      evidence: Source explicitly mentions legitimate software false positives
 ---
 
-Adversaries frequently abuse legitimate remote access software, such as AnyDesk, GoToMyPC, LogMeIn, and TeamViewer, to maintain persistent access and command-and-control (C2) within compromised environments. By utilizing these dual-use utilities, attackers can bypass traditional security controls that might otherwise flag custom malware. This analytic focuses on detecting the DNS resolution phase of these connections, which is often the first network-observable indicator of such software being initiated. Detecting this activity is vital for a Security Operations Center (SOC) because unauthorized remote access is commonly a precursor to data exfiltration, ransomware attacks, and full-scale network compromise. Defenders should prioritize identifying these requests, particularly when the remote access software is not sanctioned for use by IT or security teams within the enterprise.
+Adversaries frequently employ legitimate remote access and monitoring tools (RATs/RMMs) to maintain persistence, conduct command-and-control (C2) communication, and facilitate unauthorized data exfiltration. This threat involves the use of dual-use software - such as AnyDesk, GoToMyPC, LogMeIn, and TeamViewer - which are often indistinguishable from standard administrative traffic unless specific domain indicators are monitored. This analytic focuses on identifying network connections to domains associated with these utilities by mapping web proxy or firewall traffic to the Common Information Model (CIM) Web data model. Defensive teams must differentiate between authorized enterprise IT management activities and malicious actor usage. Success in this detection relies on maintaining a robust allowlist lookup to manage known-good business use cases, as these tools are commonly integrated into modern enterprise workflows.
+
+## Attack Chain
+
+1. Initial access: Adversary gains entry to a target system via phishing, exploit, or credential theft.
+2. Staging: Attacker downloads a legitimate remote access installer or portable executable onto the compromised host.
+3. Execution: The remote access binary is launched, establishing a connection to its vendor-hosted C2 cloud infrastructure.
+4. C2 Established: The host registers with the attacker-controlled panel, providing a unique ID for remote interaction.
+5. Persistence: The actor configures the software to run automatically upon system startup to maintain long-term access.
+6. Action on Objective: The attacker uses the remote interface to browse files, exfiltrate sensitive data, or deploy additional malware like ransomware.
 
 ## Impact
 
-Successful deployment of unauthorized remote access tools allows attackers to maintain stealthy persistence, bypass ingress filtering, and remotely execute commands on compromised endpoints. This behavior has been observed across various high-impact threat campaigns, including ransomware operations and activities attributed to groups like Scattered Spider. If left undetected, this activity can facilitate large-scale data breaches and operational disruption.
+Successful exploitation allows for complete remote control of compromised systems, enabling attackers to bypass traditional perimeter security, exfiltrate intellectual property, and deploy destructive payloads like ransomware. This technique is observed across multiple sectors and is a standard component in the toolsets of major ransomware operations and organized cybercriminal groups.
 
 ## Recommendation
 
-Prioritize the implementation of DNS-based visibility to identify unauthorized remote access utilities.
-* Deploy the detection logic to monitor DNS query logs for domains associated with unauthorized remote access software providers.
-* Use the "remote_access_software_usage_exceptions" macro to maintain a list of sanctioned remote access tools to minimize false positives.
-* Integrate an Assets and Identities (A&I) lookup to differentiate between authorized administrative use and suspicious activity originating from unexpected hosts.
-* Investigate triggered alerts using the provided drilldown search to identify the source endpoint and assess the scope of the potential compromise.
+Prioritize the implementation of network-based monitoring for known remote access software domains to identify unauthorized usage.
+- Process network logs (Firewall/Proxy) and map them to the Web data model using the Splunk CIM to ensure compatibility with detection logic.
+- Implement a lookup-based allowlist (remote_access_software_usage_exception.csv) to manage legitimate enterprise use of these tools and reduce false positives.
+- Investigate any detected connections from unexpected source IPs or user accounts using the provided drilldown searches.
+- Integrate Asset and Identity (A&I) lookups to automatically suppress alerts for known IT administration endpoints.
