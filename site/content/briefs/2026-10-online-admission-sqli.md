@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in itsourcecode Online Admission System
 slug: 2026-10-online-admission-sqli
 description: CVE-2026-105172 is a remote SQL injection vulnerability in itsourcecode Online Admission System 1.0, reachable via the User parameter in /login1.php, for which public exploit code is available.
 date: "2026-10-05T01:43:15Z"
+lastmod: "2026-10-05T03:43:46Z"
 type: threat
 types:
   - threat
@@ -14,6 +15,8 @@ cpes:
 tags:
   - sqli
   - web-vulnerability
+  - sql-injection
+  - cve
 vendors:
   - itsourcecode
 products:
@@ -30,6 +33,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105172
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105183
 rules:
   - title: Detect CVE-2026-105172 Exploitation - SQL Injection in /login1.php
     description: Detects attempts to exploit CVE-2026-105172 by checking for common SQL injection syntax within the 'User' parameter of /login1.php
@@ -41,7 +45,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-105183 Exploitation - Remote SQL Injection
+    description: Detects exploitation attempts against CVE-2026-105183 by identifying common SQL injection patterns in the schedid parameter directed at the /admin/confirm.php endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +81,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-105172
       evidence: Vulnerability in Online Admission System 1.0
+updates:
+  - at: "2026-10-05T03:43:46Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-105183 Exploitation - Remote SQL Injection'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-105183
 ---
 
 CVE-2026-105172 is a high-severity SQL injection vulnerability affecting version 1.0 of the itsourcecode Online Admission System. The flaw resides within the /login1.php script, specifically in the processing of the 'User' argument. An unauthenticated remote attacker can supply crafted SQL payloads within this parameter to manipulate backend database queries. This vulnerability allows for unauthorized data extraction, modification, or bypass of authentication mechanisms. Public exploit code for this vulnerability is currently available, increasing the risk of active exploitation by opportunistic actors. Organizations using this software should restrict access to the application or apply compensating controls at the web application firewall level until a patch is available.
