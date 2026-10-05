@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in HospitalManagementSystem (CVE-2026-104609)
 slug: 2026-10-hospital-management-sql-injection
 description: The onetwothreeneth HospitalManagementSystem contains a remote SQL injection vulnerability in edit_accounts.php that allows unauthenticated attackers to execute arbitrary database queries.
 date: "2026-10-02T14:25:05Z"
+lastmod: "2026-10-05T18:48:30Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - web-application
   - sql-injection
   - cve-2026-104609
+  - sqli
+  - vulnerability
 vendors:
   - onetwothreeneth
 products:
   - HospitalManagementSystem (<= 9ef91ed6007314b6473110ed699dff76d158f61d)
+  - HospitalManagementSystem (up to commit 9ef91ed6007314b6473110ed699dff76d158f61d)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +34,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104609
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105385
 rules:
   - title: Detect CVE-2026-104609 Exploitation - SQL Injection in edit_accounts.php
     description: Detects exploitation attempts against CVE-2026-104609 by identifying SQL injection payloads targeting edit_accounts.php parameters
@@ -41,7 +46,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-105385 Exploitation - SQL Injection in HospitalManagementSystem
+    description: Detects potential SQL injection attempts against the transaction_details.php endpoint by looking for common SQL keywords and syntax in the transaction_id query parameter.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-104609
       evidence: SQL injection vulnerability in specific function
+updates:
+  - at: "2026-10-05T18:48:30Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-105385 Exploitation - SQL Injection in HospitalManagementSystem'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-105385
 ---
 
 A SQL injection vulnerability has been identified in the onetwothreeneth HospitalManagementSystem, affecting all versions up to the commit hash 9ef91ed6007314b6473110ed699dff76d158f61d. The vulnerability resides in the 'get' function within the 'edit_accounts.php' file. An attacker can remotely exploit this by manipulating the 'user_id', 'patient_id', 'physician_id', 'discounts_id', or 'services_id' arguments via crafted HTTP GET requests. Because the system follows a rolling release model, there is no specific version number to patch, and the project maintainers have not yet addressed the vulnerability despite early notification. Publicly available exploit code increases the risk of immediate exploitation against internet-facing instances of this software.
