@@ -3,6 +3,7 @@ title: Active Exploitation of Citrix NetScaler Buffer Vulnerability (CVE-2026-88
 slug: 2026-10-citrix-netscaler-kev
 description: CISA has added CVE-2026-88779, a memory buffer vulnerability in Citrix NetScaler, to the Known Exploited Vulnerabilities (KEV) catalog due to confirmed in-the-wild exploitation.
 date: "2026-10-04T20:49:54Z"
+lastmod: "2026-10-05T00:48:27Z"
 type: threat
 types:
   - threat
@@ -21,6 +22,8 @@ vendors:
   - Citrix
 products:
   - NetScaler (< 14.1-73.41)
+  - NetScaler ADC (< 14.1-73.41)
+  - NetScaler Gateway (< 14.1-73.41)
 cves:
   - id: CVE-2026-88779
 references:
@@ -51,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-88779
       evidence: CISA KEV requirement
+updates:
+  - at: "2026-10-05T00:48:27Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-88779
 ---
 
 CISA has officially added CVE-2026-88779, a vulnerability categorized as an Improper Restriction of Operations within the Bounds of a Memory Buffer in Citrix NetScaler, to its Known Exploited Vulnerabilities (KEV) Catalog. This addition is based on validated evidence of active exploitation by malicious cyber actors. Vulnerabilities of this class frequently lead to unauthorized remote code execution or system instability by corrupting memory within the application process space. The inclusion in the KEV Catalog triggers requirements under Binding Operational Directive (BOD) 26-04 for federal agencies to prioritize remediation on internet-facing assets. Organizations utilizing Citrix NetScaler must assess their exposure and apply available vendor patches as a priority, given the confirmed active threat environment.
