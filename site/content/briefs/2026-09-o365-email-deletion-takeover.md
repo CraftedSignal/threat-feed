@@ -3,7 +3,7 @@ title: Detection of O365 Email Receive and Hard Delete Takeover Behavior
 slug: 2026-09-o365-email-deletion-takeover
 description: Threat actors are suppressing evidence of account compromise by receiving and then hard-deleting emails related to sensitive banking, payroll, or credential changes within Office 365 environments.
 date: "2026-09-29T10:11:25Z"
-lastmod: "2026-09-29T10:11:37Z"
+lastmod: "2026-10-05T12:08:34Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +16,8 @@ tags:
   - payroll-fraud
   - exfiltration
   - email-security
+  - bec
+  - persistence
 vendors:
   - Microsoft
 products:
@@ -51,11 +53,30 @@ mitre_ttps:
     technique_name: Indicator Removal on Host
     evidence: The detection is part of the Office 365 Account Takeover and Suspicious Emails stories.
     confidence_band: med
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1564
+    technique_name: Hide Artifacts
+    evidence: This analytic detects mailbox rule creation, a common technique used in Business Email Compromise.
+    confidence_band: high
 references:
   - https://attack.mitre.org/techniques/T1114/
   - https://www.hhs.gov/sites/default/files/help-desk-social-engineering-sector-alert-tlpclear.pdf
   - https://intelligence.abnormalsecurity.com/attack-library/threat-actor-convincingly-impersonates-employee-requesting-direct-deposit-update-in-likely-ai-generated-attack
   - https://github.com/splunk/security_content/blob/main/detections/cloud/o365_email_send_and_hard_delete_exfiltration_behavior.yml
+  - https://attack.mitre.org/techniques/T1564/008/
+rules:
+  - title: Detect Suspicious O365 Mailbox Rule Creation
+    description: Detects the creation of mailbox rules with suspicious characteristics commonly associated with BEC, such as low entropy names or redirection to hidden folders.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1564.008
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -83,6 +104,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/cloud/o365_email_send_attachments_excessive_volume.yml
+  - at: "2026-10-05T12:08:34Z"
+    level: L1
+    summary: 'added detection rule: Detect Suspicious O365 Mailbox Rule Creation'
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/cloud/o365_bec_email_hiding_rule_created.yml
 ---
 
 This threat involves the unauthorized manipulation of Microsoft Office 365 mailboxes by threat actors to facilitate financial fraud or maintain persistence. After gaining access to a user account, adversaries target sensitive incoming communications such as banking notifications, direct deposit updates, MFA requests, or password reset alerts. To avoid detection by the account owner, the actor performs a hard delete of these messages from the 'Sent Items' or 'Recoverable Items' folders. This behavior is a critical indicator of account takeover (ATO) and is often associated with payroll redirection scams. Defenders should monitor for the correlation between incoming messages containing sensitive keywords and subsequent mailbox management activities that bypass standard trash bin recovery paths.
