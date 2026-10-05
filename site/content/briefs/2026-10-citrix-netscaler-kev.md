@@ -3,7 +3,7 @@ title: Active Exploitation of Citrix NetScaler Buffer Vulnerability (CVE-2026-88
 slug: 2026-10-citrix-netscaler-kev
 description: CISA has added CVE-2026-88779, a memory buffer vulnerability in Citrix NetScaler, to the Known Exploited Vulnerabilities (KEV) catalog due to confirmed in-the-wild exploitation.
 date: "2026-10-04T20:49:54Z"
-lastmod: "2026-10-05T00:48:27Z"
+lastmod: "2026-10-05T18:41:24Z"
 type: threat
 types:
   - threat
@@ -12,6 +12,10 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:citrix:netscaler:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:fips:*:*:*
+  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:ndcpp:*:*:*
+  - cpe:2.3:a:citrix:netscaler_application_delivery_controller:*:*:*:*:-:*:*:*
+  - cpe:2.3:a:citrix:netscaler_gateway:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - cisa-kev
@@ -26,9 +30,12 @@ products:
   - NetScaler Gateway (< 14.1-73.41)
 cves:
   - id: CVE-2026-88779
+    cvss: 7.5
+    epss: 0.00276
 references:
   - https://www.cisa.gov/news-events/alerts/2026/10/04/cisa-adds-one-known-exploited-vulnerability-catalog
   - https://www.cve.org/CVERecord?id=CVE-2026-88779
+  - https://www.sophos.com/en-us/blog/citrix-netscaler-vulnerability-cve-2026-88779-in-active-exploitation
 action_plan:
   priority: immediate_escalation
   owners:
@@ -62,6 +69,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-88779
+  - at: "2026-10-05T18:41:24Z"
+    level: L1
+    summary: new product
+    sources:
+      - sophos-xops
+    source_urls:
+      - https://www.sophos.com/en-us/blog/citrix-netscaler-vulnerability-cve-2026-88779-in-active-exploitation
 ---
 
 CISA has officially added CVE-2026-88779, a vulnerability categorized as an Improper Restriction of Operations within the Bounds of a Memory Buffer in Citrix NetScaler, to its Known Exploited Vulnerabilities (KEV) Catalog. This addition is based on validated evidence of active exploitation by malicious cyber actors. Vulnerabilities of this class frequently lead to unauthorized remote code execution or system instability by corrupting memory within the application process space. The inclusion in the KEV Catalog triggers requirements under Binding Operational Directive (BOD) 26-04 for federal agencies to prioritize remediation on internet-facing assets. Organizations utilizing Citrix NetScaler must assess their exposure and apply available vendor patches as a priority, given the confirmed active threat environment.
