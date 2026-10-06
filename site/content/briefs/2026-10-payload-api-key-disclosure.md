@@ -3,6 +3,7 @@ title: Payload API Key Disclosure via Document Read Access
 slug: 2026-10-payload-api-key-disclosure
 description: A vulnerability in Payload CMS versions 3.x and 4.x-canary allows unauthorized users with document read permissions to access active API keys stored within authentication collections.
 date: "2026-10-06T18:47:38Z"
+lastmod: "2026-10-06T18:47:54Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,16 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:payloadcms:payload:*:*:*:*:*:node.js:*:*
+tags:
+  - information-disclosure
+  - cms
+  - authentication
 vendors:
   - Payload
 products:
   - payload (>= 3.0.0 < 3.90.0, >= 4.0.0-canary.0 < 4.0.0-canary.34)
+  - Payload (>= 3.0.0, < 3.90.0)
+  - Payload (>= 4.0.0-canary.0, < 4.0.0-canary.34)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -21,11 +28,19 @@ mitre_ttps:
     technique_name: Steal Application Access Token
     evidence: Users with read access to other user documents could access their active API keys.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Token refresh and password reset responses could return fields that the requesting user did not have access to.
+    confidence_band: high
 cves:
   - id: CVE-2026-105849
 references:
   - https://github.com/advisories/GHSA-238x-w2j9-gwwr
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-105849
+  - https://github.com/advisories/GHSA-xgv3-crq2-6f69
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105853
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +57,14 @@ action_plan:
       owner: Security Team
       addresses: CVE-2026-105849
       evidence: Source recommends rotating any API key that may have been exposed
+updates:
+  - at: "2026-10-06T18:47:54Z"
+    level: L2
+    summary: added coverage for Payload (>= 3.0.0, < 3.90.0) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-xgv3-crq2-6f69
 ---
 
 Payload CMS versions prior to 3.90.0 and 4.0.0-canary.34 are vulnerable to an API key disclosure flaw, tracked as CVE-2026-105849. This vulnerability manifests in deployments where the `useAPIKey` authentication feature is enabled. Due to insecure access control logic, users who possess read access to documents within an authentication collection can view sensitive API keys belonging to other users. Because these keys hold the permissions of the target account, successful exploitation allows an attacker to masquerade as the compromised user until the key is rotated or disabled. This impacts organizations relying on Payload for authentication and document management, particularly those with permissive document access policies.
