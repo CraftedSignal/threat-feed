@@ -3,7 +3,7 @@ title: Critical Sandbox Escape Vulnerability in vm2
 slug: 2026-10-vm2-sandbox-escape
 description: The vm2 JavaScript sandbox environment contains a critical vulnerability (CVE-2026-92955) allowing attackers to escape the sandbox via prototype chain manipulation and execute arbitrary code on the host system.
 date: "2026-10-06T00:42:43Z"
-lastmod: "2026-10-06T00:43:01Z"
+lastmod: "2026-10-06T00:43:10Z"
 type: advisory
 types:
   - advisory
@@ -17,8 +17,12 @@ tags:
   - javascript
   - rce
   - vulnerability
+  - nodejs
+vendors:
+  - vm2
 products:
   - vm2 (<= 3.11.7)
+  - vm2 (<= 3.11.6)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -49,6 +53,7 @@ references:
   - https://github.com/patriksimek/vm2/security/advisories/GHSA-grj5-jjm8-h35p
   - https://github.com/patriksimek/vm2/security/advisories/GHSA-47x8-96vw-5wg6
   - https://github.com/advisories/GHSA-x965-fc75-jpqh
+  - https://github.com/advisories/GHSA-j3hm-6rg5-mchv
 action_plan:
   priority: immediate_escalation
   owners:
@@ -73,6 +78,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-x965-fc75-jpqh
+  - at: "2026-10-06T00:43:10Z"
+    level: L2
+    summary: added coverage for vm2 (<= 3.11.6)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-j3hm-6rg5-mchv
 ---
 
 The vm2 library, a popular JavaScript sandbox for executing untrusted code, contains a critical sandbox escape vulnerability tracked as CVE-2026-92955. The vulnerability affects all versions of the vm2 package up to and including 3.11.7. An attacker can exploit this flaw by leveraging the host's `__proto__` getter and setter to traverse the prototype chain of inherited console streams (specifically `console._stdout` and `console._stderr`). By accessing these objects, an attacker can modify `EventEmitter.prototype.emit`, allowing them to execute arbitrary code within the host process context. This method successfully bypasses Node.js security features such as `--disallow-code-generation-from-strings`, which typically prevents common sandbox breakout techniques. Successful exploitation results in full remote code execution on the host server.
