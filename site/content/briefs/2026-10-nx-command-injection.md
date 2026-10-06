@@ -3,6 +3,7 @@ title: OS Command Injection in Nx via Git Revisions and Remote Refs
 slug: 2026-10-nx-command-injection
 description: The Nx build system contains OS command injection vulnerabilities in `nx affected` and `nx import` commands, allowing attackers to execute arbitrary code via malicious git revision strings or remote branch names.
 date: "2026-10-06T00:45:33Z"
+lastmod: "2026-10-06T00:45:42Z"
 type: threat
 types:
   - threat
@@ -14,11 +15,15 @@ tags:
   - build-system
   - ci-cd
   - remote-code-execution
+  - vulnerability
+  - local-exploitation
+  - privilege-escalation
 vendors:
   - Nx
 products:
   - nx (>= 14.0.0, < 22.7.8)
   - nx (>= 23.0.0, < 23.1.1)
+  - nx (14.6.0-22.7.8, 23.0.0-23.1.1)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -26,8 +31,16 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The Nx core build system constructs shell command strings with untrusted values interpolated into them, and they are parsed by /bin/sh.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: Windows Command Shell
+    evidence: The daemon accepts a PROCESS_IN_BACKGROUND request that names a module to load and invokes its default export, which turns socket access into code execution inside the daemon process.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-w2vw-w76x-qr89
+  - https://github.com/advisories/GHSA-w3vv-58gj-gw77
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-104854
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +57,14 @@ action_plan:
       owner: DevOps
       addresses: Arbitrary command execution in CI
       evidence: CI/CD runners are specifically noted as a high-risk target.
+updates:
+  - at: "2026-10-06T00:45:42Z"
+    level: L2
+    summary: added coverage for nx (14.6.0-22.7.8, 23.0.0-23.1.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-w3vv-58gj-gw77
 ---
 
 Nx core is vulnerable to multiple OS command injection flaws where untrusted git inputs are interpolated into shell command strings. The vulnerabilities exist in two primary workflows: `affected` commands and `nx import`. In the `affected` workflow, values from `nx.json` (`defaultBase` / `affected.defaultBase`) or the `NX_BASE` / `NX_HEAD` environment variables are used to construct `git` commands. Because these strings are processed by `/bin/sh` without proper sanitization, an attacker can inject command substitution payloads using `$(...)` syntax, even when wrapped in double quotes. 
