@@ -3,6 +3,7 @@ title: PhantomRaven Information Stealer
 slug: 2026-09-phantomraven-stealer
 description: A bug bounty hunter is leveraging LLM-generated JavaScript information stealers distributed via malicious npm packages to identify vulnerabilities for bounty submissions.
 date: "2026-09-16T07:01:36Z"
+lastmod: "2026-10-06T12:45:44Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - supply-chain
   - npm
   - malware
+vendors:
+  - npm
+products:
+  - npm
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,6 +31,8 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Python'
     evidence: The actor also creates variants in Python for the PyPI repository.
     confidence_band: high
+references:
+  - https://www.crowdstrike.com/en-us/blog/phantomraven-llm-generated-information-stealer-for-bug-bounty-hunting/
 iocs:
   - type: domain
     value: npm.jpartifacts.com
@@ -63,6 +70,14 @@ action_plan:
       owner: IT Operations
       addresses: Supply Chain Compromise
       evidence: Source identifies dependency-confusion as primary vector.
+updates:
+  - at: "2026-10-06T12:45:44Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/phantomraven-llm-generated-information-stealer-for-bug-bounty-hunting/
 ---
 
 CrowdStrike Counter Adversary Operations identified a financially motivated threat actor who utilizes LLM-generated JavaScript (JS) code to create the PhantomRaven information stealer. Active since November 2022, the actor operates as a bug bounty hunter, using the malware to identify security weaknesses in target environments for submission to bug bounty programs rather than selling logs on illicit marketplaces. 
