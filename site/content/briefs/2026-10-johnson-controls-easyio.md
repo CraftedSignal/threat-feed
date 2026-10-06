@@ -1,68 +1,77 @@
 ---
-title: Cleartext Credential Exposure in Johnson Controls EasyIO Neo Controllers
+title: Hard-coded Credentials and Privilege Management Vulnerabilities in Johnson Controls EasyIO FG
 slug: 2026-10-johnson-controls-easyio
-description: Johnson Controls EasyIO Neo Series controllers are vulnerable to cleartext transmission of sensitive information via the web management interface, potentially allowing credential and session token interception.
-date: "2026-10-01T17:06:42Z"
+description: Johnson Controls EasyIO FG firmware versions <=2.0b52 are affected by hard-coded credentials and improper privilege management vulnerabilities (CVE-2026-27872, CVE-2026-27873), potentially allowing full device compromise.
+date: "2026-10-06T17:12:05Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - high
+cpes:
+  - cpe:2.3:a:johnson_controls:easyio_fg_firmware:*:*:*:*:*:*:*:*
 tags:
-  - ics
+  - iot
   - ot
-  - cleartext-transmission
-  - cve-2026-64893
+  - vulnerability
+  - ics
 vendors:
   - Johnson Controls
 products:
-  - EasyIO Neo Series EC Controllers (V3.3b62, V3.3b63)
-  - EasyIO Neo Series CW Controllers (V3.3b24, V3.3b25)
+  - EasyIO FG firmware (<=2.0b52)
 mitre_ttps:
-  - tactic_id: TA0006
-    tactic_name: Credential Access
-    technique_id: T1552
-    technique_name: Unsecured Credentials
-    evidence: Johnson Controls is aware of a vulnerability in EasyIO Neo which may allow an attacker to intercept and read sensitive information, including credentials and session data, transmitted in cleartext over the network.
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: A vulnerability exists in EasyIO FG relating to an attacker gaining unauthorized access to the system through hard-coded credentials
     confidence_band: high
-  - tactic_id: TA0009
-    tactic_name: Collection
-    technique_id: T1560
-    technique_name: Archive Collected Data
-    evidence: Successful exploitation of this vulnerability could allow an attacker to intercept and read sensitive information, including credentials and session data.
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1110.001
+    technique_name: 'Brute Force: Password Guessing'
+    evidence: vulnerability exists in EasyIO FG relating to ... improper privilege management
     confidence_band: high
+cves:
+  - id: CVE-2026-27872
+    epss: 0.00087
+  - id: CVE-2026-27873
+    epss: 0.00087
 references:
-  - https://www.cisa.gov/news-events/ics-advisories/icsa-26-274-05
-  - https://www.cve.org/CVERecord?id=CVE-2026-64893
+  - https://www.cisa.gov/news-events/ics-advisories/icsa-26-279-01
+  - https://www.cve.org/CVERecord?id=CVE-2026-27872
+  - https://www.cve.org/CVERecord?id=CVE-2026-27873
   - https://www.johnsoncontrols.com/trust-center/cybersecurity/security-advisories
 action_plan:
   priority: elevated
   owners:
-    - IT Operations
     - OT Security
+    - Network Operations
   immediate_actions:
-    - action: Upgrade all affected EasyIO Neo Series EC and CW controllers to the patched firmware versions (EC V3.3b64 or CW V3.3b26)
-      owner: IT Operations
-      due: 72h
-      evidence: Johnson Controls released fixed versions for EasyIO Neo Series EC and CW Controllers.
+    - action: Isolate legacy EasyIO FG devices into restricted VLANs with no Internet egress.
+      owner: Network Operations
+      due: 48h
+      evidence: 'Mitigation: Deploy devices only within isolated BAS/OT networks'
   mitigation_plan:
     - priority: immediate
-      action: Disable HTTP and enforce HTTPS/TLS on all management interfaces
+      action: Decommission and replace EOL EasyIO FG devices with supported hardware like EasyIO Neo R1.
       owner: OT Security
-      addresses: CVE-2026-64893
-      evidence: Enable and enforce HTTPS/TLS for all web-based management access to the device.
+      addresses: CVE-2026-27872, CVE-2026-27873
+      evidence: Johnson Controls has determined that the EasyIO FG Series has reached End-of-Life (EOL) and End-of-Support (EOS) status.
 ---
 
-Johnson Controls has identified a security vulnerability in the EasyIO Neo Series EC and CW controllers (CVE-2026-64893) involving the cleartext transmission of sensitive data. The vulnerability exists within the web-based management interface of the controllers, where credentials and session information are transmitted over the network without adequate encryption. This exposure facilitates potential man-in-the-middle attacks, allowing unauthorized actors to intercept administrative credentials or active session tokens. Given that these devices manage HVAC, lighting, and energy systems, the potential operational impact of unauthorized access is significant. The vulnerability affects EC firmware versions V3.3b62 and V3.3b63, and CW firmware versions V3.3b24 and V3.3b25. Johnson Controls has addressed this by releasing updated firmware (EC V3.3b64 and CW V3.3b26) which disables insecure HTTP communication by default.
+Johnson Controls EasyIO FG series devices running firmware version 2.0b52 or earlier are susceptible to vulnerabilities identified as CVE-2026-27872 and CVE-2026-27873. These vulnerabilities stem from the use of hard-coded credentials (CWE-798) and improper privilege management (CWE-269), which can be leveraged by an attacker to gain unauthorized access and potentially achieve full device compromise. These devices are used globally in critical infrastructure sectors, including energy, manufacturing, and transportation. Because the EasyIO FG series has reached End-of-Life (EOL) and End-of-Support (EOS) status, Johnson Controls will not issue any firmware patches or code-level fixes. Organizations currently utilizing these devices in their OT/BAS networks must rely on strict network segmentation and compensatory controls to mitigate the risk of unauthorized access.
 
 ## Impact
 
-Successful exploitation of CVE-2026-64893 allows an attacker to intercept administrative credentials and session tokens. If leveraged, an attacker could gain unauthorized control over building automation systems, potentially disrupting HVAC, lighting, and energy management. These controllers are deployed globally across sectors including critical manufacturing, energy, commercial facilities, and government services. The impact involves potential loss of operational integrity for building management systems and unauthorized access to sensitive facility control interfaces.
+Successful exploitation of these vulnerabilities allows an attacker to bypass authentication mechanisms and elevate privileges, leading to full control over affected EasyIO FG hardware. Given the role of these devices in critical infrastructure such as energy and manufacturing, a compromise could result in operational disruptions, unauthorized manipulation of physical processes, or lateral movement into broader OT environments. Since no patches are available, the risk remains persistent for any device left connected to a network.
 
 ## Recommendation
 
-- Update affected devices to the fixed firmware versions immediately: Upgrade EC controllers to V3.3b64 and CW controllers to V3.3b26.
-- Disable all HTTP access to controller management interfaces and enforce HTTPS/TLS for all web-based management connections.
-- Implement network segmentation to place all building automation controllers on isolated, protected network segments behind firewalls to limit exposure.
-- Restrict access to management interfaces to trusted IP addresses using access control lists (ACLs).
-- Require the use of VPNs for any remote access to building automation management interfaces to ensure encryption in transit.
+Prioritized actions for security teams:
+- Migrate all instances of the EasyIO FG series to current, supported hardware, such as the EasyIO Neo R1 Series, as the affected devices are EOL.
+- Implement strict network isolation for any remaining units by placing them in isolated BAS/OT VLANs with no direct Internet connectivity.
+- Configure firewalls to allow connections only from whitelisted engineering workstation IP addresses and block all remote login access from untrusted segments.
+- Disable all unnecessary services on the devices, specifically Telnet or other insecure legacy management protocols.
+- Monitor logs for repeated failed login attempts or unauthorized attempts to gain root-level access to the management interface.
+- Refer to the manufacturer's advisory JCI-PSA-2026-12 for detailed mitigation and hardening steps.
