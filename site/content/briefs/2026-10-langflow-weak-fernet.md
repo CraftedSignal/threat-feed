@@ -3,7 +3,7 @@ title: Langflow Insecure Credential Encryption and Key Derivation
 slug: 2026-10-langflow-weak-fernet
 description: Langflow versions 1.10.0 and earlier use a non-cryptographic PRNG to derive Fernet keys from short SECRET_KEYs, allowing unauthenticated attackers who obtain the secret key file to perform offline decryption of all stored user credentials.
 date: "2026-10-06T00:44:45Z"
-lastmod: "2026-10-06T00:48:35Z"
+lastmod: "2026-10-06T00:48:43Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +15,15 @@ tags:
   - credential-access
   - vulnerability
   - langflow
+  - remote-code-execution
+  - injection
+  - ai-security
 vendors:
   - Langflow
 products:
   - Langflow (<= 1.10.0)
   - langflow (>= 1.7.2, < 1.10.1)
+  - Langflow (>= 1.3.0, < 1.10.3)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -42,6 +46,9 @@ references:
   - https://github.com/langflow-ai/langflow/pull/13704
   - https://github.com/advisories/GHSA-w584-2h2r-2hvf
   - https://github.com/langflow-ai/langflow/pull/13696
+  - https://github.com/advisories/GHSA-9fpm-3445-2vx4
+  - https://github.com/langflow-ai/langflow/pull/13530
+  - https://github.com/langflow-ai/langflow/pull/14071
 rules:
   - title: Detect CVE-2026-51886 Exploitation - Malicious Decorators in Validate Code API
     description: Detects potential exploitation attempts of CVE-2026-51886 by monitoring for malicious Python decorators in requests to the Langflow validation API
@@ -82,6 +89,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-w584-2h2r-2hvf
+  - at: "2026-10-06T00:48:43Z"
+    level: L2
+    summary: added coverage for Langflow (>= 1.3.0, < 1.10.3)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9fpm-3445-2vx4
 ---
 
 Langflow versions 1.10.0 and earlier contain a critical cryptographic vulnerability in the handling of Fernet encryption keys used for storing sensitive user credentials, such as LLM API keys and database passwords. The application's `_ensure_valid_key` function incorrectly utilizes Python's non-cryptographic `random` module (Mersenne Twister) seeded with the instance's `SECRET_KEY` when that key is shorter than 32 characters. Because this process is fully deterministic, an attacker who obtains the `secret_key` file can recreate the encryption key offline without brute force. Furthermore, even when the `SECRET_KEY` is 32 characters or longer, the application uses the raw key directly as the Fernet key. This flaw is particularly dangerous when paired with file-read vulnerabilities, such as the MCP path traversal, which allow unauthorized access to the `secret_key` file and the underlying SQLite database. Once these files are exfiltrated, an attacker can decrypt all stored `Credential`-type variables across the entire instance.
