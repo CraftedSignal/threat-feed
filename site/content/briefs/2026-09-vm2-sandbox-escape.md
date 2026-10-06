@@ -3,7 +3,7 @@ title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
 slug: 2026-09-vm2-sandbox-escape
 description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
 date: "2026-09-17T15:57:37Z"
-lastmod: "2026-10-01T20:22:01Z"
+lastmod: "2026-10-06T00:44:38Z"
 type: advisory
 types:
   - advisory
@@ -75,24 +75,24 @@ mitre_ttps:
     evidence: Attackers can use prototype-walking primitives to reach and modify host Uint8Array.prototype, %TypedArray%.prototype, and ArrayBuffer.prototype.
     confidence_band: high
 cves:
-  - id: CVE-2026-92938
-    cvss: 9.9
-    epss: 0.00616
-  - id: CVE-2026-92941
-    cvss: 10
-    epss: 0.00289
+  - id: CVE-2026-92935
+    cvss: 9
+    epss: 0.00673
   - id: CVE-2026-92944
     cvss: 9.8
     epss: 0.00841
-  - id: CVE-2026-92948
-    cvss: 9.9
-    epss: 0.00654
-  - id: CVE-2026-92951
-    cvss: 9.9
-    epss: 0.00539
-  - id: CVE-2026-93606
+  - id: CVE-2026-92946
     cvss: 10
-    epss: 0.00712
+    epss: 0.00857
+  - id: CVE-2026-92942
+    cvss: 7.5
+    epss: 0.00488
+  - id: CVE-2026-92958
+    cvss: 8.5
+    epss: 0.00384
+  - id: CVE-2026-93604
+    cvss: 7.2
+    epss: 0.00345
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92935
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92937
@@ -116,6 +116,7 @@ references:
   - https://github.com/advisories/GHSA-8hr7-r645-pc6w
   - https://github.com/advisories/GHSA-jxxv-8r27-vm4p
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92950
+  - https://github.com/advisories/GHSA-wjwh-qqvp-g4p4
 action_plan:
   priority: elevated
   owners:
@@ -133,13 +134,6 @@ action_plan:
       addresses: CVE-2026-92935
       evidence: NVD vulnerability disclosure.
 updates:
-  - at: "2026-09-18T16:06:37Z"
-    level: L2
-    summary: added coverage for vm2 (<= 3.12.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-93603
   - at: "2026-09-18T16:07:51Z"
     level: L2
     summary: added coverage for vm2 (<= 3.12.0)
@@ -168,6 +162,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-jxxv-8r27-vm4p
+  - at: "2026-10-06T00:44:38Z"
+    level: L2
+    summary: added CVE-2026-92935 +4
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wjwh-qqvp-g4p4
 ---
 
 The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
