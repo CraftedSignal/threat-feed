@@ -3,6 +3,7 @@ title: PHP Object Injection Vulnerability in The Mail Mint WordPress Plugin
 slug: 2026-09-mail-mint-rce
 description: The Mail Mint WordPress plugin versions 1.31.0 and earlier are vulnerable to unauthenticated remote code execution via a PHP Object Injection flaw in the handle_form_submission function.
 date: "2026-09-05T13:31:22Z"
+lastmod: "2026-10-06T12:26:04Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:themailmint:the_mail_mint:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=23D69D1D-7EBC-5B0F-A072-628B4A6B3995&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - wordpress
@@ -35,8 +39,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-10196
     cvss: 9.8
+    epss: 0.00664
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10196
+  - https://sploitus.com/exploit?id=23D69D1D-7EBC-5B0F-A072-628B4A6B3995&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -62,6 +68,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-10196
       evidence: NVD vulnerability report
+updates:
+  - at: "2026-10-06T12:26:04Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=23D69D1D-7EBC-5B0F-A072-628B4A6B3995&utm_source=rss&utm_medium=rss
 ---
 
 The Mail Mint plugin for WordPress, a tool for email marketing and automation, contains a critical PHP Object Injection vulnerability (CVE-2026-10196) affecting all versions up to and including 1.31.0. The vulnerability resides in the handle_form_submission function, which performs unsafe deserialization of untrusted user input. 
