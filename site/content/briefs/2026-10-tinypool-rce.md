@@ -3,6 +3,7 @@ title: Tinypool Prototype Pollution Leads to Remote Code Execution
 slug: 2026-10-tinypool-rce
 description: A prototype pollution vulnerability in the tinypool Node.js worker pool library allows attackers to gain arbitrary code execution in child processes by injecting worker configuration options.
 date: "2026-10-06T00:42:28Z"
+lastmod: "2026-10-06T00:42:36Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ tags:
   - javascript
 products:
   - tinypool (<= 2.1.0)
+  - tinypool (< 2.1.2)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -30,6 +32,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-5gmw-xhrv-c9v3
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104848
+  - https://github.com/advisories/GHSA-85c8-ppgw-ccpr
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-104849
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-104848
       evidence: Suggested fix in GHSA-5gmw-xhrv-c9v3.
+updates:
+  - at: "2026-10-06T00:42:36Z"
+    level: L2
+    summary: added coverage for tinypool (< 2.1.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-85c8-ppgw-ccpr
 ---
 
 Tinypool, a worker pool implementation used by high-traffic packages like Vitest, is vulnerable to a prototype pollution attack (CVE-2026-104848) that enables remote code execution. The vulnerability exists because the library explicitly reads worker configuration options (such as 'execArgv' and 'env') from objects that may contain prototype-inherited properties. By polluting 'Object.prototype' with these keys, an attacker can override the library's intended settings. When tinypool spawns a worker thread, it reads these polluted values and passes them as explicit arguments to the Node.js 'worker_threads.Worker' constructor. This re-materialization of inherited properties defeats Node.js core security mechanisms, allowing an attacker to force workers to load arbitrary malicious scripts or inject 'NODE_OPTIONS' into the worker environment. This threat is particularly dangerous in CI/CD pipelines or build environments, where an attacker who gains a prototype-pollution primitive in any dependency can gain execution privileges equivalent to the build host.
