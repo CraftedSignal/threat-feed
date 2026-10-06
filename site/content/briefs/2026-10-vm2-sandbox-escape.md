@@ -3,6 +3,7 @@ title: Critical Sandbox Escape Vulnerability in vm2
 slug: 2026-10-vm2-sandbox-escape
 description: The vm2 JavaScript sandbox environment contains a critical vulnerability (CVE-2026-92955) allowing attackers to escape the sandbox via prototype chain manipulation and execute arbitrary code on the host system.
 date: "2026-10-06T00:42:43Z"
+lastmod: "2026-10-06T00:43:01Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - sandbox-escape
   - code-execution
   - javascript
+  - rce
+  - vulnerability
 products:
   - vm2 (<= 3.11.7)
 mitre_ttps:
@@ -29,6 +32,12 @@ mitre_ttps:
     technique_name: JavaScript
     evidence: By overwriting EventEmitter.prototype.emit with a function, and making process emit an event, we can execute code with this being process.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The sandboxed code uses the leaked proxy to reach the host process object and execute arbitrary commands via child_process.execSync.
+    confidence_band: high
 cves:
   - id: CVE-2026-92955
     cvss: 10
@@ -39,6 +48,7 @@ references:
   - https://github.com/patriksimek/vm2/security/advisories/GHSA-v6mx-mf47-r5wg
   - https://github.com/patriksimek/vm2/security/advisories/GHSA-grj5-jjm8-h35p
   - https://github.com/patriksimek/vm2/security/advisories/GHSA-47x8-96vw-5wg6
+  - https://github.com/advisories/GHSA-x965-fc75-jpqh
 action_plan:
   priority: immediate_escalation
   owners:
@@ -55,6 +65,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-92955
       evidence: The advisory states it was never patched in previous related reports.
+updates:
+  - at: "2026-10-06T00:43:01Z"
+    level: L2
+    summary: added coverage for vm2 (<= 3.11.7)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-x965-fc75-jpqh
 ---
 
 The vm2 library, a popular JavaScript sandbox for executing untrusted code, contains a critical sandbox escape vulnerability tracked as CVE-2026-92955. The vulnerability affects all versions of the vm2 package up to and including 3.11.7. An attacker can exploit this flaw by leveraging the host's `__proto__` getter and setter to traverse the prototype chain of inherited console streams (specifically `console._stdout` and `console._stderr`). By accessing these objects, an attacker can modify `EventEmitter.prototype.emit`, allowing them to execute arbitrary code within the host process context. This method successfully bypasses Node.js security features such as `--disallow-code-generation-from-strings`, which typically prevents common sandbox breakout techniques. Successful exploitation results in full remote code execution on the host server.
