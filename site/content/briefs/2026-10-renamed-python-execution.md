@@ -3,11 +3,14 @@ title: Detection of Renamed Python Binaries for Defense Evasion
 slug: 2026-10-renamed-python-execution
 description: Adversaries are masquerading as legitimate processes by renaming Python binaries to evade security controls and execute malicious payloads on Windows endpoints.
 date: "2026-10-05T18:01:39Z"
+lastmod: "2026-10-06T12:03:38Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -21,6 +24,8 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The following analytic identifies a Python process being executed where it's process name does not match it's original file name attribute.
     confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_renamed_python_binary_was_executed.yml
 rules:
   - title: Detect Renamed Python Binary Execution
     description: Detects execution of a process where the process name does not match the original file name, specifically targeting Python interpreter variants.
@@ -54,6 +59,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Analytic confirms this is a standard indicator of masquerading.
+updates:
+  - at: "2026-10-06T12:03:38Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_renamed_python_binary_was_executed.yml
 ---
 
 Security analysts have identified an increase in defense evasion tactics where threat actors rename the standard Python interpreter executable (e.g., python.exe, pythonw.exe) to an arbitrary name before execution on Windows systems. By masquerading as a different process, attackers attempt to bypass application allowlisting, directory-based execution restrictions, and behavior-based alerts that rely on process names. 
