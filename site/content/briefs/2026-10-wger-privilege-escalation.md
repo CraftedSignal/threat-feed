@@ -3,6 +3,7 @@ title: wger Improper Privilege Management
 slug: 2026-10-wger-privilege-escalation
 description: A privilege escalation vulnerability in wger allows gym trainers to deactivate higher-privileged accounts, resulting in administrative lockout.
 date: "2026-10-07T16:59:56Z"
+lastmod: "2026-10-07T17:00:12Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - privilege-escalation
   - web-application
   - cve-2026-46434
+  - web-application-vulnerability
+  - authorization-bypass
+  - cve-2026-43976
 vendors:
   - wger
 products:
@@ -30,6 +34,19 @@ cves:
     cvss: 7.1
 references:
   - https://github.com/advisories/GHSA-x249-cx55-2h87
+  - https://github.com/advisories/GHSA-c72h-82w6-rqfp
+rules:
+  - title: Detect wger Authorization Bypass Attempts - CVE-2026-43976
+    description: Detects unauthorized access attempts to wger gym management endpoints by flagging potential enumeration of user IDs across sensitive paths.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1068
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +72,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-46434
       evidence: Source provided specific logic for the privilege hierarchy check fix
+updates:
+  - at: "2026-10-07T17:00:12Z"
+    level: L2
+    summary: 'added detection rule: Detect wger Authorization Bypass Attempts - CVE-2026-43976'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-c72h-82w6-rqfp
 ---
 
 The wger workout manager (version 2.1 and earlier) contains an improper privilege management vulnerability (CVE-2026-46434) that allows a user with 'gym_trainer' permissions to deactivate accounts belonging to 'gym_manager' or 'general_gym_manager' roles within the same gym. The vulnerability exists because the `UserDeactivateView` and `UserActivateView` classes perform authorization using OR logic, which grants access if the requester possesses any of the permitted roles. Crucially, the application fails to verify whether the target user possesses a higher privilege level than the requester. Consequently, a malicious trainer can effectively lock out all gym managers, causing a denial of service for administrative operations. The issue is compounded by the fact that the 'trainer' role is always assignable by managers, allowing for the creation of accounts that can later be used to sabotage management access.
