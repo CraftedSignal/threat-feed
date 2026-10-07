@@ -3,12 +3,12 @@ title: SixLabors ImageSharp TIFF Heap Out-of-Bounds Write
 slug: 2026-10-imagesharp-tiff-oob
 description: A heap out-of-bounds write vulnerability (CVE-2026-106118) in the SixLabors ImageSharp library allows remote attackers to cause a process crash or potentially execute arbitrary code by supplying a maliciously crafted tiled TIFF image using fax compression.
 date: "2026-10-07T16:58:35Z"
-lastmod: "2026-10-07T22:51:21Z"
+lastmod: "2026-10-07T22:51:30Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 cpes:
   - cpe:2.3:a:sixlabors:imagesharp:*:*:*:*:*:*:*:*
 tags:
@@ -29,6 +29,7 @@ products:
   - ImageSharp (3.0.0 - 4.1.0)
   - ImageSharp (>= 2.1.0, <= 4.1.1)
   - ImageSharp (4.0.0-4.1.1)
+  - ImageSharp (>= 2.0.0, <= 4.1.1)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -51,6 +52,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-106117
   - https://github.com/advisories/GHSA-jjfr-hcj7-qf5w
   - https://github.com/advisories/GHSA-ffp7-56pq-64mr
+  - https://github.com/advisories/GHSA-j9gm-c75j-xc9q
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-106110
 action_plan:
   priority: immediate_escalation
   owners:
@@ -89,6 +92,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-ffp7-56pq-64mr
+  - at: "2026-10-07T22:51:30Z"
+    level: L2
+    summary: added coverage for ImageSharp (>= 2.0.0, <= 4.1.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-j9gm-c75j-xc9q
 ---
 
 SixLabors ImageSharp, a popular cross-platform image processing library for .NET, contains a heap-based out-of-bounds write vulnerability (CVE-2026-106118) within its TIFF decoding component. The issue originates from a mismatch between buffer allocation and the fax decompressor logic when processing tiled TIFF images. Specifically, the library allocates buffers based on `TileWidth`, but the `T4TiffCompression` and `T6TiffCompression` decompressors incorrectly utilize the `frame.Width` of the full image for write operations. 
