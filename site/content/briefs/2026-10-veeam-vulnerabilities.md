@@ -1,60 +1,64 @@
 ---
-title: Multiple Vulnerabilities in Veeam Backup and Replication
+title: Multiple Vulnerabilities in Veeam Backup Enterprise Manager
 slug: 2026-10-veeam-vulnerabilities
-description: Multiple vulnerabilities, including remote code execution, have been identified in Veeam Backup & Replication versions prior to 12.3.2 P4.
-date: "2026-10-07T16:45:20Z"
+description: Veeam Backup Enterprise Manager contains multiple vulnerabilities that enable remote attackers to perform Cross-Site Scripting (XSS), execute arbitrary code, and manipulate application data.
+date: "2026-10-07T16:54:19Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:veeam:backup_replication:*:*:*:*:*:*:*:*
 tags:
   - vulnerability
-  - remote-code-execution
-  - backup-infrastructure
+  - web-application
+  - backup-security
 vendors:
   - Veeam
 products:
-  - Backup & Replication (< 12.3.2.4934)
+  - Backup Enterprise Manager
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1190
-    technique_name: Exploit Public-Facing Application
-    evidence: They allow an attacker to provoke remote code execution and unauthorized data access.
+    technique_id: T1189
+    technique_name: Drive-by Compromise
+    evidence: An attacker can exploit multiple vulnerabilities in Veeam Backup Enterprise Manager to perform a Cross-Site Scripting attack.
     confidence_band: high
-cves:
-  - id: CVE-2025-64392
-  - id: CVE-2025-64393
-  - id: CVE-2026-93026
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An attacker can exploit multiple vulnerabilities to execute arbitrary program code.
+    confidence_band: high
 references:
-  - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1278/
-  - https://www.veeam.com/kb4934
-  - https://www.cve.org/CVERecord?id=CVE-2025-64392
-  - https://www.cve.org/CVERecord?id=CVE-2025-64393
-  - https://www.cve.org/CVERecord?id=CVE-2026-93026
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3765
 action_plan:
-  priority: immediate_escalation
+  priority: elevated
   owners:
     - IT Operations
+    - SOC
+  immediate_actions:
+    - action: Review Veeam security portal for specific patch versions
+      owner: IT Operations
+      due: 24h
+      evidence: Vulnerability reported by BSI requires patching.
   mitigation_plan:
     - priority: immediate
-      action: Upgrade Veeam Backup & Replication to version 12.3.2.4934 or later
+      action: Restrict access to Veeam Backup Enterprise Manager management interface to known administrative IPs
       owner: IT Operations
-      addresses: CVE-2025-64392, CVE-2025-64393, CVE-2026-93026
-      evidence: Source bulletin kb4934
+      addresses: Backup Enterprise Manager
+      evidence: Mitigation of potential remote exploitation vectors.
 ---
 
-Veeam has released security bulletin kb4934 addressing multiple vulnerabilities affecting Veeam Backup & Replication. The identified flaws, tracked as CVE-2025-64392, CVE-2025-64393, and CVE-2026-93026, pose significant risks to backup infrastructure. Successful exploitation may result in remote code execution (RCE), unauthorized access to sensitive backup data, and cross-site scripting (XSS). These vulnerabilities affect all versions of Veeam Backup & Replication prior to 12.3.2 P4 (build 12.3.2.4934). Given the critical nature of backup infrastructure, unauthorized control or data tampering could facilitate ransomware deployment or long-term persistence within an organization. Organizations should prioritize patching to version 12.3.2.4934 or later.
+Veeam has disclosed multiple security vulnerabilities affecting Veeam Backup Enterprise Manager. These flaws allow unauthenticated or authenticated remote attackers to bypass security controls, resulting in impacts ranging from Cross-Site Scripting (XSS) to arbitrary code execution and unauthorized data manipulation. These vulnerabilities pose a significant risk to backup infrastructure, as compromised instances of the Backup Enterprise Manager could potentially allow an attacker to gain broad visibility or control over backed-up data and system configurations. Organizations utilizing the affected software are advised to audit their environments and monitor for unauthorized configuration changes or anomalous HTTP activity targeting the application interface until specific patches are applied.
 
 ## Impact
 
-Successful exploitation of these vulnerabilities allows an attacker to compromise the integrity and confidentiality of backup data, as well as achieve remote code execution on the server hosting the Veeam Backup & Replication service. This potentially grants an attacker full control over the backup environment, which is frequently targeted to delete backups or exfiltrate sensitive enterprise data.
+Successful exploitation of these vulnerabilities allows an attacker to compromise the integrity and availability of backup management services. By executing arbitrary code or manipulating data, an attacker could potentially disable backup processes, exfiltrate sensitive backup metadata, or leverage the management interface as a pivot point within the network. This risk is particularly acute given the central role the Backup Enterprise Manager plays in infrastructure recovery.
 
 ## Recommendation
 
-- Upgrade all instances of Veeam Backup & Replication to version 12.3.2 P4 (build 12.3.2.4934) or later immediately.
-- Review the official Veeam security bulletin kb4934 for detailed remediation steps and configuration changes.
-- Audit logs for the Veeam Backup & Replication service for any unauthorized access or unusual web-based requests that could indicate exploitation attempts (CVE-2025-64392, CVE-2025-64393, CVE-2026-93026).
+Prioritized, concrete actions for security teams:
+
+- Review the official Veeam security advisory portal for specific patch releases and apply updates to all instances of Veeam Backup Enterprise Manager immediately.
+- Monitor web application logs for suspicious HTTP requests, specifically looking for reflected or stored script tags associated with XSS patterns or unusual parameters in the management console.
+- Restrict network access to the Veeam Backup Enterprise Manager interface to authorized administrative segments only, utilizing firewalls to mitigate exposure to external or untrusted internal networks.
