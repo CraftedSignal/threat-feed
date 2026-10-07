@@ -3,6 +3,7 @@ title: Critical Security Hardening Update for Cisco Smart Software Manager On-Pr
 slug: 2026-10-cisco-ssm-hardening
 description: Cisco has released critical security patches for Smart Software Manager On-Prem addressing four internally discovered vulnerabilities, including CVE-2026-76480, CVE-2026-76482, CVE-2026-76483, and CVE-2026-76484.
 date: "2026-10-07T17:01:00Z"
+lastmod: "2026-10-07T18:45:42Z"
 type: threat
 types:
   - threat
@@ -17,8 +18,12 @@ vendors:
   - Cisco
 products:
   - Smart Software Manager On-Prem
+  - License On-Prem
+cves:
+  - id: CVE-2026-76480
 references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-ssm-Ph77wdhf
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76480
 action_plan:
   priority: elevated
   owners:
@@ -30,6 +35,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76480, CVE-2026-76482, CVE-2026-76483, CVE-2026-76484
       evidence: Cisco has released software updates that address these vulnerabilities.
+updates:
+  - at: "2026-10-07T18:45:42Z"
+    level: L2
+    summary: added CVE-2026-76480
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76480
 ---
 
 Cisco has issued a critical security hardening release for Cisco License On-Prem, formerly known as Cisco Smart Software Manager On-Prem (SSM On-Prem). This release addresses a series of internally discovered vulnerabilities that have been categorized into four distinct CVE identifiers: CVE-2026-76480, CVE-2026-76482, CVE-2026-76483, and CVE-2026-76484. These findings were surfaced through comprehensive internal security reviews aimed at improving product quality and proactive defense. 
