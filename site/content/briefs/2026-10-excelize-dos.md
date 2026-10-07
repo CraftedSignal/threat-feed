@@ -1,70 +1,65 @@
 ---
-title: Unbounded Decryption SpinCount Denial of Service in Excelize
+title: Excelize Unbounded Column Attribute Denial of Service
 slug: 2026-10-excelize-dos
-description: An unbounded key-derivation loop in the Excelize library allows an attacker to trigger CPU exhaustion via a maliciously crafted EncryptionInfo stream in an OLE-formatted file.
-date: "2026-10-07T22:53:15Z"
+description: Excelize library versions before 2.11.1 are vulnerable to a denial-of-service attack where an attacker-controlled 'max' attribute in a spreadsheet column definition forces excessive CPU and memory allocation.
+date: "2026-10-07T22:53:30Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 cpes:
   - cpe:2.3:a:xuri:excelize:*:*:*:*:*:*:*:*
 vendors:
-  - xuri
+  - Excelize
 products:
-  - excelize (>= 2.3.1, < 2.11.1-0.20260906004932-2badfcd5841d)
+  - excelize (< 2.11.1-0.20260807015645-a54c578af309)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
-    evidence: An attacker can craft a malicious file with a high spinCount value in the EncryptionInfo stream, forcing the application to perform excessive CPU-intensive key derivation calculations.
+    evidence: The process is either wedged for minutes or killed by the OOM reaper.
     confidence_band: high
 cves:
-  - id: CVE-2026-107219
-    cvss: 7.5
+  - id: CVE-2026-107223
 references:
-  - https://github.com/advisories/GHSA-jrfj-fhj2-jjvm
+  - https://github.com/advisories/GHSA-fq3v-74gv-27gm
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-107223
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
-    - Application Security
+    - Development
   immediate_actions:
-    - action: Upgrade Excelize to version 2.11.1-0.20260906004932-2badfcd5841d
-      owner: IT Operations
-      due: 48h
-      evidence: Source explicitly mandates upgrading to this fixed version to address CVE-2026-107219.
-  mitigation_plan:
-    - priority: short_term
-      action: Implement request timeout and CPU monitoring for any application service using Excelize to parse user files.
-      owner: Application Security
-      addresses: CVE-2026-107219
-      evidence: The source notes that the operation lacks context and cannot be cancelled by the caller.
+    - action: Upgrade Excelize to 2.11.1-0.20260807015645-a54c578af309
+      owner: Development
+      due: 24h
+      evidence: Source advisory specifies this as the fixed version
 ---
 
-The Excelize Go library (versions 2.3.1 through 2.11.0) contains a denial-of-service vulnerability triggered by the lack of bounds checking on the `spinCount` parameter during the agile decryption process. The library branches into the decryption routine based solely on the first eight bytes of a file (the OLE magic number), regardless of whether the file is legitimately encrypted or if the application supports encrypted workbooks. 
+The Excelize Go library contains a denial-of-service (DoS) vulnerability (CVE-2026-107223) within its XML parsing logic for Excel worksheets. When the library parses an `xl/worksheets/sheetN.xml` file, it reads the `max` attribute of `<col>` elements directly into memory without validating the value against the library-defined `MaxColumns` constant (16384). 
 
-The `crypt.go` module reads the `spinCount` value directly from the XML-unmarshaled `EncryptionInfo` stream without validation. An attacker can supply an arbitrarily large integer for `spinCount`, forcing the `convertPasswdToKey` function to perform a CPU-intensive key derivation loop for that many iterations. Because the operation does not accept a `context.Context`, it cannot be canceled by the caller, leading to prolonged CPU exhaustion that persists even after the calling application hits request timeouts. The vulnerability impacts any application using Excelize to parse untrusted OLE files.
+The subsequent `flatCols()` function iterates from the minimum to the maximum column value provided in the XML, performing a deep copy and append operation for every iteration. An attacker can craft a workbook containing a `<col>` element with a large `max` attribute (e.g., 2^31-1). Upon calling column mutator functions like `SetColWidth`, `SetColStyle`, `SetColVisible`, or `SetColOutlineLevel`, the application triggers a linear growth in memory allocation and CPU usage. This leads to process exhaustion, severe latency, or OOM crashes, effectively denying service to any application processing untrusted spreadsheets. This issue affects Excelize versions from 2.1.0 prior to 2.11.1-0.20260807015645-a54c578af309.
 
 ## Attack Chain
 
-1. Attacker crafts a malicious file, ensuring the first eight bytes match the OLE magic number to trigger the Excelize file-parsing routine.
-2. Attacker embeds a crafted `EncryptionInfo` stream within the file structure.
-3. Attacker sets the `spinCount` element in the XML stream to a high integer value (e.g., 100,000,000+).
-4. Victim application attempts to open the file using `excelize.OpenFile`.
-5. `openReaderAt` detects the OLE header and invokes `agileDecrypt` without verifying if the file requires decryption.
-6. `agileDecrypt` calls `convertPasswdToKey`, which initiates a long-running loop based on the attacker-controlled `spinCount`.
-7. The process consumes CPU resources linearly, causing high load and blocking the goroutine from returning, resulting in an effective Denial of Service for the application instance.
+1. Attacker crafts a malicious XLSX file containing an injected `<cols>` XML block within `xl/worksheets/sheetN.xml`.
+2. The malicious block includes a `<col>` definition with a high `max` attribute, such as `<col min="1" max="2147483647" width="9"/>`.
+3. The victim application receives the crafted file via a file upload or input processing stream.
+4. The application calls the `OpenReader` function to load the spreadsheet into memory.
+5. The application invokes a column-modifying function, such as `SetColWidth`, `SetColStyle`, or `SetColVisible`, targeting the worksheet.
+6. The `flatCols()` function in the Excelize library is triggered, which executes an unbounded loop based on the attacker-supplied `max` attribute.
+7. The application memory usage grows linearly with the `max` value, leading to an OOM state or CPU hang.
+8. The target service becomes unresponsive, resulting in a successful denial-of-service condition.
 
 ## Impact
 
-Successful exploitation results in a Denial of Service (DoS) for the application processing the file. Since the operations run independently of the caller context, resources remain locked until the loop finishes, potentially exhausting server CPU resources if multiple malicious files are submitted concurrently. This vulnerability primarily affects applications that process user-uploaded Excel files (e.g., web-based document converters, data analysis tools, or enterprise reporting portals).
+Successful exploitation results in service unavailability for any application relying on the Excelize library to process user-supplied spreadsheet files. The vulnerability can be exploited by an unauthenticated attacker simply by triggering a column modification on a file that passes initial opening. No specific authentication is required if the file upload path is reachable. Observed impact includes 100% CPU utilization and rapid memory exhaustion, leading to process termination.
 
 ## Recommendation
 
 Prioritized actions for development and security teams:
-- Upgrade the Excelize library to version 2.11.1-0.20260906004932-2badfcd5841d or later to implement proper bounds checking on the `spinCount` value.
-- Implement file-size or process-time limits at the application layer for all file parsing routines that utilize Excelize, as the library does not natively support context-based cancellation.
-- Scan incoming files for the OLE magic number (first 8 bytes) and validate the `EncryptionInfo` stream structure before passing the file to the `excelize` library in high-exposure environments.
+- Upgrade the Excelize library to version 2.11.1-0.20260807015645-a54c578af309 or later to address CVE-2026-107223.
+- Implement input validation on uploaded spreadsheet files to sanitize XML structures before passing them to document processing libraries.
+- Apply resource constraints (memory and execution time limits) to background processes responsible for document parsing and mutation to mitigate potential DoS impacts from similar unpatched vulnerabilities.
