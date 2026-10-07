@@ -3,6 +3,7 @@ title: Flowise CSV and Airtable Agent Python Validator Bypass
 slug: 2026-10-flowise-csv-agent-bypass
 description: Flowise versions <= 3.1.2 are vulnerable to data exfiltration and SSRF via a flawed regex-based Python validator that fails to restrict pre-imported pandas and numpy methods.
 date: "2026-10-07T16:55:52Z"
+lastmod: "2026-10-07T16:56:17Z"
 type: advisory
 types:
   - advisory
@@ -13,10 +14,13 @@ tags:
   - rce
   - ssrf
   - exfiltration
+  - vulnerability
+  - sandbox-escape
 vendors:
   - Flowise
 products:
   - Flowise (<= 3.1.2)
+  - flowise-components (<= 3.1.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -36,8 +40,22 @@ mitre_ttps:
     technique_name: Exfiltration Over Web Service
     evidence: Data is exfiltrated by leveraging pandas functions that make outbound HTTP requests.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: An authenticated user with access to the /api/v1/node-custom-function endpoint can escape the sandbox by supplying attacker-controlled executablePath and args parameters.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: This allows execution of arbitrary OS commands as the Flowise process user.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-w7x8-q2gp-5cgg
+  - https://github.com/advisories/GHSA-9gvv-qjj3-2p6g
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-73483
 iocs:
   - type: url
     value: http://169.254.169.254/latest/meta-data/
@@ -54,7 +72,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect Exploitation of CVE-2026-73483 in Flowise
+    description: Detects potential exploitation attempts of the node-custom-function endpoint by monitoring for requests containing puppeteer configuration parameters like executablePath.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1203
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -71,6 +99,14 @@ action_plan:
       owner: IT Operations
       addresses: All Flowise nodes
       evidence: GHSA-w7x8-q2gp-5cgg
+updates:
+  - at: "2026-10-07T16:56:17Z"
+    level: L2
+    summary: 'added detection rule: Detect Exploitation of CVE-2026-73483 in Flowise'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-9gvv-qjj3-2p6g
 ---
 
 Flowise versions 3.1.2 and earlier contain a critical security vulnerability in the CSV and Airtable agent nodes. These nodes utilize a structurally insufficient regex-based blocklist (`validatePythonCodeForDataFrame()`) to sanitize LLM-generated Python code before execution in a Pyodide (WebAssembly) environment. The blocklist approach fails because the executor pre-imports pandas and numpy, exposing broad API surfaces that accept network-capable functions (e.g., `pd.read_json`, `pd.read_csv`, `pd.read_html`) which are not filtered.
