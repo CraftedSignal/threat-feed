@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in iperf3
 slug: 2026-09-iperf3-dos
 description: An unauthenticated remote attacker can trigger a permanent 100% CPU utilization loop in iperf3 versions prior to 3.22 by sending a crafted control-channel message followed by a specific UDP datagram.
 date: "2026-09-29T22:29:50Z"
+lastmod: "2026-10-07T20:52:12Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - low
 cpes:
   - cpe:2.3:a:esnet:iperf:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CC42D07B-7705-5A4E-84F6-87763B01ED80&utm_source=rss&utm_medium=rss
 tags:
   - denial-of-service
   - network-security
@@ -28,8 +32,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-102253
     cvss: 7.5
+    epss: 0.00431
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102253
+  - https://sploitus.com/exploit?id=CC42D07B-7705-5A4E-84F6-87763B01ED80&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +52,14 @@ action_plan:
       owner: Network Security
       addresses: CVE-2026-102253
       evidence: Vulnerability requires an unauthenticated remote attacker to interact with the control channel
+updates:
+  - at: "2026-10-07T20:52:12Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CC42D07B-7705-5A4E-84F6-87763B01ED80&utm_source=rss&utm_medium=rss
 ---
 
 iperf3 versions prior to 3.22 contain a critical denial of service (DoS) vulnerability, tracked as CVE-2026-102253. The vulnerability allows an unauthenticated remote attacker to force the server's UDP receive worker into an unrecoverable infinite loop. The attack requires sending a single crafted control-channel parameter message, immediately followed by a specific 16-byte UDP datagram. 
