@@ -3,7 +3,7 @@ title: Langflow Insecure Credential Encryption and Key Derivation
 slug: 2026-10-langflow-weak-fernet
 description: Langflow versions 1.10.0 and earlier use a non-cryptographic PRNG to derive Fernet keys from short SECRET_KEYs, allowing unauthenticated attackers who obtain the secret key file to perform offline decryption of all stored user credentials.
 date: "2026-10-06T00:44:45Z"
-lastmod: "2026-10-07T22:46:48Z"
+lastmod: "2026-10-07T22:48:54Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +21,8 @@ tags:
   - mcp
   - configuration-write
   - webserver
+  - idor
+  - data-disclosure
 vendors:
   - Langflow
 products:
@@ -31,6 +33,7 @@ products:
   - langflow (< 1.10.3)
   - langflow-base (< 0.10.3)
   - lfx (< 1.10.3)
+  - Langflow (>= 1.6.8, <= 1.9.0)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -62,6 +65,12 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The vulnerable sink previously used bash -c 'exec {command_str}' to execute user-provided MCP server commands.
     confidence_band: high
+  - tactic_id: TA0010
+    tactic_name: Exfiltration
+    technique_id: T1005
+    technique_name: Data from Local System
+    evidence: This is a cross-user authorization bypass that allows arbitrary read access to files stored under other users' flow namespaces.
+    confidence_band: high
 cves:
   - id: CVE-2026-9205
     cvss: 7.4
@@ -77,6 +86,8 @@ references:
   - https://github.com/advisories/GHSA-4f6c-2vvp-gw82
   - https://github.com/langflow-ai/langflow/pull/13915
   - https://github.com/advisories/GHSA-w794-rj3p-xv45
+  - https://github.com/advisories/GHSA-4hmc-cfm3-w43c
+  - https://github.com/langflow-ai/langflow/pull/12818
 rules:
   - title: Detect CVE-2026-51886 Exploitation - Malicious Decorators in Validate Code API
     description: Detects potential exploitation attempts of CVE-2026-51886 by monitoring for malicious Python decorators in requests to the Langflow validation API
@@ -157,6 +168,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-w794-rj3p-xv45
+  - at: "2026-10-07T22:48:54Z"
+    level: L2
+    summary: added coverage for Langflow (>= 1.6.8, <= 1.9.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-4hmc-cfm3-w43c
 ---
 
 Langflow versions 1.10.0 and earlier contain a critical cryptographic vulnerability in the handling of Fernet encryption keys used for storing sensitive user credentials, such as LLM API keys and database passwords. The application's `_ensure_valid_key` function incorrectly utilizes Python's non-cryptographic `random` module (Mersenne Twister) seeded with the instance's `SECRET_KEY` when that key is shorter than 32 characters. Because this process is fully deterministic, an attacker who obtains the `secret_key` file can recreate the encryption key offline without brute force. Furthermore, even when the `SECRET_KEY` is 32 characters or longer, the application uses the raw key directly as the Fernet key. This flaw is particularly dangerous when paired with file-read vulnerabilities, such as the MCP path traversal, which allow unauthorized access to the `secret_key` file and the underlying SQLite database. Once these files are exfiltrated, an attacker can decrypt all stored `Credential`-type variables across the entire instance.
