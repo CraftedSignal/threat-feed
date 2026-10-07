@@ -3,6 +3,7 @@ title: Prototype Pollution Vulnerability in Payload Import Export Plugin
 slug: 2026-10-payload-prototype-pollution
 description: An unauthenticated prototype pollution vulnerability in the Payload Import Export plugin allows remote attackers to achieve code execution via malicious input.
 date: "2026-10-06T18:45:50Z"
+lastmod: "2026-10-07T20:51:04Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:payload:plugin_import_export:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=73BE1B4F-C08C-5F0A-9943-93A0A290FB8E&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - prototype-pollution
@@ -38,6 +42,7 @@ cves:
 references:
   - https://github.com/advisories/GHSA-qf28-8hc6-vwrp
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-105844
+  - https://sploitus.com/exploit?id=73BE1B4F-C08C-5F0A-9943-93A0A290FB8E&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -54,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-105844
       evidence: Workarounds section suggests disabling the plugin as a primary mitigation.
+updates:
+  - at: "2026-10-07T20:51:04Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=73BE1B4F-C08C-5F0A-9943-93A0A290FB8E&utm_source=rss&utm_medium=rss
 ---
 
 A prototype pollution vulnerability has been identified in the @payloadcms/plugin-import-export package, tracked as CVE-2026-105844. This vulnerability affects versions 3.0.0 through 3.87.9 and canary versions between 4.0.0-canary.0 and 4.0.0-canary.26. The flaw exists within the plugin's data handling logic, which fails to properly sanitize input before processing. An unauthenticated attacker can exploit this weakness by submitting specifically crafted JSON payloads to the plugin's endpoints. By polluting the object prototype, the attacker can influence application-wide behavior, potentially leading to remote code execution (RCE). This issue is limited to environments where the Import Export plugin is explicitly enabled.
