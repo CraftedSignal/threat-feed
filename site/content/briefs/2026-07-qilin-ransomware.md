@@ -3,7 +3,7 @@ title: Qilin Ransomware Claims New Victim in Agriculture and Food Production Sec
 slug: 2026-07-qilin-ransomware
 description: The Qilin ransomware group, active since July 2022 and utilizing Golang, has claimed a new victim, Danone (International Delights) in the US Agriculture and Food Production sector, employing double extortion tactics involving data encryption and threatened data release.
 date: "2026-07-15T20:00:29Z"
-lastmod: "2026-10-05T22:47:47Z"
+lastmod: "2026-10-07T08:33:14Z"
 type: threat
 types:
   - threat
@@ -45,6 +45,11 @@ cpes:
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.4:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.5:*:*:*:*:*:*:*
   - cpe:2.3:o:paloaltonetworks:pan-os:11.1.6:*:*:*:*:*:*:*
+  - cpe:2.3:a:sap:netweaver:7.50:*:*:*:*:*:*:*
+  - cpe:2.3:a:fortinet:fortiproxy:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:fortinet:fortiswitchmanager:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:fortinet:fortios:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:siemens:ruggedcom_ape1808_firmware:-:*:*:*:*:*:*:*
 tags:
   - ransomware
   - qilin
@@ -83,6 +88,8 @@ vendors:
   - Microsoft
   - Palo Alto Networks
   - Onsemi
+  - SAP
+  - Cisco
 products:
   - www.acosol.es
   - vCenter
@@ -132,6 +139,8 @@ products:
   - winchesterky.com
   - bwrightdrywall.com
   - onsemi.com
+  - NetWeaver Visual Composer
+  - Secure Firewall Management Center
 affected_os:
   - Windows
   - Unix
@@ -224,18 +233,18 @@ cves:
   - id: CVE-2026-24061
     cvss: 9.8
     epss: 0.98984
-  - id: CVE-2025-9242
-    cvss: 9.8
-    epss: 0.913
-  - id: CVE-2026-50751
-    cvss: 9.3
-    epss: 0.06301
-  - id: CVE-2026-0257
-    cvss: 9.1
-    epss: 0.96382
   - id: CVE-2025-40554
     cvss: 9.8
     epss: 0.60642
+  - id: CVE-2025-31324
+    cvss: 10
+    epss: 0.99486
+  - id: CVE-2025-59718
+    cvss: 9.8
+    epss: 0.68293
+  - id: CVE-2024-55591
+    cvss: 9.8
+    epss: 0.94149
 references:
   - https://www.ransomware.live/group/qilin
   - https://www.secureworks.com/research/threat-profiles/gold-feather
@@ -631,13 +640,6 @@ rules:
       - windows
 rules_count: 2
 updates:
-  - at: "2026-08-16T18:20:11Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - ransomware-live
-    source_urls:
-      - https://www.ransomware.live/group/qilin
   - at: "2026-08-18T20:55:49Z"
     level: L1
     summary: new IOCs
@@ -662,6 +664,13 @@ updates:
   - at: "2026-10-05T22:47:47Z"
     level: L1
     summary: new product
+    sources:
+      - ransomware-live
+    source_urls:
+      - https://www.ransomware.live/group/qilin
+  - at: "2026-10-07T08:33:14Z"
+    level: L2
+    summary: added CVE-2024-55591 +2
     sources:
       - ransomware-live
     source_urls:
