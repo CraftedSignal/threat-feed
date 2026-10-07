@@ -3,12 +3,15 @@ title: Critical Security Hardening Updates for Cisco APIC
 slug: 2026-10-cisco-apic-hardening
 description: Cisco has released patches for three critical vulnerabilities, tracked as CVE-2026-76498, CVE-2026-76499, and CVE-2026-76500, discovered during an internal security review of the Application Policy Infrastructure Controller.
 date: "2026-10-07T17:01:16Z"
+lastmod: "2026-10-07T18:45:44Z"
 type: threat
 types:
   - threat
 severities:
   - high
 exploited: true
+cpes:
+  - cpe:2.3:a:cisco:application_policy_infrastructure_controller:*:*:*:*:*:*:*:*
 tags:
   - informational
   - product-news
@@ -18,8 +21,14 @@ vendors:
   - Cisco
 products:
   - Application Policy Infrastructure Controller
+cves:
+  - id: CVE-2026-76499
+    cvss: 9.8
+  - id: CVE-2026-76500
+    cvss: 9.8
 references:
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-apic-UOXWtfh
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76498
 action_plan:
   priority: elevated
   owners:
@@ -36,6 +45,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76498, CVE-2026-76499, CVE-2026-76500
       evidence: Cisco Security Advisory cisco-sa-hardening-apic-UOXWtfh
+updates:
+  - at: "2026-10-07T18:45:44Z"
+    level: L2
+    summary: added CVE-2026-76499 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76498
 ---
 
 Cisco has published a security hardening update for the Application Policy Infrastructure Controller (APIC) following an internal security assessment. This update addresses three distinct vulnerabilities categorized by their Common Weakness Enumeration (CWE) classes, each assigned a specific CVE identifier: CVE-2026-76498, CVE-2026-76499, and CVE-2026-76500.
