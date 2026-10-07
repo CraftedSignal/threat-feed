@@ -3,6 +3,7 @@ title: Critical Path Traversal in Atlassian Data Center Products (CVE-2026-21589
 slug: 2026-10-atlassian-path-traversal
 description: An unauthenticated arbitrary file read vulnerability (CVE-2026-21589) in multiple Atlassian Data Center products allows attackers to access sensitive configuration files via a path traversal flaw in the webresource router.
 date: "2026-10-06T20:29:05Z"
+lastmod: "2026-10-07T10:33:48Z"
 type: threat
 types:
   - threat
@@ -24,6 +25,14 @@ products:
   - Crowd Data Center (< 6.3.7, 7.0.3, 7.1.7, 7.2.4)
   - Crucible (< 4.9.15)
   - Fisheye (< 4.9.15)
+  - Bitbucket Data Center
+  - Confluence Data Center
+  - Jira Service Management Data Center
+  - Jira Software Data Center
+  - Bamboo Data Center
+  - Crowd Data Center
+  - Crucible
+  - Fisheye
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -45,8 +54,10 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-21589
+    epss: 0.00738
 references:
   - https://sploitus.com/exploit?id=BA57A53E-4324-56E4-B89E-4FA516E10711
+  - https://cert.europa.eu/publications/security-advisories/2026-015/
 rules:
   - title: Detect CVE-2026-21589 Exploitation - Path Traversal in Webresource Router
     description: Detects exploitation attempts of CVE-2026-21589 by monitoring for double-encoded path traversal sequences targeting the Atlassian webresource router.
@@ -89,6 +100,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-21589
       evidence: Atlassian security advisory recommendation.
+updates:
+  - at: "2026-10-07T10:33:48Z"
+    level: L1
+    summary: new product
+    sources:
+      - cert-eu
+    source_urls:
+      - https://cert.europa.eu/publications/security-advisories/2026-015/
 ---
 
 CVE-2026-21589 is a critical vulnerability affecting a wide range of self-hosted Atlassian Data Center products, including Bitbucket, Confluence, Jira, Bamboo, Crowd, Crucible, and Fisheye. The vulnerability arises from improper input validation within the `/download/*` webresource router. Specifically, the router performs a double URL-decode and utilizes an unescaping mechanism that converts `::` sequences into `/` characters. This behavior bypasses Tomcat's URI normalization, allowing unauthenticated attackers to perform path traversal and read arbitrary files relative to the web application root.
