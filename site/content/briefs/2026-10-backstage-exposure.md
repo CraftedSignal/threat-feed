@@ -3,6 +3,7 @@ title: Sensitive Information Exposure in Backstage Scaffolder Plugin
 slug: 2026-10-backstage-exposure
 description: An authenticated user can access internal task execution data in Backstage, potentially exposing credentials stored within Scaffolder tasks to unauthorized parties.
 date: "2026-10-07T22:47:15Z"
+lastmod: "2026-10-07T22:55:57Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - Backstage
 products:
   - plugin-scaffolder-backend (< 3.3.1, >= 3.4.0 < 3.4.1, >= 4.0.0 < 4.0.3, >= 4.0.4 < 4.1.0)
+  - plugin-scaffolder-backend (versions < 3.3.1, 3.4.0-3.4.1, 4.0.0-4.0.3, 4.0.4-4.1.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,12 +28,20 @@ mitre_ttps:
     technique_name: Gather Victim Org Information
     evidence: An authenticated Backstage user who can read another user's Scaffolder task may receive internal execution data.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: An authorization bypass vulnerability in the Backstage Scaffolder plugin allows authenticated users to circumvent configured action restrictions.
+    confidence_band: high
 cves:
   - id: CVE-2026-106501
     cvss: 9.6
 references:
   - https://github.com/advisories/GHSA-g2v8-7jhw-pp8p
   - https://nvd.nist.gov/vuln/detail/CVE-2026-106501
+  - https://github.com/advisories/GHSA-hmp2-4m7g-22cv
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-106503
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +58,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-106501
       evidence: Configure scaffolder.task.read with the isTaskOwner condition so users can only read tasks they created.
+updates:
+  - at: "2026-10-07T22:55:57Z"
+    level: L2
+    summary: added coverage for plugin-scaffolder-backend (versions < 3.3.1, 3.4.0-3.4.1, 4.0.0-4.0.3, 4.0.4-4.1.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-hmp2-4m7g-22cv
 ---
 
 The Backstage Scaffolder plugin (specifically @backstage/plugin-scaffolder-backend) contains a vulnerability identified as CVE-2026-106501, which allows for unauthorized access to sensitive internal execution data. An authenticated user within the Backstage environment can perform read operations on Scaffolder tasks created by other users. If these tasks contain sensitive execution metadata, such as hardcoded credentials or API keys used for external service integration, this information is disclosed. The exposure of these credentials can lead to unauthorized access, modifications, or data exfiltration within the downstream external services integrated into the Backstage workflow. This vulnerability affects multiple versions of the plugin prior to 4.1.0, requiring either an immediate upgrade or the implementation of specific task-read access controls to mitigate unauthorized access to sensitive workflows.
