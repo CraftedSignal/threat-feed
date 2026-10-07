@@ -3,7 +3,7 @@ title: Cisco Security Updates - October 2026
 slug: 2026-10-cisco-security-updates
 description: Roundup of Cisco security advisories published in October 2026.
 date: "2026-10-07T17:00:15Z"
-lastmod: "2026-10-07T17:01:04Z"
+lastmod: "2026-10-07T17:01:09Z"
 type: threat
 types:
   - threat
@@ -25,16 +25,19 @@ cves:
   - id: CVE-2026-20321
     product: Application Policy Infrastructure Controller
   - id: CVE-2026-20038
+    product: Nexus 9000 Series Fabric Switches
+  - id: CVE-2026-76485
+  - id: CVE-2026-76486
+  - id: CVE-2026-76501
 references:
-  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1
 updates:
-  - at: "2026-10-07T17:00:18Z"
+  - at: "2026-10-07T17:00:30Z"
     level: L2
-    summary: added CVE-2026-20321 +3
+    summary: added CVE-2026-20321, CVE-2026-76465, CVE-2026-76488
     sources:
       - cisco-psirt
     source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-moam-rce-uBTzYV7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20MPLS%20OAM%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1
@@ -45,9 +48,16 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1
+  - at: "2026-10-07T17:01:09Z"
+    level: L2
+    summary: added CVE-2026-76485 +2
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1
 ---
 
-This roundup covers 5 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Finesse, NX-OS Software, Nexus 3000 Series Switches.
+This roundup covers 6 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Finesse, NX-OS Software, Nexus 3000 Series Switches, Nexus 9000 Series Fabric Switches.
 
 ## Summary
 
@@ -58,6 +68,7 @@ This roundup covers 5 Cisco security vulnerabilities. None are reported as activ
 | [CVE-2026-76465](#cve-2026-76465) | Nexus 3000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-moam-rce-uBTzYV7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20MPLS%20OAM%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-76488](#cve-2026-76488) | Application Policy Infrastructure Controller |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20321](#cve-2026-20321) | Application Policy Infrastructure Controller |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20038](#cve-2026-20038) | Nexus 9000 Series Fabric Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1) (authoritative) |
 
 
 ## CVE-2026-20032
@@ -98,6 +109,7 @@ Affected products:
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1
 
+
 Related in this roundup: [CVE-2026-20321](#cve-2026-20321).
 
 ## CVE-2026-20321
@@ -109,4 +121,14 @@ Affected products:
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1
 
+
 Related in this roundup: [CVE-2026-76488](#cve-2026-76488).
+
+## CVE-2026-20038
+
+A vulnerability in the endpoint group (EPG) contract functionality of Cisco Nexus 9000 Series Fabric Switches in ACI Mode allows unauthenticated, remote attackers to bypass EPG security policies. By sending crafted IPv4 or IPv6 packets using UDP source and destination ports associated with DHCP traffic, an attacker can circumvent configured network security contracts, potentially allowing unauthorized communication across segments.
+
+Affected products:
+- Nexus 9000 Series Fabric Switches
+
+Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1
