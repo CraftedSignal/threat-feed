@@ -3,7 +3,7 @@ title: Hardcoded Default Administrative Password in Homer
 slug: 2026-10-homer-hardcoded-credentials
 description: Fresh deployments of Homer use a hardcoded default password for the admin account, allowing unauthenticated remote attackers to gain full administrative access via CVE-2026-62252.
 date: "2026-10-07T16:57:01Z"
-lastmod: "2026-10-07T16:57:19Z"
+lastmod: "2026-10-07T16:59:46Z"
 type: advisory
 types:
   - advisory
@@ -18,11 +18,14 @@ tags:
   - authentication-bypass
   - cve-2026-62253
   - sipcapture
+  - sqli
+  - vulnerability
 vendors:
   - sipcapture
 products:
   - homer-app (< 0.0.0-20260625091610-b2e942031ff8)
   - homer-app (< 0.0.0-20260625093330-5e90809657c9)
+  - homer-app (< 0.0.0-20260625085520-a7d027dc684b)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -42,10 +45,17 @@ mitre_ttps:
     technique_name: Gather Victim Org Information
     evidence: Attackers can read/write all configuration, users, database connections, and stored VoIP call data.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Any authenticated user can execute arbitrary SQL statements against all data accessible through the FlightSQL service.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-6xp5-7rcx-xfgx
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62252
   - https://github.com/advisories/GHSA-rqcc-94gv-wjm9
+  - https://github.com/advisories/GHSA-f46q-3v67-fmm4
 rules:
   - title: Detect CVE-2026-62252 Exploitation - Authentication with Default Credentials
     description: Detects unauthorized attempts to authenticate to Homer using the default 'admin'/'sipcapture' credentials.
@@ -67,7 +77,17 @@ rules:
       - T1592
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detects CVE-2026-62251 Exploitation - SQL Injection in /api/v4/statistics/query
+    description: Detects suspicious SQL injection attempts against the Homer statistics API by monitoring for common SQL keywords within the rawquery JSON payload.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 3
 action_plan:
   priority: immediate_escalation
   owners:
@@ -101,6 +121,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-rqcc-94gv-wjm9
+  - at: "2026-10-07T16:59:46Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-62251 Exploitation - SQL Injection in /api/v4/statistics/query'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-f46q-3v67-fmm4
 ---
 
 Homer versions prior to 0.0.0-20260625091610-b2e942031ff8 contain a critical vulnerability (CVE-2026-62252) involving the use of hardcoded credentials. During the bootstrap process of a fresh deployment configured with internal authentication, the application automatically initializes an 'admin' account using a hardcoded SHA-256 hash that corresponds to the plaintext password 'sipcapture'. 
