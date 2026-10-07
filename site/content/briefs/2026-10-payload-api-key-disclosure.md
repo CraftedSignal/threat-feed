@@ -3,7 +3,7 @@ title: Payload API Key Disclosure via Document Read Access
 slug: 2026-10-payload-api-key-disclosure
 description: A vulnerability in Payload CMS versions 3.x and 4.x-canary allows unauthorized users with document read permissions to access active API keys stored within authentication collections.
 date: "2026-10-06T18:47:38Z"
-lastmod: "2026-10-07T22:49:42Z"
+lastmod: "2026-10-07T22:49:50Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +27,8 @@ tags:
   - session-hijacking
   - credential-theft
   - cve-2026-105861
+  - xss
+  - web-security
 vendors:
   - Payload
 products:
@@ -42,6 +44,7 @@ products:
   - Payload (v3.0.0 to <3.90.0)
   - Payload (v4.0.0-canary.0 to <4.0.0-canary.34)
   - Payload (< 3.90.0)
+  - Payload (< 3.90.0, >= 4.0.0-canary.0, < 4.0.0-canary.34)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -85,6 +88,12 @@ mitre_ttps:
     technique_name: Steal Web Session Cookie
     evidence: Under certain external upload configurations, Payload could send authentication data to a destination that was not verified as trusted.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: A malicious SVG file upload could bypass sanitization, be stored, and execute attacker-controlled JavaScript (XSS)
+    confidence_band: high
 cves:
   - id: CVE-2026-105849
 references:
@@ -107,6 +116,8 @@ references:
   - https://github.com/advisories/GHSA-97rh-rhh2-7vjv
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105858
   - https://github.com/advisories/GHSA-pj5h-5q6c-3pfx
+  - https://github.com/advisories/GHSA-2pwp-2369-8fg3
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-105862
 action_plan:
   priority: elevated
   owners:
@@ -124,13 +135,6 @@ action_plan:
       addresses: CVE-2026-105849
       evidence: Source recommends rotating any API key that may have been exposed
 updates:
-  - at: "2026-10-07T16:58:27Z"
-    level: L2
-    summary: added coverage for Payload (v3.x < 3.87.0) +1 products
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-4ww4-68q3-h7g5
   - at: "2026-10-07T22:47:01Z"
     level: L2
     summary: added coverage for Payload (< 3.90.0, >= 4.0.0-canary.0 < 4.0.0-canary.34)
@@ -159,6 +163,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-pj5h-5q6c-3pfx
+  - at: "2026-10-07T22:49:50Z"
+    level: L2
+    summary: added coverage for Payload (< 3.90.0, >= 4.0.0-canary.0, < 4.0.0-canary.34)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2pwp-2369-8fg3
 ---
 
 Payload CMS versions prior to 3.90.0 and 4.0.0-canary.34 are vulnerable to an API key disclosure flaw, tracked as CVE-2026-105849. This vulnerability manifests in deployments where the `useAPIKey` authentication feature is enabled. Due to insecure access control logic, users who possess read access to documents within an authentication collection can view sensitive API keys belonging to other users. Because these keys hold the permissions of the target account, successful exploitation allows an attacker to masquerade as the compromised user until the key is rotated or disabled. This impacts organizations relying on Payload for authentication and document management, particularly those with permissive document access policies.
