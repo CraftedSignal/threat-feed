@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in LMCache
 slug: 2026-10-lmcache-rce
 description: LMCache versions up to 0.5.5 are vulnerable to unauthenticated remote code execution via the /run_script endpoint, allowing attackers to inject and execute arbitrary OS commands.
 date: "2026-10-07T17:03:43Z"
+lastmod: "2026-10-07T17:04:22Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - remote-code-execution
   - vulnerability
   - web-application
+  - ssrf
+  - web-vulnerability
+  - proxy
 vendors:
   - LMCache
 products:
@@ -36,6 +40,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107204
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-107207
 rules:
   - title: Detects CVE-2026-107204 Exploitation - Unauthorized POST to /run_script
     description: Detects unauthorized attempts to access the /run_script endpoint which is associated with RCE exploitation in LMCache.
@@ -49,7 +54,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-107207 Exploitation - POST Request to /api/proxies
+    description: Detects potential SSRF exploitation attempts where an unauthenticated actor attempts to register arbitrary hosts via the /api/proxies endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -75,6 +90,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-107204
       evidence: Source notes the vulnerability is unauthenticated.
+updates:
+  - at: "2026-10-07T17:04:22Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-107207 Exploitation - POST Request to /api/proxies'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-107207
 ---
 
 LMCache versions up to 0.5.5 contain a critical unauthenticated remote code execution (RCE) vulnerability. An attacker can exploit this by sending a crafted HTTP POST request to the /run_script endpoint. The application fails to properly secure the environment, allowing the attacker to interact with the FastAPI app object. By leveraging this object, an attacker can bypass Python's guarded import restrictions to retrieve real built-in functions, load the 'os' module, and subsequently execute arbitrary operating system commands with the privileges of the LMCache process. This vulnerability poses a severe risk, as it allows for full compromise of the underlying host system without requiring prior authentication. Organizations utilizing LMCache should prioritize patching to version 0.5.6 or higher or restrict network access to the management interface.
