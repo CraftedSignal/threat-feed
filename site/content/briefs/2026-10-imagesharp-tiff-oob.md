@@ -3,7 +3,7 @@ title: SixLabors ImageSharp TIFF Heap Out-of-Bounds Write
 slug: 2026-10-imagesharp-tiff-oob
 description: A heap out-of-bounds write vulnerability (CVE-2026-106118) in the SixLabors ImageSharp library allows remote attackers to cause a process crash or potentially execute arbitrary code by supplying a maliciously crafted tiled TIFF image using fax compression.
 date: "2026-10-07T16:58:35Z"
-lastmod: "2026-10-07T16:58:47Z"
+lastmod: "2026-10-07T22:51:11Z"
 type: advisory
 types:
   - advisory
@@ -19,11 +19,14 @@ tags:
   - vulnerability
   - cve-2026-106117
   - image-processing
+  - memory-corruption
+  - cve-2026-106115
 vendors:
   - SixLabors
 products:
   - ImageSharp (>= 3.0.0, < 4.1.1)
   - ImageSharp (3.0.0 - 4.1.0)
+  - ImageSharp (>= 2.1.0, <= 4.1.1)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -38,6 +41,7 @@ references:
   - https://github.com/advisories/GHSA-v76p-62qx-wwq2
   - https://github.com/advisories/GHSA-jj3q-cwqj-842r
   - https://nvd.nist.gov/vuln/detail/CVE-2026-106117
+  - https://github.com/advisories/GHSA-jjfr-hcj7-qf5w
 action_plan:
   priority: immediate_escalation
   owners:
@@ -62,6 +66,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-jj3q-cwqj-842r
+  - at: "2026-10-07T22:51:11Z"
+    level: L1
+    summary: added coverage for ImageSharp (>= 2.1.0, <= 4.1.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-jjfr-hcj7-qf5w
 ---
 
 SixLabors ImageSharp, a popular cross-platform image processing library for .NET, contains a heap-based out-of-bounds write vulnerability (CVE-2026-106118) within its TIFF decoding component. The issue originates from a mismatch between buffer allocation and the fax decompressor logic when processing tiled TIFF images. Specifically, the library allocates buffers based on `TileWidth`, but the `T4TiffCompression` and `T6TiffCompression` decompressors incorrectly utilize the `frame.Width` of the full image for write operations. 
