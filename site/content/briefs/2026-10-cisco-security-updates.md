@@ -3,7 +3,7 @@ title: Cisco Security Updates - October 2026
 slug: 2026-10-cisco-security-updates
 description: Roundup of Cisco security advisories published in October 2026.
 date: "2026-10-07T17:00:15Z"
-lastmod: "2026-10-07T17:00:15Z"
+lastmod: "2026-10-07T17:00:18Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,9 @@ vendors:
 cves:
   - id: CVE-2026-20032
     product: NX-OS Software
+  - id: CVE-2026-20362
+references:
+  - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1
 updates:
   - at: "2026-10-07T17:00:15Z"
     level: L1
@@ -24,6 +27,13 @@ updates:
       - cisco-psirt
     source_urls:
       - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-mppe-dhKZAFgb?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Python%20Sandbox%20Escape%20Vulnerability%26vs_k=1
+  - at: "2026-10-07T17:00:18Z"
+    level: L2
+    summary: added CVE-2026-20362
+    sources:
+      - cisco-psirt
+    source_urls:
+      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1
 ---
 
 This roundup covers 1 Cisco security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect NX-OS Software.
