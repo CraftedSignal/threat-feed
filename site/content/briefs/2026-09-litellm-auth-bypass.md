@@ -3,6 +3,7 @@ title: Weak Authentication Vulnerability in LiteLLM (CVE-2026-93355)
 slug: 2026-09-litellm-auth-bypass
 description: LiteLLM contains a critical authentication flaw where failure to validate JWT email claims allows attackers to impersonate arbitrary users and escalate to administrative privileges.
 date: "2026-09-28T22:22:50Z"
+lastmod: "2026-10-07T08:38:50Z"
 type: advisory
 types:
   - advisory
@@ -10,8 +11,12 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:litellm:litellm:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=769CD85E-2014-5D1C-A080-729F393F8A12&utm_source=rss&utm_medium=rss
 vendors:
   - LiteLLM
+  - BerriAI
 products:
   - LiteLLM
 mitre_ttps:
@@ -30,8 +35,13 @@ mitre_ttps:
 cves:
   - id: CVE-2026-93355
     cvss: 8.1
+    epss: 0.00273
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93355
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3599
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3617
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3644
+  - https://sploitus.com/exploit?id=769CD85E-2014-5D1C-A080-729F393F8A12&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +58,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93355
       evidence: Vulnerability allows unauthorized JWT authentication.
+updates:
+  - at: "2026-10-07T08:38:50Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=769CD85E-2014-5D1C-A080-729F393F8A12&utm_source=rss&utm_medium=rss
 ---
 
 LiteLLM is susceptible to a weak authentication vulnerability, identified as CVE-2026-93355. The flaw exists within the application's JWT-based authentication flow, specifically regarding the handling of identity provider (IdP) tokens. When a user presents a JWT, the application performs an email-based lookup to identify the account. Crucially, the system fails to verify the 'email_verified' claim contained within the token. 
