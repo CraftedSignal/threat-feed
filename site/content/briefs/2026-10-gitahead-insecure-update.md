@@ -3,6 +3,7 @@ title: Insecure Update Mechanism in GitAhead
 slug: 2026-10-gitahead-insecure-update
 description: GitAhead versions 2.5.0 through 2.7.1 suffer from an insecure update mechanism that fails to verify update integrity, allowing attackers to perform a man-in-the-middle attack and execute arbitrary code.
 date: "2026-10-05T01:43:52Z"
+lastmod: "2026-10-07T12:37:31Z"
 type: advisory
 types:
   - advisory
@@ -11,10 +12,15 @@ severities:
 cpes:
   - cpe:2.3:a:gitahead:gitahead:2.5.0:*:*:*:*:*:*:*
   - cpe:2.3:a:gitahead:gitahead:2.7.1:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - rce
+  - supply-chain
 vendors:
   - GitAhead
 products:
   - GitAhead (2.5.0-2.7.1)
+  - GitAhead (<= 2.7.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -22,11 +28,18 @@ mitre_ttps:
     technique_name: Phishing
     evidence: An attacker can exploit this to perform a machine-in-the-middle attack, intercept update requests, and deliver malicious payloads.
     confidence_band: med
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1202
+    technique_name: Indirect Command Execution
+    evidence: Attackers can ship files named with $(command) selected via .gitattributes so checkout or staging runs the command through bash -c as the victim.
+    confidence_band: high
 cves:
   - id: CVE-2026-105295
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105295
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-106058
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +56,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-105295
       evidence: GitAhead 2.5.0 through 2.7.1 contains an insecure update mechanism.
+updates:
+  - at: "2026-10-07T12:37:31Z"
+    level: L2
+    summary: added coverage for GitAhead (<= 2.7.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-106058
 ---
 
 GitAhead versions 2.5.0 through 2.7.1 contain an insecure update mechanism that fails to perform integrity or digital signature verification on downloaded update files. Furthermore, the application persistently ignores TLS errors after a user dismisses a single SSL error dialog. A network attacker capable of positioning themselves between the application and the update server can present an invalid certificate to trigger this persistent ignore state. Once the application ignores further certificate errors, the attacker can intercept subsequent automatic update checks to serve a malicious payload. Because the update process lacks signature validation, GitAhead will download and execute this malicious file with the privileges of the user running the application. This vulnerability presents a significant risk to developers using the software, as exploitation leads to full remote code execution on the host machine.
