@@ -1,68 +1,63 @@
 ---
-title: Improper Repository Path Validation in Backstage Scaffolder Backend Module
+title: Path Traversal Vulnerability in Backstage Bitbucket Scaffolder Modules
 slug: 2026-10-backstage-path-traversal
-description: An authenticated user can exploit improper path validation in the Backstage plugin-scaffolder-backend-module-confluence-to-markdown (CVE-2026-106560) to write files outside the designated task workspace.
-date: "2026-10-07T22:54:45Z"
+description: Authenticated users can exploit improper filesystem validation in Backstage Bitbucket scaffolder plugins to achieve unauthorized file access, modification, or deletion outside the intended working directory via CVE-2026-106486.
+date: "2026-10-07T22:54:58Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:backstage:plugin-scaffolder-backend-module-confluence-to-markdown:*:*:*:*:*:*:*:*
 tags:
-  - web-vulnerability
   - path-traversal
-  - backend-security
+  - backstage
+  - vulnerability
+  - cve-2026-106486
 vendors:
   - Backstage
 products:
-  - plugin-scaffolder-backend-module-confluence-to-markdown (< 0.3.25)
+  - plugin-scaffolder-backend-module-bitbucket-cloud (< 0.3.10)
+  - plugin-scaffolder-backend-module-bitbucket-server (< 0.2.25)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: An authenticated user who can execute an affected template and control its repository file location may cause generated content to be written outside the task workspace.
+    evidence: An authenticated user who can execute an eligible template and influence an allowed Bitbucket repository could affect filesystem paths outside the expected working area.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
-    evidence: An authenticated user... may cause generated content to be written outside the task workspace, within locations writable by the Backstage backend process.
-    confidence_band: med
 cves:
-  - id: CVE-2026-106560
-    cvss: 7.1
+  - id: CVE-2026-106486
+    cvss: 8.5
 references:
-  - https://github.com/advisories/GHSA-2cmg-v53w-8xfp
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-106560
+  - https://github.com/advisories/GHSA-g8rx-f7m5-7794
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-106486
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Security Engineering
+    - DevOps
   immediate_actions:
-    - action: Upgrade @backstage/plugin-scaffolder-backend-module-confluence-to-markdown to 0.3.25
+    - action: Upgrade affected Backstage modules to patched versions
       owner: IT Operations
-      due: 24h
-      evidence: Patched in @backstage/plugin-scaffolder-backend-module-confluence-to-markdown version 0.3.25
+      due: 48h
+      evidence: Patches provided in GHSA-g8rx-f7m5-7794
   mitigation_plan:
     - priority: immediate
-      action: Restrict template execution to trusted users or disable the affected action
-      owner: Security Engineering
-      addresses: CVE-2026-106560
-      evidence: Remove or disable the affected action until the patched package is deployed.
+      action: Restrict template execution to trusted users and sanitize repository parameters
+      owner: DevOps
+      addresses: CVE-2026-106486
+      evidence: Workaround documented in GHSA-g8rx-f7m5-7794
 ---
 
-Backstage, an open platform for building developer portals, contains a path traversal vulnerability in the Scaffolder backend module `@backstage/plugin-scaffolder-backend-module-confluence-to-markdown`. The vulnerability, tracked as CVE-2026-106560, stems from improper validation of repository file location inputs provided by users. An authenticated attacker who can execute affected templates and control repository path parameters can escape the restricted task workspace. By manipulating these paths, the attacker can force the Backstage backend process to write files into any directory on the server that the backend process has permissions to access. This can lead to arbitrary file creation or overwriting of configuration files, potentially facilitating further system compromise or persistent unauthorized access. The issue was addressed in version 0.3.25 of the affected module.
+The Backstage Scaffolder backend modules for Bitbucket Cloud and Bitbucket Server contain an improper filesystem validation vulnerability, tracked as CVE-2026-106486. This flaw exists within the scaffolder actions responsible for interacting with Bitbucket repositories. An authenticated user who has the privileges to execute templates and the ability to influence the targeted Bitbucket repository parameter can supply malicious input to traverse the filesystem on the backend host. By manipulating these inputs, an attacker may escape the expected working directory, potentially reading sensitive configuration files, modifying application code, or deleting arbitrary files. This vulnerability poses a significant risk to backend integrity and confidentiality, particularly in environments where untrusted users have template creation or execution access.
 
 ## Impact
 
-Successful exploitation allows authenticated users to bypass directory restrictions within the Scaffolder environment. This vulnerability impacts organizations hosting Backstage instances that utilize the affected Confluence-to-Markdown Scaffolder action. An attacker could overwrite critical application files or drop web shells if the backend process runs with elevated privileges, leading to full application compromise or unauthorized data modification.
+Successful exploitation allows an authenticated attacker to perform unauthorized file operations on the host running the Backstage backend. This can result in the compromise of backend confidentiality (sensitive file exfiltration), integrity (malicious code injection), or availability (system file deletion). The scope of impact is limited by the permissions of the process running the Backstage backend service.
 
 ## Recommendation
 
-- Upgrade the `@backstage/plugin-scaffolder-backend-module-confluence-to-markdown` package to version 0.3.25 or later.
-- Implement access control restrictions to limit which users can execute templates that utilize the Confluence-to-Markdown action until the update is deployed.
-- Audit logs for the Backstage backend process to identify suspicious template execution attempts involving unusual file paths (e.g., paths containing '..').
+- Upgrade `@backstage/plugin-scaffolder-backend-module-bitbucket-cloud` to version 0.3.10 or later.
+- Upgrade `@backstage/plugin-scaffolder-backend-module-bitbucket-server` to version 0.2.25 or later.
+- Apply administrative restrictions on Scaffolder template execution, limiting them to trusted users only.
+- Audit existing Scaffolder templates to identify and restrict actions that accept user-controlled target repository inputs until patching is complete.
