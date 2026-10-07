@@ -3,7 +3,7 @@ title: Cisco Security Updates - October 2026
 slug: 2026-10-cisco-security-updates
 description: Roundup of Cisco security advisories published in October 2026.
 date: "2026-10-07T17:00:15Z"
-lastmod: "2026-10-07T18:46:02Z"
+lastmod: "2026-10-07T18:46:09Z"
 type: threat
 types:
   - threat
@@ -34,16 +34,11 @@ cves:
   - id: CVE-2026-76458
     product: NX-OS
     cvss: 8.6
+  - id: CVE-2026-76467
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-76463
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76468
 updates:
-  - at: "2026-10-07T18:45:21Z"
-    level: L2
-    summary: added CVE-2026-20328
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20328
   - at: "2026-10-07T18:45:36Z"
     level: L2
     summary: added CVE-2026-20328 +1
@@ -72,9 +67,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76463
+  - at: "2026-10-07T18:46:09Z"
+    level: L2
+    summary: added CVE-2026-76467
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76468
 ---
 
-This roundup covers 19 Cisco security vulnerabilities. CVSS base scores range from 5.8 to 9.8. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Cisco networking, Finesse, License On-Prem, NX-OS, NX-OS Software, Nexus 3000 Series Switches, Nexus 9000 Series Fabric Switches.
+This roundup covers 21 Cisco security vulnerabilities. CVSS base scores range from 5.8 to 9.8. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Cisco networking, Finesse, License On-Prem, NX-OS, NX-OS Software, Nexus 3000 Series Switches, Nexus 9000 Series Fabric Switches, networking.
 
 ## Summary
 
@@ -93,12 +95,14 @@ This roundup covers 19 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20173](#cve-2026-20173) | NX-OS Software | Medium | 5.8 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-nscpdos-SnderkC7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Control%20Plane%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20328](#cve-2026-20328) | License On-Prem | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20328) (authoritative) |
 | [CVE-2026-76454](#cve-2026-76454) | License On-Prem | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76454) (authoritative) |
-| [CVE-2026-76455](#cve-2026-76455) | NX-OS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76455) (authoritative) |
-| [CVE-2026-76464](#cve-2026-76464) | Cisco networking |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76464) (authoritative) |
+| [CVE-2026-76455](#cve-2026-76455) | NX-OS | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76455) (authoritative) |
+| [CVE-2026-76464](#cve-2026-76464) | Cisco networking | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76464) (authoritative) |
 | [CVE-2026-76453](#cve-2026-76453) | NX-OS | High | 8.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76453) (authoritative) |
 | [CVE-2026-76456](#cve-2026-76456) | NX-OS | High | 8.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76456) (authoritative) |
 | [CVE-2026-76458](#cve-2026-76458) | NX-OS | High | 8.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76458) (authoritative) |
 | [CVE-2026-76459](#cve-2026-76459) | NX-OS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76459) (authoritative) |
+| [CVE-2026-76463](#cve-2026-76463) | networking |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76463) (authoritative) |
+| [CVE-2026-76467](#cve-2026-76467) | networking |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76467) (authoritative) |
 
 
 ## CVE-2026-20032
@@ -109,6 +113,8 @@ Affected products:
 - NX-OS Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-mppe-dhKZAFgb?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Python%20Sandbox%20Escape%20Vulnerability%26vs_k=1
+
+
 
 
 
@@ -151,6 +157,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
 Related in this roundup: [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).
 
 ## CVE-2026-76488
@@ -174,6 +182,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
 Related in this roundup: [CVE-2026-20321](#cve-2026-20321).
 
 ## CVE-2026-20321
@@ -184,6 +194,8 @@ Affected products:
 - Application Policy Infrastructure Controller
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1
+
+
 
 
 
@@ -229,6 +241,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
 Related in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).
 
 ## CVE-2026-76486
@@ -241,6 +255,8 @@ Affected products:
 - NX-OS Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1
+
+
 
 
 
@@ -275,6 +291,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
 Related in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486).
 
 ## CVE-2026-76471
@@ -285,6 +303,8 @@ Affected products:
 - NX-OS Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-napi-rce-r2shwu2j?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20NX-API%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
+
+
 
 
 
@@ -314,6 +334,8 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
+
 Related in this roundup: [CVE-2026-20032](#cve-2026-20032), [CVE-2026-76471](#cve-2026-76471).
 
 ## CVE-2026-20328
@@ -325,6 +347,8 @@ Affected products:
 - Smart Software Manager On-Prem
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20328
+
+
 
 
 
@@ -349,6 +373,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76454
 
 
 
+
+
 Related in this roundup: [CVE-2026-20328](#cve-2026-20328).
 
 ## CVE-2026-76455
@@ -359,6 +385,8 @@ Affected products:
 - NX-OS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76455
+
+
 
 
 
@@ -386,6 +414,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76453
 
 
 
+
+
 Related in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).
 
 ## CVE-2026-76456
@@ -396,6 +426,8 @@ Affected products:
 - NX-OS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76456
+
+
 
 
 
@@ -411,6 +443,8 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76458
 
 
+
+
 Related in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76459](#cve-2026-76459).
 
 ## CVE-2026-76459
@@ -422,4 +456,28 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76459
 
+
+
 Related in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458).
+
+## CVE-2026-76463
+
+CVE-2026-76463 refers to improper access control vulnerabilities identified within Cisco networking software during an internal security review. These vulnerabilities are classified under CWE-284 and have a CVSS base score of 8.8, indicating a high severity risk associated with unauthorized access or control.
+
+Affected products:
+- networking
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76463
+
+Related in this roundup: [CVE-2026-76467](#cve-2026-76467).
+
+## CVE-2026-76467
+
+CVE-2026-76467 refers to a vulnerability identified within Cisco networking software involving improper control of a resource through its lifetime, classified under CWE-664. This issue was identified during an internal security review and addressed via a software hardening release.
+
+Affected products:
+- networking
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76467
+
+Related in this roundup: [CVE-2026-76463](#cve-2026-76463).
