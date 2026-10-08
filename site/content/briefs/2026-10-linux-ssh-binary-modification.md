@@ -3,6 +3,7 @@ title: Detection of Unauthorized SSH Binary and Library Modification
 slug: 2026-10-linux-ssh-binary-modification
 description: Adversaries modify critical SSH binaries and libraries on Linux systems to establish persistence, gain unauthorized access, or harvest credentials through patched sensitive functions.
 date: "2026-10-05T11:59:54Z"
+lastmod: "2026-10-08T19:07:31Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - credential-access
   - linux
   - ssh
+vendors:
+  - OpenSSH
+products:
+  - OpenSSH
 affected_os:
   - Linux
 mitre_ttps:
@@ -59,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: T1554
       evidence: Best practice for protecting system binaries
+updates:
+  - at: "2026-10-08T19:07:31Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_credential_access_modify_ssh_binaries.toml
 ---
 
 Adversaries targeting Linux environments may attempt to compromise the integrity of the OpenSSH suite to maintain long-term access or facilitate credential theft. By modifying binaries such as /usr/bin/ssh, /usr/bin/scp, /usr/bin/sftp, /usr/sbin/sshd, or linked libraries like libkeyutils.so, attackers can patch internal functions. These modifications enable malicious actors to capture cleartext credentials during authentication or create backdoors that bypass standard access controls. This activity typically occurs post-exploitation when an attacker has achieved sufficient privileges to modify system-level files. Monitoring for unauthorized changes to these specific sensitive paths is critical for identifying potential subversion of the operating system's primary secure communication mechanism. Defenders must distinguish these malicious modifications from legitimate software updates and administrative maintenance activities.
