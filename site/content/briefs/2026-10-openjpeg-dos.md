@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in OpenJPEG
 slug: 2026-10-openjpeg-dos
 description: A vulnerability in the OpenJPEG library allows a remote, unauthenticated attacker to cause a denial-of-service condition through the processing of maliciously crafted input.
 date: "2026-10-06T12:43:04Z"
+lastmod: "2026-10-08T12:54:48Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,7 @@ vendors:
   - OpenJPEG
 products:
   - OpenJPEG
+  - OpenJPEG (2.5.3, 2.5.4)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -24,6 +26,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3752
+  - https://seclists.org/oss-sec/2026/q4/100
 action_plan:
   priority: monitor_or_close
   owners:
@@ -35,6 +38,14 @@ action_plan:
       owner: IT Operations
       addresses: OpenJPEG vulnerability
       evidence: Source reporting identifies a DoS vulnerability in the library.
+updates:
+  - at: "2026-10-08T12:54:48Z"
+    level: L2
+    summary: openjpeg version 2.5.3, 2.5.4
+    sources:
+      - oss-security
+    source_urls:
+      - https://seclists.org/oss-sec/2026/q4/100
 ---
 
 The OpenJPEG library, an open-source JPEG 2000 codec, contains a security vulnerability that can be exploited by a remote, unauthenticated attacker to induce a denial-of-service (DoS) condition. The vulnerability manifests during the parsing or processing phase of input files, where an attacker providing a specially crafted JPEG 2000 image can trigger resource exhaustion or an application crash. As OpenJPEG is widely integrated into various image processing suites, document viewers, and graphics libraries, the impact is highly dependent on how the host application handles library exceptions and resource allocation. Defenders should identify applications within their environments that link against vulnerable versions of OpenJPEG and monitor for abnormal resource consumption or unexpected termination of image-processing services.
