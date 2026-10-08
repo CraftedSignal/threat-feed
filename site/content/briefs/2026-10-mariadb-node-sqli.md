@@ -3,6 +3,7 @@ title: SQL Injection in MariaDB Connector/Node.js
 slug: 2026-10-mariadb-node-sqli
 description: The MariaDB Connector/Node.js fails to properly escape input parameters for the text protocol when NO_BACKSLASH_ESCAPES mode is enabled, allowing attackers to perform SQL injection via standard placeholder APIs.
 date: "2026-10-08T19:43:22Z"
+lastmod: "2026-10-08T19:43:34Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,15 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:mariadb:mariadb_connector_nodejs:*:*:*:*:*:node.js:*:*
+tags:
+  - sql-injection
+  - nodejs
+  - database-security
 vendors:
   - MariaDB
 products:
   - MariaDB Connector/Node.js (< 3.2.5, >= 3.3.0 < 3.3.4, >= 3.4.0 < 3.4.7, >= 3.5.0-rc.0 < 3.5.4)
+  - MariaDB Connector/Node.js (>= 3.2.0, < 3.2.5, >= 3.3.0, < 3.3.4, >= 3.4.0, < 3.4.7, >= 3.5.0-rc.0, < 3.5.4)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -21,12 +27,20 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An attacker able to influence any value the application passes as a query parameter could execute arbitrary SQL.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.001
+    technique_name: 'Command and Scripting Interpreter: PowerShell'
+    evidence: The library fails to properly escape object keys when expanding them into SQL SET clauses, allowing for the injection of arbitrary SQL statements.
+    confidence_band: high
 cves:
   - id: CVE-2026-107385
     cvss: 7.4
 references:
   - https://github.com/advisories/GHSA-r3rv-jm3r-62q2
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-107385
+  - https://github.com/advisories/GHSA-v6pj-gxxw-phfw
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-107384
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +57,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-107385
       evidence: Source states execute() and batch() are not affected
+updates:
+  - at: "2026-10-08T19:43:34Z"
+    level: L2
+    summary: added coverage for MariaDB Connector/Node.js (>= 3.2.0, < 3.2.5, >= 3.3.0, < 3.3.4, >= 3.4.0, < 3.4.7, >= 3.5.0-rc.0, < 3.5.4)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-v6pj-gxxw-phfw
 ---
 
 MariaDB Connector/Node.js (CVE-2026-107385) contains a vulnerability in its parameter-escaping logic for the text protocol. When a database session is configured with the NO_BACKSLASH_ESCAPES SQL mode, the connector fails to recognize the mode, continuing to escape quotes with backslashes rather than doubling them. This behavior results in a mismatch where the escaped value prematurely closes the SQL string literal. An attacker capable of influencing query parameters can escape the string context and inject arbitrary SQL commands. The vulnerability affects all standard text-protocol entry points, including the Connection.escape() method. While the vulnerability requires the specific NO_BACKSLASH_ESCAPES mode to be active, this can be set server-wide, via connector session initialization, or through individual application queries. The binary prepared-statement protocol (execute/batch) remains unaffected.
