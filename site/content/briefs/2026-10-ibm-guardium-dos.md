@@ -3,7 +3,7 @@ title: Denial-of-Service Vulnerability in IBM Guardium Data Protection
 slug: 2026-10-ibm-guardium-dos
 description: IBM Guardium Data Protection 12.2.2 is susceptible to an unauthenticated remote denial-of-service attack via malformed gRPC task data that causes the edge-controller process to crash.
 date: "2026-10-08T19:40:20Z"
-lastmod: "2026-10-08T22:12:03Z"
+lastmod: "2026-10-08T22:13:02Z"
 type: advisory
 types:
   - advisory
@@ -70,6 +70,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84245
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84250
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84271
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84275
 action_plan:
   priority: elevated
   owners:
@@ -78,13 +79,6 @@ action_plan:
   immediate_actions:
     - action: Patch IBM Guardium Data Protection 12.2.2 to the version resolving CVE-2026-84276.
 updates:
-  - at: "2026-10-08T22:02:11Z"
-    level: L2
-    summary: added coverage for Guardium Data Protection (12.1, 12.2.2)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-84272
   - at: "2026-10-08T22:08:34Z"
     level: L2
     summary: added coverage for Guardium Data Protection (12.0, 12.1, 12.2)
@@ -113,6 +107,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-84271
+  - at: "2026-10-08T22:13:02Z"
+    level: L2
+    summary: added coverage for Guardium Data Protection (12.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-84275
 ---
 
 IBM Guardium Data Protection version 12.2.2 contains a high-severity denial-of-service (DoS) vulnerability identified as CVE-2026-84276. The vulnerability exists within the edge-controller component. An unauthenticated remote attacker with network connectivity to the edge-controller gRPC service can transmit specifically crafted, malformed task data to the application. Due to an unchecked type assertion within the code handling these gRPC requests, the edge-controller process encounters an unhandled exception and terminates unexpectedly. This disruption impacts the availability of the data protection services managed by the edge-controller. Defenders should monitor for unexpected restarts of the edge-controller process and restrict access to the gRPC service to known, trusted infrastructure.
