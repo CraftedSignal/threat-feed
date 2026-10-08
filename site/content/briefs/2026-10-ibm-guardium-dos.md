@@ -3,7 +3,7 @@ title: Denial-of-Service Vulnerability in IBM Guardium Data Protection
 slug: 2026-10-ibm-guardium-dos
 description: IBM Guardium Data Protection 12.2.2 is susceptible to an unauthenticated remote denial-of-service attack via malformed gRPC task data that causes the edge-controller process to crash.
 date: "2026-10-08T19:40:20Z"
-lastmod: "2026-10-08T22:08:34Z"
+lastmod: "2026-10-08T22:10:39Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +46,12 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: An unauthenticated remote attacker could exploit this vulnerability to execute arbitrary container images.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: A low-privileged local user could exploit this vulnerability to gain root privileges and access or modify sensitive system files.
+    confidence_band: high
 cves:
   - id: CVE-2026-84276
     cvss: 7.5
@@ -54,6 +60,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84244
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84272
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82334
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84245
 action_plan:
   priority: elevated
   owners:
@@ -83,6 +90,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-82334
+  - at: "2026-10-08T22:10:39Z"
+    level: L2
+    summary: added coverage for Guardium Data Protection (12.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-84245
 ---
 
 IBM Guardium Data Protection version 12.2.2 contains a high-severity denial-of-service (DoS) vulnerability identified as CVE-2026-84276. The vulnerability exists within the edge-controller component. An unauthenticated remote attacker with network connectivity to the edge-controller gRPC service can transmit specifically crafted, malformed task data to the application. Due to an unchecked type assertion within the code handling these gRPC requests, the edge-controller process encounters an unhandled exception and terminates unexpectedly. This disruption impacts the availability of the data protection services managed by the edge-controller. Defenders should monitor for unexpected restarts of the edge-controller process and restrict access to the gRPC service to known, trusted infrastructure.
