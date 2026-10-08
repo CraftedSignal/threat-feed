@@ -3,7 +3,7 @@ title: Unbounded Decryption SpinCount Denial of Service in Excelize
 slug: 2026-10-excelize-dos
 description: An unbounded key-derivation loop in the Excelize library allows an attacker to trigger CPU exhaustion via a maliciously crafted EncryptionInfo stream in an OLE-formatted file.
 date: "2026-10-07T22:53:15Z"
-lastmod: "2026-10-08T19:27:22Z"
+lastmod: "2026-10-08T19:27:29Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +25,7 @@ products:
   - excelize (< 2.11.1-0.20260930021559-01a9ff32fb3c)
   - excelize (>= 2.9.0, < 2.11.1-0.20260929015830-8ffeb07ec9a3)
   - excelize (>= 2.3.1, < 2.11.1-0.20260915055537-22f76f9acb94)
+  - excelize (>= 2.3.1, < 2.11.1-0.20260912113515-5f636f9dcde5)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -50,6 +51,8 @@ references:
   - https://github.com/advisories/GHSA-r7x5-4969-99p7
   - https://github.com/advisories/GHSA-2j4c-ffch-9f23
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107214
+  - https://github.com/advisories/GHSA-x2q3-8cjh-766f
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-107215
 action_plan:
   priority: elevated
   owners:
@@ -95,6 +98,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-2j4c-ffch-9f23
+  - at: "2026-10-08T19:27:29Z"
+    level: L1
+    summary: added coverage for excelize (>= 2.3.1, < 2.11.1-0.20260912113515-5f636f9dcde5)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-x2q3-8cjh-766f
 ---
 
 The Excelize Go library (versions 2.3.1 through 2.11.0) contains a denial-of-service vulnerability triggered by the lack of bounds checking on the `spinCount` parameter during the agile decryption process. The library branches into the decryption routine based solely on the first eight bytes of a file (the OLE magic number), regardless of whether the file is legitimately encrypted or if the application supports encrypted workbooks. 
