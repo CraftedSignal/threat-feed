@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Checkmk
 slug: 2026-10-checkmk-vulnerabilities
 description: Checkmk is affected by multiple vulnerabilities, including CVE-2024-23334 through CVE-2024-23338, which may allow unauthenticated or authenticated attackers to perform cross-site scripting, information disclosure, or data manipulation.
 date: "2026-10-06T12:43:33Z"
+lastmod: "2026-10-08T19:22:16Z"
 type: advisory
 types:
   - advisory
@@ -17,10 +18,20 @@ tags:
   - vulnerability
   - web-application
   - monitoring
+  - privilege-escalation
+  - local-attack
 vendors:
   - Checkmk
 products:
   - Checkmk (<= 1.7.1)
+  - Checkmk
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Ein lokaler Angreifer kann eine Schwachstelle in Checkmk ausnutzen, um seine Privilegien zu erhöhen.
+    confidence_band: high
 cves:
   - id: CVE-2024-23334
     cvss: 5.9
@@ -37,6 +48,7 @@ cves:
     epss: 0.00441
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3746
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3801
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +60,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-23334, CVE-2024-23335, CVE-2024-23336, CVE-2024-23337, CVE-2024-23338
       evidence: Source advisory recommends applying security updates.
+updates:
+  - at: "2026-10-08T19:22:16Z"
+    level: L1
+    summary: added coverage for Checkmk
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3801
 ---
 
 Checkmk has been identified as vulnerable to a series of security flaws categorized as CVE-2024-23334, CVE-2024-23335, CVE-2024-23336, CVE-2024-23337, and CVE-2024-23338. These vulnerabilities affect the core functionality of the Checkmk monitoring platform. Depending on the specific vulnerability, attackers may be able to execute cross-site scripting (XSS) attacks, gain unauthorized access to sensitive system information, or manipulate monitoring data within the application. These flaws pose a significant risk to the integrity and confidentiality of monitoring environments. Defenders should identify all instances of Checkmk across their infrastructure and apply the vendor-supplied security patches to mitigate the risk of exploitation.
