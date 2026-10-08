@@ -3,6 +3,7 @@ title: AsyncHttpClient Credential and Request Leakage via Host Replay
 slug: 2026-10-asynchttpclient-replay-leak
 description: A vulnerability in AsyncHttpClient causes sensitive credentials and request details to be leaked to unintended hosts when a request replay or failover is triggered.
 date: "2026-10-08T19:25:36Z"
+lastmod: "2026-10-08T19:27:09Z"
 type: advisory
 types:
   - advisory
@@ -14,11 +15,16 @@ tags:
   - credential-theft
   - data-leakage
   - library-vulnerability
+  - authentication-bypass
+  - cve-2026-107230
+  - java
 vendors:
   - AsyncHttpClient
 products:
   - async-http-client (<= 2.16.0)
   - async-http-client (<= 3.0.12)
+  - async-http-client (< 3.0.14)
+  - async-http-client (<= 2.16.1)
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration
@@ -31,6 +37,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-jmqq-x5g9-9p2w
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107282
+  - https://github.com/advisories/GHSA-v2j5-22fr-j62r
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-107230
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +55,14 @@ action_plan:
       owner: Development
       addresses: CVE-2026-107282
       evidence: Source workaround provided for instances where patching is delayed.
+updates:
+  - at: "2026-10-08T19:27:09Z"
+    level: L2
+    summary: added coverage for async-http-client (< 3.0.14) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-v2j5-22fr-j62r
 ---
 
 AsyncHttpClient (v2.x <= 2.16.0 and v3.x <= 3.0.12) contains a critical vulnerability, CVE-2026-107282, that leads to the leakage of credentials and sensitive request data. The issue stems from the library's handling of request replays and failover patterns - triggered by `ResponseFilter` or automatic `IOException` retries. When a request is replayed to a different host, the internal `targetRequest` pointer is not updated to match the new host, leaving it pointing to the original destination. 
