@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in PCRE
 slug: 2026-10-pcre-dos
 description: A local Denial of Service vulnerability exists in the PCRE library due to improper processing of specifically crafted regular expressions that cause application crashes.
 date: "2026-10-07T16:53:36Z"
+lastmod: "2026-10-08T04:47:09Z"
 type: advisory
 types:
   - advisory
@@ -12,10 +13,14 @@ tags:
   - denial-of-service
   - pcre
   - vulnerability
+  - remote-code-execution
+  - library-vulnerability
+  - software-supply-chain
 vendors:
   - PCRE
 products:
   - PCRE (all versions)
+  - PCRE
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -23,8 +28,15 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: Ein lokaler Angreifer kann eine Schwachstelle in PCRE (Perl Compatible Regular Expressions) ausnutzen, um einen Denial of Service Angriff durchzuführen.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Ein entfernter, anonymer Angreifer kann eine Schwachstelle in PCRE (Perl Compatible Regular Expressions) ausnutzen, um beliebigen Programmcode mit den Rechten des Dienstes auszuführen.
+    confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2022-0897
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3767
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +55,14 @@ action_plan:
       evidence: Advisory recommends addressing the vulnerable component.
   gaps:
     - Lack of specific exploit PoC or public trigger pattern limits the ability to write a high-fidelity detection rule.
+updates:
+  - at: "2026-10-08T04:47:09Z"
+    level: L1
+    summary: added coverage for PCRE
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3767
 ---
 
 The Perl Compatible Regular Expressions (PCRE) library contains a security flaw that allows a local attacker to trigger a Denial of Service (DoS) condition. The vulnerability stems from how the library handles specific regular expression patterns, which, when processed, can lead to memory corruption or excessive resource consumption, ultimately resulting in the crash of any application or service that links to the affected PCRE version. Because PCRE is a fundamental dependency for a wide range of software, including web servers, security tools, and data processing utilities, the impact of this vulnerability is widespread. Defenders should identify applications within their environment that statically or dynamically link against the affected PCRE library and ensure they are updated to a patched version once released by the upstream maintainers.
