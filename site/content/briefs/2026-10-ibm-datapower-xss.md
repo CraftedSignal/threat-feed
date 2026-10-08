@@ -3,7 +3,7 @@ title: Cross-Site Scripting Vulnerability in IBM DataPower Gateway
 slug: 2026-10-ibm-datapower-xss
 description: IBM DataPower Gateway versions 10.6.0.0 through 10.6.0.10 contain a reflected cross-site scripting (XSS) vulnerability allowing unauthenticated remote attackers to execute arbitrary JavaScript in the Web UI.
 date: "2026-10-08T15:09:55Z"
-lastmod: "2026-10-08T15:10:23Z"
+lastmod: "2026-10-08T15:11:11Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,7 @@ vendors:
 products:
   - DataPower Gateway (10.6.0.0-10.6.0.10)
   - DataPower Gateway (10.5.0.0-10.5.0.22, 10.6.0.0-10.6.0.10, 10.6.1-10.6.6, 11.0.0.0-11.0.0.2)
+  - DataPower Gateway (11.0.0.0-11.0.0.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -27,12 +28,19 @@ mitre_ttps:
     technique_name: Drive-by Compromise
     evidence: This vulnerability allows an unauthenticated user to embed arbitrary JavaScript code in the Web UI.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: IBM DataPower Gateway 11.0.0.0 through 11.0.0.2 could allow a remote attacker to cause a denial of service due to uncontrolled resource consumption.
+    confidence_band: high
 cves:
   - id: CVE-2026-14990
     cvss: 9.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14990
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14991
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16169
 action_plan:
   priority: elevated
   owners:
@@ -57,6 +65,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-14991
+  - at: "2026-10-08T15:11:11Z"
+    level: L1
+    summary: added coverage for DataPower Gateway (11.0.0.0-11.0.0.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-16169
 ---
 
 IBM DataPower Gateway versions 10.6.0.0 through 10.6.0.10 are affected by a cross-site scripting (XSS) vulnerability within the product's Web UI. The vulnerability allows an unauthenticated remote attacker to inject malicious JavaScript code into the web interface. Because the gateway interface processes user input without sufficient sanitization, an attacker can execute code in the context of an authenticated user's session. This could result in unauthorized administrative actions, sensitive information disclosure, or credential theft by intercepting session tokens. This vulnerability is critical for organizations relying on the DataPower Gateway for API management and security, as a compromise of the administrative interface undermines the security posture of the protected backend services.
