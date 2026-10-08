@@ -3,6 +3,7 @@ title: CSRF Vulnerability in Pydantic AI Web UI Enables Unauthorized Agent Execu
 slug: 2026-10-pydantic-ai-csrf
 description: A CSRF vulnerability (CVE-2026-107295) in Pydantic AI web interfaces allows malicious websites to trigger unauthorized agent runs and tool execution on a developer's local machine.
 date: "2026-10-08T19:26:43Z"
+lastmod: "2026-10-08T19:57:58Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +16,15 @@ tags:
   - csrf
   - pydantic-ai
   - cve-2026-107295
+  - denial-of-service
+  - vulnerability
 vendors:
   - Pydantic
 products:
   - pydantic-ai (>= 1.34.0, < 1.107.4 and >= 2.0.0b1, < 2.28.0)
   - pydantic-ai-slim (>= 1.34.0, < 1.107.4 and >= 2.0.0b1, < 2.28.0)
+  - pydantic-ai (>= 2.10.0, < 2.53.0)
+  - pydantic-ai-slim (>= 2.10.0, < 2.53.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,6 +44,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-h4xc-3qfq-jf93
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107295
+  - https://github.com/advisories/GHSA-6fqq-452j-qhrp
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-107286
 action_plan:
   priority: immediate_escalation
   owners:
@@ -55,6 +62,14 @@ action_plan:
       owner: Development Teams
       addresses: CVE-2026-107295
       evidence: Workaround provided in GHSA-h4xc-3qfq-jf93
+updates:
+  - at: "2026-10-08T19:57:58Z"
+    level: L1
+    summary: added coverage for pydantic-ai (>= 2.10.0, < 2.53.0) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6fqq-452j-qhrp
 ---
 
 Pydantic AI (pydantic-ai and pydantic-ai-slim) contains a Cross-Site Request Forgery (CSRF) vulnerability, tracked as CVE-2026-107295. The flaw exists in the development web UI provided by `Agent.to_web()` and the `clai web` command. Due to insufficient validation of request headers, the local chat endpoint fails to verify the `Content-Type` of incoming requests. This allows an attacker to host a malicious website that, when visited by a developer with a running Pydantic AI instance, submits unauthorized requests to the local chat server.
