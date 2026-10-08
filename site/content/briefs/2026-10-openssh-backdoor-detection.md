@@ -3,6 +3,7 @@ title: Detection of OpenSSH Backdoor Activity on Linux
 slug: 2026-10-openssh-backdoor-detection
 description: This detection logic identifies adversaries attempting to maintain persistence or harvest credentials by modifying OpenSSH binaries or configuration files, resulting in suspicious file creation events.
 date: "2026-10-05T11:58:19Z"
+lastmod: "2026-10-08T19:05:50Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - credential-access
   - linux
   - openssh
+vendors:
+  - OpenSSH
+products:
+  - OpenSSH
 affected_os:
   - Linux
 mitre_ttps:
@@ -37,6 +42,7 @@ mitre_ttps:
 references:
   - https://github.com/eset/malware-ioc/tree/master/sshdoor
   - https://www.welivesecurity.com/wp-content/uploads/2021/01/ESET_Kobalos.pdf
+  - https://github.com/elastic/detection-rules/blob/main/rules/linux/credential_access_ssh_backdoor_log.toml
 rules:
   - title: Potential OpenSSH Backdoor Logging Activity
     description: Identifies suspicious file creation by ssh or sshd processes, which may indicate backdoor persistence or credential staging.
@@ -66,6 +72,14 @@ action_plan:
       owner: IT Operations
       addresses: T1554
       evidence: Source advice on binary integrity checks.
+updates:
+  - at: "2026-10-08T19:05:50Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/credential_access_ssh_backdoor_log.toml
 ---
 
 Adversaries frequently target OpenSSH to facilitate persistence or credential theft by patching sensitive functions within ssh or sshd binaries. This activity often involves modifying binary integrity or injecting malicious code that logs authentication credentials to localized files. The behavior manifests through the creation of files with unusual extensions, hidden naming conventions (e.g., dot-files), or staging activity within sensitive directories like /tmp, /var/tmp, or system library paths. Defenders should monitor for suspicious file creation events originating from ssh-related processes, as these often indicate the presence of a backdoor or an attempt to exfiltrate cached session data.
