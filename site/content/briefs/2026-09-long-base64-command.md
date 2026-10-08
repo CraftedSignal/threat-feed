@@ -3,6 +3,7 @@ title: Detection of Oversized Base64 Obfuscated Interpreter Commands
 slug: 2026-09-long-base64-command
 description: Adversaries leverage oversized, base64-encoded command lines in scripting interpreters to evade security telemetry that truncates or ignores excessively large command-line arguments.
 date: "2026-09-18T19:10:40Z"
+lastmod: "2026-10-08T19:08:27Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - execution
   - command-line-obfuscation
   - scripting-interpreter
+affected_os:
+  - Windows
+  - Linux
+  - macOS
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -32,6 +37,8 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Adversaries may embed long inline encoded payloads in scripting interpreters to evade inspection and execute malicious content.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_long_base64_encoded_interpreter_command_line.toml
 rules:
   - title: Detect Oversized Base64 Encoded Command via Scripting Interpreter
     description: Detects oversized process start events (>= 4000 chars) where interpreters use base64 decoding patterns common in obfuscated payloads.
@@ -65,6 +72,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Source advises reviewing process_command_line.text for anomalies.
+updates:
+  - at: "2026-10-08T19:08:27Z"
+    level: L1
+    summary: OS linux; OS macos; OS windows
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/defense_evasion_long_base64_encoded_interpreter_command_line.toml
 ---
 
 Adversaries frequently use scripting interpreters such as Python, PowerShell, Node.js, and Deno to execute malicious payloads while attempting to evade security inspection. A common evasion technique involves embedding extremely long, base64-encoded inline commands within the interpreter invocation. Security platforms often ignore or truncate standard `process.command_line` fields when they exceed specific character thresholds at index time to save resources. Attackers exploit this behavior by padding their payloads to exceed these limits, effectively concealing malicious logic from traditional command-line logging. Defenders must focus on telemetry sources that preserve the full command-line text (e.g., `process.command_line.text`) to successfully identify these hidden execution patterns across Windows, macOS, and Linux environments.
