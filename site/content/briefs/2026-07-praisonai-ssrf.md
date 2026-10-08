@@ -3,12 +3,14 @@ title: PraisonAI web_crawl Tool Vulnerable to DNS Rebinding SSRF (CVE-2026-61430
 slug: 2026-07-praisonai-ssrf
 description: PraisonAI versions prior to 1.6.78 are vulnerable to server-side request forgery (SSRF) within its web_crawl tool, allowing attackers to bypass hostname validation using DNS rebinding and retrieve sensitive internal HTTP response bodies from private or loopback services.
 date: "2026-07-15T12:28:48Z"
-lastmod: "2026-07-15T12:34:07Z"
+lastmod: "2026-10-08T19:27:13Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:mervinpraison:praisonai:*:*:*:*:*:*:*:*
 tags:
   - ssrf
   - dns-rebinding
@@ -25,7 +27,6 @@ tags:
 vendors:
   - MervinPraison
 products:
-  - PraisonAI
   - PraisonAI (< 1.6.78)
 mitre_ttps:
   - tactic_id: TA0001
@@ -49,6 +50,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-61430
     cvss: 8.5
+    epss: 0.00348
+  - id: CVE-2026-61433
+    cvss: 7.8
+    epss: 0.0021
+  - id: CVE-2026-61436
+    cvss: 8.6
+    epss: 0.00518
+  - id: CVE-2026-61443
+    cvss: 8.1
+    epss: 0.00769
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61430
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-qg25-6gc4-48mg
@@ -65,6 +76,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61443
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-c44f-37qr-gw3f
   - https://www.vulncheck.com/advisories/praisonai-before-remote-code-execution-via-skilltools
+  - https://github.com/advisories/GHSA-qg25-6gc4-48mg
 rules:
   - title: Detects CVE-2026-61443 Exploitation - PraisonAI Script Execution from Unusual Paths
     description: Detects CVE-2026-61443 exploitation by identifying script interpreters (like Python) executing scripts using absolute paths outside of expected application directories, which can indicate unauthorized remote code execution in PraisonAI.
@@ -103,6 +115,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-61443
+  - at: "2026-10-08T19:27:13Z"
+    level: L2
+    summary: added CVE-2026-61433 +2
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-qg25-6gc4-48mg
 ---
 
 PraisonAI, an artificial intelligence platform, contains a critical server-side request forgery (SSRF) vulnerability, identified as CVE-2026-61430, affecting versions prior to 1.6.78. This flaw resides within the `web_crawl` tool, which is designed to validate hostnames during an initial check but then re-resolves them without IP pinning at the connection phase. Attackers can leverage DNS rebinding techniques to exploit this time-of-check-time-of-use (TOCTOU) vulnerability. By manipulating DNS resolution, an attacker can trick the `web_crawl` tool into making requests to internal private or loopback services, even if the initial hostname appears legitimate. The successful exploitation of this vulnerability allows adversaries to retrieve internal HTTP response bodies, potentially leading to information disclosure, reconnaissance of internal networks, and further compromise.
