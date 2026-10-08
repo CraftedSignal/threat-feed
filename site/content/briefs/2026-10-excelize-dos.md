@@ -3,7 +3,7 @@ title: Unbounded Decryption SpinCount Denial of Service in Excelize
 slug: 2026-10-excelize-dos
 description: An unbounded key-derivation loop in the Excelize library allows an attacker to trigger CPU exhaustion via a maliciously crafted EncryptionInfo stream in an OLE-formatted file.
 date: "2026-10-07T22:53:15Z"
-lastmod: "2026-10-08T19:27:29Z"
+lastmod: "2026-10-08T19:27:38Z"
 type: advisory
 types:
   - advisory
@@ -26,6 +26,7 @@ products:
   - excelize (>= 2.9.0, < 2.11.1-0.20260929015830-8ffeb07ec9a3)
   - excelize (>= 2.3.1, < 2.11.1-0.20260915055537-22f76f9acb94)
   - excelize (>= 2.3.1, < 2.11.1-0.20260912113515-5f636f9dcde5)
+  - excelize (>= 2.8.1, < 2.11.1-0.20260911060113-ea12859e43c6)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -53,6 +54,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107214
   - https://github.com/advisories/GHSA-x2q3-8cjh-766f
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107215
+  - https://github.com/advisories/GHSA-wp2g-vpjj-g53r
 action_plan:
   priority: elevated
   owners:
@@ -70,13 +72,6 @@ action_plan:
       addresses: CVE-2026-107219
       evidence: The source notes that the operation lacks context and cannot be cancelled by the caller.
 updates:
-  - at: "2026-10-08T19:25:47Z"
-    level: L1
-    summary: added coverage for excelize (>= 2.8.1, < 2.11.1-0.20261003002531-6258dcebc4e2)
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-mx22-3794-2vpv
   - at: "2026-10-08T19:26:53Z"
     level: L1
     summary: added coverage for excelize (< 2.11.1-0.20260930021559-01a9ff32fb3c)
@@ -105,6 +100,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-x2q3-8cjh-766f
+  - at: "2026-10-08T19:27:38Z"
+    level: L1
+    summary: added coverage for excelize (>= 2.8.1, < 2.11.1-0.20260911060113-ea12859e43c6)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-wp2g-vpjj-g53r
 ---
 
 The Excelize Go library (versions 2.3.1 through 2.11.0) contains a denial-of-service vulnerability triggered by the lack of bounds checking on the `spinCount` parameter during the agile decryption process. The library branches into the decryption routine based solely on the first eight bytes of a file (the OLE magic number), regardless of whether the file is legitimately encrypted or if the application supports encrypted workbooks. 
