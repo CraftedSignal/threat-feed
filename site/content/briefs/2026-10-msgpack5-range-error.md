@@ -3,6 +3,7 @@ title: msgpack5 Truncated map32 Header Denial of Service
 slug: 2026-10-msgpack5-range-error
 description: An out-of-bounds buffer read in msgpack5 versions prior to 6.1.0 (CVE-2026-107302) triggers an unhandled RangeError when encountering truncated map32 headers, leading to potential application-level denial of service.
 date: "2026-10-08T19:26:21Z"
+lastmod: "2026-10-08T19:26:29Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +18,7 @@ cves:
     cvss: 7.5
 references:
   - https://github.com/advisories/GHSA-8f34-f56x-9xph
+  - https://github.com/advisories/GHSA-5x5g-h9x8-2fh9
 action_plan:
   priority: elevated
   owners:
@@ -33,6 +35,14 @@ action_plan:
       owner: Engineering
       addresses: CVE-2026-107302
       evidence: Source identifies 6.1.0 as the version addressing the RangeError flaw
+updates:
+  - at: "2026-10-08T19:26:29Z"
+    level: L1
+    summary: added coverage for msgpack5 (< 6.1.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-5x5g-h9x8-2fh9
 ---
 
 The msgpack5 library is susceptible to a denial-of-service vulnerability (CVE-2026-107302) affecting versions prior to 6.1.0. The flaw resides in the decoding logic for 'map32' structures. When the library receives a truncated map32 header (specifically identified by the 0xdf type prefix) that provides fewer than the required five bytes, the internal decoder fails to throw the expected 'IncompleteBufferError'. Instead, the decoder initiates an out-of-bounds buffer read, resulting in a 'RangeError'. This inconsistency disrupts stream and request processing in dependent applications, which typically rely on catching 'IncompleteBufferError' to safely wait for additional data. While the vulnerability does not lead to arbitrary code execution or disclosure of adjacent memory due to underlying buffer implementation checks, it enables a remote attacker to crash specific services or terminate active worker processes by injecting malformed data payloads.
