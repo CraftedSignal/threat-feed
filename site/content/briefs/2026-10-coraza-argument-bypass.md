@@ -3,6 +3,7 @@ title: Coraza WAF Silent Argument Limit Bypass via Parameter Flooding
 slug: 2026-10-coraza-argument-bypass
 description: Coraza WAF silently drops parameters when the configured argument limit is reached, allowing attackers to evade security rules by flooding requests with filler parameters that force malicious payloads to be ignored by the WAF engine.
 date: "2026-10-07T00:44:59Z"
+lastmod: "2026-10-08T19:25:56Z"
 type: advisory
 types:
   - advisory
@@ -13,10 +14,14 @@ tags:
   - defense-evasion
   - parameter-flooding
   - security-bypass
+  - denial-of-service
+  - waf
+  - coraza
 vendors:
   - Coraza
 products:
   - Coraza WAF (>= 3.0.0, <= 2026-07-28)
+  - Coraza WAF (>= 3.0.0, < 3.8.1)
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -24,9 +29,16 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: The vulnerability allows attackers to bypass security rules targeting ARGS by inflating the request's argument count, effectively rendering WAF rules invisible.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: An unauthenticated attacker... can crash the entire host process with a single request, using a payload well within default and recommended body size and argument-count limits.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-6r3q-mjv7-xr8m
   - https://github.com/corazawaf/coraza-ghsa-6r3q-mjv7-xr8m/pull/1
+  - https://github.com/advisories/GHSA-6gcq-wc29-5xf2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -43,6 +55,14 @@ action_plan:
       owner: Security Engineering
       addresses: Parameter flooding evasion
       evidence: Source provides recommended SecRule configuration for mitigation
+updates:
+  - at: "2026-10-08T19:25:56Z"
+    level: L2
+    summary: added coverage for Coraza WAF (>= 3.0.0, < 3.8.1)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6gcq-wc29-5xf2
 ---
 
 Coraza WAF (versions 3.0.0 through July 2026) contains a critical flaw in its argument parsing logic where the engine silently drops parameters once the `SecArgumentsLimit` (default 1000) is exceeded. This behavior occurs in `AddGetRequestArgument`, `AddPostRequestArgument`, and `AddPathRequestArgument`. Because the WAF engine fails to trigger an error, flag, or audit-log event when an argument is dropped, security rules inspecting `ARGS`, `ARGS_GET`, `ARGS_POST`, or `ARGS_PATH` proceed to evaluate an incomplete request without alerting the operator.
