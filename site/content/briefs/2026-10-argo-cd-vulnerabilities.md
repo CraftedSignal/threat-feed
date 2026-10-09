@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Argo CD
 slug: 2026-10-argo-cd-vulnerabilities
 description: Argo CD is affected by multiple vulnerabilities including CVE-2024-28113, CVE-2024-28114, CVE-2024-28115, and CVE-2024-28116, which allow for remote code execution, unauthorized information disclosure, and security control bypasses.
 date: "2026-10-08T19:20:51Z"
+lastmod: "2026-10-09T21:28:53Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +21,11 @@ vendors:
   - Argo Project
 products:
   - Argo CD (<= 10.6.1)
+  - Argo CD (>= 2.11.0, <= 2.14.21)
+  - Argo CD (>= 3.0.0, < 3.3.15)
+  - Argo CD (>= 3.4.0, < 3.4.10)
+  - Argo CD (>= 3.5.0, < 3.5.4)
+  - Argo CD (= 3.6.0-rc1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -46,8 +52,11 @@ cves:
   - id: CVE-2024-28116
     cvss: 8.8
     epss: 0.0576
+  - id: CVE-2026-55797
+    cvss: 8.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3802
+  - https://github.com/advisories/GHSA-j6cw-g6p4-7hch
 action_plan:
   priority: elevated
   owners:
@@ -59,6 +68,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-28113, CVE-2024-28114, CVE-2024-28115, CVE-2024-28116
       evidence: Source advisory identifies multiple vulnerabilities in Argo CD.
+updates:
+  - at: "2026-10-09T21:28:53Z"
+    level: L2
+    summary: added CVE-2026-55797
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-j6cw-g6p4-7hch
 ---
 
 Argo CD, a popular continuous delivery tool for Kubernetes, is impacted by a set of critical vulnerabilities identified as CVE-2024-28113, CVE-2024-28114, CVE-2024-28115, and CVE-2024-28116. These flaws collectively enable unauthenticated or authenticated remote attackers to achieve remote code execution, exfiltrate sensitive configuration data and credentials, bypass existing access control mechanisms, or perform denial of service attacks against the infrastructure.
