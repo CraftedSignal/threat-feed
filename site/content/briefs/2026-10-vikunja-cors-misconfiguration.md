@@ -3,7 +3,7 @@ title: Vikunja Permissive CORS Policy Leading to Account Compromise
 slug: 2026-10-vikunja-cors-misconfiguration
 description: Vikunja versions 2.2.0 through 2.6.0 contain a CORS misconfiguration that implicitly trusts all localhost ports, allowing local attackers to retrieve valid bearer tokens via credentialed cross-origin requests.
 date: "2026-10-09T21:23:47Z"
-lastmod: "2026-10-09T21:24:27Z"
+lastmod: "2026-10-09T21:24:35Z"
 type: advisory
 types:
   - advisory
@@ -20,11 +20,14 @@ tags:
   - memory-exhaustion
   - vikunja
   - migration
+  - resource-exhaustion
+  - api
 vendors:
   - Vikunja
 products:
   - Vikunja (>= 2.2.0, <= 2.6.0)
   - Vikunja (> 2.5.0)
+  - Vikunja (<= 2.5.0)
 affected_os:
   - Linux
 mitre_ttps:
@@ -44,6 +47,7 @@ references:
   - https://github.com/advisories/GHSA-m687-p538-r5hp
   - https://github.com/go-vikunja/vikunja/blob/a881ac39eecd07575a5aede8e74727c28d5fd578/pkg/routes/api/v1/login.go#L129-L150
   - https://github.com/advisories/GHSA-wq92-8x3r-fm38
+  - https://github.com/advisories/GHSA-pqf9-h8g4-8gmh
 updates:
   - at: "2026-10-09T21:24:27Z"
     level: L1
@@ -52,6 +56,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-wq92-8x3r-fm38
+  - at: "2026-10-09T21:24:35Z"
+    level: L1
+    summary: added coverage for Vikunja (<= 2.5.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-pqf9-h8g4-8gmh
 ---
 
 Vikunja versions 2.2.0 through 2.6.0 are affected by a permissive Cross-Origin Resource Sharing (CORS) policy vulnerability. The application defaults to allowing `http://127.0.0.1:*` and `http://localhost:*` as trusted origins. Crucially, when an administrator configures the required `service.publicurl` for production, this value is appended to - rather than replacing - the existing localhost defaults. Because the application enables `Access-Control-Allow-Credentials: true` and marks refresh cookies as `SameSite=None`, any web page running on the victim's local machine (on any port) can send a credentialed request to the Vikunja API. An attacker can exploit this by forcing a victim's browser to perform a cross-origin `POST` request to the `/api/v1/user/token/refresh` endpoint, which returns a valid bearer JWT in the response body. The resulting token grants the attacker full administrative or user authority over the victim's account.
