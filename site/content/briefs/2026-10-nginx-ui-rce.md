@@ -3,7 +3,7 @@ title: Authenticated Remote Code Execution in Nginx-UI via Backup Restoration
 slug: 2026-10-nginx-ui-rce
 description: An authenticated user can achieve remote code execution in Nginx-UI by uploading a maliciously crafted backup file that overwrites application configuration settings.
 date: "2026-10-09T21:23:28Z"
-lastmod: "2026-10-09T21:27:55Z"
+lastmod: "2026-10-09T21:28:05Z"
 type: threat
 types:
   - threat
@@ -19,11 +19,14 @@ tags:
   - cve-2026-107808
   - web-application
   - n8n
+  - csrf
+  - cve-2026-107809
 vendors:
   - Nginx-UI
 products:
   - Nginx-UI (1.9.10-0.20260421071512-7864e378f5cf to < 1.9.10-0.20260728074146-a467ed652591)
   - Nginx-UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074558-95cd21b70814)
+  - Nginx-UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074433-a3999bd78a3b)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -44,6 +47,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107806
   - https://github.com/advisories/GHSA-45gv-9wjv-xh7p
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107808
+  - https://github.com/advisories/GHSA-33rr-wq23-g6gg
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-107809
 rules:
   - title: Detect Nginx-UI Backup Restoration Attempt
     description: Detects exploitation of CVE-2026-107806 via POST requests to the /api/restore endpoint.
@@ -55,7 +60,15 @@ rules:
       - T1059.003
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detects CVE-2026-107809 Exploitation - CSRF Attempt Against Nginx-UI API
+    description: Detects potential CSRF attempts where a POST/PUT/DELETE request to sensitive Nginx-UI endpoints occurs without a valid Origin or Referer header matching the expected application host.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -80,6 +93,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-45gv-9wjv-xh7p
+  - at: "2026-10-09T21:28:05Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-107809 Exploitation - CSRF Attempt Against Nginx-UI API'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-33rr-wq23-g6gg
 ---
 
 Nginx-UI is susceptible to a critical authenticated remote code execution (RCE) vulnerability, tracked as CVE-2026-107806. The issue resides in the backup restoration feature, specifically within the `POST /api/restore` endpoint. An authenticated user can bypass configuration security constraints by providing a forged backup file. The application fails to strictly validate the contents of the restored backup, allowing an attacker to modify `app.ini`. By injecting arbitrary commands into the `TestConfigCmd` field within this configuration file, an attacker can trigger command execution via the `POST /api/nginx/test` endpoint. This vulnerability allows an attacker to achieve full control over the runtime environment of the Nginx-UI service, potentially leading to unauthorized data access and persistence within the underlying system. This was identified in Nginx-UI versions between 1.9.10-0.20260421071512-7864e378f5cf and 1.9.10-0.20260728074146-a467ed652591.
