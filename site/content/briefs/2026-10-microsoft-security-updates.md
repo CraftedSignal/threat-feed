@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-09T00:06:57Z"
+lastmod: "2026-10-09T00:08:42Z"
 type: threat
 types:
   - threat
@@ -25,9 +25,12 @@ cves:
     product: Azure App Service
     cvss: 9.8
   - id: CVE-2026-88131
+    product: Dataverse
     cvss: 9.8
+  - id: CVE-2026-94510
+    cvss: 9.9
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-88131
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-94510
 updates:
   - at: "2026-10-02T20:23:41Z"
     level: L1
@@ -57,9 +60,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-88131
+  - at: "2026-10-09T00:08:42Z"
+    level: L2
+    summary: added CVE-2026-94510
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-94510
 ---
 
-This roundup covers 3 Microsoft security vulnerabilities. CVSS base scores range from 8.8 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure App Service, Azure SRE Agent, Exchange Server.
+This roundup covers 4 Microsoft security vulnerabilities. CVSS base scores range from 8.8 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure App Service, Azure SRE Agent, Dataverse, Exchange Server.
 
 ## Summary
 
@@ -68,6 +78,7 @@ This roundup covers 3 Microsoft security vulnerabilities. CVSS base scores range
 | [CVE-2026-96940](#cve-2026-96940) | Exchange Server | High | 8.8 | 0.50% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96940) (authoritative) |
 | [CVE-2026-69435](#cve-2026-69435) | Azure SRE Agent | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69435) (authoritative) |
 | [CVE-2026-77900](#cve-2026-77900) | Azure App Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77900) (authoritative) |
+| [CVE-2026-88131](#cve-2026-88131) | Dataverse | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88131) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -96,3 +107,12 @@ Affected products:
 - Azure App Service
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-77900
+
+## CVE-2026-88131
+
+CVE-2026-88131 is a critical vulnerability in Microsoft Dataverse involving insecure deserialization of untrusted data, which allows an unauthenticated remote attacker to achieve remote code execution (RCE) over a network.
+
+Affected products:
+- Dataverse
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88131
