@@ -19,7 +19,6 @@ vendors:
   - BerriAI
 products:
   - LiteLLM (< 1.84.0)
-  - LiteLLM (< 1.84.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

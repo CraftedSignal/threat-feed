@@ -14,8 +14,8 @@ vendors:
 products:
   - Multi-Domain Security Management
   - Security Management
-  - Multi-Domain Security Management Server (R80, R80.10, R80.20, R80.30, R80.40, R81, R81.10, R81.20 <= Take 160, R82 <= Take 121, R82.10 <= Take 39)
-  - Security Management Server (R80, R80.10, R80.20, R80.30, R80.40, R81, R81.10, R81.20 <= Take 160, R82 <= Take 121, R82.10 <= Take 39)
+  - Multi-Domain Security Management Server
+  - Security Management Server
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

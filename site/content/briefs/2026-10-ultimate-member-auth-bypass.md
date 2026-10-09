@@ -13,7 +13,7 @@ cpes:
 vendors:
   - Ultimate Member
 products:
-  - Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin (<= 2.13.1)
+  - Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration

@@ -28,9 +28,8 @@ tags:
 vendors:
   - Cisco
 products:
-  - Catalyst SD-WAN Manager (earlier than 20.9.10.1, 20.9 to 20.12.8.2, 20.12 to 20.15.6.1, 20.15 to 20.18.4.1, 20.18 to 26.1.2.1, 26.1 to 26.2.1)
-  - Cisco SD-WAN Cloud (< 20.15.605)
   - Catalyst SD-WAN Manager
+  - Cisco SD-WAN Cloud (< 20.15.605)
 cves:
   - id: CVE-2026-76504
     cvss: 9.8

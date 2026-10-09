@@ -18,7 +18,7 @@ tags:
 vendors:
   - s2Member
 products:
-  - s2Member – Excellent for All Kinds of Memberships, Content Restriction Paywalls & Member Access Subscriptions (<= 260814)
+  - s2Member – Excellent for All Kinds of Memberships, Content Restriction Paywalls & Member Access Subscriptions
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

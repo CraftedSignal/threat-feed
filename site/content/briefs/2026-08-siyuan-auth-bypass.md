@@ -33,7 +33,6 @@ vendors:
   - SiYuan
 products:
   - SiYuan (< 3.7.4)
-  - SiYuan (< 3.7.4)
   - SiYuan (<= 3.7.2)
   - SiYuan (<= 3.7.3)
 affected_os:

@@ -18,7 +18,7 @@ tags:
 vendors:
   - Post SMTP
 products:
-  - Post SMTP – Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP & Mobile App (<= 4.0.1)
+  - Post SMTP – Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP & Mobile App
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

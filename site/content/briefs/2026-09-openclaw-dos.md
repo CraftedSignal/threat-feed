@@ -19,7 +19,6 @@ vendors:
   - OpenClaw
 products:
   - OpenClaw (< 2026.8.1)
-  - OpenClaw (< 2026.8.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact

@@ -24,7 +24,6 @@ vendors:
   - vLLM
 products:
   - vLLM (< 0.28.0)
-  - vLLM (< 0.28.0)
   - vLLM (<= 0.29.0)
 mitre_ttps:
   - tactic_id: TA0001

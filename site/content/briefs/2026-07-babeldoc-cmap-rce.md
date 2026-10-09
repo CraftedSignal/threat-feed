@@ -14,7 +14,6 @@ tags:
   - pdf
   - python
   - path-traversal
-  - python
   - linux
   - windows
 vendors:

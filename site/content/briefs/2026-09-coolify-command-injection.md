@@ -21,7 +21,6 @@ vendors:
   - Coolify
 products:
   - Coolify (< 4.2.0)
-  - Coolify (< 4.2.0)
   - Coolify (<= 4.3.17)
 mitre_ttps:
   - tactic_id: TA0002

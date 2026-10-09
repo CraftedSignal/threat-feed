@@ -24,12 +24,7 @@ vendors:
 products:
   - Chrome (< 124.0.6367.201)
   - Edge
-  - Chrome (< 124.0.6367.201)
   - Chrome (< 125.0.6422.60)
-  - Chrome (< 124.0.6367.201)
-  - Chrome (< 124.0.6367.201)
-  - Chrome (< 124.0.6367.201)
-  - Chrome (< 124.0.6367.201)
   - Chrome (< 153.0.8010.37)
   - Chrome (< 153.0.8010.48)
 mitre_ttps:

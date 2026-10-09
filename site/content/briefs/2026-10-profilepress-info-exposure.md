@@ -17,7 +17,7 @@ tags:
 vendors:
   - ProfilePress
 products:
-  - Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content – ProfilePress (<= 4.17.4)
+  - Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content – ProfilePress
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

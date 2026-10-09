@@ -32,7 +32,6 @@ products:
   - n8n (2.38.0 - 2.38.1)
   - n8n (< 1.123.76)
   - n8n (2.0.0 - 2.37.6)
-  - n8n (< 1.123.76)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact

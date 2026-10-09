@@ -18,7 +18,7 @@ tags:
 vendors:
   - Bit Form
 products:
-  - The Bit Form – Contact Form, Payment Forms, Multi Step Forms, Calculator & Custom Form Builder plugin for WordPress (<= 3.1.1)
+  - The Bit Form – Contact Form, Payment Forms, Multi Step Forms, Calculator & Custom Form Builder plugin for WordPress
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

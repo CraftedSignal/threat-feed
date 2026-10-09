@@ -12,7 +12,7 @@ exploited: true
 vendors:
   - CareCam
 products:
-  - 'CareCam Pro IP Cameras (ANJIA AJL33PC0801 Firmware: linux_linux_202008261138_svn13796_/_Bootloader_U-Boot_2010.06_compiled_2020-08-26)'
+  - CareCam Pro IP Cameras
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

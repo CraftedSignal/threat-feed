@@ -13,7 +13,7 @@ cpes:
 vendors:
   - IBM
 products:
-  - MQ (9.1.0.0 through 9.1.0.37 LTS, 9.2.0.0 through 9.2.0.43 LTS, 9.3.0.0 through 9.3.0.41 LTS, 9.3.0.0 through 9.3.5.1 CD, 9.4.0.0 through 9.4.0.25 LTS, 9.4.0.0 through 9.4.5.1 CD, 10.0.0.0 Managed File Transfer)
+  - MQ
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

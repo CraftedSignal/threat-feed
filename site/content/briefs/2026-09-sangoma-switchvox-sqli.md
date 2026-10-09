@@ -21,7 +21,6 @@ vendors:
   - Sangoma
 products:
   - Switchvox (< 8.4.0.2)
-  - Switchvox (< 8.4.0.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

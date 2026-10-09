@@ -20,8 +20,6 @@ vendors:
   - N-able
 products:
   - N-central (< 2026.3.1.14)
-  - N-Central (< 2026.3.1.14)
-  - N-central (< 2026.3.1.14)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

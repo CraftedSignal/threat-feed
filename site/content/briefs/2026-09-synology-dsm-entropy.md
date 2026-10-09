@@ -34,7 +34,6 @@ products:
   - DiskStation Manager (< 7.3.2-86009-2)
   - DiskStation Manager (< 7.2.1-69057-10, < 7.2.2-72806-7, < 7.3.2-86009-2)
   - DiskStation Manager (< 7.2.1-69057-12)
-  - DiskStation Manager (< 7.2.1-69057-12)
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
