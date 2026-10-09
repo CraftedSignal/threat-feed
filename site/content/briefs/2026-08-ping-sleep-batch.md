@@ -3,6 +3,7 @@ title: Detection of Ping-Based Execution Delays in Batch Scripts
 slug: 2026-08-ping-sleep-batch
 description: Adversaries frequently utilize the ping command as a stealthy sleep mechanism to introduce execution delays, aiming to bypass automated sandboxing and dynamic analysis by chaining commands with operators.
 date: "2026-08-24T15:46:26Z"
+lastmod: "2026-10-09T12:11:48Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,8 @@ tags:
   - defense-evasion
   - sandbox-evasion
   - batch-scripting
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -19,6 +22,8 @@ mitre_ttps:
     technique_name: Virtualization/Sandbox Evasion
     evidence: Adversaries may use ping as an alternative to explicit sleep or timeout commands to introduce execution delays, potentially evading automated analysis, sandboxing, or behavior-based detection.
     confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/ping_sleep_batch_command.yml
 rules:
   - title: Detect Ping Command Used as Sleep Mechanism
     description: Detects the use of ping with a count flag combined with shell separators to induce execution delays, commonly used for sandbox evasion.
@@ -51,6 +56,14 @@ action_plan:
       confidence: high
       disposition: convert_to_detection
       evidence: Source analytic search logic
+updates:
+  - at: "2026-10-09T12:11:48Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/ping_sleep_batch_command.yml
 ---
 
 Adversaries often use the standard Windows 'ping' utility as an improvised delay mechanism to introduce pauses in command-line execution sequences. By leveraging the '-n' (count) flag, attackers can force a delay proportional to the number of ICMP echo requests sent, effectively creating a 'sleep' command without relying on standard system utilities that might be more heavily monitored. This technique is frequently employed during the initial staging or persistence phases of an attack to evade automated sandbox analysis, dynamic analysis, or behavior-based detection logic.
