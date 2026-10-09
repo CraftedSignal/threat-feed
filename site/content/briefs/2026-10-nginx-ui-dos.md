@@ -3,7 +3,7 @@ title: Unauthenticated Denial of Service via Temporary File Exhaustion in Nginx 
 slug: 2026-10-nginx-ui-dos
 description: An unauthenticated remote attacker can exploit CVE-2026-107805 in Nginx UI by sending malicious requests that trigger premature staging of large, unsigned request bodies, leading to disk space and I/O exhaustion.
 date: "2026-10-09T21:23:53Z"
-lastmod: "2026-10-09T21:28:23Z"
+lastmod: "2026-10-09T21:28:33Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +15,15 @@ tags:
   - denial-of-service
   - webserver
   - availability
+  - credential-exposure
+  - authentication-bypass
+  - cve
 vendors:
   - 0xJacky
 products:
   - Nginx UI (2.5.0-2.5.x)
   - Nginx-UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728091109-0ecbd106c37b, 2.4.2)
+  - Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074433-a3999bd78a3b)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -33,6 +37,12 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: The node list and detail endpoints... return node objects containing the token field... serializing the node secret into API responses.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1005
+    technique_name: Data from Local System
+    evidence: An attacker who gains read access to any log aggregation system, proxy log, or configuration file can extract the node secret.
+    confidence_band: high
 cves:
   - id: CVE-2026-107805
     cvss: 7.5
@@ -42,6 +52,8 @@ references:
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-107805
   - https://github.com/advisories/GHSA-32gc-wf3m-78w9
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107811
+  - https://github.com/advisories/GHSA-pvgv-gcp7-v38g
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-107807
 action_plan:
   priority: elevated
   owners:
@@ -66,6 +78,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-32gc-wf3m-78w9
+  - at: "2026-10-09T21:28:33Z"
+    level: L2
+    summary: added coverage for Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074433-a3999bd78a3b)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-pvgv-gcp7-v38g
 ---
 
 Nginx UI versions 2.5.0 through 2.5.x are vulnerable to a high-severity denial-of-service condition involving improper request processing. The application's node-signature authentication logic incorrectly stages the body of incoming requests to temporary files on disk before validating the associated cryptographic signature or body digest.
