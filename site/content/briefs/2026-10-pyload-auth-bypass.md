@@ -3,6 +3,7 @@ title: Authentication Bypass and Brute-Force Oracle in pyload-ng
 slug: 2026-10-pyload-auth-bypass
 description: An insecure permission check in the pyload-ng API allows any authenticated user to perform administrative password brute-forcing via a side-channel oracle.
 date: "2026-10-09T21:25:58Z"
+lastmod: "2026-10-09T21:27:44Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - pyLoad
 products:
   - pyload-ng (>= 0.5.0b3.dev1, <= 0.5.0b3.dev101)
+  - pyLoad-ng (<= 0.5.0b3.dev101)
 affected_os:
   - linux
   - windows
@@ -26,6 +28,12 @@ mitre_ttps:
     technique_id: T1110
     technique_name: Brute Force
     evidence: An attacker holding the lowest-privileged account in the system therefore has a clean binary oracle on the administrator password.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The vulnerability allows an attacker to create device nodes or FIFOs during extraction, facilitating system-level compromises.
     confidence_band: high
 references:
   - https://github.com/advisories/GHSA-68w4-83fh-f2w8
@@ -45,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: API rate limit bypass
       evidence: Rate limiting is bypassable by rotating X-Forwarded-For
+updates:
+  - at: "2026-10-09T21:27:44Z"
+    level: L2
+    summary: added coverage for pyLoad-ng (<= 0.5.0b3.dev101)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-fr26-jjhm-638c
 ---
 
 Research has identified a critical vulnerability in pyload-ng (versions 0.5.0b3.dev1 through 0.5.0b3.dev101) originating from an incorrectly implemented permission gate. The `Api.getUserData` and `Api.get_userdata` endpoints are decorated with `@permission(Perms.ANY)`. In the pyload-ng codebase, `Perms.ANY` is defined as `0`, and the permission validation logic uses a bitmask AND operation. Consequently, any authenticated session, regardless of privileges, satisfies the `has_permission` check. These endpoints act as thin wrappers around the internal `check_auth` method, which is intended to be restricted to administrators. By passing an arbitrary password to these endpoints, an attacker can determine if the password is valid based on the API response, creating a high-speed brute-force oracle. This vulnerability is significantly amplified by the lack of account lockout mechanisms and a flaw in the rate-limiting implementation that permits bypassing by rotating the `X-Forwarded-For` HTTP header.
