@@ -3,7 +3,7 @@ title: Unauthenticated SQL Injection in PHPNuxBill radius.php
 slug: 2026-10-phpnuxbill-sqli
 description: PHPNuxBill versions through 2025.3.20 are vulnerable to an unauthenticated time-based blind SQL injection in the radius.php FreeRADIUS REST endpoint, allowing credential and data exfiltration.
 date: "2026-10-09T15:28:54Z"
-lastmod: "2026-10-09T15:30:11Z"
+lastmod: "2026-10-09T15:33:18Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,8 @@ tags:
   - web-application
   - authentication-bypass
   - account-takeover
+  - cve-2026-108108
+  - phpnuxbill
 vendors:
   - PHPNuxBill
 products:
@@ -32,12 +34,19 @@ mitre_ttps:
     technique_name: Brute Force
     evidence: The lack of rate limiting or account lockout on the 6-digit OTP verification process allows unauthenticated attackers to brute-force the code for a known username.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Attackers who know a valid customer or PPPoE username can log in through MikroTik hotspot or PPPoE CHAP with any incorrect password to obtain network access.
+    confidence_band: high
 cves:
   - id: CVE-2026-108107
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108107
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108109
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108108
 rules:
   - title: Detect CVE-2026-108107 - Unauthenticated SQL Injection in radius.php
     description: Detects potential time-based blind SQL injection attempts targeting the PHPNuxBill radius.php endpoint via accounting or authentication parameters
@@ -89,6 +98,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-108109
+  - at: "2026-10-09T15:33:18Z"
+    level: L2
+    summary: added coverage for PHPNuxBill (<= 2025.3.20)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108108
 ---
 
 PHPNuxBill versions through 2025.3.20 contain a critical unauthenticated SQL injection vulnerability within the radius.php script. The vulnerability exists in the FreeRADIUS REST endpoint, where user-supplied parameters including username, macAddr, and nasid are passed directly into whereRaw() database queries without adequate sanitization. This flaw permits an unauthenticated attacker to execute arbitrary SQL commands against the backend database. By leveraging time-based blind SQL injection techniques, attackers can systematically infer database contents, including sensitive customer records and authentication credentials. This vulnerability represents a high risk to service providers using PHPNuxBill for RADIUS accounting and authentication, as it provides a direct vector for unauthorized data extraction.
