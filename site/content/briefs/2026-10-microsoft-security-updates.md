@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-09T00:09:49Z"
+lastmod: "2026-10-09T00:31:38Z"
 type: threat
 types:
   - threat
@@ -31,17 +31,15 @@ cves:
     product: Bookings
     cvss: 9.9
   - id: CVE-2026-96207
+    product: Partner Center
     cvss: 10
+  - id: CVE-2026-83943
+    cvss: 8.7
+  - id: CVE-2026-83947
+    cvss: 7.7
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-96207
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83947
 updates:
-  - at: "2026-10-09T00:03:59Z"
-    level: L2
-    summary: added CVE-2026-69435
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-69435
   - at: "2026-10-09T00:05:37Z"
     level: L2
     summary: added CVE-2026-77900
@@ -70,9 +68,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-96207
+  - at: "2026-10-09T00:31:38Z"
+    level: L2
+    summary: added CVE-2026-83943 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83947
 ---
 
-This roundup covers 5 Microsoft security vulnerabilities. CVSS base scores range from 8.8 to 9.9. None are reported as actively exploited at the time of release. The issues affect Azure App Service, Azure SRE Agent, Bookings, Dataverse, Exchange Server.
+This roundup covers 7 Microsoft security vulnerabilities. CVSS base scores range from 8.8 to 10.0. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Partner Center.
 
 ## Summary
 
@@ -83,6 +88,8 @@ This roundup covers 5 Microsoft security vulnerabilities. CVSS base scores range
 | [CVE-2026-77900](#cve-2026-77900) | Azure App Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77900) (authoritative) |
 | [CVE-2026-88131](#cve-2026-88131) | Dataverse | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88131) (authoritative) |
 | [CVE-2026-94510](#cve-2026-94510) | Bookings | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-94510) (authoritative) |
+| [CVE-2026-96207](#cve-2026-96207) | Partner Center | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-96207) (authoritative) |
+| [CVE-2026-83943](#cve-2026-83943) | Azure API Center |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83943) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -129,3 +136,21 @@ Affected products:
 - Bookings
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-94510
+
+## CVE-2026-96207
+
+CVE-2026-96207 describes a vulnerability in Microsoft Partner Center involving improper certificate validation. This flaw allows an unauthorized, network-adjacent attacker to perform privilege escalation within the platform.
+
+Affected products:
+- Partner Center
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-96207
+
+## CVE-2026-83943
+
+CVE-2026-83943 is an information exposure vulnerability in Microsoft Azure API Center that allows an unauthorized attacker to access sensitive information over a network. The vulnerability has a CVSS v3.1 base score of 8.7, indicating a high risk of unauthorized data disclosure.
+
+Affected products:
+- Azure API Center
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83943
