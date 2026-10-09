@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-09T00:08:42Z"
+lastmod: "2026-10-09T00:09:49Z"
 type: threat
 types:
   - threat
@@ -28,17 +28,13 @@ cves:
     product: Dataverse
     cvss: 9.8
   - id: CVE-2026-94510
+    product: Bookings
     cvss: 9.9
+  - id: CVE-2026-96207
+    cvss: 10
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-94510
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-96207
 updates:
-  - at: "2026-10-02T20:23:41Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96940
   - at: "2026-10-09T00:03:59Z"
     level: L2
     summary: added CVE-2026-69435
@@ -67,9 +63,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-94510
+  - at: "2026-10-09T00:09:49Z"
+    level: L2
+    summary: added CVE-2026-96207
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-96207
 ---
 
-This roundup covers 4 Microsoft security vulnerabilities. CVSS base scores range from 8.8 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure App Service, Azure SRE Agent, Dataverse, Exchange Server.
+This roundup covers 5 Microsoft security vulnerabilities. CVSS base scores range from 8.8 to 9.9. None are reported as actively exploited at the time of release. The issues affect Azure App Service, Azure SRE Agent, Bookings, Dataverse, Exchange Server.
 
 ## Summary
 
@@ -79,6 +82,7 @@ This roundup covers 4 Microsoft security vulnerabilities. CVSS base scores range
 | [CVE-2026-69435](#cve-2026-69435) | Azure SRE Agent | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69435) (authoritative) |
 | [CVE-2026-77900](#cve-2026-77900) | Azure App Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77900) (authoritative) |
 | [CVE-2026-88131](#cve-2026-88131) | Dataverse | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88131) (authoritative) |
+| [CVE-2026-94510](#cve-2026-94510) | Bookings | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-94510) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -116,3 +120,12 @@ Affected products:
 - Dataverse
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88131
+
+## CVE-2026-94510
+
+Microsoft Bookings contains an authorization bypass vulnerability (CVE-2026-94510) caused by a user-controlled key, which allows an unauthenticated attacker to perform privilege escalation over a network. The vulnerability carries a high CVSS base score of 9.9, indicating critical severity.
+
+Affected products:
+- Bookings
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-94510
