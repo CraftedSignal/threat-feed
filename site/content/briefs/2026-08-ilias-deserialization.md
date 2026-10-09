@@ -3,11 +3,17 @@ title: Critical Unauthenticated RCE in ILIAS via Insecure Deserialization
 slug: 2026-08-ilias-deserialization
 description: An unauthenticated remote code execution vulnerability (CVE-2026-80428) in ILIAS allows attackers to achieve arbitrary file writes and code execution by exploiting insecure deserialization within the Shibboleth logout-notification handler.
 date: "2026-08-26T16:20:49Z"
+lastmod: "2026-10-09T07:39:11Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:ilias:ilias:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=01CBEFE5-5407-50C6-BE20-8364FCE5CDE8&utm_source=rss&utm_medium=rss
 vendors:
   - ILIAS
 products:
@@ -24,8 +30,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-80428
     cvss: 9.8
+    epss: 0.04666
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-80428
+  - https://sploitus.com/exploit?id=01CBEFE5-5407-50C6-BE20-8364FCE5CDE8&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -42,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-80428
       evidence: The endpoint is the vector for the unauthenticated deserialization exploit.
+updates:
+  - at: "2026-10-09T07:39:11Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=01CBEFE5-5407-50C6-BE20-8364FCE5CDE8&utm_source=rss&utm_medium=rss
 ---
 
 ILIAS, an open-source learning management system, contains a critical insecure deserialization vulnerability (CVE-2026-80428) affecting versions prior to 9.22, 10.10, and 11.3. The vulnerability resides in the Shibboleth back-channel logout-notification handler located at 'components/ILIAS/AuthShibboleth/resources/shib_logout.php'. This endpoint is improperly exempted from authentication checks. When an unauthenticated caller triggers this handler, the application iterates through all live rows in the session table and processes their stored data using an unrestricted 'unserialize()' call. 
