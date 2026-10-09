@@ -3,7 +3,7 @@ title: Unauthenticated Remote Code Execution in Ahsay AhsayCBS
 slug: 2026-10-ahsay-cbs-rce
 description: Ahsay AhsayCBS up to version 10.3.2 is vulnerable to unauthenticated remote OS command injection via the /rps/api/json/UpdateReceivers.do endpoint, enabling full system compromise.
 date: "2026-10-04T09:01:29Z"
-lastmod: "2026-10-05T15:44:14Z"
+lastmod: "2026-10-09T10:40:25Z"
 type: advisory
 types:
   - advisory
@@ -20,9 +20,13 @@ tags:
   - remote-access
 vendors:
   - Ahsay
+  - Ahsay Systems
 products:
   - AhsayCBS (< 10.3.4)
   - AhsayCBS (<= 10.3.2)
+  - AhsayCBS (<= 10.3.4)
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -53,6 +57,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105134
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105133
   - https://sploitus.com/exploit?id=01552F8F-EE68-5958-8B08-C7BF7F992387&utm_source=rss&utm_medium=rss
+  - https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/
 rules:
   - title: Detects CVE-2026-105134 Exploitation - Unauthenticated RCE via /rps/api/json/UpdateReceivers.do
     description: Detects exploitation attempts against CVE-2026-105134 by identifying suspicious command injection patterns in the 'random' parameter of the UpdateReceivers.do endpoint.
@@ -97,6 +102,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=01552F8F-EE68-5958-8B08-C7BF7F992387&utm_source=rss&utm_medium=rss
+  - at: "2026-10-09T10:40:25Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/
 ---
 
 Ahsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.
