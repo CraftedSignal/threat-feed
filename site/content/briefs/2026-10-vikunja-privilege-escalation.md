@@ -3,7 +3,7 @@ title: Vikunja Broken Access Control and Privilege Escalation via Link Share
 slug: 2026-10-vikunja-privilege-escalation
 description: A broken access control vulnerability in Vikunja allows read-only project members to retrieve sensitive link-share hashes and escalate their privileges to the permission level of those shares.
 date: "2026-10-09T21:25:02Z"
-lastmod: "2026-10-09T21:25:20Z"
+lastmod: "2026-10-09T21:25:51Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,7 @@ vendors:
 products:
   - Vikunja API (<= 2.5.0)
   - Vikunja API (>= 1.0.0, <= 2.3.0)
+  - Vikunja API (= 2.3.0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -37,6 +38,12 @@ mitre_ttps:
     technique_name: External Remote Services
     evidence: The vulnerability allows an attacker to gain unauthorized access to a local account via the OIDC authentication flow.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: A narrowly scoped API token with only oauth.authorize can be converted into normal session credentials for the same user.
+    confidence_band: high
 cves:
   - id: CVE-2026-91985
     cvss: 7.5
@@ -46,6 +53,20 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91985
   - https://github.com/advisories/GHSA-xv7q-fvmc-jx96
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62367
+  - https://github.com/advisories/GHSA-v3p6-34mc-hj7v
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-57458
+rules:
+  - title: Detect Exploitation of CVE-2026-57458 - OAuth Token Minting via Scoped API Key
+    description: Detects the specific sequence of initiating an OAuth authorization flow using a scoped API token, indicating a potential privilege escalation attempt.
+    platform: sigma
+    severity: high
+    tactics:
+      - privilege-escalation
+    techniques:
+      - T1550.001
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -65,6 +86,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-xv7q-fvmc-jx96
+  - at: "2026-10-09T21:25:51Z"
+    level: L2
+    summary: 'added detection rule: Detect Exploitation of CVE-2026-57458 - OAuth Token Minting via Scoped API Key'
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-v3p6-34mc-hj7v
 ---
 
 Vikunja API versions up to and including 2.5.0 contain a broken access control vulnerability (CVE-2026-91985) that allows authenticated read-only project members to escalate privileges. The vulnerability exists in the single-share read endpoints for both v1 and v2 APIs. While these endpoints properly restrict access based on project read permissions, they incorrectly include the share's internal `hash` field in the response.
