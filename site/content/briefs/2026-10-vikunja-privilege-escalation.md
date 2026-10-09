@@ -3,6 +3,7 @@ title: Vikunja Broken Access Control and Privilege Escalation via Link Share
 slug: 2026-10-vikunja-privilege-escalation
 description: A broken access control vulnerability in Vikunja allows read-only project members to retrieve sensitive link-share hashes and escalate their privileges to the permission level of those shares.
 date: "2026-10-09T21:25:02Z"
+lastmod: "2026-10-09T21:25:20Z"
 type: advisory
 types:
   - advisory
@@ -14,16 +15,27 @@ tags:
   - privilege-escalation
   - access-control
   - web-application
+  - authentication-bypass
+  - oidc
+  - identity-takeover
+  - vulnerability
 vendors:
   - Vikunja
 products:
   - Vikunja API (<= 2.5.0)
+  - Vikunja API (>= 1.0.0, <= 2.3.0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
     evidence: A read-only member can therefore mint a write- or admin-level token for the project and perform writes they are not entitled to.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1133
+    technique_name: External Remote Services
+    evidence: The vulnerability allows an attacker to gain unauthorized access to a local account via the OIDC authentication flow.
     confidence_band: high
 cves:
   - id: CVE-2026-91985
@@ -32,6 +44,8 @@ cves:
 references:
   - https://github.com/advisories/GHSA-qfwc-vx6f-3g6g
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91985
+  - https://github.com/advisories/GHSA-xv7q-fvmc-jx96
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-62367
 action_plan:
   priority: elevated
   owners:
@@ -43,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-91985
       evidence: Source advisory recommends upgrading to resolve the broken access control.
+updates:
+  - at: "2026-10-09T21:25:20Z"
+    level: L1
+    summary: added coverage for Vikunja API (>= 1.0.0, <= 2.3.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-xv7q-fvmc-jx96
 ---
 
 Vikunja API versions up to and including 2.5.0 contain a broken access control vulnerability (CVE-2026-91985) that allows authenticated read-only project members to escalate privileges. The vulnerability exists in the single-share read endpoints for both v1 and v2 APIs. While these endpoints properly restrict access based on project read permissions, they incorrectly include the share's internal `hash` field in the response.
