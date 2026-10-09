@@ -3,11 +3,15 @@ title: Insecure Default Configuration in PraisonAI Allows Unauthenticated Access
 slug: 2026-07-praisonai-insecure-config
 description: An insecure default configuration in PraisonAI before version 1.7.3 allows unauthenticated attackers to exploit CVE-2026-61426 by reading sensitive agent instructions and system prompts via the `/api/agents` endpoint and invoking agents without authentication through the `/api/chat` endpoint, leading to unauthorized information disclosure and potential control over AI functionalities.
 date: "2026-07-11T14:21:33Z"
+lastmod: "2026-10-09T01:58:44Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:mervinpraison:praisonai:*:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - vulnerability
   - web-application
@@ -17,7 +21,7 @@ tags:
 vendors:
   - MervinPraison
 products:
-  - PraisonAI
+  - PraisonAI (< 1.7.3)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -40,10 +44,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-61426
     cvss: 8.6
+    epss: 0.00478
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-61426
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-6wjp-v33h-5cvq
   - https://www.vulncheck.com/advisories/praisonai-before-unauthenticated-agent-access-via-insecure-defaults
+  - https://github.com/advisories/GHSA-6wjp-v33h-5cvq
 rules:
   - title: Detects CVE-2026-61426 Exploitation - GET /api/agents
     description: Detects exploitation attempts for CVE-2026-61426 where an unauthenticated attacker performs an HTTP GET request to the /api/agents endpoint to read sensitive agent instructions and system prompts.
@@ -70,6 +76,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-10-09T01:58:44Z"
+    level: L2
+    summary: poc_available; praisonai version < 1.7.3
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-6wjp-v33h-5cvq
 ---
 
 CVE-2026-61426 details a critical security vulnerability in PraisonAI software versions prior to 1.7.3. The vulnerability stems from an insecure default configuration where the application binds to all network interfaces without requiring API keys for sensitive operations and utilizes a wildcard CORS policy. This flaw permits unauthenticated attackers to make direct HTTP requests to internal API endpoints. Specifically, attackers can issue a GET request to `/api/agents` to retrieve confidential agent instructions and system prompts, effectively exposing proprietary logic and sensitive data. Furthermore, the absence of authentication allows attackers to send POST requests to `/api/chat`, enabling them to invoke agents and interact with the AI functionalities without authorization. This vulnerability has a CVSS v3.1 base score of 8.6 (High), highlighting its significant risk. Organizations utilizing PraisonAI instances, particularly those exposed to the internet, are at risk of unauthorized access, intellectual property theft, and potential misuse of their AI agents.
