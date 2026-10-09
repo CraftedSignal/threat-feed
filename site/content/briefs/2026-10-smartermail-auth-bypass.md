@@ -3,11 +3,14 @@ title: SmarterTools SmarterMail Authentication Bypass Vulnerability
 slug: 2026-10-smartermail-auth-bypass
 description: An authenticated attacker can exploit a vulnerability in SmarterTools SmarterMail to bypass security controls and hijack other user accounts via identity impersonation.
 date: "2026-10-05T18:41:50Z"
+lastmod: "2026-10-09T17:24:36Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+cpes:
+  - cpe:2.3:a:smartertools:smartermail:*:*:*:*:*:*:*:*
 tags:
   - authentication-bypass
   - smartermail
@@ -16,6 +19,7 @@ vendors:
   - SmarterTools
 products:
   - SmarterMail
+  - SmarterMail (< 9777)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -23,8 +27,12 @@ mitre_ttps:
     technique_name: Use Alternate Authentication Material
     evidence: An authenticated attacker can exploit a vulnerability in SmarterTools SmarterMail to bypass security controls and hijack other user accounts.
     confidence_band: high
+cves:
+  - id: CVE-2026-104084
+    cvss: 8.8
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3734
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-104084
 action_plan:
   priority: elevated
   owners:
@@ -41,6 +49,14 @@ action_plan:
       owner: IT Operations
       addresses: SmarterMail authentication bypass
       evidence: Source identifies a vulnerability in SmarterTools SmarterMail
+updates:
+  - at: "2026-10-09T17:24:36Z"
+    level: L2
+    summary: added CVE-2026-104084; smartermail version < 9777
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-104084
 ---
 
 SmarterTools has disclosed a security vulnerability affecting the SmarterMail enterprise mail server software. The vulnerability allows an already authenticated attacker to bypass existing security controls within the application. By exploiting this flaw, the attacker can impersonate the identity of other users, effectively hijacking their accounts. This represents a significant risk for organizations relying on SmarterMail for internal or external communications, as it enables unauthorized access to sensitive user data and administrative functions without needing to compromise the target's original credentials. Defenders should monitor for unusual account access patterns and prioritize updates as released by the vendor.
