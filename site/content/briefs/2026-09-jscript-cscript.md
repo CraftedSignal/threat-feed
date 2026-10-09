@@ -3,6 +3,7 @@ title: Detection of Malicious JScript Execution via Cscript
 slug: 2026-09-jscript-cscript
 description: This brief details the detection of JScript files executed via cscript.exe, a technique frequently associated with the FIN7 threat actor's command execution lifecycle.
 date: "2026-09-05T00:01:37Z"
+lastmod: "2026-10-09T12:11:02Z"
 type: threat
 types:
   - threat
@@ -12,6 +13,10 @@ actors:
   - FIN7
   - Carbon Spider
   - Sangria Tempest
+vendors:
+  - Microsoft
+products:
+  - Windows
 affected_os:
   - Windows
 mitre_ttps:
@@ -21,6 +26,8 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The following analytic detects the execution of JScript using the cscript.exe process.
     confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/jscript_execution_using_cscript_app.yml
 rules:
   - title: Jscript Execution Using Cscript App
     description: Detects the execution of JScript files via cscript.exe, which is an uncommon behavior compared to standard wscript.exe execution, often associated with FIN7.
@@ -59,6 +66,14 @@ action_plan:
       owner: IT Operations
       addresses: T1059.007
       evidence: Restricting execution interpreters reduces attack surface.
+updates:
+  - at: "2026-10-09T12:11:02Z"
+    level: L1
+    summary: new product
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/jscript_execution_using_cscript_app.yml
 ---
 
 The execution of JScript using cscript.exe is an anomalous behavior often leveraged by the FIN7 group to execute arbitrary scripts on compromised systems. While Windows environments typically utilize wscript.exe for JScript processing, the use of cscript.exe facilitates command-line interaction and scripting workflows that favor malicious automation. By monitoring for this specific process interaction, defenders can identify potential attempts to execute secondary payloads, conduct system enumeration, or initiate data exfiltration routines. This activity is significant because it diverges from standard administrative practices, providing a high-fidelity signal for identifying unauthorized script execution within a target environment.
