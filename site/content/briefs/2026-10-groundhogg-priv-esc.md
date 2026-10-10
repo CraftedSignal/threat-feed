@@ -1,8 +1,8 @@
 ---
-title: CVE-2026-104725 Privilege Escalation in Groundhogg WordPress Plugin
+title: Privilege Escalation in Groundhogg WordPress Plugin via CVE-2026-92975
 slug: 2026-10-groundhogg-priv-esc
-description: The Groundhogg WordPress plugin is vulnerable to privilege escalation allowing authenticated users with 'edit_contacts' capability to assume administrator identities via insecure user ID reassignment and auto-login link generation.
-date: "2026-10-10T07:50:51Z"
+description: The Groundhogg WordPress plugin is vulnerable to unauthorized privilege escalation due to insufficient validation of support user account credentials within the create_support_user() function.
+date: "2026-10-10T07:51:37Z"
 type: advisory
 types:
   - advisory
@@ -13,58 +13,52 @@ cpes:
 vendors:
   - Groundhogg
 products:
-  - Groundhogg - CRM, Newsletters, and Marketing Automation (<= 4.9)
+  - Groundhogg (<= 4.8.3)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
-    evidence: The Groundhogg WordPress plugin is vulnerable to Privilege Escalation... this makes it possible for authenticated attackers... to escalate their privileges to administrator.
+    evidence: The Groundhogg WordPress plugin is vulnerable to Privilege Escalation in all versions up to, and including, 4.8.3 via the create_support_user() function.
     confidence_band: high
 cves:
-  - id: CVE-2026-104725
-    cvss: 8.8
+  - id: CVE-2026-92975
+    cvss: 8.1
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-104725
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92975
+iocs:
+  - type: email
+    value: support@groundhogg.io
+  - type: email
+    value: help@groundhogg.io
+ioc_counts:
+  email: 2
 action_plan:
   priority: immediate_escalation
   owners:
     - IT Operations
     - SOC
   immediate_actions:
-    - action: Upgrade Groundhogg plugin to the version containing the fix for CVE-2026-104725.
+    - action: Upgrade Groundhogg plugin to version > 4.8.3
       owner: IT Operations
       due: 24h
-      evidence: NVD vulnerability disclosure
+      evidence: CVE-2026-92975 advisory
   mitigation_plan:
     - priority: immediate
-      action: Upgrade Groundhogg to the latest available patched version.
+      action: Remove or sanitize accounts using 'groundhogg' username or support@groundhogg.io / help@groundhogg.io emails
       owner: IT Operations
-      addresses: CVE-2026-104725
-      evidence: NVD vulnerability details
+      addresses: CVE-2026-92975
+      evidence: Source documentation of hardcoded credentials.
 ---
 
-Groundhogg CRM, Newsletters, and Marketing Automation plugin for WordPress (versions 4.9 and below) is vulnerable to a critical privilege escalation flaw (CVE-2026-104725). The vulnerability exists within the `process_edit()` function, which fails to perform proper ownership and capability validation when processing the `user` parameter. 
-
-An attacker holding the `edit_contacts` capability - commonly assigned to sales representative roles - can exploit this to reassign a contact record to an arbitrary WordPress user ID, including those belonging to administrators. By then utilizing the plugin's note-creation functionality, the attacker can insert the `{auto_login_link}` tag. This action triggers the generation of an auto-login URL. Because the attacker has sufficient permissions to view the note, they can extract the auto-login link and authenticate as the administrator, gaining full control over the WordPress instance. This bypasses the need for the `edit_users` or `promote_users` administrative capabilities.
-
-## Attack Chain
-
-1. Attacker authenticates as a user with at least 'edit_contacts' capability (e.g., Sales Representative).
-2. Attacker interacts with the 'process_edit' function via an HTTP POST request to the Groundhogg API/interface.
-3. Attacker modifies the 'user' parameter for a contact record to match an administrator's WordPress User ID.
-4. Attacker submits a request to add a note to the now administrator-linked contact record.
-5. Attacker includes the '{auto_login_link}' replacement tag within the body of the new note.
-6. The plugin processes the note, generating a valid permissions-key URL for the administrator account.
-7. Attacker retrieves the note content to obtain the generated auto-login URL.
-8. Attacker visits the URL to successfully authenticate as the targeted administrator.
+Groundhogg, a CRM and marketing automation plugin for WordPress, contains a high-severity privilege escalation vulnerability (CVE-2026-92975) affecting versions 4.8.3 and earlier. The flaw resides in the `create_support_user()` function, which attempts to identify a support-authorized account by checking if a user's `user_login` matches the hardcoded string 'groundhogg' and if their email matches 'support@groundhogg.io' or 'help@groundhogg.io'. Because the plugin fails to properly validate these attributes against a secure identity provider, an attacker who registers a standard account with the username 'groundhogg' and sets their email address to one of the hardcoded support constants can be automatically promoted to administrator. This promotion occurs when a legitimate site administrator interacts with the plugin's support access functionality. If the triggering administrator possesses `manage_network_options` privileges in a multisite environment, the attacker may also be granted super admin status, leading to full site takeover.
 
 ## Impact
 
-Successful exploitation results in full administrative access to the WordPress site. This allows attackers to install malicious plugins, modify site content, exfiltrate user data, or conduct further post-exploitation activities. The vulnerability affects all users running Groundhogg versions 4.9 and lower.
+Successful exploitation allows a low-privileged user to obtain administrative access to the WordPress instance. This results in the potential for complete site compromise, including the ability to execute arbitrary code, modify site content, exfiltrate sensitive CRM data, and install persistent backdoors. This vulnerability impacts all organizations running Groundhogg versions up to and including 4.8.3.
 
 ## Recommendation
 
-1. Upgrade to the latest version of the Groundhogg CRM, Newsletters, and Marketing Automation plugin immediately to patch CVE-2026-104725.
-2. Audit current WordPress user roles to ensure only trusted users hold the 'edit_contacts' capability.
-3. Implement web application firewall (WAF) rules to inspect POST requests directed to Groundhogg endpoint paths for unusual 'user' parameter modifications or the presence of auto-login link patterns.
+1. Upgrade the Groundhogg plugin to the latest patched version immediately.
+2. Audit existing user accounts for the username 'groundhogg' and the specified hardcoded email addresses.
+3. Restrict or disable open user registration on WordPress instances where the plugin is active to prevent the initial account creation required for exploitation.
