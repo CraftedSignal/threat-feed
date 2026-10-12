@@ -3,6 +3,7 @@ title: Authorization Bypass in jshERP UserController
 slug: 2026-10-jsherp-privilege-escalation
 description: jshERP versions through 3.6 contain a missing authorization vulnerability in the UserController updateUser handler, allowing authenticated users to escalate privileges or modify other users' roles.
 date: "2026-10-12T13:43:21Z"
+lastmod: "2026-10-12T13:43:29Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:jsherp:jsherp:*:*:*:*:*:*:*:*
+tags:
+  - web-application-vulnerability
+  - privilege-escalation
+  - api-security
 vendors:
   - jshERP
 products:
@@ -21,11 +26,18 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: Low-privilege attackers can send their own user id with the tenant administrator roleId to escalate privileges or rebind other tenant users' roles.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: Attackers can send a crafted PUT /user/update body to switch into another tenant on next login or overwrite other users' password hashes for account takeover.
+    confidence_band: high
 cves:
   - id: CVE-2026-109185
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109185
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109186
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109185
       evidence: Source identifies vulnerability in versions <= 3.6.
+updates:
+  - at: "2026-10-12T13:43:29Z"
+    level: L2
+    summary: added coverage for jshERP (<= 3.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109186
 ---
 
 jshERP versions up to and including 3.6 are vulnerable to a missing authorization flaw located within the UserController updateUser handler. This vulnerability enables an authenticated user to perform unauthorized privilege escalation by manipulating role assignments via the application API. Specifically, an attacker can submit a request containing their own user identifier paired with the role ID corresponding to a tenant administrator. Furthermore, the flaw permits the rebinding of roles for other users within the same tenant. Because this vulnerability facilitates horizontal and vertical privilege escalation, it represents a significant security risk for multi-tenant environments where role-based access control is the primary mechanism for security boundary enforcement. Defenders should investigate audit logs related to user role updates to identify potential abuse of this endpoint.
