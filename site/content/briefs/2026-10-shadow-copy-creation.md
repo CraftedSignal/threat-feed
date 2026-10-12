@@ -1,13 +1,18 @@
 ---
-title: Detection of Unauthorized Shadow Copy Creation
+title: Detection of Shadow Copy Creation via WMIC and PowerShell
 slug: 2026-10-shadow-copy-creation
-description: The unauthorized creation of volume shadow copies using system utilities is a common technique used by attackers to bypass file locks and facilitate credential dumping from protected registry hives.
-date: "2026-10-12T17:38:18Z"
+description: Threat actors leverage native administrative tools such as WMIC and PowerShell to create Volume Shadow Copies, a technique used to facilitate credential dumping and offline password cracking.
+date: "2026-10-12T17:38:26Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+tags:
+  - credential-access
+  - living-off-the-land
+  - windows
+  - lotl
 vendors:
   - Microsoft
 products:
@@ -17,114 +22,64 @@ affected_os:
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1003.003
-    technique_name: 'OS Credential Dumping: NTDS'
-    evidence: The creation of volume shadow copies via utilities such as vssadmin.exe or wmic.exe is a common technique used by attackers to bypass file locks and gain access to sensitive files, including the SAM and SYSTEM registry hives for offline credential dumping.
+    technique_id: T1003
+    technique_name: OS Credential Dumping
+    evidence: The following analytic detects the creation of shadow copies using 'wmic' or 'Powershell' commands, often employed for credential dumping.
     confidence_band: high
-  - tactic_id: TA0007
-    tactic_name: Discovery
-    technique_id: T1003.003
-    technique_name: 'OS Credential Dumping: NTDS'
-    evidence: The analytic detects the creation of shadow copies... significant because creating shadow copies can be a precursor to ransomware attacks or data exfiltration.
-    confidence_band: high
+rules:
+  - title: Detect Shadow Copy Creation via WMIC or PowerShell
+    description: Detects the creation of shadow copies using administrative tools as a precursor to credential dumping
+    platform: sigma
+    severity: medium
+    tactics:
+      - credential_access
+    techniques:
+      - T1003.003
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy Sigma detection rule to SIEM
+    - action: Deploy Sigma rule for shadow copy creation via WMIC/PowerShell
       owner: Detection Engineering
       due: 48h
-      evidence: Rule provided in brief
+      evidence: Analytic provided in Splunk ESCU repository
   hunt_leads:
-    - lead: Search for past execution of vssadmin.exe or wmic.exe with shadow copy creation arguments
+    - lead: Search for historical instances of shadow copy creation in process logs
       technique_id: T1003.003
       data_needed:
-        - Endpoint process execution logs
-      priority: high
+        - Process command line logs
+      priority: medium
       confidence: high
       disposition: hunt_now
-      evidence: Source document indicates this is a common attacker TTP
+      evidence: Known technique for unauthorized credential access
 ---
 
-Attackers frequently abuse built-in Windows utilities such as vssadmin.exe and wmic.exe to create volume shadow copies. This technique allows adversaries to bypass file system locks that typically prevent direct access to sensitive system files, including the SAM and SYSTEM registry hives. By generating a shadow copy, attackers can then extract these hives to perform offline credential dumping. This activity is a high-fidelity signal often observed as a precursor to broader intrusion objectives, including lateral movement, data exfiltration, or the deployment of ransomware. Monitoring for the execution of these utilities with specific command-line arguments is critical for identifying early-stage reconnaissance and credential access attempts in Windows environments.
+Attackers frequently utilize "Living off the Land" (LotL) techniques to conduct malicious activities without introducing custom malware. A critical component of this methodology involves the abuse of legitimate Windows utilities, specifically WMIC and PowerShell, to initiate the creation of Volume Shadow Copies. By creating these copies, attackers can bypass file system locks to access protected system files, such as the Security Account Manager (SAM) database or other sensitive configuration files. Once these files are extracted, they are often exfiltrated for offline password cracking or reconnaissance. This activity is a hallmark of credential-access phases in campaigns by various threat actors, including those attributed to Volt Typhoon, to maintain persistence or escalate privileges within a compromised environment.
 
 ## Attack Chain
 
-1. Initial access is established on the Windows host via spearphishing or exploited vulnerability.
-2. The attacker executes a command to create a volume shadow copy using 'vssadmin.exe create shadow /for=C:' or 'wmic.exe shadowcopy call create'.
-3. The system creates a persistent snapshot of the volume, bypassing locked-file restrictions.
-4. The attacker accesses the volume snapshot path to locate the SYSTEM and SAM registry hives.
-5. Registry hives are exfiltrated or copied to a staging directory using standard file utilities.
-6. The sensitive registry files are moved off the endpoint to an attacker-controlled infrastructure.
-7. Offline brute-forcing of the extracted NTLM hashes or LSA secrets is performed to gain plaintext credentials.
-8. The attacker leverages compromised administrative credentials to achieve further lateral movement or ransomware deployment.
+1. Attacker gains initial access to a Windows endpoint.
+2. Attacker performs discovery to identify target sensitive files (e.g., SAM, SYSTEM, or application databases).
+3. Attacker executes "wmic shadowcopy call create" or an equivalent PowerShell cmdlet to trigger a system-wide volume snapshot.
+4. The operating system creates a snapshot of the requested volume, circumventing active file locks.
+5. Attacker maps or copies the target files from the shadow copy volume.
+6. Attacker exfiltrates the sensitive files (e.g., via C2 channel or staging server).
+7. Attacker utilizes tools such as Mimikatz or Secretsdump to extract hashes or credentials from the stolen files.
+8. Attacker performs offline cracking to recover cleartext credentials.
 
 ## Impact
 
-Successful exploitation allows an attacker to gain unauthorized access to administrative or domain credentials by bypassing standard Windows file protections. This typically results in full credential compromise, enabling lateral movement within the environment, persistent access, and potential large-scale data encryption or exfiltration.
+Successful exploitation allows attackers to bypass standard file system access controls, leading to widespread credential exposure. This enables lateral movement, privilege escalation, and persistent unauthorized access within the target network. The compromise of credentials facilitates long-term access, which is often difficult to detect once the attacker has established valid account control.
 
 ## Recommendation
 
-Prioritize the identification of shadow copy creation events by integrating EDR process telemetry into the SIEM. Deploy the Sigma rules below to alert on the use of vssadmin.exe or wmic.exe with parameters associated with shadow copy management. Establish a baseline for administrative behavior to minimize false positives, as IT operations may perform these actions for legitimate backup or recovery tasks.
-
-## Sigma Rules
-- title: "Detect Shadow Copy Creation via Vssadmin or Wmic"
- description: "Detects the creation of shadow copies using Vssadmin or Wmic, a technique often used for offline credential dumping."
- logsource:
- category: "process_creation"
- product: "windows"
- detection:
- selection_vss:
- Image|endswith: "\\vssadmin.exe"
- CommandLine|contains:
- - "create"
- - "shadow"
- selection_wmic:
- Image|endswith: "\\wmic.exe"
- CommandLine|contains:
- - "shadowcopy"
- - "create"
- condition: selection_vss or selection_wmic
- level: "medium"
- tags:
- - "attack.credential_access"
- - "attack.t1003.003"
- tests:
- positive:
- - name: "Shadow copy creation via vssadmin"
- data:
- - Image: "C:\\Windows\\System32\\vssadmin.exe"
- CommandLine: "vssadmin.exe create shadow /for=C:"
- - name: "Shadow copy creation via wmic"
- data:
- - Image: "C:\\Windows\\System32\\wbem\\wmic.exe"
- CommandLine: "wmic shadowcopy call create"
- negative:
- - name: "Benign usage of vssadmin"
- data:
- - Image: "C:\\Windows\\System32\\vssadmin.exe"
- CommandLine: "vssadmin list shadows"
- falsepositives:
- - "Legitimate administrative activity for backup or system recovery"
- handoff:
- detection_confidence: "high"
- required_telemetry:
- - log_source: "Sysmon process_creation"
- event_or_channel: "Event ID 1"
- required_fields:
- - "Image"
- - "CommandLine"
- availability: "available"
- notes: "Requires command line logging to be enabled."
- validation:
- status: "needs_environment_validation"
- steps:
- - "Execute 'vssadmin create shadow /for=C:' in a controlled lab environment"
- expected_telemetry: "Process creation event matching vssadmin and the shadow creation arguments"
- pass_criteria: "Detection rule triggers"
- atomic_reference: "T1003.003"
- limitations:
- - "Will not catch shadow copies created via native API calls directly from C++ code or specialized tools not using these binaries"
- suggested_owner: "Detection Engineering"
+* Deploy the provided Sigma rules to detect unauthorized execution of shadow copy creation commands.
+* Enable process-level logging (Sysmon Event ID 1 or Windows Security Event ID 4688) to capture command-line arguments.
+* Tune the detection to exclude legitimate administrative service accounts or backup software that requires shadow copy access for legitimate system maintenance.
+* Audit and restrict the use of WMIC and PowerShell by non-administrative users.
