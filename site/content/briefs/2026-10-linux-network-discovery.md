@@ -1,18 +1,18 @@
 ---
-title: Detection of Linux System Network Configuration Discovery
+title: Linux System Network Discovery Reconnaissance
 slug: 2026-10-linux-network-discovery
-description: This detection identifies reconnaissance activity on Linux systems by monitoring for the rapid execution of common network diagnostic tools via Auditd syscall events.
-date: "2026-10-12T17:49:51Z"
+description: Adversaries perform network reconnaissance on Linux systems by rapidly enumerating network configuration and firewall settings, which this analytic detects via a 30-minute window of process execution telemetry.
+date: "2026-10-12T17:51:46Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
-  - discovery
   - linux
   - reconnaissance
-  - auditd
+  - network-discovery
+  - process-monitoring
 affected_os:
   - Linux
 mitre_ttps:
@@ -20,14 +20,11 @@ mitre_ttps:
     tactic_name: Discovery
     technique_id: T1016
     technique_name: System Network Configuration Discovery
-    evidence: The following analytic detects suspicious system network configuration discovery activities, which may indicate an adversary's attempt to gather information about the network environment.
+    evidence: The following analytic identifies potential enumeration of local network configuration on Linux systems.
     confidence_band: high
-references:
-  - https://www.splunk.com/en_us/blog/security/deep-dive-on-persistence-privilege-escalation-technique-and-detection-in-linux-platform.html
-  - https://github.com/redcanaryco/atomic-red-team/blob/388942adbd9641f4dfdcf079d7efe9a75ec0ac43/atomics/T1016/T1016.yaml#L33
 rules:
-  - title: Detect Linux System Network Configuration Discovery
-    description: Detects multiple network diagnostic commands executed on a Linux host within a short timeframe, indicating potential reconnaissance activity.
+  - title: Detect Linux Network Enumeration Pattern
+    description: Detects 4 or more distinct network configuration and status tools executed within a 30-minute window, indicative of reconnaissance.
     platform: sigma
     severity: medium
     tactics:
@@ -41,31 +38,46 @@ rules_count: 1
 action_plan:
   priority: elevated
   owners:
+    - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy the analytic to the SIEM and baseline administrative usage of network tools.
+    - action: Deploy Sigma detection rule to environment
       owner: Detection Engineering
-      due: 48h
+      due: 72h
+      evidence: Source provides specific logic for detection
   hunt_leads:
-    - lead: Identify hosts executing 4+ unique network configuration tools within 15 minutes.
+    - lead: Search for high-frequency execution of network enumeration commands by service accounts
       technique_id: T1016
       data_needed:
-        - Auditd SYSCALL logs
+        - Process creation events
       priority: medium
       confidence: medium
       disposition: hunt_now
-      evidence: Analytic detects 4 or more unique commands in 15m.
+      evidence: Enumeration tools identified as standard reconnaissance behavior
 ---
 
-This detection analytic identifies suspicious system network configuration discovery activities on Linux endpoints, which often serve as a precursor to lateral movement or data exfiltration. Adversaries frequently leverage built-in Linux utilities to map network interfaces, routing tables, and active connections to understand the target network architecture. By monitoring Linux Auditd syscall logs for a threshold of four or more distinct network configuration tools - such as 'arp', 'ifconfig', 'ip', 'netstat', 'iptables', 'ss', or 'route' - within a 15-minute window, this analytic allows security operations teams to detect reconnaissance efforts. This visibility is critical for identifying potential post-compromise activity and mitigating risks before an attacker progresses further into the environment.
+This threat brief focuses on detecting common network reconnaissance techniques used by adversaries on Linux platforms to map internal environments. Attackers frequently execute standard network diagnostic and configuration utilities to gather details about local interfaces, active connections, routing tables, and firewall rules. By monitoring for the execution of binaries such as "arp," "ifconfig," "ip," "netstat," "firewall-cmd," "ufw," "iptables," "ss," and "route," defenders can identify suspicious patterns of enumeration. 
+
+The analytic identifies this activity by flagging instances where a user or host account executes four or more distinct tools from this list within a 30-minute window. This behavior is indicative of an automated or manual reconnaissance phase, often a precursor to lateral movement or targeted exploitation. Monitoring this activity is critical for detecting early-stage post-compromise behaviors in data destruction campaigns, cloud-native malware deployments, and targeted attacks such as those involving Industroyer2 or VoidLink.
+
+## Attack Chain
+
+1. Initial access is established via exploitation, credential theft, or web shell deployment.
+2. The attacker executes "ip" or "ifconfig" to identify local network interfaces and IP addressing.
+3. The attacker executes "arp" to identify neighboring systems and map the local subnet.
+4. The attacker executes "route" or "netstat" to understand the network routing and active connections.
+5. The attacker executes "iptables," "firewall-cmd," or "ufw" to enumerate existing host-based firewall policies.
+6. The gathered network configuration data is exfiltrated or cached for use in subsequent lateral movement.
+7. The attacker targets identified internal assets based on the gathered reconnaissance.
 
 ## Impact
 
-Successful reconnaissance allows an attacker to identify high-value targets, map internal network segmentation, and discover accessible services or egress paths. This information significantly increases the likelihood of successful lateral movement, privilege escalation, and subsequent data exfiltration within an enterprise environment.
+Successful network reconnaissance allows adversaries to identify internal infrastructure, security boundaries, and potential pivot points within the network. In the context of campaigns like VoidLink or data destruction attacks, this intelligence enables the attacker to minimize their footprint while maximizing the reach of their secondary payloads. If the adversary successfully maps the environment, it significantly increases the likelihood of effective lateral movement, privilege escalation, and persistent access across the enterprise.
 
 ## Recommendation
 
-* Deploy the provided detection logic to monitor Auditd syscall events for clusters of network discovery commands.
-* Ingest Linux Auditd data using the Splunk Add-on for Unix and Linux, ensuring correct parsing of SYSCALL, TYPE, EXECVE, and PROCTITLE events.
-* Normalize logs according to the Splunk Common Information Model (CIM) to ensure consistent field mapping.
-* Tune filter macros in the analytic to exclude known administrative or automation scripts that perform legitimate network diagnostic tasks in your environment.
+Prioritize the ingestion of process execution telemetry that includes process command lines, GUIDs, and parent-process relationships via EDR or system monitoring tools.
+
+* Deploy the provided Sigma rule to detect the rapid execution of network reconnaissance tools within a 30-minute window.
+* Tune the filter macros to exclude known administrative or automated configuration management scripts to reduce false positives from system maintenance tasks.
+* Investigate alerts generated by this rule using the associated process execution history to confirm whether the activity is part of an authorized maintenance task or unauthorized reconnaissance.
