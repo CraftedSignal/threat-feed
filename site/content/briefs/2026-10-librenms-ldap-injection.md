@@ -3,6 +3,7 @@ title: LDAP Filter Injection in LibreNMS Authentication Modules
 slug: 2026-10-librenms-ldap-injection
 description: LibreNMS versions prior to 26.9.0 are vulnerable to LDAP filter injection, allowing unauthenticated attackers to bypass authentication and gain administrative access via crafted HTTP Basic Authorization headers.
 date: "2026-10-12T18:37:49Z"
+lastmod: "2026-10-12T20:30:11Z"
 type: advisory
 types:
   - advisory
@@ -30,6 +31,7 @@ cves:
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109357
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109353
 rules:
   - title: Detect CVE-2026-109357 Exploitation - LDAP Filter Injection Attempt
     description: Detects exploitation attempts against CVE-2026-109357 by monitoring for HTTP requests containing common LDAP wildcard or injection characters in the PHP_AUTH_USER field.
@@ -41,7 +43,18 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-109353 - SQL Injection Attempt in LibreNMS
+    description: Detects potential exploitation attempts of CVE-2026-109353 where an array is passed to the notification_id parameter in notifications.inc.php
+    platform: sigma
+    severity: high
+    tactics:
+      - exfiltration
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: immediate_escalation
   owners:
@@ -67,6 +80,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109357
       evidence: NVD vulnerability notice.
+updates:
+  - at: "2026-10-12T20:30:11Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-109353 - SQL Injection Attempt in LibreNMS'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109353
 ---
 
 LibreNMS versions before 26.9.0 contain a critical vulnerability in the ldap-authorization and ad-authorization modules. The application fails to properly sanitize and escape usernames before incorporating them into LDAP search filters during the authentication process. Because the authentication logic only verifies the existence of a user rather than validating their credentials, the application is susceptible to LDAP filter injection. An unauthenticated attacker can exploit this by submitting a crafted username, such as a wildcard character, within the PHP_AUTH_USER field of an HTTP Basic Authorization header. This manipulation causes the LDAP backend to return a successful match for all users and groups, effectively bypassing authentication controls and granting the attacker administrative privileges within the LibreNMS instance.
