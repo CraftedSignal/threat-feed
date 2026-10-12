@@ -3,6 +3,7 @@ title: Authentication Bypass in agno-agi agno via security_key Manipulation
 slug: 2026-10-agno-auth-bypass
 description: The agno-agi agno library is vulnerable to a remote authentication bypass in the get_authentication_dependency function, allowing unauthenticated access via crafted security_key arguments.
 date: "2026-10-12T10:08:07Z"
+lastmod: "2026-10-12T11:42:28Z"
 type: threat
 types:
   - threat
@@ -11,15 +12,28 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:agno-agi:agno:*:*:*:*:*:*:*:*
+tags:
+  - remote-code-execution
+  - input-validation
+  - dependency-vulnerability
 vendors:
   - agno-agi
 products:
   - agno (<= 2.7.3 / <= 3.0.6)
+  - agno (<= 3.0.6, 3.1.1)
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Performing a manipulation of the argument code results in dynamically-managed code resources.
+    confidence_band: high
 cves:
   - id: CVE-2026-108818
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108818
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108819
 action_plan:
   priority: elevated
   owners:
@@ -38,6 +52,14 @@ action_plan:
       evidence: Manipulation of security_key leads to missing authentication
   gaps:
     - Lack of official patch
+updates:
+  - at: "2026-10-12T11:42:28Z"
+    level: L2
+    summary: added coverage for agno (<= 3.0.6, 3.1.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108819
 ---
 
 A remote authentication bypass vulnerability (CVE-2026-108818) exists in the agno-agi agno library, affecting all versions up to 2.7.3 and 3.0.6. The flaw resides within the get_authentication_dependency function located in auth.py. By manipulating the security_key argument passed to this function, an attacker can circumvent authentication mechanisms, potentially gaining unauthorized access to application resources. The vulnerability is publicly exploitable, and the maintainers have not yet addressed the issue. Organizations utilizing the agno library for authentication dependency management should audit their implementations for potential impact.
