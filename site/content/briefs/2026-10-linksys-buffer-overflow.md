@@ -3,7 +3,7 @@ title: Remote Stack-Based Buffer Overflow in Linksys E1700
 slug: 2026-10-linksys-buffer-overflow
 description: The Linksys E1700 router (v1.0.0.4.003) is vulnerable to a remote stack-based buffer overflow in the Mac Filter component, allowing for potential unauthenticated remote code execution.
 date: "2026-10-12T15:42:31Z"
-lastmod: "2026-10-12T15:42:41Z"
+lastmod: "2026-10-12T15:42:48Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,8 @@ tags:
   - buffer-overflow
   - network-device
   - cve-2026-108892
+  - vulnerability
+  - network-security
 vendors:
   - Linksys
 products:
@@ -40,6 +42,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108892
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108894
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108895
 action_plan:
   priority: immediate_escalation
   owners:
@@ -64,6 +67,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-108894
+  - at: "2026-10-12T15:42:48Z"
+    level: L2
+    summary: added coverage for E1700 (1.0.0.4.003)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108895
 ---
 
 A critical stack-based buffer overflow vulnerability has been identified in the Linksys E1700 router, specifically within firmware version 1.0.0.4.003. The vulnerability resides in the ssid1MACFilter function located within the /goform/ssid1MACFilter endpoint of the Mac Filter component. By submitting a specially crafted argument to the 'newap_text_%d' parameter, an attacker can trigger an overflow on the stack. Because this endpoint is accessible over the network, the attack can be initiated remotely without authentication. The vulnerability has been publicly disclosed, and given the vendor's lack of response, there is an increased risk of active exploitation. Organizations utilizing this hardware should consider it compromised if exposed to untrusted networks.
