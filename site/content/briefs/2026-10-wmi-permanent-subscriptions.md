@@ -3,6 +3,7 @@ title: Detection of WMI Permanent Event Subscriptions for Persistence
 slug: 2026-10-wmi-permanent-subscriptions
 description: This brief outlines the detection of potential persistence and privilege escalation via WMI permanent event subscriptions, which attackers use to trigger malicious payloads on system events.
 date: "2026-10-05T18:01:15Z"
+lastmod: "2026-10-12T18:25:52Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - wmi
   - windows
   - sysmon
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -21,6 +24,8 @@ mitre_ttps:
     technique_name: 'Event Triggered Execution: WMI Event Subscription'
     evidence: Attackers often use WMI event consumers to execute malicious code automatically when specific system events occur, such as system startup or user logon.
     confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmi_permanent_event_subscription___sysmon.yml
 rules:
   - title: Detect WMI Permanent Event Subscription Modification
     description: Detects the creation, modification, or deletion of a WMI permanent event subscription using Sysmon Event ID 21.
@@ -59,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: Persistence via WMI
       evidence: Standard security practice for minimizing persistence vectors.
+updates:
+  - at: "2026-10-12T18:25:52Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/wmi_permanent_event_subscription___sysmon.yml
 ---
 
 Windows Management Instrumentation (WMI) is a powerful administrative feature that can be abused by adversaries to maintain persistence or elevate privileges. By creating permanent event subscriptions, attackers can configure the system to execute arbitrary commands, scripts, or binaries whenever a specific event occurs, such as a process start, a logon, or a system timer trigger. This technique allows malicious code to execute with SYSTEM-level privileges if the consumer is configured appropriately. 
