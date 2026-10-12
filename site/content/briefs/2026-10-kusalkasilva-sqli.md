@@ -3,6 +3,7 @@ title: SQL Injection in Kusalkasilva Learning-Management-System Login Endpoint
 slug: 2026-10-kusalkasilva-sqli
 description: A remote, unauthenticated SQL injection vulnerability in the login.php script of Kusalkasilva Learning-Management-System allows attackers to compromise database integrity.
 date: "2026-10-06T12:55:11Z"
+lastmod: "2026-10-12T20:30:43Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ vendors:
   - Kusalkasilva
 products:
   - Learning-Management-System
+  - Learning-Management-System (<= ffeb873f8803f1e9664384ff75000c7da45466d2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,18 +28,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105918
-rules:
-  - title: Detect CVE-2026-105918 Exploitation - SQL Injection in Login Endpoint
-    description: Detects attempted SQL injection via the username or password parameter in the login.php endpoint.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-rules_count: 1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108921
 action_plan:
   priority: elevated
   owners:
@@ -63,6 +54,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-105918
       evidence: No version details of affected nor updated releases are available
+updates:
+  - at: "2026-10-12T20:30:43Z"
+    level: L2
+    summary: added coverage for Learning-Management-System (<= ffeb873f8803f1e9664384ff75000c7da45466d2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108921
 ---
 
 The Kusalkasilva Learning-Management-System is susceptible to a SQL injection vulnerability (CVE-2026-105918) within the mysql_error function located in the login.php file. This component handles the Login Endpoint for the application. Remote attackers can leverage this vulnerability by providing malicious input into the username or password parameters, enabling them to alter database queries. This flaw, which carries a CVSS v3.1 base score of 7.3, poses a significant risk as the exploit is publicly available. Because the project utilizes a continuous delivery model with rolling releases, no specific patched versions or version ranges are available; users should monitor the project repository for updates and maintain defense-in-depth controls around database access.
