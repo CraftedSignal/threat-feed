@@ -3,6 +3,7 @@ title: Arbitrary File Read Vulnerability in Divi Plus Plugin
 slug: 2026-10-divi-plus-file-read
 description: The Divi Plus WordPress plugin contains an arbitrary file read vulnerability (CVE-2026-91136) in the SVG animator REST endpoint that allows unauthenticated attackers to exfiltrate sensitive server files.
 date: "2026-10-10T09:52:16Z"
+lastmod: "2026-10-12T02:10:54Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:elicus:divi_plus:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=F3152BE1-D453-5C09-9932-BB44CA1FCB4E&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - vulnerability
@@ -34,8 +38,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-91136
     cvss: 7.5
+    epss: 0.0056
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91136
+  - https://sploitus.com/exploit?id=F3152BE1-D453-5C09-9932-BB44CA1FCB4E&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-91136 Exploitation - Arbitrary File Read in Divi Plus
     description: Detects exploitation of the Divi Plus svg-animator endpoint by looking for path traversal patterns or file stream wrappers in the svg_image parameter.
@@ -65,6 +71,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-91136
       evidence: Endpoint is unauthenticated
+updates:
+  - at: "2026-10-12T02:10:54Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=F3152BE1-D453-5C09-9932-BB44CA1FCB4E&utm_source=rss&utm_medium=rss
 ---
 
 The Divi Plus plugin for WordPress, in versions up to and including 2.4.0, is susceptible to an arbitrary file read vulnerability (CVE-2026-91136). The flaw resides in the /wp-json/elicus/v1/dipl-modules/svg-animator REST API endpoint, specifically within the 'svg_image' parameter. The plugin's permission callback, SVGAnimatorController::index_permission, fails to enforce authentication, allowing unauthenticated requests to reach the vulnerable code. Input validation is insufficient; the plugin utilizes sanitize_text_field() and esc_html(), which do not prevent the use of filesystem paths, the file:// stream wrapper, or remote URLs. These inputs are subsequently passed to file_get_contents() or a fallback wp_remote_get(), with the resulting file contents returned in the 'html' field of the JSON response. This vulnerability poses a significant risk as it allows attackers to read sensitive configuration files, potentially facilitating further exploitation and remote code execution.
