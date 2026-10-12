@@ -3,6 +3,7 @@ title: Remote Code Execution in EdgeEver Desktop via IPC Handler
 slug: 2026-10-edgeever-rce
 description: EdgeEver Desktop versions 1.92.0 through 1.112.0 contain a remote code execution vulnerability in the desktop:acp-probe IPC handler that allows arbitrary command execution via an insecure probeAcpAdapter function.
 date: "2026-10-12T22:42:04Z"
+lastmod: "2026-10-12T22:42:29Z"
 type: advisory
 types:
   - advisory
@@ -10,10 +11,15 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:edgeever:edgeever_desktop:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - web-application
+  - desktop-app
 vendors:
   - EdgeEver
 products:
   - EdgeEver Desktop (1.92.0-1.112.0)
+  - EdgeEver Desktop (1.6.26 through 1.112.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -27,11 +33,18 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The component... spawns a caller-supplied input.path executable.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: Attackers can embed a link using userinfo syntax after the dev-server prefix, for example in a note-template preview, to obtain the edgeeverDesktop bridge.
+    confidence_band: high
 cves:
   - id: CVE-2026-109556
     cvss: 8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109556
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109559
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109556
       evidence: Source advisory
+updates:
+  - at: "2026-10-12T22:42:29Z"
+    level: L2
+    summary: added coverage for EdgeEver Desktop (1.6.26 through 1.112.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109559
 ---
 
 EdgeEver Desktop versions 1.92.0 through 1.112.0 are vulnerable to remote code execution (RCE) via the desktop:acp-probe inter-process communication (IPC) handler. The vulnerability stems from a failure to perform adequate sender verification in the IPC handler, which subsequently facilitates the execution of a caller-supplied executable path. An attacker who gains control over the renderer process, potentially through stored cross-site scripting (XSS) in components like template-preview or drag-preview, can invoke the probeAcpAdapter function to execute arbitrary local binaries. Successful exploitation allows an attacker to execute code with the full privileges of the user running the EdgeEver Desktop application. This vulnerability is assigned CVE-2026-109556 and represents a significant risk for desktop environments where the application is deployed.
