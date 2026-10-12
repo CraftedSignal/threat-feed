@@ -1,17 +1,18 @@
 ---
-title: PowerShell User Discovery via Environment Variables
+title: Detection of PowerShell-Based User Discovery Techniques
 slug: 2026-10-user-discovery-powershell
-description: Adversaries utilize PowerShell environment variables to perform user discovery on compromised Windows systems, aiding in situational awareness for lateral movement.
-date: "2026-10-12T18:00:06Z"
+description: Adversaries utilize PowerShell commands to query environment variables as part of local system reconnaissance to identify the current logged-in user.
+date: "2026-10-12T18:00:14Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - medium
 tags:
   - discovery
-  - endpoint
+  - windows
   - powershell
+  - reconnaissance
 affected_os:
   - Windows
 mitre_ttps:
@@ -19,13 +20,13 @@ mitre_ttps:
     tactic_name: Discovery
     technique_id: T1033
     technique_name: System Owner/User Discovery
-    evidence: The following analytic detects the execution of powershell.exe with command-line arguments that use PowerShell environment variables to identify the current logged user.
+    evidence: Adversaries and Red Teams may use it for situational awareness and Active Directory discovery on compromised endpoints.
     confidence_band: high
 rules:
   - title: Detect User Discovery via PowerShell Environment Variables
-    description: Detects the execution of PowerShell commands using environment variables to identify the current logged-in user.
+    description: Detects the use of PowerShell script blocks that query environment variables to identify the current user, a common reconnaissance technique.
     platform: sigma
-    severity: low
+    severity: medium
     tactics:
       - discovery
     techniques:
@@ -35,34 +36,51 @@ rules:
       - windows
 rules_count: 1
 action_plan:
-  priority: monitor_or_close
+  priority: elevated
   owners:
     - Detection Engineering
   immediate_actions:
-    - action: Deploy the Sigma rule to monitor for PowerShell discovery activity
-      owner: Detection Engineering
-      due: 7d
-      evidence: Analytic provided by Splunk-ESCU
+    - action: Enable PowerShell Script Block Logging (Event 4104) across all endpoints
+      owner: IT Operations
+      due: 72h
+      evidence: Required for visibility into script block execution as noted in implementation guidelines.
   hunt_leads:
-    - lead: Search for PowerShell command lines containing environment variable discovery patterns
+    - lead: Search historical 4104 logs for the identified user discovery patterns
       technique_id: T1033
       data_needed:
-        - Process creation logs with full command line
+        - PowerShell Script Block logs
       priority: medium
-      confidence: high
-      disposition: convert_to_detection
-      evidence: Detection logic provided in source
+      confidence: medium
+      disposition: hunt_now
+      evidence: Source provides specific patterns for discovery.
+  mitigation_plan:
+    - priority: medium
+      action: Implement endpoint monitoring for PowerShell command execution
+      owner: SOC
+      addresses: T1033
+      evidence: Analytic provided by Splunk ESCU.
 ---
 
-Adversaries often perform system and user discovery on compromised Windows hosts to support lateral movement and privilege escalation. A common, low-noise technique involves executing PowerShell commands that query local environment variables, specifically $env:UserName or [System.Environment]::UserName, to confirm the identity of the current user. While these commands are simple, they provide critical context for an attacker to verify they have successfully accessed the desired account or to identify high-value users for further targeting. Defenders should monitor for PowerShell process executions that include these specific environment variable strings, as they are rarely required for legitimate day-to-day user tasks and often indicate post-exploitation activity.
+Adversaries and red teams frequently leverage built-in system tools to perform reconnaissance on compromised endpoints. A common technique for situational awareness involves querying environment variables via PowerShell to identify the identity of the current user session. This specific activity, centered around the use of `$env:UserName` or `[System.Environment]::UserName` within PowerShell script blocks, allows attackers to confirm their current context on a host. This information gathering is a precursor to more advanced objectives, including privilege escalation and lateral movement within an Active Directory environment. Detecting this behavior at the script block level provides security operations teams visibility into the discovery phase of an attack.
+
+## Attack Chain
+
+1. Initial access is established on a target Windows endpoint.
+2. The attacker executes a PowerShell process (powershell.exe) to interact with the system.
+3. The attacker attempts to determine the security context by querying environment variables.
+4. The attacker runs a command block containing `$env:UserName` to resolve the current user.
+5. Alternatively, the attacker executes `[System.Environment]::UserName` to retrieve the same information.
+6. The command output is captured and relayed to the attacker for environmental analysis.
+7. Based on the discovered user, the attacker evaluates the feasibility of lateral movement or further exploitation.
 
 ## Impact
 
-Successful execution of user discovery allows attackers to gather actionable intelligence about the compromised environment, facilitating targeted lateral movement and deeper exploitation. While this specific activity is not destructive, it is a precursor to more severe unauthorized access or data exfiltration within an Active Directory-managed environment.
+Successful user discovery provides attackers with necessary situational awareness to refine their post-exploitation tactics. This reconnaissance phase supports targeting of high-privilege users or mapping of organizational infrastructure, increasing the risk of unauthorized data access and sustained network persistence.
 
 ## Recommendation
 
-Deploy detection logic to identify PowerShell processes executing discovery commands and tune for administrative activity.
-- Deploy the provided Sigma rule to your SIEM and tune for legitimate IT/admin scripts.
-- Enable Sysmon (Event ID 1) or Windows Security Log (Event ID 4688) process creation logging, ensuring the command line is captured in full.
-- Prioritize alerts originating from non-administrative service accounts or unusual parent processes.
+Detection engineering teams should focus on implementing PowerShell Script Block Logging (EventCode 4104) to capture the execution of suspicious queries.
+
+* Deploy the provided Sigma rule to detect the use of environment variable discovery patterns in PowerShell script blocks.
+* Enable and validate PowerShell Script Block Logging across all critical endpoints to ensure visibility into command execution.
+* Tune detections to minimize alerts generated by authorized administrative or management scripts.
