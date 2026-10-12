@@ -3,6 +3,7 @@ title: Authentication Bypass in Grav Clockwork Profiler
 slug: 2026-10-grav-auth-bypass
 description: Grav versions 2.0.22 through 2.1.6 are vulnerable to an authentication bypass in the Clockwork profiler that trusts loopback REMOTE_ADDR headers, potentially exposing system configuration and secrets.
 date: "2026-10-12T18:35:21Z"
+lastmod: "2026-10-12T18:35:30Z"
 type: advisory
 types:
   - advisory
@@ -10,15 +11,32 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:getgrav:grav:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - information-disclosure
+  - cve-2026-109326
 vendors:
   - Grav
 products:
   - Grav (2.0.22-2.1.6)
+  - Grav (< 2.1.7)
+  - nginx (< 2.1.7)
+  - lighttpd (< 2.1.7)
+  - Microsoft
+  - Caddy (< 2.1.7)
+mitre_ttps:
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1592
+    technique_name: Gather Victim Org Information
+    evidence: Unauthenticated attackers can request nested repositories such as user/.git to retrieve Git config, refs, and objects, reconstructing unpublished history or committed secrets.
+    confidence_band: high
 cves:
   - id: CVE-2026-109325
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109325
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109326
 action_plan:
   priority: elevated
   owners:
@@ -35,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109325
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-10-12T18:35:30Z"
+    level: L2
+    summary: added coverage for Grav (< 2.1.7) +4 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109326
 ---
 
 Grav CMS versions 2.0.22 through 2.1.6 contain an authentication bypass vulnerability within the Clockwork profiler component. The vulnerability exists due to a logic flaw where the component implicitly trusts loopback addresses found in the REMOTE_ADDR header. Attackers positioned behind a same-host HTTP proxy can manipulate these headers to bypass authentication controls typically enforced on the profiler interface. Successful exploitation allows unauthorized access to sensitive application data, including system and plugin configuration files, sensitive secrets, database queries, and request metadata. This exposure presents a significant risk, as it provides an attacker with reconnaissance data that could facilitate further exploitation of the application or the underlying infrastructure. Organizations running affected versions are urged to upgrade to version 2.1.7 or later to remediate the vulnerability.
