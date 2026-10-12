@@ -3,6 +3,7 @@ title: IBM Db2 Privilege Escalation Vulnerability
 slug: 2026-10-ibm-db2-privilege-escalation
 description: IBM Db2 versions 11.5.0-11.5.9 and 12.1.0-12.1.5 contain an improper privilege management vulnerability allowing local users to escalate privileges.
 date: "2026-10-12T20:30:28Z"
+lastmod: "2026-10-12T20:30:36Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,7 @@ cpes:
 tags:
   - privilege-escalation
   - database-security
+  - vulnerability
 vendors:
   - IBM
 products:
@@ -30,6 +32,7 @@ cves:
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105464
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-105465
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +49,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-105464
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-10-12T20:30:36Z"
+    level: L2
+    summary: added coverage for Db2 (11.5.0-11.5.9, 12.1.0-12.1.5)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-105465
 ---
 
 IBM Db2, including the Db2 Connect Server component, is affected by a local privilege escalation vulnerability (CVE-2026-105464). The flaw exists in versions 11.5.0 through 11.5.9, as well as 12.1.0 through 12.1.5, across Linux, UNIX, and Windows platforms. The vulnerability stems from improper privilege management within the database environment, which could allow a local attacker who already has access to the system to elevate their permissions. This could potentially allow an attacker to perform unauthorized database operations, access sensitive data, or gain further control over the database instance. Organizations using the affected versions of Db2 should assess the vulnerability and apply the appropriate security updates provided by IBM to remediate the privilege management defect.
