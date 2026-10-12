@@ -1,0 +1,89 @@
+---
+title: Detection of PowerShell COM Hijacking via InProcServer32 Modification
+slug: 2026-10-powershell-com-hijacking
+description: Attackers utilize PowerShell to modify or add InProcServer32 registry keys to facilitate COM hijacking, enabling arbitrary code execution, persistence, or privilege escalation.
+date: "2026-10-12T17:54:36Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+affected_os:
+  - Windows
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The analytic detects attempts to modify or add a Component Object Model (COM) entry to the InProcServer32 path within the registry using PowerShell.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1546
+    technique_name: Event Triggered Execution
+    evidence: The following analytic detects attempts to modify or add a Component Object Model (COM) entry to the InProcServer32 path within the registry using PowerShell.
+    confidence_band: high
+rules:
+  - title: Detect PowerShell COM Hijacking via InProcServer32 Registry Modification
+    description: Detects PowerShell commands attempting to modify or add entries to the InProcServer32 registry path, a technique used for COM hijacking.
+    platform: sigma
+    severity: medium
+    tactics:
+      - execution
+      - persistence
+      - privilege-escalation
+    techniques:
+      - T1059.001
+      - T1546.015
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 1
+action_plan:
+  priority: elevated
+  owners:
+    - SOC
+    - Detection Engineering
+  immediate_actions:
+    - action: Deploy Sigma rule to detect InProcServer32 modifications via PowerShell.
+      owner: Detection Engineering
+      due: 48h
+      evidence: Source describes registry modification via PowerShell as a detectable TTP.
+  hunt_leads:
+    - lead: Search PowerShell logs for ScriptBlockText containing 'InProcServer32'.
+      technique_id: T1546.015
+      data_needed:
+        - Event ID 4104
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Analytic provided specifically targets this string pattern in script blocks.
+  mitigation_plan:
+    - priority: medium_term
+      action: Enforce strict registry monitoring on sensitive CLSID paths.
+      owner: IT Operations
+      addresses: T1546.015
+      evidence: General security hardening against COM hijacking.
+---
+
+This threat involves the abuse of the Component Object Model (COM) by modifying or creating registry keys within the `InProcServer32` path using PowerShell. This technique allows an attacker to register a malicious DLL, which is subsequently loaded by legitimate COM-enabled processes on the system. By controlling the execution flow of these processes, an adversary can achieve persistence, escalate privileges, or execute arbitrary code. The activity is typically observed via PowerShell ScriptBlock Logging (EventCode 4104), as attackers utilize PowerShell commands to interact with the Windows Registry. Defenders should monitor for scripts containing references to `Software\Classes\CLSID\` followed by `InProcServer32` to identify potential unauthorized modifications to the registry.
+
+## Attack Chain
+
+1. An attacker gains initial access to the system via phishing, exploit, or other delivery mechanism.
+2. The attacker identifies a target COM object (CLSID) that is frequently invoked by system processes or applications.
+3. The attacker writes a malicious DLL to the disk in a location accessible to the target process.
+4. The attacker executes a PowerShell command to modify the registry key `HKCU\Software\Classes\CLSID\{CLSID}\InProcServer32` to point to the malicious DLL path.
+5. The target application or system process triggers the COM object, causing the system to load the malicious DLL.
+6. The malicious code within the DLL executes in the context of the host process, providing persistence or elevated access.
+
+## Impact
+
+Successful COM hijacking can lead to unauthorized code execution, local privilege escalation, and long-term system persistence. This technique is often used by advanced persistent threats to blend in with legitimate system activity, making it difficult to detect without deep visibility into script execution and registry modifications. The exact impact depends on the process that loads the hijacked COM object, potentially granting the attacker system-level or administrative rights.
+
+## Recommendation
+
+* Enable and ingest Windows PowerShell ScriptBlock Logging (EventCode 4104) across all endpoints to capture the full content of executed scripts.
+* Deploy the provided Sigma rule to your SIEM to detect attempts to modify InProcServer32 registry keys using PowerShell.
+* Regularly audit the `HKCU\Software\Classes\CLSID` and `HKLM\Software\Classes\CLSID` registry paths for unauthorized or suspicious DLL associations.
+* Investigate alerts generated by this rule to determine if the script is part of an authorized maintenance activity or malicious persistence attempt.
