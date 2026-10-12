@@ -1,68 +1,58 @@
 ---
-title: Denial of Service Vulnerability in Zebra
+title: Denial of Service in ZcashFoundation Zebra Node
 slug: 2026-10-zebra-dos
-description: Zebra versions prior to 6.0.0 are vulnerable to an unauthenticated denial-of-service attack via the submission of non-standard high-sigop P2SH transactions that exhaust system resources.
-date: "2026-10-02T14:24:50Z"
-lastmod: "2026-10-02T14:24:57Z"
+description: A vulnerability in ZcashFoundation Zebra 6.4.0 and 6.4.1 allows unauthenticated remote attackers to crash the node by sending a crafted version 6 transaction with a pre-NU6.3 consensus branch ID.
+date: "2026-10-12T18:38:22Z"
 type: advisory
 types:
   - advisory
 severities:
-  - medium
+  - low
 cpes:
-  - cpe:2.3:a:zebra:zebra:*:*:*:*:*:*:*:*
-tags:
-  - denial-of-service
-  - vulnerability
-  - blockchain
+  - cpe:2.3:a:zcashfoundation:zebra:6.4.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:zcashfoundation:zebra:6.4.1:*:*:*:*:*:*:*
 vendors:
-  - Zebra
+  - ZcashFoundation
 products:
-  - Zebra (< 6.0.0)
-  - Zebra (< 4.4.0)
+  - Zebra (6.4.0-6.4.1)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
-    technique_id: T1498
-    technique_name: Network Denial of Service
-    evidence: Zebra before 6.0.0 contains a denial of service vulnerability that allows unauthenticated peers to stall Tokio workers.
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Unauthenticated peers can send a single pre-handshake tx message to crash the node, and can repeat this after each restart.
     confidence_band: high
 cves:
-  - id: CVE-2026-104431
+  - id: CVE-2026-109363
     cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-104431
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-104437
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109363
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
     - IT Operations
+    - Security Engineering
+  immediate_actions:
+    - action: Upgrade Zebra to version 6.4.2 or later.
+      owner: IT Operations
+      due: 24h
+      evidence: CVE-2026-109363 remediation requires update to 6.4.2.
   mitigation_plan:
     - priority: immediate
-      action: Upgrade Zebra to version 6.0.0 or later
+      action: Upgrade Zebra to 6.4.2
       owner: IT Operations
-      addresses: CVE-2026-104431
-      evidence: Source states Zebra before 6.0.0 contains a denial of service vulnerability.
-updates:
-  - at: "2026-10-02T14:24:57Z"
-    level: L1
-    summary: added coverage for Zebra (< 4.4.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-104437
+      addresses: CVE-2026-109363
+      evidence: Source explicitly identifies version 6.4.2 as the fixed release.
 ---
 
-Zebra versions prior to 6.0.0 contain a denial-of-service (DoS) vulnerability that allows unauthenticated network peers to compromise node stability. The vulnerability stems from the way the node handles mempool transactions; specifically, it allows the submission of non-standard transactions with high signature operation (sigop) counts. These transactions reach the CachedFfiTransaction::is_valid() verification function before standard validation checks are performed. By flooding the node with these computationally expensive transactions, an attacker can saturate the verifier buffer and stall the underlying Tokio workers. This resource exhaustion forces the node to become unresponsive, impacting the availability of the Zebra service. This vulnerability highlights the risk of processing complex transaction data before validating it against standard consensus rules.
+ZcashFoundation Zebra versions 6.4.0 through 6.4.1 contain a denial-of-service vulnerability arising from improper error handling during the processing of specific transaction types. The issue occurs when the node parses a version 6 transaction that carries a pre-NU6.3 consensus branch ID. During the construction of an UnminedTx, the size computation logic assumes that the re-serialization of the Orchard bundle is always successful. If this assumption fails, the application triggers an assertion error, which results in an immediate crash of the zebrad process. Because this message can be sent by unauthenticated peers as a pre-handshake transaction, remote attackers can persistently crash the node by repeatedly sending the malicious payload after every restart, effectively disrupting the availability of the Zebra node on the Zcash network.
 
 ## Impact
 
-Successful exploitation results in a complete denial of service for the targeted Zebra node. By stalling the Tokio worker threads, the attacker renders the node unable to process legitimate blockchain data, participate in peer-to-peer communication, or perform synchronization tasks, effectively taking the node offline.
+The vulnerability allows for trivial, persistent denial-of-service attacks against Zebra nodes running vulnerable versions. By sending a single crafted packet, an attacker can crash the node. If the service is automatically restarted by a manager, the attacker can repeat the attack indefinitely, preventing the node from participating in network consensus and processing transactions. This impact is critical for operators of Zebra nodes who rely on consistent uptime for network synchronization and verification.
 
 ## Recommendation
 
-Prioritized actions for administrators:
-
-* Patch the affected Zebra software by upgrading to version 6.0.0 or later immediately to address CVE-2026-104431.
-* Monitor network traffic and node logs for an unusual influx of high-sigop transactions or sudden spikes in resource utilization (CPU/Memory) corresponding to transaction validation.
-* In resource-constrained or critical production environments, implement strict peer admission control or rate limiting for unauthenticated incoming connections to mitigate the impact of malicious transaction bursts until an upgrade is feasible.
+- Upgrade all instances of ZcashFoundation Zebra to version 6.4.2 or later to include the mandatory error handling fix for Orchard bundle re-serialization.
+- Monitor network logs for a high frequency of incoming 'tx' messages followed immediately by zebrad service termination or restart events.
+- Patch CVE-2026-109363 across all Zebra node infrastructure immediately.
