@@ -3,6 +3,7 @@ title: Abuse of MSIExec for Remote File Download and Execution
 slug: 2026-07-windows-msiexec-remote-download
 description: This brief details the abuse of the Windows utility msiexec.exe by attackers to download and execute remote files via HTTP or HTTPS URLs, often leading to unauthorized code execution, system compromise, or further malware deployment.
 date: "2026-07-27T18:27:22Z"
+lastmod: "2026-10-12T18:15:56Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,10 @@ tags:
   - living-off-the-land
   - proxy-execution
   - defense-evasion
+vendors:
+  - Microsoft
+products:
+  - Windows Installer
 affected_os:
   - Windows
 mitre_ttps:
@@ -31,20 +36,15 @@ mitre_ttps:
 references:
   - https://thedfirreport.com/2022/06/06/will-the-real-msiexec-please-stand-up-exploit-leads-to-data-exfiltration/
   - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1218.007/T1218.007.md
-rules:
-  - title: Detect MSIExec Remote Download Attempt
-    description: Detects the use of msiexec.exe to download files from remote HTTP or HTTPS URLs, which is a common technique for proxy execution and malware delivery.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-      - execution
-    techniques:
-      - T1218.007
-    data_sources:
-      - process_creation
-      - windows
-rules_count: 1
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_msiexec_remote_download.yml
+updates:
+  - at: "2026-10-12T18:15:56Z"
+    level: L1
+    summary: new product
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_msiexec_remote_download.yml
 ---
 
 Attackers are leveraging the legitimate Windows installer utility `msiexec.exe` to download and execute malicious files from remote HTTP or HTTPS servers. This technique, often categorized under signed binary proxy execution, allows adversaries to bypass certain security controls by abusing a trusted system binary. The detection focuses on identifying `msiexec.exe` processes that include a URL (either HTTP or HTTPS) in their command line, indicating an attempt to fetch an MSI package from an external source. This activity is significant as it can lead to unauthorized code execution, system compromise, or the deployment of additional malware within a compromised network. While the specific initial access vector is not detailed, this method serves as a crucial step for establishing persistence, lateral movement, or executing payloads post-compromise. This behavior is monitored via Endpoint Detection and Response (EDR) agents capturing process execution logs and command-line arguments.
