@@ -3,7 +3,7 @@ title: Remote Code Execution in Edimax BR-6208AC via Buffer Overflow
 slug: 2026-10-edimax-buffer-overflow
 description: A critical buffer overflow vulnerability in the Edimax BR-6208AC router allows unauthenticated remote code execution via manipulation of the ifname argument in the /goform/formWlSiteSurvey handler.
 date: "2026-10-12T18:31:25Z"
-lastmod: "2026-10-12T18:31:41Z"
+lastmod: "2026-10-12T18:31:48Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,8 @@ tags:
   - network-security
   - edimax
   - eol
+  - iot
+  - remote-code-execution
 vendors:
   - Edimax
 products:
@@ -40,6 +42,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108914
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108915
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108917
 rules:
   - title: Detect CVE-2026-108915 - Attempted Exploitation via formWlanMP
     description: Detects exploitation attempts against CVE-2026-108915 by monitoring for HTTP requests to the vulnerable formWlanMP endpoint with long ateBW parameters.
@@ -77,6 +80,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-108915
+  - at: "2026-10-12T18:31:48Z"
+    level: L2
+    summary: added coverage for BR-6208AC (1.32)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108917
 ---
 
 A critical buffer overflow vulnerability has been identified in the Edimax BR-6208AC router running firmware version 1.32. The vulnerability resides within the /goform/formWlSiteSurvey handler, where improper sanitization of the ifname argument allows an unauthenticated, remote attacker to trigger a buffer overflow. This flaw can be leveraged to achieve remote code execution on the affected network device. The vulnerability is publicly documented with available exploit code. Because the Edimax BR-6208AC is an end-of-life product, the vendor has not provided a security patch, leaving devices permanently exposed to this vector. Defenders should prioritize isolating these legacy devices from the internet or replacing them, as they cannot be secured against this specific exploit.
