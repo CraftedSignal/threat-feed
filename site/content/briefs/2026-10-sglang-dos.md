@@ -3,6 +3,7 @@ title: Unbounded Memory Allocation in SGLang
 slug: 2026-10-sglang-dos
 description: SGLang versions up to 0.5.21 are vulnerable to a denial-of-service condition via an unbounded memory allocation issue in the /v1/audio/transcriptions endpoint.
 date: "2026-10-12T15:43:13Z"
+lastmod: "2026-10-12T15:43:30Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - medium
 cpes:
   - cpe:2.3:a:sglang:sglang:*:*:*:*:*:*:*:*
+tags:
+  - denial-of-service
+  - vulnerability
+  - sglang
 vendors:
   - SGLang
 products:
@@ -23,6 +28,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109225
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109226
 rules:
   - title: Detect CVE-2026-109225 Exploitation - Large POST Requests to /v1/audio/transcriptions
     description: Detects potential DoS attempts against CVE-2026-109225 by identifying unusually large POST requests directed at the audio transcription endpoint.
@@ -49,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109225
       evidence: Source reporting of unbounded memory allocation
+updates:
+  - at: "2026-10-12T15:43:30Z"
+    level: L1
+    summary: added coverage for SGLang (<= 0.5.21)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109226
 ---
 
 SGLang through version 0.5.21 contains an unbounded memory allocation vulnerability that allows unauthenticated remote attackers to exhaust system memory. The vulnerability exists within the /v1/audio/transcriptions endpoint, which fails to properly validate the size of incoming multipart file uploads. Because the application reads the entirety of these files into memory prior to performing size validation or processing, an attacker can leverage concurrent, oversized upload requests to trigger a service crash. This results in the denial of service for the HTTP and tokenizer worker components, potentially impacting the availability of the model serving infrastructure. Defenders should prioritize updating to a patched version or implementing request size limits at the load balancer or reverse proxy layer to mitigate potential exploitation.
