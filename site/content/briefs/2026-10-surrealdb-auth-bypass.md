@@ -3,7 +3,7 @@ title: Authorization Bypass in SurrealDB via JSON Patch
 slug: 2026-10-surrealdb-auth-bypass
 description: SurrealDB versions prior to 3.3.0 are vulnerable to an authorization bypass that allows users with table-level write permissions to leak restricted field data through manipulated JSON Patch operations.
 date: "2026-10-12T18:35:44Z"
-lastmod: "2026-10-12T18:35:52Z"
+lastmod: "2026-10-12T20:30:02Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +15,7 @@ tags:
   - authorization-bypass
   - database-security
   - information-disclosure
+  - privilege-escalation
 vendors:
   - SurrealDB
 products:
@@ -32,6 +33,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109341
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109343
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109334
 updates:
   - at: "2026-10-12T18:35:52Z"
     level: L2
@@ -40,6 +42,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-109343
+  - at: "2026-10-12T20:30:02Z"
+    level: L2
+    summary: added coverage for SurrealDB (< 3.3.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109334
 ---
 
 SurrealDB before version 3.3.0 contains an authorization bypass vulnerability (CVE-2026-109341) affecting systems that rely on table-level permissions to restrict field access. The flaw allows authenticated users who possess standard write permissions on a table to circumvent SELECT-level restrictions. By submitting crafted JSON Patch operations - specifically 'copy' or 'move' commands - callers can force the application to resolve pointers against unreduced records. This behavior permits the exfiltration of sensitive data that should be protected. Furthermore, attackers may abuse 'test' operation mismatch errors as a side-channel disclosure oracle to infer the contents of hidden fields. This vulnerability poses a significant risk to data confidentiality in multi-tenant or role-based environments where granular field-level access control is enforced.
