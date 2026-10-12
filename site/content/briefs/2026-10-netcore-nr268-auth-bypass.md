@@ -3,7 +3,7 @@ title: Authentication Bypass in Netcore NR268
 slug: 2026-10-netcore-nr268-auth-bypass
 description: The user_ok function in the Netcore NR268 CGI execution component contains an authentication bypass vulnerability, CVE-2026-108907, which allows remote attackers to gain unauthorized access.
 date: "2026-10-12T18:31:18Z"
-lastmod: "2026-10-12T18:33:32Z"
+lastmod: "2026-10-12T22:39:01Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,8 @@ tags:
   - network-security
   - cve-2026-108906
   - web-vulnerability
+  - cve
+  - embedded-device
 vendors:
   - Netcore
 products:
@@ -29,12 +31,32 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The attack can be initiated remotely.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1202
+    technique_name: Indirect Command Execution
+    evidence: Executing a manipulation of the argument Hostname can lead to argument injection.
+    confidence_band: high
 cves:
   - id: CVE-2026-108907
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108907
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108906
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108929
+rules:
+  - title: Detects CVE-2026-108929 Exploitation - Argument Injection in DDNSset.cgi
+    description: Detects exploitation attempts against CVE-2026-108929 by identifying shell metacharacters in the Hostname parameter of the DDNSset.cgi script.
+    platform: sigma
+    severity: critical
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1202
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -59,6 +81,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-108906
+  - at: "2026-10-12T22:39:01Z"
+    level: L2
+    summary: 'added detection rule: Detects CVE-2026-108929 Exploitation - Argument Injection in DDNSset.cgi'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108929
 ---
 
 CVE-2026-108907 is an authentication bypass vulnerability affecting Netcore NR268 version 1.7.121109. The vulnerability resides in the user_ok function within the device's CGI execution component. This flaw permits an unauthenticated, remote attacker to manipulate the authentication logic, effectively bypassing security controls. The vulnerability has been publicly disclosed and is considered exploitable in the wild. Despite prior notification, the vendor has not provided a response or a corrective update, leaving deployments of this legacy firmware vulnerable to unauthorized device access and potential takeover.
