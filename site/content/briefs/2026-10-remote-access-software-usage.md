@@ -1,71 +1,75 @@
 ---
-title: Detection of Unauthorized Remote Access Software via Web Traffic
+title: Detection of Unauthorized Remote Access Software Usage
 slug: 2026-10-remote-access-software-usage
-description: This detection analytic identifies unauthorized usage of remote access utilities by monitoring web traffic for connections to known domains associated with tools such as AnyDesk, GoToMyPC, LogMeIn, and TeamViewer.
-date: "2026-10-05T12:35:37Z"
+description: Adversaries frequently abuse legitimate remote access tools to establish persistent command-and-control, facilitate lateral movement, and deploy ransomware within compromised environments.
+date: "2026-10-05T12:10:09Z"
+lastmod: "2026-10-12T17:41:18Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
 tags:
-  - command-and-control
   - remote-access
-  - network-security
-  - T1219
+  - command-and-control
+  - persistence
+  - rmm
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1219
     technique_name: Remote Access Software
-    evidence: Adversaries often use these utilities to maintain unauthorized remote access.
+    evidence: Adversaries often use remote access tools like AnyDesk, GoToMyPC, LogMeIn, and TeamViewer to maintain unauthorized access.
     confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_remote_access_software_usage_process.yml
 action_plan:
   priority: elevated
   owners:
-    - Detection Engineering
     - SOC
+    - Detection Engineering
   immediate_actions:
-    - action: Deploy web traffic logging for remote access domains to SIEM
+    - action: Deploy process-level detection for unauthorized RMM tools.
       owner: Detection Engineering
-      due: 72h
-      evidence: Source documentation on required network telemetry
+      due: 48h
+      evidence: Analytic requirement for endpoint visibility.
   hunt_leads:
-    - lead: Identify outbound web traffic to known remote access domains from workstations
+    - lead: Search for unknown processes spawning remote access binaries.
       technique_id: T1219
       data_needed:
-        - Firewall or Web Proxy logs
+        - ParentProcessName
+        - ProcessName
       priority: high
       confidence: high
       disposition: hunt_now
-      evidence: Source analytic identifies unauthorized remote access tool usage
+      evidence: Attackers often use RMM as secondary persistence.
   mitigation_plan:
     - priority: medium_term
-      action: Establish a formal process for reviewing and updating the remote access software allowlist
-      owner: SOC
-      addresses: False positive management for IT remote tools
-      evidence: Source explicitly mentions legitimate software false positives
+      action: Strictly limit use of RMM tools to hardened, managed administrative workstations.
+      owner: IT Operations
+      addresses: T1219
+      evidence: General security best practice for minimizing attack surface.
+updates:
+  - at: "2026-10-12T17:41:18Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_remote_access_software_usage_process.yml
 ---
 
-Adversaries frequently employ legitimate remote access and monitoring tools (RATs/RMMs) to maintain persistence, conduct command-and-control (C2) communication, and facilitate unauthorized data exfiltration. This threat involves the use of dual-use software - such as AnyDesk, GoToMyPC, LogMeIn, and TeamViewer - which are often indistinguishable from standard administrative traffic unless specific domain indicators are monitored. This analytic focuses on identifying network connections to domains associated with these utilities by mapping web proxy or firewall traffic to the Common Information Model (CIM) Web data model. Defensive teams must differentiate between authorized enterprise IT management activities and malicious actor usage. Success in this detection relies on maintaining a robust allowlist lookup to manage known-good business use cases, as these tools are commonly integrated into modern enterprise workflows.
-
-## Attack Chain
-
-1. Initial access: Adversary gains entry to a target system via phishing, exploit, or credential theft.
-2. Staging: Attacker downloads a legitimate remote access installer or portable executable onto the compromised host.
-3. Execution: The remote access binary is launched, establishing a connection to its vendor-hosted C2 cloud infrastructure.
-4. C2 Established: The host registers with the attacker-controlled panel, providing a unique ID for remote interaction.
-5. Persistence: The actor configures the software to run automatically upon system startup to maintain long-term access.
-6. Action on Objective: The attacker uses the remote interface to browse files, exfiltrate sensitive data, or deploy additional malware like ransomware.
+Adversaries frequently abuse legitimate remote access software (RATs/RMMs) to maintain unauthorized access to victim environments. Tools such as AnyDesk, TeamViewer, GoToMyPC, and LogMeIn are commonly repurposed by threat actors, including groups like Scattered Spider and developers of Cactus and Interlock ransomware, to bypass traditional security controls. Because these applications are digitally signed and often used by IT support staff, they can remain undetected for extended periods. Defenders must monitor for the execution of these binaries, especially when they originate from unexpected user contexts or lack a legitimate business justification. This analytic identifies the execution of such software by cross-referencing process telemetry from EDR agents against a managed list of known remote access utilities.
 
 ## Impact
 
-Successful exploitation allows for complete remote control of compromised systems, enabling attackers to bypass traditional perimeter security, exfiltrate intellectual property, and deploy destructive payloads like ransomware. This technique is observed across multiple sectors and is a standard component in the toolsets of major ransomware operations and organized cybercriminal groups.
+Successful deployment of unauthorized remote access software allows attackers to achieve persistent system control, execute interactive commands, bypass local authentication, exfiltrate sensitive data, and provide a stable conduit for the deployment of secondary payloads, including ransomware. If left undetected, this visibility gap facilitates prolonged attacker dwell time and increases the likelihood of catastrophic data exfiltration and business disruption.
 
 ## Recommendation
 
-Prioritize the implementation of network-based monitoring for known remote access software domains to identify unauthorized usage.
-- Process network logs (Firewall/Proxy) and map them to the Web data model using the Splunk CIM to ensure compatibility with detection logic.
-- Implement a lookup-based allowlist (remote_access_software_usage_exception.csv) to manage legitimate enterprise use of these tools and reduce false positives.
-- Investigate any detected connections from unexpected source IPs or user accounts using the provided drilldown searches.
-- Integrate Asset and Identity (A&I) lookups to automatically suppress alerts for known IT administration endpoints.
+* Deploy the provided Sigma rule to identify unauthorized remote access software execution across the endpoint fleet.
+* Populate the `remote_access_software` lookup table with all enterprise-approved remote access tools to ensure proper filtering.
+* Enable EDR process creation logging (e.g., Sysmon Event ID 1) and map these logs to the Endpoint data model within the SIEM to support this detection.
+* Establish an exception management process using a lookup or KVStore to suppress alerts for authorized IT administration tools while maintaining visibility into non-standard process executions.
