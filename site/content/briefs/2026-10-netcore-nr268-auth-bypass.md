@@ -3,6 +3,7 @@ title: Authentication Bypass in Netcore NR268
 slug: 2026-10-netcore-nr268-auth-bypass
 description: The user_ok function in the Netcore NR268 CGI execution component contains an authentication bypass vulnerability, CVE-2026-108907, which allows remote attackers to gain unauthorized access.
 date: "2026-10-12T18:31:18Z"
+lastmod: "2026-10-12T18:33:32Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,8 @@ tags:
   - authentication-bypass
   - remote-code-execution
   - network-security
+  - cve-2026-108906
+  - web-vulnerability
 vendors:
   - Netcore
 products:
@@ -31,6 +34,7 @@ cves:
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108907
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108906
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-108907
       evidence: Vendor did not respond to disclosure.
+updates:
+  - at: "2026-10-12T18:33:32Z"
+    level: L2
+    summary: added coverage for NR268 (1.7.121109)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108906
 ---
 
 CVE-2026-108907 is an authentication bypass vulnerability affecting Netcore NR268 version 1.7.121109. The vulnerability resides in the user_ok function within the device's CGI execution component. This flaw permits an unauthenticated, remote attacker to manipulate the authentication logic, effectively bypassing security controls. The vulnerability has been publicly disclosed and is considered exploitable in the wild. Despite prior notification, the vendor has not provided a response or a corrective update, leaving deployments of this legacy firmware vulnerable to unauthorized device access and potential takeover.
