@@ -3,6 +3,7 @@ title: Missing Authentication Vulnerability in ZITADEL Login V1 UI
 slug: 2026-10-zitadel-missing-auth
 description: An unauthenticated access vulnerability in ZITADEL versions 3.0.0 through 4.17.x allows remote attackers to rename arbitrary user accounts via the change-username handler, resulting in administrative account lockout.
 date: "2026-10-12T18:38:27Z"
+lastmod: "2026-10-12T18:38:36Z"
 type: advisory
 types:
   - advisory
@@ -14,11 +15,21 @@ vendors:
   - ZITADEL
 products:
   - ZITADEL (< 4.18.0)
+  - ZITADEL (4.x < 4.19.2)
+  - ZITADEL (3.x <= 3.4.15)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Attackers with organization-administrator permission can register a SAML provider with their own signing key to obtain authenticated sessions as any user linked to another SAML provider on the instance.
+    confidence_band: high
 cves:
   - id: CVE-2026-109371
     cvss: 8.2
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109371
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109372
 action_plan:
   priority: immediate_escalation
   owners:
@@ -34,6 +45,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109371
       evidence: Vendor patch recommendation
+updates:
+  - at: "2026-10-12T18:38:36Z"
+    level: L2
+    summary: added coverage for ZITADEL (4.x < 4.19.2) +1 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109372
 ---
 
 ZITADEL versions 3.0.0 through 4.17.x are affected by a missing authentication vulnerability located within the hosted Login V1 UI component. The flaw exists in the change-username handler, which processes requests to modify account identifiers without first verifying any authentication factors. By interacting with an active login flow, an unauthenticated attacker can submit a target user's login name followed by a request to update that identifier. This action effectively renames the account, causing a denial of service by locking legitimate users, including administrators, out of their accounts. This vulnerability is significant due to the impact on identity and access management security, potentially allowing an attacker to neutralize administrative control over the ZITADEL instance.
