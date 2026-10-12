@@ -3,7 +3,7 @@ title: IIS HTTP Logging Evasion via AppCmd.exe
 slug: 2026-10-iis-http-logging-evasion
 description: Adversaries leverage the AppCmd.exe utility on Windows IIS servers to disable HTTP logging as a defense evasion technique to mask post-exploitation activity.
 date: "2026-10-12T18:04:29Z"
-lastmod: "2026-10-12T18:07:58Z"
+lastmod: "2026-10-12T18:08:01Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +22,7 @@ products:
   - Internet Information Services
 affected_os:
   - Windows Server
+  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -35,6 +36,8 @@ mitre_ttps:
     technique_name: Server Software Component
     evidence: Adversaries may use it to install webshells or backdoors, leading to credit card scraping, persistence, and further post-exploitation.
     confidence_band: high
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_iis_components_new_module_added.yml
 rules:
   - title: Detect IIS HTTP Logging Disabling via AppCmd
     description: Detects the use of AppCmd.exe to disable HTTP logging, a common technique for defense evasion on IIS servers.
@@ -86,6 +89,13 @@ updates:
       - splunk-escu
     source_urls:
       - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_iis_components_add_new_module.yml
+  - at: "2026-10-12T18:08:01Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_iis_components_new_module_added.yml
 ---
 
 Adversaries targeting Microsoft Internet Information Services (IIS) servers may utilize the legitimate Windows utility AppCmd.exe to disable HTTP logging. By modifying the server configuration to set 'dontlog:true' or otherwise disabling the HTTP logging module, attackers effectively obscure their post-exploitation activities, including web shell interaction or data exfiltration attempts. This activity is a documented technique for maintaining persistence and ensuring long-term, undetected access to compromised web infrastructure. Defenders should be particularly alert to unauthorized modifications of IIS settings, especially when initiated by processes other than standard IIS management tools.
