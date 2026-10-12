@@ -3,6 +3,7 @@ title: Authentication Bypass in Grav Login Plugin
 slug: 2026-10-grav-auth-bypass
 description: An authentication bypass vulnerability (CVE-2026-109312) in the Grav Login plugin allows attackers who possess a victim's password to disable two-factor authentication and hijack accounts by exploiting incomplete 2FA session validation.
 date: "2026-10-12T18:34:54Z"
+lastmod: "2026-10-12T18:35:04Z"
 type: advisory
 types:
   - advisory
@@ -21,11 +22,18 @@ mitre_ttps:
     technique_name: Use Alternate Authentication Material
     evidence: Attackers with a victim's password can invoke update_user before completing 2FA to disable twofa_enabled and take over the account.
     confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: The publisher-controlled page rendered by Login::getPage() exposes the username and bearer token, enabling takeover of more privileged accounts.
+    confidence_band: high
 cves:
   - id: CVE-2026-109312
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109312
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109314
 action_plan:
   priority: elevated
   owners:
@@ -51,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109312
       evidence: CVE-2026-109312 remediation
+updates:
+  - at: "2026-10-12T18:35:04Z"
+    level: L2
+    summary: added coverage for Login plugin (< 3.9.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109314
 ---
 
 The Grav Login plugin versions 2.7.0 through 3.9.8 contain a critical authentication bypass vulnerability within the processUserProfile() function. The flaw stems from improper session state management, where the plugin verifies the existence of a session user but fails to ensure that a pending front-end two-factor authentication (2FA) session is fully authorized before processing updates. 
