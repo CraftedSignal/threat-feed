@@ -1,8 +1,8 @@
 ---
-title: Active Directory Account Discovery via PowerShell Adsisearcher
+title: Remote System Discovery via PowerShell Adsisearcher
 slug: 2026-10-adsisearcher-discovery
-description: Adversaries utilize the PowerShell [adsisearcher] type accelerator to perform Active Directory domain user enumeration, facilitating reconnaissance and lateral movement.
-date: "2026-10-12T17:35:58Z"
+description: Adversaries and Red Teams utilize the [adsisearcher] PowerShell type accelerator to perform Active Directory reconnaissance by querying for domain computer objects.
+date: "2026-10-12T17:56:08Z"
 type: advisory
 types:
   - advisory
@@ -13,28 +13,22 @@ tags:
   - discovery
   - active-directory
   - powershell
-vendors:
-  - Microsoft
-products:
-  - Active Directory
-affected_os:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
-    technique_id: T1087
-    technique_name: Account Discovery
-    evidence: The following analytic detects the use of the [Adsisearcher] type accelerator in PowerShell to query Active Directory for domain users.
+    technique_id: T1018
+    technique_name: Remote System Discovery
+    evidence: The following analytic detects the use of the [Adsisearcher] type accelerator in PowerShell scripts to query Active Directory for domain computers.
     confidence_band: high
 rules:
-  - title: Detect PowerShell Adsisearcher Account Discovery
-    description: Detects the use of the [adsisearcher] type accelerator combined with objectcategory=user and .findAll() to query Active Directory domain users
+  - title: Detect Remote System Discovery via PowerShell Adsisearcher
+    description: Detects the use of [adsisearcher] in PowerShell scripts to query Active Directory for domain computers, a technique used for reconnaissance.
     platform: sigma
     severity: medium
     tactics:
       - discovery
     techniques:
-      - T1087.002
+      - T1018
     data_sources:
       - process_creation
       - windows
@@ -42,47 +36,43 @@ rules_count: 1
 action_plan:
   priority: elevated
   owners:
-    - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Enable PowerShell Script Block Logging (Event ID 4104) on critical domain servers
+    - action: Enable PowerShell Script Block Logging (Event ID 4104) on critical domain-joined assets
       owner: IT Operations
-      due: 72h
-      evidence: Source requirement for analytic implementation
+      due: 48h
+      evidence: Required for visibility into adsisearcher usage
   hunt_leads:
-    - lead: Search for historical Event ID 4104 logs containing [adsisearcher] or .findAll()
-      technique_id: T1087.002
+    - lead: Search historical 4104 logs for adsisearcher patterns within the last 30 days
+      technique_id: T1018
       data_needed:
-        - PowerShell Operational Logs
-      priority: high
+        - ScriptBlockText
+      priority: medium
       confidence: high
       disposition: hunt_now
-      evidence: Analytic describes typical adversary discovery behavior
-  mitigation_plan:
-    - priority: medium_term
-      action: Restrict non-administrative user permissions to query Active Directory via LDAP
-      owner: Identity Team
-      addresses: T1087.002
-      evidence: Standard security hardening practice
+      evidence: Historical logs can reveal past enumeration attempts
 ---
 
-Adversaries and Red Teams frequently leverage the [adsisearcher] type accelerator in PowerShell to perform unauthorized discovery of Active Directory domain users. This technique allows an attacker to programmatically query the directory to build a map of user objects within the domain. By using filters such as objectcategory=user and the .findAll() method, attackers can efficiently extract a comprehensive list of accounts. This reconnaissance activity is a critical precursor to further malicious actions, including targeted credential harvesting, privilege escalation, and lateral movement. Defenders should monitor PowerShell Script Block Logging (EventCode 4104) to identify these distinct patterns in script execution. This activity has been observed in various adversary campaigns, including those associated with Industroyer2 and Lapsus$ style actors.
+Adversaries frequently use the [adsisearcher] type accelerator within PowerShell to interface directly with Active Directory services. By querying for objects where the category is set to 'computer', attackers can systematically enumerate domain-joined systems to map the network environment. This reconnaissance activity is a common precursor to lateral movement, allowing an attacker to identify high-value targets or pivot points. Because this technique relies on standard administrative tooling, it can often blend in with legitimate diagnostic scripts, making precise detection reliant on monitoring script execution patterns rather than the tool usage itself. Organizations should monitor for script blocks containing specific AD search parameters to identify unauthorized situational awareness efforts.
 
 ## Attack Chain
 
-1. Initial access is established via credential theft or exploit, providing the attacker with a low-privileged user context on a domain-joined machine.
-2. The attacker launches a PowerShell session, often hidden or obfuscated, to avoid immediate detection by legacy command-line logging.
-3. The attacker loads the [adsisearcher] type accelerator within a script block to interface directly with the Active Directory service via LDAP.
-4. The script defines a filter, specifically objectcategory=user, to isolate user objects from other directory entries like computers or organizational units.
-5. The .findAll() method is executed to execute the query against the domain controller and retrieve all matched results.
-6. Results are returned to the PowerShell session, where the attacker may format the output or export the list for further analysis.
-7. The attacker analyzes the enumerated user data to identify high-value accounts, such as domain admins or service accounts.
-8. Final objective is achieved as the attacker uses the discovered account list to perform password spraying or targeted exploitation.
+1. Attacker gains initial code execution on a domain-joined host via phishing or exploit.
+2. Attacker initiates a PowerShell session to interact with the environment.
+3. Attacker uses the [adsisearcher] type accelerator to create an AD search object.
+4. Attacker defines a search filter targeting 'objectcategory=computer'.
+5. Attacker executes search methods like 'findAll()' or 'findOne()' to retrieve the computer list.
+6. Attacker processes the returned data to identify potential targets for lateral movement.
+7. Attacker uses the compiled target list to initiate connection attempts (e.g., SMB, RDP, WinRM).
+8. Attacker moves laterally to the identified targets to expand their presence in the network.
 
 ## Impact
 
-Successful account discovery provides attackers with high-fidelity intelligence regarding the target environment's structure. This visibility significantly increases the likelihood of success for subsequent attacks, as it allows attackers to bypass generic scanning and perform surgical strikes against privileged accounts. Failure to detect this activity early can lead to large-scale credential theft, unauthorized access to sensitive systems, and persistence in the victim's domain.
+Successful execution of this TTP facilitates comprehensive network mapping, significantly increasing the probability of effective lateral movement and privilege escalation. This enumeration allows attackers to bypass random search patterns and focus on critical infrastructure within the domain, potentially leading to unauthorized data access, ransomware deployment, or long-term persistence across multiple segments.
 
 ## Recommendation
 
-Prioritize the implementation of PowerShell Script Block Logging (EventCode 4104) across all domain-joined Windows endpoints. Deploy the provided Sigma rule to your SIEM to alert on the specific combination of [adsisearcher] and .findAll() patterns. If the alert triggers, isolate the affected host, identify the user context executing the script, and review the host's recent activities for signs of follow-on lateral movement or credential access attempts.
+1. Enable PowerShell Script Block Logging (Event ID 4104) across the environment to capture script contents for analysis.
+2. Deploy the provided Sigma rule to your SIEM to detect the identified [adsisearcher] query pattern.
+3. Investigate instances flagged by the detection, focusing on the user context and the surrounding script activity to differentiate between administrative troubleshooting and potential reconnaissance.
+4. Implement strict monitoring on high-value systems where unauthorized Active Directory discovery would indicate a severe threat.
