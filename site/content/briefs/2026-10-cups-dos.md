@@ -3,6 +3,7 @@ title: CUPS Denial of Service Vulnerability
 slug: 2026-10-cups-dos
 description: A local attacker can exploit a vulnerability in the Common Unix Printing System (CUPS) to cause a denial-of-service condition affecting the printing service.
 date: "2026-10-06T12:43:46Z"
+lastmod: "2026-10-12T11:38:15Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +22,7 @@ vendors:
   - OpenPrinting
 products:
   - CUPS
+  - CUPS (< 2024.07.3)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -34,6 +36,15 @@ cves:
     epss: 0.63607
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3742
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3860
+updates:
+  - at: "2026-10-12T11:38:15Z"
+    level: L1
+    summary: added coverage for CUPS (< 2024.07.3)
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3860
 ---
 
 The Common Unix Printing System (CUPS) is affected by a vulnerability that allows a local attacker to cause a denial-of-service (DoS) condition. The issue involves improper handling of service requests, which can be manipulated by an attacker with local access to disrupt printing operations. This vulnerability is tracked as CVE-2024-47175. While the impact is limited to the availability of the printing service on the affected Linux-based system, it necessitates timely patching to ensure system stability and service uptime. Defenders should monitor for unexpected restarts or crashes of the CUPS service that might indicate exploitation attempts within their local environment.
