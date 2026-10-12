@@ -3,7 +3,7 @@ title: Chromium V8 Engine Object Corruption Vulnerability
 slug: 2026-10-chromium-v8-corruption
 description: CVE-2025-0611 is a high-severity object corruption vulnerability in the Chromium V8 engine that could allow remote arbitrary code execution via a malicious web page.
 date: "2026-10-07T17:03:27Z"
-lastmod: "2026-10-12T11:42:09Z"
+lastmod: "2026-10-12T11:42:20Z"
 type: advisory
 types:
   - advisory
@@ -39,6 +39,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-11219
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-12727
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-12432
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-12428
 action_plan:
   priority: elevated
   owners:
@@ -79,6 +80,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-12432
+  - at: "2026-10-12T11:42:20Z"
+    level: L2
+    summary: added coverage for Chromium (< 142.0.7444.59)
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-12428
 ---
 
 CVE-2025-0611 is a high-severity object corruption vulnerability identified within the V8 JavaScript engine used in the Chromium web browser. This flaw exists in the memory management logic of the V8 engine, potentially allowing an attacker to corrupt object structures during execution. If successfully exploited, a remote attacker could influence browser memory, leading to potential arbitrary code execution within the context of the user's browser process. Because Chromium serves as the foundational engine for numerous web browsers and desktop applications, the scope of exposure is significant across all platforms where Chromium-based software is deployed. Defenders should prioritize updating browser versions to the latest patch release provided by their specific vendor to mitigate this risk.
