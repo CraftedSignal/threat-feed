@@ -3,6 +3,7 @@ title: Remote Code Execution in Edimax BR-6208AC via Buffer Overflow
 slug: 2026-10-edimax-buffer-overflow
 description: A critical buffer overflow vulnerability in the Edimax BR-6208AC router allows unauthenticated remote code execution via manipulation of the ifname argument in the /goform/formWlSiteSurvey handler.
 date: "2026-10-12T18:31:25Z"
+lastmod: "2026-10-12T18:31:41Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,7 @@ tags:
   - rce
   - network-security
   - edimax
+  - eol
 vendors:
   - Edimax
 products:
@@ -26,11 +28,31 @@ mitre_ttps:
     technique_name: Exploitation of Remote Services
     evidence: This manipulation of the argument ifname causes buffer overflow. Remote exploitation of the attack is possible.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack can be executed remotely via manipulation of the argument ateBW.
+    confidence_band: high
 cves:
   - id: CVE-2026-108914
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108914
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108915
+rules:
+  - title: Detect CVE-2026-108915 - Attempted Exploitation via formWlanMP
+    description: Detects exploitation attempts against CVE-2026-108915 by monitoring for HTTP requests to the vulnerable formWlanMP endpoint with long ateBW parameters.
+    platform: sigma
+    severity: critical
+    tactics:
+      - execution
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-108914
       evidence: Device is end-of-life and no patch will be provided.
+updates:
+  - at: "2026-10-12T18:31:41Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-108915 - Attempted Exploitation via formWlanMP'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108915
 ---
 
 A critical buffer overflow vulnerability has been identified in the Edimax BR-6208AC router running firmware version 1.32. The vulnerability resides within the /goform/formWlSiteSurvey handler, where improper sanitization of the ifname argument allows an unauthenticated, remote attacker to trigger a buffer overflow. This flaw can be leveraged to achieve remote code execution on the affected network device. The vulnerability is publicly documented with available exploit code. Because the Edimax BR-6208AC is an end-of-life product, the vendor has not provided a security patch, leaving devices permanently exposed to this vector. Defenders should prioritize isolating these legacy devices from the internet or replacing them, as they cannot be secured against this specific exploit.
