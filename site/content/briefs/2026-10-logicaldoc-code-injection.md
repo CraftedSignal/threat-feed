@@ -3,6 +3,7 @@ title: Authenticated OS Command Injection in LogicalDOC Community Edition
 slug: 2026-10-logicaldoc-code-injection
 description: LogicalDOC Community Edition versions 9.3 and earlier are vulnerable to authenticated OS command injection via maliciously crafted Velocity templates within the DocumentService.sendAsEmail function.
 date: "2026-10-12T15:42:57Z"
+lastmod: "2026-10-12T15:43:04Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - remote-code-execution
   - injection
   - vulnerability
+  - web-vulnerability
+  - authorization-bypass
+  - cve-2026-109201
 vendors:
   - LogicalDOC
 products:
@@ -31,11 +35,18 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
     evidence: Attackers can invoke SystemTool exec methods or ClassTool to run commands with LogicalDOC process privileges.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Authenticated users can exploit this flaw to perform unauthorized actions such as copying, retrieving, deleting, or tampering with documents.
+    confidence_band: high
 cves:
   - id: CVE-2026-109199
     cvss: 8.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109199
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109201
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +63,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109199
       evidence: NVD vulnerability entry
+updates:
+  - at: "2026-10-12T15:43:04Z"
+    level: L2
+    summary: added coverage for LogicalDOC Community Edition (<= 9.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109201
 ---
 
 LogicalDOC Community Edition through version 9.3 contains a critical code injection vulnerability (CVE-2026-109199) that allows authenticated users to execute arbitrary operating system commands. The vulnerability exists within the 'DocumentService.sendAsEmail' function, which processes user-supplied input for the subject and message fields using the Apache Velocity template engine. 
