@@ -3,6 +3,7 @@ title: IIS HTTP Logging Evasion via AppCmd.exe
 slug: 2026-10-iis-http-logging-evasion
 description: Adversaries leverage the AppCmd.exe utility on Windows IIS servers to disable HTTP logging as a defense evasion technique to mask post-exploitation activity.
 date: "2026-10-12T18:04:29Z"
+lastmod: "2026-10-12T18:07:58Z"
 type: advisory
 types:
   - advisory
@@ -13,16 +14,26 @@ tags:
   - iis
   - windows
   - persistence
+  - webshell
 vendors:
   - Microsoft
 products:
   - Internet Information Services (IIS)
+  - Internet Information Services
+affected_os:
+  - Windows Server
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1505.004
     technique_name: 'Server Software Component: IIS Modules'
     evidence: The following analytic detects the use of AppCmd.exe to disable HTTP logging on IIS servers.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1505
+    technique_name: Server Software Component
+    evidence: Adversaries may use it to install webshells or backdoors, leading to credit card scraping, persistence, and further post-exploitation.
     confidence_band: high
 rules:
   - title: Detect IIS HTTP Logging Disabling via AppCmd
@@ -36,7 +47,18 @@ rules:
     data_sources:
       - process_creation
       - windows
-rules_count: 1
+  - title: Detect Suspicious IIS Module Installation via AppCmd
+    description: Detects the use of AppCmd.exe to install a new IIS module, which may indicate the deployment of a malicious web shell or backdoor.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1505.004
+    data_sources:
+      - process_creation
+      - windows
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -56,6 +78,14 @@ action_plan:
       confidence: medium
       disposition: convert_to_detection
       evidence: The analytic detects the use of AppCmd.exe to disable HTTP logging.
+updates:
+  - at: "2026-10-12T18:07:58Z"
+    level: L1
+    summary: 'added detection rule: Detect Suspicious IIS Module Installation via AppCmd'
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_iis_components_add_new_module.yml
 ---
 
 Adversaries targeting Microsoft Internet Information Services (IIS) servers may utilize the legitimate Windows utility AppCmd.exe to disable HTTP logging. By modifying the server configuration to set 'dontlog:true' or otherwise disabling the HTTP logging module, attackers effectively obscure their post-exploitation activities, including web shell interaction or data exfiltration attempts. This activity is a documented technique for maintaining persistence and ensuring long-term, undetected access to compromised web infrastructure. Defenders should be particularly alert to unauthorized modifications of IIS settings, especially when initiated by processes other than standard IIS management tools.
