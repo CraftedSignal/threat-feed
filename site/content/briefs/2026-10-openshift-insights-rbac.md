@@ -3,6 +3,7 @@ title: Excessive RBAC Permissions in Red Hat OpenShift insights-operator
 slug: 2026-10-openshift-insights-rbac
 description: A misconfiguration in the OpenShift insights-operator ClusterRole grants the 'gather' service account cluster-wide read access to secrets, enabling privilege escalation for attackers who can spawn pods with that identity.
 date: "2026-10-08T17:14:37Z"
+lastmod: "2026-10-12T20:30:23Z"
 type: advisory
 types:
   - advisory
@@ -27,12 +28,19 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: The insights-operator-gather ClusterRole grants the operator's service account read access to secrets in the core API group.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An authenticated console user can exploit a Server-Side Request Forgery (SSRF) vulnerability by providing a specially crafted Helm chart URL without proper validation.
+    confidence_band: high
 cves:
   - id: CVE-2026-93017
     cvss: 7.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93017
   - https://github.com/openshift/insights-operator/blob/8f15e3157ff09f54ab22801f5b21da35a195cc6d/manifests/03-clusterrole.yaml#L368-L373
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-75888
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +66,14 @@ action_plan:
       owner: Platform Engineering
       addresses: CVE-2026-93017
       evidence: NVD vulnerability disclosure.
+updates:
+  - at: "2026-10-12T20:30:23Z"
+    level: L2
+    summary: added coverage for OpenShift Container Platform
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-75888
 ---
 
 Red Hat OpenShift Container Platform is impacted by a critical privilege escalation vulnerability (CVE-2026-93017) stemming from an overly permissive ClusterRole assigned to the `insights-operator`. The `insights-operator-gather` ClusterRole incorrectly grants the `gather` service account `get` and `list` permissions for `secrets` in the core API group, without limiting the scope to specific namespaces or resources. This effectively permits the service account to access every secret across the entire cluster.
