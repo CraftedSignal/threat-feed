@@ -3,7 +3,7 @@ title: Siemens Security Updates - October 2026
 slug: 2026-10-siemens-security-updates
 description: Roundup of Siemens security advisories published in October 2026.
 date: "2026-10-13T10:34:38Z"
-lastmod: "2026-10-13T10:35:22Z"
+lastmod: "2026-10-13T10:35:25Z"
 type: threat
 types:
   - threat
@@ -24,18 +24,13 @@ cves:
     cvss: 8.2
   - id: CVE-2026-102074
     cvss: 7.5
+  - id: CVE-2026-102075
+    cvss: 7.5
   - id: CVE-2026-102076
     cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-59241
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-72895
 updates:
-  - at: "2026-10-13T10:34:38Z"
-    level: L1
-    summary: posted roundup
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-63353
   - at: "2026-10-13T10:34:42Z"
     level: L2
     summary: added CVE-2026-63354
@@ -45,16 +40,17 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-63354
   - at: "2026-10-13T10:35:11Z"
     level: L2
-    summary: added CVE-2026-102073, CVE-2026-102074, CVE-2026-102076
+    summary: added CVE-2026-102073 +3
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-102074
       - https://nvd.nist.gov/vuln/detail/CVE-2026-102075
       - https://nvd.nist.gov/vuln/detail/CVE-2026-59241
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-72895
 ---
 
-This roundup covers 6 Siemens security vulnerabilities. CVSS base scores range from 7.5 to 9.6. None are reported as actively exploited at the time of release. The issues affect APOGEE MBC, S7-1500, SIMATIC S7-1500.
+This roundup covers 7 Siemens security vulnerabilities. CVSS base scores range from 7.5 to 9.6. None are reported as actively exploited at the time of release. The issues affect APOGEE MBC, S7-1500, SIMATIC S7-1500, SIMATIC WinCC.
 
 ## Summary
 
@@ -65,7 +61,8 @@ This roundup covers 6 Siemens security vulnerabilities. CVSS base scores range f
 | [CVE-2026-102073](#cve-2026-102073) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 8.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102073) (authoritative) |
 | [CVE-2026-102074](#cve-2026-102074) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102074) (authoritative) |
 | [CVE-2026-102075](#cve-2026-102075) | APOGEE MBC (PPC) (BACnet) (All versions) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102075) (authoritative) |
-| [CVE-2026-102076](#cve-2026-102076) | APOGEE MBC (PPC) (BACnet) (All versions) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102076) (authoritative) |
+| [CVE-2026-102076](#cve-2026-102076) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102076) (authoritative) |
+| [CVE-2026-59241](#cve-2026-59241) | SIMATIC WinCC (V7.5) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59241) (authoritative) |
 
 
 ## CVE-2026-63353
@@ -106,6 +103,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102073
 
 
 
+
 Related in this roundup: [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102075](#cve-2026-102075), [CVE-2026-102076](#cve-2026-102076).
 
 ## CVE-2026-102074
@@ -125,6 +123,7 @@ Affected products:
 - TALON TC Modular (BACnet) (< V3.5.7)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102074
+
 
 
 
@@ -149,6 +148,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102075
 
 
+
 Related in this roundup: [CVE-2026-102073](#cve-2026-102073), [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102076](#cve-2026-102076).
 
 ## CVE-2026-102076
@@ -169,4 +169,16 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102076
 
+
 Related in this roundup: [CVE-2026-102073](#cve-2026-102073), [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102075](#cve-2026-102075).
+
+## CVE-2026-59241
+
+Siemens SIMATIC WinCC contains a privilege escalation vulnerability due to insufficiently restricted permissions on a database role. An authenticated remote attacker with database access can exploit this flaw to execute arbitrary commands on the underlying host system, leading to full system compromise.
+
+Affected products:
+- SIMATIC WinCC (V7.5)
+- SIMATIC WinCC (V8.0 < Update 11)
+- SIMATIC WinCC (V8.1 < Update 7)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-59241
