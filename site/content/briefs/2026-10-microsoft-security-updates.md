@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:39:07Z"
+lastmod: "2026-10-13T20:39:14Z"
 type: threat
 types:
   - threat
@@ -40,18 +40,13 @@ cves:
   - id: CVE-2026-100202
     product: Windows Message Queuing Queue Manager
     cvss: 9.8
+  - id: CVE-2026-105016
+    cvss: 9.8
   - id: CVE-2026-69634
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-70096
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70153
 updates:
-  - at: "2026-10-09T00:09:49Z"
-    level: L2
-    summary: added CVE-2026-96207
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-96207
   - at: "2026-10-09T00:31:38Z"
     level: L2
     summary: added CVE-2026-83943 +1
@@ -80,9 +75,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70096
+  - at: "2026-10-13T20:39:14Z"
+    level: L2
+    summary: added CVE-2026-105016
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70153
 ---
 
-This roundup covers 19 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Partner Center, Windows, Windows Imaging Component, Windows Message Queuing Queue Manager, Windows Search Component, Windows Text Shaping, Windows iSCSI, pbi-cli.
+This roundup covers 21 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Partner Center, PostScript Printer Driver, Windows, Windows Imaging Component, Windows Message Queuing Queue Manager, Windows Rich Text Edit Control, Windows Search Component, Windows Text Shaping, Windows iSCSI, pbi-cli.
 
 ## Summary
 
@@ -94,7 +96,7 @@ This roundup covers 19 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-88131](#cve-2026-88131) | Dataverse | Critical | 9.8 | 0.84% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88131) (authoritative) |
 | [CVE-2026-94510](#cve-2026-94510) | Bookings |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-94510) (authoritative) |
 | [CVE-2026-96207](#cve-2026-96207) | Partner Center |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-96207) (authoritative) |
-| [CVE-2026-83943](#cve-2026-83943) | Azure API Center |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83943) (authoritative) |
+| [CVE-2026-83943](#cve-2026-83943) | Azure API Center | High | 8.7 | 0.38% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83943) (authoritative) |
 | [CVE-2026-83947](#cve-2026-83947) | Azure Event Grid | High | 7.7 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83947) (authoritative) |
 | [CVE-2026-108744](#cve-2026-108744) | pbi-cli (3.10.1 through 3.12.0) | High | 7.0 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108744) (authoritative) |
 | [CVE-2026-100202](#cve-2026-100202) | Windows Message Queuing Queue Manager | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100202) (authoritative) |
@@ -103,10 +105,12 @@ This roundup covers 19 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-102210](#cve-2026-102210) | Windows Text Shaping |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102210) (authoritative) |
 | [CVE-2026-105010](#cve-2026-105010) | Windows Search Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105010) (authoritative) |
 | [CVE-2026-105016](#cve-2026-105016) | Microsoft QUIC |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105016) (authoritative) |
-| [CVE-2026-69634](#cve-2026-69634) | Windows iSCSI |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69634) (authoritative) |
+| [CVE-2026-69634](#cve-2026-69634) | Windows iSCSI | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69634) (authoritative) |
 | [CVE-2026-69705](#cve-2026-69705) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69705) (authoritative) |
 | [CVE-2026-69883](#cve-2026-69883) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69883) (authoritative) |
 | [CVE-2026-69886](#cve-2026-69886) | Windows Imaging Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69886) (authoritative) |
+| [CVE-2026-70096](#cve-2026-70096) | Windows Rich Text Edit Control |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70096) (authoritative) |
+| [CVE-2026-70147](#cve-2026-70147) | PostScript Printer Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70147) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -212,6 +216,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 
 
 
+
+
 Related in this roundup: [CVE-2026-105016](#cve-2026-105016).
 
 ## CVE-2026-100222
@@ -254,6 +260,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
 
 
 
+
+
 Related in this roundup: [CVE-2026-100219](#cve-2026-100219).
 
 ## CVE-2026-69634
@@ -275,6 +283,8 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
 
 
+
+
 Related in this roundup: [CVE-2026-69883](#cve-2026-69883).
 
 ## CVE-2026-69883
@@ -287,6 +297,8 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
 
 
+
+
 Related in this roundup: [CVE-2026-69705](#cve-2026-69705).
 
 ## CVE-2026-69886
@@ -297,3 +309,21 @@ Affected products:
 - Windows Imaging Component
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69886
+
+## CVE-2026-70096
+
+CVE-2026-70096 describes a heap-based buffer overflow vulnerability within the Windows Rich Text Edit Control. This flaw allows a remote, unauthorized attacker to execute arbitrary code over the network, potentially leading to full system compromise.
+
+Affected products:
+- Windows Rich Text Edit Control
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70096
+
+## CVE-2026-70147
+
+A heap-based buffer overflow vulnerability in the Microsoft PostScript Printer Driver allows an unauthenticated, remote attacker to execute arbitrary code over the network. This high-severity vulnerability poses a significant risk for remote code execution.
+
+Affected products:
+- PostScript Printer Driver
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70147
