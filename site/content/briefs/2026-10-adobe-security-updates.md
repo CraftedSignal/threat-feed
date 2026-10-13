@@ -3,7 +3,7 @@ title: Adobe Security Updates - October 2026
 slug: 2026-10-adobe-security-updates
 description: Roundup of Adobe security advisories published in October 2026.
 date: "2026-10-13T20:38:10Z"
-lastmod: "2026-10-13T20:43:39Z"
+lastmod: "2026-10-13T20:43:46Z"
 type: threat
 types:
   - threat
@@ -19,21 +19,17 @@ cves:
     cvss: 9.3
   - id: CVE-2026-91013
     cvss: 9.3
+  - id: CVE-2026-92909
+    cvss: 9.8
   - id: CVE-2026-106626
     product: Experience Manager
     cvss: 9.1
   - id: CVE-2026-106630
+    product: Experience Manager
     cvss: 9.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-106630
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48383
 updates:
-  - at: "2026-10-13T20:38:24Z"
-    level: L2
-    summary: added CVE-2026-103849
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-103849
   - at: "2026-10-13T20:40:59Z"
     level: L2
     summary: added CVE-2026-91013
@@ -43,16 +39,17 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91013
   - at: "2026-10-13T20:43:30Z"
     level: L2
-    summary: added CVE-2026-106626, CVE-2026-106630, CVE-2026-91013
+    summary: added CVE-2026-106626 +3
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-105895
       - https://nvd.nist.gov/vuln/detail/CVE-2026-106626
       - https://nvd.nist.gov/vuln/detail/CVE-2026-106630
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48383
 ---
 
-This roundup covers 9 Adobe security vulnerabilities. CVSS base scores range from 9.1 to 9.3. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Commerce, Experience Manager.
+This roundup covers 11 Adobe security vulnerabilities. CVSS base scores range from 9.1 to 9.3. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Commerce, Experience Manager.
 
 ## Summary
 
@@ -67,6 +64,8 @@ This roundup covers 9 Adobe security vulnerabilities. CVSS base scores range fro
 | [CVE-2026-105895](#cve-2026-105895) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105895) (authoritative) |
 | [CVE-2026-106626](#cve-2026-106626) | Experience Manager | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106626) (authoritative) |
 | [CVE-2026-106629](#cve-2026-106629) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106629) (authoritative) |
+| [CVE-2026-106630](#cve-2026-106630) | Experience Manager | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106630) (authoritative) |
+| [CVE-2026-48382](#cve-2026-48382) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48382) (authoritative) |
 
 
 ## CVE-2026-100133
@@ -93,6 +92,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103849
 
 
 
+
+
 Related in this roundup: [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909).
 
 ## CVE-2026-91013
@@ -103,6 +104,8 @@ Affected products:
 - Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91013
+
+
 
 
 
@@ -126,6 +129,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92464
 
 
 
+
+
 Related in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92909](#cve-2026-92909).
 
 ## CVE-2026-92909
@@ -136,6 +141,8 @@ Affected products:
 - Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92909
+
+
 
 
 
@@ -154,7 +161,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103848
 
 
 
-Related in this roundup: [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629).
+
+
+Related in this roundup: [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382).
 
 ## CVE-2026-105895
 
@@ -167,7 +176,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105895
 
 
 
-Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629).
+
+
+Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382).
 
 ## CVE-2026-106626
 
@@ -179,7 +190,9 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106626
 
 
-Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106629](#cve-2026-106629).
+
+
+Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382).
 
 ## CVE-2026-106629
 
@@ -190,4 +203,29 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106629
 
-Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626).
+
+
+Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382).
+
+## CVE-2026-106630
+
+Adobe Experience Manager contains a stored Cross-Site Scripting (XSS) vulnerability allowing attackers to inject malicious scripts into form fields. When rendered in a victim's browser, the script executes, potentially leading to unauthorized session access or account compromise.
+
+Affected products:
+- Experience Manager
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106630
+
+
+Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-48382](#cve-2026-48382).
+
+## CVE-2026-48382
+
+Adobe Experience Manager contains an incorrect authorization vulnerability that allows for remote code execution without user interaction. An unauthenticated attacker can exploit this flaw to gain unauthorized access, potentially escalating privileges within the context of the affected session.
+
+Affected products:
+- Experience Manager
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48382
+
+Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630).
