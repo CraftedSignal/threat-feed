@@ -3,6 +3,7 @@ title: SQL Injection in SourceCodester Performance Indicator System
 slug: 2026-10-performance-indicator-system-sqli
 description: SourceCodester Performance Indicator System 1.0 contains an unauthenticated SQL injection vulnerability via the prodcategory parameter, allowing remote attackers to execute arbitrary SQL queries.
 date: "2026-10-13T04:32:13Z"
+lastmod: "2026-10-13T06:33:06Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,8 @@ tags:
   - sqli
   - web-vulnerability
   - injection
+  - sql-injection
+  - sourcecodester
 vendors:
   - SourceCodester
 products:
@@ -30,6 +33,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108964
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108967
 rules:
   - title: Detect CVE-2026-108964 SQL Injection Attempt
     description: Detects potential SQL injection attempts against the Performance Indicator System by identifying SQL metacharacters in the prodcategory parameter of the addproduct.php script.
@@ -41,7 +45,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 1
+  - title: Detect CVE-2026-108967 Exploitation - SQL Injection in Performance Indicator System
+    description: Detects potential SQL injection attempts targeting the edit_credit.php file in SourceCodester Performance Indicator System.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -58,6 +72,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-108964
       evidence: NVD vulnerability details
+updates:
+  - at: "2026-10-13T06:33:06Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-108967 Exploitation - SQL Injection in Performance Indicator System'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108967
 ---
 
 SourceCodester Performance Indicator System version 1.0 is affected by a SQL injection vulnerability identified as CVE-2026-108964. The vulnerability exists within the file /opils/admin/addproduct.php and specifically impacts the 'prodcategory' argument. An unauthenticated remote attacker can supply maliciously crafted input to this parameter to manipulate database queries. This flaw arises from improper neutralization of special elements used in an SQL command before passing the input to the database management system. Publicly available exploit code increases the risk of successful exploitation by unauthorized actors attempting to gain unauthorized access to or extract data from the application database.
