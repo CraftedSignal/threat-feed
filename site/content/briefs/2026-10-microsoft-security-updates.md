@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:40:49Z"
+lastmod: "2026-10-13T20:40:57Z"
 type: threat
 types:
   - threat
@@ -61,6 +61,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-70157
     cvss: 9.8
+  - id: CVE-2026-70188
+    cvss: 9.1
   - id: CVE-2026-83517
     cvss: 9.8
   - id: CVE-2026-83519
@@ -74,22 +76,22 @@ cves:
     product: Network Policy Server
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-85928
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-88156
 updates:
-  - at: "2026-10-13T20:40:08Z"
+  - at: "2026-10-13T20:40:34Z"
     level: L2
     summary: added CVE-2026-102210 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-83862
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85792
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85806
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85818
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85928
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-88156
 ---
 
-This roundup covers 39 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.9. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Word, Partner Center, PostScript Printer Driver, Routing and Remote Access Service, Windows, Windows Error Reporting, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Network Load Balancing, Windows Rich Text Edit Control, Windows Routing and Remote Access Service, Windows Schannel, Windows Search Component, Windows Shell, Windows System Information Console, Windows Text Shaping, Windows iSCSI, XML, pbi-cli.
+This roundup covers 42 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.9. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Word, Partner Center, PostScript Printer Driver, Routing and Remote Access Service, Windows, Windows Error Reporting, Windows Failover Cluster, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Network Load Balancing, Windows Rich Text Edit Control, Windows Routing and Remote Access Service, Windows Schannel, Windows Search Component, Windows Shell, Windows System Information Console, Windows Text Shaping, Windows Volume Manager Extension Driver, Windows iSCSI, XML, pbi-cli.
 
 ## Summary
 
@@ -129,11 +131,14 @@ This roundup covers 39 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-83782](#cve-2026-83782) | Windows Shell |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83782) (authoritative) |
 | [CVE-2026-83862](#cve-2026-83862) | Windows Network Load Balancing |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83862) (authoritative) |
 | [CVE-2026-83935](#cve-2026-83935) | XML |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83935) (authoritative) |
-| [CVE-2026-85792](#cve-2026-85792) | Windows Routing and Remote Access Service |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85792) (authoritative) |
+| [CVE-2026-85792](#cve-2026-85792) | Windows Routing and Remote Access Service | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85792) (authoritative) |
 | [CVE-2026-85806](#cve-2026-85806) | Network Policy Server | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85806) (authoritative) |
 | [CVE-2026-85809](#cve-2026-85809) | Routing and Remote Access Service |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85809) (authoritative) |
 | [CVE-2026-85814](#cve-2026-85814) | Windows Media Foundation |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85814) (authoritative) |
 | [CVE-2026-85818](#cve-2026-85818) | Windows Schannel |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85818) (authoritative) |
+| [CVE-2026-85928](#cve-2026-85928) | Windows Volume Manager Extension Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85928) (authoritative) |
+| [CVE-2026-88092](#cve-2026-88092) | ASP.NET Core |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88092) (authoritative) |
+| [CVE-2026-88102](#cve-2026-88102) | Windows Failover Cluster |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88102) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -259,6 +264,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-105016](#cve-2026-105016).
 
 ## CVE-2026-100222
@@ -269,6 +277,9 @@ Affected products:
 - Network Policy Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100222
+
+
+
 
 
 
@@ -301,6 +312,9 @@ Affected products:
 - Microsoft QUIC
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
+
+
+
 
 
 
@@ -367,6 +381,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770).
 
 ## CVE-2026-69883
@@ -377,6 +394,9 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
+
+
+
 
 
 
@@ -445,6 +465,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70147
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-70153](#cve-2026-70153).
 
 ## CVE-2026-70153
@@ -455,6 +478,9 @@ Affected products:
 - PostScript Printer Driver
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70153
+
+
+
 
 
 
@@ -493,6 +519,9 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70188
 
+
+Related in this roundup: [CVE-2026-88092](#cve-2026-88092).
+
 ## CVE-2026-70300
 
 CVE-2026-70300 is a critical vulnerability in Microsoft Office Word resulting from an untrusted pointer dereference. This flaw enables a remote, unauthorized attacker to execute arbitrary code over a network, potentially leading to full system compromise.
@@ -512,6 +541,9 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83517
 
 
+
+
+
 Related in this roundup: [CVE-2026-85814](#cve-2026-85814).
 
 ## CVE-2026-83519
@@ -522,6 +554,9 @@ Affected products:
 - Windows Error Reporting
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83519
+
+
+
 
 
 
@@ -556,6 +591,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83693
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-83519](#cve-2026-83519), [CVE-2026-83748](#cve-2026-83748).
 
 ## CVE-2026-83748
@@ -577,6 +615,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83748
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-83519](#cve-2026-83519), [CVE-2026-83693](#cve-2026-83693).
 
 ## CVE-2026-83770
@@ -587,6 +628,9 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83770
+
+
+
 
 
 
@@ -656,6 +700,9 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85806
 
 
 
+
+
+
 Related in this roundup: [CVE-2026-100222](#cve-2026-100222).
 
 ## CVE-2026-85809
@@ -677,6 +724,9 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85814
 
 
+
+
+
 Related in this roundup: [CVE-2026-83517](#cve-2026-83517).
 
 ## CVE-2026-85818
@@ -687,3 +737,33 @@ Affected products:
 - Windows Schannel
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85818
+
+## CVE-2026-85928
+
+CVE-2026-85928 is a critical heap-based buffer overflow vulnerability in the Windows Volume Manager Extension Driver. An unauthenticated attacker can exploit this flaw over a network to achieve remote code execution on the target system.
+
+Affected products:
+- Windows Volume Manager Extension Driver
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85928
+
+## CVE-2026-88092
+
+CVE-2026-88092 is a high-severity vulnerability in ASP.NET Core involving HTTP request/response smuggling. An unauthorized attacker can leverage this inconsistency in how HTTP requests are interpreted to perform unauthorized data tampering over a network.
+
+Affected products:
+- ASP.NET Core
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88092
+
+
+Related in this roundup: [CVE-2026-70188](#cve-2026-70188).
+
+## CVE-2026-88102
+
+CVE-2026-88102 is a use-after-free vulnerability in the Windows Failover Cluster component. It allows an unauthenticated, remote attacker to trigger arbitrary code execution by sending specifically crafted network requests to the vulnerable service, presenting a high risk to availability and system integrity.
+
+Affected products:
+- Windows Failover Cluster
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88102
