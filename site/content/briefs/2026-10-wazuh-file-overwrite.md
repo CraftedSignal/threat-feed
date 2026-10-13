@@ -3,7 +3,7 @@ title: Arbitrary File Overwrite Vulnerability in Wazuh MasterHandler
 slug: 2026-10-wazuh-file-overwrite
 description: Wazuh versions 3.9.0 through 4.14.7 are vulnerable to an arbitrary file overwrite attack in MasterHandler that allows cluster workers to gain root remote code execution by modifying critical configuration files.
 date: "2026-10-13T14:36:29Z"
-lastmod: "2026-10-13T14:36:38Z"
+lastmod: "2026-10-13T14:36:45Z"
 type: advisory
 types:
   - advisory
@@ -15,11 +15,15 @@ tags:
   - privilege-escalation
   - configuration-bypass
   - cve-2026-74041
+  - web-vulnerability
+  - path-traversal
+  - wazuh
 vendors:
   - Wazuh
 products:
   - Wazuh (3.9.0 <= v < 4.14.8)
   - Wazuh (< 4.14.8)
+  - Wazuh (4.1.1 - 4.14.7)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -33,12 +37,25 @@ mitre_ttps:
     technique_name: Abuse Elevation Control Mechanism
     evidence: Attackers... can overwrite ossec.conf and agent.conf, achieving root remote code execution across the manager and every agent.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Attackers holding the cluster key can send DistributedAPI requests with ../ sequences in filename, bypassing REST controller validation
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: An attacker ... can perform unauthorized file writes ... ultimately executing code
+    confidence_band: high
 cves:
   - id: CVE-2026-74040
     cvss: 9.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74040
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74041
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74043
 action_plan:
   priority: immediate_escalation
   owners:
@@ -73,6 +90,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74041
+  - at: "2026-10-13T14:36:45Z"
+    level: L2
+    summary: added coverage for Wazuh (4.1.1 - 4.14.7)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74043
 ---
 
 Wazuh versions 3.9.0 through 4.14.7 contain a critical arbitrary file overwrite vulnerability located within the MasterHandler.process_files_from_worker component. The flaw arises from a basename path traversal bypass combined with a lack of input validation regarding file path enforcement. This vulnerability enables an attacker who has compromised a cluster worker node to manipulate the file synchronization process to overwrite sensitive files on the master node, specifically ossec.conf and agent.conf. By modifying these configuration files, an attacker can inject arbitrary commands, facilitating remote code execution with root privileges on the master node, which subsequently propagates to all connected agents. This vulnerability presents a high risk to security operations as it subverts the integrity of the centralized security management architecture.
