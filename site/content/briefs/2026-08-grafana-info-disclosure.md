@@ -3,7 +3,7 @@ title: Grafana Improper Access Control Information Disclosure Vulnerability
 slug: 2026-08-grafana-info-disclosure
 description: An authenticated, remote attacker can exploit a flaw in Grafana to perform unauthorized information disclosure due to improper access control.
 date: "2026-08-18T14:51:34Z"
-lastmod: "2026-08-31T07:09:19Z"
+lastmod: "2026-10-13T06:40:59Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,9 @@ severities:
   - medium
 cpes:
   - cpe:2.3:a:grafana:grafana:11.0.0:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-Z3K0SEC-CVE-2024-9264-RCE-EXPLOIT&utm_source=rss&utm_medium=rss
 tags:
   - informational
   - product-news
@@ -47,13 +50,17 @@ mitre_ttps:
 cves:
   - id: CVE-2024-9264
     cvss: 9.9
-    epss: 0.94644
+    epss: 0.94864
+  - id: CVE-2025-31800
+    cvss: 6.5
+    epss: 0.00546
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2873
   - https://sploitus.com/exploit?id=655BA3C6-4B9A-564E-B5A3-CE0B925EE9F7
   - https://nvd.nist.gov/vuln/detail/CVE-2025-31800
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2989
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2490
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-Z3K0SEC-CVE-2024-9264-RCE-EXPLOIT&utm_source=rss&utm_medium=rss
 action_plan:
   priority: monitor_or_close
   owners:
@@ -86,6 +93,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2490
+  - at: "2026-10-13T06:40:59Z"
+    level: L2
+    summary: poc_available; added CVE-2025-31800
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-Z3K0SEC-CVE-2024-9264-RCE-EXPLOIT&utm_source=rss&utm_medium=rss
 ---
 
 The German Federal Office for Information Security (BSI) has reported a vulnerability in Grafana that allows a remote, authenticated attacker to disclose sensitive information. The flaw, tracked as CVE-2024-9264, stems from improper access control mechanisms within the application. This vulnerability enables an attacker who already possesses valid authentication credentials to access data or system information that they are not authorized to view. Because this requires an authenticated session, the primary threat involves users or compromised accounts escalating their access to read data outside their intended scope. Defenders should review access logs and internal permissions for Grafana installations to identify potential exploitation patterns or unusual data access requests by existing users.
