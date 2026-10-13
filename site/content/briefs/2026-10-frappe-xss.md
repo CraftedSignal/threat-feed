@@ -3,6 +3,7 @@ title: Reflected Cross-Site Scripting Vulnerability in Frappe ERPNext
 slug: 2026-10-frappe-xss
 description: Frappe ERPNext versions before 14.92.1 and 15.x before 15.83.0 are susceptible to reflected XSS, allowing unauthenticated attackers to execute arbitrary JavaScript in authenticated sessions.
 date: "2026-10-13T00:31:05Z"
+lastmod: "2026-10-13T00:31:42Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ vendors:
   - Frappe
 products:
   - ERPNext (< 14.92.1, < 15.83.0)
+  - ERPNext (< 15.121.0, 16.x < 16.34.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -21,11 +23,24 @@ mitre_ttps:
     technique_name: Drive-by Compromise
     evidence: Remote attackers can lure a logged-in user into opening a crafted URL to run injected script and take over the victim's account.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Frappe ERPNext... contains an SQL injection vulnerability in several endpoints that lack input validation.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Any authenticated user... can send specially crafted requests to... escalate to a privileged account.
+    confidence_band: high
 cves:
   - id: CVE-2025-71432
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2025-71432
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109608
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-71432
       evidence: Source advisory
+updates:
+  - at: "2026-10-13T00:31:42Z"
+    level: L2
+    summary: added coverage for ERPNext (< 15.121.0, 16.x < 16.34.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109608
 ---
 
 Frappe ERPNext versions prior to 14.92.1 and 15.x before 15.83.0 contain a reflected cross-site scripting (XSS) vulnerability. The issue stems from insufficient input validation on a specific web page within the ERPNext application. This flaw allows remote, unauthenticated attackers to craft malicious URLs containing injected JavaScript. If an authenticated user is coerced into interacting with these crafted URLs, the injected script executes within the victim's browser session. Successful exploitation enables unauthorized actions on behalf of the victim, potentially leading to full account takeover, session token theft, or data exfiltration.
