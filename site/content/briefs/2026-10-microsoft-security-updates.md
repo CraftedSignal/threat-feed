@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:38:16Z"
+lastmod: "2026-10-13T20:39:07Z"
 type: threat
 types:
   - threat
@@ -28,6 +28,9 @@ cves:
   - id: CVE-2026-88131
     cvss: 9.8
     epss: 0.00841
+  - id: CVE-2026-83943
+    cvss: 8.7
+    epss: 0.00379
   - id: CVE-2026-83947
     cvss: 7.7
     epss: 0.0037
@@ -37,16 +40,11 @@ cves:
   - id: CVE-2026-100202
     product: Windows Message Queuing Queue Manager
     cvss: 9.8
+  - id: CVE-2026-69634
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-100219
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70096
 updates:
-  - at: "2026-10-09T00:08:42Z"
-    level: L2
-    summary: added CVE-2026-94510
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-94510
   - at: "2026-10-09T00:09:49Z"
     level: L2
     summary: added CVE-2026-96207
@@ -75,24 +73,40 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100219
+  - at: "2026-10-13T20:39:07Z"
+    level: L2
+    summary: added CVE-2026-69634 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70096
 ---
 
-This roundup covers 10 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Partner Center, Windows Message Queuing Queue Manager, pbi-cli.
+This roundup covers 19 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Partner Center, Windows, Windows Imaging Component, Windows Message Queuing Queue Manager, Windows Search Component, Windows Text Shaping, Windows iSCSI, pbi-cli.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-96940](#cve-2026-96940) | Exchange Server | High | 8.8 | 0.50% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96940) (authoritative) |
-| [CVE-2026-69435](#cve-2026-69435) | Azure SRE Agent |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69435) (authoritative) |
+| [CVE-2026-69435](#cve-2026-69435) | Azure SRE Agent | Critical | 9.6 | 0.39% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69435) (authoritative) |
 | [CVE-2026-77900](#cve-2026-77900) | Azure App Service | Critical | 9.8 | 0.49% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77900) (authoritative) |
 | [CVE-2026-88131](#cve-2026-88131) | Dataverse | Critical | 9.8 | 0.84% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88131) (authoritative) |
 | [CVE-2026-94510](#cve-2026-94510) | Bookings |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-94510) (authoritative) |
 | [CVE-2026-96207](#cve-2026-96207) | Partner Center |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-96207) (authoritative) |
 | [CVE-2026-83943](#cve-2026-83943) | Azure API Center |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83943) (authoritative) |
-| [CVE-2026-83947](#cve-2026-83947) | Azure Event Grid |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83947) (authoritative) |
+| [CVE-2026-83947](#cve-2026-83947) | Azure Event Grid | High | 7.7 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83947) (authoritative) |
 | [CVE-2026-108744](#cve-2026-108744) | pbi-cli (3.10.1 through 3.12.0) | High | 7.0 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108744) (authoritative) |
 | [CVE-2026-100202](#cve-2026-100202) | Windows Message Queuing Queue Manager | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100202) (authoritative) |
+| [CVE-2026-100219](#cve-2026-100219) | Microsoft QUIC |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100219) (authoritative) |
+| [CVE-2026-100222](#cve-2026-100222) | Network Policy Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100222) (authoritative) |
+| [CVE-2026-102210](#cve-2026-102210) | Windows Text Shaping |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102210) (authoritative) |
+| [CVE-2026-105010](#cve-2026-105010) | Windows Search Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105010) (authoritative) |
+| [CVE-2026-105016](#cve-2026-105016) | Microsoft QUIC |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105016) (authoritative) |
+| [CVE-2026-69634](#cve-2026-69634) | Windows iSCSI |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69634) (authoritative) |
+| [CVE-2026-69705](#cve-2026-69705) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69705) (authoritative) |
+| [CVE-2026-69883](#cve-2026-69883) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69883) (authoritative) |
+| [CVE-2026-69886](#cve-2026-69886) | Windows Imaging Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69886) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -184,3 +198,102 @@ Affected products:
 - Windows Message Queuing Queue Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100202
+
+## CVE-2026-100219
+
+CVE-2026-100219 describes a use-after-free vulnerability in Microsoft QUIC. The flaw allows a remote, unauthorized attacker to trigger arbitrary code execution over a network with a CVSS v3.1 base score of 9.8, indicating critical severity.
+
+Affected products:
+- Microsoft QUIC
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
+
+
+
+
+
+Related in this roundup: [CVE-2026-105016](#cve-2026-105016).
+
+## CVE-2026-100222
+
+CVE-2026-100222 is a heap-based buffer overflow vulnerability in the Microsoft Network Policy Server (NPS) component. The vulnerability allows an unauthorized remote attacker to achieve arbitrary code execution over a network, carrying a critical CVSS score of 9.8.
+
+Affected products:
+- Network Policy Server
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100222
+
+## CVE-2026-102210
+
+CVE-2026-102210 is a heap-based buffer overflow vulnerability in the Windows Text Shaping component, which enables an unauthorized remote attacker to achieve arbitrary code execution. The vulnerability is characterized by a high CVSS score of 9.8, indicating the potential for significant impact and ease of network exploitation.
+
+Affected products:
+- Windows Text Shaping
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102210
+
+## CVE-2026-105010
+
+CVE-2026-105010 is a use-after-free vulnerability in the Microsoft Windows Search Component that can be exploited by a remote unauthorized attacker to achieve privilege escalation over a network.
+
+Affected products:
+- Windows Search Component
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105010
+
+## CVE-2026-105016
+
+CVE-2026-105016 describes a heap-based buffer overflow vulnerability in Microsoft QUIC that allows an unauthorized, remote attacker to achieve arbitrary code execution. The vulnerability is highly critical, as indicated by a CVSS v3.1 base score of 9.8, and can be exploited over a network.
+
+Affected products:
+- Microsoft QUIC
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
+
+
+
+
+
+Related in this roundup: [CVE-2026-100219](#cve-2026-100219).
+
+## CVE-2026-69634
+
+CVE-2026-69634 describes a heap-based buffer overflow vulnerability in the Windows iSCSI implementation. An unauthenticated attacker can exploit this remotely over the network to achieve arbitrary code execution, presenting a critical security risk (CVSS 9.8).
+
+Affected products:
+- Windows iSCSI
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69634
+
+## CVE-2026-69705
+
+CVE-2026-69705 is an out-of-bounds write vulnerability within the Windows iSCSI component, enabling unauthenticated remote attackers to achieve arbitrary code execution over a network. The vulnerability carries a CVSS v3.1 base score of 9.8, indicating a critical severity due to the lack of required privileges and the potential for remote exploitation.
+
+Affected products:
+- Windows
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
+
+
+Related in this roundup: [CVE-2026-69883](#cve-2026-69883).
+
+## CVE-2026-69883
+
+CVE-2026-69883 is a use-after-free vulnerability in the Windows iSCSI component that enables a remote, unauthorized attacker to achieve remote code execution. Given the high CVSS score, this represents a critical risk for Windows environments.
+
+Affected products:
+- Windows
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
+
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705).
+
+## CVE-2026-69886
+
+CVE-2026-69886 describes a heap-based buffer overflow vulnerability within the Windows Imaging Component. This flaw allows a remote, unauthorized attacker to achieve arbitrary code execution over a network by leveraging the memory corruption vulnerability.
+
+Affected products:
+- Windows Imaging Component
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69886
