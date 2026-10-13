@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in Splunk Enterprise Patroni REST A
 slug: 2026-10-splunk-rest-api-rce
 description: An authentication bypass vulnerability in the Splunk Enterprise Patroni REST API allows unauthenticated remote attackers to execute arbitrary system commands via configuration manipulation.
 date: "2026-10-07T22:56:57Z"
+lastmod: "2026-10-13T17:47:28Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:splunk:splunk_enterprise:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=38749002-490E-548C-9F65-7F8C26489848&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - rce
@@ -18,6 +22,7 @@ vendors:
   - Splunk
 products:
   - Splunk Enterprise (< 10.4.3, < 10.2.7)
+  - Splunk Enterprise (10.2.0-10.2.6, 10.4.0-10.4.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,9 +39,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-76268
     cvss: 9.8
+    epss: 0.004
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76268
   - https://help.splunk.com/en/data-management/splunk-enterprise-admin-manual/10.2/splunk-sidecars/sidecar-configuration-settings
+  - https://cyber.gc.ca/en/alerts-advisories/splunk-security-advisory-av26-1018
+  - https://sploitus.com/exploit?id=38749002-490E-548C-9F65-7F8C26489848&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76268
       evidence: Vulnerability requires network access to the API.
+updates:
+  - at: "2026-10-13T17:47:28Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=38749002-490E-548C-9F65-7F8C26489848&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-76268 is a critical security vulnerability affecting Splunk Enterprise versions prior to 10.4.3 and 10.2.7. The vulnerability exists within the Patroni REST API component, which is used for cluster management. Due to insufficient authentication checks on this interface, an unauthenticated attacker with network access to a search head cluster member can interact with the API to perform critical configuration operations. By manipulating sidecar configuration settings via the exposed REST endpoint, an attacker can trigger the execution of arbitrary commands on the underlying host operating system with the privileges of the Splunk service account. This issue poses a significant risk to the integrity and confidentiality of the Splunk environment. Organizations running affected versions are strongly advised to upgrade to version 10.4.3, 10.2.7, or later to remediate the vulnerability.
