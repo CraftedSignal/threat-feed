@@ -3,7 +3,7 @@ title: Siemens Security Updates - October 2026
 slug: 2026-10-siemens-security-updates
 description: Roundup of Siemens security advisories published in October 2026.
 date: "2026-10-13T10:34:38Z"
-lastmod: "2026-10-13T10:35:44Z"
+lastmod: "2026-10-13T10:35:50Z"
 type: threat
 types:
   - threat
@@ -34,23 +34,25 @@ cves:
     cvss: 7.7
   - id: CVE-2026-78557
     cvss: 8.3
+  - id: CVE-2026-89199
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-89198
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-89201
 updates:
-  - at: "2026-10-13T10:35:22Z"
+  - at: "2026-10-13T10:35:25Z"
     level: L2
     summary: added CVE-2026-102075 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-59241
       - https://nvd.nist.gov/vuln/detail/CVE-2026-72895
       - https://nvd.nist.gov/vuln/detail/CVE-2026-78557
       - https://nvd.nist.gov/vuln/detail/CVE-2026-89196
       - https://nvd.nist.gov/vuln/detail/CVE-2026-89198
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-89201
 ---
 
-This roundup covers 13 Siemens security vulnerabilities. CVSS base scores range from 7.5 to 9.6. None are reported as actively exploited at the time of release. The issues affect .NET Client Library for SIMATIC S7 Webserver API, APOGEE MBC, Industrial Edge App Publisher, RUGGEDCOM CROSSBOW, S7-1500, SIMATIC IPC BX-21A, SIMATIC S7-1500, SIMATIC WinCC.
+This roundup covers 15 Siemens security vulnerabilities. CVSS base scores range from 7.5 to 9.6. None are reported as actively exploited at the time of release. The issues affect .NET Client Library for SIMATIC S7 Webserver API, APOGEE MBC, Industrial Edge App Publisher, RUGGEDCOM CROSSBOW, S7-1500, SIMATIC IPC BX-21A, SIMATIC S7-1500, SIMATIC WinCC.
 
 ## Summary
 
@@ -63,12 +65,14 @@ This roundup covers 13 Siemens security vulnerabilities. CVSS base scores range 
 | [CVE-2026-102075](#cve-2026-102075) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102075) (authoritative) |
 | [CVE-2026-102076](#cve-2026-102076) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102076) (authoritative) |
 | [CVE-2026-59241](#cve-2026-59241) | SIMATIC WinCC (V7.5) | High | 8.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59241) (authoritative) |
-| [CVE-2026-72895](#cve-2026-72895) | SIMATIC IPC BX-21A (< V31.01.13) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72895) (authoritative) |
+| [CVE-2026-72895](#cve-2026-72895) | SIMATIC IPC BX-21A (< V31.01.13) | High | 7.7 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72895) (authoritative) |
 | [CVE-2026-78556](#cve-2026-78556) | Industrial Edge App Publisher (< V1.27.9) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-78556) (authoritative) |
 | [CVE-2026-78557](#cve-2026-78557) | Industrial Edge App Publisher (< V1.27.9) | High | 8.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-78557) (authoritative) |
 | [CVE-2026-85114](#cve-2026-85114) | .NET Client Library for SIMATIC S7 Webserver API (< V3.3.61) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85114) (authoritative) |
 | [CVE-2026-89196](#cve-2026-89196) | RUGGEDCOM CROSSBOW (< V6.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89196) (authoritative) |
 | [CVE-2026-89197](#cve-2026-89197) | RUGGEDCOM CROSSBOW (< V6.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89197) (authoritative) |
+| [CVE-2026-89198](#cve-2026-89198) | RUGGEDCOM CROSSBOW (< V6.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89198) (authoritative) |
+| [CVE-2026-89199](#cve-2026-89199) | RUGGEDCOM CROSSBOW (< V6.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89199) (authoritative) |
 
 
 ## CVE-2026-63353
@@ -116,6 +120,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102073
 
 
 
+
+
 Related in this roundup: [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102075](#cve-2026-102075), [CVE-2026-102076](#cve-2026-102076).
 
 ## CVE-2026-102074
@@ -135,6 +141,8 @@ Affected products:
 - TALON TC Modular (BACnet) (< V3.5.7)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102074
+
+
 
 
 
@@ -173,6 +181,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102075
 
 
 
+
+
 Related in this roundup: [CVE-2026-102073](#cve-2026-102073), [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102076](#cve-2026-102076).
 
 ## CVE-2026-102076
@@ -192,6 +202,8 @@ Affected products:
 - TALON TC Modular (BACnet) (< V3.5.7)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102076
+
+
 
 
 
@@ -240,6 +252,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78556
 
 
 
+
+
 Related in this roundup: [CVE-2026-78557](#cve-2026-78557).
 
 ## CVE-2026-78557
@@ -250,6 +264,8 @@ Affected products:
 - Industrial Edge App Publisher (< V1.27.9)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78557
+
+
 
 
 
@@ -274,7 +290,9 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89196
 
-Related in this roundup: [CVE-2026-89197](#cve-2026-89197).
+
+
+Related in this roundup: [CVE-2026-89197](#cve-2026-89197), [CVE-2026-89198](#cve-2026-89198), [CVE-2026-89199](#cve-2026-89199).
 
 ## CVE-2026-89197
 
@@ -285,4 +303,29 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89197
 
-Related in this roundup: [CVE-2026-89196](#cve-2026-89196).
+
+
+Related in this roundup: [CVE-2026-89196](#cve-2026-89196), [CVE-2026-89198](#cve-2026-89198), [CVE-2026-89199](#cve-2026-89199).
+
+## CVE-2026-89198
+
+A vulnerability in RUGGEDCOM CROSSBOW versions prior to V6.0 allows an authenticated attacker to perform SQL injection by providing a maliciously crafted filename during firmware upload, leading to arbitrary database command execution.
+
+Affected products:
+- RUGGEDCOM CROSSBOW (< V6.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89198
+
+
+Related in this roundup: [CVE-2026-89196](#cve-2026-89196), [CVE-2026-89197](#cve-2026-89197), [CVE-2026-89199](#cve-2026-89199).
+
+## CVE-2026-89199
+
+RUGGEDCOM CROSSBOW versions prior to V6.0 are vulnerable to an improper access control issue in database queries. An authenticated attacker can exploit this flaw to retrieve sensitive administrative credentials, leading to privilege escalation and unauthorized access to internal systems.
+
+Affected products:
+- RUGGEDCOM CROSSBOW (< V6.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89199
+
+Related in this roundup: [CVE-2026-89196](#cve-2026-89196), [CVE-2026-89197](#cve-2026-89197), [CVE-2026-89198](#cve-2026-89198).
