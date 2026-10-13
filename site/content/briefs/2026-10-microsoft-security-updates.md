@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:39:50Z"
+lastmod: "2026-10-13T20:39:57Z"
 type: threat
 types:
   - threat
@@ -52,20 +52,16 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69883
     cvss: 9.8
+  - id: CVE-2026-70153
+    cvss: 9.8
   - id: CVE-2026-83517
     cvss: 9.8
   - id: CVE-2026-83519
+    product: Windows Error Reporting
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-83519
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-83748
 updates:
-  - at: "2026-10-13T20:39:07Z"
-    level: L2
-    summary: added CVE-2026-69634 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-70096
   - at: "2026-10-13T20:39:14Z"
     level: L2
     summary: added CVE-2026-100219, CVE-2026-105016
@@ -88,9 +84,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83519
+  - at: "2026-10-13T20:39:57Z"
+    level: L2
+    summary: added CVE-2026-70153
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-83748
 ---
 
-This roundup covers 26 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Word, Partner Center, PostScript Printer Driver, Windows, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Rich Text Edit Control, Windows Search Component, Windows System Information Console, Windows Text Shaping, Windows iSCSI, pbi-cli.
+This roundup covers 28 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Word, Partner Center, PostScript Printer Driver, Windows, Windows Error Reporting, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Rich Text Edit Control, Windows Search Component, Windows System Information Console, Windows Text Shaping, Windows iSCSI, pbi-cli.
 
 ## Summary
 
@@ -109,7 +112,7 @@ This roundup covers 26 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-100219](#cve-2026-100219) | Microsoft QUIC | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100219) (authoritative) |
 | [CVE-2026-100222](#cve-2026-100222) | Network Policy Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100222) (authoritative) |
 | [CVE-2026-102210](#cve-2026-102210) | Windows Text Shaping |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102210) (authoritative) |
-| [CVE-2026-105010](#cve-2026-105010) | Windows Search Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105010) (authoritative) |
+| [CVE-2026-105010](#cve-2026-105010) | Windows Search Component | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105010) (authoritative) |
 | [CVE-2026-105016](#cve-2026-105016) | Microsoft QUIC | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105016) (authoritative) |
 | [CVE-2026-69634](#cve-2026-69634) | Windows iSCSI | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69634) (authoritative) |
 | [CVE-2026-69705](#cve-2026-69705) | Windows | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69705) (authoritative) |
@@ -121,7 +124,9 @@ This roundup covers 26 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-70157](#cve-2026-70157) | Windows System Information Console |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70157) (authoritative) |
 | [CVE-2026-70188](#cve-2026-70188) | ASP.NET Core |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70188) (authoritative) |
 | [CVE-2026-70300](#cve-2026-70300) | Office Word |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70300) (authoritative) |
-| [CVE-2026-83517](#cve-2026-83517) | Windows Media Foundation |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83517) (authoritative) |
+| [CVE-2026-83517](#cve-2026-83517) | Windows Media Foundation | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83517) (authoritative) |
+| [CVE-2026-83519](#cve-2026-83519) | Windows Error Reporting | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83519) (authoritative) |
+| [CVE-2026-83693](#cve-2026-83693) | Windows Error Reporting |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83693) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -234,6 +239,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 
 
 
+
+
 Related in this roundup: [CVE-2026-105016](#cve-2026-105016).
 
 ## CVE-2026-100222
@@ -283,6 +290,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
 
 
 
+
+
 Related in this roundup: [CVE-2026-100219](#cve-2026-100219).
 
 ## CVE-2026-69634
@@ -311,6 +320,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
 
 
 
+
+
 Related in this roundup: [CVE-2026-69883](#cve-2026-69883).
 
 ## CVE-2026-69883
@@ -321,6 +332,8 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
+
+
 
 
 
@@ -363,6 +376,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70147
 
 
 
+
+
 Related in this roundup: [CVE-2026-70153](#cve-2026-70153).
 
 ## CVE-2026-70153
@@ -373,6 +388,8 @@ Affected products:
 - PostScript Printer Driver
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70153
+
+
 
 
 
@@ -415,3 +432,25 @@ Affected products:
 - Windows Media Foundation
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83517
+
+## CVE-2026-83519
+
+CVE-2026-83519 describes a critical heap-based buffer overflow vulnerability within Windows Error Reporting. The flaw allows an unauthenticated, unauthorized attacker to achieve remote code execution over a network with a high CVSS base score of 9.8.
+
+Affected products:
+- Windows Error Reporting
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83519
+
+Related in this roundup: [CVE-2026-83693](#cve-2026-83693).
+
+## CVE-2026-83693
+
+CVE-2026-83693 is a heap-based buffer overflow vulnerability within the Windows Error Reporting component, which can be exploited by an unauthorized remote attacker to achieve arbitrary code execution.
+
+Affected products:
+- Windows Error Reporting
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83693
+
+Related in this roundup: [CVE-2026-83519](#cve-2026-83519).
