@@ -3,6 +3,7 @@ title: Critical RCE Vulnerability in GitLab CE and EE
 slug: 2026-10-gitlab-vulnerabilities
 description: GitLab released security updates for 24 vulnerabilities, including a critical unauthenticated RCE via integer overflow (CVE-2026-97229) in the CI/CD regular expression compiler.
 date: "2026-10-12T18:29:32Z"
+lastmod: "2026-10-13T05:35:41Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
 products:
   - GitLab Community Edition (< 19.4.2, 19.3.4, 19.2.8)
   - GitLab Enterprise Edition (< 19.4.2, 19.3.4, 19.2.8)
+  - GitLab CE
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,9 +28,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The vulnerability CVE-2026-97229, with a CVSS score of 10.0, is located in the CI/CD regular expression compiler and allows an unauthenticated attacker to execute arbitrary code on the server.
     confidence_band: high
+cves:
+  - id: CVE-2026-97229
 references:
   - https://cert.europa.eu/publications/security-advisories/2026-016/
   - https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-4-2-released/
+  - https://isc.sans.edu/podcastdetail/10134
 action_plan:
   priority: immediate_escalation
   owners:
@@ -45,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-97229, CVE-2026-92883, CVE-2026-16301
       evidence: GitLab released versions 19.4.2, 19.3.4 and 19.2.8 ... fixing 24 security issues.
+updates:
+  - at: "2026-10-13T05:35:41Z"
+    level: L2
+    summary: added CVE-2026-97229
+    sources:
+      - isc-stormcast
+    source_urls:
+      - https://isc.sans.edu/podcastdetail/10134
 ---
 
 On 12 October 2026, GitLab issued emergency security patches to address 24 distinct vulnerabilities affecting self-managed GitLab Community Edition (CE) and Enterprise Edition (EE). The most severe issue is CVE-2026-97229 (CVSS 10.0), a critical vulnerability within the CI/CD regular expression compiler. This flaw stems from weak validation of regular expressions, resulting in an integer overflow that can be leveraged by unauthenticated attackers to achieve arbitrary code execution on the underlying server.
