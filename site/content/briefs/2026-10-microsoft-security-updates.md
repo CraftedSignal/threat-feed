@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:38:13Z"
+lastmod: "2026-10-13T20:38:16Z"
 type: threat
 types:
   - threat
@@ -18,6 +18,9 @@ cves:
     product: Exchange Server
     cvss: 8.8
     epss: 0.00496
+  - id: CVE-2026-69435
+    cvss: 9.6
+    epss: 0.0039
   - id: CVE-2026-77900
     product: Azure App Service
     cvss: 9.8
@@ -25,21 +28,18 @@ cves:
   - id: CVE-2026-88131
     cvss: 9.8
     epss: 0.00841
+  - id: CVE-2026-83947
+    cvss: 7.7
+    epss: 0.0037
   - id: CVE-2026-108744
     cvss: 7
     epss: 0.00547
   - id: CVE-2026-100202
+    product: Windows Message Queuing Queue Manager
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-100202
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 updates:
-  - at: "2026-10-09T00:06:57Z"
-    level: L2
-    summary: added CVE-2026-88131
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-88131
   - at: "2026-10-09T00:08:42Z"
     level: L2
     summary: added CVE-2026-94510
@@ -68,23 +68,31 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100202
+  - at: "2026-10-13T20:38:16Z"
+    level: L2
+    summary: added CVE-2026-69435 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 ---
 
-This roundup covers 9 Microsoft security vulnerabilities. CVSS base scores range from 8.8 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Partner Center, pbi-cli.
+This roundup covers 10 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Partner Center, Windows Message Queuing Queue Manager, pbi-cli.
 
 ## Summary
 
 | CVE | Product | Severity | CVSS | EPSS | KEV | Source |
 |-----|---------|----------|------|------|-----|--------|
 | [CVE-2026-96940](#cve-2026-96940) | Exchange Server | High | 8.8 | 0.50% | no | [MSRC](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96940) (authoritative) |
-| [CVE-2026-69435](#cve-2026-69435) | Azure SRE Agent | Critical | 9.6 | 0.39% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69435) (authoritative) |
+| [CVE-2026-69435](#cve-2026-69435) | Azure SRE Agent |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-69435) (authoritative) |
 | [CVE-2026-77900](#cve-2026-77900) | Azure App Service | Critical | 9.8 | 0.49% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-77900) (authoritative) |
-| [CVE-2026-88131](#cve-2026-88131) | Dataverse |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88131) (authoritative) |
+| [CVE-2026-88131](#cve-2026-88131) | Dataverse | Critical | 9.8 | 0.84% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88131) (authoritative) |
 | [CVE-2026-94510](#cve-2026-94510) | Bookings |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-94510) (authoritative) |
 | [CVE-2026-96207](#cve-2026-96207) | Partner Center |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-96207) (authoritative) |
 | [CVE-2026-83943](#cve-2026-83943) | Azure API Center |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83943) (authoritative) |
 | [CVE-2026-83947](#cve-2026-83947) | Azure Event Grid |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83947) (authoritative) |
-| [CVE-2026-108744](#cve-2026-108744) | pbi-cli (3.10.1 through 3.12.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108744) (authoritative) |
+| [CVE-2026-108744](#cve-2026-108744) | pbi-cli (3.10.1 through 3.12.0) | High | 7.0 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108744) (authoritative) |
+| [CVE-2026-100202](#cve-2026-100202) | Windows Message Queuing Queue Manager | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100202) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -167,3 +175,12 @@ Affected products:
 - pbi-cli (3.10.1 through 3.12.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-108744
+
+## CVE-2026-100202
+
+A use-after-free vulnerability in the Windows Message Queuing (MSMQ) Queue Manager allows a remote, unauthorized attacker to achieve remote code execution over a network. This critical vulnerability poses a high risk as it can be exploited without authentication.
+
+Affected products:
+- Windows Message Queuing Queue Manager
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100202
