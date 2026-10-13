@@ -3,6 +3,7 @@ title: SSRF Vulnerability in Conductor A2AService
 slug: 2026-10-conductor-ssrf
 description: An SSRF vulnerability in the Conductor-OSS A2AService allows remote attackers to manipulate the agentUrl parameter to force unauthorized internal requests.
 date: "2026-10-13T14:36:50Z"
+lastmod: "2026-10-13T14:36:58Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,7 @@ vendors:
   - Conductor-OSS
 products:
   - conductor (<= 3.32.5)
+  - Conductor (<= 3.33.0-rc10)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,6 +28,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109403
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109405
 action_plan:
   priority: elevated
   owners:
@@ -42,6 +45,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109403
       evidence: SSRF vulnerability allows unauthorized requests
+updates:
+  - at: "2026-10-13T14:36:58Z"
+    level: L2
+    summary: added coverage for Conductor (<= 3.33.0-rc10)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-109405
 ---
 
 The Conductor-OSS workflow orchestration platform contains a Server-Side Request Forgery (SSRF) vulnerability in the A2AService component. Specifically, the getAgentCard function within 'ai/src/main/java/org/conductoross/conductor/ai/a2a/A2AService.java' fails to properly sanitize the 'agentUrl' argument. A remote, unauthenticated attacker can supply a malicious URL to this parameter, causing the Conductor server to make unauthorized requests to arbitrary internal or external targets. This vulnerability may be used to probe internal network services, access metadata services in cloud environments, or potentially bypass internal firewall controls. The flaw is present in all versions of Conductor up to and including 3.32.5.
