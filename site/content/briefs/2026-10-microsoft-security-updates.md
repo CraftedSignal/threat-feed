@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:40:08Z"
+lastmod: "2026-10-13T20:40:34Z"
 type: threat
 types:
   - threat
@@ -45,6 +45,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-100219
     cvss: 9.8
+  - id: CVE-2026-102210
+    cvss: 9.8
   - id: CVE-2026-105010
     cvss: 9.8
   - id: CVE-2026-105016
@@ -65,15 +67,8 @@ cves:
   - id: CVE-2026-83693
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-83862
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85792
 updates:
-  - at: "2026-10-13T20:39:31Z"
-    level: L2
-    summary: added CVE-2026-69705 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-70300
   - at: "2026-10-13T20:39:50Z"
     level: L2
     summary: added CVE-2026-105010 +2
@@ -90,15 +85,16 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83748
   - at: "2026-10-13T20:40:05Z"
     level: L2
-    summary: added CVE-2026-83693, CVE-2026-94510
+    summary: added CVE-2026-102210, CVE-2026-83693, CVE-2026-94510
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83782
       - https://nvd.nist.gov/vuln/detail/CVE-2026-83862
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85792
 ---
 
-This roundup covers 32 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.9. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Word, Partner Center, PostScript Printer Driver, Windows, Windows Error Reporting, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Rich Text Edit Control, Windows Search Component, Windows Shell, Windows System Information Console, Windows Text Shaping, Windows iSCSI, pbi-cli.
+This roundup covers 34 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.9. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Word, Partner Center, PostScript Printer Driver, Windows, Windows Error Reporting, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Network Load Balancing, Windows Rich Text Edit Control, Windows Search Component, Windows Shell, Windows System Information Console, Windows Text Shaping, Windows iSCSI, XML, pbi-cli.
 
 ## Summary
 
@@ -131,11 +127,13 @@ This roundup covers 32 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-70300](#cve-2026-70300) | Office Word |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70300) (authoritative) |
 | [CVE-2026-83517](#cve-2026-83517) | Windows Media Foundation | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83517) (authoritative) |
 | [CVE-2026-83519](#cve-2026-83519) | Windows Error Reporting | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83519) (authoritative) |
-| [CVE-2026-83693](#cve-2026-83693) | Windows Error Reporting |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83693) (authoritative) |
+| [CVE-2026-83693](#cve-2026-83693) | Windows Error Reporting | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83693) (authoritative) |
 | [CVE-2026-83748](#cve-2026-83748) | Windows Error Reporting |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83748) (authoritative) |
 | [CVE-2026-83770](#cve-2026-83770) | Windows |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83770) (authoritative) |
 | [CVE-2026-83780](#cve-2026-83780) | CCFFilter Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83780) (authoritative) |
 | [CVE-2026-83782](#cve-2026-83782) | Windows Shell |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83782) (authoritative) |
+| [CVE-2026-83862](#cve-2026-83862) | Windows Network Load Balancing |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83862) (authoritative) |
+| [CVE-2026-83935](#cve-2026-83935) | XML |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83935) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -254,6 +252,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 
 
 
+
+
 Related in this roundup: [CVE-2026-105016](#cve-2026-105016).
 
 ## CVE-2026-100222
@@ -309,6 +309,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
 
 
 
+
+
 Related in this roundup: [CVE-2026-100219](#cve-2026-100219).
 
 ## CVE-2026-69634
@@ -343,6 +345,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
 
 
 
+
+
 Related in this roundup: [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770).
 
 ## CVE-2026-69883
@@ -353,6 +357,8 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
+
+
 
 
 
@@ -407,6 +413,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70147
 
 
 
+
+
 Related in this roundup: [CVE-2026-70153](#cve-2026-70153).
 
 ## CVE-2026-70153
@@ -417,6 +425,8 @@ Affected products:
 - PostScript Printer Driver
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70153
+
+
 
 
 
@@ -479,6 +489,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83519
 
 
 
+
+
 Related in this roundup: [CVE-2026-83693](#cve-2026-83693), [CVE-2026-83748](#cve-2026-83748).
 
 ## CVE-2026-83693
@@ -489,6 +501,8 @@ Affected products:
 - Windows Error Reporting
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83693
+
+
 
 
 
@@ -508,6 +522,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83748
 
 
 
+
+
 Related in this roundup: [CVE-2026-83519](#cve-2026-83519), [CVE-2026-83693](#cve-2026-83693).
 
 ## CVE-2026-83770
@@ -518,6 +534,8 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83770
+
+
 
 
 
@@ -540,3 +558,21 @@ Affected products:
 - Windows Shell
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83782
+
+## CVE-2026-83862
+
+A use-after-free vulnerability in the Windows Network Load Balancing component allows a remote, unauthorized attacker to achieve remote code execution (RCE) via network-based exploitation. The vulnerability carries a CVSS base score of 9.8, indicating a critical severity level.
+
+Affected products:
+- Windows Network Load Balancing
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83862
+
+## CVE-2026-83935
+
+CVE-2026-83935 describes a heap-based buffer overflow vulnerability in Microsoft XML, which allows a remote, unauthorized attacker to execute arbitrary code over a network with a CVSS base score of 9.8.
+
+Affected products:
+- XML
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83935
