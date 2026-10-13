@@ -3,7 +3,7 @@ title: Siemens Security Updates - October 2026
 slug: 2026-10-siemens-security-updates
 description: Roundup of Siemens security advisories published in October 2026.
 date: "2026-10-13T10:34:38Z"
-lastmod: "2026-10-13T10:34:38Z"
+lastmod: "2026-10-13T10:34:42Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,11 @@ vendors:
 cves:
   - id: CVE-2026-63353
     product: SIMATIC S7-1500
+    cvss: 9.6
+  - id: CVE-2026-63354
+    cvss: 9.6
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63354
 updates:
   - at: "2026-10-13T10:34:38Z"
     level: L1
@@ -24,6 +29,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-63353
+  - at: "2026-10-13T10:34:42Z"
+    level: L2
+    summary: added CVE-2026-63354
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-63354
 ---
 
 This roundup covers 1 Siemens security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect SIMATIC S7-1500.
