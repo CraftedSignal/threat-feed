@@ -3,6 +3,7 @@ title: CrushFTP Authentication Bypass Exploitation
 slug: 2026-09-crushftp-auth-bypass
 description: CVE-2025-31161 in CrushFTP is being exploited to gain unauthorized access and execute malicious commands, with activity linked to Hellcat ransomware operations.
 date: "2026-09-21T19:13:25Z"
+lastmod: "2026-10-13T06:40:50Z"
 type: threat
 types:
   - threat
@@ -11,6 +12,9 @@ severities:
 exploited: true
 cpes:
   - cpe:2.3:a:crushftp:crushftp:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RUFFLABS-LUDUS_CRUSHFTP_CVE-2025-31161&utm_source=rss&utm_medium=rss
 tags:
   - web
   - ransomware
@@ -19,6 +23,10 @@ vendors:
   - CrushFTP
 products:
   - CrushFTP (< 10.8.4)
+  - CrushFTP (11.3.1)
+affected_os:
+  - Windows
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -41,11 +49,12 @@ mitre_ttps:
 cves:
   - id: CVE-2025-31161
     cvss: 9.8
-    epss: 0.99976
+    epss: 0.99966
 references:
   - https://www.huntress.com/blog/crushftp-cve-2025-31161-auth-bypass-and-post-exploitation
   - https://nvd.nist.gov/vuln/detail/CVE-2025-31161
   - https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RUFFLABS-LUDUS_CRUSHFTP_CVE-2025-31161&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2025-31161 Exploitation via CrushFTP Logs
     description: Detects exploitation of CVE-2025-31161 by identifying suspicious commands in CrushFTP server logs, including mesch.exe and specific execution arguments.
@@ -85,6 +94,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2025-31161
       evidence: CrushFTP security updates
+updates:
+  - at: "2026-10-13T06:40:50Z"
+    level: L2
+    summary: poc_available; OS linux; OS windows
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RUFFLABS-LUDUS_CRUSHFTP_CVE-2025-31161&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2025-31161 is a critical authentication bypass vulnerability in CrushFTP that allows unauthenticated remote attackers to gain unauthorized access to the application. Once the authentication mechanism is bypassed, attackers perform post-exploitation activities by executing system-level commands through the application's interface. Observed malicious activity includes the invocation of binaries like 'mesch.exe' or specific command arguments such as 'b64exec', 'fullinstall', or 'run'. This vulnerability has been actively exploited in the wild and linked to the Hellcat ransomware campaign. Defenders should monitor CrushFTP server logs for evidence of these specific command patterns, as they signify successful unauthorized access and subsequent execution of attacker-controlled code on the underlying host.
