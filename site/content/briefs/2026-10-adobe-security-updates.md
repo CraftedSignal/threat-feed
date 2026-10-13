@@ -3,7 +3,7 @@ title: Adobe Security Updates - October 2026
 slug: 2026-10-adobe-security-updates
 description: Roundup of Adobe security advisories published in October 2026.
 date: "2026-10-13T20:38:10Z"
-lastmod: "2026-10-13T20:38:10Z"
+lastmod: "2026-10-13T20:38:24Z"
 type: threat
 types:
   - threat
@@ -16,6 +16,9 @@ vendors:
 cves:
   - id: CVE-2026-100133
     product: Adobe Commerce
+  - id: CVE-2026-103849
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103849
 updates:
   - at: "2026-10-13T20:38:10Z"
     level: L1
@@ -24,6 +27,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-100133
+  - at: "2026-10-13T20:38:24Z"
+    level: L2
+    summary: added CVE-2026-103849
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103849
 ---
 
 This roundup covers 1 Adobe security vulnerabilities. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce.
