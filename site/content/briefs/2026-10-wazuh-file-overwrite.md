@@ -3,7 +3,7 @@ title: Arbitrary File Overwrite Vulnerability in Wazuh MasterHandler
 slug: 2026-10-wazuh-file-overwrite
 description: Wazuh versions 3.9.0 through 4.14.7 are vulnerable to an arbitrary file overwrite attack in MasterHandler that allows cluster workers to gain root remote code execution by modifying critical configuration files.
 date: "2026-10-13T14:36:29Z"
-lastmod: "2026-10-13T14:36:45Z"
+lastmod: "2026-10-13T14:39:37Z"
 type: advisory
 types:
   - advisory
@@ -18,12 +18,14 @@ tags:
   - web-vulnerability
   - path-traversal
   - wazuh
+  - vulnerability
 vendors:
   - Wazuh
 products:
   - Wazuh (3.9.0 <= v < 4.14.8)
   - Wazuh (< 4.14.8)
   - Wazuh (4.1.1 - 4.14.7)
+  - Wazuh (4.1.0-4.14.7)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -56,6 +58,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74040
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74041
   - https://nvd.nist.gov/vuln/detail/CVE-2026-74043
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-74034
 action_plan:
   priority: immediate_escalation
   owners:
@@ -97,6 +100,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-74043
+  - at: "2026-10-13T14:39:37Z"
+    level: L2
+    summary: added coverage for Wazuh (4.1.0-4.14.7)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-74034
 ---
 
 Wazuh versions 3.9.0 through 4.14.7 contain a critical arbitrary file overwrite vulnerability located within the MasterHandler.process_files_from_worker component. The flaw arises from a basename path traversal bypass combined with a lack of input validation regarding file path enforcement. This vulnerability enables an attacker who has compromised a cluster worker node to manipulate the file synchronization process to overwrite sensitive files on the master node, specifically ossec.conf and agent.conf. By modifying these configuration files, an attacker can inject arbitrary commands, facilitating remote code execution with root privileges on the master node, which subsequently propagates to all connected agents. This vulnerability presents a high risk to security operations as it subverts the integrity of the centralized security management architecture.
