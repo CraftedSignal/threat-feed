@@ -3,7 +3,7 @@ title: Siemens Security Updates - October 2026
 slug: 2026-10-siemens-security-updates
 description: Roundup of Siemens security advisories published in October 2026.
 date: "2026-10-13T10:34:38Z"
-lastmod: "2026-10-13T10:35:31Z"
+lastmod: "2026-10-13T10:35:37Z"
 type: threat
 types:
   - threat
@@ -30,23 +30,25 @@ cves:
     cvss: 7.5
   - id: CVE-2026-59241
     cvss: 8.8
+  - id: CVE-2026-78557
+    cvss: 8.3
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-78557
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-89196
 updates:
-  - at: "2026-10-13T10:35:11Z"
+  - at: "2026-10-13T10:35:15Z"
     level: L2
-    summary: added CVE-2026-102073 +4
+    summary: added CVE-2026-102074 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-102074
       - https://nvd.nist.gov/vuln/detail/CVE-2026-102075
       - https://nvd.nist.gov/vuln/detail/CVE-2026-59241
       - https://nvd.nist.gov/vuln/detail/CVE-2026-72895
       - https://nvd.nist.gov/vuln/detail/CVE-2026-78557
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-89196
 ---
 
-This roundup covers 9 Siemens security vulnerabilities. CVSS base scores range from 7.5 to 9.6. None are reported as actively exploited at the time of release. The issues affect APOGEE MBC, Industrial Edge App Publisher, S7-1500, SIMATIC IPC BX-21A, SIMATIC S7-1500, SIMATIC WinCC.
+This roundup covers 11 Siemens security vulnerabilities. CVSS base scores range from 7.5 to 9.6. None are reported as actively exploited at the time of release. The issues affect .NET Client Library for SIMATIC S7 Webserver API, APOGEE MBC, Industrial Edge App Publisher, S7-1500, SIMATIC IPC BX-21A, SIMATIC S7-1500, SIMATIC WinCC.
 
 ## Summary
 
@@ -58,9 +60,11 @@ This roundup covers 9 Siemens security vulnerabilities. CVSS base scores range f
 | [CVE-2026-102074](#cve-2026-102074) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102074) (authoritative) |
 | [CVE-2026-102075](#cve-2026-102075) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102075) (authoritative) |
 | [CVE-2026-102076](#cve-2026-102076) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102076) (authoritative) |
-| [CVE-2026-59241](#cve-2026-59241) | SIMATIC WinCC (V7.5) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59241) (authoritative) |
+| [CVE-2026-59241](#cve-2026-59241) | SIMATIC WinCC (V7.5) | High | 8.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-59241) (authoritative) |
 | [CVE-2026-72895](#cve-2026-72895) | SIMATIC IPC BX-21A (< V31.01.13) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-72895) (authoritative) |
 | [CVE-2026-78556](#cve-2026-78556) | Industrial Edge App Publisher (< V1.27.9) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-78556) (authoritative) |
+| [CVE-2026-78557](#cve-2026-78557) | Industrial Edge App Publisher (< V1.27.9) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-78557) (authoritative) |
+| [CVE-2026-85114](#cve-2026-85114) | .NET Client Library for SIMATIC S7 Webserver API (< V3.3.61) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85114) (authoritative) |
 
 
 ## CVE-2026-63353
@@ -104,6 +108,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102073
 
 
 
+
+
 Related in this roundup: [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102075](#cve-2026-102075), [CVE-2026-102076](#cve-2026-102076).
 
 ## CVE-2026-102074
@@ -123,6 +129,8 @@ Affected products:
 - TALON TC Modular (BACnet) (< V3.5.7)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102074
+
+
 
 
 
@@ -153,6 +161,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102075
 
 
 
+
+
 Related in this roundup: [CVE-2026-102073](#cve-2026-102073), [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102076](#cve-2026-102076).
 
 ## CVE-2026-102076
@@ -172,6 +182,8 @@ Affected products:
 - TALON TC Modular (BACnet) (< V3.5.7)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102076
+
+
 
 
 
@@ -212,3 +224,27 @@ Affected products:
 - Industrial Edge App Publisher (< V1.27.9)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78556
+
+
+Related in this roundup: [CVE-2026-78557](#cve-2026-78557).
+
+## CVE-2026-78557
+
+CVE-2026-78557 is a vulnerability in Siemens Industrial Edge App Publisher version < V1.27.9 caused by improper sanitization of backend data before frontend rendering. This lack of input validation enables Stored Cross-Site Scripting (XSS) within the Node.js integrated environment, which can be weaponized to achieve Remote Code Execution (RCE) on the host machine.
+
+Affected products:
+- Industrial Edge App Publisher (< V1.27.9)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-78557
+
+
+Related in this roundup: [CVE-2026-78556](#cve-2026-78556).
+
+## CVE-2026-85114
+
+A path traversal vulnerability exists in the .NET Client Library for SIMATIC S7 Webserver API due to improper validation of filenames during ticket downloads. An attacker who can manipulate the ticket response can perform arbitrary file writes outside the intended directory, potentially overwriting existing files within the application's context.
+
+Affected products:
+- .NET Client Library for SIMATIC S7 Webserver API (< V3.3.61)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85114
