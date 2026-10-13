@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:40:57Z"
+lastmod: "2026-10-13T20:41:08Z"
 type: threat
 types:
   - threat
@@ -63,6 +63,8 @@ cves:
     cvss: 9.8
   - id: CVE-2026-70188
     cvss: 9.1
+  - id: CVE-2026-70300
+    cvss: 9.8
   - id: CVE-2026-83517
     cvss: 9.8
   - id: CVE-2026-83519
@@ -76,22 +78,28 @@ cves:
     product: Network Policy Server
     cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-88156
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-96113
 updates:
-  - at: "2026-10-13T20:40:34Z"
+  - at: "2026-10-13T20:40:37Z"
     level: L2
-    summary: added CVE-2026-102210 +4
+    summary: added CVE-2026-70157 +3
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-85792
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85806
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85818
       - https://nvd.nist.gov/vuln/detail/CVE-2026-85928
       - https://nvd.nist.gov/vuln/detail/CVE-2026-88156
+  - at: "2026-10-13T20:41:08Z"
+    level: L2
+    summary: added CVE-2026-70300
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-96113
 ---
 
-This roundup covers 42 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.9. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Word, Partner Center, PostScript Printer Driver, Routing and Remote Access Service, Windows, Windows Error Reporting, Windows Failover Cluster, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Network Load Balancing, Windows Rich Text Edit Control, Windows Routing and Remote Access Service, Windows Schannel, Windows Search Component, Windows Shell, Windows System Information Console, Windows Text Shaping, Windows Volume Manager Extension Driver, Windows iSCSI, XML, pbi-cli.
+This roundup covers 43 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.9. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Office Outlook, Office Word, Partner Center, PostScript Printer Driver, Routing and Remote Access Service, Windows, Windows Error Reporting, Windows Failover Cluster, Windows Imaging Component, Windows Media Foundation, Windows Message Queuing Queue Manager, Windows Network Load Balancing, Windows Rich Text Edit Control, Windows Routing and Remote Access Service, Windows Schannel, Windows Search Component, Windows Shell, Windows System Information Console, Windows Text Shaping, Windows Volume Manager Extension Driver, Windows iSCSI, XML, pbi-cli.
 
 ## Summary
 
@@ -120,7 +128,7 @@ This roundup covers 42 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-70147](#cve-2026-70147) | PostScript Printer Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70147) (authoritative) |
 | [CVE-2026-70153](#cve-2026-70153) | PostScript Printer Driver | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70153) (authoritative) |
 | [CVE-2026-70157](#cve-2026-70157) | Windows System Information Console | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70157) (authoritative) |
-| [CVE-2026-70188](#cve-2026-70188) | ASP.NET Core |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70188) (authoritative) |
+| [CVE-2026-70188](#cve-2026-70188) | ASP.NET Core | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70188) (authoritative) |
 | [CVE-2026-70300](#cve-2026-70300) | Office Word |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70300) (authoritative) |
 | [CVE-2026-83517](#cve-2026-83517) | Windows Media Foundation | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83517) (authoritative) |
 | [CVE-2026-83519](#cve-2026-83519) | Windows Error Reporting | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83519) (authoritative) |
@@ -139,6 +147,7 @@ This roundup covers 42 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-85928](#cve-2026-85928) | Windows Volume Manager Extension Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-85928) (authoritative) |
 | [CVE-2026-88092](#cve-2026-88092) | ASP.NET Core |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88092) (authoritative) |
 | [CVE-2026-88102](#cve-2026-88102) | Windows Failover Cluster |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88102) (authoritative) |
+| [CVE-2026-88156](#cve-2026-88156) | Office Outlook |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-88156) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -267,6 +276,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 
 
 
+
 Related in this roundup: [CVE-2026-105016](#cve-2026-105016).
 
 ## CVE-2026-100222
@@ -277,6 +287,7 @@ Affected products:
 - Network Policy Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100222
+
 
 
 
@@ -312,6 +323,7 @@ Affected products:
 - Microsoft QUIC
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
+
 
 
 
@@ -384,6 +396,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
 
 
 
+
 Related in this roundup: [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770).
 
 ## CVE-2026-69883
@@ -394,6 +407,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
+
 
 
 
@@ -468,6 +482,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70147
 
 
 
+
 Related in this roundup: [CVE-2026-70153](#cve-2026-70153).
 
 ## CVE-2026-70153
@@ -478,6 +493,7 @@ Affected products:
 - PostScript Printer Driver
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70153
+
 
 
 
@@ -520,6 +536,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70188
 
 
+
 Related in this roundup: [CVE-2026-88092](#cve-2026-88092).
 
 ## CVE-2026-70300
@@ -544,6 +561,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83517
 
 
 
+
 Related in this roundup: [CVE-2026-85814](#cve-2026-85814).
 
 ## CVE-2026-83519
@@ -554,6 +572,7 @@ Affected products:
 - Windows Error Reporting
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83519
+
 
 
 
@@ -594,6 +613,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83693
 
 
 
+
 Related in this roundup: [CVE-2026-83519](#cve-2026-83519), [CVE-2026-83748](#cve-2026-83748).
 
 ## CVE-2026-83748
@@ -618,6 +638,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83748
 
 
 
+
 Related in this roundup: [CVE-2026-83519](#cve-2026-83519), [CVE-2026-83693](#cve-2026-83693).
 
 ## CVE-2026-83770
@@ -628,6 +649,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83770
+
 
 
 
@@ -703,6 +725,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85806
 
 
 
+
 Related in this roundup: [CVE-2026-100222](#cve-2026-100222).
 
 ## CVE-2026-85809
@@ -722,6 +745,7 @@ Affected products:
 - Windows Media Foundation
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85814
+
 
 
 
@@ -757,6 +781,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88092
 
 
+
 Related in this roundup: [CVE-2026-70188](#cve-2026-70188).
 
 ## CVE-2026-88102
@@ -767,3 +792,12 @@ Affected products:
 - Windows Failover Cluster
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88102
+
+## CVE-2026-88156
+
+CVE-2026-88156 describes a critical stack-based buffer overflow vulnerability in Microsoft Office Outlook. An unauthorized attacker can leverage this flaw to achieve remote code execution over a network, presenting a high risk for enterprise environments relying on Outlook for email communication.
+
+Affected products:
+- Office Outlook
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88156
