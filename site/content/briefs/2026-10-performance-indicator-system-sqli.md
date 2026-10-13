@@ -3,7 +3,7 @@ title: SQL Injection in SourceCodester Performance Indicator System
 slug: 2026-10-performance-indicator-system-sqli
 description: SourceCodester Performance Indicator System 1.0 contains an unauthenticated SQL injection vulnerability via the prodcategory parameter, allowing remote attackers to execute arbitrary SQL queries.
 date: "2026-10-13T04:32:13Z"
-lastmod: "2026-10-13T06:33:06Z"
+lastmod: "2026-10-13T06:33:13Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,8 @@ tags:
   - injection
   - sql-injection
   - sourcecodester
+  - web-application-security
+  - cve
 vendors:
   - SourceCodester
 products:
@@ -34,6 +36,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108964
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108967
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108968
 rules:
   - title: Detect CVE-2026-108964 SQL Injection Attempt
     description: Detects potential SQL injection attempts against the Performance Indicator System by identifying SQL metacharacters in the prodcategory parameter of the addproduct.php script.
@@ -80,6 +83,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-108967
+  - at: "2026-10-13T06:33:13Z"
+    level: L2
+    summary: added coverage for Performance Indicator System (1.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108968
 ---
 
 SourceCodester Performance Indicator System version 1.0 is affected by a SQL injection vulnerability identified as CVE-2026-108964. The vulnerability exists within the file /opils/admin/addproduct.php and specifically impacts the 'prodcategory' argument. An unauthenticated remote attacker can supply maliciously crafted input to this parameter to manipulate database queries. This flaw arises from improper neutralization of special elements used in an SQL command before passing the input to the database management system. Publicly available exploit code increases the risk of successful exploitation by unauthorized actors attempting to gain unauthorized access to or extract data from the application database.
