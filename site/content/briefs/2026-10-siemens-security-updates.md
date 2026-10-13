@@ -3,7 +3,7 @@ title: Siemens Security Updates - October 2026
 slug: 2026-10-siemens-security-updates
 description: Roundup of Siemens security advisories published in October 2026.
 date: "2026-10-13T10:34:38Z"
-lastmod: "2026-10-13T10:35:15Z"
+lastmod: "2026-10-13T10:35:22Z"
 type: threat
 types:
   - threat
@@ -24,8 +24,10 @@ cves:
     cvss: 8.2
   - id: CVE-2026-102074
     cvss: 7.5
+  - id: CVE-2026-102076
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-102075
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-59241
 updates:
   - at: "2026-10-13T10:34:38Z"
     level: L1
@@ -43,15 +45,16 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-63354
   - at: "2026-10-13T10:35:11Z"
     level: L2
-    summary: added CVE-2026-102073, CVE-2026-102074
+    summary: added CVE-2026-102073, CVE-2026-102074, CVE-2026-102076
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-102074
       - https://nvd.nist.gov/vuln/detail/CVE-2026-102075
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-59241
 ---
 
-This roundup covers 4 Siemens security vulnerabilities. CVSS base scores range from 8.2 to 9.6. None are reported as actively exploited at the time of release. The issues affect APOGEE MBC, S7-1500, SIMATIC S7-1500.
+This roundup covers 6 Siemens security vulnerabilities. CVSS base scores range from 7.5 to 9.6. None are reported as actively exploited at the time of release. The issues affect APOGEE MBC, S7-1500, SIMATIC S7-1500.
 
 ## Summary
 
@@ -60,7 +63,9 @@ This roundup covers 4 Siemens security vulnerabilities. CVSS base scores range f
 | [CVE-2026-63353](#cve-2026-63353) | SIMATIC S7-1500 | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-63353) (authoritative) |
 | [CVE-2026-63354](#cve-2026-63354) | S7-1500 | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-63354) (authoritative) |
 | [CVE-2026-102073](#cve-2026-102073) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 8.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102073) (authoritative) |
-| [CVE-2026-102074](#cve-2026-102074) | APOGEE MBC (PPC) (BACnet) (All versions) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102074) (authoritative) |
+| [CVE-2026-102074](#cve-2026-102074) | APOGEE MBC (PPC) (BACnet) (All versions) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102074) (authoritative) |
+| [CVE-2026-102075](#cve-2026-102075) | APOGEE MBC (PPC) (BACnet) (All versions) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102075) (authoritative) |
+| [CVE-2026-102076](#cve-2026-102076) | APOGEE MBC (PPC) (BACnet) (All versions) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102076) (authoritative) |
 
 
 ## CVE-2026-63353
@@ -99,7 +104,9 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102073
 
-Related in this roundup: [CVE-2026-102074](#cve-2026-102074).
+
+
+Related in this roundup: [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102075](#cve-2026-102075), [CVE-2026-102076](#cve-2026-102076).
 
 ## CVE-2026-102074
 
@@ -119,4 +126,47 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102074
 
-Related in this roundup: [CVE-2026-102073](#cve-2026-102073).
+
+
+Related in this roundup: [CVE-2026-102073](#cve-2026-102073), [CVE-2026-102075](#cve-2026-102075), [CVE-2026-102076](#cve-2026-102076).
+
+## CVE-2026-102075
+
+A vulnerability in the web service of multiple Siemens APOGEE and TALON automation controllers stems from improper validation of user input during multipart handling. An unauthenticated remote attacker could exploit this flaw to trigger a denial of service condition.
+
+Affected products:
+- APOGEE MBC (PPC) (BACnet) (All versions)
+- APOGEE MBC (PPC) (P2 Ethernet) (All versions)
+- APOGEE MEC (PPC) (BACnet) (All versions)
+- APOGEE MEC (PPC) (P2 Ethernet) (All versions)
+- APOGEE PXC Compact (BACnet) (< V3.5.7)
+- APOGEE PXC Compact (P2 Ethernet) (< V2.8.21)
+- APOGEE PXC Modular (BACnet) (< V3.5.7)
+- APOGEE PXC Modular (P2 Ethernet) (< V2.8.21)
+- TALON TC Compact (BACnet) (< V3.5.7)
+- TALON TC Modular (BACnet) (< V3.5.7)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102075
+
+
+Related in this roundup: [CVE-2026-102073](#cve-2026-102073), [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102076](#cve-2026-102076).
+
+## CVE-2026-102076
+
+A vulnerability in the web service of various Siemens APOGEE and TALON building automation controllers exists due to improper validation of user-supplied input during file uploads. An unauthenticated remote attacker can exploit this flaw to trigger a denial of service condition on the affected devices.
+
+Affected products:
+- APOGEE MBC (PPC) (BACnet) (All versions)
+- APOGEE MBC (PPC) (P2 Ethernet) (All versions)
+- APOGEE MEC (PPC) (BACnet) (All versions)
+- APOGEE MEC (PPC) (P2 Ethernet) (All versions)
+- APOGEE PXC Compact (BACnet) (< V3.5.7)
+- APOGEE PXC Compact (P2 Ethernet) (< V2.8.21)
+- APOGEE PXC Modular (BACnet) (< V3.5.7)
+- APOGEE PXC Modular (P2 Ethernet) (< V2.8.21)
+- TALON TC Compact (BACnet) (< V3.5.7)
+- TALON TC Modular (BACnet) (< V3.5.7)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102076
+
+Related in this roundup: [CVE-2026-102073](#cve-2026-102073), [CVE-2026-102074](#cve-2026-102074), [CVE-2026-102075](#cve-2026-102075).
