@@ -3,6 +3,7 @@ title: IBM Security Advisory Covering Multiple Vulnerabilities
 slug: 2026-10-ibm-security-advisory
 description: IBM has released security patches addressing multiple vulnerabilities across DataStage on Cloud Pak for Data, Guardium Data Protection, and IBM i, including an incorrect permission assignment in the IBM i Network Authentication Service (CVE-2026-84414).
 date: "2026-10-06T00:49:22Z"
+lastmod: "2026-10-13T00:30:22Z"
 type: advisory
 types:
   - advisory
@@ -24,11 +25,14 @@ cves:
   - id: CVE-2026-84414
     cvss: 7.8
     epss: 0.00093
+  - id: CVE-2026-82101
+    cvss: 9.6
 references:
   - https://cyber.gc.ca/en/alerts-advisories/ibm-security-advisory-av26-997
   - https://www.ibm.com/support/pages/node/7288649
   - https://www.ibm.com/support/pages/node/7288040
   - https://www.ibm.com/support/pages/node/7289443
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-82101
 action_plan:
   priority: elevated
   owners:
@@ -40,6 +44,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-84414 and associated product vulnerabilities
       evidence: Source advisory directs administrators to apply necessary updates
+updates:
+  - at: "2026-10-13T00:30:22Z"
+    level: L2
+    summary: added CVE-2026-82101
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-82101
 ---
 
 IBM has issued a security advisory (AV26-997) regarding multiple vulnerabilities identified in several of its enterprise software products. The advisory highlights that DataStage on Cloud Pak for Data (version 5.4.0.0), Guardium Data Protection (version 12.2), and IBM i (versions 7.3, 7.4, 7.5, and 7.6) are impacted. Most notably, IBM i contains an incorrect permission assignment vulnerability in the Network Authentication Service, which is tracked under CVE-2026-84414. While the specific nature of the vulnerabilities in DataStage and Guardium is documented in the associated vendor bulletins, these issues generally represent potential risks to data integrity and system access control. Organizations utilizing these platforms should review the referenced IBM support pages to apply the relevant security updates and mitigate potential unauthorized access or privilege escalation risks.
