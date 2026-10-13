@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T20:39:20Z"
+lastmod: "2026-10-13T20:39:31Z"
 type: threat
 types:
   - threat
@@ -46,16 +46,13 @@ cves:
     cvss: 9.8
   - id: CVE-2026-69634
     cvss: 9.8
+  - id: CVE-2026-69705
+    cvss: 9.8
+  - id: CVE-2026-69883
+    cvss: 9.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-70188
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-70300
 updates:
-  - at: "2026-10-13T20:38:13Z"
-    level: L2
-    summary: added CVE-2026-100202 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-100202
   - at: "2026-10-13T20:38:16Z"
     level: L2
     summary: added CVE-2026-69435 +1
@@ -78,9 +75,16 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70153
       - https://nvd.nist.gov/vuln/detail/CVE-2026-70188
+  - at: "2026-10-13T20:39:31Z"
+    level: L2
+    summary: added CVE-2026-69705 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-70300
 ---
 
-This roundup covers 23 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Partner Center, PostScript Printer Driver, Windows, Windows Imaging Component, Windows Message Queuing Queue Manager, Windows Rich Text Edit Control, Windows Search Component, Windows System Information Console, Windows Text Shaping, Windows iSCSI, pbi-cli.
+This roundup covers 24 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 9.8. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure Event Grid, Azure SRE Agent, Bookings, Dataverse, Exchange Server, Microsoft QUIC, Network Policy Server, Partner Center, PostScript Printer Driver, Windows, Windows Imaging Component, Windows Message Queuing Queue Manager, Windows Rich Text Edit Control, Windows Search Component, Windows System Information Console, Windows Text Shaping, Windows iSCSI, pbi-cli.
 
 ## Summary
 
@@ -96,7 +100,7 @@ This roundup covers 23 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-83947](#cve-2026-83947) | Azure Event Grid | High | 7.7 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83947) (authoritative) |
 | [CVE-2026-108744](#cve-2026-108744) | pbi-cli (3.10.1 through 3.12.0) | High | 7.0 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108744) (authoritative) |
 | [CVE-2026-100202](#cve-2026-100202) | Windows Message Queuing Queue Manager | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100202) (authoritative) |
-| [CVE-2026-100219](#cve-2026-100219) | Microsoft QUIC |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100219) (authoritative) |
+| [CVE-2026-100219](#cve-2026-100219) | Microsoft QUIC | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100219) (authoritative) |
 | [CVE-2026-100222](#cve-2026-100222) | Network Policy Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100222) (authoritative) |
 | [CVE-2026-102210](#cve-2026-102210) | Windows Text Shaping |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102210) (authoritative) |
 | [CVE-2026-105010](#cve-2026-105010) | Windows Search Component |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105010) (authoritative) |
@@ -109,6 +113,7 @@ This roundup covers 23 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-70147](#cve-2026-70147) | PostScript Printer Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70147) (authoritative) |
 | [CVE-2026-70153](#cve-2026-70153) | PostScript Printer Driver |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70153) (authoritative) |
 | [CVE-2026-70157](#cve-2026-70157) | Windows System Information Console |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70157) (authoritative) |
+| [CVE-2026-70188](#cve-2026-70188) | ASP.NET Core |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-70188) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -218,6 +223,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 
 
 
+
 Related in this roundup: [CVE-2026-105016](#cve-2026-105016).
 
 ## CVE-2026-100222
@@ -264,6 +270,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
 
 
 
+
 Related in this roundup: [CVE-2026-100219](#cve-2026-100219).
 
 ## CVE-2026-69634
@@ -289,6 +296,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
 
 
 
+
 Related in this roundup: [CVE-2026-69883](#cve-2026-69883).
 
 ## CVE-2026-69883
@@ -299,6 +307,7 @@ Affected products:
 - Windows
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
+
 
 
 
@@ -335,6 +344,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70147
 
 
+
 Related in this roundup: [CVE-2026-70153](#cve-2026-70153).
 
 ## CVE-2026-70153
@@ -347,6 +357,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70153
 
 
+
 Related in this roundup: [CVE-2026-70147](#cve-2026-70147).
 
 ## CVE-2026-70157
@@ -357,3 +368,12 @@ Affected products:
 - Windows System Information Console
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70157
+
+## CVE-2026-70188
+
+CVE-2026-70188 describes an HTTP request/response smuggling vulnerability in Microsoft ASP.NET Core caused by inconsistent interpretation of HTTP requests. This vulnerability allows an unauthorized attacker to bypass security controls over a network, potentially leading to unauthorized access or security feature circumvention.
+
+Affected products:
+- ASP.NET Core
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70188
