@@ -3,7 +3,7 @@ title: SAP Security Updates - October 2026
 slug: 2026-10-sap-security-updates
 description: Roundup of SAP security advisories published in October 2026.
 date: "2026-10-13T02:31:31Z"
-lastmod: "2026-10-13T02:31:38Z"
+lastmod: "2026-10-13T02:31:48Z"
 type: threat
 types:
   - threat
@@ -24,9 +24,12 @@ cves:
     product: NetWeaver Visual Composer
     cvss: 9.9
   - id: CVE-2026-89111
+    product: Cloud SDK for Python
     cvss: 10
+  - id: CVE-2026-58249
+    cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-89111
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58249
 updates:
   - at: "2026-10-13T02:31:31Z"
     level: L1
@@ -37,16 +40,17 @@ updates:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-89107
   - at: "2026-10-13T02:31:33Z"
     level: L2
-    summary: added CVE-2026-89108, CVE-2026-89110, CVE-2026-89111
+    summary: added CVE-2026-58249 +3
     sources:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-89108
       - https://nvd.nist.gov/vuln/detail/CVE-2026-89110
       - https://nvd.nist.gov/vuln/detail/CVE-2026-89111
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58249
 ---
 
-This roundup covers 3 SAP security vulnerabilities. CVSS base scores range from 9.1 to 9.9. None are reported as actively exploited at the time of release. The issues affect Manufacturing Integration and Intelligence, NetWeaver Visual Composer, S/4HANA.
+This roundup covers 4 SAP security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Cloud SDK for Python, Manufacturing Integration and Intelligence, NetWeaver Visual Composer, S/4HANA.
 
 ## Summary
 
@@ -55,6 +59,7 @@ This roundup covers 3 SAP security vulnerabilities. CVSS base scores range from 
 | [CVE-2026-89107](#cve-2026-89107) | S/4HANA | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89107) (authoritative) |
 | [CVE-2026-89108](#cve-2026-89108) | Manufacturing Integration and Intelligence | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89108) (authoritative) |
 | [CVE-2026-89110](#cve-2026-89110) | NetWeaver Visual Composer | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89110) (authoritative) |
+| [CVE-2026-89111](#cve-2026-89111) | Cloud SDK for Python | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-89111) (authoritative) |
 
 
 ## CVE-2026-89107
@@ -83,3 +88,12 @@ Affected products:
 - NetWeaver Visual Composer
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89110
+
+## CVE-2026-89111
+
+The SAP Cloud SDK for Python is vulnerable to Server-Side Request Forgery (SSRF) during OAuth2 token requests. By manipulating the tenant_subdomain parameter in multi-tenant BTP applications, an attacker can redirect authentication traffic to a malicious server, leading to the exfiltration of sensitive client credentials.
+
+Affected products:
+- Cloud SDK for Python
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-89111
