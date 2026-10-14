@@ -3,6 +3,7 @@ title: SQL Injection in sar2html
 slug: 2026-10-sar2html-sqli
 description: The sar2html 4.0.0 application is vulnerable to remote SQL injection via the 'sort' parameter in sar2html.py, enabling unauthenticated attackers to execute arbitrary database queries.
 date: "2026-10-14T20:33:25Z"
+lastmod: "2026-10-14T22:33:30Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,10 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:cemtan:sar2html:4.0.0:*:*:*:*:*:*:*
+tags:
+  - sqli
+  - vulnerability
+  - webserver
 vendors:
   - cemtan
 products:
@@ -32,6 +37,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110668
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-110670
 action_plan:
   priority: elevated
   owners:
@@ -57,6 +63,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-110668
       evidence: Vulnerability details confirm input vector
+updates:
+  - at: "2026-10-14T22:33:30Z"
+    level: L2
+    summary: added coverage for sar2html (4.0.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-110670
 ---
 
 The open-source monitoring tool sar2html version 4.0.0 contains a SQL injection vulnerability within the index function of the sar2html.py script. The application fails to properly sanitize the 'sort' argument provided by users, which allows an unauthenticated remote attacker to inject malicious SQL commands directly into database queries. This vulnerability is significant because a public proof-of-concept exploit is available, and the maintainers have not issued a patch to address the security flaw. Organizations currently running sar2html 4.0.0 should restrict network access to the application or implement web application firewall (WAF) rules to filter malicious payloads targeting the 'sort' parameter until a vendor-supplied update is released.
