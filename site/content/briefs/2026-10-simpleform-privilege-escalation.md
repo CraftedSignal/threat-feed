@@ -3,6 +3,7 @@ title: Unauthenticated Privilege Escalation in SimpleForm WordPress Plugin
 slug: 2026-10-simpleform-privilege-escalation
 description: The SimpleForm plugin for WordPress (<= 3.10.0) is vulnerable to unauthenticated administrator account creation due to missing capability checks on the wp_ajax_nopriv_simpleform_wp_register AJAX action.
 date: "2026-10-14T08:23:08Z"
+lastmod: "2026-10-14T11:47:54Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:simpleform_project:simpleform:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=068D2F9E-11A4-556A-BFFA-091E8EEF1B9E&utm_source=rss&utm_medium=rss
 vendors:
   - WordPress
 products:
@@ -32,6 +36,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104748
+  - https://sploitus.com/exploit?id=068D2F9E-11A4-556A-BFFA-091E8EEF1B9E&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-104748 Exploitation - Unauthorized Admin Account Creation
     description: Detects exploitation attempts by identifying POST requests to admin-ajax.php containing the simpleform registration action and user capability injection attempts.
@@ -65,6 +70,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-104748
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-14T11:47:54Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=068D2F9E-11A4-556A-BFFA-091E8EEF1B9E&utm_source=rss&utm_medium=rss
 ---
 
 The SimpleForm - Form Maker to Chat Apps with Quiz, Poll and Multi Lead Notifications plugin for WordPress, in versions up to and including 3.10.0, contains a critical privilege escalation vulnerability. The `wp_ajax_nopriv_simpleform_wp_register` AJAX action fails to perform capability validation for role assignment during user registration. Furthermore, the `save_custom_fields_to_user_meta()` function improperly excludes user meta fields, failing to filter `wp_capabilities`. 
