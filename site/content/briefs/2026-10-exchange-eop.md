@@ -3,7 +3,7 @@ title: Elevation of Privilege Vulnerability in Microsoft Exchange Server
 slug: 2026-10-exchange-eop
 description: CVE-2026-96940 is an elevation of privilege vulnerability in Microsoft Exchange Server that allows authenticated attackers to escalate privileges within the server environment.
 date: "2026-10-06T00:48:48Z"
-lastmod: "2026-10-08T18:07:36Z"
+lastmod: "2026-10-14T09:16:48Z"
 type: advisory
 types:
   - advisory
@@ -17,6 +17,9 @@ tags:
   - botnet
   - credential-theft
   - living-off-the-land
+  - anti-forensics
+  - persistence
+  - exchange
 vendors:
   - Microsoft
 products:
@@ -25,6 +28,7 @@ products:
   - Exchange Server 2019 Cumulative Update 15 (< 15.02.1748.053)
   - Exchange Server Subscription Edition RTM (< 15.02.2562.053)
   - Exchange Server (< 9.9.7-P2)
+  - Exchange Server
 affected_os:
   - Windows Server
 mitre_ttps:
@@ -52,6 +56,12 @@ mitre_ttps:
     technique_name: 'Server Software Component: Web Shell'
     evidence: The threat actors establish persistence through VPN software and exfiltrating emails and credentials using scripts.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1070
+    technique_name: Indicator Removal
+    evidence: The deletion of the Exchange PowerShell cmdlet history logs which may indicate an attempt to destroy forensic evidence.
+    confidence_band: high
 cves:
   - id: CVE-2026-96940
     cvss: 8.8
@@ -68,6 +78,21 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2021-22205
   - https://www.cve.org/CVERecord?id=CVE-2021-3199
   - https://www.cve.org/CVERecord?id=CVE-2023-22894
+  - https://web.archive.org/web/20221012062917/https://m365internals.com/2022/10/07/hunting-in-on-premises-exchange-server-logs/
+  - https://www.it-server-room.com/en/exchange-server-log-file-locations-and-cleanup-guide/
+rules:
+  - title: Detect Exchange PowerShell Cmdlet History Log Deletion
+    description: Detects the deletion of the Exchange PowerShell cmdlet history logs, which may indicate an attempt to destroy forensic evidence.
+    platform: sigma
+    severity: high
+    tactics:
+      - stealth
+    techniques:
+      - T1070
+    data_sources:
+      - file_delete
+      - windows
+rules_count: 1
 action_plan:
   priority: elevated
   owners:
@@ -87,6 +112,13 @@ updates:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-281a
+  - at: "2026-10-14T09:16:48Z"
+    level: L2
+    summary: 'added detection rule: Detect Exchange PowerShell Cmdlet History Log Deletion'
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_delete/file_delete_win_delete_exchange_powershell_logs.yml
 ---
 
 Microsoft has disclosed CVE-2026-96940, an elevation of privilege vulnerability affecting several versions of Microsoft Exchange Server, including Exchange Server 2016 Cumulative Update 23, Exchange Server 2019 Cumulative Update 14 and 15, and the Exchange Server Subscription Edition RTM. This vulnerability permits an authenticated attacker to perform unauthorized actions or gain increased permissions within the context of the affected mail server. Given the critical role of Exchange Servers in enterprise communications and their common position within internal networks, this vulnerability poses a significant risk for lateral movement and further exploitation if an attacker has already established a presence within the network. Administrators are advised to review their environment and apply the security updates as provided by Microsoft.
