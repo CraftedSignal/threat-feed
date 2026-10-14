@@ -3,6 +3,7 @@ title: 'CVE-2026-5430: Path Traversal and RCE in WSO2 Products'
 slug: 2026-09-wso2-path-traversal
 description: Multiple WSO2 products are vulnerable to a path traversal flaw that allows unauthenticated attackers to perform unrestricted file uploads, resulting in potential remote code execution.
 date: "2026-09-25T01:16:56Z"
+lastmod: "2026-10-14T05:44:56Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ cpes:
   - cpe:2.3:a:wso2:api_manager:*:*:*:*:*:*:*:*
   - cpe:2.3:a:wso2:traffic_manager:*:*:*:*:*:*:*:*
   - cpe:2.3:a:wso2:universal_gateway:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HORKIMHAB-CVE-2026-5430&utm_source=rss&utm_medium=rss
 tags:
   - cve
   - path-traversal
@@ -41,11 +45,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-5430
     cvss: 10
-    epss: 0.00321
+    epss: 0.00588
 references:
   - https://www.cve.org/CVERecord?id=CVE-2026-5430
   - https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2026/WSO2-2026-5328/
   - https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HORKIMHAB-CVE-2026-5430&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -62,6 +67,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-5430
       evidence: Stakeholders are responsible for evaluating each asset's internet exposure.
+updates:
+  - at: "2026-10-14T05:44:56Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HORKIMHAB-CVE-2026-5430&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-5430 affects the WSO2 API Control Plane, API Manager, Traffic Manager, and Universal Gateway. This vulnerability arises from a path traversal flaw in the file upload mechanism of these products. An unauthenticated attacker can exploit this weakness by submitting specifically crafted requests to bypass file validation, allowing them to upload arbitrary files to the underlying system. If successfully exploited, this can lead to remote code execution (RCE) with the privileges of the web service. Given that these products often handle critical API traffic and gateway functions, successful exploitation grants the attacker persistent access or control over the infrastructure. Organizations are advised by CISA to treat this as a high-priority update per BOD 26-04 requirements.
