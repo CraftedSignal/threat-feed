@@ -3,6 +3,7 @@ title: Critical Vulnerabilities in Citrix UniconOS and XenServer
 slug: 2026-10-citrix-security-advisory
 description: Citrix has released security bulletins addressing multiple vulnerabilities across UniconOS and XenServer products, including CVE-2026-53562, CVE-2026-53563, CVE-2026-53564, CVE-2026-79610, CVE-2026-102700, and CVE-2026-102701.
 date: "2026-10-13T23:44:25Z"
+lastmod: "2026-10-14T16:24:05Z"
 type: advisory
 types:
   - advisory
@@ -19,15 +20,18 @@ products:
   - UniconOS (< 2607.2 CR)
   - XenServer (8.4)
   - XenServer (9)
+  - UniconOS (< 2607.2)
 cves:
   - id: CVE-2026-53562
   - id: CVE-2026-53563
   - id: CVE-2026-53564
+  - id: CVE-2026-79610
   - id: CVE-2026-102700
 references:
   - https://cyber.gc.ca/en/alerts-advisories/citrix-security-advisory-av26-1034
   - https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX697187
   - https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX697170
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3928
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +48,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-53562, CVE-2026-53563, CVE-2026-53564, CVE-2026-79610, CVE-2026-102700, CVE-2026-102701
       evidence: Vendor security bulletins
+updates:
+  - at: "2026-10-14T16:24:05Z"
+    level: L2
+    summary: added CVE-2026-79610
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3928
 ---
 
 Citrix has issued security advisories regarding multiple vulnerabilities affecting UniconOS and XenServer product lines. The affected UniconOS versions include those prior to 2603 LTSR CU2 and 2607.2 CR. The XenServer product is affected in versions 8.4 and 9. These vulnerabilities, identified as CVE-2026-53562, CVE-2026-53563, CVE-2026-53564, CVE-2026-79610, CVE-2026-102700, and CVE-2026-102701, require immediate attention from administrators. The Cyber Centre (CCCS) recommends that organizations review the specific vendor bulletins provided by Citrix and apply available security updates to mitigate potential exposure. As these vulnerabilities represent potential entry points for unauthorized access or system compromise within enterprise infrastructure, prompt patching is essential to maintain the security posture of affected Citrix environments.
