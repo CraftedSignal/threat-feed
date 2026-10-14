@@ -3,6 +3,7 @@ title: IBM WebSphere Application Server Authentication Bypass (CVE-2026-93907)
 slug: 2026-10-websphere-auth-bypass
 description: IBM WebSphere Application Server versions 8.5 and 9.0 are vulnerable to an authentication bypass in the CSIv2 inbound propagation handler, potentially allowing remote unauthorized access.
 date: "2026-10-13T14:40:09Z"
+lastmod: "2026-10-14T16:24:07Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +20,7 @@ vendors:
   - IBM
 products:
   - WebSphere Application Server (8.5, 9.0)
+  - WebSphere Application Server
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,6 +33,7 @@ cves:
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93907
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3927
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93907
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-14T16:24:07Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3927
 ---
 
 IBM WebSphere Application Server versions 8.5 and 9.0 contain a critical vulnerability in the CSIv2 (Common Secure Interoperability version 2) inbound propagation handler. This flaw allows a remote, unauthenticated attacker to bypass authentication mechanisms when communicating with the application server. By sending specially crafted CSIv2 requests, an attacker can impersonate legitimate users or gain unauthorized access to administrative or application functions. Given the role of WebSphere as a core middleware component in enterprise environments, successful exploitation could lead to full application compromise, lateral movement within the environment, and data exfiltration. Defenders should prioritize identifying instances of affected versions and applying available vendor patches to mitigate the risk of unauthorized access.
