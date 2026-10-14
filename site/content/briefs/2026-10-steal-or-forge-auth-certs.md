@@ -3,11 +3,14 @@ title: Detection of Authentication Certificate Theft or Forgery
 slug: 2026-10-steal-or-forge-auth-certs
 description: This correlation identifies anomalous activity targeting Windows Certificate Services by aggregating multiple risk-based detections on a single system, signaling potential adversary efforts to forge or steal authentication certificates.
 date: "2026-10-12T17:58:56Z"
+lastmod: "2026-10-14T00:56:38Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:microsoft:active_directory_certificate_services:*:*:*:*:*:*:*:*
 tags:
   - certificate-theft
   - identity-compromise
@@ -26,9 +29,13 @@ mitre_ttps:
     technique_name: Steal or Forge Authentication Certificates
     evidence: The analytic identifies potential threats related to the theft or forgery of authentication certificates.
     confidence_band: high
+cves:
+  - id: CVE-2026-83666
+    cvss: 7
 references:
   - https://research.splunk.com/stories/windows_certificate_services/
   - https://attack.mitre.org/techniques/T1649/
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83666
 action_plan:
   priority: elevated
   owners:
@@ -48,6 +55,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Correlation logic requires 5+ events to trigger.
+updates:
+  - at: "2026-10-14T00:56:38Z"
+    level: L2
+    summary: added CVE-2026-83666
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-83666
 ---
 
 This threat brief focuses on the identification of adversary behavior targeting Active Directory Certificate Services (AD CS). By monitoring for the theft or forgery of authentication certificates, security teams can detect attempts to compromise core identity and authentication infrastructure. The methodology relies on aggregating risk signals from the "Windows Certificate Services" analytic story. When an endpoint generates five or more distinct security events related to certificate manipulation within a set timeframe, it indicates a high-probability attempt to bypass authentication controls. Such activity is a precursor to lateral movement, privilege escalation, or persistence, enabling attackers to gain unauthorized access to sensitive systems or impersonate privileged users.
