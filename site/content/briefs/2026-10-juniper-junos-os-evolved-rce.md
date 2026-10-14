@@ -3,6 +3,7 @@ title: OS Command Injection in Juniper Junos OS Evolved TACACS
 slug: 2026-10-juniper-junos-os-evolved-rce
 description: An OS command injection vulnerability in the TACACS component of Juniper Junos OS Evolved allows authenticated, low-privileged users to achieve root-level code execution.
 date: "2026-10-14T18:33:00Z"
+lastmod: "2026-10-14T18:36:29Z"
 type: advisory
 types:
   - advisory
@@ -27,11 +28,18 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The flaw allows a low-privileged, TACACS+-authenticated user to execute arbitrary commands with root-level privileges.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: An authenticated network attacker can exploit this flaw... potentially leading to... arbitrary code execution with root-level privileges.
+    confidence_band: high
 cves:
   - id: CVE-2026-102031
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102031
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101965
 action_plan:
   priority: immediate_escalation
   owners:
@@ -48,6 +56,14 @@ action_plan:
       owner: Network Security
       addresses: CVE-2026-102031
       evidence: The flaw allows a low-privileged... user to execute commands... when periodic TACACS+ authorization-refresh is enabled.
+updates:
+  - at: "2026-10-14T18:36:29Z"
+    level: L2
+    summary: added coverage for Junos OS Evolved
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101965
 ---
 
 A critical OS command injection vulnerability (CVE-2026-102031) has been identified in the TACACS component of Juniper Networks Junos OS Evolved. This vulnerability allows an attacker who has successfully authenticated via TACACS+ to execute arbitrary operating system commands with root privileges. The exploitation vector is contingent on the device having the periodic TACACS+ authorization-refresh feature enabled. 
