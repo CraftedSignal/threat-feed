@@ -3,6 +3,7 @@ title: Telegram Desktop IPC Record-Separator Injection
 slug: 2026-10-telegram-ipc-injection
 description: Telegram Desktop versions prior to 7.2.9 contain an IPC record-separator injection vulnerability in the Core::Sandbox component, allowing remote attackers to exfiltrate local session data via crafted tg:// links.
 date: "2026-10-07T14:37:32Z"
+lastmod: "2026-10-14T16:49:22Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:telegram:telegram_desktop:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=30F10C20-23F7-5D28-98BD-1B08549D7D97&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - ipc
@@ -18,6 +22,9 @@ vendors:
   - Telegram
 products:
   - Telegram Desktop (< 7.2.9)
+  - Telegram Desktop (<= 7.2.8)
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -34,8 +41,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-107181
     cvss: 8.1
+    epss: 0.00345
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107181
+  - https://sploitus.com/exploit?id=30F10C20-23F7-5D28-98BD-1B08549D7D97&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +55,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-107181
       evidence: Telegram Desktop before 7.2.9 contains an IPC record-separator injection vulnerability.
+updates:
+  - at: "2026-10-14T16:49:22Z"
+    level: L2
+    summary: poc_available; OS windows
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=30F10C20-23F7-5D28-98BD-1B08549D7D97&utm_source=rss&utm_medium=rss
 ---
 
 Telegram Desktop versions prior to 7.2.9 contain an IPC record-separator injection vulnerability within the Core::Sandbox component. This vulnerability is triggered when a user interacts with a specially crafted tg:// URI containing unescaped semicolons. By exploiting this flaw, an attacker can bypass IPC security boundaries to reach the interpret: scheme handler. This allows the attacker to force the application to read and upload local files, specifically targeting critical tdata session keys. If successful, this exfiltration leads to a complete account takeover, as the attacker can use the stolen session data to impersonate the victim. The attack is particularly dangerous because it relies on user-triggered URI handling, which is a common mechanism for cross-application communication in modern desktop environments.
