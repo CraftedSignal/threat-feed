@@ -3,7 +3,7 @@ title: Microsoft October 2026 Monthly Security Updates
 slug: 2026-10-microsoft-october-2026-rollup
 description: Microsoft's October 2026 security rollup addresses multiple vulnerabilities across its product ecosystem, including CVE-2026-96951 which is confirmed as actively exploited in the wild.
 date: "2026-10-13T23:44:18Z"
-lastmod: "2026-10-14T03:24:23Z"
+lastmod: "2026-10-14T03:43:51Z"
 type: threat
 types:
   - threat
@@ -41,14 +41,12 @@ cves:
     cvss: 8.8
   - id: CVE-2026-84008
     cvss: 7.5
-  - id: CVE-2026-66822
-    cvss: 5.9
-  - id: CVE-2026-96234
-    cvss: 5.3
-  - id: CVE-2026-96229
-    cvss: 6.5
-  - id: CVE-2026-96238
-    cvss: 6.5
+  - id: CVE-2026-96957
+    cvss: 8.8
+  - id: CVE-2026-96959
+    cvss: 7.5
+  - id: CVE-2026-96958
+    cvss: 7.5
 references:
   - https://msrc.microsoft.com/update-guide/releaseNote/2026-Oct
   - https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-96951
@@ -58,6 +56,9 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96229
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96234
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96238
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96957
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96958
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96959
 action_plan:
   priority: immediate_escalation
   owners:
@@ -75,13 +76,6 @@ action_plan:
       addresses: CVE-2026-96951
       evidence: CISA KEV catalog entry
 updates:
-  - at: "2026-10-14T00:51:29Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-66822
   - at: "2026-10-14T03:22:21Z"
     level: L2
     summary: added CVE-2026-66822 +1
@@ -103,6 +97,20 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96238
+  - at: "2026-10-14T03:37:16Z"
+    level: L2
+    summary: added CVE-2026-96957
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96957
+  - at: "2026-10-14T03:43:51Z"
+    level: L2
+    summary: added CVE-2026-96958 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96959
 ---
 
 Microsoft's October 2026 security release includes patches for a comprehensive list of products, ranging from core Windows OS components and .NET frameworks to enterprise applications like Exchange Server, SharePoint, and SQL Server. This monthly rollup is particularly urgent due to the disclosure of active, in-the-wild exploitation of CVE-2026-96951. The Cybersecurity and Infrastructure Security Agency (CISA) has formally added CVE-2026-96951 to its Known Exploited Vulnerabilities (KEV) catalog, underscoring the necessity for immediate patch deployment. Organizations should prioritize updating internet-facing infrastructure and critical server assets that fall within the scope of the affected product list, which includes various versions of Windows Server, Microsoft Office, and Azure-integrated services.
