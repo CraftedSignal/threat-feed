@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in virtuoso-opensource on RHEL
 slug: 2026-10-virtuoso-dos
 description: A remote, unauthenticated attacker can exploit CVE-2018-1000632 within the virtuoso-opensource package on Red Hat Enterprise Linux to trigger a denial of service condition.
 date: "2026-10-08T13:08:55Z"
+lastmod: "2026-10-14T16:24:32Z"
 type: advisory
 types:
   - advisory
@@ -33,12 +34,23 @@ tags:
   - denial-of-service
   - linux
   - vulnerability
+  - rhel
+  - openexr
 vendors:
   - Red Hat
 products:
   - Enterprise Linux (virtuoso-opensource package)
+  - Enterprise Linux
 affected_os:
   - Red Hat Enterprise Linux
+  - RHEL
+mitre_ttps:
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1204
+    technique_name: User Execution
+    evidence: An attacker can exploit multiple vulnerabilities in Red Hat Enterprise Linux to perform a denial of service attack, disclose confidential information or execute arbitrary code.
+    confidence_band: high
 cves:
   - id: CVE-2018-1000632
     cvss: 7.5
@@ -46,6 +58,13 @@ cves:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2025-0849
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000632
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3923
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3474
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3475
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3476
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3477
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3478
+  - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3479
 action_plan:
   priority: elevated
   owners:
@@ -62,6 +81,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2018-1000632
       evidence: Mitigates remote exploitation risk.
+updates:
+  - at: "2026-10-14T16:24:32Z"
+    level: L1
+    summary: added coverage for Enterprise Linux
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3923
 ---
 
 A vulnerability has been identified in the virtuoso-opensource package distributed with Red Hat Enterprise Linux. An attacker can exploit this flaw to cause a denial of service (DoS), rendering the service unavailable. The vulnerability, tracked as CVE-2018-1000632, allows for exploitation by a remote, anonymous attacker. Given the nature of the service, organizations running virtuoso-opensource on RHEL instances should assess the exposure of these services to untrusted networks. While specific exploitation vectors for this CVE typically involve crafting malformed requests to the Virtuoso SPARQL or HTTP interfaces, this brief highlights the risk of availability disruption. Defenders should prioritize patching and monitoring for service instability or unexpected crashes of the Virtuoso process.
