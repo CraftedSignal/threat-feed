@@ -3,6 +3,7 @@ title: Heap Buffer Overflow in NGINX
 slug: 2026-10-nginx-heap-overflow
 description: CVE-2026-15176 is a heap buffer overflow vulnerability in NGINX Plus and NGINX Open Source that allows remote unauthenticated attackers to cause a denial of service or potentially execute arbitrary code by sending crafted HTTP requests.
 date: "2026-10-14T16:38:22Z"
+lastmod: "2026-10-14T16:40:37Z"
 type: advisory
 types:
   - advisory
@@ -21,11 +22,25 @@ vendors:
 products:
   - NGINX Plus
   - NGINX Open Source
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: Successful exploitation can lead to a worker process crash (DoS), memory corruption, or remote code execution.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Additionally, attackers can execute code on systems with Address Space Layout Randomization (ASLR) disabled or when the attacker can bypass ASLR.
+    confidence_band: high
 cves:
   - id: CVE-2026-15176
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15176
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-97205
 action_plan:
   priority: elevated
   owners:
@@ -44,6 +59,14 @@ action_plan:
       evidence: Source identifies access log usage as a viable trigger for the overflow
   gaps:
     - Lack of specific vendor patch version in source document
+updates:
+  - at: "2026-10-14T16:40:37Z"
+    level: L2
+    summary: added coverage for NGINX Plus +1 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-97205
 ---
 
 CVE-2026-15176 is a heap buffer overflow vulnerability affecting NGINX Plus and NGINX Open Source. The vulnerability arises when specific configuration directives are combined within an NGINX location block: the alias directive used in conjunction with a rewrite directive, or a set or return directive that references the $request_filename variable. Additionally, the vulnerability can be triggered if the $request_filename variable is included in an access log format directive. 
