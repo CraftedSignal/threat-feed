@@ -3,6 +3,7 @@ title: Microsoft October 2026 Monthly Security Updates
 slug: 2026-10-microsoft-october-2026-rollup
 description: Microsoft's October 2026 security rollup addresses multiple vulnerabilities across its product ecosystem, including CVE-2026-96951 which is confirmed as actively exploited in the wild.
 date: "2026-10-13T23:44:18Z"
+lastmod: "2026-10-14T00:51:29Z"
 type: threat
 types:
   - threat
@@ -25,6 +26,7 @@ products:
   - Windows Server (2012, 2012 R2, 2016, 2019, 2022, 2025)
   - Microsoft SQL Server (2017, 2019, 2022, 2025)
   - Microsoft SharePoint Server (2016, 2019, Subscription Edition)
+  - .NET
 affected_os:
   - Windows 10
   - Windows 11
@@ -41,6 +43,7 @@ references:
   - https://msrc.microsoft.com/update-guide/releaseNote/2026-Oct
   - https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-96951
   - https://cyber.gc.ca/en/alerts-advisories/microsoft-security-advisory-october-2026-monthly-rollup-av26-1038
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-66822
 action_plan:
   priority: immediate_escalation
   owners:
@@ -57,6 +60,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-96951
       evidence: CISA KEV catalog entry
+updates:
+  - at: "2026-10-14T00:51:29Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-66822
 ---
 
 Microsoft's October 2026 security release includes patches for a comprehensive list of products, ranging from core Windows OS components and .NET frameworks to enterprise applications like Exchange Server, SharePoint, and SQL Server. This monthly rollup is particularly urgent due to the disclosure of active, in-the-wild exploitation of CVE-2026-96951. The Cybersecurity and Infrastructure Security Agency (CISA) has formally added CVE-2026-96951 to its Known Exploited Vulnerabilities (KEV) catalog, underscoring the necessity for immediate patch deployment. Organizations should prioritize updating internet-facing infrastructure and critical server assets that fall within the scope of the affected product list, which includes various versions of Windows Server, Microsoft Office, and Azure-integrated services.
