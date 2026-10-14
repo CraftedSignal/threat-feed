@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-14T04:32:19Z"
+lastmod: "2026-10-14T04:32:30Z"
 type: threat
 types:
   - threat
@@ -29,6 +29,8 @@ cves:
     cvss: 9.4
   - id: CVE-2026-88102
     cvss: 9.8
+  - id: CVE-2026-100220
+    cvss: 8.8
   - id: CVE-2026-102204
     cvss: 7.8
   - id: CVE-2026-108396
@@ -161,6 +163,8 @@ cves:
     cvss: 7.8
   - id: CVE-2026-83566
     cvss: 7
+  - id: CVE-2026-83702
+    cvss: 7
   - id: CVE-2026-83732
     cvss: 7.8
   - id: CVE-2026-83747
@@ -216,15 +220,8 @@ cves:
   - id: CVE-2026-97828
     cvss: 6.5
 references:
-  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-108132
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-108134
 updates:
-  - at: "2026-10-14T04:31:40Z"
-    level: L2
-    summary: added CVE-2026-70143 +1
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-108127
   - at: "2026-10-14T04:31:52Z"
     level: L2
     summary: added CVE-2026-70097
@@ -253,6 +250,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-108132
+  - at: "2026-10-14T04:32:30Z"
+    level: L2
+    summary: added CVE-2026-100220 +1
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-108134
 ---
 
 This roundup covers 1280 Microsoft security vulnerabilities. CVSS base scores range from 5.5 to 9.9. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Access, Active Directory Federation Services, Azure API Center, Azure App Service, Azure Arc, Azure Attestation, Azure CycleCloud, Azure DevOps, Azure Event Grid, Azure HDInsight, Azure Key Vault, Azure SRE Agent, Azure Storage Library, Background Intelligent Transfer Service, BitLocker, Bluetooth Driver, Bookings, CCFFilter Driver, COM, Common Log File System Driver, Configuration Manager, Connected Devices Platform Service, DNS Server, Dataverse, Defender, Defender for Endpoint, Desktop Window Manager, Domain Name Service, Dynamics 365 Business Central, Dynamics Business Central, Encrypting File System, Excel, Exchange Server, Failover Cluster Virtual Driver, Graphic Fonts, Graphics Component, HID Parser Library, HTTP.sys, Hyper-V, Input Method Editor, Internet Connection Sharing, Internet Explorer, Internet Messaging API, Kernel Streaming Service, Libarchive, Local Security Authority Server, Local Security Authority Subsystem Service, MPEG-2 Video Extension, Microsoft Account, Microsoft Defender, Microsoft Office, Microsoft Office Excel, Microsoft Office Word, Microsoft QUIC, Microsoft XML, Network Device Enrollment Service, Network File System, Network Policy Server, Office, Office Access, Office Click-To-Run, Office Excel, Office OneNote, Office Outlook, Office PowerPoint, Office SharePoint, Office Visio, Office Word, OneNote, OpenSSH for Windows, Paint, Partner Center, PostScript Printer Driver, Power Apps, PowerPoint, PowerToys, Quality Windows Audio/Video Experience, RPC Endpoint Mapper Service, RPC Runtime, Remote Desktop Client, Remote Desktop Display Driver, Remote Desktop Gateway Service, Remote Desktop Services, Resilient File System, Routing and Remote Access Service, SQLite, Scripting Engine, Servicing Stack Updates, SharePoint, SharePoint Server, Skype for Business, Software Protection Platform, Streaming Service, SysInternals, Sysinternals, Trace Data Helper, Visual Studio Code, Visual Studio Tools for Applications, WebDAV, Windows, Windows AI, Windows Advanced Rasterization Platform, Windows Aggregated Data Platform Service, Windows Ancillary Function Driver for WinSock, Windows AppX Deployment Service, Windows Audio Service, Windows Autopilot, Windows Background Intelligent Transfer Service, Windows Backup Engine, Windows Bind Filter Driver, Windows Biometric Service, Windows BitLocker, Windows Bluetooth Driver, Windows Bluetooth Port Driver, Windows Bluetooth Service, Windows Broadcast DVR User Service, Windows CD-ROM File System Driver, Windows COM+ Event System Service, Windows Camera Frame Server Monitor, Windows Client License Service, Windows Client for NFS, Windows Client-Side Caching, Windows Clipboard User Service, Windows Cloud Files Mini Filter Driver, Windows Codecs Library, Windows Common Log File System Driver, Windows Composite Image File System, Windows Connected Devices Platform Service, Windows Connected User Experiences and Telemetry, Windows Container Isolation FS Filter Driver, Windows Core Messaging, Windows Credential Guard, Windows Credential Manager, Windows Credential Providers, Windows Cryptographic Services, Windows DCOM Server, Windows DHCP Client, Windows DHCP Server, Windows DNS, Windows DNS Server, Windows DWM Core Library, Windows Defender Firewall Service, Windows Deployment Services, Windows Device Association Service, Windows Device Install Service, Windows Diagnostic Policy Service, Windows Direct Composition, Windows Distributed File System, Windows Domain Name Service, Windows Embedded Mode Service, Windows Encrypting File System, Windows Enterprise App Management, Windows Error Reporting, Windows Event Logging Service, Windows Event Tracing, Windows Event Viewer, Windows Failover Cluster, Windows Fast FAT File System Driver, Windows Fax and Scan Service, Windows GDI+, Windows Graphics Kernel, Windows Group Policy, Windows Health and Optimized Experiences Service, Windows Hello, Windows Host Guardian Service, Windows Hyper-V, Windows IKE Extension, Windows IP Over USB Service, Windows Image Acquisition, Windows Imaging Component, Windows Installer, Windows Internal System User Profile, Windows Internet, Windows Internet Key Exchange, Windows Internet Key Exchange Extension, Windows Kernel, Windows Kernel-Mode Driver, Windows Kernel-Mode Drivers, Windows Key Storage Provider, Windows Local Security Authority Subsystem Service, Windows MIDI Service Module, Windows Management Instrumentation, Windows Management Services, Windows Media, Windows Media Foundation, Windows Media Player, Windows Media Video Decoder, Windows Message Queuing, Windows Message Queuing Queue Manager, Windows Modern Device Management, Windows NTFS, Windows Netlogon, Windows Network File System, Windows Network Load Balancing, Windows Now Playing Session Manager, Windows OLE, Windows OLE DB, Windows Overlay Filter, Windows PCI Bus Driver, Windows PDF, Windows Partition Management Driver, Windows Perception Simulation Service, Windows Performance Monitor, Windows Phone Service, Windows Portable Device File System Driver, Windows Portable Device MTP Driver, Windows Print Spooler, Windows Print Spooler Components, Windows Program Compatibility Assistant Service, Windows Projected File System, Windows Push Notifications, Windows Raw Image Extension, Windows Reliable Multicast Transport Driver, Windows Remote Access Connection Manager, Windows Remote Access Service, Windows Remote Desktop, Windows Remote Desktop Gateway, Windows Remote Desktop Protocol, Windows Remote POS Driver, Windows Resilient File System, Windows Resource Management, Windows Resume, Windows Rich Text Edit Control, Windows Routing and Remote Access Service, Windows SMB Client, Windows SMB Server, Windows Schannel, Windows Search, Windows Search Component, Windows Search Service, Windows Secure Kernel Mode, Windows Secure Socket Tunneling Protocol, Windows Security Account Manager, Windows Security App, Windows Security Center, Windows Sensor Data Service, Windows Server, Windows Server DNS Server, Windows Server Update Service, Windows Servicing Stack, Windows Setup Files Cleanup, Windows Shell, Windows Smart Card, Windows SmartScreen, Windows StateRepository API, Windows Storage, Windows Storage Port Driver, Windows Storage Spaces Controller, Windows Storage VSP Driver, Windows Storport Miniport Driver, Windows Sysmain Service, Windows System Information Console, Windows TCP/IP, Windows Telephony Server, Windows Text Services Framework, Windows Text Shaping, Windows UEFI, Windows UI Immersive Server, Windows USB Driver, Windows USB Print Driver, Windows USB Video Driver, Windows Universal Disk Format File System Driver, Windows Universal Plug and Play, Windows Universal Plug and Play Device Host, Windows Update, Windows Update Delivery Optimization, Windows Update Orchestrator Service, Windows Update Service, Windows Update Stack, Windows User Profile Service, Windows Volume Manager Extension Driver, Windows WLAN Service, Windows WalletService, Windows Web Account Manager, Windows Wi-Fi Driver, Windows Win32 Kernel Subsystem, Windows Wired AutoConfig Service, Windows Work Folders, Windows Workstation Service, Windows exFAT File System, Windows iSCSI, XML, libarchive, pbi-cli.
