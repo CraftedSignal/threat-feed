@@ -3,7 +3,7 @@ title: OS Command Injection in Juniper Junos OS Evolved TACACS
 slug: 2026-10-juniper-junos-os-evolved-rce
 description: An OS command injection vulnerability in the TACACS component of Juniper Junos OS Evolved allows authenticated, low-privileged users to achieve root-level code execution.
 date: "2026-10-14T18:33:00Z"
-lastmod: "2026-10-14T18:36:29Z"
+lastmod: "2026-10-14T18:36:39Z"
 type: advisory
 types:
   - advisory
@@ -11,6 +11,10 @@ severities:
   - critical
 cpes:
   - cpe:2.3:o:juniper:junos_os_evolved:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - cve
+  - network-security
 vendors:
   - Juniper Networks
 products:
@@ -34,12 +38,19 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: An authenticated network attacker can exploit this flaw... potentially leading to... arbitrary code execution with root-level privileges.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An unauthenticated attacker on the management LAN can execute commands as root via crafted DHCP response.
+    confidence_band: high
 cves:
   - id: CVE-2026-102031
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102031
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101965
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-101967
 action_plan:
   priority: immediate_escalation
   owners:
@@ -64,6 +75,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101965
+  - at: "2026-10-14T18:36:39Z"
+    level: L2
+    summary: added coverage for Junos OS Evolved
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-101967
 ---
 
 A critical OS command injection vulnerability (CVE-2026-102031) has been identified in the TACACS component of Juniper Networks Junos OS Evolved. This vulnerability allows an attacker who has successfully authenticated via TACACS+ to execute arbitrary operating system commands with root privileges. The exploitation vector is contingent on the device having the periodic TACACS+ authorization-refresh feature enabled. 
