@@ -3,7 +3,7 @@ title: Microsoft Security Updates - October 2026
 slug: 2026-10-microsoft-security-updates
 description: Roundup of Microsoft security advisories published in October 2026.
 date: "2026-10-02T20:23:41Z"
-lastmod: "2026-10-13T23:36:54Z"
+lastmod: "2026-10-14T00:33:14Z"
 type: threat
 types:
   - threat
@@ -134,18 +134,17 @@ cves:
     cvss: 7.7
   - id: CVE-2026-103569
     cvss: 7.5
+  - id: CVE-2026-105728
+    cvss: 7.5
   - id: CVE-2026-108399
     cvss: 7.2
+  - id: CVE-2026-108400
+    cvss: 8.8
+  - id: CVE-2026-96951
+    cvss: 8.8
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-108465
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-102849
 updates:
-  - at: "2026-10-13T22:41:00Z"
-    level: L2
-    summary: added CVE-2026-100200 +1
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-105718
   - at: "2026-10-13T22:41:04Z"
     level: L2
     summary: added CVE-2026-100220 +2
@@ -168,9 +167,16 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-96951
+  - at: "2026-10-14T00:33:14Z"
+    level: L2
+    summary: added CVE-2026-105728 +2
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-102849
 ---
 
-This roundup covers 81 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure CycleCloud, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Defender for Endpoint, Dynamics Business Central, Excel, Exchange Server, Hyper-V, Microsoft QUIC, Network Policy Server, Office Access, Office Outlook, Office Word, OpenSSH for Windows, Partner Center, PostScript Printer Driver, Remote Desktop Client, Resilient File System, Routing and Remote Access Service, Software Protection Platform, Sysinternals, Visual Studio Code, Windows, Windows Autopilot, Windows Backup Engine, Windows Broadcast DVR User Service, Windows Client License Service, Windows Codecs Library, Windows Error Reporting, Windows Failover Cluster, Windows Imaging Component, Windows Media Foundation, Windows Media Video Decoder, Windows Message Queuing, Windows Message Queuing Queue Manager, Windows Modern Device Management, Windows Network Load Balancing, Windows PDF, Windows Partition Management Driver, Windows Rich Text Edit Control, Windows Routing and Remote Access Service, Windows Schannel, Windows Search Component, Windows Server, Windows Shell, Windows SmartScreen, Windows System Information Console, Windows Text Shaping, Windows Update Delivery Optimization, Windows Update Service, Windows Volume Manager Extension Driver, Windows iSCSI, XML, pbi-cli.
+This roundup covers 82 Microsoft security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect ASP.NET Core, Azure API Center, Azure App Service, Azure CycleCloud, Azure Event Grid, Azure SRE Agent, Bookings, CCFFilter Driver, Dataverse, Defender for Endpoint, Dynamics Business Central, Excel, Exchange Server, Hyper-V, Microsoft QUIC, Network Policy Server, Office Access, Office Outlook, Office Word, OpenSSH for Windows, Partner Center, PostScript Printer Driver, Remote Desktop Client, Resilient File System, Routing and Remote Access Service, Software Protection Platform, Sysinternals, Visual Studio Code, Windows, Windows Autopilot, Windows Backup Engine, Windows Broadcast DVR User Service, Windows Client License Service, Windows Codecs Library, Windows Error Reporting, Windows Failover Cluster, Windows Imaging Component, Windows Media Foundation, Windows Media Video Decoder, Windows Message Queuing, Windows Message Queuing Queue Manager, Windows Modern Device Management, Windows Network Load Balancing, Windows PDF, Windows Partition Management Driver, Windows Rich Text Edit Control, Windows Routing and Remote Access Service, Windows Schannel, Windows Search Component, Windows Server, Windows Shell, Windows SmartScreen, Windows System Information Console, Windows Text Shaping, Windows Update Delivery Optimization, Windows Update Service, Windows Volume Manager Extension Driver, Windows iSCSI, XML, pbi-cli.
 
 ## Summary
 
@@ -187,7 +193,7 @@ This roundup covers 81 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-108744](#cve-2026-108744) | pbi-cli (3.10.1 through 3.12.0) | High | 7.0 | 0.55% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108744) (authoritative) |
 | [CVE-2026-100202](#cve-2026-100202) | Windows Message Queuing Queue Manager | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100202) (authoritative) |
 | [CVE-2026-100219](#cve-2026-100219) | Microsoft QUIC | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100219) (authoritative) |
-| [CVE-2026-100222](#cve-2026-100222) | Network Policy Server |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100222) (authoritative) |
+| [CVE-2026-100222](#cve-2026-100222) | Network Policy Server | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100222) (authoritative) |
 | [CVE-2026-102210](#cve-2026-102210) | Windows Text Shaping | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-102210) (authoritative) |
 | [CVE-2026-105010](#cve-2026-105010) | Windows Search Component | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105010) (authoritative) |
 | [CVE-2026-105016](#cve-2026-105016) | Microsoft QUIC | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105016) (authoritative) |
@@ -257,6 +263,7 @@ This roundup covers 81 Microsoft security vulnerabilities. CVSS base scores rang
 | [CVE-2026-108463](#cve-2026-108463) | Windows SmartScreen |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108463) (authoritative) |
 | [CVE-2026-108464](#cve-2026-108464) | Software Protection Platform |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108464) (authoritative) |
 | [CVE-2026-108465](#cve-2026-108465) | Windows Update Delivery Optimization |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-108465) (authoritative) |
+| [CVE-2026-96951](#cve-2026-96951) | Windows |  |  |  | no | [source](https://www.cve.org/CVERecord?id=CVE-2026-96951) (authoritative) |
 
 
 ## CVE-2026-96940
@@ -424,6 +431,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100219
 
 
 
+
 Related in this roundup: [CVE-2026-105016](#cve-2026-105016), [CVE-2026-103577](#cve-2026-103577).
 
 ## CVE-2026-100222
@@ -434,6 +442,7 @@ Affected products:
 - Network Policy Server
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100222
+
 
 
 
@@ -510,6 +519,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105010
 
 
 
+
 Related in this roundup: [CVE-2026-108136](#cve-2026-108136).
 
 ## CVE-2026-105016
@@ -520,6 +530,7 @@ Affected products:
 - Microsoft QUIC
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105016
+
 
 
 
@@ -670,7 +681,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69705
 
 
 
-Related in this roundup: [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132).
+
+Related in this roundup: [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132), [CVE-2026-96951](#cve-2026-96951).
 
 ## CVE-2026-69883
 
@@ -744,7 +756,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-69883
 
 
 
-Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132).
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132), [CVE-2026-96951](#cve-2026-96951).
 
 ## CVE-2026-69886
 
@@ -772,6 +785,7 @@ Affected products:
 - PostScript Printer Driver
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70147
+
 
 
 
@@ -902,6 +916,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70153
 
 
 
+
 Related in this roundup: [CVE-2026-70147](#cve-2026-70147).
 
 ## CVE-2026-70157
@@ -921,6 +936,7 @@ Affected products:
 - ASP.NET Core
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-70188
+
 
 
 
@@ -1025,6 +1041,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83517
 
 
 
+
 Related in this roundup: [CVE-2026-85814](#cve-2026-85814).
 
 ## CVE-2026-83519
@@ -1035,6 +1052,7 @@ Affected products:
 - Windows Error Reporting
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83519
+
 
 
 
@@ -1153,6 +1171,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83693
 
 
 
+
 Related in this roundup: [CVE-2026-83519](#cve-2026-83519), [CVE-2026-83748](#cve-2026-83748), [CVE-2026-97815](#cve-2026-97815).
 
 ## CVE-2026-83748
@@ -1163,6 +1182,7 @@ Affected products:
 - Windows Error Reporting
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83748
+
 
 
 
@@ -1278,7 +1298,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83770
 
 
 
-Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132).
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132), [CVE-2026-96951](#cve-2026-96951).
 
 ## CVE-2026-83780
 
@@ -1379,6 +1400,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85806
 
 
 
+
 Related in this roundup: [CVE-2026-100222](#cve-2026-100222).
 
 ## CVE-2026-85809
@@ -1398,6 +1420,7 @@ Affected products:
 - Windows Media Foundation
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-85814
+
 
 
 
@@ -1511,6 +1534,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88092
 
 
 
+
 Related in this roundup: [CVE-2026-70188](#cve-2026-70188).
 
 ## CVE-2026-88102
@@ -1530,6 +1554,7 @@ Affected products:
 - Office Outlook
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-88156
+
 
 
 
@@ -1623,6 +1648,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-97016
 
 
 
+
 Related in this roundup: [CVE-2026-88156](#cve-2026-88156).
 
 ## CVE-2026-97805
@@ -1677,7 +1703,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-97814
 
 
 
-Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132).
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132), [CVE-2026-96951](#cve-2026-96951).
 
 ## CVE-2026-97815
 
@@ -1687,6 +1714,7 @@ Affected products:
 - Windows Error Reporting
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-97815
+
 
 
 
@@ -1763,6 +1791,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102238
 
 
 
+
 Related in this roundup: [CVE-2026-102231](#cve-2026-102231), [CVE-2026-102233](#cve-2026-102233).
 
 ## CVE-2026-100200
@@ -1773,6 +1802,7 @@ Affected products:
 - Windows Update Service
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100200
+
 
 
 
@@ -1821,6 +1851,7 @@ Affected products:
 - Windows Update Service
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100203
+
 
 
 
@@ -1928,6 +1959,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102231
 
 
 
+
 Related in this roundup: [CVE-2026-102238](#cve-2026-102238), [CVE-2026-102233](#cve-2026-102233).
 
 ## CVE-2026-102233
@@ -1938,6 +1970,7 @@ Affected products:
 - Visual Studio Code
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-102233
+
 
 
 
@@ -1991,7 +2024,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103569
 
 
 
-Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132).
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132), [CVE-2026-96951](#cve-2026-96951).
 
 ## CVE-2026-103577
 
@@ -2001,6 +2035,7 @@ Affected products:
 - Microsoft QUIC
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103577
+
 
 
 
@@ -2074,7 +2109,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-108130
 
 
 
-Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108132](#cve-2026-108132).
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108132](#cve-2026-108132), [CVE-2026-96951](#cve-2026-96951).
 
 ## CVE-2026-108132
 
@@ -2099,7 +2135,8 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-108132
 
 
 
-Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130).
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-96951](#cve-2026-96951).
 
 ## CVE-2026-108133
 
@@ -2109,6 +2146,7 @@ Affected products:
 - Windows Modern Device Management
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-108133
+
 
 
 
@@ -2158,6 +2196,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-108136
 
 
 
+
 Related in this roundup: [CVE-2026-105010](#cve-2026-105010).
 
 ## CVE-2026-108396
@@ -2168,6 +2207,7 @@ Affected products:
 - Windows Modern Device Management
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-108396
+
 
 
 
@@ -2260,3 +2300,14 @@ Affected products:
 - Windows Update Delivery Optimization
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-108465
+
+## CVE-2026-96951
+
+Microsoft Windows Shell contains a command injection vulnerability that permits an unauthorized attacker to bypass security features over a network. This flaw is actively being exploited, requiring immediate mitigation in accordance with CISA BOD 26-04.
+
+Affected products:
+- Windows
+
+Source: https://www.cve.org/CVERecord?id=CVE-2026-96951
+
+Related in this roundup: [CVE-2026-69705](#cve-2026-69705), [CVE-2026-69883](#cve-2026-69883), [CVE-2026-83770](#cve-2026-83770), [CVE-2026-97814](#cve-2026-97814), [CVE-2026-103569](#cve-2026-103569), [CVE-2026-108130](#cve-2026-108130), [CVE-2026-108132](#cve-2026-108132).
