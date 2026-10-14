@@ -3,6 +3,7 @@ title: Remote Code Execution in Omnispace Agora Project via CVE-2026-63146
 slug: 2026-10-omnispace-agora-rce
 description: Omnispace Agora Project versions prior to 26.10.0 are vulnerable to unauthenticated remote code execution due to chained SQL injection and configuration file injection.
 date: "2026-10-13T20:43:51Z"
+lastmod: "2026-10-14T04:41:41Z"
 type: advisory
 types:
   - advisory
@@ -33,6 +34,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63146
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63152
 action_plan:
   priority: immediate_escalation
   owners:
@@ -49,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-63146
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-14T04:41:41Z"
+    level: L2
+    summary: added coverage for Agora Project (< 26.10.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-63152
 ---
 
 Omnispace Agora Project versions before 26.10.0 contain a critical code injection vulnerability (CVE-2026-63146) that allows unauthenticated remote code execution (RCE). The vulnerability stems from improper sanitization during the application installation process within the File::updateConfigFile() and DbInstall::dbControl() functions. Attackers can leverage an underlying SQL injection vulnerability enabled by PDO::ATTR_EMULATE_PREPARES, which supports stacked queries. By executing stacked SQL queries, an attacker can trigger the re-installation workflow of the application and inject arbitrary PHP code directly into the config.inc.php configuration file. This vulnerability is particularly dangerous as it provides a pathway for an unauthenticated user to achieve full control over the application and the underlying server environment.
