@@ -3,6 +3,7 @@ title: Authentication Bypass in Dockhand via Static Extension Path Traversal
 slug: 2026-10-dockhand-auth-bypass
 description: Dockhand versions prior to 1.0.45 allow unauthenticated remote attackers to perform full account takeover by exploiting an authentication bypass flaw in the global hook that incorrectly permits requests ending in static extensions.
 date: "2026-10-13T20:38:38Z"
+lastmod: "2026-10-14T04:36:26Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +16,14 @@ tags:
   - api-vulnerability
   - account-takeover
   - cve-2026-110130
+  - privilege-escalation
+  - cloud
+  - oidc
 vendors:
   - Dockhand
 products:
   - Dockhand (< 1.0.45)
+  - Dockhand (< 1.0.50)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -26,11 +31,18 @@ mitre_ttps:
     technique_name: Use Alternate Authentication Material
     evidence: Unauthenticated remote attackers can send a PUT request to /api/users/<id>.js to reset the admin's or any user's password and take over the account.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: An attacker with admin rights in another tenant of a shared provider like Microsoft Entra ID can recreate the mapped admin group and log in as Dockhand administrators.
+    confidence_band: high
 cves:
   - id: CVE-2026-110130
     cvss: 10
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110130
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-110112
 rules:
   - title: Detect CVE-2026-110130 Exploitation - Unauthorized PUT Request to User API
     description: Detects exploitation of CVE-2026-110130 by identifying unauthenticated PUT requests to the user API that use a .js extension to bypass authentication
@@ -68,6 +80,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-110130
       evidence: Patch available in 1.0.45
+updates:
+  - at: "2026-10-14T04:36:26Z"
+    level: L2
+    summary: added coverage for Dockhand (< 1.0.50)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-110112
 ---
 
 Dockhand versions prior to 1.0.45 are affected by a critical authentication bypass vulnerability (CVE-2026-110130) located in the global authentication hook mechanism. The vulnerability stems from an insecure implementation where the application skips authentication checks for any HTTP request path ending in a static-asset extension, such as .js. 
