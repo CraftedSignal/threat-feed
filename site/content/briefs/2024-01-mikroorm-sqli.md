@@ -3,11 +3,17 @@ title: MikroORM SQL Injection Vulnerability
 slug: 2024-01-mikroorm-sqli
 description: MikroORM versions 6.6.9 and 7.0.5 are vulnerable to SQL injection when specially crafted objects are interpreted as raw SQL query fragments, potentially allowing attackers to execute arbitrary SQL commands.
 date: "2024-01-30T12:00:00Z"
+lastmod: "2026-10-14T14:48:25Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:mikro-orm:mikroorm:*:*:*:*:*:node.js:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YYM8538-CVE-2026-34220&utm_source=rss&utm_medium=rss
 tags:
   - mikroorm
   - sqli
@@ -15,15 +21,18 @@ tags:
   - cve-2026-34220
 vendors:
   - MikroORM
-products:
-  - MikroORM
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-34220
+    cvss: 9.8
+    epss: 0.00468
 references:
   - https://github.com/advisories/GHSA-gwhv-j974-6fxm
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YYM8538-CVE-2026-34220&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect MikroORM SQL Injection Attempt via Native Query
     description: Detects potential SQL injection attempts in MikroORM applications by monitoring for suspicious keywords in native query parameters.
@@ -48,6 +57,14 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-10-14T14:48:25Z"
+    level: L2
+    summary: poc_available; added CVE-2026-34220
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YYM8538-CVE-2026-34220&utm_source=rss&utm_medium=rss
 ---
 
 MikroORM, a TypeScript ORM for Node.js, is susceptible to SQL injection attacks in versions 6.6.9 and earlier, and 7.0.5 and earlier. This vulnerability, identified as CVE-2026-34220, stems from insufficient validation of user-supplied input when constructing database queries. Specifically, specially crafted objects can be misinterpreted as raw SQL fragments, leading to unintended code execution. The attack surface lies in ORM write APIs, particularly those that directly process user-provided data without proper sanitization. Defenders should prioritize patching or implementing input validation to mitigate this risk. This vulnerability can lead to data breaches, unauthorized data modification, or complete database compromise.
