@@ -3,7 +3,7 @@ title: Microsoft October 2026 Monthly Security Updates
 slug: 2026-10-microsoft-october-2026-rollup
 description: Microsoft's October 2026 security rollup addresses multiple vulnerabilities across its product ecosystem, including CVE-2026-96951 which is confirmed as actively exploited in the wild.
 date: "2026-10-13T23:44:18Z"
-lastmod: "2026-10-14T03:24:16Z"
+lastmod: "2026-10-14T03:24:23Z"
 type: threat
 types:
   - threat
@@ -47,6 +47,8 @@ cves:
     cvss: 5.3
   - id: CVE-2026-96229
     cvss: 6.5
+  - id: CVE-2026-96238
+    cvss: 6.5
 references:
   - https://msrc.microsoft.com/update-guide/releaseNote/2026-Oct
   - https://www.cisa.gov/known-exploited-vulnerabilities-catalog?field_cve=CVE-2026-96951
@@ -55,6 +57,7 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-84008
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96229
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96234
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96238
 action_plan:
   priority: immediate_escalation
   owners:
@@ -93,6 +96,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96234
+  - at: "2026-10-14T03:24:23Z"
+    level: L2
+    summary: added CVE-2026-96238
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96238
 ---
 
 Microsoft's October 2026 security release includes patches for a comprehensive list of products, ranging from core Windows OS components and .NET frameworks to enterprise applications like Exchange Server, SharePoint, and SQL Server. This monthly rollup is particularly urgent due to the disclosure of active, in-the-wild exploitation of CVE-2026-96951. The Cybersecurity and Infrastructure Security Agency (CISA) has formally added CVE-2026-96951 to its Known Exploited Vulnerabilities (KEV) catalog, underscoring the necessity for immediate patch deployment. Organizations should prioritize updating internet-facing infrastructure and critical server assets that fall within the scope of the affected product list, which includes various versions of Windows Server, Microsoft Office, and Azure-integrated services.
