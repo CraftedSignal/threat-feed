@@ -3,7 +3,7 @@ title: Remote Code Execution in Omnispace Agora Project via CVE-2026-63146
 slug: 2026-10-omnispace-agora-rce
 description: Omnispace Agora Project versions prior to 26.10.0 are vulnerable to unauthenticated remote code execution due to chained SQL injection and configuration file injection.
 date: "2026-10-13T20:43:51Z"
-lastmod: "2026-10-14T04:41:47Z"
+lastmod: "2026-10-14T04:42:00Z"
 type: advisory
 types:
   - advisory
@@ -19,6 +19,9 @@ tags:
   - privilege-escalation
   - vulnerability
   - cloud
+  - session-fixation
+  - web-application
+  - authentication-bypass
 vendors:
   - Omnispace
 products:
@@ -42,10 +45,17 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: Omnispace Agora Project before 26.10.0 contains a broken access control vulnerability in setAffectations() that allows authenticated attackers to insert access-right records for a caller-supplied target space without verifying the caller has rights to that space.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1563
+    technique_name: Remote Service Session Hijacking
+    evidence: Omnispace Agora Project before 26.10.0 contains a session fixation vulnerability that allows remote attackers to hijack authenticated sessions.
+    confidence_band: high
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63146
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63152
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63153
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-63161
 action_plan:
   priority: immediate_escalation
   owners:
@@ -77,6 +87,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-63153
+  - at: "2026-10-14T04:42:00Z"
+    level: L2
+    summary: added coverage for Agora Project (< 26.10.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-63161
 ---
 
 Omnispace Agora Project versions before 26.10.0 contain a critical code injection vulnerability (CVE-2026-63146) that allows unauthenticated remote code execution (RCE). The vulnerability stems from improper sanitization during the application installation process within the File::updateConfigFile() and DbInstall::dbControl() functions. Attackers can leverage an underlying SQL injection vulnerability enabled by PDO::ATTR_EMULATE_PREPARES, which supports stacked queries. By executing stacked SQL queries, an attacker can trigger the re-installation workflow of the application and inject arbitrary PHP code directly into the config.inc.php configuration file. This vulnerability is particularly dangerous as it provides a pathway for an unauthenticated user to achieve full control over the application and the underlying server environment.
