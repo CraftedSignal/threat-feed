@@ -3,7 +3,7 @@ title: OS Command Injection in Juniper Junos OS Evolved TACACS
 slug: 2026-10-juniper-junos-os-evolved-rce
 description: An OS command injection vulnerability in the TACACS component of Juniper Junos OS Evolved allows authenticated, low-privileged users to achieve root-level code execution.
 date: "2026-10-14T18:33:00Z"
-lastmod: "2026-10-14T18:37:04Z"
+lastmod: "2026-10-14T18:40:30Z"
 type: advisory
 types:
   - advisory
@@ -58,6 +58,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101965
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101967
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102012
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102068
 action_plan:
   priority: immediate_escalation
   owners:
@@ -96,6 +97,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-102012
+  - at: "2026-10-14T18:40:30Z"
+    level: L1
+    summary: added coverage for Junos OS Evolved
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-102068
 ---
 
 A critical OS command injection vulnerability (CVE-2026-102031) has been identified in the TACACS component of Juniper Networks Junos OS Evolved. This vulnerability allows an attacker who has successfully authenticated via TACACS+ to execute arbitrary operating system commands with root privileges. The exploitation vector is contingent on the device having the periodic TACACS+ authorization-refresh feature enabled. 
