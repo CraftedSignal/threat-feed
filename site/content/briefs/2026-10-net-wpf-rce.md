@@ -3,6 +3,7 @@ title: Microsoft .NET WPF Pixel-Shader Heap Corruption
 slug: 2026-10-net-wpf-rce
 description: A heap out-of-bounds vulnerability in the .NET WPF runtime allows attackers to achieve remote code execution through crafted pixel-shader bytecode.
 date: "2026-10-14T00:31:06Z"
+lastmod: "2026-10-14T01:48:51Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +21,7 @@ vendors:
   - Microsoft
 products:
   - Microsoft.WindowsDesktop.App.Runtime (8.0.0-8.0.31, 9.0.0-9.0.20, 10.0.0-10.0.12, 11.0.0-preview.1-11.0.0-rc.1)
+  - .NET
 affected_os:
   - Windows
 mitre_ttps:
@@ -36,6 +38,7 @@ references:
   - https://github.com/advisories/GHSA-xq57-crx4-g373
   - https://www.cve.org/CVERecord?id=CVE-2026-96224
   - https://github.com/dotnet/announcements/issues/475
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96224
 action_plan:
   priority: immediate_escalation
   owners:
@@ -56,6 +59,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-96224
       evidence: Microsoft Security Advisory
+updates:
+  - at: "2026-10-14T01:48:51Z"
+    level: L1
+    summary: new product
+    sources:
+      - msrc
+    source_urls:
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-96224
 ---
 
 Microsoft has disclosed a critical security vulnerability, CVE-2026-96224, affecting the Windows Presentation Foundation (WPF) component within the .NET runtime. The vulnerability exists within the `CPSTrans::Initialize` function, where crafted pixel-shader bytecode can induce a desynchronization between two parsing passes. This flaw results in heap out-of-bounds read or write operations, which can be leveraged by a remote attacker to achieve arbitrary code execution on systems running vulnerable .NET applications. The issue impacts multiple versions of the .NET runtime, including .NET 8.0, 9.0, 10.0, and early versions of 11.0. Organizations are advised to update their .NET SDKs and runtime environments immediately. Furthermore, developers must recompile and redeploy self-contained applications that bundle the affected WPF components to ensure full remediation.
