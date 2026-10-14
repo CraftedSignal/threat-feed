@@ -1,55 +1,62 @@
 ---
-title: Authentication Bypass in NGINX Ingress Controller
+title: Authentication Bypass in F5 NGINX Kubernetes Ingress Controller
 slug: 2026-10-nginx-ingress-auth-bypass
-description: NGINX Ingress Controller improperly processes OAuth identity provider responses, potentially allowing unauthenticated attackers to access protected paths via a data plane bypass.
-date: "2026-10-14T16:36:21Z"
+description: An authentication and authorization bypass in F5 NGINX Kubernetes Ingress Controller (NIC) allows remote attackers to spoof request attributes and access protected paths by manipulating unsanitized X-Forwarded-* headers.
+date: "2026-10-14T16:38:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
 cpes:
-  - cpe:2.3:a:f5:nginx_ingress_controller:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:f5:nginx_kubernetes_ingress_controller:*:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - ingress
+  - kubernetes
 vendors:
   - F5
 products:
-  - NGINX Ingress Controller
+  - NGINX Kubernetes Ingress Controller
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
-    evidence: NGINX Ingress Controller may mishandle the HTTP response from an OAuth IdP and allow an attacker to acquire unauthenticated access to protected paths.
+    evidence: An authentication and authorization bypass vulnerability exists in F5 NGINX Kubernetes Ingress Controller (NIC) when configured with the ExternalAuth policy.
     confidence_band: high
 cves:
-  - id: CVE-2026-104939
+  - id: CVE-2026-94197
     cvss: 7.5
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-104939
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-94197
 action_plan:
   priority: elevated
   owners:
-    - SOC
-    - Detection Engineering
+    - IT Operations
+    - Security Engineering
   immediate_actions:
-    - action: Review ingress configurations for externalAuth policy usage and identify affected ingress resources.
-      owner: SOC
+    - action: Upgrade NGINX Kubernetes Ingress Controller to the vendor-recommended fixed version.
+      owner: IT Operations
       due: 48h
-      evidence: Source states vulnerability exists when implementing an externalAuth policy.
+      evidence: CVE-2026-94197 vulnerability requires patching.
   mitigation_plan:
     - priority: immediate
-      action: Monitor vendor security advisories and patch NGINX Ingress Controller once the vendor-supplied fix is released.
-      owner: IT Operations
-      addresses: CVE-2026-104939
-      evidence: NVD vulnerability disclosure.
+      action: Review and restrict access to backend paths relying solely on ExternalAuth if immediate patching is not possible.
+      owner: Security Engineering
+      addresses: CVE-2026-94197
+      evidence: NVD vulnerability details regarding authentication bypass.
 ---
 
-The NGINX Ingress Controller contains a vulnerability in its handling of the externalAuth policy, specifically regarding the processing of HTTP responses from OAuth identity providers (IdPs). When configured to use external authentication, the controller may mishandle certain IdP responses, creating a race condition or logic flaw that permits requests to reach protected upstream services before the authentication handshake is successfully completed. This vulnerability is restricted to the data plane and does not expose the Kubernetes control plane. It represents a significant risk for organizations relying on the Ingress Controller to enforce perimeter authentication for internal applications and services.
+F5 NGINX Kubernetes Ingress Controller (NIC) is vulnerable to an authentication and authorization bypass when configured with the ExternalAuth policy or Ingress external authentication. The vulnerability stems from the improper sanitization of client-supplied HTTP headers, specifically X-Forwarded-Prefix, X-Forwarded-URI, X-Original-URI, and X-Forwarded-Method. These headers are forwarded into the internal authentication subrequest handled by the NGINX auth_request directive. Because the ingress controller trusts these headers without sanitization, a remote, unauthenticated attacker can manipulate them to spoof request attributes evaluated by the external authentication provider. This flaw resides strictly in the data plane and does not expose the control plane, yet it permits unauthorized access to sensitive backend resources protected by the ingress controller.
 
 ## Impact
 
-Successful exploitation allows remote, unauthenticated attackers to bypass configured authentication barriers and gain direct access to protected paths. This could lead to unauthorized data access, service disruption, or further exploitation of downstream application vulnerabilities that assumed successful authentication at the ingress layer. The impact is categorized as a high-severity data plane issue.
+The vulnerability allows unauthenticated remote attackers to bypass security constraints and gain access to protected paths managed by the affected Kubernetes Ingress Controller. This constitutes a significant security risk for organizations relying on NIC for traffic management and path-level access control, potentially leading to unauthorized data exposure or interaction with internal microservices that assume authentication has been successfully validated at the ingress layer.
 
 ## Recommendation
 
-Prioritize the identification of all deployments utilizing the externalAuth feature within NGINX Ingress Controller. Audit ingress logs for unusual HTTP response patterns associated with OAuth callback endpoints. Apply security patches provided by F5 for CVE-2026-104939 as soon as they become available for your specific controller version.
+1. Inventory all ingress controller deployments to determine if the ExternalAuth policy or Ingress external authentication is active.
+2. Monitor ingress traffic for anomalous HTTP headers, particularly where X-Forwarded-* headers contain unexpected characters or values inconsistent with the request path.
+3. Consult the F5 security advisory to identify patched versions of NGINX Kubernetes Ingress Controller and perform upgrades in all affected clusters.
+4. Implement strict header validation at the application level or via service mesh sidecars as a compensating control while the ingress controller is being patched.
