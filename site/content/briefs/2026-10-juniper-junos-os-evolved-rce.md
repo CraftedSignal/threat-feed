@@ -3,7 +3,7 @@ title: OS Command Injection in Juniper Junos OS Evolved TACACS
 slug: 2026-10-juniper-junos-os-evolved-rce
 description: An OS command injection vulnerability in the TACACS component of Juniper Junos OS Evolved allows authenticated, low-privileged users to achieve root-level code execution.
 date: "2026-10-14T18:33:00Z"
-lastmod: "2026-10-14T18:36:39Z"
+lastmod: "2026-10-14T18:37:04Z"
 type: advisory
 types:
   - advisory
@@ -44,6 +44,12 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An unauthenticated attacker on the management LAN can execute commands as root via crafted DHCP response.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: A Reachable Assertion vulnerability in the na-grpcd process of Juniper Networks Junos OS Evolved allows a remote unauthenticated attacker to cause a denial of service.
+    confidence_band: high
 cves:
   - id: CVE-2026-102031
     cvss: 9.8
@@ -51,6 +57,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102031
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101965
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101967
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102012
 action_plan:
   priority: immediate_escalation
   owners:
@@ -82,6 +89,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-101967
+  - at: "2026-10-14T18:37:04Z"
+    level: L1
+    summary: added coverage for Junos OS Evolved
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-102012
 ---
 
 A critical OS command injection vulnerability (CVE-2026-102031) has been identified in the TACACS component of Juniper Networks Junos OS Evolved. This vulnerability allows an attacker who has successfully authenticated via TACACS+ to execute arbitrary operating system commands with root privileges. The exploitation vector is contingent on the device having the periodic TACACS+ authorization-refresh feature enabled. 
