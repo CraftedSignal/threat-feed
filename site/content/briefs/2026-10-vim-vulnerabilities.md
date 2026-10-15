@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Vim Text Editor Leading to Arbitrary Code Exe
 slug: 2026-10-vim-vulnerabilities
 description: Multiple vulnerabilities in the Vim text editor allow an unauthenticated attacker to achieve arbitrary code execution with the privileges of the user running the application.
 date: "2026-10-13T12:31:34Z"
+lastmod: "2026-10-15T21:37:56Z"
 type: advisory
 types:
   - advisory
@@ -16,6 +17,7 @@ vendors:
   - Vim
 products:
   - Vim
+  - Vim (< 9.2.1201)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -25,6 +27,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3876
+  - https://seclists.org/oss-sec/2026/q4/169
 action_plan:
   priority: elevated
   owners:
@@ -50,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: Multiple vulnerabilities in Vim.
       evidence: BSI security advisory.
+updates:
+  - at: "2026-10-15T21:37:56Z"
+    level: L2
+    summary: vim version < 9.2.1201
+    sources:
+      - oss-security
+    source_urls:
+      - https://seclists.org/oss-sec/2026/q4/169
 ---
 
 The BSI has reported multiple vulnerabilities within the Vim text editor that may allow a remote or local attacker to execute arbitrary code with the privileges of the user running the application. These vulnerabilities typically arise from flaws in how the editor processes untrusted input, such as malicious modelines or specially crafted file content. Successful exploitation permits the execution of arbitrary commands, which could lead to unauthorized data access, system modification, or further compromise of the host environment. Defenders should monitor for unexpected child processes spawned by text editing sessions and ensure that Vim instances are kept up to date with the latest vendor-provided security patches to mitigate exposure.
