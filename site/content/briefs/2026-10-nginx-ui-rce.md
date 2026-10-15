@@ -3,7 +3,7 @@ title: Authenticated Remote Code Execution in Nginx-UI via Backup Restoration
 slug: 2026-10-nginx-ui-rce
 description: An authenticated user can achieve remote code execution in Nginx-UI by uploading a maliciously crafted backup file that overwrites application configuration settings.
 date: "2026-10-09T21:23:28Z"
-lastmod: "2026-10-15T22:25:00Z"
+lastmod: "2026-10-15T22:26:59Z"
 type: threat
 types:
   - threat
@@ -23,6 +23,9 @@ tags:
   - cve-2026-107809
   - sso
   - cve-2026-84312
+  - persistence
+  - privilege-escalation
+  - web-security
 vendors:
   - Nginx-UI
   - Nginx UI
@@ -50,6 +53,12 @@ mitre_ttps:
     technique_name: Drive-by Compromise
     evidence: An attacker can exploit this by forcing a victim to authenticate with the attacker's Casdoor credentials.
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1556
+    technique_name: Modify Authentication Process
+    evidence: An attacker can attach their own second factor to the victim's account, surviving any subsequent password rotation and locking the legitimate user out.
+    confidence_band: high
 cves:
   - id: CVE-2026-107806
 references:
@@ -62,6 +71,8 @@ references:
   - https://github.com/advisories/GHSA-44xr-mrhh-qm78
   - https://github.com/0xJacky/nginx-ui/blob/dev/api/user/casdoor.go
   - https://github.com/0xJacky/nginx-ui/blob/dev/api/user/oidc.go
+  - https://github.com/advisories/GHSA-gfrc-g87h-7h5w
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84313
 rules:
   - title: Detect Nginx-UI Backup Restoration Attempt
     description: Detects exploitation of CVE-2026-107806 via POST requests to the /api/restore endpoint.
@@ -120,6 +131,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-44xr-mrhh-qm78
+  - at: "2026-10-15T22:26:59Z"
+    level: L2
+    summary: added coverage for Nginx UI (< 1.9.10-0.20260703131214-23d1934099b0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gfrc-g87h-7h5w
 ---
 
 Nginx-UI is susceptible to a critical authenticated remote code execution (RCE) vulnerability, tracked as CVE-2026-107806. The issue resides in the backup restoration feature, specifically within the `POST /api/restore` endpoint. An authenticated user can bypass configuration security constraints by providing a forged backup file. The application fails to strictly validate the contents of the restored backup, allowing an attacker to modify `app.ini`. By injecting arbitrary commands into the `TestConfigCmd` field within this configuration file, an attacker can trigger command execution via the `POST /api/nginx/test` endpoint. This vulnerability allows an attacker to achieve full control over the runtime environment of the Nginx-UI service, potentially leading to unauthorized data access and persistence within the underlying system. This was identified in Nginx-UI versions between 1.9.10-0.20260421071512-7864e378f5cf and 1.9.10-0.20260728074146-a467ed652591.
