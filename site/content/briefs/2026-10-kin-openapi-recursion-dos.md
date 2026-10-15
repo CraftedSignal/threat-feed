@@ -3,7 +3,7 @@ title: Uncontrolled Recursion DoS in kin-openapi
 slug: 2026-10-kin-openapi-recursion-dos
 description: The kin-openapi library lacks cycle detection during runtime schema validation, allowing attackers to trigger an unrecoverable Go runtime stack overflow that terminates the entire host process.
 date: "2026-10-15T22:23:51Z"
-lastmod: "2026-10-15T22:23:59Z"
+lastmod: "2026-10-15T22:24:07Z"
 type: threat
 types:
   - threat
@@ -17,6 +17,9 @@ tags:
   - vulnerability
   - openapi
   - go
+  - authentication-bypass
+  - path-confusion
+  - web-application-vulnerability
 vendors:
   - getkin
   - santhosh-tekuri
@@ -24,6 +27,7 @@ products:
   - kin-openapi (< 0.149.0)
   - kin-openapi (< 0.148.0)
   - jsonschema (v6.0.2)
+  - kin-openapi (>= 0.144.0, < 0.147.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -37,11 +41,19 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: An unauthenticated attacker can trigger this via a malicious HTTP request, resulting in a denial-of-service condition that may crash the entire application process.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: The vulnerability allows an unauthenticated attacker to bypass security requirements by manipulating request paths, effectively reaching protected operations without valid authentication.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-g8cf-rcjf-c8cf
   - https://github.com/getkin/kin-openapi/pull/1123
   - https://github.com/advisories/GHSA-rj39-cv6w-8wv7
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100352
+  - https://github.com/advisories/GHSA-23vg-4cjm-66q5
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100351
 updates:
   - at: "2026-10-15T22:23:59Z"
     level: L1
@@ -50,6 +62,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-rj39-cv6w-8wv7
+  - at: "2026-10-15T22:24:07Z"
+    level: L2
+    summary: added coverage for kin-openapi (>= 0.144.0, < 0.147.0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-23vg-4cjm-66q5
 ---
 
 The kin-openapi library (versions prior to 0.149.0) contains a critical flaw in its runtime schema validation logic. While the library's spec-loader and `Schema.validate()` method implement cycle detection to handle circular references in OpenAPI schemas, the runtime validators `VisitJSON` (used for response validation) and `decodeValue` (used for request parameter decoding) lack these protections.
