@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in OpenSSH Including Remote Code Execution
 slug: 2026-08-openssh-vulnerabilities
 description: OpenSSH is susceptible to multiple security flaws, most notably a signal handler race condition in the sshd server known as regreSSHion, which can enable remote code execution with root privileges.
 date: "2026-08-11T11:59:34Z"
+lastmod: "2026-10-15T17:03:19Z"
 type: advisory
 types:
   - advisory
@@ -29,14 +30,19 @@ cpes:
   - cpe:2.3:o:netapp:c400_firmware:-:*:*:*:*:*:*:*
   - cpe:2.3:o:netapp:a250_firmware:-:*:*:*:*:*:*:*
   - cpe:2.3:o:netapp:500f_firmware:-:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIMAMEND-CVE-2024-6387-POC&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - openssh
   - rce
 vendors:
   - OpenSSH
+  - SonicWall
 products:
   - OpenSSH
+  - SMA 6200
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -51,6 +57,7 @@ cves:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2747
   - https://nvd.nist.gov/vuln/detail/CVE-2024-6387
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIMAMEND-CVE-2024-6387-POC&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -67,6 +74,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2024-6387
       evidence: Mitigation of remote exploitation vector.
+updates:
+  - at: "2026-10-15T17:03:19Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DIMAMEND-CVE-2024-6387-POC&utm_source=rss&utm_medium=rss
 ---
 
 OpenSSH has been identified as vulnerable to multiple security flaws that impact its core functionality, potentially allowing unauthorized actors to perform remote code execution (RCE), denial of service (DoS), or security control bypasses. The most critical issue is a signal handler race condition within the sshd server, commonly tracked as regreSSHion (CVE-2024-6387). This vulnerability arises due to the improper handling of signals within the sshd process, which an attacker can trigger remotely to gain unauthorized execution privileges as the root user. Given the ubiquity of OpenSSH in enterprise, cloud, and infrastructure environments, these vulnerabilities pose a significant risk to organizational integrity. Defenders must prioritize identifying and patching affected versions of OpenSSH across all internet-facing and internal Linux/Unix-based servers to mitigate the threat of privilege escalation and system compromise.
