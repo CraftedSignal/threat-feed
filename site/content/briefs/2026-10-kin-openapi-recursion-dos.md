@@ -3,6 +3,7 @@ title: Uncontrolled Recursion DoS in kin-openapi
 slug: 2026-10-kin-openapi-recursion-dos
 description: The kin-openapi library lacks cycle detection during runtime schema validation, allowing attackers to trigger an unrecoverable Go runtime stack overflow that terminates the entire host process.
 date: "2026-10-15T22:23:51Z"
+lastmod: "2026-10-15T22:23:59Z"
 type: threat
 types:
   - threat
@@ -15,10 +16,14 @@ tags:
   - denial-of-service
   - vulnerability
   - openapi
+  - go
 vendors:
   - getkin
+  - santhosh-tekuri
 products:
   - kin-openapi (< 0.149.0)
+  - kin-openapi (< 0.148.0)
+  - jsonschema (v6.0.2)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -26,9 +31,25 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: The entire process is terminated, including all goroutines serving unrelated clients.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: An unauthenticated attacker can trigger this via a malicious HTTP request, resulting in a denial-of-service condition that may crash the entire application process.
+    confidence_band: high
 references:
   - https://github.com/advisories/GHSA-g8cf-rcjf-c8cf
   - https://github.com/getkin/kin-openapi/pull/1123
+  - https://github.com/advisories/GHSA-rj39-cv6w-8wv7
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-100352
+updates:
+  - at: "2026-10-15T22:23:59Z"
+    level: L1
+    summary: added coverage for kin-openapi (< 0.148.0) +1 products
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-rj39-cv6w-8wv7
 ---
 
 The kin-openapi library (versions prior to 0.149.0) contains a critical flaw in its runtime schema validation logic. While the library's spec-loader and `Schema.validate()` method implement cycle detection to handle circular references in OpenAPI schemas, the runtime validators `VisitJSON` (used for response validation) and `decodeValue` (used for request parameter decoding) lack these protections.
