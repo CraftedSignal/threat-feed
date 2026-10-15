@@ -3,6 +3,7 @@ title: Critical RCE Vulnerability in Cisco Secure Email Gateway
 slug: 2026-10-cisco-secure-email-gateway-rce
 description: Cisco Secure Email Gateway contains a critical vulnerability in the Advanced Malware Protection (AMP) feature allowing unauthenticated remote code execution with root privileges, which is currently being exploited in the wild.
 date: "2026-10-15T10:22:06Z"
+lastmod: "2026-10-15T16:48:47Z"
 type: threat
 types:
   - threat
@@ -14,10 +15,13 @@ tags:
   - cisco
   - vulnerability
   - active-exploitation
+  - path-traversal
+  - rce
 vendors:
   - Cisco
 products:
   - Secure Email Gateway (AMP feature)
+  - Secure Email Gateway (AsyncOS < 15.5.5-014, < 16.5.0-780, Content Scanner Tools < 25.3.0.5525)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,8 +35,15 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The vulnerability could allow an unauthenticated, remote attacker to... execute commands with root privileges on the underlying operating system.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Unix Shell'
+    evidence: Cisco confirms that attackers can use the weakness to execute commands with root privileges on the operating system.
+    confidence_band: high
 references:
   - https://cert.europa.eu/publications/security-advisories/2026-017/
+  - https://socprime.com/blog/cve-2026-76519-analysis/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -49,6 +60,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-017
       evidence: Cisco PSIRT advisory/CERT-EU publication
+updates:
+  - at: "2026-10-15T16:48:47Z"
+    level: L2
+    summary: added coverage for Secure Email Gateway (AsyncOS < 15.5.5-014, < 16.5.0-780, Content Scanner Tools < 25.3.0.5525)
+    sources:
+      - socprime
+    source_urls:
+      - https://socprime.com/blog/cve-2026-76519-analysis/
 ---
 
 On 14 October 2026, Cisco disclosed a critical vulnerability (CVE-2026-017) affecting the Advanced Malware Protection (AMP) feature within Cisco Secure Email Gateway. The vulnerability allows an unauthenticated, remote attacker to perform arbitrary file writes and execute commands as the root user on the underlying operating system. The Cisco PSIRT has confirmed that this vulnerability is currently being actively exploited in the wild. This represents a significant risk as it grants attackers full control over the appliance, which is typically positioned at the network perimeter. Given the active exploitation, immediate remediation is required for all internet-facing appliances.
