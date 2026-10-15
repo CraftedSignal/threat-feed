@@ -3,7 +3,7 @@ title: Unauthenticated Denial of Service via Temporary File Exhaustion in Nginx 
 slug: 2026-10-nginx-ui-dos
 description: An unauthenticated remote attacker can exploit CVE-2026-107805 in Nginx UI by sending malicious requests that trigger premature staging of large, unsigned request bodies, leading to disk space and I/O exhaustion.
 date: "2026-10-09T21:23:53Z"
-lastmod: "2026-10-15T22:26:52Z"
+lastmod: "2026-10-15T22:27:14Z"
 type: advisory
 types:
   - advisory
@@ -30,6 +30,7 @@ products:
   - Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074433-a3999bd78a3b)
   - Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074146-a467ed652591)
   - Nginx-UI (< 1.9.10-0.20260703131214-23d1934099b0)
+  - Nginx UI (< 1.9.10-0.20260703131214-23d1934099b0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -73,6 +74,18 @@ mitre_ttps:
     technique_name: Valid Accounts
     evidence: This inconsistency enables any authenticated user to take over the initial admin account (user ID 1) by simply changing its password.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: By using the nginx_config_add tool, an attacker can inject malicious Nginx configurations, including loading the ngx_http_js_module.so and executing arbitrary NJS.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1505
+    technique_name: Server Software Component
+    evidence: This may allow modification of Nginx runtime behavior, including responses, routing, headers, redirects, and request handling.
+    confidence_band: high
 cves:
   - id: CVE-2026-107805
     cvss: 7.5
@@ -90,6 +103,7 @@ references:
   - https://github.com/advisories/GHSA-vc32-4gwf-77xp
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84360
   - https://github.com/advisories/GHSA-2gc7-j998-5xx6
+  - https://github.com/advisories/GHSA-5r62-gj48-897x
 rules:
   - title: Detect CVE-2026-84314 Exploitation - Unauthorized User Password Modification
     description: Detects potential exploitation of CVE-2026-84314 by monitoring POST requests to the user management endpoint.
@@ -119,13 +133,6 @@ action_plan:
       addresses: CVE-2026-107805
       evidence: Deployment-specific reverse-proxy body limits may reduce practical impact.
 updates:
-  - at: "2026-10-09T21:28:33Z"
-    level: L2
-    summary: added coverage for Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074433-a3999bd78a3b)
-    sources:
-      - ghsa
-    source_urls:
-      - https://github.com/advisories/GHSA-pvgv-gcp7-v38g
   - at: "2026-10-09T21:28:42Z"
     level: L2
     summary: added coverage for Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074146-a467ed652591)
@@ -154,6 +161,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-2gc7-j998-5xx6
+  - at: "2026-10-15T22:27:14Z"
+    level: L2
+    summary: added coverage for Nginx UI (< 1.9.10-0.20260703131214-23d1934099b0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-5r62-gj48-897x
 ---
 
 Nginx UI versions 2.5.0 through 2.5.x are vulnerable to a high-severity denial-of-service condition involving improper request processing. The application's node-signature authentication logic incorrectly stages the body of incoming requests to temporary files on disk before validating the associated cryptographic signature or body digest.
