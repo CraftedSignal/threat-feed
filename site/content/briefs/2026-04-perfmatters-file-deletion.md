@@ -3,17 +3,23 @@ title: Perfmatters WordPress Plugin Arbitrary File Deletion Vulnerability (CVE-2
 slug: 2026-04-perfmatters-file-deletion
 description: The Perfmatters plugin for WordPress versions up to 2.5.9.1 is vulnerable to arbitrary file deletion via path traversal, allowing authenticated attackers with minimal privileges to delete sensitive files.
 date: "2026-04-03T08:16:17Z"
-severities:
-  - critical
+lastmod: "2026-10-15T20:04:15Z"
 type: advisory
 types:
   - advisory
+severities:
+  - critical
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WHYIAMSOBUSY-CVE-2026-4350&utm_source=rss&utm_medium=rss
 tags:
   - cve-2026-4350
   - wordpress
   - perfmatters
   - file-deletion
   - path-traversal
+vendors:
+  - Perfmatters
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -22,8 +28,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-4350
     cvss: 8.1
+    epss: 0.00526
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4350
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WHYIAMSOBUSY-CVE-2026-4350&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Perfmatters Arbitrary File Deletion Attempt
     description: Detects potential attempts to exploit the Perfmatters arbitrary file deletion vulnerability (CVE-2026-4350) through path traversal sequences in the URI query.
@@ -48,6 +56,14 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-10-15T20:04:15Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WHYIAMSOBUSY-CVE-2026-4350&utm_source=rss&utm_medium=rss
 ---
 
 The Perfmatters plugin, a popular WordPress performance optimization tool, contains a critical vulnerability (CVE-2026-4350) affecting versions up to and including 2.5.9.1. This flaw enables authenticated attackers with Subscriber-level access, the lowest privilege level in WordPress, to delete arbitrary files on the server. The vulnerability stems from the `PMCS::action_handler()` method's failure to sanitize the `$_GET['delete']` parameter. This lack of validation allows for path traversal attacks using sequences like `../`, enabling attackers to navigate outside the intended storage directory and delete any accessible file. Successful exploitation can lead to the deletion of critical files such as `wp-config.php`, effectively disabling the website and potentially allowing a full site takeover.
