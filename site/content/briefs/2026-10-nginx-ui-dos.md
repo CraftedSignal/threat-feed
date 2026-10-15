@@ -3,7 +3,7 @@ title: Unauthenticated Denial of Service via Temporary File Exhaustion in Nginx 
 slug: 2026-10-nginx-ui-dos
 description: An unauthenticated remote attacker can exploit CVE-2026-107805 in Nginx UI by sending malicious requests that trigger premature staging of large, unsigned request bodies, leading to disk space and I/O exhaustion.
 date: "2026-10-09T21:23:53Z"
-lastmod: "2026-10-10T03:23:21Z"
+lastmod: "2026-10-15T22:24:53Z"
 type: advisory
 types:
   - advisory
@@ -29,6 +29,7 @@ products:
   - Nginx-UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728091109-0ecbd106c37b, 2.4.2)
   - Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074433-a3999bd78a3b)
   - Nginx UI (>= 1.9.10-0.20250517140552-daee3ac7ade1, < 1.9.10-0.20260728074146-a467ed652591)
+  - Nginx-UI (< 1.9.10-0.20260703131214-23d1934099b0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -80,6 +81,8 @@ references:
   - https://github.com/advisories/GHSA-p8v3-89rh-jxc7
   - https://github.com/advisories/GHSA-h246-wpgf-vmq5
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107813
+  - https://github.com/advisories/GHSA-vc32-4gwf-77xp
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-84360
 action_plan:
   priority: elevated
   owners:
@@ -125,6 +128,13 @@ updates:
       - ghsa
     source_urls:
       - https://github.com/advisories/GHSA-h246-wpgf-vmq5
+  - at: "2026-10-15T22:24:53Z"
+    level: L2
+    summary: added coverage for Nginx-UI (< 1.9.10-0.20260703131214-23d1934099b0)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-vc32-4gwf-77xp
 ---
 
 Nginx UI versions 2.5.0 through 2.5.x are vulnerable to a high-severity denial-of-service condition involving improper request processing. The application's node-signature authentication logic incorrectly stages the body of incoming requests to temporary files on disk before validating the associated cryptographic signature or body digest.
