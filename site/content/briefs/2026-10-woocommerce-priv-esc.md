@@ -3,6 +3,7 @@ title: CVE-2026-104745 - Privilege Escalation in Customer Email Verification for
 slug: 2026-10-woocommerce-priv-esc
 description: The Customer Email Verification for WooCommerce plugin for WordPress is vulnerable to unauthenticated privilege escalation due to insufficient entropy in activation token generation when configured to use the 'hashids' encoding method.
 date: "2026-10-16T04:24:03Z"
+lastmod: "2026-10-16T07:31:17Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:alg_wc_ev:customer_email_verification_for_woocommerce:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=772F5118-FA06-5ECC-8E1F-99221D0D325C&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - wordpress
@@ -31,6 +35,7 @@ cves:
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104745
+  - https://sploitus.com/exploit?id=772F5118-FA06-5ECC-8E1F-99221D0D325C&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-104745 Exploitation - Brute Force Attempt on Email Verification
     description: Detects high-frequency access to the verification parameter indicating potential brute-force attempts against the weak token generation mechanism.
@@ -68,6 +73,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-104745
       evidence: Vulnerability exists in versions up to 3.3.0.
+updates:
+  - at: "2026-10-16T07:31:17Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=772F5118-FA06-5ECC-8E1F-99221D0D325C&utm_source=rss&utm_medium=rss
 ---
 
 The Customer Email Verification for WooCommerce plugin for WordPress, in versions up to and including 3.3.0, contains a critical security flaw that allows for unauthenticated privilege escalation. When the plugin is configured with the 'hashids' encoding method, it generates per-user activation secrets using the `wp_rand(100)` function. This results in an extremely low entropy of approximately 101 possible values, or 7 bits. Because these tokens are generated via reversible Hashids encoding without a cryptographic MAC, and because the verification handler hooked to the WordPress `init` action lacks nonce verification or rate limiting, an attacker can brute-force the activation code space. By supplying a forged `alg_wc_ev_verify_email` GET parameter, an unauthenticated attacker can verify and hijack unverified accounts, including those with administrative privileges, provided the attacker can recover or guess the Hashids salt, which typically defaults to an `md5(time())` value generated at initial setup.
