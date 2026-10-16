@@ -3,7 +3,7 @@ title: Multiple Vulnerabilities in Google Chrome
 slug: 2026-10-google-chrome-vulnerabilities
 description: Google Chrome contains multiple vulnerabilities that can be exploited by a remote, anonymous attacker to achieve arbitrary code execution or cause a denial-of-service condition.
 date: "2026-10-16T16:29:40Z"
-lastmod: "2026-10-16T16:33:41Z"
+lastmod: "2026-10-16T16:33:47Z"
 type: advisory
 types:
   - advisory
@@ -34,9 +34,13 @@ cves:
   - id: CVE-2026-106289
     cvss: 6.5
     epss: 0.00229
+  - id: CVE-2026-106292
+    cvss: 8.3
+    epss: 0.00332
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3982
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-106289
+  - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-106292
 action_plan:
   priority: elevated
   owners:
@@ -56,11 +60,12 @@ action_plan:
 updates:
   - at: "2026-10-16T16:33:41Z"
     level: L2
-    summary: added CVE-2026-106289; chrome version < 155.0.8059.39
+    summary: added CVE-2026-106289;, CVE-2026-106292
     sources:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-106289
+      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-106292
 ---
 
 The German Federal Office for Information Security (BSI) has reported that Google Chrome is affected by multiple security vulnerabilities. These flaws allow a remote, anonymous attacker to trigger arbitrary code execution (ACE) or a denial-of-service (DoS) condition on vulnerable systems. The vulnerabilities affect Google Chrome across Windows, Linux, and macOS platforms. Given the ubiquity of the browser as an entry point for web-based attacks, these vulnerabilities represent a significant risk to organizational environments if left unpatched. Defenders should prioritize updating browser instances to the latest stable release provided by Google to mitigate the risk of remote compromise.
