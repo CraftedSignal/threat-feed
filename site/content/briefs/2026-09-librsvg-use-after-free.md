@@ -3,6 +3,7 @@ title: Use-After-Free Vulnerability in librsvg
 slug: 2026-09-librsvg-use-after-free
 description: A use-after-free vulnerability in librsvg (CVE-2026-96889) allows remote attackers to trigger memory corruption and potential code execution by providing specially crafted SVG documents.
 date: "2026-09-23T20:44:53Z"
+lastmod: "2026-10-16T07:31:13Z"
 type: advisory
 types:
   - advisory
@@ -10,15 +11,23 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:gnome:librsvg:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=EF1A6D89-18D6-5B53-907A-62E21981BCD8&utm_source=rss&utm_medium=rss
 vendors:
   - GNOME
+  - Vercel
 products:
   - librsvg
+affected_os:
+  - Linux
 cves:
   - id: CVE-2026-96889
     cvss: 7.8
+    epss: 0.00151
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-96889
+  - https://sploitus.com/exploit?id=EF1A6D89-18D6-5B53-907A-62E21981BCD8&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -29,6 +38,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-96889
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-16T07:31:13Z"
+    level: L2
+    summary: poc_available; OS linux
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=EF1A6D89-18D6-5B53-907A-62E21981BCD8&utm_source=rss&utm_medium=rss
 ---
 
 A high-severity use-after-free vulnerability, tracked as CVE-2026-96889, has been identified in librsvg, a library used by various GNOME applications for rendering Scalable Vector Graphics (SVG). The flaw is triggered when the library processes an SVG document containing nested XML inclusions (Xincludes) with duplicate entity declarations. Due to improper memory management, the parser incorrectly deallocates an XML entity that remains in active use, resulting in a use-after-free condition. 
