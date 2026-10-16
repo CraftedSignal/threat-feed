@@ -1,8 +1,8 @@
 ---
-title: Stored XSS in HivePress WordPress Plugin
+title: Stored Cross-Site Scripting in HivePress WordPress Plugin
 slug: 2026-10-hivepress-xss
-description: The HivePress WordPress plugin for versions 1.7.31 and below contains a stored Cross-Site Scripting (XSS) vulnerability that allows unauthenticated attackers to execute arbitrary scripts in the context of user profiles.
-date: "2026-10-10T09:52:06Z"
+description: An unauthenticated Stored Cross-Site Scripting (XSS) vulnerability in HivePress plugin versions 1.7.32 and earlier allows attackers to inject malicious scripts into attribute fields.
+date: "2026-10-16T08:25:23Z"
 type: advisory
 types:
   - advisory
@@ -11,44 +11,52 @@ severities:
 cpes:
   - cpe:2.3:a:hivepress:hivepress:*:*:*:*:*:wordpress:*:*
 tags:
-  - web-application
-  - xss
   - wordpress
+  - xss
+  - web-application
 vendors:
   - HivePress
 products:
-  - HivePress (<= 1.7.31)
+  - HivePress – Business Directory, Listings & Classified Ads Plugin (<= 1.7.32)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
-    technique_id: T1059
-    technique_name: Command and Scripting Interpreter
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
     evidence: This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.
     confidence_band: high
 cves:
-  - id: CVE-2026-107657
+  - id: CVE-2026-109193
     cvss: 7.2
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-107657
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-109193
 action_plan:
   priority: elevated
   owners:
     - IT Operations
-    - Security Operations
+    - SOC
+  immediate_actions:
+    - action: Upgrade HivePress plugin to the latest version.
+      owner: IT Operations
+      due: 24h
+      evidence: CVE-2026-109193 remediation requirement.
   mitigation_plan:
     - priority: immediate
-      action: Upgrade HivePress plugin to the latest version, which contains a fix for CVE-2026-107657
+      action: Upgrade HivePress plugin to the version after 1.7.32.
       owner: IT Operations
-      addresses: CVE-2026-107657
-      evidence: NVD vulnerability disclosure
+      addresses: CVE-2026-109193
+      evidence: Source explicitly notes 1.7.32 as the vulnerable version.
 ---
 
-The HivePress plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) in all versions up to and including 1.7.31. The vulnerability exists due to insufficient input sanitization and output escaping of custom user attribute fields. An unauthenticated attacker can exploit this flaw if an administrator has configured a text-type custom user attribute using a display format that places the %value% variable inside an HTML attribute context, such as an 'href' attribute in an anchor tag. When front-end user profiles are enabled, the attacker can submit malicious JavaScript payloads into these fields. Once saved, these scripts execute in the browser of any user or administrator who views the injected user profile page. This can lead to unauthorized actions, session hijacking, or redirection, depending on the victim's privileges.
+The HivePress - Business Directory, Listings & Classified Ads Plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) in all versions up to and including 1.7.32. The vulnerability stems from insufficient input sanitization and output escaping when processing custom user attribute slugs (e.g., hp_custom_link). An unauthenticated attacker can exploit this by injecting arbitrary web scripts into user attribute values. Successful exploitation depends on an administrator having configured a custom user attribute where the display_format template includes the %value% token within an href, src, or style attribute context. When an unsuspecting user or administrator views a page where this attribute is rendered, the injected script executes within the victim's session.
 
 ## Impact
 
-Successful exploitation allows unauthenticated attackers to execute arbitrary JavaScript within the session of a victim viewing a profile page. This can result in session token theft, the performance of actions on behalf of the victim (including administrative actions if the victim is an administrator), and account takeover, significantly impacting the integrity and confidentiality of the affected WordPress site.
+The vulnerability allows unauthenticated attackers to execute arbitrary JavaScript in the context of a user's browser session. If an administrator views an injected page, the attacker could potentially perform unauthorized administrative actions, capture session cookies, or redirect users to malicious domains. This affects any WordPress installation utilizing the HivePress plugin for business directories or classified ads with custom user attributes enabled.
 
 ## Recommendation
 
-Update the HivePress plugin to a version released after 1.7.31 immediately. If an update is not immediately available, disable front-end user profile displays or remove custom user attributes that are configured with the %value% variable inside HTML attributes until a patch is applied.
+1. Upgrade the HivePress plugin to the latest version immediately to remediate the sanitization flaw (CVE-2026-109193).
+2. Audit current HivePress custom user attribute configurations to identify if the %value% token is used within href, src, or style attributes.
+3. Implement a strict Content Security Policy (CSP) to mitigate the impact of potential XSS attacks by restricting the sources from which scripts can be loaded and executed.
+4. Use web application firewalls (WAF) to inspect incoming traffic for suspicious script tags or JavaScript event handlers injected into POST requests targeting attribute update endpoints.
