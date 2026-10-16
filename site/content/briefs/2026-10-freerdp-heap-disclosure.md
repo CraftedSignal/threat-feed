@@ -3,7 +3,7 @@ title: Information Disclosure and DoS in FreeRDP via Heap Memory Leak
 slug: 2026-10-freerdp-heap-disclosure
 description: FreeRDP versions before 3.0.0 and 3.6.0 before 3.32.0 are vulnerable to heap memory disclosure and denial-of-service attacks triggered by a malicious RDP server sending crafted progressive tile sequences.
 date: "2026-10-12T18:34:17Z"
-lastmod: "2026-10-16T04:23:38Z"
+lastmod: "2026-10-16T04:23:44Z"
 type: advisory
 types:
   - advisory
@@ -20,6 +20,8 @@ tags:
   - linux
   - heap-overflow
   - cve-2026-111380
+  - remote-code-execution
+  - freerdp
 vendors:
   - FreeRDP
 products:
@@ -69,6 +71,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111378
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111380
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111381
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111382
 action_plan:
   priority: elevated
   owners:
@@ -85,13 +88,6 @@ action_plan:
       addresses: CVE-2026-109242
       evidence: Exploitation requires a malicious server to send crafted sequences.
 updates:
-  - at: "2026-10-15T00:33:47Z"
-    level: L2
-    summary: added coverage for FreeRDP (< 3.32.0)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-110838
   - at: "2026-10-15T02:34:04Z"
     level: L2
     summary: added coverage for FreeRDP (< 3.32.0)
@@ -120,6 +116,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-111381
+  - at: "2026-10-16T04:23:44Z"
+    level: L2
+    summary: added coverage for FreeRDP (< 3.32.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111382
 ---
 
 FreeRDP versions prior to 3.0.0 and 3.6.0 before 3.32.0 contain a vulnerability where uninitialized heap memory from un-decoded progressive tiles is rendered. This occurs because the tile buffer is allocated without zeroing out memory, allowing an attacker to access sensitive information residing in the heap. A malicious RDP server can exploit this by sending a specifically crafted sequence of WBT_TILE_FIRST and WBT_TILE_UPGRADE messages. Depending on the server's input, the client may render leaked heap bytes directly to the screen or encounter an unhandled memory condition leading to a process crash (Denial of Service). This issue affects all platforms utilizing the affected FreeRDP versions as a remote desktop client.
