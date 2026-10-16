@@ -3,6 +3,7 @@ title: CVE-2026-93399 - IDOR Vulnerability in Bookly WordPress Plugin
 slug: 2026-09-bookly-idor
 description: The Bookly WordPress plugin up to version 28.2 contains multiple IDOR vulnerabilities in AJAX handlers allowing unauthenticated attackers to access customer data and delete arbitrary appointments.
 date: "2026-09-25T10:52:00Z"
+lastmod: "2026-10-16T17:44:06Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:bookly:bookly:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MURREZ-CVE-2026-93399&utm_source=rss&utm_medium=rss
 vendors:
   - Bookly
 products:
@@ -30,8 +34,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-93399
     cvss: 9.1
+    epss: 0.0037
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-93399
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MURREZ-CVE-2026-93399&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -57,6 +63,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-93399
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-16T17:44:06Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MURREZ-CVE-2026-93399&utm_source=rss&utm_medium=rss
 ---
 
 The Bookly plugin for WordPress is vulnerable to Insecure Direct Object Reference (IDOR) exploitation in versions 28.2 and earlier. The vulnerability stems from improper validation within several AJAX handlers, specifically 'bookly_get_form_id', 'bookly_render_complete', 'bookly_add_to_calendar', and 'bookly_rollback_order'. 
