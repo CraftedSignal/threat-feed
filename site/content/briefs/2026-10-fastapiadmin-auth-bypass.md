@@ -3,6 +3,7 @@ title: Authentication Bypass in FastapiAdmin
 slug: 2026-10-fastapiadmin-auth-bypass
 description: FastapiAdmin versions through 3.0 contain an authentication bypass vulnerability allowing unauthenticated attackers to obtain superuser sessions via unprotected auto-login endpoints.
 date: "2026-10-16T18:44:45Z"
+lastmod: "2026-10-16T18:47:48Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,11 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:fastapiadmin:fastapiadmin:*:*:*:*:*:*:*:*
+tags:
+  - privilege-escalation
+  - authentication-bypass
+  - jwt
+  - webserver
 vendors:
   - FastapiAdmin
 products:
@@ -27,11 +33,18 @@ mitre_ttps:
     technique_name: 'Use Alternate Authentication Material: Application Access Token'
     evidence: Attackers can list users via /api/v1/auth/auto-login/users, mint a superuser auto-login token, and exchange it for a JWT session.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1550.002
+    technique_name: 'Use Alternate Authentication Material: Pass the Ticket'
+    evidence: Attackers can forge an HS256 token keeping their session_id but naming the superuser in user_name to gain superuser privileges.
+    confidence_band: high
 cves:
   - id: CVE-2026-111641
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111641
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111642
 rules:
   - title: Detect CVE-2026-111641 Exploitation - Access to Auto-Login API
     description: Detects potential exploitation attempts of CVE-2026-111641 by flagging requests to the vulnerable auto-login enumeration endpoint.
@@ -69,6 +82,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-111641
       evidence: Vulnerability allows unauthenticated access to these endpoints.
+updates:
+  - at: "2026-10-16T18:47:48Z"
+    level: L2
+    summary: added coverage for FastapiAdmin (<= 3.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111642
 ---
 
 FastapiAdmin through version 3.0 is affected by a critical authentication bypass vulnerability (CVE-2026-111641). The vulnerability exists within the application's auto-login functionality, which exposes administrative endpoints without proper authentication requirements. This allows an unauthenticated attacker to interact with the API to enumerate user accounts, generate valid auto-login tokens for arbitrary users, and subsequently exchange these tokens for valid JWT sessions. By targeting accounts with administrative privileges, an attacker can gain full control over the application environment. Given the nature of the vulnerability, which involves direct exploitation of exposed API endpoints, it poses a significant risk to the integrity and confidentiality of any deployment running version 3.0 or earlier. Organizations using FastapiAdmin should audit their API access logs for anomalous requests to the identified auto-login endpoints and restrict access to these paths at the network or reverse proxy level until a patch is applied.
