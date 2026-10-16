@@ -3,6 +3,7 @@ title: Blind SSRF in Tandoor Recipes via AI Provider Configuration
 slug: 2026-10-tandoor-recipes-ssrf
 description: Authenticated users can exploit a blind Server-Side Request Forgery vulnerability in Tandoor Recipes versions prior to 2.6.10 by manipulating AI provider URL inputs to map internal network resources.
 date: "2026-10-16T20:44:41Z"
+lastmod: "2026-10-16T20:44:54Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,14 @@ tags:
   - web-vulnerability
   - ssrf
   - reconnaissance
+  - web-application
+  - authentication-bypass
+  - cve
 vendors:
   - Tandoor Recipes
 products:
   - Tandoor Recipes (< 2.6.10)
+  - Tandoor Recipes (< 2.6.12)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,6 +36,12 @@ mitre_ttps:
     technique_name: Network Service Discovery
     evidence: This can reach internal services, other hosts on the server network, and cloud metadata endpoints and map reachable internal hosts and ports.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: The sub-resource querysets return and update private-recipe steps for non-owners because Space membership is accepted without recipe-level authorization.
+    confidence_band: high
 cves:
   - id: CVE-2026-59970
     cvss: 7.7
@@ -38,6 +49,10 @@ references:
   - https://github.com/TandoorRecipes/recipes/security/advisories/GHSA-wq4h-2r8x-cv65
   - https://github.com/TandoorRecipes/recipes/releases/tag/2.6.10
   - https://github.com/TandoorRecipes/recipes/commit/79e783578a5b198a988eb9b486ba19f93df4cfa4
+  - https://github.com/TandoorRecipes/recipes/security/advisories/GHSA-wjf3-fq5w-7j7w
+  - https://github.com/TandoorRecipes/recipes/releases/tag/2.6.12
+  - https://github.com/TandoorRecipes/recipes/commit/3c5678f663e62e6ddf3d7df0b2bcc89ce2f52def
+  - https://sploitus.com/exploit?id=CVELIST:CVE-2026-61726
 action_plan:
   priority: elevated
   owners:
@@ -53,6 +68,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-59970
       evidence: The vulnerability relies on the server's ability to reach internal network hosts
+updates:
+  - at: "2026-10-16T20:44:54Z"
+    level: L2
+    summary: added coverage for Tandoor Recipes (< 2.6.12)
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVELIST:CVE-2026-61726&utm_source=rss&utm_medium=rss
 ---
 
 Tandoor Recipes versions prior to 2.6.10 are vulnerable to a blind Server-Side Request Forgery (SSRF) vulnerability. The flaw exists in how the application processes the 'api_base' parameter for AI provider configuration. Specifically, when an authenticated user creates a Space and configures an AI provider, the application fails to apply standard server-side outbound-request validation (safe_request) when interacting with LiteLLM.
