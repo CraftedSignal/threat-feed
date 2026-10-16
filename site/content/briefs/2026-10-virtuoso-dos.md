@@ -3,7 +3,7 @@ title: Denial of Service Vulnerability in virtuoso-opensource on RHEL
 slug: 2026-10-virtuoso-dos
 description: A remote, unauthenticated attacker can exploit CVE-2018-1000632 within the virtuoso-opensource package on Red Hat Enterprise Linux to trigger a denial of service condition.
 date: "2026-10-08T13:08:55Z"
-lastmod: "2026-10-14T16:24:32Z"
+lastmod: "2026-10-16T16:27:29Z"
 type: advisory
 types:
   - advisory
@@ -41,6 +41,7 @@ vendors:
 products:
   - Enterprise Linux (virtuoso-opensource package)
   - Enterprise Linux
+  - Enterprise Linux (< 2.31.0)
 affected_os:
   - Red Hat Enterprise Linux
   - RHEL
@@ -65,6 +66,8 @@ references:
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3477
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3478
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3479
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2023-1935
+  - https://nvd.nist.gov/vuln/detail/CVE-2023-32681
 action_plan:
   priority: elevated
   owners:
@@ -89,6 +92,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3923
+  - at: "2026-10-16T16:27:29Z"
+    level: L1
+    summary: added coverage for Enterprise Linux (< 2.31.0)
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2023-1935
 ---
 
 A vulnerability has been identified in the virtuoso-opensource package distributed with Red Hat Enterprise Linux. An attacker can exploit this flaw to cause a denial of service (DoS), rendering the service unavailable. The vulnerability, tracked as CVE-2018-1000632, allows for exploitation by a remote, anonymous attacker. Given the nature of the service, organizations running virtuoso-opensource on RHEL instances should assess the exposure of these services to untrusted networks. While specific exploitation vectors for this CVE typically involve crafting malformed requests to the Virtuoso SPARQL or HTTP interfaces, this brief highlights the risk of availability disruption. Defenders should prioritize patching and monitoring for service instability or unexpected crashes of the Virtuoso process.
