@@ -3,6 +3,7 @@ title: Authentication Bypass via Hardcoded HMAC Secret in DataBuff ai-apm-web
 slug: 2026-10-databuff-auth-bypass
 description: An unauthenticated authentication bypass vulnerability (CVE-2026-111692) in DataBuff ai-apm-web allows attackers to forge administrative session tokens using a hardcoded HMAC secret.
 date: "2026-10-16T18:45:38Z"
+lastmod: "2026-10-16T18:45:49Z"
 type: advisory
 types:
   - advisory
@@ -15,6 +16,8 @@ tags:
   - jwt
   - web-application
   - cve-2026-111692
+  - credential-access
+  - api-security
 vendors:
   - DataBuff
 products:
@@ -32,11 +35,30 @@ mitre_ttps:
     technique_name: Credentials in Files
     evidence: The vulnerability is caused by a hardcoded HMAC secret in JwtTokenService.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1110
+    technique_name: Brute Force
+    evidence: DataBuff ai-apm-web through 0.1.10 contains a hard-coded default credentials vulnerability that allows unauthenticated attackers to gain administrator access using the built-in admin/Databuff@123 account.
+    confidence_band: high
 cves:
   - id: CVE-2026-111692
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111692
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111693
+rules:
+  - title: Detect CVE-2026-111693 Exploitation - Unauthorized Login Attempt
+    description: Detects potential exploitation of CVE-2026-111693 by identifying successful logins to the ai-apm-web API using default credentials.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1110.001
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -62,6 +84,14 @@ action_plan:
       owner: Network Security
       addresses: CVE-2026-111692
       evidence: Authentication bypass allows access to /webapi routes.
+updates:
+  - at: "2026-10-16T18:45:49Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2026-111693 Exploitation - Unauthorized Login Attempt'
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111693
 ---
 
 DataBuff ai-apm-web versions 0.1.10 and earlier contain a critical authentication bypass vulnerability (CVE-2026-111692) rooted in the JwtTokenService component. The service utilizes a hardcoded HMAC secret, referred to as 'dev-secret', to sign JSON Web Tokens (JWT). An unauthenticated attacker can leverage this static secret to craft and sign arbitrary session tokens. By setting the token payload to include administrative privileges and a future expiration timestamp, an attacker can bypass all authentication checks. This grants the attacker full administrative access to protected /webapi endpoints, including the Doris SQL query API, facilitating potential unauthorized data access, modification, or further system compromise. The vulnerability is highly severe (CVSS 9.8) because it requires no prior authentication or specialized knowledge of the target environment.
