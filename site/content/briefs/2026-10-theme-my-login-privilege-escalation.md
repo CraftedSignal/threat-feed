@@ -3,6 +3,7 @@ title: Theme My Login Privilege Escalation via Account Takeover
 slug: 2026-10-theme-my-login-privilege-escalation
 description: An unauthenticated account takeover vulnerability in the Theme My Login WordPress plugin allows attackers to change arbitrary user passwords due to improper identity validation.
 date: "2026-10-16T08:24:49Z"
+lastmod: "2026-10-16T13:33:47Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:thememylogin:theme_my_login:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=FCC375D7-BBF1-5B82-A41D-FD69DC444245&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - plugin
@@ -31,6 +35,7 @@ cves:
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-89079
+  - https://sploitus.com/exploit?id=FCC375D7-BBF1-5B82-A41D-FD69DC444245&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +52,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-89079
       evidence: The vulnerability affects multi-site setups in certain configurations
+updates:
+  - at: "2026-10-16T13:33:47Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=FCC375D7-BBF1-5B82-A41D-FD69DC444245&utm_source=rss&utm_medium=rss
 ---
 
 The Theme My Login plugin for WordPress, in versions up to and including 7.2.1, contains a critical security vulnerability (CVE-2026-89079) that enables account takeover. The flaw resides in the plugin's password update mechanism, which fails to adequately verify the identity of the user requesting the change. On multi-site WordPress installations with specific configurations, this weakness allows an unauthenticated attacker to supply target user identifiers and successfully reset their passwords without prior authentication. Given the nature of this vulnerability, it poses a high risk of privilege escalation, potentially granting attackers administrative access to the affected WordPress instances. Defenders should treat this as a high-priority update, as successful exploitation results in complete compromise of affected accounts.
