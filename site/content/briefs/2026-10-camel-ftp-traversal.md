@@ -3,6 +3,7 @@ title: Apache Camel FTP Component Path Traversal Vulnerability
 slug: 2026-10-camel-ftp-traversal
 description: Apache Camel's camel-ftp component contains a path traversal vulnerability (CVE-2026-79983) allowing unauthorized file operations outside the intended directory via malicious server-supplied file listings.
 date: "2026-10-16T13:33:53Z"
+lastmod: "2026-10-16T16:27:02Z"
 type: advisory
 types:
   - advisory
@@ -19,10 +20,12 @@ vendors:
   - Apache
 products:
   - Camel (4.0.0-4.18.4, 4.19.0-4.22.0)
+  - Camel
 references:
   - https://camel.apache.org/security/CVE-2026-79983.html
   - https://issues.apache.org/jira/browse/CAMEL-24487
   - https://sploitus.com/exploit?id=CC0B874D-1142-508F-B706-2B350284E5A8
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4006
 action_plan:
   priority: elevated
   owners:
@@ -39,6 +42,14 @@ action_plan:
       owner: Security Engineering
       addresses: CVE-2026-79983
       evidence: Source mitigation guidance.
+updates:
+  - at: "2026-10-16T16:27:02Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4006
 ---
 
 Apache Camel, specifically the `camel-ftp` component, is vulnerable to a path traversal issue (CVE-2026-79983) that allows an attacker to read, rename, or delete files outside of the defined polled directory. The vulnerability arises because remote-file consumers construct absolute paths by concatenating the configured polling directory with the file name reported in the server directory listing without sufficient validation or lexical normalization. 
