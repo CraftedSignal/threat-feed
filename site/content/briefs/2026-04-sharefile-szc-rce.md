@@ -3,16 +3,21 @@ title: ShareFile Storage Zones Controller Unauthenticated Configuration Access a
 slug: 2026-04-sharefile-szc-rce
 description: An unauthenticated attacker can access restricted configuration pages in Customer Managed ShareFile Storage Zones Controller (SZC), leading to system configuration changes and potential remote code execution.
 date: "2026-04-02T14:16:27Z"
-severities:
-  - critical
+lastmod: "2026-10-16T04:07:26Z"
 type: advisory
 types:
   - advisory
+severities:
+  - critical
+cpes:
+  - cpe:2.3:a:progress:sharefile_storage_zones_controller:*:*:*:*:*:*:*:*
 tags:
   - sharefile
   - storage-zones-controller
   - rce
   - cve-2026-2699
+vendors:
+  - Progress
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -25,12 +30,12 @@ mitre_ttps:
 references:
   - https://docs.sharefile.com/en-us/storage-zones-controller/5-0/security-vulnerability-feb26
   - https://github.com/watchtowrlabs/watchTowr-vs-Progress-ShareFile-CVE-2026-2699
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-2699&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://docs.sharefile.com/en-us/storage-zones-controller/5-0/security-vulnerability-feb26
   - type: url
     value: https://github.com/watchtowrlabs/watchTowr-vs-Progress-ShareFile-CVE-2026-2699
-    context: Proof-of-concept exploit code
 ioc_counts:
   url: 2
 rules:
@@ -57,6 +62,14 @@ rules:
       - webserver
       - windows
 rules_count: 2
+updates:
+  - at: "2026-10-16T04:07:26Z"
+    level: L1
+    summary: new vendor
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-2699&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-2699 affects Customer Managed ShareFile Storage Zones Controller (SZC) versions prior to the fix. The vulnerability allows an unauthenticated attacker to bypass access controls and directly access restricted configuration pages. This unauthorized access can lead to malicious actors changing system settings, potentially installing backdoors, or executing arbitrary code remotely. The vulnerability was reported to Progress Software Corporation and assigned a CVSS v3.1 base score of 9.8, categorizing it as critical. Successful exploitation of this vulnerability could have significant consequences for organizations using the affected ShareFile SZC, as it could compromise sensitive data and system integrity. Defenders should prioritize patching and detection efforts to mitigate this risk.
