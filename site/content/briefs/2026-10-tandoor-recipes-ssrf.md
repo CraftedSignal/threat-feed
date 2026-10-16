@@ -3,7 +3,7 @@ title: Blind SSRF in Tandoor Recipes via AI Provider Configuration
 slug: 2026-10-tandoor-recipes-ssrf
 description: Authenticated users can exploit a blind Server-Side Request Forgery vulnerability in Tandoor Recipes versions prior to 2.6.10 by manipulating AI provider URL inputs to map internal network resources.
 date: "2026-10-16T20:44:41Z"
-lastmod: "2026-10-16T20:44:54Z"
+lastmod: "2026-10-16T20:44:59Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +42,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The sub-resource querysets return and update private-recipe steps for non-owners because Space membership is accepted without recipe-level authorization.
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: The attack works because the shared-Space automation engine evaluates the malicious pattern during recipe import and can occupy a Gunicorn worker until its request timeout.
+    confidence_band: high
 cves:
   - id: CVE-2026-59970
     cvss: 7.7
@@ -53,6 +59,7 @@ references:
   - https://github.com/TandoorRecipes/recipes/releases/tag/2.6.12
   - https://github.com/TandoorRecipes/recipes/commit/3c5678f663e62e6ddf3d7df0b2bcc89ce2f52def
   - https://sploitus.com/exploit?id=CVELIST:CVE-2026-61726
+  - https://github.com/TandoorRecipes/recipes/security/advisories/GHSA-f2gw-c2c7-59v7
 action_plan:
   priority: elevated
   owners:
@@ -76,6 +83,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=CVELIST:CVE-2026-61726&utm_source=rss&utm_medium=rss
+  - at: "2026-10-16T20:44:59Z"
+    level: L1
+    summary: added coverage for Tandoor Recipes (< 2.6.10)
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-59966&utm_source=rss&utm_medium=rss
 ---
 
 Tandoor Recipes versions prior to 2.6.10 are vulnerable to a blind Server-Side Request Forgery (SSRF) vulnerability. The flaw exists in how the application processes the 'api_base' parameter for AI provider configuration. Specifically, when an authenticated user creates a Space and configures an AI provider, the application fails to apply standard server-side outbound-request validation (safe_request) when interacting with LiteLLM.
