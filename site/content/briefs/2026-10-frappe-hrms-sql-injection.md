@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in Frappe HRMS
 slug: 2026-10-frappe-hrms-sql-injection
 description: Authenticated attackers can exploit a SQL injection vulnerability in specific Frappe HRMS API endpoints to extract sensitive database information due to missing input validation.
 date: "2026-10-16T04:23:50Z"
+lastmod: "2026-10-16T06:31:05Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:frappe:hrms:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=334E934A-4C3B-559D-9EF3-CB4A1ABA21E0&utm_source=rss&utm_medium=rss
 tags:
   - web-application-security
   - sql-injection
@@ -18,6 +22,7 @@ vendors:
   - Frappe
 products:
   - HRMS (< 14.38.2, < 15.64.0, < 16.18.0)
+  - HRMS (14.x < 14.38.2, 15.x < 15.64.0, 16.x < 16.18.0, develop <= 2026-09-08)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,6 +35,7 @@ cves:
     cvss: 7.7
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111389
+  - https://sploitus.com/exploit?id=334E934A-4C3B-559D-9EF3-CB4A1ABA21E0&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +61,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-111389
       evidence: NVD vulnerability disclosure
+updates:
+  - at: "2026-10-16T06:31:05Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=334E934A-4C3B-559D-9EF3-CB4A1ABA21E0&utm_source=rss&utm_medium=rss
 ---
 
 Frappe HRMS versions 14.x before 14.38.2, 15.x before 15.64.0, and 16.x before 16.18.0 contain a critical SQL injection vulnerability originating from inadequate input validation on specific API endpoints. The flaw permits an authenticated user, regardless of their privilege level, to submit maliciously crafted HTTP requests that manipulate backend database queries. If exploited, this allows unauthorized access to data stored within the HRMS database. Given the nature of HRMS platforms, the data at risk typically includes personally identifiable information (PII), payroll details, and other sensitive corporate records. Organizations utilizing affected versions of Frappe HRMS should prioritize patching, as this vulnerability provides a direct pathway for data exfiltration once initial authentication is achieved.
