@@ -3,11 +3,12 @@ title: SQL Injection in phpMyFAQ via PdoMysql::escape()
 slug: 2026-10-phpmyfaq-sql-injection
 description: An unauthenticated SQL injection vulnerability in phpMyFAQ versions prior to 4.1.9 allows attackers to exfiltrate data and manipulate database records by injecting Unicode characters into the api/autocomplete endpoint.
 date: "2026-10-13T00:31:30Z"
+lastmod: "2026-10-17T20:53:08Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 cpes:
   - cpe:2.3:a:phpmyfaq:phpmyfaq:*:*:*:*:*:*:*:*
 tags:
@@ -25,11 +26,24 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: Unauthenticated attackers can send a Unicode right single quotation mark in the search parameter of api/autocomplete to read credentials and configuration secrets.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Attackers can stage a victim username, submit a forged fmt=none attestation to register a passkey, then log in bypassing passwords and TOTP for account takeover.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Attackers can stage a victim username, submit a forged fmt=none attestation to register a passkey, then log in bypassing passwords and TOTP for account takeover.
+    confidence_band: high
 cves:
   - id: CVE-2026-109573
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109573
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111911
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +60,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-109573
       evidence: Source states phpMyFAQ before 4.1.9 contains the vulnerability
+updates:
+  - at: "2026-10-17T20:53:08Z"
+    level: L2
+    summary: added coverage for phpMyFAQ (< 4.1.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111911
 ---
 
 phpMyFAQ versions prior to 4.1.9 are susceptible to a critical SQL injection vulnerability within the `PdoMysql::escape()` function. The flaw occurs because the function attempts to sanitize inputs by escaping single quotes with backslashes; however, this mechanism fails when the backend MySQL or MariaDB database is configured with the `NO_BACKSLASH_ESCAPES` SQL mode. In this environment, the backslashes are treated as literal characters rather than escape sequences.
