@@ -3,7 +3,7 @@ title: SQL Injection in phpMyFAQ via PdoMysql::escape()
 slug: 2026-10-phpmyfaq-sql-injection
 description: An unauthenticated SQL injection vulnerability in phpMyFAQ versions prior to 4.1.9 allows attackers to exfiltrate data and manipulate database records by injecting Unicode characters into the api/autocomplete endpoint.
 date: "2026-10-13T00:31:30Z"
-lastmod: "2026-10-17T20:53:26Z"
+lastmod: "2026-10-17T20:53:33Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +24,7 @@ products:
   - phpMyFAQ (< 4.1.9)
   - phpMyFAQ (3.2.0-alpha to < 4.1.9)
   - phpMyFAQ (4.2.0-alpha to < 4.2.0-beta)
+  - phpMyFAQ (< 4.1.9, 4.2.0-alpha before 4.2.0-beta)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -43,6 +44,12 @@ mitre_ttps:
     technique_name: Use Alternate Authentication Material
     evidence: Attackers can stage a victim username, submit a forged fmt=none attestation to register a passkey, then log in bypassing passwords and TOTP for account takeover.
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: An attacker with a hijacked session can set the e-mail to their own mailbox and use the password-reset flow to take over non-2FA accounts.
+    confidence_band: high
 cves:
   - id: CVE-2026-109573
     cvss: 8.1
@@ -50,6 +57,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109573
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111911
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111882
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111884
 action_plan:
   priority: immediate_escalation
   owners:
@@ -81,6 +89,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-111882
+  - at: "2026-10-17T20:53:33Z"
+    level: L2
+    summary: added coverage for phpMyFAQ (< 4.1.9, 4.2.0-alpha before 4.2.0-beta)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111884
 ---
 
 phpMyFAQ versions prior to 4.1.9 are susceptible to a critical SQL injection vulnerability within the `PdoMysql::escape()` function. The flaw occurs because the function attempts to sanitize inputs by escaping single quotes with backslashes; however, this mechanism fails when the backend MySQL or MariaDB database is configured with the `NO_BACKSLASH_ESCAPES` SQL mode. In this environment, the backslashes are treated as literal characters rather than escape sequences.
