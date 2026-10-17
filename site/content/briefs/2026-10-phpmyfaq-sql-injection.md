@@ -3,7 +3,7 @@ title: SQL Injection in phpMyFAQ via PdoMysql::escape()
 slug: 2026-10-phpmyfaq-sql-injection
 description: An unauthenticated SQL injection vulnerability in phpMyFAQ versions prior to 4.1.9 allows attackers to exfiltrate data and manipulate database records by injecting Unicode characters into the api/autocomplete endpoint.
 date: "2026-10-13T00:31:30Z"
-lastmod: "2026-10-17T20:53:33Z"
+lastmod: "2026-10-17T20:53:39Z"
 type: advisory
 types:
   - advisory
@@ -18,6 +18,9 @@ tags:
   - authentication-bypass
   - sso
   - cve-2026-111882
+  - web-application-vulnerability
+  - authorization-bypass
+  - privilege-escalation
 vendors:
   - phpMyFAQ
 products:
@@ -25,6 +28,7 @@ products:
   - phpMyFAQ (3.2.0-alpha to < 4.1.9)
   - phpMyFAQ (4.2.0-alpha to < 4.2.0-beta)
   - phpMyFAQ (< 4.1.9, 4.2.0-alpha before 4.2.0-beta)
+  - phpMyFAQ (4.2.0-alpha)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -58,6 +62,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111911
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111882
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111884
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111897
 action_plan:
   priority: immediate_escalation
   owners:
@@ -96,6 +101,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-111884
+  - at: "2026-10-17T20:53:39Z"
+    level: L2
+    summary: added coverage for phpMyFAQ (4.2.0-alpha)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111897
 ---
 
 phpMyFAQ versions prior to 4.1.9 are susceptible to a critical SQL injection vulnerability within the `PdoMysql::escape()` function. The flaw occurs because the function attempts to sanitize inputs by escaping single quotes with backslashes; however, this mechanism fails when the backend MySQL or MariaDB database is configured with the `NO_BACKSLASH_ESCAPES` SQL mode. In this environment, the backslashes are treated as literal characters rather than escape sequences.
