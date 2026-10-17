@@ -3,6 +3,7 @@ title: Denial of Service Vulnerability in Fleet
 slug: 2026-10-fleet-dos
 description: Fleet versions prior to 4.83.0 are susceptible to a memory exhaustion denial of service attack via crafted gzip-compressed request bodies.
 date: "2026-10-17T20:54:10Z"
+lastmod: "2026-10-17T22:08:22Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,12 @@ tags:
   - denial-of-service
   - vulnerability
   - fleet
+  - mdm
 vendors:
   - Fleet
 products:
   - Fleet (< 4.83.0)
+  - Fleet (< 4.89.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -30,6 +33,7 @@ cves:
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111924
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111923
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +50,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-111924
       evidence: NVD vulnerability details.
+updates:
+  - at: "2026-10-17T22:08:22Z"
+    level: L1
+    summary: added coverage for Fleet (< 4.89.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111923
 ---
 
 Fleet versions prior to 4.83.0 contain a denial of service vulnerability identified as CVE-2026-111924. This vulnerability resides in the application's handling of gzip-compressed request bodies, allowing unauthenticated attackers to exhaust server memory resources. By submitting small, highly compressed payloads with the 'Content-Encoding: gzip' header to unauthenticated endpoints, an attacker can trigger excessive memory consumption during the server-side decompression process. This exploitation path causes the Fleet instance to crash, resulting in a complete service disruption. As this vector does not require authentication, it represents a significant availability risk for internet-facing or otherwise exposed Fleet installations. Defenders should prioritize patching to version 4.83.0 or later to mitigate this risk.
