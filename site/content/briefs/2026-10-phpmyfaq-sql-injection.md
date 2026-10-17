@@ -3,7 +3,7 @@ title: SQL Injection in phpMyFAQ via PdoMysql::escape()
 slug: 2026-10-phpmyfaq-sql-injection
 description: An unauthenticated SQL injection vulnerability in phpMyFAQ versions prior to 4.1.9 allows attackers to exfiltrate data and manipulate database records by injecting Unicode characters into the api/autocomplete endpoint.
 date: "2026-10-13T00:31:30Z"
-lastmod: "2026-10-17T20:53:39Z"
+lastmod: "2026-10-17T20:53:51Z"
 type: advisory
 types:
   - advisory
@@ -54,6 +54,12 @@ mitre_ttps:
     technique_name: Unsecured Credentials
     evidence: An attacker with a hijacked session can set the e-mail to their own mailbox and use the password-reset flow to take over non-2FA accounts.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1505.001
+    technique_name: Server Software Component
+    evidence: Attackers can lure a logged-in user with the CONFIGURATION_EDIT permission into submitting a crafted cross-site request, triggering migrations that may impact database integrity or availability.
+    confidence_band: high
 cves:
   - id: CVE-2026-109573
     cvss: 8.1
@@ -63,6 +69,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111882
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111884
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111897
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111907
 action_plan:
   priority: immediate_escalation
   owners:
@@ -108,6 +115,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-111897
+  - at: "2026-10-17T20:53:51Z"
+    level: L1
+    summary: added coverage for phpMyFAQ (< 4.1.9)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111907
 ---
 
 phpMyFAQ versions prior to 4.1.9 are susceptible to a critical SQL injection vulnerability within the `PdoMysql::escape()` function. The flaw occurs because the function attempts to sanitize inputs by escaping single quotes with backslashes; however, this mechanism fails when the backend MySQL or MariaDB database is configured with the `NO_BACKSLASH_ESCAPES` SQL mode. In this environment, the backslashes are treated as literal characters rather than escape sequences.
