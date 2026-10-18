@@ -3,11 +3,12 @@ title: Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise 
 slug: 2026-10-connectwise-m365-compromise
 description: Threat actors are exploiting a compromised service principal credential belonging to ConnectWise Cloud Backup to gain unauthorized access to 173 Microsoft 365 tenants and potentially escalate privileges.
 date: "2026-10-17T06:39:10Z"
+lastmod: "2026-10-18T09:13:18Z"
 type: advisory
 types:
   - advisory
 severities:
-  - high
+  - critical
 tags:
   - cloud-security
   - supply-chain
@@ -19,6 +20,10 @@ vendors:
 products:
   - ConnectWise Cloud Backup (formerly SkyKick)
   - ConnectWise Cloud Management app for Microsoft Teams
+  - ConnectWise Cloud Backup
+  - ConnectWise Cloud Management
+  - Microsoft 365
+  - Microsoft Entra ID
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -43,6 +48,18 @@ mitre_ttps:
     technique_id: T1528
     technique_name: Steal Application Access Token
     evidence: It was used to obtain Microsoft Graph tokens in customer tenants.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: The attack is particularly dangerous as it allows an attacker to abuse the application's credentials to access customers' Microsoft 365 environments.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1136
+    technique_name: Create Account
+    evidence: The client secrets offer a way to authenticate as that application and establish persistence, providing an alternative means to regain access.
     confidence_band: high
 iocs:
   - type: ip
@@ -78,6 +95,14 @@ action_plan:
       owner: IAM Team
       addresses: Account Manipulation
       evidence: Adding a credential to an MSP management application can extend access
+updates:
+  - at: "2026-10-18T09:13:18Z"
+    level: L2
+    summary: added coverage for ConnectWise Cloud Backup +3 products
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html
 ---
 
 Security researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. 
