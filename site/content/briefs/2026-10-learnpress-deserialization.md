@@ -3,6 +3,7 @@ title: 'CVE-2026-104736: PHP Object Injection in LearnPress WordPress Plugin'
 slug: 2026-10-learnpress-deserialization
 description: The LearnPress plugin for WordPress is vulnerable to unauthenticated PHP Object Injection via the 'checkout-email' parameter, allowing remote attackers to trigger insecure deserialization.
 date: "2026-10-17T04:47:50Z"
+lastmod: "2026-10-18T22:58:09Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:learnpress:learnpress:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=F33A2AF2-DC99-522B-8D64-AEDAEDAA70F5&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - php-deserialization
@@ -35,8 +39,10 @@ mitre_ttps:
 cves:
   - id: CVE-2026-104736
     cvss: 9.8
+    epss: 0.00438
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104736
+  - https://sploitus.com/exploit?id=F33A2AF2-DC99-522B-8D64-AEDAEDAA70F5&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-104736 Exploitation Attempt
     description: Detects potential CVE-2026-104736 exploitation attempts by looking for serialized PHP object syntax in the checkout-email parameter of POST requests.
@@ -69,6 +75,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Known injection vector in LearnPress plugin
+updates:
+  - at: "2026-10-18T22:58:09Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=F33A2AF2-DC99-522B-8D64-AEDAEDAA70F5&utm_source=rss&utm_medium=rss
 ---
 
 The LearnPress plugin for WordPress, in versions up to and including 4.4.10, contains a critical PHP Object Injection vulnerability (CVE-2026-104736). An unauthenticated attacker can exploit this vulnerability by submitting a maliciously crafted serialized object via the 'checkout-email' parameter during the checkout AJAX action. 
