@@ -1,9 +1,8 @@
 ---
 title: Detection of Unauthorized Remote Access Software Usage
 slug: 2026-10-remote-access-software-usage
-description: Adversaries frequently abuse legitimate remote access tools to establish persistent command-and-control, facilitate lateral movement, and deploy ransomware within compromised environments.
-date: "2026-10-05T12:10:09Z"
-lastmod: "2026-10-12T17:41:18Z"
+description: This detection capability identifies the execution of known remote administration utilities often leveraged by adversaries to maintain persistence, conduct lateral movement, and facilitate data exfiltration.
+date: "2026-10-19T13:56:26Z"
 type: advisory
 types:
   - advisory
@@ -12,64 +11,52 @@ severities:
 tags:
   - remote-access
   - command-and-control
-  - persistence
-  - rmm
-affected_os:
-  - Windows
+  - endpoint-security
+  - t1219
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1219
     technique_name: Remote Access Software
-    evidence: Adversaries often use remote access tools like AnyDesk, GoToMyPC, LogMeIn, and TeamViewer to maintain unauthorized access.
+    evidence: Adversaries often use these tools to maintain unauthorized remote access.
     confidence_band: high
-references:
-  - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_remote_access_software_usage_process.yml
 action_plan:
   priority: elevated
   owners:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Deploy process-level detection for unauthorized RMM tools.
+    - action: Implement Sysmon monitoring for process creation to detect unauthorized remote access binaries.
       owner: Detection Engineering
       due: 48h
-      evidence: Analytic requirement for endpoint visibility.
+      evidence: Analytic requires Sysmon EventCode 1.
   hunt_leads:
-    - lead: Search for unknown processes spawning remote access binaries.
+    - lead: Identify processes with company or product metadata matching known remote access software.
       technique_id: T1219
       data_needed:
-        - ParentProcessName
-        - ProcessName
+        - Sysmon EventID 1
       priority: high
       confidence: high
       disposition: hunt_now
-      evidence: Attackers often use RMM as secondary persistence.
+      evidence: Source describes monitoring process execution metadata.
   mitigation_plan:
-    - priority: medium_term
-      action: Strictly limit use of RMM tools to hardened, managed administrative workstations.
+    - priority: medium
+      action: Create a formal policy and technical allowlist for remote access software used within the organization.
       owner: IT Operations
-      addresses: T1219
-      evidence: General security best practice for minimizing attack surface.
-updates:
-  - at: "2026-10-12T17:41:18Z"
-    level: L1
-    summary: OS windows
-    sources:
-      - splunk-escu
-    source_urls:
-      - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_remote_access_software_usage_process.yml
+      addresses: Unauthorized use of remote access tools
+      evidence: False positive reduction via lookup table
 ---
 
-Adversaries frequently abuse legitimate remote access software (RATs/RMMs) to maintain unauthorized access to victim environments. Tools such as AnyDesk, TeamViewer, GoToMyPC, and LogMeIn are commonly repurposed by threat actors, including groups like Scattered Spider and developers of Cactus and Interlock ransomware, to bypass traditional security controls. Because these applications are digitally signed and often used by IT support staff, they can remain undetected for extended periods. Defenders must monitor for the execution of these binaries, especially when they originate from unexpected user contexts or lack a legitimate business justification. This analytic identifies the execution of such software by cross-referencing process telemetry from EDR agents against a managed list of known remote access utilities.
+Adversaries frequently employ legitimate remote access software (RAS) to maintain persistence and establish command-and-control (C2) channels within compromised networks. By utilizing tools such as AnyDesk, TeamViewer, GoToMyPC, and LogMeIn, attackers can bypass traditional perimeter defenses and evade signature-based detection mechanisms. This activity is frequently associated with advanced threat groups, including those involved in ransomware operations like Scattered Spider and Cactus. Detection engineering teams should monitor endpoint process creation events to identify the presence of these tools when they appear in environments where they are not authorized or standard. Monitoring these utilities allows defenders to intercept unauthorized remote management sessions before they lead to further compromise or data exfiltration.
 
 ## Impact
 
-Successful deployment of unauthorized remote access software allows attackers to achieve persistent system control, execute interactive commands, bypass local authentication, exfiltrate sensitive data, and provide a stable conduit for the deployment of secondary payloads, including ransomware. If left undetected, this visibility gap facilitates prolonged attacker dwell time and increases the likelihood of catastrophic data exfiltration and business disruption.
+Successful deployment of remote access tools provides attackers with persistent access to sensitive systems. If left unchecked, this access can lead to lateral movement throughout the domain, unauthorized access to sensitive internal systems, and ultimately, large-scale data exfiltration or the deployment of ransomware. The scope of impact varies depending on the attacker's objectives but typically includes full administrative control over compromised endpoints.
 
 ## Recommendation
 
-* Deploy the provided Sigma rule to identify unauthorized remote access software execution across the endpoint fleet.
-* Populate the `remote_access_software` lookup table with all enterprise-approved remote access tools to ensure proper filtering.
-* Enable EDR process creation logging (e.g., Sysmon Event ID 1) and map these logs to the Endpoint data model within the SIEM to support this detection.
-* Establish an exception management process using a lookup or KVStore to suppress alerts for authorized IT administration tools while maintaining visibility into non-standard process executions.
+- Deploy Sysmon Event ID 1 logging to monitor process creation across all Windows endpoints.
+- Establish an allowlist of approved remote access applications within your environment to minimize false positives.
+- Implement a lookup table of authorized remote access utilities and cross-reference process execution data against this list.
+- Investigate any execution of unauthorized remote management binaries, specifically those mapped to MITRE ATT&CK technique T1219.
+- Enable the detection of remote access software usage to identify potential C2 beacons and unauthorized persistent tunnels.
