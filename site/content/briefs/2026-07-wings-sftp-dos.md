@@ -3,11 +3,17 @@ title: Pterodactyl Wings SFTP Service Denial of Service
 slug: 2026-07-wings-sftp-dos
 description: An unauthenticated remote attacker can trigger a panic and crash the Pterodactyl Wings service by sending a maliciously crafted packet during the SFTP handshake.
 date: "2026-07-31T19:30:26Z"
+lastmod: "2026-10-19T18:22:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
+cpes:
+  - cpe:2.3:a:pterodactyl:wings:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=1FAAB3D8-3045-5F4D-8036-CF7843D6F16B&utm_source=rss&utm_medium=rss
 tags:
   - denial-of-service
   - pterodactyl
@@ -16,7 +22,7 @@ tags:
 vendors:
   - Pterodactyl
 products:
-  - wings
+  - wings (< 1.13.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -27,9 +33,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-52856
     cvss: 7.5
+    epss: 0.00609
 references:
   - https://github.com/advisories/GHSA-ghrq-5wpp-hxx5
   - https://github.com/pterodactyl/wings/releases/tag/v1.13.0
+  - https://sploitus.com/exploit?id=1FAAB3D8-3045-5F4D-8036-CF7843D6F16B&utm_source=rss&utm_medium=rss
+updates:
+  - at: "2026-10-19T18:22:40Z"
+    level: L2
+    summary: poc_available; wings version < 1.13.0
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=1FAAB3D8-3045-5F4D-8036-CF7843D6F16B&utm_source=rss&utm_medium=rss
 ---
 
 Pterodactyl Wings, a service used for managing game server instances, is vulnerable to a denial-of-service (DoS) condition in its integrated SFTP server implementation. The vulnerability, identified as CVE-2026-52856, stems from improper input validation during the initial SFTP connection handshake. A remote, unauthenticated attacker can send a specifically crafted network packet that causes an uncaught exception (Go panic) within the application's runtime. This leads to the immediate termination of the Wings process, rendering the management agent unavailable. This vulnerability affects all versions of Pterodactyl Wings prior to 1.13.0. Defenders should note that because the crash occurs during the early handshake phase, the attack does not require valid credentials or an established session, making it highly accessible to remote actors.
