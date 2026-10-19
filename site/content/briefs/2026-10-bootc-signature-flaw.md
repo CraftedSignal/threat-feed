@@ -3,6 +3,7 @@ title: 'CVE-2026-16487: Improper Container Signature Validation in bootc'
 slug: 2026-10-bootc-signature-flaw
 description: A vulnerability in bootc allows for the execution of arbitrary unsigned container content as the host root filesystem due to insecure default signature policies.
 date: "2026-10-19T06:58:17Z"
+lastmod: "2026-10-19T09:04:44Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - vulnerability
   - container-security
   - bootc
+  - persistence
+  - privilege-escalation
 vendors:
   - Red Hat
 products:
   - bootc
+  - ostree
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -30,6 +34,7 @@ cves:
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-16487
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-16460
 action_plan:
   priority: elevated
   owners:
@@ -46,6 +51,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-16487
       evidence: NVD vulnerability mitigation guidance
+updates:
+  - at: "2026-10-19T09:04:44Z"
+    level: L2
+    summary: added coverage for bootc +1 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-16460
 ---
 
 CVE-2026-16487 describes a security vulnerability in bootc, an image-based operating system deployment tool. The flaw arises when bootc operates under the default containers signature policy. In this configuration, registries that fall through to the insecureAcceptAnything policy allow for the application of unsigned content during automatic or manual image tag updates. An attacker with the ability to modify or poison a mutable image tag on a registry can cause the host to pull and apply unauthorized, unsigned container images. Upon the next system reboot, this malicious content is executed as the host's root filesystem, granting the attacker persistent control with full administrative privileges over the affected system. This vulnerability poses a significant risk to the integrity of systems managed via image-based deployment, effectively turning a standard update process into a vector for full system compromise.
