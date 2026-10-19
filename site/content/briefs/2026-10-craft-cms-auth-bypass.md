@@ -3,7 +3,7 @@ title: Authorization Bypass in Craft CMS GraphQL Mutations
 slug: 2026-10-craft-cms-auth-bypass
 description: Craft CMS versions 5.0.0 through 5.10.9 contain an authorization bypass vulnerability allowing attackers with site-scoped tokens to manipulate content across unauthorized sites via GraphQL mutations.
 date: "2026-10-19T22:23:26Z"
-lastmod: "2026-10-19T22:23:40Z"
+lastmod: "2026-10-19T22:23:49Z"
 type: advisory
 types:
   - advisory
@@ -18,11 +18,13 @@ tags:
   - cve
   - rce
   - twig
+  - cve-2026-112777
 vendors:
   - Craft CMS
 products:
   - Craft CMS (5.0.0 <= 5.10.9)
   - Craft CMS (4.x < 4.18.8, 5.x < 5.11.0)
+  - Craft CMS (< 4.18.8, < 5.11.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -48,6 +50,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112776
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112770
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-112777
 action_plan:
   priority: immediate_escalation
   owners:
@@ -72,6 +75,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-112770
+  - at: "2026-10-19T22:23:49Z"
+    level: L2
+    summary: added coverage for Craft CMS (< 4.18.8, < 5.11.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-112777
 ---
 
 Craft CMS versions 5.0.0 through 5.10.9 contain a critical authorization bypass vulnerability (CVE-2026-112776) stemming from an improperly enforced `requireAllowedSite()` check within the GraphQL API. The vulnerability allows an authenticated attacker, holding a legitimate GraphQL token scoped to a single site, to perform unauthorized mutations on content belonging to other sites within the same multi-site Craft CMS instance. 
