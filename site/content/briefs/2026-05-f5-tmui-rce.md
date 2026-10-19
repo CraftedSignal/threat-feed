@@ -3,7 +3,7 @@ title: F5 TMUI Remote Code Execution Vulnerability (CVE-2020-5902) Exploitation 
 slug: 2026-05-f5-tmui-rce
 description: Exploitation attempts targeting F5 BIG-IP, BIG-IQ, and Traffix SDC devices via CVE-2020-5902 are detected through regex pattern matching of exploit strings and directory traversal sequences in syslog data, potentially leading to remote code execution and system compromise.
 date: "2026-05-28T17:50:22Z"
-lastmod: "2026-10-13T18:47:43Z"
+lastmod: "2026-10-19T05:00:52Z"
 type: advisory
 types:
   - advisory
@@ -34,17 +34,30 @@ tags:
   - RCE
   - exploit
   - web
+  - vulnerability
+  - remote-code-execution
+  - command-injection
 vendors:
   - F5
 products:
   - BIG-IP
   - BIG-IQ
   - Traffix SDC
+  - BIG-IP Access Policy Manager (< 15.1.10.6)
+  - BIG-IP Advanced Firewall Manager (< 15.1.10.6)
+  - BIG-IP Advanced Web Application Firewall (< 15.1.10.6)
+  - BIG-IP Analytics (< 15.1.10.6)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The vulnerability is a command injection in the F5 BIG-IP iControl REST API via /mgmt/tm/util/bash which enables root RCE.
+    confidence_band: high
 cves:
   - id: CVE-2020-5902
     cvss: 9.8
@@ -75,7 +88,17 @@ rules:
       - T1190
     data_sources:
       - webserver
-rules_count: 2
+  - title: Detect CVE-2025-20029 Exploitation - HTTP POST to /mgmt/tm/util/bash
+    description: Detects exploitation attempts of CVE-2025-20029 by monitoring for POST requests to the vulnerable bash utility endpoint.
+    platform: sigma
+    severity: high
+    tactics:
+      - execution
+    techniques:
+      - T1059.004
+    data_sources:
+      - webserver
+rules_count: 3
 updates:
   - at: "2026-10-13T18:47:43Z"
     level: L2
@@ -84,6 +107,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SV3NBEAST-CVE-2020-5902_RCE&utm_source=rss&utm_medium=rss
+  - at: "2026-10-19T05:00:52Z"
+    level: L2
+    summary: 'added detection rule: Detect CVE-2025-20029 Exploitation - HTTP POST to /mgmt/tm/util/bash'
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SCHOI1337-CVE-2025-20029-SIMULATION&utm_source=rss&utm_medium=rss
 ---
 
 This brief focuses on detecting exploitation attempts of CVE-2020-5902, a remote code execution (RCE) vulnerability in the Traffic Management User Interface (TMUI) of F5 BIG-IP, BIG-IQ, and Traffix SDC devices. The vulnerability allows unauthenticated attackers to execute arbitrary commands on the affected devices. Detection relies on identifying specific patterns in syslog data indicative of exploit attempts, including "hsqldb;" and directory traversal sequences ("..;"). Successful exploitation can lead to full system compromise, unauthorized access, data exfiltration, and lateral movement within the network. The exploitation activity is significant because these F5 devices are often critical network infrastructure components.
