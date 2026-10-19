@@ -3,6 +3,7 @@ title: Abuse of Azure CLI for Entra ID User Management
 slug: 2026-10-entra-user-mgmt-cli
 description: Adversaries are leveraging the Azure CLI on compromised Windows hosts to manipulate Microsoft Entra ID user accounts for persistent access and stealthy operation.
 date: "2026-10-12T18:05:03Z"
+lastmod: "2026-10-19T11:50:13Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ tags:
   - defense-evasion
   - identity-management
   - cloud-security
+  - informational
+  - cloud
+  - identity-security
 vendors:
   - Microsoft
 products:
@@ -39,6 +43,9 @@ mitre_ttps:
     technique_name: Account Manipulation
     evidence: This analytic detects the usage of the Azure CLI to interact with user accounts such as creating or deleting a user.
     confidence_band: high
+references:
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/azure/signin_logs/azure_conditional_access_failure.yml
+  - https://learn.microsoft.com/en-gb/entra/architecture/security-operations-privileged-accounts
 rules:
   - title: Detect Azure CLI Entra User Management
     description: Detects the use of Azure CLI to perform user account management operations, which may indicate unauthorized persistent access attempts.
@@ -53,7 +60,18 @@ rules:
     data_sources:
       - process_creation
       - windows
-rules_count: 1
+  - title: Detect Azure Conditional Access Sign-in Failures
+    description: Detects sign-in failures due to Conditional Access requirements not being met (ResultType 53003), which can indicate malicious authentication attempts or misconfigurations.
+    platform: sigma
+    severity: high
+    tactics:
+      - initial-access
+    techniques:
+      - T1078.004
+    data_sources:
+      - signinlogs
+      - azure
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -73,6 +91,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Known technique for maintaining persistence.
+updates:
+  - at: "2026-10-19T11:50:13Z"
+    level: L1
+    summary: 'added detection rule: Detect Azure Conditional Access Sign-in Failures'
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/cloud/azure/signin_logs/azure_conditional_access_failure.yml
 ---
 
 Adversaries are increasingly using the Azure CLI (az.cmd) to interact with Microsoft Entra ID, specifically to perform user management tasks such as account creation or deletion. This technique allows attackers to establish persistence by creating new, malicious identities that remain under their control, even if original compromised accounts are remediated or locked. By performing these operations from an endpoint where the Azure CLI is already configured, attackers can leverage existing authentication tokens to bypass multi-factor authentication or credential prompts. This behavior represents a significant risk for environments where developers or administrators frequently use CLI tools to manage cloud infrastructure, as it blends malicious activity with standard administrative workflows. Defenders should prioritize identifying anomalous process execution patterns and unusual parent processes initiating Azure CLI commands.
