@@ -3,6 +3,7 @@ title: Remote Code Execution Vulnerability in IBM MQ (CVE-2026-12665)
 slug: 2026-10-ibm-mq-overflow
 description: IBM MQ contains a stack-based buffer overflow vulnerability during TLS handshake certificate processing that allows a remote, unauthenticated attacker to execute arbitrary code.
 date: "2026-10-19T18:09:14Z"
+lastmod: "2026-10-19T20:23:29Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:ibm:mq:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-12665&utm_source=rss&utm_medium=rss
 tags:
   - cve
   - rce
@@ -19,6 +23,7 @@ vendors:
   - IBM
 products:
   - MQ
+  - IBM MQ
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,6 +36,7 @@ cves:
     cvss: 8.1
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12665
+  - https://sploitus.com/exploit?id=CVE-2026-12665&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +53,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-12665
       evidence: IBM MQ stack buffer overflow advisory.
+updates:
+  - at: "2026-10-19T20:23:29Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-12665&utm_source=rss&utm_medium=rss
 ---
 
 IBM MQ is susceptible to a stack-based buffer overflow vulnerability, tracked as CVE-2026-12665, which can be triggered during the establishment of a channel connection. The vulnerability resides in the component responsible for processing TLS certificates. Specifically, when the application parses a certificate containing a malformed Distinguished Name (DN), it may overflow the stack buffer. Because this occurs during the early stages of a TLS handshake, a remote, unauthenticated attacker could potentially trigger this memory corruption by initiating a connection with a specially crafted certificate. Given the critical nature of messaging middleware in enterprise environments, successful exploitation could grant an attacker full control over the MQ process, leading to further internal network compromise or data exfiltration.
