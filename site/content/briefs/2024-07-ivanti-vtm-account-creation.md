@@ -3,11 +3,21 @@ title: Ivanti VTM Administrator Account Creation via CVE-2024-7593
 slug: 2024-07-ivanti-vtm-account-creation
 description: Unauthenticated remote attackers are exploiting CVE-2024-7593 in Ivanti Virtual Traffic Manager (vTM) to bypass authentication and create new administrator accounts, potentially leading to full system compromise.
 date: "2024-07-03T10:00:00Z"
+lastmod: "2026-10-19T01:00:28Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+cpes:
+  - cpe:2.3:a:ivanti:virtual_traffic_manager:22.2:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:virtual_traffic_manager:22.3:*:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:virtual_traffic_manager:22.5:r1:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:virtual_traffic_manager:22.6:r1:*:*:*:*:*:*
+  - cpe:2.3:a:ivanti:virtual_traffic_manager:22.7:r1:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AERCHY-CVE-2024-7593&utm_source=rss&utm_medium=rss
 tags:
   - ivanti
   - cve-2024-7593
@@ -15,8 +25,6 @@ tags:
   - account-creation
 vendors:
   - Ivanti
-products:
-  - Ivanti Virtual Traffic Manager
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -29,10 +37,11 @@ mitre_ttps:
 cves:
   - id: CVE-2024-7593
     cvss: 9.8
-    epss: 0.99987
+    epss: 0.99999
 references:
   - https://www.ivanti.com/security/security-advisories/ivanti-virtual-traffic-manager-vtm-cve-2024-7593
   - https://nvd.nist.gov/vuln/detail/CVE-2024-7593
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AERCHY-CVE-2024-7593&utm_source=rss&utm_medium=rss
 rules:
   - title: Ivanti VTM New Account Creation
     description: Detects the creation of new administrator accounts without a source IP address, indicating potential exploitation of CVE-2024-7593.
@@ -61,6 +70,14 @@ rules:
       - application
       - ivanti
 rules_count: 2
+updates:
+  - at: "2026-10-19T01:00:28Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AERCHY-CVE-2024-7593&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2024-7593 is an authentication bypass vulnerability affecting Ivanti Virtual Traffic Manager (vTM), a widely used application delivery controller. This vulnerability allows unauthenticated remote attackers to bypass the admin panel's authentication mechanisms and create new administrator accounts. Exploitation of this flaw enables attackers to gain complete control over the Ivanti vTM instance, potentially disrupting services, intercepting traffic, and compromising sensitive data. Public proof-of-concept exploit code exists, increasing the likelihood of widespread exploitation. Successful exploitation can lead to a complete compromise of the vTM instance and the services it manages. The targets are organizations using vulnerable versions of Ivanti vTM, which are primarily web-facing applications requiring load balancing and traffic management.
