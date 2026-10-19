@@ -3,6 +3,7 @@ title: SQL Injection Vulnerability in Events-Management-System
 slug: 2026-10-events-management-sql-injection
 description: An unauthenticated SQL injection vulnerability in the Registration-Edit Handler of the Events-Management-System allows remote attackers to compromise the backend database through unsanitized input parameters.
 date: "2026-10-19T14:09:24Z"
+lastmod: "2026-10-19T16:08:03Z"
 type: advisory
 types:
   - advisory
@@ -13,6 +14,9 @@ cpes:
 tags:
   - sql-injection
   - web-application-vulnerability
+  - cve-2026-112143
+  - authentication-bypass
+  - web-application
 vendors:
   - satya-vinay
 products:
@@ -29,6 +33,7 @@ cves:
     cvss: 7.3
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112141
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-112143
 rules:
   - title: Detect CVE-2026-112141 Exploitation - SQL Injection in doedit.php
     description: Detects attempts to exploit CVE-2026-112141 by identifying SQL injection payloads sent via POST requests to doedit.php
@@ -57,6 +62,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-112141
       evidence: Confirmed SQLi vulnerability in doedit.php
+updates:
+  - at: "2026-10-19T16:08:03Z"
+    level: L2
+    summary: added coverage for Events-Management-System (<= 437c77ceb69bf9fe2e3f4f46f7871b83f425383a)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-112143
 ---
 
 The Events-Management-System developed by satya-vinay contains a critical SQL injection vulnerability in the Registration-Edit Handler component. Specifically, the file 'doedit.php' fails to sanitize user-supplied input when passing parameters to the 'mysqli_query' function. An attacker can exploit this flaw by providing malicious input strings via the id, name, title, year, gender, fromdate, todate, or people arguments. This vulnerability permits unauthorized interaction with the underlying database, potentially leading to data exfiltration or modification. The flaw is publicly disclosed and exploitable remotely without authentication. Because the project utilizes a continuous delivery model without version tagging, all implementations up to commit hash 437c77ceb69bf9fe2e3f4f46f7871b83f425383a are considered vulnerable.
