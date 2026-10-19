@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-10-04T12:53:45Z"
+lastmod: "2026-10-19T19:23:07Z"
 type: advisory
 types:
   - advisory
@@ -100,6 +100,10 @@ products:
 affected_os:
   - Windows
   - macOS
+cves:
+  - id: CVE-2026-110936
+    cvss: 6.7
+    epss: 0.00135
 references:
   - https://www.securityweek.com/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/
   - https://hackread.com/gitlost-github-ai-agent-leaking-repository-data/
@@ -149,6 +153,8 @@ references:
   - https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html
   - https://www.malware-traffic-analysis.net/2026/09/29/index.html
   - https://www.malware-traffic-analysis.net/2026/09/30/index.html
+  - https://www.reddit.com/r/blueteamsec/comments/1x7ro0a/romulus_analysis_of_a_new_multipayload_clickfix/
+  - https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/
 iocs:
   - type: domain
     value: justwatch.com
@@ -220,13 +226,6 @@ ioc_counts:
   ip: 3
   url: 9
 updates:
-  - at: "2026-09-21T06:59:22Z"
-    level: L1
-    summary: new product
-    sources:
-      - malware-traffic-analysis
-    source_urls:
-      - https://www.malware-traffic-analysis.net/2026/09/15/index.html
   - at: "2026-09-23T08:02:35Z"
     level: L1
     summary: new product
@@ -255,6 +254,13 @@ updates:
       - malware-traffic-analysis
     source_urls:
       - https://www.malware-traffic-analysis.net/2026/09/30/index.html
+  - at: "2026-10-19T19:23:07Z"
+    level: L2
+    summary: added CVE-2026-110936
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
