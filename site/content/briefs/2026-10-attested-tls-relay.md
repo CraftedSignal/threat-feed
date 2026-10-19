@@ -3,6 +3,7 @@ title: 'CVE-2026-112377: Cryptographic Relay Vulnerability in attested-tls-poc'
 slug: 2026-10-attested-tls-relay
 description: The attested-tls-poc library fails to bind attestation evidence to TLS connections, enabling attackers to relay valid evidence to impersonate workloads and intercept sensitive data.
 date: "2026-10-19T20:11:52Z"
+lastmod: "2026-10-19T20:23:05Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - high
 cpes:
   - cpe:2.3:a:ccc_attestation_sig:attested-tls-poc:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-112377&utm_source=rss&utm_medium=rss
 tags:
   - cryptographic-vulnerability
   - tls-relay
@@ -36,6 +40,7 @@ cves:
     cvss: 7.4
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112377
+  - https://sploitus.com/exploit?id=CVE-2026-112377&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-112377
       evidence: NVD advisory
+updates:
+  - at: "2026-10-19T20:23:05Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-112377&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-112377 affects the CCC Attestation SIG attested-tls-poc library up to commit 731ca82. The vulnerability arises from an implementation flaw where early attestation evidence is not cryptographically bound to the resulting TLS connection. Because the evidence is loosely coupled with the session, an attacker who has managed to extract an attested TLS private key can perform relay or replay attacks. By intercepting a relying party's nonce and forwarding it to a legitimate, genuine attester, the attacker can force the attester to sign the nonce. The attacker then uses the resulting valid evidence to successfully impersonate the original, legitimate attested workload during a TLS handshake. This allows for unauthorized session establishment and potential interception of data intended for the genuine service. This flaw represents a critical failure in the intended security properties of remote attestation within this library.
