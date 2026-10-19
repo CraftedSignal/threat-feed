@@ -3,7 +3,7 @@ title: DKIM Signature Forgery Vulnerability in hMailServer
 slug: 2026-10-hmailserver-dkim-spoof
 description: Progressive Robot hMailServer 6.0.0 through 6.3.6 contains a vulnerability allowing unauthenticated remote attackers to forge DKIM-signed emails for hosted domains via improper verification of sender identity during the signing process.
 date: "2026-10-19T18:09:20Z"
-lastmod: "2026-10-19T18:09:27Z"
+lastmod: "2026-10-19T18:09:33Z"
 type: advisory
 types:
   - advisory
@@ -16,10 +16,16 @@ tags:
   - denial-of-service
   - email-server
   - cve
+  - privilege-escalation
+  - windows
+  - local-exploitation
 vendors:
   - Progressive Robot
 products:
   - hMailServer (6.0.0 through 6.3.6)
+  - hMailServer (6.0.0-6.3.6)
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -33,12 +39,25 @@ mitre_ttps:
     technique_name: Endpoint Denial of Service
     evidence: The server bounds the mail it generates in response to a message... by a counter it carries in the message X-hMailServer-LoopCount header... a sender who sets X-hMailServer-LoopCount to a negative value... loops up to about two thousand million times... stopping mail service.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1548.001
+    technique_name: 'Abuse Elevation Control Mechanism: Setuid and Setgid'
+    evidence: A local user without administrator rights can then alter or replace the service program, which runs as LocalSystem or as the service virtual account.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1574.001
+    technique_name: 'Hijack Execution Flow: DLL Search Order Hijacking'
+    evidence: or place a library in Bin that those programs load in place of the system copy, gaining code execution with those privileges.
+    confidence_band: high
 cves:
   - id: CVE-2026-107567
     cvss: 7.5
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107567
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107569
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-107571
 action_plan:
   priority: immediate_escalation
   owners:
@@ -63,6 +82,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-107569
+  - at: "2026-10-19T18:09:33Z"
+    level: L2
+    summary: added coverage for hMailServer (6.0.0-6.3.6)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-107571
 ---
 
 Progressive Robot hMailServer versions 6.0.0 through 6.3.6 suffer from a critical flaw in their DKIM signing implementation. When DKIM signing is enabled for a hosted domain, the mail server applies a cryptographic signature to all outgoing messages based on the 'From' header, prior to verifying the authenticity of the sender. This logic applies to any inbound message, including those submitted by unauthenticated remote sources. 
