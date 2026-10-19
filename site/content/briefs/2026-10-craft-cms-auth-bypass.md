@@ -3,6 +3,7 @@ title: Authorization Bypass in Craft CMS GraphQL Mutations
 slug: 2026-10-craft-cms-auth-bypass
 description: Craft CMS versions 5.0.0 through 5.10.9 contain an authorization bypass vulnerability allowing attackers with site-scoped tokens to manipulate content across unauthorized sites via GraphQL mutations.
 date: "2026-10-19T22:23:26Z"
+lastmod: "2026-10-19T22:23:40Z"
 type: advisory
 types:
   - advisory
@@ -15,10 +16,13 @@ tags:
   - cms
   - graphql
   - cve
+  - rce
+  - twig
 vendors:
   - Craft CMS
 products:
   - Craft CMS (5.0.0 <= 5.10.9)
+  - Craft CMS (4.x < 4.18.8, 5.x < 5.11.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -32,11 +36,18 @@ mitre_ttps:
     technique_name: Active Scanning
     evidence: Attackers holding a site-A token can create entries in site B via supplied siteId.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.003
+    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    evidence: By manipulating these parameters, an attacker can write a malicious file (webshell) directly to the webroot, subsequently executing arbitrary code.
+    confidence_band: high
 cves:
   - id: CVE-2026-112776
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112776
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-112770
 action_plan:
   priority: immediate_escalation
   owners:
@@ -53,6 +64,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-112776
       evidence: NVD source advisory
+updates:
+  - at: "2026-10-19T22:23:40Z"
+    level: L2
+    summary: added coverage for Craft CMS (4.x < 4.18.8, 5.x < 5.11.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-112770
 ---
 
 Craft CMS versions 5.0.0 through 5.10.9 contain a critical authorization bypass vulnerability (CVE-2026-112776) stemming from an improperly enforced `requireAllowedSite()` check within the GraphQL API. The vulnerability allows an authenticated attacker, holding a legitimate GraphQL token scoped to a single site, to perform unauthorized mutations on content belonging to other sites within the same multi-site Craft CMS instance. 
