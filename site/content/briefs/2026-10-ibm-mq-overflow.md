@@ -1,8 +1,8 @@
 ---
-title: Heap-Based Buffer Overflow in IBM MQ
+title: Remote Code Execution Vulnerability in IBM MQ (CVE-2026-12665)
 slug: 2026-10-ibm-mq-overflow
-description: IBM MQ is vulnerable to a heap-based buffer overflow via malformed message handle properties during MQPUT or MQPUT1 operations, potentially allowing authenticated attackers to execute arbitrary code or cause a service denial.
-date: "2026-10-19T18:09:00Z"
+description: IBM MQ contains a stack-based buffer overflow vulnerability during TLS handshake certificate processing that allows a remote, unauthenticated attacker to execute arbitrary code.
+date: "2026-10-19T18:09:14Z"
 type: advisory
 types:
   - advisory
@@ -11,60 +11,52 @@ severities:
 cpes:
   - cpe:2.3:a:ibm:mq:*:*:*:*:*:*:*:*
 tags:
-  - ibm-mq
-  - vulnerability
-  - heap-overflow
+  - cve
+  - rce
+  - buffer-overflow
+  - messaging-middleware
 vendors:
   - IBM
 products:
   - MQ
 mitre_ttps:
-  - tactic_id: TA0002
-    tactic_name: Execution
+  - tactic_id: TA0001
+    tactic_name: Initial Access
     technique_id: T1203
     technique_name: Exploitation for Client Execution
-    evidence: An authenticated attacker can exploit this flaw to trigger a denial of service condition or achieve arbitrary code execution on the target system.
+    evidence: A remote, unauthenticated attacker could exploit this flaw to achieve remote code execution during the handshake process.
     confidence_band: high
 cves:
-  - id: CVE-2026-10574
-    cvss: 8.8
+  - id: CVE-2026-12665
+    cvss: 8.1
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-12665
 action_plan:
-  priority: elevated
+  priority: immediate_escalation
   owners:
-    - IT Operations
     - SOC
+    - IT Operations
   immediate_actions:
-    - action: Patch all IBM MQ installations to the version addressing CVE-2026-10574
+    - action: Patch IBM MQ to the version identified in the vendor security bulletin for CVE-2026-12665.
       owner: IT Operations
-      due: 48h
-      evidence: CVE-2026-10574
+      due: 24h
+      evidence: CVE-2026-12665 vulnerability disclosure.
   mitigation_plan:
     - priority: immediate
-      action: Apply security patches from IBM
+      action: Apply vendor-supplied security patches for CVE-2026-12665.
       owner: IT Operations
-      addresses: CVE-2026-10574
-      evidence: NVD disclosure
+      addresses: CVE-2026-12665
+      evidence: IBM MQ stack buffer overflow advisory.
 ---
 
-IBM MQ contains a heap-based buffer overflow vulnerability, identified as CVE-2026-10574, which affects its handling of message properties. When the service processes MQPUT or MQPUT1 operations containing specially crafted, malformed message handle properties, it fails to correctly validate input boundaries. This vulnerability allows an authenticated attacker to trigger memory corruption. Depending on the memory layout and the nature of the exploit, this can result in an application crash, causing a denial of service, or potentially lead to remote code execution within the context of the IBM MQ process. Given the critical nature of messaging middleware in enterprise architecture, this vulnerability poses a significant risk to data integrity and system availability. Defenders should prioritize patching affected instances of IBM MQ across both Windows and Linux environments.
-
-## Attack Chain
-
-1. Attacker establishes an authenticated session with the target IBM MQ server using legitimate credentials.
-2. Attacker prepares a malicious message payload containing malformed properties intended for the MQPUT or MQPUT1 API.
-3. Attacker sends the crafted message to a target queue managed by the vulnerable MQ service.
-4. The IBM MQ process receives the message and invokes the property parsing logic.
-5. The vulnerable code segment fails to perform sufficient bounds checking on the malformed properties, leading to a heap-based buffer overflow.
-6. Attacker leverages the overflow to overwrite adjacent memory structures on the heap.
-7. Attacker triggers a memory access violation to crash the process or redirects execution flow to injected shellcode.
-8. The objective is achieved through process termination (Denial of Service) or arbitrary command execution as the IBM MQ service account.
+IBM MQ is susceptible to a stack-based buffer overflow vulnerability, tracked as CVE-2026-12665, which can be triggered during the establishment of a channel connection. The vulnerability resides in the component responsible for processing TLS certificates. Specifically, when the application parses a certificate containing a malformed Distinguished Name (DN), it may overflow the stack buffer. Because this occurs during the early stages of a TLS handshake, a remote, unauthenticated attacker could potentially trigger this memory corruption by initiating a connection with a specially crafted certificate. Given the critical nature of messaging middleware in enterprise environments, successful exploitation could grant an attacker full control over the MQ process, leading to further internal network compromise or data exfiltration.
 
 ## Impact
 
-This vulnerability impacts any organization running IBM MQ in a networked environment where internal users or compromised accounts have MQI (Message Queue Interface) access. Successful exploitation can lead to a full denial of service for critical middleware infrastructure, disrupting downstream application communication. If arbitrary code execution is achieved, the attacker could gain a foothold on the server, move laterally within the network, or access sensitive data processed by the messaging queue.
+Successful exploitation of CVE-2026-12665 allows for unauthenticated remote code execution on the IBM MQ server. This poses a high risk to financial, logistics, and supply chain organizations that rely on IBM MQ for secure message queuing. If exploited, an attacker could intercept or manipulate sensitive business data, disable message processing, or use the compromised server as a pivot point into protected segments of the internal network.
 
 ## Recommendation
 
-- Identify and patch all instances of IBM MQ to the security version provided by IBM as a fix for CVE-2026-10574.
-- Implement strict access control lists (ACLs) for all message queues to minimize the number of authenticated users capable of performing MQPUT/MQPUT1 operations.
-- Monitor application logs for anomalous behavior related to IBM MQ service crashes or unexpected process restarts, which may indicate exploitation attempts.
+- Patch IBM MQ installations to the version addressing CVE-2026-12665 immediately.
+- Review TLS configurations and restrict allowed certificate issuers to trusted internal or external CAs to reduce the attack surface for malicious handshakes.
+- Monitor network traffic logs for anomalous TLS handshake initiations or unusually large certificate field sizes directed toward IBM MQ listening ports.
