@@ -3,7 +3,7 @@ title: Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise 
 slug: 2026-10-connectwise-m365-compromise
 description: Threat actors are exploiting a compromised service principal credential belonging to ConnectWise Cloud Backup to gain unauthorized access to 173 Microsoft 365 tenants and potentially escalate privileges.
 date: "2026-10-17T06:39:10Z"
-lastmod: "2026-10-18T09:13:18Z"
+lastmod: "2026-10-19T21:24:25Z"
 type: advisory
 types:
   - advisory
@@ -61,6 +61,10 @@ mitre_ttps:
     technique_name: Create Account
     evidence: The client secrets offer a way to authenticate as that application and establish persistence, providing an alternative means to regain access.
     confidence_band: high
+references:
+  - https://www.securityweek.com/connectwise-suspends-cloud-services-in-response-to-cyberattack/
+  - https://therecord.media/connectwise-suspends-cloud-backup-service-supply-chain-attack
+  - https://www.darkreading.com/identity-access-management-security/connectwise-disables-cloud-backups-downstream-msps
 iocs:
   - type: ip
     value: 144.172.64.128
@@ -103,6 +107,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html
+  - at: "2026-10-19T21:24:25Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - dark-reading
+    source_urls:
+      - https://www.darkreading.com/identity-access-management-security/connectwise-disables-cloud-backups-downstream-msps
 ---
 
 Security researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. 
