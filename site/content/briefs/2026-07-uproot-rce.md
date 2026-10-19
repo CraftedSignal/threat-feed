@@ -3,11 +3,17 @@ title: Arbitrary Code Execution in uproot via Crafted ROOT Files (CVE-2026-9147)
 slug: 2026-07-uproot-rce
 description: A vulnerability, CVE-2026-9147, in the uproot library allows arbitrary Python code execution when processing crafted ROOT files due to improper handling of streamer metadata fields during dynamic code generation, impacting applications that open or process untrusted ROOT files.
 date: "2026-07-18T13:18:30Z"
+lastmod: "2026-10-19T21:24:24Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:uproot_project:uproot:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SAITEJA-ERUKUDE-CVE-2026-9147-UPROOT-RCE&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - rce
@@ -31,8 +37,18 @@ mitre_ttps:
 cves:
   - id: CVE-2026-9147
     cvss: 7.8
+    epss: 0.00224
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9147
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SAITEJA-ERUKUDE-CVE-2026-9147-UPROOT-RCE&utm_source=rss&utm_medium=rss
+updates:
+  - at: "2026-10-19T21:24:24Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SAITEJA-ERUKUDE-CVE-2026-9147-UPROOT-RCE&utm_source=rss&utm_medium=rss
 ---
 
 A critical vulnerability, tracked as CVE-2026-9147, has been identified in the `uproot` Python library, which is used for reading and writing ROOT files. `uproot` dynamically generates and compiles Python class source code at runtime from ROOT `TStreamerInfo` records found within these files. The vulnerability arises because certain file-controlled streamer metadata fields, such as streamer element names, are directly interpolated into the generated Python source code without proper safe quoting mechanisms like `repr()` or the `!r` format specifier. An attacker can exploit this by crafting a malicious ROOT file containing Python expression-breaking content within a streamer metadata field. When an application utilizes `uproot` to open or process such a file, the injected Python expression is evaluated in the context of the running process, leading to arbitrary Python code execution. This poses a significant risk to applications that process untrusted ROOT files, enabling attackers to fully compromise the host system.
