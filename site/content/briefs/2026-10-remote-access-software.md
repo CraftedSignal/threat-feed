@@ -3,6 +3,7 @@ title: Detection of Unauthorized Remote Access Software Usage
 slug: 2026-10-remote-access-software
 description: This detection monitors for the creation of files associated with known remote access utilities, which adversaries frequently deploy to establish C2 channels and persistent access.
 date: "2026-10-05T12:09:45Z"
+lastmod: "2026-10-19T13:56:23Z"
 type: advisory
 types:
   - advisory
@@ -12,6 +13,16 @@ tags:
   - command-and-control
   - persistence
   - remote-monitoring-management
+vendors:
+  - AnyDesk
+  - GoTo
+  - LogMeIn
+  - TeamViewer
+products:
+  - AnyDesk
+  - GoToMyPC
+  - LogMeIn
+  - TeamViewer
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
@@ -19,19 +30,8 @@ mitre_ttps:
     technique_name: Remote Access Software
     evidence: Adversaries often use remote access tools like AnyDesk, GoToMyPC, LogMeIn, and TeamViewer to maintain unauthorized access.
     confidence_band: high
-rules:
-  - title: Detect Remote Access Software Installation
-    description: Detects the creation of files on disk identified as belonging to known remote access software utilities.
-    platform: sigma
-    severity: medium
-    tactics:
-      - command_and_control
-    techniques:
-      - T1219
-    data_sources:
-      - file_event
-      - windows
-rules_count: 1
+references:
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_remote_access_software_usage_file.yml
 action_plan:
   priority: elevated
   owners:
@@ -57,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: T1219
       evidence: Prevents execution of unauthorized remote access binaries.
+updates:
+  - at: "2026-10-19T13:56:23Z"
+    level: L1
+    summary: new product
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/detect_remote_access_software_usage_file.yml
 ---
 
 Adversaries frequently employ legitimate remote access software (RATs) such as AnyDesk, GoToMyPC, LogMeIn, and TeamViewer to maintain unauthorized access to compromised endpoints. By leveraging these tools, attackers can bypass traditional perimeter controls, as the traffic often blends with legitimate administrative activity. The deployment of these utilities usually occurs after initial access is achieved, serving as a secondary persistent backdoor or a mechanism for interactive operator control.
