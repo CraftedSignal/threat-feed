@@ -3,6 +3,7 @@ title: Multiple Vulnerabilities in Drupal Core
 slug: 2026-10-drupal-vulnerabilities
 description: Multiple vulnerabilities, including remote code execution and cross-site scripting, affect Drupal versions 10.6.x, 11.3.x, and 11.4.x, requiring immediate patching to prevent unauthorized code execution.
 date: "2026-10-15T16:26:25Z"
+lastmod: "2026-10-19T16:19:05Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,11 @@ products:
   - Drupal (10.6.x < 10.6.19)
   - Drupal (11.3.x < 11.3.19)
   - Drupal (11.4.x < 11.4.10)
+cves:
+  - id: CVE-2026-108099
+  - id: CVE-2026-108097
+  - id: CVE-2026-108515
+  - id: CVE-2026-108514
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1321/
   - https://drupal.org/sa-core-2026-014
@@ -22,6 +28,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-108097
   - https://www.cve.org/CVERecord?id=CVE-2026-108514
   - https://www.cve.org/CVERecord?id=CVE-2026-108515
+  - https://www.securityweek.com/drupal-warns-of-fast-exploitation-risk-for-critical-core-rce-flaw/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -32,6 +39,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-108097, CVE-2026-108514, CVE-2026-108515
       evidence: Source provides specific fixed versions for all affected branches
+updates:
+  - at: "2026-10-19T16:19:05Z"
+    level: L2
+    summary: added CVE-2026-108097 +3
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/drupal-warns-of-fast-exploitation-risk-for-critical-core-rce-flaw/
 ---
 
 The French National Cybersecurity Agency (ANSSI) has issued an advisory regarding multiple critical vulnerabilities discovered in the Drupal content management system. These vulnerabilities, documented in security bulletins SA-CORE-2026-014, SA-CORE-2026-015, and SA-CORE-2026-016, expose affected instances to remote code execution (RCE) and reflected cross-site scripting (XSS) attacks. 
