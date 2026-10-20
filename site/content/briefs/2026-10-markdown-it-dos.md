@@ -1,22 +1,55 @@
 ---
+brief_id: brief-2026-10-markdown-it-dos
+event_id: brief-2026-10-markdown-it-dos
+revision: 2
+activity_at: "2026-10-20T21:57:23Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T21:57:23Z"
+    checksum: sha256:e4d61896f59f3415b185e01351465acb1df251375c16d96e2a8c33c3f954eefc
+    summary: added coverage for markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111758
 title: Denial of Service Vulnerability in markdown-it Parser
 slug: 2026-10-markdown-it-dos
 description: A resource exhaustion vulnerability in the markdown-it Markdown parser allows for denial of service (DoS) when processing untrusted input with the typographer option enabled.
 date: "2026-10-19T20:12:06Z"
+lastmod: "2026-10-20T21:56:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source verified
 cpes:
   - cpe:2.3:a:markdown-it_project:markdown-it:*:*:*:*:*:node.js:*:*
 products:
   - markdown-it (< 14.3.2, < 15.0.2)
+  - markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)
 cves:
   - id: CVE-2026-111759
     cvss: 7.5
+    kev_status: unknown
+  - id: CVE-2026-111758
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111759
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111758
 action_plan:
   priority: elevated
   owners:
@@ -33,6 +66,14 @@ action_plan:
       owner: Development
       addresses: CVE-2026-111759
       evidence: 'Source notes that typographer: false is not affected'
+updates:
+  - at: "2026-10-20T21:56:40Z"
+    level: L1
+    summary: added coverage for markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111758
 ---
 
 The markdown-it library is vulnerable to a regular expression-style denial of service (ReDoS) attack when configured with 'typographer: true'. The vulnerability, identified as CVE-2026-111759, resides in the smartquotes rule implementation. Specifically, the parser performs quadratic processing time when encountering specially crafted sequences of opening and closing single or double quotes. Because this pattern triggers repeated scanning of the entire opener stack, a malicious actor providing malformed Markdown input can cause significant CPU consumption, potentially leading to service degradation or complete denial of service for applications using the parser to render untrusted content. This impact is highest in web applications that process user-submitted Markdown in real-time. The issue is resolved in markdown-it versions 14.3.2 and 15.0.2.
