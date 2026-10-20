@@ -169,8 +169,6 @@ func validSTIX(reportCount int) string {
       "type": "software",
       "spec_version": "2.1",
       "id": "software--dddddddd-dddd-5ddd-8ddd-dddddddddddd",
-      "created": "2026-10-20T08:00:00.000Z",
-      "modified": "2026-10-20T08:00:00.000Z",
       "name": "Example product"
     },
     {
@@ -216,7 +214,8 @@ func TestCheckSTIXRejectsStructuralViolations(t *testing.T) {
 		{"missing report refs", strings.Replace(validSTIX(1), `"object_refs": ["identity--bbbbbbbb-bbbb-5bbb-8bbb-bbbbbbbbbbbb"]`, `"object_refs": []`, 1), "stix.report_refs"},
 		{"unresolved report refs", strings.Replace(validSTIX(1), `identity--bbbbbbbb-bbbb-5bbb-8bbb-bbbbbbbbbbbb"]`, `identity--dddddddd-dddd-5ddd-8ddd-dddddddddddd"]`, 1), "stix.unresolved_ref"},
 		{"imprecise timestamps", strings.ReplaceAll(validSTIX(1), ".000Z", "Z"), "stix.timestamp_precision"},
-		{"missing software timestamp", strings.Replace(validSTIX(1), "      \"created\": \"2026-10-20T08:00:00.000Z\",\n      \"modified\": \"2026-10-20T08:00:00.000Z\",\n      \"name\": \"Example product\"", "      \"name\": \"Example product\"", 1), "stix.timestamp_required"},
+		{"missing report timestamp", strings.Replace(validSTIX(1), "      \"published\": \"2026-10-20T08:00:00.000Z\",\n", "", 1), "stix.timestamp_required"},
+		{"software versioning fields", strings.Replace(validSTIX(1), "      \"id\": \"software--dddddddd-dddd-5ddd-8ddd-dddddddddddd\",", "      \"id\": \"software--dddddddd-dddd-5ddd-8ddd-dddddddddddd\",\n      \"created\": \"2026-10-20T08:00:00.000Z\",", 1), "stix.not_applicable"},
 		{"missing canonical url", strings.Replace(validSTIX(1), "\t  \"x_craftedsignal_canonical_url\": \"https://feed.craftedsignal.io/briefs/confirmed-threat-activity/\",\n", "", 1), "stix.canonical_url"},
 		{"missing report field", strings.Replace(validSTIX(1), "\t  \"x_craftedsignal_cvss_max\": null,\n", "", 1), "stix.report_contract"},
 		{"invalid nullable score", strings.Replace(validSTIX(1), "\"x_craftedsignal_epss_max\": 0.91", "\"x_craftedsignal_epss_max\": \"high\"", 1), "stix.report_contract"},

@@ -371,7 +371,7 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 		}
 		var requiredTimestamps []string
 		switch typeName {
-		case "identity", "report", "indicator", "attack-pattern", "threat-actor", "software", "vulnerability", "relationship":
+		case "identity", "report", "indicator", "attack-pattern", "threat-actor", "vulnerability", "relationship":
 			requiredTimestamps = []string{"created", "modified"}
 			if object["spec_version"] != "2.1" {
 				issues = append(issues, issue(path, field+".spec_version", "stix.spec_version", "STIX 2.1 objects require spec_version 2.1"))
@@ -385,6 +385,13 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 		for _, timestamp := range requiredTimestamps {
 			if _, exists := object[timestamp]; !exists {
 				issues = append(issues, issue(path, field+"."+timestamp, "stix.timestamp_required", typeName+" requires "+timestamp))
+			}
+		}
+		if typeName == "software" {
+			for _, name := range []string{"created_by_ref", "created", "modified"} {
+				if _, exists := object[name]; exists {
+					issues = append(issues, issue(path, field+"."+name, "stix.not_applicable", "software SCOs must not contain "+name))
+				}
 			}
 		}
 		if typeName == "report" {
