@@ -56,8 +56,8 @@ func TestSiteWorkflowBatchesProductionDeployments(t *testing.T) {
 		t.Fatalf("on.schedule: got %d entries, want 1", len(schedules))
 	}
 	cron := mapping(t, schedules[0], "on.schedule[0]")["cron"]
-	if cron != "*/15 * * * *" {
-		t.Fatalf("on.schedule[0].cron: got %q, want 15-minute batching", cron)
+	if cron != "7,22,37,52 * * * *" {
+		t.Fatalf("on.schedule[0].cron: got %q, want offset 15-minute batching", cron)
 	}
 	if _, exists := triggers["workflow_dispatch"]; !exists {
 		t.Fatal("on.workflow_dispatch is required for an immediate safe deployment")
