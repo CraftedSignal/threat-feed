@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bef19691-25ae-5769-9b18-ab4bc3875f60",
+  "id": "bundle--bdac1c9d-736a-5d16-8c5a-e8e9d3b73a2a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1525,6 +1525,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--8a3cfc81-fad0-5da6-b3bd-ab73bb5c6ac1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Clear Windows Event Logs",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1070.001",
+          "url": "https://attack.mitre.org/techniques/T1070/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--8ee6bfbf-466b-596e-8833-eb11f50e3836",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2095,6 +2111,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1563",
           "url": "https://attack.mitre.org/techniques/T1563"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Command Obfuscation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1027.010",
+          "url": "https://attack.mitre.org/techniques/T1027/010"
         }
       ]
     },
@@ -16051,6 +16083,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--612ebce7-bdd2-54f6-8ab6-669020a486b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:48.000Z",
+      "modified": "2026-10-20T16:24:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4d18c841-eea4-5d3e-9ac9-2cb451984d30",
+      "target_ref": "attack-pattern--f3f2f4f8-a322-5c79-a367-7dee6853edb5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--613026c4-0c77-5dca-8bd3-9630beaf1984",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18544,6 +18587,17 @@
       "relationship_type": "uses",
       "source_ref": "report--81b88a20-e63a-5df3-89a6-ea26d74b7a31",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--745369f4-a015-58c3-b921-e6deb726c0e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:41.000Z",
+      "modified": "2026-10-20T16:24:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--00278aab-761a-5db7-ae29-9a49fe7d3131",
+      "target_ref": "attack-pattern--795e0dc0-384c-5fff-a1a3-4ec9857c249d"
     },
     {
       "type": "relationship",
@@ -27975,6 +28029,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b968230d-3c01-5861-89f3-b0e62400df87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:55.000Z",
+      "modified": "2026-10-20T16:24:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--11637f9d-66df-512a-accb-69d1178c9ffc",
+      "target_ref": "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b9775a25-2e66-555a-9c18-75aebf911226",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T04:24:16.000Z",
@@ -30347,6 +30412,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2707c03a-7922-53a0-8e01-0ad8518e7a26",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cb8952fd-30f5-5668-a2a0-220dcaac0cd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:48.000Z",
+      "modified": "2026-10-20T16:24:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4d18c841-eea4-5d3e-9ac9-2cb451984d30",
+      "target_ref": "attack-pattern--8a3cfc81-fad0-5da6-b3bd-ab73bb5c6ac1"
     },
     {
       "type": "relationship",
@@ -36555,6 +36631,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f6e5b4c8-c7fd-595f-8f72-05ec3b9892bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:55.000Z",
+      "modified": "2026-10-20T16:24:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--11637f9d-66df-512a-accb-69d1178c9ffc",
+      "target_ref": "attack-pattern--f8a5616a-53f6-5d8f-940e-1f38c11312fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f6ff5180-e535-5a1a-9007-bdf57677578b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37662,6 +37749,54 @@
       "relationship_type": "has",
       "source_ref": "software--73183d66-b420-5424-9638-5d186b1b8403",
       "target_ref": "vulnerability--8ee512df-96eb-5610-9e52-df673cae918e"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--00278aab-761a-5db7-ae29-9a49fe7d3131",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:41.000Z",
+      "modified": "2026-10-20T16:24:41.000Z",
+      "name": "Microsoft Windows: Unauthorized SeDebugPrivilege Enablement",
+      "description": "## Overview\n\nSeDebugPrivilege is a powerful Windows administrative privilege that allows a process to debug and modify the memory space of other processes, including those running as SYSTEM. While typically reserved for system-level debugging and maintenance tasks, adversaries frequently enable this privilege during the post-exploitation phase to perform credential theft via LSASS memory dumping or to inject malicious code into system processes.\n\nThis activity is captured via Windows Security Auditing when \"Token Right Adjusted Events\" (Event ID 4703) are enabled. The detection logic focuses on identifying non-SYSTEM accounts enabling this privilege, as legitimate system processes are excluded from the scope to reduce noise. Detecting this behavior is critical for identifying early-stage privilege escalation attempts where an attacker has achieved initial code execution as a standard or local administrator and is seeking to elevate their control over the OS.\n\n## Impact\n\nSuccessful enablement of SeDebugPrivilege by an unauthorized process allows an adversary to bypass standard Windows access controls. This enables actions such as reading the memory of protected processes to extract credentials (e.g., Mimikatz), injecting code into higher-integrity processes, or disabling security agent hooks, ultimately leading to full system compromise and persistent access.\n\n## Recommendation\n\n1. Enable \"Audit Token Right Adjusted Events\" via Group Policy to ensure Event ID 4703 is logged in the Security event channel.\n2. Deploy the provided Sigma rule to monitor for suspicious processes acquiring SeDebugPrivilege outside of known administrative and maintenance workflows.\n3. Investigate alerts by correlating the process name with its parent process chain to determine if the activity originated from legitimate administrative tooling or unauthorized scripts/binaries.\n4. Perform periodic review of the exclusion list to account for new enterprise software or administrative utilities that legitimately require debugging capabilities.\n",
+      "published": "2026-10-20T16:24:41.000Z",
+      "labels": [
+        "endpoint",
+        "privilege-escalation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--795e0dc0-384c-5fff-a1a3-4ec9857c249d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-sedebugprivilege-enablement",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-sedebugprivilege-enablement/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.palantir.com/windows-privilege-abuse-auditing-detection-and-defense-3078a403d74e"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4703"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-sedebugprivilege-enablement",
+      "x_craftedsignal_event_id": "brief-2026-10-sedebugprivilege-enablement",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sedebugprivilege-enablement/",
+      "x_craftedsignal_activity_at": "2026-10-20T16:24:41.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -40747,6 +40882,47 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ollama-network-anomalies/",
       "x_craftedsignal_activity_at": "2026-10-19T19:55:27.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--11637f9d-66df-512a-accb-69d1178c9ffc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:55.000Z",
+      "modified": "2026-10-20T16:24:55.000Z",
+      "name": "Potential PowerShell Obfuscated Script via High Entropy",
+      "description": "## Overview\n\nAdversaries frequently employ PowerShell to execute malicious commands, often leveraging obfuscation, compression, or encryption to evade signature-based security controls and manual inspection. This intelligence highlights a method for identifying such scripts by analyzing the statistical properties of PowerShell Script Block logs (Event ID 4104). By measuring Shannon entropy, surprisal standard deviation, and unique symbol counts, security teams can flag script blocks that deviate from the patterns of standard, human-readable code. This detection is particularly effective at surfacing in-memory loaders and staged payloads that attempt to hide their functionality through non-uniform character sets. While high-entropy blocks can occasionally originate from legitimate administrative tools, tuning the detection through filtering of authorized paths and users allows defenders to surface high-risk staging activity.\n\n## Attack Chain\n\n1. Attacker develops a malicious payload or loader script designed for in-memory execution.\n2. Attacker applies obfuscation (Base64 encoding, XOR encryption, or Gzip compression) to the script body to prevent static analysis.\n3. The obfuscated script is staged on disk or directly injected into a PowerShell process via an external trigger (e.g., macro, remote command).\n4. The PowerShell engine logs the script block content via Event ID 4104 as it is processed for execution.\n5. The security monitoring tool identifies the block due to its high entropy metrics (bits \u003e 5.5).\n6. The adversary's de-obfuscation routine (embedded within the script) executes to decode the payload in memory.\n7. The final stage malicious payload (e.g., beacon or lateral movement tool) executes in memory to achieve the attacker's objective.\n\n## Impact\n\nSuccessful execution of obfuscated PowerShell scripts allows adversaries to achieve initial access, execute arbitrary code, maintain persistence, and facilitate lateral movement while minimizing the risk of detection by standard security solutions. By bypassing signature-based inspection, attackers can increase the dwell time of their operations within a target environment.\n\n## Recommendation\n\n* Enable PowerShell Script Block Logging (Event ID 4104) across all Windows endpoints to ensure the necessary telemetry is available for analysis.\n* Deploy the provided Sigma rule (or equivalent logic) to monitor for high-entropy PowerShell execution.\n* Baseline administrative PowerShell activity to identify and filter out legitimate high-entropy scripts originating from known internal automation paths.\n* When an alert occurs, pivot on `powershell.file.script_block_id` to reconstruct fragmented scripts and inspect for loading logic that precedes dynamic execution.\n",
+      "published": "2026-10-20T16:24:55.000Z",
+      "labels": [
+        "defense-evasion",
+        "powershell",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--c9dc1c3a-4712-58e5-845a-d40aba1d5633",
+        "attack-pattern--f8a5616a-53f6-5d8f-940e-1f38c11312fa",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4cdbe714-07d6-5995-b123-b22752cba59c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-potential-powershell-obfuscation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-potential-powershell-obfuscation/"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-potential-powershell-obfuscation",
+      "x_craftedsignal_event_id": "brief-2026-10-potential-powershell-obfuscation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-potential-powershell-obfuscation/",
+      "x_craftedsignal_activity_at": "2026-10-20T16:24:55.000Z",
+      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -55036,6 +55212,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4d18c841-eea4-5d3e-9ac9-2cb451984d30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T16:24:48.000Z",
+      "modified": "2026-10-20T16:24:48.000Z",
+      "name": "Windows: Security-sensitive audit policy sub-category disabled",
+      "description": "## Overview\n\nAdversaries often target Windows audit policies to blind security teams and hinder incident response efforts. By disabling specific audit policy subcategories, attackers can suppress logs for critical security events, such as process creation, logon events, and security group management. This anti-forensics activity aims to evade SIEM detections and conceal post-compromise behaviors. Defenders should monitor for Windows Event ID 4719, which records changes to the system's audit policy. This brief focuses on detecting instances where a sensitive subcategory is disabled and remains in a disabled state, indicating potential malicious tampering rather than routine administrative activity.\n\n## Attack Chain\n\n1. Attacker gains administrative access to the target host.\n2. Attacker identifies critical audit policy subcategories to target (e.g., Process Creation, Logon).\n3. Attacker uses command-line utilities like `auditpol.exe` or group policy modifications to alter audit settings.\n4. System generates a Windows Event ID 4719 signifying an audit policy change.\n5. If the change removes Success or Failure auditing, the attacker successfully suppresses future logs.\n6. Attacker proceeds with malicious actions (e.g., lateral movement, credential theft) without generating security logs.\n7. Final objective is maintained stealth during the mission duration.\n\n## Impact\n\nSuccessful modification of audit policies results in critical visibility gaps for security operations centers. If security-relevant logs are disabled, incident responders cannot reconstruct the timeline of an intrusion, identify compromised accounts, or determine the scope of a breach. This enables attackers to persist within the environment undetected for extended periods.\n\n## Recommendation\n\n* Enable Windows Security Event logging for Event ID 4719 across all workstations and servers.\n* Implement the provided detection logic to alert on the removal of audit policy success logging for sensitive subcategories like \"Process Creation\" and \"Logon\".\n* Investigate any account or process identified in Event ID 4719 triggers to verify if the modification was a result of authorized administrative maintenance or malicious intent.\n* Maintain a baseline of intended audit policies via Group Policy or MDM to facilitate the detection of unauthorized drifts.\n",
+      "published": "2026-10-20T16:24:48.000Z",
+      "labels": [
+        "defense-evasion",
+        "forensic-tampering",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--8a3cfc81-fad0-5da6-b3bd-ab73bb5c6ac1",
+        "attack-pattern--f3f2f4f8-a322-5c79-a367-7dee6853edb5",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-sensitive-audit-policy-disabled",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-sensitive-audit-policy-disabled/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-sensitive-audit-policy-disabled",
+      "x_craftedsignal_event_id": "brief-2026-10-sensitive-audit-policy-disabled",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sensitive-audit-policy-disabled/",
+      "x_craftedsignal_activity_at": "2026-10-20T16:24:48.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
