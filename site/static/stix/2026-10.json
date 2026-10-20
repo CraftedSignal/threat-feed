@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--24c0e755-20c0-51ac-adc5-06f83d348e35",
+  "id": "bundle--d2cb1536-e40b-5ef3-b0b9-f3b22b9d4603",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6509,6 +6509,17 @@
       "relationship_type": "uses",
       "source_ref": "report--baeaa2be-5ae0-5e2c-90fa-8a9e2c844f66",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1534f233-7739-5df1-93e1-d63dad2eb91a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T17:43:38.000Z",
+      "modified": "2026-10-20T17:43:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bf0f03fb-7aa3-5761-8c37-1fd205cfb636",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -20230,6 +20241,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7e3bd972-97dc-5e81-ab15-67278d161402",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T17:43:43.000Z",
+      "modified": "2026-10-20T17:43:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5b0b1f57-be3b-5ba6-91c5-67e393b166e9",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7e9dcfa5-28dd-56f8-9ed5-9961441b8c62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25814,6 +25836,17 @@
       "relationship_type": "has",
       "source_ref": "software--da2b3e59-bc67-570a-869c-ace201114c38",
       "target_ref": "vulnerability--f7144e68-13b3-50dc-8a82-5430afbd0d14"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a706a8b6-29bb-5141-a7e5-9c4976363323",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--696cb51a-218f-5c0e-a203-2b921edb0351",
+      "target_ref": "vulnerability--80121692-244c-51b1-b412-a534168b6b86"
     },
     {
       "type": "relationship",
@@ -35538,6 +35571,17 @@
       "relationship_type": "uses",
       "source_ref": "report--92f53f0c-6c17-5486-8379-5be4137f1ad7",
       "target_ref": "attack-pattern--4230ce8d-554c-5b26-b7eb-d78999320c4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec5a5490-86d9-533b-848e-6ef34d9294af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f0c117e4-ef81-5325-905e-0d6e9e5110ba",
+      "target_ref": "vulnerability--716d0428-9452-515b-a34f-dccc52b4d2e7"
     },
     {
       "type": "relationship",
@@ -58179,6 +58223,51 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5b0b1f57-be3b-5ba6-91c5-67e393b166e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T17:43:43.000Z",
+      "modified": "2026-10-20T17:43:43.000Z",
+      "name": "ApostropheCMS: Unauthenticated disk exhaustion denial-of-service (CVE-2026-113658)",
+      "description": "## Overview\n\nApostropheCMS, an open-source Node.js content management system, contains a vulnerability (CVE-2026-113658) in its Rich Text CSV conversion route. The application fails to properly manage multipart uploads, as it writes incoming files to the system temporary directory before validating file extensions. Critically, the application does not remove these files if the extension validation fails. An unauthenticated attacker can exploit this behavior by repeatedly sending large, specifically crafted, or invalid multipart upload requests while utilizing a valid public CSRF cookie. This process results in the persistent accumulation of files in the temporary directory, which can lead to disk exhaustion. This resource depletion can disrupt the availability of ApostropheCMS and other services residing on the same disk partition. This issue is resolved in version 4.33.0.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service condition affecting the host system. By filling the temporary storage partition, an attacker can prevent the target server from performing essential file operations, potentially leading to service crashes or total system failure for all applications sharing the storage partition.\n\n## Recommendation\n\n* Update ApostropheCMS to version 4.33.0 or later to ensure proper cleanup of temporary files during failed upload attempts.\n* Monitor system disk space utilization on partitions where the temporary directory (often /tmp or /var/tmp) resides to detect rapid, unauthorized growth indicative of this attack.\n* Restrict access to public-facing CSV import or conversion routes at the web application firewall (WAF) level if immediate patching is not possible.\n",
+      "published": "2026-10-20T17:43:43.000Z",
+      "labels": [
+        "denial-of-service",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f0c117e4-ef81-5325-905e-0d6e9e5110ba",
+        "vulnerability--716d0428-9452-515b-a34f-dccc52b4d2e7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-apostrophe-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apostrophe-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113658"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-apostrophe-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-20-apostrophe-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apostrophe-dos/",
+      "x_craftedsignal_activity_at": "2026-10-20T17:43:43.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -81029,6 +81118,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bf0f03fb-7aa3-5761-8c37-1fd205cfb636",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T17:43:38.000Z",
+      "modified": "2026-10-20T17:43:38.000Z",
+      "name": "SolarWinds Observability Self-Hosted: Broken Authorization Schema (CVE-2026-28328)",
+      "description": "## Overview\n\nSolarWinds Observability Self-Hosted contains a critical broken authorization schema vulnerability, tracked as CVE-2026-28328, which allows authenticated users with low-level privileges to bypass standard access controls. By manipulating specific API requests, an unauthorized actor can gain access to information or perform modifications that are intended to be restricted to administrative or high-privileged roles. This vulnerability poses a significant risk to organizational visibility and infrastructure management integrity, as it facilitates privilege escalation within the self-hosted environment. Defenders should prioritize patching this application, as it provides a mechanism for internal actors or compromised low-privileged accounts to expand their influence and potentially exfiltrate sensitive observability data or alter system configurations.\n\n## Impact\n\nSuccessful exploitation allows low-privileged users to achieve unauthorized privilege escalation, granting them the ability to read or modify data outside their intended scope. This can lead to the exposure of sensitive network telemetry, service configuration details, and the potential manipulation of alerting or monitoring thresholds, which could be used to mask further malicious activity or cause operational disruption.\n\n## Recommendation\n\n- Apply the latest security patches provided by SolarWinds for the Observability Self-Hosted platform to remediate CVE-2026-28328 immediately.\n- Review application access logs for anomalous behavior involving high-privileged API endpoints accessed by accounts typically associated with low-privileged roles.\n- Audit current user permission assignments within the SolarWinds Observability interface to ensure the principle of least privilege is strictly enforced while awaiting or applying the patch.\n",
+      "published": "2026-10-20T17:43:38.000Z",
+      "labels": [
+        "privilege-escalation",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--696cb51a-218f-5c0e-a203-2b921edb0351",
+        "vulnerability--80121692-244c-51b1-b412-a534168b6b86"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-solarwinds-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-solarwinds-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28328"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-solarwinds-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-20-solarwinds-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-solarwinds-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-20T17:43:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bf67eaf3-48db-5135-b095-4a6b79778ed4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:05:58.000Z",
@@ -99531,6 +99666,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--696cb51a-218f-5c0e-a203-2b921edb0351",
+      "name": "Observability Self-Hosted",
+      "vendor": "SolarWinds"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--69e6d57a-acb5-5855-bf78-1cfe578212fd",
       "name": "ImageSharp (\u003e= 3.0.0, \u003c 4.1.1)",
       "vendor": "SixLabors"
@@ -104330,6 +104472,13 @@
       "id": "software--f0b74c22-4cc2-5adb-b395-a92fa01cb5dd",
       "name": "MCP Kotlin SDK (\u003c= 0.15.0)",
       "vendor": "Model Context Protocol"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f0c117e4-ef81-5325-905e-0d6e9e5110ba",
+      "name": "ApostropheCMS (\u003c 4.33.0)",
+      "vendor": "ApostropheCMS"
     },
     {
       "type": "software",
@@ -111575,6 +111724,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--716d0428-9452-515b-a34f-dccc52b4d2e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113658",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113658",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113658"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--71d154df-0955-5d8c-b19e-3aa16f1100e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -112401,6 +112566,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109449",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109449"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--80121692-244c-51b1-b412-a534168b6b86",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-28328",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-28328",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28328"
         }
       ]
     },
