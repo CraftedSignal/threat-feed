@@ -49,4 +49,3 @@ revision_history:
 ---
 
 Fixture body.
-
