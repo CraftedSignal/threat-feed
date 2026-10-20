@@ -1,8 +1,9 @@
 ---
-title: GNUTLS RSA-PSK Authentication Bypass Vulnerability (CVE-2026-42010)
+title: 'GnuTLS: RSA-PSK authentication bypass (CVE-2026-42010)'
 slug: 2024-01-gnutls-rsa-psk-bypass
 description: A vulnerability in GNUTLS (CVE-2026-42010) allows a remote attacker to bypass authentication on servers configured with RSA-PSK by sending a specially crafted username containing a NUL character, leading to unauthorized access.
-date: "2024-01-03T12:00:00Z"
+date: "2026-04-29T17:36:47Z"
+lastmod: "2026-10-20T09:30:40Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +26,8 @@ cves:
   - id: CVE-2026-42010
     cvss: 7.1
 references:
+  - https://www.gnutls.org/security-new.html#GNUTLS-SA-2026-04-29-4
+  - https://lists.gnutls.org/pipermail/gnutls-help/2026-April/004922.html
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42010
 rules:
   - title: Detect GNUTLS RSA-PSK Authentication Bypass Attempt
@@ -38,21 +41,10 @@ rules:
     data_sources:
       - network_connection
       - linux
-  - title: Detect GNUTLS Authentication with Suspicious Username Length
-    description: Detects potentially malicious authentication attempts where the username length deviates significantly from the norm, possibly indicating a truncated username due to the NULL character vulnerability.
-    platform: sigma
-    severity: medium
-    tactics:
-      - initial_access
-    techniques:
-      - T1550.002
-    data_sources:
-      - network_connection
-      - linux
-rules_count: 2
+rules_count: 1
 ---
 
-CVE-2026-42010 describes an authentication bypass vulnerability affecting GNUTLS, a widely used TLS library. The flaw resides in the handling of RSA-PSK (Rivest–Shamir–Adleman – Pre-Shared Key) configurations. Specifically, servers configured with RSA-PSK incorrectly match usernames containing a NUL character with truncated usernames. This can be exploited remotely by an attacker who sends a specially crafted username that includes a NUL character. The vulnerability was published on 2026-05-07, and exploitation can lead to unauthorized access to affected systems. Defenders should prioritize patching vulnerable GNUTLS installations to prevent potential authentication bypass attacks.
+CVE-2026-42010 describes an authentication bypass vulnerability affecting GnuTLS, a widely used TLS library. The flaw resides in the handling of RSA-PSK (Rivest–Shamir–Adleman – Pre-Shared Key) configurations. Specifically, servers configured with RSA-PSK incorrectly match usernames containing a NUL character with truncated usernames. GnuTLS announced the patched 3.8.13 release on 2026-04-29; the CVE record was published on 2026-05-07. Exploitation can lead to unauthorized access to affected systems. Defenders should prioritize patching vulnerable GnuTLS installations to prevent potential authentication bypass attacks.
 
 ## Attack Chain
 
