@@ -13,23 +13,18 @@ end
 
 analysis = workflow.fetch("jobs").fetch("claude-security-analysis")
 assert(analysis.dig("permissions", "id-token") == "write", "analysis job must have OIDC access")
-assert(analysis.dig("outputs", "workflow_changed") == "${{ steps.review-scope.outputs.workflow_changed }}",
-       "analysis job must expose whether its own workflow changed")
-
 steps = analysis.fetch("steps")
-scope = steps.find { |step| step["id"] == "review-scope" }
-assert(scope, "analysis job must detect changes to its own workflow")
-assert(scope.fetch("run", "").include?(".github/workflows/claude-code-review.yml"),
-       "workflow-change detection must be scoped to the Claude workflow")
+checkout = steps.find { |step| step["name"] == "Checkout repository" }
+assert(checkout, "analysis job must check out the repository")
+assert(checkout.dig("with", "fetch-depth") != 0, "analysis job must not fetch full repository history")
 
 review = workflow.fetch("jobs").fetch("claude-security-review")
 publish = review.fetch("steps").find { |step| step["name"] == "Publish review and enforce result" }
 assert(publish, "review job must publish or enforce the result")
-assert(publish.dig("env", "WORKFLOW_CHANGED") == "${{ needs.claude-security-analysis.outputs.workflow_changed }}",
-       "review job must receive the workflow-change result")
 script = publish.fetch("run")
 assert(script.include?('if [ -z "$REVIEW_OUTPUT" ]'), "empty structured output must be handled explicitly")
-assert(script.include?('[ "$WORKFLOW_CHANGED" = "true" ]'),
-       "empty output may only pass when the reviewed workflow itself changed")
+assert(!script.include?("WORKFLOW_CHANGED"), "workflow self-changes must not bypass security review")
+assert(script.match?(/if \[ -z "\$REVIEW_OUTPUT" \]; then\s+echo [^\n]+\s+exit 1\s+fi/m),
+       "empty structured output must fail closed")
 
-puts "Claude workflow policy verified: OIDC, scoped self-change skip, structured output enforcement"
+puts "Claude workflow policy verified: OIDC, shallow checkout, fail-closed output enforcement"
