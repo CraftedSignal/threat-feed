@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-osclass-sql-injection
+event_id: brief-2026-10-osclass-sql-injection
+revision: 1
+activity_at: "2026-10-20T10:32:50Z"
 title: 'Osclass: SQL Injection in Item Model Handler (CVE-2026-113381)'
 slug: 2026-10-osclass-sql-injection
 description: Osclass versions up to 8.3.1 are vulnerable to a remote SQL injection attack due to insufficient sanitization of the sPattern argument in the Item::findUserItems function.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:osclass:osclass:*:*:*:*:*:*:*:*
 tags:
@@ -28,6 +41,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-113381
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113381
 action_plan:
