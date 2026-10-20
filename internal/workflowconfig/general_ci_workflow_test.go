@@ -3,6 +3,7 @@ package workflowconfig
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"gopkg.in/yaml.v3"
@@ -22,6 +23,37 @@ func loadWorkflow(t *testing.T, name string) map[string]any {
 		t.Fatalf("parse %s: %v", path, err)
 	}
 	return workflow
+}
+
+func TestSecretScanningUsesBoundedPullRequestHistory(t *testing.T) {
+	workflow := loadWorkflow(t, "security.yml")
+	jobs := mapping(t, workflow["jobs"], "jobs")
+	secretScan := mapping(t, jobs["secrets-scan"], "jobs.secrets-scan")
+	steps := sequence(t, secretScan["steps"], "jobs.secrets-scan.steps")
+
+	foundCheckout := false
+	foundBaseFetch := false
+	for _, raw := range steps {
+		step := mapping(t, raw, "jobs.secrets-scan.steps")
+		uses, _ := step["uses"].(string)
+		if strings.Contains(uses, "actions/checkout") {
+			foundCheckout = true
+			with := mapping(t, step["with"], "jobs.secrets-scan.checkout.with")
+			if with["fetch-depth"] == 0 {
+				t.Fatal("secret scan must not clone the repository's full generated history")
+			}
+			if with["fetch-depth"] == nil {
+				t.Fatal("secret scan must use an explicit bounded checkout depth")
+			}
+		}
+		run, _ := step["run"].(string)
+		if strings.Contains(run, "git fetch --no-tags --depth=1") && strings.Contains(run, "BASE_SHA") {
+			foundBaseFetch = true
+		}
+	}
+	if !foundCheckout || !foundBaseFetch {
+		t.Fatalf("secret scan checkout=%v base-fetch=%v, want both", foundCheckout, foundBaseFetch)
+	}
 }
 
 func TestGeneralCIValidatesPullRequestsWithoutRepeatingOnMerge(t *testing.T) {
