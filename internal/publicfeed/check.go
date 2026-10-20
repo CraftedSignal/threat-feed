@@ -146,10 +146,11 @@ func CheckBriefWithMode(path string, data []byte, mode Mode) []Issue {
 		issues = append(issues, issue(path, "title/slug", "brief.identity", "title and slug are required"))
 	}
 	if mode == ModeStrict {
-		if brief.BriefID == "" || brief.EventID == "" || brief.Revision < 1 || !validRFC3339(brief.ActivityAt) {
-			issues = append(issues, issue(path, "brief_id,event_id,revision,activity_at", "brief.identity", "append-only identity fields are required and activity_at must be RFC3339"))
+		if brief.BriefID == "" || brief.EventID == "" || brief.Revision < 1 || !validRFC3339(brief.Date) || !validRFC3339(brief.ActivityAt) {
+			issues = append(issues, issue(path, "brief_id,event_id,revision,date,activity_at", "brief.identity", "append-only identity fields are required and date/activity_at must be RFC3339"))
 		}
 		issues = append(issues, checkRevisionHistory(path, brief)...)
+		issues = append(issues, checkActivityAt(path, brief)...)
 		issues = append(issues, checkExploitation(path, brief)...)
 		issues = append(issues, checkAllowedMapFields(path, "source_assessment", brief.SourceAssessment, map[string]bool{
 			"reliability": true,
@@ -299,6 +300,7 @@ func checkRevisionHistory(path string, brief briefDocument) []Issue {
 		return []Issue{issue(path, "revision_history", "brief.revision_history", "revisions after the initial snapshot require append-only history entries")}
 	}
 	var issues []Issue
+	publishedAt, _ := time.Parse(time.RFC3339, brief.Date)
 	if len(brief.RevisionHistory) != brief.Revision-1 {
 		issues = append(issues, issue(path, "revision_history", "brief.revision_history", "revision_history must contain exactly revisions 2 through the current revision"))
 	}
@@ -312,6 +314,8 @@ func checkRevisionHistory(path string, brief briefDocument) []Issue {
 		revisedAt, err := time.Parse(time.RFC3339, revision.At)
 		if err != nil {
 			issues = append(issues, issue(path, field+".at", "brief.revision_time", "revision timestamp must be RFC3339"))
+		} else if !publishedAt.IsZero() && !revisedAt.After(publishedAt) {
+			issues = append(issues, issue(path, field+".at", "brief.revision_time", "revision timestamps must be after first publication"))
 		} else if !previousAt.IsZero() && !revisedAt.After(previousAt) {
 			issues = append(issues, issue(path, field+".at", "brief.revision_time", "revision timestamps must be strictly increasing"))
 		} else {
@@ -333,6 +337,25 @@ func checkRevisionHistory(path string, brief briefDocument) []Issue {
 		issues = append(issues, issue(path, "revision_history", "brief.revision_history", "revision_history must end with the current revision"))
 	}
 	return issues
+}
+
+func checkActivityAt(path string, brief briefDocument) []Issue {
+	publishedAt, publishedErr := time.Parse(time.RFC3339, brief.Date)
+	activityAt, activityErr := time.Parse(time.RFC3339, brief.ActivityAt)
+	if publishedErr != nil || activityErr != nil {
+		return nil
+	}
+	expected := publishedAt
+	for _, revision := range brief.RevisionHistory {
+		revisedAt, err := time.Parse(time.RFC3339, revision.At)
+		if err == nil && revisedAt.After(expected) {
+			expected = revisedAt
+		}
+	}
+	if !activityAt.Equal(expected) {
+		return []Issue{issue(path, "activity_at", "brief.activity_at", "activity_at must equal the later of first publication and the latest material revision")}
+	}
+	return nil
 }
 
 func checkExploitation(path string, brief briefDocument) []Issue {

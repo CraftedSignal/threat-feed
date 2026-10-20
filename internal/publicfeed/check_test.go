@@ -77,6 +77,7 @@ func TestCheckBriefAcceptsStrictContract(t *testing.T) {
 
 func TestCheckBriefAcceptsInitialRevisionWithoutHistory(t *testing.T) {
 	initial := strings.Replace(validBrief, "revision: 2\nactivity_at:", "revision: 1\nactivity_at:", 1)
+	initial = strings.Replace(initial, `activity_at: "2026-10-20T08:00:00Z"`, `activity_at: "2026-10-19T08:00:00Z"`, 1)
 	historyStart := strings.Index(initial, "revision_history:\n")
 	if historyStart < 0 {
 		t.Fatal("validBrief revision history fixture is malformed")
@@ -147,7 +148,16 @@ func TestCheckBriefRejectsSemanticViolations(t *testing.T) {
 		code string
 	}{
 		{"missing identity", func(s string) string { return strings.Replace(s, "brief_id: brief-001\n", "", 1) }, "brief.identity"},
+		{"invalid publication date", func(s string) string {
+			return strings.Replace(s, `date: "2026-10-19T08:00:00Z"`, `date: "yesterday"`, 1)
+		}, "brief.identity"},
 		{"missing revision history", func(s string) string { return strings.Replace(s, "revision_history:\n", "history_missing:\n", 1) }, "brief.revision_history"},
+		{"activity before latest revision", func(s string) string {
+			return strings.Replace(s, `activity_at: "2026-10-20T08:00:00Z"`, `activity_at: "2026-10-20T07:00:00Z"`, 1)
+		}, "brief.activity_at"},
+		{"activity after latest revision", func(s string) string {
+			return strings.Replace(s, `activity_at: "2026-10-20T08:00:00Z"`, `activity_at: "2026-10-21T08:00:00Z"`, 1)
+		}, "brief.activity_at"},
 		{"bad revision checksum", func(s string) string {
 			return strings.Replace(s, "sha256:"+strings.Repeat("a", 64), "not-a-checksum", 1)
 		}, "brief.revision_checksum"},

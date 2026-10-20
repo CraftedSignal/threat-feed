@@ -246,7 +246,7 @@ func TestSiteWorkflowValidatesChangedPublicArtifactsAgainstHistoryAndManifest(t 
 						t.Errorf("BASE_SHA %q does not use %s", base, tt.base)
 					}
 					for _, required := range []string{
-						"git diff --find-renames --name-status -z --diff-filter=AMR",
+						"git diff --find-renames --name-status -z --diff-filter=AMRD",
 						"read -r -d ''",
 						"--previous-path",
 						"go run ./cmd/feedcheck --base-ref",

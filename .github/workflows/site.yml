@@ -141,7 +141,7 @@ jobs:
             if [[ "$path" == site/static/stix/index.json ]]; then
               index_present=true
             fi
-          done < <(git diff --find-renames --name-status -z --diff-filter=AMR "$base" "$CURRENT_SHA" -- \
+          done < <(git diff --find-renames --name-status -z --diff-filter=AMRD "$base" "$CURRENT_SHA" -- \
             'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
             'site/static/stix.json' 'site/static/stix/**')
 
@@ -253,7 +253,7 @@ jobs:
             if [[ "$path" == site/static/stix/index.json ]]; then
               index_present=true
             fi
-          done < <(git diff --find-renames --name-status -z --diff-filter=AMR "$base" "$CURRENT_SHA" -- \
+          done < <(git diff --find-renames --name-status -z --diff-filter=AMRD "$base" "$CURRENT_SHA" -- \
             'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
             'site/static/stix.json' 'site/static/stix/**')
 

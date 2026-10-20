@@ -138,6 +138,17 @@ func TestIsSTIXPathIncludesRollingAndMonthlyArtifacts(t *testing.T) {
 	}
 }
 
+func TestCheckSTIXReleasePathBindsFilenameToExactBytes(t *testing.T) {
+	bundle := manifestTestBundle()
+	sum := sha256.Sum256(bundle)
+	valid := "site/static/stix/releases/sha256-" + hex.EncodeToString(sum[:]) + ".json"
+	if issues := checkSTIXReleasePath(valid, bundle); len(issues) != 0 {
+		t.Fatalf("valid release path returned issues: %#v", issues)
+	}
+	requireManifestIssue(t, checkSTIXReleasePath("site/static/stix/releases/sha256-"+strings.Repeat("0", 64)+".json", bundle), "stix.release_checksum")
+	requireManifestIssue(t, checkSTIXReleasePath("site/static/stix/releases/latest.json", bundle), "stix.release_path")
+}
+
 func TestRunRejectsMissingBaseRefBeforeSkippingAppendOnlyComparison(t *testing.T) {
 	if got := run([]string{"--base-ref", "refs/heads/feedcheck-test-missing", "missing.md"}); got != 2 {
 		t.Fatalf("run returned %d, want 2 for missing base ref", got)

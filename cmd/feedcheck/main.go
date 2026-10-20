@@ -85,6 +85,7 @@ func run(args []string) int {
 				issues = append(issues, manifestIssues...)
 			} else {
 				issues = append(issues, publicfeed.CheckSTIX(path, data)...)
+				issues = append(issues, checkSTIXReleasePath(path, data)...)
 			}
 		default:
 			issues = append(issues, publicfeed.Issue{Path: path, Code: "file.unsupported", Severity: publicfeed.SeverityError, Message: "unsupported public artifact type"})
@@ -165,7 +166,24 @@ var (
 	manifestMonthPattern    = regexp.MustCompile(`^[0-9]{4}-(0[1-9]|1[0-2])$`)
 	manifestRollingPath     = regexp.MustCompile(`^/stix/releases/sha256-([0-9a-f]{64})\.json$`)
 	manifestMonthPath       = regexp.MustCompile(`^/stix/releases/([0-9]{4}-(?:0[1-9]|1[0-2]))-sha256-([0-9a-f]{64})\.json$`)
+	stixReleaseFilePath     = regexp.MustCompile(`(?:^|/)stix/releases/(?:[0-9]{4}-(?:0[1-9]|1[0-2])-)?sha256-([0-9a-f]{64})\.json$`)
 )
+
+func checkSTIXReleasePath(path string, data []byte) []publicfeed.Issue {
+	clean := filepath.ToSlash(path)
+	if !strings.Contains(clean, "/stix/releases/") && !strings.HasPrefix(clean, "stix/releases/") {
+		return nil
+	}
+	match := stixReleaseFilePath.FindStringSubmatch(clean)
+	if match == nil {
+		return []publicfeed.Issue{manifestIssue(path, "path", "stix.release_path", "immutable STIX releases require a content-addressed filename")}
+	}
+	digest := sha256.Sum256(data)
+	if match[1] != fmt.Sprintf("%x", digest) {
+		return []publicfeed.Issue{manifestIssue(path, "path", "stix.release_checksum", "release filename digest does not match exact file bytes")}
+	}
+	return nil
+}
 
 func checkManifest(path string, data []byte) []publicfeed.Issue {
 	var rawTop map[string]json.RawMessage

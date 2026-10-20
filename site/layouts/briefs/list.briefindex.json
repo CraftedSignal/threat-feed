@@ -3,10 +3,10 @@
   {{- $published := .Date -}}
   {{- $modified := .Lastmod -}}
   {{- $activity := $published -}}
-  {{- if gt $modified.Unix $published.Unix -}}{{- $activity = $modified -}}{{- end -}}
   {{- with .Params.activity_at -}}
-    {{- $declared := time.AsTime . -}}
-    {{- if gt $declared.Unix $activity.Unix -}}{{- $activity = $declared -}}{{- end -}}
+    {{- $activity = time.AsTime . -}}
+  {{- else -}}
+    {{- if gt $modified.Unix $published.Unix -}}{{- $activity = $modified -}}{{- end -}}
   {{- end -}}
   {{- $severity := index (.Params.severities | default (slice "medium")) 0 -}}
   {{- $type := .Params.type | default "threat" -}}
