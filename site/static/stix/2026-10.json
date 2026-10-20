@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4f9df4a7-104e-5c13-9d10-c2ab9023eb99",
+  "id": "bundle--8f6f22e5-ab19-5c47-9f6f-89ce6b8fc53c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13378,6 +13378,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4cedb685-d818-534a-b562-3b7f564badd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
+      "target_ref": "vulnerability--d5aa2ee5-d0c4-5f25-9cc1-515a4b773fcc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4cfcc28e-0eae-5748-8a63-e474de5affa0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14298,6 +14309,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bfeed58e-4bfd-5d65-a7c9-666cfd2ea1a9",
       "target_ref": "attack-pattern--9ab89b0b-e512-54ab-b724-618bee6caa38"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--540cb1bb-cd75-5d76-a003-1fcb46c37fc9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--12ce087a-3d8d-51ad-8c60-6db570f0aed1",
+      "target_ref": "vulnerability--05ebee39-13dc-523d-ad36-3116b9409d31"
     },
     {
       "type": "relationship",
@@ -16113,6 +16135,17 @@
       "relationship_type": "has",
       "source_ref": "software--58021591-c391-5aaa-91b6-fddf143b13b1",
       "target_ref": "vulnerability--a8aca54f-4281-52a1-892c-40271f821db5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6259b236-8fde-5c33-912b-e14107641af4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T14:17:38.000Z",
+      "modified": "2026-10-20T14:17:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f86a0efe-776a-5d55-ae4c-c99e1db20dca",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -22915,6 +22948,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--956beee1-482e-5137-91e7-0b119bbd711a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10fc409a-2154-5ac4-bd87-4f6d555173cc",
+      "target_ref": "vulnerability--89e8208a-ee3a-5d19-975c-3b75d9db495d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--956f6429-8c87-5489-90e6-fd86598dc3af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:11:47.000Z",
@@ -23197,6 +23241,17 @@
       "relationship_type": "uses",
       "source_ref": "report--74406755-3854-5a91-be69-e8b5d1a71027",
       "target_ref": "attack-pattern--5e05d029-d159-5289-9f03-3641066e4011"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9766f4be-0180-5ce2-99fe-25427fd2834c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T13:08:01.000Z",
+      "modified": "2026-10-20T14:17:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d059d712-7452-5599-875e-aad668ce4f25",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -23901,6 +23956,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cd344f17-568b-52b2-a43f-513bafa359cf",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9ca6ec13-4cb1-5304-a715-96e74b7d5bc2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T13:08:01.000Z",
+      "modified": "2026-10-20T14:17:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d059d712-7452-5599-875e-aad668ce4f25",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -33354,6 +33420,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e395f945-3d6f-5592-80e5-228ebcd398a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b6e4446-65e0-5fe8-849c-5f15dc657b95",
+      "target_ref": "vulnerability--4e40400b-3994-5cae-b6d6-f146cfd9fcd3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e39d687f-0af5-54e5-b42c-50e5ac922b2f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:01:39.000Z",
@@ -38027,6 +38104,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--038f0191-d10a-5e1d-8820-376aaffb131e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T14:17:17.000Z",
+      "modified": "2026-10-20T14:17:17.000Z",
+      "name": "Kroxylicious Azure Key Vault KMS provider SSRF (CVE-2026-105941)",
+      "description": "## Overview\n\nCVE-2026-105941 describes a critical security vulnerability within the Azure Key Vault KMS provider for Kroxylicious. The issue arises from a failure to perform adequate format validation on the `vaultName` field when handling wire-deserialized Encrypted Data Encryption Key (EDEK) bytes. By providing a crafted `vaultName` during the deserialization process, an unauthenticated attacker can force the application to perform a Server-Side Request Forgery (SSRF) request.\n\nThis request is directed toward an attacker-controlled endpoint, effectively exfiltrating the Azure bearer token assigned to the proxy service. Once obtained, the attacker can replay this bearer token against the legitimate Azure Key Vault service. This compromise allows the attacker to bypass the record-encryption trust model, potentially leading to unauthorized access to sensitive data encrypted by the proxy. Given the reliance of the proxy on this token for cryptographic operations, the impact on the confidentiality of the processed data is significant.\n\n## Impact\n\nThe vulnerability allows for the exfiltration of sensitive Azure identity tokens used by the Kroxylicious proxy. Successful exploitation results in the compromise of the record-encryption trust model, potentially enabling unauthorized decryption of data handled by the proxy. This impacts any environment using the Kroxylicious Azure Key Vault KMS provider, potentially affecting all organizations managing Kafka record encryption via this service.\n\n## Recommendation\n\n* Monitor network traffic originating from the Kroxylicious service host for unauthorized egress connections to unknown or unexpected external hosts, particularly those attempting to communicate with Azure Identity endpoints.\n* Identify and update all instances of the Kroxylicious Azure Key Vault KMS provider to the vendor-patched version immediately to remediate CVE-2026-105941.\n* Review Azure Identity logs for signs of anomalous token usage or logins originating from unexpected IP addresses that correlate with potential replayed bearer tokens.\n",
+      "published": "2026-10-20T14:17:17.000Z",
+      "labels": [
+        "cloud",
+        "cloud-security",
+        "ssrf"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
+        "vulnerability--d5aa2ee5-d0c4-5f25-9cc1-515a4b773fcc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-kroxylicious-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-kroxylicious-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105941"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-kroxylicious-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-10-20-kroxylicious-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kroxylicious-ssrf/",
+      "x_craftedsignal_activity_at": "2026-10-20T14:17:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -54901,6 +55023,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4e8e0a06-df12-5814-a9d7-b41f59f0f870",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T14:17:33.000Z",
+      "modified": "2026-10-20T14:17:33.000Z",
+      "name": "Eclipse ioFog Controller: Denial of Service via Unauthenticated Liquid Template Processing (CVE-2026-113619)",
+      "description": "## Overview\n\nEclipse ioFog Controller versions 3.8.0 through 3.9.1 contain a high-severity vulnerability (CVE-2026-113619) that permits unauthenticated denial-of-service (DoS) attacks. The flaw exists because the application utilizes the Liquid template engine to process request bodies for POST, PUT, and PATCH operations before enforcing authentication or role-based access control (RBAC). \n\nThe security controls in place fail to properly validate bearer tokens or apply rate limiting to these specific routes. By sending a specially crafted, small JSON body, an anonymous attacker can cause the controller process to stall or abort. The resulting disruption impacts the availability of the entire control plane, including agent APIs and in-process WebSocket relays, rendering the ioFog environment unresponsive. Defenders should prioritize patching or implementing network-level access controls to limit access to vulnerable controller endpoints.\n\n## Impact\n\nSuccessful exploitation results in the loss of control plane availability, effectively disabling management of connected ioFog agents and WebSocket-based telemetry relays. This vulnerability poses a significant risk to distributed edge computing environments relying on ioFog, as the control plane serves as the central orchestration point for fleet operations.\n\n## Recommendation\n\n* Upgrade Eclipse ioFog Controller to a version beyond 3.9.1 once a patch is available.\n* Until patching is feasible, implement network-level access control lists (ACLs) to restrict access to the ioFog Controller API to authorized management IP addresses only.\n* Enable web application firewall (WAF) or load balancer inspection to identify and block suspicious POST, PUT, and PATCH requests to the controller that contain excessive or malformed JSON payloads.\n",
+      "published": "2026-10-20T14:17:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--12ce087a-3d8d-51ad-8c60-6db570f0aed1",
+        "vulnerability--05ebee39-13dc-523d-ad36-3116b9409d31"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-iofog-controller-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-controller-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113619"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-iofog-controller-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-iofog-controller-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-controller-dos/",
+      "x_craftedsignal_activity_at": "2026-10-20T14:17:33.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -83617,6 +83779,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d059d712-7452-5599-875e-aad668ce4f25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T13:08:01.000Z",
+      "modified": "2026-10-20T14:17:09.000Z",
+      "name": "DrayTek Vigor2960: Command injection in CGI Process (CVE-2026-113389)",
+      "description": "## Overview\n\nDrayTek Vigor2960 firmware version 1.5.1.6 Revision 8218 contains a critical command injection vulnerability (CVE-2026-113389) residing within the set_table function of the /cgi-bin/mainfunction.cgi script. An unauthenticated remote attacker can exploit this flaw by manipulating the sectiontype argument, leading to arbitrary command execution on the affected network device. The vendor has identified this issue and released firmware version 1.5.1.7. However, the Vigor2960 product line has reached End-of-Life (EoS) status, meaning manufacturer support is extremely limited, and security updates are only provided for critical, unauthenticated vulnerabilities. The vulnerability is publicly disclosed, necessitating immediate action for administrators operating this hardware.\n\n## Impact\n\nSuccessful exploitation allows for full remote system compromise, enabling attackers to gain unauthorized access to internal network traffic, modify device configurations, or leverage the router as a pivot point for lateral movement into protected internal segments. Given that the Vigor2960 is an edge device, the risk of perimeter breach is high.\n\n## Recommendation\n\n* Patch affected Vigor2960 devices to firmware version 1.5.1.7 immediately.\n* Evaluate the retirement of Vigor2960 devices from the network infrastructure due to EoS status and limited security support.\n* Monitor webserver access logs for anomalous POST requests directed at /cgi-bin/mainfunction.cgi that include shell metacharacters in the sectiontype query parameter.\n* Restrict management interface access to trusted internal IP addresses only.\n",
+      "published": "2026-10-20T13:08:01.000Z",
+      "labels": [
+        "command-injection",
+        "cve-2026-113389",
+        "cve-2026-113390",
+        "network-device",
+        "network-infrastructure",
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8b6e4446-65e0-5fe8-849c-5f15dc657b95",
+        "vulnerability--4e40400b-3994-5cae-b6d6-f146cfd9fcd3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-draytek-command-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-draytek-command-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113389"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113390"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-draytek-command-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-draytek-command-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-draytek-command-injection/",
+      "x_craftedsignal_activity_at": "2026-10-20T14:17:09.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d05d43e6-2cc0-5518-af73-8bad4ad61267",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T04:53:19.000Z",
@@ -92491,6 +92708,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f86a0efe-776a-5d55-ae4c-c99e1db20dca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T14:17:38.000Z",
+      "modified": "2026-10-20T14:17:38.000Z",
+      "name": "Eclipse ioFog Controller: WebSocket Authentication Bypass (CVE-2026-113620)",
+      "description": "## Overview\n\nEclipse ioFog Controller versions 3.8.0 through 3.9.1 are affected by an authentication bypass vulnerability (CVE-2026-113620) within the operator WebSocket implementation. Specifically, the exec and log routes fail to perform proper validation of the provided bearer JSON Web Token (JWT). The application decodes the token and incorrectly utilizes the groups or roles defined within the payload as RBAC subjects. An attacker can craft a self-minted token containing administrative groups to bypass authorization checks, as the system does not require an associated account or RoleBinding. This flaw allows unauthorized actors to initiate exec or log sessions for specific microservices or fog instances, provided the attacker has obtained the target's UUID. HTTP routes and Agent WebSockets correctly verify tokens and remain unaffected.\n\n## Impact\n\nSuccessful exploitation allows unauthorized administrative access to container exec and log streams. This could lead to sensitive information disclosure via logs or full command execution on managed microservices and fog instances, potentially allowing an attacker to move laterally or exfiltrate data within the fog edge computing environment.\n\n## Recommendation\n\n* Patch the Eclipse ioFog Controller by upgrading to a version released after 3.9.1 that addresses CVE-2026-113620.\n* Audit access logs for WebSockets requests to the ioFog Controller that originate from unauthorized internal segments or external sources.\n* Monitor for unexpected exec or log session initiation for critical microservices or fog instances, especially those appearing with administrative role claims that do not correspond to known service identities.\n",
+      "published": "2026-10-20T14:17:38.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cloud-edge",
+        "web-application-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10fc409a-2154-5ac4-bd87-4f6d555173cc",
+        "vulnerability--89e8208a-ee3a-5d19-975c-3b75d9db495d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-iofog-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113620"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-iofog-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-iofog-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-iofog-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-20T14:17:38.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f86c6b67-5da6-55c8-832a-f8684e7d9b93",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T01:43:52.000Z",
@@ -94960,6 +95223,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--10fc409a-2154-5ac4-bd87-4f6d555173cc",
+      "name": "ioFog Controller (3.8.0 through 3.9.1)",
+      "vendor": "Eclipse"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--110d7cd3-28cf-5b49-8a01-e0734bb9e6fc",
       "name": "MindSearch (0.1.0)",
       "vendor": "InternLM"
@@ -95005,6 +95275,13 @@
       "id": "software--12aec73d-84c4-5463-8e8a-ee125ef09a96",
       "name": "vue-start (1.143.12 - \u003c1.168.56)",
       "vendor": "TanStack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--12ce087a-3d8d-51ad-8c60-6db570f0aed1",
+      "name": "ioFog Controller (3.8.0 - 3.9.1)",
+      "vendor": "Eclipse Foundation"
     },
     {
       "type": "software",
@@ -99130,6 +99407,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b6e4446-65e0-5fe8-849c-5f15dc657b95",
+      "name": "Vigor2960 (1.5.1.6 Revision 8218)",
+      "vendor": "DrayTek"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8c621043-5e47-57a5-9324-0351060f7c6b",
       "name": "ShareTech appliances"
     },
@@ -102185,6 +102469,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
+      "name": "Azure Key Vault KMS provider",
+      "vendor": "Kroxylicious"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e24bb216-e807-5a80-92ca-11e16e72f872",
       "name": "Windows 11 (\u003c 10.0.22631.5039)",
       "vendor": "Microsoft"
@@ -103667,6 +103958,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96578",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96578"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--05ebee39-13dc-523d-ad36-3116b9409d31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113619",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113619",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113619"
         }
       ]
     },
@@ -107865,6 +108172,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4e40400b-3994-5cae-b6d6-f146cfd9fcd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113389",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113389",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113389"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4ec26f55-c21e-5c61-85d9-bcb7f5d49840",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -111075,6 +111398,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107806",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107806"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--89e8208a-ee3a-5d19-975c-3b75d9db495d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113620",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113620",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113620"
         }
       ]
     },
@@ -115587,6 +115926,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108695",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108695"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d5aa2ee5-d0c4-5f25-9cc1-515a4b773fcc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105941",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105941",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105941"
         }
       ]
     },
