@@ -91,6 +91,55 @@ func TestCheckBriefAcceptsInitialRevisionWithoutHistory(t *testing.T) {
 	}
 }
 
+func TestCheckBriefAppendOnlyAcceptsOneNewMaterialRevision(t *testing.T) {
+	previous := strings.Replace(validBrief, "revision: 2\nactivity_at: \"2026-10-20T08:00:00Z\"", "revision: 1\nactivity_at: \"2026-10-20T07:00:00Z\"", 1)
+	historyStart := strings.Index(previous, "revision_history:\n")
+	historyEnd := strings.Index(previous[historyStart:], "---\n\n")
+	previous = previous[:historyStart] + previous[historyStart+historyEnd:]
+
+	if issues := CheckBriefAppendOnly("brief.md", []byte(previous), []byte(validBrief)); len(issues) != 0 {
+		t.Fatalf("CheckBriefAppendOnly returned issues: %#v", issues)
+	}
+}
+
+func TestCheckBriefAppendOnlyRejectsIdentityAndHistoryRewrites(t *testing.T) {
+	previous := strings.Replace(validBrief, "revision: 2\nactivity_at: \"2026-10-20T08:00:00Z\"", "revision: 3\nactivity_at: \"2026-10-20T09:00:00Z\"", 1)
+	previous = strings.Replace(previous, "---\n\nCVE", "  - revision: 3\n    at: \"2026-10-20T09:00:00Z\"\n    checksum: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\n    summary: Updated affected versions.\n    changed_fields: [affected_versions]\n    source_urls: [https://example.com/advisory]\n---\n\nCVE", 1)
+	current := strings.Replace(previous, "revision: 3\nactivity_at: \"2026-10-20T09:00:00Z\"", "revision: 4\nactivity_at: \"2026-10-20T10:00:00Z\"", 1)
+	current = strings.Replace(current, "---\n\nCVE", "  - revision: 4\n    at: \"2026-10-20T10:00:00Z\"\n    checksum: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n    summary: Added a new source.\n    changed_fields: [references]\n    source_urls: [https://example.com/new]\n---\n\nCVE", 1)
+
+	tests := []struct {
+		name string
+		edit func(string) string
+	}{
+		{"brief id", func(s string) string { return strings.Replace(s, "brief_id: brief-001", "brief_id: brief-002", 1) }},
+		{"event id", func(s string) string { return strings.Replace(s, "event_id: event-001", "event_id: event-002", 1) }},
+		{"slug", func(s string) string {
+			return strings.Replace(s, "slug: confirmed-threat-activity", "slug: changed", 1)
+		}},
+		{"publication date", func(s string) string { return strings.Replace(s, "2026-10-19T08:00:00Z", "2026-10-18T08:00:00Z", 1) }},
+		{"prior revision", func(s string) string {
+			return strings.Replace(s, "summary: Confirmed exploitation evidence.", "summary: Rewritten history.", 1)
+		}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			requireIssue(t, CheckBriefAppendOnly("brief.md", []byte(previous), []byte(tt.edit(current))), "brief.append_only")
+		})
+	}
+}
+
+func TestCheckBriefAppendOnlyRequiresRevisionAdvance(t *testing.T) {
+	requireIssue(t, CheckBriefAppendOnly("brief.md", []byte(validBrief), []byte(validBrief)), "brief.append_only")
+}
+
+func TestCheckBriefAppendOnlyAllowsLegacyDocumentToEstablishInitialSnapshot(t *testing.T) {
+	legacy := strings.Replace(validBrief, "brief_id: brief-001\nevent_id: event-001\nrevision: 2\n", "", 1)
+	if issues := CheckBriefAppendOnly("brief.md", []byte(legacy), []byte(validBrief)); len(issues) != 0 {
+		t.Fatalf("legacy initial snapshot returned issues: %#v", issues)
+	}
+}
+
 func TestCheckBriefRejectsSemanticViolations(t *testing.T) {
 	tests := []struct {
 		name string

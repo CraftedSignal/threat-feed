@@ -25,7 +25,7 @@ Canonical parameters are:
 - `flags=poc,exploited,ioc`
 - `page=N` for the filtered collection
 
-Committed changes use `history.pushState`; restoration uses `popstate`. All filter state is derivable from the URL without local or session storage. Filtering precedes pagination. The page presents a result summary and retains query parameters in next/previous links. Last 24 hours uses a single build timestamp embedded in the index so every client sees one internally consistent boundary for that build.
+Committed changes use `history.pushState`; restoration uses `popstate`. All filter state is derivable from the URL without local or session storage. Filtering precedes pagination. The page presents a result summary and retains query parameters in next/previous links. Last 24 hours captures one browser timestamp per render so the boundary remains internally consistent without freezing when no new content triggers a site build.
 
 ## Reading experience
 
@@ -47,7 +47,7 @@ Filter menus expose expanded and selected state, support Escape and focus return
 A Go checker validates changed public Markdown and STIX artifacts without requiring network access:
 
 - changed briefs have immutable identity/revision fields, structured CVEs for every public CVE token, canonical ATT&CK names, required sources for threats/rumours, safe public HTML, and noncontradictory exploitation evidence;
-- STIX bundles have unique object representations, millisecond timestamps, resolvable report references, canonical CraftedSignal URLs, and report counts matching manifest metadata;
+- STIX bundles have unique object representations, millisecond timestamps, resolvable report references, canonical CraftedSignal URLs, and report counts matching manifest metadata. Manifest entries point to immutable content-addressed release paths; stable rolling and monthly URLs remain compatibility aliases outside manifest parity;
 - generated sitemap locations are unique and below the protocol limit.
 
 Pull requests validate changed artifacts. Production site builds validate every STIX file changed since the prior successful deployment and every changed brief. Legacy unchanged pages do not block rollout, while any newly emitted regression does.

@@ -8,6 +8,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"net/url"
+	"reflect"
 	"regexp"
 	"sort"
 	"strconv"
@@ -71,6 +72,7 @@ type briefDocument struct {
 	EventID              string                 `yaml:"event_id"`
 	Revision             int                    `yaml:"revision"`
 	ActivityAt           string                 `yaml:"activity_at"`
+	Date                 string                 `yaml:"date"`
 	Type                 string                 `yaml:"type"`
 	Exploited            bool                   `yaml:"exploited"`
 	ExploitationEvidence exploitationEvidence   `yaml:"exploitation_evidence"`
@@ -195,6 +197,63 @@ func CheckBriefWithMode(path string, data []byte, mode Mode) []Issue {
 	visibleBody := inlineCodePattern.ReplaceAllString(fencedCodePattern.ReplaceAllString(string(body), ""), "")
 	if activeHTMLPattern.MatchString(visibleBody) {
 		issues = append(issues, issue(path, "body", "brief.active_html", "active raw HTML is not allowed in public brief content"))
+	}
+	return sorted(issues)
+}
+
+// CheckBriefAppendOnly compares a changed brief with its previously published
+// form. Shape validation remains the responsibility of CheckBrief; this check
+// protects identity and earlier audit entries that cannot be proven from the
+// current document alone.
+func CheckBriefAppendOnly(path string, previous, current []byte) []Issue {
+	previousFront, _, ok := splitFrontMatter(previous)
+	if !ok {
+		return []Issue{issue(path, "frontmatter", "brief.append_only", "previous brief has missing or malformed YAML front matter")}
+	}
+	currentFront, _, ok := splitFrontMatter(current)
+	if !ok {
+		return []Issue{issue(path, "frontmatter", "brief.append_only", "current brief has missing or malformed YAML front matter")}
+	}
+	var before, after briefDocument
+	if err := yaml.Unmarshal(previousFront, &before); err != nil {
+		return []Issue{issue(path, "frontmatter", "brief.append_only", "cannot parse previous brief: "+err.Error())}
+	}
+	if err := yaml.Unmarshal(currentFront, &after); err != nil {
+		return []Issue{issue(path, "frontmatter", "brief.append_only", "cannot parse current brief: "+err.Error())}
+	}
+
+	var issues []Issue
+	immutable := []struct {
+		field  string
+		before string
+		after  string
+	}{
+		{"brief_id", before.BriefID, after.BriefID},
+		{"event_id", before.EventID, after.EventID},
+		{"slug", before.Slug, after.Slug},
+		{"date", before.Date, after.Date},
+	}
+	for _, value := range immutable {
+		// Legacy briefs may not have the new identity fields. Once present, the
+		// strict current-document check requires them and later changes freeze them.
+		if value.before != "" && value.before != value.after {
+			issues = append(issues, issue(path, value.field, "brief.append_only", value.field+" is immutable after publication"))
+		}
+	}
+	if before.Revision >= 1 && after.Revision <= before.Revision {
+		issues = append(issues, issue(path, "revision", "brief.append_only", "a changed brief must advance its revision"))
+	}
+	historyRewritten := len(after.RevisionHistory) < len(before.RevisionHistory)
+	for i := 0; !historyRewritten && i < len(before.RevisionHistory); i++ {
+		historyRewritten = !reflect.DeepEqual(after.RevisionHistory[i], before.RevisionHistory[i])
+	}
+	if historyRewritten {
+		issues = append(issues, issue(path, "revision_history", "brief.append_only", "previous revision history entries are immutable and may only be appended"))
+	}
+	beforeActivity, beforeErr := time.Parse(time.RFC3339, before.ActivityAt)
+	afterActivity, afterErr := time.Parse(time.RFC3339, after.ActivityAt)
+	if before.Revision >= 1 && beforeErr == nil && afterErr == nil && !afterActivity.After(beforeActivity) {
+		issues = append(issues, issue(path, "activity_at", "brief.append_only", "a changed brief must advance activity_at"))
 	}
 	return sorted(issues)
 }

@@ -69,9 +69,9 @@ The standard fields follow [JSON Feed 1.1](https://www.jsonfeed.org/version/1.1/
 
 The static CDN publishes validated [STIX 2.1](https://oasis-open.github.io/cti-documentation/stix/intro) bundles for TIP and SOAR ingestion. No authentication is required.
 
-- Rolling bundle: `https://feed.craftedsignal.io/stix.json`
-- Monthly bundles: `https://feed.craftedsignal.io/stix/YYYY-MM.json`
-- Bundle index: `https://feed.craftedsignal.io/stix/index.json`
+- Rolling compatibility alias: `https://feed.craftedsignal.io/stix.json`
+- Monthly compatibility aliases: `https://feed.craftedsignal.io/stix/YYYY-MM.json`
+- Authoritative bundle index: `https://feed.craftedsignal.io/stix/index.json`
 
 A bundle uses the standard top-level `type`, `id`, and `objects` fields. Its reports reference the included `indicator`, `attack-pattern`, `threat-actor`, `software`, `vulnerability`, and identity objects with stable STIX IDs. Revisions retain their stable report ID, advance the report's `modified` timestamp, and expose the public revision number.
 
@@ -86,7 +86,7 @@ Every report includes these CraftedSignal properties:
 
 Each report also has a `craftedsignal` external reference whose `external_id` is the public brief ID and whose URL matches `x_craftedsignal_canonical_url`.
 
-The index is version `2.0` and identifies both rolling and monthly scopes. Each entry records `path`, a `sha256:<64 lowercase hex>` checksum, `size_bytes`, `report_count`, `first_published`, `last_published`, `generated`, and STIX `spec_version`. Monthly entries also include `month`. Publication uploads bundles before the index so an index entry never points to a partially uploaded release.
+The index is version `2.0` and identifies both rolling and monthly scopes. Each entry records `path`, a `sha256:<64 lowercase hex>` checksum, `size_bytes`, `report_count`, `first_published`, `last_published`, `generated`, and STIX `spec_version`. Monthly entries also include `month`. Index entries point to immutable content-addressed paths under `/stix/releases/`; the digest in each filename matches its checksum. Publication uploads and confirms every immutable bundle before switching the index. The stable rolling and monthly URLs are compatibility aliases refreshed after that switch and are not index targets.
 
 ## Tips
 

@@ -51,7 +51,7 @@ test('brief filters ignore unknown keys and values', () => {
   assert.equal(serializeBriefQuery(parseBriefQuery('?wat=no')), '');
 });
 
-test('brief filters use one inclusive 24 hour cutoff from index build time', () => {
+test('brief filters use one inclusive 24 hour cutoff from the supplied current time', () => {
   const items = [
     brief({ url: '/new/', activity_at: '2026-10-20T11:59:59.999Z' }),
     brief({ url: '/boundary/', activity_at: '2026-10-19T12:00:00.000Z' }),
@@ -61,6 +61,14 @@ test('brief filters use one inclusive 24 hour cutoff from index build time', () 
     filterBriefs(items, parseBriefQuery('?window=24h'), generatedAt).map((item) => item.url),
     ['/new/', '/boundary/'],
   );
+});
+
+test('brief filters do not freeze the 24 hour window at an old index build time', () => {
+  const staleBuildTime = '2026-10-18T12:00:00.000Z';
+  const currentTime = '2026-10-20T12:00:00.000Z';
+  const items = [brief({ activity_at: '2026-10-19T11:59:59.999Z' })];
+  assert.equal(filterBriefs(items, parseBriefQuery('?window=24h'), staleBuildTime).length, 1);
+  assert.equal(filterBriefs(items, parseBriefQuery('?window=24h'), currentTime).length, 0);
 });
 
 test('brief filters combine categories and OR values within a category', () => {

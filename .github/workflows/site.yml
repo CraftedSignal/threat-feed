@@ -124,16 +124,38 @@ jobs:
           fi
 
           changed=()
-          while IFS= read -r -d '' path; do
+          previous_args=()
+          stix_changed=false
+          index_present=false
+          while IFS= read -r -d '' status; do
+            IFS= read -r -d '' path
+            if [[ "$status" == R* ]]; then
+              previous="$path"
+              IFS= read -r -d '' path
+              previous_args+=(--previous-path "$path=$previous")
+            fi
             changed+=("$path")
-          done < <(git diff --name-only -z --diff-filter=AM "$base" "$CURRENT_SHA" -- \
+            if [[ "$path" == site/static/stix.json || "$path" == site/static/stix/* ]]; then
+              stix_changed=true
+            fi
+            if [[ "$path" == site/static/stix/index.json ]]; then
+              index_present=true
+            fi
+          done < <(git diff --find-renames --name-status -z --diff-filter=AMR "$base" "$CURRENT_SHA" -- \
             'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
-            'site/static/stix.json' 'site/static/stix/*.json')
+            'site/static/stix.json' 'site/static/stix/**')
+
+          # The index is the parity authority. Validate it and every immutable
+          # release it references whenever any STIX artifact changes; stable
+          # aliases are also checked structurally through the changed list.
+          if $stix_changed && ! $index_present; then
+            changed+=("site/static/stix/index.json")
+          fi
 
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
           else
-            go run ./cmd/feedcheck "${changed[@]}"
+            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
           fi
 
       - name: Setup Hugo
@@ -214,16 +236,35 @@ jobs:
           fi
 
           changed=()
-          while IFS= read -r -d '' path; do
+          previous_args=()
+          stix_changed=false
+          index_present=false
+          while IFS= read -r -d '' status; do
+            IFS= read -r -d '' path
+            if [[ "$status" == R* ]]; then
+              previous="$path"
+              IFS= read -r -d '' path
+              previous_args+=(--previous-path "$path=$previous")
+            fi
             changed+=("$path")
-          done < <(git diff --name-only -z --diff-filter=AM "$base" "$CURRENT_SHA" -- \
+            if [[ "$path" == site/static/stix.json || "$path" == site/static/stix/* ]]; then
+              stix_changed=true
+            fi
+            if [[ "$path" == site/static/stix/index.json ]]; then
+              index_present=true
+            fi
+          done < <(git diff --find-renames --name-status -z --diff-filter=AMR "$base" "$CURRENT_SHA" -- \
             'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
-            'site/static/stix.json' 'site/static/stix/*.json')
+            'site/static/stix.json' 'site/static/stix/**')
+
+          if $stix_changed && ! $index_present; then
+            changed+=("site/static/stix/index.json")
+          fi
 
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
           else
-            go run ./cmd/feedcheck "${changed[@]}"
+            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
           fi
 
       - name: Setup Hugo

@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -24,8 +25,17 @@ func run(args []string) int {
 	flags.SetOutput(os.Stderr)
 	generatedSite := flags.String("generated-site", "", "validate generated sitemap.xml below this directory")
 	legacy := flags.Bool("legacy", false, "allow briefs that predate append-only metadata")
+	baseRef := flags.String("base-ref", "", "compare changed briefs with their version at this Git revision")
+	previousPaths := make(previousPathFlag)
+	flags.Var(previousPaths, "previous-path", "rename mapping in CURRENT=PREVIOUS form; may be repeated")
 	if err := flags.Parse(args); err != nil {
 		return 2
+	}
+	if *baseRef != "" {
+		if err := exec.Command("git", "cat-file", "-e", *baseRef+"^{commit}").Run(); err != nil {
+			fmt.Fprintf(os.Stderr, "feedcheck: base-ref %q is not an available commit\n", *baseRef)
+			return 2
+		}
 	}
 
 	paths := append([]string(nil), flags.Args()...)
@@ -52,6 +62,18 @@ func run(args []string) int {
 				mode = publicfeed.ModeLegacy
 			}
 			issues = append(issues, publicfeed.CheckBriefWithMode(path, data, mode)...)
+			if *baseRef != "" {
+				previousPath := path
+				if mapped, ok := previousPaths[path]; ok {
+					previousPath = mapped
+				}
+				previous, exists, err := readGitFile(*baseRef, previousPath)
+				if err != nil {
+					issues = append(issues, publicfeed.Issue{Path: path, Code: "git.read", Severity: publicfeed.SeverityError, Message: err.Error()})
+				} else if exists {
+					issues = append(issues, publicfeed.CheckBriefAppendOnly(path, previous, data)...)
+				}
+			}
 		case strings.HasSuffix(path, "sitemap.xml"):
 			for _, item := range publicfeed.CheckSitemap(data) {
 				item.Path = path
@@ -83,6 +105,35 @@ func run(args []string) int {
 	return 0
 }
 
+type previousPathFlag map[string]string
+
+func (values previousPathFlag) String() string { return "" }
+
+func (values previousPathFlag) Set(value string) error {
+	current, previous, ok := strings.Cut(value, "=")
+	if !ok || current == "" || previous == "" {
+		return fmt.Errorf("previous-path must use CURRENT=PREVIOUS")
+	}
+	values[current] = previous
+	return nil
+}
+
+func readGitFile(ref, path string) ([]byte, bool, error) {
+	object := ref + ":" + filepath.ToSlash(path)
+	probe := exec.Command("git", "cat-file", "-e", object)
+	if err := probe.Run(); err != nil {
+		if _, ok := err.(*exec.ExitError); ok {
+			return nil, false, nil
+		}
+		return nil, false, fmt.Errorf("checking previous %s: %w", path, err)
+	}
+	data, err := exec.Command("git", "show", object).Output()
+	if err != nil {
+		return nil, false, fmt.Errorf("reading previous %s: %w", path, err)
+	}
+	return data, true, nil
+}
+
 func isSTIXPath(path string) bool {
 	clean := filepath.ToSlash(path)
 	return strings.Contains(clean, "/stix/") || strings.HasSuffix(clean, "/stix.json")
@@ -112,6 +163,8 @@ type manifestEntry struct {
 var (
 	manifestChecksumPattern = regexp.MustCompile(`^sha256:[0-9a-f]{64}$`)
 	manifestMonthPattern    = regexp.MustCompile(`^[0-9]{4}-(0[1-9]|1[0-2])$`)
+	manifestRollingPath     = regexp.MustCompile(`^/stix/releases/sha256-([0-9a-f]{64})\.json$`)
+	manifestMonthPath       = regexp.MustCompile(`^/stix/releases/([0-9]{4}-(?:0[1-9]|1[0-2]))-sha256-([0-9a-f]{64})\.json$`)
 )
 
 func checkManifest(path string, data []byte) []publicfeed.Issue {
@@ -264,12 +317,18 @@ func checkManifestEntry(path, field string, raw map[string]json.RawMessage, entr
 		issues = append(issues, manifestIssue(path, field, "stix.manifest_contract", "manifest entry has an invalid path, size, count, generated time, or spec version"))
 	}
 	if isRolling {
-		if entry.Path != "/stix.json" {
-			issues = append(issues, manifestIssue(path, field+".path", "stix.manifest_contract", "rolling path must be /stix.json"))
+		match := manifestRollingPath.FindStringSubmatch(entry.Path)
+		if match == nil {
+			issues = append(issues, manifestIssue(path, field+".path", "stix.manifest_contract", "rolling path must identify an immutable content-addressed release"))
+		} else if entry.Checksum != "sha256:"+match[1] {
+			issues = append(issues, manifestIssue(path, field+".path", "stix.manifest_checksum", "release path digest must match checksum"))
 		}
 	} else {
-		if !manifestMonthPattern.MatchString(entry.Month) || entry.Path != "/stix/"+entry.Month+".json" || entry.ReportCount < 1 {
-			issues = append(issues, manifestIssue(path, field, "stix.manifest_contract", "monthly entry requires a YYYY-MM month, matching path, and at least one report"))
+		match := manifestMonthPath.FindStringSubmatch(entry.Path)
+		if !manifestMonthPattern.MatchString(entry.Month) || match == nil || match[1] != entry.Month || entry.ReportCount < 1 {
+			issues = append(issues, manifestIssue(path, field, "stix.manifest_contract", "monthly entry requires a YYYY-MM month, matching immutable release path, and at least one report"))
+		} else if entry.Checksum != "sha256:"+match[2] {
+			issues = append(issues, manifestIssue(path, field+".path", "stix.manifest_checksum", "release path digest must match checksum"))
 		}
 	}
 	if !manifestChecksumPattern.MatchString(entry.Checksum) {

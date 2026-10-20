@@ -37,6 +37,7 @@ function assertDocumentedPublicContract() {
     "x_craftedsignal_cvss_max",
     "report_count",
     "sha256:",
+    "/stix/releases/",
   ]) {
     assert.match(api, new RegExp(phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `API documentation must include ${phrase}`);
   }
@@ -70,6 +71,13 @@ function assertDocumentedPublicContract() {
   );
 }
 
+function assertInteractiveFilterContract() {
+  const appSource = readFileSync(join(siteRoot, "assets/js/app.js"), "utf8");
+  const commit = appSource.match(/function commit\(nextState\) \{([\s\S]*?)\n  \}/)?.[1] || "";
+  assert.match(commit, /closeMenus\(\{ restoreFocus: true \}\)/, "committing a menu selection must return focus to its trigger");
+  assert.doesNotMatch(appSource, /filterBriefs\(index\.items, state, index\.generated_at\)/, "Last 24 hours must not freeze at index build time");
+}
+
 function assertRSSRetention() {
   const fixtureRoot = mkdtempSync(join(tmpdir(), "threat-feed-rss-"));
   const contentDir = join(fixtureRoot, "content");
@@ -99,5 +107,6 @@ function assertRSSRetention() {
 }
 
 assertDocumentedPublicContract();
+assertInteractiveFilterContract();
 assertRSSRetention();
 console.log("public feed contract assertions passed");

@@ -57,9 +57,15 @@ func manifestTestBundle() []byte {
 
 func manifestTestEntry(path string, bundle []byte) map[string]interface{} {
 	sum := sha256.Sum256(bundle)
+	digest := hex.EncodeToString(sum[:])
+	if path == "rolling" {
+		path = "/stix/releases/sha256-" + digest + ".json"
+	} else if strings.HasPrefix(path, "month:") {
+		path = "/stix/releases/" + strings.TrimPrefix(path, "month:") + "-sha256-" + digest + ".json"
+	}
 	return map[string]interface{}{
 		"path":            path,
-		"checksum":        "sha256:" + hex.EncodeToString(sum[:]),
+		"checksum":        "sha256:" + digest,
 		"size_bytes":      len(bundle),
 		"report_count":    1,
 		"first_published": manifestTestPublished,
@@ -76,20 +82,25 @@ func writeManifestFixture(t *testing.T, mutate func(map[string]interface{})) str
 	if err := os.MkdirAll(filepath.Join(root, "stix"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(root, "stix.json"), bundle, 0o600); err != nil {
+	sum := sha256.Sum256(bundle)
+	digest := hex.EncodeToString(sum[:])
+	if err := os.MkdirAll(filepath.Join(root, "stix", "releases"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(root, "stix", "2026-10.json"), bundle, 0o600); err != nil {
+	if err := os.WriteFile(filepath.Join(root, "stix", "releases", "sha256-"+digest+".json"), bundle, 0o600); err != nil {
 		t.Fatal(err)
 	}
-	month := manifestTestEntry("/stix/2026-10.json", bundle)
+	if err := os.WriteFile(filepath.Join(root, "stix", "releases", "2026-10-sha256-"+digest+".json"), bundle, 0o600); err != nil {
+		t.Fatal(err)
+	}
+	month := manifestTestEntry("month:2026-10", bundle)
 	month["month"] = "2026-10"
 	index := map[string]interface{}{
 		"version":      "2.0",
 		"spec_version": "2.1",
 		"generated":    "2026-10-20T09:00:00Z",
 		"description":  "CraftedSignal STIX 2.1 bundles",
-		"rolling":      manifestTestEntry("/stix.json", bundle),
+		"rolling":      manifestTestEntry("rolling", bundle),
 		"months":       []interface{}{month},
 	}
 	if mutate != nil {
@@ -127,6 +138,12 @@ func TestIsSTIXPathIncludesRollingAndMonthlyArtifacts(t *testing.T) {
 	}
 }
 
+func TestRunRejectsMissingBaseRefBeforeSkippingAppendOnlyComparison(t *testing.T) {
+	if got := run([]string{"--base-ref", "refs/heads/feedcheck-test-missing", "missing.md"}); got != 2 {
+		t.Fatalf("run returned %d, want 2 for missing base ref", got)
+	}
+}
+
 func TestCheckManifestAcceptsExactContractAndResolvesWebPaths(t *testing.T) {
 	path := writeManifestFixture(t, nil)
 	data, err := os.ReadFile(path)
@@ -149,6 +166,12 @@ func TestCheckManifestRejectsContractAndParityViolations(t *testing.T) {
 		{"extra top field", func(index map[string]interface{}) { index["brief_count"] = 1 }, "stix.manifest_fields"},
 		{"bad checksum", func(index map[string]interface{}) {
 			index["rolling"].(map[string]interface{})["checksum"] = "sha256:" + strings.Repeat("0", 64)
+		}, "stix.manifest_checksum"},
+		{"stable alias path", func(index map[string]interface{}) {
+			index["rolling"].(map[string]interface{})["path"] = "/stix.json"
+		}, "stix.manifest_contract"},
+		{"path digest mismatch", func(index map[string]interface{}) {
+			index["rolling"].(map[string]interface{})["path"] = "/stix/releases/sha256-" + strings.Repeat("0", 64) + ".json"
 		}, "stix.manifest_checksum"},
 		{"bad size", func(index map[string]interface{}) {
 			index["rolling"].(map[string]interface{})["size_bytes"] = 7
@@ -177,24 +200,26 @@ func TestCheckManifestRejectsContractAndParityViolations(t *testing.T) {
 
 func TestCheckManifestAllowsZeroReportRollingBoundsToBeOmitted(t *testing.T) {
 	root := t.TempDir()
-	if err := os.MkdirAll(filepath.Join(root, "stix"), 0o755); err != nil {
+	if err := os.MkdirAll(filepath.Join(root, "stix", "releases"), 0o755); err != nil {
 		t.Fatal(err)
 	}
 	emptyRolling := []byte(`{"type":"bundle","id":"bundle--dddddddd-dddd-5ddd-8ddd-dddddddddddd","objects":[]}`)
 	monthBundle := manifestTestBundle()
+	emptySum := sha256.Sum256(emptyRolling)
+	monthSum := sha256.Sum256(monthBundle)
 	for path, data := range map[string][]byte{
-		filepath.Join(root, "stix.json"):            emptyRolling,
-		filepath.Join(root, "stix", "2026-10.json"): monthBundle,
+		filepath.Join(root, "stix", "releases", "sha256-"+hex.EncodeToString(emptySum[:])+".json"):         emptyRolling,
+		filepath.Join(root, "stix", "releases", "2026-10-sha256-"+hex.EncodeToString(monthSum[:])+".json"): monthBundle,
 	} {
 		if err := os.WriteFile(path, data, 0o600); err != nil {
 			t.Fatal(err)
 		}
 	}
-	rolling := manifestTestEntry("/stix.json", emptyRolling)
+	rolling := manifestTestEntry("rolling", emptyRolling)
 	rolling["report_count"] = 0
 	delete(rolling, "first_published")
 	delete(rolling, "last_published")
-	month := manifestTestEntry("/stix/2026-10.json", monthBundle)
+	month := manifestTestEntry("month:2026-10", monthBundle)
 	month["month"] = "2026-10"
 	index := map[string]interface{}{
 		"version": "2.0", "spec_version": "2.1", "generated": "2026-10-20T09:00:00Z",

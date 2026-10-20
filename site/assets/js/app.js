@@ -318,6 +318,7 @@ function initBriefFilters() {
 
   async function applyState({ retry = false } = {}) {
     const version = ++renderVersion;
+    const referenceAt = new Date().toISOString();
     projectControls();
     if (!hasBriefFilters(state)) {
       showServerResults();
@@ -333,7 +334,7 @@ function initBriefFilters() {
     try {
       const index = await loadIndex({ retry });
       if (version !== renderVersion) return;
-      const items = filterBriefs(index.items, state, index.generated_at);
+      const items = filterBriefs(index.items, state, referenceAt);
       const page = paginateBriefs(items, state.page, index.page_size || 30);
       if (page.page !== state.page) {
         state = { ...state, page: page.page };
@@ -364,7 +365,7 @@ function initBriefFilters() {
     state = nextState;
     const target = hasBriefFilters(state) ? canonicalBriefURL('/briefs/', state) : '/briefs/';
     if (`${window.location.pathname}${window.location.search}` !== target) history.pushState({}, '', target);
-    closeMenus();
+    closeMenus({ restoreFocus: true });
     applyState();
   }
 

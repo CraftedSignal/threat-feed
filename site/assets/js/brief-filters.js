@@ -59,11 +59,11 @@ function hasFlag(item, flag) {
   return item.flags?.[flag] === true;
 }
 
-export function filterBriefs(items, state, generatedAt) {
+export function filterBriefs(items, state, referenceAt) {
   const normalized = parseBriefQuery(serializeBriefQuery(state));
-  const buildTime = timestamp(generatedAt);
-  const cutoff = normalized.window === '24h' && Number.isFinite(buildTime)
-    ? buildTime - DAY_MS
+  const referenceTime = timestamp(referenceAt);
+  const cutoff = normalized.window === '24h' && Number.isFinite(referenceTime)
+    ? referenceTime - DAY_MS
     : Number.NEGATIVE_INFINITY;
 
   return [...(Array.isArray(items) ? items : [])]
