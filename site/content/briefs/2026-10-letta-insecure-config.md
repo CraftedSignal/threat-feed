@@ -3,6 +3,7 @@ title: Insecure Default Configuration in Letta Leading to Unauthenticated RCE
 slug: 2026-10-letta-insecure-config
 description: Letta versions through 0.16.8 ship with a insecure compose.yaml that disables authentication middleware and exposes a PostgreSQL database with default credentials, enabling remote code execution and administrative account takeover.
 date: "2026-10-20T02:31:43Z"
+lastmod: "2026-10-20T02:32:29Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - configuration-error
   - remote-code-execution
   - web-application
+  - authentication-bypass
+  - cloud
+  - webserver
 vendors:
   - Letta
 products:
@@ -31,11 +35,24 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: PowerShell'
     evidence: Remote attackers can execute arbitrary Python via POST /v1/tools/run
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Letta through 0.16.8 contains an authentication bypass vulnerability that allows API callers to impersonate other users by supplying a self-asserted user_id HTTP header.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1550
+    technique_name: Use Alternate Authentication Material
+    evidence: Attackers can set user_id to another tenant ID to read and modify that user agents, memory and configuration.
+    confidence_band: high
 cves:
   - id: CVE-2026-77936
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77936
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77937
 action_plan:
   priority: immediate_escalation
   owners:
@@ -52,6 +69,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-77936
       evidence: Vulnerability disclosure regarding default insecure configurations
+updates:
+  - at: "2026-10-20T02:32:29Z"
+    level: L2
+    summary: added coverage for Letta (<= 0.16.8)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-77937
 ---
 
 Letta versions through 0.16.8 are affected by a critical configuration vulnerability stemming from a default docker-compose.yaml file. The provided configuration fails to enable the LETTA_SERVER_SECURE environment variable, which results in the underlying application failing to load its password middleware. Consequently, the entire API surface becomes unauthenticated. Furthermore, the default deployment exposes an internal PostgreSQL database instance that utilizes default credentials. This vulnerability allows remote, unauthenticated attackers to interact with the API, execute arbitrary Python code, manage administrative users, and leverage database features such as COPY PROGRAM to execute arbitrary OS-level commands. Given the ease of exploitation, this poses a severe risk to any environment running a default Letta container deployment.
