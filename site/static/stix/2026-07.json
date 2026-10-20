@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fc822c70-4fd8-55e5-8d93-e3fbd3e5e392",
+  "id": "bundle--78a6af1b-558a-585b-96a0-8a68bcf06af4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25507,17 +25507,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b260c744-e151-5d12-a052-4ac50a08f0cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T19:04:35.000Z",
-      "modified": "2026-07-22T19:04:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--14372fca-8380-55ec-99e0-f17ba88ea273",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b2612e6d-83e7-5dfb-bc6d-e56b546d8f6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -34322,60 +34311,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.7,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--14372fca-8380-55ec-99e0-f17ba88ea273",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T19:04:35.000Z",
-      "modified": "2026-07-22T19:04:35.000Z",
-      "name": "Critical Access Bypass Vulnerability in Drupal Internationalization Single Sign-On Module",
-      "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued an advisory regarding a critical access bypass vulnerability, identified as SA-CONTRIB-2026-081, in the Internationalization Single Sign-On (i18n_sso) module for Drupal. This flaw specifically impacts all versions of the module prior to 1.8.0. An attacker could exploit this vulnerability to circumvent authentication controls, potentially leading to unauthorized access to the Drupal application or an elevation of privileges, without requiring prior authentication. The advisory, published on July 22, 2026, urges users and administrators to apply the necessary updates immediately to mitigate the risk of exploitation. While the advisory does not detail specific observed exploitation in the wild, the critical nature of an access bypass vulnerability means it poses a significant risk to the confidentiality, integrity, and availability of affected Drupal installations.\n\n## Attack Chain\n\n1. **Reconnaissance:** An attacker identifies publicly accessible Drupal instances running the vulnerable Internationalization Single Sign-On module.\n2. **Vulnerability Identification:** The attacker determines the specific version of the i18n_sso module in use and confirms it is prior to 1.8.0.\n3. **Exploit Crafting:** A malicious HTTP request is crafted to leverage the access bypass vulnerability, designed to circumvent the module's authentication checks. The specific method for bypass is not detailed but would involve manipulating authentication flows.\n4. **Initial Access:** The crafted request is sent to the vulnerable Drupal instance, exploiting the flaw to gain unauthorized access to the application.\n5. **Privilege Escalation/Unauthorized Actions:** Depending on the nature of the bypass, the attacker may gain access with elevated privileges (e.g., administrative access) or to restricted functionalities without proper authentication.\n6. **Impact Execution:** The attacker performs their objective, which could include data exfiltration, website defacement, or further compromise of the underlying server.\n\n## Impact\n\nSuccessful exploitation of this access bypass vulnerability in the Internationalization Single Sign-On module could allow an attacker to gain unauthorized access to the Drupal application. This could lead to a range of severe consequences, including the compromise of sensitive data stored within the Drupal environment, unauthorized modifications to website content, complete control over the affected website, or even serve as an initial foothold for broader network penetration. Organizations using the vulnerable module risk significant reputational damage, data breaches, and service disruptions if this critical flaw is not promptly remediated.\n\n## Recommendation\n\n* Immediately update the \"Internationalization Single Sign-On\" Drupal module to version 1.8.0 or later as advised in the Drupal security advisory SA-CONTRIB-2026-081.\n* Refer to the official Drupal Security Advisories page at `https://www.drupal.org/security` for the latest information and patching guidance.\n",
-      "published": "2026-07-22T19:04:35.000Z",
-      "labels": [
-        "access-bypass",
-        "cms",
-        "drupal",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a222e227-6c99-5646-b852-1c0977048eb0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-drupal-sso-access-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-drupal-sso-access-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-738"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.drupal.org/sa-contrib-2026-081"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.drupal.org/security"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-drupal-sso-access-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-drupal-sso-access-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-drupal-sso-access-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-22T19:04:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -58477,13 +58412,6 @@
       "id": "software--a1f6dd41-6990-520d-b732-69dd35257e0c",
       "name": "DVG-IRF3821 (versions \u003c 2.3.0)",
       "vendor": "ads-tec Industrial IT"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a222e227-6c99-5646-b852-1c0977048eb0",
-      "name": "Internationalization Single Sign-On (versions prior to 1.8.0)",
-      "vendor": "Drupal"
     },
     {
       "type": "software",
