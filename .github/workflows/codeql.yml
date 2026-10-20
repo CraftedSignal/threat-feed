@@ -1,17 +1,9 @@
-# Custom CodeQL config that overrides the default code-scanning workflow
-# so we don't burn analysis runs on every ti-bot Markdown commit. Only
-# scans Go code when Go source or workflow definitions actually change.
+# Custom CodeQL config that overrides the default code-scanning workflow so
+# ti-bot Markdown commits and merges of already-validated PRs do not repeat an
+# analysis. Relevant PRs are scanned before merge, with weekly/manual backstops.
 name: CodeQL
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'cmd/**'
-      - 'internal/**'
-      - 'go.mod'
-      - 'go.sum'
-      - '.github/workflows/codeql.yml'
   pull_request:
     branches: [main]
     paths:
@@ -22,6 +14,7 @@ on:
       - '.github/workflows/codeql.yml'
   schedule:
     - cron: "0 5 * * 1"
+  workflow_dispatch:
 
 permissions:
   security-events: write
