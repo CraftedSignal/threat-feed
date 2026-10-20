@@ -34,9 +34,11 @@
 
 <link rel="canonical" href="{{ .Permalink }}">
 
-<!-- RSS autodiscovery -->
+<!-- Feed autodiscovery. Only advertise canonical syndication formats. -->
 {{ range .AlternativeOutputFormats -}}
-<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
+{{- if and .Permalink (or (eq .MediaType.Type "application/rss+xml") (eq .MediaType.Type "application/feed+json")) }}
+<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
+{{- end }}
 {{ end -}}
 
 <meta property="og:type" content="website">

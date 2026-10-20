@@ -1,0 +1,15 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- $seen := newScratch }}
+  {{- range .Site.Pages }}
+    {{- with .OutputFormats.Get "HTML" }}
+      {{- $location := .Permalink }}
+      {{- if and $location (not ($seen.Get $location)) }}
+        {{- $seen.Set $location true }}
+  <url>
+    <loc>{{ $location }}</loc>
+  </url>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+</urlset>
