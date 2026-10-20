@@ -154,9 +154,34 @@ func TestSiteWorkflowSkipsNoopScheduledBuilds(t *testing.T) {
 	changes := mapping(t, jobs["changes"], "jobs.changes")
 
 	outputs := mapping(t, changes["outputs"], "jobs.changes.outputs")
-	if outputs["site_changed"] == nil || outputs["previous_sha"] == nil {
-		t.Fatalf("jobs.changes.outputs: got %#v, want site_changed and previous_sha", outputs)
+	if outputs["site_changed"] == nil || outputs["previous_sha"] == nil || outputs["previous_comparable"] == nil {
+		t.Fatalf("jobs.changes.outputs: got %#v, want site_changed, previous_sha, and previous_comparable", outputs)
 	}
+
+	assertBoundedCheckout := func(jobName string, job map[string]any, wantSparse []string) {
+		t.Helper()
+		steps := sequence(t, job["steps"], "jobs."+jobName+".steps")
+		for _, rawStep := range steps {
+			step := mapping(t, rawStep, "jobs."+jobName+".steps")
+			uses, _ := step["uses"].(string)
+			if !strings.Contains(uses, "actions/checkout") {
+				continue
+			}
+			with := mapping(t, step["with"], "jobs."+jobName+".checkout.with")
+			if with["fetch-depth"] != 1 {
+				t.Fatalf("jobs.%s checkout fetch-depth: got %#v, want 1", jobName, with["fetch-depth"])
+			}
+			sparse, _ := with["sparse-checkout"].(string)
+			for _, path := range wantSparse {
+				if !strings.Contains(sparse, path) {
+					t.Errorf("jobs.%s sparse checkout is missing %q", jobName, path)
+				}
+			}
+			return
+		}
+		t.Fatalf("jobs.%s must check out the repository", jobName)
+	}
+	assertBoundedCheckout("changes", changes, []string{".github/workflows/site.yml"})
 
 	build := mapping(t, jobs["build"], "jobs.build")
 	if build["needs"] != "changes" {
@@ -172,36 +197,22 @@ func TestSiteWorkflowSkipsNoopScheduledBuilds(t *testing.T) {
 	if len(needs) != 2 || needs[0] != "changes" || needs[1] != "deploy" {
 		t.Fatalf("jobs.notify-subscribers.needs: got %#v, want [changes deploy]", needs)
 	}
+	assertBoundedCheckout("notify-subscribers", notify, []string{".github/scripts/build-dispatch-payload.py", "site/content/briefs"})
 }
 
-func TestSiteWorkflowHugoCacheTracksEveryTailwindSource(t *testing.T) {
+func TestSiteWorkflowAvoidsIneffectiveHugoResourceCache(t *testing.T) {
 	workflow := loadSiteWorkflow(t)
 	jobs := mapping(t, workflow["jobs"], "jobs")
 
 	for _, jobName := range []string{"validate", "build"} {
 		job := mapping(t, jobs[jobName], "jobs."+jobName)
 		steps := sequence(t, job["steps"], "jobs."+jobName+".steps")
-		foundCache := false
 		for _, rawStep := range steps {
 			step := mapping(t, rawStep, "jobs."+jobName+".steps")
 			uses, _ := step["uses"].(string)
-			if !strings.Contains(uses, "actions/cache") {
-				continue
+			if strings.Contains(uses, "actions/cache") {
+				t.Errorf("jobs.%s must not restore the exact-key Hugo cache that misses on normal feed changes", jobName)
 			}
-			foundCache = true
-			with := mapping(t, step["with"], "jobs."+jobName+".steps.cache.with")
-			key, _ := with["key"].(string)
-			for _, source := range []string{"site/layouts/**", "site/content/**"} {
-				if !strings.Contains(key, source) {
-					t.Errorf("jobs.%s Hugo cache key %q does not track Tailwind source %q", jobName, key, source)
-				}
-			}
-			if _, restoresStaleCache := with["restore-keys"]; restoresStaleCache {
-				t.Errorf("jobs.%s Hugo cache can restore resources built from stale Tailwind sources", jobName)
-			}
-		}
-		if !foundCache {
-			t.Errorf("jobs.%s must cache Hugo resources", jobName)
 		}
 	}
 }

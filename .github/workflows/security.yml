@@ -60,10 +60,30 @@ jobs:
     name: Secret Scanning
     runs-on: ubuntu-latest
     steps:
+      - name: Calculate bounded checkout depth
+        id: checkout-depth
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_COMMITS: ${{ github.event.pull_request.commits || 0 }}
+        run: |
+          depth=1
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            depth=$((PR_COMMITS + 2))
+          fi
+          echo "depth=$depth" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: ${{ steps.checkout-depth.outputs.depth }}
+
+      - name: Fetch pull request base commit
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git fetch --no-tags --depth=1 origin "$BASE_SHA"
 
       - name: TruffleHog
         uses: trufflesecurity/trufflehog@6f3c981e7b77f235fd2702dd74af25fc4b72bf11

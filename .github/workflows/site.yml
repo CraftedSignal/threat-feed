@@ -42,17 +42,15 @@ jobs:
     outputs:
       site_changed: ${{ steps.diff.outputs.site_changed }}
       previous_sha: ${{ steps.previous.outputs.sha }}
+      previous_comparable: ${{ steps.previous.outputs.comparable }}
     steps:
-      - name: Checkout deployment history
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          fetch-depth: 0
-
       - name: Find previous successful production run
         id: previous
+        working-directory: .
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -euo pipefail
           previous_sha="$(
             gh api -X GET \
               "repos/${GITHUB_REPOSITORY}/actions/workflows/site.yml/runs" \
@@ -62,12 +60,46 @@ jobs:
               --jq '.workflow_runs[] | select(.event == "schedule" or .event == "workflow_dispatch" or .event == "push") | .head_sha' \
               | sed -n '1p'
           )"
+          comparable=false
+          if [ -n "$previous_sha" ] && [[ ! "$previous_sha" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Ignoring malformed previous production SHA"
+          elif [ -n "$previous_sha" ]; then
+            comparison="$(gh api -X GET \
+              "repos/${GITHUB_REPOSITORY}/compare/${previous_sha}...${GITHUB_SHA}" \
+              --jq '.status' 2>/dev/null || true)"
+            if [ "$comparison" = "ahead" ] || [ "$comparison" = "identical" ]; then
+              comparable=true
+            else
+              echo "Previous production commit is not a verified ancestor"
+            fi
+          fi
           echo "sha=$previous_sha" >> "$GITHUB_OUTPUT"
+          echo "comparable=$comparable" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout current deployment tree
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            .github/workflows/site.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Fetch previous production commit
+        if: steps.previous.outputs.sha != ''
+        working-directory: .
+        env:
+          PREVIOUS_SHA: ${{ steps.previous.outputs.sha }}
+        run: |
+          if [[ "$PREVIOUS_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            git fetch --no-tags --depth=1 origin "$PREVIOUS_SHA" || true
+          fi
 
       - name: Check for undeployed site changes
         id: diff
+        working-directory: .
         env:
           PREVIOUS_SHA: ${{ steps.previous.outputs.sha }}
+          PREVIOUS_COMPARABLE: ${{ steps.previous.outputs.comparable }}
           CURRENT_SHA: ${{ github.sha }}
         run: |
           # Manual runs are explicitly asking for a fresh deployment even if
@@ -80,7 +112,7 @@ jobs:
           elif ! git cat-file -e "${PREVIOUS_SHA}^{commit}"; then
             echo "Previous production commit is unavailable; building defensively"
             echo "site_changed=true" >> "$GITHUB_OUTPUT"
-          elif ! git merge-base --is-ancestor "$PREVIOUS_SHA" "$CURRENT_SHA"; then
+          elif [ "$PREVIOUS_COMPARABLE" != "true" ]; then
             echo "Previous production commit is not an ancestor; building defensively"
             echo "site_changed=true" >> "$GITHUB_OUTPUT"
           elif git diff --quiet "$PREVIOUS_SHA" "$CURRENT_SHA" -- \
@@ -123,16 +155,6 @@ jobs:
       - name: Copy fonts
         run: make fonts
 
-      - name: Cache Hugo resources
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
-        with:
-          path: site/resources
-          # Tailwind scans layouts and Markdown too. They must participate in
-          # the exact key; restoring an older CSS transform can omit a class
-          # introduced by new content even when Hugo's direct CSS input did
-          # not change.
-          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('site/assets/**', 'site/layouts/**', 'site/content/**', 'site/postcss.config.cjs', 'site/tailwind.config.js', 'site/package-lock.json', 'site/hugo.toml') }}
-
       - name: Build site
         run: hugo --minify --gc
 
@@ -171,15 +193,6 @@ jobs:
 
       - name: Copy fonts
         run: make fonts
-
-      - name: Cache Hugo resources
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
-        with:
-          path: site/resources
-          # This exact-only cache includes every Tailwind content source.
-          # Never restore a prior content hash: Hugo does not know that
-          # Tailwind's external source scan invalidates the cached CSS.
-          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('site/assets/**', 'site/layouts/**', 'site/content/**', 'site/postcss.config.cjs', 'site/tailwind.config.js', 'site/package-lock.json', 'site/hugo.toml') }}
 
       - name: Build site
         run: hugo --minify --gc
@@ -226,15 +239,29 @@ jobs:
       run:
         working-directory: .
     steps:
-      - name: Checkout deployment history
+      - name: Checkout current notification inputs
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          sparse-checkout: |
+            .github/scripts/build-dispatch-payload.py
+            site/content/briefs
+          sparse-checkout-cone-mode: false
+
+      - name: Fetch previous production commit
+        if: needs.changes.outputs.previous_sha != ''
+        env:
+          PREVIOUS_SHA: ${{ needs.changes.outputs.previous_sha }}
+        run: |
+          if [[ "$PREVIOUS_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            git fetch --no-tags --depth=1 origin "$PREVIOUS_SHA" || true
+          fi
 
       - name: Find new briefs in this deployment batch
         id: briefs
         env:
           PREVIOUS_SHA: ${{ needs.changes.outputs.previous_sha }}
+          PREVIOUS_COMPARABLE: ${{ needs.changes.outputs.previous_comparable }}
           CURRENT_SHA: ${{ github.sha }}
         run: |
           : > /tmp/changed.txt
@@ -243,7 +270,7 @@ jobs:
             echo "No previous production deployment found; skipping subscriber backfill"
           elif ! git cat-file -e "${PREVIOUS_SHA}^{commit}"; then
             echo "Previous deployment commit is unavailable; skipping subscriber backfill"
-          elif ! git merge-base --is-ancestor "$PREVIOUS_SHA" "$CURRENT_SHA"; then
+          elif [ "$PREVIOUS_COMPARABLE" != "true" ]; then
             echo "Previous deployment is not an ancestor of this deployment; skipping subscriber backfill"
           else
             # Only newly added briefs generate new-brief notifications. Brief
