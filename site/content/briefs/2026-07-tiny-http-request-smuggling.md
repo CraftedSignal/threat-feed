@@ -3,11 +3,17 @@ title: HTTP Request Smuggling Vulnerability in tiny-http CVE-2026-66752
 slug: 2026-07-tiny-http-request-smuggling
 description: A critical HTTP request smuggling vulnerability (CVE-2026-66752) exists in tiny-http versions up to and including 0.12.0, allowing remote attackers to desynchronize request framing by sending a Transfer-Encoding header with arbitrary values, causing the library to incorrectly apply chunk-decoding and ignore Content-Length, which enables request smuggling attacks and can lead to denial of service by tying up connections and consuming worker threads.
 date: "2026-07-28T16:22:02Z"
+lastmod: "2026-10-20T00:30:03Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+cpes:
+  - cpe:2.3:a:tiny_http:0_12_0:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEOPAID-CVE-2026-66752-HTTP-REQUEST-SMUGGLING-VIA-UNPARSED-TRANSFER-ENCODING-VALUES-TINY_HTTP-&utm_source=rss&utm_medium=rss
 tags:
   - http-request-smuggling
   - vulnerability
@@ -16,12 +22,22 @@ tags:
 vendors:
   - tiny-http
 products:
-  - tiny-http <= 0.12.0
+  - tiny-http <= 0.12.0 (<= 0.12.0)
 cves:
   - id: CVE-2026-66752
-    cvss: 7.2
+    cvss: 5.4
+    epss: 0.00329
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-66752
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEOPAID-CVE-2026-66752-HTTP-REQUEST-SMUGGLING-VIA-UNPARSED-TRANSFER-ENCODING-VALUES-TINY_HTTP-&utm_source=rss&utm_medium=rss
+updates:
+  - at: "2026-10-20T00:30:03Z"
+    level: L2
+    summary: poc_available; tiny-http <= 0.12.0 version <= 0.12.0
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEOPAID-CVE-2026-66752-HTTP-REQUEST-SMUGGLING-VIA-UNPARSED-TRANSFER-ENCODING-VALUES-TINY_HTTP-&utm_source=rss&utm_medium=rss
 ---
 
 A remote attacker can exploit CVE-2026-66752, an HTTP request smuggling vulnerability present in tiny-http versions through 0.12.0. This flaw allows an attacker to manipulate how the tiny-http server interprets HTTP requests, particularly when it is behind a front-end proxy that correctly handles HTTP framing. By sending a `Transfer-Encoding` header with any value, even non-chunked ones, the tiny-http library incorrectly applies chunk-decoding and discards the `Content-Length` header. This discrepancy in parsing leads to desynchronization of request framing between the proxy and the vulnerable server, enabling request smuggling attacks. Furthermore, attackers can trigger failed body reads by sending non-chunked bodies with specific `Transfer-Encoding` values, which can exhaust server resources by tying up connections and consuming worker threads without notifying clients, effectively leading to a denial of service.
