@@ -1,8 +1,8 @@
 ---
-title: Detection of Suspicious Access Masks for LSASS Process
+title: Potentially Suspicious LSASS Access Flags
 slug: 2026-10-suspicious-lsass-access
-description: This detection focuses on identifying unauthorized processes attempting to open handles to the Local Security Authority Subsystem Service (LSASS) using specific access masks often associated with credential dumping tools.
-date: "2026-10-20T12:16:10Z"
+description: Monitoring for unusual process access requests to the Local Security Authority Subsystem Service (LSASS) using specific GrantedAccess flags, a common indicator of credential dumping attempts.
+date: "2026-10-20T12:16:17Z"
 type: advisory
 types:
   - advisory
@@ -12,17 +12,16 @@ tags:
   - credential-access
   - windows
   - lsass
-  - security-monitoring
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
-    technique_id: T1003
-    technique_name: OS Credential Dumping
-    evidence: Detects process handle on LSASS process with certain access mask
+    technique_id: T1003.001
+    technique_name: LSASS Memory
+    evidence: Detects process access requests to LSASS process with potentially suspicious access flags
     confidence_band: high
 rules:
-  - title: Potentially Suspicious AccessMask Requested From LSASS
-    description: Detects process handles requested for lsass.exe with specific access masks associated with credential dumping techniques.
+  - title: Detect Potentially Suspicious LSASS Access Flags
+    description: Detects process access requests to LSASS with access flags commonly associated with credential dumping tools.
     platform: sigma
     severity: medium
     tactics:
@@ -30,9 +29,8 @@ rules:
     techniques:
       - T1003.001
     data_sources:
-      - process_creation
+      - process_access
       - windows
-      - security
 rules_count: 1
 action_plan:
   priority: elevated
@@ -40,40 +38,38 @@ action_plan:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Enable Audit Handle Manipulation and deploy Sigma rules
+    - action: Enable Sysmon Event ID 10 and deploy provided Sigma rule
       owner: Detection Engineering
       due: 48h
-      evidence: Source provides rules for detecting sensitive LSASS access
+      evidence: Source SIGMA-HQ repository
   hunt_leads:
-    - lead: Search for processes (not in the whitelist) opening handles to lsass.exe
+    - lead: Identify processes with abnormal GrantedAccess flags targeting lsass.exe
       technique_id: T1003.001
       data_needed:
-        - Event ID 4656 and 4663
-      priority: high
-      confidence: high
-      disposition: hunt_now
-      evidence: Handle requests to LSASS with specific masks are indicative of memory dumping
+        - ProcessAccess events (Event ID 10)
+      priority: medium
+      confidence: medium
+      disposition: convert_to_detection
+      evidence: Observed tool-based credential dumping techniques
+  mitigation_plan:
+    - priority: medium
+      action: Apply least-privilege principles to service accounts accessing LSASS
+      owner: IT Operations
+      addresses: Credential access
+      evidence: Standard security hardening
 ---
 
-The Local Security Authority Subsystem Service (LSASS) is a critical Windows process responsible for enforcing security policies and handling user authentication, including the storage of security tokens and cached credentials. Because LSASS maintains sensitive information in memory, it is a primary target for adversaries seeking to perform credential harvesting. Attackers use various tools to request process handles with specific access masks to read the memory space of lsass.exe. This detection monitors Windows Security event logs for handle requests (Event IDs 4656 and 4663) that specify access masks known to be used by common dumping utilities. Defenders should note that while this behavior is highly suspicious for unauthorized processes, many security products and administrative utilities also interface with LSASS, requiring rigorous tuning of the provided filters to minimize noise.
+This brief details the detection of suspicious process access requests targeting the Windows Local Security Authority Subsystem Service (LSASS) process. LSASS is responsible for enforcing security policies and handling user authentication, making it a primary target for credential dumping activities by threat actors. Attackers often attempt to read the memory of lsass.exe to extract cleartext passwords, NTLM hashes, or Kerberos tickets. 
 
-## Attack Chain
-
-1. Attacker gains initial code execution on a compromised endpoint.
-2. Attacker performs local enumeration to identify the location of lsass.exe.
-3. Attacker uses a tool (e.g., Mimikatz, procdump) to request a handle to the LSASS process.
-4. The tool specifies a high-privilege access mask (e.g., 0x1f0fff or similar) to allow memory access.
-5. The Windows Security subsystem generates a handle request event (Event ID 4656).
-6. The attacker reads the memory space of lsass.exe to extract credentials, hashes, or cleartext passwords.
-7. The extracted credentials are exfiltrated or used for lateral movement within the network.
+Defenders can identify these attempts by monitoring Windows Event ID 10 (ProcessAccess), which logs requests for process handles. Specific hex-encoded access flags, such as 0x1f0fff or 0x14C2, are frequently associated with tool-based memory dumping. Because security software, administrative tools, and system processes legitimately access LSASS, establishing a robust baseline of expected behavior is critical. This detection logic identifies potential credential theft attempts by filtering out common, well-known benign processes and emphasizing non-standard access rights.
 
 ## Impact
 
-Successful exploitation of LSASS via memory dumping results in the compromise of user credentials, which can lead to privilege escalation, lateral movement, and persistent access to the enterprise environment. If credentials for privileged accounts are obtained, the attacker can impersonate administrators and gain broad control over the domain.
+Successful unauthorized access to LSASS memory allows attackers to harvest credentials from the system. If successful, this can lead to lateral movement, privilege escalation, and persistent access to the broader enterprise environment, effectively compromising the integrity of the authentication chain.
 
 ## Recommendation
 
-- Deploy the Sigma rules below to your SIEM to monitor for unauthorized handle requests to LSASS.
-- Establish a baseline of legitimate software (AV, EDR, system utilities) that interacts with LSASS and add these to the exclusion filters.
-- Enable Windows Security auditing for "Object Access" (specifically "Audit Handle Manipulation") to populate the necessary Event IDs.
-- Investigate any alert that does not originate from a known, signed, and authorized security or management process.
+* Deploy the provided Sigma rule to your SIEM to monitor for unauthorized process access to LSASS.
+* Tune the detection by identifying and adding internal administrative tools or specialized security software to the exclusion filters.
+* Investigate any detected alerts by reviewing the 'SourceImage' and 'GrantedAccess' values to determine if the activity originates from known, trusted security agents or unauthorized binaries.
+* Ensure Sysmon (Event ID 10) or equivalent process access auditing is enabled on all critical endpoints and domain-joined machines.
