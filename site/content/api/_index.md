@@ -86,7 +86,7 @@ Every report includes these CraftedSignal properties:
 
 Each report also has a `craftedsignal` external reference whose `external_id` is the public brief ID and whose URL matches `x_craftedsignal_canonical_url`.
 
-The index is version `2.0` and identifies both rolling and monthly scopes. Each entry records `path`, a `sha256:<hex>` checksum, `size_bytes`, `report_count`, `first_published`, `last_published`, `generated`, and STIX `spec_version`. Monthly entries also include `month`. Publication uploads bundles before the index so an index entry never points to a partially uploaded release.
+The index is version `2.0` and identifies both rolling and monthly scopes. Each entry records `path`, a `sha256:<64 lowercase hex>` checksum, `size_bytes`, `report_count`, `first_published`, `last_published`, `generated`, and STIX `spec_version`. Monthly entries also include `month`. Publication uploads bundles before the index so an index entry never points to a partially uploaded release.
 
 ## Tips
 

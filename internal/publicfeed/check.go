@@ -149,6 +149,16 @@ func CheckBriefWithMode(path string, data []byte, mode Mode) []Issue {
 		}
 		issues = append(issues, checkRevisionHistory(path, brief)...)
 		issues = append(issues, checkExploitation(path, brief)...)
+		issues = append(issues, checkAllowedMapFields(path, "source_assessment", brief.SourceAssessment, map[string]bool{
+			"reliability": true,
+			"credibility": true,
+			"rating":      true,
+			"likelihood":  true,
+		})...)
+		issues = append(issues, checkAllowedMapFields(path, "qa_status", brief.QAStatus, map[string]bool{
+			"verdict":           true,
+			"validation_status": true,
+		})...)
 		for i, cve := range brief.CVEs {
 			if cve.KEVStatus != "true" && cve.KEVStatus != "false" && cve.KEVStatus != "unknown" {
 				issues = append(issues, issue(path, fmt.Sprintf("cves[%d].kev_status", i), "brief.kev_status", "kev_status must be true, false, or unknown"))
@@ -187,6 +197,16 @@ func CheckBriefWithMode(path string, data []byte, mode Mode) []Issue {
 		issues = append(issues, issue(path, "body", "brief.active_html", "active raw HTML is not allowed in public brief content"))
 	}
 	return sorted(issues)
+}
+
+func checkAllowedMapFields(path, field string, values map[string]interface{}, allowed map[string]bool) []Issue {
+	var issues []Issue
+	for key := range values {
+		if !allowed[key] {
+			issues = append(issues, issue(path, field+"."+key, "brief.redaction", key+" is not part of the redacted public "+field+" contract"))
+		}
+	}
+	return issues
 }
 
 func splitFrontMatter(data []byte) ([]byte, []byte, bool) {
@@ -259,6 +279,8 @@ func checkExploitation(path string, brief briefDocument) []Issue {
 	}
 	if evidence.Status == "confirmed_active" && !validURL(evidence.SourceURL) {
 		issues = append(issues, issue(path, "exploitation_evidence.source_url", "brief.exploitation", "confirmed active exploitation requires a public source URL"))
+	} else if evidence.SourceURL != "" && !validURL(evidence.SourceURL) {
+		issues = append(issues, issue(path, "exploitation_evidence.source_url", "brief.exploitation", "source_url must be an absolute HTTP(S) URL"))
 	}
 	if evidence.ObservedAt != "" && !validRFC3339(evidence.ObservedAt) {
 		issues = append(issues, issue(path, "exploitation_evidence.observed_at", "brief.exploitation", "observed_at must be RFC3339"))
@@ -273,14 +295,6 @@ type stixBundle struct {
 	Type    string                   `json:"type"`
 	ID      string                   `json:"id"`
 	Objects []map[string]interface{} `json:"objects"`
-	Months  []stixManifestEntry      `json:"months"`
-	Rolling *stixManifestEntry       `json:"rolling"`
-}
-
-type stixManifestEntry struct {
-	Path        string `json:"path"`
-	Checksum    string `json:"checksum"`
-	ReportCount int    `json:"report_count"`
 }
 
 // CheckSTIX validates a STIX 2.1 bundle's internal structure.
@@ -295,6 +309,10 @@ func CheckSTIXWithReportCount(path string, data []byte, expected int) []Issue {
 }
 
 func checkSTIX(path string, data []byte, expected int) []Issue {
+	var topLevel map[string]json.RawMessage
+	if err := json.Unmarshal(data, &topLevel); err != nil {
+		return []Issue{issue(path, "json", "stix.json", err.Error())}
+	}
 	var bundle stixBundle
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.UseNumber()
@@ -306,6 +324,11 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 	}
 
 	var issues []Issue
+	for key := range topLevel {
+		if key != "type" && key != "id" && key != "objects" {
+			issues = append(issues, issue(path, key, "stix.bundle_fields", "STIX bundle top level may contain only type, id, and objects"))
+		}
+	}
 	byID := make(map[string][]byte, len(bundle.Objects))
 	reports := 0
 	for i, object := range bundle.Objects {
@@ -328,8 +351,12 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 		} else {
 			byID[id] = canonical
 		}
-		for _, timestamp := range []string{"created", "modified", "published", "valid_from", "valid_until", "first_seen", "last_seen", "x_craftedsignal_activity_at"} {
-			if value, ok := object[timestamp].(string); ok && !stixMillisPattern.MatchString(value) {
+		for _, timestamp := range []string{"created", "modified", "published", "valid_from", "valid_until", "first_seen", "last_seen"} {
+			if raw, exists := object[timestamp]; exists {
+				value, ok := raw.(string)
+				if ok && stixMillisPattern.MatchString(value) {
+					continue
+				}
 				issues = append(issues, issue(path, field+"."+timestamp, "stix.timestamp_precision", "STIX timestamps must be UTC with millisecond precision"))
 			}
 		}
@@ -341,13 +368,13 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 			}
 			canonicalURL, _ := object["x_craftedsignal_canonical_url"].(string)
 			briefID, _ := object["x_craftedsignal_brief_id"].(string)
-			eventID, _ := object["x_craftedsignal_event_id"].(string)
-			if !validURL(canonicalURL) || !strings.HasPrefix(canonicalURL, "https://feed.craftedsignal.io/briefs/") || briefID == "" || eventID == "" {
-				issues = append(issues, issue(path, field, "stix.canonical_url", "report requires CraftedSignal brief/event IDs and canonical brief URL"))
+			if !validURL(canonicalURL) || !strings.HasPrefix(canonicalURL, "https://feed.craftedsignal.io/briefs/") {
+				issues = append(issues, issue(path, field+".x_craftedsignal_canonical_url", "stix.canonical_url", "report requires a canonical CraftedSignal brief URL"))
 			}
 			if !hasCanonicalExternalReference(object["external_references"], briefID, canonicalURL) {
 				issues = append(issues, issue(path, field+".external_references", "stix.canonical_url", "report requires matching craftedsignal external reference"))
 			}
+			issues = append(issues, checkSTIXReportContract(path, field, object)...)
 		}
 	}
 	for i, object := range bundle.Objects {
@@ -364,6 +391,92 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 		issues = append(issues, issue(path, "report_count", "stix.report_count", fmt.Sprintf("manifest declares %d reports, bundle contains %d", expected, reports)))
 	}
 	return sorted(issues)
+}
+
+func checkSTIXReportContract(path, field string, object map[string]interface{}) []Issue {
+	var issues []Issue
+	for _, name := range []string{
+		"x_craftedsignal_brief_id",
+		"x_craftedsignal_event_id",
+		"x_craftedsignal_severity",
+		"x_craftedsignal_type",
+	} {
+		value, ok := object[name].(string)
+		if !ok || strings.TrimSpace(value) == "" {
+			issues = append(issues, issue(path, field+"."+name, "stix.report_contract", name+" must be a non-empty string"))
+		}
+	}
+
+	revision, ok := object["x_craftedsignal_revision"].(json.Number)
+	if !ok {
+		issues = append(issues, issue(path, field+".x_craftedsignal_revision", "stix.report_contract", "x_craftedsignal_revision must be an integer of at least 1"))
+	} else if value, err := revision.Int64(); err != nil || value < 1 {
+		issues = append(issues, issue(path, field+".x_craftedsignal_revision", "stix.report_contract", "x_craftedsignal_revision must be an integer of at least 1"))
+	}
+
+	activityAt, ok := object["x_craftedsignal_activity_at"].(string)
+	if !ok || !validRFC3339(activityAt) {
+		issues = append(issues, issue(path, field+".x_craftedsignal_activity_at", "stix.report_contract", "x_craftedsignal_activity_at must be RFC3339"))
+	}
+
+	evidence, ok := object["x_craftedsignal_exploitation_evidence"].(map[string]interface{})
+	if !ok || !validSTIXExploitationEvidence(evidence) {
+		issues = append(issues, issue(path, field+".x_craftedsignal_exploitation_evidence", "stix.report_contract", "x_craftedsignal_exploitation_evidence does not match the public evidence contract"))
+	}
+
+	for _, name := range []string{"x_craftedsignal_cvss_max", "x_craftedsignal_epss_max"} {
+		value, exists := object[name]
+		if !exists || !isJSONNumberOrNull(value) {
+			issues = append(issues, issue(path, field+"."+name, "stix.report_contract", name+" must be present as a number or null"))
+		}
+	}
+
+	kevStatus, ok := object["x_craftedsignal_kev_status"].(string)
+	if !ok || (kevStatus != "true" && kevStatus != "false" && kevStatus != "unknown") {
+		issues = append(issues, issue(path, field+".x_craftedsignal_kev_status", "stix.report_contract", "x_craftedsignal_kev_status must be true, false, or unknown"))
+	}
+	return issues
+}
+
+func validSTIXExploitationEvidence(evidence map[string]interface{}) bool {
+	allowed := map[string]bool{"status": true, "source_url": true, "observed_at": true, "confidence": true}
+	for key := range evidence {
+		if !allowed[key] {
+			return false
+		}
+	}
+	status, ok := evidence["status"].(string)
+	if !ok || (status != "confirmed_active" && status != "not_observed" && status != "unknown") {
+		return false
+	}
+	sourceURL, hasSource := evidence["source_url"].(string)
+	if status == "confirmed_active" && (!hasSource || !validURL(sourceURL)) {
+		return false
+	}
+	if hasSource && !validURL(sourceURL) {
+		return false
+	}
+	if observedAt, exists := evidence["observed_at"]; exists {
+		value, ok := observedAt.(string)
+		if !ok || !validRFC3339(value) {
+			return false
+		}
+	}
+	if confidence, exists := evidence["confidence"]; exists {
+		value, ok := confidence.(string)
+		if !ok || (value != "low" && value != "medium" && value != "high") {
+			return false
+		}
+	}
+	return true
+}
+
+func isJSONNumberOrNull(value interface{}) bool {
+	if value == nil {
+		return true
+	}
+	_, ok := value.(json.Number)
+	return ok
 }
 
 func stringSlice(value interface{}) []string {

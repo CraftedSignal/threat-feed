@@ -1,13 +1,16 @@
 package main
 
 import (
+	"crypto/sha256"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/craftedsignal/threat-feed/internal/publicfeed"
 )
@@ -54,8 +57,8 @@ func run(args []string) int {
 				item.Path = path
 				issues = append(issues, item)
 			}
-		case strings.HasSuffix(path, ".json") && strings.Contains(filepath.ToSlash(path), "/stix/"):
-			if strings.HasSuffix(path, "/index.json") {
+		case strings.HasSuffix(path, ".json") && isSTIXPath(path):
+			if filepath.Base(path) == "index.json" {
 				manifestIssues := checkManifest(path, data)
 				issues = append(issues, manifestIssues...)
 			} else {
@@ -80,34 +83,242 @@ func run(args []string) int {
 	return 0
 }
 
+func isSTIXPath(path string) bool {
+	clean := filepath.ToSlash(path)
+	return strings.Contains(clean, "/stix/") || strings.HasSuffix(clean, "/stix.json")
+}
+
 type manifest struct {
-	Months  []manifestEntry `json:"months"`
-	Rolling manifestEntry   `json:"rolling"`
+	Version     string          `json:"version"`
+	SpecVersion string          `json:"spec_version"`
+	Generated   string          `json:"generated"`
+	Description string          `json:"description"`
+	Rolling     manifestEntry   `json:"rolling"`
+	Months      []manifestEntry `json:"months"`
 }
 
 type manifestEntry struct {
-	Path        string `json:"path"`
-	ReportCount int    `json:"report_count"`
+	Month          string `json:"month,omitempty"`
+	Path           string `json:"path"`
+	Checksum       string `json:"checksum"`
+	SizeBytes      int64  `json:"size_bytes"`
+	ReportCount    int    `json:"report_count"`
+	FirstPublished string `json:"first_published,omitempty"`
+	LastPublished  string `json:"last_published,omitempty"`
+	Generated      string `json:"generated"`
+	SpecVersion    string `json:"spec_version"`
 }
 
+var (
+	manifestChecksumPattern = regexp.MustCompile(`^sha256:[0-9a-f]{64}$`)
+	manifestMonthPattern    = regexp.MustCompile(`^[0-9]{4}-(0[1-9]|1[0-2])$`)
+)
+
 func checkManifest(path string, data []byte) []publicfeed.Issue {
+	var rawTop map[string]json.RawMessage
+	if err := json.Unmarshal(data, &rawTop); err != nil {
+		return []publicfeed.Issue{manifestIssue(path, "json", "stix.manifest_json", err.Error())}
+	}
 	var index manifest
 	if err := json.Unmarshal(data, &index); err != nil {
-		return []publicfeed.Issue{{Path: path, Code: "stix.manifest_json", Severity: publicfeed.SeverityError, Message: err.Error()}}
+		return []publicfeed.Issue{manifestIssue(path, "json", "stix.manifest_json", err.Error())}
 	}
-	entries := append([]manifestEntry{index.Rolling}, index.Months...)
 	var issues []publicfeed.Issue
-	for _, entry := range entries {
-		if entry.Path == "" {
+	issues = append(issues, checkManifestTop(path, rawTop, index)...)
+
+	var rollingRaw map[string]json.RawMessage
+	if raw := rawTop["rolling"]; raw != nil {
+		_ = json.Unmarshal(raw, &rollingRaw)
+	}
+	var monthsRaw []map[string]json.RawMessage
+	if raw := rawTop["months"]; raw != nil {
+		_ = json.Unmarshal(raw, &monthsRaw)
+	}
+
+	type indexedEntry struct {
+		entry     manifestEntry
+		raw       map[string]json.RawMessage
+		field     string
+		isRolling bool
+	}
+	entries := []indexedEntry{{entry: index.Rolling, raw: rollingRaw, field: "rolling", isRolling: true}}
+	for i, entry := range index.Months {
+		var raw map[string]json.RawMessage
+		if i < len(monthsRaw) {
+			raw = monthsRaw[i]
+		}
+		entries = append(entries, indexedEntry{entry: entry, raw: raw, field: fmt.Sprintf("months[%d]", i)})
+	}
+
+	seenPaths := make(map[string]bool)
+	seenMonths := make(map[string]bool)
+	staticRoot := filepath.Dir(filepath.Dir(path))
+	for _, indexed := range entries {
+		entry := indexed.entry
+		issues = append(issues, checkManifestEntry(path, indexed.field, indexed.raw, entry, indexed.isRolling)...)
+		if entry.Path == "" || !strings.HasPrefix(entry.Path, "/") || strings.Contains(entry.Path, "..") {
 			continue
 		}
-		bundlePath := filepath.Join(filepath.Dir(path), filepath.Base(entry.Path))
+		if seenPaths[entry.Path] {
+			issues = append(issues, manifestIssue(path, indexed.field+".path", "stix.manifest_contract", "manifest paths must be unique"))
+		}
+		seenPaths[entry.Path] = true
+		if !indexed.isRolling {
+			if seenMonths[entry.Month] {
+				issues = append(issues, manifestIssue(path, indexed.field+".month", "stix.manifest_contract", "manifest months must be unique"))
+			}
+			seenMonths[entry.Month] = true
+		}
+
+		bundlePath := filepath.Join(staticRoot, filepath.FromSlash(strings.TrimPrefix(entry.Path, "/")))
 		bundle, err := os.ReadFile(bundlePath)
 		if err != nil {
-			issues = append(issues, publicfeed.Issue{Path: bundlePath, Code: "file.read", Severity: publicfeed.SeverityError, Message: err.Error()})
+			issues = append(issues, manifestIssue(bundlePath, "", "file.read", err.Error()))
 			continue
 		}
+		actualChecksum := sha256.Sum256(bundle)
+		if entry.Checksum != fmt.Sprintf("sha256:%x", actualChecksum) {
+			issues = append(issues, manifestIssue(path, indexed.field+".checksum", "stix.manifest_checksum", "checksum does not match the referenced bundle"))
+		}
+		if entry.SizeBytes != int64(len(bundle)) {
+			issues = append(issues, manifestIssue(path, indexed.field+".size_bytes", "stix.manifest_size", fmt.Sprintf("manifest declares %d bytes, bundle has %d", entry.SizeBytes, len(bundle))))
+		}
 		issues = append(issues, publicfeed.CheckSTIXWithReportCount(bundlePath, bundle, entry.ReportCount)...)
+		issues = append(issues, checkManifestBounds(path, indexed.field, entry, bundle, indexed.isRolling)...)
+	}
+	sort.SliceStable(issues, func(i, j int) bool {
+		if issues[i].Path != issues[j].Path {
+			return issues[i].Path < issues[j].Path
+		}
+		if issues[i].Field != issues[j].Field {
+			return issues[i].Field < issues[j].Field
+		}
+		return issues[i].Code < issues[j].Code
+	})
+	return issues
+}
+
+func manifestIssue(path, field, code, message string) publicfeed.Issue {
+	return publicfeed.Issue{Path: path, Field: field, Code: code, Severity: publicfeed.SeverityError, Message: message}
+}
+
+func checkManifestTop(path string, raw map[string]json.RawMessage, index manifest) []publicfeed.Issue {
+	allowed := map[string]bool{
+		"version": true, "spec_version": true, "generated": true,
+		"description": true, "rolling": true, "months": true,
+	}
+	var issues []publicfeed.Issue
+	for key := range raw {
+		if !allowed[key] {
+			issues = append(issues, manifestIssue(path, key, "stix.manifest_fields", "unknown top-level manifest field"))
+		}
+	}
+	for key := range allowed {
+		if _, exists := raw[key]; !exists {
+			issues = append(issues, manifestIssue(path, key, "stix.manifest_contract", "required top-level manifest field is missing"))
+		}
+	}
+	if index.Version != "2.0" || index.SpecVersion != "2.1" || strings.TrimSpace(index.Description) == "" || !validManifestTime(index.Generated) {
+		issues = append(issues, manifestIssue(path, "version/spec_version/generated/description", "stix.manifest_contract", "manifest requires version 2.0, spec_version 2.1, an RFC3339 generated time, and a description"))
+	}
+	if len(index.Months) == 0 {
+		issues = append(issues, manifestIssue(path, "months", "stix.manifest_contract", "manifest months must not be empty"))
 	}
 	return issues
+}
+
+func checkManifestEntry(path, field string, raw map[string]json.RawMessage, entry manifestEntry, isRolling bool) []publicfeed.Issue {
+	allowed := map[string]bool{
+		"path": true, "checksum": true, "size_bytes": true, "report_count": true,
+		"first_published": true, "last_published": true, "generated": true, "spec_version": true,
+	}
+	if !isRolling {
+		allowed["month"] = true
+	}
+	var issues []publicfeed.Issue
+	for key := range raw {
+		if !allowed[key] {
+			issues = append(issues, manifestIssue(path, field+"."+key, "stix.manifest_fields", "unknown manifest entry field"))
+		}
+	}
+	required := []string{"path", "checksum", "size_bytes", "report_count", "generated", "spec_version"}
+	if !isRolling {
+		required = append(required, "month", "first_published", "last_published")
+	} else if entry.ReportCount > 0 {
+		required = append(required, "first_published", "last_published")
+	}
+	for _, key := range required {
+		if _, exists := raw[key]; !exists {
+			issues = append(issues, manifestIssue(path, field+"."+key, "stix.manifest_contract", "required manifest entry field is missing"))
+		}
+	}
+	if isRolling && entry.ReportCount == 0 {
+		if _, exists := raw["first_published"]; exists {
+			issues = append(issues, manifestIssue(path, field+".first_published", "stix.manifest_contract", "zero-report rolling bounds must be omitted"))
+		}
+		if _, exists := raw["last_published"]; exists {
+			issues = append(issues, manifestIssue(path, field+".last_published", "stix.manifest_contract", "zero-report rolling bounds must be omitted"))
+		}
+	}
+	if entry.Path == "" || !strings.HasPrefix(entry.Path, "/") || strings.Contains(entry.Path, "..") || entry.SizeBytes < 1 || entry.ReportCount < 0 || entry.SpecVersion != "2.1" || !validManifestTime(entry.Generated) {
+		issues = append(issues, manifestIssue(path, field, "stix.manifest_contract", "manifest entry has an invalid path, size, count, generated time, or spec version"))
+	}
+	if isRolling {
+		if entry.Path != "/stix.json" {
+			issues = append(issues, manifestIssue(path, field+".path", "stix.manifest_contract", "rolling path must be /stix.json"))
+		}
+	} else {
+		if !manifestMonthPattern.MatchString(entry.Month) || entry.Path != "/stix/"+entry.Month+".json" || entry.ReportCount < 1 {
+			issues = append(issues, manifestIssue(path, field, "stix.manifest_contract", "monthly entry requires a YYYY-MM month, matching path, and at least one report"))
+		}
+	}
+	if !manifestChecksumPattern.MatchString(entry.Checksum) {
+		issues = append(issues, manifestIssue(path, field+".checksum", "stix.manifest_checksum", "checksum must be sha256:<64 lowercase hex>"))
+	}
+	return issues
+}
+
+func checkManifestBounds(path, field string, entry manifestEntry, data []byte, isRolling bool) []publicfeed.Issue {
+	type bundleObject struct {
+		Type      string `json:"type"`
+		Published string `json:"published"`
+	}
+	var bundle struct {
+		Objects []bundleObject `json:"objects"`
+	}
+	if err := json.Unmarshal(data, &bundle); err != nil {
+		return nil
+	}
+	var first, last time.Time
+	count := 0
+	for _, object := range bundle.Objects {
+		if object.Type != "report" {
+			continue
+		}
+		published, err := time.Parse(time.RFC3339Nano, object.Published)
+		if err != nil {
+			continue
+		}
+		if count == 0 || published.Before(first) {
+			first = published
+		}
+		if count == 0 || published.After(last) {
+			last = published
+		}
+		count++
+	}
+	if isRolling && count == 0 {
+		return nil
+	}
+	declaredFirst, firstErr := time.Parse(time.RFC3339, entry.FirstPublished)
+	declaredLast, lastErr := time.Parse(time.RFC3339, entry.LastPublished)
+	if firstErr != nil || lastErr != nil || !declaredFirst.Equal(first) || !declaredLast.Equal(last) {
+		return []publicfeed.Issue{manifestIssue(path, field+".first_published/last_published", "stix.manifest_bounds", "publication bounds must match the referenced reports")}
+	}
+	return nil
+}
+
+func validManifestTime(value string) bool {
+	_, err := time.Parse(time.RFC3339, value)
+	return err == nil
 }
