@@ -2,7 +2,7 @@
 brief_id: brief-2026-10-draytek-command-injection
 event_id: brief-2026-10-draytek-command-injection
 revision: 3
-activity_at: "2026-10-20T14:44:14Z"
+activity_at: "2026-10-20T14:44:15Z"
 revision_history:
   - revision: 2
     at: "2026-10-20T14:44:14Z"
@@ -19,7 +19,7 @@ revision_history:
     source_urls:
       - https://sploitus.com/exploit?id=CVE-2026-113391&utm_source=rss&utm_medium=rss
   - revision: 3
-    at: "2026-10-20T14:44:14Z"
+    at: "2026-10-20T14:44:15Z"
     checksum: sha256:04c624628eb819c86249737cc018646f3f3ffc2a55f2a7344ec01db0f696415a
     summary: added CVE-2026-113395
     changed_fields:
