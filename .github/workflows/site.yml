@@ -16,6 +16,9 @@ on:
     branches: ["main"]
     paths:
       - "site/**"
+      - "cmd/feedcheck/**"
+      - "internal/publicfeed/**"
+      - "internal/workflowconfig/**"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -99,6 +102,38 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Validate changed public artifacts
+        shell: bash
+        working-directory: .
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          base="$BASE_SHA"
+          if [ -z "$base" ] || ! git cat-file -e "${base}^{commit}" || ! git merge-base --is-ancestor "$base" "$CURRENT_SHA"; then
+            base="$(git rev-parse "${CURRENT_SHA}^")"
+          fi
+
+          changed=()
+          while IFS= read -r -d '' path; do
+            changed+=("$path")
+          done < <(git diff --name-only -z --diff-filter=AM "$base" "$CURRENT_SHA" -- \
+            'site/content/briefs/*.md' 'site/static/stix/*.json')
+
+          if [ "${#changed[@]}" -eq 0 ]; then
+            echo "No changed public brief or STIX artifacts"
+          else
+            go run ./cmd/feedcheck "${changed[@]}"
+          fi
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
@@ -136,6 +171,10 @@ jobs:
       - name: Build site
         run: hugo --minify --gc
 
+      - name: Validate generated sitemap
+        working-directory: .
+        run: go run ./cmd/feedcheck --generated-site site/public
+
       - name: Build Pagefind index
         run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
 
@@ -152,6 +191,38 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Validate changed public artifacts
+        shell: bash
+        working-directory: .
+        env:
+          BASE_SHA: ${{ needs.changes.outputs.previous_sha }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          base="$BASE_SHA"
+          if [ -z "$base" ] || ! git cat-file -e "${base}^{commit}" || ! git merge-base --is-ancestor "$base" "$CURRENT_SHA"; then
+            base="$(git rev-parse "${CURRENT_SHA}^")"
+          fi
+
+          changed=()
+          while IFS= read -r -d '' path; do
+            changed+=("$path")
+          done < <(git diff --name-only -z --diff-filter=AM "$base" "$CURRENT_SHA" -- \
+            'site/content/briefs/*.md' 'site/static/stix/*.json')
+
+          if [ "${#changed[@]}" -eq 0 ]; then
+            echo "No changed public brief or STIX artifacts"
+          else
+            go run ./cmd/feedcheck "${changed[@]}"
+          fi
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
@@ -183,6 +254,10 @@ jobs:
 
       - name: Build site
         run: hugo --minify --gc
+
+      - name: Validate generated sitemap
+        working-directory: .
+        run: go run ./cmd/feedcheck --generated-site site/public
 
       - name: Build Pagefind index
         # Excluding rendered brief cards avoids indexing each brief again on
