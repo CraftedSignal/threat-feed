@@ -3,6 +3,7 @@ title: Unauthenticated Remote Code Execution in Mercury via /api/kernels
 slug: 2026-10-mercury-rce
 description: The Mercury server defaults to unauthenticated access and uses an ineffective blocklist mechanism, enabling remote, unauthenticated attackers to execute arbitrary Python code via the /api/kernels websocket endpoint.
 date: "2026-10-19T20:10:37Z"
+lastmod: "2026-10-20T06:34:24Z"
 type: advisory
 types:
   - advisory
@@ -10,6 +11,9 @@ severities:
   - critical
 cpes:
   - cpe:2.3:a:mljar:mercury:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=A461949E-561D-5090-96D7-02BE859B10CC&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - web-application-vulnerability
@@ -36,6 +40,7 @@ cves:
     cvss: 9.8
 references:
   - https://github.com/advisories/GHSA-rv4m-xm3f-3ccq
+  - https://sploitus.com/exploit?id=A461949E-561D-5090-96D7-02BE859B10CC&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -52,6 +57,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-111058
       evidence: Mercury defaults to tokenless access, bypassing security.
+updates:
+  - at: "2026-10-20T06:34:24Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A461949E-561D-5090-96D7-02BE859B10CC&utm_source=rss&utm_medium=rss
 ---
 
 Mercury, a framework for converting Jupyter notebooks into web applications, is vulnerable to unauthenticated remote code execution due to its default insecure configuration. By default, the application runs without requiring authentication tokens or passwords and disables XSRF checks. While Mercury attempts to restrict access to sensitive endpoints via a hardcoded blocklist, the `/api/kernels` endpoint is omitted to maintain core functionality. A flaw in the `patch_kernel_websocket_handler` function fails to filter or validate incoming WebSocket messages, specifically `execute_request` packets. Consequently, any unauthenticated network attacker can bypass intended security boundaries to provision kernels and execute arbitrary Python commands with the privileges of the Mercury server process. This vulnerability, tracked as CVE-2026-111058, affects all versions up to and including 3.2.5. This issue is distinct from previously patched terminal-based vulnerabilities and highlights a fundamental architectural risk in the reliance on blacklisting for securing Jupyter-based environments.
