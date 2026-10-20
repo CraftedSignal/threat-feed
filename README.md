@@ -81,3 +81,19 @@ Options:
 2. Fill in metadata, content, rules (with tests), TTPs, and IOCs
 3. Run `feedgen` to compile and verify
 4. The platform fetches the updated bundle automatically
+
+### Brief titles
+
+For a brief about one software product, start the title with the recognizable
+vendor and product name, then state the specific issue or observed behavior.
+Put a CVE identifier at the end when one is central to the brief:
+
+`Apache Struts: File upload remote code execution (CVE-2024-53677)`
+
+For a campaign or incident spanning products, lead with the actor or campaign
+and the activity. Avoid starting software advisories with a CVE, severity,
+"vulnerability in", or an acronym such as RCE; severity and CVE are already
+shown separately in the feed. Keep the title stable when enriching a brief.
+Before publishing a new brief, search existing titles and CVE IDs for the same
+issue. Add new evidence to an existing brief when it covers the same event;
+create a separate brief only when the detection question is materially different.
