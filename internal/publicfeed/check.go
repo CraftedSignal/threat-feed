@@ -311,6 +311,11 @@ func validURL(value string) bool {
 	return err == nil && (parsed.Scheme == "https" || parsed.Scheme == "http") && parsed.Host != ""
 }
 
+func validSTIXURI(value string) bool {
+	parsed, err := url.ParseRequestURI(strings.TrimSpace(value))
+	return err == nil && parsed.Scheme != ""
+}
+
 func checkRevisionHistory(path string, brief briefDocument) []Issue {
 	if len(brief.RevisionHistory) == 0 {
 		if brief.Revision == 1 {
@@ -472,6 +477,26 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 					continue
 				}
 				issues = append(issues, issue(path, field+"."+timestamp, "stix.timestamp_precision", "STIX timestamps must be UTC with millisecond precision"))
+			}
+		}
+		if references, exists := object["external_references"]; exists {
+			items, ok := references.([]interface{})
+			if !ok {
+				issues = append(issues, issue(path, field+".external_references", "stix.external_reference", "external_references must be an array"))
+			} else {
+				for j, raw := range items {
+					reference, ok := raw.(map[string]interface{})
+					if !ok {
+						issues = append(issues, issue(path, fmt.Sprintf("%s.external_references[%d]", field, j), "stix.external_reference", "external reference must be an object"))
+						continue
+					}
+					if value, exists := reference["url"]; exists {
+						uri, ok := value.(string)
+						if !ok || !validSTIXURI(uri) {
+							issues = append(issues, issue(path, fmt.Sprintf("%s.external_references[%d].url", field, j), "stix.external_reference", "external reference URL must be an absolute URI"))
+						}
+					}
+				}
 			}
 		}
 		var requiredTimestamps []string

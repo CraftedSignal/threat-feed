@@ -295,6 +295,7 @@ func TestCheckSTIXRejectsStructuralViolations(t *testing.T) {
 		{"missing canonical url", strings.Replace(validSTIX(1), "\t  \"x_craftedsignal_canonical_url\": \"https://feed.craftedsignal.io/briefs/confirmed-threat-activity/\",\n", "", 1), "stix.canonical_url"},
 		{"null score", strings.Replace(validSTIX(1), "\t  \"x_craftedsignal_epss_max\": 0.91,\n", "\t  \"x_craftedsignal_cvss_max\": null,\n\t  \"x_craftedsignal_epss_max\": 0.91,\n", 1), "stix.null"},
 		{"nested null", strings.Replace(validSTIX(1), `"confidence":"high"`, `"confidence":"high","detail":null`, 1), "stix.null"},
+		{"invalid external reference URL", strings.Replace(validSTIX(1), `"url":"https://feed.craftedsignal.io/briefs/confirmed-threat-activity/"`, `"url":"CVE-2026-67279"`, 1), "stix.external_reference"},
 		{"invalid score", strings.Replace(validSTIX(1), "\"x_craftedsignal_epss_max\": 0.91", "\"x_craftedsignal_epss_max\": \"high\"", 1), "stix.report_contract"},
 		{"invalid revision", strings.Replace(validSTIX(1), "\"x_craftedsignal_revision\": 2", "\"x_craftedsignal_revision\": 2.5", 1), "stix.report_contract"},
 		{"invalid kev status", strings.Replace(validSTIX(1), "\"x_craftedsignal_kev_status\": \"unknown\"", "\"x_craftedsignal_kev_status\": \"yes\"", 1), "stix.report_contract"},
