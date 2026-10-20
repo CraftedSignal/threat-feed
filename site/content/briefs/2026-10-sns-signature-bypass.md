@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-10-sns-signature-bypass
 event_id: brief-2026-10-sns-signature-bypass
-revision: 1
-activity_at: "2026-10-20T10:32:54Z"
+revision: 2
+activity_at: "2026-10-20T19:46:18Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T19:46:18Z"
+    checksum: sha256:40c158d5475dc5585b4913ed4d2ecbed8f3901eafd0f2130d129fad039fd4ed5
+    summary: added coverage for SNS
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-113808
 title: 'Stormshield Network Security: Dynamic data signature verification logic error (CVE-2026-113469)'
 slug: 2026-10-sns-signature-bypass
 description: A logic error in the Stormshield Network Security (SNS) dynamic data file signature verification routine allows attackers to bypass validation and inject unauthenticated updates during the autoupdate process.
 date: "2026-10-20T10:32:54Z"
+lastmod: "2026-10-20T19:45:40Z"
 type: advisory
 types:
   - advisory
@@ -26,16 +41,28 @@ cpes:
 tags:
   - vulnerability
   - network-security
+  - xss
+  - web-vulnerability
 vendors:
   - Stormshield
 products:
   - SNS
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: Through the captive portal an attacker can inject an XSS when requesting user creation.
+    confidence_band: high
 cves:
   - id: CVE-2026-113469
     cvss: 7.5
     kev_status: unknown
+  - id: CVE-2026-113808
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113469
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-113808
 action_plan:
   priority: elevated
   owners:
@@ -52,6 +79,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-113469
       evidence: Vulnerability exists in the autoupdate routine
+updates:
+  - at: "2026-10-20T19:45:40Z"
+    level: L2
+    summary: added coverage for SNS
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-113808
 ---
 
 A logic error has been identified in Stormshield Network Security (SNS) appliances related to the verification of dynamic data file signatures. During the automatic update (autoupdate) routine, the appliance fails to correctly validate the integrity and authenticity of incoming dynamic data files. This vulnerability enables an attacker capable of intercepting or manipulating the update traffic to supply unauthenticated dynamic data to the device. By bypassing these signature checks, an attacker could potentially force the appliance to process malicious configurations or unauthorized code disguised as legitimate dynamic updates, leading to a compromise of the security appliance's integrity.
