@@ -2,11 +2,11 @@
 brief_id: brief-2026-10-suspicious-lsass-access
 event_id: brief-2026-10-suspicious-lsass-access
 revision: 1
-activity_at: "2026-10-20T12:16:17Z"
+activity_at: "2026-10-05T12:01:54Z"
 title: Potentially Suspicious LSASS Access Flags
 slug: 2026-10-suspicious-lsass-access
 description: Monitoring for unusual process access requests to the Local Security Authority Subsystem Service (LSASS) using specific GrantedAccess flags, a common indicator of credential dumping attempts.
-date: "2026-10-20T12:16:17Z"
+date: "2026-10-05T12:01:54Z"
 type: advisory
 types:
   - advisory
