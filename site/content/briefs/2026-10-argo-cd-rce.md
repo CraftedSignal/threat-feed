@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-20-argo-cd-rce
 event_id: brief-2026-10-20-argo-cd-rce
-revision: 1
-activity_at: "2026-10-20T19:45:34Z"
+revision: 2
+activity_at: "2026-10-20T20:45:17Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T20:45:17Z"
+    checksum: sha256:85e7225393d0438c287239bcca9869b32883e2c6683ed91633be9689064f6e00
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-113709&utm_source=rss&utm_medium=rss
 title: 'Argo CD: Arbitrary code execution via Helm downloader plugin (CVE-2026-113709)'
 slug: 2026-10-argo-cd-rce
 description: Argo CD versions 2.1.0 through 3.6.0-rc1 are vulnerable to arbitrary code execution if --enable-helm is used, allowing attackers to inject a malicious Helm plugin via repository-controlled configuration.
 date: "2026-10-20T19:45:34Z"
+lastmod: "2026-10-20T20:44:37Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +38,9 @@ qa_status:
   validation_status: verified against NVD
 cpes:
   - cpe:2.3:a:cloud_native_computing_foundation:argo_cd:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-113709&utm_source=rss&utm_medium=rss
 tags:
   - remote-code-execution
   - gitops
@@ -51,6 +68,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113709
+  - https://sploitus.com/exploit?id=CVE-2026-113709&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -67,6 +85,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-113709
       evidence: The upload path requires only Application get permission... Both delivery paths require prior operator enablement of --enable-helm.
+updates:
+  - at: "2026-10-20T20:44:37Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-113709&utm_source=rss&utm_medium=rss
 ---
 
 Argo CD, a GitOps continuous delivery tool, contains a vulnerability (CVE-2026-113709) that enables remote code execution within the 'argocd-repo-server' component. This vulnerability is present in versions 2.1.0 through 3.3.15, 3.4.10, 3.5.4, and 3.6.0-rc2. The flaw occurs when the '--enable-helm' flag is enabled for Kustomize builds. An attacker can influence the 'helmGlobals.configHome' setting to point to a directory controlled by a Git repository or via the 'manifestsWithFiles' API endpoint.
