@@ -15,16 +15,30 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
       pull-requests: read
     outputs:
       review: ${{ steps.claude-review.outputs.structured_output }}
     steps:
+      - name: Calculate shallow checkout depth
+        id: checkout-depth
+        env:
+          PR_COMMITS: ${{ github.event.pull_request.commits }}
+        run: echo "depth=$((PR_COMMITS + 2))" >> "$GITHUB_OUTPUT"
+
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
+          # The repository history is tens of GiB. Fetch the PR commits plus
+          # their merge base instead of cloning every generated-feed revision.
+          fetch-depth: ${{ steps.checkout-depth.outputs.depth }}
+
+      - name: Fetch current base commit
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git fetch --no-tags --depth=1 origin "$BASE_SHA"
 
       - name: Run Claude Security Analysis
         id: claude-review
@@ -106,6 +120,11 @@ jobs:
 
           if [ "$ANALYSIS_RESULT" != "success" ]; then
             echo "Claude security analysis did not complete: ${ANALYSIS_RESULT}"
+            exit 1
+          fi
+
+          if [ -z "$REVIEW_OUTPUT" ]; then
+            echo "Claude security analysis completed without structured output"
             exit 1
           fi
 
