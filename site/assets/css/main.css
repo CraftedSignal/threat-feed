@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
+@config "./tailwind.config.js";
+@plugin "@tailwindcss/typography";
+
+/* Keep source detection deterministic when Hugo invokes PostCSS. */
+@source "./layouts";
+@source "./content";
+@source "./assets/js";
+
+/* Severity utilities are assembled dynamically by Hugo templates. */
+@source inline("{bg-,text-,group-hover:text-}sev-{critical,high,medium,low,rumour}");
 
 /* ---------------------------------------------------------------------- */
 /* Theme tokens. Exposed as CSS variables so Tailwind utilities (rgb(var))

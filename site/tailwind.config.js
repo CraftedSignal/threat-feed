@@ -1,21 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: 'class',
-  content: [
-    './layouts/**/*.html',
-    './content/**/*.{html,md}',
-    './assets/js/**/*.js',
-  ],
-  // Severity classes are constructed at template time (e.g. `bg-sev-{{ $sev }}`),
-  // so Tailwind's content scan can't see them - safelist explicitly.
-  safelist: [
-    'sev-critical', 'sev-high', 'sev-medium', 'sev-low', 'sev-rumour',
-    'bg-sev-critical', 'bg-sev-high', 'bg-sev-medium', 'bg-sev-low', 'bg-sev-rumour',
-    'text-sev-critical', 'text-sev-high', 'text-sev-medium', 'text-sev-low', 'text-sev-rumour',
-    'group-hover:text-sev-critical', 'group-hover:text-sev-high', 'group-hover:text-sev-medium',
-    'group-hover:text-sev-low', 'group-hover:text-sev-rumour',
-    'type-threat', 'type-coverage', 'type-advisory', 'type-rumour',
-  ],
+export default {
   theme: {
     extend: {
       fontFamily: {
@@ -48,7 +32,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
 };
