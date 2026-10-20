@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--257ea422-2e39-5cfd-acc6-0827fa66d707",
+  "id": "bundle--4fc3dab8-8aec-5d19-bd44-c57c27a45f74",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6608,18 +6608,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--ae56b8c4-4e83-5096-ba46-52d3b7c91b80",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:08:13.000Z",
-      "modified": "2026-07-22T21:34:03.000Z",
-      "name": "url: https://github.com/user-attachments/files/28445737/poc.zip",
-      "pattern": "[url:value = 'https://github.com/user-attachments/files/28445737/poc.zip']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-22T21:08:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--afbf4f39-b0b6-5fb8-9290-c7c8f0f07d50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -9997,17 +9985,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--089cf522-daf6-5cb8-94c7-d10014ccaea3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ee63793c-da76-5ce6-8710-aae0ae438916",
-      "target_ref": "vulnerability--8792d85b-455e-56a8-8c64-306b21f325fc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--08e16244-7f6a-5a5d-a308-1ed1ec9ab9e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-24T13:25:53.000Z",
@@ -11654,17 +11631,6 @@
       "relationship_type": "uses",
       "source_ref": "report--12fb4553-8063-5f0c-a5d4-bc92f78ceb55",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1ba3a7a0-ea92-5c9f-a39e-d5c511a40716",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--be1cf862-cbc4-5c1a-98ee-cf02b7ca192b",
-      "target_ref": "vulnerability--ce7fafb7-a99b-567f-8e0f-3e72b59322ff"
     },
     {
       "type": "relationship",
@@ -13814,17 +13780,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--33fbcea6-ce37-5933-b41b-0c392bc78841",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--80c387e6-6de0-532f-b017-3860e6525fba",
-      "target_ref": "vulnerability--8792d85b-455e-56a8-8c64-306b21f325fc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3416258f-d0c5-505b-892c-8da76b4869b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T21:31:24.000Z",
@@ -15086,17 +15041,6 @@
       "relationship_type": "has",
       "source_ref": "software--2de8d751-d134-5d73-a6cb-1e67c3155505",
       "target_ref": "vulnerability--b6a0fa3b-1b34-5db6-9759-4f52a390dee9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--423d88bb-a481-590b-a0f9-e4b339be689b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:08:13.000Z",
-      "modified": "2026-07-22T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7d66765b-0410-5882-8761-7a846ae6cf86",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -17180,17 +17124,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--57ecc25e-a374-5b82-935c-97e3f0817715",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e8ebf505-6c23-56cc-8d96-393785a4c8e6",
-      "target_ref": "vulnerability--7e16f4a4-b4b5-5d98-ad68-69004dabc388"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--57fcbd84-e6de-5948-ab80-c5d99f206d7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -17539,17 +17472,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ed80c2a3-9e3e-5f8d-9f64-8f758518e2b1",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5bf440a6-ec6c-5b6d-bde4-f19912403364",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3a0775c7-49aa-51a2-89ba-2344517c4da9",
-      "target_ref": "vulnerability--d4740f39-8dfe-5a02-baaa-1fb4b5cb2fdb"
     },
     {
       "type": "relationship",
@@ -19842,17 +19764,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7696f99a-6004-55e8-b237-8876aaa3e2b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6cbee76b-fbcb-566f-a59a-952334baf916",
-      "target_ref": "vulnerability--d4740f39-8dfe-5a02-baaa-1fb4b5cb2fdb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7698ae37-73e7-59bf-9630-c7fd405760fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-26T02:17:58.000Z",
@@ -21283,17 +21194,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--851a9211-4b76-5726-885c-8404bbd7bdce",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:47:02.000Z",
-      "modified": "2026-07-22T21:47:02.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2d74868e-f264-5562-9fa0-064ce9d5a7cb",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8521bb67-94e9-5c45-817f-3679c1a647a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:03:50.000Z",
@@ -21543,17 +21443,6 @@
       "relationship_type": "uses",
       "source_ref": "report--20eff92d-d586-5326-a372-09990d15686a",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8753f277-5f6d-5a53-97f4-883502efcc1e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bf1e8884-6848-5c69-ab66-306cf9521533",
-      "target_ref": "vulnerability--ce7fafb7-a99b-567f-8e0f-3e72b59322ff"
     },
     {
       "type": "relationship",
@@ -24176,17 +24065,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a3e669c7-024b-5c21-944d-02299462a43b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6e73847d-d30d-510a-9345-e81b619d8ea7",
-      "target_ref": "vulnerability--ce7fafb7-a99b-567f-8e0f-3e72b59322ff"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a40fdc53-a841-5988-ac02-85746cd13362",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25096,17 +24974,6 @@
       "relationship_type": "has",
       "source_ref": "software--00cd7e7b-7988-598d-b5ca-b13c53d30f03",
       "target_ref": "vulnerability--912a9c6c-2e9a-58c9-bb8c-fb8e593921b9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--acefe9e3-b7ab-5aaa-8476-bba697aec64f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:08:13.000Z",
-      "modified": "2026-07-22T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7d66765b-0410-5882-8761-7a846ae6cf86",
-      "target_ref": "indicator--ae56b8c4-4e83-5096-ba46-52d3b7c91b80"
     },
     {
       "type": "relationship",
@@ -29533,17 +29400,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e13be909-a9e9-5f34-b12b-82a1762f93d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:08:13.000Z",
-      "modified": "2026-07-22T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7d66765b-0410-5882-8761-7a846ae6cf86",
-      "target_ref": "attack-pattern--55190cce-3978-5d43-b6a3-64cdd80a5d56"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e13f205f-3a19-5483-ab06-b74fa496d379",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-23T22:23:54.000Z",
@@ -30127,17 +29983,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e69bce9e-a87c-5f33-aa7b-c9c37c2ab418",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--603e6805-ff5d-5e15-a59b-6102518bb396",
-      "target_ref": "vulnerability--7e16f4a4-b4b5-5d98-ad68-69004dabc388"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e6baf31f-5f21-54be-8d65-d145e00ec38b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30673,17 +30518,6 @@
       "relationship_type": "has",
       "source_ref": "software--9f699ad1-789d-5aec-8e6d-9ab9d544703b",
       "target_ref": "vulnerability--df1a3f14-20f2-52f1-92d6-bae9a2a85b09"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--eb52d6e0-f23c-5b95-8b27-23b6db4889f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b15232f8-2be9-5efd-bd95-2bd9347e6534",
-      "target_ref": "vulnerability--ce7fafb7-a99b-567f-8e0f-3e72b59322ff"
     },
     {
       "type": "relationship",
@@ -36596,56 +36430,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2d74868e-f264-5562-9fa0-064ce9d5a7cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:47:02.000Z",
-      "modified": "2026-07-22T21:47:02.000Z",
-      "name": "Netty XML Injection Vulnerability (CVE-2026-56817)",
-      "description": "## Overview\n\nA high-severity misconfiguration vulnerability, tracked as CVE-2026-56817, exists within the `XmlDecoder` component of the Netty framework's `netty-codec-xml` library. This flaw allows any attacker capable of delivering bytes to a Netty channel pipeline containing `XmlDecoder` to send specially crafted XML. The vulnerability arises because the XML factory used by `XmlDecoder` can be instantiated without proper security configuration, enabling active Document Type Definition (DTD) and external entity handling. This permits the submission of XML payloads containing `DOCTYPE` declarations that refer to external entities, a common vector for XML External Entity (XXE) injection attacks. The exploitability is conditional, depending on whether the underlying Aalto XML parser resolves these external entities. Affected versions include `netty-codec-xml` from 4.1.0.Final up to and including 4.1.135.Final, and from 4.2.0.Final up to and including 4.2.15.Final. This vulnerability could lead to information disclosure, server-side request forgery (SSRF), or other impacts.\n\n## Attack Chain\n\n1. An attacker identifies a Netty-based application that accepts XML input and uses a vulnerable version of the `netty-codec-xml` library.\n2. The attacker crafts a malicious XML payload containing a `\u0026lt;!DOCTYPE` declaration with an external entity reference (e.g., `\u0026lt;!ENTITY xxe SYSTEM \"file:///path/to/sensitive/file\"\u003e`).\n3. The attacker sends this crafted XML payload, typically via an HTTP POST request, to the vulnerable Netty application's endpoint.\n4. The Netty application's channel pipeline receives the input bytes and routes them to the `XmlDecoder` component for processing.\n5. The `XmlDecoder` processes the XML using an underlying parser (such as Aalto XML) that has been instantiated with no security configuration, allowing it to handle DTDs and resolve external entities.\n6. If the specific configuration and runtime behavior of the Aalto XML parser resolve external entities, the attacker-controlled external entity reference is processed.\n7. This processing can lead to information disclosure (e.g., reading local files or internal network resources) or Server-Side Request Forgery (SSRF) if the entity points to remote URLs, impacting the confidentiality and integrity of the application.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-56817 can lead to XML External Entity (XXE) injection, which primarily results in information disclosure. Attackers may be able to read arbitrary files on the vulnerable server, potentially exposing sensitive data, configuration files, or credentials. Depending on the server's network configuration and the capabilities of the XML parser, attackers might also be able to perform Server-Side Request Forgery (SSRF) to access internal network resources or external services, or initiate port scans. While the exploitability is conditional, affected organizations face a significant risk of data exfiltration and unauthorized access to internal systems if the vulnerable Netty applications are internet-facing or process untrusted XML input.\n\n## Recommendation\n\n* Patch CVE-2026-56817 by updating `netty-codec-xml` to a non-vulnerable version (e.g., 4.1.136.Final or 4.2.16.Final) immediately.\n* Deploy the Sigma rule \"Detects CVE-2026-56817 Exploitation - HTTP POST with DOCTYPE Declaration\" to your SIEM to identify attempts at XXE injection.\n* Enable comprehensive webserver logging to capture HTTP request bodies for analysis of XML payloads.\n",
-      "published": "2026-07-22T21:47:02.000Z",
-      "labels": [
-        "java",
-        "netty",
-        "server-side",
-        "vulnerability",
-        "web-application",
-        "xml",
-        "xxe"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--603e6805-ff5d-5e15-a59b-6102518bb396",
-        "software--e8ebf505-6c23-56cc-8d96-393785a4c8e6",
-        "vulnerability--7e16f4a4-b4b5-5d98-ad68-69004dabc388"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-netty-xml-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-netty-xml-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-4qhr-g3c6-fcfx"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-netty-xml-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-netty-xml-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-netty-xml-injection/",
-      "x_craftedsignal_activity_at": "2026-07-22T21:47:02.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -43321,70 +43105,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7d66765b-0410-5882-8761-7a846ae6cf86",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:08:13.000Z",
-      "modified": "2026-07-22T21:34:03.000Z",
-      "name": "Netty SPDY SETTINGS Frame Denial of Service Vulnerability",
-      "description": "## Overview\n\nA remote unauthenticated denial of service vulnerability, identified as CVE-2026-55831, affects Netty's `netty-codec-http` library, specifically versions 4.2.0.Final through 4.2.15.Final and 4.1.0.Final through 4.1.135.Final. The flaw lies within the SPDY SETTINGS decoder, which does not impose an implementation-level cap on the number of unique setting IDs it will accept and materialize in its `DefaultSpdySettingsFrame`'s internal `TreeMap`. Attackers can exploit this by sending a specially crafted SPDY/3.1 SETTINGS frame containing up to 262,144 unique setting IDs. This leads to significant heap memory exhaustion, estimated at 17-18 MiB per frame, and high CPU utilization due to ordered-map insertion work, effectively rendering the affected Netty application unresponsive. The vulnerability highlights a critical resource management oversight in handling protocol-level data that can be manipulated by external parties.\n\n## Attack Chain\n\n1. A remote, unauthenticated attacker establishes a network connection to a server running an affected Netty application that utilizes `SpdyFrameCodec`.\n2. The attacker crafts a malicious SPDY/3.1 SETTINGS frame, ensuring it is syntactically valid according to the SPDY specification.\n3. The crafted frame includes a large number of unique 24-bit setting IDs, up to the maximum allowed by the 24-bit frame-length limit, such as 262,144 entries.\n4. The `SpdyFrameCodec.decode()` method receives the inbound SPDY bytes, including the malicious SETTINGS frame.\n5. The decoder reads the peer-controlled flags and 24-bit frame length, accepting the SETTINGS frame as valid if `length \u003e= 4` and the payload is divisible into 8-byte entries matching the `numSettings` count.\n6. For each unique setting ID and value pair supplied by the attacker, the `DefaultSpdySettingsFrame.setValue()` method is called, which inserts a new `Setting` into its internal `TreeMap`.\n7. Due to the absence of a count budget or size limit during `TreeMap` insertion, the `DefaultSpdySettingsFrame` materializes all 262,144 attacker-controlled entries.\n8. This process consumes approximately 17-18 MiB of heap memory and significant CPU cycles for ordered-map insertions per frame, leading to a resource-exhaustion denial of service for the Netty application.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-55831 by a remote unauthenticated network peer results in a denial of service condition for applications utilizing affected Netty versions (v4.2.0.Final-4.2.15.Final and v4.1.0.Final-4.1.135.Final) with `SpdyFrameCodec`. The attack causes substantial heap memory growth (approx. 17-18 MiB per decoded frame) and high CPU utilization due to the unbounded insertion of attacker-controlled entries into a `TreeMap`. This resource exhaustion will render the application unresponsive, preventing it from serving legitimate users and potentially requiring manual intervention to restore service. The attack does not require authentication and can be executed over the network, making it a severe threat to the availability of affected services.\n\n## Recommendation\n\n* Patch CVE-2026-55831 immediately by updating `maven/io.netty:netty-codec-http` to a patched version (e.g., above 4.2.15.Final or 4.1.135.Final) to prevent resource-exhaustion denial of service.\n* Monitor application logs for sudden, unexplained increases in memory consumption or CPU utilization in Netty applications, which could indicate attempts to exploit CVE-2026-55831.\n* Implement network intrusion detection systems (NIDS) to monitor for unusually large or malformed SPDY/3.1 SETTINGS frames that match the characteristics described in the attack chain.\n",
-      "published": "2026-07-22T21:08:13.000Z",
-      "labels": [
-        "DoS",
-        "denial-of-service",
-        "java",
-        "memory-leak",
-        "netty",
-        "spdy",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--55190cce-3978-5d43-b6a3-64cdd80a5d56",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--ae56b8c4-4e83-5096-ba46-52d3b7c91b80",
-        "software--6e73847d-d30d-510a-9345-e81b619d8ea7",
-        "software--b15232f8-2be9-5efd-bd95-2bd9347e6534",
-        "software--be1cf862-cbc4-5c1a-98ee-cf02b7ca192b",
-        "software--bf1e8884-6848-5c69-ab66-306cf9521533",
-        "vulnerability--ce7fafb7-a99b-567f-8e0f-3e72b59322ff"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-netty-spdy-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-netty-spdy-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-6jqx-86gh-f27w"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-jppx-w49h-x2qq"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-mvh2-crg5-v77c"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-netty-spdy-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-netty-spdy-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-netty-spdy-dos/",
-      "x_craftedsignal_activity_at": "2026-07-22T21:34:03.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.0063,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7dc4bcf2-ea94-56d5-8bda-d63fd6532f63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-22T22:59:42.000Z",
@@ -45031,52 +44751,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-uncommon-rstrtmgr-dll-load/",
       "x_craftedsignal_activity_at": "2026-07-28T08:24:29.000Z",
       "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--8a230e8c-e9c3-5b25-996b-b0e007a9da84",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:24:38.000Z",
-      "modified": "2026-07-22T21:24:38.000Z",
-      "name": "Netty HAProxyMessageDecoder Vulnerability Leads to Unbounded Memory Exhaustion",
-      "description": "## Overview\n\nA critical vulnerability, tracked as CVE-2026-55851, has been identified in the `HAProxyMessageDecoder` component within Netty's `codec-haproxy` module. This flaw allows an unauthenticated attacker to trigger an unbounded memory exhaustion, leading to a denial of service (DoS) for applications utilizing the vulnerable Netty versions. The vulnerability arises from an incorrect interpretation of a signed Java `byte` during protocol version detection. Specifically, when an attacker sends a PROXY protocol v2 binary prefix (`0D 0A 0D 0A 00 0D 0A 51 55 49 54 0A`) followed by a `0xFF` version byte, the decoder misinterprets the value due to sign extension. This results in a collision with an internal \"need more data\" sentinel value, trapping the decoder in an infinite loop where it continuously requests more data without processing or discarding previous input. This behavior causes an unbounded accumulation of inbound bytes in the `cumulation` buffer, ultimately exhausting the Java Virtual Machine's (JVM) direct memory allocation and rendering the affected application unresponsive.\n\n## Attack Chain\n\n1. An attacker initiates a connection to a vulnerable application using Netty's `HAProxyMessageDecoder`.\n2. The attacker sends a crafted PROXY protocol v2 binary header, specifically `0D 0A 0D 0A 00 0D 0A 51 55 49 54 0A`.\n3. The attacker then appends a malicious version byte, `0xFF`, immediately following the crafted binary prefix.\n4. The `HAProxyMessageDecoder` attempts to perform protocol version detection by reading the 13th byte (the `0xFF`).\n5. Due to Java's signed `byte` type and subsequent widening to `int` without proper masking, the `0xFF` byte is interpreted as `int -1` through sign extension.\n6. This `int -1` value collides with the decoder's internal \"need more data\" sentinel value, causing the decoder to believe it requires more data to resolve the version.\n7. The decoder enters an infinite loop, continuously requesting more data and never consuming the already received bytes, bypassing size limit enforcements.\n8. All subsequent inbound network traffic is accumulated in an unbounded `cumulation` buffer, leading to the exhaustion of the JVM's direct memory allocation and a denial of service.\n\n## Impact\n\nThe successful exploitation of CVE-2026-55851 leads to a complete denial of service (DoS) for applications using the vulnerable Netty `codec-haproxy` module. Attackers can trigger unbounded memory exhaustion in the target JVM by sending a specially crafted network payload. This will crash the affected service, making it unavailable to legitimate users. Organizations relying on these Netty versions for critical network services are at risk of service disruption and potential data loss if robust failover mechanisms are not in place. The attack requires no authentication and can be executed remotely, posing a significant threat to internet-facing applications.\n\n## Recommendation\n\n* Upgrade the `netty-codec-haproxy` module to a patched version immediately to remediate CVE-2026-55851. Specifically, upgrade `maven/io.netty:netty-codec-haproxy` to `4.2.16.Final` or later, or `4.1.136.Final` or later.\n* Implement network intrusion detection/prevention systems (NIDS/NIPS) to monitor for unusual PROXY protocol traffic patterns that could indicate attempted exploitation of CVE-2026-55851.\n* Ensure robust application monitoring is in place to detect sudden increases in direct memory usage or JVM crashes that could be indicative of an attack exploiting CVE-2026-55851.\n",
-      "published": "2026-07-22T21:24:38.000Z",
-      "labels": [
-        "denial-of-service",
-        "memory-exhaustion",
-        "proxy-protocol",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--80c387e6-6de0-532f-b017-3860e6525fba",
-        "software--ee63793c-da76-5ce6-8710-aae0ae438916",
-        "vulnerability--8792d85b-455e-56a8-8c64-306b21f325fc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-netty-haproxymessagedecoder-mem-exhaust",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-netty-haproxymessagedecoder-mem-exhaust/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-q6cq-mhr2-jmr5"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-netty-haproxymessagedecoder-mem-exhaust",
-      "x_craftedsignal_event_id": "brief-2026-07-netty-haproxymessagedecoder-mem-exhaust",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-netty-haproxymessagedecoder-mem-exhaust/",
-      "x_craftedsignal_activity_at": "2026-07-22T21:24:38.000Z",
-      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -53024,56 +52698,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--de87fde6-d0e5-5dbb-b043-4745bee1959a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T21:46:23.000Z",
-      "modified": "2026-07-22T21:46:23.000Z",
-      "name": "Netty: Missing CertificateID Validation in OCSP Response Allows Replay Attacks",
-      "description": "## Overview\n\nA significant vulnerability, identified as CVE-2026-56820, exists within Netty's `OcspClient`, specifically in the `io.netty.handler.ssl.ocsp.OcspClient#validateResponse` method. This flaw stems from a failure to validate that the `CertificateID` contained within an OCSP response matches the `CertificateID` of the certificate being requested for validation. This oversight allows an attacker to perform replay attacks: by obtaining a legitimate OCSP \"GOOD\" status response for any non-revoked certificate issued by a common Certificate Authority (CA), the attacker can then replay this response to a Netty client checking the status of a *different* certificate. Because the client verifies the response's signature (which is valid as it comes from the CA) but neglects the CertificateID mismatch, it will erroneously accept a potentially revoked or invalid certificate as legitimate. This vulnerability impacts any application using affected Netty versions for OCSP revocation checks, specifically `netty-handler-ssl-ocsp` in versions from 4.2.0.Final up to 4.2.16.Final (exclusive) and versions prior to 4.1.136.Final.\n\n## Attack Chain\n\n1. **Identify Target Netty Client**: An attacker identifies an application that uses Netty's `OcspClient` for certificate revocation checks, making it susceptible to validation bypass.\n2. **Obtain Valid Certificate**: The attacker procures a valid, non-revoked certificate that was issued by the same Certificate Authority (CA) as the target certificate intended for bypass.\n3. **Request Legitimate OCSP Response**: The attacker sends a standard OCSP request for this *unrelated*, valid certificate to the CA's OCSP responder.\n4. **Capture \"GOOD\" Status Response**: The attacker intercepts and captures the legitimately signed OCSP response, which confirms the \"GOOD\" status of the unrelated certificate.\n5. **Intercept Target OCSP Query**: When the Netty client attempts to validate the *target* certificate (which may be revoked or otherwise invalid), the attacker intercepts its outbound OCSP status query.\n6. **Replay Captured Response**: The attacker replies to the Netty client's query by replaying the previously captured \"GOOD\" status OCSP response (from step 4).\n7. **Bypass Revocation Check**: Due to the vulnerability (CVE-2026-56820), the Netty client accepts the replayed response as valid, failing to detect the `CertificateID` mismatch, and incorrectly validating the target certificate as non-revoked.\n8. **Compromise TLS Security**: The application proceeds with the connection, unknowingly accepting a potentially revoked or invalid certificate, thereby undermining the security and integrity of TLS/SSL communication.\n\n## Impact\n\nThis vulnerability leads to a critical certificate validation bypass, potentially allowing applications using Netty's OcspClient to trust revoked or otherwise illegitimate certificates. If exploited, the integrity and authenticity guarantees provided by TLS/SSL can be severely undermined, enabling attackers to impersonate legitimate services or users. Any application that relies on Netty for secure communication, particularly those with OCSP validation enabled, is at risk of accepting fraudulent certificates, which could lead to unauthorized access, data interception, or other forms of compromise without the client detecting the certificate's invalid status.\n\n## Recommendation\n\n* Patch CVE-2026-56820 on all affected Netty `netty-handler-ssl-ocsp` components immediately.\n* Upgrade the `io.netty:netty-handler-ssl-ocsp` library to version `4.2.16.Final` or newer, or to `4.1.136.Final` or newer, as described in the reference GHSA-272m-gcwp-mpwg.\n",
-      "published": "2026-07-22T21:46:23.000Z",
-      "labels": [
-        "certificate-validation",
-        "cve",
-        "netty",
-        "ocsp",
-        "replay-attack",
-        "tls",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3a0775c7-49aa-51a2-89ba-2344517c4da9",
-        "software--6cbee76b-fbcb-566f-a59a-952334baf916",
-        "vulnerability--d4740f39-8dfe-5a02-baaa-1fb4b5cb2fdb"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-netty-ocsp-replay-cve-2026-56820",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-netty-ocsp-replay-cve-2026-56820/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-272m-gcwp-mpwg"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-netty-ocsp-replay-cve-2026-56820",
-      "x_craftedsignal_event_id": "brief-2026-07-netty-ocsp-replay-cve-2026-56820",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-netty-ocsp-replay-cve-2026-56820/",
-      "x_craftedsignal_activity_at": "2026-07-22T21:46:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e091925f-2476-51f8-a2f5-3e32ccc5afea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:43:39.000Z",
@@ -56367,13 +55991,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3a0775c7-49aa-51a2-89ba-2344517c4da9",
-      "name": "netty-handler-ssl-ocsp (versions 4.1.x prior to 4.1.136.Final)",
-      "vendor": "Netty"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3a5ec053-d663-5d1f-b94b-3f651e16179d",
       "name": "Kibana (min_stack_version 9.4.0)",
       "vendor": "Elastic"
@@ -57059,13 +56676,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--603e6805-ff5d-5e15-a59b-6102518bb396",
-      "name": "netty-codec-xml (4.1.0.Final - 4.1.135.Final)",
-      "vendor": "Netty"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--60564825-e444-57d2-a4d8-3c2a5d0ac78a",
       "name": "miniOrange SAML 2.0 Single Sign On – SSO Login (WordPress) \u003c= 5.4.4"
     },
@@ -57309,13 +56919,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6cbee76b-fbcb-566f-a59a-952334baf916",
-      "name": "netty-handler-ssl-ocsp (versions 4.2.x prior to 4.2.16.Final)",
-      "vendor": "Netty"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6cce35da-b7bc-5d2d-a6cf-fc30a262b573",
       "name": "CHARX SEC-3100",
       "vendor": "Phoenix Contact"
@@ -57352,13 +56955,6 @@
       "id": "software--6dc36ea9-c8a1-5c93-91d3-71bc15c2be64",
       "name": "openhole-server (\u003c= 0.1.1)",
       "vendor": "bablilayoub"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6e73847d-d30d-510a-9345-e81b619d8ea7",
-      "name": "netty-codec-http (\u003e= 4.2.0.Final, \u003c= 4.2.15.Final)",
-      "vendor": "Netty"
     },
     {
       "type": "software",
@@ -57644,13 +57240,6 @@
       "id": "software--80726a22-83f0-5d0c-8bbb-8e166eddee3b",
       "name": "Tanium Endpoint Management",
       "vendor": "Tanium"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--80c387e6-6de0-532f-b017-3860e6525fba",
-      "name": "netty-codec-haproxy (\u003e= 4.2.0.Final, \u003c= 4.2.15.Final)",
-      "vendor": "Netty"
     },
     {
       "type": "software",
@@ -58623,13 +58212,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b15232f8-2be9-5efd-bd95-2bd9347e6534",
-      "name": "netty-codec-http (4.1.0.Final - 4.1.135.Final)",
-      "vendor": "Netty"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b1c3651b-e0b1-57b2-8b01-45d61bddcfc5",
       "name": "LoadMaster",
       "vendor": "Progress Software"
@@ -58865,13 +58447,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--be1cf862-cbc4-5c1a-98ee-cf02b7ca192b",
-      "name": "netty-codec-http (\u003e= 4.1.0.Final, \u003c= 4.1.135.Final)",
-      "vendor": "Netty"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--be5aa350-eaf6-5c9d-b0ab-640925d92e86",
       "name": "Easy Appointments plugin (\u003c 3.12.28)"
     },
@@ -58895,13 +58470,6 @@
       "id": "software--be88fdda-031a-56cc-a9d8-68b9dde0f35b",
       "name": "qti-neon = 1.0.0",
       "vendor": "QuietTerminal"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--bf1e8884-6848-5c69-ab66-306cf9521533",
-      "name": "netty-codec-http (4.2.0.Final - 4.2.15.Final)",
-      "vendor": "Netty"
     },
     {
       "type": "software",
@@ -59686,13 +59254,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e8ebf505-6c23-56cc-8d96-393785a4c8e6",
-      "name": "netty-codec-xml (4.2.0.Final - 4.2.15.Final)",
-      "vendor": "Netty"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e9a29fd8-339a-568d-92ad-fd17d382e5d8",
       "name": "AI-based applications and systems"
     },
@@ -59742,13 +59303,6 @@
       "spec_version": "2.1",
       "id": "software--ee219551-9053-501b-8024-0f7be43594db",
       "name": "lua"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ee63793c-da76-5ce6-8710-aae0ae438916",
-      "name": "netty-codec-haproxy (\u003e= 4.1.0.Final, \u003c= 4.1.135.Final)",
-      "vendor": "Netty"
     },
     {
       "type": "software",
@@ -62204,22 +61758,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--7e16f4a4-b4b5-5d98-ad68-69004dabc388",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-56817",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-56817",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56817"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--7e1b2b3b-f9be-5b44-9648-616a97096907",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -62342,22 +61880,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54725",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54725"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8792d85b-455e-56a8-8c64-306b21f325fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55851",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55851",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55851"
         }
       ]
     },
@@ -63436,22 +62958,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--ce7fafb7-a99b-567f-8e0f-3e72b59322ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-55831",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-55831",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55831"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--d0824c57-0326-505e-8753-e22bb5dbfb7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -63542,22 +63048,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-17527",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17527"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--d4740f39-8dfe-5a02-baaa-1fb4b5cb2fdb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-56820",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-56820",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56820"
         }
       ]
     },
