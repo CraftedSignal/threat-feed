@@ -245,6 +245,9 @@ func TestSiteWorkflowValidatesChangedPublicArtifactsAgainstHistoryAndManifest(t 
 					if with["fetch-depth"] != 0 {
 						t.Errorf("checkout.fetch-depth = %#v, want 0", with["fetch-depth"])
 					}
+					if with["filter"] != "blob:none" {
+						t.Errorf("checkout.filter = %#v, want blob:none to avoid historical generated blobs", with["filter"])
+					}
 				}
 				name, _ := step["name"].(string)
 				run, _ := step["run"].(string)

@@ -136,6 +136,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
+          # Keep ancestry for append-only comparisons without downloading
+          # every historical generated feed and STIX blob.
+          filter: blob:none
 
       - name: Setup Go
         uses: actions/setup-go@v6
@@ -238,6 +241,9 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
+          # The build needs full commit ancestry, while only current-tree
+          # blobs are needed to render and publish the site.
+          filter: blob:none
 
       - name: Setup Go
         uses: actions/setup-go@v6
