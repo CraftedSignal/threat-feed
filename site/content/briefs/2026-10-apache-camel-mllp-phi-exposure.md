@@ -41,7 +41,7 @@ mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
     technique_id: T1530
-    technique_name: Data from Information Repository
+    technique_name: Data from Cloud Storage
     evidence: The MLLP component writes HL7 payload content to application logs, exposing sensitive health information.
     confidence_band: high
 cves:
