@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--df9ee4ad-d7d8-52ee-8def-87a3a0c51c6d",
+  "id": "bundle--1fea3a18-db60-5fb0-9fa7-b6d5187b6e0c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17980,6 +17980,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4ac389b7-cf00-51d9-a29a-0eaff09c7c5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b964845-a856-5ab9-9516-d8ba24935667",
+      "target_ref": "vulnerability--ca6f2994-891f-5f72-ba1b-f3a795adfa71"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4ac45251-911c-5e7d-a856-78b0f7d554a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:27:19.000Z",
@@ -20180,6 +20191,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--56afc755-5037-5312-ae98-b694e83d0c4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c3af4349-d5df-5e80-a215-e48aac1a94be",
+      "target_ref": "vulnerability--ca6f2994-891f-5f72-ba1b-f3a795adfa71"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--56b2ece1-c7bb-56be-b6ac-655dc713f33a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T22:22:27.000Z",
@@ -21276,6 +21298,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3ab8acb2-7991-58de-b61a-438296903af3",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c958443-a443-5c06-ae46-84c670738ac4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T21:50:23.000Z",
+      "modified": "2026-10-20T21:51:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b3ba619e-2dcf-556e-8e1e-661c2aef7be9",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -26714,6 +26747,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7995bf1d-eb0d-571e-bbb1-bb93bdcad489",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T21:50:23.000Z",
+      "modified": "2026-10-20T21:51:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b3ba619e-2dcf-556e-8e1e-661c2aef7be9",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--799ff639-a282-5e88-b77a-2886991bd0fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T14:00:40.000Z",
@@ -31550,6 +31594,17 @@
       "relationship_type": "has",
       "source_ref": "software--6b1634ab-1ecf-5a0d-a0e0-c73e9df411d0",
       "target_ref": "vulnerability--19daccce-2048-5ef9-bba9-75195dd26b66"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--936a57e1-2737-5428-b72b-cd6d969f2ce2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--53a7a6d1-d1ab-5399-bcdb-c357498f2545",
+      "target_ref": "vulnerability--ca6f2994-891f-5f72-ba1b-f3a795adfa71"
     },
     {
       "type": "relationship",
@@ -45927,6 +45982,17 @@
       "relationship_type": "has",
       "source_ref": "software--036685d9-0fad-5d2d-904b-b8ff0069befc",
       "target_ref": "vulnerability--9b701122-09c3-5da1-8c81-a98dd899fa61"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--df14afae-c3ae-538e-bad9-ccaeee8b1f0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T21:50:23.000Z",
+      "modified": "2026-10-20T21:51:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b3ba619e-2dcf-556e-8e1e-661c2aef7be9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -107420,6 +107486,68 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b3ba619e-2dcf-556e-8e1e-661c2aef7be9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T21:50:23.000Z",
+      "modified": "2026-10-20T21:51:17.000Z",
+      "name": "TOTOLINK X2000R: OS Command Injection in formPasswordSetup (CVE-2026-10131)",
+      "description": "## Overview\n\nTOTOLINK X2000R (version TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327) contains an OS command injection vulnerability within the boa formPasswordSetup functionality. This flaw allows an authenticated attacker to inject arbitrary commands into the underlying operating system by sending a specially crafted HTTP request to the web interface. Successful exploitation results in remote code execution, which can be leveraged to gain full control of the affected networking hardware. Given that these devices are typically internet-facing edge infrastructure, this vulnerability represents a significant risk for lateral movement and persistence within a network if an attacker compromises a valid administrative or user credential to gain the necessary authentication context.\n\n## Impact\n\nSuccessful exploitation allows for full command execution on the router, enabling attackers to intercept traffic, reconfigure network security, or pivot into the internal network environment. This poses a high risk to small office and home office (SOHO) deployments where the X2000R serves as the primary gateway.\n\n## Recommendation\n\n- Monitor web traffic to TOTOLINK X2000R administrative interfaces for suspicious HTTP POST requests containing command delimiters or shell metacharacters.\n- Review all administrative access logs to identify anomalous authentication sessions followed immediately by POST requests to formPasswordSetup.\n- Patch affected X2000R devices by upgrading to a firmware version later than TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327 as soon as vendor guidance becomes available.\n- Isolate administrative interfaces of networking hardware from the public internet using firewalls or VPN access control lists.\n",
+      "published": "2026-10-20T21:50:23.000Z",
+      "labels": [
+        "buffer-overflow",
+        "command-injection",
+        "cve-2026-10131",
+        "network-security",
+        "remote-code-execution",
+        "router",
+        "totolink"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--53a7a6d1-d1ab-5399-bcdb-c357498f2545",
+        "software--8b964845-a856-5ab9-9516-d8ba24935667",
+        "software--c3af4349-d5df-5e80-a215-e48aac1a94be",
+        "vulnerability--ca6f2994-891f-5f72-ba1b-f3a795adfa71"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-10131",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-10131/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10131"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10132"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42019"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-10131",
+      "x_craftedsignal_event_id": "brief-2026-10-20-10131",
+      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-10131/",
+      "x_craftedsignal_activity_at": "2026-10-20T21:51:17.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b3c445c5-434d-5631-ade8-b205bb35ef0a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:22:34.000Z",
@@ -135626,6 +135754,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--53a7a6d1-d1ab-5399-bcdb-c357498f2545",
+      "name": "X2000R (V1.0.0-B20250421.1327)",
+      "vendor": "TOTOLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--53d6babd-2819-52b0-9ed3-48304201cce7",
       "name": "OpenSC",
       "vendor": "OpenSC Project"
@@ -138571,6 +138706,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b964845-a856-5ab9-9516-d8ba24935667",
+      "name": "X2000R (\u003c TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327)",
+      "vendor": "TOTOLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8c4a5394-1bd1-55a3-86e7-d46a37fb8388",
       "name": "WP Travel Engine – Tour Booking Plugin – Tour Operator Software (\u003c= 6.8.0)",
       "vendor": "WP Travel Engine"
@@ -141484,6 +141626,13 @@
       "id": "software--c3932529-5c10-57a0-8a75-2f490863803f",
       "name": "cool-admin-midway (\u003c= 8.0.0)",
       "vendor": "cool-admin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c3af4349-d5df-5e80-a215-e48aac1a94be",
+      "name": "X2000R (\u003c= TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327)",
+      "vendor": "TOTOLINK"
     },
     {
       "type": "software",
@@ -161050,6 +161199,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110895",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ca6f2994-891f-5f72-ba1b-f3a795adfa71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-10131",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-10131",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10131"
         }
       ]
     },
