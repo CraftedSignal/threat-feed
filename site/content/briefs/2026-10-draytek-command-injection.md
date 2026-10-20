@@ -1,13 +1,40 @@
 ---
 brief_id: brief-2026-10-draytek-command-injection
 event_id: brief-2026-10-draytek-command-injection
-revision: 1
-activity_at: "2026-10-20T13:08:01Z"
+revision: 3
+activity_at: "2026-10-20T14:44:14Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T14:44:14Z"
+    checksum: sha256:4c68dd2a9b47b39c34184cfd6ae4a98e5e0fd74d20c9bae3845a65159014e49a
+    summary: poc_available; added CVE-2026-113390 +1
+    changed_fields:
+      - affected_products
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-113391&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-10-20T14:44:14Z"
+    checksum: sha256:04c624628eb819c86249737cc018646f3f3ffc2a55f2a7344ec01db0f696415a
+    summary: added CVE-2026-113395
+    changed_fields:
+      - cves
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-113395
 title: 'DrayTek Vigor2960: Command injection in CGI Process (CVE-2026-113389)'
 slug: 2026-10-draytek-command-injection
 description: DrayTek Vigor2960 firmware version 1.5.1.6 Revision 8218 is vulnerable to unauthenticated remote command injection via the set_table function in mainfunction.cgi.
 date: "2026-10-20T13:08:01Z"
-lastmod: "2026-10-20T14:17:09Z"
+lastmod: "2026-10-20T14:43:34Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +52,10 @@ qa_status:
   validation_status: Matches NVD source content
 cpes:
   - cpe:2.3:h:draytek:vigor2960:1.5.1.6:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-113391&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=CVE-2026-113389&utm_source=rss&utm_medium=rss
 tags:
   - network-device
   - command-injection
@@ -37,6 +68,7 @@ vendors:
   - DrayTek
 products:
   - Vigor2960 (1.5.1.6 Revision 8218)
+  - Vigor2960 (<= 1.5.1.6 Revision 8218)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -54,11 +86,21 @@ cves:
   - id: CVE-2026-113389
     cvss: 9.9
     kev_status: "false"
+  - id: CVE-2026-113391
+    cvss: 9.9
+    kev_status: "false"
   - id: CVE-2026-113390
-    kev_status: unknown
+    cvss: 9.9
+    kev_status: "false"
+  - id: CVE-2026-113395
+    cvss: 7.4
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113389
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113390
+  - https://sploitus.com/exploit?id=CVE-2026-113391&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=CVE-2026-113389&utm_source=rss&utm_medium=rss
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-113395
 rules:
   - title: Detects CVE-2026-113389 Exploitation - Remote Command Injection in Vigor2960
     description: Detects exploitation attempts against CVE-2026-113389 by identifying shell metacharacters in the sectiontype argument of mainfunction.cgi
@@ -97,6 +139,20 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-113390
+  - at: "2026-10-20T14:43:03Z"
+    level: L2
+    summary: poc_available; added CVE-2026-113390 +1
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-113391&utm_source=rss&utm_medium=rss
+  - at: "2026-10-20T14:43:34Z"
+    level: L2
+    summary: added CVE-2026-113395
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-113395
 ---
 
 DrayTek Vigor2960 firmware version 1.5.1.6 Revision 8218 contains a critical command injection vulnerability (CVE-2026-113389) residing within the set_table function of the /cgi-bin/mainfunction.cgi script. An unauthenticated remote attacker can exploit this flaw by manipulating the sectiontype argument, leading to arbitrary command execution on the affected network device. The vendor has identified this issue and released firmware version 1.5.1.7. However, the Vigor2960 product line has reached End-of-Life (EoS) status, meaning manufacturer support is extremely limited, and security updates are only provided for critical, unauthenticated vulnerabilities. The vulnerability is publicly disclosed, necessitating immediate action for administrators operating this hardware.
