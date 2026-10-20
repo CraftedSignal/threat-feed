@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--23683d30-63a7-5b53-a907-14830e6a3392",
+  "id": "bundle--2b2cf90f-296d-57d8-b0e2-010fa5c16f73",
   "objects": [
     {
       "type": "attack-pattern",
@@ -207,6 +207,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1588.002",
           "url": "https://attack.mitre.org/techniques/T1588/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Additional Cloud Credentials",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1098.001",
+          "url": "https://attack.mitre.org/techniques/T1098/001"
         }
       ]
     },
@@ -447,6 +463,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1187",
           "url": "https://attack.mitre.org/techniques/T1187"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "ARP Cache Poisoning",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1557.002",
+          "url": "https://attack.mitre.org/techniques/T1557/002"
         }
       ]
     },
@@ -2718,6 +2750,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--03a511c9-bebf-5634-bf95-73b9b6bad6be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: *.gsoolg.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = '*.gsoolg.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--03e06001-b520-54e7-8a6e-3cff2db0eb48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:02:59.000Z",
@@ -2835,6 +2880,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--22c92e98-52bc-5066-976a-f4d7281d0a50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: *.groosl.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = '*.groosl.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--269a24c9-8a52-57a7-9a85-7428e123c0a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:17:33.000Z",
@@ -2887,6 +2945,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gbrokl.space",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gbrokl.space']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--312ade00-6312-5634-99d2-35fc4d58bbb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:02:59.000Z",
@@ -2896,6 +2967,19 @@
       "pattern": "[domain-name:value = 'apexfdn.xyz']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T12:02:59.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--334cc45e-78dc-5627-973d-28018846b066",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gbrokl.xyz",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gbrokl.xyz']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
     },
     {
       "type": "indicator",
@@ -2952,6 +3036,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--455284e0-9a8e-5f93-9470-ebd55a428c36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gcslom.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gcslom.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4711e177-dae6-51ca-9c70-9f4af8cbcfd7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T10:33:30.000Z",
@@ -2974,6 +3071,19 @@
       "pattern": "[domain-name:value = 'aomei.storage-data.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-16T18:27:42.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--517ac4a1-7936-59b6-b190-49196fb2154f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gsool.xyz",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gsool.xyz']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
     },
     {
       "type": "indicator",
@@ -3017,6 +3127,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--6b5546b0-4d0c-560d-98b7-91d83eb1e816",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "ip: 212.73.134.136",
+      "description": "Attacker infrastructure - IP seen in the initial login from the phishing page",
+      "pattern": "[ipv4-addr:value = '212.73.134.136']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--71d006aa-b7ba-50c9-a864-77547bef2b5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:12:19.000Z",
@@ -3026,6 +3149,19 @@
       "pattern": "[domain-name:value = 'natcloudservice.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-08T19:12:19.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--72d7fbec-0326-53dd-9de7-4092e27a95f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: *.gboogl.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = '*.gboogl.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
     },
     {
       "type": "indicator",
@@ -3056,6 +3192,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--7b3ff263-fa6d-5edc-b2b0-17bb65e09f29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gcoalg.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gcoalg.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -3082,6 +3231,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--7fe6bced-8fef-5e76-a4bc-f08f81e4fc3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: *.gxoosl.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = '*.gxoosl.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--81dcdeab-3bee-58d6-ae72-9d8e53ab36bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -3095,6 +3257,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--82cb1280-88c8-5dfe-859c-e087e02da5e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: groolg.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'groolg.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--8ab18d39-97ac-5e8d-b3c6-101a1db5fecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -3104,6 +3279,19 @@
       "pattern": "[ipv4-addr:value = '124.155.252.63']",
       "pattern_type": "stix",
       "valid_from": "2026-10-07T16:46:44.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8eb6c0cc-8b68-515b-b7cf-b2570bf93aed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: groonl.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'groonl.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
     },
     {
       "type": "indicator",
@@ -3238,6 +3426,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--bcf52db4-efc7-5587-94dc-01a0142eb018",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:33.000Z",
+      "modified": "2026-10-20T23:53:33.000Z",
+      "name": "hash_sha256: 5f38e0ead90b97949fb0c98c63f9c68d00ba9181db6631ecb8927376dcc75f4d",
+      "description": "Malicious TIFF file fixture used to trigger the heap out-of-bounds read.",
+      "pattern": "[file:hashes.'SHA-256' = '5f38e0ead90b97949fb0c98c63f9c68d00ba9181db6631ecb8927376dcc75f4d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:33.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--be5a2a91-8a3c-584f-8513-6fa64ac4647b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T08:39:25.000Z",
@@ -3273,6 +3474,19 @@
       "pattern": "[domain-name:value = 'tinyurl.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:51:56.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c3f1fd01-4fd4-5d53-9d48-f217cd40fb02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gsool.space",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gsool.space']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
     },
     {
       "type": "indicator",
@@ -3407,6 +3621,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--d7bcaf7a-f731-5d2e-ba92-cac6654ac4c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: *.gprokl.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = '*.gprokl.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -3442,6 +3669,19 @@
       "pattern": "[ipv4-addr:value = '79.141.169.187']",
       "pattern_type": "stix",
       "valid_from": "2026-10-02T06:25:40.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e9e0f513-1563-5483-9622-8094711c47bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gsoosl.xyz",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gsoosl.xyz']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
     },
     {
       "type": "indicator",
@@ -3498,6 +3738,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f072fa06-7f76-5553-969d-1212d9dcb0a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gpoosl.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gpoosl.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
@@ -3520,6 +3773,19 @@
       "pattern": "[ipv4-addr:value = '209.209.85.38']",
       "pattern_type": "stix",
       "valid_from": "2026-10-07T16:46:44.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f9f0a134-b1d0-556f-8170-eb8da2fd9677",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "domain: gzoozl.com",
+      "description": "Attacker infrastructure - phishing domain",
+      "pattern": "[domain-name:value = 'gzoozl.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-20T23:53:02.000Z"
     },
     {
       "type": "indicator",
@@ -4039,6 +4305,17 @@
       "relationship_type": "has",
       "source_ref": "software--0852a122-3d8f-502c-9da0-7a636276a38a",
       "target_ref": "vulnerability--864ba025-523c-5b75-a976-7b26eeaab817"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--030609c3-874a-58aa-a379-65e641b04d74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--c3f1fd01-4fd4-5d53-9d48-f217cd40fb02"
     },
     {
       "type": "relationship",
@@ -4875,6 +5152,17 @@
       "relationship_type": "has",
       "source_ref": "software--9cc4f219-9f29-5b6b-b6bc-21b2f8dc9ae8",
       "target_ref": "vulnerability--9c1ad73a-a757-504f-9456-ae9021a6e9c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--095a8c9c-5d87-5014-97fa-37f3f7fb093c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:08.000Z",
+      "modified": "2026-10-20T23:53:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ced12e04-2a84-5a23-90cd-69c1340eec27",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -7398,6 +7686,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b6f33e7-1ea3-5987-a9a5-c86845bd6528",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T20:12:06.000Z",
+      "modified": "2026-10-20T23:54:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ab8b247a-091a-5712-b0de-e30c11c8a90a",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b8ebdde-6059-5ebb-9f2c-51dbad93e993",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:41:50.000Z",
@@ -8542,6 +8841,28 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2503f049-a30b-5efa-96da-942d0a8120ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--7fe6bced-8fef-5e76-a4bc-f08f81e4fc3e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2512bf01-3583-5d9b-81d7-09419f7c706e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d0c513de-6681-5fc4-a01f-38f84b7869e8",
+      "target_ref": "vulnerability--31f7b914-2d3a-561d-a442-bf4189f61ecc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--25670a27-4b3f-53c7-85ef-61e93f7cb527",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T18:13:10.000Z",
@@ -8681,6 +9002,17 @@
       "relationship_type": "has",
       "source_ref": "software--d4d52e44-a1e7-5f41-ad67-91a8b9a7ac0d",
       "target_ref": "vulnerability--8985035c-12a6-5a7e-92d3-4991c3ef2722"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--26e8c871-c6c3-5ca3-9a4a-8dd7d8c5cbc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--8eb6c0cc-8b68-515b-b7cf-b2570bf93aed"
     },
     {
       "type": "relationship",
@@ -9220,17 +9552,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a6d3e90f-e35c-5ca7-ad60-854bede94b92",
       "target_ref": "indicator--cb5e4001-bf74-5fd0-8f25-7a779a724d06"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2b0540a9-3160-51a9-9abe-a6ece157a3c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--26352223-73c5-56bf-aea7-9f048509b68a",
-      "target_ref": "vulnerability--31f7b914-2d3a-561d-a442-bf4189f61ecc"
     },
     {
       "type": "relationship",
@@ -9792,6 +10113,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9cfbb11d-dab7-5a38-a65b-8220f3da69fd",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ed746d0-28a6-57eb-97e7-c0930759fbc7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--f9f0a134-b1d0-556f-8170-eb8da2fd9677"
     },
     {
       "type": "relationship",
@@ -15879,6 +16211,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5c207d80-c0b3-5d68-95d0-3489ebf39130",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5c3d5934-bfe1-5399-9c2f-e44a707506e8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T13:10:35.000Z",
@@ -16040,6 +16383,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b2aca7f1-2015-579a-a7a8-f3b2cccead9c",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d4fe6d6-159a-59f4-a9d2-57ca15c6494d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--7b3ff263-fa6d-5edc-b2b0-17bb65e09f29"
     },
     {
       "type": "relationship",
@@ -16458,6 +16812,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dc8921e5-2932-50af-a4d8-b99dc49e5b45",
       "target_ref": "attack-pattern--795e0dc0-384c-5fff-a1a3-4ec9857c249d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--610a74f5-da7b-518e-991e-f2665d7abf3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--517ac4a1-7936-59b6-b190-49196fb2154f"
     },
     {
       "type": "relationship",
@@ -18948,17 +19313,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--72f32b54-6333-5696-b101-e170712c35e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e3adf442-fc2a-5b2b-a3bc-d4b7080e73b3",
-      "target_ref": "vulnerability--31f7b914-2d3a-561d-a442-bf4189f61ecc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7340650a-0012-5b59-ab56-80fa0fddbbfd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:22:50.000Z",
@@ -18999,6 +19353,17 @@
       "relationship_type": "has",
       "source_ref": "software--dc8ed6cf-dd04-559d-a8a8-9ac5790f3a82",
       "target_ref": "vulnerability--008ba19c-f61f-5f33-acf5-79e3145a90a6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--73ade502-f3ad-551b-92d4-cc1ffa0af75d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:13.000Z",
+      "modified": "2026-10-20T23:53:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--96d91b9c-aa1d-52a8-ad8f-f6c0e10b4069",
+      "target_ref": "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05"
     },
     {
       "type": "relationship",
@@ -19274,6 +19639,17 @@
       "relationship_type": "uses",
       "source_ref": "report--891865c4-ca38-5a63-b321-6bb3b3a28427",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--759b3001-b028-5a5e-a1b9-5b2d7f85a7c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--f072fa06-7f76-5553-969d-1212d9dcb0a4"
     },
     {
       "type": "relationship",
@@ -20950,6 +21326,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--80fd0db4-5401-51c1-8c29-5a6c26cf3c78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a86288a2-5531-5e59-a558-16b40339eaf9",
+      "target_ref": "vulnerability--7e74eb76-0a8a-5ad6-9c02-cb98f9c8ca11"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--810ba0d9-f706-572d-a17c-4865ec612fcb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T12:00:19.000Z",
@@ -21067,6 +21454,17 @@
       "relationship_type": "has",
       "source_ref": "software--b114d91f-c34c-5d6d-acb1-ce9f02d64a19",
       "target_ref": "vulnerability--11cae5af-8c9b-5489-9e38-ed83cf0ae6f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--81f268ae-f57f-5757-838a-a05e62fa8d30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--72d7fbec-0326-53dd-9de7-4092e27a95f2"
     },
     {
       "type": "relationship",
@@ -22083,6 +22481,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--88839141-d4b9-5b21-96ea-3afe18c916b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:24.000Z",
+      "modified": "2026-10-20T23:53:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--842143b0-d590-567d-9adb-6f0e215be1db",
+      "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--88addf8d-e534-5f63-99f9-45f1a7dc674d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22292,6 +22701,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8aa34ff0-2f05-580d-b8e2-70097724d806",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--03a511c9-bebf-5634-bf95-73b9b6bad6be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8ab144b4-9683-515a-a397-39a31dd90d86",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T20:27:13.000Z",
@@ -22497,6 +22917,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--78c89058-ac0c-5024-834b-0ffe9bea89cf",
       "target_ref": "threat-actor--1f871b51-5b33-5c89-91ca-fafb53d2a5f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8c8b9535-b598-5d0d-89a1-6df0ffe199cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--334cc45e-78dc-5627-973d-28018846b066"
     },
     {
       "type": "relationship",
@@ -24686,6 +25117,17 @@
       "relationship_type": "has",
       "source_ref": "software--39cb2871-7dda-537d-a1e6-1473c0b74ac0",
       "target_ref": "vulnerability--5f48924d-310f-51af-bc34-e030bee747b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9bc5ebbe-e5d4-5306-85b1-e73e4d67a93f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
     },
     {
       "type": "relationship",
@@ -27293,6 +27735,17 @@
       "relationship_type": "has",
       "source_ref": "software--39cb2871-7dda-537d-a1e6-1473c0b74ac0",
       "target_ref": "vulnerability--da38108a-20b6-53c1-ab00-fefbd530842b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--af1420c4-3860-5ed9-9647-b282213a6e38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--6b5546b0-4d0c-560d-98b7-91d83eb1e816"
     },
     {
       "type": "relationship",
@@ -31312,6 +31765,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cbfbed59-2531-5860-a224-ee38dec3c6e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cc131526-7ed6-5e1a-915d-560e9e60ce62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T04:24:36.000Z",
@@ -31616,6 +32080,17 @@
       "relationship_type": "has",
       "source_ref": "software--93cf6d22-e9c9-58cd-a9d8-18346f6b8c05",
       "target_ref": "vulnerability--7b0ef410-6911-5e72-87f7-a8f5c94bd9a3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cef5196e-cfed-51ae-a466-676bd618bb3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--455284e0-9a8e-5f93-9470-ebd55a428c36"
     },
     {
       "type": "relationship",
@@ -32133,6 +32608,28 @@
       "relationship_type": "uses",
       "source_ref": "report--da8baf10-7178-5491-99ec-80cd3795eff6",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d1f1e294-3697-56e7-970c-5b6a20f3a401",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:33.000Z",
+      "modified": "2026-10-20T23:53:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5e2d4fe0-2ad1-593f-9b13-9dcb47e6379b",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d1ff025f-6afa-5ff4-ae2f-25c5b2e81e9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -33061,6 +33558,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8845873-60b0-52a5-b2fc-ce42f67d4775",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d1df2d63-cd81-56a5-a376-38a329e089d3",
+      "target_ref": "vulnerability--962e655e-d40a-524d-a7a8-02c7789c6dec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d888d739-6f1e-5d37-8dab-6ea7ecf82e0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33387,6 +33895,17 @@
       "relationship_type": "has",
       "source_ref": "software--812121f9-5492-5de8-ab5f-0779bbe7dbc2",
       "target_ref": "vulnerability--25ad1e0f-c0b2-5a22-86b2-630ae6c6393c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--daaa09a4-c796-56cf-b10a-c76b75a94552",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--82cb1280-88c8-5dfe-859c-e087e02da5e2"
     },
     {
       "type": "relationship",
@@ -34018,6 +34537,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--df32df14-8a19-5f69-bf8c-d35d1ae69143",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bd826e4f-fa30-527e-8d48-542a3c1b3159",
+      "target_ref": "vulnerability--31f7b914-2d3a-561d-a442-bf4189f61ecc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--df3660b8-849d-5ec7-9435-a98a2cab8afb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34641,6 +35171,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3bf92524-fbd5-55e4-936f-b480843ec5a7",
       "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e369ee7c-d549-59ef-8837-882294023116",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:33.000Z",
+      "modified": "2026-10-20T23:53:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5e2d4fe0-2ad1-593f-9b13-9dcb47e6379b",
+      "target_ref": "indicator--bcf52db4-efc7-5587-94dc-01a0142eb018"
     },
     {
       "type": "relationship",
@@ -35371,6 +35912,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e77195d1-4826-5642-9d98-a9a9a0388a37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--22c92e98-52bc-5066-976a-f4d7281d0a50"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e77b24d6-233d-5879-8a32-a5d67423793e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:40:01.000Z",
@@ -35411,6 +35963,17 @@
       "relationship_type": "has",
       "source_ref": "software--f237e20f-7693-5eaa-92a8-8d0211a7ce5e",
       "target_ref": "vulnerability--895ea0d3-dc17-537f-a1df-6ec71ac3901a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7aca99f-37e0-5b07-be6e-f876e99c5410",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--e9e0f513-1563-5483-9622-8094711c47bc"
     },
     {
       "type": "relationship",
@@ -35580,6 +36143,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e86cdbde-549b-5049-b046-2c9728bf5325",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a86288a2-5531-5e59-a558-16b40339eaf9",
+      "target_ref": "vulnerability--de30afab-c702-5d0d-9888-8ec1a845d4de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e874a643-1c54-5242-be72-bfe1d5a1b217",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35631,6 +36205,17 @@
       "relationship_type": "has",
       "source_ref": "software--9cf88af0-16c4-51cc-a949-c6fe8946731e",
       "target_ref": "vulnerability--9aca77d6-8e6c-5d8e-8bcf-d2834dd1e9c8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e8d1e7de-3dd3-5ffb-9647-4da93b6cf282",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
     },
     {
       "type": "relationship",
@@ -35796,6 +36381,17 @@
       "relationship_type": "has",
       "source_ref": "software--958bd2a8-8626-5c36-a72f-09116a41b117",
       "target_ref": "vulnerability--56063ecb-43d8-56f0-bbe2-6c7afb0a18e5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e9fb5993-ed01-5e77-9a13-b1016c0f9563",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "target_ref": "indicator--d7bcaf7a-f731-5d2e-ba92-cac6654ac4c6"
     },
     {
       "type": "relationship",
@@ -36885,6 +37481,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4b470f8d-0660-566d-b343-84a00e066a7d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f17b82cb-3520-5850-a269-2c52f968bf31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:18.000Z",
+      "modified": "2026-10-20T23:53:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--242639b0-dab4-549f-a890-75258dce2461",
+      "target_ref": "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3"
     },
     {
       "type": "relationship",
@@ -46406,6 +47013,50 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00405,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--242639b0-dab4-549f-a890-75258dce2461",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:18.000Z",
+      "modified": "2026-10-20T23:53:18.000Z",
+      "name": "Certifi: Bundled eMudhra root CAs with compromised intermediate keys",
+      "description": "## Overview\n\nCertifi versions before 2026.10.18 included the 'emSign ECC Root CA - G3' root certificate in their default CA bundle. It was discovered that eight eMudhra intermediate CA certificates chaining to this root had their private keys compromised, leading to their revocation by the issuing CA. Because these compromised intermediate certificates remained trusted by older versions of the certifi bundle, an attacker could potentially issue fraudulent TLS certificates for any domain. \n\nApplications relying on the certifi bundle for TLS verification - including widely used Python libraries like requests, urllib3, and pip, as well as the Python.org macOS installer - are vulnerable to man-in-the-middle attacks if the attacker is in an on-path position. This allows for traffic decryption, manipulation, and credential theft. Certifi 2026.10.18 initially removed all emSign roots to mitigate the risk, and 2026.10.19 subsequently restored only the unaffected roots. Organizations must upgrade to 2026.10.19 or later and rebuild all container images or environments that include the vulnerable certifi bundle.\n\n## Impact\n\nThe vulnerability impacts any software platform or environment utilizing affected versions of the certifi library to validate TLS connections. Successful exploitation allows an on-path attacker to intercept and modify encrypted communications, potentially leading to widespread data exfiltration, service impersonation, and the compromise of sensitive credentials transmitted over TLS-protected sessions.\n\n## Recommendation\n\n- Upgrade the certifi library in all development, production, and container environments to version 2026.10.19 or later immediately.\n- Rebuild and redeploy container images and virtual machine snapshots that vendored earlier versions of the certifi package.\n- Audit infrastructure dependencies to identify software specifically relying on bundled certifi CA stores, such as custom scripts using the requests or urllib3 libraries.\n",
+      "published": "2026-10-20T23:53:18.000Z",
+      "labels": [
+        "python",
+        "supply-chain",
+        "tls-interception"
+      ],
+      "object_refs": [
+        "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af7a426d-c1dd-5688-b20c-cf1ebf710958"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-certifi-compromised-roots",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-certifi-compromised-roots/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-6q48-6c7w-9gw2"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-certifi-compromised-roots",
+      "x_craftedsignal_event_id": "brief-2026-10-20-certifi-compromised-roots",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-certifi-compromised-roots/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:53:18.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -60048,6 +60699,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5e2d4fe0-2ad1-593f-9b13-9dcb47e6379b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:33.000Z",
+      "modified": "2026-10-20T23:53:33.000Z",
+      "name": "Pillow: TIFF encoder ColorMap plane-size mismatch heap out-of-bounds read",
+      "description": "## Overview\n\nPillow version 12.3.0 is vulnerable to a heap-based out-of-bounds read during the TIFF encoding process. The flaw is triggered when an application opens a TIFF file containing a specific ColorMap (tag 320) and subsequently attempts to save the image while retaining existing metadata. Pillow's TIFF encoder allocates a buffer based on a fixed stride of 256 SHORT values; however, if the image metadata specifies `BitsPerSample = 16`, the underlying libtiff library expects a significantly larger data volume per plane. This discrepancy causes libtiff to attempt a 131,072-byte read from a 1,536-byte heap-allocated region. While the defect leads to an ASAN-observed out-of-bounds read and process termination, arbitrary memory disclosure or code execution has not been demonstrated.\n\n## Attack Chain\n\n1. Attacker crafts a malicious TIFF file with `BitsPerSample = 16` and a specifically formatted ColorMap containing 768 SHORT entries.\n2. The malicious TIFF file is delivered to a target application that uses the Pillow library to process or convert images.\n3. The target application invokes `Image.open()` to load the malicious file, successfully parsing the TIFF metadata.\n4. The target application performs image processing or transformation operations.\n5. The target application invokes the `Image.save()` function with the `format=\"TIFF\"` parameter.\n6. Pillow's `ImagingLibTiffSetField` function allocates a buffer for the ColorMap metadata based on the initial input size.\n7. The libtiff encoder triggers a `memcpy` operation, attempting to copy data based on the `BitsPerSample` value rather than the allocated buffer size.\n8. The process attempts to read memory outside the allocated heap region, resulting in an out-of-bounds read and immediate process termination.\n\n## Impact\n\nSuccessful exploitation results in the abnormal termination of the host application process, leading to potential denial-of-service for the affected service. The vulnerability requires the application to process and re-save user-supplied image files while retaining metadata.\n\n## Recommendation\n\n- Monitor applications using Pillow for unexpected process crashes, specifically those associated with TIFF image processing tasks.\n- Implement strict validation of TIFF metadata, specifically `BitsPerSample` and `ColorMap` tags, before invoking `Image.save()` on untrusted input.\n- Perform static analysis of source code to identify instances where user-supplied TIFF metadata is blindly passed to the Pillow save path.\n- Ensure that the Pillow library is updated to the latest available version if a patch is released to address the buffer allocation logic.\n- Audit logging for `AddressSanitizer` error reports in test or development environments to proactively identify similar boundary violation defects.\n",
+      "published": "2026-10-20T23:53:33.000Z",
+      "labels": [
+        "denial-of-service",
+        "image-processing",
+        "library-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--bcf52db4-efc7-5587-94dc-01a0142eb018",
+        "software--f0d0aabd-72e2-5b9a-8eba-6a9ce40072d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-pillow-tiff-oob-read",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-tiff-oob-read/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-pchr-8j38-3x4p"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-pillow-tiff-oob-read",
+      "x_craftedsignal_event_id": "brief-2026-10-20-pillow-tiff-oob-read",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-tiff-oob-read/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:53:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5e495698-2837-5810-8ad7-d2eb0f5ed09e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T00:44:50.000Z",
@@ -60247,6 +60943,71 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wago-os-linux/",
       "x_craftedsignal_activity_at": "2026-10-20T17:31:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-20T23:53:02.000Z",
+      "name": "Google Cloud Platform: Billing account hijacking for unauthorized AI usage",
+      "description": "## Overview\n\nThe Wiz Customer Incident Response Team (CIRT) has identified a trend where threat actors compromise Google Cloud Platform (GCP) credentials to hijack billing accounts for unauthorized AI resource consumption. By leveraging phishing campaigns via sponsored search ads, attackers obtain valid user credentials and MFA codes. Once access is gained, they perform privilege escalation and modify organizational policies, such as 'iam.allowedPolicyMemberDomains', to remove guardrails that restrict IAM membership to verified domains. This allows the integration of external, attacker-controlled accounts. The attackers then link external GCP projects to the victim's billing account. By executing AI workloads within these foreign projects, the actors obfuscate their prompts and outputs from the victim's visibility while simultaneously billing the victim for all API usage. This 'LLMjacking' activity leads to rapid billing surges, often reaching hundreds of thousands of dollars within 48 hours of initial compromise.\n\n## Attack Chain\n\n1. Attacker purchases sponsored search ads for terms like \"google cloud\" to host phishing kits on Google Sites.\n2. Victim clicks the malicious ad, provides credentials and MFA tokens on a deceptive login page, which captures the data and redirects to a legitimate Google prompt.\n3. Attacker uses harvested credentials to initiate login, bypassing MFA through the captured session data.\n4. Attacker enables the Gemini API in existing, low-usage projects and creates service accounts with high-privileged roles (e.g., 'roles/ml.admin').\n5. Attacker dismantles organizational policies by deleting 'iam.allowedPolicyMemberDomains' to allow external account access.\n6. Attacker invites external attacker-controlled accounts to the organization's billing account and assigns the 'roles/billing.admin' role.\n7. Attacker links their external GCP projects to the victim's billing account to offload AI API costs.\n8. Attacker demotes original billing administrators to 'viewer' roles to prevent detection and reclamation of administrative control.\n\n## Impact\n\nVictim organizations in the cloud sector have faced significant financial damage, with unauthorized Gemini API charges reaching tens to hundreds of thousands of dollars within 48 hours. Because workloads are executed in foreign projects, organizations lack visibility into the nature of the data being processed, creating both financial and data security risks.\n\n## Recommendation\n\n* Monitor Google Workspace and GCP audit logs for logins originating from the documented IP infrastructure (212.73.134.136).\n* Regularly audit GCP IAM configurations for unexpected additions of external domains or personal email addresses (e.g., @gmail.com) to high-privileged roles.\n* Audit GCP organization policies for modifications to 'iam.allowedPolicyMemberDomains', as this is a primary indicator of disabling organizational guardrails.\n* Monitor for unexpected enabling of the Gemini API product in projects, especially those with minimal historical activity.\n* Proactively audit billing account permissions to ensure only authorized corporate identities hold 'roles/billing.admin' or other administrative roles.\n",
+      "published": "2026-10-20T23:53:02.000Z",
+      "labels": [
+        "billing-fraud",
+        "cloud-security",
+        "identity-compromise",
+        "phishing"
+      ],
+      "object_refs": [
+        "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
+        "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--03a511c9-bebf-5634-bf95-73b9b6bad6be",
+        "indicator--22c92e98-52bc-5066-976a-f4d7281d0a50",
+        "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9",
+        "indicator--334cc45e-78dc-5627-973d-28018846b066",
+        "indicator--455284e0-9a8e-5f93-9470-ebd55a428c36",
+        "indicator--517ac4a1-7936-59b6-b190-49196fb2154f",
+        "indicator--6b5546b0-4d0c-560d-98b7-91d83eb1e816",
+        "indicator--72d7fbec-0326-53dd-9de7-4092e27a95f2",
+        "indicator--7b3ff263-fa6d-5edc-b2b0-17bb65e09f29",
+        "indicator--7fe6bced-8fef-5e76-a4bc-f08f81e4fc3e",
+        "indicator--82cb1280-88c8-5dfe-859c-e087e02da5e2",
+        "indicator--8eb6c0cc-8b68-515b-b7cf-b2570bf93aed",
+        "indicator--c3f1fd01-4fd4-5d53-9d48-f217cd40fb02",
+        "indicator--d7bcaf7a-f731-5d2e-ba92-cac6654ac4c6",
+        "indicator--e9e0f513-1563-5483-9622-8094711c47bc",
+        "indicator--f072fa06-7f76-5553-969d-1212d9dcb0a4",
+        "indicator--f9f0a134-b1d0-556f-8170-eb8da2fd9677",
+        "software--34eaa165-ad48-55f6-af84-ad5b93e0ca21"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-llmjacking-gcp",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-llmjacking-gcp/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/from-phishing-to-llmjacking"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-llmjacking-gcp",
+      "x_craftedsignal_event_id": "brief-2026-10-20-llmjacking-gcp",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-llmjacking-gcp/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:53:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -67682,6 +68443,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--800ff67a-4e93-54b4-b1a2-e62caf006d07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:38.000Z",
+      "modified": "2026-10-20T23:53:38.000Z",
+      "name": "Pillow: PDF unbounded recursion in page tree and trailer parsing (CVE-2026-112895)",
+      "description": "## Overview\n\nPillow, a popular Python imaging library, contains vulnerabilities that allow an attacker to trigger unbounded recursion during the parsing of malformed PDF files. When an application utilizes `Image.save` with `append=True`, the library invokes `PdfParser` to process the existing PDF structure. Two specific areas of the parser lack necessary bounds: `linearize_page_tree` follows `/Kids` entries without tracking visited nodes or enforcing a depth limit, and `read_prev_trailer` permits long chains of unique `/Prev` offsets.\n\nThese vulnerabilities serve as an incomplete fix for CVE-2026-42310. An attacker can craft malicious PDF files containing cyclic page trees or extensively deep `/Prev` chains to drive the parsing process into high CPU and memory utilization, leading to application crashes or denial of service. The vulnerability affects all Pillow versions from 5.1.0 up to, but not including, 13.0.0. Defenders should note this impacts any service that processes user-supplied PDFs for operations such as stamping, watermarking, or merging.\n\n## Impact\n\nA successful exploit causes denial of service by exhausting stack space, CPU, and memory resources. Any service performing automated processing of user-provided PDFs - common in document management, e-signature, or image processing pipelines - is susceptible. The impact is significant for services where availability is critical and where the processing component shares memory or CPU resources with other application functions.\n\n## Recommendation\n\n* Upgrade the Pillow library to version 13.0.0 or later immediately to address CVE-2026-112895.\n* Audit application code to identify endpoints that invoke `Image.save(..., format=\"PDF\", append=True)` on untrusted user input.\n* Implement input validation or limit file sizes and complexity for incoming PDF documents before passing them to the Pillow library.\n* If upgrading is not immediately possible, implement a file-parsing timeout for any process handling PDF manipulation to mitigate the impact of CPU and memory exhaustion.\n",
+      "published": "2026-10-20T23:53:38.000Z",
+      "labels": [
+        "denial-of-service",
+        "library-vulnerability",
+        "python"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a86288a2-5531-5e59-a558-16b40339eaf9",
+        "vulnerability--7e74eb76-0a8a-5ad6-9c02-cb98f9c8ca11",
+        "vulnerability--de30afab-c702-5d0d-9888-8ec1a845d4de"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-pillow-pdf-recursion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-pdf-recursion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-p4wg-p73j-c528"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-pillow-pdf-recursion",
+      "x_craftedsignal_event_id": "brief-2026-10-20-pillow-pdf-recursion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-pdf-recursion/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:53:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.5,
+      "x_craftedsignal_epss_max": 0.00291,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--80312c8d-4103-5c1e-8db6-6f51b9157cc2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T20:10:44.000Z",
@@ -68530,6 +69338,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--842143b0-d590-567d-9adb-6f0e215be1db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:24.000Z",
+      "modified": "2026-10-20T23:53:24.000Z",
+      "name": "A2A Java SDK: Android synchronous POST credential disclosure via insecure redirect (CVE-2026-111765)",
+      "description": "## Overview\n\nThe A2A Java SDK for Android (versions 1.3.0.Final and 1.3.1.Final) contains a critical regression where synchronous POST requests ignore previously implemented security patches to disable HTTP redirects. While the `AndroidA2AHttpClient.createConnection()` method correctly initializes connections with `setInstanceFollowRedirects(false)`, the synchronous POST builder explicitly overrides this setting with `followRedirects = true`. \n\nWhen an application uses this SDK to communicate with a compromised or malicious remote agent, the client may follow an unauthorized 302 redirect. Because the redirect process on Android's repackaged OkHttp implementation preserves nonstandard request headers, the SDK inadvertently forwards sensitive credentials - specifically those under `X-API-Key`, `API-Key`, `X-Auth-Token`, and `X-Authentication` - to the attacker-controlled destination. This vulnerability represents an incomplete remediation of the security property defined in the A2A Project's security model, which mandates that automatic redirects must be disabled to prevent credential leakage.\n\n## Attack Chain\n\n1. The victim application initiates a synchronous HTTP POST request using the `a2a-java-sdk-http-client-android` library.\n2. The `AuthInterceptor` injects sensitive authentication tokens into the request headers.\n3. The `AndroidA2AHttpClient.post()` method executes, establishing a connection that defaults to `followRedirects = true`.\n4. The client contacts a malicious or compromised remote agent.\n5. The attacker-controlled server responds with a 302 HTTP status code and a location header pointing to an attacker-controlled endpoint.\n6. The `AndroidA2AHttpClient` automatically follows the redirect.\n7. The Android OkHttp internal engine preserves the authentication headers while stripping the standard `Authorization` header during the cross-authority transition.\n8. The attacker-controlled endpoint receives and logs the victim's authentication credentials.\n\n## Impact\n\nSuccessful exploitation results in the unauthorized disclosure of sensitive API keys or authentication tokens to an attacker-controlled authority. This vulnerability affects any Android application utilizing the `a2a-java-sdk-http-client-android` component (v1.3.0.Final through v1.3.1.Final). While the report does not demonstrate subsequent system compromise or remote code execution, it confirms the leakage of synthetic credentials to ephemeral loopback listeners, confirming the feasibility of token theft in production environments.\n\n## Recommendation\n\nPrioritized, concrete actions for developers and security teams:\n\n* Patch the A2A Java SDK by modifying the synchronous POST builder to set `followRedirects = false` as the default, consistent with the security model for other client implementations.\n* Audit applications using the `a2a-java-sdk-http-client-android` library to ensure they are not relying on automated redirect behavior for POST requests.\n* Rotate any credentials that may have been exposed through this mechanism if the application has interacted with untrusted or compromised A2A remote agents.\n* Verify patch application by running the `AndroidA2AHttpClientRedirectTest` fixture to ensure the `followRedirects(false)` property is strictly enforced during synchronous operations.\n",
+      "published": "2026-10-20T23:53:24.000Z",
+      "labels": [
+        "android",
+        "credential-theft",
+        "cve-2026-111765",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d1df2d63-cd81-56a5-a376-38a329e089d3",
+        "vulnerability--962e655e-d40a-524d-a7a8-02c7789c6dec"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-a2a-java-sdk-redirect",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-a2a-java-sdk-redirect/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/a2aproject/a2a-java/security/advisories/GHSA-9rhm-2h4x-jwmx"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-4fpj-g9jf-9rgg"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-a2a-java-sdk-redirect",
+      "x_craftedsignal_event_id": "brief-2026-10-20-a2a-java-sdk-redirect",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-a2a-java-sdk-redirect/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:53:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -73226,6 +74085,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--96d91b9c-aa1d-52a8-ad8f-f6c0e10b4069",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:13.000Z",
+      "modified": "2026-10-20T23:53:13.000Z",
+      "name": "Astral Software uv: Man-in-the-middle vulnerability via compromised emSign CA",
+      "description": "## Overview\n\nAstral Software uv versions prior to 0.13.4 are susceptible to man-in-the-middle (MITM) attacks due to the inclusion of the 'emSign ECC Root CA - G3' in the package manager's vendored trust store. Multiple intermediate CA certificates chaining to this specific root have had their private keys compromised, leading to the revocation of those intermediate certificates by the CA. Because uv relies on this vendored copy of the 'webpki-root-certs' bundle to verify TLS connections, it remains vulnerable to attackers who can issue fraudulent certificates using the compromised keys. This effectively allows an attacker to intercept, inspect, or modify network traffic intended for package repositories or other endpoints during uv execution. The vulnerability is resolved in uv version 0.13.4, which updates the vendored trust store to remove the affected root certificate.\n\n## Impact\n\nSuccessful exploitation allows an attacker to conduct transparent man-in-the-middle attacks against users running outdated versions of uv. This could lead to the interception of credentials, the injection of malicious packages, or the modification of project dependencies during the installation or synchronization process. The scope of impact is broad, affecting any developer or automated build system using vulnerable versions of uv for Python package management.\n\n## Recommendation\n\nPrioritized actions for security and engineering teams to mitigate exposure to this vulnerability.\n\n* Upgrade the uv package manager to version 0.13.4 or later across all development environments, CI/CD pipelines, and build servers immediately to remove the compromised root certificate.\n* Audit build logs and network traffic for connections originating from automated systems using older versions of uv to identify potential signs of interception during the transition period.\n* Implement centralized management of trusted CA stores where possible to ensure consistency and minimize reliance on individual package managers' vendored trust bundles.\n",
+      "published": "2026-10-20T23:53:13.000Z",
+      "labels": [
+        "man-in-the-middle",
+        "supply-chain-security",
+        "uv"
+      ],
+      "object_refs": [
+        "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ac08b700-482c-5218-9f1f-44d445446194"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-uv-mitm-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-uv-mitm-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-hq85-5cpj-mr62"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-uv-mitm-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-10-20-uv-mitm-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-uv-mitm-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:53:13.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -78163,14 +79066,21 @@
       "id": "report--ab8b247a-091a-5712-b0de-e30c11c8a90a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T20:12:06.000Z",
-      "modified": "2026-10-20T21:57:23.000Z",
+      "modified": "2026-10-20T23:54:15.000Z",
       "name": "Denial of Service Vulnerability in markdown-it Parser",
       "description": "## Overview\n\nThe markdown-it library is vulnerable to a regular expression-style denial of service (ReDoS) attack when configured with 'typographer: true'. The vulnerability, identified as CVE-2026-111759, resides in the smartquotes rule implementation. Specifically, the parser performs quadratic processing time when encountering specially crafted sequences of opening and closing single or double quotes. Because this pattern triggers repeated scanning of the entire opener stack, a malicious actor providing malformed Markdown input can cause significant CPU consumption, potentially leading to service degradation or complete denial of service for applications using the parser to render untrusted content. This impact is highest in web applications that process user-submitted Markdown in real-time. The issue is resolved in markdown-it versions 14.3.2 and 15.0.2.\n\n## Impact\n\nSuccessful exploitation results in high CPU utilization on systems parsing malicious Markdown strings. This can lead to service latency, timeouts, or availability loss for applications handling large volumes of user-generated content, such as comment sections, documentation platforms, or messaging services.\n\n## Recommendation\n\n- Update the markdown-it library to version 14.3.2 or 15.0.2 immediately.\n- If immediate patching is not possible, disable the 'typographer' setting in the markdown-it configuration (typographer: false), as the default configuration is not affected.\n- Implement input validation and length constraints on Markdown strings prior to parsing to mitigate potential resource exhaustion attempts.\n",
       "published": "2026-10-19T20:12:06.000Z",
+      "labels": [
+        "cwe-407",
+        "denial-of-service",
+        "markdown",
+        "npm"
+      ],
       "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--26352223-73c5-56bf-aea7-9f048509b68a",
-        "software--e3adf442-fc2a-5b2b-a3bc-d4b7080e73b3",
+        "software--bd826e4f-fa30-527e-8d48-542a3c1b3159",
+        "software--d0c513de-6681-5fc4-a01f-38f84b7869e8",
         "vulnerability--31f7b914-2d3a-561d-a442-bf4189f61ecc"
       ],
       "external_references": [
@@ -78178,6 +79088,14 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-markdown-it-dos",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-markdown-it-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-gfr2-rv44-r23c"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/markdown-it/markdown-it/pull/1004"
         },
         {
           "source_name": "reference",
@@ -78191,9 +79109,9 @@
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-10-markdown-it-dos",
       "x_craftedsignal_event_id": "brief-2026-10-markdown-it-dos",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-markdown-it-dos/",
-      "x_craftedsignal_activity_at": "2026-10-20T21:57:23.000Z",
+      "x_craftedsignal_activity_at": "2026-10-20T23:54:15.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -86597,6 +87515,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ced12e04-2a84-5a23-90cd-69c1340eec27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:53:08.000Z",
+      "modified": "2026-10-20T23:53:08.000Z",
+      "name": "Pillow: Heap buffer overflow in ImagingJpegDecode",
+      "description": "## Overview\n\nPillow contains a heap-based buffer overflow vulnerability within the `ImagingJpegDecode` function. The issue arises when the library processes lossless (SOF3) JPEG images while performing downscaling, such as when calling `Image.thumbnail()` or `JpegImageFile.draft()`. When these methods request a scaled output, Pillow shrinks the internal decode buffer to match the expected scaled dimensions. However, the underlying libjpeg-turbo implementation ignores the scaling request for lossless (SOF3) streams and writes full-width scanlines into the undersized buffer.\n\nAn attacker can exploit this by providing a maliciously crafted, standards-compliant 8-bit grayscale lossless JPEG. The buffer overflow occurs because there is no geometry validation comparing the libjpeg output dimensions against the allocated `state-\u003ebuffer`. Depending on the image dimensions and requested scaling factors, this can result in writing attacker-controlled pixel data past the end of the heap-allocated buffer. While the library ultimately throws an `OSError` due to geometry mismatches, the memory corruption occurs during the decompression process.\n\n## Attack Chain\n\n1. Attacker crafts a standards-compliant 8-bit grayscale lossless (SOF3) JPEG image file.\n2. Attacker hosts or delivers the file to a target system utilizing a vulnerable version of Pillow.\n3. The victim application calls `Image.open()` on the malicious file, which is parsed successfully by Pillow's SOF parser.\n4. The application calls `Image.thumbnail()` or `JpegImageFile.draft()` on the image object, triggering a scaling request (e.g., scale factor s \u003e= 2).\n5. Pillow computes expected scaled dimensions and allocates a `state-\u003ebuffer` using `calloc` based on the reduced size.\n6. The `ImagingJpegDecode` function calls `jpeg_start_decompress` and proceeds to `jpeg_read_scanlines` without validating the actual JPEG output dimensions.\n7. libjpeg-turbo writes the full-width pixel scanlines into the undersized buffer, causing an out-of-bounds heap write of `(W - ceil(W/s)) x components` bytes.\n8. The overflow corrupts heap memory with attacker-controlled pixel values.\n\n## Impact\n\nSuccessful exploitation allows for memory corruption on systems using Pillow to process user-supplied images. This can lead to application crashes or potentially arbitrary code execution depending on the heap layout and the ability to influence memory state through crafted pixel data. This vulnerability affects any system or service that automatically generates thumbnails or processes image uploads using Pillow with standard library defaults.\n\n## Recommendation\n\n1. Identify and inventory all applications within the environment that utilize the Pillow library for image processing.\n2. Implement strict input validation or sanitization for JPEG files to detect or reject lossless (SOF3) images if the functionality is not explicitly required.\n3. Monitor internal application logs for `OSError` exceptions originating from `PIL.JpegImagePlugin` or `libImaging` during image processing, as these may indicate attempted exploitation.\n4. Apply patches provided by the Pillow project as soon as they become available for the affected versions.\n",
+      "published": "2026-10-20T23:53:08.000Z",
+      "labels": [
+        "heap-overflow",
+        "image-processing",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1164f32b-e4bc-5ef9-9211-7762049364e2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-pillow-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-8g5g-8vmr-9782"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-pillow-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-20-pillow-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:53:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -98508,6 +99470,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1164f32b-e4bc-5ef9-9211-7762049364e2",
+      "name": "Pillow",
+      "vendor": "python-pillow"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--11b3df7e-b1b4-5173-86d8-bcb9a209f48a",
       "name": "excelize (\u003e= 2.8.1, \u003c 2.11.1-0.20261003002531-6258dcebc4e2)",
       "vendor": "xuri"
@@ -99287,12 +100256,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--26352223-73c5-56bf-aea7-9f048509b68a",
-      "name": "markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--26360e24-5347-5dec-a030-ee46de41fe3a",
       "name": "Mooncake (\u003c= 0.3.13.post1)",
       "vendor": "Mooncake"
@@ -99781,6 +100744,13 @@
       "id": "software--34c1fe94-3bd5-5cc2-9d79-c6beae7a2439",
       "name": "AWS IAM",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--34eaa165-ad48-55f6-af84-ad5b93e0ca21",
+      "name": "Google Cloud Platform",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -104020,6 +104990,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a86288a2-5531-5e59-a558-16b40339eaf9",
+      "name": "Pillow (\u003e= 5.1.0, \u003c 13.0.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a8750ae2-e3b1-5cac-a46e-396582d9fad4",
       "name": "virtualenv (\u003c= 21.7.12)",
       "vendor": "PyPA"
@@ -104172,6 +105148,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ac08b700-482c-5218-9f1f-44d445446194",
+      "name": "uv (\u003c 0.13.4)",
+      "vendor": "Astral Software"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ac10d6ea-71ef-5411-9f32-0e9f633a6a3e",
       "name": "@payloadcms/db-sqlite (\u003c 3.90.0, \u003e= 4.0.0-canary.0 \u003c 4.0.0-canary.34)",
       "vendor": "Payload"
@@ -104312,6 +105295,13 @@
       "spec_version": "2.1",
       "id": "software--af1d8220-3e61-5517-a07a-cda47b4775c6",
       "name": "vm2 (\u003c= 3.11.6)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--af7a426d-c1dd-5688-b20c-cf1ebf710958",
+      "name": "certifi (\u003c 2026.10.19)",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -104723,6 +105713,13 @@
       "spec_version": "2.1",
       "id": "software--bd2024a1-1488-51f4-addb-4b68cc724cd6",
       "name": "ConnectWise Cloud Backup (\u003c= 2026-10-16)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bd826e4f-fa30-527e-8d48-542a3c1b3159",
+      "name": "markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)",
+      "vendor": "markdown-it"
     },
     {
       "type": "software",
@@ -105469,6 +106466,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d0c513de-6681-5fc4-a01f-38f84b7869e8",
+      "name": "markdown-it (\u003c 14.3.2, \u003c 15.0.2)",
+      "vendor": "markdown-it"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d0f82a22-9f10-5693-a772-70cfa40bc4a4",
       "name": "AWS Identity and Access Management",
       "vendor": "Amazon"
@@ -105527,6 +106531,13 @@
       "id": "software--d1db0cb1-7151-5213-9b48-7f54c39af3c7",
       "name": "Employee-Movement-Tracking-and-Monitoring-Website-for-IOCL (\u003c= ae783195ba7e0390d3b3bfaddd99944b7e9735a4)",
       "vendor": "bhagya3929"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d1df2d63-cd81-56a5-a376-38a329e089d3",
+      "name": "a2a-java-sdk-http-client-android (1.3.0.Final, 1.3.1.Final)",
+      "vendor": "A2A Project"
     },
     {
       "type": "software",
@@ -106112,12 +107123,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e3adf442-fc2a-5b2b-a3bc-d4b7080e73b3",
-      "name": "markdown-it (\u003c 14.3.2, \u003c 15.0.2)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e3ae2f72-3083-52e4-af6b-ee06c70a0961",
       "name": "insights-runtime-extractor",
       "vendor": "Kubernetes"
@@ -106584,6 +107589,13 @@
       "id": "software--f0cee0cb-9e0c-5ba3-a686-f679cec07b19",
       "name": "plugin-auth-backend-module-oidc-provider (\u003c 0.4.20)",
       "vendor": "Backstage"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f0d0aabd-72e2-5b9a-8eba-6a9ce40072d8",
+      "name": "Pillow (12.3.0)",
+      "vendor": "Python Software Foundation"
     },
     {
       "type": "software",
@@ -114565,6 +115577,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7e74eb76-0a8a-5ad6-9c02-cb98f9c8ca11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112895",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112895",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7e988c31-6555-565f-9aee-436e4ca7cff9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -116111,6 +117139,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106038",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106038"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--962e655e-d40a-524d-a7a8-02c7789c6dec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111765",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111765",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111765"
         }
       ]
     },
@@ -120415,6 +121459,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110108",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110108"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--de30afab-c702-5d0d-9888-8ec1a845d4de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-42310",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-42310",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42310"
         }
       ]
     },
