@@ -46,8 +46,6 @@ func manifestTestBundle() []byte {
       "x_craftedsignal_severity":"critical",
       "x_craftedsignal_type":"threat",
       "x_craftedsignal_exploitation_evidence":{"status":"unknown"},
-      "x_craftedsignal_cvss_max":null,
-      "x_craftedsignal_epss_max":null,
       "x_craftedsignal_kev_status":"unknown",
       "external_references":[{"source_name":"craftedsignal","external_id":"brief-001","url":"https://feed.craftedsignal.io/briefs/brief-001/"}]
     }

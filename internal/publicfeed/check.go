@@ -448,6 +448,7 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 		id, _ := object["id"].(string)
 		typeName, _ := object["type"].(string)
 		field := "objects[" + strconv.Itoa(i) + "]"
+		issues = append(issues, checkSTIXNulls(path, field, object)...)
 		if id == "" || typeName == "" {
 			issues = append(issues, issue(path, field, "stix.object", "every STIX object requires type and id"))
 			continue
@@ -531,6 +532,23 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 	return sorted(issues)
 }
 
+func checkSTIXNulls(path, field string, value interface{}) []Issue {
+	var issues []Issue
+	switch typed := value.(type) {
+	case nil:
+		return []Issue{issue(path, field, "stix.null", "STIX properties must not be null; omit unavailable optional properties")}
+	case map[string]interface{}:
+		for name, child := range typed {
+			issues = append(issues, checkSTIXNulls(path, field+"."+name, child)...)
+		}
+	case []interface{}:
+		for i, child := range typed {
+			issues = append(issues, checkSTIXNulls(path, field+"["+strconv.Itoa(i)+"]", child)...)
+		}
+	}
+	return issues
+}
+
 func checkSTIXReportContract(path, field string, object map[string]interface{}) []Issue {
 	var issues []Issue
 	for _, name := range []string{
@@ -564,8 +582,11 @@ func checkSTIXReportContract(path, field string, object map[string]interface{}) 
 
 	for _, name := range []string{"x_craftedsignal_cvss_max", "x_craftedsignal_epss_max"} {
 		value, exists := object[name]
-		if !exists || !isJSONNumberOrNull(value) {
-			issues = append(issues, issue(path, field+"."+name, "stix.report_contract", name+" must be present as a number or null"))
+		if !exists {
+			continue
+		}
+		if _, ok := value.(json.Number); !ok {
+			issues = append(issues, issue(path, field+"."+name, "stix.report_contract", name+" must be a number when present"))
 		}
 	}
 
@@ -607,14 +628,6 @@ func validSTIXExploitationEvidence(evidence map[string]interface{}) bool {
 		}
 	}
 	return true
-}
-
-func isJSONNumberOrNull(value interface{}) bool {
-	if value == nil {
-		return true
-	}
-	_, ok := value.(json.Number)
-	return ok
 }
 
 func stringSlice(value interface{}) []string {
