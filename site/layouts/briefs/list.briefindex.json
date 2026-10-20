@@ -1,0 +1,56 @@
+{{- $items := slice -}}
+{{- range .RegularPages -}}
+  {{- $published := .Date -}}
+  {{- $modified := .Lastmod -}}
+  {{- $activity := $published -}}
+  {{- if gt $modified.Unix $published.Unix -}}{{- $activity = $modified -}}{{- end -}}
+  {{- with .Params.activity_at -}}
+    {{- $declared := time.AsTime . -}}
+    {{- if gt $declared.Unix $activity.Unix -}}{{- $activity = $declared -}}{{- end -}}
+  {{- end -}}
+  {{- $severity := index (.Params.severities | default (slice "medium")) 0 -}}
+  {{- $type := .Params.type | default "threat" -}}
+  {{- $products := .Params.products | default slice | uniq -}}
+  {{- $actors := .Params.actors | default slice | uniq -}}
+  {{- $tags := first 8 (.Params.tags | default slice | uniq) -}}
+  {{- $iocTotal := 0 -}}
+  {{- range $key, $value := (.Params.ioc_counts | default dict) -}}{{- $iocTotal = add $iocTotal $value -}}{{- end -}}
+  {{- $evidenceStatus := "" -}}
+  {{- with .Params.exploitation_evidence -}}{{- $evidenceStatus = .status | default "" -}}{{- end -}}
+  {{- $exploited := or (eq $evidenceStatus "confirmed_active") (.Params.exploited | default false) -}}
+  {{- $flags := slice -}}
+  {{- if $exploited -}}{{- $flags = $flags | append "exploited" -}}{{- end -}}
+  {{- if (.Params.has_poc | default false) -}}{{- $flags = $flags | append "poc" -}}{{- end -}}
+  {{- if gt $iocTotal 0 -}}{{- $flags = $flags | append "ioc" -}}{{- end -}}
+  {{- $cveCount := len (.Params.cves | default slice) -}}
+  {{- $ttpCount := len (.Params.mitre_ttps | default slice) -}}
+  {{- $ruleCount := .Params.rules_count | default (len (.Params.rules | default slice)) -}}
+  {{- $counts := dict -}}
+  {{- if gt $cveCount 0 -}}{{- $counts = merge $counts (dict "cves" $cveCount) -}}{{- end -}}
+  {{- if gt $ttpCount 0 -}}{{- $counts = merge $counts (dict "ttps" $ttpCount) -}}{{- end -}}
+  {{- if gt $ruleCount 0 -}}{{- $counts = merge $counts (dict "rules" $ruleCount) -}}{{- end -}}
+  {{- if gt $iocTotal 0 -}}{{- $counts = merge $counts (dict "iocs" $iocTotal) -}}{{- end -}}
+  {{- $item := dict
+    "url" .RelPermalink
+    "title" .Title
+    "summary" ((.Params.description | default .Summary | plainify) | truncate 280)
+    "activity_at" ($activity.UTC.Format "2006-01-02T15:04:05.000Z")
+    "published_at" ($published.UTC.Format "2006-01-02T15:04:05.000Z")
+    "modified_at" ($modified.UTC.Format "2006-01-02T15:04:05.000Z")
+    "severity" $severity
+    "type" $type
+    "flags" $flags
+    "counts" $counts
+  -}}
+  {{- if gt (len $products) 0 -}}{{- $item = merge $item (dict "primary_product" (index $products 0)) -}}{{- end -}}
+  {{- if gt (len $actors) 0 -}}{{- $item = merge $item (dict "primary_actor" (index $actors 0)) -}}{{- end -}}
+  {{- if gt (len $tags) 0 -}}{{- $item = merge $item (dict "tags" $tags) -}}{{- end -}}
+  {{- $items = $items | append $item -}}
+{{- end -}}
+{{- dict
+  "version" "1.0"
+  "generated_at" (now.UTC.Format "2006-01-02T15:04:05.000Z")
+  "page_size" 30
+  "items" $items
+  | jsonify
+-}}
