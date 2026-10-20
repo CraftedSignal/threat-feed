@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--78a6af1b-558a-585b-96a0-8a68bcf06af4",
+  "id": "bundle--257ea422-2e39-5cfd-acc6-0827fa66d707",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14309,17 +14309,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--38bbe0dc-605c-54e2-92e5-437c20e6c9d6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T20:19:43.000Z",
-      "modified": "2026-07-22T20:19:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b80e9545-2778-5748-8108-49ae82ceff1c",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--38c7b2ec-54ac-5c7d-abe7-c0df9e0f3e61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:17.000Z",
@@ -21074,17 +21063,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--82bf06fa-bd51-5c2f-af94-39f63989e3ff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c8f48c36-60aa-5202-9d24-79c8935ee22c",
-      "target_ref": "vulnerability--81789a66-e050-5e76-824e-c473486dc512"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--82e3bfbb-b94a-5813-8e10-810c578784a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27032,17 +27010,6 @@
       "relationship_type": "has",
       "source_ref": "software--13a85dfa-5380-5f01-bea1-72f22a5b3c53",
       "target_ref": "vulnerability--d1572edd-80bc-5af1-b95d-780036bcaaa3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c37732db-6f74-53da-b1e4-3087116eb2df",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T20:19:43.000Z",
-      "modified": "2026-07-22T20:19:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b80e9545-2778-5748-8108-49ae82ceff1c",
-      "target_ref": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a"
     },
     {
       "type": "relationship",
@@ -48894,55 +48861,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b80e9545-2778-5748-8108-49ae82ceff1c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-22T20:19:43.000Z",
-      "modified": "2026-07-22T20:19:43.000Z",
-      "name": "Question2Answer Session Invalidation Vulnerability",
-      "description": "## Overview\n\nCVE-2026-64829 details a critical session invalidation vulnerability present in Question2Answer versions up to and including 1.8.8. This flaw arises because the application's `forgot-password` reset flow, handled by `qa_finish_reset_user()` in `qa-include/app/users-edit.php`, fails to clear the `sessioncode` field within existing `qa_session` cookies. Unlike the standard password-change mechanism in `qa-include/pages/account.php`, which properly invalidates persistent sessions, the reset flow neglects this crucial step. Consequently, any attacker who has previously acquired a legitimate `remember-me` cookie for a target account can continue to maintain authenticated access to that account even after the rightful owner successfully performs a password reset. This bypass of intended security measures allows for persistent unauthorized access, posing a significant risk to user data and application integrity.\n\n## Attack Chain\n\n1. **Initial Access**: An attacker obtains a legitimate `remember-me` cookie associated with a target user's Question2Answer account through unspecified means (e.g., prior credential compromise, client-side vulnerability, or direct access to the victim's browser).\n2. **Authenticated Session Establishment**: The attacker utilizes the acquired `remember-me` cookie to successfully authenticate and establish an active session with the vulnerable Question2Answer application.\n3. **Legitimate User Initiates Reset**: The legitimate account owner initiates a password reset for their account through the `forgot-password` functionality provided by Question2Answer.\n4. **Password Reset Completion**: The legitimate user completes the password reset process, thereby changing their account password.\n5. **Flawed Session Invalidation**: During the password reset, the `qa_finish_reset_user()` function in `qa-include/app/users-edit.php` updates the user's password but fails to invalidate or clear the `sessioncode` associated with the previously issued `qa_session` (remember-me) cookie.\n6. **Persistent Cookie Usage**: The attacker, still possessing the original `remember-me` cookie with its uncleared `sessioncode`, continues to send requests to the Question2Answer application using this cookie.\n7. **Unauthorized Access Maintenance**: The Question2Answer application validates the persistent `remember-me` cookie as still valid, granting the attacker continued authenticated access to the user's account, effectively bypassing the intended security measure of a password change.\n8. **Impact**: The attacker maintains unauthorized persistent access to the user's account, enabling them to perform actions, view private information, or manipulate content as the legitimate user.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-64829 results in a persistent breach of account confidentiality and integrity. An attacker can maintain full authenticated access to a user's Question2Answer account indefinitely, even after the legitimate user has changed their password. This allows the attacker to perform any action the user could, such as accessing sensitive user profiles, posting malicious content, defacing sections of the platform, sending messages under the user's identity, or extracting private data. While specific victim counts are not available, all Question2Answer installations running versions through 1.8.8 are susceptible, potentially exposing personal information and compromising the platform's reputation and trust for its entire user base.\n\n## Recommendation\n\n* Apply the patch for CVE-2026-64829 from Question2Answer when it becomes available to remediate the session invalidation vulnerability.\n* Monitor web server access logs for `qa-include/app/users-edit.php` for unusual activity, particularly focusing on requests immediately following a user-initiated password reset.\n* Implement application-level logging to correlate password reset events with subsequent authenticated sessions, looking for `qa_session` cookies that remain active after a reset.\n* Consider implementing a feature to allow users or administrators to forcefully invalidate all active sessions for an account, especially after a suspected compromise or password reset.\n",
-      "published": "2026-07-22T20:19:43.000Z",
-      "labels": [
-        "cve",
-        "question2answer",
-        "session-management",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c8f48c36-60aa-5202-9d24-79c8935ee22c",
-        "vulnerability--81789a66-e050-5e76-824e-c473486dc512"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-question2answer-session-invalidation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-question2answer-session-invalidation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64829"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-question2answer-session-invalidation",
-      "x_craftedsignal_event_id": "brief-2026-07-question2answer-session-invalidation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-question2answer-session-invalidation/",
-      "x_craftedsignal_activity_at": "2026-07-22T20:19:43.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b860d457-3be8-5e69-a200-cc186f8cb53b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T14:19:04.000Z",
@@ -59208,13 +59126,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c8f48c36-60aa-5202-9d24-79c8935ee22c",
-      "name": "Question2Answer \u003c= 1.8.8",
-      "vendor": "Question2Answer"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c90c4a9d-2d35-5529-864d-9a167c616bdf",
       "name": "Microsoft Azure"
     },
@@ -62415,22 +62326,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-11885",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11885"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--81789a66-e050-5e76-824e-c473486dc512",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-64829",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-64829",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64829"
         }
       ]
     },
