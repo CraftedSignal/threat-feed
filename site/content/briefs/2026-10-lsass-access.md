@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-lsass-access
+event_id: brief-2026-10-lsass-access
+revision: 1
+activity_at: "2026-10-20T12:16:02Z"
 title: Detection of LSASS Memory Access by Non-System Processes
 slug: 2026-10-lsass-access
 description: This brief provides a detection approach for identifying unauthorized access to the Local Security Authority Subsystem Service (LSASS) memory, a common technique used by attackers to harvest credentials.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Detection logic based on established SIGMA community standards.
 tags:
   - credential-access
   - windows
@@ -19,7 +33,7 @@ mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1003.001
-    technique_name: 'OS Credential Dumping: LSASS Memory'
+    technique_name: LSASS Memory
     evidence: Detects potential mimikatz-like tools accessing LSASS from non system account
     confidence_band: high
 rules:
