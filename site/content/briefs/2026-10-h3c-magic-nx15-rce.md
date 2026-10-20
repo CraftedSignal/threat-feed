@@ -3,6 +3,7 @@ title: Remote Command Injection in H3C Magic NX15 Router
 slug: 2026-10-h3c-magic-nx15-rce
 description: An unauthenticated command injection vulnerability in the sub_416874 function of H3C Magic NX15 (100R017) allows remote attackers to execute arbitrary system commands via /usr/bin/usrlist.
 date: "2026-10-20T00:30:22Z"
+lastmod: "2026-10-20T00:30:29Z"
 type: advisory
 types:
   - advisory
@@ -14,10 +15,13 @@ tags:
   - vulnerability
   - rce
   - network-device
+  - cve-2026-112371
+  - router
 vendors:
   - H3C
 products:
   - Magic NX15 (100R017)
+  - Magic NX15 (NX15V100R017)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -31,11 +35,18 @@ mitre_ttps:
     technique_name: Exploitation for Client Execution
     evidence: Performing a manipulation results in os command injection.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: Executing a manipulation of the argument path can lead to code injection.
+    confidence_band: high
 cves:
   - id: CVE-2026-112370
     cvss: 9.9
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112370
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-112371
 action_plan:
   priority: immediate_escalation
   owners:
@@ -52,6 +63,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-112370
       evidence: Vulnerability allows remote unauthenticated command injection.
+updates:
+  - at: "2026-10-20T00:30:29Z"
+    level: L2
+    summary: added coverage for Magic NX15 (NX15V100R017)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-112371
 ---
 
 CVE-2026-112370 is a critical command injection vulnerability affecting H3C Magic NX15 routers running firmware version 100R017. The vulnerability resides within the function sub_416874 inside the binary /usr/bin/usrlist. By sending specially crafted input to the targeted function, a remote, unauthenticated attacker can achieve arbitrary operating system command execution with the privileges of the underlying application. Public proof-of-concept exploits for this vulnerability are available, significantly increasing the risk of exploitation by threat actors. Due to the nature of the device as an internet-facing edge router, this flaw presents a high risk for unauthorized network access, lateral movement, or complete device compromise.
