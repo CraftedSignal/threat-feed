@@ -3,7 +3,7 @@ title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-10-19T19:23:07Z"
+lastmod: "2026-10-20T08:33:49Z"
 type: advisory
 types:
   - advisory
@@ -155,6 +155,7 @@ references:
   - https://www.malware-traffic-analysis.net/2026/09/30/index.html
   - https://www.reddit.com/r/blueteamsec/comments/1x7ro0a/romulus_analysis_of_a_new_multipayload_clickfix/
   - https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/
+  - https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html
 iocs:
   - type: domain
     value: justwatch.com
@@ -220,19 +221,18 @@ iocs:
     value: chatgpt.com
   - type: ip
     value: 195.63.128.106
+  - type: ip
+    value: 96.62.218.59
+  - type: domain
+    value: wizardexpensive.com
+  - type: ip
+    value: 2.27.248.127
 ioc_counts:
-  domain: 19
+  domain: 20
   hash_sha256: 1
-  ip: 3
+  ip: 5
   url: 9
 updates:
-  - at: "2026-09-23T08:02:35Z"
-    level: L1
-    summary: new product
-    sources:
-      - risky-biz
-    source_urls:
-      - https://www.bleepingcomputer.com/news/security/brevo-supply-chain-attack-injected-clickfix-scripts-on-customer-sites
   - at: "2026-09-24T14:07:10Z"
     level: L1
     summary: new IOCs
@@ -261,6 +261,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/
+  - at: "2026-10-20T08:33:49Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
