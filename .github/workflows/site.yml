@@ -1,13 +1,19 @@
 # Build and deploy the public threat-feed site (Hugo + Pagefind) to
 # GitHub Pages at feed.craftedsignal.io.
 #
-# ti-bot writes one brief per commit, so deploying on every push creates a
-# backlog of identical full-site builds. Production changes are batched into
-# one deployment every 15 minutes; workflow_dispatch remains the escape hatch
-# for an immediate deploy. Pull requests still build the full site as a check.
+# ti-bot writes one brief per commit, so deploying on every content push would
+# create a backlog of identical full-site builds. Its final commit updates the
+# rolling STIX compatibility alias, which triggers one deployment for the
+# completed batch. The schedule remains a fallback and workflow_dispatch an
+# operator escape hatch. Pull requests still build the full site as a check.
 name: Site Deploy
 
 on:
+  push:
+    branches: ["main"]
+    paths:
+      # Final commit in a successful ti-bot publication sequence.
+      - "site/static/stix.json"
   schedule:
     # Offset from the top of the hour to avoid GitHub Actions' busiest cron window.
     - cron: "7,22,37,52 * * * *"

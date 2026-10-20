@@ -47,8 +47,14 @@ func TestSiteWorkflowBatchesProductionDeployments(t *testing.T) {
 	workflow := loadSiteWorkflow(t)
 	triggers := mapping(t, workflow["on"], "on")
 
-	if _, exists := triggers["push"]; exists {
-		t.Fatal("site workflow must not deploy once per content push")
+	push := mapping(t, triggers["push"], "on.push")
+	branches := sequence(t, push["branches"], "on.push.branches")
+	if len(branches) != 1 || branches[0] != "main" {
+		t.Fatalf("on.push.branches: got %#v, want only main", branches)
+	}
+	paths := sequence(t, push["paths"], "on.push.paths")
+	if len(paths) != 1 || paths[0] != "site/static/stix.json" {
+		t.Fatalf("on.push.paths: got %#v, want only the final STIX compatibility alias", paths)
 	}
 
 	schedules := sequence(t, triggers["schedule"], "on.schedule")
