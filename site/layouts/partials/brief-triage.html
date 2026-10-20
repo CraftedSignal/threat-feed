@@ -1,0 +1,111 @@
+{{- $severity := index (.Params.severities | default (slice "medium")) 0 -}}
+{{- $products := .Params.products | default slice | uniq -}}
+{{- $operatingSystems := .Params.affected_os | default (.Params.affectedOs | default slice) | uniq -}}
+{{- $references := .Params.references | default slice -}}
+{{- $cves := .Params.cves | default slice -}}
+{{- $rules := .Params.rules_count | default (.Params.rulesCount | default (len (.Params.rules | default slice))) -}}
+{{- $iocTotal := 0 -}}
+{{- range $key, $value := (.Params.ioc_counts | default (.Params.iocCounts | default dict)) -}}{{- $iocTotal = add $iocTotal $value -}}{{- end -}}
+{{- $priority := "" -}}
+{{- with .Params.action_plan -}}{{- $priority = .priority | default "" -}}{{- end -}}
+{{- $revision := .Params.revision | default 0 -}}
+{{- $activity := .Params.activity_at | default "" -}}
+{{- $revisions := .Params.revision_history | default slice -}}
+
+<section class="brief-triage lg:hidden rounded-xl border border-stroke bg-panel/60 p-4 mb-8" aria-labelledby="triage-facts-title" data-brief-triage>
+  <div class="flex items-baseline justify-between gap-3 mb-3">
+    <h2 id="triage-facts-title" class="font-display text-base font-semibold text-text">Triage facts</h2>
+    {{ if gt $revision 0 }}<span class="font-mono text-xs text-muted">Revision {{ $revision }}</span>{{ end }}
+  </div>
+  <dl class="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+    {{ if or $products $operatingSystems }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Applicability</dt>
+      <dd class="mt-1 text-text break-words">
+        {{- if $products -}}{{ delimit (first 2 $products) ", " }}{{ if gt (len $products) 2 }} +{{ sub (len $products) 2 }}{{ end -}}
+        {{- else -}}{{ delimit (first 2 $operatingSystems) ", " }}{{ if gt (len $operatingSystems) 2 }} +{{ sub (len $operatingSystems) 2 }}{{ end -}}{{- end -}}
+      </dd>
+    </div>
+    {{ end }}
+    {{ with .Params.exploitation_evidence }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Evidence</dt>
+      <dd class="mt-1 text-text">
+        {{- if eq .status "confirmed_active" -}}Confirmed active{{- else if eq .status "not_observed" -}}Not observed{{- else -}}Unknown{{- end -}}
+        {{- with .confidence }}<span class="block text-xs text-muted">{{ . | humanize }} confidence</span>{{ end -}}
+      </dd>
+    </div>
+    {{ else }}
+      {{ if .Params.exploited }}
+      <div class="min-w-0"><dt class="brief-triage-label">Evidence</dt><dd class="mt-1 text-text">Confirmed active</dd></div>
+      {{ end }}
+    {{ end }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Severity</dt>
+      <dd class="mt-1 text-text">{{ $severity | humanize }}</dd>
+    </div>
+    {{ with $priority }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Action</dt>
+      <dd class="mt-1 text-text">{{ replace . "_" " " | humanize }}</dd>
+    </div>
+    {{ end }}
+    {{ if $references }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Sources</dt>
+      <dd class="mt-1 text-text">{{ len $references }} public {{ cond (eq (len $references) 1) "source" "sources" }}</dd>
+    </div>
+    {{ end }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Freshness</dt>
+      <dd class="mt-1 text-text">
+        {{- if gt $revision 0 -}}Revision {{ $revision }}{{- else if gt .Lastmod.Unix .Date.Unix -}}Updated{{- else -}}Published{{- end -}}
+        <span class="block text-xs text-muted">{{ if $activity }}{{ dateFormat "Jan 2, 15:04 UTC" (time $activity) }}{{ else }}{{ .Lastmod.UTC.Format "Jan 2, 15:04 UTC" }}{{ end }}</span>
+      </dd>
+    </div>
+    {{ if or (gt $rules 0) (gt $iocTotal 0) }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Detection</dt>
+      <dd class="mt-1 text-text">{{ if gt $rules 0 }}{{ $rules }} {{ cond (eq $rules 1) "rule" "rules" }}{{ end }}{{ if and (gt $rules 0) (gt $iocTotal 0) }} · {{ end }}{{ if gt $iocTotal 0 }}{{ $iocTotal }} {{ cond (eq $iocTotal 1) "IOC" "IOCs" }}{{ end }}</dd>
+    </div>
+    {{ end }}
+    {{ if $cves }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Vulnerabilities</dt>
+      <dd class="mt-1 text-text">{{ len $cves }} {{ cond (eq (len $cves) 1) "CVE" "CVEs" }}</dd>
+    </div>
+    {{ end }}
+    {{ with .Params.source_assessment }}
+    <div class="min-w-0">
+      <dt class="brief-triage-label">Source quality</dt>
+      <dd class="mt-1 text-text">{{ .rating | default (.reliability | default "Assessed") }}{{ with .likelihood }}<span class="block text-xs text-muted">{{ . | humanize }}</span>{{ end }}</dd>
+    </div>
+    {{ end }}
+  </dl>
+</section>
+
+{{ if $revisions }}
+<details class="brief-revision-history rounded-xl border border-stroke bg-panel/60 mb-8" data-revision-history>
+  <summary class="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer text-sm">
+    <span class="font-display font-semibold text-text">Revision history</span>
+    <span class="font-mono text-xs text-muted">{{ len $revisions }} {{ cond (eq (len $revisions) 1) "entry" "entries" }} · Revision {{ $revision }}</span>
+  </summary>
+  <ol class="border-t border-stroke divide-y divide-stroke">
+    {{ range collections.Reverse $revisions }}
+    <li class="px-4 py-3 text-sm space-y-1.5">
+      <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+        <span class="font-mono text-xs text-accent">Revision {{ .revision }}</span>
+        {{ with .at }}<time class="font-mono text-[11px] text-muted" datetime="{{ . }}">{{ dateFormat "Jan 2, 2006 15:04 UTC" (time .) }}</time>{{ end }}
+      </div>
+      {{ with .summary }}<p class="text-text">{{ . }}</p>{{ end }}
+      {{ with .changed_fields }}<p class="text-xs text-muted">Changed: {{ delimit . ", " }}</p>{{ end }}
+      {{ with .source_urls }}
+      <p class="text-xs text-muted">Sources:
+        {{ range $index, $url := . }}{{ if $index }}, {{ end }}<a href="{{ $url }}" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">{{ add $index 1 }}</a>{{ end }}
+      </p>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ol>
+</details>
+{{ end }}

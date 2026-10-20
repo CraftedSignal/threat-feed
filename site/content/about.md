@@ -24,11 +24,11 @@ Every page that lists briefs has its own RSS feed. The most useful entry points:
 
 - [All briefs](/feed.xml) - everything
 - [Critical only](/severities/critical/feed.xml)
-- [High and above](/severities/high/feed.xml)
+- [High only](/severities/high/feed.xml)
 - Per [tag](/tags/) or [threat actor](/threat-actors/) - every term page links to its own feed
 
 For email digests, paste any of these RSS URLs into a service like Buttondown, Feedrabbit, or Follow.it.
 
 ## How often it updates
 
-Briefs are published continuously as new threat activity is observed. The site rebuilds on every commit to the underlying threat-feed repository.
+Briefs are published continuously as new threat activity is observed. The public site is refreshed in scheduled batches throughout the hour.

@@ -216,3 +216,79 @@ func TestSiteWorkflowAvoidsIneffectiveHugoResourceCache(t *testing.T) {
 		}
 	}
 }
+
+func TestSiteWorkflowValidatesChangedPublicArtifactsAgainstHistoryAndManifest(t *testing.T) {
+	workflow := loadSiteWorkflow(t)
+	jobs := mapping(t, workflow["jobs"], "jobs")
+
+	for _, tt := range []struct {
+		jobName string
+		base    string
+	}{
+		{jobName: "validate", base: "github.event.pull_request.base.sha"},
+		{jobName: "build", base: "needs.changes.outputs.previous_sha"},
+	} {
+		t.Run(tt.jobName, func(t *testing.T) {
+			job := mapping(t, jobs[tt.jobName], "jobs."+tt.jobName)
+			steps := sequence(t, job["steps"], "jobs."+tt.jobName+".steps")
+
+			checkoutFound := false
+			validationIndex := -1
+			buildIndex := -1
+			sitemapIndex := -1
+			for i, rawStep := range steps {
+				step := mapping(t, rawStep, "jobs."+tt.jobName+".steps")
+				uses, _ := step["uses"].(string)
+				if strings.Contains(uses, "actions/checkout") {
+					checkoutFound = true
+					with := mapping(t, step["with"], "checkout.with")
+					if with["fetch-depth"] != 0 {
+						t.Errorf("checkout.fetch-depth = %#v, want 0", with["fetch-depth"])
+					}
+				}
+				name, _ := step["name"].(string)
+				run, _ := step["run"].(string)
+				switch name {
+				case "Validate changed public artifacts":
+					validationIndex = i
+					env := mapping(t, step["env"], "changed validation env")
+					base, _ := env["BASE_SHA"].(string)
+					if !strings.Contains(base, tt.base) {
+						t.Errorf("BASE_SHA %q does not use %s", base, tt.base)
+					}
+					for _, required := range []string{
+						"git diff --find-renames --name-status -z --diff-filter=AMRD",
+						"read -r -d ''",
+						"--previous-path",
+						"go run ./cmd/feedcheck --base-ref",
+						"site/content/briefs/*.md",
+						":(exclude)site/content/briefs/_index.md",
+						"site/static/stix.json",
+						"site/static/stix/**",
+						"changed+=(\"site/static/stix/index.json\")",
+					} {
+						if !strings.Contains(run, required) {
+							t.Errorf("changed validation is missing %q", required)
+						}
+					}
+				case "Build site":
+					buildIndex = i
+				case "Validate generated sitemap":
+					sitemapIndex = i
+					if !strings.Contains(run, "go run ./cmd/feedcheck --generated-site site/public") {
+						t.Errorf("sitemap validation command = %q", run)
+					}
+				}
+			}
+			if !checkoutFound {
+				t.Error("full-history checkout is missing")
+			}
+			if validationIndex < 0 || buildIndex < 0 || validationIndex >= buildIndex {
+				t.Errorf("changed artifact validation (%d) must precede site build (%d)", validationIndex, buildIndex)
+			}
+			if sitemapIndex <= buildIndex {
+				t.Errorf("generated sitemap validation (%d) must follow site build (%d)", sitemapIndex, buildIndex)
+			}
+		})
+	}
+}

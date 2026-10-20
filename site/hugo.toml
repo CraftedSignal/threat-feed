@@ -69,11 +69,18 @@ mainSections = ['briefs']
     baseName = "feed"
     isPlainText = true
     notAlternative = false
+  [outputFormats.BriefIndex]
+    mediatype = "application/json"
+    baseName = "index"
+    isPlainText = true
+    notAlternative = true
 
 [mediaTypes]
   [mediaTypes."application/rss+xml"]
     suffixes = ["xml"]
   [mediaTypes."application/feed+json"]
+    suffixes = ["json"]
+  [mediaTypes."application/json"]
     suffixes = ["json"]
 
 [sitemap]
@@ -93,7 +100,7 @@ mainSections = ['briefs']
 
 [services]
   [services.rss]
-    limit = 100
+    limit = 2000
 
 [privacy]
   [privacy.disqus]

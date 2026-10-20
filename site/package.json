@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "hugo server --buildDrafts --buildFuture",
     "build": "hugo --minify && pagefind --site public",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test tests/*.test.mjs assets/js/*.test.js",
+    "test:details": "node scripts/assert-detail-contract.mjs",
+    "test:public-contract": "node scripts/assert-public-contract.mjs",
     "clean": "rm -rf public resources"
   },
   "keywords": [

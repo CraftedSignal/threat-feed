@@ -13,6 +13,9 @@
 {{ $vendors := .Params.vendors | default slice | uniq }}
 {{ $products := .Params.products | default slice | uniq }}
 {{ $exploited := .Params.exploited | default false }}
+{{ with .Params.exploitation_evidence }}
+  {{ $exploited = eq (.status | default "unknown") "confirmed_active" }}
+{{ end }}
 {{ $os := .Params.affected_os | default (.Params.affectedOs | default slice) | uniq }}
 {{ $ttps := .Params.mitre_ttps | default (.Params.mitreTtps | default slice) }}
 {{ $cves := .Params.cves | default slice }}
@@ -55,6 +58,7 @@
     </header>
 
     {{ partial "brief-cve-search-index.html" . }}
+    {{ partial "brief-triage.html" . }}
 
     {{/* Two-column on lg+. Main: prose body, detection coverage,
          IOC table - the long-running analysis. Sidebar: every
@@ -71,7 +75,7 @@
              last 5 events so this stays compact. Only shows when there
              is at least one event with a non-empty summary. */}}
         {{ $updates := .Params.updates | default slice }}
-        {{ if $updates }}
+        {{ if and $updates (eq (len (.Params.revision_history | default slice)) 0) }}
         <section class="rounded-xl border border-accent/30 bg-accent/5 p-4 space-y-2">
           <h2 class="text-xs font-mono uppercase tracking-[0.14em] text-accent">What's new</h2>
           <ul class="space-y-1.5 text-sm">

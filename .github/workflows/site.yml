@@ -16,6 +16,9 @@ on:
     branches: ["main"]
     paths:
       - "site/**"
+      - "cmd/feedcheck/**"
+      - "internal/publicfeed/**"
+      - "internal/workflowconfig/**"
       - ".github/workflows/site.yml"
 
 permissions:
@@ -131,6 +134,61 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Validate changed public artifacts
+        shell: bash
+        working-directory: .
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          base="$BASE_SHA"
+          if [ -z "$base" ] || ! git cat-file -e "${base}^{commit}" || ! git merge-base --is-ancestor "$base" "$CURRENT_SHA"; then
+            base="$(git rev-parse "${CURRENT_SHA}^")"
+          fi
+
+          changed=()
+          previous_args=()
+          stix_changed=false
+          index_present=false
+          while IFS= read -r -d '' status; do
+            IFS= read -r -d '' path
+            if [[ "$status" == R* ]]; then
+              previous="$path"
+              IFS= read -r -d '' path
+              previous_args+=(--previous-path "$path=$previous")
+            fi
+            changed+=("$path")
+            if [[ "$path" == site/static/stix.json || "$path" == site/static/stix/* ]]; then
+              stix_changed=true
+            fi
+            if [[ "$path" == site/static/stix/index.json ]]; then
+              index_present=true
+            fi
+          done < <(git diff --find-renames --name-status -z --diff-filter=AMRD "$base" "$CURRENT_SHA" -- \
+            'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
+            'site/static/stix.json' 'site/static/stix/**')
+
+          # The index is the parity authority. Validate it and every immutable
+          # release it references whenever any STIX artifact changes; stable
+          # aliases are also checked structurally through the changed list.
+          if $stix_changed && ! $index_present; then
+            changed+=("site/static/stix/index.json")
+          fi
+
+          if [ "${#changed[@]}" -eq 0 ]; then
+            echo "No changed public brief or STIX artifacts"
+          else
+            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
+          fi
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
@@ -158,6 +216,10 @@ jobs:
       - name: Build site
         run: hugo --minify --gc
 
+      - name: Validate generated sitemap
+        working-directory: .
+        run: go run ./cmd/feedcheck --generated-site site/public
+
       - name: Build Pagefind index
         run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
 
@@ -174,6 +236,58 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Validate changed public artifacts
+        shell: bash
+        working-directory: .
+        env:
+          BASE_SHA: ${{ needs.changes.outputs.previous_sha }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          base="$BASE_SHA"
+          if [ -z "$base" ] || ! git cat-file -e "${base}^{commit}" || ! git merge-base --is-ancestor "$base" "$CURRENT_SHA"; then
+            base="$(git rev-parse "${CURRENT_SHA}^")"
+          fi
+
+          changed=()
+          previous_args=()
+          stix_changed=false
+          index_present=false
+          while IFS= read -r -d '' status; do
+            IFS= read -r -d '' path
+            if [[ "$status" == R* ]]; then
+              previous="$path"
+              IFS= read -r -d '' path
+              previous_args+=(--previous-path "$path=$previous")
+            fi
+            changed+=("$path")
+            if [[ "$path" == site/static/stix.json || "$path" == site/static/stix/* ]]; then
+              stix_changed=true
+            fi
+            if [[ "$path" == site/static/stix/index.json ]]; then
+              index_present=true
+            fi
+          done < <(git diff --find-renames --name-status -z --diff-filter=AMRD "$base" "$CURRENT_SHA" -- \
+            'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
+            'site/static/stix.json' 'site/static/stix/**')
+
+          if $stix_changed && ! $index_present; then
+            changed+=("site/static/stix/index.json")
+          fi
+
+          if [ "${#changed[@]}" -eq 0 ]; then
+            echo "No changed public brief or STIX artifacts"
+          else
+            go run ./cmd/feedcheck --base-ref "$base" "${previous_args[@]}" "${changed[@]}"
+          fi
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
@@ -196,6 +310,10 @@ jobs:
 
       - name: Build site
         run: hugo --minify --gc
+
+      - name: Validate generated sitemap
+        working-directory: .
+        run: go run ./cmd/feedcheck --generated-site site/public
 
       - name: Build Pagefind index
         # Excluding rendered brief cards avoids indexing each brief again on

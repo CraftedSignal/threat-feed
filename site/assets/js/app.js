@@ -1,4 +1,14 @@
-// Theme toggle + Pagefind search + date filter + mobile menu wiring.
+import {
+  canonicalBriefURL,
+  filterBriefs,
+  hasBriefFilters,
+  paginateBriefs,
+  parseBriefQuery,
+  projectBriefControls,
+  updateBriefQuery,
+} from './brief-filters.js';
+
+// Theme toggle + Pagefind search + addressable brief filters + mobile menu wiring.
 // Default mode is 'auto' (follow OS); the toggle cycles auto → light → dark.
 
 const THEME_KEY = 'feedTheme'; // 'light' | 'dark' | 'auto'
@@ -102,197 +112,301 @@ function initSearch() {
 }
 
 // ----------------------------------------------------------------------
-// Brief listing filters: date-window + attribute (type/severity/flags).
-// Both filters contribute to visibility independently; a card is shown
-// only when it passes both. Pagination nav is hidden when any filter
-// narrows the view (since Hugo pagination is server-rendered and the
-// filter only applies to the current page).
+// Brief listing filters. The server-rendered page stays untouched until a
+// filter is active; filtered views use the complete metadata index and apply
+// filtering before client-side pagination.
 
 function initBriefFilters() {
-  const dateGroup = document.querySelector('[data-date-filter-group]');
-  const attrGroup = document.querySelector('[data-attr-filter-group]');
-  if (!dateGroup && !attrGroup) return;
+  const controls = document.querySelector('[data-brief-filters]');
+  const serverResults = document.querySelector('[data-server-results]');
+  const clientResults = document.querySelector('[data-filter-results]');
+  const status = document.querySelector('[data-filter-status]');
+  if (!controls || !serverResults || !clientResults || !status) return;
 
-  const cards        = [...document.querySelectorAll('[data-brief-date]')];
-  const sections     = [...document.querySelectorAll('[data-month-section]')];
-  const empty        = document.querySelector('[data-empty-message]');
-  const paginationEls = [...document.querySelectorAll('[data-briefs-pagination]')];
-  const paginationWarning = document.querySelector('[data-filter-pagination-warning]');
-  const isPaginated  = dateGroup?.hasAttribute('data-paginated');
+  const indexURL = controls.dataset.indexUrl || '/briefs/index.json';
+  const serverPagination = [...document.querySelectorAll('[data-server-pagination]')];
+  let state = parseBriefQuery(window.location.search);
+  let indexPromise;
+  let renderVersion = 0;
 
-  // Track filter state.
-  let activeDateDays = 0;          // 0 = all time
-  const activeTypes  = new Set();  // e.g. 'advisory', 'threat'
-  const activeSevs   = new Set();  // e.g. 'critical', 'high'
-  const activeFlags  = new Set();  // e.g. 'poc', 'exploited', 'ioc'
-
-  function isFiltered() {
-    return activeDateDays !== 0 || activeTypes.size > 0 || activeSevs.size > 0 || activeFlags.size > 0;
+  function setActiveStyle(button, pressed, exposePressed = true) {
+    if (!button) return;
+    if (exposePressed) button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    button.classList.toggle('border-accent/40', pressed);
+    button.classList.toggle('bg-accent/10', pressed);
+    button.classList.toggle('text-text', pressed);
+    button.classList.toggle('font-medium', pressed);
+    button.classList.toggle('border-stroke', !pressed);
+    button.classList.toggle('text-muted', !pressed);
   }
 
-  function recalc() {
-    const now = Date.now() / 1000;
-    const cutoff = activeDateDays === 0 ? 0 : now - activeDateDays * 86400;
-
-    cards.forEach((card) => {
-      const dateOk = activeDateDays === 0 || (+card.dataset.briefDate) >= cutoff;
-      const typeOk = activeTypes.size === 0 || activeTypes.has(card.dataset.briefType);
-      const sevOk  = activeSevs.size  === 0 || activeSevs.has(card.dataset.briefSev);
-      const pocOk      = !activeFlags.has('poc')      || card.dataset.briefPoc      === '1';
-      const exploitedOk= !activeFlags.has('exploited')|| card.dataset.briefExploited=== '1';
-      const iocOk      = !activeFlags.has('ioc')      || card.dataset.briefIoc      === '1';
-      card.style.display = (dateOk && typeOk && sevOk && pocOk && exploitedOk && iocOk) ? '' : 'none';
+  function projectControls() {
+    const view = projectBriefControls(state);
+    const dateLabel = controls.querySelector('[data-date-label]');
+    const severityLabel = controls.querySelector('[data-sev-label]');
+    if (dateLabel) dateLabel.textContent = view.windowLabel;
+    if (severityLabel) severityLabel.textContent = view.severityLabel;
+    controls.querySelectorAll('[data-date-filter]').forEach((button) => {
+      setActiveStyle(button, (button.dataset.dateFilter || null) === state.window);
     });
-
-    let totalVisible = 0;
-    sections.forEach((sec) => {
-      let count = 0;
-      sec.querySelectorAll('[data-brief-date]').forEach((c) => {
-        if (c.style.display !== 'none') count++;
-      });
-      sec.style.display = count === 0 ? 'none' : '';
-      const counter = sec.querySelector('[data-month-count]');
-      if (counter) counter.textContent = count;
-      totalVisible += count;
-    });
-
-    if (empty) empty.classList.toggle('hidden', totalVisible > 0);
-
-    // Hide pagination nav when any filter is active - it only applies to
-    // the current page so Older/Newer links are misleading when filtered.
-    paginationEls.forEach((el) => el.classList.toggle('hidden', isFiltered()));
-
-    if (paginationWarning) {
-      paginationWarning.classList.toggle(
-        'hidden',
-        !(totalVisible === 0 && isPaginated && isFiltered()),
-      );
-    }
+    controls.querySelectorAll('[data-attr-sev]').forEach((button) => setActiveStyle(button, view.selected.severities[button.dataset.attrSev]));
+    controls.querySelectorAll('[data-attr-type]').forEach((button) => setActiveStyle(button, view.selected.types[button.dataset.attrType]));
+    controls.querySelectorAll('[data-attr-flag]').forEach((button) => setActiveStyle(button, view.selected.flags[button.dataset.attrFlag]));
+    setActiveStyle(controls.querySelector('[data-date-trigger]'), Boolean(state.window), false);
+    setActiveStyle(controls.querySelector('[data-sev-trigger]'), state.severities.length > 0, false);
+    const clear = controls.querySelector('[data-clear-filters]');
+    if (clear) clear.hidden = !view.active;
   }
 
-  // Active/inactive styling helpers.
-  function chipActive(btn) {
-    btn.classList.add('border-accent/40', 'bg-accent/10', 'text-text', 'font-medium');
-    btn.classList.remove('border-stroke', 'text-muted');
-  }
-  function chipInactive(btn) {
-    btn.classList.remove('border-accent/40', 'bg-accent/10', 'text-text', 'font-medium');
-    btn.classList.add('border-stroke', 'text-muted');
-  }
-
-
-  // Shared dropdown helper - menus use position:absolute relative to their
-  // .relative wrapper, so no positioning calculation needed here.
-  function openDropdown(_trigger, menu) {
-    menu.classList.remove('hidden');
-  }
-  function closeAllDropdowns() {
-    document.querySelectorAll('[data-date-menu],[data-sev-menu]').forEach((m) => m.classList.add('hidden'));
-  }
-  document.addEventListener('click', closeAllDropdowns);
-
-  // Date dropdown.
-  const dateDropdown = document.querySelector('[data-date-dropdown]');
-  const dateTrigger  = document.querySelector('[data-date-trigger]');
-  const dateMenu     = document.querySelector('[data-date-menu]');
-  const dateLabel    = document.querySelector('[data-date-label]');
-
-  if (dateTrigger && dateMenu) {
-    dateTrigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const wasHidden = dateMenu.classList.contains('hidden');
-      closeAllDropdowns();
-      if (wasHidden) openDropdown(dateTrigger, dateMenu);
+  function closeMenus({ restoreFocus = false } = {}) {
+    controls.querySelectorAll('[data-filter-menu]').forEach((menu) => menu.classList.add('hidden'));
+    controls.querySelectorAll('[data-filter-trigger]').forEach((trigger) => {
+      const wasOpen = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', 'false');
+      if (restoreFocus && wasOpen) trigger.focus();
     });
   }
 
-  if (dateGroup) {
-    const dateBtns = dateGroup.querySelectorAll('[data-date-filter]');
-    dateBtns.forEach((btn) => {
-      if (btn.dataset.dateFilter === '0') btn.classList.add('font-medium', 'text-text');
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        activeDateDays = parseInt(btn.dataset.dateFilter, 10) || 0;
-        dateBtns.forEach((b) => {
-          b.classList.toggle('font-medium', b === btn);
-          b.classList.toggle('text-text', b === btn);
-          b.classList.toggle('text-muted', b !== btn);
-        });
-        if (dateLabel) dateLabel.textContent = btn.textContent.trim();
-        if (dateTrigger) {
-          if (activeDateDays === 0) chipInactive(dateTrigger);
-          else chipActive(dateTrigger);
-        }
-        dateMenu?.classList.add('hidden');
-        recalc();
-      });
-    });
-  }
-
-  // Attribute filter - type and severity are multi-select OR within group;
-  // flags are independent toggles.
-  if (attrGroup) {
-    attrGroup.querySelectorAll('[data-attr-type]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const val = btn.dataset.attrType;
-        if (activeTypes.has(val)) { activeTypes.delete(val); chipInactive(btn); }
-        else                      { activeTypes.add(val);    chipActive(btn);   }
-        recalc();
-      });
-    });
-
-    // Severity dropdown wiring.
-    const sevDropdown = attrGroup.querySelector('[data-sev-dropdown]');
-    const sevTrigger  = attrGroup.querySelector('[data-sev-trigger]');
-    const sevMenu     = attrGroup.querySelector('[data-sev-menu]');
-    const sevLabel    = attrGroup.querySelector('[data-sev-label]');
-
-    if (sevTrigger && sevMenu) {
-      sevTrigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const wasHidden = sevMenu.classList.contains('hidden');
-        closeAllDropdowns();
-        if (wasHidden) openDropdown(sevTrigger, sevMenu);
-      });
-    }
-
-    function updateSevTrigger() {
-      if (!sevLabel) return;
-      if (activeSevs.size === 0) {
-        sevLabel.textContent = 'Severity';
-        if (sevTrigger) chipInactive(sevTrigger);
-      } else {
-        sevLabel.textContent = 'Severity · ' + activeSevs.size;
-        if (sevTrigger) chipActive(sevTrigger);
+  controls.querySelectorAll('[data-filter-trigger]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const menu = document.getElementById(trigger.getAttribute('aria-controls'));
+      const open = trigger.getAttribute('aria-expanded') !== 'true';
+      closeMenus();
+      if (open && menu) {
+        menu.classList.remove('hidden');
+        trigger.setAttribute('aria-expanded', 'true');
+        menu.querySelector('button')?.focus();
       }
+    });
+  });
+  document.addEventListener('click', () => closeMenus());
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenus({ restoreFocus: true });
+  });
+
+  function loadIndex({ retry = false } = {}) {
+    if (retry) indexPromise = null;
+    if (!indexPromise) {
+      indexPromise = fetch(indexURL, { credentials: 'omit' }).then((response) => {
+        if (!response.ok) throw new Error(`The brief index returned ${response.status}.`);
+        return response.json();
+      }).then((data) => {
+        if (!data || !Array.isArray(data.items) || !data.generated_at) {
+          throw new Error('The brief index response is incomplete.');
+        }
+        return data;
+      });
+    }
+    return indexPromise;
+  }
+
+  function node(tag, className, text) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (text !== undefined) element.textContent = text;
+    return element;
+  }
+
+  function badge(text, className) {
+    return node('span', `inline-flex items-center px-1.5 py-0.5 rounded font-mono uppercase tracking-wider text-[11px] ${className}`, text);
+  }
+
+  function createClientCard(item) {
+    const card = node('a', 'brief-card block rounded-xl border border-stroke bg-panel/70 hover:bg-panel hover:border-accent/40 p-5 transition group');
+    card.href = item.url;
+    card.dataset.briefDate = String(Math.floor(Date.parse(item.activity_at) / 1000));
+    const row = node('div', 'flex items-start gap-4');
+    const labels = node('div', 'pt-0.5 flex-none flex flex-col items-stretch gap-1 min-w-[88px] max-w-[88px]');
+    labels.append(badge(item.severity === 'informational' ? 'info' : item.severity, `sev-badge sev-${item.severity} justify-center`));
+    labels.append(badge(item.type === 'coverage' ? 'rule' : item.type, `type-badge type-${item.type} justify-center`));
+
+    const body = node('div', 'flex-1 min-w-0');
+    const headline = node('div', 'flex items-baseline justify-between gap-3');
+    headline.append(node('h3', 'font-display text-base md:text-lg font-semibold text-text leading-snug group-hover:text-accent transition line-clamp-2', item.title));
+    const countLine = node('span', 'hidden md:flex items-center gap-3 text-xs text-muted whitespace-nowrap');
+    const countLabels = { rules: 'rules', ttps: 'TTPs', cves: 'CVEs', iocs: 'IOCs' };
+    Object.entries(countLabels).forEach(([key, label]) => {
+      const count = Number(item.counts?.[key] || 0);
+      if (count > 0) countLine.append(node('span', '', `${count} ${count === 1 ? label.replace(/s$/, '') : label}`));
+    });
+    headline.append(countLine);
+    body.append(headline);
+    if (item.summary) body.append(node('p', 'mt-1.5 text-sm text-muted line-clamp-2', item.summary));
+
+    const footer = node('div', 'mt-3 flex items-end justify-between gap-3 text-[11px]');
+    const facts = node('div', 'flex flex-wrap items-center gap-x-3 gap-y-1.5 min-w-0');
+    const itemFlags = new Set(Array.isArray(item.flags) ? item.flags : Object.keys(item.flags || {}).filter((key) => item.flags[key]));
+    if (itemFlags.has('exploited')) facts.append(badge('exploited', 'bg-sev-critical/10 text-sev-critical'));
+    if (itemFlags.has('poc')) facts.append(badge('PoC', 'bg-sev-high/10 text-sev-high border border-sev-high/30'));
+    if (itemFlags.has('ioc')) facts.append(badge('IOCs', 'bg-panel-2 text-text'));
+    if (item.primary_product) facts.append(badge(item.primary_product, 'bg-panel-2 text-text'));
+    if (item.primary_actor) facts.append(badge(item.primary_actor, 'bg-accent/10 text-accent'));
+    (item.tags || []).slice(0, 5).forEach((tag) => facts.append(badge(tag, 'bg-panel-2 text-muted')));
+    footer.append(facts);
+    const time = node('time', 'font-mono text-muted whitespace-nowrap', formatRelativeTime(new Date(item.activity_at)));
+    time.dateTime = item.activity_at;
+    time.title = new Date(item.activity_at).toLocaleString();
+    footer.append(time);
+    body.append(footer);
+    row.append(labels, body);
+    card.append(row);
+    return card;
+  }
+
+  function createFilteredPagination(page) {
+    if (page.totalPages <= 1) return null;
+    const nav = node('nav', 'flex items-center justify-between border-t border-stroke pt-6 mt-4 text-sm text-muted');
+    nav.setAttribute('aria-label', 'Filtered briefs pagination');
+    nav.append(node('div', '', `Page ${page.page} of ${page.totalPages}`));
+    const links = node('div', 'flex items-center gap-2');
+    if (page.hasPrev) {
+      const previous = node('a', 'brief-filter-page', '← Newer');
+      previous.href = canonicalBriefURL('/briefs/', state, page.page - 1);
+      previous.dataset.filterPage = String(page.page - 1);
+      links.append(previous);
+    }
+    if (page.hasNext) {
+      const next = node('a', 'brief-filter-page', 'Older →');
+      next.href = canonicalBriefURL('/briefs/', state, page.page + 1);
+      next.dataset.filterPage = String(page.page + 1);
+      links.append(next);
+    }
+    nav.append(links);
+    return nav;
+  }
+
+  function renderFiltered(items, page) {
+    clientResults.replaceChildren();
+    if (page.totalItems === 0) {
+      const empty = node('div', 'rounded-xl border border-stroke bg-panel/60 px-5 py-10 text-center');
+      empty.append(node('h2', 'font-display text-lg font-semibold text-text', 'No briefs match these filters'));
+      empty.append(node('p', 'mt-2 text-sm text-muted', 'Clear a filter or broaden the selected severities and types.'));
+      clientResults.append(empty);
+      return;
     }
 
-    attrGroup.querySelectorAll('[data-attr-sev]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const val = btn.dataset.attrSev;
-        if (activeSevs.has(val)) {
-          activeSevs.delete(val);
-          btn.classList.remove('text-text', 'font-medium');
-          btn.classList.add('text-muted');
-        } else {
-          activeSevs.add(val);
-          btn.classList.add('text-text', 'font-medium');
-          btn.classList.remove('text-muted');
-        }
-        updateSevTrigger();
-        recalc();
-      });
+    const monthFormat = new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+    let currentMonth = '';
+    let section;
+    let list;
+    page.items.forEach((item) => {
+      const month = monthFormat.format(new Date(item.activity_at));
+      if (month !== currentMonth) {
+        currentMonth = month;
+        section = node('section', 'space-y-3');
+        section.append(node('h2', 'font-display text-lg font-semibold text-text', month));
+        list = node('div', 'space-y-3');
+        section.append(list);
+        clientResults.append(section);
+      }
+      list.append(createClientCard(item));
     });
-
-    attrGroup.querySelectorAll('[data-attr-flag]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const val = btn.dataset.attrFlag;
-        if (activeFlags.has(val)) { activeFlags.delete(val); chipInactive(btn); }
-        else                      { activeFlags.add(val);    chipActive(btn);   }
-        recalc();
-      });
-    });
+    const pagination = createFilteredPagination(page);
+    if (pagination) clientResults.append(pagination);
   }
+
+  function showServerResults() {
+    controls.removeAttribute('aria-busy');
+    serverResults.classList.remove('hidden');
+    serverPagination.forEach((element) => element.classList.remove('hidden'));
+    clientResults.classList.add('hidden');
+    clientResults.replaceChildren();
+    status.classList.add('hidden');
+    status.textContent = '';
+  }
+
+  async function applyState({ retry = false } = {}) {
+    const version = ++renderVersion;
+    const referenceAt = new Date().toISOString();
+    projectControls();
+    if (!hasBriefFilters(state)) {
+      showServerResults();
+      return;
+    }
+    serverResults.classList.add('hidden');
+    serverPagination.forEach((element) => element.classList.add('hidden'));
+    clientResults.classList.remove('hidden');
+    clientResults.replaceChildren();
+    status.classList.remove('hidden');
+    status.textContent = 'Loading the complete brief index…';
+    controls.setAttribute('aria-busy', 'true');
+    try {
+      const index = await loadIndex({ retry });
+      if (version !== renderVersion) return;
+      const items = filterBriefs(index.items, state, referenceAt);
+      const page = paginateBriefs(items, state.page, index.page_size || 30);
+      if (page.page !== state.page) {
+        state = { ...state, page: page.page };
+        history.replaceState({}, '', canonicalBriefURL('/briefs/', state));
+      }
+      renderFiltered(items, page);
+      status.textContent = page.totalItems === 1
+        ? '1 brief matches'
+        : `${page.totalItems.toLocaleString()} briefs match${page.totalPages > 1 ? ` · Page ${page.page} of ${page.totalPages}` : ''}`;
+    } catch (error) {
+      if (version !== renderVersion) return;
+      clientResults.replaceChildren();
+      const panel = node('div', 'rounded-xl border border-sev-high/40 bg-panel px-5 py-6 text-sm');
+      panel.append(node('p', 'font-semibold text-text', 'The complete brief index could not be loaded.'));
+      panel.append(node('p', 'mt-1 text-muted', error instanceof Error ? error.message : 'Check your connection and try again.'));
+      const retryButton = node('button', 'brief-filter-page mt-4', 'Try again');
+      retryButton.type = 'button';
+      retryButton.addEventListener('click', () => applyState({ retry: true }));
+      panel.append(retryButton);
+      clientResults.append(panel);
+      status.textContent = 'Brief filters unavailable';
+    } finally {
+      if (version === renderVersion) controls.removeAttribute('aria-busy');
+    }
+  }
+
+  function commit(nextState) {
+    state = nextState;
+    const target = hasBriefFilters(state) ? canonicalBriefURL('/briefs/', state) : '/briefs/';
+    if (`${window.location.pathname}${window.location.search}` !== target) history.pushState({}, '', target);
+    closeMenus({ restoreFocus: true });
+    applyState();
+  }
+
+  controls.addEventListener('click', (event) => {
+    const button = event.target.closest('button');
+    if (!button) return;
+    if (button.matches('[data-date-filter]')) {
+      const value = button.dataset.dateFilter || null;
+      commit(value ? updateBriefQuery(state, { group: 'window', value }) : { ...state, window: null, page: 1 });
+    } else if (button.matches('[data-attr-sev]')) {
+      commit(updateBriefQuery(state, { group: 'severities', value: button.dataset.attrSev }));
+    } else if (button.matches('[data-attr-type]')) {
+      commit(updateBriefQuery(state, { group: 'types', value: button.dataset.attrType }));
+    } else if (button.matches('[data-attr-flag]')) {
+      commit(updateBriefQuery(state, { group: 'flags', value: button.dataset.attrFlag }));
+    } else if (button.matches('[data-clear-filters]')) {
+      commit(parseBriefQuery(''));
+    }
+  });
+
+  clientResults.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-filter-page]');
+    if (!link) return;
+    event.preventDefault();
+    commit({ ...state, page: Number.parseInt(link.dataset.filterPage, 10) || 1 });
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: controls.getBoundingClientRect().top + window.scrollY - 80, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  window.addEventListener('popstate', () => {
+    state = parseBriefQuery(window.location.search);
+    applyState();
+  });
+
+  const canonical = hasBriefFilters(state) ? canonicalBriefURL('/briefs/', state) : null;
+  if (canonical && `${window.location.pathname}${window.location.search}` !== canonical) {
+    history.replaceState({}, '', canonical);
+  } else if (!canonical && window.location.search) {
+    history.replaceState({}, '', window.location.pathname);
+  }
+  applyState();
 }
 
 // Keep legacy name wired so DOMContentLoaded still works.
