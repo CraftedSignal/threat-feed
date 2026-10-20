@@ -544,6 +544,24 @@ body {
   }
 }
 
+.brief-triage-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(var(--color-muted));
+}
+
+.brief-revision-history > summary {
+  min-height: 44px;
+}
+
+.brief-revision-history > summary:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 2px;
+}
+
 /* Legend/line color swatches (were inline style="background: …"). */
 .chart-swatch-accent   { background: rgb(var(--color-accent)); }
 .chart-swatch-medium   { background: rgb(var(--color-sev-medium)); }

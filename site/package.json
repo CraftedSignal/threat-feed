@@ -7,6 +7,7 @@
     "dev": "hugo server --buildDrafts --buildFuture",
     "build": "hugo --minify && pagefind --site public",
     "test": "node --test assets/js/*.test.js",
+    "test:details": "node scripts/assert-detail-contract.mjs",
     "clean": "rm -rf public resources"
   },
   "keywords": [
