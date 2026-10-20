@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-markdown-it-dos
 event_id: brief-2026-10-markdown-it-dos
-revision: 2
-activity_at: "2026-10-20T21:57:23Z"
+revision: 3
+activity_at: "2026-10-20T23:54:15Z"
 revision_history:
   - revision: 2
     at: "2026-10-20T21:57:23Z"
@@ -16,11 +16,24 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-111758
+  - revision: 3
+    at: "2026-10-20T23:54:15Z"
+    checksum: sha256:713f11dc1b3319ea04dc33f4d8dfd7365acccf2d53c573158346c1b109741168
+    summary: added coverage for markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)
+    changed_fields:
+      - affected_vendors
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-gfr2-rv44-r23c
 title: Denial of Service Vulnerability in markdown-it Parser
 slug: 2026-10-markdown-it-dos
 description: A resource exhaustion vulnerability in the markdown-it Markdown parser allows for denial of service (DoS) when processing untrusted input with the typographer option enabled.
 date: "2026-10-19T20:12:06Z"
-lastmod: "2026-10-20T21:56:40Z"
+lastmod: "2026-10-20T23:53:46Z"
 type: advisory
 types:
   - advisory
@@ -38,9 +51,23 @@ qa_status:
   validation_status: Source verified
 cpes:
   - cpe:2.3:a:markdown-it_project:markdown-it:*:*:*:*:*:node.js:*:*
+tags:
+  - denial-of-service
+  - cwe-407
+  - npm
+  - markdown
+vendors:
+  - markdown-it
 products:
   - markdown-it (< 14.3.2, < 15.0.2)
   - markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)
+mitre_ttps:
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499
+    technique_name: Endpoint Denial of Service
+    evidence: A ~400 KB request body blocks the Node.js event loop for about 18 seconds and an ~800 KB body for about 74 seconds.
+    confidence_band: high
 cves:
   - id: CVE-2026-111759
     cvss: 7.5
@@ -50,6 +77,8 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111759
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111758
+  - https://github.com/advisories/GHSA-gfr2-rv44-r23c
+  - https://github.com/markdown-it/markdown-it/pull/1004
 action_plan:
   priority: elevated
   owners:
@@ -74,6 +103,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-111758
+  - at: "2026-10-20T23:53:46Z"
+    level: L1
+    summary: added coverage for markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gfr2-rv44-r23c
 ---
 
 The markdown-it library is vulnerable to a regular expression-style denial of service (ReDoS) attack when configured with 'typographer: true'. The vulnerability, identified as CVE-2026-111759, resides in the smartquotes rule implementation. Specifically, the parser performs quadratic processing time when encountering specially crafted sequences of opening and closing single or double quotes. Because this pattern triggers repeated scanning of the entire opener stack, a malicious actor providing malformed Markdown input can cause significant CPU consumption, potentially leading to service degradation or complete denial of service for applications using the parser to render untrusted content. This impact is highest in web applications that process user-submitted Markdown in real-time. The issue is resolved in markdown-it versions 14.3.2 and 15.0.2.
