@@ -507,6 +507,43 @@ body {
 .activity-spark-bar.h95  { height: 95%; }
 .activity-spark-bar.h100 { height: 100%; }
 
+/* Addressable brief filters keep pointer and keyboard targets usable at the
+   compact density of the feed. Menus inherit the same minimum target size. */
+.brief-filter-controls button,
+.brief-filter-page {
+  min-height: 44px;
+}
+
+.brief-filter-page {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 0.875rem;
+  border: 1px solid rgb(var(--color-stroke));
+  border-radius: 0.5rem;
+  color: rgb(var(--color-muted));
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+}
+
+.brief-filter-page:hover {
+  color: rgb(var(--color-text));
+  border-color: rgb(var(--color-accent) / 0.4);
+}
+
+.brief-filter-controls :focus-visible,
+.brief-filter-page:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brief-filter-controls *,
+  .brief-filter-page,
+  .brief-card {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Legend/line color swatches (were inline style="background: …"). */
 .chart-swatch-accent   { background: rgb(var(--color-accent)); }
 .chart-swatch-medium   { background: rgb(var(--color-sev-medium)); }

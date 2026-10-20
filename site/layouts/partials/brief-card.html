@@ -11,6 +11,9 @@
 {{ $actors := .Params.actors | default slice }}
 {{ $products := .Params.products | default slice | uniq }}
 {{ $exploited := .Params.exploited | default false }}
+{{ with .Params.exploitation_evidence }}
+  {{ $exploited = eq (.status | default "unknown") "confirmed_active" }}
+{{ end }}
 {{ $hasPOC := .Params.has_poc | default false }}
 {{ $pocRefs := .Params.poc_references | default slice }}
 {{ $cveCount := len (.Params.cves | default slice) }}

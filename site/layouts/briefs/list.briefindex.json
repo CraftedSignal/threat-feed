@@ -17,7 +17,8 @@
   {{- range $key, $value := (.Params.ioc_counts | default dict) -}}{{- $iocTotal = add $iocTotal $value -}}{{- end -}}
   {{- $evidenceStatus := "" -}}
   {{- with .Params.exploitation_evidence -}}{{- $evidenceStatus = .status | default "" -}}{{- end -}}
-  {{- $exploited := or (eq $evidenceStatus "confirmed_active") (.Params.exploited | default false) -}}
+  {{- $exploited := .Params.exploited | default false -}}
+  {{- if ne $evidenceStatus "" -}}{{- $exploited = eq $evidenceStatus "confirmed_active" -}}{{- end -}}
   {{- $flags := slice -}}
   {{- if $exploited -}}{{- $flags = $flags | append "exploited" -}}{{- end -}}
   {{- if (.Params.has_poc | default false) -}}{{- $flags = $flags | append "poc" -}}{{- end -}}

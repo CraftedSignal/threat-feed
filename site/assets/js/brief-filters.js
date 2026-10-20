@@ -8,7 +8,6 @@ function orderedValues(raw, allowed) {
   const requested = new Set(String(raw || '').split(',').filter(Boolean));
   return allowed.filter((value) => requested.has(value));
 }
-
 export function parseBriefQuery(input = '') {
   const params = input instanceof URLSearchParams
     ? input
@@ -72,7 +71,7 @@ export function filterBriefs(items, state, generatedAt) {
       if (timestamp(item.activity_at) < cutoff) return false;
       if (normalized.severities.length && !normalized.severities.includes(item.severity)) return false;
       if (normalized.types.length && !normalized.types.includes(item.type)) return false;
-      if (normalized.flags.length && !normalized.flags.some((flag) => hasFlag(item, flag))) return false;
+      if (normalized.flags.length && !normalized.flags.every((flag) => hasFlag(item, flag))) return false;
       return true;
     })
     .sort((left, right) => {
@@ -106,4 +105,40 @@ export function canonicalBriefURL(base, state, page = state?.page || 1) {
   const query = serializeBriefQuery(normalized);
   const path = String(base || '/briefs/').split('?')[0];
   return query ? `${path}?${query}` : path;
+}
+
+export function updateBriefQuery(state, change) {
+  const next = parseBriefQuery(serializeBriefQuery({ ...state, page: 1 }));
+  const { group, value } = change || {};
+  if (group === 'window') {
+    next.window = next.window === value ? null : (VALID_WINDOWS.has(value) ? value : null);
+  }
+  const groups = {
+    severities: SEVERITY_ORDER,
+    types: TYPE_ORDER,
+    flags: FLAG_ORDER,
+  };
+  if (groups[group]?.includes(value)) {
+    const selected = new Set(next[group]);
+    if (selected.has(value)) selected.delete(value);
+    else selected.add(value);
+    next[group] = groups[group].filter((item) => selected.has(item));
+  }
+  next.page = 1;
+  return next;
+}
+
+export function projectBriefControls(state) {
+  const normalized = parseBriefQuery(serializeBriefQuery(state));
+  const selected = {
+    severities: Object.fromEntries(SEVERITY_ORDER.map((value) => [value, normalized.severities.includes(value)])),
+    types: Object.fromEntries(TYPE_ORDER.map((value) => [value, normalized.types.includes(value)])),
+    flags: Object.fromEntries(FLAG_ORDER.map((value) => [value, normalized.flags.includes(value)])),
+  };
+  return {
+    windowLabel: normalized.window === '24h' ? 'Last 24 hours' : 'All time',
+    severityLabel: normalized.severities.length ? `Severity · ${normalized.severities.length}` : 'Severity',
+    active: hasBriefFilters(normalized),
+    selected,
+  };
 }
