@@ -5,9 +5,13 @@ on:
     branches: [main]
     paths:
       - 'site/content/briefs/**'
+      - 'scripts/cleanup_iocs.py'
+      - '.github/workflows/validate-iocs.yml'
   pull_request:
     paths:
       - 'site/content/briefs/**'
+      - 'scripts/cleanup_iocs.py'
+      - '.github/workflows/validate-iocs.yml'
 
 jobs:
   validate:
@@ -15,8 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          fetch-depth: 0
+
+      - name: Fetch comparison commit
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [[ ! "$BASE_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Invalid comparison commit: $BASE_SHA" >&2
+            exit 1
+          fi
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
