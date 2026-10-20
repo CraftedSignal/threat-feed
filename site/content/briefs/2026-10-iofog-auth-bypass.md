@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-iofog-auth-bypass
 event_id: brief-2026-10-iofog-auth-bypass
-revision: 1
-activity_at: "2026-10-20T14:17:38Z"
+revision: 2
+activity_at: "2026-10-20T14:44:14Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T14:44:14Z"
+    checksum: sha256:cb36f5709be66d6f4c55acf698de7c8b43eb8684befaef4ff0ab44796a69fbe6
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-113620&utm_source=rss&utm_medium=rss
 title: 'Eclipse ioFog Controller: WebSocket Authentication Bypass (CVE-2026-113620)'
 slug: 2026-10-iofog-auth-bypass
 description: Eclipse ioFog Controller versions 3.8.0 through 3.9.1 contain an authentication bypass vulnerability in operator WebSocket endpoints, allowing attackers to access exec and log sessions using self-minted bearer tokens.
 date: "2026-10-20T14:17:38Z"
+lastmod: "2026-10-20T14:43:04Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +39,9 @@ qa_status:
 cpes:
   - cpe:2.3:a:eclipse:iofog_controller:3.8.0:*:*:*:*:*:*:*
   - cpe:2.3:a:eclipse:iofog_controller:3.9.1:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-113620&utm_source=rss&utm_medium=rss
 tags:
   - authentication-bypass
   - web-application-vulnerability
@@ -46,6 +63,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113620
+  - https://sploitus.com/exploit?id=CVE-2026-113620&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -71,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-113620
       evidence: NVD advisory
+updates:
+  - at: "2026-10-20T14:43:04Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-113620&utm_source=rss&utm_medium=rss
 ---
 
 Eclipse ioFog Controller versions 3.8.0 through 3.9.1 are affected by an authentication bypass vulnerability (CVE-2026-113620) within the operator WebSocket implementation. Specifically, the exec and log routes fail to perform proper validation of the provided bearer JSON Web Token (JWT). The application decodes the token and incorrectly utilizes the groups or roles defined within the payload as RBAC subjects. An attacker can craft a self-minted token containing administrative groups to bypass authorization checks, as the system does not require an associated account or RoleBinding. This flaw allows unauthorized actors to initiate exec or log sessions for specific microservices or fog instances, provided the attacker has obtained the target's UUID. HTTP routes and Agent WebSockets correctly verify tokens and remain unaffected.
