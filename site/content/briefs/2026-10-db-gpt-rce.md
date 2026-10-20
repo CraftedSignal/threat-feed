@@ -3,6 +3,7 @@ title: Unauthenticated RCE in DB-GPT via Insecure Mock Authentication
 slug: 2026-10-db-gpt-rce
 description: DB-GPT versions 0.8.2 and earlier contain an unauthenticated remote code execution vulnerability in the ReAct agent endpoint that allows attackers to execute arbitrary system commands as root.
 date: "2026-10-20T02:31:34Z"
+lastmod: "2026-10-20T02:31:39Z"
 type: advisory
 types:
   - advisory
@@ -14,6 +15,9 @@ tags:
   - remote-code-execution
   - web-application
   - container-security
+  - vulnerability
+  - credential-exposure
+  - mysql
 vendors:
   - DB-GPT
 products:
@@ -31,11 +35,18 @@ mitre_ttps:
     technique_name: 'Command and Scripting Interpreter: Unix Shell'
     evidence: Unauthenticated attackers can send prompts that make the ReAct agent... shell_interpreter tools run arbitrary... bash as root.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: DB-GPT through 0.8.2 contains a hardcoded credentials vulnerability in its default docker-compose.yml that sets a static MYSQL_ROOT_PASSWORD.
+    confidence_band: high
 cves:
   - id: CVE-2026-77932
     cvss: 9.8
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77932
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77933
 rules:
   - title: Detects CVE-2026-77932 Exploitation - Unauthenticated RCE via ReAct Agent
     description: Detects potential RCE attempts against the /api/v1/chat/react-agent endpoint by inspecting for command injection signatures in POST requests.
@@ -68,6 +79,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Vulnerability endpoint identification
+updates:
+  - at: "2026-10-20T02:31:39Z"
+    level: L2
+    summary: added coverage for DB-GPT (<= 0.8.2)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-77933
 ---
 
 DB-GPT versions through 0.8.2 are vulnerable to an unauthenticated remote code execution (RCE) flaw originating from an insecure implementation of the `get_user_from_headers` function. This function serves as a mock authentication mechanism, incorrectly assigning the "admin" role to every incoming request regardless of provided headers. 
