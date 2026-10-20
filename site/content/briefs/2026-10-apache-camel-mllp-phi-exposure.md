@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-apache-camel-mllp-phi-exposure
+event_id: brief-2026-10-apache-camel-mllp-phi-exposure
+revision: 1
+activity_at: "2026-10-20T10:32:40Z"
 title: 'Apache Camel: Information disclosure of PHI via MLLP log files (CVE-2026-85260)'
 slug: 2026-10-apache-camel-mllp-phi-exposure
 description: CVE-2026-85260 is an information disclosure vulnerability in the Apache Camel MLLP component where sensitive HL7 clinical messages are written to application logs by default, exposing protected health information.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against Apache Security Advisory
 cpes:
   - cpe:2.3:a:apache:camel:*:*:*:*:*:*:*:*
 tags:
@@ -33,6 +47,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-85260
     cvss: 5.5
+    kev_status: unknown
 references:
   - https://camel.apache.org/security/CVE-2026-85260.html
   - https://issues.apache.org/jira/browse/CAMEL-24454
