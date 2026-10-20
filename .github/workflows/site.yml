@@ -1,40 +1,100 @@
 # Build and deploy the public threat-feed site (Hugo + Pagefind) to
-# GitHub Pages at feed.craftedsignal.io. Triggers on any push to main
-# that touches site/ — which includes ti-bot's brief commits via the
-# Contents API.
+# GitHub Pages at feed.craftedsignal.io.
+#
+# ti-bot writes one brief per commit, so deploying on every push creates a
+# backlog of identical full-site builds. Production changes are batched into
+# one deployment every 15 minutes; workflow_dispatch remains the escape hatch
+# for an immediate deploy. Pull requests still build the full site as a check.
 name: Site Deploy
 
 on:
-  push:
+  schedule:
+    # Offset from the top of the hour to avoid GitHub Actions' busiest cron window.
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+  pull_request:
     branches: ["main"]
     paths:
       - "site/**"
       - ".github/workflows/site.yml"
-  workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Serialize, don't cancel. ti-bot pushes one Markdown commit per brief
-# every ~2s; cancelling means no deploy ever runs to completion. Queue
-# them — each build is ~30s and Pages handles concurrent deploys.
+# Keep at most one production build and one build per PR. A new scheduled run
+# represents a newer snapshot of main, so it can safely retire an older build.
+# PR builds use a separate group and can never cancel a production deployment.
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: "site-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'production' }}"
+  cancel-in-progress: true
 
 defaults:
   run:
     working-directory: site
 
 jobs:
-  build:
+  changes:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    permissions:
+      actions: read
+      contents: read
     runs-on: ubuntu-latest
-    # Hugo + Pagefind on ~2000 briefs runs in 2-4 minutes on this
-    # runner. Anything north of 15 minutes is a stuck worker (we hit
-    # one that ran for 4h+ without progress). Fail fast so the next
-    # queued run can claim the slot instead of dying behind a zombie.
+    outputs:
+      site_changed: ${{ steps.diff.outputs.site_changed }}
+      previous_sha: ${{ steps.previous.outputs.sha }}
+    steps:
+      - name: Checkout deployment history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+
+      - name: Find previous successful production run
+        id: previous
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          previous_sha="$(
+            gh api -X GET \
+              "repos/${GITHUB_REPOSITORY}/actions/workflows/site.yml/runs" \
+              -f branch=main \
+              -f status=success \
+              -f per_page=100 \
+              --jq '.workflow_runs[] | select(.event == "schedule" or .event == "workflow_dispatch" or .event == "push") | .head_sha' \
+              | sed -n '1p'
+          )"
+          echo "sha=$previous_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Check for undeployed site changes
+        id: diff
+        env:
+          PREVIOUS_SHA: ${{ steps.previous.outputs.sha }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          # Manual runs are explicitly asking for a fresh deployment even if
+          # the selected commit was deployed already.
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "site_changed=true" >> "$GITHUB_OUTPUT"
+          elif [ -z "$PREVIOUS_SHA" ]; then
+            echo "No previous production run found; building defensively"
+            echo "site_changed=true" >> "$GITHUB_OUTPUT"
+          elif ! git cat-file -e "${PREVIOUS_SHA}^{commit}"; then
+            echo "Previous production commit is unavailable; building defensively"
+            echo "site_changed=true" >> "$GITHUB_OUTPUT"
+          elif ! git merge-base --is-ancestor "$PREVIOUS_SHA" "$CURRENT_SHA"; then
+            echo "Previous production commit is not an ancestor; building defensively"
+            echo "site_changed=true" >> "$GITHUB_OUTPUT"
+          elif git diff --quiet "$PREVIOUS_SHA" "$CURRENT_SHA" -- \
+            site/ .github/workflows/site.yml; then
+            echo "No undeployed site changes"
+            echo "site_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Undeployed site changes found"
+            echo "site_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout
@@ -63,30 +123,70 @@ jobs:
       - name: Copy fonts
         run: make fonts
 
-      # Hugo's processed-asset cache (PostCSS output, fingerprinted
-      # js.Build bundles, font copies under site/resources/_gen).
-      # These only invalidate when a CSS/JS source, the postcss/
-      # tailwind config, the npm dependency set, or hugo.toml changes.
-      # Brief Markdown is intentionally NOT in the key — ti-bot pushes
-      # touch /content/briefs hundreds of times per backfill but the
-      # processed assets they depend on stay identical, so keying on
-      # briefs would burn the cache on every backfill.
       - name: Cache Hugo resources
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
           path: site/resources
-          key: hugo-resources-${{ hashFiles('site/assets/**', 'site/postcss.config.cjs', 'site/tailwind.config.js', 'site/package-lock.json', 'site/hugo.toml') }}
-          restore-keys: |
-            hugo-resources-
+          # Tailwind scans layouts and Markdown too. They must participate in
+          # the exact key; restoring an older CSS transform can omit a class
+          # introduced by new content even when Hugo's direct CSS input did
+          # not change.
+          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('site/assets/**', 'site/layouts/**', 'site/content/**', 'site/postcss.config.cjs', 'site/tailwind.config.js', 'site/package-lock.json', 'site/hugo.toml') }}
 
       - name: Build site
         run: hugo --minify --gc
 
       - name: Build Pagefind index
-        # exclude-selectors strips the brief-card markup from the search
-        # index so each brief is indexed once (from its own page) rather
-        # than N+1 times (every listing that renders a card for it).
-        # Keeps the index smaller and the search faster.
+        run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
+
+  build:
+    needs: changes
+    if: github.ref == 'refs/heads/main' && needs.changes.outputs.site_changed == 'true'
+    permissions:
+      contents: read
+      pages: read
+    runs-on: ubuntu-latest
+    # Hugo + Pagefind on the full feed normally runs in 2-4 minutes. Fail fast
+    # on a stuck worker so a later scheduled snapshot can take over.
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: 'site/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Copy fonts
+        run: make fonts
+
+      - name: Cache Hugo resources
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: site/resources
+          # This exact-only cache includes every Tailwind content source.
+          # Never restore a prior content hash: Hugo does not know that
+          # Tailwind's external source scan invalidates the cached CSS.
+          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('site/assets/**', 'site/layouts/**', 'site/content/**', 'site/postcss.config.cjs', 'site/tailwind.config.js', 'site/package-lock.json', 'site/hugo.toml') }}
+
+      - name: Build site
+        run: hugo --minify --gc
+
+      - name: Build Pagefind index
+        # Excluding rendered brief cards avoids indexing each brief again on
+        # every listing page.
         run: npx pagefind --site public --exclude-selectors '[data-pagefind-ignore], .pagefind-ignore'
 
       - name: Setup Pages
@@ -96,9 +196,14 @@ jobs:
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
         with:
           path: 'site/public'
+          retention-days: 1
 
   deploy:
     needs: build
+    if: github.ref == 'refs/heads/main' && needs.build.result == 'success'
+    permissions:
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -109,41 +214,48 @@ jobs:
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128
 
   notify-subscribers:
-    # Fire-and-forget call to the feed-notifier service so subscribers
-    # whose filters match the new briefs get an email/Slack/Teams ping.
-    # Skipped when the secrets aren't configured (e.g. before the
-    # notifier is deployed).
-    needs: deploy
+    # Notify only after the matching batch is live. The diff starts at the
+    # previous successful production deployment, so a failed/cancelled batch
+    # is retried by the next successful run without losing new briefs.
+    needs: [changes, deploy]
+    if: github.ref == 'refs/heads/main' && needs.deploy.result == 'success'
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     defaults:
       run:
         working-directory: .
     steps:
-      - name: Checkout
+      - name: Checkout deployment history
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          fetch-depth: 2 # need previous commit to diff against
+          fetch-depth: 0
 
-      - name: Find new briefs in this push
+      - name: Find new briefs in this deployment batch
         id: briefs
+        env:
+          PREVIOUS_SHA: ${{ needs.changes.outputs.previous_sha }}
+          CURRENT_SHA: ${{ github.sha }}
         run: |
-          # Only dispatch for newly-ADDED brief files. Modifications
-          # are intentionally skipped — a content rewrite, taxonomy
-          # backfill, or classifier-driven re-render must NOT spam
-          # subscribers. The 1396-brief reclassification commit on
-          # 2026-04-30 sent ~50 emails because --diff-filter was AM.
-          # Update-class notifications (KEV flip, exploited:true, etc.)
-          # come through ti-bot's L3 dispatch path which has its own
-          # cooldown + opt-in gates — see internal/pipeline/notifier_dispatch.go.
-          {
+          : > /tmp/changed.txt
+
+          if [ -z "$PREVIOUS_SHA" ]; then
+            echo "No previous production deployment found; skipping subscriber backfill"
+          elif ! git cat-file -e "${PREVIOUS_SHA}^{commit}"; then
+            echo "Previous deployment commit is unavailable; skipping subscriber backfill"
+          elif ! git merge-base --is-ancestor "$PREVIOUS_SHA" "$CURRENT_SHA"; then
+            echo "Previous deployment is not an ancestor of this deployment; skipping subscriber backfill"
+          else
+            # Only newly added briefs generate new-brief notifications. Brief
+            # modifications use ti-bot's separately deduplicated update path.
             git diff --name-only --diff-filter=A \
-              "${{ github.event.before }}" "${{ github.event.after }}" -- \
-              'site/content/briefs/*.md' || true
-          } > /tmp/changed.txt
-          count=$(wc -l < /tmp/changed.txt | tr -d ' ')
+              "$PREVIOUS_SHA" "$CURRENT_SHA" -- \
+              'site/content/briefs/*.md' > /tmp/changed.txt
+          fi
+
+          count="$(wc -l < /tmp/changed.txt | tr -d ' ')"
           echo "count=$count" >> "$GITHUB_OUTPUT"
-          echo "Newly-added brief files: $count"
+          echo "Newly-added brief files in deployed batch: $count"
 
       - name: Set up Python
         if: steps.briefs.outputs.count != '0'
@@ -168,14 +280,6 @@ jobs:
           NOTIFIER_URL: ${{ secrets.NOTIFIER_URL }}
           NOTIFIER_DISPATCH_TOKEN: ${{ secrets.NOTIFIER_DISPATCH_TOKEN }}
         run: |
-          # Use --url and -- so curl can't interpret a secret URL that
-          # happens to start with "-" as a CLI option. We saw a previous
-          # run fail with `curl: option --/dispatch: is unknown` because
-          # the URL was being treated as a flag.
-          if [ -z "$NOTIFIER_URL" ]; then
-            echo "NOTIFIER_URL is empty — skipping dispatch"
-            exit 0
-          fi
           echo "Notifier URL configured (${#NOTIFIER_URL} chars)"
           curl -fsS --max-time 60 \
             --request POST \
