@@ -164,6 +164,12 @@ jobs:
           index_present=false
           while IFS= read -r -d '' status; do
             IFS= read -r -d '' path
+            if [[ "$status" == D* ]]; then
+              if [[ "$path" == site/static/stix.json || "$path" == site/static/stix/* ]]; then
+                stix_changed=true
+              fi
+              continue
+            fi
             if [[ "$status" == R* ]]; then
               previous="$path"
               IFS= read -r -d '' path
@@ -269,6 +275,12 @@ jobs:
           index_present=false
           while IFS= read -r -d '' status; do
             IFS= read -r -d '' path
+            if [[ "$status" == D* ]]; then
+              if [[ "$path" == site/static/stix.json || "$path" == site/static/stix/* ]]; then
+                stix_changed=true
+              fi
+              continue
+            fi
             if [[ "$status" == R* ]]; then
               previous="$path"
               IFS= read -r -d '' path

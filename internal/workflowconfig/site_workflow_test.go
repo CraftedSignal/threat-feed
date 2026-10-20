@@ -262,6 +262,9 @@ func TestSiteWorkflowValidatesChangedPublicArtifactsAgainstHistoryAndManifest(t 
 					for _, required := range []string{
 						"git diff --find-renames --name-status -z --diff-filter=AMRD",
 						"read -r -d ''",
+						"if [[ \"$status\" == D* ]]; then",
+						"stix_changed=true",
+						"continue",
 						"--previous-path",
 						"go run ./cmd/feedcheck --base-ref",
 						"site/content/briefs/*.md",
