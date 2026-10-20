@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-filefix-phishing
+event_id: brief-2024-01-03-filefix-phishing
+revision: 1
+activity_at: "2024-01-03T18:19:34Z"
 title: Potential Execution via FileFix Phishing Attack
 slug: 2024-01-filefix-phishing
 description: This rule detects potential execution of Windows commands or downloaded files via the browser's dialog box, indicative of a phishing attack where victims are tricked into copying and pasting malicious commands.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - phishing
   - execution
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

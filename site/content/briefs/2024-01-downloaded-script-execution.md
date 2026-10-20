@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-downloaded-script-execution
+event_id: brief-2024-01-09-downloaded-script-execution
+revision: 1
+activity_at: "2024-01-09T15:00:00Z"
 title: Execution of Downloaded Windows Script
 slug: 2024-01-downloaded-script-execution
 description: This rule identifies the creation and execution of a Windows script downloaded from the internet, which adversaries may leverage for initial access and execution by exploiting unusual parent-child process relationships and script attributes.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - execution
   - windows
   - scripting
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

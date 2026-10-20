@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-03-praisonai-auth-bypass
+event_id: brief-2026-04-03-praisonai-auth-bypass
+revision: 1
+activity_at: "2026-04-03T23:17:06Z"
 title: PraisonAI Gateway Unauthenticated Access Vulnerability
 slug: 2026-04-praisonai-auth-bypass
 description: PraisonAI Gateway server versions prior to 4.5.97 allow unauthenticated access to WebSocket connections and agent topology, enabling unauthorized message sending and agent enumeration.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - authentication bypass
@@ -20,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-34952
     cvss: 9.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34952
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-cfh6-vr3j-qc3g

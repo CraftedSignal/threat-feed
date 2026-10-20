@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-web-request-cmdlets
+event_id: brief-2026-09-web-request-cmdlets
+revision: 1
+activity_at: "2026-09-01T12:25:22Z"
 title: Detection of Suspicious Web Request Execution via PowerShell and CLI
 slug: 2026-09-web-request-cmdlets
 description: This brief documents detection logic for identifying potential malicious file downloads and C2 communication using native Windows command-line tools and PowerShell cmdlets.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "5"
+  rating: A5
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - detection-engineering
   - windows

@@ -1,4 +1,17 @@
 ---
+brief_id: brief-2026-05-05-yafnet-xss
+event_id: brief-2026-05-05-yafnet-xss
+revision: 2
+activity_at: "2026-05-05T20:31:36Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T13:19:21Z"
+    checksum: sha256:f361bb321edde1a3a7b5f85aa3b33002969001b8944a1bf92862a428410680f1
+    summary: Repaired a legacy canonical identity collision
+    changed_fields:
+      - event_id
+      - id
+    maintenance: true
 title: YAFNET Unauthenticated Stored XSS via User-Agent Header
 slug: 2024-01-02-yafnet-xss
 description: YAFNET is vulnerable to an unauthenticated stored second-order XSS vulnerability in the admin event log, triggered by a reflected `User-Agent` header, allowing an attacker to execute arbitrary JavaScript in an administrator's session.
@@ -8,6 +21,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - xss
   - web-application
@@ -25,6 +40,9 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
+cves:
+  - id: CVE-2026-43938
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-33gv-fc78-qgf5
 rules:

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-iptime-rce
+event_id: brief-2026-08-iptime-rce
+revision: 1
+activity_at: "2026-08-17T14:54:27Z"
 title: Remote Code Execution in ipTIME A3004T EAD Service
 slug: 2026-08-iptime-rce
 description: The ipTIME A3004T router (firmware 14.19.0) is vulnerable to pre-authentication remote code execution via a flaw in the EAD service, allowing root command injection.
@@ -10,6 +14,15 @@ severities:
   - high
 actors:
   - Paccaron
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "3"
+  rating: B3
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - remote-code-execution
   - router-vulnerability

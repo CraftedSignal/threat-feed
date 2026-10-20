@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-control-panel-abuse
+event_id: brief-2024-01-03-control-panel-abuse
+revision: 1
+activity_at: "2024-01-03T17:22:00Z"
 title: Control Panel Abuse for Defense Evasion and Execution
 slug: 2024-01-control-panel-abuse
 description: Adversaries may abuse the legitimate Windows Control Panel (control.exe) to proxy the execution of malicious code by using unusual arguments such as image file extensions, suspicious paths, or relative path traversal patterns for defense evasion.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - execution
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

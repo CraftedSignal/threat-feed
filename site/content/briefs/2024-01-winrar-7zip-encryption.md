@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-30-winrar-7zip-encryption
+event_id: brief-2024-01-30-winrar-7zip-encryption
+revision: 1
+activity_at: "2024-01-30T12:00:00Z"
 title: WinRAR and 7-Zip Encryption Abuse for Data Exfiltration Preparation
 slug: 2024-01-winrar-7zip-encryption
 description: Adversaries use WinRAR or 7-Zip to create encrypted archives in preparation for data exfiltration, using command-line arguments to enable encryption functionality.
@@ -8,17 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - data-exfiltration
   - archive
   - encryption
   - windows
-vendors:
-  - WinRAR
-  - 7-Zip
-products:
-  - WinRAR
-  - 7-Zip
 mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection

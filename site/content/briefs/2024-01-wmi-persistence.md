@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-wmi-persistence
+event_id: brief-2024-01-09-wmi-persistence
+revision: 1
+activity_at: "2024-01-09T12:00:00Z"
 title: WMI Permanent Event Subscription Abuse for Persistence
 slug: 2024-01-wmi-persistence
 description: Attackers use WMI permanent event subscriptions to execute malicious scripts or binaries for persistence by creating event consumers other than the default NTEventLogEventConsumer.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - persistence
   - wmi
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

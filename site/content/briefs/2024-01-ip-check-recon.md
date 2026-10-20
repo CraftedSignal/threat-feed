@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-ip-check-recon
+event_id: brief-2024-01-03-ip-check-recon
+revision: 1
+activity_at: "2024-01-03T15:00:00Z"
 title: Windows Processes Gathering Network Information via IP Check Web Services
 slug: 2024-01-ip-check-recon
 description: Detection of Windows processes using IP check web services for reconnaissance, a behavior commonly associated with malware like Trickbot, by monitoring DNS queries.
@@ -8,17 +12,15 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - network-reconnaissance
   - malware-behavior
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0001
-    tactic_name: Reconnaissance
+    tactic_name: Initial Access
     technique_id: T1590
     technique_name: Gather Victim Network Information
 references:

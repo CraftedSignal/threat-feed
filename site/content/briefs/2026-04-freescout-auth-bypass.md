@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-22-freescout-auth-bypass
+event_id: brief-2026-04-22-freescout-auth-bypass
+revision: 1
+activity_at: "2026-04-22T12:00:00Z"
 title: FreeScout Incorrect Authorization Vulnerability via Save Draft
 slug: 2026-04-freescout-auth-bypass
 description: FreeScout before 1.8.215 has an incorrect authorization vulnerability where a direct POST request to the `save_draft` AJAX path can create a draft inside a hidden conversation when `APP_SHOW_ONLY_ASSIGNED_CONVERSATIONS` is enabled, potentially allowing unauthorized access or modification of data.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - cve
   - authorization
@@ -20,11 +26,24 @@ mitre_ttps:
 cves:
   - id: CVE-2026-41190
     cvss: 7.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41190
   - https://github.com/freescout-help-desk/freescout/commit/414878eb79be7cb01a3ae124df6efcd23729275f
   - https://github.com/freescout-help-desk/freescout/releases/tag/1.8.215
   - https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-vj2p-2789-3747
+iocs:
+  - type: url
+    value: https://github.com/freescout-help-desk/freescout/commit/414878eb79be7cb01a3ae124df6efcd23729275f
+  - type: url
+    value: https://github.com/freescout-help-desk/freescout/releases/tag/1.8.215
+  - type: url
+    value: https://github.com/freescout-help-desk/freescout/security/advisories/GHSA-vj2p-2789-3747
+  - type: email
+    value: '[email protected]'
+ioc_counts:
+  email: 1
+  url: 3
 rules:
   - title: Detect FreeScout Save Draft Abuse
     description: Detects POST requests to the save_draft endpoint in FreeScout, potentially indicating an attempt to exploit CVE-2026-41190

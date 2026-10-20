@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-papercut-vulnerabilities
+event_id: brief-2026-08-papercut-vulnerabilities
+revision: 1
+activity_at: "2026-08-28T14:28:32Z"
 title: Active Exploitation of PaperCut MF and NG
 slug: 2026-08-papercut-vulnerabilities
 description: PaperCut MF and NG are impacted by two actively exploited vulnerabilities, CVE-2026-82078 and CVE-2026-81578, which allow unauthenticated remote attackers to achieve arbitrary code execution and full system control.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:papercut:papercut_mf:*:*:*:*:*:*:*:*
   - cpe:2.3:a:papercut:papercut_ng:*:*:*:*:*:*:*:*
@@ -37,10 +50,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-82078
     cvss: 9.1
-    epss: 0.00926
+    epss: 0.63532
+    kev_status: unknown
   - id: CVE-2026-81578
     cvss: 9.8
-    epss: 0.00771
+    epss: 0.85169
+    kev_status: unknown
 references:
   - https://www.ncsc.nl/alerts/kwetsbaarheden-in-papercut-mf-en-ng-met-actief-misbruik-update-onmiddellijk
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1095/

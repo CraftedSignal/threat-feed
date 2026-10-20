@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-06-03-openclaw-acp-bypass
+event_id: brief-2026-06-03-openclaw-acp-bypass
+revision: 1
+activity_at: "2026-03-26T21:25:00Z"
 title: OpenClaw ACP Chat Command Injection Vulnerability
 slug: 2026-06-openclaw-acp-bypass
 description: A vulnerability in the openclaw npm package before version 2026.3.22 allowed mutating internal ACP chat commands without requiring operator.admin scope enforcement, potentially allowing unauthorized control-plane actions.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - openclaw
   - acp

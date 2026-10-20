@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-07-pharmacy-sqli
+event_id: brief-2026-05-07-pharmacy-sqli
+revision: 1
+activity_at: "2026-05-07T19:16:02Z"
 title: SourceCodester Pharmacy Sales and Inventory System SQL Injection Vulnerability
 slug: 2026-05-pharmacy-sqli
 description: A remote SQL injection vulnerability exists in SourceCodester Pharmacy Sales and Inventory System 1.0 via manipulation of the ID argument in the /ajax.php?action=save_user file, potentially allowing attackers to execute arbitrary SQL queries.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sql-injection
   - web-application
@@ -20,10 +26,11 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
 cves:
   - id: CVE-2026-8083
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8083
   - https://github.com/zhi-cyber/cve-2/issues/1

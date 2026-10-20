@@ -112,13 +112,14 @@ type briefRevision struct {
 	Summary       string   `yaml:"summary"`
 	ChangedFields []string `yaml:"changed_fields"`
 	SourceURLs    []string `yaml:"source_urls"`
+	Maintenance   bool     `yaml:"maintenance"`
 }
 
 var (
 	frontMatterDelimiter = []byte("---")
 	cvePattern           = regexp.MustCompile(`(?i)\bCVE-[0-9]{4}-[0-9]{4,}\b`)
 	checksumPattern      = regexp.MustCompile(`^sha256:[0-9a-f]{64}$`)
-	activeHTMLPattern    = regexp.MustCompile(`(?is)<\s*(script|iframe|object|embed|form|meta|base|link)\b|<[^>]+\son[a-z]+\s*=`)
+	activeHTMLPattern    = regexp.MustCompile(`(?is)<\s*(script|iframe|object|embed|form|meta|base|link)\b|<\s*[a-z][^>]*\son[a-z]+\s*=`)
 	fencedCodePattern    = regexp.MustCompile("(?s)```.*?```")
 	inlineCodePattern    = regexp.MustCompile("`[^`\n]*`")
 	stixMillisPattern    = regexp.MustCompile(`^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z$`)
@@ -253,10 +254,28 @@ func CheckBriefAppendOnly(path string, previous, current []byte) []Issue {
 	}
 	beforeActivity, beforeErr := time.Parse(time.RFC3339, before.ActivityAt)
 	afterActivity, afterErr := time.Parse(time.RFC3339, after.ActivityAt)
-	if before.Revision >= 1 && beforeErr == nil && afterErr == nil && !afterActivity.After(beforeActivity) {
-		issues = append(issues, issue(path, "activity_at", "brief.append_only", "a changed brief must advance activity_at"))
+	if before.Revision >= 1 && beforeErr == nil && afterErr == nil {
+		if appendedRevisionsAreMaintenance(before, after) {
+			if !afterActivity.Equal(beforeActivity) {
+				issues = append(issues, issue(path, "activity_at", "brief.append_only", "a maintenance-only revision must preserve activity_at"))
+			}
+		} else if !afterActivity.After(beforeActivity) {
+			issues = append(issues, issue(path, "activity_at", "brief.append_only", "a material change must advance activity_at"))
+		}
 	}
 	return sorted(issues)
+}
+
+func appendedRevisionsAreMaintenance(before, after briefDocument) bool {
+	if len(after.RevisionHistory) <= len(before.RevisionHistory) {
+		return false
+	}
+	for _, revision := range after.RevisionHistory[len(before.RevisionHistory):] {
+		if !revision.Maintenance {
+			return false
+		}
+	}
+	return true
 }
 
 func checkAllowedMapFields(path, field string, values map[string]interface{}, allowed map[string]bool) []Issue {
@@ -347,6 +366,9 @@ func checkActivityAt(path string, brief briefDocument) []Issue {
 	}
 	expected := publishedAt
 	for _, revision := range brief.RevisionHistory {
+		if revision.Maintenance {
+			continue
+		}
 		revisedAt, err := time.Parse(time.RFC3339, revision.At)
 		if err == nil && revisedAt.After(expected) {
 			expected = revisedAt

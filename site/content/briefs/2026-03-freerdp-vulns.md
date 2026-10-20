@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-24-freerdp-vulns
+event_id: brief-2026-03-24-freerdp-vulns
+revision: 1
+activity_at: "2026-03-24T10:17:27Z"
 title: Multiple Vulnerabilities in FreeRDP Allow for DoS and Potential Code Execution
 slug: 2026-03-freerdp-vulns
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in FreeRDP to cause a denial of service or potentially execute arbitrary program code.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - freerdp
   - rdp
@@ -16,7 +22,7 @@ tags:
   - code-execution
 mitre_ttps:
   - tactic_id: TA0005
-    tactic_name: Execution
+    tactic_name: Defense Evasion
     technique_id: T1203
     technique_name: Exploitation for Client Execution
   - tactic_id: TA0040

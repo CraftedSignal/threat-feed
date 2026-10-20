@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-msbuild-system-process
+event_id: brief-2024-01-02-msbuild-system-process
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: MSBuild Started by System Process
 slug: 2024-01-msbuild-system-process
 description: Detects instances of MSBuild, the Microsoft Build Engine, started by Explorer or the WMI (Windows Management Instrumentation) subsystem, which is unusual and often used by malicious payloads to evade defenses.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - execution
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

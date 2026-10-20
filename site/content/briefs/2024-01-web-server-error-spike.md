@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-23-web-server-error-spike
+event_id: brief-2024-01-23-web-server-error-spike
+revision: 1
+activity_at: "2024-01-23T12:00:00Z"
 title: Web Server Error Response Spike Indicating Reconnaissance
 slug: 2024-01-web-server-error-spike
 description: An unusual spike in web server error codes (500, 502, 503, 504) may indicate reconnaissance activities like vulnerability scanning or fuzzing, where attackers probe for weaknesses, potentially leading to exploitation of server-side issues.
@@ -8,22 +12,13 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - web-server
   - reconnaissance
   - vulnerability-scanning
   - fuzzing
-vendors:
-  - Nginx
-  - Apache
-  - Microsoft
-  - Traefik
-products:
-  - Nginx
-  - Apache HTTP Server
-  - Apache Tomcat
-  - IIS
-  - Traefik
 mitre_ttps:
   - tactic_id: TA0043
     tactic_name: Reconnaissance

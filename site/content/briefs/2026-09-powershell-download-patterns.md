@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-03-powershell-download-patterns
+event_id: brief-2026-09-03-powershell-download-patterns
+revision: 1
+activity_at: "2026-09-03T12:41:32Z"
 title: Suspicious PowerShell Download and Execution Patterns
 slug: 2026-09-powershell-download-patterns
 description: Adversaries frequently leverage specific PowerShell cmdlets to download and execute malicious payloads, a common technique observed in stagers and ransomware deployment campaigns.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source documentation verified.
 tags:
   - windows
   - powershell

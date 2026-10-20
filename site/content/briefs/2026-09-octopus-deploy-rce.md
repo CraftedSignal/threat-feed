@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-29-octopus-deploy-rce
+event_id: brief-2026-09-29-octopus-deploy-rce
+revision: 1
+activity_at: "2026-09-29T16:18:53Z"
 title: Remote Code Execution Vulnerability in Octopus Deploy
 slug: 2026-09-octopus-deploy-rce
 description: An unauthenticated remote code execution vulnerability, tracked as CVE-2024-52317, exists in Octopus Deploy due to improper input validation.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "3"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Validated against provided source metadata
 cpes:
   - cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   - cpe:2.3:a:apache:tomcat:11.0.0:*:*:*:*:*:*:*
@@ -19,6 +33,7 @@ cves:
   - id: CVE-2024-52317
     cvss: 6.5
     epss: 0.02097
+    kev_status: unknown
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3615
 action_plan:

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-09-09-vscode-tunnel
+event_id: brief-2024-09-09-vscode-tunnel
+revision: 1
+activity_at: "2024-09-09T00:00:00Z"
 title: Detection of Suspicious VScode Remote Tunnel Usage
 slug: 2024-09-vscode-tunnel
 description: This brief details the detection of potential command and control activity through the suspicious use of the VScode remote tunnel feature, which allows attackers to establish unauthorized remote access to systems.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - command-and-control
   - vscode
   - remote-access
   - windows
-vendors:
-  - Microsoft
-products:
-  - Visual Studio Code
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control

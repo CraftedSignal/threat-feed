@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-28-charlotte-ai
+event_id: brief-2026-03-28-charlotte-ai
+revision: 1
+activity_at: "2026-03-28T09:13:21Z"
 title: CrowdStrike Charlotte AI AgentWorks for Agentic SOC Transformation
 slug: 2026-03-charlotte-ai
 description: CrowdStrike's Charlotte AI AgentWorks facilitates the development and deployment of AI-driven security agents within the SOC, aiming to enhance analyst capabilities through automated and orchestrated responses to threats.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - agentic-soc
   - ai-security

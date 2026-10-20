@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-lsass-process-access
+event_id: brief-2024-01-03-lsass-process-access
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: LSASS Process Access via Windows API
 slug: 2024-01-lsass-process-access
 description: Detects suspicious access to the LSASS process via Windows API calls, potentially indicating credential dumping and subsequent lateral movement.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - credential-access
   - lsass
   - windows
   - process-access
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access

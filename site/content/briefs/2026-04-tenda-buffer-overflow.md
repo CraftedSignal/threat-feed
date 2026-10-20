@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-26-tenda-buffer-overflow
+event_id: brief-2026-04-26-tenda-buffer-overflow
+revision: 1
+activity_at: "2026-04-26T11:16:06Z"
 title: Tenda F456 Router Buffer Overflow Vulnerability
 slug: 2026-04-tenda-buffer-overflow
 description: A buffer overflow vulnerability in Tenda F456 router version 1.0.0.5 allows a remote attacker to execute arbitrary code by exploiting the fromSafeClientFilter function in the /goform/SafeClientFilter endpoint through manipulation of the 'menufacturer/Go' argument.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - buffer-overflow
   - remote-code-execution
@@ -25,6 +31,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7033
     cvss: 8.8
+    epss: 0.01009
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7033
   - https://github.com/Litengzheng/vuldb_new/blob/main/F456/vul_123/README.md

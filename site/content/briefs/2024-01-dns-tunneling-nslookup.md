@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-dns-tunneling-nslookup
+event_id: brief-2024-01-03-dns-tunneling-nslookup
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Potential DNS Tunneling via NsLookup
 slug: 2024-01-dns-tunneling-nslookup
 description: Detection of multiple nslookup.exe executions with explicit query types from a single host, potentially indicating command and control activity via DNS tunneling, where attackers abuse DNS for data infiltration or exfiltration.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - dns-tunneling
   - command-and-control

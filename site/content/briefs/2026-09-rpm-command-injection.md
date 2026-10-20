@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-24-rpm-command-injection
+event_id: brief-2026-09-24-rpm-command-injection
+revision: 1
+activity_at: "2026-09-24T14:47:26Z"
 title: Command Injection in RPM Package Manager
 slug: 2026-09-rpm-command-injection
 description: A command injection vulnerability (CVE-2026-95521) in the rpm package manager allows arbitrary command execution when processing maliciously crafted source RPM files containing %() macro constructs.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: needs_environment_validation
 cpes:
   - cpe:2.3:a:rpm:rpm:*:*:*:*:*:*:*:*
 tags:
@@ -28,6 +42,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-95521
     cvss: 7.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-95521
 action_plan:

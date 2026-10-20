@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-24-forge-ed25519-forgery
+event_id: brief-2026-09-24-forge-ed25519-forgery
+revision: 1
+activity_at: "2026-03-26T22:08:55Z"
 title: Forge Ed25519 Signature Forgery Vulnerability
 slug: 2026-09-forge-ed25519-forgery
 description: Forge is vulnerable to signature forgery in Ed25519 due to a missing check that S < L, allowing non-canonical signatures and potentially bypassing authentication/authorization logic, affecting versions before 1.4.0.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ed25519
   - signature-forgery
@@ -17,7 +23,14 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1553
-    technique_name: Subvert Trust Relationships
+    technique_name: Subvert Trust Controls
+cves:
+  - id: CVE-2026-33895
+    kev_status: unknown
+  - id: CVE-2026-25793
+    kev_status: unknown
+  - id: CVE-2022-35961
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-q67f-28xg-22rw
   - https://datatracker.ietf.org/doc/html/rfc8032#section-8.4

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-grav-cms-rce
+event_id: brief-2026-08-grav-cms-rce
+revision: 1
+activity_at: "2026-08-14T14:12:10Z"
 title: Remote Code Execution in Grav CMS Flex Objects Plugin
 slug: 2026-08-grav-cms-rce
 description: Authenticated users can achieve remote code execution in Grav CMS versions prior to 2.0.13 by exploiting improper input validation in the Flex Objects plugin to upload and execute arbitrary PHP files.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - web-application-vulnerability
   - rce
@@ -52,7 +65,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: Attackers ... can invoke the error_log function through a data directive to append PHP payloads to web-accessible files, achieving remote code execution.
     confidence_band: high
   - tactic_id: TA0006
@@ -64,6 +77,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-72819
     cvss: 8.8
+    kev_status: unknown
+  - id: CVE-2026-75827
+    kev_status: unknown
+  - id: CVE-2026-72827
+    kev_status: unknown
+  - id: CVE-2026-75837
+    kev_status: unknown
+  - id: CVE-2026-75828
+    kev_status: unknown
+  - id: CVE-2026-56709
+    kev_status: unknown
+  - id: CVE-2026-76846
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72819
   - https://github.com/getgrav/grav/security/advisories/GHSA-r94f-hx44-8jqf

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-totolink-rce
+event_id: brief-2026-05-totolink-rce
+revision: 1
+activity_at: "2026-05-31T15:18:40Z"
 title: Totolink N300RH Stack-Based Buffer Overflow Vulnerability (CVE-2026-10187)
 slug: 2026-05-totolink-rce
 description: A stack-based buffer overflow vulnerability, CVE-2026-10187, exists in the setWiFiBasicConfig function of the wireless.so file in the Web Management Interface of Totolink N300RH version 6.1c.1353_B20190305, allowing a remote attacker to execute arbitrary code by manipulating the KeyStr argument.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - stack-buffer-overflow
   - remote-code-execution
@@ -24,6 +30,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-10187
     cvss: 9.8
+    epss: 0.07336
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10187
   - https://vuldb.com/cve/CVE-2026-10187

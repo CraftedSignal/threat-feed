@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-github-branch-protection-disabled
+event_id: brief-2024-01-03-github-branch-protection-disabled
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: GitHub Classic Branch Protection Rule Disabled
 slug: 2024-01-github-branch-protection-disabled
 description: Detection of classic branch protection rules being disabled in GitHub Organizations, potentially indicating an attempt to bypass security controls and inject malicious code.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - github
   - branch_protection
   - defense_evasion
   - code_tampering
-vendors:
-  - GitHub
-products:
-  - GitHub
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-esxi-lockdown-disabled
+event_id: brief-2024-01-03-esxi-lockdown-disabled
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: ESXi Lockdown Mode Disabled
 slug: 2024-01-esxi-lockdown-disabled
 description: Detection of ESXi Lockdown Mode being disabled, potentially indicating attacker attempts to weaken host security controls for broader access, data exfiltration, or VM tampering.
@@ -8,16 +12,14 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - esxi
   - vmware
   - lockdown mode
   - defense evasion
   - t1562
-vendors:
-  - VMware
-products:
-  - ESXi
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

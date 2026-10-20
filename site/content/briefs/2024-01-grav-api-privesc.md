@@ -1,4 +1,17 @@
 ---
+brief_id: brief-2026-05-06-grav-api-privesc
+event_id: brief-2026-05-06-grav-api-privesc
+revision: 2
+activity_at: "2026-05-06T21:19:21Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T13:19:21Z"
+    checksum: sha256:bcf6d0b1c3e5685b0eea683bdbfcfe5b5e9a1fcc9601edd1e65fa74adb93bf83
+    summary: Repaired a legacy canonical identity collision
+    changed_fields:
+      - event_id
+      - id
+    maintenance: true
 title: Grav CMS API Blueprint Upload Privilege Escalation
 slug: 2024-01-grav-api-privesc
 description: A low-privileged authenticated API user with `api.media.write` can abuse `/api/v1/blueprint-upload` in Grav CMS to write an arbitrary YAML file into `user/accounts/`, enabling creation of a super-admin account and leading to full administrative compromise of the Grav API.
@@ -8,6 +21,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - gravcms
   - privilege-escalation

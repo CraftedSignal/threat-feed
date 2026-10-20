@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-26-lsass-memory-dump
+event_id: brief-2024-01-26-lsass-memory-dump
+revision: 1
+activity_at: "2024-01-26T12:00:00Z"
 title: LSASS Memory Dump Creation Detection
 slug: 2024-01-lsass-memory-dump
 description: This rule detects the creation of LSASS memory dumps, which may indicate a credential access attempt via tools like Task Manager, SQL Dumper, Dumpert, and AndrewSpecial.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - credential-access
   - lsass
   - memory-dump
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-remote-execution-file-shares
+event_id: brief-2024-01-02-remote-execution-file-shares
+revision: 1
+activity_at: "2024-01-02T10:00:00Z"
 title: Remote Execution via File Shares
 slug: 2024-01-remote-execution-file-shares
 description: This rule identifies potential lateral movement via network file shares by detecting the execution of a file that was created by the virtual system process.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - lateral-movement
   - file-share
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0008
     tactic_name: Lateral Movement

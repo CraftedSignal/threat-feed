@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-postgresql-vulns
+event_id: brief-2026-05-postgresql-vulns
+revision: 1
+activity_at: "2026-05-15T12:24:33Z"
 title: Multiple Vulnerabilities in PostgreSQL Allow for Remote Code Execution and Data Breach
 slug: 2026-05-postgresql-vulns
 description: Multiple vulnerabilities in PostgreSQL versions 14.x, 15.x, 16.x, 17.x and 18.x could allow for arbitrary code execution, remote denial of service, and data breach, potentially leading to complete system compromise.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - postgresql
   - vulnerability
@@ -26,7 +32,7 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059
@@ -40,22 +46,40 @@ mitre_ttps:
     technique_id: T1082
     technique_name: System Information Discovery
   - tactic_id: TA0009
-    tactic_name: Impact
+    tactic_name: Collection
     technique_id: T1499
     technique_name: Endpoint Denial of Service
   - tactic_id: TA0010
-    tactic_name: Evasion
+    tactic_name: Exfiltration
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
 cves:
   - id: CVE-2026-6472
     cvss: 5.4
+    kev_status: unknown
   - id: CVE-2026-6479
     cvss: 7.5
+    kev_status: unknown
   - id: CVE-2026-6637
     cvss: 8.8
+    kev_status: unknown
   - id: CVE-2026-6638
     cvss: 3.7
+    kev_status: unknown
+  - id: CVE-2026-6473
+    kev_status: unknown
+  - id: CVE-2026-6474
+    kev_status: unknown
+  - id: CVE-2026-6475
+    kev_status: unknown
+  - id: CVE-2026-6476
+    kev_status: unknown
+  - id: CVE-2026-6477
+    kev_status: unknown
+  - id: CVE-2026-6478
+    kev_status: unknown
+  - id: CVE-2026-6575
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0595/
   - https://www.postgresql.org/about/news/postgresql-184-1710-1614-1518-and-1423-released-3297/

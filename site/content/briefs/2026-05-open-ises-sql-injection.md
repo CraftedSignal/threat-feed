@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-21-open-ises-sql-injection
+event_id: brief-2026-05-21-open-ises-sql-injection
+revision: 1
+activity_at: "2026-05-21T18:20:46Z"
 title: Open ISES Tickets SQL Injection Vulnerability (CVE-2026-48240)
 slug: 2026-05-open-ises-sql-injection
 description: Open ISES Tickets before version 3.44.2 is vulnerable to SQL injection in ajax/statistics.php via the tick_id and f_tick_id POST parameters, allowing authenticated attackers to manipulate SQL queries and potentially read, modify, or destroy database contents.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sql-injection
   - cve-2026-48240
@@ -20,17 +26,18 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
 cves:
   - id: CVE-2026-48240
     cvss: 7.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48240
   - https://github.com/openises/tickets/commit/ecfeb406a016766cae81c749e14b5145a9f2dbff
   - https://github.com/openises/tickets/releases/tag/v3.44.2
   - https://www.vulncheck.com/advisories/open-ises-tickets-sql-injection-via-ajax-statistics-php-tick-id-and-f-tick-id-parameters
 rules:
-  - title: Detects CVE-2026-48240 Exploitation - Open ISES Tickets SQL Injection Attempt
+  - title: Detects CVE-2026-48240 Exploitation — Open ISES Tickets SQL Injection Attempt
     description: Detects CVE-2026-48240 exploitation attempt in Open ISES Tickets by identifying suspicious POST requests to ajax/statistics.php with SQL injection payloads in tick_id or f_tick_id parameters.
     platform: sigma
     severity: high
@@ -40,7 +47,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-48240 Exploitation - Open ISES Tickets SQL Injection Error Responses
+  - title: Detects CVE-2026-48240 Exploitation — Open ISES Tickets SQL Injection Error Responses
     description: Detects CVE-2026-48240 exploitation attempt in Open ISES Tickets based on web server error responses following a SQL injection attempt to ajax/statistics.php.
     platform: sigma
     severity: medium

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-aws-ecr-container-scanning
+event_id: brief-2024-01-02-aws-ecr-container-scanning
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: AWS ECR Container Scanning Findings Placeholder
 slug: 2024-01-aws-ecr-container-scanning
 description: This is a placeholder brief due to the provided text being a GitHub navigation page, indicating no specific threat or attack details are available, and therefore serves as a template for future threat intelligence extraction related to AWS ECR container scanning.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - cloud
   - aws
   - ecr
   - container-security
-vendors:
-  - AWS
-products:
-  - Elastic Container Registry
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

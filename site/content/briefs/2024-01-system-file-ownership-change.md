@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-system-file-ownership-change
+event_id: brief-2024-01-03-system-file-ownership-change
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Windows System File Ownership Change via Takeown or Icacls
 slug: 2024-01-system-file-ownership-change
 description: Adversaries may modify file or directory ownership to evade access control lists (ACLs) and access protected files by using takeown.exe or icacls.exe to grant excessive permissions to system files.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - persistence
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

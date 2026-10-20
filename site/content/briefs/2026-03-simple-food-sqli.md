@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-28-simple-food-sqli
+event_id: brief-2026-03-28-simple-food-sqli
+revision: 1
+activity_at: "2026-03-28T23:16:44Z"
 title: SQL Injection Vulnerability in Simple Food Order System 1.0
 slug: 2026-03-simple-food-sqli
 description: A SQL injection vulnerability exists in code-projects Simple Food Order System 1.0 within the register-router.php file, where manipulation of the Name argument can lead to remote code execution.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sql-injection
   - web-application
@@ -17,6 +23,9 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-5018
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5018
   - https://vuldb.com/vuln/353903

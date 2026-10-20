@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-25-trivy-supply-chain
+event_id: brief-2026-03-25-trivy-supply-chain
+revision: 1
+activity_at: "2026-03-25T12:00:00Z"
 title: Trivy Ecosystem Supply Chain Compromise
 slug: 2026-03-trivy-supply-chain
 description: A threat actor compromised the Trivy ecosystem supply chain by publishing malicious releases of Trivy binaries, container images, and GitHub Actions to steal credentials, with observed impacts including exfiltration to attacker-controlled infrastructure and public repositories.
@@ -9,6 +13,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - supply-chain
   - github-actions

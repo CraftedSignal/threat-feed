@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-26-netty-dos
+event_id: brief-2026-09-26-netty-dos
+revision: 1
+activity_at: "2026-09-26T15:06:56Z"
 title: Denial-of-Service Vulnerability in Netty io.netty:netty-codec-http
 slug: 2026-09-netty-dos
 description: A memory exhaustion vulnerability in Netty's SpdySessionHandler allows remote attackers to trigger JVM OutOfMemoryErrors via unbounded concurrent SPDY stream allocation.
@@ -9,6 +13,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source validated; requires environmental patch deployment
 cpes:
   - cpe:2.3:a:netty:netty:*:*:*:*:*:*:*:*
 tags:
@@ -23,6 +37,9 @@ products:
 cves:
   - id: CVE-2026-100655
     cvss: 7.5
+    kev_status: unknown
+  - id: CVE-2026-100666
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100655
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100666

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-system-shells-via-services
+event_id: brief-2024-01-03-system-shells-via-services
+revision: 1
+activity_at: "2024-01-03T15:00:00Z"
 title: System Shells Launched via Windows Services
 slug: 2024-01-system-shells-via-services
 description: Attackers may configure existing Windows services or create new ones to execute system shells (cmd.exe, powershell.exe) to elevate privileges from administrator to SYSTEM for persistence and further malicious activity.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - persistence
   - execution
   - windows
   - privilege-escalation
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

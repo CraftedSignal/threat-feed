@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-gitlab-vulnerabilities
+event_id: brief-2026-08-gitlab-vulnerabilities
+revision: 1
+activity_at: "2026-08-13T17:56:12Z"
 title: Multiple Vulnerabilities in GitLab Enterprise and Community Edition
 slug: 2026-08-gitlab-vulnerabilities
 description: GitLab has released updates for multiple vulnerabilities in Enterprise and Community Edition versions 12.0 through 19.2.2, including CVE-2026-15216 and CVE-2026-15217, which risk privilege escalation, unauthorized data access, XSS, and service disruption.
@@ -8,6 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "2"
+  rating: A2
+  likelihood: roughly even chance
 vendors:
   - GitLab
 products:
@@ -17,9 +28,11 @@ cves:
   - id: CVE-2026-15216
     cvss: 8.7
     epss: 0.0026
+    kev_status: unknown
   - id: CVE-2026-15217
     cvss: 8.7
     epss: 0.0026
+    kev_status: unknown
 references:
   - https://www.ncsc.nl/alerts/meerdere-kwetsbaarheden-in-gitlab-enterprise-en-community-edition
 ---

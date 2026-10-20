@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-tenda-f456-buffer-overflow
+event_id: brief-2024-01-02-tenda-f456-buffer-overflow
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Tenda F456 Remote Buffer Overflow Vulnerability
 slug: 2024-01-tenda-f456-buffer-overflow
 description: A remote buffer overflow vulnerability exists in Tenda F456 version 1.0.0.5 via manipulation of the 'page' argument in the fromDhcpListClient function of the /goform/DhcpListClient component, potentially leading to arbitrary code execution.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - cve-2026-7098
   - buffer-overflow
@@ -24,6 +30,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7098
     cvss: 8.8
+    epss: 0.01009
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7098
 rules:

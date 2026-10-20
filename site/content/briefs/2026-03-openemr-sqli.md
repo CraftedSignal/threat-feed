@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-26-openemr-sqli
+event_id: brief-2026-03-26-openemr-sqli
+revision: 1
+activity_at: "2026-03-26T12:00:00Z"
 title: OpenEMR SQL Injection Vulnerability (CVE-2026-33910)
 slug: 2026-03-openemr-sqli
 description: OpenEMR versions up to 8.0.0.2 are vulnerable to SQL injection in the patient selection feature, which can be exploited by authenticated attackers due to insufficient input validation, potentially leading to unauthorized data access and modification.
@@ -9,6 +13,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:open-emr:openemr:*:*:*:*:*:*:*:*
 tags:
@@ -33,6 +39,9 @@ mitre_ttps:
     tactic_name: Credential Access
     technique_id: T1505
     technique_name: Server Software Component
+cves:
+  - id: CVE-2026-33910
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-33910
   - https://github.com/openemr/openemr/commit/73db3264aed253684532839380cae3b0a56c83d2

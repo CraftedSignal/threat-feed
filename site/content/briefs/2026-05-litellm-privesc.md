@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-25-litellm-privesc
+event_id: brief-2026-05-25-litellm-privesc
+revision: 1
+activity_at: "2026-05-25T19:14:24Z"
 title: LiteLLM Multiple Vulnerabilities Allow Privilege Escalation
 slug: 2026-05-litellm-privesc
 description: A remote, authenticated attacker can exploit multiple vulnerabilities in LiteLLM to escalate their privileges.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - privilege-escalation
   - vulnerability

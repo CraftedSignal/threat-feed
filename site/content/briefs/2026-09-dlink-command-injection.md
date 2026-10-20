@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-15-dlink-command-injection
+event_id: brief-2026-09-15-dlink-command-injection
+revision: 1
+activity_at: "2026-09-15T05:38:59Z"
 title: Remote Command Injection in D-Link DSL-3782
 slug: 2026-09-dlink-command-injection
 description: An unauthenticated remote command injection vulnerability in the D-Link DSL-3782 router allows attackers to execute arbitrary system commands via the Diagnostics component.
@@ -8,6 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "2"
+  rating: A2
+  likelihood: roughly even chance
 cpes:
   - cpe:2.3:h:dlink:dsl-3782:2016-07-28:*:*:*:*:*:*:*
 tags:
@@ -21,6 +32,8 @@ products:
 cves:
   - id: CVE-2026-90880
     cvss: 7.4
+    epss: 0.01044
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90880
 ---

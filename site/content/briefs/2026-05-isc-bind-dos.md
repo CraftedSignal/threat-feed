@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-21-isc-bind-dos
+event_id: brief-2026-05-21-isc-bind-dos
+revision: 1
+activity_at: "2026-05-21T10:58:10Z"
 title: Internet Systems Consortium BIND Multiple Vulnerabilities Lead to DoS
 slug: 2026-05-isc-bind-dos
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in Internet Systems Consortium BIND to trigger memory corruption or cause a denial-of-service condition.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - dns
   - denial-of-service
@@ -20,7 +26,7 @@ mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1498
-    technique_name: Denial of Service
+    technique_name: Network Denial of Service
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1626
 rules:

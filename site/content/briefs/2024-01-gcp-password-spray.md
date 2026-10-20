@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-gcp-password-spray
+event_id: brief-2024-01-02-gcp-password-spray
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: GCP Password Spraying Detection
 slug: 2024-01-gcp-password-spray
 description: A single source IP is failing to authenticate into Google Workspace with multiple valid users, potentially indicating a Password Spraying attack.
@@ -8,19 +12,17 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - gcp
   - password-spraying
   - cloud
-vendors:
-  - Google
-products:
-  - Google Workspace
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1110
-    technique_name: Use Legitimate Credentials
+    technique_name: Brute Force
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1586

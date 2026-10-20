@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-28-openclaw-symlink
+event_id: brief-2026-04-28-openclaw-symlink
+revision: 1
+activity_at: "2026-04-28T00:16:25Z"
 title: OpenClaw Symlink Vulnerability in SSH Sandbox Tar Upload (CVE-2026-41364)
 slug: 2026-04-openclaw-symlink
 description: OpenClaw before 2026.3.31 contains a symlink following vulnerability in SSH sandbox tar upload that allows remote attackers to write arbitrary files by uploading a malicious tar archive containing symlinks, leading to arbitrary file write on the remote host.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - symlink
   - file-write
@@ -24,6 +30,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-41364
     cvss: 8.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41364
   - https://github.com/openclaw/openclaw/commit/3d5af14984ac1976c747a8e11581d697bd0829dc

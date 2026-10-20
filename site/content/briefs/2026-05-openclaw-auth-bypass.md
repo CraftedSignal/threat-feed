@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-11-openclaw-auth-bypass
+event_id: brief-2026-05-11-openclaw-auth-bypass
+revision: 1
+activity_at: "2026-05-11T18:21:45Z"
 title: OpenClaw Improper Authentication Vulnerability (CVE-2026-8305)
 slug: 2026-05-openclaw-auth-bypass
 description: OpenClaw versions up to 2026.1.24 are vulnerable to improper authentication in the handleBlueBubblesWebhookRequest function, allowing remote exploitation and requiring an upgrade to version 2026.2.12 or application of patch a6653be0265f1f02b9de46c06f52ea7c81a836e6 to remediate CVE-2026-8305.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cve-2026-8305
   - authentication-bypass
@@ -18,15 +24,17 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
 cves:
   - id: CVE-2026-8305
     cvss: 7.3
+    epss: 0.01113
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8305
 rules:
-  - title: Detects CVE-2026-8305 Exploitation Attempt - OpenClaw BlueBubbles Webhook Authentication Bypass
-    description: Detects CVE-2026-8305 exploitation attempt - Monitors web server logs for requests targeting the handleBlueBubblesWebhookRequest endpoint, potentially indicating an authentication bypass attempt.
+  - title: Detects CVE-2026-8305 Exploitation Attempt — OpenClaw BlueBubbles Webhook Authentication Bypass
+    description: Detects CVE-2026-8305 exploitation attempt — Monitors web server logs for requests targeting the handleBlueBubblesWebhookRequest endpoint, potentially indicating an authentication bypass attempt.
     platform: sigma
     severity: high
     tactics:

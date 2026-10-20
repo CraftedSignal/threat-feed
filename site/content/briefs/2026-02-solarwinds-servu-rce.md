@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-02-26-solarwinds-servu-rce
+event_id: brief-2026-02-26-solarwinds-servu-rce
+revision: 1
+activity_at: "2026-02-26T12:00:00Z"
 title: Critical Vulnerabilities in SolarWinds Serv-U Allow Remote Code Execution
 slug: 2026-02-solarwinds-servu-rce
 description: Multiple critical vulnerabilities in SolarWinds Serv-U MFT and FTP Server allow remote code execution, potentially leading to system compromise.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - solarwinds
   - serv-u
@@ -23,9 +29,18 @@ mitre_ttps:
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0006
-    tactic_name: Execution
+    tactic_name: Credential Access
     technique_id: T1059.001
-    technique_name: 'Command and Scripting Interpreter: PowerShell'
+    technique_name: PowerShell
+cves:
+  - id: CVE-2025-40538
+    kev_status: unknown
+  - id: CVE-2025-40539
+    kev_status: unknown
+  - id: CVE-2025-40540
+    kev_status: unknown
+  - id: CVE-2025-40541
+    kev_status: unknown
 references:
   - https://ccb.belgium.be/advisories/warning-critical-vulnerabilities-solarwinds-serv-u-servers-can-be-exploited-remote-code
   - https://documentation.solarwinds.com/en/success_center/servu/content/release_notes/servu_15-5-4_release_notes.htm

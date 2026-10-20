@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-22-solarwinds-rce
+event_id: brief-2026-09-22-solarwinds-rce
+revision: 1
+activity_at: "2026-09-22T20:40:02Z"
 title: Unauthenticated Remote Code Execution in SolarWinds Observability Self-Hosted
 slug: 2026-09-solarwinds-rce
 description: SolarWinds Observability Self-Hosted is vulnerable to unauthenticated remote code execution via insecure deserialization, allowing remote attackers to execute arbitrary code.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source documentation sufficient for severity assessment
 cpes:
   - cpe:2.3:a:solarwinds:observability_self-hosted:*:*:*:*:*:*:*:*
 tags:
@@ -28,12 +42,14 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1555
-    technique_name: Insecure Deserialization
+    technique_name: Credentials from Password Stores
     evidence: The flaw originates from the insecure deserialization of untrusted data processed by the application.
     confidence_band: high
 cves:
   - id: CVE-2026-28325
     cvss: 8.8
+    epss: 0.01518
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-28325
 action_plan:

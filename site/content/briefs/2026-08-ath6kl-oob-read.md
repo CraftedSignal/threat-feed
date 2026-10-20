@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-ath6kl-oob-read
+event_id: brief-2026-08-ath6kl-oob-read
+revision: 1
+activity_at: "2026-08-11T09:55:48Z"
 title: Out-of-Bounds Read Vulnerability in ath6kl Wi-Fi Driver
 slug: 2026-08-ath6kl-oob-read
 description: CVE-2026-68352 involves an out-of-bounds read vulnerability in the ath6kl Wi-Fi driver, potentially allowing local information disclosure or system instability via malicious firmware Information Element lengths.
@@ -9,12 +13,25 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: roughly even chance
+qa_status:
+  verdict: pass
+  validation_status: Source verified against MSRC disclosure.
 products:
   - ath6kl
 affected_os:
   - Linux
 cves:
   - id: CVE-2026-68352
+    kev_status: unknown
+  - id: CVE-2026-68199
+    kev_status: unknown
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68352
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-68199

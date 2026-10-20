@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-aws-key-creation-no-mfa
+event_id: brief-2024-01-02-aws-key-creation-no-mfa
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: AWS IAM Key Creation with Encryption Policy but Without MFA
 slug: 2024-01-aws-key-creation-no-mfa
 description: Detection of AWS IAM users creating access keys with encryption policies applied while failing to use multi-factor authentication, potentially indicating compromised accounts or malicious privilege escalation.
@@ -8,16 +12,14 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - aws
   - iam
   - access_key
   - encryption
   - mfa
-vendors:
-  - AWS
-products:
-  - Identity and Access Management
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation

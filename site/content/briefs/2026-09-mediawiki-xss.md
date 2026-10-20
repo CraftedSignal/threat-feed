@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-25-mediawiki-xss
+event_id: brief-2026-09-25-mediawiki-xss
+revision: 1
+activity_at: "2026-09-25T14:01:12Z"
 title: Cross-Site Scripting Vulnerability in MediaWiki CirrusSearch Extension
 slug: 2026-09-mediawiki-xss
 description: A vulnerability in the CirrusSearch extension for MediaWiki allows remote, unauthenticated attackers to execute cross-site scripting (XSS) attacks through improper input sanitization.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against provided source.
 tags:
   - xss
   - web-vulnerability

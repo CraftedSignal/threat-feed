@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-01-utt-hiper-buffer-overflow
+event_id: brief-2026-05-01-utt-hiper-buffer-overflow
+revision: 1
+activity_at: "2026-05-01T00:16:25Z"
 title: UTT HiPER 1200GW Buffer Overflow Vulnerability
 slug: 2026-05-utt-hiper-buffer-overflow
 description: A buffer overflow vulnerability exists in UTT HiPER 1200GW devices up to version 2.5.3-170306, stemming from manipulation of the `strcpy` function in the `/goform/formRemoteControl` file, which allows remote attackers to execute arbitrary code.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - buffer-overflow
   - iot
@@ -25,6 +31,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7513
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7513
   - https://github.com/kirlic123/IOTvulner/blob/main/4035/4/4.md

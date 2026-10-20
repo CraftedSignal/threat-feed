@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-24-redis-parser-dos
+event_id: brief-2026-09-24-redis-parser-dos
+revision: 1
+activity_at: "2026-09-24T14:47:33Z"
 title: Denial of Service Vulnerability in redis-parser via RESP Protocol
 slug: 2026-09-redis-parser-dos
 description: The redis-parser library up to version 3.0.0 fails to validate multi-bulk length values in the RESP protocol, allowing an attacker-controlled Redis endpoint to trigger an unhandled RangeError and crash the Node.js application process.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:redis-parser_project:redis-parser:*:*:*:*:*:node.js:*:*
 tags:
@@ -19,6 +32,7 @@ products:
 cves:
   - id: CVE-2026-97057
     cvss: 7.5
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-97057
 action_plan:

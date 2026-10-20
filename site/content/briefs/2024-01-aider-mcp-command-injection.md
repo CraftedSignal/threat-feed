@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-aider-mcp-command-injection
+event_id: brief-2024-01-03-aider-mcp-command-injection
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Aider-MCP Command Injection Vulnerability (CVE-2026-7316)
 slug: 2024-01-aider-mcp-command-injection
 description: A command injection vulnerability (CVE-2026-7316) exists in eiliyaabedini aider-mcp, allowing remote attackers to execute arbitrary commands by manipulating the working_dir/editable_files argument in the aider_mcp.py file.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - command-injection
   - vulnerability
@@ -22,7 +28,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7316
     cvss: 7.3
-    epss: 0.01039
+    epss: 0.02177
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7316
 rules:

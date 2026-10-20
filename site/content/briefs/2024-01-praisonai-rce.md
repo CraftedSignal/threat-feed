@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-23-praisonai-rce
+event_id: brief-2024-01-23-praisonai-rce
+revision: 1
+activity_at: "2024-01-23T12:00:00Z"
 title: PraisonAI Arbitrary Code Execution via Malicious tools.py Import
 slug: 2024-01-praisonai-rce
 description: PraisonAI versions 4.5.138 and earlier are vulnerable to arbitrary code execution due to the automatic import and execution of a `tools.py` file from the current working directory, allowing attackers to execute arbitrary Python code.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - praisonai
   - rce
   - python
-vendors:
-  - PraisonAI
-products:
-  - PraisonAI
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

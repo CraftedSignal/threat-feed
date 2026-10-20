@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-04-grav-rce
+event_id: brief-2026-09-04-grav-rce
+revision: 1
+activity_at: "2026-09-04T13:25:58Z"
 title: Remote Code Execution in Grav via Twig sort filter
 slug: 2026-09-grav-rce
 description: Grav versions 2.0.17 and earlier contain a remote code execution vulnerability in the Twig sort filter that allows authenticated users with page-write permissions to execute arbitrary PHP code.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:getgrav:grav:*:*:*:*:*:*:*:*
 tags:
@@ -22,12 +35,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: An authenticated user with only page-write rights can supply a crafted payload that invokes spl_autoload through the sort filter, resulting in arbitrary PHP execution.
     confidence_band: high
 cves:
   - id: CVE-2026-85604
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85604
 action_plan:

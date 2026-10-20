@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-15-maltrail-iocs
+event_id: brief-2026-03-15-maltrail-iocs
+revision: 1
+activity_at: "2026-03-15T21:00:08Z"
 title: Maltrail IOC Feed Update for Multiple Threats
 slug: 2026-03-maltrail-iocs
 description: This brief summarizes IOCs extracted from the Maltrail feed on March 15, 2026, covering domains and URLs associated with threats targeting macOS and Android platforms, including OSX_Atomic, FakeApp, Android_Joker, Lummack2, APT_Sidewinder, APT_Kimsuky, and Hak5Cloud_C2.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - maltrail
   - ioc
@@ -38,7 +44,7 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1070
-    technique_name: Indicator Removal on Host
+    technique_name: Indicator Removal
 references:
   - https://www.circl.lu/doc/misp/feed-osint/878f5b33-0fcf-4191-8295-4bcddeb6437a.json
   - https://api.github.com/repos/stamparm/maltrail/commits/a3681b0b82849e400e3b2ffd5b30608abf1bb7f1
@@ -52,6 +58,8 @@ references:
   - https://api.github.com/repos/stamparm/maltrail/commits/fd7a3895e500e82b02c6b97f9de338c598120ad8
   - https://api.github.com/repos/stamparm/maltrail/commits/8273ebec7b56bffd4c5c44eb7b22e7f5021fdd39
 iocs:
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/a3681b0b82849e400e3b2ffd5b30608abf1bb7f1
   - type: domain
     value: appsformacs.com
   - type: domain
@@ -98,42 +106,61 @@ iocs:
     value: torrents4mac.com
   - type: domain
     value: vrsmm.com
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/b681d4bce01b9723fab2ce0ea10133353f943434
   - type: domain
     value: adhushapp-razvd.com
   - type: domain
     value: aiassistant.sbs
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/2065e8ab6f15b8cdeeb24a07fab8d849fc9e6935
   - type: domain
     value: snapplix-cttt.tech
   - type: domain
     value: stealthwall-cttf.tech
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/75f0bd1595532bf7fafcf9cfcc1caf4b1e6b4267
   - type: domain
     value: frude.biz
   - type: domain
     value: semer.bond
   - type: domain
     value: zagat.cyou
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/fcf8b4ecf7b8aed41bb22bfe41fe52ea3c076f40
   - type: domain
     value: police-center.vg
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/ce05d11717590e58ed4f2ff73759262c90789426
   - type: domain
     value: chromium-report-tech-331as-2s1-tcd-h143.redticker-ctfff.tech
   - type: domain
     value: chromium-report-tech-331as-2s1-tcd-h143.webplix-cctf.tech
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/83fd2c39f154b193baaf1753656a598bbbf276b9
   - type: domain
     value: onev.online
   - type: domain
     value: visa.nadra.gov-pk.info
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/23476cd55bd5a2e74485e8bd710c9b9b4cdfcfc5
   - type: domain
     value: naver.liferod.com
   - type: domain
     value: nid.naver.liferod.com
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/fd7a3895e500e82b02c6b97f9de338c598120ad8
   - type: domain
     value: c2.socops.net
+  - type: url
+    value: https://api.github.com/repos/stamparm/maltrail/commits/8273ebec7b56bffd4c5c44eb7b22e7f5021fdd39
   - type: domain
     value: join86s.dynv6.net
   - type: domain
     value: nid-naverxil.onthewifi.com
 ioc_counts:
   domain: 40
+  url: 10
 rules:
   - title: Detect Network Connection to Hak5Cloud C2 Domain
     description: Detects network connections to the Hak5Cloud command and control domain.

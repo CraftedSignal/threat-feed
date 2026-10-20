@@ -103,6 +103,24 @@ func TestCheckBriefAppendOnlyAcceptsOneNewMaterialRevision(t *testing.T) {
 	}
 }
 
+func TestCheckBriefAcceptsMaintenanceRevisionWithoutAdvancingActivity(t *testing.T) {
+	maintenance := strings.Replace(validBrief, "revision: 2\n", "revision: 3\n", 1)
+	maintenance = strings.Replace(maintenance, "---\n\nCVE", "  - revision: 3\n    at: \"2026-10-21T08:00:00Z\"\n    checksum: sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n    summary: Repaired a legacy identity collision.\n    changed_fields: [slug]\n    maintenance: true\n---\n\nCVE", 1)
+	if issues := CheckBrief("brief.md", []byte(maintenance)); len(issues) != 0 {
+		t.Fatalf("maintenance revision failed current-document validation: %#v", issues)
+	}
+	if issues := CheckBriefAppendOnly("brief.md", []byte(validBrief), []byte(maintenance)); len(issues) != 0 {
+		t.Fatalf("maintenance revision failed append-only validation: %#v", issues)
+	}
+}
+
+func TestCheckBriefDoesNotTreatComparisonTextAsActiveHTML(t *testing.T) {
+	text := validBrief + "\nVersions <= 3.2.5 may expose an onerror= payload before a later > marker.\n"
+	if issues := CheckBrief("brief.md", []byte(text)); strings.Contains(issueCodes(issues), "brief.active_html") {
+		t.Fatalf("comparison text was treated as active HTML: %#v", issues)
+	}
+}
+
 func TestCheckBriefAppendOnlyRejectsIdentityAndHistoryRewrites(t *testing.T) {
 	previous := strings.Replace(validBrief, "revision: 2\nactivity_at: \"2026-10-20T08:00:00Z\"", "revision: 3\nactivity_at: \"2026-10-20T09:00:00Z\"", 1)
 	previous = strings.Replace(previous, "---\n\nCVE", "  - revision: 3\n    at: \"2026-10-20T09:00:00Z\"\n    checksum: sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\n    summary: Updated affected versions.\n    changed_fields: [affected_versions]\n    source_urls: [https://example.com/advisory]\n---\n\nCVE", 1)

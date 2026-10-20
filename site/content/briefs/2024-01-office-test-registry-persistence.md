@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-30-office-test-registry-persistence
+event_id: brief-2024-01-30-office-test-registry-persistence
+revision: 1
+activity_at: "2024-01-30T10:00:00Z"
 title: Office Test Registry Persistence for Malicious DLL Execution
 slug: 2024-01-office-test-registry-persistence
 description: Attackers can modify the Microsoft Office 'Office Test' Registry key to establish persistence by loading a malicious DLL that executes every time an MS Office application starts.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - persistence
   - registry modification
   - office test
-vendors:
-  - Microsoft
-products:
-  - Microsoft Office
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

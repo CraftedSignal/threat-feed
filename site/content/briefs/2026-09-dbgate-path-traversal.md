@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-28-dbgate-path-traversal
+event_id: brief-2026-09-28-dbgate-path-traversal
+revision: 1
+activity_at: "2026-09-28T14:14:49Z"
 title: CVE-2026-101066 Path Traversal in Dbgate
 slug: 2026-09-dbgate-path-traversal
 description: Dbgate versions up to 7.3.1 contain a path traversal vulnerability in the archive link creation component, allowing remote unauthenticated attackers to access arbitrary files on the filesystem via the linkedFolder parameter.
@@ -9,6 +13,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Needs environment validation for path traversal patterns
 cpes:
   - cpe:2.3:a:dbgate:dbgate:*:*:*:*:*:*:*:*
 vendors:
@@ -32,6 +46,9 @@ mitre_ttps:
 cves:
   - id: CVE-2026-101066
     cvss: 7.3
+    kev_status: unknown
+  - id: CVE-2026-101067
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101066
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101067

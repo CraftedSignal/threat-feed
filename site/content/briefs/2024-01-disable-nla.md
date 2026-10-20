@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-25-disable-nla
+event_id: brief-2024-01-25-disable-nla
+revision: 1
+activity_at: "2024-01-25T18:23:00Z"
 title: Network-Level Authentication (NLA) Disabled via Registry Modification
 slug: 2024-01-disable-nla
 description: Detection of attempts to disable Network-Level Authentication (NLA) by modifying the registry on Windows systems, potentially enabling persistence methods and unauthorized access.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - lateral-movement
   - windows
   - registry-modification
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

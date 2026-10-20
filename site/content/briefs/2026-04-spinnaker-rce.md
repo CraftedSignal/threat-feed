@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-22-spinnaker-rce
+event_id: brief-2026-04-22-spinnaker-rce
+revision: 1
+activity_at: "2026-04-22T14:46:46Z"
 title: Critical RCE Vulnerabilities in Spinnaker
 slug: 2026-04-spinnaker-rce
 description: Critical vulnerabilities CVE-2026-32613 and CVE-2026-32604 in Spinnaker allow authenticated attackers to execute arbitrary code due to insufficient input validation in expression parsing and gitrepo artifact handling, potentially leading to complete system compromise.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - rce
   - vulnerability
@@ -20,14 +26,16 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1202
-    technique_name: Command and Scripting Interpreter
+    technique_name: Indirect Command Execution
 cves:
   - id: CVE-2026-32613
     cvss: 9.9
     epss: 0.00057
+    kev_status: unknown
   - id: CVE-2026-32604
     cvss: 9.9
     epss: 0.00082
+    kev_status: unknown
 references:
   - https://ccb.belgium.be/advisories/warning-critical-cve-2026-32613-cve-2026-32604-spinnaker-patch-immediately
   - https://github.com/spinnaker/spinnaker/security/advisories/GHSA-x3j7-7pgj-h87r

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-gpresult-discovery
+event_id: brief-2024-01-03-gpresult-discovery
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Group Policy Discovery via GPResult Utility
 slug: 2024-01-gpresult-discovery
 description: This rule detects the execution of gpresult.exe with specific arguments to query group policy objects, potentially indicating reconnaissance activity by attackers aiming to understand the Active Directory environment for privilege escalation or lateral movement.
@@ -8,16 +12,13 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - discovery
   - windows
   - gpresult
   - active-directory
-vendors:
-  - Microsoft
-products:
-  - Windows
-  - Active Directory
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery

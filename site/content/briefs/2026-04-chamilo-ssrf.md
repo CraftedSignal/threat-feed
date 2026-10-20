@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-11-chamilo-ssrf
+event_id: brief-2026-04-11-chamilo-ssrf
+revision: 1
+activity_at: "2026-04-11T12:00:00Z"
 title: Chamilo LMS SSRF Vulnerability in Social Wall Feature
 slug: 2026-04-chamilo-ssrf
 description: A Server-Side Request Forgery (SSRF) vulnerability exists in Chamilo LMS versions prior to 1.11.38 and 2.0.0-RC.3, allowing authenticated attackers to make arbitrary HTTP requests, scan internal ports, and access cloud instance metadata via the Social Wall feature.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - chamilo
   - ssrf
@@ -21,6 +27,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-31941
     cvss: 7.7
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-31941
 rules:

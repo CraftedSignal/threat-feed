@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-29-cnapp-risk-prioritization-v2
+event_id: brief-2026-03-29-cnapp-risk-prioritization-v2
+revision: 1
+activity_at: "2026-03-29T06:52:03Z"
 title: CrowdStrike CNAPP Adds Adversary-Informed Risk Prioritization
 slug: 2026-04-cnapp-risk-prioritization
 description: CrowdStrike's CNAPP enhancements prioritize cloud risks based on adversary behavior, application context, and configuration change tracking to reduce breach likelihood.
@@ -20,6 +24,8 @@ actors:
   - Roasted 0ktapus
   - Muddled Libra
   - Star Fraud
+exploitation_evidence:
+  status: unknown
 tags:
   - cnapp
   - cloud-security
@@ -28,7 +34,7 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1556
-    technique_name: Credentials from Password Stores
+    technique_name: Modify Authentication Process
 references:
   - https://www.crowdstrike.com/en-us/blog/crowdstrike-advances-cnapp-with-industry-first-adversary-informed-risk-prioritization/
 rules:

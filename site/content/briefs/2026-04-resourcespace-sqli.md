@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-05-resourcespace-sqli
+event_id: brief-2026-04-05-resourcespace-sqli
+revision: 1
+activity_at: "2026-04-05T21:16:43Z"
 title: ResourceSpace 8.6 SQL Injection Vulnerability
 slug: 2026-04-resourcespace-sqli
 description: ResourceSpace 8.6 is vulnerable to SQL injection, allowing unauthenticated attackers to execute arbitrary SQL queries via the 'ref' parameter in GET requests to the watched_searches.php endpoint, leading to sensitive data extraction.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sqli
   - cve-2019-25662
@@ -20,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2019-25662
     cvss: 8.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2019-25662
   - https://www.exploit-db.com/exploits/46308

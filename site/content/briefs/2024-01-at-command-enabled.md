@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-26-at-command-enabled
+event_id: brief-2024-01-26-at-command-enabled
+revision: 1
+activity_at: "2024-01-26T12:00:00Z"
 title: Windows Scheduled Tasks AT Command Enabled via Registry Modification
 slug: 2024-01-at-command-enabled
 description: Attackers may enable the deprecated Windows scheduled tasks AT command via registry modification to achieve local persistence or lateral movement on a compromised system.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense_evasion
   - execution
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

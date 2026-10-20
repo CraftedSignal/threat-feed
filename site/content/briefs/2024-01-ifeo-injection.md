@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-ifeo-injection
+event_id: brief-2024-01-02-ifeo-injection
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Image File Execution Options (IFEO) Injection for Persistence and Defense Evasion
 slug: 2024-01-ifeo-injection
 description: Adversaries abuse Image File Execution Options (IFEO) in the Windows Registry by modifying Debugger or MonitorProcess keys to intercept legitimate file executions, enabling persistence and defense evasion.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - persistence
   - defense-evasion
   - registry
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-06-openclaw-ssrf
+event_id: brief-2026-05-06-openclaw-ssrf
+revision: 1
+activity_at: "2026-05-06T20:16:35Z"
 title: OpenClaw SSRF Vulnerability in Zalo Plugin (CVE-2026-44116)
 slug: 2026-05-openclaw-ssrf
 description: OpenClaw before 2026.4.22 is vulnerable to server-side request forgery (SSRF) due to improper validation of outbound photo URLs in the Zalo plugin's sendPhoto function, allowing attackers to potentially access internal resources by providing malicious photo URLs to the Zalo Bot API.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ssrf
   - cve-2026-44116
@@ -26,6 +32,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-44116
     cvss: 8.6
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-44116
   - https://github.com/openclaw/openclaw/commit/a65eb1b864b7630c1242a82de9e5799b80583c3f

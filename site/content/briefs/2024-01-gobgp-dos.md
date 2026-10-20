@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-gobgp-dos
+event_id: brief-2024-01-09-gobgp-dos
+revision: 1
+activity_at: "2024-01-09T18:00:00Z"
 title: GoBGP Remote Denial of Service via Malformed BGP Update Message
 slug: 2024-01-gobgp-dos
 description: GoBGP version 4.4.0 is vulnerable to a remote denial-of-service attack where a malformed BGP UPDATE message triggers a nil pointer dereference, crashing the GoBGP process.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - bgp
   - denial-of-service
@@ -20,7 +26,10 @@ mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1498
-    technique_name: Denial of Service
+    technique_name: Network Denial of Service
+cves:
+  - id: CVE-2026-42285
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-p3w2-64xm-833j
 rules:

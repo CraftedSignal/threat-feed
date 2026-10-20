@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-compiled-html-execution
+event_id: brief-2024-01-02-compiled-html-execution
+revision: 1
+activity_at: "2024-01-02T14:21:00Z"
 title: Execution via Compiled HTML File
 slug: 2024-01-compiled-html-execution
 description: Adversaries may abuse compiled HTML files (.chm) to execute malicious code by proxying execution via hh.exe, often leading to command execution via scripting interpreters.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - compiled-html
   - execution
   - defense-evasion
   - windows
-vendors:
-  - Microsoft
-products:
-  - HTML Help system
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

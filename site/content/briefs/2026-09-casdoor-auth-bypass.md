@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-15-casdoor-auth-bypass
+event_id: brief-2026-09-15-casdoor-auth-bypass
+revision: 1
+activity_at: "2026-09-15T13:40:35Z"
 title: Authorization Bypass Vulnerability in Casdoor /api/mcp Endpoint
 slug: 2026-09-casdoor-auth-bypass
 description: Casdoor versions through 4.4.0 contain an authorization bypass vulnerability (CVE-2026-91998) in the /api/mcp endpoint, allowing authenticated attackers to perform unauthorized administrative actions across all organizations.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "5"
+  rating: A5
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:casdoor:casdoor:*:*:*:*:*:*:*:*
 has_poc: true
@@ -21,6 +34,7 @@ products:
 cves:
   - id: CVE-2026-91998
     cvss: 9.9
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-91998
   - https://sploitus.com/exploit?id=CVE-2026-91998&utm_source=rss&utm_medium=rss
@@ -61,7 +75,7 @@ updates:
       - https://sploitus.com/exploit?id=CVE-2026-91998&utm_source=rss&utm_medium=rss
 ---
 
-Casdoor versions up to and including 4.4.0 are affected by a severe authorization bypass vulnerability (CVE-2026-91998) located within the /api/mcp endpoint. This vulnerability allows an attacker who possesses valid credentials (clientId and clientSecret) for any single application registered within the Casdoor instance to gain elevated administrative privileges. 
+Casdoor versions up to and including 4.4.0 are affected by a severe authorization bypass vulnerability (CVE-2026-91998) located within the /api/mcp endpoint. This vulnerability allows an attacker who possesses valid credentials (clientId and clientSecret) for any single application registered within the Casdoor instance to gain elevated administrative privileges.
 
 By exploiting this flaw, an attacker can bypass scope restrictions and access administrative functions across all organizations managed by the Casdoor instance. This includes the ability to enumerate sensitive user records, such as email addresses and password salts, as well as the capability to create, modify, or delete administrator accounts. Because this exploit allows for arbitrary account manipulation, it poses a significant risk to the integrity of identity management systems using Casdoor. Defenders should prioritize patching or restricting access to the affected endpoint until an update is applied.
 

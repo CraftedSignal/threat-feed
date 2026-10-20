@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-iis-http-logging-disabled
+event_id: brief-2024-01-02-iis-http-logging-disabled
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: IIS HTTP Logging Disabled
 slug: 2024-01-iis-http-logging-disabled
 description: An attacker with IIS server access can disable HTTP Logging using appcmd.exe with the /dontLog parameter as an anti-forensics measure.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - windows
   - iis
-vendors:
-  - Microsoft
-products:
-  - IIS
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-24-siyuan-path-traversal
+event_id: brief-2026-04-24-siyuan-path-traversal
+revision: 1
+activity_at: "2026-04-22T20:55:31Z"
 title: SiYuan Path Traversal via Double URL Encoding in `/export/` Endpoint
 slug: 2026-04-siyuan-path-traversal
 description: SiYuan is vulnerable to path traversal via double URL encoding in the `/export/` endpoint, bypassing an incomplete fix for CVE-2026-30869; an authenticated attacker can exploit this vulnerability to traverse directories and read arbitrary workspace files, including the SQLite database (`siyuan.db`), kernel log, and user documents due to a redundant `url.PathUnescape()` call in `serveExport()`.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - path-traversal
   - web-application
@@ -25,12 +31,12 @@ cves:
   - id: CVE-2026-30869
     cvss: 9.3
     epss: 0.00677
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-hjh7-r5w8-5872
 iocs:
   - type: url
     value: https://github.com/user-attachments/files/26866234/poc.zip
-    context: Proof-of-concept exploit code
 ioc_counts:
   url: 1
 rules:

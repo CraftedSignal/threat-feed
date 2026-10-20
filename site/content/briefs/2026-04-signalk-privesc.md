@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-04-signalk-privesc
+event_id: brief-2026-04-04-signalk-privesc
+revision: 1
+activity_at: "2026-04-04T12:00:00Z"
 title: Signal K Server Privilege Escalation via Unprotected /enableSecurity Endpoint
 slug: 2026-04-signalk-privesc
 description: The Signal K server is vulnerable to privilege escalation due to the /skServer/enableSecurity endpoint remaining active after initial setup, allowing unauthenticated users to inject a new admin account and gain full server control; this affects versions prior to 2.24.0-beta.4.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - privilege-escalation
   - web-application
@@ -21,6 +27,7 @@ cves:
   - id: CVE-2026-33950
     cvss: 9.4
     epss: 0.00049
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-x8hc-fqv3-7gwf
 rules:

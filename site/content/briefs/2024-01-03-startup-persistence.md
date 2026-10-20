@@ -1,0 +1,87 @@
+---
+brief_id: brief-2024-01-03-startup-persistence
+event_id: brief-2024-01-03-startup-persistence
+revision: 2
+activity_at: "2024-01-03T12:00:00Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T13:19:21Z"
+    checksum: sha256:00c1702f497021e8822fe11c5b1838b2999a0dedc321581bf1cd32c466677afa
+    summary: Repaired a legacy canonical identity collision
+    changed_fields:
+      - slug
+    maintenance: true
+title: Windows Startup Folder Persistence
+slug: 2024-01-03-startup-persistence
+description: Adversaries use the Windows Startup folder to establish persistence by creating malicious files that execute automatically upon system boot or user logon.
+date: "2024-01-03T12:00:00Z"
+type: threat
+types:
+  - threat
+severities:
+  - high
+actors:
+  - Multiple
+exploitation_evidence:
+  status: unknown
+tags:
+  - persistence
+  - windows
+  - startup-folder
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1547
+    technique_name: Boot or Logon Autostart Execution
+references:
+  - https://attack.mitre.org/techniques/T1547/001/
+  - https://www.fortinet.com/blog/threat-research/chaos-ransomware-variant-sides-with-russia
+rules:
+  - title: Detect File Creation in Startup Folder
+    description: Detects file creation events in the Windows Startup folder using Sysmon Event ID 11, which is a common persistence technique.
+    platform: sigma
+    severity: high
+    tactics:
+      - persistence
+    techniques:
+      - T1547.001
+    data_sources:
+      - file_event
+      - windows
+  - title: Detect Script Creation in Startup Folder
+    description: Detects creation of script files (e.g., .bat, .ps1, .vbs) in the Windows Startup folder, which could indicate malicious persistence attempts.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1547.001
+    data_sources:
+      - file_event
+      - windows
+rules_count: 2
+---
+
+Attackers commonly abuse the Windows Startup folder as a persistence mechanism. By placing executable files, scripts, or shortcuts within this directory, they can ensure that their malicious code runs automatically whenever a user logs in or the system boots. This technique allows adversaries to maintain a foothold on compromised systems, enabling them to execute arbitrary commands, deploy malware, or steal sensitive information. This activity is significant because it bypasses traditional security measures that focus on initial infection vectors, instead relying on a legitimate system functionality to achieve persistence. The analytic leverages the Endpoint.Filesystem data model to identify file creation events in this specific directory. Several malware families, including XWorm, Chaos Ransomware, NjRAT, Crypto Stealer, Gozi Malware, Quasar RAT, RedLine Stealer, Interlock Ransomware, APT37 Rustonotto and FadeStealer, PromptFlux, and BlankGrabber Stealer, are known to utilize this technique.
+
+## Attack Chain
+
+1. Initial access is gained through various means, such as exploiting vulnerabilities, using compromised credentials, or social engineering.
+2. The attacker identifies the location of the Startup folder, typically `%AppData%\Microsoft\Windows\Start Menu\Programs\Startup` or `%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup`.
+3. A malicious executable, script (e.g., PowerShell, VBScript), or shortcut file is created in the Startup folder.
+4. The attacker may use techniques to hide or obfuscate the malicious file, such as using a misleading name or disguising it as a legitimate system file.
+5. Upon system boot or user logon, the operating system automatically executes the file placed in the Startup folder.
+6. The malicious code executes, potentially downloading and installing additional malware, establishing a command and control (C2) connection, or performing other malicious activities.
+7. The attacker maintains persistent access to the compromised system, allowing them to remotely control the system, steal data, or perform other malicious actions.
+8. The attacker can deploy ransomware or exfiltrate sensitive information.
+
+## Impact
+
+Successful exploitation allows attackers to maintain long-term access to compromised systems, even after reboots. This persistence enables them to conduct a variety of malicious activities, including data theft, ransomware deployment, and lateral movement within the network. This impacts confidentiality, integrity, and availability. Organizations across various sectors are vulnerable to this technique, especially those with lax security practices or outdated systems.
+
+## Recommendation
+
+*   Enable Sysmon EventID 11 logging to monitor file creation events on endpoints, allowing the rules below to function correctly.
+*   Deploy the Sigma rules in this brief to your SIEM to detect suspicious file creation activity in the Windows Startup folder and tune for your environment.
+*   Investigate any alerts generated by the Sigma rules, focusing on identifying the processes responsible for creating files in the Startup folder.
+*   Monitor the MITRE ATT&CK technique T1547.001 (Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder) to stay informed about new threats and detection methods.

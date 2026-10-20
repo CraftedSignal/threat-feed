@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-wuauclt-dll-load
+event_id: brief-2024-01-02-wuauclt-dll-load
+revision: 1
+activity_at: "2024-01-02T10:00:00Z"
 title: Windows Update Client DLL Loading Abuse
 slug: 2024-01-wuauclt-dll-load
 description: Adversaries abuse the Windows Update Auto Update Client (wuauclt.exe) to load arbitrary DLLs from user-writable locations, achieving defense evasion and execution of malicious code.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - execution
   - lolbas
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

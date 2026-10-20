@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-ads-file-creation
+event_id: brief-2024-01-03-ads-file-creation
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Suspicious Alternate Data Stream (ADS) File Creation
 slug: 2024-01-ads-file-creation
 description: The rule identifies the suspicious creation of Alternate Data Streams (ADS) on targeted files using a script or command interpreter, a technique used by adversaries to hide malicious files and evade detection.
@@ -8,16 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - alternate-data-stream
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
-  - Windows Command Prompt
-  - PowerShell
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-15-truebooker-ato
+event_id: brief-2026-08-15-truebooker-ato
+revision: 1
+activity_at: "2026-08-15T10:17:59Z"
 title: Account Takeover in TrueBooker WordPress Plugin via Unauthenticated AJAX
 slug: 2026-08-truebooker-ato
 description: The TrueBooker WordPress plugin contains an unauthenticated account takeover vulnerability (CVE-2026-16142) allowing attackers to modify arbitrary user email addresses and facilitate account hijacking.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
 vendors:
   - WordPress
 products:
@@ -22,12 +35,13 @@ mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1078.002
-    technique_name: 'Valid Accounts: Domain Accounts'
+    technique_name: Domain Accounts
     evidence: An attacker can then use the native WordPress password reset flow... and take over the account.
     confidence_band: high
 cves:
   - id: CVE-2026-16142
     cvss: 9.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-16142
 rules:

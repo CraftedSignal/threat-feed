@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-10-tenda-rce
+event_id: brief-2026-04-10-tenda-rce
+revision: 1
+activity_at: "2026-04-10T00:16:36Z"
 title: Tenda F451 Router Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-rce
 description: A stack-based buffer overflow vulnerability in the Tenda F451 router (version 1.0.0.7) allows remote attackers to execute arbitrary code by manipulating the 'page' argument in the fromRouteStatic function of the /goform/RouteStatic file.
@@ -8,7 +12,8 @@ types:
   - threat
 severities:
   - critical
-exploited: true
+exploitation_evidence:
+  status: unknown
 tags:
   - tenda
   - router
@@ -20,7 +25,7 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
   - tactic_id: TA0006
-    tactic_name: Privilege Escalation
+    tactic_name: Credential Access
     technique_id: T1068
     technique_name: Exploitation for Privilege Escalation
   - tactic_id: TA0002
@@ -30,6 +35,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-5989
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5989
   - https://github.com/Jimi-Lab/cve/issues/5

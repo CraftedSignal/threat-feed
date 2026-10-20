@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-better-auth-scim-auth-bypass
+event_id: brief-2026-08-better-auth-scim-auth-bypass
+revision: 1
+activity_at: "2026-08-01T13:54:41Z"
 title: Authorization Bypass Vulnerability in better-auth SCIM
 slug: 2026-08-better-auth-scim-auth-bypass
 description: An authorization bypass vulnerability in better-auth SCIM (CVE-2026-67331) allows authenticated users to manage and manipulate SCIM providers belonging to other users due to missing owner-binding checks.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cve-2026-67331
   - authorization-bypass
@@ -27,13 +33,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-67331
     cvss: 8.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67331
   - https://github.com/better-auth/better-auth/security/advisories/GHSA-j8v8-g9cx-5qf4
   - https://www.vulncheck.com/advisories/better-auth-scim-before-beta-4-authorization-bypass
 ---
 
-The better-auth SCIM package (versions 1.5.0 through 1.6.x) contains a critical authorization flaw tracked as CVE-2026-67331. The vulnerability stems from the application's failure to properly bind non-organization SCIM providers to the specific user account that created them. By default, the system assumes global accessibility for these provider objects, which results in an insecure direct object reference (IDOR) or similar authorization bypass condition. 
+The better-auth SCIM package (versions 1.5.0 through 1.6.x) contains a critical authorization flaw tracked as CVE-2026-67331. The vulnerability stems from the application's failure to properly bind non-organization SCIM providers to the specific user account that created them. By default, the system assumes global accessibility for these provider objects, which results in an insecure direct object reference (IDOR) or similar authorization bypass condition.
 
 This issue allows any authenticated user within the application to perform administrative actions on SCIM providers owned by other users. The impact is significant, as an attacker can list, modify, or delete existing providers, invalidate legitimate SCIM bearer tokens, and generate new tokens under the context of the victim's provider configuration. This effectively permits an attacker to perform account takeover or unauthorized data synchronization by intercepting or manipulating SCIM API traffic. Organizations using affected versions are advised to upgrade to 1.7.0-beta.4 or later immediately.
 

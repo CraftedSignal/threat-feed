@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-gitpython-injection
+event_id: brief-2026-08-gitpython-injection
+revision: 1
+activity_at: "2026-08-01T13:52:49Z"
 title: Command Injection Vulnerability in GitPython
 slug: 2026-08-gitpython-injection
 description: GitPython versions prior to 3.1.51 are vulnerable to command injection because the library's security blocklist fails to account for Git command-line option abbreviation, allowing attackers to execute arbitrary commands.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - command-injection
@@ -26,6 +32,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-67325
     cvss: 8.8
+    epss: 0.01483
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-67325
   - https://github.com/gitpython-developers/GitPython/security/advisories/GHSA-2f96-g7mh-g2hx

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-code-signing-policy-modification
+event_id: brief-2024-01-03-code-signing-policy-modification
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Code Signing Policy Modification Through Registry
 slug: 2024-01-code-signing-policy-modification
 description: Attackers modify the Windows Registry to disable code signing enforcement, allowing the execution of unsigned or self-signed malicious code.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - registry-modification
   - code-signing
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

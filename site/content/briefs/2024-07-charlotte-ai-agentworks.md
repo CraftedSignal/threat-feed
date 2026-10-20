@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-28-charlotte-ai-agentworks-v2
+event_id: brief-2026-03-28-charlotte-ai-agentworks-v2
+revision: 1
+activity_at: "2026-03-28T08:31:25Z"
 title: CrowdStrike Charlotte AI AgentWorks and Agentic SOAR for Agentic Security Operations
 slug: 2024-07-charlotte-ai-agentworks
 description: CrowdStrike's Charlotte AI AgentWorks and Agentic SOAR aim to revolutionize security operations by enabling the creation and orchestration of AI-powered agents, enhancing analyst capabilities and automating tasks to combat AI-accelerated adversaries.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - agentic-soc
   - ai

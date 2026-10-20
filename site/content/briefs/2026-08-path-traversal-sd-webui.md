@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-21-path-traversal-sd-webui
+event_id: brief-2026-08-21-path-traversal-sd-webui
+revision: 1
+activity_at: "2026-08-21T15:25:32Z"
 title: Path Traversal in Stable Diffusion WebUI
 slug: 2026-08-path-traversal-sd-webui
 description: A path traversal vulnerability in Stable Diffusion WebUI allows unauthorized file disclosure via symlink manipulation when IIB access control is active.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 vendors:
   - Stability AI
 products:
@@ -22,6 +35,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-77815
     cvss: 7.5
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77815
 action_plan:

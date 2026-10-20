@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-nextcloud-vulns
+event_id: brief-2026-05-nextcloud-vulns
+revision: 1
+activity_at: "2026-05-12T14:12:08Z"
 title: Multiple Vulnerabilities in Nextcloud Products
 slug: 2026-05-nextcloud-vulns
 description: Multiple vulnerabilities in Nextcloud products can lead to data confidentiality breaches, data integrity compromise, and security policy bypass.
@@ -9,6 +13,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:nextcloud:nextcloud_server:*:*:*:*:-:*:*:*
   - cpe:2.3:a:nextcloud:nextcloud_server:*:*:*:*:enterprise:*:*:*
@@ -38,18 +44,35 @@ cves:
   - id: CVE-2026-45153
     cvss: 4.6
     epss: 0.00153
+    kev_status: unknown
   - id: CVE-2026-45154
     cvss: 2.6
     epss: 0.00189
+    kev_status: unknown
   - id: CVE-2026-45157
     cvss: 6.3
     epss: 0.00231
+    kev_status: unknown
   - id: CVE-2026-45282
     cvss: 6.5
     epss: 0.00294
+    kev_status: unknown
   - id: CVE-2026-45286
     cvss: 4.3
     epss: 0.00281
+    kev_status: unknown
+  - id: CVE-2026-45155
+    kev_status: unknown
+  - id: CVE-2026-45156
+    kev_status: unknown
+  - id: CVE-2026-45159
+    kev_status: unknown
+  - id: CVE-2026-45284
+    kev_status: unknown
+  - id: CVE-2026-45285
+    kev_status: unknown
+  - id: CVE-2026-59734
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0569/
   - https://github.com/nextcloud/security-advisories/security/advisories/GHSA-2w7v-5299-3hw5

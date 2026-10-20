@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-06-mooncake-auth-bypass
+event_id: brief-2026-10-06-mooncake-auth-bypass
+revision: 1
+activity_at: "2026-10-06T14:56:21Z"
 title: Authentication Bypass in Mooncake Store
 slug: 2026-10-mooncake-auth-bypass
 description: Mooncake Store versions through 0.3.13.post1 contain a missing authentication vulnerability in the coro_rpc port, allowing unauthenticated attackers to perform unauthorized deletion operations.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against NVD metadata
 cpes:
   - cpe:2.3:a:mooncake:mooncake_store:*:*:*:*:*:*:*:*
 vendors:
@@ -18,12 +32,13 @@ mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1565.002
-    technique_name: Data Destruction
+    technique_name: Transmitted Data Manipulation
     evidence: Attackers can send forged requests with the force flag set to bypass lease checks, wipe keys matching any regex, or clear the entire store, causing cache loss and request failures.
     confidence_band: high
 cves:
   - id: CVE-2026-106038
     cvss: 8.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-106038
 action_plan:

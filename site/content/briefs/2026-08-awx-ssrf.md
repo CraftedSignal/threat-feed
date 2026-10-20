@@ -1,22 +1,30 @@
 ---
+brief_id: brief-2026-08-24-awx-ssrf
+event_id: brief-2026-08-24-awx-ssrf
+revision: 1
+activity_at: "2026-08-24T18:03:56Z"
 title: SSRF and Credential Leakage in AWX Notification Backends
 slug: 2026-08-awx-ssrf
 description: CVE-2026-71366 allows authenticated AWX notification administrators to perform SSRF and exfiltrate credentials by leveraging insufficient validation of notification template targets.
 date: "2026-08-24T18:03:56Z"
-lastmod: "2026-08-24T20:03:15Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - web-vulnerability
   - ssrf
   - credential-leakage
-  - path-traversal
-  - arbitrary-file-write
-  - remote-code-execution
-  - cve-2026-71364
 vendors:
   - Ansible
 products:
@@ -34,18 +42,12 @@ mitre_ttps:
     technique_name: Transfer Data to Cloud Account
     evidence: the webhook notification backend follows HTTP redirects and resends configured Basic Authentication credentials to redirect targets regardless of host change, allowing an attacker to exfiltrate notification credentials
     confidence_band: high
-  - tactic_id: TA0003
-    tactic_name: Persistence
-    technique_id: T1098.004
-    technique_name: SSH Authorized Keys
-    evidence: An attacker who controls the archive content ... can achieve arbitrary file writes as the user performing the extraction, potentially leading to remote code execution through mechanisms such as ... SSH authorized keys.
-    confidence_band: high
 cves:
   - id: CVE-2026-71366
     cvss: 7.7
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-71366
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-71364
 action_plan:
   priority: elevated
   owners:
@@ -62,17 +64,9 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-71366
       evidence: The vulnerability arises because notification template URLs are not validated against restricted IP ranges
-updates:
-  - at: "2026-08-24T20:03:15Z"
-    level: L2
-    summary: added coverage for AWX
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-71364
 ---
 
-CVE-2026-71366 describes a critical server-side request forgery (SSRF) vulnerability impacting multiple notification backends within AWX, including Webhook, Mattermost, Rocket.Chat, and Grafana. The vulnerability exists because the application fails to validate user-supplied notification template URLs against private, loopback, or reserved IP ranges. 
+CVE-2026-71366 describes a critical server-side request forgery (SSRF) vulnerability impacting multiple notification backends within AWX, including Webhook, Mattermost, Rocket.Chat, and Grafana. The vulnerability exists because the application fails to validate user-supplied notification template URLs against private, loopback, or reserved IP ranges.
 
 An attacker with notification administrator privileges can exploit this to force the AWX control node to perform HTTP requests against sensitive internal infrastructure or local services typically unreachable from the internet. The risk is compounded by secondary issues in the webhook backend, which follows HTTP redirects while improperly propagating configured Basic Authentication credentials to external, attacker-controlled hosts. Similarly, the Grafana backend exposes API keys in the Authorization header during these unauthorized requests. This issue enables both unauthorized internal network probing and the exfiltration of sensitive service credentials.
 

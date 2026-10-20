@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-opnsense-rce
+event_id: brief-2026-05-opnsense-rce
+revision: 1
+activity_at: "2026-05-12T12:01:03Z"
 title: OPNsense Multiple Vulnerabilities Lead to Remote Code Execution
 slug: 2026-05-opnsense-rce
 description: A remote, authenticated attacker can exploit multiple vulnerabilities in OPNsense to execute arbitrary code with administrator privileges.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - opnsense
   - rce
@@ -25,7 +31,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.004
-    technique_name: Command and Scripting Interpreter
+    technique_name: Unix Shell
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1475
 rules:

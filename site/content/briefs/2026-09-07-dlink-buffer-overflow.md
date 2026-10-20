@@ -1,0 +1,100 @@
+---
+brief_id: brief-2026-09-07-dlink-buffer-overflow
+event_id: brief-2026-09-07-dlink-buffer-overflow
+revision: 2
+activity_at: "2026-09-07T12:52:41Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T13:19:21Z"
+    checksum: sha256:584b058d7a8852134535d467b19d706244fa1eebb66fcdf240694ce4985439de
+    summary: Repaired a legacy canonical identity collision
+    changed_fields:
+      - slug
+    maintenance: true
+title: Remote Stack-Based Buffer Overflow in D-Link DIR-822A
+slug: 2026-09-07-dlink-buffer-overflow
+description: A stack-based buffer overflow vulnerability in the udhcpcd component of D-Link DIR-822A routers allows unauthenticated remote attackers to execute arbitrary code.
+date: "2026-09-07T12:52:41Z"
+lastmod: "2026-09-08T03:38:18Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
+cpes:
+  - cpe:2.3:h:dlink:dir-822a:a_101:*:*:*:*:*:*:*
+tags:
+  - vulnerability
+  - cve
+  - network-security
+vendors:
+  - D-Link
+products:
+  - DIR-822A (A_101)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: The attack is possible to be carried out remotely.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Affected is the function tunnel_set_params of the component L2TP Control Message Parser. Such manipulation leads to out-of-bounds write.
+    confidence_band: high
+cves:
+  - id: CVE-2026-86296
+    cvss: 10
+    epss: 0.01346
+    kev_status: unknown
+  - id: CVE-2026-86510
+    kev_status: unknown
+references:
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86296
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-86510
+action_plan:
+  priority: immediate_escalation
+  owners:
+    - SOC
+    - IT Operations
+  immediate_actions:
+    - action: Review inventory for D-Link DIR-822A devices and initiate decommissioning or network isolation.
+      owner: IT Operations
+      due: 24h
+      evidence: CVE-2026-86296 is a critical buffer overflow vulnerability with public exploit availability.
+  mitigation_plan:
+    - priority: immediate
+      action: Retire and replace affected D-Link DIR-822A hardware.
+      owner: IT Operations
+      addresses: CVE-2026-86296
+      evidence: High CVSS severity (10.0) and confirmed remote exploitability.
+updates:
+  - at: "2026-09-08T03:38:18Z"
+    level: L2
+    summary: added coverage for DIR-822A (A_101)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-86510
+---
+
+A critical stack-based buffer overflow vulnerability (CVE-2026-86296) exists in the udhcpcd component of the D-Link DIR-822A router, specifically within the strcpy function found in serverpacket.c. This flaw allows an unauthenticated remote attacker to send maliciously crafted network packets to the vulnerable service. By exceeding the allocated buffer size, an attacker can overwrite adjacent memory on the stack, potentially leading to arbitrary code execution or a denial of service condition. The vulnerability has been publicly disclosed, and exploit code is available, increasing the risk of widespread exploitation. Given the router's role in network edge security, successful exploitation allows an attacker to gain full control over the gateway device, facilitating further lateral movement or traffic interception within the target network.
+
+## Impact
+
+The vulnerability carries a CVSS v3.1 base score of 10.0, indicating the highest level of severity. Successfull exploitation leads to full device compromise, enabling attackers to execute commands with root privileges. This poses a significant threat to residential and small office network environments where the DIR-822A is deployed. If exploited, attackers can exfiltrate sensitive data, intercept unencrypted traffic, or use the device as a pivot point for internal network reconnaissance and attacks.
+
+## Recommendation
+
+Prioritize the decommissioning or replacement of D-Link DIR-822A hardware, as this model has reached critical status regarding vulnerability management. Monitor edge network traffic for anomalous DHCP traffic patterns or abnormal outbound connections originating from network infrastructure devices, as this may indicate an attempt to exploit CVE-2026-86296. Ensure all network gateway devices are segmented from critical internal assets and that management interfaces are restricted to trusted administrative subnets.

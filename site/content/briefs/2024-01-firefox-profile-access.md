@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-firefox-profile-access
+event_id: brief-2024-01-02-firefox-profile-access
+revision: 1
+activity_at: "2024-01-02T10:00:00Z"
 title: Non-Firefox Process Accessing Firefox Profile Directory
 slug: 2024-01-firefox-profile-access
 description: Detection of non-Firefox processes accessing the Firefox profile directory, potentially indicating malware attempting to steal user credentials and data.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - credential-access
   - stealer
   - firefox
-vendors:
-  - Mozilla
-products:
-  - Firefox
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access

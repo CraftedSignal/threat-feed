@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-siyuan-auth-bypass
+event_id: brief-2026-08-siyuan-auth-bypass
+revision: 1
+activity_at: "2026-08-12T20:54:23Z"
 title: Authentication Bypass in SiYuan Publish API
 slug: 2026-08-siyuan-auth-bypass
 description: SiYuan versions prior to 3.7.4 contain an authentication bypass vulnerability allowing unauthenticated remote attackers to retrieve decrypted content from encrypted notebooks.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:siyuan:siyuan:*:*:*:*:*:*:*:*
 tags:
@@ -43,7 +56,7 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1592
-    technique_name: Gather Victim Org Information
+    technique_name: Gather Victim Host Information
     evidence: Anonymous readers can enumerate and retrieve fully decrypted document content from unlocked encrypted notebooks through the publish API without authentication or key material.
     confidence_band: high
   - tactic_id: TA0006
@@ -67,13 +80,13 @@ mitre_ttps:
   - tactic_id: TA0009
     tactic_name: Collection
     technique_id: T1592
-    technique_name: Gather Victim Org Information
+    technique_name: Gather Victim Host Information
     evidence: Attackers can request published blocks containing embed queries to read content from password-protected, hidden, or forbidden documents without authorization.
     confidence_band: high
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1592
-    technique_name: Gather Victim Org Information
+    technique_name: Gather Victim Host Information
     evidence: Attackers can call these endpoints without supplying a password to read protected document content and the complete reference topology.
     confidence_band: high
   - tactic_id: TA0001
@@ -85,7 +98,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: The application utilizes the queryBlocks function, which improperly handles raw SQL via string substitution, enabling arbitrary SQL execution.
     confidence_band: high
   - tactic_id: TA0001
@@ -97,7 +110,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1505.004
-    technique_name: 'Server Software Component: SQL Injection'
+    technique_name: IIS Components
     evidence: An attacker can execute arbitrary SQL, enabling cross-notebook read and write.
     confidence_band: high
   - tactic_id: TA0001
@@ -121,7 +134,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.007
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    technique_name: JavaScript
     evidence: Attackers can inject event-handler attributes by including quotation marks in the color value, executing arbitrary JavaScript when viewing databases
     confidence_band: high
   - tactic_id: TA0007
@@ -139,13 +152,13 @@ mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1592
-    technique_name: Gather Victim Org Information
+    technique_name: Gather Victim Host Information
     evidence: allowing anonymous publish-mode readers to disclose private block content-derived text, structural metadata, and existence information for arbitrary block IDs across the workspace.
     confidence_band: high
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1595.002
-    technique_name: 'Active Scanning: Vulnerability Scanning'
+    technique_name: Vulnerability Scanning
     evidence: This is a full-read SSRF that can be used to steal instance credentials, reach internal services, and port-scan internal infrastructure.
     confidence_band: high
   - tactic_id: TA0003
@@ -158,18 +171,63 @@ cves:
   - id: CVE-2026-72789
     cvss: 8.6
     epss: 0.00293
+    kev_status: unknown
   - id: CVE-2026-72807
     cvss: 8
     epss: 0.00199
+    kev_status: unknown
   - id: CVE-2026-73041
     cvss: 9
     epss: 0.00234
+    kev_status: unknown
   - id: CVE-2026-73046
     cvss: 9.8
     epss: 0.00425
+    kev_status: unknown
   - id: CVE-2026-77086
     cvss: 9.1
     epss: 0.00647
+    kev_status: unknown
+  - id: CVE-2026-72793
+    kev_status: unknown
+  - id: CVE-2026-72794
+    kev_status: unknown
+  - id: CVE-2026-72795
+    kev_status: unknown
+  - id: CVE-2026-72801
+    kev_status: unknown
+  - id: CVE-2026-72804
+    kev_status: unknown
+  - id: CVE-2026-72809
+    kev_status: unknown
+  - id: CVE-2026-73042
+    kev_status: unknown
+  - id: CVE-2026-73043
+    kev_status: unknown
+  - id: CVE-2026-73050
+    kev_status: unknown
+  - id: CVE-2026-73052
+    kev_status: unknown
+  - id: CVE-2026-73053
+    kev_status: unknown
+  - id: CVE-2026-73045
+    kev_status: unknown
+  - id: CVE-2026-74799
+    kev_status: unknown
+  - id: CVE-2026-74800
+    kev_status: unknown
+  - id: CVE-2026-74868
+    kev_status: unknown
+  - id: CVE-2026-74902
+    kev_status: unknown
+  - id: CVE-2026-74904
+    kev_status: unknown
+  - id: CVE-2026-74905
+    kev_status: unknown
+  - id: CVE-2026-74906
+    kev_status: unknown
+  - id: CVE-2026-75916
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72789
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72793

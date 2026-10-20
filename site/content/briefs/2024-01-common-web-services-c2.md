@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-common-web-services-c2
+event_id: brief-2024-01-03-common-web-services-c2
+revision: 1
+activity_at: "2024-01-03T15:00:00Z"
 title: Detection of Command and Control Activity via Common Web Services
 slug: 2024-01-common-web-services-c2
 description: This rule detects command and control (C2) communications that use common web services to hide malicious activity on Windows hosts by identifying network connections to commonly abused web services from processes outside of known legitimate program locations, indicating potential exfiltration or C2 activity blended with legitimate traffic.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - command-and-control
   - webservice
@@ -24,6 +30,7 @@ vendors:
   - Telegram
   - Facebook
   - Trello
+  - GitHub
   - Supabase
 products:
   - Elastic Defend

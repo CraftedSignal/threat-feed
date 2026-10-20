@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-05-simple-laundry-sql-injection
+event_id: brief-2026-04-05-simple-laundry-sql-injection
+revision: 1
+activity_at: "2026-04-05T13:17:13Z"
 title: code-projects Simple Laundry System 1.0 SQL Injection Vulnerability
 slug: 2026-04-simple-laundry-sql-injection
 description: A remote SQL Injection vulnerability exists in code-projects Simple Laundry System 1.0 within the /delmemberinfo.php file's userid parameter, potentially allowing attackers to execute arbitrary SQL commands.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sql-injection
   - web-application
@@ -20,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-5565
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5565
   - https://vuldb.com/vuln/355335

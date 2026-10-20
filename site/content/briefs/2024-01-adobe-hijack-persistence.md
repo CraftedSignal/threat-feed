@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-adobe-hijack-persistence
+event_id: brief-2024-01-02-adobe-hijack-persistence
+revision: 1
+activity_at: "2024-01-02T18:22:00Z"
 title: Adobe Acrobat Reader Hijack for Persistence
 slug: 2024-01-adobe-hijack-persistence
 description: Attackers can maintain persistence by replacing the legitimate RdrCEF.exe file, used by Adobe Acrobat Reader, with a malicious executable that will be launched upon execution of Adobe Acrobat Reader.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - persistence
   - adobe
   - file-replacement
-vendors:
-  - Adobe
-products:
-  - Adobe Acrobat Reader
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-29-trendnet-stack-overflow
+event_id: brief-2026-05-29-trendnet-stack-overflow
+revision: 1
+activity_at: "2026-05-29T15:18:07Z"
 title: TRENDnet TEW-432BRP Stack-Based Buffer Overflow Vulnerability (CVE-2026-10062)
 slug: 2026-05-trendnet-stack-overflow
 description: TRENDnet TEW-432BRP version 3.10B20 is vulnerable to a stack-based buffer overflow via manipulation of the ip/mask/gateway arguments in the formSetRoute function of the /goform/formSetRoute file, enabling remote attackers to potentially execute arbitrary code.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cve
   - buffer-overflow
@@ -19,12 +25,13 @@ products:
 cves:
   - id: CVE-2026-10062
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-10062
   - CVE-2026-10062
 rules:
-  - title: Detects CVE-2026-10062 Exploitation Attempt - Malicious request to formSetRoute
-    description: Detects CVE-2026-10062 exploitation attempt - HTTP POST request to /goform/formSetRoute with unusually long parameters, indicating a buffer overflow attempt.
+  - title: Detects CVE-2026-10062 Exploitation Attempt — Malicious request to formSetRoute
+    description: Detects CVE-2026-10062 exploitation attempt — HTTP POST request to /goform/formSetRoute with unusually long parameters, indicating a buffer overflow attempt.
     platform: sigma
     severity: high
     tactics:
@@ -33,7 +40,7 @@ rules:
       - T1190
     data_sources:
       - webserver
-  - title: Detects CVE-2026-10062 Exploitation Attempt - Suspicious Characters in formSetRoute
+  - title: Detects CVE-2026-10062 Exploitation Attempt — Suspicious Characters in formSetRoute
     description: Detects CVE-2026-10062 exploitation attempt by identifying potentially malicious characters in the request to formSetRoute.
     platform: sigma
     severity: medium

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-rpc-internet-access
+event_id: brief-2024-01-03-rpc-internet-access
+revision: 1
+activity_at: "2024-01-03T14:27:00Z"
 title: Detecting RPC Traffic to the Internet
 slug: 2024-01-rpc-internet-access
 description: This brief focuses on detecting Remote Procedure Call (RPC) traffic originating from internal networks and reaching the public internet, which is indicative of potential initial access or backdoor activity.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - network-traffic
   - initial-access

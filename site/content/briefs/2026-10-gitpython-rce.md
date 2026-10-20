@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-14-gitpython-rce
+event_id: brief-2026-10-14-gitpython-rce
+revision: 1
+activity_at: "2026-10-15T00:33:57Z"
 title: Remote Code Execution in GitPython via Unsafe URL Handling
 slug: 2026-10-gitpython-rce
 description: GitPython versions prior to 3.2.0 contain a remote code execution vulnerability where the Git.ls_remote method improperly handles URLs, allowing arbitrary command execution via malicious remote-helper strings.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:gitpython_project:gitpython:*:*:*:*:*:*:*:*
 vendors:
@@ -31,6 +44,9 @@ mitre_ttps:
 cves:
   - id: CVE-2026-110857
     cvss: 7.5
+    kev_status: unknown
+  - id: CVE-2026-110859
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110857
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110859

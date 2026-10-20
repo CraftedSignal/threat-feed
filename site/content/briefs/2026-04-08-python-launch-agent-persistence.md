@@ -1,0 +1,92 @@
+---
+brief_id: brief-2026-04-08-python-launch-agent-persistence
+event_id: brief-2026-04-08-python-launch-agent-persistence
+revision: 2
+activity_at: "2026-04-08T12:00:00Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T13:19:21Z"
+    checksum: sha256:3129eb93cba5c24af4cc5483ef00cfb8f55e57c66345bb2c65cc4298786fde9d
+    summary: Repaired a legacy canonical identity collision
+    changed_fields:
+      - slug
+    maintenance: true
+title: First Time Python Process Creates macOS Launch Agent or Daemon
+slug: 2026-04-08-python-launch-agent-persistence
+description: This rule detects the initial creation or modification of a macOS LaunchAgent or LaunchDaemon plist file by a Python process, a common persistence technique employed by attackers using malicious scripts, compromised dependencies, or model file deserialization.
+date: "2026-04-08T12:00:00Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - medium
+exploitation_evidence:
+  status: unknown
+tags:
+  - persistence
+  - macos
+  - python
+mitre_ttps:
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1543
+    technique_name: Create or Modify System Process
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1543
+    technique_name: Create or Modify System Process
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_python_launch_agent_or_daemon_creation_first_occurrence.toml
+  - https://blog.trailofbits.com/2024/06/11/exploiting-ml-models-with-pickle-file-attacks-part-1/
+  - https://github.com/trailofbits/fickling
+rules:
+  - title: Detect Python Launch Agent/Daemon Creation
+    description: Detects when a Python process creates or modifies a LaunchAgent or LaunchDaemon plist file, indicating potential persistence establishment.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1543.001
+      - T1543.004
+    data_sources:
+      - file_event
+      - macos
+  - title: Detect Modified LaunchAgent or LaunchDaemon by Python
+    description: Detects modifications to LaunchAgent or LaunchDaemon plist files by python processes.
+    platform: sigma
+    severity: medium
+    tactics:
+      - persistence
+    techniques:
+      - T1543.001
+      - T1543.004
+    data_sources:
+      - file_event
+      - macos
+rules_count: 2
+---
+
+This threat brief highlights the malicious use of Python to establish persistence on macOS systems. Attackers can achieve Python code execution through various means, including malicious scripts, compromised dependencies, or even model file deserialization vulnerabilities (such as pickle or PyTorch `__reduce__` exploits). Once code execution is achieved, attackers can drop plist files into LaunchAgent or LaunchDaemon directories, ensuring their payload survives reboots and user logouts. This persistence mechanism allows the attacker to maintain access and control over the compromised host. Legitimate Python processes typically do not create persistence mechanisms in this manner, making the first occurrence of such activity a strong indicator of compromise.
+
+## Attack Chain
+
+1.  The attacker gains initial access to the macOS system through methods such as exploiting vulnerabilities, social engineering, or phishing.
+2.  The attacker achieves code execution within a Python process. This can occur via a malicious script, a compromised Python package, or by exploiting deserialization vulnerabilities like `pickle.load` or `torch.load`.
+3.  The malicious Python script crafts a LaunchAgent or LaunchDaemon plist file. This plist file contains configuration details about the program to be executed, including its path, arguments, and execution triggers.
+4.  The Python process writes the crafted plist file to either the `/Library/LaunchAgents/` (for user-level persistence) or `/Library/LaunchDaemons/` (for system-level persistence) directory.
+5.  The LaunchAgent or LaunchDaemon is automatically loaded by `launchd` at login or boot, according to the configuration specified in the plist file.
+6.  The program specified in the plist file is executed, giving the attacker persistent access to the compromised system.
+7.  The attacker can then use this persistent access to perform various malicious activities, such as data exfiltration, lateral movement, or deploying additional malware.
+
+## Impact
+
+A successful attack can lead to persistent compromise of macOS systems. Attackers can maintain unauthorized access, execute arbitrary code, steal sensitive data, or use the compromised system as a foothold for further attacks within the network. The impact can range from individual user data theft to widespread organizational breaches, depending on the attacker's objectives and the system's role within the network.
+
+## Recommendation
+
+*   Deploy the Sigma rule "Detect Python Launch Agent/Daemon Creation" to your SIEM to identify when a Python process creates a LaunchAgent or LaunchDaemon plist file.
+*   Enable Elastic Defend endpoint logging to capture `event.action:"launch_daemon"` events, which are necessary for the Sigma rule to function correctly.
+*   Prioritize investigation of alerts generated by the Sigma rule, focusing on understanding the program arguments, run-at-load configuration, and keep-alive settings within the created plist file.
+*   Implement strict dependency management and vulnerability scanning for Python environments to prevent the use of compromised packages.
+*   Monitor for processes loading model files (`torch.load`, `pickle.load`) and investigate any suspicious activity to prevent exploitation of deserialization vulnerabilities.

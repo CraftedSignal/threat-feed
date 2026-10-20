@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-vikunja-auth-bypass
+event_id: brief-2026-08-vikunja-auth-bypass
+revision: 1
+activity_at: "2026-08-28T21:18:53Z"
 title: Vikunja Improper Authorization via ProjectView Deletion
 slug: 2026-08-vikunja-auth-bypass
 description: An improper authorization vulnerability in Vikunja allows authenticated users to destroy task organization data in other projects by supplying a target view ID within a crafted API request.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - authorization-bypass
   - web-application

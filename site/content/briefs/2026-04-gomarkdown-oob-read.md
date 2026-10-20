@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-15-gomarkdown-oob-read
+event_id: brief-2026-04-15-gomarkdown-oob-read
+revision: 1
+activity_at: "2026-04-15T12:00:00Z"
 title: Go Markdown Library Out-of-Bounds Read Vulnerability
 slug: 2026-04-gomarkdown-oob-read
 description: A vulnerability in the go-markdown library exists where processing a malformed input containing a '<' character that is not followed by a '>' character with a SmartypantsRenderer can lead to an out-of-bounds read or a panic, causing a denial of service.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - markdown
   - denial-of-service

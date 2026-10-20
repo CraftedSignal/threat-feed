@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-06-pocketmine-dos
+event_id: brief-2026-09-06-pocketmine-dos
+revision: 1
+activity_at: "2026-09-06T12:45:39Z"
 title: Denial of Service Vulnerability in PocketMine-MP
 slug: 2026-09-pocketmine-dos
 description: PocketMine-MP versions prior to 4.7.2 are vulnerable to a denial-of-service attack due to improper exception handling when parsing skin geometry data.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:pocketmine:pocketmine-mp:*:*:*:*:*:*:*:*
 tags:
@@ -38,6 +51,15 @@ mitre_ttps:
 cves:
   - id: CVE-2022-51009
     cvss: 7.5
+    kev_status: unknown
+  - id: CVE-2023-54355
+    kev_status: unknown
+  - id: CVE-2023-54390
+    kev_status: unknown
+  - id: CVE-2024-58381
+    kev_status: unknown
+  - id: CVE-2026-86199
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2022-51009
   - https://nvd.nist.gov/vuln/detail/CVE-2023-54355

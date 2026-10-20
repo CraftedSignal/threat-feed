@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-azure-ad-service-principal-privilege-escalation
+event_id: brief-2024-01-02-azure-ad-service-principal-privilege-escalation
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Azure AD Service Principal Privilege Escalation
 slug: 2024-01-azure-ad-service-principal-privilege-escalation
 description: An Azure Active Directory (Azure AD) Service Principal elevates its own privileges by adding itself to a new application role assignment, potentially leading to unauthorized access and control within the Azure environment.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - azure
   - azure-ad
   - service-principal
   - privilege-escalation
-vendors:
-  - Microsoft
-products:
-  - Azure AD
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation

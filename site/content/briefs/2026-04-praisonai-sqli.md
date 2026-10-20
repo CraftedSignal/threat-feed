@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-18-praisonai-sqli
+event_id: brief-2026-04-18-praisonai-sqli
+revision: 1
+activity_at: "2026-04-18T12:00:00Z"
 title: PraisonAI Multiple Backends Vulnerable to SQL Injection via Unvalidated Table Prefix
 slug: 2026-04-praisonai-sqli
 description: PraisonAI is vulnerable to SQL injection across nine database backends due to unsanitized `table_prefix` parameters, and in PostgreSQL due to an unsanitized `schema` parameter, enabling arbitrary SQL execution.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sql-injection
   - praisonai
@@ -20,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-40315
     epss: 0.00022
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-rg3h-x3jw-7jm5
   - https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-x783-xp3g-mqhp

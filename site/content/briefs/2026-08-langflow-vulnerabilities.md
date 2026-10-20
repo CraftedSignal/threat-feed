@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-langflow-vulnerabilities
+event_id: brief-2026-08-langflow-vulnerabilities
+revision: 1
+activity_at: "2026-08-24T21:57:19Z"
 title: Multiple Vulnerabilities in Langflow OSS
 slug: 2026-08-langflow-vulnerabilities
 description: Langflow OSS contains multiple security flaws that could allow unauthenticated attackers to bypass security controls, exfiltrate sensitive data, and perform unauthorized data manipulation.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "2"
+  rating: A2
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source validated; further technical details pending vendor release.
 vendors:
   - Langflow
 products:

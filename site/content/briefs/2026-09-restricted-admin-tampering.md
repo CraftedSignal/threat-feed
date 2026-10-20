@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-01-restricted-admin-tampering
+event_id: brief-2026-09-01-restricted-admin-tampering
+revision: 1
+activity_at: "2026-09-01T12:12:31Z"
 title: Tampering with DisableRestrictedAdmin Registry Value
 slug: 2026-09-restricted-admin-tampering
 description: Attackers may modify the DisableRestrictedAdmin registry value to impair credential protection mechanisms by disabling Restricted Admin mode for Remote Desktop Services.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - persistence
   - defense-impairment

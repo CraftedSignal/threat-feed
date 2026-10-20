@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-02-relevanssi-xss
+event_id: brief-2026-10-02-relevanssi-xss
+revision: 1
+activity_at: "2026-10-02T08:24:53Z"
 title: Stored XSS in Relevanssi - A Better Search WordPress Plugin
 slug: 2026-10-relevanssi-xss
 description: The Relevanssi plugin for WordPress is vulnerable to stored Cross-Site Scripting (XSS) due to insufficient input sanitization of comment content, allowing unauthenticated attackers to execute arbitrary scripts.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "5"
+  rating: A5
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source verified; no IOCs or specific exploit strings provided for rule generation.
 cpes:
   - cpe:2.3:a:relevanssi:a_better_search:*:*:*:*:*:*:*:*
 tags:
@@ -28,6 +42,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-97641
     cvss: 7.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-97641
 action_plan:

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-02-trivy-supply-chain
+event_id: brief-2026-04-02-trivy-supply-chain
+revision: 1
+activity_at: "2026-03-31T08:36:29Z"
 title: Compromised trivy-action GitHub Action Leads to Credential Theft
 slug: 2026-04-trivy-supply-chain
 description: The trivy-action GitHub Action was compromised via git tag repointing, where 76 of 77 release tags were retroactively poisoned, leading to a multi-stage credential theft operation discovered following a spike in script execution detections on Linux runners.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - supply-chain
   - github-actions
@@ -16,7 +22,7 @@ mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1133
-    technique_name: External Service Instance Hijacking
+    technique_name: External Remote Services
 references:
   - https://www.crowdstrike.com/en-us/blog/from-scanner-to-stealer-inside-the-trivy-action-supply-chain-compromise/
 rules:

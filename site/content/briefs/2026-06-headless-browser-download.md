@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-06-24-headless-browser-download
+event_id: brief-2026-06-24-headless-browser-download
+revision: 1
+activity_at: "2026-04-06T15:34:19Z"
 title: Potential File Download via a Headless Browser
 slug: 2026-06-headless-browser-download
 description: Detects the execution of headless browsers from suspicious parent processes with arguments indicative of scripted retrieval, bypassing application control policies and restrictions on direct download tools.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - command-and-control
   - headless-browser

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-24-multiple-alerts-risky-host
+event_id: brief-2024-01-24-multiple-alerts-risky-host
+revision: 1
+activity_at: "2024-01-24T12:00:00Z"
 title: Multiple Alerts in Different ATT&CK Tactics by Host
 slug: 2024-01-multiple-alerts-risky-host
 description: This rule uses alert data to identify hosts with multiple alerts across different ATT&CK tactics, indicating a higher likelihood of compromise and enabling analysts to prioritize triage and response based on accumulated risk score.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - threat-detection
   - higher-order-rule

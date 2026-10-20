@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-rfi-discovery
+event_id: brief-2024-01-09-rfi-discovery
+revision: 1
+activity_at: "2024-01-09T18:22:34Z"
 title: Web Server Potential Remote File Inclusion Activity
 slug: 2024-01-rfi-discovery
 description: This rule detects potential Remote File Inclusion (RFI) activity on web servers by identifying HTTP GET requests that attempt to access sensitive remote files through directory traversal techniques or known file paths, potentially leading to information disclosure or further compromise.
@@ -8,21 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - rfi
   - webserver
   - vulnerability
-vendors:
-  - Nginx
-  - Apache Software Foundation
-  - Microsoft
-  - Traefik Labs
-products:
-  - Nginx
-  - Apache HTTP Server
-  - Apache Tomcat
-  - Internet Information Services
-  - Traefik
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery

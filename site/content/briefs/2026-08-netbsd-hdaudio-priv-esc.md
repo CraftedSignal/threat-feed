@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-13-netbsd-hdaudio-priv-esc
+event_id: brief-2026-08-13-netbsd-hdaudio-priv-esc
+revision: 1
+activity_at: "2026-08-13T12:41:15Z"
 title: Local Privilege Escalation and DoS in NetBSD hdaudio Component
 slug: 2026-08-netbsd-hdaudio-priv-esc
 description: A vulnerability in the hdaudio component of NetBSD allows a local attacker to escalate privileges to administrator status and trigger a denial-of-service condition.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: verified against BSI WID advisory
 vendors:
   - NetBSD Foundation
 products:

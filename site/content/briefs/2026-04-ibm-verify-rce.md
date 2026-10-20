@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-01-ibm-verify-rce
+event_id: brief-2026-04-01-ibm-verify-rce
+revision: 1
+activity_at: "2026-04-01T21:16:58Z"
 title: IBM Verify Identity Access and Security Verify Access Command Injection Vulnerability
 slug: 2026-04-ibm-verify-rce
 description: Unauthenticated command execution is possible in IBM Verify Identity Access Container and IBM Security Verify Access Container due to improper validation of user-supplied input, allowing arbitrary command execution with lower privileges.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - command-injection
   - rce
@@ -20,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-1345
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-1345
   - https://www.ibm.com/support/pages/node/7268253

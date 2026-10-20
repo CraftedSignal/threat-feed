@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-07-loginpress-pro-auth-bypass
+event_id: brief-2026-07-loginpress-pro-auth-bypass
+revision: 1
+activity_at: "2026-07-10T00:20:06Z"
 title: 'CVE-2026-12598: LoginPress Pro WordPress Plugin Authentication Bypass'
 slug: 2026-07-loginpress-pro-auth-bypass
 description: An authentication bypass vulnerability (CVE-2026-12598) exists in the LoginPress Pro plugin for WordPress, affecting versions up to and including 6.2.3 within the Spotify Social Login addon, enabling unauthenticated attackers to log in as any existing WordPress user, including administrators, by registering a Spotify account with the target's email.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - wordpress
   - plugin
@@ -35,6 +41,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-12598
     cvss: 8.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-12598
 ---

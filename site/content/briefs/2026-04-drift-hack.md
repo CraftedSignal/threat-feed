@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-06-drift-hack
+event_id: brief-2026-04-06-drift-hack
+revision: 1
+activity_at: "2026-04-06T16:35:39Z"
 title: Drift Protocol $280M Crypto Theft Linked to North Korean Hackers
 slug: 2026-04-drift-hack
 description: The Drift Protocol suffered a $280 million crypto theft orchestrated by North Korean hackers who spent six months building an in-person operational presence within the Drift ecosystem, engaging with contributors at crypto conferences and via Telegram.
@@ -10,6 +14,8 @@ severities:
   - critical
 actors:
   - UNC4736 (Lazarus Group)
+exploitation_evidence:
+  status: unknown
 tags:
   - drift-protocol
   - crypto-theft
@@ -22,7 +28,7 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1199
-    technique_name: Drive-by Compromise
+    technique_name: Trusted Relationship
 references:
   - https://www.bleepingcomputer.com/news/security/drift-280m-crypto-theft-linked-to-6-month-in-person-operation/
 rules:

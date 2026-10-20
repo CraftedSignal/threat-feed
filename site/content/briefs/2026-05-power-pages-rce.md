@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-power-pages-rce
+event_id: brief-2026-05-power-pages-rce
+revision: 1
+activity_at: "2026-05-26T13:52:54Z"
 title: CVE-2026-23652 - Microsoft Power Pages Command Injection
 slug: 2026-05-power-pages-rce
 description: CVE-2026-23652 is a critical command injection vulnerability in Microsoft Power Pages, allowing an unauthorized attacker to execute arbitrary code over the network by injecting commands.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - cve
   - command injection
@@ -26,12 +32,13 @@ cves:
   - id: CVE-2026-23652
     cvss: 10
     epss: 0.00075
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-23652
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-23652
 rules:
   - title: Detect CVE-2026-23652 Exploitation Attempt via Command Injection
-    description: Detects CVE-2026-23652 exploitation attempt - suspicious HTTP request containing shell metacharacters in the query string
+    description: Detects CVE-2026-23652 exploitation attempt — suspicious HTTP request containing shell metacharacters in the query string
     platform: sigma
     severity: critical
     tactics:
@@ -41,7 +48,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-23652 Exploitation Attempt via POST Request
-    description: Detects CVE-2026-23652 exploitation attempt - suspicious HTTP POST request containing shell metacharacters
+    description: Detects CVE-2026-23652 exploitation attempt — suspicious HTTP POST request containing shell metacharacters
     platform: sigma
     severity: critical
     tactics:

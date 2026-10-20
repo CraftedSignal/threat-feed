@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-29-openclaw-ssrf
+event_id: brief-2026-04-29-openclaw-ssrf
+revision: 1
+activity_at: "2026-04-29T12:00:00Z"
 title: OpenClaw QQ Bot Media Download SSRF Vulnerability
 slug: 2026-04-openclaw-ssrf
 description: OpenClaw before 2026.4.8 is vulnerable to server-side request forgery (SSRF) in QQ Bot media download paths, allowing attackers to bypass SSRF protections and access internal resources.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ssrf
   - cve-2026-41914
@@ -24,10 +30,11 @@ mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1068
-    technique_name: Proxy
+    technique_name: Exploitation for Privilege Escalation
 cves:
   - id: CVE-2026-41914
     cvss: 8.5
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41914
   - https://github.com/openclaw/openclaw/commit/d7c3210cd6f5fdfdc1beff4c9541673e814354d5

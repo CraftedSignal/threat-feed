@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-yafnet-xss
+event_id: brief-2024-01-02-yafnet-xss
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: YAFNET Stored XSS Vulnerability in Forum Posts
 slug: 2024-01-yafnet-xss
 description: A stored XSS vulnerability in YAFNET.Core allows an attacker to inject arbitrary JavaScript into forum posts, which executes in the browsers of other users viewing the thread, potentially leading to account compromise and malware delivery.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - xss
   - stored-xss
@@ -20,7 +26,7 @@ products:
   - YAFNET.Core (<= 3.2.11)
 mitre_ttps:
   - tactic_id: TA0006
-    tactic_name: Execution
+    tactic_name: Credential Access
     technique_id: T1055
     technique_name: Process Injection
   - tactic_id: TA0007
@@ -35,6 +41,9 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1204
     technique_name: User Execution
+cves:
+  - id: CVE-2026-43939
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-8rq5-wwpp-fmj2
 rules:

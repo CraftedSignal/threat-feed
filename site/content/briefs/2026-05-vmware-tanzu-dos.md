@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-vmware-tanzu-dos
+event_id: brief-2026-05-vmware-tanzu-dos
+revision: 1
+activity_at: "2026-05-28T07:33:54Z"
 title: VMware Tanzu Spring Framework Denial of Service Vulnerability
 slug: 2026-05-vmware-tanzu-dos
 description: A remote, anonymous attacker can exploit a vulnerability in VMware Tanzu Spring Framework to perform a denial of service attack.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - denial-of-service
   - vmware
@@ -20,7 +26,7 @@ mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
-    technique_name: Denial of Service
+    technique_name: Endpoint Denial of Service
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2023-0966
 rules:

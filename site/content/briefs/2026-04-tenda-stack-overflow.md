@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-30-tenda-stack-overflow
+event_id: brief-2026-04-30-tenda-stack-overflow
+revision: 1
+activity_at: "2026-04-30T03:16:01Z"
 title: Tenda 4G300 Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-stack-overflow
 description: A remote stack-based buffer overflow vulnerability exists in the Tenda 4G300 router, version US_4G300V1.0Mt_V1.01.42_CN_TDC01, allowing an attacker to potentially execute arbitrary code by manipulating the 'page' argument to the sub_427C3C function in the /goform/SafeMacFilter file.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - buffer-overflow
   - tenda
@@ -23,12 +29,13 @@ mitre_ttps:
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
   - tactic_id: TA0006
-    tactic_name: Execution
+    tactic_name: Credential Access
     technique_id: T1213
-    technique_name: Exploitation of Memory Corruption
+    technique_name: Data from Information Repositories
 cves:
   - id: CVE-2026-7470
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7470
   - https://github.com/Axelioc/CVE/blob/main/Tenda/US_4G300/sub_427C3C/sub_427C3C.md

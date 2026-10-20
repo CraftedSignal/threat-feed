@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-07-tornado-quadratic-dos
+event_id: brief-2026-07-tornado-quadratic-dos
+revision: 1
+activity_at: "2026-07-20T18:59:34Z"
 title: Tornado Quadratic DoS via Repeated HTTP Header Coalescing (CVE-2025-67725)
 slug: 2026-07-tornado-quadratic-dos
 description: A quadratic Denial of Service (DoS) vulnerability exists in Tornado's `HTTPHeaders.add` method due to inefficient string concatenation for repeated header names, which, when processing a maliciously crafted HTTP request with numerous repeated headers, can block the server's single event loop for an extended period, leading to a high severity DoS if `max_header_size` is increased from its default 64KB.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:tornadoweb:tornado:*:*:*:*:*:*:*:*
 tags:
@@ -23,13 +29,14 @@ mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1498
-    technique_name: Denial of Service
+    technique_name: Network Denial of Service
     evidence: A quadratic Denial of Service (DoS) vulnerability exists in Tornado's `HTTPHeaders.add` method due to inefficient string concatenation for repeated header names.
     confidence_band: high
 cves:
   - id: CVE-2025-67725
     cvss: 7.5
     epss: 0.00403
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-c98p-7wgm-6p64
 ---

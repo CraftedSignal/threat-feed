@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-certreq-post
+event_id: brief-2024-01-03-certreq-post
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Certreq HTTP POST Abuse for File Transfer
 slug: 2024-01-certreq-post
 description: Adversaries may abuse the Windows Certreq utility to download files or upload data to a remote URL by making an HTTP POST request, potentially for command and control, defense evasion, or exfiltration.
@@ -8,16 +12,14 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - lolbin
   - certreq
   - command-and-control
   - defense-evasion
   - exfiltration
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control

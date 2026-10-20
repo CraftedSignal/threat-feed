@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-08-churchcrm-xss
+event_id: brief-2026-04-08-churchcrm-xss
+revision: 1
+activity_at: "2026-04-08T12:00:00Z"
 title: ChurchCRM Stored XSS Vulnerability in Person Property Management
 slug: 2026-04-churchcrm-xss
 description: A stored cross-site scripting (XSS) vulnerability in ChurchCRM versions prior to 7.0.0 allows authenticated users to inject arbitrary JavaScript code via dynamically assigned person properties, leading to potential session hijacking or account compromise when other users view the affected profile.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - xss
   - web-application
@@ -21,8 +27,10 @@ cves:
   - id: CVE-2023-38766
     cvss: 5.4
     epss: 0.00209
+    kev_status: unknown
   - id: CVE-2026-35576
     cvss: 8.7
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35576
 rules:

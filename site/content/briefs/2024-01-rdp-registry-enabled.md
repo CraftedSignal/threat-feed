@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-rdp-registry-enabled
+event_id: brief-2024-01-03-rdp-registry-enabled
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: RDP Enabled via Registry Modification
 slug: 2024-01-rdp-registry-enabled
 description: An adversary may enable Remote Desktop Protocol (RDP) access by modifying the `fDenyTSConnections` registry key, potentially indicating lateral movement preparation or defense evasion.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - lateral-movement
   - defense-evasion

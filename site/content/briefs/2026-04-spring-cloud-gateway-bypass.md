@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-13-spring-cloud-gateway-bypass
+event_id: brief-2026-04-13-spring-cloud-gateway-bypass
+revision: 1
+activity_at: "2026-04-13T10:12:40Z"
 title: VMware Tanzu Spring Cloud Gateway Security Bypass Vulnerability
 slug: 2026-04-spring-cloud-gateway-bypass
 description: An anonymous, remote attacker can exploit a vulnerability in VMware Tanzu Spring Cloud Gateway to bypass security measures, potentially gaining unauthorized access or control.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - spring-cloud-gateway
   - security-bypass
@@ -16,7 +22,7 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1212
-    technique_name: Exploitation for Defense Evasion
+    technique_name: Exploitation for Credential Access
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-1041
 rules:

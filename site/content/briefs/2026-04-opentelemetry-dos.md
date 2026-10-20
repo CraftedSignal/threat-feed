@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-29-opentelemetry-dos
+event_id: brief-2026-04-29-opentelemetry-dos
+revision: 1
+activity_at: "2026-04-29T07:33:41Z"
 title: OpenTelemetry-Go Multi-Value Baggage Header Extraction DoS Vulnerability (CVE-2026-29181)
 slug: 2026-04-opentelemetry-dos
 description: A vulnerability in OpenTelemetry-Go related to the extraction of multi-value baggage headers can lead to excessive resource allocation, resulting in a remote denial-of-service amplification.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - dos
   - opentelemetry
@@ -18,11 +24,12 @@ mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1498
-    technique_name: Denial of Service
+    technique_name: Network Denial of Service
 cves:
   - id: CVE-2026-29181
     cvss: 7.5
     epss: 0.00052
+    kev_status: unknown
 references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-29181
 rules:

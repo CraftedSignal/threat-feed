@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-29-xpath-dos
+event_id: brief-2026-03-29-xpath-dos
+revision: 1
+activity_at: "2026-03-29T15:19:45Z"
 title: XPath Boolean Expression DoS Vulnerability
 slug: 2026-03-xpath-dos
 description: A vulnerability in the antchfx/xpath package allows for denial of service via CPU exhaustion by exploiting boolean expressions that evaluate to true, leading to an infinite loop.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - xpath
   - denial-of-service
@@ -17,6 +23,9 @@ mitre_ttps:
     tactic_name: Command and Control
     technique_id: T1499
     technique_name: Endpoint Denial of Service
+cves:
+  - id: CVE-2026-32287
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-65xw-vw82-r86x
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32287

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-15-mang-board-xss
+event_id: brief-2026-10-15-mang-board-xss
+revision: 1
+activity_at: "2026-10-15T06:35:56Z"
 title: Stored Cross-Site Scripting in Mang Board WP Plugin
 slug: 2026-10-mang-board-xss
 description: The Mang Board WP plugin for WordPress through version 2.4.0 is vulnerable to stored cross-site scripting (XSS) via the 'data_type' parameter, allowing unauthenticated attackers to execute arbitrary scripts in victim browsers.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:mang_board:mang_board:*:*:*:*:*:wordpress:*:*
 tags:
@@ -28,12 +41,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.007
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    technique_name: JavaScript
     evidence: This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.
     confidence_band: high
 cves:
   - id: CVE-2026-88043
     cvss: 7.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-88043
 action_plan:

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-wmiprvse-enumeration
+event_id: brief-2024-01-02-wmiprvse-enumeration
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Suspicious Enumeration Commands Spawned via WMIPrvSE
 slug: 2024-01-wmiprvse-enumeration
 description: This rule identifies suspicious activity where enumeration commands are spawned via the Windows Management Instrumentation Provider Service (WMIPrvSE) to gather system and network information.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - windows
   - enumeration
   - wmi
   - reconnaissance
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

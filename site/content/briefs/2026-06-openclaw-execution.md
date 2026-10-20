@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-06-26-openclaw-execution
+event_id: brief-2026-06-26-openclaw-execution
+revision: 1
+activity_at: "2026-04-08T12:07:54Z"
 title: OpenClaw Agent Suspicious Child Process Execution
 slug: 2026-06-openclaw-execution
 description: Malicious actors are exploiting OpenClaw, Moltbot, and Clawdbot AI coding agents via Node.js to execute arbitrary shell commands and download-and-execute commands, potentially targeting cryptocurrency wallets and credentials.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - ai-agent
   - execution

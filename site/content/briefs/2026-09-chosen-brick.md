@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-chosen-brick
+event_id: brief-2026-09-chosen-brick
+revision: 1
+activity_at: "2026-09-16T12:51:18Z"
 title: 'Iranian State-Sponsored Surveillance Malware: Chosen Brick'
 slug: 2026-09-chosen-brick
 description: Iranian state-sponsored actors are leveraging the 'Chosen Brick' Windows malware to conduct surveillance on global activists and journalists via social engineering and Telegram-based command-and-control.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Validated against reported attacker behavior and TTPs
 tags:
   - surveillance
   - nation-state

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-renamed-autoit
+event_id: brief-2024-01-09-renamed-autoit
+revision: 1
+activity_at: "2024-01-09T18:45:00Z"
 title: Renamed Automation Script Interpreter Detection
 slug: 2024-01-renamed-autoit
 description: This rule identifies renamed Automation Script Interpreter processes, often used by malware written in AutoIt/AutoHotKey to evade detection by renaming the executable.
@@ -8,19 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - execution
   - masquerading
   - windows
-vendors:
-  - AutoIt
-  - AutoHotkey
-  - KIX32
-products:
-  - AutoIt
-  - AutoHotkey
-  - KIX32
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

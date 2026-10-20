@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-gotenberg-ssrf
+event_id: brief-2026-05-gotenberg-ssrf
+revision: 1
+activity_at: "2026-05-29T16:52:16Z"
 title: Gotenberg SSRF via IPv6 Address Confusion (CVE-2026-45741)
 slug: 2026-05-gotenberg-ssrf
 description: Gotenberg's `IsPublicIP` function incorrectly classifies IPv6 6to4, NAT64, and deprecated site-local addresses as public IPs, enabling an unauthenticated attacker to reach internal destinations such as cloud metadata services.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:lfprojects:mcp_registry:*:*:*:*:*:*:*:*
 tags:
@@ -28,11 +34,14 @@ cves:
   - id: CVE-2026-44430
     cvss: 4
     epss: 0.00027
+    kev_status: unknown
+  - id: CVE-2026-45741
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-86m8-88fq-xfxp
 rules:
   - title: Detect Gotenberg SSRF Attempt via IPv6 Prefixes
-    description: Detects CVE-2026-45741 exploitation - Outbound HTTP requests to specific IPv4 addresses embedded in IPv6 prefixes known to bypass Gotenberg's private IP protection.
+    description: Detects CVE-2026-45741 exploitation — Outbound HTTP requests to specific IPv4 addresses embedded in IPv6 prefixes known to bypass Gotenberg's private IP protection.
     platform: sigma
     severity: high
     tactics:
@@ -43,7 +52,7 @@ rules:
       - network_connection
       - windows
   - title: Detect Gotenberg SSRF Attempt via IPv6 Prefixes (Process Creation)
-    description: Detects CVE-2026-45741 exploitation - Process creation with command line arguments that may trigger SSRF via IPv6 prefixes.
+    description: Detects CVE-2026-45741 exploitation — Process creation with command line arguments that may trigger SSRF via IPv6 prefixes.
     platform: sigma
     severity: medium
     tactics:

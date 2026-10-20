@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-06-openfpgaloader-heap-overflow
+event_id: brief-2026-04-06-openfpgaloader-heap-overflow
+revision: 1
+activity_at: "2026-04-06T20:16:25Z"
 title: openFPGALoader Heap-Buffer-Overflow Read Vulnerability
 slug: 2026-04-openfpgaloader-heap-overflow
 description: A heap-buffer-overflow read vulnerability exists in openFPGALoader 1.1.1 and earlier, allowing out-of-bounds heap memory access via a crafted .pof file, potentially leading to denial of service or information disclosure.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - heap-buffer-overflow
   - openFPGALoader
@@ -17,10 +23,11 @@ mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1068
-    technique_name: Exploitation for Information Discovery
+    technique_name: Exploitation for Privilege Escalation
 cves:
   - id: CVE-2026-35176
     cvss: 7.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-35176
   - https://github.com/trabucayre/openFPGALoader/security/advisories/GHSA-9x7m-m8gv-px2j

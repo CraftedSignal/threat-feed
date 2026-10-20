@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-26-simple-laundry-sqli
+event_id: brief-2026-03-26-simple-laundry-sqli
+revision: 1
+activity_at: "2026-03-26T08:16:22Z"
 title: SQL Injection Vulnerability in Simple Laundry System 1.0
 slug: 2026-03-simple-laundry-sqli
 description: A remote SQL Injection vulnerability exists in code-projects Simple Laundry System 1.0 within the Parameter Handler component's /checkregisitem.php file, where manipulating the Long-arm-shirtVol argument can trigger the injection, with a publicly available exploit.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sqli
   - web-application
@@ -17,6 +23,9 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-4850
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4850
   - https://code-projects.org/
@@ -24,6 +33,22 @@ references:
   - https://vuldb.com/?ctiid.353155
   - https://vuldb.com/?id.353155
   - https://vuldb.com/?submit.776184
+iocs:
+  - type: url
+    value: https://code-projects.org/
+  - type: url
+    value: https://github.com/kbloow/CVE/issues/1
+  - type: url
+    value: https://vuldb.com/?ctiid.353155
+  - type: url
+    value: https://vuldb.com/?id.353155
+  - type: url
+    value: https://vuldb.com/?submit.776184
+  - type: email
+    value: '[email protected]'
+ioc_counts:
+  email: 1
+  url: 5
 rules:
   - title: Detect Suspicious checkregisitem.php SQL Injection Attempt
     description: Detects potential SQL injection attempts targeting the checkregisitem.php endpoint by looking for common SQL keywords in the Long-arm-shirtVol parameter.

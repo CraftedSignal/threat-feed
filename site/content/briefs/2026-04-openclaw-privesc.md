@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-28-openclaw-privesc
+event_id: brief-2026-04-28-openclaw-privesc
+revision: 1
+activity_at: "2026-04-28T19:37:47Z"
 title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-42432)
 slug: 2026-04-openclaw-privesc
 description: OpenClaw before 2026.4.8 contains a privilege escalation vulnerability that allows previously paired nodes to reconnect and execute privileged commands without proper authorization, potentially leading to complete system compromise.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - privilege-escalation
   - cve-2026-42432
@@ -23,6 +29,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-42432
     cvss: 7.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42432
   - https://github.com/openclaw/openclaw/commit/d7c3210cd6f5fdfdc1beff4c9541673e814354d5

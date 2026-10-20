@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-20-spinnaker-spel
+event_id: brief-2026-04-20-spinnaker-spel
+revision: 1
+activity_at: "2026-04-20T21:19:10Z"
 title: Spinnaker Echo Service Vulnerable to Spring Expression Language Injection
 slug: 2026-04-spinnaker-spel
 description: Unrestricted access to the JVM via Spring Expression Language (SPeL) in Spinnaker's Echo service allows for arbitrary code execution, enabling attackers to invoke commands and access files.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - spel
   - code-execution
@@ -16,10 +22,11 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1219
-    technique_name: Exploitation of Remote Services
+    technique_name: Remote Access Software
 cves:
   - id: CVE-2026-32613
     cvss: 9.9
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-32613
 rules:

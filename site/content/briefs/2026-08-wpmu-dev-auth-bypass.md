@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-wpmu-dev-auth-bypass
+event_id: brief-2026-08-wpmu-dev-auth-bypass
+revision: 1
+activity_at: "2026-08-28T09:13:07Z"
 title: Authentication Bypass in WPMU DEV Dashboard Plugin
 slug: 2026-08-wpmu-dev-auth-bypass
 description: An authentication bypass vulnerability in the WPMU DEV Dashboard WordPress plugin allows unauthenticated attackers to forge an administrator session by exploiting flawed HMAC validation in the Hub SSO flow.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - wordpress
   - authentication-bypass
@@ -26,6 +39,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-76581
     cvss: 9.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76581
 action_plan:
@@ -39,7 +53,7 @@ action_plan:
       evidence: CVE-2026-76581 remediation requirement.
 ---
 
-The WPMU DEV Dashboard plugin for WordPress (versions 5.0.1 and earlier) contains a critical authentication bypass vulnerability identified as CVE-2026-76581. The flaw stems from inconsistent HMAC message construction during the Hub SSO authentication process, specifically between the `wdpsso_step1` and `wdpsso_step2` AJAX actions. The plugin fails to consistently separate concatenated values within the token generation logic. 
+The WPMU DEV Dashboard plugin for WordPress (versions 5.0.1 and earlier) contains a critical authentication bypass vulnerability identified as CVE-2026-76581. The flaw stems from inconsistent HMAC message construction during the Hub SSO authentication process, specifically between the `wdpsso_step1` and `wdpsso_step2` AJAX actions. The plugin fails to consistently separate concatenated values within the token generation logic.
 
 An unauthenticated attacker can capture the signed output from the first step - which includes the token, state, redirect, and domain parameters - and manipulate the input to the second step. By moving the domain value into the redirect field, the attacker creates a payload that satisfies the validation logic in the second AJAX action, which unexpectedly omits the domain field from its verification check. Successful exploitation grants the attacker an authenticated administrator session, posing a significant risk for complete site takeover. Organizations using the WPMU DEV Dashboard with Hub SSO enabled are at risk and should prioritize immediate remediation.
 

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-28-totolink-rce
+event_id: brief-2026-09-28-totolink-rce
+revision: 1
+activity_at: "2026-09-28T03:11:42Z"
 title: Remote Code Execution in TOTOLINK N150RT
 slug: 2026-09-totolink-rce
 description: An OS command injection vulnerability in the TOTOLINK N150RT web interface allows unauthenticated remote attackers to execute arbitrary commands via the wlanif parameter.
@@ -8,7 +12,15 @@ types:
   - threat
 severities:
   - critical
-exploited: true
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:totolink:n150rt:*:*:*:*:*:*:*:*
 tags:
@@ -30,6 +42,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-100896
     cvss: 9.9
+    epss: 0.01864
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-100896
 rules:
@@ -76,7 +90,7 @@ TOTOLINK N150RT firmware version 3.4.0-B20201030 contains a critical command inj
 
 ## Impact
 
-Successful exploitation allows for full system compromise, including unauthorized code execution, potential exfiltration of sensitive configuration data, and the ability to repurpose the device for further malicious activities within the local network. 
+Successful exploitation allows for full system compromise, including unauthorized code execution, potential exfiltration of sensitive configuration data, and the ability to repurpose the device for further malicious activities within the local network.
 
 ## Recommendation
 

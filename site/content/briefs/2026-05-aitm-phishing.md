@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-06-aitm-phishing
+event_id: brief-2026-05-06-aitm-phishing
+revision: 1
+activity_at: "2026-05-06T12:00:00Z"
 title: Sophisticated AitM Phishing Campaign Targeting US Organizations
 slug: 2026-05-aitm-phishing
 description: A sophisticated phishing campaign targeting US organizations uses a 'code of conduct review' theme to lure victims to a malicious website, employing adversary-in-the-middle (AitM) techniques to capture authentication tokens and gain account access.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - phishing
   - aitm

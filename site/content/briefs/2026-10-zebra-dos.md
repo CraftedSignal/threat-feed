@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-12-zebra-dos
+event_id: brief-2026-10-12-zebra-dos
+revision: 1
+activity_at: "2026-10-12T18:38:22Z"
 title: Denial of Service in ZcashFoundation Zebra Node
 slug: 2026-10-zebra-dos
 description: A vulnerability in ZcashFoundation Zebra 6.4.0 and 6.4.1 allows unauthenticated remote attackers to crash the node by sending a crafted version 6 transaction with a pre-NU6.3 consensus branch ID.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source documentation is sufficient for identifying the patch; network detection requires further payload analysis.
 cpes:
   - cpe:2.3:a:zcashfoundation:zebra:6.4.0:*:*:*:*:*:*:*
   - cpe:2.3:a:zcashfoundation:zebra:6.4.1:*:*:*:*:*:*:*
@@ -25,6 +39,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-109363
     cvss: 7.5
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109363
 action_plan:

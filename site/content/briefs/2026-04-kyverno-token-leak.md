@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-14-kyverno-token-leak
+event_id: brief-2026-04-14-kyverno-token-leak
+revision: 1
+activity_at: "2026-04-14T20:09:00Z"
 title: Kyverno Service Account Token Leak via API Call
 slug: 2026-04-kyverno-token-leak
 description: Kyverno's apiCall serviceCall helper implicitly injects the Kyverno controller service account token into requests when policies lack an explicit Authorization header, allowing exfiltration to attacker-controlled endpoints and unauthorized actions.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - kyverno
   - token-leak
@@ -33,10 +39,8 @@ iocs:
     value: https://github.com/kyverno/kyverno/blob/17aeb52337fd66adb0c8126213ba076612a287a7/pkg/engine/apicall/apiCall.go#L67-L83
   - type: url
     value: https://github.com/user-attachments/files/25352288/poc.zip
-    context: Proof-of-concept exploit code
   - type: url
     value: https://github.com/user-attachments/files/25352289/PR_DESCRIPTION.md
-    context: Proof-of-concept exploit code
 ioc_counts:
   url: 5
 rules:
@@ -65,7 +69,7 @@ rules:
 rules_count: 2
 ---
 
-A vulnerability exists in Kyverno versions prior to 1.17.0 where the `apiCall` and `serviceCall` helpers automatically inject the Kyverno controller's service account token into outgoing requests. This occurs when a Kyverno policy does not explicitly define an `Authorization` header for the request. Because the destination URL for these API calls is policy-controlled via `context.apiCall.service.url`, a malicious actor could create or modify a `ClusterPolicy` or `GlobalContextEntry` to direct these requests-and thus the service account token-to an attacker-controlled endpoint. This vulnerability allows for token exfiltration and subsequent unauthorized actions, depending on the RBAC permissions granted to the Kyverno service account. This issue is limited to `ClusterPolicy` and global context usage, as namespaced policies are blocked from `servicecall` usage.
+A vulnerability exists in Kyverno versions prior to 1.17.0 where the `apiCall` and `serviceCall` helpers automatically inject the Kyverno controller's service account token into outgoing requests. This occurs when a Kyverno policy does not explicitly define an `Authorization` header for the request. Because the destination URL for these API calls is policy-controlled via `context.apiCall.service.url`, a malicious actor could create or modify a `ClusterPolicy` or `GlobalContextEntry` to direct these requests—and thus the service account token—to an attacker-controlled endpoint. This vulnerability allows for token exfiltration and subsequent unauthorized actions, depending on the RBAC permissions granted to the Kyverno service account. This issue is limited to `ClusterPolicy` and global context usage, as namespaced policies are blocked from `servicecall` usage.
 
 ## Attack Chain
 

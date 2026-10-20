@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-28-dlink-buffer-overflow
+event_id: brief-2026-09-28-dlink-buffer-overflow
+revision: 1
+activity_at: "2026-09-28T18:20:39Z"
 title: Remote Stack-Based Buffer Overflow in D-Link DI-8400
 slug: 2026-09-dlink-buffer-overflow
 description: A critical stack-based buffer overflow vulnerability (CVE-2026-101081) in the D-Link DI-8400 web administration interface allows remote attackers to trigger memory corruption and achieve remote code execution.
@@ -8,7 +12,16 @@ types:
   - threat
 severities:
   - critical
-exploited: true
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source documentation is complete regarding the vulnerability technical details
 cpes:
   - cpe:2.3:h:dlink:di-8400:16.07:*:*:*:*:*:*:*
 tags:
@@ -29,6 +42,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-101081
     cvss: 9.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-101081
 action_plan:

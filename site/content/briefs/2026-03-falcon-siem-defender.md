@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-28-falcon-siem-defender
+event_id: brief-2026-03-28-falcon-siem-defender
+revision: 1
+activity_at: "2026-03-28T08:12:22Z"
 title: CrowdStrike Falcon Next-Gen SIEM Integrates with Microsoft Defender
 slug: 2026-03-falcon-siem-defender
 description: CrowdStrike Falcon Next-Gen SIEM now supports third-party EDR solutions, beginning with Microsoft Defender, enabling organizations to extend their AI-native SOC and unify detection across heterogeneous environments.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - siem
   - edr

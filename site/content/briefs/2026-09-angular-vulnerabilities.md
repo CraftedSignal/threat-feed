@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-11-angular-vulnerabilities
+event_id: brief-2026-09-11-angular-vulnerabilities
+revision: 1
+activity_at: "2026-09-11T12:54:22Z"
 title: Multiple Vulnerabilities in Angular Framework
 slug: 2026-09-angular-vulnerabilities
 description: Multiple vulnerabilities in the Angular framework allow remote, anonymous attackers to perform cross-site scripting (XSS), bypass security controls, and manipulate or disclose sensitive data.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against BSI source.
 cpes:
   - cpe:2.3:a:greenpau:caddy-security:*:*:*:*:*:*:*:*
   - cpe:2.3:a:authcrunch:caddy-security:*:*:*:*:*:*:*:*
@@ -33,12 +47,15 @@ cves:
   - id: CVE-2024-21499
     cvss: 4.3
     epss: 0.00495
+    kev_status: unknown
   - id: CVE-2024-21500
     cvss: 4.8
     epss: 0.00535
+    kev_status: unknown
   - id: CVE-2024-21501
     cvss: 5.3
     epss: 0.01027
+    kev_status: unknown
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3318
   - https://nvd.nist.gov/vuln/detail/CVE-2024-21499

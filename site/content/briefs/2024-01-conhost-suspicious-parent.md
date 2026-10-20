@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-conhost-suspicious-parent
+event_id: brief-2024-01-09-conhost-suspicious-parent
+revision: 1
+activity_at: "2024-01-09T18:22:00Z"
 title: Conhost Spawned By Suspicious Parent Process
 slug: 2024-01-conhost-suspicious-parent
 description: The Windows Console Host process (conhost.exe) spawned by a suspicious parent process, such as lsass.exe or explorer.exe, can indicate code injection used to bypass application allowlisting and execute malicious commands.
@@ -8,16 +12,14 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - execution
   - defense-evasion
   - privilege-escalation
   - process-injection
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

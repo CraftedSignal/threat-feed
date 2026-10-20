@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-16-hivepress-xss
+event_id: brief-2026-10-16-hivepress-xss
+revision: 1
+activity_at: "2026-10-16T08:25:23Z"
 title: Stored Cross-Site Scripting in HivePress WordPress Plugin
 slug: 2026-10-hivepress-xss
 description: An unauthenticated Stored Cross-Site Scripting (XSS) vulnerability in HivePress plugin versions 1.7.32 and earlier allows attackers to inject malicious scripts into attribute fields.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against CVE details.
 cpes:
   - cpe:2.3:a:hivepress:hivepress:*:*:*:*:*:wordpress:*:*
 tags:
@@ -28,6 +42,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-109193
     cvss: 7.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109193
 action_plan:

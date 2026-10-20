@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-24-tinacms-path-traversal
+event_id: brief-2026-04-24-tinacms-path-traversal
+revision: 1
+activity_at: "2026-03-30T17:11:02Z"
 title: TinaCMS GraphQL Path Traversal Vulnerability
 slug: 2026-04-tinacms-path-traversal
 description: A path traversal vulnerability in @tinacms/graphql allows unauthenticated users to write and overwrite arbitrary files within the project root by manipulating the relativePath parameter in GraphQL mutations, leading to potential arbitrary code execution.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - path-traversal
   - graphql
@@ -22,6 +28,9 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1566
     technique_name: Phishing
+cves:
+  - id: CVE-2026-33949
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-v9p7-gf3q-h779
 rules:

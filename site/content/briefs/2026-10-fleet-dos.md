@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-19-fleet-dos
+event_id: brief-2026-10-19-fleet-dos
+revision: 1
+activity_at: "2026-10-19T14:07:24Z"
 title: Fleet Denial of Service Vulnerabilities
 slug: 2026-10-fleet-dos
 description: Multiple vulnerabilities in Fleet enable a remote, unauthenticated attacker to cause a Denial of Service state, impacting service availability.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source documents a DoS vulnerability without specific CVE IDs or detailed attack chains.
 tags:
   - denial-of-service
   - vulnerability

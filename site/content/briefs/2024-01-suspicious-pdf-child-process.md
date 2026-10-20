@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-suspicious-pdf-child-process
+event_id: brief-2024-01-03-suspicious-pdf-child-process
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Suspicious PDF Reader Child Process Execution
 slug: 2024-01-suspicious-pdf-child-process
 description: Adversaries may exploit vulnerabilities in PDF reader applications or use social engineering to execute malicious commands, often spawning system utilities for discovery or defense evasion purposes.
@@ -8,18 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - exploitation
   - pdf
   - initial-access
-vendors:
-  - Adobe
-  - Foxit
-products:
-  - Adobe Acrobat Reader
-  - Adobe Acrobat
-  - Foxit PDF Reader
-  - Foxit PDF Editor
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

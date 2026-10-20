@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-07-turla-french-entities
+event_id: brief-2026-07-turla-french-entities
+revision: 1
+activity_at: "2026-07-13T09:25:30Z"
 title: Targeting and Compromise of French Entities Using the Turla Intrusion Set
 slug: 2026-07-turla-french-entities
 description: The Turla intrusion set, operated by the 16th Centre of the Federal Security Service (FSB) of Russia, has been targeting French entities and other strategic organizations globally since at least 2004 for intelligence-gathering purposes, with victims in France including ministries and entities within the diplomatic, defence, justice, and technology sectors.
@@ -14,6 +18,8 @@ actors:
   - Venomous Bear
   - Secret Blizzard
   - Iron Hunter
+exploitation_evidence:
+  status: unknown
 tags:
   - nation-state
   - espionage

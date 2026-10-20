@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-29-wavlink-overflow
+event_id: brief-2026-03-29-wavlink-overflow
+revision: 1
+activity_at: "2026-03-29T00:00:00Z"
 title: Wavlink WL-WN579X3-C Stack-Based Buffer Overflow Vulnerability
 slug: 2026-03-wavlink-overflow
 description: A stack-based buffer overflow vulnerability exists in Wavlink WL-WN579X3-C 231124's UPNP Handler component, specifically in the /cgi-bin/firewall.cgi file and the sub_4019FC function, allowing remote attackers to execute arbitrary code by manipulating the UpnpEnabled argument; public exploits are available, but the vendor has not responded to the disclosure.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - cve
   - buffer-overflow
@@ -17,6 +23,9 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-5004
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5004
   - https://github.com/Litengzheng/vul_db/blob/main/WL-WN579X3-C/vul_200/README.md

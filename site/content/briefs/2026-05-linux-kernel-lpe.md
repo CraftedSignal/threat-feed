@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-29-linux-kernel-lpe
+event_id: brief-2026-05-29-linux-kernel-lpe
+revision: 1
+activity_at: "2026-05-29T07:52:00Z"
 title: Linux Kernel Local Privilege Escalation Exploit Publicly Available
 slug: 2026-05-linux-kernel-lpe
 description: A local privilege escalation vulnerability in the Linux Kernel has a published exploit on Exploit-DB, potentially allowing unprivileged users to gain elevated privileges on vulnerable systems.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - privilege-escalation
   - linux

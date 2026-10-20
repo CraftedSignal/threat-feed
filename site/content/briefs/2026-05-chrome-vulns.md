@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-06-chrome-vulns
+event_id: brief-2026-05-06-chrome-vulns
+revision: 1
+activity_at: "2026-05-06T00:00:00Z"
 title: Multiple Unspecified Vulnerabilities in Google Chrome
 slug: 2026-05-chrome-vulns
 description: Multiple unspecified vulnerabilities in Google Chrome prior to version 148.0.7778.96 for Linux and 148.0.7778.96/97 for Windows and Mac could allow an attacker to cause an unspecified security issue.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - browser

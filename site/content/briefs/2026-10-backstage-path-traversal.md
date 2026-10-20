@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-backstage-path-traversal
+event_id: brief-2026-10-backstage-path-traversal
+revision: 1
+activity_at: "2026-10-07T22:54:58Z"
 title: Path Traversal Vulnerability in Backstage Bitbucket Scaffolder Modules
 slug: 2026-10-backstage-path-traversal
 description: Authenticated users can exploit improper filesystem validation in Backstage Bitbucket scaffolder plugins to achieve unauthorized file access, modification, or deletion outside the intended working directory via CVE-2026-106486.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against GHSA-g8rx-f7m5-7794
 tags:
   - path-traversal
   - backstage
@@ -28,6 +42,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-106486
     cvss: 8.5
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-g8rx-f7m5-7794
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-106486

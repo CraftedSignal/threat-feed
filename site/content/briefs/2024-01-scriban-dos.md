@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-27-scriban-dos
+event_id: brief-2024-01-27-scriban-dos
+revision: 1
+activity_at: "2024-01-27T12:00:00Z"
 title: Scriban Template Engine LoopLimit Bypass Vulnerability
 slug: 2024-01-scriban-dos
 description: Scriban's LoopLimit can be bypassed by crafted template expressions, allowing attackers to perform resource exhaustion through CPU or memory amplification, leading to denial of service.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - scriban
   - dos
   - template-injection
-vendors:
-  - Scriban
-products:
-  - Scriban Template Engine
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact

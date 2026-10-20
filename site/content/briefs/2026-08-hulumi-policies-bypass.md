@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-31-hulumi-policies-bypass
+event_id: brief-2026-08-31-hulumi-policies-bypass
+revision: 1
+activity_at: "2026-08-31T11:17:59Z"
 title: Security Policy Bypass in @hulumi/policies via Parent Spoofing
 slug: 2026-08-hulumi-policies-bypass
 description: The @hulumi/policies package before version 1.3.2 is vulnerable to a parent spoofing attack that allows unauthorized actors to bypass security policy enforcement during bucket configuration validation.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:hulumi:policies:*:*:*:*:*:*:*:*
 tags:
@@ -24,7 +37,7 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1565.002
-    technique_name: Data Manipulation
+    technique_name: Transmitted Data Manipulation
     evidence: Attackers can bypass security policy checks by providing falsified evidence, causing the validator to miss unsafe bucket configurations.
     confidence_band: high
   - tactic_id: TA0001
@@ -36,6 +49,9 @@ mitre_ttps:
 cves:
   - id: CVE-2026-82861
     cvss: 7.5
+    kev_status: unknown
+  - id: CVE-2026-82856
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82861
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82856

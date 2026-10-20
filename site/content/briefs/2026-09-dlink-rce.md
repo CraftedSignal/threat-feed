@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-22-dlink-rce
+event_id: brief-2026-09-22-dlink-rce
+revision: 1
+activity_at: "2026-09-22T14:36:25Z"
 title: Unauthenticated Remote Code Execution in D-Link DAP-1360
 slug: 2026-09-dlink-rce
 description: D-Link DAP-1360 firmware version 6.14 and earlier is susceptible to unauthenticated remote code execution via the web management interface, allowing root-level command injection.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against CVE-2026-95675 details
 cpes:
   - cpe:2.3:o:dlink:dap-1360_firmware:*:*:*:*:*:*:*:*
 vendors:
@@ -36,6 +50,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-95675
     cvss: 9.8
+    epss: 0.02057
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-95675
 action_plan:

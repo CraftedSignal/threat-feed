@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-29-netcore-cve
+event_id: brief-2026-09-29-netcore-cve
+revision: 1
+activity_at: "2026-09-29T02:23:52Z"
 title: OS Command Injection in Netcore NAP930 via Network Tools CGI
 slug: 2026-09-netcore-cve
 description: An unauthenticated remote OS command injection vulnerability in the Netcore NAP930 router allows attackers to execute arbitrary system commands via the sid argument in the network_tools CGI component.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "3"
+  rating: A3
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: needs_environment_validation
 cpes:
   - cpe:2.3:a:netcore:nap930:*:*:*:*:*:*:*:*
 tags:
@@ -34,6 +48,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-102240
     cvss: 10
+    epss: 0.02011
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102240
 rules:

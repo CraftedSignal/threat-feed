@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-19-camunda-auth-bypass
+event_id: brief-2026-10-19-camunda-auth-bypass
+revision: 1
+activity_at: "2026-10-19T18:08:25Z"
 title: Authorization Bypass in Camunda Platform Task Resources
 slug: 2026-10-camunda-auth-bypass
 description: An authorization bypass vulnerability in Camunda Platform allows authenticated attackers to access, download, or delete task comments and attachments by exploiting missing authorization checks in specific engine-rest sub-resources.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source-verified, no environment validation performed
 cpes:
   - cpe:2.3:a:camunda:camunda_platform:*:*:*:*:*:*:*:*
 tags:
@@ -21,6 +35,7 @@ products:
 cves:
   - id: CVE-2026-109431
     cvss: 8.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-109431
 action_plan:

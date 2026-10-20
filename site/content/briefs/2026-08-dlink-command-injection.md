@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-31-dlink-command-injection
+event_id: brief-2026-08-31-dlink-command-injection
+revision: 1
+activity_at: "2026-08-31T13:58:19Z"
 title: Remote Command Injection in D-Link NAS Devices
 slug: 2026-08-dlink-command-injection
 description: A critical command injection vulnerability in D-Link DNS-327L and DNS-340L devices allows unauthenticated remote code execution via manipulation of the f_dev parameter.
@@ -8,7 +12,15 @@ types:
   - threat
 severities:
   - critical
-exploited: true
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - vulnerability
   - rce
@@ -28,6 +40,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-82690
     cvss: 9.1
+    epss: 0.03605
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-82690
 rules:
@@ -69,7 +83,7 @@ Successful exploitation of this vulnerability allows for full, unauthenticated r
 
 ## Recommendation
 
-Immediate mitigation is required for all internet-facing D-Link DNS-327L and DNS-340L devices. 
+Immediate mitigation is required for all internet-facing D-Link DNS-327L and DNS-340L devices.
 
 - Ensure that NAS devices are not exposed directly to the internet; place them behind a firewall or VPN.
 - Review web server access logs for anomalous HTTP requests targeting /cgi-bin/ve_mgr.cgi, specifically looking for shell metacharacters in the f_dev argument.

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-21-llama-cpp-uaf
+event_id: brief-2026-08-21-llama-cpp-uaf
+revision: 1
+activity_at: "2026-08-21T17:25:19Z"
 title: Use-After-Free Vulnerability in llama.cpp RPC Server
 slug: 2026-08-llama-cpp-uaf
 description: An unauthenticated use-after-free vulnerability in the llama.cpp RPC server's GRAPH_RECOMPUTE handler allows remote attackers to achieve arbitrary read/write access and remote code execution.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against NVD metadata
 vendors:
   - ggerganov
 products:
@@ -16,12 +30,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: Attackers can send RPC requests to trigger re-execution of stored graphs with dangling pointers, enabling full remote code execution.
     confidence_band: med
 cves:
   - id: CVE-2026-39909
     cvss: 8.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-39909
 action_plan:

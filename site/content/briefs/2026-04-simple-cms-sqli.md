@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-13-simple-cms-sqli
+event_id: brief-2026-04-13-simple-cms-sqli
+revision: 1
+activity_at: "2026-04-13T15:17:49Z"
 title: SQL Injection Vulnerability in Simple Content Management System 1.0
 slug: 2026-04-simple-cms-sqli
 description: A remote SQL injection vulnerability exists in code-projects Simple Content Management System 1.0, specifically affecting the /web/admin/login.php file where manipulation of the 'User' argument allows unauthenticated attackers to execute arbitrary SQL queries.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sqli
   - web-application
@@ -20,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-6182
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6182
   - https://code-projects.org/
@@ -29,10 +36,17 @@ references:
   - https://vuldb.com/vuln/357105/cti
 iocs:
   - type: url
+    value: https://code-projects.org/
+  - type: url
     value: https://github.com/Xmyronn/simple-cms-sqli-login-bypass-CVE-HUNT-
-    context: Proof-of-concept exploit code
+  - type: url
+    value: https://vuldb.com/submit/797263
+  - type: url
+    value: https://vuldb.com/vuln/357105
+  - type: url
+    value: https://vuldb.com/vuln/357105/cti
 ioc_counts:
-  url: 1
+  url: 5
 rules:
   - title: Detect SQL Injection Attempts in Simple CMS Login
     description: Detects potential SQL injection attempts in requests to the /web/admin/login.php endpoint by looking for common SQL keywords in the User parameter.

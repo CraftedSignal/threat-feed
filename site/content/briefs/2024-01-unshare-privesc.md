@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-29-unshare-privesc
+event_id: brief-2024-01-29-unshare-privesc
+revision: 1
+activity_at: "2024-01-29T12:00:00Z"
 title: Potential Privilege Escalation via unshare Followed by Root Process
 slug: 2024-01-unshare-privesc
 description: The rule detects a sequence of events indicating a potential privilege escalation attempt on Linux systems where a non-root user performs namespace activity using unshare, followed by the execution of a root process shortly after.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - privilege-escalation
   - linux

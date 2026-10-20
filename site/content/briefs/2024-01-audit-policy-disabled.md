@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-audit-policy-disabled
+event_id: brief-2024-01-03-audit-policy-disabled
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Windows Audit Policy Sub-Category Disabled
 slug: 2024-01-audit-policy-disabled
 description: This rule detects attempts to disable auditing for security-sensitive audit policy sub-categories on Windows systems, often done by attackers to evade detection and forensic analysis.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense_evasion
   - windows
   - audit_policy
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

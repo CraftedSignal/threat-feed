@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-29-edge-update
+event_id: brief-2026-05-29-edge-update
+revision: 1
+activity_at: "2026-05-29T13:17:29Z"
 title: Microsoft Edge Security Update Released
 slug: 2026-05-edge-update
 description: Microsoft released a security update on May 28, 2026, to address vulnerabilities in Microsoft Edge Stable Channel versions prior to 148.0.3967.96, advising users to apply the necessary updates.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - browser
   - update

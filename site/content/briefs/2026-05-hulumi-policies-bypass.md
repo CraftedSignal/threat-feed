@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-22-hulumi-policies-bypass
+event_id: brief-2026-05-22-hulumi-policies-bypass
+revision: 1
+activity_at: "2026-05-21T20:50:31Z"
 title: '@hulumi/policies Evidence Bypass Vulnerability'
 slug: 2026-05-hulumi-policies-bypass
 description: '@hulumi/policies versions before 1.3.2 allowed unrelated compliant-looking evidence to suppress violations for different zones, hostnames, origins, or repositories in the same stack, bypassing Cloudflare and deployment-governance guardrails.'
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - dependency-confusion
   - security-bypass

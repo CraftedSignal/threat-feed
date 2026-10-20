@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-31-msbuild-office-app
+event_id: brief-2024-01-31-msbuild-office-app
+revision: 1
+activity_at: "2024-01-31T12:00:00Z"
 title: MSBuild Started by Microsoft Office Application
 slug: 2024-01-msbuild-office-app
 description: The Microsoft Build Engine (MSBuild) being started by a Microsoft Office application is an unusual behavior that could indicate a malicious document is executing a payload to evade defenses and execute code.
@@ -8,17 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - execution
   - msbuild
   - office-macro
-vendors:
-  - Microsoft
-products:
-  - Word
-  - Excel
-  - PowerPoint
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

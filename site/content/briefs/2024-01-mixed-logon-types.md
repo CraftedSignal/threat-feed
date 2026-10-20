@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-31-mixed-logon-types
+event_id: brief-2024-01-31-mixed-logon-types
+revision: 1
+activity_at: "2024-01-31T12:00:00Z"
 title: Potential Account Takeover via Mixed Logon Types
 slug: 2024-01-mixed-logon-types
 description: Atypical logon patterns, where a high-volume account (e.g., service account) exhibits successful logons using an unusual logon type with low frequency, may indicate account takeover or stolen credentials.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - account-takeover
   - privilege-escalation
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation

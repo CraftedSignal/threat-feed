@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-open-ises-tickets-sql-injection
+event_id: brief-2026-05-open-ises-tickets-sql-injection
+revision: 1
+activity_at: "2026-05-21T18:20:19Z"
 title: Open ISES Tickets SQL Injection Vulnerability (CVE-2026-48238)
 slug: 2026-05-open-ises-tickets-sql-injection
 description: Open ISES Tickets before version 3.44.2 is vulnerable to SQL injection (CVE-2026-48238) because the id GET parameter in ajax/mobile_main.php is concatenated into the WHERE clause of a SELECT statement without sanitization, allowing authenticated attackers to craft requests that can read, modify, or destroy database contents.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cve
   - sql-injection
@@ -24,6 +30,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-48238
     cvss: 7.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-48238
   - https://github.com/openises/tickets/commit/ecfeb406a016766cae81c749e14b5145a9f2dbff
@@ -31,7 +38,7 @@ references:
   - https://www.vulncheck.com/advisories/open-ises-tickets-sql-injection-via-ajax-mobile-main-php-id-parameter
 rules:
   - title: Detect SQL Injection Attempts in Open ISES Tickets
-    description: Detects CVE-2026-48238 exploitation - SQL injection attempts targeting the id parameter in Open ISES Tickets ajax/mobile_main.php
+    description: Detects CVE-2026-48238 exploitation — SQL injection attempts targeting the id parameter in Open ISES Tickets ajax/mobile_main.php
     platform: sigma
     severity: high
     tactics:

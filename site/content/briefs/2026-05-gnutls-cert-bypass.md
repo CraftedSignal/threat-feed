@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-gnutls-cert-bypass
+event_id: brief-2026-05-gnutls-cert-bypass
+revision: 1
+activity_at: "2026-05-26T22:18:53Z"
 title: 'CVE-2026-42013: gnutls Certificate Validation Bypass via Oversized SAN'
 slug: 2026-05-gnutls-cert-bypass
 description: A vulnerability in gnutls (CVE-2026-42013) allows a remote attacker to bypass certificate validation by providing an oversized Subject Alternative Name (SAN), causing the validation process to fall back to the Common Name (CN) field, potentially leading to spoofing or man-in-the-middle attacks.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - certificate validation
   - spoofing
@@ -26,13 +32,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-42013
     cvss: 8.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42013
   - https://access.redhat.com/security/cve/CVE-2026-42013
   - https://bugzilla.redhat.com/show_bug.cgi?id=2467448
 rules:
   - title: Detect GnuTLS Certificate Validation Bypass - Large SAN
-    description: Detects CVE-2026-42013 exploitation - monitors network traffic for TLS connections using certificates with unusually large Subject Alternative Name (SAN) fields, which could indicate an attempt to bypass certificate validation.
+    description: Detects CVE-2026-42013 exploitation — monitors network traffic for TLS connections using certificates with unusually large Subject Alternative Name (SAN) fields, which could indicate an attempt to bypass certificate validation.
     platform: sigma
     severity: medium
     tactics:
@@ -44,7 +51,7 @@ rules:
       - network_connection
       - windows
   - title: Detect GnuTLS Certificate Validation Bypass - Fallback to CN
-    description: Detects CVE-2026-42013 exploitation - This rule detects potential exploitation of CVE-2026-42013 by monitoring for certificate validation events where a fallback to the Common Name (CN) field occurs after encountering an issue with the Subject Alternative Name (SAN).
+    description: Detects CVE-2026-42013 exploitation — This rule detects potential exploitation of CVE-2026-42013 by monitoring for certificate validation events where a fallback to the Common Name (CN) field occurs after encountering an issue with the Subject Alternative Name (SAN).
     platform: sigma
     severity: low
     tactics:

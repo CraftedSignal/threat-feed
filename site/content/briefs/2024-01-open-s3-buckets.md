@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-open-s3-buckets
+event_id: brief-2024-01-09-open-s3-buckets
+revision: 1
+activity_at: "2024-01-09T12:00:00Z"
 title: AWS CLI Activity Detection for Open S3 Bucket Creation
 slug: 2024-01-open-s3-buckets
 description: Detection of S3 bucket creation via AWS CLI which might lead to data exposure and unauthorized access.
@@ -8,21 +12,18 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - aws
   - s3
   - cloud
   - data-breach
-vendors:
-  - Amazon
-products:
-  - Amazon S3
-  - AWS Command Line Interface
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1530
-    technique_name: Cloud Service Discovery
+    technique_name: Data from Cloud Storage
 references:
   - https://github.com/splunk/security_content/blob/main/detections/cloud/detect_new_open_s3_buckets_over_aws_cli.yml
 rules:

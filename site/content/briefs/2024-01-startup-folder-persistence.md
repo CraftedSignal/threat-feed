@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-23-startup-folder-persistence
+event_id: brief-2024-01-23-startup-folder-persistence
+revision: 1
+activity_at: "2024-01-23T12:00:00Z"
 title: Detection of Persistent Scripts in the Startup Directory
 slug: 2024-01-startup-folder-persistence
 description: This rule identifies script engines creating files in the Startup folder, or the creation of script files in the Startup folder, enabling adversaries to maintain persistence by placing malicious scripts or shortcuts in the Windows Startup folder, which are then executed during account logon.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - persistence
   - startup-folder
   - windows
   - malware
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

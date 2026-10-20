@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-28-dlink-buffer-overflow
+event_id: brief-2026-04-28-dlink-buffer-overflow
+revision: 1
+activity_at: "2026-04-28T15:16:37Z"
 title: D-Link DIR-825M Remote Buffer Overflow Vulnerability
 slug: 2026-04-dlink-buffer-overflow
 description: D-Link DIR-825M version 1.1.12 is vulnerable to a buffer overflow via manipulation of the submit-url argument in the /boafrm/formWanConfigSetup file's sub_414BA8 function, allowing a remote attacker to execute arbitrary code.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - buffer-overflow
   - router
@@ -25,6 +31,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7289
     cvss: 8.8
+    epss: 0.0117
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7289
   - https://github.com/Kiciot/cve/issues/3

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-24-openclaw-env-override
+event_id: brief-2026-04-24-openclaw-env-override
+revision: 1
+activity_at: "2026-04-24T12:00:00Z"
 title: OpenClaw Arbitrary Code Execution via Environment Variable Override (CVE-2026-41336)
 slug: 2026-04-openclaw-env-override
 description: OpenClaw before 2026.3.31 allows attackers to execute arbitrary code by overriding the OPENCLAW_BUNDLED_HOOKS_DIR environment variable using a workspace .env file, enabling the loading of attacker-controlled hook code.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cve
   - code-execution
@@ -24,6 +30,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-41336
     cvss: 7.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41336
   - https://github.com/openclaw/openclaw/commit/330a9f98cb29c79b1c16a2117e03d6276a0d6289

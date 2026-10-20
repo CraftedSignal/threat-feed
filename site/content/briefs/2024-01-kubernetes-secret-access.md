@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-kubernetes-secret-access
+event_id: brief-2024-01-03-kubernetes-secret-access
+revision: 1
+activity_at: "2024-01-03T18:22:00Z"
 title: Kubernetes Secret Access by Node or Pod Service Account
 slug: 2024-01-kubernetes-secret-access
 description: This rule detects Kubernetes audit events where a node or pod service account attempts to read secrets directly, which is often a sign of credential access.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - kubernetes
   - credential-access

@@ -1,4 +1,17 @@
 ---
+brief_id: brief-2026-05-05-vm2-sandbox-escape
+event_id: brief-2026-05-05-vm2-sandbox-escape
+revision: 2
+activity_at: "2026-05-05T16:44:16Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-20T13:19:21Z"
+    checksum: sha256:bce75195e552e90b8ba366eeae1da20fef2a3670e9cb2ae1bf2a6f58343b5e23
+    summary: Repaired a legacy canonical identity collision
+    changed_fields:
+      - event_id
+      - id
+    maintenance: true
 title: VM2 Sandbox Escape Vulnerability (CVE-2026-26956)
 slug: 2024-01-03-vm2-sandbox-escape
 description: A critical vulnerability, CVE-2026-26956, exists in vm2 version 3.10.4 when running on Node.js v25.6.1 (x64 Linux), allowing a full sandbox escape with arbitrary code execution through attacker-controlled code passed to `VM.run()`.
@@ -8,6 +21,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - sandbox-escape
   - wasm
@@ -32,6 +47,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-26956
     cvss: 9.8
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-ffh4-j6h5-pg66
 rules:

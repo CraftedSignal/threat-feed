@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-29-cnapp-adversary-risk
+event_id: brief-2026-03-29-cnapp-adversary-risk
+revision: 1
+activity_at: "2026-03-28T09:35:23Z"
 title: CrowdStrike Falcon Cloud Security CNAPP with Adversary-Informed Risk Prioritization
 slug: 2026-03-cnapp-adversary-risk
 description: CrowdStrike Falcon Cloud Security enhances CNAPP capabilities with application-layer visibility and adversary-informed risk prioritization, enabling security teams to focus on attacker-aligned risks and known threat actors.
@@ -20,6 +24,8 @@ actors:
   - Roasted 0ktapus
   - Muddled Libra
   - Star Fraud
+exploitation_evidence:
+  status: unknown
 tags:
   - cloud-security
   - cnaap
@@ -28,7 +34,7 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1556

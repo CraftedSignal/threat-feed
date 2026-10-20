@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-25-picomatch-redos
+event_id: brief-2026-03-25-picomatch-redos
+revision: 1
+activity_at: "2026-03-25T21:13:29Z"
 title: Picomatch ReDoS Vulnerability via Extglob Quantifiers
 slug: 2026-04-picomatch-redos
 description: Picomatch is vulnerable to Regular Expression Denial of Service (ReDoS) when processing crafted extglob patterns with quantifiers, leading to excessive CPU consumption and denial of service.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - picomatch
   - ReDoS
@@ -18,6 +24,9 @@ mitre_ttps:
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
+cves:
+  - id: CVE-2026-33671
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-c2c7-rcm5-vvqj
 rules:

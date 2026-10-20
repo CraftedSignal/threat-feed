@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-o365-email-reported-malicious
+event_id: brief-2024-01-03-o365-email-reported-malicious
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: O365 Email Reported by User Found Malicious
 slug: 2024-01-o365-email-reported-malicious
 description: Detection of emails reported by users as malicious via the Outlook 'Report Message' feature, subsequently confirmed as Phish or Malware by Microsoft's analysis, indicating successful initial access.
@@ -8,17 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - o365
   - phishing
   - malware
   - email
-vendors:
-  - Microsoft
-products:
-  - Microsoft 365
-  - Outlook
-  - Exchange Online Protection
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

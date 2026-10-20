@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-vm2-sandbox-escape
+event_id: brief-2026-05-vm2-sandbox-escape
+revision: 1
+activity_at: "2026-05-29T17:51:55Z"
 title: VM2 Sandbox Escape via JSPI Promise .finally() Species Bypass (CVE-2026-47210)
 slug: 2026-05-vm2-sandbox-escape
 description: A sandbox escape vulnerability, CVE-2026-47210, in `vm2` allows arbitrary code execution in the host process when untrusted code is executed with async support on runtimes exposing WebAssembly JSPI, bypassing Promise-species hardening and exposing a host-originated rejection object to attacker-controlled species logic.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - sandbox-escape
   - rce
@@ -25,6 +31,9 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1202
     technique_name: Indirect Command Execution
+cves:
+  - id: CVE-2026-47210
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-6j2x-vhqr-qr7q
   - CVE-2026-47210

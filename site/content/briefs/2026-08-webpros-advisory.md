@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-webpros-advisory
+event_id: brief-2026-08-webpros-advisory
+revision: 1
+activity_at: "2026-08-27T15:11:15Z"
 title: Security Vulnerabilities in Plesk Management Interface and Extensions
 slug: 2026-08-webpros-advisory
 description: WebPros has released security updates for Plesk and its Migrator and Site Import extensions to address critical vulnerabilities CVE-2026-65642 and CVE-2026-65647.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source documentation verified; no observable exploit code documented.
 tags:
   - vulnerability
   - patch-management
@@ -21,8 +35,10 @@ products:
 cves:
   - id: CVE-2026-65642
     epss: 0.00427
+    kev_status: unknown
   - id: CVE-2026-65647
     epss: 0.00458
+    kev_status: unknown
 references:
   - https://cyber.gc.ca/en/alerts-advisories/webpros-security-advisory-av26-854
   - https://support.plesk.com/hc/en-us/articles/42844242102679-Vulnerability-CVE-2026-65642-in-Plesk-s-database-management-interface

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-06-openclaw-privesc
+event_id: brief-2026-05-06-openclaw-privesc
+revision: 1
+activity_at: "2026-05-06T20:16:33Z"
 title: OpenClaw Privilege Escalation Vulnerability (CVE-2026-43578)
 slug: 2026-05-openclaw-privesc
 description: OpenClaw versions before 2026.4.10 are vulnerable to privilege escalation due to improper handling of background async exec completion events, potentially allowing attackers to execute code with elevated privileges by providing untrusted completion content.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - privilege-escalation
   - vulnerability
@@ -24,6 +30,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-43578
     cvss: 9.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-43578
 rules:

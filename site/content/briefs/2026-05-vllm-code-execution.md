@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-vllm-code-execution
+event_id: brief-2026-05-vllm-code-execution
+revision: 1
+activity_at: "2026-05-21T07:58:51Z"
 title: vllm Vulnerability Allows Remote Code Execution
 slug: 2026-05-vllm-code-execution
 description: A remote, anonymous attacker can exploit a vulnerability in vllm to achieve arbitrary code execution.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - remote-code-execution
   - vulnerability

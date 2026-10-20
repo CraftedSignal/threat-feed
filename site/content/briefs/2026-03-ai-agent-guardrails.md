@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-28-ai-agent-guardrails
+event_id: brief-2026-03-28-ai-agent-guardrails
+revision: 1
+activity_at: "2026-03-28T21:52:45Z"
 title: Securing AI Agents with CrowdStrike Falcon AIDR and NVIDIA NeMo Guardrails
 slug: 2026-03-ai-agent-guardrails
 description: CrowdStrike Falcon AIDR now supports NVIDIA NeMo Guardrails to protect AI agents from attacks like prompt injection, data exfiltration, and unauthorized actions, enabling organizations to deploy AI applications more securely.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ai-security
   - prompt-injection

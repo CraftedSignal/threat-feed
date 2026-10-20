@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-nginx-ui-takeover
+event_id: brief-2024-01-09-nginx-ui-takeover
+revision: 1
+activity_at: "2024-01-09T12:00:00Z"
 title: Unauthenticated Remote Takeover of Nginx-UI via MCP Endpoint
 slug: 2024-01-nginx-ui-takeover
 description: Nginx-UI is vulnerable to unauthenticated remote takeover due to a missing authentication check on the `/mcp_message` endpoint, allowing attackers to invoke MCP tools without authentication, leading to arbitrary nginx configuration modification, traffic interception, service disruption, configuration exfiltration, and credential harvesting; the default empty IP whitelist allows access from any network attacker.
@@ -8,16 +12,14 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - nginx-ui
   - nginx
   - unauthenticated
   - remote-takeover
   - CVE-2026-33032
-vendors:
-  - Nginx-UI
-products:
-  - Nginx-UI
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -30,7 +32,7 @@ mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1505.003
-    technique_name: Server Software Component
+    technique_name: Web Shell
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1566
@@ -39,6 +41,9 @@ mitre_ttps:
     tactic_name: Impact
     technique_id: T1566
     technique_name: Phishing
+cves:
+  - id: CVE-2026-33032
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-h6c2-x2m2-mwhf
 iocs:

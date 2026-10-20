@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-30-watchguard-fireware-vulnerabilities
+event_id: brief-2026-09-30-watchguard-fireware-vulnerabilities
+revision: 1
+activity_at: "2026-09-30T16:23:51Z"
 title: Multiple Vulnerabilities in WatchGuard Fireware OS
 slug: 2026-09-watchguard-fireware-vulnerabilities
 description: WatchGuard Fireware OS is impacted by multiple high-severity vulnerabilities allowing remote attackers to achieve arbitrary code execution, privilege escalation, and denial-of-service.
@@ -9,6 +13,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source verified; patch availability needs local IT verification
 cpes:
   - cpe:2.3:a:watchguard:fireware_os:*:*:*:*:*:*:*:*
 vendors:
@@ -31,6 +45,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-86134
     epss: 0.00422
+    kev_status: unknown
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3646
   - https://cyber.gc.ca/en/alerts-advisories/watchguard-security-advisory-av26-981

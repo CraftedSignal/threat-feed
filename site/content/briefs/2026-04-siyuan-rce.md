@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-10-siyuan-rce
+event_id: brief-2026-04-10-siyuan-rce
+revision: 1
+activity_at: "2026-03-31T22:17:16Z"
 title: SiYuan Knowledge Management System RCE via Malicious Website
 slug: 2026-04-siyuan-rce
 description: SiYuan versions prior to 3.6.2 are vulnerable to remote code execution (RCE) via a malicious website exploiting a permissive CORS policy to inject a JavaScript snippet, leading to arbitrary code execution within the application's Node.js context.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - cve-2026-34449
   - rce
@@ -21,6 +27,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-34449
     cvss: 9.6
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-34449
 rules:

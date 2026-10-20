@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-ibm-app-connect-vulns
+event_id: brief-2026-05-ibm-app-connect-vulns
+revision: 1
+activity_at: "2026-05-22T10:45:11Z"
 title: IBM App Connect Enterprise Multiple Vulnerabilities
 slug: 2026-05-ibm-app-connect-vulns
 description: A remote, anonymous attacker can exploit multiple vulnerabilities in IBM App Connect Enterprise to execute arbitrary program code, manipulate data, conduct cross-site scripting attacks, disclose confidential information, or cause a denial-of-service condition.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - code-execution

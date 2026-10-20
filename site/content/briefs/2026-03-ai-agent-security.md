@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-19-ai-agent-security
+event_id: brief-2026-03-19-ai-agent-security
+revision: 1
+activity_at: "2026-03-28T21:37:25Z"
 title: Securing AI Agents with CrowdStrike Falcon AIDR and NVIDIA NeMo Guardrails
 slug: 2026-03-ai-agent-security
 description: CrowdStrike Falcon AIDR integrates with NVIDIA NeMo Guardrails to provide comprehensive protection for AI agents against prompt injection, data leaks, and malicious content.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - ai
   - security
@@ -20,7 +26,7 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1070
-    technique_name: Indicator Removal on Host
+    technique_name: Indicator Removal
 references:
   - https://crowdstrike.com/en-us/blog/secure-homegrown-ai-agents-with-crowdstrike-falcon-aidr-and-nvidia-nemo-guardrails/
 rules:

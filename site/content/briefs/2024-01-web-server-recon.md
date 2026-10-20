@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-web-server-recon
+event_id: brief-2024-01-02-web-server-recon
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Web Server Discovery or Fuzzing Activity
 slug: 2024-01-web-server-recon
 description: Detection of potential web server discovery or fuzzing activity characterized by a high volume of HTTP GET requests resulting in 404 or 403 status codes originating from a single source IP address within a short timeframe, indicating attackers are probing for hidden resources.
@@ -8,21 +12,12 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - reconnaissance
   - web-server
   - fuzzing
-vendors:
-  - Nginx
-  - Apache
-  - Microsoft
-  - Traefik Labs
-products:
-  - Nginx
-  - Apache HTTP Server
-  - Apache Tomcat
-  - Internet Information Services
-  - Traefik
 mitre_ttps:
   - tactic_id: TA0043
     tactic_name: Reconnaissance

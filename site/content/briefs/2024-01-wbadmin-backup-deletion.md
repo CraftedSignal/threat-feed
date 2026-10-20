@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-wbadmin-backup-deletion
+event_id: brief-2024-01-02-wbadmin-backup-deletion
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Wbadmin Backup Catalog Deletion
 slug: 2024-01-wbadmin-backup-deletion
 description: Adversaries may delete Windows backup catalogs using wbadmin.exe to inhibit system recovery, often as part of ransomware or other destructive attacks.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - impact
   - backup-deletion
   - ransomware
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact

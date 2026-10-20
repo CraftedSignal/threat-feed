@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-25-langflow-vulns
+event_id: brief-2026-03-25-langflow-vulns
+revision: 1
+activity_at: "2026-03-25T09:46:08Z"
 title: Multiple Vulnerabilities in Langflow Allow for Arbitrary Code Execution and Information Disclosure
 slug: 2026-03-langflow-vulns
 description: Multiple vulnerabilities in Langflow could be exploited by an attacker to execute arbitrary program code, disclose information, and potentially manipulate data, leading to potential system compromise.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - langflow
   - vulnerability

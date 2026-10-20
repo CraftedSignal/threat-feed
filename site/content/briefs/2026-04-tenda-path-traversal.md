@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-26-tenda-path-traversal
+event_id: brief-2026-04-26-tenda-path-traversal
+revision: 1
+activity_at: "2026-04-26T12:16:22Z"
 title: Tenda i9 Path Traversal Vulnerability (CVE-2026-7036)
 slug: 2026-04-tenda-path-traversal
 description: CVE-2026-7036 is a path traversal vulnerability affecting the R7WebsSecurityHandlerfunction in the HTTP Handler component of Tenda i9 version 1.0.0.5(2204), allowing remote attackers to access sensitive files.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cve-2026-7036
   - path-traversal
@@ -25,6 +31,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7036
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7036
   - https://github.com/Litengzheng/vuldb_new/blob/main/M3/vul_80/README.md

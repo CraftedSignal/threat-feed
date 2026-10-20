@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-02-online-enrollment-sql-injection
+event_id: brief-2026-04-02-online-enrollment-sql-injection
+revision: 1
+activity_at: "2026-04-02T14:16:37Z"
 title: SQL Injection Vulnerability in itsourcecode Online Enrollment System 1.0
 slug: 2026-04-online-enrollment-sql-injection
 description: A SQL injection vulnerability exists in itsourcecode Online Enrollment System 1.0 within the Parameter Handler component at /enrollment/index.php, where manipulating the deptid argument can lead to remote code execution, with public exploits available.
@@ -8,7 +12,8 @@ types:
   - threat
 severities:
   - high
-exploited: true
+exploitation_evidence:
+  status: unknown
 tags:
   - sql-injection
   - web-application
@@ -21,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-5334
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5334
   - https://github.com/yuji0903/silver-guide/issues/15

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-06-easy-blog-sql-injection
+event_id: brief-2026-04-06-easy-blog-sql-injection
+revision: 1
+activity_at: "2026-04-06T11:17:03Z"
 title: SQL Injection Vulnerability in Easy Blog Site 1.0
 slug: 2026-04-easy-blog-sql-injection
 description: A SQL injection vulnerability exists in code-projects Easy Blog Site 1.0 within the login.php file, exploitable remotely by manipulating the username/password parameters, potentially leading to unauthorized database access.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - sqlinjection
   - cve-2026-5646
@@ -20,6 +26,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-5646
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5646
   - https://code-projects.org/

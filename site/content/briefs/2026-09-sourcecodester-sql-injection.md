@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-26-sourcecodester-sql-injection
+event_id: brief-2026-09-26-sourcecodester-sql-injection
+revision: 1
+activity_at: "2026-09-30T04:31:33Z"
 title: SQL Injection in SourceCodester Online Reviewer Management System
 slug: 2026-09-sourcecodester-sql-injection
 description: SourceCodester Online Reviewer Management System 1.0 contains a SQL injection vulnerability in the questions-view.php script, allowing remote attackers to execute unauthorized database queries.
@@ -9,6 +13,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "5"
+  rating: A5
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source confirmed vulnerability; environment validation needed for detection
 cpes:
   - cpe:2.3:a:sourcecodester:online_reviewer_management_system:1.0:*:*:*:*:*:*:*
 tags:
@@ -31,6 +45,9 @@ mitre_ttps:
 cves:
   - id: CVE-2026-102908
     cvss: 7.3
+    kev_status: unknown
+  - id: CVE-2026-102910
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102908
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102910

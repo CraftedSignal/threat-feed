@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-29-aws-iam-privilege-escalation
+event_id: brief-2024-01-29-aws-iam-privilege-escalation
+revision: 1
+activity_at: "2024-01-29T10:00:00Z"
 title: AWS IAM AdministratorAccess Policy Attached to User
 slug: 2024-01-aws-iam-privilege-escalation
 description: An adversary with compromised AWS credentials may attempt to escalate privileges or persist access by attaching the AdministratorAccess AWS managed policy to an existing IAM user via the AttachUserPolicy API, granting full access to all AWS services and resources.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - aws
   - iam
   - privilege-escalation
   - persistence
-vendors:
-  - AWS
-products:
-  - AWS IAM
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation

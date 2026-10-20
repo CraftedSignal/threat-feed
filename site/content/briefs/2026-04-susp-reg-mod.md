@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-14-susp-reg-mod
+event_id: brief-2026-04-14-susp-reg-mod
+revision: 1
+activity_at: "2026-04-14T12:50:16Z"
 title: Suspicious Registry Modifications by Scripting Engines
 slug: 2026-04-susp-reg-mod
 description: Scripting engines such as WScript, CScript, and MSHTA are being used to make registry modifications, potentially for persistence or defense evasion.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - registry-modification
   - persistence
@@ -21,11 +27,11 @@ mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1059.005
-    technique_name: 'Command and Scripting Interpreter: Visual Basic Script'
+    technique_name: Visual Basic
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.005
-    technique_name: 'Command and Scripting Interpreter: Visual Basic Script'
+    technique_name: Visual Basic
 references:
   - https://www.nextron-systems.com/2025/07/29/detecting-the-most-popular-mitre-persistence-method-registry-run-keys-startup-folder/
   - https://www.linkedin.com/posts/mauricefielenbach_livingofftheland-redteam-persistence-activity-7344801774182051843-TE00/

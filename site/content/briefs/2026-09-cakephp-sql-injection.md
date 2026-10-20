@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-17-cakephp-sql-injection
+event_id: brief-2026-09-17-cakephp-sql-injection
+revision: 1
+activity_at: "2026-09-18T01:10:30Z"
 title: SQL Injection Vulnerability in CakePHP FunctionsBuilder
 slug: 2026-09-cakephp-sql-injection
 description: Multiple methods in the CakePHP FunctionsBuilder component are vulnerable to SQL injection when user-supplied input is passed to specific functional parameters.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=B2F947B8-06BC-54B0-88A5-23FA78AC1491&utm_source=rss&utm_medium=rss
@@ -31,6 +44,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-79752
     epss: 0.00462
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-vjqc-q4mp-2rvf
   - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-79752

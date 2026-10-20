@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-suspicious-executable-creation
+event_id: brief-2024-01-02-suspicious-executable-creation
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Suspicious Executable or Script Creation in Uncommon Paths
 slug: 2024-01-suspicious-executable-creation
 description: Detection of executables or scripts being created in unusual directories on Windows systems, which can be indicative of malware installation or persistence attempts.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - file-creation
   - persistence
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

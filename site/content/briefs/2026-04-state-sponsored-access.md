@@ -1,13 +1,19 @@
 ---
+brief_id: brief-2026-04-14-state-sponsored-access
+event_id: brief-2026-04-14-state-sponsored-access
+revision: 1
+activity_at: "2026-04-14T13:51:01Z"
 title: State-Sponsored Actors Leveraging Vulnerabilities and Identity for Persistent Access (2025)
 slug: 2026-04-state-sponsored-access
 description: In 2025, state-sponsored actors from China, Russia, North Korea, and Iran leveraged vulnerabilities and identity compromise for initial access, focusing on persistence for long-term espionage or disruption.
 date: "2026-04-14T13:51:01Z"
-type: advisory
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - state-sponsored
   - apt
@@ -25,11 +31,11 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1070
-    technique_name: Indicator Removal on Host
+    technique_name: Indicator Removal
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1105
-    technique_name: Remote File Copy
+    technique_name: Ingress Tool Transfer
   - tactic_id: TA0009
     tactic_name: Collection
     technique_id: T1005

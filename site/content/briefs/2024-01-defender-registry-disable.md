@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-30-defender-registry-disable
+event_id: brief-2024-01-30-defender-registry-disable
+revision: 1
+activity_at: "2024-01-30T12:00:00Z"
 title: Windows Defender Disabled via Registry Modification
 slug: 2024-01-defender-registry-disable
 description: Attackers modify Windows Defender registry settings to disable the service or set the service to manual start, evading defenses to operate undetected.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - windows
   - registry-modification
-vendors:
-  - Microsoft
-products:
-  - Windows Defender
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

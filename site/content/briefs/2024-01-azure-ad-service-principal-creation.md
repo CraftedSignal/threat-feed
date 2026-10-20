@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-azure-ad-service-principal-creation
+event_id: brief-2024-01-09-azure-ad-service-principal-creation
+revision: 1
+activity_at: "2024-01-09T12:00:00Z"
 title: Azure AD Service Principal Created
 slug: 2024-01-azure-ad-service-principal-creation
 description: The creation of a Service Principal in an Azure AD environment is detected, which can be used by adversaries to establish persistence and bypass multi-factor authentication.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - azure
   - cloud
   - persistence
   - service-principal
-vendors:
-  - Microsoft
-products:
-  - Azure Active Directory
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-18-arcadedb-auth-bypass
+event_id: brief-2026-08-18-arcadedb-auth-bypass
+revision: 1
+activity_at: "2026-08-18T12:54:04Z"
 title: Missing Authorization Vulnerability in ArcadeDB DELETE FUNCTION Statement
 slug: 2026-08-arcadedb-auth-bypass
 description: ArcadeDB versions 26.7.3 and earlier are vulnerable to a missing authorization flaw allowing any authenticated database user to delete server-side functions via the command API.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - vulnerability
   - privilege-escalation
@@ -36,12 +49,17 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.006
-    technique_name: 'Command and Scripting Interpreter: PowerShell'
+    technique_name: Python
     evidence: An authenticated user with any database role can submit a parameterized Gremlin query to trigger the Groovy fallback and execute arbitrary operating system commands.
     confidence_band: high
 cves:
   - id: CVE-2026-75846
     cvss: 7.1
+    kev_status: unknown
+  - id: CVE-2026-76223
+    kev_status: unknown
+  - id: CVE-2026-76224
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75846
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76223

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-veeam-vulns
+event_id: brief-2026-05-veeam-vulns
+revision: 1
+activity_at: "2026-05-28T11:34:54Z"
 title: Multiple Vulnerabilities in Veeam Products Allow Remote Code Execution
 slug: 2026-05-veeam-vulns
 description: Multiple vulnerabilities in Veeam ONE and Service Provider Console allow remote code execution (CVE-2026-32998) and an unspecified security issue, potentially leading to complete system compromise.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - veeam
   - rce
@@ -24,6 +30,7 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
 cves:
   - id: CVE-2026-32998
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0657/
   - https://www.veeam.com/kb4853

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-29-utt-hiper-overflow
+event_id: brief-2026-04-29-utt-hiper-overflow
+revision: 1
+activity_at: "2026-04-29T22:16:22Z"
 title: UTT HiPER 1250GW Buffer Overflow Vulnerability
 slug: 2026-04-utt-hiper-overflow
 description: A remote buffer overflow vulnerability exists in the UTT HiPER 1250GW device due to improper handling of the 'Profile' argument in the NTP configuration, potentially allowing for arbitrary code execution.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - buffer-overflow
   - remote-code-execution
@@ -24,6 +30,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7418
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7418
   - https://github.com/kirlic123/IOTvulner/blob/main/4035/1/1.md

@@ -1,100 +1,89 @@
 ---
-title: Open WebUI Stored XSS Vulnerability via OAuth Profile Picture
+brief_id: brief-2026-05-open-webui-xss
+event_id: brief-2026-05-open-webui-xss
+revision: 1
+activity_at: "2026-05-14T20:31:48Z"
+title: Open WebUI Stored XSS Vulnerability via Audio Transcription Endpoint (CVE-2026-45315)
 slug: 2026-05-open-webui-xss
-description: Open WebUI is vulnerable to stored cross-site scripting (XSS) via OAuth profile picture handling, allowing an attacker to inject malicious SVG code and potentially takeover user accounts by exfiltrating JWT tokens.
+description: Open WebUI is vulnerable to stored XSS via an attacker-controlled file extension in the /api/v1/audio/transcriptions endpoint (CVE-2026-45315), allowing a verified user with the chat.stt permission to upload a polyglot WAV+HTML file, tricking other users into executing arbitrary script code within the Open WebUI origin, leading to session token theft and full account takeover.
 date: "2026-05-14T20:31:48Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
-cpes:
-  - cpe:2.3:a:openwebui:open_webui:*:*:*:*:*:*:*:*
+exploitation_evidence:
+  status: unknown
 tags:
   - xss
-  - stored-xss
-  - oauth
-  - open-webui
+  - stored xss
+  - open webui
+  - cve-2026-45315
 vendors:
-  - pip
+  - Open WebUI
 products:
-  - open-webui (<= 0.9.4)
+  - open-webui (<= 0.9.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
 cves:
-  - id: CVE-2025-64496
-    cvss: 7.3
-    epss: 0.00139
-  - id: CVE-2025-64495
-    cvss: 8.7
-    epss: 8e-05
+  - id: CVE-2026-45315
+    kev_status: unknown
 references:
-  - https://github.com/advisories/GHSA-3wgj-c2hg-vm6q
-  - backend/open_webui/utils/oauth.py:1318-1351
-  - backend/open_webui/utils/oauth.py:1536-1574
-  - backend/open_webui/utils/validate.py:10-36
-  - backend/open_webui/models/users.py:575-588
-  - backend/open_webui/routers/users.py:504-528
-  - backend/open_webui/utils/security_headers.py:16-61
-  - CVE-2025-64496
-  - CVE-2025-64495
-iocs:
-  - type: url
-    value: https://attacker.example/p.svg
-  - type: url
-    value: https://attacker.example/x?c=
-  - type: url
-    value: https://target.example/api/v1/users/<attacker-user-id>/profile/image
-ioc_counts:
-  url: 3
+  - https://github.com/advisories/GHSA-m8f9-9whg-f4xr
+  - CVE-2026-45315
 rules:
-  - title: Detect Open WebUI Profile Image XSS via SVG Upload
-    description: Detects attempts to upload SVG files as profile images in Open WebUI, which can lead to stored XSS (CVE-2025-64496, CVE-2025-64495, GHSA-3wgj-c2hg-vm6q).
+  - title: Detect CVE-2026-45315 Exploitation Attempt — Open WebUI Audio Transcription XSS
+    description: Detects attempts to exploit CVE-2026-45315, the Open WebUI audio transcription XSS vulnerability, by monitoring for uploads of files with HTML extensions to the audio transcription endpoint.
     platform: sigma
     severity: high
     tactics:
-      - execution
       - initial_access
     techniques:
       - T1190
     data_sources:
       - webserver
-  - title: Detect Open WebUI OAuth Profile Picture with SVG MIME Type
-    description: Detects the storage of SVG MIME types in profile images in Open WebUI via the OAuth flow, indicating a potential XSS vulnerability (GHSA-3wgj-c2hg-vm6q).
+  - title: Detect CVE-2026-45315 Exploitation — Open WebUI Serving HTML from Cache Directory
+    description: Detects potential exploitation of CVE-2026-45315 by monitoring for requests serving HTML files from the Open WebUI cache directory.
     platform: sigma
     severity: medium
     tactics:
-      - initial_access
+      - execution
     techniques:
-      - T1190
+      - T1059.001
     data_sources:
       - webserver
 rules_count: 2
 ---
 
-Open WebUI versions 0.9.4 and earlier are vulnerable to a stored cross-site scripting (XSS) attack due to improper validation of profile images when users sign in via OAuth. The application fetches a URL provided in the OAuth `picture` claim, infers the MIME type from the URL extension, and stores it as a data URI without proper sanitization. Specifically, an attacker can host a malicious SVG file and set their profile picture URL to that file. When a victim clicks the link to the attacker's profile image, the browser executes the SVG code, potentially leading to account takeover by exfiltrating the victim's JWT token. This vulnerability is similar to CVE-2025-64496 and CVE-2025-64495, which highlights trust boundary errors in Open WebUI.
+Open WebUI version 0.9.2 and earlier is vulnerable to a stored cross-site scripting (XSS) attack. The vulnerability resides in the `/api/v1/audio/transcriptions` endpoint, which allows users to upload audio files for transcription. An attacker with a verified account and the default-enabled `chat.stt` permission can upload a specially crafted file disguised as audio but containing malicious HTML and JavaScript code. The server saves the file with an extension derived directly from the user-supplied filename without proper validation, enabling the stored XSS.
 
 ## Attack Chain
 
-1. The attacker crafts a malicious SVG file containing JavaScript code to exfiltrate `localStorage.token`.
-2. The attacker hosts the malicious SVG file on a publicly accessible server (e.g., `https://attacker.example/p.svg`).
-3. The attacker configures their OAuth profile picture URL to point to the malicious SVG file.
-4. The attacker signs in to Open WebUI via OAuth, triggering the application to fetch and store the SVG data URI as their profile image.
-5. The attacker crafts a URL to their profile image endpoint (e.g., `https://target.example/api/v1/users/<attacker-user-id>/profile/image`) and shares it with a victim.
-6. The authenticated victim clicks on the link.
-7. The server serves the attacker-controlled SVG with `Content-Type: image/svg+xml` and `Content-Disposition: inline`.
-8. The victim's browser renders the SVG, executes the embedded JavaScript, and exfiltrates the victim's JWT token to the attacker's server.
+1. An attacker with a verified user account authenticates to the Open WebUI instance.
+2. The attacker crafts a polyglot WAV+HTML file, containing both valid WAV audio data and embedded JavaScript code designed for XSS.
+3. The attacker uploads the malicious file to the `/api/v1/audio/transcriptions` endpoint, naming the file with an `.html` extension (e.g., `pwn.html`).
+4. The server saves the file to the `CACHE_DIR/audio/transcriptions/` directory, using the attacker-supplied `.html` extension.
+5. The server generates a unique identifier (UUID) for the file and constructs the final file path using the UUID and the attacker-supplied extension.
+6. A victim user clicks a link to the cached file served by the `/cache/{path}` route (e.g., `/cache/audio/transcriptions/<uuid>.html`).
+7. The server serves the file with a `Content-Type: text/html` header based on the `.html` extension.
+8. The victim's browser executes the embedded JavaScript code in the context of the Open WebUI origin, allowing the attacker to steal sensitive information, such as the JWT token stored in `localStorage`, leading to account takeover.
 
 ## Impact
 
-Successful exploitation can lead to account takeover of any authenticated user who clicks the malicious link. The attacker can then access the victim's chats, API keys, and potentially achieve remote code execution (RCE) via installed tools if the victim has the `workspace.tools` permission. Furthermore, the lack of SSRF protection allows an attacker to potentially read internal resources by pointing the `picture` claim at internal URLs.
+This stored XSS vulnerability (CVE-2026-45315) allows an attacker to execute arbitrary JavaScript code within the Open WebUI application on behalf of a victim user. An attacker can steal the victim's session token (JWT), which is stored in `localStorage`, and the OAuth token cookie is non-HttpOnly, gaining complete control over the victim's account. This includes the ability to view sensitive data, modify settings, and perform actions as the compromised user. Exploitation requires only a single click by the victim.
 
 ## Recommendation
 
-*   Implement server-side MIME type validation in `_process_picture_url` (`utils/oauth.py:1336-1345`) to only allow `image/png`, `image/jpeg`, `image/gif`, and `image/webp`. Use the `Content-Type` response header instead of the URL extension.
-*   Enforce a MIME whitelist in `get_user_profile_image_by_id` (`routers/users.py:504-528`) before building the `StreamingResponse`.
-*   Apply the `validate_profile_image_url` validator at the model layer (`Users.update_user_profile_image_url_by_id`), not just at the Pydantic form layer, to ensure all profile image updates are validated.
-*   Enable `X-Content-Type-Options: nosniff` and set a default Content Security Policy (CSP) to mitigate XSS attacks by setting the appropriate environment variables.
+*   Apply the patch or upgrade to a version of Open WebUI greater than 0.9.2 to remediate CVE-2026-45315.
+*   Implement strict validation of file extensions and MIME types on the `/api/v1/audio/transcriptions` endpoint to prevent uploading of malicious files.
+*   Configure the `/cache/{path}` route to force `Content-Disposition: attachment` and `X-Content-Type-Options: nosniff` to prevent the browser from interpreting files based on their content.
+*   Move the JWT token to an `HttpOnly` cookie to prevent JavaScript code from accessing it.
+*   Set the `SameSite` attribute for the OAuth token cookie to `Lax` to mitigate cross-site request forgery (CSRF) attacks.
+*   As a workaround, set `USER_PERMISSIONS_CHAT_STT=False` to revoke upload rights from non-administrators.

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-28-samba-rce
+event_id: brief-2026-05-28-samba-rce
+revision: 1
+activity_at: "2026-05-28T09:19:01Z"
 title: 'CVE-2026-4408: Samba Remote Command Execution via Misconfigured Password Check Script'
 slug: 2026-05-samba-rce
 description: CVE-2026-4408 describes a remote command execution vulnerability in Samba file servers and classic domain controllers where a misconfigured 'check password script' feature, using the %u substitution character without proper escaping, allows attackers to execute arbitrary commands.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - cve
   - rce
@@ -26,11 +32,13 @@ mitre_ttps:
 cves:
   - id: CVE-2026-4408
     cvss: 9
+    epss: 0.02501
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4408
 rules:
   - title: Detect CVE-2026-4408 Exploitation Attempt via Malicious Username
-    description: Detects CVE-2026-4408 exploitation - Attempts to authenticate to Samba with a username containing shell meta-characters, indicating a potential command injection attempt via a misconfigured 'check password script'.
+    description: Detects CVE-2026-4408 exploitation — Attempts to authenticate to Samba with a username containing shell meta-characters, indicating a potential command injection attempt via a misconfigured 'check password script'.
     platform: sigma
     severity: critical
     tactics:
@@ -42,7 +50,7 @@ rules:
       - auth
       - samba
   - title: Detect CVE-2026-4408 Exploitation - Password Check Script Execution of Suspicious Commands
-    description: Detects CVE-2026-4408 exploitation - Monitors process creation events for commands executed by the 'check password script' that contain suspicious shell metacharacters indicating command injection.
+    description: Detects CVE-2026-4408 exploitation — Monitors process creation events for commands executed by the 'check password script' that contain suspicious shell metacharacters indicating command injection.
     platform: sigma
     severity: high
     tactics:

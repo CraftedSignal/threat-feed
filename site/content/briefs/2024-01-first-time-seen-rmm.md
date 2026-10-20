@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-24-first-time-seen-rmm
+event_id: brief-2024-01-24-first-time-seen-rmm
+revision: 1
+activity_at: "2024-01-24T12:00:00Z"
 title: First Time Seen Remote Monitoring and Management Tool Execution
 slug: 2024-01-first-time-seen-rmm
 description: Detects the execution of previously unseen remote monitoring and management (RMM) tools or remote access software on compromised Windows endpoints, often leveraged for command-and-control, persistence, and execution of malicious commands.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - remote-access
   - rmm

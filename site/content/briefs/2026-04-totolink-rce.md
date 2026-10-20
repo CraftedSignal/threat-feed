@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-29-totolink-rce
+event_id: brief-2026-04-29-totolink-rce
+revision: 1
+activity_at: "2026-04-28T09:17:41Z"
 title: Totolink A8000RU OS Command Injection Vulnerability
 slug: 2026-04-totolink-rce
 description: Totolink A8000RU version 7.1cu.643_b20200521 is vulnerable to OS command injection via manipulation of the `wifiOff` argument in the `setWiFiBasicCfg` function of the `/cgi-bin/cstecgi.cgi` CGI handler, allowing a remote attacker to execute arbitrary commands on the system.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - cve-2026-7241
   - command-injection
@@ -24,6 +30,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7241
     cvss: 9.8
+    epss: 0.02448
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7241
   - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_325/README.md

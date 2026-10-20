@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-multiple-logon-failure
+event_id: brief-2024-01-03-multiple-logon-failure
+revision: 1
+activity_at: "2024-01-03T15:30:00Z"
 title: Multiple Logon Failures from Single Source Indicate Brute Force Attempt
 slug: 2024-01-multiple-logon-failure
 description: Detection of multiple consecutive logon failures from a single source IP within a short time interval indicates a potential brute force or password guessing attack targeting Windows systems.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - credential-access
   - brute-force
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access

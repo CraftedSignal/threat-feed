@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-03-everest-forms-rfi-rce
+event_id: brief-2026-08-03-everest-forms-rfi-rce
+revision: 1
+activity_at: "2026-04-20T20:35:20Z"
 title: Everest Forms Plugin Arbitrary File Read and Deletion Vulnerability
 slug: 2026-08-everest-forms-rfi-rce
 description: The Everest Forms plugin for WordPress is vulnerable to arbitrary file read and deletion, allowing unauthenticated attackers to access sensitive data or cause denial of service by manipulating the 'old_files' parameter in versions up to 3.4.4.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - wordpress
   - plugin
@@ -30,6 +36,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-5478
     cvss: 8.1
+    epss: 0.01022
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-5478
 rules:

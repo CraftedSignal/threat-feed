@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-nltest-domain-trust-discovery
+event_id: brief-2024-01-03-nltest-domain-trust-discovery
+revision: 1
+activity_at: "2024-01-03T15:00:00Z"
 title: NLTEST.EXE Used for Domain Trust Discovery
 slug: 2024-01-nltest-domain-trust-discovery
 description: Adversaries may use `nltest.exe` to enumerate domain trusts, gaining insight into trust relationships and the state of Domain Controller replication within a Windows NT Domain, potentially leading to lateral movement.
@@ -8,16 +12,13 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - discovery
   - windows
   - nltest
   - domain-trust
-vendors:
-  - Microsoft
-products:
-  - Windows Server
-  - Active Directory
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery

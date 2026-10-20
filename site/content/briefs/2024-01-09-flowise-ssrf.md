@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-flowise-ssrf
+event_id: brief-2024-01-09-flowise-ssrf
+revision: 1
+activity_at: "2024-01-09T12:00:00Z"
 title: FlowiseAI API Chain SSRF Vulnerability
 slug: 2024-01-09-flowise-ssrf
 description: A Server-Side Request Forgery (SSRF) vulnerability exists in FlowiseAI's POST/GET API Chain components, allowing unauthenticated attackers to force the server to make arbitrary HTTP requests to internal and external systems by injecting malicious prompt templates.
@@ -8,17 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ssrf
   - flowiseai
   - prompt-injection
   - vulnerability
-vendors:
-  - FlowiseAI
-products:
-  - FlowiseAI
-  - npm/flowise
-  - npm/flowise-components
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access

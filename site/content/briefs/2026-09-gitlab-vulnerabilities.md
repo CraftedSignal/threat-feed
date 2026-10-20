@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-gitlab-vulnerabilities
+event_id: brief-2026-09-gitlab-vulnerabilities
+revision: 1
+activity_at: "2026-09-11T18:55:51Z"
 title: Multiple Vulnerabilities in GitLab CE and EE
 slug: 2026-09-gitlab-vulnerabilities
 description: GitLab has released security patches addressing a large set of vulnerabilities across Community and Enterprise editions, including flaws leading to remote code execution and data confidentiality compromises.
@@ -9,6 +13,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source corroborated by vendor documentation.
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=CB41C932-3F63-547C-8278-6162A20CA9E3&utm_source=rss&utm_medium=rss
@@ -31,6 +45,41 @@ cves:
   - id: CVE-2026-87719
     cvss: 9.9
     epss: 0.00612
+    kev_status: unknown
+  - id: CVE-2026-85706
+    kev_status: unknown
+  - id: CVE-2024-11222
+    kev_status: unknown
+  - id: CVE-2025-14871
+    kev_status: unknown
+  - id: CVE-2026-1168
+    kev_status: unknown
+  - id: CVE-2026-12910
+    kev_status: unknown
+  - id: CVE-2026-13210
+    kev_status: unknown
+  - id: CVE-2026-16794
+    kev_status: unknown
+  - id: CVE-2026-19619
+    kev_status: unknown
+  - id: CVE-2026-3855
+    kev_status: unknown
+  - id: CVE-2026-7514
+    kev_status: unknown
+  - id: CVE-2026-78252
+    kev_status: unknown
+  - id: CVE-2026-79708
+    kev_status: unknown
+  - id: CVE-2026-8030
+    kev_status: unknown
+  - id: CVE-2026-82837
+    kev_status: unknown
+  - id: CVE-2026-86340
+    kev_status: unknown
+  - id: CVE-2026-86341
+    kev_status: unknown
+  - id: CVE-2026-88765
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1160/
   - https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-3-2-released/
@@ -86,7 +135,7 @@ updates:
       - https://socprime.com/blog/cve-2026-85706-critical-gitlab-path-traversal-flaw/
 ---
 
-On September 10, 2026, GitLab released critical security patches for its Community Edition (CE) and Enterprise Edition (EE) platforms. The update addresses a significant number of vulnerabilities reported by the CERT-FR in advisory CERTFR-2026-AVI-1160. These vulnerabilities affect GitLab versions prior to 19.1.8, as well as 19.2.x prior to 19.2.6, and 19.3.x prior to 19.3.2. 
+On September 10, 2026, GitLab released critical security patches for its Community Edition (CE) and Enterprise Edition (EE) platforms. The update addresses a significant number of vulnerabilities reported by the CERT-FR in advisory CERTFR-2026-AVI-1160. These vulnerabilities affect GitLab versions prior to 19.1.8, as well as 19.2.x prior to 19.2.6, and 19.3.x prior to 19.3.2.
 
 The disclosed flaws include critical impacts such as remote code execution (RCE), denial-of-service (DoS), security policy bypasses, and unauthorized access to sensitive data. Given the breadth of vulnerabilities - ranging from RCE to cross-site scripting (XSS) - these patches are essential to maintain the integrity of development environments and source code repositories. Defenders should prioritize auditing internet-facing GitLab instances for these versions and applying the security patches immediately to mitigate the risk of exploitation.
 

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-06-18-sharp-file-upload-bypass
+event_id: brief-2026-06-18-sharp-file-upload-bypass
+revision: 1
+activity_at: "2026-03-25T20:03:11Z"
 title: Sharp Laravel Admin Panel Unrestricted File Upload Vulnerability
 slug: 2026-06-sharp-file-upload-bypass
 description: The code16/sharp Laravel admin panel package contains a vulnerability in its file upload endpoint that allows authenticated users to bypass all file type restrictions by manipulating the validation_rule parameter, potentially leading to Remote Code Execution (RCE) if the storage disk is configured to be publicly accessible.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - laravel
   - file-upload
@@ -18,6 +24,9 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1189
     technique_name: Drive-by Compromise
+cves:
+  - id: CVE-2026-33687
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-fr76-5637-w3g9
   - https://github.com/code16/sharp
@@ -32,8 +41,10 @@ iocs:
     value: https://github.com/code16/sharp
   - type: url
     value: https://laravel.com/docs/13.x/filesystem
+  - type: url
+    value: https://github.com/code16/sharp/pull/714
 ioc_counts:
-  url: 4
+  url: 5
 rules:
   - title: Detect Sharp File Upload Bypass Attempt
     description: Detects attempts to bypass file upload restrictions in Sharp Laravel admin panel by manipulating the validation_rule parameter.

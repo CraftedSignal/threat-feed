@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-23-bad-apples-macos-lotl
+event_id: brief-2026-04-23-bad-apples-macos-lotl
+revision: 1
+activity_at: "2026-04-21T10:01:16Z"
 title: 'Bad Apples: Weaponizing Native macOS Primitives for Lateral Movement and Execution'
 slug: 2026-04-bad-apples-macos-lotl
 description: Adversaries are increasingly targeting macOS environments, leveraging native tools like Remote Application Scripting (RAS) and Spotlight metadata to bypass security controls for remote code execution and lateral movement.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - macos
   - lotl

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-17-glinet-rce
+event_id: brief-2026-08-17-glinet-rce
+revision: 1
+activity_at: "2026-08-17T08:44:41Z"
 title: Remote Command Injection in GL.iNet Router Firewall RPC
 slug: 2026-08-glinet-rce
 description: An OS command injection vulnerability in the Firewall-management RPC component of GL.iNet BE9300 and MT6000 routers allows remote, unauthenticated attackers to execute arbitrary system commands via crafted network parameters.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - remote-code-execution
   - firewall
@@ -34,6 +47,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-19982
     cvss: 7.4
+    epss: 0.0105
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19982
 action_plan:

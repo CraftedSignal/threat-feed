@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-30-vikunja-idor
+event_id: brief-2024-01-30-vikunja-idor
+revision: 1
+activity_at: "2024-01-30T12:00:00Z"
 title: Vikunja Unauthenticated Instance-Wide Data Breach via Link Share and IDOR
 slug: 2024-01-vikunja-idor
 description: Chained authorization flaws in Vikunja allow an unauthenticated attacker to download and delete all file attachments across all projects by disclosing share hashes and exploiting cross-project attachment access.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - vikunja
   - idor
   - privilege-escalation
   - data-breach
-vendors:
-  - Vikunja
-products:
-  - Vikunja
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
@@ -25,7 +27,7 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1070
-    technique_name: Indicator Removal on Host
+    technique_name: Indicator Removal
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1068

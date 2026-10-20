@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-28-translatepress-xss
+event_id: brief-2026-08-28-translatepress-xss
+revision: 1
+activity_at: "2026-08-28T07:12:01Z"
 title: Stored Cross-Site Scripting in TranslatePress WordPress Plugin
 slug: 2026-08-translatepress-xss
 description: The TranslatePress plugin for WordPress is vulnerable to unauthenticated stored XSS through improper sanitization of comment data, allowing attackers to inject persistent malicious scripts.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: verified against NVD entry
 tags:
   - web-application-vulnerability
   - xss
@@ -26,12 +40,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.007
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    technique_name: JavaScript
     evidence: Exploitation is possible because WordPress's comment KSES allowlist permits the payload structure... causing the malicious comment to be stored verbatim in the database.
     confidence_band: high
 cves:
   - id: CVE-2026-76053
     cvss: 7.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76053
 action_plan:

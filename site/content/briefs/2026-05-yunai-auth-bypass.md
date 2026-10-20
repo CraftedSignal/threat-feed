@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-04-yunai-auth-bypass
+event_id: brief-2026-05-04-yunai-auth-bypass
+revision: 1
+activity_at: "2026-05-04T00:16:39Z"
 title: YunaiV yudao-cloud Authentication Bypass Vulnerability (CVE-2026-7710)
 slug: 2026-05-yunai-auth-bypass
 description: YunaiV yudao-cloud up to version 3.8.0 is vulnerable to an authentication bypass (CVE-2026-7710) due to improper handling of the mock-token argument in the JwtAuthenticationTokenFilter.java file, allowing remote attackers to bypass authentication.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - authentication bypass
   - cve-2026-7710
@@ -25,6 +31,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-7710
     cvss: 7.3
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-7710
 rules:

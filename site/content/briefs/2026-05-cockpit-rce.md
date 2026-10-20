@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-cockpit-rce
+event_id: brief-2026-05-cockpit-rce
+revision: 1
+activity_at: "2026-05-21T13:31:32Z"
 title: Cockpit 359 Remote Code Execution Vulnerability
 slug: 2026-05-cockpit-rce
 description: Cockpit version 359 is vulnerable to remote code execution, and a public exploit is available on Exploit-DB, increasing the risk for unpatched systems.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - rce
   - webapps

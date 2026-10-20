@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-flowise-rce
+event_id: brief-2024-01-02-flowise-rce
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: FlowiseAI Flowise CSV Agent Prompt Injection RCE Vulnerability
 slug: 2024-01-flowise-rce
 description: A remote code execution vulnerability exists in FlowiseAI Flowise version 3.0.13 due to insufficient sandboxing when evaluating LLM-generated Python scripts, allowing unauthenticated attackers to inject malicious code via prompts processed by the CSV Agent node, bypassing input validation, to execute arbitrary OS commands.
@@ -9,6 +13,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:flowiseai:flowise:*:*:*:*:*:*:*:*
 tags:
@@ -29,13 +35,17 @@ cves:
   - id: CVE-2026-41264
     cvss: 9.8
     epss: 0.01439
+    kev_status: unknown
   - id: CVE-2026-69255
+    kev_status: unknown
   - id: CVE-2026-41265
     cvss: 9.8
     epss: 0.00464
+    kev_status: unknown
   - id: CVE-2026-46442
     cvss: 9.9
-    epss: 0.03489
+    epss: 0.03414
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-3hjv-c53m-58jj
   - https://github.com/advisories/GHSA-vmv7-4m6c-3cg5

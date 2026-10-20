@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-unusual-svchost-child-process
+event_id: brief-2024-01-02-unusual-svchost-child-process
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Unusual Service Host Child Process - Childless Service
 slug: 2024-01-unusual-svchost-child-process
 description: The rule identifies unusual child processes of Service Host (svchost.exe) instances hosting services that do not traditionally spawn child processes, potentially indicating code injection or exploitation leading to privilege escalation and defense evasion.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - process-injection
   - privilege-escalation
   - defense-evasion
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation

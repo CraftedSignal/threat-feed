@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-diffusers-rce
+event_id: brief-2026-05-diffusers-rce
+revision: 1
+activity_at: "2026-05-20T15:32:30Z"
 title: Diffusers TOCTOU Vulnerability Leads to Remote Code Execution
 slug: 2026-05-diffusers-rce
 description: A Time-of-Check Time-of-Use (TOCTOU) vulnerability in the `diffusers` package allows arbitrary code execution via a race condition when loading pipelines from the Hugging Face Hub, bypassing trust checks.
@@ -9,6 +13,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:huggingface:diffusers:*:*:*:*:*:python:*:*
 tags:
@@ -28,12 +34,15 @@ cves:
   - id: CVE-2026-44827
     cvss: 8.8
     epss: 0.00562
+    kev_status: unknown
   - id: CVE-2026-45804
     cvss: 7.5
     epss: 0.00268
+    kev_status: unknown
   - id: CVE-2026-44513
     cvss: 8.8
     epss: 0.00848
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-7wx4-6vff-v64p
   - CVE-2026-45804

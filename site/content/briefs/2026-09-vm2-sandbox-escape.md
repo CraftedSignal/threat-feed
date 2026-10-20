@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-09-17-vm2-sandbox-escape
+event_id: brief-2026-09-17-vm2-sandbox-escape
+revision: 1
+activity_at: "2026-09-17T15:57:37Z"
 title: Sandbox Escape in vm2 via NodeVM Configuration Misvalidation
 slug: 2026-09-vm2-sandbox-escape
 description: An improper validation of the 'require' configuration in the vm2 Node.js sandbox allows attackers to bypass nesting restrictions and achieve arbitrary code execution by spawning an inner NodeVM with elevated privileges.
@@ -9,6 +13,16 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against NVD report details.
 cpes:
   - cpe:2.3:a:vm2_project:vm2:*:*:*:*:*:node.js:*:*
 has_poc: true
@@ -47,13 +61,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.006
-    technique_name: JavaScript
+    technique_name: Python
     evidence: An attacker within the sandbox can then utilize these leaked host objects to access 'child_process' or other privileged modules, resulting in arbitrary code execution.
     confidence_band: high
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: Sandboxed code can create an in-memory DatabaseSync with extension loading enabled and call DatabaseSync.loadExtension() on a native library.
     confidence_band: high
   - tactic_id: TA0004
@@ -71,28 +85,58 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    technique_name: Windows Command Shell
     evidence: Attackers can use prototype-walking primitives to reach and modify host Uint8Array.prototype, %TypedArray%.prototype, and ArrayBuffer.prototype.
     confidence_band: high
 cves:
   - id: CVE-2026-92935
     cvss: 9
     epss: 0.00673
+    kev_status: unknown
   - id: CVE-2026-92944
     cvss: 9.8
     epss: 0.00841
+    kev_status: unknown
   - id: CVE-2026-92946
     cvss: 10
     epss: 0.00857
+    kev_status: unknown
   - id: CVE-2026-92942
     cvss: 7.5
     epss: 0.00488
+    kev_status: unknown
   - id: CVE-2026-92958
     cvss: 8.5
     epss: 0.00384
+    kev_status: unknown
   - id: CVE-2026-93604
     cvss: 7.2
     epss: 0.00345
+    kev_status: unknown
+  - id: CVE-2026-92937
+    kev_status: unknown
+  - id: CVE-2026-92938
+    kev_status: unknown
+  - id: CVE-2026-92940
+    kev_status: unknown
+  - id: CVE-2026-92941
+    kev_status: unknown
+  - id: CVE-2026-92948
+    kev_status: unknown
+  - id: CVE-2026-92953
+    kev_status: unknown
+  - id: CVE-2026-92956
+    kev_status: unknown
+  - id: CVE-2026-92957
+    kev_status: unknown
+  - id: CVE-2026-92951
+    kev_status: unknown
+  - id: CVE-2026-93603
+    kev_status: unknown
+  - id: CVE-2026-93606
+    kev_status: unknown
+  - id: CVE-2026-92950
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92935
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92937
@@ -171,7 +215,7 @@ updates:
       - https://github.com/advisories/GHSA-wjwh-qqvp-g4p4
 ---
 
-The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration. 
+The vm2 library, commonly used as a sandbox for executing untrusted Node.js code, contains a critical vulnerability (CVE-2026-92935) in its NodeVM constructor logic. In versions 3.11.4 through 3.11.6, the `hasRealRequireConfig` check fails to correctly validate the `require` option when provided as an array. Specifically, passing an array-shaped `require` object satisfies the guard meant to reject nesting without explicit configuration.
 
 This logic flaw allows an attacker to manipulate the `makeResolverFromLegacyOptions()` function, leading to the creation of a resolver that exposes the host's `vm2` module. By supplying a payload that initiates a `NodeVM` with `nesting: true` and a malicious `require` array, an attacker can escape the sandbox boundaries. Once escaped, the attacker can create an inner `NodeVM` with arbitrary builtin privileges, such as `child_process`, enabling the execution of arbitrary commands under the context of the host Node.js process. This vulnerability is addressed in vm2 version 3.11.7.
 

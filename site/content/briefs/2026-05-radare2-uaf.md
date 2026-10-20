@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-16-radare2-uaf
+event_id: brief-2026-05-16-radare2-uaf
+revision: 1
+activity_at: "2026-05-15T21:18:21Z"
 title: Radare2 Use-After-Free Vulnerability in GDB Client (CVE-2026-8696)
 slug: 2026-05-radare2-uaf
 description: Radare2 version 6.1.5 contains a use-after-free vulnerability (CVE-2026-8696) in the gdbr_pids_list() function, allowing remote attackers to cause a denial of service or potentially execute arbitrary code via malformed thread information responses.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - use-after-free
   - denial-of-service
@@ -18,19 +24,21 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.001
-    technique_name: Command and Scripting Interpreter
+    technique_name: PowerShell
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499.004
-    technique_name: Endpoint Denial of Service
+    technique_name: Application or System Exploitation
 cves:
   - id: CVE-2026-8696
     cvss: 7.5
+    epss: 0.01026
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-8696
 rules:
-  - title: Detects CVE-2026-8696 Exploitation - Radare2 GDB Malformed Thread Info Response
-    description: Detects CVE-2026-8696 exploitation - monitors network connections for GDB traffic and flags connections with excessively large data transfers immediately following thread info requests, which may indicate an attempt to trigger the use-after-free vulnerability.
+  - title: Detects CVE-2026-8696 Exploitation — Radare2 GDB Malformed Thread Info Response
+    description: Detects CVE-2026-8696 exploitation — monitors network connections for GDB traffic and flags connections with excessively large data transfers immediately following thread info requests, which may indicate an attempt to trigger the use-after-free vulnerability.
     platform: sigma
     severity: high
     tactics:
@@ -40,8 +48,8 @@ rules:
     data_sources:
       - network_connection
       - windows
-  - title: Detects CVE-2026-8696 Exploitation - Radare2 Suspicious Process Creation
-    description: Detects CVE-2026-8696 exploitation - identifies unusual child processes spawned by Radare2, potentially indicating successful code execution via the use-after-free.
+  - title: Detects CVE-2026-8696 Exploitation — Radare2 Suspicious Process Creation
+    description: Detects CVE-2026-8696 exploitation — identifies unusual child processes spawned by Radare2, potentially indicating successful code execution via the use-after-free.
     platform: sigma
     severity: medium
     tactics:

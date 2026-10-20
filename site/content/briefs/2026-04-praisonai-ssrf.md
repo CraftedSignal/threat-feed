@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-03-praisonai-ssrf
+event_id: brief-2026-04-03-praisonai-ssrf
+revision: 1
+activity_at: "2026-04-01T23:22:44Z"
 title: PraisonAI SSRF Vulnerability via Unvalidated api_base Parameter
 slug: 2026-04-praisonai-ssrf
 description: PraisonAI versions 4.5.89 and earlier are vulnerable to SSRF via the `api_base` parameter in the `passthrough()` function, allowing attackers to make requests to internal services or external hosts, potentially leading to IAM credential theft on cloud infrastructure or access to internal services within the VPC.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ssrf
   - praisonai
@@ -17,8 +23,16 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-34936
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-x6m9-gxvr-7jpv
+iocs:
+  - type: ip
+    value: 169.254.169.254
+ioc_counts:
+  ip: 1
 rules:
   - title: Detect PraisonAI SSRF Attempt via api_base to Metadata Service
     description: Detects attempts to exploit the PraisonAI SSRF vulnerability by monitoring for connections to the EC2 metadata service IP address in the api_base parameter.

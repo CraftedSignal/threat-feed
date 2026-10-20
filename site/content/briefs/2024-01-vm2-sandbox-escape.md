@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-vm2-sandbox-escape
+event_id: brief-2024-01-03-vm2-sandbox-escape
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: vm2 Sandbox Escape via Promise Constructor Unhandled Rejection
 slug: 2024-01-vm2-sandbox-escape
 description: A sandbox escape vulnerability exists in vm2 versions 3.10.5 and earlier that allows sandboxed code to crash the host Node.js process via a Promise constructor that triggers an unhandled rejection, leading to a denial-of-service condition.
@@ -8,11 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - vm2
   - sandbox-escape
   - denial-of-service
   - nodejs
+vendors:
+  - npm
 products:
   - vm2 (<= 3.10.5)
 mitre_ttps:
@@ -23,7 +31,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-22709
     cvss: 9.8
-    epss: 0.00046
+    epss: 0.01222
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-hw58-p9xv-2mjh
 rules:

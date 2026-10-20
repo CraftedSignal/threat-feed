@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-aws-iam-assume-role-brute-force
+event_id: brief-2024-01-02-aws-iam-assume-role-brute-force
+revision: 1
+activity_at: "2024-01-02T10:00:00Z"
 title: AWS IAM Assume Role Policy Brute Force Attack
 slug: 2024-01-aws-iam-assume-role-brute-force
 description: Detection of brute force attacks against AWS IAM roles by identifying multiple failed AssumeRole attempts using CloudTrail logs, potentially leading to unauthorized access and resource compromise.
@@ -8,20 +12,18 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - aws
   - iam
   - brute_force
   - cloudtrail
-vendors:
-  - AWS
-products:
-  - AWS IAM
 mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1580
-    technique_name: Use Alternate Authentication Material
+    technique_name: Cloud Infrastructure Discovery
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1110

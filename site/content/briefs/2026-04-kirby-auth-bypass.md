@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-30-kirby-auth-bypass
+event_id: brief-2026-04-30-kirby-auth-bypass
+revision: 1
+activity_at: "2026-04-30T21:03:20Z"
 title: Kirby CMS Missing Authorization Vulnerability
 slug: 2026-04-kirby-auth-bypass
 description: A missing authorization vulnerability in Kirby CMS allows authenticated users to bypass intended access restrictions on pages and files, potentially leading to unauthorized information disclosure and content modification; patched in versions 4.9.0 and 5.4.0.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - authorization
   - cms
@@ -28,6 +34,9 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1213
     technique_name: Data from Information Repositories
+cves:
+  - id: CVE-2026-42137
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-85x2-r8xv-ww8c
   - https://github.com/getkirby/kirby/releases/tag/4.9.0

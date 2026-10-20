@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-14-openssl-dos
+event_id: brief-2026-08-14-openssl-dos
+revision: 1
+activity_at: "2026-08-14T14:05:29Z"
 title: Remote Denial of Service Vulnerability in OpenSSL
 slug: 2026-08-openssl-dos
 description: A vulnerability (CVE-2026-14456) in OpenSSL versions 3.5.x, 3.6.x, and 4.0.x allows remote attackers to trigger a denial of service condition.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: validated against CERT-FR advisory
 tags:
   - denial-of-service
   - vulnerability
@@ -21,6 +35,7 @@ products:
 cves:
   - id: CVE-2026-14456
     cvss: 7.5
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1026/
   - https://openssl-library.org/news/secadv/20260813.txt

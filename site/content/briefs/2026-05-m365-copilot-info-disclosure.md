@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-08-m365-copilot-info-disclosure
+event_id: brief-2026-05-08-m365-copilot-info-disclosure
+revision: 1
+activity_at: "2026-05-08T10:45:52Z"
 title: Microsoft 365 Copilot Business Chat Information Disclosure Vulnerabilities
 slug: 2026-05-m365-copilot-info-disclosure
 description: Multiple vulnerabilities in Microsoft 365 Copilot Business Chat allow an anonymous remote attacker to disclose sensitive information.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - information-disclosure
   - cloud

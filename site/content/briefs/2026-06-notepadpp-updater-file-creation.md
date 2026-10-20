@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-06-20-notepadpp-updater-file-creation
+event_id: brief-2026-06-20-notepadpp-updater-file-creation
+revision: 1
+activity_at: "2026-04-21T10:34:51Z"
 title: Notepad++ Updater (gup.exe) Creates Uncommon Files
 slug: 2026-06-notepadpp-updater-file-creation
 description: The Notepad++ updater (gup.exe) creating files in suspicious locations can indicate potential exploitation for malware delivery or unwarranted file placement, potentially leading to credential access and collection.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - supply-chain
   - malware
@@ -16,7 +22,7 @@ mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1557
-    technique_name: Adversary in the Middle
+    technique_name: Adversary-in-the-Middle
   - tactic_id: TA0009
     tactic_name: Collection
     technique_id: T1119

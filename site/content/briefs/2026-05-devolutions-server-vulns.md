@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-devolutions-server-vulns
+event_id: brief-2026-05-devolutions-server-vulns
+revision: 1
+activity_at: "2026-05-26T11:50:06Z"
 title: Multiple Vulnerabilities in Devolutions Server
 slug: 2026-05-devolutions-server-vulns
 description: Multiple vulnerabilities in Devolutions Server could allow an attacker to bypass security measures, disclose information, and manipulate files.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - data-breach

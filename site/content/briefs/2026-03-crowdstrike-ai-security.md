@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-29-crowdstrike-ai-security
+event_id: brief-2026-03-29-crowdstrike-ai-security
+revision: 1
+activity_at: "2026-03-28T09:35:50Z"
 title: CrowdStrike Falcon Enhancements for Securing AI Environments
 slug: 2026-03-crowdstrike-ai-security
 description: CrowdStrike is enhancing its Falcon platform with new features focusing on AI Detection and Response (AIDR) capabilities across endpoints, SaaS, and cloud environments to mitigate risks such as prompt injection attacks, data leaks, and policy violations related to AI agents and shadow AI.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - ai
   - security
@@ -18,11 +24,11 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1202
-    technique_name: Exploitation for Defense Evasion
+    technique_name: Indirect Command Execution
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
 references:
   - https://crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/
 rules:

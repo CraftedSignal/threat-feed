@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-30-mikroorm-sqli
+event_id: brief-2024-01-30-mikroorm-sqli
+revision: 1
+activity_at: "2024-01-30T12:00:00Z"
 title: MikroORM SQL Injection Vulnerability
 slug: 2024-01-mikroorm-sqli
 description: MikroORM versions 6.6.9 and 7.0.5 are vulnerable to SQL injection when specially crafted objects are interpreted as raw SQL query fragments, potentially allowing attackers to execute arbitrary SQL commands.
@@ -9,6 +13,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:mikro-orm:mikroorm:*:*:*:*:*:node.js:*:*
 has_poc: true
@@ -30,6 +36,7 @@ cves:
   - id: CVE-2026-34220
     cvss: 9.8
     epss: 0.00468
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-gwhv-j974-6fxm
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YYM8538-CVE-2026-34220&utm_source=rss&utm_medium=rss

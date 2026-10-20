@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-solarwinds-child-process
+event_id: brief-2024-01-03-solarwinds-child-process
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Suspicious SolarWinds Child Process Execution
 slug: 2024-01-solarwinds-child-process
 description: Detection of unusual child processes spawned by SolarWinds processes may indicate malicious program execution, potentially bypassing security controls.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - supply-chain
   - execution

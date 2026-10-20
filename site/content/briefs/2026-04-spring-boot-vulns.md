@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-29-spring-boot-vulns
+event_id: brief-2026-04-29-spring-boot-vulns
+revision: 1
+activity_at: "2026-04-29T12:00:00Z"
 title: Multiple Vulnerabilities in Spring Boot Allow Authorization Bypass and Potential RCE
 slug: 2026-04-spring-boot-vulns
 description: Multiple vulnerabilities in Spring Boot, including CVE-2026-40976, CVE-2026-40973, and CVE-2026-40972, can allow attackers to bypass authorization, hijack sessions, or achieve remote code execution, potentially leading to data breaches and system compromise.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - spring-boot
   - vulnerability
@@ -30,14 +36,17 @@ mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1105
-    technique_name: Remote File Copy
+    technique_name: Ingress Tool Transfer
 cves:
   - id: CVE-2026-40976
     cvss: 9.1
+    kev_status: unknown
   - id: CVE-2026-40973
     cvss: 7
+    kev_status: unknown
   - id: CVE-2026-40972
     cvss: 7.5
+    kev_status: unknown
 references:
   - https://ccb.belgium.be/advisories/warning-multiple-vulnerabilities-spring-boot-patch-immediately
   - https://spring.io/security/cve-2026-40976

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-28-cnapp-advances
+event_id: brief-2026-03-28-cnapp-advances
+revision: 1
+activity_at: "2026-03-28T14:46:06Z"
 title: CrowdStrike CNAPP Enhanced with Adversary-Informed Risk Prioritization
 slug: 2026-03-cnapp-advances
 description: CrowdStrike has enhanced its CNAPP capabilities by adding application-layer visibility and prioritizing risks based on known adversary tactics, techniques, and procedures (TTPs).
@@ -20,6 +24,8 @@ actors:
   - Roasted 0ktapus
   - Muddled Libra
   - Star Fraud
+exploitation_evidence:
+  status: unknown
 tags:
   - cloud-security
   - cnapp

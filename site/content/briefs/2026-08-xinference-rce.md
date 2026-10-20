@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-24-xinference-rce
+event_id: brief-2026-08-24-xinference-rce
+revision: 1
+activity_at: "2026-08-24T16:02:13Z"
 title: Remote Code Execution in Xinference via Unsafe Model Loading
 slug: 2026-08-xinference-rce
 description: Xinference versions prior to 2.12.0 are vulnerable to remote code execution because they unconditionally enable 'trust_remote_code=True' when loading models, allowing attackers to execute arbitrary Python code via crafted model configurations.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - remote-code-execution
   - vulnerability
@@ -26,6 +39,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-76841
     cvss: 8.8
+    epss: 0.01029
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76841
 action_plan:
@@ -46,7 +61,7 @@ action_plan:
       evidence: Source states that a caller with model launch access can supply an arbitrary model path to trigger the exploit.
 ---
 
-Xinference versions prior to 2.12.0 contain a critical remote code execution (RCE) vulnerability (CVE-2026-76841) rooted in the insecure implementation of Hugging Face Transformers model loading. The application contains six distinct loader call sites that pass 'trust_remote_code=True' to the underlying Transformers library, either as a hardcoded literal or a default configuration. 
+Xinference versions prior to 2.12.0 contain a critical remote code execution (RCE) vulnerability (CVE-2026-76841) rooted in the insecure implementation of Hugging Face Transformers model loading. The application contains six distinct loader call sites that pass 'trust_remote_code=True' to the underlying Transformers library, either as a hardcoded literal or a default configuration.
 
 This implementation allows an attacker with model launch access to register a custom model type and supply a malicious model path. During the model loading sequence, the server invokes 'AutoTokenizer.from_pretrained'. If an attacker provides a 'tokenizer_config.json' file containing an 'auto_map' entry, the server will automatically import and execute arbitrary Python code defined within the model directory. This code executes with the full privileges of the Xinference worker process. Version 2.12.0 mitigates this issue by introducing the 'XINFERENCE_TRUST_REMOTE_CODE' setting and requiring explicit enablement to permit remote code execution for non-bundled models.
 

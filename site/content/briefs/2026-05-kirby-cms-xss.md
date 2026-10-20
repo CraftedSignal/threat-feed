@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-kirby-cms-xss
+event_id: brief-2026-05-kirby-cms-xss
+revision: 1
+activity_at: "2026-05-27T17:44:19Z"
 title: Kirby CMS Stored XSS Vulnerability in KirbyTags and Image Blocks (CVE-2026-45368)
 slug: 2026-05-kirby-cms-xss
 description: Kirby CMS is vulnerable to stored cross-site scripting (XSS) due to insufficient sanitization of links within KirbyTags and image blocks, allowing authenticated users with content editing privileges to inject malicious JavaScript that executes when other users interact with the crafted links on the site frontend; patched in versions 4.9.1 and 5.4.1.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - xss
   - kirbycms
@@ -22,13 +28,16 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-45368
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-qvjf-922g-pj44
   - https://github.com/getkirby/kirby/releases/tag/4.9.1
   - https://github.com/getkirby/kirby/releases/tag/5.4.1
 rules:
   - title: Detect Suspicious Javascript URI Scheme in Link Tag
-    description: 'Detects CVE-2026-45368 exploitation -  attempts to inject malicious links with javascript:, vbscript:, livescript:, mocha:, jar:, or data: URI schemes in webserver logs.'
+    description: 'Detects CVE-2026-45368 exploitation —  attempts to inject malicious links with javascript:, vbscript:, livescript:, mocha:, jar:, or data: URI schemes in webserver logs.'
     platform: sigma
     severity: high
     tactics:
@@ -38,7 +47,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect Kirby CMS Block HTML Importer XSS
-    description: Detects CVE-2026-45368 exploitation - attempts to use the HTML importer for blocks to inject Javascript.
+    description: Detects CVE-2026-45368 exploitation — attempts to use the HTML importer for blocks to inject Javascript.
     platform: sigma
     severity: high
     tactics:

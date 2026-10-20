@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-moveit-automation-vulns
+event_id: brief-2026-05-moveit-automation-vulns
+revision: 1
+activity_at: "2026-05-21T12:19:33Z"
 title: Multiple Vulnerabilities in Progress MOVEit Automation
 slug: 2026-05-moveit-automation-vulns
 description: Multiple vulnerabilities in Progress MOVEit Automation allow for remote denial of service, security policy bypass, and unspecified security issues.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:progress:moveit_automation:*:*:*:*:*:*:*:*
 tags:
@@ -23,7 +29,7 @@ mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
-    technique_name: Denial of Service
+    technique_name: Endpoint Denial of Service
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1068
@@ -31,12 +37,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-8485
     cvss: 5.9
+    kev_status: unknown
   - id: CVE-2026-8486
     cvss: 5.3
+    kev_status: unknown
   - id: CVE-2026-8487
     cvss: 6.5
+    kev_status: unknown
   - id: CVE-2026-8488
     cvss: 4.3
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0624/
   - https://docs.progress.com/bundle/moveit-automation-release-notes-2026/page/Fixed-Issues-2026.html

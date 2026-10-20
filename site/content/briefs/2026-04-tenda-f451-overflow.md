@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-12-tenda-f451-overflow
+event_id: brief-2026-04-12-tenda-f451-overflow
+revision: 1
+activity_at: "2026-04-12T08:16:37Z"
 title: Tenda F451 Router Stack-Based Buffer Overflow Vulnerability
 slug: 2026-04-tenda-f451-overflow
 description: Tenda F451 router version 1.0.0.7 is vulnerable to a stack-based buffer overflow in the frmL7ProtForm function, enabling remote attackers to execute arbitrary code by manipulating the 'page' argument.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - cve-2026-6122
   - buffer-overflow
@@ -21,6 +27,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-6122
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-6122
 rules:

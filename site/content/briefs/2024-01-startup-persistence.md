@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-startup-persistence
+event_id: brief-2024-01-02-startup-persistence
+revision: 1
+activity_at: "2024-01-02T15:00:00Z"
 title: Startup Folder Persistence by Suspicious Processes
 slug: 2024-01-startup-persistence
 description: This rule identifies files written to or modified in the startup folder by commonly abused processes on Windows systems, a technique adversaries use to maintain persistence by automatically executing malicious programs upon user login or system startup.
@@ -8,16 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - persistence
   - startup-folder
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
-  - Microsoft Office
-  - Internet Explorer
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence

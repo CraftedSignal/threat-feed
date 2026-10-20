@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-16-wordpress-xss
+event_id: brief-2026-08-16-wordpress-xss
+revision: 1
+activity_at: "2026-08-16T06:24:44Z"
 title: Stored XSS Vulnerability in Platnosci Online Blue Media Plugin
 slug: 2026-08-wordpress-xss
 description: An unauthenticated stored Cross-Site Scripting vulnerability in the Platnosci Online Blue Media WordPress plugin allows attackers to inject malicious scripts into the checkout page.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - web-vulnerability
   - xss
@@ -27,12 +40,13 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.007
-    technique_name: 'Command and Scripting Interpreter: JavaScript'
+    technique_name: JavaScript
     evidence: The raw $_POST value is written to the 'woocommerce_bluemedia_settings' option... then later echoed directly inside a <style> block... with no output escaping.
     confidence_band: high
 cves:
   - id: CVE-2026-15002
     cvss: 7.2
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-15002
 action_plan:

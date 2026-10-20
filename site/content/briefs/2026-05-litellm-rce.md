@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-08-litellm-rce
+event_id: brief-2026-05-08-litellm-rce
+revision: 1
+activity_at: "2026-05-08T10:50:57Z"
 title: LiteLLM Vulnerability Allows Code Execution and Information Disclosure
 slug: 2026-05-litellm-rce
 description: A remote, authenticated attacker can exploit a vulnerability in LiteLLM to execute arbitrary program code and disclose sensitive information.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - code-execution
@@ -17,7 +23,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.004
-    technique_name: Command and Scripting Interpreter
+    technique_name: Unix Shell
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1082

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-vulnerable-driver-load
+event_id: brief-2024-01-02-vulnerable-driver-load
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Detection of Vulnerable Driver Loading on Windows Systems
 slug: 2024-01-vulnerable-driver-load
 description: Detection of loading known vulnerable Windows drivers that may indicate persistence or privilege escalation attempts via exploitation.
@@ -9,6 +13,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:*:*
@@ -44,9 +50,11 @@ cves:
   - id: CVE-2022-37969
     cvss: 7.8
     epss: 0.28275
+    kev_status: unknown
   - id: CVE-2020-15368
     cvss: 5.5
     epss: 0.0136
+    kev_status: unknown
 references:
   - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/driver_load/driver_load_vuln_drivers_names.yml
   - https://github.com/eclypsium/Screwed-Drivers/blob/master/DRIVERS.md

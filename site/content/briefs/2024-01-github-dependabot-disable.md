@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-github-dependabot-disable
+event_id: brief-2024-01-02-github-dependabot-disable
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: GitHub Enterprise Dependabot Disablement
 slug: 2024-01-github-dependabot-disable
 description: An attacker disables Dependabot in a GitHub repository to prevent automatic vulnerability detection, potentially leading to exploitation of unpatched dependencies and supply chain compromise.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - github
   - dependabot
   - supply-chain
   - defense-evasion
-vendors:
-  - GitHub
-products:
-  - GitHub Enterprise
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion

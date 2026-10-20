@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-ntlm-relay-http
+event_id: brief-2024-01-09-ntlm-relay-http
+revision: 1
+activity_at: "2024-01-09T14:00:00Z"
 title: Potential Local NTLM Relay via HTTP
 slug: 2024-01-ntlm-relay-http
 description: Adversaries may coerce local NTLM authentication over HTTP via WebDAV named-pipe paths (Print Spooler, SRVSVC), then relay credentials to elevate privileges.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ntlm-relay
   - credential-access
@@ -27,7 +33,7 @@ mitre_ttps:
   - tactic_id: TA0006
     tactic_name: Credential Access
     technique_id: T1557
-    technique_name: Man-in-the-Middle
+    technique_name: Adversary-in-the-Middle
 references:
   - https://github.com/med0x2e/NTLMRelay2Self
   - https://github.com/topotam/PetitPotam

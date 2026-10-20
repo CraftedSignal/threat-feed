@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-acrel-sql-injection
+event_id: brief-2026-05-acrel-sql-injection
+revision: 1
+activity_at: "2026-05-26T14:27:03Z"
 title: Acrel Electrical EEMS Enterprise Power Operation and Maintenance Cloud Platform SQL Injection Vulnerability (CVE-2026-9523)
 slug: 2026-05-acrel-sql-injection
 description: A SQL injection vulnerability (CVE-2026-9523) exists in Acrel Electrical EEMS Enterprise Power Operation and Maintenance Cloud Platform 3000WEBV2, where manipulating the 'sort' argument in the '/SubstationWEBV2/app/..;/calc/getCalcmeterDetailDayListTree' file leads to remote code execution, and is publicly known and actively exploited.
@@ -8,7 +12,8 @@ types:
   - threat
 severities:
   - high
-exploited: true
+exploitation_evidence:
+  status: unknown
 tags:
   - sql-injection
   - cve-2026-9523
@@ -26,6 +31,7 @@ cves:
   - id: CVE-2026-9523
     cvss: 7.3
     epss: 0.00028
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9523
 rules:

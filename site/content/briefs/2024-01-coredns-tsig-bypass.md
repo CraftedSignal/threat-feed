@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-24-coredns-tsig-bypass
+event_id: brief-2024-01-24-coredns-tsig-bypass
+revision: 1
+activity_at: "2024-01-24T12:00:00Z"
 title: CoreDNS TSIG Authentication Bypass Vulnerability
 slug: 2024-01-coredns-tsig-bypass
 description: CoreDNS versions prior to 1.14.3 are vulnerable to TSIG authentication bypass on gRPC, QUIC, DoH, and DoH3 transports, allowing unauthenticated network attackers to bypass authentication and potentially access TSIG-protected zone data or submit dynamic DNS updates.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - coredns
   - tsig
@@ -21,6 +27,9 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1588
     technique_name: Obtain Capabilities
+cves:
+  - id: CVE-2026-35579
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-vp29-5652-4fw9
 rules:

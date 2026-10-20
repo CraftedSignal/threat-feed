@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-24-rare-smb-exfiltration
+event_id: brief-2024-01-24-rare-smb-exfiltration
+revision: 1
+activity_at: "2024-01-24T12:00:00Z"
 title: Rare SMB Connection to the Internet
 slug: 2024-01-rare-smb-exfiltration
 description: This rule detects rare network connections via the SMB protocol to external networks, where SMB is commonly abused to exfiltrate data or leak NTLM credentials via UNC path injection.
@@ -8,15 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - exfiltration
   - credential-access
   - windows
   - smb
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0010
     tactic_name: Exfiltration

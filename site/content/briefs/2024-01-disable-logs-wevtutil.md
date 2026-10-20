@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-disable-logs-wevtutil
+event_id: brief-2024-01-03-disable-logs-wevtutil
+revision: 1
+activity_at: "2024-01-03T18:23:00Z"
 title: Detection of Event Log Disabling via WevtUtil
 slug: 2024-01-disable-logs-wevtutil
 description: Detection of the 'wevtutil.exe' command-line utility being used to disable event logs, a common tactic employed by ransomware actors to evade detection and hinder forensic analysis on compromised Windows systems.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - ransomware

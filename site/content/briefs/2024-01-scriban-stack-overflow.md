@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-29-scriban-stack-overflow
+event_id: brief-2024-01-29-scriban-stack-overflow
+revision: 1
+activity_at: "2024-01-29T12:00:00Z"
 title: Scriban `object.to_json` Uncontrolled Recursion DoS
 slug: 2024-01-scriban-stack-overflow
 description: The Scriban library is vulnerable to a denial-of-service attack where a specially crafted template with a self-referencing object passed to the `object.to_json` function causes unbounded recursion, leading to a `StackOverflowException` that terminates the .NET process.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - denial-of-service
   - scriban
   - .net
-vendors:
-  - Scriban
-products:
-  - Scriban
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact

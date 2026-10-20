@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-flowise-rce
+event_id: brief-2026-08-flowise-rce
+revision: 1
+activity_at: "2026-08-04T17:24:33Z"
 title: Flowise Unauthenticated RCE via Environment Variable Bypass
 slug: 2026-08-flowise-rce
 description: Flowise v3.1.2 and earlier are vulnerable to unauthenticated remote code execution because the CVE-2025-8943 patch relies on an incomplete environment variable blocklist, allowing attackers to inject configuration variables that force arbitrary package installation.
@@ -9,8 +13,18 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Source documentation is complete; no environment validation required.
 cpes:
-  - "cpe:2.3:a:flowiseai:flowise:*:*:*:*:*:*:*:*"
+  - cpe:2.3:a:flowiseai:flowise:*:*:*:*:*:*:*:*
 tags:
   - rce
   - injection
@@ -67,7 +81,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: The script leverages child_process.execSync to run arbitrary OS commands on the Flowise host.
     confidence_band: high
   - tactic_id: TA0004
@@ -89,43 +103,57 @@ mitre_ttps:
     evidence: The server reads the stored refresh_token, exchanges it at the accessTokenUrl, and returns fresh token metadata.
     confidence_band: high
   - tactic_id: TA0004
-    tactic_name: Reconnaissance
+    tactic_name: Privilege Escalation
     technique_id: T1592
-    technique_name: Gather Victim Org Information
+    technique_name: Gather Victim Host Information
     evidence: The response includes sensitive configuration data such as Qdrant Server URL and collection name, resulting in a High severity information disclosure.
     confidence_band: high
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1592
-    technique_name: Gather Victim Org Information
+    technique_name: Gather Victim Host Information
     evidence: An attacker with access to one workspace can supply the credential ID of a target workspace to perform operations on behalf of that workspace.
     confidence_band: high
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: The vulnerability can be leveraged to gain code execution if the service account can modify files such as startup scripts.
     confidence_band: med
 cves:
   - id: CVE-2026-69263
     epss: 0.00268
+    kev_status: unknown
   - id: CVE-2026-70476
     epss: 0.00286
+    kev_status: unknown
   - id: CVE-2026-70471
     epss: 0.00279
+    kev_status: unknown
   - id: CVE-2026-67621
     cvss: 7.6
     epss: 0.00274
+    kev_status: unknown
   - id: CVE-2026-67620
     cvss: 7.7
     epss: 0.00426
+    kev_status: unknown
   - id: CVE-2026-71962
     cvss: 7.5
+    kev_status: unknown
   - id: CVE-2026-70636
     cvss: 7.5
     epss: 0.00373
+    kev_status: unknown
   - id: CVE-2026-70478
     epss: 0.00381
+    kev_status: unknown
+  - id: CVE-2025-8943
+    kev_status: unknown
+  - id: CVE-2026-70475
+    kev_status: unknown
+  - id: CVE-2026-67622
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-xc48-889x-5qmw
   - https://nvd.nist.gov/vuln/detail/CVE-2026-69263

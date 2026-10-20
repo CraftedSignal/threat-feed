@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-yuze-tunneling
+event_id: brief-2024-01-03-yuze-tunneling
+revision: 1
+activity_at: "2024-01-03T12:00:00Z"
 title: Potential Protocol Tunneling via Yuze
 slug: 2024-01-yuze-tunneling
 description: This brief describes the detection of Yuze, an open-source tunneling tool often executed via rundll32 to proxy C2 or pivot traffic within a compromised network.
@@ -8,12 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - tunneling
   - command-and-control
   - windows
-products:
-  - Yuze
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-06-19-aws-iam-access-key-correlation
+event_id: brief-2026-06-19-aws-iam-access-key-correlation
+revision: 1
+activity_at: "2026-04-06T14:37:37Z"
 title: AWS IAM Long-Term Access Key Correlated with Elevated Detection Alerts
 slug: 2026-06-aws-iam-access-key-correlation
 description: This rule correlates AWS Long-Term Access Key First Seen from Source IP alerts with other open alerts of medium or higher severity that share the same IAM access key ID to prioritize investigation of potentially compromised accounts, helping identify post-compromise activity.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cloud
   - aws

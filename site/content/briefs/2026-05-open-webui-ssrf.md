@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-14-open-webui-ssrf
+event_id: brief-2026-05-14-open-webui-ssrf
+revision: 1
+activity_at: "2026-05-14T20:37:19Z"
 title: Open WebUI SSRF Vulnerability via URL Parsing Discrepancy (CVE-2026-45400)
 slug: 2026-05-open-webui-ssrf
 description: Open WebUI versions 0.9.4 and earlier are vulnerable to Server-Side Request Forgery (SSRF) due to a parsing difference between the urlparse and requests libraries in the `validate_url` function, allowing attackers to bypass URL validation and make requests to internal IP addresses.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - ssrf
   - cve-2026-45400
@@ -23,11 +29,14 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1190
     technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-45400
+    kev_status: unknown
 references:
   - https://github.com/advisories/GHSA-8w7q-q5jp-jvgx
 rules:
   - title: Detect Open WebUI SSRF Attempt via Malicious URL
-    description: Detects CVE-2026-45400 exploitation - Attempts to exploit the Open WebUI SSRF vulnerability by detecting URLs with embedded IP addresses and @ symbols
+    description: Detects CVE-2026-45400 exploitation — Attempts to exploit the Open WebUI SSRF vulnerability by detecting URLs with embedded IP addresses and @ symbols
     platform: sigma
     severity: high
     tactics:

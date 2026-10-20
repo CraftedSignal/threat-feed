@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-tenable-network-monitor-vulns
+event_id: brief-2026-05-tenable-network-monitor-vulns
+revision: 1
+activity_at: "2026-05-15T12:23:29Z"
 title: Multiple Vulnerabilities in Tenable Network Monitor
 slug: 2026-05-tenable-network-monitor-vulns
 description: Multiple vulnerabilities in Tenable Network Monitor versions prior to 6.5.4 can lead to remote denial of service, security policy bypass, and unspecified security issues.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:haxx:curl:*:*:*:*:*:*:*:*
   - cpe:2.3:a:sqlite:sqlite:*:*:*:*:*:*:*:*
@@ -33,18 +39,31 @@ cves:
   - id: CVE-2025-15079
     cvss: 5.3
     epss: 0.00047
+    kev_status: unknown
   - id: CVE-2025-15224
     cvss: 3.1
     epss: 0.00098
+    kev_status: unknown
   - id: CVE-2025-29087
     cvss: 3.2
     epss: 0.00218
+    kev_status: unknown
   - id: CVE-2025-29088
     cvss: 5.6
     epss: 0.00062
+    kev_status: unknown
   - id: CVE-2025-3277
     cvss: 9.8
     epss: 0.00744
+    kev_status: unknown
+  - id: CVE-2025-13034
+    kev_status: unknown
+  - id: CVE-2025-14017
+    kev_status: unknown
+  - id: CVE-2025-14524
+    kev_status: unknown
+  - id: CVE-2025-14819
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0592/
   - https://www.tenable.com/security/tns-2026-14

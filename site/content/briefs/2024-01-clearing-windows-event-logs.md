@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-clearing-windows-event-logs
+event_id: brief-2024-01-02-clearing-windows-event-logs
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Windows Event Logs Cleared
 slug: 2024-01-clearing-windows-event-logs
 description: Attackers attempt to clear Windows event logs to evade detection and remove forensic evidence of their activities.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - low
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - windows

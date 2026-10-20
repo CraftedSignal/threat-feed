@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-30-rmm-after-msi
+event_id: brief-2024-01-30-rmm-after-msi
+revision: 1
+activity_at: "2024-01-30T12:00:00Z"
 title: Remote Management Software Launch After MSI Install
 slug: 2024-01-rmm-after-msi
 description: Attackers are leveraging MSI installers to deploy remote management software (RMM) such as ScreenConnect, Syncro, and VNC, potentially indicating unauthorized access and control over compromised systems.
@@ -8,21 +12,13 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - remote-access
   - rmm
   - msi
   - command-and-control
-vendors:
-  - ConnectWise
-  - Syncro
-  - TightVNC
-  - RealVNC
-products:
-  - ConnectWise ScreenConnect
-  - Syncro RMM
-  - TightVNC
-  - RealVNC
 references:
   - https://attack.mitre.org/techniques/T1219/
 rules:

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-07-29-jetbrains-teamcity-rce
+event_id: brief-2026-07-29-jetbrains-teamcity-rce
+revision: 1
+activity_at: "2026-07-29T16:47:46Z"
 title: Critical Unauthenticated RCE in JetBrains TeamCity
 slug: 2026-07-jetbrains-teamcity-rce
 description: A critical insecure deserialization vulnerability (CVE-2026-63077) in JetBrains TeamCity allows unauthenticated remote attackers to execute arbitrary system commands via the agent polling protocol.
@@ -8,7 +12,8 @@ types:
   - threat
 severities:
   - critical
-exploited: true
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - rce
@@ -34,14 +39,15 @@ mitre_ttps:
 cves:
   - id: CVE-2026-63077
     cvss: 9.8
-    epss: 0.00649
+    epss: 0.8957
+    kev_status: unknown
 references:
   - https://www.rapid7.com/blog/post/etr-cve-2026-63077-critical-unauthenticated-remote-code-execution-in-jetbrains-teamcity
   - https://blog.jetbrains.com/teamcity/2026/07/cve-2026-63077/
   - https://nvd.nist.gov/vuln/detail/CVE-2026-63077
 ---
 
-On July 27, 2026, JetBrains disclosed CVE-2026-63077, a critical deserialization vulnerability affecting all versions of TeamCity On-Premises. With a CVSS score of 9.8, the vulnerability allows an unauthenticated remote attacker to interact with the server's agent polling protocol to bypass authentication mechanisms. By sending specifically crafted payloads, an attacker can achieve remote code execution (RCE) with the privileges of the underlying TeamCity server process. 
+On July 27, 2026, JetBrains disclosed CVE-2026-63077, a critical deserialization vulnerability affecting all versions of TeamCity On-Premises. With a CVSS score of 9.8, the vulnerability allows an unauthenticated remote attacker to interact with the server's agent polling protocol to bypass authentication mechanisms. By sending specifically crafted payloads, an attacker can achieve remote code execution (RCE) with the privileges of the underlying TeamCity server process.
 
 This vulnerability presents a severe risk to CI/CD environments, as successful exploitation enables attackers to harvest stored credentials, manipulate build artifacts, and gain persistent access to the broader development infrastructure. While JetBrains reported no evidence of active exploitation at the time of disclosure, the simplicity of the attack vector makes patching or applying the provided security plugin an immediate requirement for all on-premises deployments.
 

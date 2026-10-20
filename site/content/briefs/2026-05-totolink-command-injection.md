@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-totolink-command-injection
+event_id: brief-2026-05-totolink-command-injection
+revision: 1
+activity_at: "2026-05-26T14:04:07Z"
 title: Totolink A8000RU Command Injection Vulnerability (CVE-2026-9475)
 slug: 2026-05-totolink-command-injection
 description: Totolink A8000RU version 7.1cu.643_b20200521 is vulnerable to remote OS command injection via manipulation of the Comment argument in the setIpQosRules function, allowing unauthenticated attackers to execute arbitrary commands on the device.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - command injection
   - router vulnerability
@@ -24,7 +30,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-9475
     cvss: 9.8
-    epss: 0.00892
+    epss: 0.03253
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-9475
   - https://github.com/Litengzheng/vuldb_new2/blob/main/A8000RU/vul_347/README.md
@@ -34,7 +41,7 @@ references:
   - https://www.totolink.net/
 rules:
   - title: Detect CVE-2026-9475 Exploitation Attempt via Web Logs
-    description: Detects CVE-2026-9475 exploitation attempt - HTTP POST requests to cstecgi.cgi with command injection attempt in Comment parameter
+    description: Detects CVE-2026-9475 exploitation attempt — HTTP POST requests to cstecgi.cgi with command injection attempt in Comment parameter
     platform: sigma
     severity: high
     tactics:
@@ -44,7 +51,7 @@ rules:
     data_sources:
       - webserver
   - title: Detect CVE-2026-9475 Command Injection via Process Creation
-    description: Detects CVE-2026-9475 exploitation - Monitors for processes spawned by the web server that execute suspicious commands.
+    description: Detects CVE-2026-9475 exploitation — Monitors for processes spawned by the web server that execute suspicious commands.
     platform: sigma
     severity: critical
     tactics:

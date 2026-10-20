@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-uac-bypass-diskcleanup
+event_id: brief-2024-01-03-uac-bypass-diskcleanup
+revision: 1
+activity_at: "2024-01-03T14:27:00Z"
 title: UAC Bypass via DiskCleanup Scheduled Task Hijack
 slug: 2024-01-uac-bypass-diskcleanup
 description: Attackers bypass User Account Control (UAC) to stealthily execute code with elevated permissions by hijacking the DiskCleanup Scheduled Task, leveraging specific arguments with non-standard executables.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - uac-bypass
   - privilege-escalation
   - windows
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation

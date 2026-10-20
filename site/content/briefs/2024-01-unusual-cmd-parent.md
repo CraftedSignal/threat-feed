@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-02-unusual-cmd-parent
+event_id: brief-2024-01-02-unusual-cmd-parent
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Unusual Parent Process for cmd.exe
 slug: 2024-01-unusual-cmd-parent
 description: Atypical parent processes spawning cmd.exe indicate potential malicious command execution on Windows systems, where adversaries leverage cmd.exe from unusual parent processes to execute malicious commands stealthily.
@@ -8,14 +12,12 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - execution
   - windows
   - process-tree
-vendors:
-  - Microsoft
-products:
-  - Windows
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution

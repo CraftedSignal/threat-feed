@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-03-25-goharbor-hardcoded-creds
+event_id: brief-2026-03-25-goharbor-hardcoded-creds
+revision: 1
+activity_at: "2026-03-25T12:00:00Z"
 title: GoHarbor Harbor v2.15.0 and Below Vulnerable to Hardcoded Credentials
 slug: 2026-03-goharbor-hardcoded-creds
 description: GoHarbor Harbor version 2.15.0 and below is vulnerable to the use of hard-coded credentials, allowing an attacker to use the default password and gain unauthorized access to the web UI.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - hardcoded-credentials
@@ -16,7 +22,10 @@ mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1190
-    technique_name: Exploit Public Fasing Application
+    technique_name: Exploit Public-Facing Application
+cves:
+  - id: CVE-2026-4404
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4404
   - https://cwe.mitre.org/data/definitions/1393.html

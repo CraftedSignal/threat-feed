@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-29-openclaw-env-injection
+event_id: brief-2026-04-29-openclaw-env-injection
+revision: 1
+activity_at: "2026-04-29T12:00:00Z"
 title: OpenClaw Environment Variable Injection Vulnerability (CVE-2026-41384)
 slug: 2026-04-openclaw-env-injection
 description: OpenClaw before 2026.3.24 is vulnerable to environment variable injection, allowing attackers to inject malicious environment variables through crafted workspace configurations in the CLI backend, leading to potential code execution or sensitive data exposure.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - environment-variable-injection
   - code-execution
@@ -20,10 +26,11 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1559
-    technique_name: Injection
+    technique_name: Inter-Process Communication
 cves:
   - id: CVE-2026-41384
     cvss: 7.8
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-41384
   - https://github.com/openclaw/openclaw/commit/c2fb7f1948c3226732a630256b5179a60664ec24

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-08-grav-api-bypass
+event_id: brief-2026-08-grav-api-bypass
+revision: 1
+activity_at: "2026-08-14T14:11:25Z"
 title: Authentication Scope Bypass in Grav API Plugin Leading to RCE
 slug: 2026-08-grav-api-bypass
 description: An API key scope-cap bypass in the Grav API plugin allows attackers with restricted keys to execute server-side templates via Server-Side Template Injection.
@@ -9,6 +13,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - web-vulnerability
   - rce
@@ -32,7 +45,7 @@ mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
     technique_id: T1059.003
-    technique_name: 'Command and Scripting Interpreter: Windows Command Shell'
+    technique_name: Windows Command Shell
     evidence: Attackers can submit crafted header and content parameters to execute server-side template injection payloads that are evaluated at render time.
     confidence_band: high
   - tactic_id: TA0001
@@ -44,6 +57,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-72824
     cvss: 9.8
+    kev_status: unknown
+  - id: CVE-2026-75829
+    kev_status: unknown
+  - id: CVE-2026-75830
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-72824
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75829

@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-07-panos-rce
+event_id: brief-2026-05-07-panos-rce
+revision: 1
+activity_at: "2026-05-07T14:00:00Z"
 title: PAN-OS Authentication Portal Remote Code Execution Vulnerability
 slug: 2026-05-panos-rce
 description: An unauthenticated remote code execution vulnerability exists in the PAN-OS Authentication Portal (Captive Portal) service, potentially allowing attackers to execute arbitrary code with root privileges on PA-Series and VM-Series firewalls by sending crafted network packets.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - vulnerability
   - rce

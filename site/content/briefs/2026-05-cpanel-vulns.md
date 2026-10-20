@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-15-cpanel-vulns
+event_id: brief-2026-05-15-cpanel-vulns
+revision: 1
+activity_at: "2026-05-15T10:22:55Z"
 title: Multiple Vulnerabilities in cPanel/WHM Allow Privilege Escalation and Data Manipulation
 slug: 2026-05-cpanel-vulns
 description: Multiple vulnerabilities in cPanel/WHM allow an attacker to escalate privileges, perform SQL injection with root privileges, manipulate data, or disclose sensitive information.
@@ -8,6 +12,8 @@ types:
   - threat
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - cpanel
   - privilege-escalation

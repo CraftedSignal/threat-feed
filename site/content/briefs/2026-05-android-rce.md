@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-05-06-android-rce
+event_id: brief-2026-05-06-android-rce
+revision: 1
+activity_at: "2026-05-05T00:00:00Z"
 title: Google Android Remote Code Execution Vulnerability
 slug: 2026-05-android-rce
 description: A vulnerability in Google Android allows a remote attacker to execute arbitrary code, affecting versions prior to 14, 15, 16 and 16-qpr2 before the May 4, 2026 patch.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
 tags:
   - android
   - rce
@@ -24,6 +30,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-0073
     cvss: 8.8
+    kev_status: unknown
 references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-0534/
   - https://source.android.com/docs/security/bulletin/2026/2026-05-01?hl=fr

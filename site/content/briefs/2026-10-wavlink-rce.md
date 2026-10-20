@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-15-wavlink-rce
+event_id: brief-2026-10-15-wavlink-rce
+revision: 1
+activity_at: "2026-10-15T16:39:28Z"
 title: Remote Command Injection in Wavlink WL-WN530BE2-A
 slug: 2026-10-wavlink-rce
 description: An unauthenticated remote code execution vulnerability (CVE-2026-110957) in the Wavlink WL-WN530BE2-A router allows attackers to inject OS commands via the REMOTE_ADDR parameter in api.cgi.
@@ -8,6 +12,16 @@ types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Verified against NVD and vendor bulletin.
 cpes:
   - cpe:2.3:a:wavlink:wl_wn530be2_a:*:*:*:*:*:*:*:*
 tags:
@@ -35,6 +49,8 @@ mitre_ttps:
 cves:
   - id: CVE-2026-110957
     cvss: 10
+    epss: 0.03456
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110957
 action_plan:

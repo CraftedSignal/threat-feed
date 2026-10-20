@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-11-22-outlook-home-page-registry-modification
+event_id: brief-2024-11-22-outlook-home-page-registry-modification
+revision: 1
+activity_at: "2024-11-22T10:00:00Z"
 title: Outlook Home Page Registry Modification for Command and Control or Persistence
 slug: 2024-11-outlook-home-page-registry-modification
 description: Attackers abuse the Outlook Home Page functionality by modifying specific registry keys to point to attacker-controlled URLs or file paths, enabling command and control or persistence on compromised Windows systems.
@@ -8,16 +12,14 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - outlook
   - registry
   - command-and-control
   - persistence
   - windows
-vendors:
-  - Microsoft
-products:
-  - Outlook
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control

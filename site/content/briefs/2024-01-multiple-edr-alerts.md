@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-09-multiple-edr-alerts
+event_id: brief-2024-01-09-multiple-edr-alerts
+revision: 1
+activity_at: "2026-04-10T16:27:52Z"
 title: Multiple External EDR Alerts by Host
 slug: 2024-01-multiple-edr-alerts
 description: This rule detects multiple external EDR alerts on the same host, indicating a potential compromise, by analyzing alert data from various EDR solutions like CrowdStrike, SentinelOne, and M365 Defender to identify hosts triggering multiple alerts, enabling prioritization of investigation and response.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - threat-detection
   - edr
@@ -16,7 +22,7 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1070
-    technique_name: Indicator Removal on Host
+    technique_name: Indicator Removal
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1189

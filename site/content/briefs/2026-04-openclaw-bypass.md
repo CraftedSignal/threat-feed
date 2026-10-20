@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-04-29-openclaw-bypass
+event_id: brief-2026-04-29-openclaw-bypass
+revision: 1
+activity_at: "2026-04-29T12:00:00Z"
 title: OpenClaw Security Bypass Vulnerability Allows Persistent Browser Profile Mutation
 slug: 2026-04-openclaw-bypass
 description: OpenClaw before 2026.4.8 contains a security bypass vulnerability in node.invoke(browser.proxy) that allows attackers to circumvent the browser.request persistent profile-mutation guard and modify browser configurations.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - security-bypass
   - browser-automation
@@ -20,10 +26,11 @@ mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1068
-    technique_name: Exploitation for Defense Evasion
+    technique_name: Exploitation for Privilege Escalation
 cves:
   - id: CVE-2026-42431
     cvss: 8.1
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-42431
   - https://github.com/openclaw/openclaw/commit/d7c3210cd6f5fdfdc1beff4c9541673e814354d5

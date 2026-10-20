@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2024-01-03-svchost-masquerading
+event_id: brief-2024-01-03-svchost-masquerading
+revision: 1
+activity_at: "2024-01-03T10:00:00Z"
 title: Potential Svchost Masquerading
 slug: 2024-01-svchost-masquerading
 description: This rule detects attempts to masquerade as the Service Host process `svchost.exe` to evade detection and blend in with normal system activity by detecting svchost.exe processes running from non-standard locations.
@@ -8,6 +12,8 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - masquerading
