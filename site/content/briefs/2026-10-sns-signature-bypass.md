@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-sns-signature-bypass
+event_id: brief-2026-10-sns-signature-bypass
+revision: 1
+activity_at: "2026-10-20T10:32:54Z"
 title: 'Stormshield Network Security: Dynamic data signature verification logic error (CVE-2026-113469)'
 slug: 2026-10-sns-signature-bypass
 description: A logic error in the Stormshield Network Security (SNS) dynamic data file signature verification routine allows attackers to bypass validation and inject unauthenticated updates during the autoupdate process.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:stormshield:sns:*:*:*:*:*:*:*:*
 tags:
@@ -20,6 +33,7 @@ products:
 cves:
   - id: CVE-2026-113469
     cvss: 7.5
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-113469
 action_plan:
