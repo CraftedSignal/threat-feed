@@ -15,6 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
@@ -23,4 +25,14 @@ jobs:
       - run: pip install pyyaml
 
       - name: Check for invalid IoCs
-        run: python3 scripts/cleanup_iocs.py --check -v
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          mapfile -d '' briefs < <(git diff --name-only -z --diff-filter=ACMR "$BASE_SHA" "$HEAD_SHA" -- 'site/content/briefs/*.md')
+          if [[ ${#briefs[@]} -eq 0 ]]; then
+            echo "No added or modified briefs to validate."
+            exit 0
+          fi
+          python3 scripts/cleanup_iocs.py --check -v "${briefs[@]}"

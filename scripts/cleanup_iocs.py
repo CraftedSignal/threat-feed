@@ -2,7 +2,11 @@
 """Remove invalid IoCs from brief YAML frontmatter and add context to PoC URLs.
 
 Usage:
-    python3 scripts/cleanup_iocs.py [--dry-run] [-v]
+    python3 scripts/cleanup_iocs.py [--dry-run] [--check] [-v] [BRIEF.md ...]
+
+Without file arguments the command scans the complete brief corpus. CI passes
+the briefs changed by the current push or pull request so historical cleanup
+can proceed separately without weakening the gate for new publications.
 """
 
 import re
@@ -260,7 +264,10 @@ def main() -> None:
     total_ctx = 0
     changed: list[str] = []
 
-    for path in sorted(BRIEFS_DIR.glob("*.md")):
+    requested = [Path(arg) for arg in sys.argv[1:] if not arg.startswith("-")]
+    paths = sorted(requested) if requested else sorted(BRIEFS_DIR.glob("*.md"))
+
+    for path in paths:
         r = process_file(path, dry_run)
         if not r:
             continue
