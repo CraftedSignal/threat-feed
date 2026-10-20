@@ -19,6 +19,7 @@ jobs:
       pull-requests: read
     outputs:
       review: ${{ steps.claude-review.outputs.structured_output }}
+      workflow_changed: ${{ steps.review-scope.outputs.workflow_changed }}
     steps:
       - name: Calculate shallow checkout depth
         id: checkout-depth
@@ -39,6 +40,18 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: git fetch --no-tags --depth=1 origin "$BASE_SHA"
+
+      - name: Detect review workflow changes
+        id: review-scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          if git diff --quiet "$BASE_SHA" "$HEAD_SHA" -- .github/workflows/claude-code-review.yml; then
+            echo "workflow_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "workflow_changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Run Claude Security Analysis
         id: claude-review
@@ -101,6 +114,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REVIEW_OUTPUT: ${{ needs.claude-security-analysis.outputs.review }}
           ANALYSIS_RESULT: ${{ needs.claude-security-analysis.result }}
+          WORKFLOW_CHANGED: ${{ needs.claude-security-analysis.outputs.workflow_changed }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
@@ -120,6 +134,18 @@ jobs:
 
           if [ "$ANALYSIS_RESULT" != "success" ]; then
             echo "Claude security analysis did not complete: ${ANALYSIS_RESULT}"
+            exit 1
+          fi
+
+          # The Claude action validates its workflow against the default branch
+          # and intentionally returns success without output while this file is
+          # being changed. Allow only that narrowly detected bootstrap case.
+          if [ -z "$REVIEW_OUTPUT" ]; then
+            if [ "$WORKFLOW_CHANGED" = "true" ]; then
+              echo "Claude action skipped because its workflow changed; other required checks still apply."
+              exit 0
+            fi
+            echo "Claude security analysis completed without structured output"
             exit 1
           fi
 

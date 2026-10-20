@@ -32,6 +32,9 @@ jobs:
       - name: Verify Dependabot runtime image coverage
         run: ruby .github/scripts/verify-dependabot-images.rb
 
+      - name: Verify Claude review workflow policy
+        run: ruby .github/scripts/verify-claude-workflow.rb
+
       - name: Get Go version
         id: vars
         run: |
