@@ -1,8 +1,9 @@
 ---
-title: Critical RCE Vulnerability in Apache Struts (S2-067)
+title: 'Apache Struts: File upload remote code execution (CVE-2024-53677)'
 slug: 2026-09-apache-struts-rce
 description: A critical remote code execution vulnerability (CVE-2024-53677) in Apache Struts versions 2.0.0 through 6.3.0.2 allows attackers to leverage path traversal during file uploads to execute arbitrary code.
 date: "2026-09-15T10:28:25Z"
+lastmod: "2026-10-20T09:30:40Z"
 type: advisory
 types:
   - advisory
@@ -26,31 +27,14 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The vulnerability exists within the FileUploadInterceptor component, allowing attackers to leverage path traversal during file uploads to place malicious files on the server and achieve arbitrary code execution.
     confidence_band: high
-  - tactic_id: TA0002
-    tactic_name: Execution
-    technique_id: T1203
-    technique_name: Exploitation for Client Execution
-    evidence: An unauthenticated attacker can manipulate file upload parameters to perform path traversal, enabling them to upload arbitrary files to locations outside of the intended directory.
-    confidence_band: high
 cves:
   - id: CVE-2024-53677
     cvss: 9.8
-    epss: 0.78198
+    epss: 0.70143
 references:
   - https://cwiki.apache.org/confluence/display/WW/S2-067
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TAM-K592-CVE-2024-53677-S2-067
-rules:
-  - title: Detects CVE-2024-53677 Exploitation - Path Traversal in Struts File Upload
-    description: Detects potential path traversal exploitation attempts targeting Apache Struts file upload functionality
-    platform: sigma
-    severity: critical
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-rules_count: 1
+  - https://github.com/splunk/security_content/blob/main/detections/web/unusually_long_content_type_length.yml
 action_plan:
   priority: immediate_escalation
   owners:
