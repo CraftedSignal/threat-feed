@@ -1,4 +1,8 @@
 ---
+brief_id: brief-2026-10-camel-as2-signing-confusion
+event_id: brief-2026-10-camel-as2-signing-confusion
+revision: 1
+activity_at: "2026-10-20T11:33:10Z"
 title: 'Apache Camel: AS2 MDN signing key confusion (CVE-2026-85296)'
 slug: 2026-10-camel-as2-signing-confusion
 description: CVE-2026-85296 allows cross-partner signing key leakage in Apache Camel AS2 deployments due to improper state management of per-request keys in shared instance fields.
@@ -8,6 +12,15 @@ types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 cpes:
   - cpe:2.3:a:apache:camel:*:*:*:*:*:*:*:*
 tags:
@@ -24,6 +37,7 @@ products:
 cves:
   - id: CVE-2026-85296
     cvss: 6.5
+    kev_status: unknown
 references:
   - https://camel.apache.org/security/CVE-2026-85296.html
   - https://sploitus.com/exploit?id=EBF6D562-387E-5E90-A216-E528CD447577
