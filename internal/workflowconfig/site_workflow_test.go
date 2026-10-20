@@ -245,7 +245,7 @@ func TestSiteWorkflowValidatesOnlyChangedPublicArtifacts(t *testing.T) {
 					if !strings.Contains(base, tt.base) {
 						t.Errorf("BASE_SHA %q does not use %s", base, tt.base)
 					}
-					for _, required := range []string{"git diff --name-only -z", "read -r -d ''", "go run ./cmd/feedcheck", "site/content/briefs/*.md", "site/static/stix.json", "site/static/stix/*.json"} {
+					for _, required := range []string{"git diff --name-only -z", "read -r -d ''", "go run ./cmd/feedcheck", "site/content/briefs/*.md", ":(exclude)site/content/briefs/_index.md", "site/static/stix.json", "site/static/stix/*.json"} {
 						if !strings.Contains(run, required) {
 							t.Errorf("changed validation is missing %q", required)
 						}

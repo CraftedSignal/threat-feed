@@ -234,20 +234,29 @@ func validURL(value string) bool {
 
 func checkRevisionHistory(path string, brief briefDocument) []Issue {
 	if len(brief.RevisionHistory) == 0 {
-		return []Issue{issue(path, "revision_history", "brief.revision_history", "revision_history must contain the current append-only revision")}
+		if brief.Revision == 1 {
+			return nil
+		}
+		return []Issue{issue(path, "revision_history", "brief.revision_history", "revisions after the initial snapshot require append-only history entries")}
 	}
 	var issues []Issue
-	last := 0
-	foundCurrent := false
+	if len(brief.RevisionHistory) != brief.Revision-1 {
+		issues = append(issues, issue(path, "revision_history", "brief.revision_history", "revision_history must contain exactly revisions 2 through the current revision"))
+	}
+	var previousAt time.Time
 	for i, revision := range brief.RevisionHistory {
 		field := fmt.Sprintf("revision_history[%d]", i)
-		if revision.Revision <= last || revision.Revision < 1 {
-			issues = append(issues, issue(path, field+".revision", "brief.revision_order", "revision history must be strictly increasing"))
+		expected := i + 2
+		if revision.Revision != expected {
+			issues = append(issues, issue(path, field+".revision", "brief.revision_order", fmt.Sprintf("revision history entry must be revision %d", expected)))
 		}
-		last = revision.Revision
-		foundCurrent = foundCurrent || revision.Revision == brief.Revision
-		if !validRFC3339(revision.At) {
+		revisedAt, err := time.Parse(time.RFC3339, revision.At)
+		if err != nil {
 			issues = append(issues, issue(path, field+".at", "brief.revision_time", "revision timestamp must be RFC3339"))
+		} else if !previousAt.IsZero() && !revisedAt.After(previousAt) {
+			issues = append(issues, issue(path, field+".at", "brief.revision_time", "revision timestamps must be strictly increasing"))
+		} else {
+			previousAt = revisedAt
 		}
 		if !checksumPattern.MatchString(revision.Checksum) {
 			issues = append(issues, issue(path, field+".checksum", "brief.revision_checksum", "revision checksum must be sha256:<64 lowercase hex>"))
@@ -261,7 +270,7 @@ func checkRevisionHistory(path string, brief briefDocument) []Issue {
 			}
 		}
 	}
-	if !foundCurrent || last != brief.Revision {
+	if brief.RevisionHistory[len(brief.RevisionHistory)-1].Revision != brief.Revision {
 		issues = append(issues, issue(path, "revision_history", "brief.revision_history", "revision_history must end with the current revision"))
 	}
 	return issues
@@ -358,6 +367,24 @@ func checkSTIX(path string, data []byte, expected int) []Issue {
 					continue
 				}
 				issues = append(issues, issue(path, field+"."+timestamp, "stix.timestamp_precision", "STIX timestamps must be UTC with millisecond precision"))
+			}
+		}
+		var requiredTimestamps []string
+		switch typeName {
+		case "identity", "report", "indicator", "attack-pattern", "threat-actor", "software", "vulnerability", "relationship":
+			requiredTimestamps = []string{"created", "modified"}
+			if object["spec_version"] != "2.1" {
+				issues = append(issues, issue(path, field+".spec_version", "stix.spec_version", "STIX 2.1 objects require spec_version 2.1"))
+			}
+		}
+		if typeName == "report" {
+			requiredTimestamps = append(requiredTimestamps, "published")
+		} else if typeName == "indicator" {
+			requiredTimestamps = append(requiredTimestamps, "valid_from")
+		}
+		for _, timestamp := range requiredTimestamps {
+			if _, exists := object[timestamp]; !exists {
+				issues = append(issues, issue(path, field+"."+timestamp, "stix.timestamp_required", typeName+" requires "+timestamp))
 			}
 		}
 		if typeName == "report" {

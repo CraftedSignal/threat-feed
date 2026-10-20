@@ -127,7 +127,8 @@ jobs:
           while IFS= read -r -d '' path; do
             changed+=("$path")
           done < <(git diff --name-only -z --diff-filter=AM "$base" "$CURRENT_SHA" -- \
-            'site/content/briefs/*.md' 'site/static/stix.json' 'site/static/stix/*.json')
+            'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
+            'site/static/stix.json' 'site/static/stix/*.json')
 
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
@@ -216,7 +217,8 @@ jobs:
           while IFS= read -r -d '' path; do
             changed+=("$path")
           done < <(git diff --name-only -z --diff-filter=AM "$base" "$CURRENT_SHA" -- \
-            'site/content/briefs/*.md' 'site/static/stix.json' 'site/static/stix/*.json')
+            'site/content/briefs/*.md' ':(exclude)site/content/briefs/_index.md' \
+            'site/static/stix.json' 'site/static/stix/*.json')
 
           if [ "${#changed[@]}" -eq 0 ]; then
             echo "No changed public brief or STIX artifacts"
