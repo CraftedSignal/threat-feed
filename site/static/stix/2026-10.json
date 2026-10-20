@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5b7f1e2d-a7dd-53ab-b593-0d3188a51562",
+  "id": "bundle--23683d30-63a7-5b53-a907-14830e6a3392",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1711,6 +1711,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1135",
           "url": "https://attack.mitre.org/techniques/T1135"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--9ba59d39-4ce7-5653-8947-f822a9b97b7c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Publish/Subscribe Protocols",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1071.005",
+          "url": "https://attack.mitre.org/techniques/T1071/005"
         }
       ]
     },
@@ -7004,6 +7020,17 @@
       "relationship_type": "uses",
       "source_ref": "report--62cfe7c4-3ee5-528d-90e7-c7311655516e",
       "target_ref": "indicator--b01226ce-95be-58c6-b072-0b27dfc0ca73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--189bc8d8-5bde-5874-8751-90ba6b75827f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e0c452b-e7c6-5292-a185-214cb15f4c74",
+      "target_ref": "vulnerability--bade7adf-9ea6-55da-af13-ad630fa5daa8"
     },
     {
       "type": "relationship",
@@ -29976,6 +30003,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c40b6654-90d1-5460-b586-57d280e11087",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:30:42.000Z",
+      "modified": "2026-10-20T23:30:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8cb35236-b8ee-5358-be21-ea6f6e99d082",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c41a144b-0757-57ed-ace2-d878be96f7d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T00:44:45.000Z",
@@ -31556,6 +31594,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b6dd75ad-ef49-526b-ac70-cdd6d677d5cb",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ce981e03-100b-5c29-815f-88231f964c67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:30:58.000Z",
+      "modified": "2026-10-20T23:30:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0880ad8d-a679-5ea1-81c2-63e4d22fcb2b",
+      "target_ref": "attack-pattern--9ba59d39-4ce7-5653-8947-f822a9b97b7c"
     },
     {
       "type": "relationship",
@@ -33635,6 +33684,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a85af0e6-5a24-5348-8ad8-5f8e680ef1cd",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd1d093a-2b6b-5c05-ba53-e31c5cf23870",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:30:42.000Z",
+      "modified": "2026-10-20T23:30:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8cb35236-b8ee-5358-be21-ea6f6e99d082",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -40374,6 +40434,47 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-north-korean-it-workers/",
       "x_craftedsignal_activity_at": "2026-10-13T23:45:04.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0880ad8d-a679-5ea1-81c2-63e4d22fcb2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:30:58.000Z",
+      "modified": "2026-10-20T23:30:58.000Z",
+      "name": "Suspicious Linux process connection to AWS IoT Core MQTT",
+      "description": "## Overview\n\nAdversaries are increasingly using AWS IoT Core as a covert command-and-control (C2) channel for compromised Linux hosts. By provisioning an attacker-controlled broker and deploying an agent - typically running from non-standard or writable directories such as /tmp, /dev/shm, or hidden user paths - the threat actor can communicate with the compromised asset via MQTT over TLS. This method allows for the relay of commands, execution results, and file transfers without requiring a direct connection to a dedicated operator backend server. Because AWS IoT endpoints are publicly resolvable and facilitate legitimate cloud traffic, this communication often blends in with standard business operations. The use of port 443 or 8883 for MQTT traffic further complicates network-based detection, necessitating focus on the correlation between endpoint behavior, specific process execution paths, and cloud-based infrastructure resolution.\n\n## Attack Chain\n\n1. The adversary gains initial access to the Linux host and executes a malicious binary or script from a high-entropy or writable path like /tmp or a hidden user directory.\n2. The malicious process retrieves the target AWS IoT Core data endpoint, which is uniquely formatted for the attacker's specific AWS account and region.\n3. The process initiates a DNS query to resolve the account-specific AWS IoT data endpoint (e.g., \u0026lt;prefix\u003e-ats.iot.\u0026lt;region\u003e.amazonaws.com).\n4. Upon receiving the resolved IP addresses from the DNS request, the process initiates an outbound TCP connection to one of these addresses.\n5. The connection is established over standard ports 443 or 8883, which are used for MQTT over TLS.\n6. The agent performs an MQTT handshake and subscribes to specific topics for C2 instruction and command execution.\n7. The attacker issues commands through the AWS IoT broker, which the agent executes, returning the output via the established MQTT channel.\n\n## Impact\n\nSuccessful deployment of this C2 mechanism enables persistent, covert remote access to compromised infrastructure. Organizations targeted include those running Linux-based environments where unauthorized agents can be introduced via exploitation or credential compromise. If unchecked, this activity facilitates data exfiltration, lateral movement, and arbitrary command execution while bypassing traditional perimeter security controls that rely on blocking known malicious IP infrastructure.\n\n## Recommendation\n\nPrioritized actions for detection engineering teams:\n\n- Deploy the provided Sigma-compatible detection logic to identify processes running from suspicious paths that resolve and connect to AWS IoT infrastructure.\n- Implement network monitoring to flag unexpected outbound connections to known AWS IoT data endpoint address patterns, especially when initiated by non-standard processes.\n- Enrich security event telemetry with packet-level inspection to identify the ALPN value \"x-amzn-mqtt-ca\" on port 443 connections, which indicates AWS IoT MQTT usage.\n- Review file system integrity and execution policies to prevent the execution of binaries from volatile or user-writable directories.\n",
+      "published": "2026-10-20T23:30:58.000Z",
+      "labels": [
+        "aws",
+        "c2",
+        "command-and-control",
+        "linux"
+      ],
+      "object_refs": [
+        "attack-pattern--9ba59d39-4ce7-5653-8947-f822a9b97b7c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--27c1abd2-a85f-509f-9501-b2e32bfde870"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-suspicious-linux-aws-iot-c2",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-suspicious-linux-aws-iot-c2/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-suspicious-linux-aws-iot-c2",
+      "x_craftedsignal_event_id": "brief-2026-10-20-suspicious-linux-aws-iot-c2",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-suspicious-linux-aws-iot-c2/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:30:58.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -70460,6 +70561,66 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8cb35236-b8ee-5358-be21-ea6f6e99d082",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T23:30:42.000Z",
+      "modified": "2026-10-20T23:30:42.000Z",
+      "name": "EG Secure Solutions SiteGuard Server Edition OS command injection (CVE-2026-106931)",
+      "description": "## Overview\n\nEG Secure Solutions SiteGuard Server Edition contains an OS command injection vulnerability (CVE-2026-106931). This security flaw permits an attacker to execute arbitrary OS commands on the server running the affected software. Given that the SiteGuard Server Edition typically runs with elevated permissions (root or SYSTEM), successful exploitation results in full system compromise. This vulnerability has been added to the CISA Known Exploited Vulnerabilities (KEV) catalog, indicating active exploitation in the wild. Defenders should prioritize patching or implementing vendor-supplied mitigations in accordance with CISA Binding Operational Directive (BOD) 26-04.\n\n## Impact\n\nSuccessful exploitation allows for full system compromise, providing attackers with administrative or root-level control over the server. This can lead to sensitive data exfiltration, installation of persistence mechanisms, or deployment of further malicious payloads. The scope of impact includes any infrastructure utilizing SiteGuard Server Edition that is accessible to unauthorized users.\n\n## Recommendation\n\n* Apply patches or mitigations provided in the EG Secure Solutions security advisory immediately to address CVE-2026-106931.\n* Ensure adherence to CISA BOD 26-04 for prioritizing risk-based security updates.\n* Evaluate the internet exposure of all assets running SiteGuard Server Edition and restrict access to authorized management interfaces only.\n* Monitor host-level process creation logs for unexpected child processes spawned by SiteGuard service binaries.\n",
+      "published": "2026-10-20T23:30:42.000Z",
+      "labels": [
+        "cisa-kev",
+        "rce",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e0c452b-e7c6-5292-a185-214cb15f4c74",
+        "vulnerability--bade7adf-9ea6-55da-af13-ad630fa5daa8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-siteguard-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-siteguard-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106931"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-106931"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.eg-secure.co.jp/siteguard/news/alert-202610-1"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-siteguard-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-20-siteguard-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-siteguard-rce/",
+      "x_craftedsignal_activity_at": "2026-10-20T23:30:42.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00662,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d2d3f56-fe01-5f88-a999-767ed9f4e2b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T15:42:31.000Z",
@@ -99208,6 +99369,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--27c1abd2-a85f-509f-9501-b2e32bfde870",
+      "name": "AWS IoT Core",
+      "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--28517c87-2318-5503-bbd5-f02383e7ec9d",
       "name": "Aspose Doc Exporter (\u003c 2.0)",
       "vendor": "Aspose"
@@ -100460,6 +100628,13 @@
       "id": "software--4dd1f552-e8e4-535d-bbe0-6ac78db868b2",
       "name": "Windows 10 (\u003c 10.0.10240.20947)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4e0c452b-e7c6-5292-a185-214cb15f4c74",
+      "name": "SiteGuard Server Edition",
+      "vendor": "EG Secure Solutions"
     },
     {
       "type": "software",
@@ -118128,6 +118303,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103119",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103119"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bade7adf-9ea6-55da-af13-ad630fa5daa8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-106931",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-106931",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106931"
         }
       ]
     },
