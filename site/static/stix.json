@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ad52cde3-f1d8-5a43-8357-c05272e03588",
+  "id": "bundle--115b7bd7-8217-5fb8-ab90-0d13ff5796c5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10676,6 +10676,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--23849609-aa80-5df4-8ff7-c9f2486fc7a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T18:42:16.000Z",
+      "modified": "2026-10-20T18:42:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84d138b3-0393-5dfb-bbfe-daa18dca5e6c",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--238497d1-5b9d-53f9-b1bd-c22047b1fe62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13059,17 +13070,6 @@
       "relationship_type": "uses",
       "source_ref": "report--42f08f47-6f18-5abd-807c-1e21f51ce6a9",
       "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--302575ba-8d8a-596c-a2a5-48c487152ce8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-20T18:22:47.000Z",
-      "modified": "2026-09-20T18:22:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6b450606-4b80-5a5e-8fa8-ed24b93c6938",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -25460,17 +25460,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7452b449-58c4-516e-8733-e24fa52379b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8fb556ef-a455-5f72-9cd7-c1923e18b913",
-      "target_ref": "vulnerability--de0abbcc-9930-5c97-a521-6a728708e3f9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--74530ab6-7460-563e-9e7c-010dd2677c68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T20:07:51.000Z",
@@ -27458,6 +27447,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e88e0508-aa6b-526f-a451-8c95e6e3f233",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7deb583b-0daf-5b0d-9a17-1c68d578a5be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d052ff0c-d80f-58ff-ba8d-3144b73abefa",
+      "target_ref": "vulnerability--c34cdee2-f7f0-5454-9e5c-29c3035525d5"
     },
     {
       "type": "relationship",
@@ -29955,6 +29955,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b9cf94c0-be1f-574f-905e-03d63743a9d2",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8b0b04e7-8001-5a8a-9c5c-c7faba8c961f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T18:42:16.000Z",
+      "modified": "2026-10-20T18:42:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84d138b3-0393-5dfb-bbfe-daa18dca5e6c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -36588,17 +36599,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e2e285c8-6f5e-55ff-9bdc-a4af3d55f861",
       "target_ref": "attack-pattern--3c04b764-6b09-51ea-ae12-ed05d4e6b3bd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--afa950a4-04fe-594a-8bad-33e885d559c5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--04fdff19-2182-5c60-b278-a214cd9810b0",
-      "target_ref": "vulnerability--02e59ecf-9a55-50c6-9253-b279fc5a77b3"
     },
     {
       "type": "relationship",
@@ -67695,51 +67695,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--335affd5-a154-5b77-b20f-f29c19b4761d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-20T18:22:55.000Z",
-      "modified": "2026-09-20T18:22:55.000Z",
-      "name": "SSRF Vulnerability in vas3k TaxHacker via Invoice PDF Renderer",
-      "description": "## Overview\n\nA server-side request forgery (SSRF) vulnerability, assigned CVE-2026-94039, has been identified in the TaxHacker application developed by vas3k in versions up to 0.8.5. The flaw is located within the `generateInvoicePDF` function inside the `/apps/invoices/actions.ts` file, specifically within the Invoice PDF Renderer component. An unauthenticated remote attacker can trigger the vulnerability by providing a crafted value to the `businessLogo` argument during the PDF generation process. Successful exploitation allows the application server to perform unauthorized outbound HTTP requests, potentially exposing internal network resources or metadata services. As of the report date, the vulnerability remains unpatched and is publicly disclosed, increasing the likelihood of exploitation attempts.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to bypass network access controls, perform reconnaissance of internal infrastructure, or potentially access sensitive internal metadata and services reachable by the server. This vulnerability is applicable to any deployment of TaxHacker up to version 0.8.5.\n\n## Recommendation\n\nDetection engineering teams should monitor web access logs for suspicious input patterns directed at the invoice generation endpoint. Due to the lack of a vendor patch, network-level egress filtering is the most effective mitigation strategy for internal resources.\n",
-      "published": "2026-09-20T18:22:55.000Z",
-      "labels": [
-        "ssrf",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8fb556ef-a455-5f72-9cd7-c1923e18b913",
-        "vulnerability--de0abbcc-9930-5c97-a521-6a728708e3f9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-20-taxhacker-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-taxhacker-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94039"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-20-taxhacker-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-09-20-taxhacker-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-taxhacker-ssrf/",
-      "x_craftedsignal_activity_at": "2026-09-20T18:22:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3364d00e-8672-529b-9cb7-0fc5c65311ca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T19:51:09.000Z",
@@ -85021,47 +84976,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--6b450606-4b80-5a5e-8fa8-ed24b93c6938",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-20T18:22:47.000Z",
-      "modified": "2026-09-20T18:22:47.000Z",
-      "name": "SSRF Vulnerability in NonceGeek dim-sum-app",
-      "description": "## Overview\n\nCVE-2026-94038 describes a critical server-side request forgery (SSRF) vulnerability identified in the NonceGeek dim-sum-app. The flaw specifically resides in the `textSearchV2Handler` function located within `deno/main.tsx` of the Deno backend component. By supplying a malicious value to the `supabase_url` argument, a remote, unauthenticated attacker can force the application to perform unauthorized HTTP requests to arbitrary internal or external targets. This exposure can be leveraged to interact with internal infrastructure, query local services, or perform reconnaissance within the target network environment. The vulnerability has been publicly disclosed, and a patch (commit `8389032e5d52c28c4855c6126ca7d0eae8af346a`) is available to remediate this issue.\n\n## Impact\n\nSuccessful exploitation allows remote actors to bypass network perimeter controls and perform SSRF, potentially leading to unauthorized data exfiltration or access to internal resources normally unreachable from the public internet.\n\n## Recommendation\n\nPrioritize the immediate application of the security patch provided by the vendor. Organizations should audit their web server and proxy logs for unusual outbound requests originating from the server hosting the Deno backend, specifically monitoring for anomalous calls targeting internal IP ranges or sensitive internal metadata endpoints.\n",
-      "published": "2026-09-20T18:22:47.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--04fdff19-2182-5c60-b278-a214cd9810b0",
-        "vulnerability--02e59ecf-9a55-50c6-9253-b279fc5a77b3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-20-cve-2026-94038",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-94038/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94038"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-20-cve-2026-94038",
-      "x_craftedsignal_event_id": "brief-2026-09-20-cve-2026-94038",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-94038/",
-      "x_craftedsignal_activity_at": "2026-09-20T18:22:47.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--6b986272-349a-534b-b9b9-227ac7f6007b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-20T22:24:01.000Z",
@@ -92543,6 +92457,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--84d138b3-0393-5dfb-bbfe-daa18dca5e6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T18:42:16.000Z",
+      "modified": "2026-10-20T18:42:16.000Z",
+      "name": "TP-Link Tapo C320WS: Stack-based buffer overflow RCE (CVE-2026-105810)",
+      "description": "## Overview\n\nCVE-2026-105810 is a high-severity, authenticated stack-based buffer overflow vulnerability affecting the TP-Link Tapo C320WS camera (hardware V2.0, firmware ≤ 1.5.3 Build 260304). The vulnerability resides in the `onboarding.connect` (`connectAp`) handler, which incorrectly calculates the destination capacity when base64-decoding a user-supplied Wi-Fi password. By providing an overly long, crafted password string, an authenticated administrative user on the adjacent network can overflow a fixed 1024-byte stack buffer. Because the vulnerable binary is a non-PIE ARM executable lacking stack canaries, an attacker can reliably execute arbitrary code as root by redirecting execution flow via a ROP chain to call `system()`. A functional proof-of-concept exploit is publicly available, necessitating immediate patching to firmware `1.6.6 Build 260917 Rel.81089n` or later.\n\n## Attack Chain\n\n1. Attacker gains administrative authentication to the target TP-Link Tapo C320WS local API.\n2. Attacker interacts with the `onboarding.connect` (`connectAp`) handler via the device local management interface.\n3. Attacker submits a specially crafted, base64-encoded Wi-Fi password string exceeding 1024 bytes.\n4. The device decoder incorrectly determines buffer capacity, leading to memory corruption.\n5. The stack-based buffer overflow overwrites the function return address on the stack.\n6. The corrupted return address redirects the processor to an attacker-controlled ROP chain.\n7. The ROP chain executes `system()` to run arbitrary commands on the underlying device.\n8. Attacker gains full root command execution capabilities on the camera.\n\n## Impact\n\nSuccessful exploitation results in full remote command execution as the root user on the camera. This provides attackers with total control over the device, allowing them to intercept surveillance feeds, pivot into the local network, or use the camera as a foothold for further malicious activity. This vulnerability affects TP-Link Tapo C320WS cameras running firmware version 1.5.3 Build 260304 or earlier.\n\n## Recommendation\n\n* Patch all TP-Link Tapo C320WS cameras to firmware version `1.6.6 Build 260917 Rel.81089n` or later immediately.\n* Implement network segmentation for IoT devices to restrict access to the camera's management API (TCP/443) to authorized administrative workstations only.\n* Audit administrative account passwords and ensure strong credentials are used to prevent unauthorized access to the vulnerable API endpoints.\n* Monitor network traffic originating from IoT segments for unexpected command execution patterns or ROP chain remnants if advanced network inspection is available.\n",
+      "published": "2026-10-20T18:42:16.000Z",
+      "labels": [
+        "cve-2026-105810",
+        "iot-security",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d052ff0c-d80f-58ff-ba8d-3144b73abefa",
+        "vulnerability--c34cdee2-f7f0-5454-9e5c-29c3035525d5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-20-tplink-tapo-c320ws-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-tplink-tapo-c320ws-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2ECCAD4A-5D06-5813-BA77-0D3B81E34BDF"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.tp-link.com/us/support/faq/5351/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-20-tplink-tapo-c320ws-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-20-tplink-tapo-c320ws-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tplink-tapo-c320ws-rce/",
+      "x_craftedsignal_activity_at": "2026-10-20T18:42:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.002,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -131291,13 +131256,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--04fdff19-2182-5c60-b278-a214cd9810b0",
-      "name": "dim-sum-app",
-      "vendor": "NonceGeek"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--050c8bab-06dd-5552-a6eb-0bf5169fbe1e",
       "name": "n8n (\u003c 1.123.80)",
       "vendor": "n8n GmbH"
@@ -138412,13 +138370,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8fb556ef-a455-5f72-9cd7-c1923e18b913",
-      "name": "TaxHacker (\u003c= 0.8.5)",
-      "vendor": "vas3k"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8fc9c160-531e-5b3d-ac17-eaa5fc0bcf26",
       "name": "Email Security Gateway",
       "vendor": "Barracuda Networks"
@@ -141781,6 +141732,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d052ff0c-d80f-58ff-ba8d-3144b73abefa",
+      "name": "Tapo C320WS (V2.0, \u003c= 1.5.3 Build 260304)",
+      "vendor": "TP-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d09cc272-d034-55ea-b5cd-145afe61a52b",
       "name": "nx (\u003e= 14.0.0, \u003c 22.7.8)",
       "vendor": "Nx"
@@ -144454,22 +144412,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-48382",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48382"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--02e59ecf-9a55-50c6-9253-b279fc5a77b3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94038",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94038",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94038"
         }
       ]
     },
@@ -160364,6 +160306,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c34cdee2-f7f0-5454-9e5c-29c3035525d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105810",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105810",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105810"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c3eeba2f-fa23-5f56-9a04-04d70e290220",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -162566,22 +162524,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110108",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110108"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--de0abbcc-9930-5c97-a521-6a728708e3f9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94039",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94039",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94039"
         }
       ]
     },
