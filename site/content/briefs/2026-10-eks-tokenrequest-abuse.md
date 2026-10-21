@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-eks-tokenrequest-abuse
 event_id: brief-2026-10-21-eks-tokenrequest-abuse
-revision: 5
-activity_at: "2026-10-21T09:08:08Z"
+revision: 8
+activity_at: "2026-10-21T14:01:54Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:31:51Z"
@@ -52,11 +52,46 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_anonymous_request_authorized_aws_eks.toml
+  - revision: 6
+    at: "2026-10-21T14:01:52Z"
+    checksum: sha256:d32efc6d23d92c48cd86c3737a20fe3a7fb5b0782c3f6cf910e094ce10d7cf51
+    summary: added coverage for Elastic Kubernetes Service (EKS)
+    changed_fields:
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_sensitive_rbac_change_followed_by_workload_modification_aws_eks.toml
+  - revision: 7
+    at: "2026-10-21T14:01:53Z"
+    checksum: sha256:9490843c4614ebcd1f626b79aa808f75798e3379c37285a6ae7d77489214bdce
+    summary: added coverage for Elastic Kubernetes Service (EKS)
+    changed_fields:
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_api_proxy_to_node_aws_eks.toml
+  - revision: 8
+    at: "2026-10-21T14:01:54Z"
+    checksum: sha256:c5602496dc5e2e6cca8ceeee82b1040d335d0a38ba005b2a9d7c80a081a3236f
+    summary: added coverage for Elastic Kubernetes Service (EKS)
+    changed_fields:
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_privileged_pod_created_aws_eks.toml
 title: 'Amazon EKS: Improper TokenRequest API usage detection'
 slug: 2026-10-eks-tokenrequest-abuse
 description: Attackers can abuse the Kubernetes TokenRequest API to mint service account tokens without filesystem access, facilitating privilege escalation and movement to cloud resources via IAM Roles for Service Accounts (IRSA).
 date: "2026-10-21T07:47:08Z"
-lastmod: "2026-10-21T09:06:51Z"
+lastmod: "2026-10-21T14:01:05Z"
 type: advisory
 types:
   - advisory
@@ -83,6 +118,9 @@ tags:
   - command-and-control
   - cloud-security
   - initial-access
+  - privilege-escalation
+  - persistence
+  - container-escape
 vendors:
   - Amazon
 products:
@@ -130,6 +168,38 @@ mitre_ttps:
     subtechnique_name: Default Accounts
     evidence: Attackers may attempt to use anonymous accounts to gain initial access to the cluster or to avoid attribution of their activities within the cluster.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1098
+    technique_name: Account Manipulation
+    subtechnique_id: T1098.006
+    subtechnique_name: Additional Container Cluster Roles
+    evidence: Detects a sequence where a principal creates or modifies a Role/ClusterRole to include high-risk permissions and then creates or patches a workload resource.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098
+    technique_name: Account Manipulation
+    subtechnique_id: T1098.006
+    subtechnique_name: Additional Container Cluster Roles
+    evidence: This pattern is often used by adversaries to gain unauthorized access to sensitive resources and deploy malicious payloads.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1611
+    technique_name: Escape to Host
+    evidence: The nodes/proxy subresource allows any principal with this RBAC permission to reach the Kubelet API on any worker node.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1550.001
+    technique_name: Application Access Token
+    evidence: Check if a ServiceAccount token was created shortly before via the TokenRequest API - this indicates the attacker minted a token specifically for this access.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1610
+    technique_name: Deploy Container
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_service_account_token_created_via_tokenrequest_aws_eks.toml
   - https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-v1/
@@ -141,6 +211,13 @@ references:
   - https://cloud.hacktricks.wiki/en/pentesting-cloud/kubernetes-security/kubernetes-privilege-escalation/workload-and-pod-access.html
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_anonymous_request_authorized_aws_eks.toml
   - https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_sensitive_rbac_change_followed_by_workload_modification_aws_eks.toml
+  - https://heilancoos.github.io/research/2025/12/16/kubernetes.html#overly-permissive-role-based-access-control
+  - https://kubernetes.io/docs/concepts/cluster-administration/proxies/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_api_proxy_to_node_aws_eks.toml
+  - https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF
+  - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_privileged_pod_created_aws_eks.toml
 rules:
   - title: Detect Suspicious TokenRequest API Creation
     description: Detects the creation of a Kubernetes service account token via the TokenRequest API by a non-system identity, which may indicate credential theft or privilege escalation.
@@ -189,20 +266,6 @@ action_plan:
       disposition: hunt_now
       evidence: Source explicitly identifies this as an indicator of abuse
 updates:
-  - at: "2026-10-21T08:30:11Z"
-    level: L1
-    summary: added coverage for Elastic Kubernetes Service (EKS)
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_endpoint_permission_enumeration_by_anonymous_user_aws_eks.toml
-  - at: "2026-10-21T08:30:16Z"
-    level: L1
-    summary: added coverage for Elastic Kubernetes Service (EKS)
-    sources:
-      - elastic
-    source_urls:
-      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_kubernetes_multi_resource_setup_recon_aws_eks.toml
   - at: "2026-10-21T08:30:51Z"
     level: L2
     summary: added coverage for Elastic Kubernetes Service (EKS)
@@ -217,6 +280,27 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_anonymous_request_authorized_aws_eks.toml
+  - at: "2026-10-21T13:59:23Z"
+    level: L1
+    summary: added coverage for Elastic Kubernetes Service (EKS)
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_sensitive_rbac_change_followed_by_workload_modification_aws_eks.toml
+  - at: "2026-10-21T13:59:40Z"
+    level: L1
+    summary: added coverage for Elastic Kubernetes Service (EKS)
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_api_proxy_to_node_aws_eks.toml
+  - at: "2026-10-21T14:01:05Z"
+    level: L1
+    summary: added coverage for Elastic Kubernetes Service (EKS)
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_privileged_pod_created_aws_eks.toml
 ---
 
 The Kubernetes TokenRequest API allows identities with appropriate RBAC permissions to programmatically generate short-lived tokens for service accounts. Because this process occurs via the API server, the resulting tokens do not leave traditional filesystem footprints, evading file-based monitoring. In Amazon EKS environments, attackers who have gained initial cluster access can leverage this API to mint tokens for highly privileged service accounts, effectively bypassing security controls meant to protect mounted secrets.
