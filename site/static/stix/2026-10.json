@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--921b3c52-0464-5c92-a9ca-979349a21679",
+  "id": "bundle--a4cdb83c-7078-58cd-873b-a373f3ab63e6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28044,6 +28044,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9e4387e5-553a-56f3-8447-2afdff1e0033",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c0e22457-dfbe-51ea-aab8-dfffced143f2",
+      "target_ref": "vulnerability--fe5cd56b-a40c-57a4-b79d-f68ce997d433"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9e53e512-91a1-59e9-b378-7ce96734d3cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53116,6 +53127,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2bbca32f-9233-5185-8aa2-d6a2dd187955",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T23:37:01.000Z",
+      "modified": "2026-10-21T23:37:01.000Z",
+      "name": "musl libc: regcomp integer overflow (CVE-2026-107891)",
+      "description": "## Overview\nThe regcomp function in musl libc is affected by multiple integer overflow issues. These overflows are triggered by the size and complexity of the regular expression passed to regcomp, potentially leading to incorrect allocation sizes and out-of-bounds heap writes.\n",
+      "published": "2026-10-21T23:37:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c0e22457-dfbe-51ea-aab8-dfffced143f2",
+        "vulnerability--fe5cd56b-a40c-57a4-b79d-f68ce997d433"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-musl-libc-regcomp-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-musl-libc-regcomp-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/289"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-musl-libc-regcomp-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-21-musl-libc-regcomp-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-musl-libc-regcomp-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-21T23:37:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -115314,6 +115364,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c0e22457-dfbe-51ea-aab8-dfffced143f2",
+      "name": "musl libc"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c105f95c-04a6-5c68-8024-0cc9c05b450d",
       "name": "jsonschema (v6.0.2)"
     },
@@ -135783,6 +135839,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105835",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105835"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fe5cd56b-a40c-57a4-b79d-f68ce997d433",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107891",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107891",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107891"
         }
       ]
     },
