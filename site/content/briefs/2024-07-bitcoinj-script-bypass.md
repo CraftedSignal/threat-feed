@@ -1,13 +1,40 @@
 ---
+brief_id: brief-2024-07-03-bitcoinj-script-bypass
+event_id: brief-2024-07-03-bitcoinj-script-bypass
+revision: 2
+activity_at: "2026-10-21T01:10:40Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T01:10:40Z"
+    checksum: sha256:4a1d0266a964f22b576cc3e3424f9bbc24216b073d20a7169e47e7eaf104721c
+    summary: poc_available; added CVE-2026-44714
+    changed_fields:
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=A0E4DA59-12CE-502F-9142-5D9A4EE9B5D5&utm_source=rss&utm_medium=rss
 title: bitcoinj ScriptExecution P2PKH/P2WPKH Verification Bypass
 slug: 2024-07-bitcoinj-script-bypass
 description: A vulnerability in bitcoinj's ScriptExecution.correctlySpends() allows attackers to bypass signature verification for P2PKH and P2WPKH spends, potentially leading to unauthorized transaction validation.
 date: "2024-07-03T12:00:00Z"
+lastmod: "2026-10-21T01:09:55Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:bitcoinj:bitcoinj_core:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=A0E4DA59-12CE-502F-9142-5D9A4EE9B5D5&utm_source=rss&utm_medium=rss
 tags:
   - bitcoin
   - transaction-validation
@@ -17,8 +44,14 @@ vendors:
   - bitcoinj
 products:
   - bitcoinj-core (>= 0.15, < 0.17.1)
+cves:
+  - id: CVE-2026-44714
+    cvss: 7.5
+    epss: 0.00348
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-hfcf-v2f8-x9pc
+  - https://sploitus.com/exploit?id=A0E4DA59-12CE-502F-9142-5D9A4EE9B5D5&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect BitcoinJ P2PKH Script Bypass
     description: Detects CVE-2026-44714 exploitation -- suspicious scriptSig size in P2PKH transactions indicating a potential signature bypass attempt in bitcoinj.
@@ -43,6 +76,14 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-10-21T01:09:55Z"
+    level: L2
+    summary: poc_available; added CVE-2026-44714
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A0E4DA59-12CE-502F-9142-5D9A4EE9B5D5&utm_source=rss&utm_medium=rss
 ---
 
 A critical vulnerability exists within the bitcoinj library, specifically affecting versions 0.15 to 0.17.0. The `ScriptExecution.correctlySpends()` function contains flawed fast-path verification logic for standard Pay-to-Public-Key-Hash (P2PKH) and native Pay-to-Witness-Public-Key-Hash (P2WPKH) spends. This flaw allows an attacker to construct a transaction using an arbitrary keypair that bitcoinj will incorrectly validate as legitimate. This bypass occurs because bitcoinj fails to properly verify that the public key used in the signature matches the one committed to by the output being spent. Applications relying on bitcoinj for transaction validation are at risk of accepting fraudulent transactions. The vulnerability was reported on May 8th, 2026 and patched in versions 0.17.1 and later.
