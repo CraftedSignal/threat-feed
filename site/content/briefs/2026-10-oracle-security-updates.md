@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-oracle-security-updates
 event_id: brief-2026-10-oracle-security-updates
-revision: 16
-activity_at: "2026-10-21T00:13:15Z"
+revision: 24
+activity_at: "2026-10-21T00:15:55Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T00:10:35Z"
@@ -194,11 +194,110 @@ revision_history:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91214
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91222
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91231
+  - revision: 17
+    at: "2026-10-21T00:15:48Z"
+    checksum: sha256:450f9084e22e30648be1626d63ec0eface79d4fb9d876714f8cd2e962b63a8f4
+    summary: added CVE-2026-101808
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91234
+  - revision: 18
+    at: "2026-10-21T00:15:49Z"
+    checksum: sha256:3d2956274055d05e3531b84194bed62781371792d1c19a45a700c285dc757fd8
+    summary: added CVE-2026-87347 +1
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91235
+  - revision: 19
+    at: "2026-10-21T00:15:50Z"
+    checksum: sha256:b0247607996f35cb323a7381f1cbfb67223c13ab348f1d3c74566885d0116c47
+    summary: added CVE-2026-91235
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91236
+  - revision: 20
+    at: "2026-10-21T00:15:51Z"
+    checksum: sha256:492226f65dcd52dc5d5f94bbb404b860eb0b9037987b3ebe93149cf958844716
+    summary: added CVE-2026-91216 +4
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91241
+  - revision: 21
+    at: "2026-10-21T00:15:52Z"
+    checksum: sha256:498db85f8bb6f18baaee35a4153c7fb2b6eb083f84fb3e35ed9b6d860fbb2921
+    summary: added CVE-2026-91241
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91243
+  - revision: 22
+    at: "2026-10-21T00:15:53Z"
+    checksum: sha256:01fbcef4272b5a9fee41fcc78ba66bc3ae079b21fcc675bc5d48c41a6af1c63b
+    summary: added CVE-2026-91265
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91408
+  - revision: 23
+    at: "2026-10-21T00:15:54Z"
+    checksum: sha256:7f4ee312b9001644a7161ce3c26fda875e7419fdba17b0c7e485eff3acccd153
+    summary: added CVE-2026-91232, CVE-2026-91265
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91408
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91622
+  - revision: 24
+    at: "2026-10-21T00:15:55Z"
+    checksum: sha256:187076f2e5013e8fc98cc15977e53bd5aabe5f7a03f51b7a8eb07e7f718b9eb9
+    summary: added CVE-2026-91232, CVE-2026-91243, CVE-2026-91265
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91408
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91622
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91638
 title: Oracle Security Updates - October 2026
 slug: 2026-10-oracle-security-updates
 description: Roundup of Oracle security advisories published in October 2026.
 date: "2026-10-21T00:09:53Z"
-lastmod: "2026-10-21T00:12:36Z"
+lastmod: "2026-10-21T00:15:14Z"
 type: threat
 types:
   - threat
@@ -261,6 +360,9 @@ cves:
   - id: CVE-2026-101767
     cvss: 9.8
     kev_status: "false"
+  - id: CVE-2026-101808
+    cvss: 9.1
+    kev_status: "false"
   - id: CVE-2026-101809
     cvss: 10
     kev_status: "false"
@@ -279,64 +381,120 @@ cves:
   - id: CVE-2026-87337
     cvss: 10
     kev_status: "false"
+  - id: CVE-2026-87347
+    cvss: 9.6
+    kev_status: "false"
+  - id: CVE-2026-91216
+    cvss: 10
+    kev_status: "false"
+  - id: CVE-2026-91218
+    cvss: 9.6
+    kev_status: "false"
+  - id: CVE-2026-91221
+    cvss: 10
+    kev_status: "false"
   - id: CVE-2026-91222
     cvss: 9.9
+    kev_status: "false"
+  - id: CVE-2026-91224
+    cvss: 9.9
+    kev_status: "false"
+  - id: CVE-2026-91232
+    cvss: 9.9
+    kev_status: "false"
+  - id: CVE-2026-91233
+    cvss: 9.8
+    kev_status: "false"
+  - id: CVE-2026-91234
+    cvss: 9.8
+    kev_status: "false"
+  - id: CVE-2026-91235
+    cvss: 9.8
+    kev_status: "false"
+  - id: CVE-2026-91241
+    cvss: 9.1
+    kev_status: "false"
+  - id: CVE-2026-91243
+    cvss: 9.6
+    kev_status: "false"
+  - id: CVE-2026-91265
+    cvss: 9.1
     kev_status: "false"
   - id: CVE-2026-91214
     kev_status: unknown
   - id: CVE-2026-91231
     kev_status: unknown
-  - id: CVE-2026-101808
+  - id: CVE-2026-91236
+    kev_status: unknown
+  - id: CVE-2026-91408
+    kev_status: unknown
+  - id: CVE-2026-91622
+    kev_status: unknown
+  - id: CVE-2026-91638
     kev_status: unknown
   - id: CVE-2026-83399
     kev_status: unknown
   - id: CVE-2026-87251
     kev_status: unknown
-  - id: CVE-2026-87347
-    kev_status: unknown
-  - id: CVE-2026-91216
-    kev_status: unknown
-  - id: CVE-2026-91218
-    kev_status: unknown
   - id: CVE-2026-91220
-    kev_status: unknown
-  - id: CVE-2026-91221
-    kev_status: unknown
-  - id: CVE-2026-91224
     kev_status: unknown
   - id: CVE-2026-91225
     kev_status: unknown
   - id: CVE-2026-91230
     kev_status: unknown
+  - id: CVE-2026-91250
+    kev_status: unknown
+  - id: CVE-2026-91251
+    kev_status: unknown
+  - id: CVE-2026-91299
+    kev_status: unknown
+  - id: CVE-2026-91305
+    kev_status: unknown
+  - id: CVE-2026-91323
+    kev_status: unknown
+  - id: CVE-2026-91341
+    kev_status: unknown
+  - id: CVE-2026-91354
+    kev_status: unknown
+  - id: CVE-2026-91490
+    kev_status: unknown
+  - id: CVE-2026-91491
+    kev_status: unknown
+  - id: CVE-2026-91495
+    kev_status: unknown
+  - id: CVE-2026-91624
+    kev_status: unknown
+  - id: CVE-2026-91637
+    kev_status: unknown
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-91231
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-91638
 updates:
-  - at: "2026-10-21T00:12:07Z"
+  - at: "2026-10-21T00:14:32Z"
     level: L2
-    summary: added CVE-2026-83396
+    summary: added CVE-2026-91216 +4
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-83397
-  - at: "2026-10-21T00:12:11Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91241
+  - at: "2026-10-21T00:14:37Z"
     level: L2
-    summary: added CVE-2026-60432 +1
+    summary: added CVE-2026-91241
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-87302
-  - at: "2026-10-21T00:12:19Z"
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91243
+  - at: "2026-10-21T00:15:02Z"
     level: L2
-    summary: added CVE-2026-87302, CVE-2026-87337, CVE-2026-91222
+    summary: added CVE-2026-91232, CVE-2026-91243, CVE-2026-91265
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91214
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91222
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-91231
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91408
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91622
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-91638
 ---
 
-This roundup covers 33 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Business Process Management Suite, Communications Billing and Revenue Management, Data Integrator, E-Business Suite, Enterprise Manager for Oracle Database, Helidon, Oracle Access Manager, Oracle Business Process Management Suite, Oracle Communications BRM - Elastic Charging Engine, Oracle Data Integrator, Oracle E-Business Suite, Oracle HTTP Server, Oracle SOA Suite, SOA Suite, Secure Backup, Siebel CRM Cloud Applications, Solaris, Trusted Answer Search, WebCenter Sites, WebLogic Server.
+This roundup covers 56 Oracle security vulnerabilities. CVSS base scores range from 9.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Agile Product Lifecycle Management for Process, Business Process Management Suite, Communications Billing and Revenue Management, Data Integrator, E-Business Suite, Enterprise Manager for Oracle Database, Essbase, Helidon, Identity Manager Connector, JD Edwards EnterpriseOne Orchestrator, JD Edwards EnterpriseOne Tools, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Business Process Management Suite, Oracle Communications BRM - Elastic Charging Engine, Oracle Data Integrator, Oracle E-Business Suite, Oracle HTTP Server, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle SOA Suite, Outside In Technology, SOA Suite, Secure Backup, Siebel CRM Cloud Applications, Solaris, Trusted Answer Search, WebCenter Content, WebCenter Sites, WebLogic Server.
 
 ## Summary
 
@@ -356,7 +514,7 @@ This roundup covers 33 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-101763](#cve-2026-101763) | Oracle Communications BRM - Elastic Charging Engine (15.0.0.0.0, 15.0.1.0.0, 15.1.0.0.0, 15.2.0.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101763) (authoritative) |
 | [CVE-2026-101765](#cve-2026-101765) | Communications Billing and Revenue Management (15.0.0.0.0, 15.0.1.0.0, 15.1.0.0.0, 15.2.0.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101765) (authoritative) |
 | [CVE-2026-101767](#cve-2026-101767) | Oracle E-Business Suite (12.2.3-12.2.15) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101767) (authoritative) |
-| [CVE-2026-101808](#cve-2026-101808) | E-Business Suite (12.2.3-12.2.15) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101808) (authoritative) |
+| [CVE-2026-101808](#cve-2026-101808) | E-Business Suite (12.2.3-12.2.15) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101808) (authoritative) |
 | [CVE-2026-101809](#cve-2026-101809) | E-Business Suite (12.2.3-12.2.15) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101809) (authoritative) |
 | [CVE-2026-60432](#cve-2026-60432) | Solaris (11.3, 11.4) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60432) (authoritative) |
 | [CVE-2026-83396](#cve-2026-83396) | Oracle Data Integrator (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83396) (authoritative) |
@@ -365,16 +523,39 @@ This roundup covers 33 Oracle security vulnerabilities. CVSS base scores range f
 | [CVE-2026-87251](#cve-2026-87251) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87251) (authoritative) |
 | [CVE-2026-87302](#cve-2026-87302) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87302) (authoritative) |
 | [CVE-2026-87337](#cve-2026-87337) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87337) (authoritative) |
-| [CVE-2026-87347](#cve-2026-87347) | Oracle HTTP Server (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87347) (authoritative) |
+| [CVE-2026-87347](#cve-2026-87347) | Oracle HTTP Server (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87347) (authoritative) |
 | [CVE-2026-91214](#cve-2026-91214) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91214) (authoritative) |
-| [CVE-2026-91216](#cve-2026-91216) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91216) (authoritative) |
-| [CVE-2026-91218](#cve-2026-91218) | Oracle SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91218) (authoritative) |
+| [CVE-2026-91216](#cve-2026-91216) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91216) (authoritative) |
+| [CVE-2026-91218](#cve-2026-91218) | Oracle SOA Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91218) (authoritative) |
 | [CVE-2026-91220](#cve-2026-91220) | Oracle Business Process Management Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91220) (authoritative) |
-| [CVE-2026-91221](#cve-2026-91221) | Oracle SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91221) (authoritative) |
-| [CVE-2026-91222](#cve-2026-91222) | Business Process Management Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91222) (authoritative) |
-| [CVE-2026-91224](#cve-2026-91224) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91224) (authoritative) |
+| [CVE-2026-91221](#cve-2026-91221) | Oracle SOA Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91221) (authoritative) |
+| [CVE-2026-91222](#cve-2026-91222) | Business Process Management Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91222) (authoritative) |
+| [CVE-2026-91224](#cve-2026-91224) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91224) (authoritative) |
 | [CVE-2026-91225](#cve-2026-91225) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91225) (authoritative) |
 | [CVE-2026-91230](#cve-2026-91230) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91230) (authoritative) |
+| [CVE-2026-91231](#cve-2026-91231) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91231) (authoritative) |
+| [CVE-2026-91232](#cve-2026-91232) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91232) (authoritative) |
+| [CVE-2026-91233](#cve-2026-91233) | n/a | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91233) (authoritative) |
+| [CVE-2026-91234](#cve-2026-91234) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91234) (authoritative) |
+| [CVE-2026-91235](#cve-2026-91235) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91235) (authoritative) |
+| [CVE-2026-91236](#cve-2026-91236) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91236) (authoritative) |
+| [CVE-2026-91241](#cve-2026-91241) | Oracle Business Intelligence Enterprise Edition (8.2.0.0.0, 12.2.1.4.0, 26.01.0.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91241) (authoritative) |
+| [CVE-2026-91243](#cve-2026-91243) | Oracle Business Process Management Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91243) (authoritative) |
+| [CVE-2026-91250](#cve-2026-91250) | SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91250) (authoritative) |
+| [CVE-2026-91251](#cve-2026-91251) | Oracle SOA Suite (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91251) (authoritative) |
+| [CVE-2026-91265](#cve-2026-91265) | JD Edwards EnterpriseOne Tools (9.2.0.0-9.2.26.5) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91265) (authoritative) |
+| [CVE-2026-91299](#cve-2026-91299) | JD Edwards EnterpriseOne Orchestrator (9.2.0.0-9.2.26.5) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91299) (authoritative) |
+| [CVE-2026-91305](#cve-2026-91305) | JD Edwards EnterpriseOne Tools (9.2.0.0-9.2.26.5) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91305) (authoritative) |
+| [CVE-2026-91323](#cve-2026-91323) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91323) (authoritative) |
+| [CVE-2026-91341](#cve-2026-91341) | Outside In Technology (8.5.8) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91341) (authoritative) |
+| [CVE-2026-91354](#cve-2026-91354) | Outside In Technology (8.5.8) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91354) (authoritative) |
+| [CVE-2026-91408](#cve-2026-91408) | Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91408) (authoritative) |
+| [CVE-2026-91490](#cve-2026-91490) | Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91490) (authoritative) |
+| [CVE-2026-91491](#cve-2026-91491) | Oracle Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91491) (authoritative) |
+| [CVE-2026-91495](#cve-2026-91495) | WebCenter Content (12.2.1.4.0, 14.1.2.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91495) (authoritative) |
+| [CVE-2026-91622](#cve-2026-91622) | Agile Product Lifecycle Management for Process (6.2.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91622) (authoritative) |
+| [CVE-2026-91624](#cve-2026-91624) | Agile Product Lifecycle Management for Process (6.2.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91624) (authoritative) |
+| [CVE-2026-91637](#cve-2026-91637) | Essbase (21.8.3.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91637) (authoritative) |
 
 
 ## CVE-2026-101446
@@ -441,6 +622,29 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101501
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-101503](#cve-2026-101503).
 
 ## CVE-2026-101503
@@ -451,6 +655,29 @@ Affected products:
 - Trusted Answer Search (26.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101503
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -531,6 +758,29 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101537
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-60432](#cve-2026-60432).
 
 ## CVE-2026-101590
@@ -551,6 +801,29 @@ Affected products:
 - Oracle Mobile Field Service (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101634
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -619,6 +892,29 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101767
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634).
 
 ## CVE-2026-101808
@@ -629,6 +925,29 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101808
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -675,6 +994,29 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101809
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Related in this roundup: [CVE-2026-101808](#cve-2026-101808).
 
 ## CVE-2026-60432
@@ -685,6 +1027,29 @@ Affected products:
 - Solaris (11.3, 11.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60432
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -742,7 +1107,30 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83399
 
 
 
-Related in this roundup: [CVE-2026-87302](#cve-2026-87302).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-87302](#cve-2026-87302), [CVE-2026-91323](#cve-2026-91323).
 
 ## CVE-2026-87251
 
@@ -752,6 +1140,29 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87251
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -785,7 +1196,30 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87302
 
 
 
-Related in this roundup: [CVE-2026-83399](#cve-2026-83399).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-83399](#cve-2026-83399), [CVE-2026-91323](#cve-2026-91323).
 
 ## CVE-2026-87337
 
@@ -795,6 +1229,29 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87337
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -833,7 +1290,30 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91214
 
 
 
-Related in this roundup: [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91216
 
@@ -851,7 +1331,30 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91216
 
 
 
-Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91218
 
@@ -866,7 +1369,30 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91218
 
 
 
-Related in this roundup: [CVE-2026-91221](#cve-2026-91221).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91221](#cve-2026-91221), [CVE-2026-91251](#cve-2026-91251).
 
 ## CVE-2026-91220
 
@@ -876,6 +1402,23 @@ Affected products:
 - Oracle Business Process Management Suite (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91220
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91243](#cve-2026-91243).
 
 ## CVE-2026-91221
 
@@ -890,7 +1433,30 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91221
 
 
 
-Related in this roundup: [CVE-2026-91218](#cve-2026-91218).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91218](#cve-2026-91218), [CVE-2026-91251](#cve-2026-91251).
 
 ## CVE-2026-91222
 
@@ -912,7 +1478,30 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91224
 
 
 
-Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91225
 
@@ -924,7 +1513,30 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91225
 
 
-Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91230](#cve-2026-91230).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91230
 
@@ -935,4 +1547,445 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91230
 
-Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
+
+## CVE-2026-91231
+
+CVE-2026-91231 is a critical vulnerability affecting the Adapters component of Oracle SOA Suite. The flaw allows an unauthenticated, network-adjacent attacker to perform remote code execution, leading to a complete takeover of the service. Due to its scope change impact, the exploit can extend beyond the SOA Suite to compromise other connected products, requiring immediate patching for versions 12.2.1.4.0 and 14.1.2.0.0.
+
+Affected products:
+- SOA Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91231
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
+
+## CVE-2026-91232
+
+CVE-2026-91232 is a critical vulnerability in the Fabric Layer of Oracle SOA Suite affecting versions 12.2.1.4.0 and 14.1.2.0.0. The vulnerability is network-exploitable via HTTP by a low-privileged user, allowing for a full takeover of the application with a scope change impact, resulting in high confidentiality, integrity, and availability loss.
+
+Affected products:
+- SOA Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91232
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
+
+## CVE-2026-91233
+
+Oracle SOA Suite 12.2.1.4.0 and 14.1.2.0.0 contain a critical vulnerability in the Enterprise Scheduling System component. An unauthenticated remote attacker can exploit this via SOAP requests to achieve a full takeover of the Oracle SOA Suite instance. The vulnerability carries a CVSS base score of 9.8, indicating high severity across confidentiality, integrity, and availability.
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91233
+
+## CVE-2026-91234
+
+CVE-2026-91234 is a critical vulnerability within the Fabric Layer component of Oracle SOA Suite. An unauthenticated attacker can exploit this flaw remotely via HTTP to achieve full compromise of the application. The vulnerability carries a CVSS base score of 9.8, indicating severe risks to confidentiality, integrity, and availability.
+
+Affected products:
+- SOA Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91234
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
+
+## CVE-2026-91235
+
+CVE-2026-91235 is a critical vulnerability in the Fabric Layer component of Oracle SOA Suite. An unauthenticated attacker with network access via HTTP can exploit this flaw to achieve full takeover of the application. The vulnerability carries a CVSS base score of 9.8, indicating high risk to confidentiality, integrity, and availability.
+
+Affected products:
+- SOA Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91235
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
+
+## CVE-2026-91236
+
+Oracle SOA Suite, specifically the Fabric Layer component, contains a critical vulnerability that allows an unauthenticated attacker with network access via HTTP to perform a remote takeover of the application. The vulnerability is highly exploitable and impacts the confidentiality, integrity, and availability of the affected software.
+
+Affected products:
+- SOA Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91236
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91250](#cve-2026-91250).
+
+## CVE-2026-91241
+
+Oracle Business Intelligence Enterprise Edition contains a high-severity vulnerability in the Analytics Web Administration component. The flaw is remotely exploitable over HTTP by a high-privileged attacker and allows for a full system takeover and significant scope change, impacting the confidentiality, integrity, and availability of the affected environment.
+
+Affected products:
+- Oracle Business Intelligence Enterprise Edition (8.2.0.0.0, 12.2.1.4.0, 26.01.0.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91241
+
+## CVE-2026-91243
+
+CVE-2026-91243 is a high-severity vulnerability in the Fabric Layer of the Oracle Business Process Management Suite. A low-privileged attacker with network access via HTTP can exploit this flaw to perform unauthorized modification, deletion, or exfiltration of critical data, with impacts potentially extending beyond the suite due to a scope change. The vulnerability has a CVSS 3.1 base score of 9.6.
+
+Affected products:
+- Oracle Business Process Management Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91243
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91220](#cve-2026-91220).
+
+## CVE-2026-91250
+
+Oracle SOA Suite 12.2.1.4.0 and 14.1.2.0.0 are vulnerable to a remote, easily exploitable flaw in the Adapters component. A low-privileged attacker with network access can leverage multiple protocols to achieve a full takeover of the application, with the potential for impact across additional products due to a scope change (CVSS 9.9).
+
+Affected products:
+- SOA Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91250
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236).
+
+## CVE-2026-91251
+
+CVE-2026-91251 is a critical vulnerability in the Adapters component of Oracle SOA Suite within Oracle Fusion Middleware. A low-privileged attacker with network access via HTTP can exploit this flaw to achieve full takeover of the application. The vulnerability allows for scope change, potentially impacting other integrated products, and carries a CVSS 3.1 base score of 9.9.
+
+Affected products:
+- Oracle SOA Suite (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91251
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91218](#cve-2026-91218), [CVE-2026-91221](#cve-2026-91221).
+
+## CVE-2026-91265
+
+CVE-2026-91265 is a critical vulnerability in the Enterprise Infrastructure SEC component of Oracle JD Edwards EnterpriseOne Tools (versions 9.2.0.0 through 9.2.26.5). The vulnerability is network-exploitable by an unauthenticated attacker via HTTP, allowing for unauthorized read, modification, or deletion of critical data, resulting in a CVSS 3.1 base score of 9.1.
+
+Affected products:
+- JD Edwards EnterpriseOne Tools (9.2.0.0-9.2.26.5)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91265
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91305](#cve-2026-91305).
+
+## CVE-2026-91299
+
+CVE-2026-91299 is a critical vulnerability in the E1 IOT Orchestrator Security component of Oracle JD Edwards EnterpriseOne Orchestrator. The vulnerability is network-exploitable without authentication and allows for a complete compromise of the service, including scope change impacts that can affect other products. It carries a CVSS 3.1 score of 10.0.
+
+Affected products:
+- JD Edwards EnterpriseOne Orchestrator (9.2.0.0-9.2.26.5)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91299
+
+## CVE-2026-91305
+
+CVE-2026-91305 is a critical vulnerability in the Installation Security component of Oracle JD Edwards EnterpriseOne Tools. The flaw allows an unauthenticated, network-adjacent attacker to exploit the application via HTTPS, resulting in unauthorized access to, modification of, or deletion of critical data. The vulnerability is highly exploitable due to low complexity and no required user interaction or privileges.
+
+Affected products:
+- JD Edwards EnterpriseOne Tools (9.2.0.0-9.2.26.5)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91305
+
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91265](#cve-2026-91265).
+
+## CVE-2026-91323
+
+Oracle WebLogic Server contains a vulnerability in the Core component that allows an unauthenticated, network-adjacent attacker to achieve a full system takeover via HTTP. The vulnerability is highly exploitable, requiring no privileges or user interaction, and carries a CVSS base score of 9.8.
+
+Affected products:
+- WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91323
+
+
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-83399](#cve-2026-83399), [CVE-2026-87302](#cve-2026-87302).
+
+## CVE-2026-91341
+
+CVE-2026-91341 is a critical vulnerability in the Oracle Outside In Clean Content SDK component of Oracle Fusion Middleware. An unauthenticated attacker with network access via HTTP can exploit this vulnerability to perform unauthorized modification, creation, or deletion of critical data, and can trigger a denial-of-service condition via an application crash or hang.
+
+Affected products:
+- Outside In Technology (8.5.8)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91341
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91354](#cve-2026-91354).
+
+## CVE-2026-91354
+
+CVE-2026-91354 is a critical vulnerability in the Oracle Outside In Clean Content SDK (part of Oracle Fusion Middleware) version 8.5.8. An attacker with low privileges can exploit this flaw over HTTP to achieve a full takeover of the component. The vulnerability allows for scope change, potentially impacting other products integrated with the SDK, with a CVSS base score of 9.9.
+
+Affected products:
+- Outside In Technology (8.5.8)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91354
+
+
+
+
+
+
+
+
+Related in this roundup: [CVE-2026-91341](#cve-2026-91341).
+
+## CVE-2026-91408
+
+CVE-2026-91408 is a critical vulnerability in the Oracle Identity Manager component of Oracle Fusion Middleware. An unauthenticated attacker with network access via T3 or IIOP protocols can exploit this flaw to achieve a full takeover of the application. Given the CVSS score of 9.8 and the ease of exploitation, this represents a significant risk to confidentiality, integrity, and availability.
+
+Affected products:
+- Oracle Identity Manager (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91408
+
+## CVE-2026-91490
+
+CVE-2026-91490 is a high-severity vulnerability in the LDAP Gateway component of the Oracle Identity Manager Connector, allowing unauthenticated attackers with network access to perform unauthorized read, write, or delete operations on critical data. The vulnerability is network-exploitable with low complexity, potentially leading to a total compromise of data integrity and confidentiality within the affected connector.
+
+Affected products:
+- Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91490
+
+## CVE-2026-91491
+
+CVE-2026-91491 is a critical vulnerability in the LDAP Gateway component of Oracle Identity Manager Connector, part of Oracle Fusion Middleware. The vulnerability allows an unauthenticated, remote attacker with network access to the LDAP service to fully compromise the product, leading to a complete takeover. It is rated with a CVSS 3.1 base score of 9.8.
+
+Affected products:
+- Oracle Identity Manager Connector (12.2.1.4.0, 14.1.2.1.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91491
+
+## CVE-2026-91495
+
+Oracle WebCenter Content is vulnerable to an unauthenticated, remotely exploitable flaw that allows an attacker to achieve a complete system takeover via HTTP. The vulnerability carries a CVSS 3.1 base score of 9.8, indicating high impact on confidentiality, integrity, and availability.
+
+Affected products:
+- WebCenter Content (12.2.1.4.0, 14.1.2.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91495
+
+## CVE-2026-91622
+
+CVE-2026-91622 is a critical vulnerability in the Product Quality Management component of Oracle Agile Product Lifecycle Management for Process version 6.2.4. The vulnerability allows an unauthenticated, remote attacker to perform unauthorized actions, including the creation, deletion, or modification of critical data, through a web-based attack vector. Exploitation requires user interaction and can result in significant data compromise across the affected system due to scope change.
+
+Affected products:
+- Agile Product Lifecycle Management for Process (6.2.4)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91622
+
+
+Related in this roundup: [CVE-2026-91624](#cve-2026-91624).
+
+## CVE-2026-91624
+
+CVE-2026-91624 is a vulnerability in the Product Quality Management component of Oracle Agile Product Lifecycle Management for Process version 6.2.4. The vulnerability allows an unauthenticated, remote attacker to gain unauthorized access to or modify critical data via HTTP requests, posing a significant risk to data confidentiality and integrity.
+
+Affected products:
+- Agile Product Lifecycle Management for Process (6.2.4)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91624
+
+
+Related in this roundup: [CVE-2026-91622](#cve-2026-91622).
+
+## CVE-2026-91637
+
+Oracle Essbase version 21.8.3.0.0 is vulnerable to an easily exploitable flaw in its Security component. A low-privileged attacker with network access via HTTP can achieve a full takeover of the system. The vulnerability carries a high CVSS score of 9.9 and impacts confidentiality, integrity, and availability, with the potential for scope change to affect other integrated products.
+
+Affected products:
+- Essbase (21.8.3.0.0)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91637
