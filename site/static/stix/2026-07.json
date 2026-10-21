@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9becdbd0-a7f5-5471-9377-2867613248b5",
+  "id": "bundle--10597922-4a52-58cc-87ba-68b63c7be971",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3399,18 +3399,6 @@
       "pattern": "[domain-name:value = 'zephyr.herominers.com']",
       "pattern_type": "stix",
       "valid_from": "2026-07-27T16:39:09.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--378e402b-43d0-5241-a14a-daed66218e12",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T09:17:59.000Z",
-      "modified": "2026-07-23T09:17:59.000Z",
-      "name": "url: https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0609",
-      "pattern": "[url:value = 'https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0609']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-23T09:17:59.000Z"
     },
     {
       "type": "indicator",
@@ -16911,17 +16899,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1c0346e1-8592-5ef4-8070-d039576a0de0",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5842f035-d25d-58a3-8af3-b57ec0f3f698",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T09:17:59.000Z",
-      "modified": "2026-07-23T09:17:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--44fed205-53f3-5de4-806d-7888e93de429",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -30632,17 +30609,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f5aba726-8fb4-5136-9012-9b35c3f3d386",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--cd4bf1f0-e5a3-5f25-aa36-a9aad76f2400",
-      "target_ref": "vulnerability--e5a18131-d9db-57d7-823e-b74d26277c92"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f5bd18bc-eab9-52bd-8bb0-70a38062bb98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-23T14:41:39.000Z",
@@ -31453,17 +31419,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6d5ea447-7a58-501b-a4fb-e6a1a00b0d6f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ff5079e9-4069-584d-aa43-98fd49cea7d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T09:17:59.000Z",
-      "modified": "2026-07-23T09:17:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--44fed205-53f3-5de4-806d-7888e93de429",
-      "target_ref": "indicator--378e402b-43d0-5241-a14a-daed66218e12"
     },
     {
       "type": "relationship",
@@ -37584,57 +37539,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--44fed205-53f3-5de4-806d-7888e93de429",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T09:17:59.000Z",
-      "modified": "2026-07-23T09:17:59.000Z",
-      "name": "OS Command Injection Vulnerability in Pardus-Update (CVE-2026-16287)",
-      "description": "## Overview\n\nA high-severity OS command injection vulnerability, CVE-2026-16287, impacts the pardus-update software developed by TUBITAK BILGEM Software Technologies Research Institute. This flaw affects versions from 0.6.6 up to, but not including, 0.7.0. The vulnerability stems from improper neutralization of special elements when processing OS commands (CWE-78), allowing an attacker to inject and execute arbitrary operating system commands. While no active exploitation has been publicly reported, a successful exploit could lead to complete system compromise, data manipulation, or privilege escalation on affected Linux systems. The Computer Emergency Response Team of the Republic of Turkey (TR-CERT) has identified and reported this issue, and it carries a CVSS v3.1 base score of 7.8 (High), highlighting the significant risk it poses. Defenders should prioritize patching and monitoring for unusual activity related to the pardus-update process.\n\n## Attack Chain\n\n1. An attacker identifies a target system running TUBITAK BILGEM pardus-update, specifically versions from 0.6.6 before 0.7.0.\n2. The attacker identifies a user-controlled input parameter within the pardus-update software that is susceptible to OS command injection.\n3. The attacker crafts a malicious input string containing special shell metacharacters (e.g., `;`, `|`, `\u0026\u0026`, `$()`) followed by an arbitrary operating system command.\n4. This crafted input is submitted to the vulnerable pardus-update component.\n5. Due to improper neutralization of these special elements, the pardus-update software incorrectly interprets the malicious string as part of an OS command.\n6. The injected OS command is then executed by the system, typically with the privileges of the pardus-update process.\n7. Successful exploitation leads to arbitrary code execution on the compromised system.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-16287 allows an attacker to execute arbitrary operating system commands on the affected system. This could lead to a range of severe consequences, including full system compromise, data theft or manipulation, installation of additional malware, or privilege escalation. The vulnerability, rated with a CVSS v3.1 base score of 7.8 (High), poses a significant risk to the integrity and confidentiality of systems running vulnerable versions of pardus-update.\n\n## Recommendation\n\n* Patch TUBITAK BILGEM pardus-update to version 0.7.0 or later immediately to remediate CVE-2026-16267.\n* Implement robust input validation and sanitization for all user-controlled input within applications that interact with OS commands to prevent OS command injection vulnerabilities (CWE-78).\n* Enable comprehensive process creation logging on Linux endpoints to monitor for suspicious command execution, especially from processes related to system updates.\n",
-      "published": "2026-07-23T09:17:59.000Z",
-      "labels": [
-        "linux",
-        "os-command-injection",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--378e402b-43d0-5241-a14a-daed66218e12",
-        "software--cd4bf1f0-e5a3-5f25-aa36-a9aad76f2400",
-        "vulnerability--e5a18131-d9db-57d7-823e-b74d26277c92"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-16287-pardus-update",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-16287-pardus-update/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16287"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0609"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-16287-pardus-update",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-16287-pardus-update",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-16287-pardus-update/",
-      "x_craftedsignal_activity_at": "2026-07-23T09:17:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -56706,13 +56610,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--cd4bf1f0-e5a3-5f25-aa36-a9aad76f2400",
-      "name": "pardus-update (from 0.6.6 before 0.7.0)",
-      "vendor": "TUBITAK BILGEM Software Technologies Research Institute"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--cd71b37f-60eb-5810-9f26-9d58713799c9",
       "name": "PROCON-WEB SCADA \u003c= 6.11.2",
       "vendor": "Weidmueller Interface"
@@ -61105,22 +61002,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54673",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54673"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e5a18131-d9db-57d7-823e-b74d26277c92",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-16287",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-16287",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16287"
         }
       ]
     },
