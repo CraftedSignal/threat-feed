@@ -1,7 +1,7 @@
 ---
 brief_id: brief-2026-10-21-emudhra-intermediate-key-compromise
 event_id: brief-2026-10-21-emudhra-intermediate-key-compromise
-revision: 2
+revision: 3
 activity_at: "2026-10-21T08:26:00Z"
 revision_history:
   - revision: 2
@@ -13,6 +13,15 @@ revision_history:
       - body
     source_urls:
       - https://bugzilla.mozilla.org/show_bug.cgi?id=2083449
+  - revision: 3
+    at: "2026-10-21T08:50:04Z"
+    checksum: sha256:8ef0333e7468538b01a7c7163e5e2f8560c019f12924b7d0270f9356e13964b1
+    summary: Redirected the overlapping auto-generated eMudhra brief here.
+    changed_fields:
+      - aliases
+    maintenance: true
+aliases:
+  - /briefs/2026-10-emudhra-ca-compromise/
 title: 'eMudhra: Eight compromised intermediate CA keys threaten TLS trust'
 slug: 2026-10-emudhra-intermediate-key-compromise
 description: Eight eMudhra intermediate CA private keys were compromised. A researcher found one key had the integer value 4; Mozilla blocked the affected certificates and updated its trust store.

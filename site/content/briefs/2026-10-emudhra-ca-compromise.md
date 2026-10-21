@@ -1,8 +1,17 @@
 ---
 brief_id: brief-2026-10-21-emudhra-ca-compromise
 event_id: brief-2026-10-21-emudhra-ca-compromise
-revision: 1
+revision: 2
 activity_at: "2026-10-21T07:57:27Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T08:50:04Z"
+    checksum: sha256:543d7ba1df98b67542519f76f565599c88ab14089828cc741dc9f4a5d974f3e9
+    summary: Consolidated duplicate public page into the detailed intermediate CA brief.
+    changed_fields:
+      - draft
+    maintenance: true
+draft: true
 title: 'eMudhra: Weak Private Key Generation in Intermediate CA Certificates'
 slug: 2026-10-emudhra-ca-compromise
 description: eMudhra issued eight P384 intermediate CA certificates with predictably weak private keys, resulting in trivial key recovery due to flawed key generation processes.
