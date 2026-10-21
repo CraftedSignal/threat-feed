@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d7ba9354-ead3-5e95-bd94-a3aacc1c5e30",
+  "id": "bundle--921b3c52-0464-5c92-a9ca-979349a21679",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2287,6 +2287,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1133",
           "url": "https://attack.mitre.org/techniques/T1133"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Service Exhaustion Flood",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1499.002",
+          "url": "https://attack.mitre.org/techniques/T1499/002"
         }
       ]
     },
@@ -8965,6 +8981,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1f05b1af-a719-5e87-9256-c4f97fcc36f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--92e424aa-e56f-5c75-8a2c-b1b9e3ae64fd",
+      "target_ref": "vulnerability--e63b3662-1ddf-5d8f-b2eb-b73257fa3544"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1f1dfab1-09bd-56e8-b916-980d9a60000b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:16:12.000Z",
@@ -10798,6 +10825,17 @@
       "relationship_type": "has",
       "source_ref": "software--2127d0cc-00bc-5764-986a-fc10c4cd3278",
       "target_ref": "vulnerability--d1920eb9-1899-55c4-9dd3-ef91edaa8f2b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ce6e8a3-f3c0-5efb-8387-e47f76e88265",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:41:30.000Z",
+      "modified": "2026-10-21T21:41:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--85a3a1aa-2378-5b6f-a3d2-731b330b31a8",
+      "target_ref": "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397"
     },
     {
       "type": "relationship",
@@ -12804,6 +12842,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3a85fd2f-1575-53d2-b903-3cdc0c6835d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22528ff4-9db9-5bb7-ac8a-30fb173da4bb",
+      "target_ref": "vulnerability--d6947709-75ec-5690-bfa3-589f8fd91e73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3ab3d35e-499c-512b-82e6-cbe32592825b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13324,7 +13373,7 @@
       "id": "relationship--3eab37dd-d61f-53a8-b4e5-7283a577d066",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:58:34.000Z",
-      "modified": "2026-10-21T19:59:04.000Z",
+      "modified": "2026-10-21T21:42:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73a75f53-2182-5d93-931a-b832f1f088c6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -20790,6 +20839,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--70a9524a-f82b-5950-832c-63b6dcbb133b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c7e0380b-a557-53c5-b2b8-a2543a589ce5",
+      "target_ref": "vulnerability--ea9701c5-c88c-537f-ae96-f228048523e1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--70c73013-0dfe-5a8c-b2eb-86fac48f4df6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T17:31:34.000Z",
@@ -23041,6 +23101,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5b0b1f57-be3b-5ba6-91c5-67e393b166e9",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e5d9d89-b045-56de-b9b0-39f7ee3d66f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dd3b7bd0-69cd-5c4e-a46c-bf9f14980799",
+      "target_ref": "vulnerability--1aa97cdc-9e61-529f-a7d6-34a637213d66"
     },
     {
       "type": "relationship",
@@ -27874,6 +27945,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9df00608-13f7-503c-a325-73a25fbee5db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--091eba36-0993-5531-818d-f21f4d9a8cb7",
+      "target_ref": "vulnerability--1aa97cdc-9e61-529f-a7d6-34a637213d66"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9df24dc5-fe87-5f89-bda5-6da2b85cf0cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30246,6 +30328,17 @@
       "relationship_type": "has",
       "source_ref": "software--dfa6e82f-bb69-5449-8359-4cabfad135fb",
       "target_ref": "vulnerability--ebc909f3-435b-52a0-9143-23179270ae6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ade7052c-2995-5c95-bb6b-2b700851b4c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eb566427-93c7-5129-85fe-a34afd3fae19",
+      "target_ref": "vulnerability--1aa97cdc-9e61-529f-a7d6-34a637213d66"
     },
     {
       "type": "relationship",
@@ -33480,6 +33573,17 @@
       "relationship_type": "has",
       "source_ref": "software--176069c6-87c4-5373-a3ee-b53e2000e667",
       "target_ref": "vulnerability--de5f4d6c-2fa9-5600-abd6-8aeb00297c45"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c49ba936-485f-5f9f-930d-1a48b1fa91c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--034c31b3-5eb5-52bb-b9f1-b2c6d0931b64",
+      "target_ref": "vulnerability--1aa97cdc-9e61-529f-a7d6-34a637213d66"
     },
     {
       "type": "relationship",
@@ -44572,6 +44676,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--06d73c8e-32f9-591b-8123-a5ab93d90d6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:40:54.000Z",
+      "modified": "2026-10-21T21:40:54.000Z",
+      "name": "Apache Traffic Server: origin_server_auth plugin vulnerability (CVE-2026-111812)",
+      "description": "Apache Traffic Server's origin_server_auth plugin contains a vulnerability that allows a client to force the signing of attacker-chosen AWS request headers under the proxy's own credentials.\n",
+      "published": "2026-10-21T21:40:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--bbdf3643-4eef-56aa-be35-fc89f5f8ae2b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-apache-traffic-server-cve-2026-111812",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-traffic-server-cve-2026-111812/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111812"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-apache-traffic-server-cve-2026-111812",
+      "x_craftedsignal_event_id": "brief-2026-10-21-apache-traffic-server-cve-2026-111812",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-traffic-server-cve-2026-111812/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:40:54.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--06dd23d8-6e31-57da-b467-8222be2fe3ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:55:12.000Z",
@@ -45976,6 +46119,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0d3e5a08-8e9b-5691-9528-a97a319d285c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:40:30.000Z",
+      "modified": "2026-10-21T21:40:30.000Z",
+      "name": "Apache Traffic Server: HTTP/1.1 origin worker pool exhaustion (CVE-2026-111808)",
+      "description": "Apache Traffic Server is vulnerable to a worker pool exhaustion attack on HTTP/1.1 origin servers, triggered by a malformed padded HTTP/2 DATA frame. Affected versions include 8.0.0 through 8.1.11, 9.0.0 through 9.2.15, 10.0.0 through 10.1.4, and 10.2.0. Users are recommended to upgrade to versions 9.2.16, 10.1.5, or 10.2.1 to resolve this issue.\n",
+      "published": "2026-10-21T21:40:30.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--6ed72b58-583d-5fbf-8f58-fbfffafd3951"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-apache-traffic-server-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-traffic-server-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111808"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-apache-traffic-server-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-21-apache-traffic-server-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-traffic-server-dos/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:40:30.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0d6b950c-663a-5ce0-9af5-891f42547b49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T12:41:14.000Z",
@@ -46808,6 +46990,51 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1274445d-9726-556d-9358-2002fd47114c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:41:23.000Z",
+      "modified": "2026-10-21T21:41:23.000Z",
+      "name": "Django REST framework: Token revocation failure (CVE-2026-114137)",
+      "description": "## Overview\nDjango REST framework versions 3.12.0 to 3.18.1 contain a logic vulnerability in the `TokenProxy.delete()` method within `rest_framework/authtoken/models.py`. The method incorrectly uses the user ID primary key instead of the token string primary key when executing database deletion queries. As a result, the query fails to locate the target record and reports zero deletions without triggering an error or exception.\n\nAny application, administrative integration, or operational script relying on this method to revoke access will incorrectly process the operation as successful. Because Django REST framework tokens do not expire automatically, this vulnerability allows revoked or compromised tokens to remain active indefinitely, granting continued unauthorized access to APIs. This issue is fixed in version 3.18.2.\n\n## Impact\nAttackers can maintain persistent access to APIs despite administrator attempts to revoke their credentials. The silent failure prevents security monitoring tools or automated lifecycle management scripts from detecting that the token remains valid in the database.\n\n## Recommendation\n- Upgrade Django REST framework to version 3.18.2 or later immediately.\n- Audit custom scripts, management commands, and administrative API integrations that perform token revocation to ensure they do not rely on `TokenProxy.delete()`.\n- For affected systems, perform a database audit to identify orphaned or unintended active tokens that were mistakenly thought to be deleted by automated processes.\n- Transition to using explicit record deletion methods, such as `Token.objects.filter(key=...).delete()`, which correctly target the token string primary key.\n",
+      "published": "2026-10-21T21:41:23.000Z",
+      "labels": [
+        "django",
+        "vulnerability",
+        "web-api"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c7e0380b-a557-53c5-b2b8-a2543a589ce5",
+        "vulnerability--ea9701c5-c88c-537f-ae96-f228048523e1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-django-rest-token-revocation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-django-rest-token-revocation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114137"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-django-rest-token-revocation",
+      "x_craftedsignal_event_id": "brief-2026-10-21-django-rest-token-revocation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-django-rest-token-revocation/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:41:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -71491,13 +71718,15 @@
       "id": "report--73a75f53-2182-5d93-931a-b832f1f088c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:58:34.000Z",
-      "modified": "2026-10-21T19:59:04.000Z",
+      "modified": "2026-10-21T21:42:20.000Z",
       "name": "Apache Traffic Server: Request smuggling vulnerability (CVE-2025-31699)",
       "description": "## Overview\n\nApache Traffic Server (ATS) incorrectly returns an origin connection to the shared pool while the connection is still expecting a request body from the client, including instances involving the 'Expect: 100-continue' header. An attacker can exploit this behavior by sending a partial request, causing the origin to interpret subsequent requests from other users as leftover body data. This allows for request smuggling, potentially leading to unauthorized access, cross-user request disruption, or cache poisoning.\n\n## Impact\n\nSuccessful exploitation permits an attacker to bypass ATS access controls, intercept or disrupt legitimate user requests, and perform cache poisoning. The vulnerability carries a CVSS v3.1 base score of 8.9.\n\n## Recommendation\n\nUpgrade Apache Traffic Server instances to the patched versions: 9.2.16, 10.1.5, or 10.2.1.\n",
       "published": "2026-10-21T19:58:34.000Z",
       "labels": [
         "cache-poisoning",
+        "cve-2026-111813",
         "cve-2026-111816",
+        "rce",
         "request-smuggling",
         "vulnerability",
         "webserver"
@@ -71505,8 +71734,12 @@
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--034c31b3-5eb5-52bb-b9f1-b2c6d0931b64",
+        "software--091eba36-0993-5531-818d-f21f4d9a8cb7",
         "software--0c6fa9cc-6705-54d6-8fb7-f0776b9e56b5",
         "software--a53b6155-df2a-5400-9367-43900b847a7d",
+        "software--dd3b7bd0-69cd-5c4e-a46c-bf9f14980799",
+        "software--eb566427-93c7-5129-85fe-a34afd3fae19",
         "vulnerability--1aa97cdc-9e61-529f-a7d6-34a637213d66"
       ],
       "external_references": [
@@ -71521,15 +71754,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111810"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111813"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111814"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111815"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111816"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-apache-traffic-server-request-smuggling",
       "x_craftedsignal_event_id": "brief-2026-10-21-apache-traffic-server-request-smuggling",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-traffic-server-request-smuggling/",
-      "x_craftedsignal_activity_at": "2026-10-21T19:59:04.000Z",
+      "x_craftedsignal_activity_at": "2026-10-21T21:42:20.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -76041,6 +76290,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--85a3a1aa-2378-5b6f-a3d2-731b330b31a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:41:30.000Z",
+      "modified": "2026-10-21T21:41:30.000Z",
+      "name": "Django REST framework: Denial of Service via Accept header parsing (CVE-2026-114138)",
+      "description": "## Overview\n\nDjango REST framework versions prior to 3.18.2 contain a vulnerability in the `DefaultContentNegotiation` class, specifically within `get_accept_list` and `select_renderer`. The framework fails to limit the number and aggregate size of media type tokens in the HTTP `Accept` header. An attacker can supply a large number of distinct media types containing complex, quoted parameters and excessive semicolons. This forces the server's parser into a cycle of intensive operations that pin synchronous worker threads, leading to service unavailability.\n\n## Impact\n\nA remote, unauthenticated attacker can cause a Denial of Service by exhausting synchronous worker threads, rendering the API unresponsive until the malicious requests cease.\n\n## Recommendation\n\n* Upgrade Django REST framework to version 3.18.2 or later to include the patch for CVE-2026-114138.\n* Implement request-level limits on the size and complexity of HTTP headers at the web server or reverse proxy layer (e.g., nginx, Apache) to mitigate the impact of abnormally large `Accept` headers before they reach the application tier.\n",
+      "published": "2026-10-21T21:41:30.000Z",
+      "object_refs": [
+        "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22528ff4-9db9-5bb7-ac8a-30fb173da4bb",
+        "vulnerability--d6947709-75ec-5690-bfa3-589f8fd91e73"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-django-rest-framework-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-django-rest-framework-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114138"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-django-rest-framework-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-21-django-rest-framework-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-django-rest-framework-dos/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:41:30.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -89840,6 +90130,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ba739263-c825-5ce9-b3d6-cbdd96a80807",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:41:42.000Z",
+      "modified": "2026-10-21T21:41:42.000Z",
+      "name": "GitPython: Path traversal and arbitrary code execution (CVE-2026-114145)",
+      "description": "GitPython prior to 3.2.1 contains a vulnerability in create_submodule() in git/objects/submodule/base.py. The function accepts an attacker-influenced submodule path (such as .git/hooks) and invokes _clone_repo() before rejecting the destination. In 3.1.x, the call succeeds silently. In 3.2.0 and later affected revisions, a check in git/index/base.py raises a ValueError only after the clone has written to disk and does not remove the planted file. This allows an attacker to place an executable post-checkout hook that a later Git operation executes. Exploitation requires an application to accept an untrusted submodule path and a clone destination that is sufficiently empty. This issue is fixed in version 3.2.1.\n",
+      "published": "2026-10-21T21:41:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--92e424aa-e56f-5c75-8a2c-b1b9e3ae64fd",
+        "vulnerability--e63b3662-1ddf-5d8f-b2eb-b73257fa3544"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-gitpython-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gitpython-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114145"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-gitpython-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-21-gitpython-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gitpython-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:41:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ba7b99b3-a80f-581b-9a2f-cc690427f503",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:00:58.000Z",
@@ -97673,6 +98003,45 @@
       },
       "x_craftedsignal_cvss_max": 8.7,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d9cbba79-cd67-5fad-b195-a807ea9d1a87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:41:12.000Z",
+      "modified": "2026-10-21T21:41:12.000Z",
+      "name": "Jupyter Server: Authorization bypass in GatewayClient (CVE-2026-114135)",
+      "description": "Jupyter Server (versions 2.0.0 to 2.6.0) contains a vulnerability where enabling GatewayClient.url replaces the normal KernelWebsocketHandler with WebSocketChannelsHandler. This handler authenticates the user but fails to call authorizer.is_authorized(...) for the execute action on the kernels resource. A restricted authenticated user can open an upstream kernel channel and obtain kernel execution despite configured Authorizer denials. In version 2.6.0 and later, this bypass remains possible if a deployment manually registers the deprecated jupyter_server.gateway.handlers module.\n",
+      "published": "2026-10-21T21:41:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--62ad6b55-341e-5294-ae1a-82b6d0d98c38"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-jupyter-server-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-jupyter-server-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114135"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-jupyter-server-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-21-jupyter-server-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jupyter-server-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:41:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -107164,6 +107533,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--034c31b3-5eb5-52bb-b9f1-b2c6d0931b64",
+      "name": "Traffic Server (8.0.0 through 8.1.11, 9.0.0 through 9.2.15, 10.0.0 through 10.1.4, 10.2.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--036685d9-0fad-5d2d-904b-b8ff0069befc",
       "name": "XenServer (8.4)",
       "vendor": "Citrix"
@@ -107416,6 +107792,13 @@
       "id": "software--091a6d11-fe80-5924-bce7-daf03bf18cfc",
       "name": "GitPython (\u003c 3.2.0)",
       "vendor": "GitPython"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--091eba36-0993-5531-818d-f21f4d9a8cb7",
+      "name": "Traffic Server (9.2.15, 10.1.4, 10.2.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -108624,6 +109007,13 @@
       "id": "software--224caffb-e27c-5f2b-9579-60d37b87a873",
       "name": "@insumermodel/mppx-condition-gate (\u003c= 2.0.3)",
       "vendor": "Insumer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--22528ff4-9db9-5bb7-ac8a-30fb173da4bb",
+      "name": "Django REST framework (\u003c 3.18.2)",
+      "vendor": "Django Software Foundation"
     },
     {
       "type": "software",
@@ -113062,6 +113452,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--92e424aa-e56f-5c75-8a2c-b1b9e3ae64fd",
+      "name": "GitPython (\u003c 3.2.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9329335c-53ad-5ded-8514-aadfd1e9efd1",
       "name": "Magic NX15 (100R017)",
       "vendor": "H3C"
@@ -115216,6 +115612,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c7e0380b-a557-53c5-b2b8-a2543a589ce5",
+      "name": "Django REST framework (3.12.0 - 3.18.1)",
+      "vendor": "Django REST framework"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c82340f8-5f6d-504d-914c-48a72bf6bf2f",
       "name": "phpMyFAQ (3.2.0-alpha to \u003c 4.1.9)",
       "vendor": "phpMyFAQ"
@@ -116050,6 +116453,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dd3b7bd0-69cd-5c4e-a46c-bf9f14980799",
+      "name": "Traffic Server (9.0.0 through 9.2.15, 10.0.0 through 10.1.4, 10.2.0)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dd75f8d2-8c40-5ef9-9cac-fb5fb2a85c4c",
       "name": "ABAP Platform",
       "vendor": "SAP"
@@ -116541,6 +116951,13 @@
       "id": "software--eb347404-78dd-5bac-8486-81efc9a68418",
       "name": "AWS Bedrock AgentCore",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eb566427-93c7-5129-85fe-a34afd3fae19",
+      "name": "Traffic Server (8.0.1 through 8.1.11, 9.0.0 through 9.2.15, 10.0.0 through 10.1.4, 10.2.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -124460,6 +124877,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--62ad6b55-341e-5294-ae1a-82b6d0d98c38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114135",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114135",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114135"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--62eef2ca-2167-5ce9-bf58-356672df8804",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -125350,6 +125783,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108714",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108714"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6ed72b58-583d-5fbf-8f58-fbfffafd3951",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111808",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111808",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111808"
         }
       ]
     },
@@ -130700,6 +131149,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--bbdf3643-4eef-56aa-be35-fc89f5f8ae2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111812",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111812",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111812"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--bbf03fef-c5eb-572e-a2f2-6db97043d7ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -132604,6 +133069,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d6947709-75ec-5690-bfa3-589f8fd91e73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114138",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114138",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114138"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d6f9475c-42c6-519e-ba57-fc59ceccf88c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -133628,6 +134109,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e63b3662-1ddf-5d8f-b2eb-b73257fa3544",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114145",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114145",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114145"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e67f3b71-bccc-5960-ba8c-43d90935ef98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -133878,6 +134375,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76492",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76492"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ea9701c5-c88c-537f-ae96-f228048523e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114137",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114137",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114137"
         }
       ]
     },
