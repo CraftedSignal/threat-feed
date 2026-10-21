@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d27bdc3d-c3ff-5291-af13-f6eb78ef65f4",
+  "id": "bundle--18861ac3-6a11-54bd-9279-02c84b97f485",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10831,6 +10831,17 @@
       "relationship_type": "has",
       "source_ref": "software--8b6e4446-65e0-5fe8-849c-5f15dc657b95",
       "target_ref": "vulnerability--508ade78-f9b6-58bc-baf0-a7e38ab3ff22"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2d4325e1-4194-573b-aec7-821bdf933ff8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T20:09:50.000Z",
+      "modified": "2026-10-21T20:09:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2a9d0be1-25d9-5c4e-a26c-b822336a7224",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -52501,6 +52512,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2a9d0be1-25d9-5c4e-a26c-b822336a7224",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T20:09:50.000Z",
+      "modified": "2026-10-21T20:09:50.000Z",
+      "name": "PHP: Multiple vulnerabilities allowing remote code execution",
+      "description": "Multiple vulnerabilities have been discovered in PHP, the most severe of which could allow for unauthenticated remote code execution. All PHP installations serving web requests, including PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP, and LiteSpeed, are considered at risk. Exploitation occurs in the context of the affected service account. Depending on the privileges associated with the service account, an attacker could install programs; view, change, or delete data; or create new accounts with full user rights.\n",
+      "published": "2026-10-21T20:09:50.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-php-rce-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-php-rce-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-php-could-allow-for-remote-code-execution_2026-119"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-php-rce-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-21-php-rce-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-rce-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-21T20:09:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -113409,6 +113459,13 @@
       "id": "software--a1a4c8e4-a079-5dc8-9549-20c690a1c9d3",
       "name": "smolagents (\u003c 1.22.0)",
       "vendor": "Hugging Face"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
+      "name": "PHP",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
