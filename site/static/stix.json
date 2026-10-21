@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--308e7dfd-7ce7-58a7-8ad6-e8d9f0982ec1",
+  "id": "bundle--0e18d4f1-681e-5022-83dd-71cf19f959c3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1461,6 +1461,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--73bca283-1912-5342-9a74-b22e3714a53e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Msiexec",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1218.007",
+          "url": "https://attack.mitre.org/techniques/T1218/007"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--745c9492-77e4-5572-9132-308959464536",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2431,6 +2447,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1027.010",
           "url": "https://attack.mitre.org/techniques/T1027/010"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Match Legitimate Name or Location",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1036.005",
+          "url": "https://attack.mitre.org/techniques/T1036/005"
         }
       ]
     },
@@ -7372,6 +7404,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0f706373-6a12-5063-a8f5-c0ca19e7353f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:29.000Z",
+      "modified": "2026-10-21T00:48:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5b4da0e1-df68-5769-a900-fb4f2533df40",
+      "target_ref": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0f762386-2cbc-5d38-b099-0486120f397a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9887,6 +9930,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a9dc579c-91a3-5d11-b3ff-99585a125d72",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1c320b8e-f28e-5835-a577-afa354ceaf8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:22.000Z",
+      "modified": "2026-10-21T00:48:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9cffd403-298c-50fe-982a-5b35c77e206c",
+      "target_ref": "attack-pattern--73bca283-1912-5342-9a74-b22e3714a53e"
     },
     {
       "type": "relationship",
@@ -27315,6 +27369,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--79444781-93be-5656-8301-9dedf710bc1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:33.000Z",
+      "modified": "2026-10-21T00:48:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd6e681b-7d62-5833-aaf4-9e8a62f773ad",
+      "target_ref": "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--795608b4-5fa0-5c48-ba4e-b04c920e13bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28081,6 +28146,17 @@
       "relationship_type": "has",
       "source_ref": "software--2b9f11e2-7c58-58cf-908f-b314195a3c32",
       "target_ref": "vulnerability--f046c9c8-10c7-5caf-abe9-5db1cdc6ba13"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7d7a3495-9bf9-5352-9142-c9720024fced",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:16.000Z",
+      "modified": "2026-10-21T00:48:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3d9e02fc-5af3-589e-b6f9-538d84672ba1",
+      "target_ref": "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876"
     },
     {
       "type": "relationship",
@@ -42667,6 +42743,17 @@
       "relationship_type": "uses",
       "source_ref": "report--340b54f8-94fd-5fa3-a46f-6a1f7f5dd3e8",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c98b2000-a36e-5b3d-9993-c50e3310ca66",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:29.000Z",
+      "modified": "2026-10-21T00:48:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5b4da0e1-df68-5769-a900-fb4f2533df40",
+      "target_ref": "attack-pattern--5a25a649-6ab1-5cbf-821f-f501783fcc18"
     },
     {
       "type": "relationship",
@@ -72000,6 +72087,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3d9e02fc-5af3-589e-b6f9-538d84672ba1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:16.000Z",
+      "modified": "2026-10-21T00:48:16.000Z",
+      "name": "Detection of Alternate PowerShell Hosts",
+      "description": "## Overview\n\nAttackers frequently leverage alternative hosts to execute PowerShell scripts as a means to evade detection mechanisms configured to monitor only the standard `powershell.exe` or `pwsh.exe` processes. By embedding the PowerShell engine within custom binaries, signed trusted applications, or living-off-the-land binaries, adversaries can maintain persistence and perform post-exploitation activity while remaining invisible to standard process-creation telemetry focused on known interpreters. This technique involves utilizing the PowerShell managed API to host the runtime in-process, effectively decoupling the execution from the standard command-line wrappers. Defenders must monitor the PowerShell Module logging (Event ID 4103) to identify the \"HostName\" and \"HostApplication\" fields, which reveal the actual binary initiating the PowerShell runspace, rather than relying on process-based detection.\n\n## Attack Chain\n\n1. Attacker identifies a legitimate, signed, or obscure binary that supports hosting the .NET runtime.\n2. Attacker develops or selects a payload to execute in-memory via the hosted PowerShell engine.\n3. Attacker triggers the execution of the target binary with arguments that invoke the PowerShell runspace initialization.\n4. The host process initializes the System.Management.Automation assembly to host the PowerShell environment.\n5. The PowerShell engine executes the malicious script block or command, which appears as child activity of the host process, not `powershell.exe`.\n6. Attacker performs discovery, credential access, or data staging within the context of the host process.\n7. Attacker maintains stealth by avoiding spawns of child processes commonly monitored for PowerShell execution.\n\n## Impact\n\nSuccessful abuse of alternate PowerShell hosts allows attackers to bypass endpoint detection and response (EDR) rules that alert on common PowerShell-related command-line arguments. This increases the attacker's dwell time and operational security, facilitating long-term access, lateral movement, and data exfiltration within target environments.\n\n## Recommendation\n\n- Enable Microsoft-Windows-PowerShell/Operational (Event ID 4103) to capture \"HostName\" and \"HostApplication\" metadata.\n- Deploy the provided Sigma rule to detect PowerShell code execution initiated by unexpected parent processes.\n- Baseline legitimate administrative tools in the environment to minimize false positives, specifically identifying software that uses the PowerShell API (e.g., system management or backup agents).\n",
+      "published": "2026-10-21T00:48:16.000Z",
+      "labels": [
+        "detection-engineering",
+        "execution",
+        "powershell"
+      ],
+      "object_refs": [
+        "attack-pattern--36fac444-61e3-5e99-a69d-42438a455876",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-alternate-powershell-hosts",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-alternate-powershell-hosts/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-alternate-powershell-hosts",
+      "x_craftedsignal_event_id": "brief-2026-10-21-alternate-powershell-hosts",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-alternate-powershell-hosts/",
+      "x_craftedsignal_activity_at": "2026-10-21T00:48:16.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3dbeafa1-7df8-5a62-b5b8-8098eacb87e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:52:38.000Z",
@@ -81427,6 +81553,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5b4da0e1-df68-5769-a900-fb4f2533df40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:29.000Z",
+      "modified": "2026-10-21T00:48:29.000Z",
+      "name": "Configuration and Service Reconnaissance via Reg.exe",
+      "description": "## Overview\n\nAdversaries frequently leverage the legitimate Windows utility `reg.exe` to perform reconnaissance activities. By querying sensitive registry keys, an attacker can enumerate installed software, system configuration details, and potential persistence mechanisms. This behavior is commonly observed in the early stages of a post-compromise environment, as it allows threat actors to map out the system's security posture and identify interesting services or applications for further exploitation. Security teams should monitor for the combination of `reg.exe` execution with specific command-line arguments targeting keys related to auto-start locations, service configurations, and system policies.\n\n## Attack Chain\n\n1. Initial access is gained to the target system via a user-level shell or remote access tool.\n2. The attacker identifies the `reg.exe` utility in the system path.\n3. The attacker executes `reg query` to target specific registry hives, such as `HKCU` or `HKLM`.\n4. The query focuses on paths like `currentVersion\\run` to identify persistence mechanisms.\n5. The attacker proceeds to query `currentcontrolset\\services` to identify installed system services.\n6. The gathered registry data is exfiltrated or parsed locally to identify future targets.\n7. The final objective includes leveraging the discovered information for privilege escalation or lateral movement.\n\n## Impact\n\nSuccessful reconnaissance allows an attacker to build an accurate profile of the target environment, enabling the identification of weak configurations, security product paths, and persistent entry points. This data significantly reduces the time required for an attacker to move from initial access to full domain compromise.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to detect `reg.exe` usage targeting sensitive registry hives in your SIEM.\n* Establish an allowlist of administrative tools or management scripts that legitimately use `reg.exe` to query system configurations to reduce false positives.\n* Audit endpoint telemetry for frequent `reg query` commands from non-administrative service accounts.\n",
+      "published": "2026-10-21T00:48:29.000Z",
+      "labels": [
+        "discovery",
+        "reconnaissance",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--5a25a649-6ab1-5cbf-821f-f501783fcc18",
+        "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-reg-exe-recon",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-reg-exe-recon/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-reg-exe-recon",
+      "x_craftedsignal_event_id": "brief-2026-10-21-reg-exe-recon",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-reg-exe-recon/",
+      "x_craftedsignal_activity_at": "2026-10-21T00:48:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -102442,6 +102608,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9cffd403-298c-50fe-982a-5b35c77e206c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:22.000Z",
+      "modified": "2026-10-21T00:48:22.000Z",
+      "name": "MsiExec DllUnregisterServer execution",
+      "description": "## Overview\n\nThe Windows Installer utility (msiexec.exe) is a signed, legitimate binary used for installing and configuring software. Attackers can leverage the \"/Z\" flag to load a specified DLL and call its exported \"DllUnregisterServer\" function. This technique is often used to bypass security controls or execute malicious code in the context of a trusted process. Because this behavior is atypical for standard administrative tasks outside of specific update or maintenance workflows, it serves as a high-fidelity indicator of potential malicious activity. Defenders should monitor process command lines for the use of the \"/Z\" parameter in conjunction with external DLL references.\n\n## Attack Chain\n\n1. Attacker crafts a malicious DLL file containing a payload within the DllUnregisterServer exported function.\n2. The DLL is staged on the target system, typically in a directory where the user or service has write permissions.\n3. Attacker identifies the msiexec.exe utility, a native Windows component.\n4. Attacker executes msiexec.exe via command line using the \"/Z\" flag.\n5. The command line specifies the full path to the malicious DLL as the argument for the \"/Z\" parameter.\n6. MsiExec initializes and loads the attacker-supplied DLL into its memory space.\n7. MsiExec calls the DllUnregisterServer function within the loaded DLL.\n8. The payload executes, potentially resulting in secondary malware deployment, C2 communication, or lateral movement.\n\n## Impact\n\nSuccessful exploitation allows for execution of arbitrary code in the context of the msiexec.exe process, potentially bypassing application allowlisting and leveraging the trusted reputation of the Windows Installer binary.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect suspicious msiexec.exe invocations. Audit legitimate software installers or update agents in the environment that may utilize the \"/Z\" flag and include them in the filter logic of the detection rule.\n",
+      "published": "2026-10-21T00:48:22.000Z",
+      "labels": [
+        "living-off-the-land",
+        "stealth",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--73bca283-1912-5342-9a74-b22e3714a53e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-msiexec-unregister",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-21-msiexec-unregister/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_msiexec_dll.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redcanaryco/atomic-red-team/blob/f339e7da7d05f6057fdfcdd3742bfcf365fee2a9/atomics/T1218.007/T1218.007.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolbas-project.github.io/lolbas/Binaries/Msiexec/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-msiexec-unregister",
+      "x_craftedsignal_event_id": "brief-2026-10-21-msiexec-unregister",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-21-msiexec-unregister/",
+      "x_craftedsignal_activity_at": "2026-10-21T00:48:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9d19e310-95c5-5562-b580-18dba4ea630c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T04:35:04.000Z",
@@ -113336,6 +113553,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bd6e681b-7d62-5833-aaf4-9e8a62f773ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:33.000Z",
+      "modified": "2026-10-21T00:48:33.000Z",
+      "name": "Uncommon Svchost Parent Process Execution",
+      "description": "## Overview\n\nThe Windows Service Host process (svchost.exe) is a critical system component responsible for hosting multiple services. In a healthy environment, svchost.exe is typically launched by services.exe, or occasionally by other known system-level processes associated with Windows updates or security software. When svchost.exe is initiated by an unconventional parent process, it often serves as a primary indicator of process masquerading, where an attacker renames a malicious binary to svchost.exe to hide its activity, or uses a legitimate process to perform process hollowing or injection. Defenders should monitor for these anomalies as they frequently appear during the persistence or execution phases of an attack.\n\n## Impact\n\nSuccessful exploitation of process masquerading or injection can allow an attacker to execute malicious code within the context of a trusted system process, potentially leading to privilege escalation, persistence, and the evasion of security software that relies on process reputation or path-based monitoring.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect suspicious process lineage associated with svchost.exe. Review instances triggered by non-system processes to determine if they are related to legitimate, albeit uncommon, administrative or third-party software before taking remediation action.\n",
+      "published": "2026-10-21T00:48:33.000Z",
+      "labels": [
+        "endpoint-security",
+        "process-masquerading",
+        "stealth",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--cab43178-fae3-52ac-a29f-a095c60026fa",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-uncommon-svchost-parent",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-uncommon-svchost-parent/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-uncommon-svchost-parent",
+      "x_craftedsignal_event_id": "brief-2026-10-21-uncommon-svchost-parent",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-uncommon-svchost-parent/",
+      "x_craftedsignal_activity_at": "2026-10-21T00:48:33.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -126505,6 +126762,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e6fbb62e-5f1a-5ffb-ba57-1931943be936",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:48:09.000Z",
+      "modified": "2026-10-21T00:48:09.000Z",
+      "name": "Windows Firewall Exception List Rule Deletion",
+      "description": "## Overview\n\nThe deletion of Windows Firewall rules is a common technique used by threat actors to perform defense impairment. By removing existing rules, attackers can disable inbound or outbound traffic filtering that would otherwise block their command and control (C2) communication or lateral movement activities. This behavior can be identified by monitoring Windows Defender Firewall events for rule deletion triggers, specifically Event IDs 2006 and 2052. Defenders should focus on rule modifications initiated by processes not associated with trusted system services or legitimate administrative installation processes.\n\n## Attack Chain\n\n1. An attacker gains elevated execution privileges on a target Windows host.\n2. The attacker identifies restrictive firewall rules that impede their desired network traffic.\n3. The attacker executes a command or script using tools like netsh.exe or PowerShell to modify the firewall configuration.\n4. The attacker deletes the target firewall rule from the Windows Defender Firewall exception list.\n5. The Windows security event log captures the modification (Event IDs 2006 or 2052).\n6. The firewall becomes permissive for the previously blocked traffic.\n7. The attacker establishes unauthorized network connections to an external C2 server or internal target.\n\n## Impact\n\nSuccessful defense impairment through firewall rule deletion leaves systems exposed to unauthorized inbound access and allows malicious outbound traffic that would otherwise be blocked. This activity is typically a precursor to data exfiltration, payload delivery, or lateral movement within the network.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect suspicious deletion of firewall rules by unauthorized processes.\n- Baseline legitimate software installers and administrative tasks that modify the firewall to tune out false positives.\n- Review Event ID 2006 and 2052 logs regularly to identify non-standard firewall modifications.\n",
+      "published": "2026-10-21T00:48:09.000Z",
+      "labels": [
+        "defense-impairment",
+        "firewall",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-windows-firewall-deletion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-windows-firewall-deletion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/builtin/firewall_as/win_firewall_as_delete_rule.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd364427(v=ws.10)"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-windows-firewall-deletion",
+      "x_craftedsignal_event_id": "brief-2026-10-21-windows-firewall-deletion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-firewall-deletion/",
+      "x_craftedsignal_activity_at": "2026-10-21T00:48:09.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
