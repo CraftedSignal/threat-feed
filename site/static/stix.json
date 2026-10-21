@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3e006fd7-2f3e-5609-a8d0-c0860899ecaf",
+  "id": "bundle--01cad0bf-eca4-5de6-8961-df5f38a93390",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2255,6 +2255,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1090.001",
           "url": "https://attack.mitre.org/techniques/T1090/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--b5e811f4-beda-5c22-8326-b9abc85b221c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Delete Cloud Instance",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1578.003",
+          "url": "https://attack.mitre.org/techniques/T1578/003"
         }
       ]
     },
@@ -4742,17 +4758,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--014e145d-6660-5074-b8c7-928ea781cc2d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T02:25:50.000Z",
-      "modified": "2026-09-21T02:25:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b3c01a1-f63a-54b4-8be3-31e52bfa90ae",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--015c83a2-4fdc-561c-98d4-706968b9a929",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T19:51:41.000Z",
@@ -6377,6 +6382,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5a574c78-de04-5470-b044-6612e679ab59",
       "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0a15103a-9ff4-5db3-9a71-290f93baab5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:27.000Z",
+      "modified": "2026-10-21T02:44:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bf52e118-a951-57d4-8e5c-2db451136b93",
+      "target_ref": "attack-pattern--b5e811f4-beda-5c22-8326-b9abc85b221c"
     },
     {
       "type": "relationship",
@@ -9208,6 +9224,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1899e2c0-c86c-5528-8bd9-a611db990756",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:19.000Z",
+      "modified": "2026-10-21T02:44:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4b0aec8c-7a7c-5d50-a16a-be8cbbd42e08",
+      "target_ref": "attack-pattern--4a85b974-863c-5535-a9a9-5d02d5634ae4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--189bc8d8-5bde-5874-8751-90ba6b75827f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10968,17 +10995,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2255be22-884e-53e0-bed5-71cec238d904",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3bf8a04a-6b9a-5383-b572-38af583f80d2",
-      "target_ref": "vulnerability--8b365736-4703-520c-b141-143e35f5174e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2257fe3e-05d7-5eb7-b65b-a8f5578a4a9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-27T15:07:20.000Z",
@@ -11096,17 +11112,6 @@
       "relationship_type": "uses",
       "source_ref": "report--109f4f00-9d18-585a-acc9-583262707c35",
       "target_ref": "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--23618ca4-e836-5d7f-a415-465a9491fa6a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T02:25:43.000Z",
-      "modified": "2026-09-21T02:25:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6e269e15-530e-5c1d-bf7f-aaae5ec27a06",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -16332,17 +16337,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ecf70c3d-37ee-57ec-8a11-792cf2e98ab9",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3fcd00b2-8964-5597-8e8e-7def47861302",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T02:25:36.000Z",
-      "modified": "2026-09-21T02:25:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--78123498-107d-5ea5-be4b-5015ddbe34d6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -23383,17 +23377,6 @@
       "relationship_type": "has",
       "source_ref": "software--f941e2e0-f455-5049-b8c3-97e487084a0d",
       "target_ref": "vulnerability--80b650d5-50ef-5632-bfdb-7823d2a5797a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--64e873c0-7b75-5b89-9467-31e19a412a28",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--cdd4b99b-0bbf-5c19-9edc-ac8033297f71",
-      "target_ref": "vulnerability--9572b910-a342-5f5c-bb9f-43002388e2e3"
     },
     {
       "type": "relationship",
@@ -51107,17 +51090,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f0df1f16-39d5-50bd-bfcd-3d412c5c7fcb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--40ee4352-96d1-5fbd-819f-b83ae823eff3",
-      "target_ref": "vulnerability--3f30ce47-5a6f-5ca5-85ac-ae12e5339706"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f0e195a3-4b51-52e7-8ca5-a89ff09c448c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77323,6 +77295,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4b0aec8c-7a7c-5d50-a16a-be8cbbd42e08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:19.000Z",
+      "modified": "2026-10-21T02:44:19.000Z",
+      "name": "Microsoft Entra ID Hybrid Health AD FS service manipulation",
+      "description": "## Overview\n\nResearch indicates that attackers can manipulate the Microsoft Entra ID Hybrid Health AD FS service to report fraudulent server instances. By programmatically interacting with the Azure resource provider, an attacker can create a new AD FS service and register a rogue server instance without needing access to the physical, on-premises Active Directory Federation Services (AD FS) infrastructure. This technique allows adversaries to inject fake authentication events into the environment, potentially masking malicious activity or generating noise to facilitate unauthorized access. Defenders should monitor the administrative activity logs in Azure for the creation or modification of these service members, as this behavior is often indicative of reconnaissance or persistence attempts within the identity environment.\n\n## Impact\n\nSuccessful manipulation of the AD FS Hybrid Health service can allow attackers to spoof identity provider signing logs. This impacts the integrity of authentication telemetry, complicates incident response by introducing false event data, and may allow attackers to bypass security monitoring systems that rely on AD FS telemetry to detect anomalous authentication patterns.\n\n## Recommendation\n\n- Monitor Azure Activity Logs for the registration of new AD FS service members using the detection rule provided in this brief.\n- Audit existing AD FS service instances in the Azure portal to ensure all registered servers are legitimate and authorized.\n- Enforce strict Azure Role-Based Access Control (RBAC) to limit the ability of service principals or users to perform operations within the Microsoft.ADHybridHealthService resource provider.\n- Deploy the Sigma rule below to the SIEM to detect suspicious service member additions.\n",
+      "published": "2026-10-21T02:44:19.000Z",
+      "labels": [
+        "azure",
+        "cloud-security",
+        "defense-evasion",
+        "identity"
+      ],
+      "object_refs": [
+        "attack-pattern--4a85b974-863c-5535-a9a9-5d02d5634ae4",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb96a251-c123-5a41-965d-63f36b6d62f4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-azure-ad-hybrid-health-spoofing",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ad-hybrid-health-spoofing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://aadinternals.com/talks/HelSec%20August%202021.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/identity#microsoftadhybridhealthservice"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20220619212736/https://o365blog.com/post/hybridhealthagent/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.inversecos.com/2023/01/detecting-fake-events-in-azure-sign-in.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-azure-ad-hybrid-health-spoofing",
+      "x_craftedsignal_event_id": "brief-2026-10-21-azure-ad-hybrid-health-spoofing",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ad-hybrid-health-spoofing/",
+      "x_craftedsignal_activity_at": "2026-10-21T02:44:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4b470f8d-0660-566d-b343-84a00e066a7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T05:39:17.000Z",
@@ -81682,52 +81711,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00535,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5b3c01a1-f63a-54b4-8be3-31e52bfa90ae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T02:25:50.000Z",
-      "modified": "2026-09-21T02:25:50.000Z",
-      "name": "Local Privilege Escalation in BioStar VALKYRIE AURORA Driver",
-      "description": "## Overview\n\nCVE-2026-94129 describes a high-severity security vulnerability in the BioStar VALKYRIE AURORA software version 2.10.2411.0800. The flaw resides within the driver file BS_RVSIO64.sys, specifically impacting the IOCTL handler function sub_1105C. An attacker with local access to the system can manipulate the PhysicalAddress argument, resulting in a write-what-where vulnerability. This condition allows an adversary to perform arbitrary memory writes, potentially leading to local privilege escalation or system compromise. Publicly available exploit code exists for this vulnerability, and the vendor has not responded to disclosure attempts. Because the attack requires local access, this represents a significant risk for systems where untrusted users or applications may interact with the driver interface.\n\n## Impact\n\nSuccessful exploitation allows a local user to execute arbitrary code with elevated privileges, potentially leading to a full system compromise. The vulnerability affects users of the BioStar VALKYRIE AURORA software version 2.10.2411.0800 on Windows operating systems. If exploited, an attacker could bypass OS security controls to install persistent backdoors, access sensitive data, or disable security software.\n\n## Recommendation\n\n* Monitor system logs for unauthorized access to device drivers or attempts to interact with the BS_RVSIO64.sys interface.\n* Audit systems for the presence of BioStar VALKYRIE AURORA version 2.10.2411.0800 and consider restricting access to the executable or driver files until a vendor security update is available.\n* Implement endpoint security controls to restrict execution of untrusted binaries that might attempt to interact with IOCTLs of kernel-mode drivers.\n",
-      "published": "2026-09-21T02:25:50.000Z",
-      "labels": [
-        "kernel",
-        "privilege-escalation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3bf8a04a-6b9a-5383-b572-38af583f80d2",
-        "vulnerability--8b365736-4703-520c-b141-143e35f5174e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-biostar-valkyrie-aurora-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-valkyrie-aurora-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94129"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-biostar-valkyrie-aurora-rce",
-      "x_craftedsignal_event_id": "brief-2026-09-21-biostar-valkyrie-aurora-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-valkyrie-aurora-rce/",
-      "x_craftedsignal_activity_at": "2026-09-21T02:25:50.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -88593,47 +88576,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--6e269e15-530e-5c1d-bf7f-aaae5ec27a06",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T02:25:43.000Z",
-      "modified": "2026-09-21T02:25:43.000Z",
-      "name": "Arbitrary Memory Write Vulnerability in BioStar VIVID LED DJ Driver",
-      "description": "## Overview\n\nA critical security vulnerability has been identified in the BioStar VIVID LED DJ driver version 4.0.2411.1500. The flaw resides within the IOCTL handler function, specifically sub_1105C, located in the BS_LED64.sys kernel-mode driver. The vulnerability stems from improper handling of the AssociatedIrp argument, which permits an attacker with local access to the system to trigger a write-what-where condition. By crafting a specific IOCTL request, an unprivileged user can overwrite arbitrary kernel memory. This capability is a significant security concern as it can be leveraged to bypass Windows security controls, disable kernel-mode protections, or facilitate full system privilege escalation. Public exploit material exists for this vulnerability, and the vendor has not provided a response or a patch to address the issue. Defenders should prioritize monitoring for the loading of this specific driver or identifying local processes attempting unauthorized IOCTL communication with it.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-94128 requires local system access. If exploited, an attacker can transition from a low-privilege user context to SYSTEM-level privileges. This facilitates persistence, evasion of endpoint security solutions, and potential full system compromise. Given the nature of kernel-mode vulnerabilities, the impact is severe, potentially resulting in complete loss of system integrity and confidentiality.\n\n## Recommendation\n\n- Monitor for the installation or presence of the BioStar VIVID LED DJ driver BS_LED64.sys on high-security or critical infrastructure assets.\n- Implement strict application control policies to prevent the execution of untrusted binaries that may attempt to interact with the vulnerable IOCTL handler.\n- Audit system configurations for the use of legacy or non-essential hardware drivers.\n- Due to the lack of a vendor patch, isolate systems running the vulnerable driver version (4.0.2411.1500) from untrusted user access if possible.\n",
-      "published": "2026-09-21T02:25:43.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--cdd4b99b-0bbf-5c19-9edc-ac8033297f71",
-        "vulnerability--9572b910-a342-5f5c-bb9f-43002388e2e3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-biostar-driver-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-driver-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94128"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-biostar-driver-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-09-21-biostar-driver-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-driver-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-09-21T02:25:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--6e682bb9-c7af-5a90-99eb-afe759830fb1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-25T14:53:29.000Z",
@@ -90982,52 +90924,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--78123498-107d-5ea5-be4b-5015ddbe34d6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T02:25:36.000Z",
-      "modified": "2026-09-21T02:25:36.000Z",
-      "name": "SQL Injection Vulnerability in QCMS Content Detail Page",
-      "description": "## Overview\n\nA critical SQL injection vulnerability has been identified in QCMS versions up to 6.0.6. The flaw resides in the self_Tmp function within the file Lib/Config/Controllers.php, which handles the Content Detail Page component. Attackers can exploit this via a remote, unauthenticated request by injecting malicious SQL code into the ID argument. \n\nDefenders should note that the QCMS router does not perform URL decoding on the incoming REQUEST_URI before routing occurs. Consequently, exploit payloads must be crafted using literal spaces rather than URL-encoded entities (like %20), as the latter are not interpreted correctly by the routing logic. This vulnerability was disclosed publicly, and given the lack of a vendor patch, organizations utilizing QCMS must implement compensating controls at the network perimeter or application firewall level to inspect and sanitize the ID parameter in incoming requests to the Content Detail Page.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to execute arbitrary SQL commands against the backend database. This may lead to unauthorized data exfiltration, modification of application content, or potential full database compromise. As the vulnerability is publicly disclosed and exploitable remotely, the risk to public-facing QCMS deployments is high.\n\n## Recommendation\n\n* Deploy Web Application Firewall (WAF) rules to detect and block requests to the Content Detail Page containing SQL injection patterns in the ID parameter.\n* Implement strict input validation for the ID parameter in the application front-end or via a reverse proxy to ensure it conforms to expected alphanumeric formats.\n* Monitor web server access logs for anomalous requests containing literal space characters within query strings targeting the identified path.\n",
-      "published": "2026-09-21T02:25:36.000Z",
-      "labels": [
-        "remote-code-execution",
-        "sqli",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--40ee4352-96d1-5fbd-819f-b83ae823eff3",
-        "vulnerability--3f30ce47-5a6f-5ca5-85ac-ae12e5339706"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-qcms-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-qcms-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94110"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-qcms-sqli",
-      "x_craftedsignal_event_id": "brief-2026-09-21-qcms-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-qcms-sqli/",
-      "x_craftedsignal_activity_at": "2026-09-21T02:25:36.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -114402,6 +114298,63 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bf52e118-a951-57d4-8e5c-2db451136b93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:27.000Z",
+      "modified": "2026-10-21T02:44:27.000Z",
+      "name": "Azure AD Hybrid Health AD FS Service deletion",
+      "description": "## Overview\n\nThreat actors can manipulate Azure AD Hybrid Health for AD FS to compromise the integrity of authentication logs. By creating a rogue AD FS service instance and registering a fake server, attackers can inject spoofed AD FS signing events into the environment. Once the malicious activity is completed or the attacker no longer requires the persistence mechanism, they delete the rogue AD FS service instance via the Azure Management API. This deletion is a critical telemetry point for security operations centers, as it often marks the conclusion of a log manipulation campaign that may have been used to bypass identity-based detections or hide unauthorized access. Monitoring for these specific service deletions provides visibility into potential efforts to impair defensive visibility within a hybrid identity environment.\n\n## Attack Chain\n\n1. Attacker gains administrative access to the Azure tenant (e.g., via compromised credentials).\n2. Attacker registers a new Azure AD Hybrid Health AD FS service instance.\n3. Attacker adds a rogue server to the AD FS health environment.\n4. Attacker leverages the rogue server to inject spoofed AD FS authentication logs.\n5. Attacker performs malicious operations elsewhere in the environment, masked by spoofed events.\n6. Attacker initiates a delete request via the Azure AD Hybrid Health API for the malicious service instance.\n7. Azure Resource Manager processes the 'MICROSOFT.ADHYBRIDHEALTHSERVICE/SERVICES/DELETE' operation.\n8. Unauthorized health service is removed, effectively cleaning up evidence of the spoofing infrastructure.\n\n## Impact\n\nThe primary impact is the loss of reliable authentication telemetry. If successful, an attacker can mask lateral movement or account manipulation by injecting benign-appearing authentication logs from a non-existent or rogue source. This undermines the capability of identity protection systems to flag anomalous login activity, potentially allowing attackers to maintain access for extended periods without detection.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to monitor for the deletion of AAD Hybrid Health service instances.\n* Audit all current AD Hybrid Health service instances within the tenant to ensure only authorized infrastructure is present.\n* Establish an alert for any new 'MICROSOFT.ADHYBRIDHEALTHSERVICE/SERVICES/WRITE' operations to detect the creation of unauthorized AD FS health instances.\n* Restrict Azure RBAC roles that allow the modification or deletion of Hybrid Health service configurations to a limited set of verified identity administrators.\n",
+      "published": "2026-10-21T02:44:27.000Z",
+      "labels": [
+        "azure",
+        "cloud",
+        "defense-impairment"
+      ],
+      "object_refs": [
+        "attack-pattern--b5e811f4-beda-5c22-8326-b9abc85b221c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ea48172d-a9ad-5a98-9e8c-f65f7b605ed2",
+        "software--f214f5d0-9468-5934-9d2d-a9126ca40930"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-aad-hybrid-health-delete",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-aad-hybrid-health-delete/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://aadinternals.com/talks/HelSec%20August%202021.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/identity#microsoftadhybridhealthservice"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20220619212736/https://o365blog.com/post/hybridhealthagent/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.inversecos.com/2023/01/detecting-fake-events-in-azure-sign-in.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-aad-hybrid-health-delete",
+      "x_craftedsignal_event_id": "brief-2026-10-21-aad-hybrid-health-delete",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aad-hybrid-health-delete/",
+      "x_craftedsignal_activity_at": "2026-10-21T02:44:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -138038,13 +137991,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3bf8a04a-6b9a-5383-b572-38af583f80d2",
-      "name": "VALKYRIE AURORA (2.10.2411.0800)",
-      "vendor": "BioStar"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3c0686e6-0934-5fe9-8591-c578dba25adf",
       "name": "CirrusSearch",
       "vendor": "MediaWiki"
@@ -138323,13 +138269,6 @@
       "id": "software--40d720b9-4d57-559c-b84b-19b0d3f3a89a",
       "name": "Crayons plugin (\u003c 3.5.0)",
       "vendor": "SPIP"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--40ee4352-96d1-5fbd-819f-b83ae823eff3",
-      "name": "QCMS (\u003c= 6.0.6)",
-      "vendor": "QCMS"
     },
     {
       "type": "software",
@@ -145782,13 +145721,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--cdd4b99b-0bbf-5c19-9edc-ac8033297f71",
-      "name": "VIVID LED DJ (4.0.2411.1500)",
-      "vendor": "BioStar"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--cde21b03-7e31-5745-85e0-de59a690314c",
       "name": "jackson-core (2.22.0 - 2.22.2)",
       "vendor": "FasterXML"
@@ -147132,6 +147064,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ea48172d-a9ad-5a98-9e8c-f65f7b605ed2",
+      "name": "Azure AD Hybrid Health",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ea6e6eda-0c03-50e3-92b1-6b2e86beeb1a",
       "name": "Azure (Cloud Services)",
       "vendor": "Microsoft"
@@ -147191,6 +147130,13 @@
       "id": "software--eb906551-98ee-5a49-a6fb-de33cffaf137",
       "name": "Open Source Social Network (6.3 LTS)",
       "vendor": "Openteknik"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eb96a251-c123-5a41-965d-63f36b6d62f4",
+      "name": "Entra ID Hybrid Health AD FS",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -154119,22 +154065,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--3f30ce47-5a6f-5ca5-85ac-ae12e5339706",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94110",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94110",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94110"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--3f5c0dbd-2940-59c8-9066-974c276c89c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160679,22 +160609,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--8b365736-4703-520c-b141-143e35f5174e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94129",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94129",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94129"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--8b71c0e0-f6f2-577f-8f5d-43075d1af58d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -161601,22 +161515,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92969",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92969"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9572b910-a342-5f5c-bb9f-43002388e2e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94128",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94128",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94128"
         }
       ]
     },
