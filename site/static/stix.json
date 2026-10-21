@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--897e1eff-d83f-5dc1-8142-fca567de9241",
+  "id": "bundle--db9ce463-5f98-5233-98d5-f6c23f83e511",
   "objects": [
     {
       "type": "attack-pattern",
@@ -255,22 +255,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1098.001",
           "url": "https://attack.mitre.org/techniques/T1098/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Digital Certificates",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1588.004",
-          "url": "https://attack.mitre.org/techniques/T1588/004"
         }
       ]
     },
@@ -543,22 +527,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1187",
           "url": "https://attack.mitre.org/techniques/T1187"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "ARP Cache Poisoning",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1557.002",
-          "url": "https://attack.mitre.org/techniques/T1557/002"
         }
       ]
     },
@@ -4951,17 +4919,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f4ccec60-7276-5e21-8287-49b80e3c859d",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--013f9bb4-bf6d-51ef-943c-e7a150add3ab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b37c8f10-2869-53fe-b548-a7295d0fb59d",
-      "target_ref": "vulnerability--8be0ff91-17c3-5b77-bf55-d970d1a9a65c"
     },
     {
       "type": "relationship",
@@ -15636,17 +15593,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--39e2e241-724b-5bb1-bde9-3e24e8a79bbd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ecaa8195-a644-5101-bc31-050768a5fb13",
-      "target_ref": "vulnerability--b8c7b3e4-3df9-5f39-92a5-5204e6575213"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--39f1f8c3-ff1b-5797-84fb-dc08b2d90a23",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-30T16:23:43.000Z",
@@ -16380,17 +16326,6 @@
       "relationship_type": "has",
       "source_ref": "software--33c00aa8-ffca-5690-bc20-181315210888",
       "target_ref": "vulnerability--3533f0c3-d683-5f06-9366-43f2c72c93a8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3e240466-ce50-5bc5-a607-5ea21748497b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T13:07:57.000Z",
-      "modified": "2026-09-21T13:07:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0ae73557-2bc7-54ad-b26f-e3168249ddf4",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -21638,17 +21573,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0b51f583-ec8d-5533-b86e-9f94c0444128",
       "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--594e97d2-e19e-5e25-8451-af70113e27f8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T12:20:28.000Z",
-      "modified": "2026-10-21T12:20:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--03115277-189c-59bd-905b-f50fe63fd05d",
-      "target_ref": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e"
     },
     {
       "type": "relationship",
@@ -48812,17 +48736,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e271ce66-0398-5405-b6b0-6caa44794405",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T12:28:17.000Z",
-      "modified": "2026-09-21T12:28:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--83398dac-1b00-590f-8766-b5eb6d7ff2bc",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e28bdecc-ec00-5efc-8f27-2e1604b314c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-23T01:54:36.000Z",
@@ -52108,17 +52021,6 @@
       "relationship_type": "uses",
       "source_ref": "report--4b470f8d-0660-566d-b343-84a00e066a7d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f17b82cb-3520-5850-a269-2c52f968bf31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T23:53:18.000Z",
-      "modified": "2026-10-20T23:53:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--242639b0-dab4-549f-a890-75258dce2461",
-      "target_ref": "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3"
     },
     {
       "type": "relationship",
@@ -55768,50 +55670,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--03115277-189c-59bd-905b-f50fe63fd05d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T12:20:28.000Z",
-      "modified": "2026-10-21T12:20:28.000Z",
-      "name": "eMudhra: Intermediate Certificate Authority private key recovery",
-      "description": "## Overview\n\nThe Indian certificate authority eMudhra issued eight intermediate CA certificates in April 2025 containing critical cryptographic flaws. Due to a failure in the key generation ceremony script, these certificates were generated with insufficient entropy, resulting in private keys that are effectively all-zeroes except for the final byte. This weakness allows the private keys to be recovered nearly instantaneously using the baby-step giant-step discrete log algorithm. While no evidence of malicious exploitation exists in Certificate Transparency logs, the vulnerability theoretically allowed for the forgery of trusted HTTPS certificates to impersonate any website. Major root programs (Mozilla, Google, Apple, Microsoft) have blocked these certificates, and eMudhra has revoked them.\n\n## Impact\n\nThe vulnerability permitted the unauthorized generation of fraudulent, trusted HTTPS certificates. This facilitates man-in-the-middle attacks, enabling attackers to intercept, decrypt, or manipulate encrypted traffic for any domain by presenting a forged certificate that clients would accept as valid.\n\n## Recommendation\n\n- Identify and remove the compromised eMudhra intermediate certificates from all enterprise trust stores and internal PKI management tools.\n- Utilize the validation tool provided by Mozilla (Dennis Jackson) to audit client environments for remaining trust in these compromised intermediates.\n- Prioritize patching and software updates for all systems, as some clients require updates to ensure these specific intermediates are no longer trusted.\n- Review eMudhra's forthcoming audit of their key generation ceremony processes to ensure internal compliance and risk management alignment.\n",
-      "published": "2026-10-21T12:20:28.000Z",
-      "labels": [
-        "certificate-authority",
-        "cryptography",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--180e61d0-e367-5fcc-b0d9-6450e85a4520"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-emudhra-ca-keys",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-keys/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-ca-keys",
-      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-ca-keys",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-keys/",
-      "x_craftedsignal_activity_at": "2026-10-21T12:20:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--035a50d1-cc10-5aec-8d00-62b3a16fe7fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:17:21.000Z",
@@ -57780,54 +57638,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0ae73557-2bc7-54ad-b26f-e3168249ddf4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T13:07:57.000Z",
-      "modified": "2026-09-21T13:07:57.000Z",
-      "name": "Detection of Suspicious Command-Line For Loop Parsing",
-      "description": "## Overview\n\nAdversaries and malicious scripts commonly utilize the Windows command-line interpreter 'cmd.exe' to execute 'for /f' loops with the 'delims=' delimiter option. This specific syntax allows attackers to parse, filter, and extract targeted data from the output of built-in system utilities, facilitating reconnaissance and data staging during post-exploitation activities. This technique is a subset of Living-off-the-Land (LotL) behaviors, enabling attackers to remain stealthy by avoiding the introduction of non-native binaries. Defenders should focus on identifying instances of this command pattern where the execution context originates from non-SYSTEM accounts or unexpected parent processes, as legitimate administrative automation typically follows predictable patterns.\n\n## Attack Chain\n\n1. Initial access is established through phishing, exploitation, or credential compromise.\n2. The adversary initiates a cmd.exe process to run enumeration commands (e.g., net, ipconfig, tasklist).\n3. The output of these commands is piped or captured into a variable or temporary file.\n4. The adversary executes 'cmd.exe /c for /f \"delims=...\"' to parse the previously captured data.\n5. Specific strings, credentials, or system identifiers are extracted from the command output based on the provided delimiter.\n6. The extracted data is used to inform further discovery or the next stage of the attack.\n7. The final objective is typically information gathering, credential theft, or the preparation for secondary payload execution.\n\n## Impact\n\nSuccessful execution of this technique facilitates refined data exfiltration, automated discovery, and the extraction of sensitive system information. It is commonly observed in post-exploitation scenarios, including credential harvesting campaigns and malware loaders such as Castleloader, where it is used to process environment data.\n\n## Recommendation\n\n1. Enable Sysmon Event ID 1 (Process Creation) to capture detailed command-line arguments across the environment.\n2. Deploy the provided Sigma detection rule to identify 'for /f' loop execution patterns.\n3. Tune the detection by adding legitimate administrative and software deployment paths to the filter block.\n4. Investigate alerts originating from non-SYSTEM service accounts or user-initiated cmd.exe sessions.\n",
-      "published": "2026-09-21T13:07:57.000Z",
-      "labels": [
-        "cmd",
-        "detection",
-        "lotl",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-windows-for-loop-cmd",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-windows-for-loop-cmd/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_for_loop_usage_within_cmd_exe_to_execute_commands.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://packetwatch.com/resources/threat-profile/clickfix-abuses-finger-to-deliver-castleloader"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-09-windows-for-loop-cmd",
-      "x_craftedsignal_event_id": "brief-2026-09-windows-for-loop-cmd",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-windows-for-loop-cmd/",
-      "x_craftedsignal_activity_at": "2026-09-21T13:07:57.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -65867,50 +65677,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00405,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--242639b0-dab4-549f-a890-75258dce2461",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T23:53:18.000Z",
-      "modified": "2026-10-20T23:53:18.000Z",
-      "name": "Certifi: Bundled eMudhra root CAs with compromised intermediate keys",
-      "description": "## Overview\n\nCertifi versions before 2026.10.18 included the 'emSign ECC Root CA - G3' root certificate in their default CA bundle. It was discovered that eight eMudhra intermediate CA certificates chaining to this root had their private keys compromised, leading to their revocation by the issuing CA. Because these compromised intermediate certificates remained trusted by older versions of the certifi bundle, an attacker could potentially issue fraudulent TLS certificates for any domain. \n\nApplications relying on the certifi bundle for TLS verification - including widely used Python libraries like requests, urllib3, and pip, as well as the Python.org macOS installer - are vulnerable to man-in-the-middle attacks if the attacker is in an on-path position. This allows for traffic decryption, manipulation, and credential theft. Certifi 2026.10.18 initially removed all emSign roots to mitigate the risk, and 2026.10.19 subsequently restored only the unaffected roots. Organizations must upgrade to 2026.10.19 or later and rebuild all container images or environments that include the vulnerable certifi bundle.\n\n## Impact\n\nThe vulnerability impacts any software platform or environment utilizing affected versions of the certifi library to validate TLS connections. Successful exploitation allows an on-path attacker to intercept and modify encrypted communications, potentially leading to widespread data exfiltration, service impersonation, and the compromise of sensitive credentials transmitted over TLS-protected sessions.\n\n## Recommendation\n\n- Upgrade the certifi library in all development, production, and container environments to version 2026.10.19 or later immediately.\n- Rebuild and redeploy container images and virtual machine snapshots that vendored earlier versions of the certifi package.\n- Audit infrastructure dependencies to identify software specifically relying on bundled certifi CA stores, such as custom scripts using the requests or urllib3 libraries.\n",
-      "published": "2026-10-20T23:53:18.000Z",
-      "labels": [
-        "python",
-        "supply-chain",
-        "tls-interception"
-      ],
-      "object_refs": [
-        "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--af7a426d-c1dd-5688-b20c-cf1ebf710958"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-20-certifi-compromised-roots",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-certifi-compromised-roots/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-6q48-6c7w-9gw2"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-20-certifi-compromised-roots",
-      "x_craftedsignal_event_id": "brief-2026-10-20-certifi-compromised-roots",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-certifi-compromised-roots/",
-      "x_craftedsignal_activity_at": "2026-10-20T23:53:18.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -80428,46 +80194,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5366d496-6a7a-5f08-9a0f-1b4ee94a1a29",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T12:28:24.000Z",
-      "modified": "2026-09-21T12:28:24.000Z",
-      "name": "Authorization Bypass in NooBaa Multicloud Object Gateway via SigV4",
-      "description": "## Overview\n\nA vulnerability (CVE-2026-94368) has been identified in the signature verification logic of the noobaa-core component, which powers the NooBaa Multicloud Object Gateway. The flaw specifically affects how the service processes S3 presigned URLs using the Signature Version 4 (SigV4) protocol. When the gateway receives a request, it improperly handles unsigned x-amz- headers by silently dropping them from the signature calculation process rather than rejecting the request. \n\nAn attacker holding a legitimate presigned PUT URL can exploit this by injecting an unsigned x-amz-copy-source header into the request. Because the server excludes this header from verification, the request remains valid, enabling the attacker to transform a standard upload request into a CopyObject operation. This allows an authenticated attacker to read and copy sensitive data to which the original presigned URL owner has access, potentially exposing objects across the entire storage system managed by the gateway. Defenders should prioritize patching noobaa-core and auditing S3 interaction logs for anomalous usage of copy headers.\n\n## Attack Chain\n\n1. Attacker obtains a legitimate S3 presigned PUT URL for a target bucket managed by NooBaa.\n2. Attacker crafts a malicious HTTP request using the presigned URL.\n3. Attacker injects an unauthorized 'x-amz-copy-source' header into the request.\n4. The noobaa-core component processes the request and calculates the SigV4 signature.\n5. The vulnerability in the verification logic ignores the unsigned 'x-amz-copy-source' header during signature validation.\n6. The gateway grants the request based on the valid signature of the original PUT request.\n7. The system executes the CopyObject operation, allowing the attacker to access and copy unauthorized data.\n\n## Impact\n\nSuccessful exploitation allows unauthorized access to data within the NooBaa storage environment. By performing unintended CopyObject operations, an attacker can exfiltrate sensitive files or directories to which they would otherwise lack permission, bypassing established authorization controls. This vulnerability impacts all deployments relying on NooBaa Multicloud Object Gateway for S3-compatible storage services.\n\n## Recommendation\n\n* Patch the noobaa-core component to the version that addresses CVE-2026-94368.\n* Audit web server and storage gateway access logs for suspicious occurrences of the 'x-amz-copy-source' header in requests that originate from unauthorized or unexpected users.\n* Implement strict request validation for S3 SigV4 requests to ensure all headers used for authorization logic are properly verified and non-compliant requests are dropped.\n",
-      "published": "2026-09-21T12:28:24.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ecaa8195-a644-5101-bc31-050768a5fb13",
-        "vulnerability--b8c7b3e4-3df9-5f39-92a5-5204e6575213"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-noobaa-sigv4-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-noobaa-sigv4-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94368"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-noobaa-sigv4-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-21-noobaa-sigv4-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-noobaa-sigv4-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-21T12:28:24.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--53b0b991-7855-53e9-bd67-7660ec6ab5a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T08:33:34.000Z",
@@ -91911,6 +91637,74 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--76a8d5d7-453f-5bde-9f93-1e0ae389c582",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:00.000Z",
+      "modified": "2026-10-21T13:09:06.000Z",
+      "name": "eMudhra: Eight compromised intermediate CA keys threaten TLS trust",
+      "description": "Mozilla received a report on 17 October 2026 that private keys for eight eMudhra intermediate CA certificates had been compromised. Security researcher Scott Helme independently recovered the weak keys from the public certificates and reported that one private key was the integer **4**; others included **56** and **115**. SecurityWeek subsequently reported on the same recoverable-key incident. This describes very small key values, not short certificate files. A holder of a compromised CA key could issue fraudulent HTTPS certificates. Intercepting a connection would also require an on-path position. The cited sources do not establish observed malicious use of these keys.\n\n## Affected intermediate CAs\n\nMozilla's [incident record](https://bugzilla.mozilla.org/show_bug.cgi?id=2083449) identifies six TLS issuers and two code-signing issuers. The names and CCADB identifiers are:\n\n| Purpose | Intermediate CA | CCADB ID |\n| --- | --- | --- |\n| TLS | EM EV TLS CA - G3B (eMudhra BV) | A012304 |\n| TLS | EM OV TLS CA - G3B (eMudhra BV) | A012308 |\n| TLS | EM DV TLS CA - G3B (eMudhra BV) | A012302 |\n| TLS | EM EV TLS CA - G3C (eMudhra Inc) | A012296 |\n| TLS | EM OV TLS CA - G3C (eMudhra Inc) | A012300 |\n| TLS | EM DV TLS CA - G3C (eMudhra Inc) | A012294 |\n| Code signing | EM OV CS CA - G3B (eMudhra BV) | A012306 |\n| Code signing | EM OV CS CA - G3C (eMudhra Inc) | A012298 |\n\nUse the SHA-256 certificate fingerprints in Mozilla's incident record when matching a certificate chain; a CA name alone is not a reliable cryptographic identifier.\n\nMozilla blocked the affected certificates through Firefox OneCRL on 17 October and released Firefox and NSS updates for clients that may not receive that block. As downstream remediation for the same incident, the certifi maintainer removed the affected emSign roots from its CA bundle in version 2026.10.18. The certifi advisory is therefore part of this certificate-chain incident, not a separate compromise.\n\n## Recommendation\n\n- Check which browsers, libraries, containers, and custom trust stores still trust the affected certificate chain.\n- Apply current browser and NSS updates; update affected certifi installations to 2026.10.18 or later and rebuild bundled images.\n- Investigate any suspicious TLS certificate chains issued through the affected intermediates, while keeping observed exploitation separate from the confirmed key compromise.",
+      "published": "2026-10-21T07:47:00.000Z",
+      "labels": [
+        "certificate-authority",
+        "cryptography",
+        "python",
+        "supply-chain",
+        "tls-interception"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0811054d-2388-5571-b84b-9389ec658c0b",
+        "software--180e61d0-e367-5fcc-b0d9-6450e85a4520",
+        "software--47c674b3-eaf7-5845-8448-ffd69980a603",
+        "software--cb5f562c-2eae-5755-a903-33bff92d7ab5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-key-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=2083449"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/276"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
+      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
+      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-key-compromise/",
+      "x_craftedsignal_activity_at": "2026-10-21T13:09:06.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--76b04225-f990-548b-9941-49d93a2f096b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T14:24:44.000Z",
@@ -95930,52 +95724,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--83398dac-1b00-590f-8766-b5eb6d7ff2bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T12:28:17.000Z",
-      "modified": "2026-09-21T12:28:17.000Z",
-      "name": "CRI-O Checkpoint and Restore Metadata Validation Vulnerability",
-      "description": "## Overview\n\nCVE-2026-15801 is a security vulnerability identified in the CRI-O container runtime, specifically impacting the optional container checkpoint and restore functionality. The vulnerability arises from improper validation of metadata contained within checkpoint archives during the restoration process. If an administrator has explicitly enabled the non-default checkpoint and restore feature, an attacker with sufficient privileges to interact with the container runtime can supply a maliciously crafted checkpoint archive. This allows the attacker to manipulate the host filesystem beyond the intended scope of the container's isolated environment. Because this feature is not enabled by default, organizations only face risk if they have modified their CRI-O configuration to support container migration or state snapshots. Defenders should audit their container host configurations to identify if this feature is in use.\n\n## Impact\n\nSuccessful exploitation of this vulnerability permits an attacker to escape container isolation constraints, leading to unauthorized read or write access to the host filesystem. This could result in host compromise, persistence establishment, or the modification of sensitive system files. The scope of impact is limited to environments where the non-default checkpoint and restore functionality is active.\n\n## Recommendation\n\n- Audit all CRI-O container runtime configurations to determine if the checkpoint and restore feature is enabled.\n- Disable the checkpoint and restore feature in CRI-O unless it is strictly required for business operations.\n- Apply security patches or updates for CRI-O provided by the vendor or distribution maintainer to address the metadata validation logic flaw in CVE-2026-15801.\n- Implement strict RBAC controls to ensure that only highly trusted users have the authorization to trigger container checkpoint and restore operations.\n",
-      "published": "2026-09-21T12:28:17.000Z",
-      "labels": [
-        "container-security",
-        "privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b37c8f10-2869-53fe-b548-a7295d0fb59d",
-        "vulnerability--8be0ff91-17c3-5b77-bf55-d970d1a9a65c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-crio-checkpoint-vuln",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-crio-checkpoint-vuln/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15801"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-crio-checkpoint-vuln",
-      "x_craftedsignal_event_id": "brief-2026-09-21-crio-checkpoint-vuln",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-crio-checkpoint-vuln/",
-      "x_craftedsignal_activity_at": "2026-09-21T12:28:17.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -133137,48 +132885,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f404e372-5088-571d-bd54-df6c5ca5a636",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:57:27.000Z",
-      "modified": "2026-10-21T07:57:27.000Z",
-      "name": "eMudhra: Weak Private Key Generation in Intermediate CA Certificates",
-      "description": "## Overview\n\nAn audit of eMudhra intermediate certificates has identified that eight P384 intermediate certificates, generated in April 2025, contain weak private keys. The private keys were constrained to integers less than 256, effectively rendering them predictable. These keys were recovered trivially by researchers using simple discrete logarithm algorithms, as the private keys were essentially all-zeroes with only the final byte varied. This failure originated during the key generation process rather than the signing process. The organization has revoked the impacted keys, and audits are now required for other CA root and intermediate certificates to identify similar implementation flaws.\n\n## Impact\n\nThe use of weak, predictable private keys allows unauthorized parties to recover the private key of the certificate, enabling the impersonation of the CA or the issuance of fraudulent certificates within the trust chain.\n\n## Recommendation\n\n- Inventory all certificates signed by the affected eMudhra intermediate CA chain.\n- Revoke and replace any certificates issued by the compromised intermediates.\n- Implement automated auditing for all CA root and intermediate keys to verify the entropy and randomness of private key generation, ensuring they meet cryptographic standards.\n- Monitor certificate transparency logs for anomalous or unauthorized certificate issuances linked to eMudhra infrastructure.\n",
-      "published": "2026-10-21T07:57:27.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--cb5f562c-2eae-5755-a903-33bff92d7ab5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-emudhra-ca-compromise",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=2083449"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://seclists.org/oss-sec/2026/q4/276"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-ca-compromise",
-      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-ca-compromise",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-21T07:57:27.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f409132a-53af-5108-9fa7-c65e12ef5bfd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T20:33:03.000Z",
@@ -137188,6 +136894,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0811054d-2388-5571-b84b-9389ec658c0b",
+      "name": "emSign intermediate CA certificates",
+      "vendor": "eMudhra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0841404a-4705-521f-9f42-884330e441b1",
       "name": "Chat (\u003c= ac63d25297079eed5e4ba7e88d3b7a032637150d)",
       "vendor": "songxinjianqwe"
@@ -140522,6 +140235,13 @@
       "spec_version": "2.1",
       "id": "software--479d58ff-de3e-5ad4-a9a4-0d3149160463",
       "name": "Ultra Addons for Contact Form 7 (\u003c= 3.5.50)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--47c674b3-eaf7-5845-8448-ffd69980a603",
+      "name": "certifi (\u003c 2026.10.18)",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -146260,13 +145980,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--af7a426d-c1dd-5688-b20c-cf1ebf710958",
-      "name": "certifi (\u003c 2026.10.19)",
-      "vendor": "eMudhra"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--afaeed17-d101-5c6d-ba09-d5f7e2451ee2",
       "name": "Planning Analytics (2.0, 2.1)",
       "vendor": "IBM"
@@ -146428,13 +146141,6 @@
       "id": "software--b32c780b-3464-5018-b562-737dcadd4856",
       "name": "SGLang (\u003c= 0.5.21)",
       "vendor": "SGLang"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--b37c8f10-2869-53fe-b548-a7295d0fb59d",
-      "name": "CRI-O",
-      "vendor": "CRI-O"
     },
     {
       "type": "software",
@@ -149265,13 +148971,6 @@
       "id": "software--ec9b8e3e-5f2f-56bb-b104-9f8239fa44bc",
       "name": "@backstage/plugin-scaffolder-backend-module-sentry (\u003e= 0.3.0, \u003c 0.3.8)",
       "vendor": "Backstage"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ecaa8195-a644-5101-bc31-050768a5fb13",
-      "name": "noobaa-core",
-      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -162854,22 +162553,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--8be0ff91-17c3-5b77-bf55-d970d1a9a65c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15801",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15801",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15801"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--8c8a2e3c-aa98-5b80-a3f5-ad2fc503468c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -166816,22 +166499,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111691",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111691"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b8c7b3e4-3df9-5f39-92a5-5204e6575213",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94368",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94368",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94368"
         }
       ]
     },

@@ -35,6 +35,7 @@ revision_history:
     source_urls:
       - https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/
       - https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2
+      - https://seclists.org/oss-sec/2026/q4/276
 aliases:
   - /briefs/2026-10-emudhra-ca-compromise/
   - /briefs/2026-10-emudhra-ca-keys/
@@ -67,6 +68,7 @@ vendors:
 products:
   - emSign intermediate CA certificates
   - Intermediate Certificate Authorities
+  - eMudhra CA Intermediate Certificates (P384)
   - certifi (< 2026.10.18)
 references:
   - https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/
@@ -74,6 +76,7 @@ references:
   - https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2
   - https://bugzilla.mozilla.org/show_bug.cgi?id=2083449
   - https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/
+  - https://seclists.org/oss-sec/2026/q4/276
 action_plan:
   priority: immediate_escalation
   owners:
