@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bee5c869-c5be-5d8a-804f-f9ea5b404082",
+  "id": "bundle--b9438996-57ab-5d4d-98f4-4d7182dc86ca",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21260,6 +21260,17 @@
       "relationship_type": "has",
       "source_ref": "software--e9407ce8-ec94-5ea9-b232-31803cdef9ec",
       "target_ref": "vulnerability--4685b1cb-23b2-5bf9-92d6-cb581fe729cc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7943fcd7-9645-5744-9ca8-db892e33f605",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c84027a-814f-5c2b-9382-6f7b972ba316",
+      "target_ref": "vulnerability--a6cf163b-71e5-5c9d-9753-f09bec302312"
     },
     {
       "type": "relationship",
@@ -79452,6 +79463,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9f13599f-4863-5ad1-9a9c-f3fb2b8ac776",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:18:46.000Z",
+      "modified": "2026-10-21T13:18:46.000Z",
+      "name": "Insurance-Management-System: SQL injection in editPlan.php (CVE-2026-114242)",
+      "description": "A vulnerability was identified in dhikshitha29 Insurance-Management-System (commit 91de5edda5baa109ad8e9baf03ce6a3ceda84183/125362cc21dca20d74091a4913a5096bb58dd837). The function `mysqli_query` in `/Admin/View/editPlan.php` is susceptible to SQL injection via the `Plan_no` or `Name` argument. The attack can be executed remotely, and a public exploit is available. The project uses a rolling release model, and no fix has been provided by the maintainer.\n",
+      "published": "2026-10-21T13:18:46.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c84027a-814f-5c2b-9382-6f7b972ba316",
+        "vulnerability--a6cf163b-71e5-5c9d-9753-f09bec302312"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-insurance-management-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-insurance-management-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114242"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-insurance-management-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-21-insurance-management-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-insurance-management-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-10-21T13:18:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9fe8b0c7-42e3-54c9-8768-9356410c869d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:48:20.000Z",
@@ -106895,6 +106946,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6c84027a-814f-5c2b-9382-6f7b972ba316",
+      "name": "Insurance-Management-System (rolling release)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c94b5c3-dbe6-58e7-8641-41320b2aef7a",
       "name": "Amazon Bedrock",
       "vendor": "Amazon"
@@ -123693,6 +123750,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101528",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101528"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a6cf163b-71e5-5c9d-9753-f09bec302312",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114242",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114242",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114242"
         }
       ]
     },
