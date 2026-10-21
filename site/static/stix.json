@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6b8b915-fc30-5a76-9888-42a333721c69",
+  "id": "bundle--bd322672-c026-5e3a-822c-37b0cda8dd5a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2373,6 +2373,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Container Administration Command",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1609",
+          "url": "https://attack.mitre.org/techniques/T1609"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2543,6 +2559,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1553",
           "url": "https://attack.mitre.org/techniques/T1553"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Wordlist Scanning",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1595.003",
+          "url": "https://attack.mitre.org/techniques/T1595/003"
         }
       ]
     },
@@ -2815,6 +2847,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1110",
           "url": "https://attack.mitre.org/techniques/T1110"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--dfc383a0-731c-591b-a2e7-3d9690632cf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Groups",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1069.003",
+          "url": "https://attack.mitre.org/techniques/T1069/003"
         }
       ]
     },
@@ -4717,17 +4765,6 @@
       "relationship_type": "uses",
       "source_ref": "report--90498f26-7486-5b23-9b30-814dafd2c11d",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--00978323-0751-5a10-9de9-8e31f9e69d18",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--696fb8bb-fd55-572c-93b3-332f6cff0afd",
-      "target_ref": "vulnerability--993e0de8-2155-54d8-9a42-43085c92115c"
     },
     {
       "type": "relationship",
@@ -18053,6 +18090,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--470c4553-f8b0-52e4-aec7-0a8dda1f9179",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4712a883-e75c-5eff-bdd8-0d55bc7c8760",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18654,17 +18702,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b5d96be5-b0aa-5853-84b9-57b9282da4ff",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--49bc9cbe-fadb-540e-bf20-5c1f86c39053",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f0eacf17-a8f6-55d1-afaf-f79b025dc320",
-      "target_ref": "vulnerability--b7ad3cc4-8aba-5ddc-b2ff-3d17c5e44ad5"
     },
     {
       "type": "relationship",
@@ -20348,6 +20385,17 @@
       "relationship_type": "has",
       "source_ref": "software--41206147-22f4-52c6-b8ee-de0f13b2cf34",
       "target_ref": "vulnerability--1beb5058-ee8c-583f-bc8d-142b688d7e7b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52a9d331-b5d0-570c-b383-8baa960d384b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:30:23.000Z",
+      "modified": "2026-10-21T08:30:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b5ee0bd-a80b-5727-838a-518b2ae38ec5",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
     },
     {
       "type": "relationship",
@@ -23571,6 +23619,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0f33f6ef-eacb-54c9-94ee-ff598ed57eb8",
       "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--63d7f276-ba93-5b4e-825a-ce23da0bb771",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -27560,7 +27619,7 @@
       "id": "relationship--785d0ff6-8493-580d-b4cc-a01c8e9b42ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
@@ -28983,6 +29042,17 @@
       "relationship_type": "has",
       "source_ref": "software--8fd3df26-6ee5-5114-be10-2b3c78527a18",
       "target_ref": "vulnerability--2b9cee66-a361-56c7-884c-5e01f014ded2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f574173-cf85-53c8-a19c-0ad02103a6da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
     },
     {
       "type": "relationship",
@@ -32712,17 +32782,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5a574c78-de04-5470-b044-6612e679ab59",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--92e77106-4709-5a5f-af9d-5bbb46130448",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T08:27:10.000Z",
-      "modified": "2026-09-21T08:27:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1ab1a9d8-c74c-5454-b1d4-988a31f5c182",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -36463,17 +36522,6 @@
       "relationship_type": "has",
       "source_ref": "software--51ee6cbf-b899-56ea-b222-89e96700e9b6",
       "target_ref": "vulnerability--435f72f1-f424-5b87-a394-e01d79f83377"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a629f201-277d-59e8-9366-13ea05de5f28",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T08:26:55.000Z",
-      "modified": "2026-09-21T08:26:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e6c52ad3-175f-5800-95e8-8efa19783b3b",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -40885,6 +40933,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cc50f326-3642-585c-9803-354938081642",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bca52553-4b6a-5c44-82c2-f4a716099be5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:30:23.000Z",
+      "modified": "2026-10-21T08:30:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b5ee0bd-a80b-5727-838a-518b2ae38ec5",
+      "target_ref": "attack-pattern--dfc383a0-731c-591b-a2e7-3d9690632cf0"
     },
     {
       "type": "relationship",
@@ -47236,6 +47295,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dc8b89a1-d7d1-53f8-975b-c2a9ddffe98e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:31:12.000Z",
+      "modified": "2026-10-21T08:31:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b470eb12-6403-53de-b861-d00116b2f766",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dc92fa01-2ee6-5938-a0a4-7db372c3c500",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T01:43:03.000Z",
@@ -49630,6 +49700,17 @@
       "relationship_type": "has",
       "source_ref": "software--a0d8f675-57e1-5a6b-bc03-b011eda858eb",
       "target_ref": "vulnerability--135c792a-2d97-5604-bd53-1aa77bd08fbc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6de2eea-9009-5e91-ad40-70c62e18e7d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
     },
     {
       "type": "relationship",
@@ -54470,6 +54551,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2611a577-cda0-53e0-aacb-e963b1a2e20a",
       "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ff6f4998-8387-51b7-a9bb-82c680e8f233",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:31:12.000Z",
+      "modified": "2026-10-21T08:31:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b470eb12-6403-53de-b861-d00116b2f766",
+      "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
     },
     {
       "type": "relationship",
@@ -62586,52 +62678,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.01007,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1ab1a9d8-c74c-5454-b1d4-988a31f5c182",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T08:27:10.000Z",
-      "modified": "2026-09-21T08:27:10.000Z",
-      "name": "Local Privilege Escalation in BioStar BIOS Update Utility",
-      "description": "## Overview\n\nA high-severity vulnerability (CVE-2026-94146) has been identified in the BioStar BIOS Update Utility version 1.9.7.3. The flaw exists within the BSMEM64_W10.sys driver, specifically in the IOCTL handler function sub_110BC. By manipulating the PhysicalAddress and Size arguments sent to the driver, a local attacker can trigger a write-what-where condition. This vulnerability enables a local user with standard privileges to escalate their permissions, potentially leading to full system compromise. Because the utility is intended to modify system firmware settings, the driver likely operates with elevated kernel-level privileges. Public exploit code for this vulnerability is currently available, and the vendor has not provided a patch or a response to the disclosure. Defenders should identify systems running this utility and consider removing it if not required for essential BIOS maintenance.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker who already has local access to a system to elevate privileges, potentially gaining SYSTEM-level access. This poses a significant threat to internal security, as it allows attackers to bypass OS-level access controls, deploy persistence mechanisms, or extract sensitive data protected by kernel-level security features. The utility is primarily used on Windows 10 systems utilizing BioStar hardware.\n\n## Recommendation\n\nPrioritize the identification of endpoints running BioStar BIOS Update Utility version 1.9.7.3. Given the lack of a vendor patch and the existence of public exploit code, consider the following actions:\n\n- Uninstall BioStar BIOS Update Utility 1.9.7.3 from all managed Windows 10 workstations.\n- Monitor for unauthorized loading of the BSMEM64_W10.sys driver or unusual IOCTL communication to this driver if it must remain installed for critical operations.\n- Block the execution of known proof-of-concept tools targeting CVE-2026-94146 using Endpoint Detection and Response (EDR) blocklists.\n",
-      "published": "2026-09-21T08:27:10.000Z",
-      "labels": [
-        "driver-vulnerability",
-        "privilege-escalation",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f0eacf17-a8f6-55d1-afaf-f79b025dc320",
-        "vulnerability--b7ad3cc4-8aba-5ddc-b2ff-3d17c5e44ad5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-biostar-bios-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-bios-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94146"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-biostar-bios-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-09-21-biostar-bios-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-bios-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-09-21T08:27:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -88226,6 +88272,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6b5ee0bd-a80b-5727-838a-518b2ae38ec5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:30:23.000Z",
+      "modified": "2026-10-21T08:30:23.000Z",
+      "name": "AWS EKS: Suspicious Self-Subject Review via Unusual User Agent",
+      "description": "## Overview\nAdversaries who have gained access to service account or node credentials may attempt to determine \ntheir privileges to facilitate further movement or execution within the cluster. Kubernetes APIs \nsuch as selfsubjectaccessreview and selfsubjectrulesreview are intended for permission debugging \nbut can be exploited for privilege enumeration. This detection identifies these API calls when \nperformed by service accounts or nodes using non-standard user agents.\n\n## False Positives\n- Automated tasks or service accounts programmed to perform routine permission checks.\n- Nodes performing legitimate self-assessment for compliance or security.\n- Development or testing environments with frequent permission verification.\n\n## Investigation\n- Identify the service account or node using `aws.eks.audit.user.username` or `aws.eks.audit.impersonatedUser.username`.\n- Analyze the `aws.eks.audit.objectRef.resource` to confirm the API call type.\n- Evaluate the IP address and user agent in the audit logs against expected traffic patterns.\n- Review recent changes to permissions or roles associated with the implicated identity.\n",
+      "published": "2026-10-21T08:30:23.000Z",
+      "labels": [
+        "AWS",
+        "Discovery",
+        "Kubernetes",
+        "Threat Detection"
+      ],
+      "object_refs": [
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "attack-pattern--dfc383a0-731c-591b-a2e7-3d9690632cf0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-eks-self-subject-review",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-self-subject-review/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1069/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1613/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_suspicious_self_subject_review_aws_eks.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-self-subject-review",
+      "x_craftedsignal_event_id": "brief-2026-10-21-eks-self-subject-review",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-self-subject-review/",
+      "x_craftedsignal_activity_at": "2026-10-21T08:30:23.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6ba9d476-8c41-51b2-9fff-c405f0a55d8f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:06:37.000Z",
@@ -105778,19 +105877,27 @@
       "id": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
       "name": "Amazon EKS: Improper TokenRequest API usage detection",
       "description": "## Overview\n\nThe Kubernetes TokenRequest API allows identities with appropriate RBAC permissions to programmatically generate short-lived tokens for service accounts. Because this process occurs via the API server, the resulting tokens do not leave traditional filesystem footprints, evading file-based monitoring. In Amazon EKS environments, attackers who have gained initial cluster access can leverage this API to mint tokens for highly privileged service accounts, effectively bypassing security controls meant to protect mounted secrets.\n\n## Impact\n\nSuccessful abuse of the TokenRequest API enables attackers to impersonate privileged service accounts, perform unauthorized cluster operations, or gain access to AWS cloud resources through IRSA (IAM Roles for Service Accounts).\n\n## Recommendation\n\n- Enable and ingest EKS control-plane audit logs into your SIEM as defined in the AWS integration documentation for `aws.eks_audit`.\n- Deploy the detection rules provided below to monitor for `create` events against the `serviceaccounts/token` subresource by non-system identities.\n- Review RBAC policies across the cluster to identify and restrict `create` permissions on the `serviceaccounts/token` subresource to only strictly necessary service accounts or users.\n- Audit existing tokens minted via TokenRequest by correlating `aws.eks.audit.annotations.authentication_kubernetes_io/issued-credential-id` with subsequent API activity.\n",
       "published": "2026-10-21T07:47:08.000Z",
       "labels": [
         "aws",
         "cloud",
+        "command-and-control",
         "credential-access",
+        "discovery",
         "eks",
-        "kubernetes"
+        "execution",
+        "kubernetes",
+        "reconnaissance"
       ],
       "object_refs": [
         "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
+        "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--a95034b8-a1a3-59aa-9f62-1110c74acdcf"
       ],
@@ -105802,20 +105909,44 @@
         },
         {
           "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1613/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cloud.hacktricks.wiki/en/pentesting-cloud/kubernetes-security/kubernetes-privilege-escalation/workload-and-pod-access.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_service_account_token_created_via_tokenrequest_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_endpoint_permission_enumeration_by_anonymous_user_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_kubernetes_multi_resource_setup_recon_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_kubernetes_pod_exec_curl_wget_https_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#unauthenticated-api-access"
         },
         {
           "source_name": "reference",
           "url": "https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-v1/"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-21-eks-tokenrequest-abuse",
       "x_craftedsignal_event_id": "brief-2026-10-21-eks-tokenrequest-abuse",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-tokenrequest-abuse/",
-      "x_craftedsignal_activity_at": "2026-10-21T07:47:08.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-10-21T08:31:53.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -111758,6 +111889,46 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gitea-vulnerabilities/",
       "x_craftedsignal_activity_at": "2026-10-07T16:48:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b470eb12-6403-53de-b861-d00116b2f766",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:31:12.000Z",
+      "modified": "2026-10-21T08:31:12.000Z",
+      "name": "AWS EKS: Kubernetes secret enumeration detection",
+      "description": "## Overview\nElastic has released a detection rule to identify 'list' operations on Kubernetes Secrets within AWS EKS clusters. The rule monitors for operations targeting '/api/v1/secrets' or namespaces such as 'kube-system' and 'default' when initiated from non-loopback IP addresses. This monitoring is intended to identify potential credential enumeration from remote clients. The implementation requires EKS control-plane audit logs to be enabled and ingested into the 'logs-aws.eks_audit-*' data stream.\n\n## Recommendation\n- Enable AWS EKS audit log streaming to the AWS integration.\n- Deploy the detection logic to identify unauthorized service account or user access.\n- Investigate findings by confirming the actor and reviewing the source IP, user agent, and follow-on API activity.\n- If listing is unauthorized, revoke credentials, rotate exposed secrets, and tighten RBAC to ensure only required service accounts can list secrets in sensitive namespaces.\n",
+      "published": "2026-10-21T08:31:12.000Z",
+      "object_refs": [
+        "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--38aa4359-09f3-503a-8b6f-03d315d41124"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-eks-secrets-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-secrets-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_secrets_list_cluster_and_sensitive_namespaces_aws_eks.toml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-secrets-discovery",
+      "x_craftedsignal_event_id": "brief-2026-10-21-eks-secrets-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-secrets-discovery/",
+      "x_craftedsignal_activity_at": "2026-10-21T08:31:12.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -128009,47 +128180,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e6c52ad3-175f-5800-95e8-8efa19783b3b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T08:26:55.000Z",
-      "modified": "2026-09-21T08:26:55.000Z",
-      "name": "Local Privilege Escalation in BioStar Temperature Monitor Utility",
-      "description": "## Overview\n\nCVE-2026-94142 is a security vulnerability residing in the BioStar Temperature Monitor Utility version 1.2.1806.2200. The vulnerability is located within the IOCTL handler of the BS_HWMIO64_W10.sys driver, specifically in the sub_1105C function. An attacker with local access to the system can exploit improper validation of the PhysicalAddress argument to perform a write-what-where operation. This manipulation allows for kernel memory corruption and potentially leads to the execution of arbitrary code with SYSTEM or kernel-level privileges. Public exploit code for this vulnerability has been disclosed, increasing the risk of exploitation by local attackers seeking to elevate privileges. BioStar did not respond to initial disclosure attempts, and no vendor patch is currently available.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows a local user to escalate privileges to the kernel or SYSTEM level. This enables the attacker to bypass operating system security controls, install persistent backdoors, dump sensitive kernel memory, or disable endpoint protection software. The vulnerability affects environments where the BioStar Temperature Monitor Utility is installed on Windows systems.\n\n## Recommendation\n\nPrioritize the identification and removal of vulnerable versions of the BioStar Temperature Monitor Utility (version 1.2.1806.2200) from all endpoints. Monitor system event logs for unusual driver loading activities or unexpected process executions occurring from user-space applications that interact with hardware monitoring interfaces. If the utility is not business-critical, implement a policy to block or uninstall the affected driver BS_HWMIO64_W10.sys.\n",
-      "published": "2026-09-21T08:26:55.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--696fb8bb-fd55-572c-93b3-332f6cff0afd",
-        "vulnerability--993e0de8-2155-54d8-9a42-43085c92115c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-biostar-privilege-escalation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-privilege-escalation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94142"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-biostar-privilege-escalation",
-      "x_craftedsignal_event_id": "brief-2026-09-21-biostar-privilege-escalation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-biostar-privilege-escalation/",
-      "x_craftedsignal_activity_at": "2026-09-21T08:26:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e6cee576-91a4-537c-98dd-5a60a55e52c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:59:41.000Z",
@@ -138905,6 +139035,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--38aa4359-09f3-503a-8b6f-03d315d41124",
+      "name": "Amazon Elastic Kubernetes Service (EKS)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--38add08a-06a0-5bc2-ab43-4807a2ac8675",
       "name": "cluster-engine (\u003c 0.1.1)",
       "vendor": "Socket.IO"
@@ -141456,13 +141592,6 @@
       "id": "software--696cb51a-218f-5c0e-a203-2b921edb0351",
       "name": "Observability Self-Hosted",
       "vendor": "SolarWinds"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--696fb8bb-fd55-572c-93b3-332f6cff0afd",
-      "name": "Temperature Monitor Utility (1.2.1806.2200)",
-      "vendor": "BioStar"
     },
     {
       "type": "software",
@@ -148632,13 +148761,6 @@
       "id": "software--f0ea4be7-3e01-5e3b-a205-e0a6b29847c3",
       "name": "WordPress (\u003c 7.1.3)",
       "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f0eacf17-a8f6-55d1-afaf-f79b025dc320",
-      "name": "BIOS Update Utility (1.9.7.3)",
-      "vendor": "BioStar"
     },
     {
       "type": "software",
@@ -163028,22 +163150,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--993e0de8-2155-54d8-9a42-43085c92115c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94142",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94142",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94142"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--994d24ef-5e40-5cd2-b939-ddc7e77af1bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -165710,22 +165816,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-10026",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10026"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b7ad3cc4-8aba-5ddc-b2ff-3d17c5e44ad5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94146",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94146",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94146"
         }
       ]
     },
