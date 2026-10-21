@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8bccb752-e319-5d5c-9c80-062f9d34c531",
+  "id": "bundle--d7ba9354-ead3-5e95-bd94-a3aacc1c5e30",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12364,6 +12364,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--37e971f2-726a-5d30-8b05-268f72e70585",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1a880a06-9480-5e3a-b155-6ecf59f4d4a0",
+      "target_ref": "vulnerability--22b002ae-aff1-531f-aa24-df3b5d35112a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--37fc9215-a5f9-55e0-8cff-3c3a78dfd2fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17002,6 +17013,17 @@
       "relationship_type": "uses",
       "source_ref": "report--72c34e9b-499f-5297-993a-d629b5f6c206",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--57446b04-e2f1-5c7d-afcf-36bf66d8a905",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2ed9055f-1133-540d-99c6-8e4f44f268e0",
+      "target_ref": "vulnerability--963ae282-7561-5366-bcf1-bc6edf3d3404"
     },
     {
       "type": "relationship",
@@ -22429,6 +22451,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7a3af8ce-f514-5644-83e4-5f43f5a9088a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:36:00.000Z",
+      "modified": "2026-10-21T21:36:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5db106a-0811-5963-a3ff-1d8da5644e74",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7a7701ef-1a70-5156-a5bd-99d61d2a1ca6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T05:34:45.000Z",
@@ -23393,6 +23426,17 @@
       "relationship_type": "has",
       "source_ref": "software--9b6c7d47-bdf6-5d15-83b2-1c41eb93b3c2",
       "target_ref": "vulnerability--3e6c02b8-9b59-5afd-858d-e94a2b56691d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8127d885-20d1-50e2-9ec9-3dd4b83fff48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d5aa4486-1940-5b83-acce-df7af66d1d17",
+      "target_ref": "vulnerability--211ba1a2-fe89-53c5-982d-54966baa0ffd"
     },
     {
       "type": "relationship",
@@ -60136,6 +60180,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4830f0d7-1cb9-597c-b871-14932cbf9aa4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:37:29.000Z",
+      "modified": "2026-10-21T21:37:29.000Z",
+      "name": "file-management-system: Unrestricted file upload (CVE-2026-114262)",
+      "description": "A vulnerability was identified in the `store` function of `app/Http/Controllers/FileController.php` within the `file-management-system` repository (commit `dc9ce1bf27f94b23d906cb1e86ce374dc94ca5df`). Manipulating the 'File' argument allows for unrestricted file uploads. The attack can be initiated remotely. The exploit has been publicly disclosed. The project uses a rolling release model, and no specific version information for affected or updated releases is available. The project was informed of the issue but has not yet responded.\n",
+      "published": "2026-10-21T21:37:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2ed9055f-1133-540d-99c6-8e4f44f268e0",
+        "vulnerability--963ae282-7561-5366-bcf1-bc6edf3d3404"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-cve-2026-114262-file-management-system-unrestricted-upload",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-114262-file-management-system-unrestricted-upload/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114262"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-cve-2026-114262-file-management-system-unrestricted-upload",
+      "x_craftedsignal_event_id": "brief-2026-10-21-cve-2026-114262-file-management-system-unrestricted-upload",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-114262-file-management-system-unrestricted-upload/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:37:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--48530fe4-8952-5e48-a169-5c2807ad5da0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:56.000Z",
@@ -91817,6 +91901,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c225766f-6736-531e-a54f-79dc4afd4289",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:37:20.000Z",
+      "modified": "2026-10-21T21:37:20.000Z",
+      "name": "Tenda BE3L Pro: Buffer overflow in formWifiBasicSet (CVE-2026-114268)",
+      "description": "A flaw has been found in Tenda BE3L Pro 16.03.60.62. The function formWifiBasicSet in the file /goform/WifiBasicSet is affected by a buffer overflow vulnerability. This is caused by manipulation of the security_5g argument. The attack can be initiated remotely. An exploit has been published.\n",
+      "published": "2026-10-21T21:37:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d5aa4486-1940-5b83-acce-df7af66d1d17",
+        "vulnerability--211ba1a2-fe89-53c5-982d-54966baa0ffd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-tenda-be3l-pro-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-tenda-be3l-pro-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114268"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-tenda-be3l-pro-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-21-tenda-be3l-pro-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tenda-be3l-pro-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:37:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c274b9a8-22ea-555c-8c5b-782d315ed0da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T20:49:54.000Z",
@@ -104492,6 +104616,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5db106a-0811-5963-a3ff-1d8da5644e74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T21:36:00.000Z",
+      "modified": "2026-10-21T21:36:00.000Z",
+      "name": "Apache Pulsar Manager: Missing authentication and administrative credential disclosure (CVE-2026-105944)",
+      "description": "## Overview\n\nThe Apache Pulsar PMC has confirmed that Apache Pulsar Manager suffers from missing authentication and authorization, resulting in the potential exposure of Pulsar administrative credentials (CVE-2026-105944). Apache Pulsar Manager has reached its end-of-life (EOL) and has been retired; consequently, the Apache Pulsar PMC has explicitly stated that no security patches will be issued for this vulnerability. Users are advised to discontinue the use of this software and migrate to alternative solutions.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to bypass security controls and gain access to sensitive administrative credentials, which could lead to full compromise of the Pulsar cluster management interface.\n\n## Recommendation\n\n- Identify all instances of Apache Pulsar Manager within the environment via software asset inventory.\n- Plan and execute an immediate migration away from Apache Pulsar Manager as the software is EOL and will remain vulnerable.\n- Restrict network access to any remaining instances of Pulsar Manager as an interim compensating control to prevent unauthorized access.\n",
+      "published": "2026-10-21T21:36:00.000Z",
+      "labels": [
+        "authentication-bypass",
+        "eol",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1a880a06-9480-5e3a-b155-6ecf59f4d4a0",
+        "vulnerability--22b002ae-aff1-531f-aa24-df3b5d35112a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-apache-pulsar-manager-eol",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-pulsar-manager-eol/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lists.apache.org/thread/hol3z7fzhjntwvrv8xqqwx4l4d2jx796"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/297"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-apache-pulsar-manager-eol",
+      "x_craftedsignal_event_id": "brief-2026-10-21-apache-pulsar-manager-eol",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-pulsar-manager-eol/",
+      "x_craftedsignal_activity_at": "2026-10-21T21:36:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f65b4c69-836e-5e5e-9c6d-926cc8607f32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:35:05.000Z",
@@ -108146,6 +108319,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1a880a06-9480-5e3a-b155-6ecf59f4d4a0",
+      "name": "Pulsar Manager",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1a938eb9-2493-5854-ae6c-6fcebfd591bf",
       "name": "BIND (\u003c 9.9.7-P2)"
     },
@@ -108916,6 +109096,12 @@
       "id": "software--2ec66545-cc4a-55b4-b005-a85fb4b21ff0",
       "name": "react-start (1.143.12 - \u003c1.168.60)",
       "vendor": "TanStack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2ed9055f-1133-540d-99c6-8e4f44f268e0",
+      "name": "file-management-system (commit dc9ce1bf27f94b23d906cb1e86ce374dc94ca5df)"
     },
     {
       "type": "software",
@@ -115601,6 +115787,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d5aa4486-1940-5b83-acce-df7af66d1d17",
+      "name": "BE3L Pro (16.03.60.62)",
+      "vendor": "Tenda"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d5f00219-636c-5e98-b476-27f29c117749",
       "name": "NB Designer (\u003c= 2.9.1)",
       "vendor": "Printcart"
@@ -119611,6 +119804,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--211ba1a2-fe89-53c5-982d-54966baa0ffd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114268",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114268",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114268"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--217d93a9-f249-5efa-b49b-0e2c55fd0114",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -119733,6 +119942,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110897",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110897"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--22b002ae-aff1-531f-aa24-df3b5d35112a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105944",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105944",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105944"
         }
       ]
     },
@@ -127813,6 +128038,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111765",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111765"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--963ae282-7561-5366-bcf1-bc6edf3d3404",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114262",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114262",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114262"
         }
       ]
     },

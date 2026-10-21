@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5183f597-e8a1-579e-98c4-78cccb1c2897",
+  "id": "bundle--f2668489-22e2-5143-b49b-4451f5eabbba",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6071,19 +6071,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--a57b9b8b-97c0-5f27-b633-b990c2b1f50d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T21:18:41.000Z",
-      "modified": "2026-08-25T14:15:20.000Z",
-      "name": "url: https://sploitus.com/exploit?id=ACA86828-5C21-5718-A982-2A0E64261DF1",
-      "description": "PoC exploit source",
-      "pattern": "[url:value = 'https://sploitus.com/exploit?id=ACA86828-5C21-5718-A982-2A0E64261DF1']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-23T21:18:41.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--a5bcd63b-6988-5766-8e45-88760e76d087",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -7546,19 +7533,6 @@
       "pattern": "[domain-name:value = '*.storage.googleapis.com']",
       "pattern_type": "stix",
       "valid_from": "2026-07-27T18:13:03.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--d4e017e7-545f-53d8-bdc7-2b781e888ffc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T21:18:41.000Z",
-      "modified": "2026-08-25T14:15:20.000Z",
-      "name": "url: https://target.com/wp-content/plugins/nxproof/Nx.php",
-      "description": "Example web shell URL from exploit output",
-      "pattern": "[url:value = 'https://target.com/wp-content/plugins/nxproof/Nx.php']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-23T21:18:41.000Z"
     },
     {
       "type": "indicator",
@@ -13830,17 +13804,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--406ff8a3-43e6-5ae8-a88c-8d62e45f977c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--60564825-e444-57d2-a4d8-3c2a5d0ac78a",
-      "target_ref": "vulnerability--b1813795-4d7f-503f-95fd-5a24f42e36ca"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--407fc543-02ca-55a7-bc52-4aef5e59538a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -16030,17 +15993,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5978caca-0433-57ab-bbf2-a5f646d97dee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8f32cafa-f29f-5406-a8b4-b40b27754a45",
-      "target_ref": "vulnerability--b1813795-4d7f-503f-95fd-5a24f42e36ca"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5992b534-8172-5397-a9c8-2b658f8ce316",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:00:05.000Z",
@@ -16492,17 +16444,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--605cd404-6996-5cf6-9769-1b1706e8a864",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T21:18:41.000Z",
-      "modified": "2026-08-25T14:15:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3502f4db-0ef5-523e-a726-d6f5658b7c87",
-      "target_ref": "indicator--a57b9b8b-97c0-5f27-b633-b990c2b1f50d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--60890a50-051e-5f0c-85a0-76a027b1a3c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16609,17 +16550,6 @@
       "relationship_type": "has",
       "source_ref": "software--4911c78c-2b73-5406-b102-19d3cb4ff56c",
       "target_ref": "vulnerability--d36a8215-cb2d-5505-92f8-8bef6f8f87dd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6243a897-5f1e-5397-be3f-ab879c64d2ef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fd93eef2-5f99-5714-98f7-79cc3cfbfcf0",
-      "target_ref": "vulnerability--cb9172e4-ab77-5b53-b0fb-719bc713f3d0"
     },
     {
       "type": "relationship",
@@ -19150,17 +19080,6 @@
       "relationship_type": "uses",
       "source_ref": "report--4a0fc792-e02d-534b-8de2-0915338b1ee9",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--80b6d06d-fa11-519e-9199-d441fb187f1b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T21:18:41.000Z",
-      "modified": "2026-08-25T14:15:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3502f4db-0ef5-523e-a726-d6f5658b7c87",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -22245,17 +22164,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a71262e5-ae35-5825-843f-e41e0ed3165e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T21:18:41.000Z",
-      "modified": "2026-08-25T14:15:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3502f4db-0ef5-523e-a726-d6f5658b7c87",
-      "target_ref": "indicator--d4e017e7-545f-53d8-bdc7-2b781e888ffc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a726d0c9-9ee3-5bcf-8a14-7e77df3a955c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:40:56.000Z",
@@ -24221,17 +24129,6 @@
       "relationship_type": "has",
       "source_ref": "software--bfdf393f-2e68-5ba5-aaaa-84b5313865ff",
       "target_ref": "vulnerability--146892db-bbe7-55f9-9546-a7e50d7afcd3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bfd782e0-0ab6-502d-95c6-cb80d60487ad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fd93eef2-5f99-5714-98f7-79cc3cfbfcf0",
-      "target_ref": "vulnerability--b1813795-4d7f-503f-95fd-5a24f42e36ca"
     },
     {
       "type": "relationship",
@@ -26414,17 +26311,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dd90ef81-c4eb-5435-8e98-bbca1b72ed0a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T21:18:41.000Z",
-      "modified": "2026-08-25T14:15:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3502f4db-0ef5-523e-a726-d6f5658b7c87",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--dda7f46f-430c-586e-ae46-21e97518ac3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:54:17.000Z",
@@ -27415,17 +27301,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e94731e9-903d-52f2-ad14-573cedb61942",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8f32cafa-f29f-5406-a8b4-b40b27754a45",
-      "target_ref": "vulnerability--cb9172e4-ab77-5b53-b0fb-719bc713f3d0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e979e49a-7417-5133-a945-fd2668a9316e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T17:22:09.000Z",
@@ -27917,17 +27792,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ef74875f-903e-5703-90ca-e5b6a544f800",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ef954839-a812-5b00-8f93-b0a583796cbb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--60564825-e444-57d2-a4d8-3c2a5d0ac78a",
-      "target_ref": "vulnerability--cb9172e4-ab77-5b53-b0fb-719bc713f3d0"
     },
     {
       "type": "relationship",
@@ -33426,68 +33290,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3502f4db-0ef5-523e-a726-d6f5658b7c87",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T21:18:41.000Z",
-      "modified": "2026-08-25T14:15:20.000Z",
-      "name": "WordPress SAML Single Sign On Plugin Authentication Bypass (CVE-2026-15981)",
-      "description": "## Overview\n\nThe SAML Single Sign On - SSO Login plugin for WordPress, in all versions up to and including 5.4.4, is affected by a critical authentication bypass vulnerability, identified as CVE-2026-15981. This flaw, discovered and published on July 23, 2026, stems from a logical error within the `mo_saml_validate_signature()` function. Specifically, a loose boolean check incorrectly interprets an OpenSSL `openssl_verify()` error return value of `-1` as a successful signature verification. This design flaw enables unauthenticated attackers to craft specific SAMLResponse messages. By including an attacker-controlled NameID for a target user and a specially malformed signature designed to trigger the OpenSSL error, adversaries can completely bypass the authentication process, allowing them to log in as any existing WordPress user, including those with administrative privileges.\n\n## Attack Chain\n\n1. Attacker identifies a target WordPress instance running the vulnerable SAML Single Sign On - SSO Login plugin (versions 5.4.4 or earlier).\n2. The attacker obtains or infers a valid username on the targeted WordPress site, such as an administrator account.\n3. The attacker crafts a malicious SAMLResponse XML payload, including the identified target user's NameID.\n4. The crafted payload deliberately includes a malformed XML digital signature value designed to cause PHP's `openssl_verify()` function to return `-1` (an error state) during signature validation.\n5. The attacker sends this crafted SAMLResponse within an HTTP POST request to the WordPress site's SAML authentication endpoint.\n6. The `mo_saml_validate_signature()` function within the plugin attempts to verify the signature.\n7. Due to the loose boolean comparison, the function evaluates the `-1` error return from `openssl_verify()` as a 'truthy' value, mistakenly treating it as a successful signature verification.\n8. The plugin proceeds to call `wp_set_auth_cookie()` for the user specified in the NameID, granting the attacker an authenticated session for the targeted WordPress account.\n\n## Impact\n\nA successful exploitation of CVE-2026-15981 allows an unauthenticated attacker to gain full administrative access to affected WordPress sites. This can lead to comprehensive compromise of the website, including data exfiltration, defacement, injection of malicious code, or further lateral movement within the hosting environment. Organizations utilizing the vulnerable plugin face severe risks of unauthorized access to sensitive information, disruption of services, and significant reputational damage. The critical CVSS score of 9.8 reflects the ease of exploitation and the high impact of this vulnerability.\n\n## Recommendation\n\n* Patch CVE-2026-15981 immediately by updating the SAML Single Sign On - SSO Login plugin for WordPress to a version greater than 5.4.4.\n* Monitor webserver access logs for unusual POST requests directed at SAML authentication endpoints, especially those that might indicate attempts to bypass authentication.\n",
-      "published": "2026-07-23T21:18:41.000Z",
-      "labels": [
-        "authentication-bypass",
-        "cve-2026-15981",
-        "web-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--a57b9b8b-97c0-5f27-b633-b990c2b1f50d",
-        "indicator--d4e017e7-545f-53d8-bdc7-2b781e888ffc",
-        "software--60564825-e444-57d2-a4d8-3c2a5d0ac78a",
-        "software--8f32cafa-f29f-5406-a8b4-b40b27754a45",
-        "software--fd93eef2-5f99-5714-98f7-79cc3cfbfcf0",
-        "vulnerability--b1813795-4d7f-503f-95fd-5a24f42e36ca",
-        "vulnerability--cb9172e4-ab77-5b53-b0fb-719bc713f3d0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-wordpress-saml-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-wordpress-saml-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15981"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=ACA86828-5C21-5718-A982-2A0E64261DF1\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/wordpress-websites-targeted-via-miniorange-plugin-vulnerabilities/"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-wordpress-saml-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-wordpress-saml-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-wordpress-saml-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-25T14:15:20.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01877,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -50235,12 +50037,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--60564825-e444-57d2-a4d8-3c2a5d0ac78a",
-      "name": "miniOrange SAML 2.0 Single Sign On – SSO Login (WordPress) \u003c= 5.4.4"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--60de5c87-299b-5503-8c4e-8f8797dd7a76",
       "name": "IntelliJ IDEA",
       "vendor": "JetBrains"
@@ -52695,12 +52491,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fd93eef2-5f99-5714-98f7-79cc3cfbfcf0",
-      "name": "SAML Single Sign On – SSO Login plugin (\u003c= 5.4.4)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fdb0b7da-870d-5277-b7b0-24841aca1818",
       "name": "netty-codec-http2 (4.1.x)",
       "vendor": "Netty"
@@ -55018,22 +54808,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--b1813795-4d7f-503f-95fd-5a24f42e36ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-61979",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-61979",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61979"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--b363ad3f-254d-56cd-8d5d-83cfa6df4416",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55492,22 +55266,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18452",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18452"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--cb9172e4-ab77-5b53-b0fb-719bc713f3d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15981",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15981",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15981"
         }
       ]
     },
