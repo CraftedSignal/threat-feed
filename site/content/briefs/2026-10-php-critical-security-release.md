@@ -1,8 +1,19 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 1
-activity_at: "2026-10-21T07:47:00Z"
+revision: 2
+activity_at: "2026-10-21T08:26:00Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T08:26:00Z"
+    checksum: sha256:0866246754f90fafb0e195598cedcf6bdeb68ba67050e916a57f7229dd91ada8
+    summary: Added a source-backed PHP worker child-process hunt lead with scope and telemetry limits.
+    changed_fields:
+      - references
+      - action_plan
+      - body
+    source_urls:
+      - https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
@@ -36,6 +47,7 @@ references:
   - https://www.php.net/archive/2026.php#2026-10-20-1
   - https://cert.europa.eu/publications/security-advisories/2026-018/
   - https://watchtowr.com/intelligence/php-cve-2026-109618-faq/
+  - https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8
 action_plan:
   priority: immediate_escalation
   owners:
@@ -46,6 +58,16 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: The PHP security team advises users to prepare to upgrade when its security release becomes available.
+  hunt_leads:
+    - lead: Review process creation events where a PHP or web-server worker starts a shell, scripting runtime, discovery command, or network utility
+      technique_id: T1059
+      data_needed:
+        - Process creation telemetry with parent and child executable paths
+        - Child command line and adjacent web request logs for triage
+      priority: high
+      confidence: medium
+      disposition: hunt_now
+      evidence: The linked community Sigma rule detects suspicious child processes from PHP and web workers; this behavior is not specific to either newly announced CVE.
   mitigation_plan:
     - priority: immediate
       action: Review the vendor release at 14:00 UTC and deploy fixed PHP versions when announced
@@ -55,6 +77,12 @@ action_plan:
 ---
 
 The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.
+
+## Detection opportunity
+
+Hunt for PHP or web-server workers spawning shells, scripting runtimes, discovery commands, or network utilities. The [community Sigma rule for suspicious PHP child processes](https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8) offers a starting point across Linux, macOS, and Windows. It requires process creation telemetry with both parent and child executable paths; use command lines and nearby HTTP requests to investigate matches. Tune known application jobs that intentionally start command-line tools.
+
+This is generic post-execution behavior. A match does not establish exploitation of CVE-2026-109618 or CVE-2026-109619, and execution that stays inside the PHP worker will not match this rule.
 
 ## Recommendation
 
