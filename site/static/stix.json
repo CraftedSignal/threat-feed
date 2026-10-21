@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--66e1efac-3a3e-554b-b92a-182472ce4b1d",
+  "id": "bundle--09fe2d32-c12c-50e0-b95b-1fc7421adc8f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79089,6 +79089,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--54aacc18-370d-5a18-aad6-c64f85eed130",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T00:09:53.000Z",
+      "modified": "2026-10-21T00:10:40.000Z",
+      "name": "Oracle Security Updates - October 2026",
+      "description": "## Overview\n\nThis roundup covers 8 Oracle security vulnerabilities. CVSS base scores range from 9.8 to 9.9. None are reported as actively exploited at the time of release. The issues affect APEX, Enterprise Manager for Oracle Database, Secure Backup, Siebel CRM Cloud Applications, Trusted Answer Search, WebCenter Sites.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-101446](#cve-2026-101446) | Siebel CRM Cloud Applications (17.0-26.9) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101446) (authoritative) |\n| [CVE-2026-101484](#cve-2026-101484) | Secure Backup (19.1.0.0.0, 19.1.0.1.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101484) (authoritative) |\n| [CVE-2026-101499](#cve-2026-101499) | WebCenter Sites (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101499) (authoritative) |\n| [CVE-2026-101501](#cve-2026-101501) | Trusted Answer Search (26.1) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101501) (authoritative) |\n| [CVE-2026-101503](#cve-2026-101503) | Trusted Answer Search (26.1) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101503) (authoritative) |\n| [CVE-2026-101521](#cve-2026-101521) | APEX (24.1.0-24.1.21, 24.2.0-24.2.20, 26.1.0-26.1.4) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101521) (authoritative) |\n| [CVE-2026-101528](#cve-2026-101528) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101528) (authoritative) |\n| [CVE-2026-101529](#cve-2026-101529) | Enterprise Manager for Oracle Database (13.5, 24.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101529) (authoritative) |\n\n\n## CVE-2026-101446\n\nCVE-2026-101446 is a critical vulnerability in Oracle Siebel CRM Cloud Applications (specifically the Siebel Cloud Manager component) affecting versions 17.0 through 26.9. The flaw allows a low-privileged, network-adjacent attacker to achieve full system takeover via HTTP requests. Due to the high CVSS score of 9.9 and the potential for scope change, this vulnerability poses a severe risk of compromising the confidentiality, integrity, and availability of the application.\n\nAffected products:\n- Siebel CRM Cloud Applications (17.0-26.9)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101446\n\n## CVE-2026-101484\n\nCVE-2026-101484 is a critical vulnerability in Oracle Secure Backup's Backup and Restore component affecting versions 19.1.0.0.0 and 19.1.0.1.0. An unauthenticated attacker with network access via TCP can exploit this flaw to achieve full system takeover, resulting in a CVSS score of 9.8.\n\nAffected products:\n- Secure Backup (19.1.0.0.0, 19.1.0.1.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101484\n\n## CVE-2026-101499\n\nOracle WebCenter Sites versions 12.2.1.4.0 and 14.1.2.0.0 contain a critical vulnerability allowing unauthenticated remote attackers to achieve full system takeover via HTTP requests. The vulnerability is highly exploitable with low attack complexity, requiring no user interaction and having high impact on confidentiality, integrity, and availability.\n\nAffected products:\n- WebCenter Sites (12.2.1.4.0, 14.1.2.0.0)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101499\n\n## CVE-2026-101501\n\nCVE-2026-101501 is a critical vulnerability in the PLSQL package of Oracle Trusted Answer Search version 26.1. A low-privileged attacker with network access via Oracle Net can exploit this vulnerability to achieve unauthorized read, write, and deletion of data, as well as cause a denial-of-service (hang or crash). The vulnerability involves a scope change, meaning it can impact other products in the environment.\n\nAffected products:\n- Trusted Answer Search (26.1)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101501\n\n\n\n\nRelated in this roundup: [CVE-2026-101503](#cve-2026-101503).\n\n## CVE-2026-101503\n\nCVE-2026-101503 is a critical, easily exploitable vulnerability in the PLSQL package of Oracle Trusted Answer Search version 26.1. A low-privileged attacker with network access via Oracle Net can compromise the application, potentially resulting in full system takeover and impacting the confidentiality, integrity, and availability of the target environment. The vulnerability includes a scope change, meaning exploitation can affect additional products beyond the primary target.\n\nAffected products:\n- Trusted Answer Search (26.1)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101503\n\n\n\n\nRelated in this roundup: [CVE-2026-101501](#cve-2026-101501).\n\n## CVE-2026-101521\n\nOracle APEX is vulnerable to an unauthenticated, remotely exploitable issue that allows a network-based attacker to fully compromise the application. The vulnerability has a CVSS 3.1 base score of 9.8, indicating severe impact on confidentiality, integrity, and availability.\n\nAffected products:\n- APEX (24.1.0-24.1.21, 24.2.0-24.2.20, 26.1.0-26.1.4)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101521\n\n## CVE-2026-101528\n\nCVE-2026-101528 is a critical vulnerability in the Data Guard Management component of Oracle Enterprise Manager for Oracle Database. The vulnerability is network-exploitable via HTTP by a low-privileged attacker, potentially leading to a full system takeover and impacting other products due to a scope change (CVSS 9.9).\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101528\n\n## CVE-2026-101529\n\nCVE-2026-101529 is a critical vulnerability in the Data Guard Management component of Oracle Enterprise Manager for Oracle Database (versions 13.5 and 24.1). An attacker with low-level privileges can exploit this vulnerability over HTTP to achieve a full system compromise. The vulnerability is characterized by a scope change, allowing the attack to impact additional products, and holds a CVSS 3.1 base score of 9.9.\n\nAffected products:\n- Enterprise Manager for Oracle Database (13.5, 24.1)\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-101529",
+      "published": "2026-10-21T00:09:53.000Z",
+      "labels": [
+        "roundup"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--27ef857d-5f58-588e-b433-3200983978ac",
+        "vulnerability--4a2b11dc-b46a-5a5a-a5b5-77e31a2025a9",
+        "vulnerability--6215085f-a896-5b1a-85a2-02f4b0ca3c5f",
+        "vulnerability--6d309de5-6452-5ba5-b14e-90d65699a9c5",
+        "vulnerability--84a7bbb3-d549-5cb5-abf0-0f7484b9b053",
+        "vulnerability--aeda0954-4230-53f1-a947-d43c61c146ba",
+        "vulnerability--dc9a251d-e2af-530e-a062-8aa51e360c8c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-oracle-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101537"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-oracle-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-10-oracle-security-updates",
+      "x_craftedsignal_revision": 7,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-security-updates/",
+      "x_craftedsignal_activity_at": "2026-10-21T00:10:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--54cac7fd-f44f-532a-b0c6-2b1b0df46607",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T19:45:21.000Z",
@@ -150923,6 +150971,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--27ef857d-5f58-588e-b433-3200983978ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101499",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101499",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101499"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--28223261-b8e3-54dd-a5f3-b9a8b5fb5aeb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -153899,6 +153963,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4a2b11dc-b46a-5a5a-a5b5-77e31a2025a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101521",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101521",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101521"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4a403268-708f-5277-bf33-61eb1b3dc414",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -155707,6 +155787,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6215085f-a896-5b1a-85a2-02f4b0ca3c5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101503",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101503",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101503"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--621f7f92-6948-52c4-87f3-39193efaa8cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -156725,6 +156821,22 @@
           "source_name": "cve",
           "external_id": "CVE-2012-20002",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2012-20002"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6d309de5-6452-5ba5-b14e-90d65699a9c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101446",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101446",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101446"
         }
       ]
     },
@@ -158485,6 +158597,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105840",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105840"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--84a7bbb3-d549-5cb5-abf0-0f7484b9b053",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101484",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101484",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101484"
         }
       ]
     },
@@ -162299,6 +162427,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--aeda0954-4230-53f1-a947-d43c61c146ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101529",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101529",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101529"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--aef60654-0427-5e35-9747-4a169fd130a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -166053,6 +166197,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16487",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16487"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dc9a251d-e2af-530e-a062-8aa51e360c8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-101501",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-101501",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101501"
         }
       ]
     },
