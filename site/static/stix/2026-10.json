@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--65669e84-a387-54fc-955c-d0528f4d93fc",
+  "id": "bundle--abe5307a-3a8e-5602-a33e-af596a52718a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -725,6 +725,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Deploy Container",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1610",
+          "url": "https://attack.mitre.org/techniques/T1610"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--3c04b764-6b09-51ea-ae12-ed05d4e6b3bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -863,6 +879,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1567",
           "url": "https://attack.mitre.org/techniques/T1567"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--46682804-f779-59b9-b9a4-c0a9a3d1310f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Systemd Service",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1543.002",
+          "url": "https://attack.mitre.org/techniques/T1543/002"
         }
       ]
     },
@@ -1423,6 +1455,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1132",
           "url": "https://attack.mitre.org/techniques/T1132"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--78a28ea5-e51f-5a18-babd-8d7038019208",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Clear Mailbox Data",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1070.008",
+          "url": "https://attack.mitre.org/techniques/T1070/008"
         }
       ]
     },
@@ -2767,6 +2815,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1546.008",
           "url": "https://attack.mitre.org/techniques/T1546/008"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ef1452bf-58eb-5f41-83f1-2a11b79b5b91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Device Registration",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1098.005",
+          "url": "https://attack.mitre.org/techniques/T1098/005"
         }
       ]
     },
@@ -6547,6 +6611,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--10da4caf-1b98-5732-bbea-e363028cd1cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:00:15.000Z",
+      "modified": "2026-10-21T14:00:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--94b35190-8456-5b78-8797-2842f925ed54",
+      "target_ref": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--10ffc632-7afc-58a3-b84d-3f6d076b58c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T02:48:17.000Z",
@@ -9847,6 +9922,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--28fd8249-983a-57b4-b6fa-22fa65ecc406",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:59:44.000Z",
+      "modified": "2026-10-21T13:59:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c34d95a7-451b-54d2-a5cc-2ddb9e946e81",
+      "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2900b355-4905-5641-b74c-935b72a07310",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T18:03:18.000Z",
@@ -12938,6 +13024,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--408291af-3880-59ef-9cdc-4239c9036a6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:59:01.000Z",
+      "modified": "2026-10-21T13:59:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f4e1e89-0c24-50ca-b93c-e5ad78dbd20e",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4085c20b-3cd1-56f5-9579-9cd1ffeedb9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13931,7 +14028,7 @@
       "id": "relationship--470c4553-f8b0-52e4-aec7-0a8dda1f9179",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T09:08:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8"
@@ -17415,6 +17512,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5f0ee0c0-09c8-5bf2-9bff-7628ba690c7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5f2845b5-33bb-57df-9b8a-6d9e0032b912",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T08:54:33.000Z",
@@ -18012,7 +18120,7 @@
       "id": "relationship--63d7f276-ba93-5b4e-825a-ce23da0bb771",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T09:08:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
@@ -18313,6 +18421,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7586735-a51e-51aa-b8bc-93bc7883b068",
       "target_ref": "vulnerability--89b04bec-b392-574f-947a-1ee4cc13a1a3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--66011039-9037-5f65-8270-73f70bbf54a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:59:14.000Z",
+      "modified": "2026-10-21T13:59:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9905e00c-4d4e-5954-89f1-ee6e028132f5",
+      "target_ref": "attack-pattern--46682804-f779-59b9-b9a4-c0a9a3d1310f"
     },
     {
       "type": "relationship",
@@ -18683,7 +18802,7 @@
       "id": "relationship--688992c2-a4de-5d52-8af8-580e347469f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T09:08:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39"
@@ -19809,6 +19928,17 @@
       "relationship_type": "uses",
       "source_ref": "report--82aecfc7-2478-5bc9-83b6-40fa4e6f6099",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--70dc4390-72c6-5e83-ab40-aea704c6cbad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:58:48.000Z",
+      "modified": "2026-10-21T13:58:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a999fe83-b21e-5506-a5ab-73a961dd2d20",
+      "target_ref": "attack-pattern--78a28ea5-e51f-5a18-babd-8d7038019208"
     },
     {
       "type": "relationship",
@@ -20971,7 +21101,7 @@
       "id": "relationship--785d0ff6-8493-580d-b4cc-a01c8e9b42ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T09:08:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
@@ -21738,6 +21868,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7cf52399-3308-5945-97fc-a7a211bdc535",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7cfc482c-468b-539a-b6e5-468031c6c4fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22093,7 +22234,7 @@
       "id": "relationship--7f574173-cf85-53c8-a19c-0ad02103a6da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T09:08:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
@@ -27861,6 +28002,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a018891e-c25d-5f5f-a377-7cbfe7774541",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a6b43531-d29a-58ce-8564-4e0a79c28638",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:00:15.000Z",
+      "modified": "2026-10-21T14:00:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--94b35190-8456-5b78-8797-2842f925ed54",
+      "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
     },
     {
       "type": "relationship",
@@ -37237,6 +37389,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e6557749-3ba0-517c-ba50-6ebe0aba4ff8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:58:48.000Z",
+      "modified": "2026-10-21T13:58:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a999fe83-b21e-5506-a5ab-73a961dd2d20",
+      "target_ref": "attack-pattern--ef1452bf-58eb-5f41-83f1-2a11b79b5b91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e65847bd-8ab2-5769-95e9-3a401f22d39d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37394,7 +37557,7 @@
       "id": "relationship--e6de2eea-9009-5e91-ad40-70c62e18e7d1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T09:08:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
@@ -37897,6 +38060,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e98a42ff-4d39-5aa4-88fd-b06f38d13e59",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:59:44.000Z",
+      "modified": "2026-10-21T13:59:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c34d95a7-451b-54d2-a5cc-2ddb9e946e81",
+      "target_ref": "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e98c365b-ee88-59e6-bedd-d94853c6ce6c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38381,6 +38555,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ec2e0a28-59fe-514c-b0fc-c0e959e7336f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ec380df5-7bfa-5a34-a772-ab0294b5c51a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:08:09.000Z",
@@ -38432,6 +38617,17 @@
       "relationship_type": "has",
       "source_ref": "software--84c0c73f-279a-582f-b158-8bc7ad191cc7",
       "target_ref": "vulnerability--307db4be-bbcb-5025-bf06-d4df1e142d15"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec627348-e2c4-5a97-8e0f-46fbbbe00e65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff"
     },
     {
       "type": "relationship",
@@ -56165,6 +56361,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0288,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -60503,6 +60700,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.02077,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -63516,6 +63714,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5f4e1e89-0c24-50ca-b93c-e5ad78dbd20e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:59:01.000Z",
+      "modified": "2026-10-21T13:59:01.000Z",
+      "name": "Azure Kubernetes Service: Multi-resource discovery detection",
+      "description": "## Overview\n\nThis rule monitors Azure Kubernetes Service (AKS) `kube-audit` logs to identify reconnaissance behavior. It specifically tracks identities that access multiple Kubernetes API resource types - such as namespaces, nodes, pods, roles, clusterroles, configmaps, serviceaccounts, rolebindings, and clusterrolebindings - within a single window. By focusing on the cardinality of unique resources accessed, the logic differentiates cluster orientation and reconnaissance from steady-state controllers or platform-managed identities.\n\n## Impact\n\nSuccessful reconnaissance allows an adversary to map the cluster environment, identify high-value targets, and understand RBAC structures, which are critical precursors to privilege escalation or lateral movement within the containerized environment.\n\n## Recommendation\n\n- Deploy the provided Elastic ESQL detection rule to identify anomalous multi-resource enumeration in AKS clusters.\n- Establish a baseline of legitimate CI/CD, GitOps, and backup operations to exclude expected service account activity and reduce false positives.\n- Review the identities (`Esql.username`) and user agents (`Esql.user_agent`) identified by this rule for potential credential compromise, especially those involving `kubectl`.\n- Ensure AKS diagnostic logs, specifically the `kube-audit` category, are correctly routed through Event Hubs to the monitoring environment.\n",
+      "published": "2026-10-21T13:59:01.000Z",
+      "labels": [
+        "azure",
+        "cloud",
+        "discovery",
+        "kubernetes",
+        "monitoring"
+      ],
+      "object_refs": [
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--afca09af-cf86-5b30-9b99-7ca16797990f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-azure-aks-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-azure-aks-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/discovery_azure_aks_multi_resource_discovery.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://microsoft.github.io/Threat-Matrix-for-Kubernetes/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-azure-aks-discovery",
+      "x_craftedsignal_event_id": "brief-2026-10-21-azure-aks-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-azure-aks-discovery/",
+      "x_craftedsignal_activity_at": "2026-10-21T13:59:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5f5c273b-b1e4-5ff7-bf2c-4343801d51bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T08:54:12.000Z",
@@ -65545,7 +65793,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00164,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -67486,7 +67735,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.04497,
+      "x_craftedsignal_epss_max": 0.03094,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -76680,6 +76929,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--94b35190-8456-5b78-8797-2842f925ed54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:00:15.000Z",
+      "modified": "2026-10-21T14:00:15.000Z",
+      "name": "AWS EKS: Potential Privilege Escalation via HostNetwork Pod Creation",
+      "description": "## Overview\nHostNetwork allows a pod to use the node network namespace. This access can be exploited to snoop on network activity of other pods on the same node or bypass restrictive network policies applied to its given namespace. The detection rule identifies pod creation or modification events with HostNetwork enabled, excluding known benign images.\n\n## Triage and Analysis\n- Review Kubernetes audit logs to identify the user or service account associated with the pod creation or modification.\n- Examine the pod configuration, specifically container images, to determine if unauthorized images are being used.\n- Assess the necessity of HostNetwork for the pod and determine if it can be reconfigured to operate without this setting.\n- Check Kubernetes RBAC settings to ensure users/service accounts are not overly privileged.\n\n## False Positives\n- Administrative or developer pods running with host namespaces for debugging purposes.\n- Monitoring, logging, or infrastructure services (e.g., CNI plugins, ingress controllers) that require HostNetwork for legitimate operations.\n",
+      "published": "2026-10-21T14:00:15.000Z",
+      "object_refs": [
+        "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
+        "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-eks-hostnetwork-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-hostnetwork-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bishopfox.com/blog/kubernetes-pod-privilege-escalation"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_pod_created_with_hostnetwork_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://research.nccgroup.com/2021/11/10/detection-engineering-for-kubernetes-clusters/#part3-kubernetes-detections"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-hostnetwork-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-10-21-eks-hostnetwork-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-hostnetwork-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-10-21T14:00:15.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--94cac2bb-206f-57f1-a59b-b6bb30361e19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T10:23:32.000Z",
@@ -77734,6 +78034,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9905e00c-4d4e-5954-89f1-ee6e028132f5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:59:14.000Z",
+      "modified": "2026-10-21T13:59:14.000Z",
+      "name": "Linux Systemd Service Override Configuration Persistence",
+      "description": "## Overview\nSystemd override configuration files allow administrators to modify default service behavior. Attackers may create or rename these files in system or user service directories to inject directives such as `ExecStart`, `ExecStartPre`, `ExecStartPost`, `Environment`, or `OnCalendar`. This allows for the execution of unauthorized commands or payloads while leaving the original base unit file intact, facilitating persistent access and potential privilege escalation.\n\n## Detection and Investigation\nThe detection logic identifies the creation or renaming of `.conf` files within standard Systemd service override paths. Investigating alerts involves:\n- Comparing the new override file against the base unit file.\n- Inspecting directives like `ExecStart`, `ExecStartPre`, `ExecStartPost`, `Environment`, `User`, `WorkingDirectory`, `OnCalendar`, and `WantedBy`.\n- Tracing the originating process, parent process chain, and account context.\n- Checking for related `systemctl` operations, such as `daemon-reload`, `enable`, or `restart`.\n- Analyzing referenced scripts or binaries for suspicious content.\n\n## False Positives\nLegitimate administrative maintenance may involve creating override files to adjust startup order, resource limits, or environment settings. Verification should include confirming the creating process and user session context align with authorized administrative activity.\n",
+      "published": "2026-10-21T13:59:14.000Z",
+      "object_refs": [
+        "attack-pattern--46682804-f779-59b9-b9a4-c0a9a3d1310f",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-systemd-override-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-systemd-override-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_systemd_override_conf_creation.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-systemd-override-persistence",
+      "x_craftedsignal_event_id": "brief-2026-10-21-systemd-override-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-systemd-override-persistence/",
+      "x_craftedsignal_activity_at": "2026-10-21T13:59:14.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9911e084-1937-53e9-b7a9-0a8d78b65675",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:52:23.000Z",
@@ -78598,6 +78936,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.01329,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -80292,7 +80631,7 @@
       "id": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T09:08:08.000Z",
+      "modified": "2026-10-21T14:01:54.000Z",
       "name": "Amazon EKS: Improper TokenRequest API usage detection",
       "description": "## Overview\n\nThe Kubernetes TokenRequest API allows identities with appropriate RBAC permissions to programmatically generate short-lived tokens for service accounts. Because this process occurs via the API server, the resulting tokens do not leave traditional filesystem footprints, evading file-based monitoring. In Amazon EKS environments, attackers who have gained initial cluster access can leverage this API to mint tokens for highly privileged service accounts, effectively bypassing security controls meant to protect mounted secrets.\n\n## Impact\n\nSuccessful abuse of the TokenRequest API enables attackers to impersonate privileged service accounts, perform unauthorized cluster operations, or gain access to AWS cloud resources through IRSA (IAM Roles for Service Accounts).\n\n## Recommendation\n\n- Enable and ingest EKS control-plane audit logs into your SIEM as defined in the AWS integration documentation for `aws.eks_audit`.\n- Deploy the detection rules provided below to monitor for `create` events against the `serviceaccounts/token` subresource by non-system identities.\n- Review RBAC policies across the cluster to identify and restrict `create` permissions on the `serviceaccounts/token` subresource to only strictly necessary service accounts or users.\n- Audit existing tokens minted via TokenRequest by correlating `aws.eks.audit.annotations.authentication_kubernetes_io/issued-credential-id` with subsequent API activity.\n",
       "published": "2026-10-21T07:47:08.000Z",
@@ -80301,20 +80640,27 @@
         "cloud",
         "cloud-security",
         "command-and-control",
+        "container-escape",
         "credential-access",
         "discovery",
         "eks",
         "execution",
         "initial-access",
         "kubernetes",
+        "persistence",
+        "privilege-escalation",
         "reconnaissance"
       ],
       "object_refs": [
         "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
+        "attack-pattern--0da16fc7-cf12-5309-bb62-f4ccf37e69ff",
+        "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
+        "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79",
         "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
         "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
         "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
         "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
         "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--a95034b8-a1a3-59aa-9f62-1110c74acdcf"
@@ -80355,11 +80701,39 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_api_proxy_to_node_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_privileged_pod_created_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_sensitive_rbac_change_followed_by_workload_modification_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#overly-permissive-role-based-access-control"
+        },
+        {
+          "source_name": "reference",
           "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#unauthenticated-api-access"
         },
         {
           "source_name": "reference",
+          "url": "https://kubernetes.io/docs/concepts/cluster-administration/proxies/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-v1/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://media.defense.gov/2021/Aug/03/2002820425/-1/-1/1/CTR_KUBERNETES%20HARDENING%20GUIDANCE.PDF"
         },
         {
           "source_name": "reference",
@@ -80369,9 +80743,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-21-eks-tokenrequest-abuse",
       "x_craftedsignal_event_id": "brief-2026-10-21-eks-tokenrequest-abuse",
-      "x_craftedsignal_revision": 5,
+      "x_craftedsignal_revision": 8,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-tokenrequest-abuse/",
-      "x_craftedsignal_activity_at": "2026-10-21T09:08:08.000Z",
+      "x_craftedsignal_activity_at": "2026-10-21T14:01:54.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -82063,6 +82437,57 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rundll32-ordinal-loading/",
       "x_craftedsignal_activity_at": "2026-10-12T17:56:33.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a999fe83-b21e-5506-a5ab-73a961dd2d20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:58:48.000Z",
+      "modified": "2026-10-21T13:58:48.000Z",
+      "name": "Microsoft 365 Exchange: MFA enrollment notification email deletion",
+      "description": "## Overview\nAttackers who successfully compromise an account often register an unauthorized MFA device as a means of maintaining persistence. To prevent the legitimate user from noticing the security change and receiving the corresponding MFA enrollment or registration notification, adversaries frequently delete or move these emails to the deleted items folder. This behavior is a common indicator of business email compromise (BEC) and account takeover operations.\n\n## Attack Chain\n1. Initial access to user account gained via compromised credentials.\n2. Actor navigates to account security settings or MFA registration portal.\n3. Actor registers a new, attacker-controlled MFA device (e.g., authenticator app or phone number).\n4. Microsoft 365 generates a security notification or enrollment confirmation email.\n5. Actor identifies the specific notification email in the user's inbox.\n6. Actor performs a soft delete, hard delete, or moves the email to the Deleted Items folder to hide evidence of the MFA change.\n\n## Impact\nSuccessful exploitation allows an adversary to maintain persistent access to a compromised account even if the legitimate user changes their password, as the attacker-controlled MFA device remains active.\n\n## Recommendation\n- Deploy detection logic to monitor Microsoft 365 audit logs for the deletion of emails with subject lines containing MFA-related keywords.\n- Investigate any user account flagged for MFA notification deletion by reviewing Azure AD sign-in logs and MFA registration history.\n- Implement conditional access policies to restrict MFA registration activity to trusted locations or managed devices to limit the impact of compromised credentials.\n- Review inbox rules for unauthorized automated forwarding or deletion configurations that may be used to suppress security alerts.\n",
+      "published": "2026-10-21T13:58:48.000Z",
+      "labels": [
+        "bec",
+        "cloud-security",
+        "defense-evasion",
+        "m365",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--78a28ea5-e51f-5a18-babd-8d7038019208",
+        "attack-pattern--ef1452bf-58eb-5f41-83f1-2a11b79b5b91",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--15f02ef2-1c43-51bf-82de-93cafbf578ce"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-m365-mfa-evasion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-m365-mfa-evasion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/expansion-shinyhunters-saas-data-theft"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/o365/defense_evasion_mfa_notification_email_deleted.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-m365-mfa-evasion",
+      "x_craftedsignal_event_id": "brief-2026-10-21-m365-mfa-evasion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-m365-mfa-evasion/",
+      "x_craftedsignal_activity_at": "2026-10-21T13:58:48.000Z",
+      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -84164,6 +84589,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.01153,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -88348,6 +88774,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c34d95a7-451b-54d2-a5cc-2ddb9e946e81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T13:59:44.000Z",
+      "modified": "2026-10-21T13:59:44.000Z",
+      "name": "AWS EKS: Deployment of containers with excessive Linux capabilities",
+      "description": "## Overview\n\nThis brief outlines a detection capability for monitoring AWS EKS control-plane audit logs for the creation of pods with dangerously permissive Linux capabilities. Added capabilities - such as CAP_SYS_ADMIN, CAP_NET_ADMIN, or CAP_BPF - grant threads privileged access that can be abused to bypass security boundaries, modify kernel-level processes, or perform container breakouts. This detection is intended for identifying unauthorized or anomalous container deployments that deviate from the principle of least privilege.\n\n## Impact\n\nContainers with excessive capabilities can be leveraged to escape to the host machine, intercept network traffic within the cluster, perform unauthorized system administration tasks, or load malicious kernel modules.\n\n## Recommendation\n\n- Enable EKS control-plane audit logs and stream them to your security information and event management (SIEM) system using the AWS integration.\n- Audit existing workloads to identify containers running with added capabilities and verify their business necessity.\n- Implement Pod Security Admission (PSA) policies to restrict the use of dangerous capabilities in non-infrastructure namespaces.\n- Review the identity (IAM principal) associated with pod creation to ensure RBAC is scoped appropriately for users or CI/CD pipelines.\n",
+      "published": "2026-10-21T13:59:44.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "container-escape",
+        "kubernetes"
+      ],
+      "object_refs": [
+        "attack-pattern--3b9eadfb-cda2-56c5-95f3-e9f47c4788ee",
+        "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2215829e-c8cd-5bde-bd74-5749243e7075"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-eks-excessive-capabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-excessive-capabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/privilege_escalation_container_created_with_excessive_linux_capabilities_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-capabilities-for-a-container"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://man7.org/linux/man-pages/man7/capabilities.7.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-excessive-capabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-21-eks-excessive-capabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-excessive-capabilities/",
+      "x_craftedsignal_activity_at": "2026-10-21T13:59:44.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c360e8e7-3ab1-5921-afc9-0b46a173d9d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T03:37:54.000Z",
@@ -89089,6 +89569,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00126,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -91708,6 +92189,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.0228,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -101055,7 +101537,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00099,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -103638,6 +104121,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--15f02ef2-1c43-51bf-82de-93cafbf578ce",
+      "name": "Exchange Online",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--15fcfd9d-ee6b-5330-975f-0a5f2b85584b",
       "name": "mcp-server-everything (\u003c= 2026.6.4)",
       "vendor": "modelcontextprotocol"
@@ -104095,6 +104585,13 @@
       "id": "software--218927ce-3743-5a50-8fe4-c9b2cbefc327",
       "name": "Cloud Pak System (2.3.6.0, 2.3.6.1)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2215829e-c8cd-5bde-bd74-5749243e7075",
+      "name": "EKS",
+      "vendor": "Amazon"
     },
     {
       "type": "software",
@@ -109521,6 +110018,13 @@
       "id": "software--afaeed17-d101-5c6d-ba09-d5f7e2451ee2",
       "name": "Planning Analytics (2.0, 2.1)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--afca09af-cf86-5b30-9b99-7ca16797990f",
+      "name": "Azure Kubernetes Service",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
