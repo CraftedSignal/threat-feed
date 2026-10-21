@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2dd9ec80-e632-57b8-b66d-15677dce7bfd",
+  "id": "bundle--993d9276-8e99-5374-95b2-c714d41adc4d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2031,6 +2031,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1090.001",
           "url": "https://attack.mitre.org/techniques/T1090/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--b5e811f4-beda-5c22-8326-b9abc85b221c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Delete Cloud Instance",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1578.003",
+          "url": "https://attack.mitre.org/techniques/T1578/003"
         }
       ]
     },
@@ -5254,6 +5270,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0a15103a-9ff4-5db3-9a71-290f93baab5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:27.000Z",
+      "modified": "2026-10-21T02:44:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bf52e118-a951-57d4-8e5c-2db451136b93",
+      "target_ref": "attack-pattern--b5e811f4-beda-5c22-8326-b9abc85b221c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0a2c1948-2f3b-5490-83b4-8befea60d527",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7373,6 +7400,17 @@
       "relationship_type": "uses",
       "source_ref": "report--62cfe7c4-3ee5-528d-90e7-c7311655516e",
       "target_ref": "indicator--b01226ce-95be-58c6-b072-0b27dfc0ca73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1899e2c0-c86c-5528-8bd9-a611db990756",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:19.000Z",
+      "modified": "2026-10-21T02:44:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4b0aec8c-7a7c-5d50-a16a-be8cbbd42e08",
+      "target_ref": "attack-pattern--4a85b974-863c-5535-a9a9-5d02d5634ae4"
     },
     {
       "type": "relationship",
@@ -57195,6 +57233,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4b0aec8c-7a7c-5d50-a16a-be8cbbd42e08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:19.000Z",
+      "modified": "2026-10-21T02:44:19.000Z",
+      "name": "Microsoft Entra ID Hybrid Health AD FS service manipulation",
+      "description": "## Overview\n\nResearch indicates that attackers can manipulate the Microsoft Entra ID Hybrid Health AD FS service to report fraudulent server instances. By programmatically interacting with the Azure resource provider, an attacker can create a new AD FS service and register a rogue server instance without needing access to the physical, on-premises Active Directory Federation Services (AD FS) infrastructure. This technique allows adversaries to inject fake authentication events into the environment, potentially masking malicious activity or generating noise to facilitate unauthorized access. Defenders should monitor the administrative activity logs in Azure for the creation or modification of these service members, as this behavior is often indicative of reconnaissance or persistence attempts within the identity environment.\n\n## Impact\n\nSuccessful manipulation of the AD FS Hybrid Health service can allow attackers to spoof identity provider signing logs. This impacts the integrity of authentication telemetry, complicates incident response by introducing false event data, and may allow attackers to bypass security monitoring systems that rely on AD FS telemetry to detect anomalous authentication patterns.\n\n## Recommendation\n\n- Monitor Azure Activity Logs for the registration of new AD FS service members using the detection rule provided in this brief.\n- Audit existing AD FS service instances in the Azure portal to ensure all registered servers are legitimate and authorized.\n- Enforce strict Azure Role-Based Access Control (RBAC) to limit the ability of service principals or users to perform operations within the Microsoft.ADHybridHealthService resource provider.\n- Deploy the Sigma rule below to the SIEM to detect suspicious service member additions.\n",
+      "published": "2026-10-21T02:44:19.000Z",
+      "labels": [
+        "azure",
+        "cloud-security",
+        "defense-evasion",
+        "identity"
+      ],
+      "object_refs": [
+        "attack-pattern--4a85b974-863c-5535-a9a9-5d02d5634ae4",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb96a251-c123-5a41-965d-63f36b6d62f4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-azure-ad-hybrid-health-spoofing",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ad-hybrid-health-spoofing/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://aadinternals.com/talks/HelSec%20August%202021.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/identity#microsoftadhybridhealthservice"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20220619212736/https://o365blog.com/post/hybridhealthagent/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.inversecos.com/2023/01/detecting-fake-events-in-azure-sign-in.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-azure-ad-hybrid-health-spoofing",
+      "x_craftedsignal_event_id": "brief-2026-10-21-azure-ad-hybrid-health-spoofing",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ad-hybrid-health-spoofing/",
+      "x_craftedsignal_activity_at": "2026-10-21T02:44:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4b470f8d-0660-566d-b343-84a00e066a7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T05:39:17.000Z",
@@ -84939,6 +85034,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bf52e118-a951-57d4-8e5c-2db451136b93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:44:27.000Z",
+      "modified": "2026-10-21T02:44:27.000Z",
+      "name": "Azure AD Hybrid Health AD FS Service deletion",
+      "description": "## Overview\n\nThreat actors can manipulate Azure AD Hybrid Health for AD FS to compromise the integrity of authentication logs. By creating a rogue AD FS service instance and registering a fake server, attackers can inject spoofed AD FS signing events into the environment. Once the malicious activity is completed or the attacker no longer requires the persistence mechanism, they delete the rogue AD FS service instance via the Azure Management API. This deletion is a critical telemetry point for security operations centers, as it often marks the conclusion of a log manipulation campaign that may have been used to bypass identity-based detections or hide unauthorized access. Monitoring for these specific service deletions provides visibility into potential efforts to impair defensive visibility within a hybrid identity environment.\n\n## Attack Chain\n\n1. Attacker gains administrative access to the Azure tenant (e.g., via compromised credentials).\n2. Attacker registers a new Azure AD Hybrid Health AD FS service instance.\n3. Attacker adds a rogue server to the AD FS health environment.\n4. Attacker leverages the rogue server to inject spoofed AD FS authentication logs.\n5. Attacker performs malicious operations elsewhere in the environment, masked by spoofed events.\n6. Attacker initiates a delete request via the Azure AD Hybrid Health API for the malicious service instance.\n7. Azure Resource Manager processes the 'MICROSOFT.ADHYBRIDHEALTHSERVICE/SERVICES/DELETE' operation.\n8. Unauthorized health service is removed, effectively cleaning up evidence of the spoofing infrastructure.\n\n## Impact\n\nThe primary impact is the loss of reliable authentication telemetry. If successful, an attacker can mask lateral movement or account manipulation by injecting benign-appearing authentication logs from a non-existent or rogue source. This undermines the capability of identity protection systems to flag anomalous login activity, potentially allowing attackers to maintain access for extended periods without detection.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to monitor for the deletion of AAD Hybrid Health service instances.\n* Audit all current AD Hybrid Health service instances within the tenant to ensure only authorized infrastructure is present.\n* Establish an alert for any new 'MICROSOFT.ADHYBRIDHEALTHSERVICE/SERVICES/WRITE' operations to detect the creation of unauthorized AD FS health instances.\n* Restrict Azure RBAC roles that allow the modification or deletion of Hybrid Health service configurations to a limited set of verified identity administrators.\n",
+      "published": "2026-10-21T02:44:27.000Z",
+      "labels": [
+        "azure",
+        "cloud",
+        "defense-impairment"
+      ],
+      "object_refs": [
+        "attack-pattern--b5e811f4-beda-5c22-8326-b9abc85b221c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ea48172d-a9ad-5a98-9e8c-f65f7b605ed2",
+        "software--f214f5d0-9468-5934-9d2d-a9126ca40930"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-aad-hybrid-health-delete",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-aad-hybrid-health-delete/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://aadinternals.com/talks/HelSec%20August%202021.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/identity#microsoftadhybridhealthservice"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://web.archive.org/web/20220619212736/https://o365blog.com/post/hybridhealthagent/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.inversecos.com/2023/01/detecting-fake-events-in-azure-sign-in.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-aad-hybrid-health-delete",
+      "x_craftedsignal_event_id": "brief-2026-10-21-aad-hybrid-health-delete",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aad-hybrid-health-delete/",
+      "x_craftedsignal_activity_at": "2026-10-21T02:44:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bf67eaf3-48db-5135-b095-4a6b79778ed4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:05:58.000Z",
@@ -108874,6 +109026,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ea48172d-a9ad-5a98-9e8c-f65f7b605ed2",
+      "name": "Azure AD Hybrid Health",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ea87ca79-49c4-549a-8c91-26f6e916090d",
       "name": "Login with phone number (\u003c= 1.8.77)",
       "vendor": "Hamid Alinia"
@@ -108898,6 +109057,13 @@
       "id": "software--eb906551-98ee-5a49-a6fb-de33cffaf137",
       "name": "Open Source Social Network (6.3 LTS)",
       "vendor": "Openteknik"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eb96a251-c123-5a41-965d-63f36b6d62f4",
+      "name": "Entra ID Hybrid Health AD FS",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
