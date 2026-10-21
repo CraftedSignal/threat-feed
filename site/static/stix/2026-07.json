@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--76a7a002-051b-5f84-b399-af5546cd8da3",
+  "id": "bundle--c67f4af9-ca93-5839-ba2e-3d82db89bdc0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11175,17 +11175,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1c10b392-a2c2-5d96-b1d2-a6c4a9c94cd5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b81baa67-80bc-57a7-af0c-114b433fdce0",
-      "target_ref": "vulnerability--7f38e7ee-805a-564d-a65c-c3d92c0d19e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1c29e06e-e25d-54fe-951f-9c3a23c30dc8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:03:50.000Z",
@@ -12711,17 +12700,6 @@
       "relationship_type": "has",
       "source_ref": "software--865e2fa5-33e8-517d-8538-89a589717581",
       "target_ref": "vulnerability--bd4e5371-55e3-5ea3-82dc-e01ae63d4e35"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2fa3ce3b-c8db-5437-9541-f64622542d4b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T16:22:56.000Z",
-      "modified": "2026-07-23T16:22:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b333cfc6-924f-5009-8de9-fd6bbfbb1f70",
-      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
     },
     {
       "type": "relationship",
@@ -17958,17 +17936,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1853643c-0706-5f26-a6c2-85d924aa230f",
       "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6f96b94f-9edb-53ba-833e-a35bbf81fcd9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T16:22:56.000Z",
-      "modified": "2026-07-23T16:22:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b333cfc6-924f-5009-8de9-fd6bbfbb1f70",
-      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
     },
     {
       "type": "relationship",
@@ -26450,17 +26417,6 @@
       "relationship_type": "uses",
       "source_ref": "report--5fc39d1c-eb6c-566c-9c7b-f2c71a70045c",
       "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d9353ece-dc07-5d93-9c43-2bdd5f9c190a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T16:22:56.000Z",
-      "modified": "2026-07-23T16:22:56.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b333cfc6-924f-5009-8de9-fd6bbfbb1f70",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -43584,57 +43540,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b333cfc6-924f-5009-8de9-fd6bbfbb1f70",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T16:22:56.000Z",
-      "modified": "2026-07-23T16:22:56.000Z",
-      "name": "CyberPanel Insecure Direct Object Reference (IDOR) Vulnerability (CVE-2026-65917)",
-      "description": "## Overview\n\nA critical Insecure Direct Object Reference (IDOR) vulnerability, identified as CVE-2026-65917, affects CyberPanel versions up to and including 1.9.1. This flaw resides within the IncBackups application's incremental-backup handlers, specifically in the `deleteBackup`, `fetchRestorePoints`, and `restorePoint` functions. Authenticated CyberPanel users can exploit this by manipulating a globally sequential `IncJob` integer ID, which is not properly re-scoped to the authorized domain. This oversight allows attackers to access or manipulate backup resources belonging to other tenants. The vulnerability enables actions such as enumerating sequential backup IDs to read another tenant's backup metadata, irreversibly deleting backup snapshots, or initiating unauthorized restoration of another tenant's backup job with elevated root privileges. This vulnerability poses a significant risk of data compromise, destruction, and unauthorized system access across multi-tenant CyberPanel deployments. The issue was fixed in commit b198460.\n\n## Attack Chain\n\n1. An authenticated attacker gains access to a CyberPanel instance.\n2. The attacker identifies the vulnerable `IncBackups` application's incremental-backup handlers (e.g., `deleteBackup`, `fetchRestorePoints`, `restorePoint`).\n3. The attacker observes or infers the globally sequential nature of `IncJob` integer IDs used to reference backup resources.\n4. The attacker crafts a request to one of the vulnerable handlers, supplying a manipulated `IncJob` integer ID corresponding to another tenant's backup resource.\n5. Depending on the handler targeted, the attacker can:\n a. Read sensitive backup metadata from another tenant's account via `fetchRestorePoints`.\n b. Irreversibly delete another tenant's backup snapshots via `deleteBackup`.\n c. Trigger an unauthorized restoration of another tenant's backup job via `restorePoint`.\n6. If the attacker initiates a restoration, the operation is executed with root privileges, potentially leading to system compromise or data overwrites on the victim tenant's environment.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-65917 allows an authenticated user to gain unauthorized access to, delete, or restore backup resources belonging to other tenants on the same CyberPanel instance. This can lead to severe data breaches, complete data loss for affected tenants due to irreversible deletion of backups, or unauthorized system takeover through malicious restoration processes executing with root privileges. The vulnerability directly impacts data confidentiality, integrity, and availability for all tenants hosted on a vulnerable CyberPanel server. While no specific victim count or targeted sectors are provided, any organization utilizing CyberPanel through version 1.9.1 in a multi-tenant environment is at risk.\n\n## Recommendation\n\n* Immediately patch CyberPanel instances to a version that includes commit b198460 or later to address CVE-2026-65917.\n* Review web server logs for unusual access patterns to the `IncBackups` application endpoints, especially requests containing sequential or non-user-specific `IncJob` integer IDs, which may indicate attempted exploitation of CVE-2026-65917.\n* Monitor for unauthorized backup deletion or restoration events within CyberPanel's activity logs.\n",
-      "published": "2026-07-23T16:22:56.000Z",
-      "labels": [
-        "cyberpanel",
-        "data-manipulation",
-        "idor",
-        "privilege-escalation",
-        "vulnerability",
-        "web-panel"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
-        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b81baa67-80bc-57a7-af0c-114b433fdce0",
-        "vulnerability--7f38e7ee-805a-564d-a65c-c3d92c0d19e1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cyberpanel-idor",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cyberpanel-idor/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65917"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-cyberpanel-idor",
-      "x_craftedsignal_event_id": "brief-2026-07-cyberpanel-idor",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cyberpanel-idor/",
-      "x_craftedsignal_activity_at": "2026-07-23T16:22:56.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b471bc9a-6641-5e33-8d0b-453f58ad4864",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:23:45.000Z",
@@ -52802,13 +52707,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b81baa67-80bc-57a7-af0c-114b433fdce0",
-      "name": "CyberPanel (through 1.9.1)",
-      "vendor": "CyberPanel"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
       "name": "ComfyUI (v0.23.0 and earlier)",
       "vendor": "ComfyUI"
@@ -55767,22 +55665,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-59219",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59219"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7f38e7ee-805a-564d-a65c-c3d92c0d19e1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65917",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65917",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65917"
         }
       ]
     },
