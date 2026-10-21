@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6f0c87f2-2d96-59ce-8bb3-eaa7da2efdb3",
+  "id": "bundle--2dd9ec80-e632-57b8-b66d-15677dce7bfd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4341,6 +4341,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--02fec5d6-8ce6-5bdc-9cba-70d071e7e13c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f78aa42-9f3a-51e4-a67c-9df626fb8f14",
+      "target_ref": "vulnerability--048eb503-436d-545b-9c40-170c30a7f683"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--030609c3-874a-58aa-a379-65e641b04d74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -7725,6 +7736,17 @@
       "relationship_type": "has",
       "source_ref": "software--036685d9-0fad-5d2d-904b-b8ff0069befc",
       "target_ref": "vulnerability--56ccd649-b0c9-5d9c-b39e-b0d0396cc6fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1b5644af-459d-58f2-9a1c-566911180f4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:22.000Z",
+      "modified": "2026-10-21T02:15:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a4864d1-1c39-570f-b8fa-43c29ecba877",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -11381,6 +11403,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--383e086d-b702-5be6-9c85-70b30e910786",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea2d3bc7-a31b-5098-8e8f-727cacab25e4",
+      "target_ref": "vulnerability--52d17400-188d-5c52-84a9-b558dee5b5dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--385468ea-595d-569d-b023-03fb5778f3bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T22:32:09.000Z",
@@ -12433,6 +12466,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a1fb3936-267c-5c08-bdf6-9cc1aa2689ce",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--40cf1a7d-3d71-5bb4-af90-9c6024e7cd68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:08.000Z",
+      "modified": "2026-10-21T02:15:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cdb97d7b-ae17-5f7e-8127-505066a3f1f1",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -21974,6 +22018,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--839cf8f5-5fb1-5b5e-bdd4-f608e2d6c43a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:22.000Z",
+      "modified": "2026-10-21T02:15:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a4864d1-1c39-570f-b8fa-43c29ecba877",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--83ae577c-f7d5-5990-aea4-d9b32daed682",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29652,6 +29707,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ba8ad696-58d0-5630-b1f4-1a7108a96e67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:15.000Z",
+      "modified": "2026-10-21T02:15:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--909a28a7-d231-5bb4-a56e-bf39962db234",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ba8f8f6a-48e7-50de-a1e5-8925ea2c3c21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T20:15:23.000Z",
@@ -32024,6 +32090,17 @@
       "relationship_type": "uses",
       "source_ref": "report--880f8f86-9030-5782-bc84-394645c6f1fd",
       "target_ref": "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cbba64bd-d9aa-5190-a72f-054ab4dcbb1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:15.000Z",
+      "modified": "2026-10-21T02:15:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--909a28a7-d231-5bb4-a56e-bf39962db234",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -34866,6 +34943,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--df237062-9e31-5060-aea5-8af0de04fadd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b5d493d-8ac7-5f82-8eb1-bb9370dff118",
+      "target_ref": "vulnerability--a12e1fc2-19da-53cb-b58b-abbbbf2f0157"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--df32df14-8a19-5f69-bf8c-d35d1ae69143",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36505,6 +36593,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e8b1c69c-f550-5ab0-9580-9e08e17f0615",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:22.000Z",
+      "modified": "2026-10-21T02:15:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a4864d1-1c39-570f-b8fa-43c29ecba877",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e8ba8136-5879-574b-a8a7-629f6a8f4a0a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T04:48:42.000Z",
@@ -37480,6 +37579,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9d76e3c1-330b-5cf8-af96-df2192e97f3b",
       "target_ref": "attack-pattern--f8a5616a-53f6-5d8f-940e-1f38c11312fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eecaa14d-2767-58cd-9b39-e39595e5a44f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4c5d9fd7-29d7-5a65-b036-95e0f92480a3",
+      "target_ref": "vulnerability--52d17400-188d-5c52-84a9-b558dee5b5dd"
     },
     {
       "type": "relationship",
@@ -60070,6 +60180,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5a4864d1-1c39-570f-b8fa-43c29ecba877",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:22.000Z",
+      "modified": "2026-10-21T02:15:22.000Z",
+      "name": "Best Practice Software Bp Premier hardcoded SQL Server administrative password (CVE-2026-114119)",
+      "description": "## Overview\n\nBest Practice Software Bp Premier versions before 1.14.1.1128 utilize a hardcoded Microsoft SQL Server administrative password. This credential is shared across all installations and is functionally required by the application, meaning it cannot be altered by administrators without causing operational failure. An attacker with network reach to the database instance can leverage this hardcoded credential to authenticate as a sysadmin. Once authenticated, the attacker can interact directly with the database engine to perform unauthorized queries, bypass application-level access controls, and use SQL Server stored procedures (such as xp_cmdshell) to execute operating system commands with SYSTEM privileges on the underlying host. This vulnerability represents a critical risk to health-sector environments where the software is deployed, as it grants full control over the database and host system.\n\n## Attack Chain\n\n1. Attacker performs network reconnaissance to identify accessible Microsoft SQL Server instances on the network.\n2. Attacker establishes a connection to the identified SQL Server instance using the hardcoded administrative credential.\n3. Attacker authenticates to the database as an account with sysadmin-level privileges.\n4. Attacker enables advanced configuration features within the SQL Server instance if not already active (e.g., sp_configure 'show advanced options', 1).\n5. Attacker enables the xp_cmdshell stored procedure to facilitate command execution.\n6. Attacker executes arbitrary system commands via xp_cmdshell to establish persistence or exfiltrate data.\n7. Attacker gains full control over the host operating system with SYSTEM-level permissions.\n\n## Impact\n\nSuccessful exploitation results in full compromise of the Bp Premier database and the host operating system. Given the nature of this software in medical environments, impact includes potential unauthorized access to sensitive patient health information, database destruction, and long-term persistence in the infrastructure of medical practices.\n\n## Recommendation\n\n* Patch Bp Premier to version 1.14.1.1128 or later immediately to address the hardcoded credential issue.\n* Restrict network access to Microsoft SQL Server instances used by Bp Premier to only authorized application servers using host-based firewalls or network segmentation.\n* Audit SQL Server logs for unauthorized connection attempts or usage of system-level stored procedures.\n* Disable the xp_cmdshell procedure at the database level if it is not explicitly required for application operation.\n",
+      "published": "2026-10-21T02:15:22.000Z",
+      "labels": [
+        "credential-exposure",
+        "privilege-escalation",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4c5d9fd7-29d7-5a65-b036-95e0f92480a3",
+        "software--ea2d3bc7-a31b-5098-8e8f-727cacab25e4",
+        "vulnerability--52d17400-188d-5c52-84a9-b558dee5b5dd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-bp-premier-hardcoded-creds",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-bp-premier-hardcoded-creds/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114119"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-bp-premier-hardcoded-creds",
+      "x_craftedsignal_event_id": "brief-2026-10-21-bp-premier-hardcoded-creds",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-bp-premier-hardcoded-creds/",
+      "x_craftedsignal_activity_at": "2026-10-21T02:15:22.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a67e300-ab68-5c10-9fad-338be902aad8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T12:55:15.000Z",
@@ -73336,6 +73495,48 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--909a28a7-d231-5bb4-a56e-bf39962db234",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:15.000Z",
+      "modified": "2026-10-21T02:15:15.000Z",
+      "name": "HKUDS Vibe-Trading Missing Authentication (CVE-2026-114108)",
+      "description": "## Overview\n\nHKUDS Vibe-Trading versions 0.1.0 through 0.1.6 are susceptible to a missing authentication vulnerability (CVE-2026-114108). The vulnerability exists within the application's authentication logic; specifically, the require_auth() function returns early if the API_AUTH_KEY environment variable is not explicitly set. This failure results in the entire FastAPI surface being exposed to unauthenticated remote attackers. \n\nAn attacker can leverage this flaw to interact with administrative endpoints, resulting in full application compromise. Reported impacts include unauthorized access to session histories, retrieval of partial API keys, arbitrary file uploads via the /upload endpoint, and remote code execution through the BashTool utility reachable via the /sessions/{id}/messages endpoint. Defenders should prioritize updating to version 0.1.7 or ensuring that the API_AUTH_KEY environment variable is configured correctly.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to gain full control over the Vibe-Trading instance. This includes the ability to execute arbitrary shell commands with the privileges of the application process, exfiltrate sensitive session data and API keys, and upload malicious scripts. This poses a significant risk to the integrity and confidentiality of the host environment and any integrated services.\n\n## Recommendation\n\n- Upgrade Vibe-Trading to version 0.1.7 or later immediately to patch CVE-2026-114108.\n- If immediate patching is not possible, ensure the API_AUTH_KEY environment variable is set to a strong, non-default value to force the require_auth() function to validate requests.\n- Audit logs for unauthorized HTTP POST requests to /upload or /sessions/*/messages endpoints originating from untrusted IPs.\n- Restrict access to the Vibe-Trading FastAPI interface to authorized network segments only.\n",
+      "published": "2026-10-21T02:15:15.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b5d493d-8ac7-5f82-8eb1-bb9370dff118",
+        "vulnerability--a12e1fc2-19da-53cb-b58b-abbbbf2f0157"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-114108",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-114108/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114108"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-114108",
+      "x_craftedsignal_event_id": "brief-2026-10-21-114108",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-114108/",
+      "x_craftedsignal_activity_at": "2026-10-21T02:15:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -88306,6 +88507,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cdb97d7b-ae17-5f7e-8127-505066a3f1f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T02:15:08.000Z",
+      "modified": "2026-10-21T02:15:08.000Z",
+      "name": "D-Link DHP-W610AV: HNAP login configuration vulnerability (CVE-2026-113736)",
+      "description": "## Overview\n\nD-Link DHP-W610AV firmware version 1.02EUb03 contains a critical security vulnerability (CVE-2026-113736) within the HNAP (Home Network Administration Protocol) Login component. The issue exists in the 'login_prepare_hnap' function, located within the 'etc/defnodes/defaultvalue.xml' file. An unauthenticated remote attacker can exploit this vulnerability by manipulating the 'Password' argument during the HNAP authentication process. Successful exploitation results in the device configuration being modified to set an empty administrative password. This flaw, which carries a CVSS v3.1 base score of 9.8, provides a straightforward path for attackers to gain unauthorized administrative access to affected network devices. Public disclosure of the exploit increases the likelihood of opportunistic exploitation in the wild.\n\n## Attack Chain\n\n1. The attacker performs network reconnaissance to identify exposed HNAP interfaces on D-Link DHP-W610AV devices.\n2. The attacker targets the HNAP service, typically accessible via HTTP/TCP ports often associated with device management.\n3. The attacker crafts a malicious HTTP POST request targeting the HNAP login interface.\n4. The request includes a manipulated 'Password' argument as defined in the 'login_prepare_hnap' function.\n5. The device's HNAP service processes the malformed input without proper sanitization.\n6. The vulnerability forces the device to overwrite the existing administrative configuration with an empty password.\n7. The attacker authenticates to the device management interface using the now-empty administrative credentials.\n8. The attacker achieves full administrative control over the network device for further exploitation or exfiltration.\n\n## Impact\n\nSuccessful exploitation allows remote, unauthenticated attackers to bypass authentication on D-Link DHP-W610AV devices. This leads to complete administrative takeover of the networking hardware, enabling the attacker to intercept traffic, modify network settings, or pivot deeper into the local network environment. Given the nature of the device, this could affect numerous residential or small-office environments where these powerline adapters are deployed.\n\n## Recommendation\n\nPrioritized, concrete actions for detection and mitigation:\n* Restrict access to the HNAP interface of the D-Link DHP-W610AV to trusted internal IP ranges via firewall or ACLs.\n* Disable remote management interfaces on the device if they are not strictly required for operation.\n* Monitor network traffic for HTTP POST requests directed toward HNAP-related endpoints containing anomalous 'Password' parameter values.\n* Check D-Link support resources for any firmware updates that remediate CVE-2026-113736 and apply them to all managed devices immediately.\n",
+      "published": "2026-10-21T02:15:08.000Z",
+      "labels": [
+        "cve-2026-113736",
+        "network-infrastructure",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f78aa42-9f3a-51e4-a67c-9df626fb8f14",
+        "vulnerability--048eb503-436d-545b-9c40-170c30a7f683"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-dlink-dhp-w610av-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-dlink-dhp-w610av-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113736"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-dlink-dhp-w610av-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-21-dlink-dhp-w610av-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dlink-dhp-w610av-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-21T02:15:08.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cdbfc2d1-0d5c-5e31-a613-3aa32158e4fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:08:25.000Z",
@@ -100317,6 +100564,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0b5d493d-8ac7-5f82-8eb1-bb9370dff118",
+      "name": "Vibe-Trading (0.1.0-0.1.6)",
+      "vendor": "HKUDS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0b7eac48-9c11-5ab2-a061-4f6912fbb401",
       "name": "OpenSSL"
     },
@@ -102717,6 +102971,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4c5d9fd7-29d7-5a65-b036-95e0f92480a3",
+      "name": "SQL Server (\u003c 1.14.1.1128)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4c8953c2-463a-5fa7-8094-48c5f00df719",
       "name": "ZITADEL (\u003c 3.4.14, 4.x \u003c 4.16.2)",
       "vendor": "ZITADEL"
@@ -104606,6 +104866,13 @@
       "id": "software--7f671572-e174-5a9b-b336-6faa90aae688",
       "name": ".NET (8.0, 9.0, 10.0, 11.0)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7f78aa42-9f3a-51e4-a67c-9df626fb8f14",
+      "name": "DHP-W610AV (1.02EUb03)",
+      "vendor": "D-Link"
     },
     {
       "type": "software",
@@ -108594,6 +108861,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ea2d3bc7-a31b-5098-8e8f-727cacab25e4",
+      "name": "Bp Premier (\u003c 1.14.1.1128)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ea304dda-9b1d-5821-bf29-1826f7ffefba",
       "name": "Aspera Enterprise WebApps (1.0.0-1.0.6)",
       "vendor": "IBM"
@@ -109756,6 +110029,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110887",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110887"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--048eb503-436d-545b-9c40-170c30a7f683",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113736",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113736",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113736"
         }
       ]
     },
@@ -114962,6 +115251,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--52d17400-188d-5c52-84a9-b558dee5b5dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114119",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114119",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114119"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5308fed2-ddb8-5989-a330-845051f48140",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120028,6 +120333,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110612",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110612"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a12e1fc2-19da-53cb-b58b-abbbbf2f0157",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114108",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114108",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114108"
         }
       ]
     },
