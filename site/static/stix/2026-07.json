@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--026c9aeb-fed0-5805-96ac-0ca19beb65ce",
+  "id": "bundle--76a7a002-051b-5f84-b399-af5546cd8da3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31,22 +31,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1087",
           "url": "https://attack.mitre.org/techniques/T1087"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--03c2c1be-ce3f-5edf-b12c-7326679223a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Email Collection",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1114",
-          "url": "https://attack.mitre.org/techniques/T1114"
         }
       ]
     },
@@ -2078,18 +2062,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--068f487a-44f0-5914-90b0-30271303d9dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:23:17.000Z",
-      "modified": "2026-07-23T14:23:17.000Z",
-      "name": "url: https://github.com/cure53/DOMPurify/security/advisories/GHSA-cmwh-pvxp-8882",
-      "pattern": "[url:value = 'https://github.com/cure53/DOMPurify/security/advisories/GHSA-cmwh-pvxp-8882']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-23T14:23:17.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--06ba8e5b-bb4e-57ff-9837-8828c01f064e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-25T11:19:14.000Z",
@@ -2254,18 +2226,6 @@
       "pattern": "[domain-name:value = 'pool-nyc.supportxmr.com']",
       "pattern_type": "stix",
       "valid_from": "2026-07-27T16:39:09.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--0e9977c8-c007-5c6a-b2e1-6d6583a81146",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:22:26.000Z",
-      "modified": "2026-07-23T14:22:26.000Z",
-      "name": "url: https://www.boldreports.com/resources/release-history/standalone-report-designer/14-1#14-1-12",
-      "pattern": "[url:value = 'https://www.boldreports.com/resources/release-history/standalone-report-designer/14-1#14-1-12']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-23T14:22:26.000Z"
     },
     {
       "type": "indicator",
@@ -7903,18 +7863,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--dc684868-3f5b-500c-9eb3-dca712cb659f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:23:17.000Z",
-      "modified": "2026-07-23T14:23:17.000Z",
-      "name": "url: https://www.vulncheck.com/advisories/dompurify-before-permanent-attribute-allowlist-pollution-via-setconfig",
-      "pattern": "[url:value = 'https://www.vulncheck.com/advisories/dompurify-before-permanent-attribute-allowlist-pollution-via-setconfig']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-23T14:23:17.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--ddcd4fd8-1029-506b-99fe-970b73d00aa7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -7935,18 +7883,6 @@
       "pattern": "[domain-name:value = 'hellominer.com']",
       "pattern_type": "stix",
       "valid_from": "2026-07-27T16:39:09.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--df016cec-de2c-5412-b613-072f3237df40",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:22:26.000Z",
-      "modified": "2026-07-23T14:22:26.000Z",
-      "name": "url: https://www.vulncheck.com/advisories/bold-reports-standalone-report-designer-path-traversal-rce-via-file-upload",
-      "pattern": "[url:value = 'https://www.vulncheck.com/advisories/bold-reports-standalone-report-designer-path-traversal-rce-via-file-upload']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-23T14:22:26.000Z"
     },
     {
       "type": "indicator",
@@ -9457,17 +9393,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--061c17a2-8417-58fe-bb8a-f4bad17fa774",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:45:37.000Z",
-      "modified": "2026-07-23T14:45:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d497c9e6-05ed-558e-a79b-475c6170d54c",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0622daec-7bbf-51da-b98b-d7d0aea35b35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10014,17 +9939,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8219d163-c140-534a-b3be-9262f25c7206",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0d6af75d-1ef4-51c6-a2a3-6e25ade60012",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:22:26.000Z",
-      "modified": "2026-07-23T14:22:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0d6c4e77-10f9-5949-8f2b-5092abfe6479",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -11437,17 +11351,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1e090ed2-f84d-54e2-95f8-76eac8dd3641",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:21:18.000Z",
-      "modified": "2026-07-23T14:21:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e6cd8b48-f396-5bc5-9ea7-08bb81a1c1fd",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1e1062c6-46ae-5800-8833-7e0a75b5dc45",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:17.000Z",
@@ -11862,17 +11765,6 @@
       "relationship_type": "has",
       "source_ref": "software--ae78e911-b0da-5b60-96d6-81ce5687627c",
       "target_ref": "vulnerability--bcaa86b4-cb8d-5ee8-bbb0-3d85dabac6d6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--232eecc3-adb7-57f0-907b-f5cba066ba06",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:41:39.000Z",
-      "modified": "2026-07-23T14:41:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2f235ae3-7229-5c53-9383-cb33fa73ce22",
-      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
     },
     {
       "type": "relationship",
@@ -12581,17 +12473,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2cc2999b-3260-5b3d-a011-cdad4b01d3f3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--893e9cf3-e15a-5dae-8c31-e804996f032f",
-      "target_ref": "vulnerability--13d57b0d-dea0-5c89-bee5-43f86662a164"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2d48c714-2ce8-560c-905a-9f56838bc2ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:25:06.000Z",
@@ -13017,17 +12898,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--e8b81001-ab68-5c4c-8b68-0388bdaf2467"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3168ff21-ceaa-5d91-be68-fc86c0b3b2dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3710431f-8e60-5b77-b08f-09ea107503ef",
-      "target_ref": "vulnerability--7d12a9ad-ca9e-5ead-a543-32d94b4aa615"
     },
     {
       "type": "relationship",
@@ -13721,17 +13591,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6f63d398-c369-5f3d-8b79-eee4ae6a618d",
       "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--39917165-6356-5ca7-992b-2a20bb07cbab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:19:51.000Z",
-      "modified": "2026-07-23T14:20:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b2bdd6a3-dc0a-5cf5-ae05-f6898865e3d7",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -15914,17 +15773,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--53766157-4088-59f8-a474-f81e6d7e6ca2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:23:17.000Z",
-      "modified": "2026-07-23T14:23:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ddd71224-86ca-5fab-ab4a-34f3170cbcd0",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--53854744-9cb7-5149-b525-cc24598a9c0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-25T11:19:14.000Z",
@@ -16867,17 +16715,6 @@
       "relationship_type": "has",
       "source_ref": "software--2ab76423-f167-5467-97fd-250fa6633d20",
       "target_ref": "vulnerability--f036da74-fdbb-56f1-a744-f54d849196e3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--600a1378-96ea-55a7-9190-dca12255fb12",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:42:37.000Z",
-      "modified": "2026-07-23T14:42:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4f8c89d6-261d-5bf0-a4ca-a55d053b1e77",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -18620,17 +18457,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--75a2b0f4-b2cd-5ee5-8180-c6408896ed3b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3367943b-71a1-5055-8eca-08c80adecdd5",
-      "target_ref": "vulnerability--f036b832-68b4-51c4-b2c4-5df673aa43b7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--75b6f99a-2acb-56ab-bc80-b317ddf25b60",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T18:18:49.000Z",
@@ -18759,17 +18585,6 @@
       "relationship_type": "has",
       "source_ref": "software--bfdf393f-2e68-5ba5-aaaa-84b5313865ff",
       "target_ref": "vulnerability--41035bdf-705d-552e-8b06-4585a0c070f9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7753e8cf-8ab3-5184-8ec0-2025e7f6a2de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:41:39.000Z",
-      "modified": "2026-07-23T14:41:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2f235ae3-7229-5c53-9383-cb33fa73ce22",
-      "target_ref": "attack-pattern--03c2c1be-ce3f-5edf-b12c-7326679223a6"
     },
     {
       "type": "relationship",
@@ -19357,17 +19172,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7d896873-3749-5400-9cc5-f8891670dc0f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:59:25.000Z",
-      "modified": "2026-07-23T14:59:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e0cafc9f-5ff9-5414-9068-463280320071",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7dc2fe36-5b77-5ae2-aa00-24147eb7a4dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -19485,17 +19289,6 @@
       "relationship_type": "uses",
       "source_ref": "report--993cc27d-6e2d-59e1-9a35-828561d8e6db",
       "target_ref": "indicator--8911477e-2498-593b-9f63-c41be3e3fa92"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7efccee1-3091-534e-8e52-a3aa29539028",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3710431f-8e60-5b77-b08f-09ea107503ef",
-      "target_ref": "vulnerability--29db698f-938a-5339-b46d-fe502025d6b8"
     },
     {
       "type": "relationship",
@@ -20156,17 +19949,6 @@
       "relationship_type": "uses",
       "source_ref": "report--20eff92d-d586-5326-a372-09990d15686a",
       "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--866a233f-2094-5558-a7e6-955b8b8706fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3d86f6ba-f6d9-5b07-b7be-387f028dd2cd",
-      "target_ref": "vulnerability--7d12a9ad-ca9e-5ead-a543-32d94b4aa615"
     },
     {
       "type": "relationship",
@@ -21458,17 +21240,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--95cc1ec4-3457-56e3-ae0b-ed9c27a26aba",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:41:39.000Z",
-      "modified": "2026-07-23T14:41:39.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--2f235ae3-7229-5c53-9383-cb33fa73ce22",
-      "target_ref": "threat-actor--874f9245-df61-5146-ad50-499e1e65edd4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--95d3bcbd-dc7b-53df-9ede-41ca4feb114b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:00:05.000Z",
@@ -21520,17 +21291,6 @@
       "relationship_type": "uses",
       "source_ref": "report--993cc27d-6e2d-59e1-9a35-828561d8e6db",
       "target_ref": "indicator--3dadd696-ac10-5e74-83ef-411556104c0e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--96b7b134-0353-5dca-9000-15914c16807a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:23:17.000Z",
-      "modified": "2026-07-23T14:23:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ddd71224-86ca-5fab-ab4a-34f3170cbcd0",
-      "target_ref": "indicator--068f487a-44f0-5914-90b0-30271303d9dd"
     },
     {
       "type": "relationship",
@@ -22316,17 +22076,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a08795e0-81ed-5e27-8040-3ff86a024e29",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:23:17.000Z",
-      "modified": "2026-07-23T14:23:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ddd71224-86ca-5fab-ab4a-34f3170cbcd0",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a0b09b1b-05f2-55fc-8bbf-cb7ee6596e0e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T18:10:39.000Z",
@@ -22653,17 +22402,6 @@
       "relationship_type": "has",
       "source_ref": "software--4c35f02b-8410-59a0-9c27-4a2250b3e166",
       "target_ref": "vulnerability--d6dc083e-70d6-5e7f-bc51-9732e35d0295"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a43f5983-45db-57d4-aa9c-d86258182021",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:23:17.000Z",
-      "modified": "2026-07-23T14:23:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ddd71224-86ca-5fab-ab4a-34f3170cbcd0",
-      "target_ref": "indicator--dc684868-3f5b-500c-9eb3-dca712cb659f"
     },
     {
       "type": "relationship",
@@ -23691,17 +23429,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--afa238e4-a0c5-5fd8-882c-9decf12f3937",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:22:26.000Z",
-      "modified": "2026-07-23T14:22:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0d6c4e77-10f9-5949-8f2b-5092abfe6479",
-      "target_ref": "indicator--df016cec-de2c-5412-b613-072f3237df40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aff8ae2f-f71d-54b8-acb4-ab14efb88ee9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T11:25:48.000Z",
@@ -24072,17 +23799,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--136dd686-2eb3-58ea-8fb3-ca26fe393ec0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b4d7a53b-5f0b-5ca2-b0e1-9dce937e2774",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3d86f6ba-f6d9-5b07-b7be-387f028dd2cd",
-      "target_ref": "vulnerability--29db698f-938a-5339-b46d-fe502025d6b8"
     },
     {
       "type": "relationship",
@@ -24512,17 +24228,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2fcbd4ee-053b-59e6-994e-026e0add0e33",
       "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bab92484-1b9a-5fdd-a742-51f4bf61cd42",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:19:51.000Z",
-      "modified": "2026-07-23T14:20:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b2bdd6a3-dc0a-5cf5-ae05-f6898865e3d7",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -24996,17 +24701,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--ebbd7fa0-4012-5d52-a243-a6c23536f268"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c0b2f9e7-e8e0-5a18-96f4-f2a548c9373c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:42:37.000Z",
-      "modified": "2026-07-23T14:42:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4f8c89d6-261d-5bf0-a4ca-a55d053b1e77",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -26118,17 +25812,6 @@
       "relationship_type": "has",
       "source_ref": "software--a04e2eb7-8519-56a9-b463-2fdab49a9c3e",
       "target_ref": "vulnerability--a1a1335e-9749-5a02-9c34-dd4c081bc3a1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d045356e-6486-5831-87b8-39fbbf045e7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c2fd5fe2-2718-5c01-bb59-2cd45594a940",
-      "target_ref": "vulnerability--58f5082f-bd30-50ce-aeaa-c5443e37d3d5"
     },
     {
       "type": "relationship",
@@ -28300,17 +27983,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e9e1d879-4e8f-5348-8544-96626acc83de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:22:26.000Z",
-      "modified": "2026-07-23T14:22:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0d6c4e77-10f9-5949-8f2b-5092abfe6479",
-      "target_ref": "indicator--0e9977c8-c007-5c6a-b2e1-6d6583a81146"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e9e2ee52-791c-54b5-a8ab-49ad07235e9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-24T13:25:53.000Z",
@@ -29202,17 +28874,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f5bd18bc-eab9-52bd-8bb0-70a38062bb98",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:41:39.000Z",
-      "modified": "2026-07-23T14:41:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2f235ae3-7229-5c53-9383-cb33fa73ce22",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f5dbb017-9d48-5008-b880-21e7aab48622",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:35.000Z",
@@ -29957,17 +29618,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6d5ea447-7a58-501b-a4fb-e6a1a00b0d6f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ff6ee8d3-50d4-51d4-8eb0-7c764c0d4520",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T15:02:28.000Z",
-      "modified": "2026-07-23T15:02:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7e0a9440-e54c-5439-8782-6fb457f6dc6a",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -31043,63 +30693,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0d6c4e77-10f9-5949-8f2b-5092abfe6479",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:22:26.000Z",
-      "modified": "2026-07-23T14:22:26.000Z",
-      "name": "Bold Reports Standalone Report Designer Path Traversal to RCE Vulnerability",
-      "description": "## Overview\n\nCVE-2026-65690 identifies a critical missing filepath validation vulnerability in Bold Reports Standalone Report Designer versions prior to 14.1.12. This flaw resides within the product's file upload functionality, enabling authenticated attackers to exploit a path traversal weakness. By supplying a specially crafted filename that includes directory traversal sequences (e.g., `../`), attackers can bypass security controls and upload malicious files to arbitrary locations outside the intended upload directory. Successful exploitation can lead to arbitrary command execution with high privileges on the server, potentially compromising the integrity, confidentiality, and availability of the affected system. This vulnerability allows for a complete system takeover by an authenticated user.\n\n## Attack Chain\n\n1. An attacker obtains valid authentication credentials for the Bold Reports Standalone Report Designer application.\n2. The authenticated attacker accesses the application's file upload functionality.\n3. The attacker crafts a malicious filename containing path traversal sequences (e.g., `../../../../webshell.jsp`) and attempts to upload it.\n4. Due to the missing filepath validation (CVE-2026-65690), the application fails to properly sanitize the filename.\n5. The malicious file (e.g., a web shell or script) is written to an arbitrary location on the server, outside the intended upload directory.\n6. The attacker then accesses the uploaded malicious file (e.g., the web shell) through a web request.\n7. The web shell executes arbitrary commands with the privileges of the application, potentially leading to high-privileged system access or further compromise.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-65690 grants authenticated attackers the ability to execute arbitrary commands with high privileges on the compromised server. This can lead to a complete system takeover, allowing for sensitive data exfiltration, modification, or deletion, installation of additional malware such as ransomware or backdoors, and lateral movement within the network. The integrity and confidentiality of data stored on or accessible from the server are at severe risk. The broad impact of arbitrary command execution underscores the criticality of patching this vulnerability immediately.\n\n## Recommendation\n\n* Patch Bold Reports Standalone Report Designer to version 14.1.12 or higher immediately to address CVE-2026-65690.\n* Deploy the provided Sigma rule to your SIEM to detect attempts at path traversal through web server logs.\n* Monitor web server logs for suspicious file upload activity and unusual file paths, particularly those referenced in the Sigma rule.\n",
-      "published": "2026-07-23T14:22:26.000Z",
-      "labels": [
-        "path-traversal",
-        "rce",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--0e9977c8-c007-5c6a-b2e1-6d6583a81146",
-        "indicator--df016cec-de2c-5412-b613-072f3237df40",
-        "software--893e9cf3-e15a-5dae-8c31-e804996f032f",
-        "vulnerability--13d57b0d-dea0-5c89-bee5-43f86662a164"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-bold-reports-path-traversal-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-bold-reports-path-traversal-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65690"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.boldreports.com/resources/release-history/standalone-report-designer/14-1#14-1-12"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/bold-reports-standalone-report-designer-path-traversal-rce-via-file-upload"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-bold-reports-path-traversal-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-bold-reports-path-traversal-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-bold-reports-path-traversal-rce/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:22:26.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -33884,60 +33477,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--2f235ae3-7229-5c53-9383-cb33fa73ce22",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:41:39.000Z",
-      "modified": "2026-07-23T14:41:39.000Z",
-      "name": "Russian State-Backed 'LAUNDRY BEAR' Exploits Zimbra Zero-Click Vulnerability",
-      "description": "## Overview\n\nGCHQ’s National Cyber Security Centre (NCSC) and international partners have exposed LAUNDRY BEAR, a Russian state-supported advanced persistent threat (APT) group, for an ongoing zero-click phishing campaign. Active since July 2025, this campaign leverages a previously unknown exploit, internally dubbed \"beehive\" (or \"Ulej\"), targeting vulnerable versions of Zimbra Collaboration Suite (ZCS) webmail services. Unlike traditional phishing, the \"beehive\" exploit allows the attackers to gain extensive and sustained access to sensitive email information and compromised networks without any user interaction beyond viewing a malicious email. The campaign, which was initially trialed on Ukrainian victims, has subsequently targeted numerous Western organizations across sectors including defence, government, education, energy, law enforcement, media, NGOs, and technology, indicating an espionage objective to covertly acquire email data. The use of Artificial Intelligence in developing the codebase for this operation has also been noted.\n\n## Attack Chain\n\n1. The LAUNDRY BEAR threat group, with Russian state support, sends a specially crafted malicious email to a target organization using a vulnerable Zimbra Collaboration Suite (ZCS) instance.\n2. A user within the target organization views the malicious email in their ZCS webmail client.\n3. Upon viewing, the \"beehive\" zero-click exploit is automatically triggered within the vulnerable ZCS software, requiring no further user interaction (e.g., clicking a link or opening an attachment).\n4. The exploit grants the attackers extensive and sustained access to the target user's email account.\n5. Attackers proceed to steal sensitive email information from the compromised account.\n6. The threat actors establish persistent access to the compromised email system or broader network, facilitating long-term espionage activities.\n\n## Impact\n\nThe LAUNDRY BEAR campaign has resulted in the successful theft of sensitive email information and persistent access to compromised networks for espionage purposes. Since July 2025, organizations utilizing Zimbra Collaboration Suite (ZCS) have been targeted, with specific victim sectors in the US including defence, government, education, energy, law enforcement, media, NGOs, and technology. The techniques were first observed being tested on Ukrainian victims before being deployed against NATO member countries. A successful attack can lead to the exfiltration of confidential communications, intellectual property, and other critical data, posing significant national security and economic risks.\n\n## Recommendation\n\n* Immediately patch all Zimbra Collaboration Suite (ZCS) installations to the latest secure version to remediate the \"beehive\" zero-click vulnerability.\n* Enhance network monitoring capabilities for anomalous activity originating from or destined for Zimbra Collaboration Suite (ZCS) components.\n* Organizations should refer to the advisories from NCSC (https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign) and NSA (https://media.defense.gov/2026/Jul/22/2003965244/-1/-1/1/CSA_RUSSIA_PHISHING_TARGET_ZIMBRA.PDF) for comprehensive mitigation advice.\n* Strengthen online account security practices, including multi-factor authentication, across all enterprise applications.\n",
-      "published": "2026-07-23T14:41:39.000Z",
-      "labels": [
-        "email-theft",
-        "espionage",
-        "phishing",
-        "state-sponsored",
-        "zero-click",
-        "zimbra"
-      ],
-      "object_refs": [
-        "attack-pattern--03c2c1be-ce3f-5edf-b12c-7326679223a6",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3f5c58a1-5daf-5f3a-b0c1-af5cb5229a04",
-        "threat-actor--874f9245-df61-5146-ad50-499e1e65edd4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-russian-laundry-bear-zimbra-zero-click",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-russian-laundry-bear-zimbra-zero-click/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://media.defense.gov/2026/Jul/22/2003965244/-1/-1/1/CSA_RUSSIA_PHISHING_TARGET_ZIMBRA.PDF"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ncsc.gov.uk/news/uk-and-partners-expose-russian-state-supported-actors-for-new-zero-click-phishing-campaign"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-russian-laundry-bear-zimbra-zero-click",
-      "x_craftedsignal_event_id": "brief-2026-07-russian-laundry-bear-zimbra-zero-click",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-russian-laundry-bear-zimbra-zero-click/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:41:39.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--2fb94dd1-b1ae-5c0a-91e2-bcaf748455b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-24T21:21:32.000Z",
@@ -36418,56 +35957,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4f8c89d6-261d-5bf0-a4ca-a55d053b1e77",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:42:37.000Z",
-      "modified": "2026-07-23T14:42:37.000Z",
-      "name": "Auth.js Email Normalizer Vulnerability Allows Homoglyph Bypass Leading to Account Takeover",
-      "description": "## Overview\n\nA critical vulnerability exists in Auth.js, specifically affecting `next-auth` versions `\u003e= 4.0.0, \u003c 4.24.14`, `\u003e= 4.10.3, \u003c 4.24.15`, `\u003e= 5.0.0-beta.1, \u003c= 5.0.0-beta.31` and `@auth/core` versions `\u003e= 0.1.0, \u003c 0.41.3`, when using the default email/magic-link sign-in provider. The flaw stems from the email normalizer validating an address *before* applying Unicode normalization (NFKC/NFKD). This allows an attacker to craft an email address containing a Unicode character that is not an ASCII `@` (U+0040) but canonicalizes to one after normalization. This bypasses the normalizer's single-`@` check, causing a downstream mail library that performs Unicode normalization to interpret the address with two `@` separators. Consequently, the passwordless sign-in link is misrouted to an attacker-controlled mailbox, enabling account takeover without requiring any victim interaction.\n\n## Attack Chain\n\n1. An attacker identifies a target's email address and crafts a malicious version by inserting a Unicode homoglyph character that resembles '@' (e.g., `victim_email[U+XXXX]attacker.com`).\n2. The attacker submits this crafted email address to the vulnerable Auth.js application's magic-link sign-in flow.\n3. The application's default `normalizeIdentifier` function validates the address, incorrectly perceiving only one '@' symbol because validation occurs prior to Unicode normalization.\n4. The application proceeds to send the magic-link email, with the crafted address passed to a downstream mail library or service.\n5. The mail library or service, which performs Unicode normalization (e.g., NFKC) for internationalized email, processes the recipient address.\n6. During normalization, the homoglyph character in the crafted email canonicalizes to a second '@' symbol (e.g., `victim_email@attacker.com`), causing the mail service to misroute the magic link.\n7. The magic link is delivered to the attacker-controlled mailbox, enabling the attacker to authenticate and gain unauthorized access to the victim's account.\n\n## Impact\n\nThe primary impact of this vulnerability is account takeover. An attacker who knows a victim's email address can exploit this flaw to request a magic link that is subsequently delivered to an attacker-controlled mailbox. The attacker can then use this link to sign in as the victim, gaining full access to their account. No victim interaction is required for the link to be misrouted, as the attacker initiates and directly receives the authentication link. This can lead to unauthorized access to personal data, financial information, or sensitive corporate resources, depending on the scope and permissions of the compromised account.\n\n## Recommendation\n\n* Upgrade `next-auth` to a patched version (currently pending, refer to GHSA-7rqj-j65f-68wh for updates) immediately.\n* Upgrade `@auth/core` to a patched version (currently pending, refer to GHSA-7rqj-j65f-68wh for updates) immediately.\n* If immediate upgrade is not possible, implement a custom `normalizeIdentifier` on the email provider that calls `identifier.normalize(\"NFKC\")` *before* any validation, and ensures only one '@' remains after normalization, as detailed in the GHSA advisory.\n* Alternatively, as a workaround, reject any email addresses containing non-ASCII characters if your user base does not require internationalized email addresses.\n",
-      "published": "2026-07-23T14:42:37.000Z",
-      "labels": [
-        "account-takeover",
-        "authentication-bypass",
-        "magic-link",
-        "unicode-normalization",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1436506e-0a56-509f-b629-9958cbac0337",
-        "software--5e65faf9-1755-5de7-8bea-79aac3321310",
-        "software--8a56294d-0b04-5afd-814b-e88e0d453899",
-        "software--c0249077-b97d-50a5-b4ea-ff3ef43c07ac"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-authjs-homoglyph-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-authjs-homoglyph-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-7rqj-j65f-68wh"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-authjs-homoglyph-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-authjs-homoglyph-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-authjs-homoglyph-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:42:37.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -39764,57 +39253,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--7e0a9440-e54c-5439-8782-6fb457f6dc6a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T15:02:28.000Z",
-      "modified": "2026-07-23T15:02:28.000Z",
-      "name": "PhpSpreadsheet Gnumeric Reader Unbounded Gzip Expansion Leads to Denial of Service",
-      "description": "## Overview\n\nThe PhpOffice PhpSpreadsheet library, a widely used PHP library for reading and writing spreadsheet files, contains a critical vulnerability (CVE-2026-59932) in its Gnumeric file reader component. When processing an attacker-supplied `.gnumeric` file, the `Gnumeric::canRead()` function and subsequent processing paths invoke `gzdecode()` on gzipped contents without implementing a maximum decompressed-size limit. This allows a small, specially crafted compressed `.gnumeric` file to expand significantly, consuming excessive memory and leading to a PHP fatal error and process crash. This vulnerability impacts web applications, queue workers, and other services that accept and process untrusted spreadsheet uploads using PhpSpreadsheet, enabling attackers to trigger denial of service conditions by simply providing a malicious file. Affected versions include all PhpSpreadsheet versions up to 1.30.5, and specific ranges within 2.x, 3.x, 4.x, and 5.x.\n\n## Attack Chain\n\n1. **Initial Access**: An attacker crafts a malicious `.gnumeric` file containing a small, highly compressed gzip payload designed to decompress into a significantly larger data size.\n2. **Victim Interaction**: The attacker uploads this crafted `.gnumeric` file to a vulnerable application that uses the PhpSpreadsheet library for processing spreadsheet files (e.g., via a web form, API endpoint, or email attachment).\n3. **File Read Initiation**: The vulnerable application calls PhpSpreadsheet's `PhpOffice\\PhpSpreadsheet\\Reader\\Gnumeric::canRead()` method, or other loading functions, to determine the file type or extract information.\n4. **Unbounded Decompression**: Inside `gzfileGetContents()`, the library detects the gzip magic bytes and proceeds to call `gzdecode()` on the entire compressed file contents.\n5. **Memory Exhaustion**: During decompression, the small input file expands to an exceptionally large size (e.g., a 97KB file expands to 96MB), exceeding the PHP process's configured `memory_limit`.\n6. **Application Crash**: The PHP interpreter encounters a \"PHP Fatal error: Allowed memory size exhausted,\" leading to the immediate termination of the PHP process or worker handling the request.\n7. **Denial of Service**: The application or service becomes unresponsive or crashes, effectively creating a denial of service condition for legitimate users or operations.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-59932 leads directly to denial of service (DoS) for applications utilizing PhpSpreadsheet. A small, maliciously crafted `.gnumeric` file, for instance, a 97,811-byte file, can expand to approximately 96 MiB during processing. This rapid memory allocation exhausts the PHP process's memory limit (e.g., 64 MiB), causing a fatal error and crashing the application worker. Any service that accepts untrusted spreadsheet uploads, such as document converters, preview services, data import functionalities, or web applications handling user-uploaded files, is susceptible. This can result in service outages, reduced availability, and operational disruptions for affected organizations across various sectors.\n\n## Recommendation\n\n* Upgrade `composer/phpoffice/phpspreadsheet` to a patched version immediately to remediate CVE-2026-59932.\n* Implement input validation and file size checks for all user-uploaded spreadsheet files to prevent excessively large files from being processed.\n* Configure PHP's `memory_limit` to a reasonable, but not unbounded, value for processes handling file uploads, and monitor for sudden spikes in memory usage as a detection mechanism.\n* Ensure that any custom file processing logic that handles gzipped data includes strict limits on the maximum allowed decompressed size.\n",
-      "published": "2026-07-23T15:02:28.000Z",
-      "labels": [
-        "denial-of-service",
-        "ghsa",
-        "php",
-        "phpspreadsheet",
-        "software-supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--44715037-0c5f-5dca-bbb0-c001fba99868",
-        "software--834498b4-c605-5005-bd59-d75c3abac35d",
-        "software--ce028424-a7f8-57aa-99e7-e65c5b35c903",
-        "software--cf98103f-4a6f-5438-a4fe-437f5fdcad9e",
-        "software--eab559d0-bac6-5a74-a2f2-4c5bccb39b54"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-phpspreadsheet-gnumeric-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-phpspreadsheet-gnumeric-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-2mrg-gjxq-2gvr"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-phpspreadsheet-gnumeric-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-phpspreadsheet-gnumeric-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-phpspreadsheet-gnumeric-dos/",
-      "x_craftedsignal_activity_at": "2026-07-23T15:02:28.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -44146,68 +43584,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b2bdd6a3-dc0a-5cf5-ae05-f6898865e3d7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:19:51.000Z",
-      "modified": "2026-07-23T14:20:31.000Z",
-      "name": "Bold Reports Standalone Report Designer Path Traversal Vulnerability (CVE-2026-65687)",
-      "description": "## Overview\n\nA critical path traversal vulnerability, tracked as CVE-2026-65687, affects Bold Reports Standalone Report Designer versions prior to 14.1.12. This flaw resides within the SVG processing feature, where a missing filepath validation allows unauthenticated attackers to read arbitrary files directly from the server's filesystem. By crafting and sending a malicious HTTP request, adversaries can exploit this weakness to disclose sensitive server files, including critical configuration data and authentication credentials. Successful exploitation could grant attackers full unauthorized access to the application and potentially the underlying system, posing a severe risk to data integrity and confidentiality. The vulnerability has been assigned a CVSS v3.1 base score of 9.8, indicating its critical severity and ease of exploitation.\n\n## Attack Chain\n\n1. **Discovery:** An unauthenticated attacker identifies an internet-facing instance of Bold Reports Standalone Report Designer through reconnaissance or network scanning.\n2. **Vulnerability Identification:** The attacker determines the specific version of the application is vulnerable to CVE-2026-65687, either by direct version disclosure or by probing for the SVG processing functionality.\n3. **Payload Crafting:** The attacker creates a specially crafted HTTP request, designed to exploit the SVG processing feature, embedding path traversal sequences (e.g., `../../../../`) within the SVG content or associated request parameters.\n4. **Exploitation Attempt:** The malicious request, containing the path traversal payload targeting sensitive system files (e.g., `/etc/passwd`, `/Windows/System32/config/SAM`), is sent to the vulnerable Bold Reports application.\n5. **Arbitrary File Read:** Due to the application's failure to properly validate file paths during SVG processing, the server attempts to access and read the file specified by the attacker's path traversal sequence.\n6. **Sensitive Data Exfiltration:** The content of the targeted arbitrary file is read by the application and subsequently included in the HTTP response returned to the attacker.\n7. **Post-Exploitation:** The attacker analyzes the exfiltrated file content, extracting sensitive information such as application configuration details, user credentials, or system hashes, to further escalate privileges or gain complete unauthorized control over the application or host.\n\n## Impact\n\nThe successful exploitation of CVE-2026-65687 allows unauthenticated attackers to read any file on the server's filesystem where the Bold Reports Standalone Report Designer is hosted. This direct file access can lead to the disclosure of highly sensitive information, including critical configuration files, user authentication credentials, and system-specific data. Attackers can leverage this information to achieve full unauthorized access to the application, escalate privileges, compromise user accounts, or gain access to other networked resources, potentially leading to data breaches, system compromise, and significant operational disruption. The vulnerability has a critical CVSS v3.1 score of 9.8, reflecting its severe potential for harm.\n\n## Recommendation\n\n* Patch CVE-2026-65687 immediately by updating Bold Reports Standalone Report Designer to version 14.1.12 or later, as indicated in the Bold Reports release history reference.\n* Deploy the Sigma rule \"Detects CVE-2026-65687 Exploitation - Bold Reports SVG Path Traversal\" to your SIEM to monitor for exploitation attempts of this vulnerability.\n* Monitor web server logs for suspicious HTTP requests containing path traversal sequences, especially those targeting application endpoints related to SVG processing or file handling.\n",
-      "published": "2026-07-23T14:19:51.000Z",
-      "labels": [
-        "arbitrary-file-read",
-        "critical-vulnerability",
-        "path-traversal",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3710431f-8e60-5b77-b08f-09ea107503ef",
-        "software--3d86f6ba-f6d9-5b07-b7be-387f028dd2cd",
-        "vulnerability--29db698f-938a-5339-b46d-fe502025d6b8",
-        "vulnerability--7d12a9ad-ca9e-5ead-a543-32d94b4aa615"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-bold-reports-svg-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-bold-reports-svg-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65687"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65688"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.boldreports.com/resources/release-history/standalone-report-designer/14-1#14-1-12"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/bold-reports-standalone-report-designer-arbitrary-file-read-via-svg-processing"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-bold-reports-svg-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-bold-reports-svg-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-bold-reports-svg-rce/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:20:31.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b333cfc6-924f-5009-8de9-fd6bbfbb1f70",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-23T16:22:56.000Z",
@@ -47781,53 +47157,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d497c9e6-05ed-558e-a79b-475c6170d54c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:45:37.000Z",
-      "modified": "2026-07-23T14:45:37.000Z",
-      "name": "Auth.js getToken() Vulnerability Leads to Denial of Service",
-      "description": "## Overview\n\nA high-severity vulnerability has been identified in the `getToken()` helper within the `next-auth` and `@auth/core` JavaScript libraries, specifically affecting versions `\u003c= 5.0.0-beta.25` for `next-auth` and `\u003c 0.41.3` for `@auth/core`. This flaw, tracked as CWE-20 (Improper Input Validation), enables an unauthenticated attacker to induce a denial-of-service condition. When an application that directly calls `getToken()` receives a request with a malformed `Authorization: Bearer` header containing invalid percent-encoding, the function attempts to URL-decode the value. This decoding step can trigger an uncaught exception if not explicitly handled by the application, causing the request handler to crash or become unresponsive. This impacts application availability, particularly in API routes, middleware, and server-side request handlers where `getToken()` is commonly employed, though it does not expose sensitive data or bypass authentication.\n\n## Attack Chain\n\n1. An unauthenticated attacker crafts an HTTP request targeting a web application that uses the vulnerable `getToken()` helper.\n2. The attacker includes a malformed `Authorization: Bearer` header in the request, where the bearer token portion contains invalid percent-encoding (e.g., `%xx` where `xx` is not a valid hexadecimal character).\n3. The web application's API route, middleware, or server-side request handler receives the malicious request and calls the `getToken()` function.\n4. The `getToken()` function, in the absence of a session cookie, attempts to URL-decode the malformed bearer value from the `Authorization` header.\n5. Due to the invalid percent-encoding, the URL-decoding process fails and throws an uncaught exception within the `getToken()` helper.\n6. Unless the application has a specific `try/catch` block surrounding the `getToken()` call, this uncaught exception propagates, leading to the crash or unresponsiveness of the request handler.\n7. The application experiences a denial-of-service condition for that specific request, impacting availability.\n\n## Impact\n\nThe primary impact of this vulnerability is a denial of service (DoS). An unauthenticated request containing a specially crafted, malformed `Authorization: Bearer` header can cause an unhandled exception in any application handler that invokes the `getToken()` function directly. This results in the affected request failing to complete, rendering the specific endpoint unavailable for that transaction. The impact is isolated to individual requests and primarily affects application availability. It does not lead to the exposure of tokens, session data, or other sensitive information, nor does it bypass existing authentication mechanisms. The vulnerability is categorized under CWE-20: Improper Input Validation.\n\n## Recommendation\n\n* Upgrade `next-auth` to a patched version greater than `5.0.0-beta.31` or `4.24.14` (or `@auth/core` to `0.41.3` or newer) to automatically address the vulnerability.\n* If immediate upgrade is not possible, implement a `try/catch` block around all calls to `getToken()` within your application code to handle potential exceptions gracefully and treat them as an invalid token.\n* Consider deploying an edge proxy or middleware to strip or normalize incoming `Authorization` headers with malformed percent-encoding before they reach the application.\n",
-      "published": "2026-07-23T14:45:37.000Z",
-      "labels": [
-        "denial-of-service",
-        "input-validation",
-        "javascript",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--061a2ad3-2837-5f17-b176-e05cb21c23c0",
-        "software--fe62051a-95ef-56f4-99f7-7d0defd64724"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-authjs-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-authjs-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-xmf8-cvqr-rfgj"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-authjs-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-authjs-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-authjs-dos/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:45:37.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d511a09b-1d47-5828-ba4e-e5d6b7c18384",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T14:22:47.000Z",
@@ -48588,64 +47917,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ddd71224-86ca-5fab-ab4a-34f3170cbcd0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:23:17.000Z",
-      "modified": "2026-07-23T14:23:17.000Z",
-      "name": "CVE-2026-65898: DOMPurify Vulnerability Leads to Stored Cross-Site Scripting",
-      "description": "## Overview\n\nCVE-2026-65898 describes a significant security flaw in the DOMPurify JavaScript library, affecting versions prior to 3.4.11. This vulnerability arises because `DOMPurify` fails to properly clone the `ALLOWED_ATTR` allowlist when the `setConfig()` method is used in conjunction with an `uponSanitizeAttribute` hook. This oversight permits an attacker to register a malicious hook that can permanently mutate the global `ALLOWED_ATTR` allowlist. Consequently, dangerous attributes, such as `onerror`, can be conditionally allowed for otherwise trusted HTML elements. This paves the way for attackers to submit untrusted content that leverages the polluted allowlist, enabling the execution of event handlers and ultimately leading to stored Cross-Site Scripting (XSS) attacks in affected web applications. This vulnerability poses a risk to web applications that rely on `DOMPurify` for sanitization, potentially compromising user data and application integrity.\n\n## Attack Chain\n\n1. An attacker identifies a web application utilizing DOMPurify versions prior to 3.4.11 and the `setConfig()` method with an `uponSanitizeAttribute` hook.\n2. The attacker injects malicious client-side script into the application, which registers a crafted `uponSanitizeAttribute` hook with the DOMPurify instance.\n3. This malicious hook exploits the cloning failure to permanently modify the shared `ALLOWED_ATTR` allowlist, adding dangerous attributes like `onerror` to the list for specific trusted HTML elements under certain conditions.\n4. The attacker then submits a second payload of untrusted content (e.g., an HTML snippet in a comment or post). This content includes a seemingly trusted HTML element containing one of the newly allowed dangerous attributes (e.g., `\u0026lt;img src=\"x\" onerror=\"alert(document.cookie)\"\u003e`).\n5. When a victim's browser attempts to render this content, DOMPurify sanitizes it using the now-polluted `ALLOWED_ATTR` allowlist, which permits the dangerous attribute to remain.\n6. The dangerous attribute's event handler (e.g., `onerror`) then executes in the victim's browser, leading to client-side code execution, typically as stored Cross-Site Scripting (XSS).\n7. The XSS payload can then perform actions such as session hijacking, data exfiltration, defacement, or redirection, impacting the integrity and confidentiality of the web application and its users.\n\n## Impact\n\nThe successful exploitation of CVE-2026-65898 can lead to severe consequences for web applications and their users, rated with a CVSS v3.1 Base Score of 7.2 (High). Stored Cross-Site Scripting (XSS) allows attackers to inject malicious scripts into a web application, which are then executed in the browsers of other users who view the compromised content. This can result in session hijacking, enabling attackers to impersonate legitimate users and access sensitive information. It can also lead to data theft, website defacement, redirection to malicious sites, or the delivery of drive-by downloads. The integrity and confidentiality of user data, including credentials and personal information, are at high risk. Any web application that relies on DOMPurify for content sanitization and uses the affected configuration is vulnerable, potentially exposing a broad user base to these client-side attacks.\n\n## Recommendation\n\n* Update DOMPurify to version 3.4.11 or later immediately to address CVE-2026-65898.\n* Review all instances where `DOMPurify.setConfig()` is used with an `uponSanitizeAttribute` hook to ensure that any custom logic does not inadvertently introduce similar attribute allowlist pollution even after updating the library.\n",
-      "published": "2026-07-23T14:23:17.000Z",
-      "labels": [
-        "client-side",
-        "javascript",
-        "web-vulnerability",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--068f487a-44f0-5914-90b0-30271303d9dd",
-        "indicator--dc684868-3f5b-500c-9eb3-dca712cb659f",
-        "software--c2fd5fe2-2718-5c01-bb59-2cd45594a940",
-        "vulnerability--58f5082f-bd30-50ce-aeaa-c5443e37d3d5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-65898-dompurify-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-65898-dompurify-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/cure53/DOMPurify/security/advisories/GHSA-cmwh-pvxp-8882"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65898"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/dompurify-before-permanent-attribute-allowlist-pollution-via-setconfig"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-65898-dompurify-xss",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-65898-dompurify-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-65898-dompurify-xss/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:23:17.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e091925f-2476-51f8-a2f5-3e32ccc5afea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:43:39.000Z",
@@ -48681,67 +47952,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-potential-cluster-enumeration-jq/",
       "x_craftedsignal_activity_at": "2026-07-29T12:43:39.000Z",
       "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--e0cafc9f-5ff9-5414-9068-463280320071",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:59:25.000Z",
-      "modified": "2026-07-23T14:59:25.000Z",
-      "name": "Auth.js (next-auth) v5 Configuration Error Leads to Authentication Bypass",
-      "description": "## Overview\n\nAuth.js (next-auth) v5 applications are affected by a critical configuration error vulnerability, GHSA-8fpg-xm3f-6cx3, where misconfigurations can lead to a \"fail-open\" state, bypassing authentication. This issue, first published on July 23, 2026, impacts versions `v5.0.0-beta.0` through `v5.0.0-beta.31`. When server-side configuration errors occur, such as missing OAuth provider settings or an unset `AUTH_SECRET`, the `auth` object, typically used to gate access, is erroneously populated with an error object instead of being `null`. This truthy error object causes common session existence checks (e.g., `if (req.auth)`) to evaluate as true for all incoming requests, including unauthenticated ones. Consequently, the application grants unauthorized access to protected resources, treating all visitors as authenticated. This silent failure mode poses a severe risk as it effectively renders authentication mechanisms useless without immediate detection.\n\n## Attack Chain\n\n1. An Auth.js `next-auth` v5 application is deployed, utilizing existence-based session checks (e.g., `if (req.auth)` or `!!auth`) in middleware or route handlers to protect resources.\n2. A server-side configuration error occurs within the Auth.js setup, such as an incomplete OAuth provider configuration (e.g., missing `issuer` or `authorization` endpoints for Keycloak) or an unset `AUTH_SECRET` environment variable.\n3. This misconfiguration causes Auth.js to log an internal error (e.g., `[auth][error] InvalidEndpoints`) and populate the `auth` object, typically used for session data, with an error object instead of `null`.\n4. When the application's middleware or route handlers perform a session check (e.g., `const isLoggedIn = !!auth`), the truthy error object causes `isLoggedIn` to evaluate as `true`.\n5. All subsequent requests, including those from unauthenticated users, are treated as if they possess a valid session.\n6. The application \"fails open,\" granting unauthorized access to protected resources and routes that were intended for authenticated users only.\n7. This authentication bypass occurs silently, as the application behaves as if a valid session exists for every request, potentially leading to widespread unauthorized access without explicit error indications to the user or administrators.\n\n## Impact\n\nThis vulnerability, an instance of CWE-636 (Not Failing Securely / \"Failing Open\") leading to improper authorization (CWE-285), can lead to severe consequences. If an affected application becomes misconfigured, all protected resources become openly accessible to anyone, regardless of authentication status. The failure is silent, meaning administrators may not be immediately aware that their authentication mechanisms are bypassed. This could result in unauthorized data exposure, manipulation, or complete compromise of systems, impacting confidentiality, integrity, and availability. While no specific victim count is provided, any organization using vulnerable `next-auth` versions with the described access pattern is at risk, particularly those with dynamic deployment environments where configuration changes are frequent.\n\n## Recommendation\n\n* Upgrade `next-auth` to the patched version (`next-auth@beta` or later stable release) immediately to ensure configuration errors fail closed.\n* Modify existing session checks in `next-auth` middleware and route handlers to explicitly check for a user or session property (e.g., `!!req.auth?.user`) instead of just `!!req.auth` to prevent misconfiguration from being treated as a valid session.\n* Implement robust deployment pipeline checks to monitor for `[auth][error]` log messages from your application, treating them as critical failures to prevent misconfigured applications from reaching production environments.\n",
-      "published": "2026-07-23T14:59:25.000Z",
-      "labels": [
-        "authentication-bypass",
-        "configuration-error",
-        "security-vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f8094f9e-bd72-512b-b07e-b9cf79bdb178"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-authjs-fail-open",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-authjs-fail-open/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://authjs.dev/getting-started/session-management/protecting"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://authjs.dev/guides/role-based-access-control"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://authjs.dev/reference/core/errors"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://authjs.dev/security"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-8fpg-xm3f-6cx3"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-authjs-fail-open",
-      "x_craftedsignal_event_id": "brief-2026-07-authjs-fail-open",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-authjs-fail-open/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:59:25.000Z",
-      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -48912,62 +48122,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--e6cd8b48-f396-5bc5-9ea7-08bb81a1c1fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T14:21:18.000Z",
-      "modified": "2026-07-23T14:21:18.000Z",
-      "name": "CVE-2026-65689: Bold Reports Standalone Report Designer Path Traversal Vulnerability",
-      "description": "## Overview\n\nCVE-2026-65689 details a critical path traversal vulnerability affecting Bold Reports Standalone Report Designer versions prior to 14.1.12. This flaw resides within the application's database download feature, which fails to properly validate filepaths provided in requests. Unauthenticated attackers can leverage this weakness by supplying a specially crafted HTTP request containing path traversal sequences to read arbitrary files directly from the server's filesystem. Successful exploitation allows for the disclosure of sensitive server files, including critical configuration data and authentication credentials, potentially leading to complete unauthorized access to the application and underlying system resources. This vulnerability carries a CVSS v3.1 base score of 9.8, indicating a severe risk to affected organizations.\n\n## Attack Chain\n\n1. An unauthenticated attacker identifies an internet-facing instance of Bold Reports Standalone Report Designer vulnerable to CVE-2026-65689.\n2. The attacker constructs a malicious HTTP request targeting the application's database download feature.\n3. This crafted request includes path traversal sequences, such as `../` or `..%2f`, embedded within the filename or path parameter intended for the download.\n4. The vulnerable application, due to missing filepath validation, processes the request and resolves the traversed path.\n5. The server attempts to read the file specified by the attacker from an arbitrary location on its filesystem.\n6. If the file exists and permissions allow, its content is returned to the attacker as part of the download response.\n7. The attacker analyzes the disclosed file for sensitive information, such as authentication credentials, configuration files, or other proprietary data.\n8. Using the exfiltrated credentials, the attacker can gain further unauthorized access to the Bold Reports application or other connected systems.\n\n## Impact\n\nThe successful exploitation of CVE-2026-65689 allows unauthenticated attackers to perform arbitrary file reads on the server hosting Bold Reports Standalone Report Designer. This can lead to the disclosure of highly sensitive information, including user credentials, configuration files, and proprietary application data. Such disclosures enable attackers to escalate privileges, gain full unauthorized access to the application, compromise underlying server infrastructure, and potentially exfiltrate critical business data. Given the unauthenticated nature and the ability to read credentials, the potential for a complete system compromise is high, affecting the confidentiality, integrity, and availability of the application and its data.\n\n## Recommendation\n\n* Immediately apply the patch by upgrading Bold Reports Standalone Report Designer to version 14.1.12 or later to address CVE-2026-65689.\n* Deploy the provided Sigma rule to your SIEM to detect attempts at path traversal exploitation against your web infrastructure.\n* Ensure web server logs (category `webserver`) are configured to capture full URI stems and query parameters for detection of suspicious patterns.\n* Implement Web Application Firewall (WAF) rules to detect and block requests containing common path traversal sequences (`../`, `%2e%2e%2f`, etc.) targeting web applications.\n",
-      "published": "2026-07-23T14:21:18.000Z",
-      "labels": [
-        "arbitrary-file-read",
-        "cve",
-        "path-traversal",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3367943b-71a1-5055-8eca-08c80adecdd5",
-        "vulnerability--f036b832-68b4-51c4-b2c4-5df673aa43b7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-65689-bold-reports-designer",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-65689-bold-reports-designer/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65689"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.boldreports.com/resources/release-history/standalone-report-designer/14-1#14-1-12"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/bold-reports-standalone-report-designer-arbitrary-file-read-via-database-download"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-65689-bold-reports-designer",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-65689-bold-reports-designer",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-65689-bold-reports-designer/",
-      "x_craftedsignal_activity_at": "2026-07-23T14:21:18.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -50967,13 +50121,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--061a2ad3-2837-5f17-b176-e05cb21c23c0",
-      "name": "next-auth",
-      "vendor": "Auth.js"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0669500d-d57e-53de-a570-4a89f955c2a2",
       "name": "httpd"
     },
@@ -51182,13 +50329,6 @@
       "id": "software--13f3296f-ebd2-5b89-90f2-6824eb026323",
       "name": "c430 (\u003c 1.15.2)",
       "vendor": "Lenze"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--1436506e-0a56-509f-b629-9958cbac0337",
-      "name": "next-auth (\u003e= 5.0.0-beta.1, \u003c= 5.0.0-beta.31)",
-      "vendor": "Auth.js"
     },
     {
       "type": "software",
@@ -51565,13 +50705,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3367943b-71a1-5055-8eca-08c80adecdd5",
-      "name": "Standalone Report Designer",
-      "vendor": "Bold Reports"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3501f5cd-5b62-5b24-8a40-f275ca9149ae",
       "name": "KoboldAI"
     },
@@ -51599,13 +50732,6 @@
       "spec_version": "2.1",
       "id": "software--366a408f-5932-59d0-a79d-83130bcc10ba",
       "name": "unitd"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3710431f-8e60-5b77-b08f-09ea107503ef",
-      "name": "Bold Reports Standalone Report Designer",
-      "vendor": "SyncFusion"
     },
     {
       "type": "software",
@@ -51750,20 +50876,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3d86f6ba-f6d9-5b07-b7be-387f028dd2cd",
-      "name": "Bold Reports Standalone Report Designer \u003c 14.1.12",
-      "vendor": "SyncFusion"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3f5c58a1-5daf-5f3a-b0c1-af5cb5229a04",
-      "name": "Zimbra Collaboration Suite (ZCS)",
-      "vendor": "Zimbra"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3f989101-527e-5e71-a92b-67b30271f6dd",
       "name": "PsExec"
     },
@@ -51860,13 +50972,6 @@
       "spec_version": "2.1",
       "id": "software--44151586-eb04-515d-a298-32df18685c73",
       "name": "Sysmon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--44715037-0c5f-5dca-bbb0-c001fba99868",
-      "name": "PhpSpreadsheet (\u003e= 4.0.0, \u003c= 5.8.0)",
-      "vendor": "PhpOffice"
     },
     {
       "type": "software",
@@ -52229,13 +51334,6 @@
       "id": "software--5e1e5375-3f2c-5b4d-8d16-d3aa9cda8167",
       "name": "dynatrace-mcp-server (v1.8.5)",
       "vendor": "Dynatrace"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5e65faf9-1755-5de7-8bea-79aac3321310",
-      "name": "next-auth (\u003e= 4.0.0, \u003c 4.24.14)",
-      "vendor": "Auth.js"
     },
     {
       "type": "software",
@@ -52801,13 +51899,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--834498b4-c605-5005-bd59-d75c3abac35d",
-      "name": "PhpSpreadsheet (\u003e= 2.0.0, \u003c= 2.1.17)",
-      "vendor": "PhpOffice"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8392fe6b-4986-57f5-b4ff-9e29ce708687",
       "name": "WPForms Pro plugin for WordPress \u003c= 1.10.1.1",
       "vendor": "WPForms"
@@ -52932,20 +52023,6 @@
       "id": "software--8932984e-346e-57c9-ad22-b5261b502cf3",
       "name": "Web Help Desk",
       "vendor": "SolarWinds"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--893e9cf3-e15a-5dae-8c31-e804996f032f",
-      "name": "Standalone Report Designer (before 14.1.12)",
-      "vendor": "Bold Reports"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8a56294d-0b04-5afd-814b-e88e0d453899",
-      "name": "@auth/core (\u003e= 0.1.0, \u003c 0.41.3)",
-      "vendor": "Auth.js"
     },
     {
       "type": "software",
@@ -53866,13 +52943,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c0249077-b97d-50a5-b4ea-ff3ef43c07ac",
-      "name": "next-auth (\u003e= 4.10.3, \u003c 4.24.15)",
-      "vendor": "Auth.js"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c02945d9-37c7-57bb-a9ac-196af4207cc6",
       "name": "VeloCloud Orchestrator (\u003c 5.2.3.14)"
     },
@@ -53907,13 +52977,6 @@
       "spec_version": "2.1",
       "id": "software--c2db2115-7b17-5bf0-b6b5-bc965e1d1510",
       "name": "Rouille 0.3.3"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c2fd5fe2-2718-5c01-bb59-2cd45594a940",
-      "name": "DOMPurify",
-      "vendor": "cure53"
     },
     {
       "type": "software",
@@ -54126,13 +53189,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ce028424-a7f8-57aa-99e7-e65c5b35c903",
-      "name": "PhpSpreadsheet (\u003e= 3.3.0, \u003c= 3.10.6)",
-      "vendor": "PhpOffice"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ce4081e7-a2f6-5c5a-abd9-fc28e2dfda42",
       "name": "HMC V11.1",
       "vendor": "IBM"
@@ -54170,13 +53226,6 @@
       "spec_version": "2.1",
       "id": "software--cf7bce7c-2daa-58d5-a5b0-21ee59f60d93",
       "name": "VMware vSphere Foundation"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--cf98103f-4a6f-5438-a4fe-437f5fdcad9e",
-      "name": "PhpSpreadsheet (\u003e= 2.2.0, \u003c= 2.4.6)",
-      "vendor": "PhpOffice"
     },
     {
       "type": "software",
@@ -54585,13 +53634,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--eab559d0-bac6-5a74-a2f2-4c5bccb39b54",
-      "name": "PhpSpreadsheet (\u003c= 1.30.5)",
-      "vendor": "PhpOffice"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--eb4b04d6-234b-5167-9958-607a0107fffd",
       "name": "sentence-transformers",
       "vendor": "Hugging Face"
@@ -54733,13 +53775,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f8094f9e-bd72-512b-b07e-b9cf79bdb178",
-      "name": "next-auth v5.0.0-beta.0 to v5.0.0-beta.31",
-      "vendor": "Auth.js"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f8358c35-81a8-54fc-b271-2a536746d5fa",
       "name": "VikBooking Hotel Booking Engine \u0026 PMS plugin for WordPress (\u003c= 1.8.13)",
       "vendor": "VikBooking"
@@ -54844,13 +53879,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fe62051a-95ef-56f4-99f7-7d0defd64724",
-      "name": "@auth/core",
-      "vendor": "Auth.js"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--febd879c-5bef-587c-b249-130f2cc1543d",
       "name": "plackup"
     },
@@ -54922,15 +53950,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Unauthorized Subuser"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--874f9245-df61-5146-ad50-499e1e65edd4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "LAUNDRY BEAR"
     },
     {
       "type": "threat-actor",
@@ -55164,22 +54183,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-67184",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67184"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--13d57b0d-dea0-5c89-bee5-43f86662a164",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65690",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65690",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65690"
         }
       ]
     },
@@ -55548,22 +54551,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-66066",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66066"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--29db698f-938a-5339-b46d-fe502025d6b8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65688",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65688",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65688"
         }
       ]
     },
@@ -56322,22 +55309,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--58f5082f-bd30-50ce-aeaa-c5443e37d3d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65898",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65898",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65898"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--599b4164-7f91-57e2-85f3-ced87ea49739",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56764,22 +55735,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-15077",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15077"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7d12a9ad-ca9e-5ead-a543-32d94b4aa615",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65687",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65687",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65687"
         }
       ]
     },
@@ -58412,22 +57367,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-52855",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52855"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f036b832-68b4-51c4-b2c4-5df673aa43b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65689",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65689",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65689"
         }
       ]
     },
