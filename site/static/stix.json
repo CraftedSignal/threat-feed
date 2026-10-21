@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bd322672-c026-5e3a-822c-37b0cda8dd5a",
+  "id": "bundle--da369fc7-0114-55f0-8208-886a32afbb6d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -49392,6 +49392,17 @@
       "relationship_type": "has",
       "source_ref": "software--0d918473-3882-55e6-981e-c421885e5f17",
       "target_ref": "vulnerability--4cb57e43-45bc-55b8-9e90-e4affcb623aa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e5f68110-368a-548b-bfc6-b3ea1f6cb27f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--21369408-c997-5fa6-8aca-7742a6d9f910",
+      "target_ref": "vulnerability--b5edf708-f2af-59fc-949a-08f054e6fd40"
     },
     {
       "type": "relationship",
@@ -117652,6 +117663,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c4d614fd-a3e3-5b20-ad94-2ad3b8b6f7b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:42:23.000Z",
+      "modified": "2026-10-21T08:42:23.000Z",
+      "name": "Kevin Stover Ninja Forms: Stored Cross-site Scripting (CVE-2026-110899)",
+      "description": "## Overview\nCVE-2026-110899 is a stored cross-site scripting (XSS) vulnerability in the Kevin Stover Ninja Forms plugin. The vulnerability is caused by improper neutralization of input during web page generation. This issue affects Ninja Forms versions up to and including 3.15.5.\n\n## Impact\nSuccessful exploitation allows for stored XSS.\n",
+      "published": "2026-10-21T08:42:23.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--21369408-c997-5fa6-8aca-7742a6d9f910",
+        "vulnerability--b5edf708-f2af-59fc-949a-08f054e6fd40"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-ninja-forms-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-21-ninja-forms-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110899"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-ninja-forms-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-21-ninja-forms-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-21-ninja-forms-xss/",
+      "x_craftedsignal_activity_at": "2026-10-21T08:42:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c4fbdc46-aef0-580d-8849-eb598140e46d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:02:59.000Z",
@@ -137878,6 +137929,13 @@
       "id": "software--2127d0cc-00bc-5764-986a-fc10c4cd3278",
       "name": "Acronis Agent (\u003c 22.10)",
       "vendor": "Acronis"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--21369408-c997-5fa6-8aca-7742a6d9f910",
+      "name": "Ninja Forms (n/a through 3.15.5)",
+      "vendor": "Kevin Stover"
     },
     {
       "type": "software",
@@ -165704,6 +165762,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91665",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91665"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b5edf708-f2af-59fc-949a-08f054e6fd40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110899",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110899",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110899"
         }
       ]
     },
