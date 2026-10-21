@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--44d7ac2c-2fc8-58ab-a2d9-5dba846eecb4",
+  "id": "bundle--169d95e4-57c9-5d5d-8435-b51f5482b3de",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2133,6 +2133,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Container and Resource Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1613",
+          "url": "https://attack.mitre.org/techniques/T1613"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--bcb7aac1-0720-51b7-a9c7-65d3bf929d34",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2143,6 +2159,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1489",
           "url": "https://attack.mitre.org/techniques/T1489"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Container Administration Command",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1609",
+          "url": "https://attack.mitre.org/techniques/T1609"
         }
       ]
     },
@@ -2303,6 +2335,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1553",
           "url": "https://attack.mitre.org/techniques/T1553"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Wordlist Scanning",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1595.003",
+          "url": "https://attack.mitre.org/techniques/T1595/003"
         }
       ]
     },
@@ -2575,6 +2623,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1110",
           "url": "https://attack.mitre.org/techniques/T1110"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--dfc383a0-731c-591b-a2e7-3d9690632cf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Groups",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1069.003",
+          "url": "https://attack.mitre.org/techniques/T1069/003"
         }
       ]
     },
@@ -13820,6 +13884,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--470c4553-f8b0-52e4-aec7-0a8dda1f9179",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--471ba837-8aae-5377-97fe-74534c94c995",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15477,6 +15552,17 @@
       "relationship_type": "has",
       "source_ref": "software--41206147-22f4-52c6-b8ee-de0f13b2cf34",
       "target_ref": "vulnerability--1beb5058-ee8c-583f-bc8d-142b688d7e7b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52a9d331-b5d0-570c-b383-8baa960d384b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:30:23.000Z",
+      "modified": "2026-10-21T08:30:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b5ee0bd-a80b-5727-838a-518b2ae38ec5",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
     },
     {
       "type": "relationship",
@@ -17864,6 +17950,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e58682da-bdd1-5bde-b311-22ad398f1a3f",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--63d7f276-ba93-5b4e-825a-ce23da0bb771",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -20797,7 +20894,7 @@
       "id": "relationship--785d0ff6-8493-580d-b4cc-a01c8e9b42ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
@@ -21879,6 +21976,17 @@
       "relationship_type": "uses",
       "source_ref": "report--275bf4f9-f917-53d3-af57-d8ebb0aa57d8",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f574173-cf85-53c8-a19c-0ad02103a6da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27"
     },
     {
       "type": "relationship",
@@ -30804,6 +30912,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bca52553-4b6a-5c44-82c2-f4a716099be5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:30:23.000Z",
+      "modified": "2026-10-21T08:30:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b5ee0bd-a80b-5727-838a-518b2ae38ec5",
+      "target_ref": "attack-pattern--dfc383a0-731c-591b-a2e7-3d9690632cf0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bcbc6a02-5563-578c-a925-4449527974bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35314,6 +35433,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dc8b89a1-d7d1-53f8-975b-c2a9ddffe98e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:31:12.000Z",
+      "modified": "2026-10-21T08:31:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b470eb12-6403-53de-b861-d00116b2f766",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dc92fa01-2ee6-5938-a0a4-7db372c3c500",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T01:43:03.000Z",
@@ -37059,6 +37189,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a4140e45-8883-5e31-867f-364a9b218f09",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6de2eea-9009-5e91-ad40-70c62e18e7d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
     },
     {
       "type": "relationship",
@@ -40766,6 +40907,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2611a577-cda0-53e0-aacb-e963b1a2e20a",
       "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ff6f4998-8387-51b7-a9bb-82c680e8f233",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:31:12.000Z",
+      "modified": "2026-10-21T08:31:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b470eb12-6403-53de-b861-d00116b2f766",
+      "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
     },
     {
       "type": "relationship",
@@ -66159,6 +66311,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6b5ee0bd-a80b-5727-838a-518b2ae38ec5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:30:23.000Z",
+      "modified": "2026-10-21T08:30:23.000Z",
+      "name": "AWS EKS: Suspicious Self-Subject Review via Unusual User Agent",
+      "description": "## Overview\nAdversaries who have gained access to service account or node credentials may attempt to determine \ntheir privileges to facilitate further movement or execution within the cluster. Kubernetes APIs \nsuch as selfsubjectaccessreview and selfsubjectrulesreview are intended for permission debugging \nbut can be exploited for privilege enumeration. This detection identifies these API calls when \nperformed by service accounts or nodes using non-standard user agents.\n\n## False Positives\n- Automated tasks or service accounts programmed to perform routine permission checks.\n- Nodes performing legitimate self-assessment for compliance or security.\n- Development or testing environments with frequent permission verification.\n\n## Investigation\n- Identify the service account or node using `aws.eks.audit.user.username` or `aws.eks.audit.impersonatedUser.username`.\n- Analyze the `aws.eks.audit.objectRef.resource` to confirm the API call type.\n- Evaluate the IP address and user agent in the audit logs against expected traffic patterns.\n- Review recent changes to permissions or roles associated with the implicated identity.\n",
+      "published": "2026-10-21T08:30:23.000Z",
+      "labels": [
+        "AWS",
+        "Discovery",
+        "Kubernetes",
+        "Threat Detection"
+      ],
+      "object_refs": [
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "attack-pattern--dfc383a0-731c-591b-a2e7-3d9690632cf0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-eks-self-subject-review",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-self-subject-review/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1069/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1613/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_suspicious_self_subject_review_aws_eks.toml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-self-subject-review",
+      "x_craftedsignal_event_id": "brief-2026-10-21-eks-self-subject-review",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-self-subject-review/",
+      "x_craftedsignal_activity_at": "2026-10-21T08:30:23.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6ba9d476-8c41-51b2-9fff-c405f0a55d8f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:06:37.000Z",
@@ -79439,19 +79644,27 @@
       "id": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
-      "modified": "2026-10-21T07:47:08.000Z",
+      "modified": "2026-10-21T08:31:53.000Z",
       "name": "Amazon EKS: Improper TokenRequest API usage detection",
       "description": "## Overview\n\nThe Kubernetes TokenRequest API allows identities with appropriate RBAC permissions to programmatically generate short-lived tokens for service accounts. Because this process occurs via the API server, the resulting tokens do not leave traditional filesystem footprints, evading file-based monitoring. In Amazon EKS environments, attackers who have gained initial cluster access can leverage this API to mint tokens for highly privileged service accounts, effectively bypassing security controls meant to protect mounted secrets.\n\n## Impact\n\nSuccessful abuse of the TokenRequest API enables attackers to impersonate privileged service accounts, perform unauthorized cluster operations, or gain access to AWS cloud resources through IRSA (IAM Roles for Service Accounts).\n\n## Recommendation\n\n- Enable and ingest EKS control-plane audit logs into your SIEM as defined in the AWS integration documentation for `aws.eks_audit`.\n- Deploy the detection rules provided below to monitor for `create` events against the `serviceaccounts/token` subresource by non-system identities.\n- Review RBAC policies across the cluster to identify and restrict `create` permissions on the `serviceaccounts/token` subresource to only strictly necessary service accounts or users.\n- Audit existing tokens minted via TokenRequest by correlating `aws.eks.audit.annotations.authentication_kubernetes_io/issued-credential-id` with subsequent API activity.\n",
       "published": "2026-10-21T07:47:08.000Z",
       "labels": [
         "aws",
         "cloud",
+        "command-and-control",
         "credential-access",
+        "discovery",
         "eks",
-        "kubernetes"
+        "execution",
+        "kubernetes",
+        "reconnaissance"
       ],
       "object_refs": [
         "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "attack-pattern--bd875342-0c00-5eaf-9fc6-290ea891ae27",
+        "attack-pattern--d0167e47-2549-5e4c-819a-7b638bba6bf8",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--a95034b8-a1a3-59aa-9f62-1110c74acdcf"
       ],
@@ -79463,20 +79676,44 @@
         },
         {
           "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1613/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cloud.hacktricks.wiki/en/pentesting-cloud/kubernetes-security/kubernetes-privilege-escalation/workload-and-pod-access.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_service_account_token_created_via_tokenrequest_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_endpoint_permission_enumeration_by_anonymous_user_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_kubernetes_multi_resource_setup_recon_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_kubernetes_pod_exec_curl_wget_https_aws_eks.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#unauthenticated-api-access"
         },
         {
           "source_name": "reference",
           "url": "https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-v1/"
         }
       ],
-      "confidence": 60,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-21-eks-tokenrequest-abuse",
       "x_craftedsignal_event_id": "brief-2026-10-21-eks-tokenrequest-abuse",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-tokenrequest-abuse/",
-      "x_craftedsignal_activity_at": "2026-10-21T07:47:08.000Z",
-      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_activity_at": "2026-10-21T08:31:53.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -83712,6 +83949,46 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gitea-vulnerabilities/",
       "x_craftedsignal_activity_at": "2026-10-07T16:48:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b470eb12-6403-53de-b861-d00116b2f766",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T08:31:12.000Z",
+      "modified": "2026-10-21T08:31:12.000Z",
+      "name": "AWS EKS: Kubernetes secret enumeration detection",
+      "description": "## Overview\nElastic has released a detection rule to identify 'list' operations on Kubernetes Secrets within AWS EKS clusters. The rule monitors for operations targeting '/api/v1/secrets' or namespaces such as 'kube-system' and 'default' when initiated from non-loopback IP addresses. This monitoring is intended to identify potential credential enumeration from remote clients. The implementation requires EKS control-plane audit logs to be enabled and ingested into the 'logs-aws.eks_audit-*' data stream.\n\n## Recommendation\n- Enable AWS EKS audit log streaming to the AWS integration.\n- Deploy the detection logic to identify unauthorized service account or user access.\n- Investigate findings by confirming the actor and reviewing the source IP, user agent, and follow-on API activity.\n- If listing is unauthorized, revoke credentials, rotate exposed secrets, and tighten RBAC to ensure only required service accounts can list secrets in sensitive namespaces.\n",
+      "published": "2026-10-21T08:31:12.000Z",
+      "object_refs": [
+        "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2",
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--38aa4359-09f3-503a-8b6f-03d315d41124"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-eks-secrets-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eks-secrets-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_secrets_list_cluster_and_sensitive_namespaces_aws_eks.toml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-eks-secrets-discovery",
+      "x_craftedsignal_event_id": "brief-2026-10-21-eks-secrets-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eks-secrets-discovery/",
+      "x_craftedsignal_activity_at": "2026-10-21T08:31:12.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -103833,6 +104110,12 @@
       "id": "software--389a8b7d-eeea-5883-a0a7-be4a25e9c7aa",
       "name": "Agora Project (\u003c 26.10.0)",
       "vendor": "Omnispace"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--38aa4359-09f3-503a-8b6f-03d315d41124",
+      "name": "Amazon Elastic Kubernetes Service (EKS)"
     },
     {
       "type": "software",
