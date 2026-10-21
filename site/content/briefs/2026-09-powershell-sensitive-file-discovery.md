@@ -1,18 +1,35 @@
 ---
+brief_id: brief-2026-09-03-powershell-sensitive-file-discovery
+event_id: brief-2026-09-03-powershell-sensitive-file-discovery
+revision: 1
+activity_at: "2026-09-03T13:41:42Z"
 title: PowerShell Sensitive File Discovery Technique
 slug: 2026-09-powershell-sensitive-file-discovery
 description: Adversaries utilize PowerShell commands to recursively search for sensitive file extensions such as .pass and .kdbx to identify credentials or keys stored on disk.
 date: "2026-09-03T13:41:42Z"
+lastmod: "2026-10-21T00:48:03Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "2"
+  rating: A2
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source rule reviewed and adapted for common logging standards
 tags:
   - discovery
   - credential-access
   - powershell
   - windows
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
@@ -20,6 +37,8 @@ mitre_ttps:
     technique_name: File and Directory Discovery
     evidence: Adversaries enumerate sensitive files
     confidence_band: high
+references:
+  - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_sensitive_file_discovery.yml
 rules:
   - title: Detect Sensitive File Discovery via PowerShell
     description: Detects the use of PowerShell cmdlets to recursively search for sensitive file extensions such as .pass, .kdbx, or .kdb
@@ -58,6 +77,14 @@ action_plan:
       owner: Security Architecture
       addresses: Discovery of credentials
       evidence: Limiting read access mitigates impact of discovery
+updates:
+  - at: "2026-10-21T00:48:03Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_sensitive_file_discovery.yml
 ---
 
 This technique involves the use of PowerShell cmdlets to perform recursive directory searches specifically targeting sensitive file extensions associated with password managers and credential stores. Adversaries often execute these commands post-compromise to locate, exfiltrate, or harvest credentials necessary for privilege escalation or lateral movement. By leveraging cmdlets such as Get-ChildItem with recursion enabled, attackers can efficiently identify high-value targets across diverse directory structures on a compromised Windows host. Detection of this activity relies on monitoring PowerShell Script Block Logging, as these commands are frequently executed within volatile memory or via one-liners that bypass traditional file-system logging.
