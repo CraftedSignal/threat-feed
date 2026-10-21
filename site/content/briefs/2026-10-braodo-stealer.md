@@ -1,8 +1,25 @@
 ---
+brief_id: brief-2026-10-braodo-stealer
+event_id: brief-2026-10-braodo-stealer
+revision: 2
+activity_at: "2026-10-21T05:31:40Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T05:31:40Z"
+    checksum: sha256:c69c369fb30beddece99c1380f5415c3bb1d2c2c99ddb90a7d309148d2626a20
+    summary: new IOCs
+    changed_fields:
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_outbound_connection_to_social_media_domain.yml
 title: Braodo Stealer Python-Based Credential Harvesting
 slug: 2026-10-braodo-stealer
 description: The Braodo Stealer is a Python-based credential-harvesting malware that masquerades as legitimate Python processes executing from suspicious directories to exfiltrate advertising data via Meta's Graph API.
 date: "2026-10-19T02:52:13Z"
+lastmod: "2026-10-21T05:31:02Z"
 type: threat
 types:
   - threat
@@ -10,17 +27,27 @@ severities:
   - medium
 actors:
   - Braodo Stealer
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
 affected_os:
   - Windows
 mitre_ttps:
   - tactic_id: TA0011
     tactic_name: Command and Control
     technique_id: T1586.001
-    technique_name: 'Compromise Accounts: Social Media'
+    technique_name: Social Media Accounts
     evidence: The Braodo Stealer abuses authenticated browser sessions to query the Meta Graph API.
     confidence_band: high
 references:
   - https://www.splunk.com/en_us/blog/security/cracking-braodo-stealer-analyzing-python-malware-and-its-obfuscated-loader.html
+  - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_outbound_connection_to_social_media_domain.yml
 iocs:
   - type: domain
     value: '*.facebook.com'
@@ -38,8 +65,24 @@ iocs:
     value: '*.fbstatic-a.akamaihd.net'
   - type: domain
     value: '*.tfbw.net'
+  - type: domain
+    value: facebook.com
+  - type: domain
+    value: facebook.net
+  - type: domain
+    value: facebook.org
+  - type: domain
+    value: fb.com
+  - type: domain
+    value: fbcd.net
+  - type: domain
+    value: fbsbx.com
+  - type: domain
+    value: fbstatic-a.akamaihd.net
+  - type: domain
+    value: tfbw.net
 ioc_counts:
-  domain: 8
+  domain: 16
 rules:
   - title: Detect Outbound Connections from Python in Suspicious Directories
     description: Detects outbound network connections from Python processes executing from suspicious or non-standard file paths.
@@ -71,6 +114,14 @@ action_plan:
       priority: high
       confidence: high
       disposition: hunt_now
+updates:
+  - at: "2026-10-21T05:31:02Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - splunk-escu
+    source_urls:
+      - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_outbound_connection_to_social_media_domain.yml
 ---
 
 The Braodo Stealer is a Python-based credential-harvesting malware identified in October 2026 that targets authenticated browser sessions to compromise user accounts. The malware specifically leverages the Meta Graph API to enumerate information related to the victim's Facebook and Meta advertising infrastructure. The threat is characterized by its execution from non-standard or highly suspicious directories on Windows systems, such as the Recycle Bin, Prefetch folders, or user-accessible public directories. By masquerading as standard Python binaries (e.g., python.exe, pythonw.exe), the malware attempts to blend into legitimate administrative or development activity. This campaign highlights the importance of monitoring process execution paths, especially for scripting engines that are frequently abused by attackers to facilitate command-and-control communication with legitimate social media infrastructure.
