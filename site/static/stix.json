@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0e18d4f1-681e-5022-83dd-71cf19f959c3",
+  "id": "bundle--d1c729d4-67fa-5f76-a16e-b708e73f38e2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36081,6 +36081,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a6ca7f66-3b7a-5959-aa1c-779e8a163d8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T01:10:01.000Z",
+      "modified": "2026-10-21T01:10:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--71dcf7bb-8c20-52d0-8d87-2d4d9a945049",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a6d3dad9-63e9-5d60-8d69-0f3d780589e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T17:41:00.000Z",
@@ -45838,6 +45849,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d907fcd4-0f55-5a3d-aa61-ab1159f090b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T01:10:01.000Z",
+      "modified": "2026-10-21T01:10:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--71dcf7bb-8c20-52d0-8d87-2d4d9a945049",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d9199d1b-dd30-53ee-92e3-938cca94f5e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52192,6 +52214,17 @@
       "relationship_type": "has",
       "source_ref": "software--35d0af20-3f71-50cb-8e60-ed5add7434c8",
       "target_ref": "vulnerability--ee54c8f7-b8ea-5917-b13e-19d0486e6b47"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f7030e4a-2a0e-5ed8-baf3-03fcec1354c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1a2ca67c-443e-5dfb-8a57-50f6fe7c7aa5",
+      "target_ref": "vulnerability--1f321b83-ba50-5824-bc11-7fc66a16ceb3"
     },
     {
       "type": "relationship",
@@ -89180,6 +89213,60 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--71dcf7bb-8c20-52d0-8d87-2d4d9a945049",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T01:10:01.000Z",
+      "modified": "2026-10-21T01:10:01.000Z",
+      "name": "Adobe ColdFusion: Unrestricted file upload via CKEditor (CVE-2018-15961)",
+      "description": "## Overview\n\nCVE-2018-15961 is a critical security vulnerability affecting Adobe ColdFusion versions 11.0, 2016, and 2018. The flaw resides in the CKEditor component, specifically within the `upload.cfm` file used for file management. Because the application fails to adequately validate or restrict the types of files being uploaded, an unauthenticated attacker can upload arbitrary files, including JSP shells, to the server. By navigating to the location of the uploaded file, the attacker can execute arbitrary code within the context of the ColdFusion service. The availability of multiple public exploits, including modules in Metasploit, increases the risk of exploitation. Defenders should verify that all Adobe ColdFusion instances have been updated according to Adobe Security Bulletin APSB18-33.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-facing Adobe ColdFusion servers.\n2. Attacker crafts a multipart/form-data POST request targeting `/cf_scripts/scripts/ajax/ckeditor/plugins/filemanager/upload.cfm`.\n3. Attacker includes a malicious payload (e.g., a JSP web shell) in the `file` form-data parameter.\n4. Attacker provides a path argument in the `path` form-data parameter to define the destination of the uploaded file.\n5. The server processes the request and saves the file to the web-accessible directory `.../cf_scripts/scripts/ajax/ckeditor/plugins/filemanager/uploadedFiles/`.\n6. Attacker sends an HTTP GET request to the path where the file was saved to trigger the execution of the embedded JSP code.\n7. Attacker gains remote code execution on the underlying server to facilitate further malicious activity.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the target server. This allows an attacker to gain unauthorized access to sensitive data, establish persistence, pivot within the internal network, or deploy additional malware. The vulnerability has a CVSS score of 10.0, reflecting its severity, and has been subject to multiple public exploit releases over several years.\n\n## Recommendation\n\n- Patch all Adobe ColdFusion instances to the versions specified in Adobe Security Bulletin APSB18-33.\n- Implement a Web Application Firewall (WAF) rule to block POST requests directed at `/cf_scripts/scripts/ajax/ckeditor/plugins/filemanager/upload.cfm` unless specifically required by business needs.\n- Scan the directory `.../cf_scripts/scripts/ajax/ckeditor/plugins/filemanager/uploadedFiles/` for unrecognized JSP or executable files.\n- Deploy the Sigma rule provided below to monitor for exploitation attempts targeting the vulnerable endpoint.\n",
+      "published": "2026-10-21T01:10:01.000Z",
+      "labels": [
+        "adobe",
+        "coldfusion",
+        "cve-2018-15961",
+        "file-upload",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1a2ca67c-443e-5dfb-8a57-50f6fe7c7aa5",
+        "vulnerability--1f321b83-ba50-5824-bc11-7fc66a16ceb3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-cve-2018-15961",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2018-15961/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://helpx.adobe.com/security/products/coldfusion/apsb18-33.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-15961"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-cve-2018-15961",
+      "x_craftedsignal_event_id": "brief-2026-10-21-cve-2018-15961",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2018-15961/",
+      "x_craftedsignal_activity_at": "2026-10-21T01:10:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.9995,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -135986,6 +136073,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1a2ca67c-443e-5dfb-8a57-50f6fe7c7aa5",
+      "name": "ColdFusion (11.0, 2016, 2018)",
+      "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1a2fc4b6-d95f-5911-aba2-6bae37e10773",
       "name": "SharePoint Enterprise Server 2016 (\u003c 16.0.5565.1001)",
       "vendor": "Microsoft"
@@ -150710,6 +150804,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107779",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107779"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1f321b83-ba50-5824-bc11-7fc66a16ceb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2018-15961",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2018-15961",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-15961"
         }
       ]
     },
