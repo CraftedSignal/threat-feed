@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--10597922-4a52-58cc-87ba-68b63c7be971",
+  "id": "bundle--fe486061-be6a-5668-9aaa-59c7ae33633f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15979,17 +15979,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4db9b311-719b-5333-b3fa-35aab3f7e850",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T09:28:01.000Z",
-      "modified": "2026-07-23T09:28:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1ef44554-1c78-5da2-a024-5dee175554a9",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4de84b22-5528-560f-a05c-f1575a303fc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T17:24:27.000Z",
@@ -24577,17 +24566,6 @@
       "relationship_type": "uses",
       "source_ref": "report--d2fa46ef-9a6c-5f6c-a991-e7afd962f4dd",
       "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ae5eb2b0-ef8e-54f5-a154-f4108035da12",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T09:28:01.000Z",
-      "modified": "2026-07-23T09:28:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1ef44554-1c78-5da2-a024-5dee175554a9",
-      "target_ref": "attack-pattern--08034fb1-a440-5817-bcb0-e93e68f47ade"
     },
     {
       "type": "relationship",
@@ -34256,53 +34234,6 @@
       "x_craftedsignal_activity_at": "2026-07-28T18:59:34.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1ef44554-1c78-5da2-a024-5dee175554a9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T09:28:01.000Z",
-      "modified": "2026-07-23T09:28:01.000Z",
-      "name": "Intel Ethernet Products: Multiple Vulnerabilities",
-      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has reported multiple vulnerabilities impacting various Intel Ethernet products. These security flaws could be exploited by an attacker to cause a denial-of-service (DoS) condition on affected devices or to expose confidential information. The advisory does not specify particular CVEs or provide details on the specific mechanisms of exploitation. While no active exploitation has been confirmed, the existence of these vulnerabilities poses a risk to the integrity and confidentiality of systems utilizing these Intel Ethernet components. Organizations are urged to review their network infrastructure for affected products and prepare for necessary mitigations.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities could lead to two primary impacts: denial-of-service and information disclosure. A denial-of-service attack would disrupt network operations and system availability, potentially leading to significant downtime and operational losses. Information disclosure could result in the unauthorized exposure of sensitive data, compromising confidentiality and potentially leading to compliance violations or further attacks. The advisory does not specify the number of affected systems or organizations, nor does it detail the type of confidential information at risk.\n\n## Recommendation\n\n* Review the official Intel security advisories for specific affected product models and apply all available patches or firmware updates immediately.\n* Implement robust network segmentation and access controls for all network devices, including Intel Ethernet products, to limit potential attack vectors.\n* Enable network traffic logging and monitor for unusual traffic patterns or connectivity attempts to and from Intel Ethernet-equipped devices, particularly those associated with denial-of-service or data exfiltration.\n",
-      "published": "2026-07-23T09:28:01.000Z",
-      "labels": [
-        "dos",
-        "information-disclosure",
-        "intel",
-        "network-device",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--08034fb1-a440-5817-bcb0-e93e68f47ade",
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5ff9b501-5190-5c2d-bbfb-0855d176cb5c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-23-intel-ethernet-vulns",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-intel-ethernet-vulns/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-0372"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-23-intel-ethernet-vulns",
-      "x_craftedsignal_event_id": "brief-2026-07-23-intel-ethernet-vulns",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-intel-ethernet-vulns/",
-      "x_craftedsignal_activity_at": "2026-07-23T09:28:01.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -54641,13 +54572,6 @@
       "id": "software--5ff4c7c4-6fb2-5cb2-9e7b-0b79ce811ea4",
       "name": "vantage6 (\u003c= 5.0.2)",
       "vendor": "vantage6"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5ff9b501-5190-5c2d-bbfb-0855d176cb5c",
-      "name": "Intel Ethernet Products",
-      "vendor": "Intel"
     },
     {
       "type": "software",
