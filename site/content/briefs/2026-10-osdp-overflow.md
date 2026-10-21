@@ -1,13 +1,42 @@
 ---
+brief_id: brief-2026-10-osdp-overflow
+event_id: brief-2026-10-osdp-overflow
+revision: 2
+activity_at: "2026-10-21T19:59:57Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T19:59:57Z"
+    checksum: sha256:1f9b7f01d26a8ec0547cc869aa258e11ced3924b6415e2afba6f0329bb43639a
+    summary: added coverage for Zephyr RTOS
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19676
 title: Stack-Based Buffer Overflow in Zephyr RTOS OSDP Implementation
 slug: 2026-10-osdp-overflow
 description: A vulnerability in the Zephyr RTOS OSDP Control Panel implementation allows attackers with access to the RS-485 bus to trigger a stack-based buffer overflow and potential code execution.
 date: "2026-10-19T22:24:23Z"
+lastmod: "2026-10-21T19:59:14Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source-verified technical details; fix confirmed via vendor-provided patch description.
 cpes:
   - cpe:2.3:o:zephyrproject:zephyr:*:*:*:*:*:*:*:*
 tags:
@@ -15,6 +44,9 @@ tags:
   - rtos
   - buffer-overflow
   - osdp
+  - privilege-escalation
+  - kernel-vulnerability
+  - zephyr-rtos
 vendors:
   - Zephyr Project
 products:
@@ -26,11 +58,21 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: The impact ranges from a hard crash of the access-control panel to potential control-flow hijack in the context of the OSDP receive thread.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: 'The impact is a full user-mode-to-kernel escape: an arbitrary kernel write primitive (integrity and, through it, code execution at supervisor privilege).'
+    confidence_band: high
 cves:
   - id: CVE-2026-76788
     cvss: 8.8
+    kev_status: unknown
+  - id: CVE-2026-19676
+    kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76788
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-19676
 action_plan:
   priority: immediate_escalation
   owners:
@@ -47,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76788
       evidence: Source notes fix adds OSDP_EVENT_MAX_DATALEN bound to handlers.
+updates:
+  - at: "2026-10-21T19:59:14Z"
+    level: L2
+    summary: added coverage for Zephyr RTOS
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-19676
 ---
 
 CVE-2026-76788 identifies a critical buffer overflow vulnerability within the Open Supervised Device Protocol (OSDP) implementation in the Zephyr RTOS, specifically within the `cp_decode_response()` function. This vulnerability stems from improper bounds checking when handling `REPLY_KEYPAD` and `REPLY_RAW` frames, which are copied into stack-allocated `osdp_event` structures. Because the code trusts length fields provided by the Peripheral Device without validating them against the `OSDP_EVENT_MAX_DATALEN` constant, an attacker can supply an oversized payload.
