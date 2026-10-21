@@ -1,17 +1,40 @@
 ---
+brief_id: brief-2026-07-psscriptpolicytest-uncommon-process
+event_id: brief-2026-07-psscriptpolicytest-uncommon-process
+revision: 2
+activity_at: "2026-10-21T00:49:04Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T00:49:04Z"
+    checksum: sha256:aaf58f65e6a8c7e513421cffa512a8e52a3f71d06539ccc01dd1d8ab5816a910
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - updates
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_ps_script_policy_test_creation_by_uncommon_process.yml
 title: PSScriptPolicyTest Creation By Uncommon Process
 slug: 2026-07-psscriptpolicytest-uncommon-process
 description: This brief describes a detection opportunity for the stealthy creation of the 'PSScriptPolicyTest' PowerShell script by processes other than standard PowerShell executables or legitimate Windows components, a behavior potentially indicative of advanced adversaries attempting to bypass PowerShell logging and security policies.
 date: "2026-07-28T08:23:30Z"
+lastmod: "2026-10-21T00:48:11Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
 tags:
   - stealth
   - detection
   - powershell
+vendors:
+  - Microsoft
+products:
+  - PowerShell
 affected_os:
   - Windows
 mitre_ttps:
@@ -37,6 +60,14 @@ rules:
       - file_event
       - windows
 rules_count: 1
+updates:
+  - at: "2026-10-21T00:48:11Z"
+    level: L1
+    summary: new product
+    sources:
+      - sigma-hq
+    source_urls:
+      - https://github.com/SigmaHQ/sigma/blob/main/rules/windows/file/file_event/file_event_win_ps_script_policy_test_creation_by_uncommon_process.yml
 ---
 
 This brief highlights a detection method for identifying suspicious activity related to PowerShell policy testing. The `__PSScriptPolicyTest_` file is a temporary file typically created by legitimate PowerShell executables to evaluate AppLocker or other execution policies. When this file is created by an "uncommon process," i.e., any process not officially sanctioned to perform PowerShell policy tests, it can indicate attempts by adversaries to stealthily test or bypass security controls. This technique, often associated with evasion (as noted by Palo Alto Networks regarding "stopping PowerShell without PowerShell"), suggests a potential for reconnaissance of security mechanisms or preparation for executing malicious code outside of standard PowerShell monitoring. There is no specific threat actor or campaign associated with this detection; rather, it identifies a behavioral anomaly that could be leveraged by various advanced persistent threat groups or red team operations.
