@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ef85d6a7-492e-5b5c-978e-d4b8c976715e",
+  "id": "bundle--d2a447a4-e6da-5d3b-9ed0-2a0f47ea8d87",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9757,6 +9757,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--19d24bcc-c034-5f61-aba7-b3c2d4845208",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T10:17:47.000Z",
+      "modified": "2026-10-21T10:17:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--835a43e5-8324-5d3d-b24c-d0dc19d3802b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--19d9d8b4-cd80-5eae-855f-04d91ac7ae19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11920,6 +11931,17 @@
       "relationship_type": "uses",
       "source_ref": "report--df309b2c-358c-5a50-ab4a-e18ecbcc98ed",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--25daba33-6953-58c5-9fe9-f801e9d363e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--592790b2-5d8c-5e39-bf39-7a1161b9d6ae",
+      "target_ref": "vulnerability--4ca04c85-c6ef-57be-973a-4355550b792e"
     },
     {
       "type": "relationship",
@@ -37572,6 +37594,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9535f6fd-9c7a-5fe0-b4d4-e886fc1a75e2",
       "target_ref": "attack-pattern--28d03a61-6721-5e78-9180-8568afb94860"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--abdb6e2d-2e9b-5439-b775-2e10fc865e7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--90193ae0-85db-5808-b636-37ab1662ec34",
+      "target_ref": "vulnerability--4ca04c85-c6ef-57be-973a-4355550b792e"
     },
     {
       "type": "relationship",
@@ -91531,6 +91564,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--76571219-c2fe-50c5-8b1f-ce76e147736d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T10:17:54.000Z",
+      "modified": "2026-10-21T10:17:54.000Z",
+      "name": "CVE-2024-55187: Remote Code Execution in phpIpam",
+      "description": "A public proof-of-concept (PoC) exploit has been published for CVE-2024-55187. The vulnerability allows for remote code execution (RCE) via a poisoned `ping_path` in `class.Scan.php`. By uploading a crafted archive containing shell metacharacters, an attacker can trigger evaluation of these characters via PHP's `exec()` function.\n",
+      "published": "2026-10-21T10:17:54.000Z",
+      "labels": [
+        "command-injection",
+        "cve-2024-55187",
+        "path-poisoning",
+        "phar-deserialization",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--ccae8320-197e-5460-a240-291540129222"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-phpipam-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-phpipam-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MALLO-M-CVE-2024-55187\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-phpipam-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-21-phpipam-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-phpipam-rce/",
+      "x_craftedsignal_activity_at": "2026-10-21T10:17:54.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--76a89a7b-38e6-5c14-b62a-36004ca34123",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T15:01:53.000Z",
@@ -95651,6 +95730,67 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--835a43e5-8324-5d3d-b24c-d0dc19d3802b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T10:17:47.000Z",
+      "modified": "2026-10-21T10:17:47.000Z",
+      "name": "Apache Camel: Request forgery vulnerability in camel-platform-http (CVE-2026-85316)",
+      "description": "## Overview\n\nCVE-2026-85316 is a request forgery vulnerability in the `camel-platform-http` component. The vulnerability is caused by an incorrect implementation of proxy mode identification, where the library evaluates if an endpoint is a proxy by checking if the configured path starts with the string \"proxy\" instead of requiring an exact match.\n\nEndpoints with paths starting with \"proxy\" (e.g., \"proxyStats\", \"proxy-health\") are incorrectly forced into proxy mode. In this mode, the endpoint acts as a forwarding proxy that uses the client-provided \"Host\" header to determine its destination. This behavior exposes internal services or resources that the application server can reach.\n\n## Impact\n\nSuccessful exploitation allows for request forgery, where an attacker can proxy requests through the vulnerable endpoint to reach internal network resources. The severity is mitigated by the need for the application to have existing routes with paths starting with \"proxy\" that were not intended to serve as proxies.\n\n## Recommendation\n\n- Upgrade `camel-platform-http` to version 4.18.5, 4.22.1, or 4.23.0.\n- Upgrade `camel-quarkus-platform-http` to version 3.40.0 or later.\n- If upgrading is not immediately possible, identify all `platform-http` endpoints with paths starting with \"proxy\" that are not intended to act as proxies and rename these paths to avoid the prefix conflict.\n",
+      "published": "2026-10-21T10:17:47.000Z",
+      "labels": [
+        "camel-platform-http",
+        "cve-2026-85316",
+        "request-forgery",
+        "ssrf"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--592790b2-5d8c-5e39-bf39-7a1161b9d6ae",
+        "software--90193ae0-85db-5808-b636-37ab1662ec34",
+        "vulnerability--4ca04c85-c6ef-57be-973a-4355550b792e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-camel-proxy-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-camel-proxy-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://camel.apache.org/security/CVE-2026-85316.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://issues.apache.org/jira/browse/CAMEL-24455"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E3482E50-76C6-5A29-82A5-99AD10DEE104"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E3482E50-76C6-5A29-82A5-99AD10DEE104\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-camel-proxy-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-21-camel-proxy-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-camel-proxy-rce/",
+      "x_craftedsignal_activity_at": "2026-10-21T10:17:47.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.8,
+      "x_craftedsignal_epss_max": 0.00296,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -140909,6 +141049,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--592790b2-5d8c-5e39-bf39-7a1161b9d6ae",
+      "name": "camel-platform-http (\u003c 4.18.5, 4.19.0 to \u003c 4.22.1)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--594b5448-2178-509f-96bb-ee877a9f7297",
       "name": "Grav (1.7.x)",
       "vendor": "Grav"
@@ -143901,6 +144048,13 @@
       "id": "software--90072f89-df7b-5cfa-b4d6-057c5ecce6ba",
       "name": "fetchmail",
       "vendor": "fetchmail"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--90193ae0-85db-5808-b636-37ab1662ec34",
+      "name": "camel-quarkus-platform-http (\u003c 3.40.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -156822,6 +156976,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4ca04c85-c6ef-57be-973a-4355550b792e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-85316",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-85316",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85316"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4cb0c86f-dee9-57e2-9e03-2086839de06d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -167888,6 +168058,22 @@
           "source_name": "cve",
           "external_id": "CVE-2020-37278",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-37278"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ccae8320-197e-5460-a240-291540129222",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-55187",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-55187",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-55187"
         }
       ]
     },
