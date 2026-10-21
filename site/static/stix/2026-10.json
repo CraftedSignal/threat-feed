@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--64c36a7c-ce4a-5ddb-8d12-4f74a537b96c",
+  "id": "bundle--04e3b1a4-b7f1-50fc-8d0d-34fc53bc9b43",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4470,6 +4470,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--015b36ed-50b3-5736-8f2c-9df1380afa7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b0f9c62-710c-5f07-8073-8ee5541ea464",
+      "target_ref": "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--01933540-1745-56b9-80ac-cc75414bb503",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T01:30:33.000Z",
@@ -6633,6 +6644,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ec66d26-4b66-54f4-acdf-7a2d3fc7fa98",
       "target_ref": "vulnerability--c05e9ec3-147d-5fbb-97c3-798ab6a18244"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1062b500-6a5d-58e8-bc41-08698201e24e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e3c53cb6-e9f2-5307-a8fe-9c2894d0d2e8",
+      "target_ref": "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
     },
     {
       "type": "relationship",
@@ -33858,6 +33880,17 @@
       "relationship_type": "uses",
       "source_ref": "report--909a28a7-d231-5bb4-a56e-bf39962db234",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cbc36c4b-e9e9-5e3f-b92e-c3d0c517c087",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a7010b0c-9e06-5b60-afd8-4bb6cdc65882",
+      "target_ref": "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
     },
     {
       "type": "relationship",
@@ -68266,7 +68299,7 @@
       "id": "report--6d40a0d6-8252-5d4e-8e43-a7baa0767ff2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:11:38.000Z",
-      "modified": "2026-10-19T18:11:38.000Z",
+      "modified": "2026-10-21T16:43:21.000Z",
       "name": "Denial of Service Vulnerability in MongoDB PHP Driver via Uncontrolled Recursion",
       "description": "## Overview\n\nCVE-2026-112368 identifies a critical weakness in the BSON decoding logic within the MongoDB PHP driver. The vulnerability stems from uncontrolled recursion during the parsing process, which can be triggered by an unauthenticated attacker supplying a specially crafted BSON document. Because the failure occurs at the driver level, beneath the PHP execution layer, standard application-level exception or error handling mechanisms are unable to intercept the crash. Successful exploitation results in immediate process termination, leading to a denial-of-service condition for the affected PHP application. This issue is particularly significant for high-traffic web applications that accept user-supplied or external data payloads for MongoDB operations. Defenders should prioritize auditing applications that parse BSON inputs and apply vendor-provided patches as soon as they become available.\n\n## Impact\n\nThe impact of this vulnerability is a targeted denial-of-service affecting web applications relying on the MongoDB PHP driver. By causing the PHP process to crash unexpectedly, an attacker can degrade service availability for legitimate users. The inability to catch this error in PHP code means that affected services may require manual intervention or system-level restart logic to recover, potentially causing significant downtime in production environments.\n\n## Recommendation\n\n- Identify all application servers utilizing the MongoDB PHP driver by inspecting dependency manifests (e.g., composer.json) or server environment logs.\n- Monitor web server error logs for recurrent sudden process terminations or segmentation faults occurring during BSON decoding operations.\n- Apply the vendor-provided patch for CVE-2026-112368 across all affected production and development environments once released by MongoDB.\n- Implement input validation and schema enforcement at the application layer to reject unusually deep or malformed BSON documents before they reach the driver level.\n",
       "published": "2026-10-19T18:11:38.000Z",
@@ -68277,7 +68310,10 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b0f9c62-710c-5f07-8073-8ee5541ea464",
         "software--39c8b09d-96e2-54db-84a3-d18d2fba5a96",
+        "software--a7010b0c-9e06-5b60-afd8-4bb6cdc65882",
+        "software--e3c53cb6-e9f2-5307-a8fe-9c2894d0d2e8",
         "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
       ],
       "external_references": [
@@ -68288,16 +68324,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://jira.mongodb.org/browse/PHPC-276"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112368"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1347/"
         }
       ],
-      "confidence": 40,
+      "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-mongodb-bson-recursion",
       "x_craftedsignal_event_id": "brief-2026-10-mongodb-bson-recursion",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mongodb-bson-recursion/",
-      "x_craftedsignal_activity_at": "2026-10-19T18:11:38.000Z",
-      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_activity_at": "2026-10-21T16:43:21.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -106353,6 +106397,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b0f9c62-710c-5f07-8073-8ee5541ea464",
+      "name": "PHP Driver (2.5.x \u003c 2.5.5)",
+      "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2b9f11e2-7c58-58cf-908f-b314195a3c32",
       "name": "Wubang Five-in-One Safety Production Management Information System (\u003c= 3.5)",
       "vendor": "Wuxi Wubang Security Software"
@@ -111109,6 +111160,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a7010b0c-9e06-5b60-afd8-4bb6cdc65882",
+      "name": "PHP Driver (\u003c 1.21.12)",
+      "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a7191faf-2625-5de6-9c47-3dab543f7c77",
       "name": "Prime Mover (\u003c 2.2.1)",
       "vendor": "WordPress"
@@ -113433,6 +113491,13 @@
       "id": "software--e3ae2f72-3083-52e4-af6b-ee06c70a0961",
       "name": "insights-runtime-extractor",
       "vendor": "Kubernetes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e3c53cb6-e9f2-5307-a8fe-9c2894d0d2e8",
+      "name": "PHP Driver (2.1.x \u003c 2.1.12)",
+      "vendor": "MongoDB"
     },
     {
       "type": "software",
