@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dcdaeb12-6b8b-5164-a78a-e60f1ef750f8",
+  "id": "bundle--c1d74f4c-8503-556a-bec1-a366eef35bf8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27063,17 +27063,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e44849f9-9c93-5d08-8735-d2b507732b15",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T19:35:25.000Z",
-      "modified": "2026-07-23T19:35:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0185c6c6-e997-555d-b8ea-3a30d7e9e6c3",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e458f63b-d02c-5a58-b4d5-d94ed8aba935",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:24:07.000Z",
@@ -28713,17 +28702,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f8565ed6-e653-5285-a777-bc1a6af0201a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T19:35:25.000Z",
-      "modified": "2026-07-23T19:35:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0185c6c6-e997-555d-b8ea-3a30d7e9e6c3",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f898fbc4-ee95-5418-a6ab-6863fc409003",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29417,52 +29395,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-sysmon-config-error/",
       "x_craftedsignal_activity_at": "2026-07-24T08:20:07.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0185c6c6-e997-555d-b8ea-3a30d7e9e6c3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T19:35:25.000Z",
-      "modified": "2026-07-23T19:35:25.000Z",
-      "name": "Denial of Service Vulnerability in find-my-way Node.js Router",
-      "description": "## Overview\n\nA high-severity Denial of Service (DoS) vulnerability, identified as CVE-2026-47219, affects the `find-my-way` Node.js router versions up to 9.6.0 when used in conjunction with HTTP/2 servers. This vulnerability allows remote attackers to trigger a server crash by sending HTTP/2 requests with specially crafted method names. The `find-my-way` router, commonly used in Node.js applications, misinterprets certain HTTP method values (e.g., `constructor`, `__proto__`, `toString`) due to a flaw in its `lookup()` and `find()` functions. This leads to an attempt to access properties on unintended JavaScript objects, causing the application to terminate unexpectedly. This vulnerability poses a significant risk to the availability of affected web services, making them susceptible to remote DoS attacks.\n\n## Attack Chain\n\n1. An attacker sends a specially crafted HTTP/2 request to a Node.js server running `find-my-way` versions up to 9.6.0.\n2. The request includes a malicious HTTP method name, such as `constructor` or `__proto__`, within the HTTP/2 method field.\n3. The `find-my-way` router receives this request and processes the `req.method` value using its internal `lookup()` and `find()` functions.\n4. The `find()` function attempts to use the malicious method string (e.g., `constructor`) to index `this.trees[method]`.\n5. Due to JavaScript's prototype chain behavior, this lookup resolves to an unexpected inherited object property instead of an intended router node.\n6. The router code then attempts to access properties, such as `currentNode.prefix.length`, on this non-router object.\n7. This action results in an unhandled exception and crashes the Node.js application, leading to a Denial of Service.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-47219 leads to a complete Denial of Service for the affected Node.js HTTP/2 server. Each malicious request can cause the application to crash, rendering the service unavailable to legitimate users. There is no information regarding the number of specific victims or sectors targeted, but any organization using `find-my-way` with Node.js HTTP/2 is potentially vulnerable. The primary consequence is the disruption of service, which can lead to reputational damage, financial loss, and interruption of critical operations for businesses reliant on these applications.\n\n## Recommendation\n\n* Upgrade all instances of the `find-my-way` package to version 9.7.0 or higher to mitigate CVE-2026-47219.\n* Deploy the Sigma rule included in this brief to your SIEM and monitor web server logs for anomalous HTTP method names to detect attempts at exploiting CVE-2026-47219.\n* As a temporary workaround, validate HTTP methods before processing them with `find-my-way` if immediate upgrade to version 9.7.0 is not feasible.\n",
-      "published": "2026-07-23T19:35:25.000Z",
-      "labels": [
-        "denial-of-service",
-        "http2",
-        "nodejs",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ff104513-d8b0-50fe-93b6-89c6dda33167"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-dos-find-my-way",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-dos-find-my-way/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-c96f-x56v-gq3h"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-dos-find-my-way",
-      "x_craftedsignal_event_id": "brief-2026-07-dos-find-my-way",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-dos-find-my-way/",
-      "x_craftedsignal_activity_at": "2026-07-23T19:35:25.000Z",
-      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -53200,12 +53132,6 @@
       "id": "software--fee68fa1-64b2-53fe-9c3b-ff726cc5893c",
       "name": "Elastic Defend (8.18 and above)",
       "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ff104513-d8b0-50fe-93b6-89c6dda33167",
-      "name": "find-my-way (\u003c= 9.6.0)"
     },
     {
       "type": "software",
