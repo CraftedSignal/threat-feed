@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--993d9276-8e99-5374-95b2-c714d41adc4d",
+  "id": "bundle--fc5d64f6-62fa-5397-9bf7-f99268e202b5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -57720,6 +57720,40 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4c48496a-3197-5767-b991-2a540147514e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T03:44:24.000Z",
+      "modified": "2026-10-21T03:44:24.000Z",
+      "name": "AWS S3: Monitoring for weakened Bucket Block Public Access settings",
+      "description": "## Overview\n\nSecurity teams must monitor for modifications to AWS S3 Block Public Access configurations. The \"Block Public Access\" feature is a critical security control that provides a centralized mechanism to prevent the accidental or malicious exposure of buckets and objects. When an actor modifies this configuration to disable restrictive settings (such as setting 'BlockPublicAcls', 'BlockPublicPolicy', 'IgnorePublicAcls', or 'RestrictPublicBuckets' to false), it significantly increases the risk of unauthorized public access. This activity is often a precursor to data exfiltration or the staging of malicious files for further distribution. Detecting these changes in AWS CloudTrail logs is essential for identifying potential defense impairment activities within a cloud environment.\n\n## Attack Chain\n\n1. Attacker gains initial access to an AWS environment with sufficient IAM permissions to modify S3 bucket configurations.\n2. Attacker performs reconnaissance to identify S3 buckets containing sensitive or valuable data.\n3. Attacker uses the 'PutBucketPublicAccessBlock' API call to modify the security settings of a target bucket.\n4. Attacker sets one or more protection flags (BlockPublicAcls, BlockPublicPolicy, etc.) to 'false' to weaken the security posture.\n5. Attacker applies a permissive Bucket Policy or Access Control List (ACL) to make the object contents readable by the public.\n6. Attacker exfiltrates data from the publicly exposed S3 bucket.\n7. Attacker potentially uses the exposed bucket to host or serve malicious payloads for subsequent campaigns.\n\n## Impact\n\nSuccessful weakening of S3 bucket security controls can lead to widespread, unauthenticated exposure of sensitive data stored in AWS. This results in significant compliance violations, intellectual property theft, and potential reputational damage for organizations. If these settings are disabled, the bucket becomes susceptible to unauthorized access from any internet-connected host, depending on the scope of the applied bucket policies or ACLs.\n\n## Recommendation\n\nDeploy the provided Sigma rule to alert on modifications that weaken S3 security posture. Audit existing bucket configurations to ensure that Block Public Access is enabled by default across the organization. Implement IAM policies following the principle of least privilege to restrict the 's3:PutBucketPublicAccessBlock' permission to authorized administrative service accounts only.\n\n## Tags\n- cloud-security\n- aws\n- defense-impairment\n",
+      "published": "2026-10-21T03:44:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1004d220-c2bf-521d-ab4a-a1af26f7f3c4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-aws-s3-public-access-weakening",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-s3-public-access-weakening/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-aws-s3-public-access-weakening",
+      "x_craftedsignal_event_id": "brief-2026-10-21-aws-s3-public-access-weakening",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-s3-public-access-weakening/",
+      "x_craftedsignal_activity_at": "2026-10-21T03:44:24.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4caef5b5-8184-53a1-88a3-2cd298544c2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:38:27.000Z",
@@ -100981,6 +101015,13 @@
       "id": "software--0ff48bbf-d05d-5b97-a447-f42acc1801f8",
       "name": "hydra-optuna-sweeper (\u003e= 1.2.0, \u003c 1.3.0)",
       "vendor": "Hydra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1004d220-c2bf-521d-ab4a-a1af26f7f3c4",
+      "name": "AWS S3",
+      "vendor": "Amazon"
     },
     {
       "type": "software",
