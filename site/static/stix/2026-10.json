@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b474795a-1139-5fae-9a61-db2d41ffa5e1",
+  "id": "bundle--bee5c869-c5be-5d8a-804f-f9ea5b404082",
   "objects": [
     {
       "type": "attack-pattern",
@@ -239,6 +239,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1098.001",
           "url": "https://attack.mitre.org/techniques/T1098/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Digital Certificates",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1588.004",
+          "url": "https://attack.mitre.org/techniques/T1588/004"
         }
       ]
     },
@@ -16481,6 +16497,17 @@
       "relationship_type": "uses",
       "source_ref": "report--977db557-1988-5084-a8d4-eeb782a38555",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--594e97d2-e19e-5e25-8451-af70113e27f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T12:20:28.000Z",
+      "modified": "2026-10-21T12:20:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--03115277-189c-59bd-905b-f50fe63fd05d",
+      "target_ref": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e"
     },
     {
       "type": "relationship",
@@ -41865,6 +41892,50 @@
       "x_craftedsignal_activity_at": "2026-10-15T16:48:47.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--03115277-189c-59bd-905b-f50fe63fd05d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T12:20:28.000Z",
+      "modified": "2026-10-21T12:20:28.000Z",
+      "name": "eMudhra: Intermediate Certificate Authority private key recovery",
+      "description": "## Overview\n\nThe Indian certificate authority eMudhra issued eight intermediate CA certificates in April 2025 containing critical cryptographic flaws. Due to a failure in the key generation ceremony script, these certificates were generated with insufficient entropy, resulting in private keys that are effectively all-zeroes except for the final byte. This weakness allows the private keys to be recovered nearly instantaneously using the baby-step giant-step discrete log algorithm. While no evidence of malicious exploitation exists in Certificate Transparency logs, the vulnerability theoretically allowed for the forgery of trusted HTTPS certificates to impersonate any website. Major root programs (Mozilla, Google, Apple, Microsoft) have blocked these certificates, and eMudhra has revoked them.\n\n## Impact\n\nThe vulnerability permitted the unauthorized generation of fraudulent, trusted HTTPS certificates. This facilitates man-in-the-middle attacks, enabling attackers to intercept, decrypt, or manipulate encrypted traffic for any domain by presenting a forged certificate that clients would accept as valid.\n\n## Recommendation\n\n- Identify and remove the compromised eMudhra intermediate certificates from all enterprise trust stores and internal PKI management tools.\n- Utilize the validation tool provided by Mozilla (Dennis Jackson) to audit client environments for remaining trust in these compromised intermediates.\n- Prioritize patching and software updates for all systems, as some clients require updates to ensure these specific intermediates are no longer trusted.\n- Review eMudhra's forthcoming audit of their key generation ceremony processes to ensure internal compliance and risk management alignment.\n",
+      "published": "2026-10-21T12:20:28.000Z",
+      "labels": [
+        "certificate-authority",
+        "cryptography",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--180e61d0-e367-5fcc-b0d9-6450e85a4520"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-emudhra-ca-keys",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-keys/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-ca-keys",
+      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-ca-keys",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-keys/",
+      "x_craftedsignal_activity_at": "2026-10-21T12:20:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -103732,6 +103803,13 @@
       "id": "software--17e3e15e-3472-56f9-a9c4-4236f5e0ff4f",
       "name": "DPDK",
       "vendor": "DPDK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--180e61d0-e367-5fcc-b0d9-6450e85a4520",
+      "name": "Intermediate Certificate Authorities",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
