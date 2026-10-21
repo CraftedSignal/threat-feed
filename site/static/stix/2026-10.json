@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--13688d66-8876-5919-8506-569da473ca6a",
+  "id": "bundle--61a0edbd-2af4-5298-a6e9-6a537dcdd176",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17610,7 +17610,7 @@
       "id": "relationship--6154225f-dc19-597c-8f86-2f7a42775a0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T11:52:21.000Z",
-      "modified": "2026-10-18T11:52:21.000Z",
+      "modified": "2026-10-21T09:19:13.000Z",
       "relationship_type": "uses",
       "source_ref": "report--adb8bfb9-5a18-5e69-9eb5-d6a69c7306b1",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
@@ -29322,6 +29322,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b17821bd-d8b4-523b-97b0-cb90acd8a548",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--90ead07e-49e2-5d57-b9a6-2b8f9c806652",
+      "target_ref": "vulnerability--ed2662a9-2649-5e9f-82ec-b193809ffeea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b1821deb-2add-5b93-8462-8293f2666e05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39511,7 +39522,7 @@
       "id": "relationship--f4eccdd5-ed21-5ddf-9ff0-1b7bddb39ef2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T11:52:21.000Z",
-      "modified": "2026-10-18T11:52:21.000Z",
+      "modified": "2026-10-21T09:19:13.000Z",
       "relationship_type": "uses",
       "source_ref": "report--adb8bfb9-5a18-5e69-9eb5-d6a69c7306b1",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -59984,6 +59995,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--522504e0-e007-5b45-bf12-8b9dbaa79560",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T09:18:21.000Z",
+      "modified": "2026-10-21T09:18:21.000Z",
+      "name": "Dokploy: Storage command injection via customGitBranch (CVE-2026-72867)",
+      "description": "A public proof-of-concept exploit has been published for CVE-2026-72867. The vulnerability allows for storage-based OS command injection in Dokploy via the 'customGitBranch' field. The exploit targets the 'compose/update' path and leverages the fact that input is interpolated into a 'git clone --branch' command during deployment. The vulnerability is reported to allow command execution with root privileges, as the container runs as root and mounts 'docker.sock'.\n",
+      "published": "2026-10-21T09:18:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e58cf7d7-1fc8-52e3-8655-db9ee80a729a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-dokploy-cve-2026-72867",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-dokploy-cve-2026-72867/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Dokploy/dokploy/commit/47347ab"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D734EFEC-FFC0-5858-9CE7-E98911E2C5D5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=D734EFEC-FFC0-5858-9CE7-E98911E2C5D5\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-dokploy-cve-2026-72867",
+      "x_craftedsignal_event_id": "brief-2026-10-21-dokploy-cve-2026-72867",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dokploy-cve-2026-72867/",
+      "x_craftedsignal_activity_at": "2026-10-21T09:18:21.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=D734EFEC-FFC0-5858-9CE7-E98911E2C5D5",
+        "observed_at": "2026-10-21T09:18:21.000Z",
+        "confidence": "medium"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.00954,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -82042,7 +82104,7 @@
       "id": "report--adb8bfb9-5a18-5e69-9eb5-d6a69c7306b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T11:52:21.000Z",
-      "modified": "2026-10-18T11:52:21.000Z",
+      "modified": "2026-10-21T09:19:13.000Z",
       "name": "Deserialization Vulnerability in WP Chill Strong Testimonials",
       "description": "## Overview\n\nThe Strong Testimonials plugin for WordPress, developed by WP Chill, is vulnerable to an object injection flaw via deserialization of untrusted data. This vulnerability, tracked as CVE-2026-107436, affects all versions of the plugin from inception through 3.3.12. An attacker can exploit this weakness by sending specially crafted serialized data to the application, which the plugin insecurely deserializes. Successful exploitation allows for the instantiation of arbitrary PHP objects, which can be leveraged to execute unauthorized actions or achieve remote code execution (RCE) on the underlying web server. Given the prevalence of WordPress plugins in enterprise environments, this vulnerability poses a significant risk to web infrastructure, allowing attackers to compromise the integrity and confidentiality of the host environment.\n\n## Impact\n\nThe vulnerability allows an unauthenticated or authenticated attacker to inject malicious objects, potentially resulting in complete compromise of the WordPress site. As this plugin is widely used for site testimonials, a successful attack could lead to unauthorized database modification, administrative account takeover, or full server-side command execution, depending on the available gadget chains within the site's environment.\n\n## Recommendation\n\n* Immediately update the Strong Testimonials plugin to a version beyond 3.3.12 to mitigate the vulnerability described in CVE-2026-107436.\n* Audit WordPress installations for the presence of the affected plugin version using site inventory tools.\n* Monitor web server logs for suspicious POST requests targeting WordPress plugin directory paths, particularly those involving unusual serialized data patterns.\n",
       "published": "2026-10-18T11:52:21.000Z",
@@ -82056,6 +82118,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--06602f03-cfef-55ad-abfd-e18773a0874b",
+        "software--90ead07e-49e2-5d57-b9a6-2b8f9c806652",
         "vulnerability--ed2662a9-2649-5e9f-82ec-b193809ffeea"
       ],
       "external_references": [
@@ -82066,15 +82129,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107435"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107436"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-18-cve-2026-107436",
       "x_craftedsignal_event_id": "brief-2026-10-18-cve-2026-107436",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-107436/",
-      "x_craftedsignal_activity_at": "2026-10-18T11:52:21.000Z",
+      "x_craftedsignal_activity_at": "2026-10-21T09:19:13.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -107568,6 +107635,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--90ead07e-49e2-5d57-b9a6-2b8f9c806652",
+      "name": "Strong Testimonials (n/a through 3.3.12)",
+      "vendor": "WP Chill"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--90f062ef-acb5-5f36-9d80-5f099b6e06f0",
       "name": "Amazon EC2",
       "vendor": "Amazon"
@@ -126934,6 +127008,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-14990",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14990"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e58cf7d7-1fc8-52e3-8655-db9ee80a729a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-72867",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-72867",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72867"
         }
       ]
     },
