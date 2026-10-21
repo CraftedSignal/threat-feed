@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e09fa251-bd2a-5965-972e-7c793bf40c46",
+  "id": "bundle--21d41976-c6ec-5eed-a564-49f7decdd8d9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -255,22 +255,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1098.001",
           "url": "https://attack.mitre.org/techniques/T1098/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Digital Certificates",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1588.004",
-          "url": "https://attack.mitre.org/techniques/T1588/004"
         }
       ]
     },
@@ -543,22 +527,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1187",
           "url": "https://attack.mitre.org/techniques/T1187"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "ARP Cache Poisoning",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1557.002",
-          "url": "https://attack.mitre.org/techniques/T1557/002"
         }
       ]
     },
@@ -21605,17 +21573,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0b51f583-ec8d-5533-b86e-9f94c0444128",
       "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--594e97d2-e19e-5e25-8451-af70113e27f8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T12:20:28.000Z",
-      "modified": "2026-10-21T12:20:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--03115277-189c-59bd-905b-f50fe63fd05d",
-      "target_ref": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e"
     },
     {
       "type": "relationship",
@@ -52079,17 +52036,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f17b82cb-3520-5850-a269-2c52f968bf31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T23:53:18.000Z",
-      "modified": "2026-10-20T23:53:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--242639b0-dab4-549f-a890-75258dce2461",
-      "target_ref": "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f17f62cd-6550-52ee-84db-38ddd82dd493",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:44:35.000Z",
@@ -55727,50 +55673,6 @@
       "x_craftedsignal_activity_at": "2026-10-15T16:48:47.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--03115277-189c-59bd-905b-f50fe63fd05d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T12:20:28.000Z",
-      "modified": "2026-10-21T12:20:28.000Z",
-      "name": "eMudhra: Intermediate Certificate Authority private key recovery",
-      "description": "## Overview\n\nThe Indian certificate authority eMudhra issued eight intermediate CA certificates in April 2025 containing critical cryptographic flaws. Due to a failure in the key generation ceremony script, these certificates were generated with insufficient entropy, resulting in private keys that are effectively all-zeroes except for the final byte. This weakness allows the private keys to be recovered nearly instantaneously using the baby-step giant-step discrete log algorithm. While no evidence of malicious exploitation exists in Certificate Transparency logs, the vulnerability theoretically allowed for the forgery of trusted HTTPS certificates to impersonate any website. Major root programs (Mozilla, Google, Apple, Microsoft) have blocked these certificates, and eMudhra has revoked them.\n\n## Impact\n\nThe vulnerability permitted the unauthorized generation of fraudulent, trusted HTTPS certificates. This facilitates man-in-the-middle attacks, enabling attackers to intercept, decrypt, or manipulate encrypted traffic for any domain by presenting a forged certificate that clients would accept as valid.\n\n## Recommendation\n\n- Identify and remove the compromised eMudhra intermediate certificates from all enterprise trust stores and internal PKI management tools.\n- Utilize the validation tool provided by Mozilla (Dennis Jackson) to audit client environments for remaining trust in these compromised intermediates.\n- Prioritize patching and software updates for all systems, as some clients require updates to ensure these specific intermediates are no longer trusted.\n- Review eMudhra's forthcoming audit of their key generation ceremony processes to ensure internal compliance and risk management alignment.\n",
-      "published": "2026-10-21T12:20:28.000Z",
-      "labels": [
-        "certificate-authority",
-        "cryptography",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--180e61d0-e367-5fcc-b0d9-6450e85a4520"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-emudhra-ca-keys",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-keys/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-ca-keys",
-      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-ca-keys",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-keys/",
-      "x_craftedsignal_activity_at": "2026-10-21T12:20:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -65786,50 +65688,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00405,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--242639b0-dab4-549f-a890-75258dce2461",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-20T23:53:18.000Z",
-      "modified": "2026-10-20T23:53:18.000Z",
-      "name": "Certifi: Bundled eMudhra root CAs with compromised intermediate keys",
-      "description": "## Overview\n\nCertifi versions before 2026.10.18 included the 'emSign ECC Root CA - G3' root certificate in their default CA bundle. It was discovered that eight eMudhra intermediate CA certificates chaining to this root had their private keys compromised, leading to their revocation by the issuing CA. Because these compromised intermediate certificates remained trusted by older versions of the certifi bundle, an attacker could potentially issue fraudulent TLS certificates for any domain. \n\nApplications relying on the certifi bundle for TLS verification - including widely used Python libraries like requests, urllib3, and pip, as well as the Python.org macOS installer - are vulnerable to man-in-the-middle attacks if the attacker is in an on-path position. This allows for traffic decryption, manipulation, and credential theft. Certifi 2026.10.18 initially removed all emSign roots to mitigate the risk, and 2026.10.19 subsequently restored only the unaffected roots. Organizations must upgrade to 2026.10.19 or later and rebuild all container images or environments that include the vulnerable certifi bundle.\n\n## Impact\n\nThe vulnerability impacts any software platform or environment utilizing affected versions of the certifi library to validate TLS connections. Successful exploitation allows an on-path attacker to intercept and modify encrypted communications, potentially leading to widespread data exfiltration, service impersonation, and the compromise of sensitive credentials transmitted over TLS-protected sessions.\n\n## Recommendation\n\n- Upgrade the certifi library in all development, production, and container environments to version 2026.10.19 or later immediately.\n- Rebuild and redeploy container images and virtual machine snapshots that vendored earlier versions of the certifi package.\n- Audit infrastructure dependencies to identify software specifically relying on bundled certifi CA stores, such as custom scripts using the requests or urllib3 libraries.\n",
-      "published": "2026-10-20T23:53:18.000Z",
-      "labels": [
-        "python",
-        "supply-chain",
-        "tls-interception"
-      ],
-      "object_refs": [
-        "attack-pattern--260dedee-cd4e-5745-813e-f11eadb293a3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--af7a426d-c1dd-5688-b20c-cf1ebf710958"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-20-certifi-compromised-roots",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-certifi-compromised-roots/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-6q48-6c7w-9gw2"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-20-certifi-compromised-roots",
-      "x_craftedsignal_event_id": "brief-2026-10-20-certifi-compromised-roots",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-certifi-compromised-roots/",
-      "x_craftedsignal_activity_at": "2026-10-20T23:53:18.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -91785,6 +91643,74 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.93339,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--76a8d5d7-453f-5bde-9f93-1e0ae389c582",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:47:00.000Z",
+      "modified": "2026-10-21T13:09:06.000Z",
+      "name": "eMudhra: Eight compromised intermediate CA keys threaten TLS trust",
+      "description": "Mozilla received a report on 17 October 2026 that private keys for eight eMudhra intermediate CA certificates had been compromised. Security researcher Scott Helme independently recovered the weak keys from the public certificates and reported that one private key was the integer **4**; others included **56** and **115**. SecurityWeek subsequently reported on the same recoverable-key incident. This describes very small key values, not short certificate files. A holder of a compromised CA key could issue fraudulent HTTPS certificates. Intercepting a connection would also require an on-path position. The cited sources do not establish observed malicious use of these keys.\n\n## Affected intermediate CAs\n\nMozilla's [incident record](https://bugzilla.mozilla.org/show_bug.cgi?id=2083449) identifies six TLS issuers and two code-signing issuers. The names and CCADB identifiers are:\n\n| Purpose | Intermediate CA | CCADB ID |\n| --- | --- | --- |\n| TLS | EM EV TLS CA - G3B (eMudhra BV) | A012304 |\n| TLS | EM OV TLS CA - G3B (eMudhra BV) | A012308 |\n| TLS | EM DV TLS CA - G3B (eMudhra BV) | A012302 |\n| TLS | EM EV TLS CA - G3C (eMudhra Inc) | A012296 |\n| TLS | EM OV TLS CA - G3C (eMudhra Inc) | A012300 |\n| TLS | EM DV TLS CA - G3C (eMudhra Inc) | A012294 |\n| Code signing | EM OV CS CA - G3B (eMudhra BV) | A012306 |\n| Code signing | EM OV CS CA - G3C (eMudhra Inc) | A012298 |\n\nUse the SHA-256 certificate fingerprints in Mozilla's incident record when matching a certificate chain; a CA name alone is not a reliable cryptographic identifier.\n\nMozilla blocked the affected certificates through Firefox OneCRL on 17 October and released Firefox and NSS updates for clients that may not receive that block. As downstream remediation for the same incident, the certifi maintainer removed the affected emSign roots from its CA bundle in version 2026.10.18. The certifi advisory is therefore part of this certificate-chain incident, not a separate compromise.\n\n## Recommendation\n\n- Check which browsers, libraries, containers, and custom trust stores still trust the affected certificate chain.\n- Apply current browser and NSS updates; update affected certifi installations to 2026.10.18 or later and rebuild bundled images.\n- Investigate any suspicious TLS certificate chains issued through the affected intermediates, while keeping observed exploitation separate from the confirmed key compromise.",
+      "published": "2026-10-21T07:47:00.000Z",
+      "labels": [
+        "certificate-authority",
+        "cryptography",
+        "python",
+        "supply-chain",
+        "tls-interception"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0811054d-2388-5571-b84b-9389ec658c0b",
+        "software--180e61d0-e367-5fcc-b0d9-6450e85a4520",
+        "software--47c674b3-eaf7-5845-8448-ffd69980a603",
+        "software--cb5f562c-2eae-5755-a903-33bff92d7ab5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-key-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=2083449"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://scotthelme.co.uk/eight-bits-of-trust-emudhras-ca-keys-cracked-in-milliseconds/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/276"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
+      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-intermediate-key-compromise",
+      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-key-compromise/",
+      "x_craftedsignal_activity_at": "2026-10-21T13:09:06.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -133010,48 +132936,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f404e372-5088-571d-bd54-df6c5ca5a636",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:57:27.000Z",
-      "modified": "2026-10-21T07:57:27.000Z",
-      "name": "eMudhra: Weak Private Key Generation in Intermediate CA Certificates",
-      "description": "## Overview\n\nAn audit of eMudhra intermediate certificates has identified that eight P384 intermediate certificates, generated in April 2025, contain weak private keys. The private keys were constrained to integers less than 256, effectively rendering them predictable. These keys were recovered trivially by researchers using simple discrete logarithm algorithms, as the private keys were essentially all-zeroes with only the final byte varied. This failure originated during the key generation process rather than the signing process. The organization has revoked the impacted keys, and audits are now required for other CA root and intermediate certificates to identify similar implementation flaws.\n\n## Impact\n\nThe use of weak, predictable private keys allows unauthorized parties to recover the private key of the certificate, enabling the impersonation of the CA or the issuance of fraudulent certificates within the trust chain.\n\n## Recommendation\n\n- Inventory all certificates signed by the affected eMudhra intermediate CA chain.\n- Revoke and replace any certificates issued by the compromised intermediates.\n- Implement automated auditing for all CA root and intermediate keys to verify the entropy and randomness of private key generation, ensuring they meet cryptographic standards.\n- Monitor certificate transparency logs for anomalous or unauthorized certificate issuances linked to eMudhra infrastructure.\n",
-      "published": "2026-10-21T07:57:27.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--cb5f562c-2eae-5755-a903-33bff92d7ab5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-emudhra-ca-compromise",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=2083449"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://seclists.org/oss-sec/2026/q4/276"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-ca-compromise",
-      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-ca-compromise",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-ca-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-21T07:57:27.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f409132a-53af-5108-9fa7-c65e12ef5bfd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T20:33:03.000Z",
@@ -137061,6 +136945,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0811054d-2388-5571-b84b-9389ec658c0b",
+      "name": "emSign intermediate CA certificates",
+      "vendor": "eMudhra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0841404a-4705-521f-9f42-884330e441b1",
       "name": "Chat (\u003c= ac63d25297079eed5e4ba7e88d3b7a032637150d)",
       "vendor": "songxinjianqwe"
@@ -140395,6 +140286,13 @@
       "spec_version": "2.1",
       "id": "software--479d58ff-de3e-5ad4-a9a4-0d3149160463",
       "name": "Ultra Addons for Contact Form 7 (\u003c= 3.5.50)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--47c674b3-eaf7-5845-8448-ffd69980a603",
+      "name": "certifi (\u003c 2026.10.18)",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -146135,13 +146033,6 @@
       "id": "software--af4846c9-d5be-59a0-b97f-1629b2f9ce54",
       "name": "Meta Box User Profile (\u003c= 3.11.0)",
       "vendor": "Meta Box"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--af7a426d-c1dd-5688-b20c-cf1ebf710958",
-      "name": "certifi (\u003c 2026.10.19)",
-      "vendor": "eMudhra"
     },
     {
       "type": "software",
