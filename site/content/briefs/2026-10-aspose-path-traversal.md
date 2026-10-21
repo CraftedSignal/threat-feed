@@ -21,6 +21,8 @@ source_assessment:
   likelihood: likely
 qa_status:
   verdict: pass
+references:
+  - https://www.cve.org/CVERecord?id=CVE-2015-20124
 cpes:
   - cpe:2.3:a:aspose:importer_&_exporter:*:*:*:*:*:wordpress:*:*
 tags:
