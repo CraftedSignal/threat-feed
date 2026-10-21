@@ -1,14 +1,36 @@
 ---
+brief_id: brief-2026-07-clickfix-campaign
+event_id: brief-2026-07-clickfix-campaign
+revision: 2
+activity_at: "2026-10-21T13:30:22Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T13:30:22Z"
+    checksum: sha256:0b81efa212888a5db4a7fa5628e1da0ca678b84dc5001fb833ed8ddd99e74a3d
+    summary: new IOCs
+    changed_fields:
+      - cpes
+      - cves
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack
 title: ClickFix Campaign Activity
 slug: 2026-07-clickfix-campaign
 description: Tracking brief for the ClickFix campaign; individual sightings are folded in as reported.
 date: "2026-07-06T12:44:38Z"
-lastmod: "2026-10-20T08:33:49Z"
+lastmod: "2026-10-21T13:29:50Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:a:siemens:software_center:*:*:*:*:*:*:*:*
 tags:
   - campaign
   - clickfix
@@ -104,6 +126,7 @@ cves:
   - id: CVE-2026-110936
     cvss: 6.7
     epss: 0.00135
+    kev_status: "false"
 references:
   - https://www.securityweek.com/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/
   - https://hackread.com/gitlost-github-ai-agent-leaking-repository-data/
@@ -156,6 +179,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1x7ro0a/romulus_analysis_of_a_new_multipayload_clickfix/
   - https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/
   - https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html
+  - https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack
 iocs:
   - type: domain
     value: justwatch.com
@@ -227,19 +251,14 @@ iocs:
     value: wizardexpensive.com
   - type: ip
     value: 2.27.248.127
+  - type: domain
+    value: orders-amazon.com.advancedfences.com
 ioc_counts:
-  domain: 20
+  domain: 21
   hash_sha256: 1
   ip: 5
   url: 9
 updates:
-  - at: "2026-09-24T14:07:10Z"
-    level: L1
-    summary: new IOCs
-    sources:
-      - securelist
-    source_urls:
-      - https://securelist.com/macsync-new-version/121383/
   - at: "2026-09-30T15:43:40Z"
     level: L1
     summary: new IOCs
@@ -268,6 +287,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html
+  - at: "2026-10-21T13:29:50Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - dark-reading
+    source_urls:
+      - https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack
 ---
 
 This brief tracks activity attributed to the ClickFix campaign. Sightings and
