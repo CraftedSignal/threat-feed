@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f82c0c63-72d1-507b-a953-3b60fef02110",
+  "id": "bundle--eb658bf4-10bd-5636-b5be-41f67eee3b9a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12556,6 +12556,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--279e3bf5-0859-5ff3-9dbf-88d7b782732d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--279e8dbb-3a18-5eb7-af1f-6e46cfb9de24",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T08:23:11.000Z",
@@ -13652,17 +13663,6 @@
       "relationship_type": "has",
       "source_ref": "software--8b6e4446-65e0-5fe8-849c-5f15dc657b95",
       "target_ref": "vulnerability--508ade78-f9b6-58bc-baf0-a7e38ab3ff22"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2d4325e1-4194-573b-aec7-821bdf933ff8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T20:09:50.000Z",
-      "modified": "2026-10-21T20:09:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2a9d0be1-25d9-5c4e-a26c-b822336a7224",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -18063,17 +18063,6 @@
       "relationship_type": "has",
       "source_ref": "software--6e34389a-5468-5d2a-99c5-8d594a8fdfe7",
       "target_ref": "vulnerability--4501753b-7373-5786-b933-3bb6663cb453"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--44a0e4a1-5107-5448-9b27-953f77b6222c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T20:29:51.000Z",
-      "modified": "2026-09-21T20:29:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6948ccda-5acf-57d5-81f9-c07c61087706",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -27956,17 +27945,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7641e035-67bb-55bc-83ec-abebb174343a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--aa94e0b5-a49a-5208-a8dd-34b1c874f37c",
-      "target_ref": "vulnerability--f8a8812b-f737-5d5b-9563-309a88571fbf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--764f1bcb-54da-564a-abe0-1eb9306d74ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34413,17 +34391,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--963ee2f5-188a-5d01-9bd2-184be48bea4b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e01cd750-9374-5f84-ba2e-1b950c3249e9",
-      "target_ref": "vulnerability--f8a8812b-f737-5d5b-9563-309a88571fbf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--967ddb50-9f3d-5283-84b2-542db9e6be48",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T22:32:09.000Z",
@@ -36048,17 +36015,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ba36157a-dd92-5457-aa4a-d9123b7e2362",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9dfdc0d2-e01d-5254-be8d-aff40dd83783",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T20:30:00.000Z",
-      "modified": "2026-09-21T20:30:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--083f8242-e1c8-5d7e-937c-8c640d1b0e6f",
-      "target_ref": "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6"
     },
     {
       "type": "relationship",
@@ -38021,17 +37977,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a86c93f4-27f2-53a8-91ef-b66d3acd3856",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T20:30:00.000Z",
-      "modified": "2026-09-21T20:30:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--083f8242-e1c8-5d7e-937c-8c640d1b0e6f",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a87190a5-7efb-5a16-8fa1-6d83fdf18577",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T20:20:31.000Z",
@@ -39352,6 +39297,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--afafdee3-3eda-5563-9c45-9602fb3a04b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:58:58.000Z",
+      "modified": "2026-10-21T20:58:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--afbafd8a-393b-5cee-b654-99b7c192f5c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40635,6 +40591,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b4872de8-c6c3-5e68-bba9-d7148aa48a3e",
       "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b5382bf1-5b90-5917-898f-88dee4f18b77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3f3095e8-f0b8-57f2-a1ac-16537864ac5e",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
     },
     {
       "type": "relationship",
@@ -42329,17 +42296,6 @@
       "relationship_type": "uses",
       "source_ref": "report--923d479a-3d40-50bb-bd73-13fe829894c1",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bdd8d61d-ed19-5066-baa4-289f0514b228",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5d3d7fdc-baef-5e60-9713-da812186f5fd",
-      "target_ref": "vulnerability--6a01b96e-d6ab-521c-afba-99ba15c87d46"
     },
     {
       "type": "relationship",
@@ -50880,6 +50836,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e60875e8-816e-5331-b776-b4ea90ed687f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3f3095e8-f0b8-57f2-a1ac-16537864ac5e",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e612eac2-1136-5dd8-8640-cd494950a9fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53406,6 +53373,17 @@
       "relationship_type": "has",
       "source_ref": "software--ae234b6d-8153-5a2a-9d05-16d93f500329",
       "target_ref": "vulnerability--5e9afd9c-0fc6-5a78-9c87-95357c0b3a58"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f154637f-9608-5699-9dd6-3cfc243b161c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
     },
     {
       "type": "relationship",
@@ -58421,68 +58399,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--083f8242-e1c8-5d7e-937c-8c640d1b0e6f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T20:30:00.000Z",
-      "modified": "2026-09-21T20:30:23.000Z",
-      "name": "Privilege Escalation in jshERP 3.6 via updateOneValueByKeyIdAndType",
-      "description": "## Overview\n\njshERP version 3.6 is vulnerable to a privilege escalation flaw located within the updateOneValueByKeyIdAndType endpoint. This vulnerability stems from improper access control, enabling an authenticated low-privilege tenant user to modify their own account permissions. By submitting a crafted POST request, an attacker can specify the type parameter as UserRole and supply a chosen role ID list, effectively granting themselves administrative privileges within the tenant environment. This vulnerability, tracked as CVE-2026-94411, carries a CVSS v3.1 base score of 8.8. It represents a significant security risk for organizations relying on jshERP for multi-tenant enterprise resource planning, as it allows for horizontal and vertical privilege escalation without requiring existing administrative access.\n\n## Impact\n\nSuccessful exploitation allows a low-privileged tenant user to gain full administrative control over their tenant account. This results in the potential for unauthorized data access, modification, or deletion of sensitive business information and configuration settings stored within the jshERP instance. Given the nature of the application as an ERP system, unauthorized administrative access poses a severe risk to data integrity and business operations.\n\n## Recommendation\n\nPrioritize remediation by identifying and patching instances of jshERP 3.6. If a patch is not immediately available, restrict access to the web interface from untrusted networks and audit logs for unauthorized requests to the updateOneValueByKeyIdAndType endpoint.\n\n## Detection\n\nDetecting this exploitation requires monitoring web server logs for suspicious POST requests targeting the identified API endpoint.\n\n- Monitor web access logs for HTTP POST requests to the /updateOneValueByKeyIdAndType endpoint where the request body contains 'type=UserRole' and parameters indicative of role modification.\n- Audit user management activities and privilege changes within the application logs to identify anomalous account elevation events.\n",
-      "published": "2026-09-21T20:30:00.000Z",
-      "labels": [
-        "authorization-bypass",
-        "idor",
-        "insecure-direct-object-reference",
-        "privilege-escalation",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--af36256b-7f61-5622-8047-8836c263a2f6",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--aa94e0b5-a49a-5208-a8dd-34b1c874f37c",
-        "software--e01cd750-9374-5f84-ba2e-1b950c3249e9",
-        "vulnerability--f8a8812b-f737-5d5b-9563-309a88571fbf"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-jsherp-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-jsherp-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94411"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94412"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94495"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94497"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-jsherp-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-09-jsherp-priv-esc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-jsherp-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-09-21T20:30:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -66071,6 +65987,74 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:58:58.000Z",
+      "modified": "2026-10-21T20:58:00.000Z",
+      "name": "PHP: Two critical vulnerabilities ahead of scheduled security release",
+      "description": "The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.\n\n## Detection opportunity\n\nHunt for PHP or web-server workers spawning shells, scripting runtimes, discovery commands, or network utilities. The [community Sigma rule for suspicious PHP child processes](https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8) offers a starting point across Linux, macOS, and Windows. It requires process creation telemetry with both parent and child executable paths; use command lines and nearby HTTP requests to investigate matches. Tune known application jobs that intentionally start command-line tools.\n\nThis is generic post-execution behavior. A match does not establish exploitation of CVE-2026-109618 or CVE-2026-109619, and execution that stays inside the PHP worker will not match this rule.\n\n## Recommendation\n\n- Identify deployed PHP runtimes and the public applications that depend on them so owners can patch promptly.\n- Watch the PHP security release for confirmed affected and fixed versions; test and roll out the relevant updates.\n- Treat claims that all PHP versions are affected or that unauthenticated remote code execution is confirmed as provisional until the vendor publishes technical details.",
+      "published": "2026-10-21T07:58:58.000Z",
+      "labels": [
+        "php",
+        "rce",
+        "security-release",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3f3095e8-f0b8-57f2-a1ac-16537864ac5e",
+        "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
+        "vulnerability--34527698-11d8-5fea-9630-5c7137991077",
+        "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-php-critical-security-release",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cert.europa.eu/publications/security-advisories/2026-018/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://watchtowr.com/intelligence/php-cve-2026-109618-faq/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-php-could-allow-for-remote-code-execution_2026-119"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.php.net/archive/2026.php#2026-10-20-1"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-php-critical-security-release",
+      "x_craftedsignal_event_id": "brief-2026-10-21-php-critical-security-release",
+      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/",
+      "x_craftedsignal_activity_at": "2026-10-21T20:58:00.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2069a646-9479-5c7f-be86-47e28a975ca0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:59:18.000Z",
@@ -69070,45 +69054,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2a9d0be1-25d9-5c4e-a26c-b822336a7224",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T20:09:50.000Z",
-      "modified": "2026-10-21T20:09:50.000Z",
-      "name": "PHP: Multiple vulnerabilities allowing remote code execution",
-      "description": "Multiple vulnerabilities have been discovered in PHP, the most severe of which could allow for unauthenticated remote code execution. All PHP installations serving web requests, including PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP, and LiteSpeed, are considered at risk. Exploitation occurs in the context of the affected service account. Depending on the privileges associated with the service account, an attacker could install programs; view, change, or delete data; or create new accounts with full user rights.\n",
-      "published": "2026-10-21T20:09:50.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-php-rce-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-php-rce-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-php-could-allow-for-remote-code-execution_2026-119"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-php-rce-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-10-21-php-rce-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-rce-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-21T20:09:50.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -89827,51 +89772,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6948ccda-5acf-57d5-81f9-c07c61087706",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T20:29:51.000Z",
-      "modified": "2026-09-21T20:29:51.000Z",
-      "name": "Untrusted Pointer Dereference in ColorFul iGameCenter",
-      "description": "## Overview\n\nA security vulnerability has been identified in ColorFul iGameCenter version 1.0.3.4, specifically affecting the IOCTL handler function sub_140001AF0 located within the ene.sys driver. This vulnerability allows an unprivileged local attacker to trigger an untrusted pointer dereference. Because the flaw resides within a kernel-mode driver, successful exploitation could lead to local privilege escalation or complete system instability. Publicly available exploit code currently exists, and the vendor has not provided a patch or response to the disclosure. Defenders should be aware that this requires local access, making it a critical concern for multi-user systems or environments where local user execution is common.\n\n## Attack Chain\n\n1. Attacker gains low-privileged access to the target Windows system.\n2. Attacker identifies the loaded ene.sys driver on the system.\n3. Attacker crafts a malicious IOCTL request directed at the driver device object.\n4. The malicious request reaches the vulnerable sub_140001AF0 function within ene.sys.\n5. The function performs an unsafe dereference of an untrusted pointer provided in the IOCTL buffer.\n6. Memory corruption occurs, allowing for arbitrary code execution in the kernel context.\n7. Attacker achieves local privilege escalation to SYSTEM.\n\n## Impact\n\nThe vulnerability poses a high risk to systems running ColorFul iGameCenter, as it allows local unprivileged users to gain kernel-level access. Successful exploitation can result in complete compromise of the host OS, persistence, and bypass of standard user-mode security controls.\n\n## Recommendation\n\nPrioritize monitoring for the existence of the vulnerable driver file on all managed workstations. If the application is not required for business operations, uninstall it immediately to remove the attack surface. Since the vendor has not addressed the issue, consider blocking the loading of the ene.sys driver via WDAC or equivalent kernel-mode code signing policies if the driver is not business-critical.\n",
-      "published": "2026-09-21T20:29:51.000Z",
-      "labels": [
-        "privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5d3d7fdc-baef-5e60-9713-da812186f5fd",
-        "vulnerability--6a01b96e-d6ab-521c-afba-99ba15c87d46"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-colorful-igamecenter-vuln",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-colorful-igamecenter-vuln/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94403"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-colorful-igamecenter-vuln",
-      "x_craftedsignal_event_id": "brief-2026-09-21-colorful-igamecenter-vuln",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-colorful-igamecenter-vuln/",
-      "x_craftedsignal_activity_at": "2026-09-21T20:29:51.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -122242,50 +122142,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c92a05dc-6d52-5794-81aa-9e04fd4da790",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-21T07:58:58.000Z",
-      "name": "PHP: Leaked Critical Vulnerabilities (CVE-2026-109618 \u0026 CVE-2026-109619)",
-      "description": "On October 20, 2026, details regarding two critical remote code execution (RCE) vulnerabilities in PHP, identified as CVE-2026-109618 and CVE-2026-109619, were leaked online before the coordinated disclosure and patch release. \n\nThe PHP security team has assigned both vulnerabilities a CVSS v4.0 rating of 9.2. An emergency security release was scheduled for October 21, 2026. As of October 20, 2026, Huntress reported no observed in-the-wild exploitation of these vulnerabilities. The technical details, specific root causes, and definitive lists of affected or fixed versions have not been officially confirmed by the PHP project.\n",
-      "published": "2026-10-21T07:58:58.000Z",
-      "labels": [
-        "php",
-        "rce",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "vulnerability--34527698-11d8-5fea-9630-5c7137991077",
-        "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-php-rce-leak",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-php-rce-leak/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-php-rce-leak",
-      "x_craftedsignal_event_id": "brief-2026-10-21-php-rce-leak",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-rce-leak/",
-      "x_craftedsignal_activity_at": "2026-10-21T07:58:58.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c952e9e1-9dcd-576d-80bd-9c84feb16f42",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-26T04:57:26.000Z",
@@ -132560,7 +132416,7 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01512,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -142927,6 +142783,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3f3095e8-f0b8-57f2-a1ac-16537864ac5e",
+      "name": "PHP (affected versions not yet confirmed)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3f4013d0-f340-5152-8a87-ef92db26ff39",
       "name": "Wazuh (3.9.0 \u003c= v \u003c 4.14.8)",
       "vendor": "Wazuh"
@@ -144538,13 +144401,6 @@
       "id": "software--5d3bb87e-52d4-554e-bae9-055fc947f915",
       "name": "iso14229 (\u003c 0.10.1)",
       "vendor": "Driftregion"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5d3d7fdc-baef-5e60-9713-da812186f5fd",
-      "name": "iGameCenter (1.0.3.4)",
-      "vendor": "Colorful"
     },
     {
       "type": "software",
@@ -148814,13 +148670,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--aa94e0b5-a49a-5208-a8dd-34b1c874f37c",
-      "name": "jshERP (\u003c= 3.6)",
-      "vendor": "jshERP"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--aa950a4b-0f31-5a07-9420-9d46f712cab6",
       "name": "HiveOS (\u003c 10.0r8a)",
       "vendor": "Extreme Networks"
@@ -151675,13 +151524,6 @@
       "id": "software--e00c9dcb-8ef0-5c4b-845c-c6204222ac49",
       "name": "FAC1203R Gigabit Edition (2.0.4)",
       "vendor": "Fast"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e01cd750-9374-5f84-ba2e-1b950c3249e9",
-      "name": "jshERP (3.6)",
-      "vendor": "jshERP"
     },
     {
       "type": "software",
@@ -163396,22 +163238,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-53562",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53562"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--6a01b96e-d6ab-521c-afba-99ba15c87d46",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94403",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94403",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94403"
         }
       ]
     },
@@ -176356,22 +176182,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104356",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104356"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f8a8812b-f737-5d5b-9563-309a88571fbf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94411",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94411",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94411"
         }
       ]
     },
