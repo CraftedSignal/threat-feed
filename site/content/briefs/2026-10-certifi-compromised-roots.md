@@ -1,7 +1,7 @@
 ---
 brief_id: brief-2026-10-20-certifi-compromised-roots
 event_id: brief-2026-10-20-certifi-compromised-roots
-revision: 2
+revision: 3
 activity_at: "2026-10-20T23:53:18Z"
 revision_history:
   - revision: 2
@@ -20,6 +20,14 @@ revision_history:
       - https://github.com/certifi/python-certifi/security/advisories/GHSA-6q48-6c7w-9gw2
       - https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/
     maintenance: true
+  - revision: 3
+    at: "2026-10-21T13:09:06Z"
+    checksum: sha256:c428ab3703b79f4f52939f54bbb31b957f30e211dfb6d014873c4ae4a3b057cd
+    summary: Retired this downstream duplicate page in favor of the consolidated eMudhra incident brief.
+    changed_fields:
+      - draft
+    maintenance: true
+draft: true
 title: 'Certifi: Bundled eMudhra root CAs with compromised intermediate keys'
 slug: 2026-10-certifi-compromised-roots
 description: Certifi versions before 2026.10.18 included emSign roots whose intermediate keys were compromised. An attacker able to position on path could use a fraudulent certificate to intercept TLS traffic.

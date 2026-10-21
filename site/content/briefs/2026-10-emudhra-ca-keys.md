@@ -1,8 +1,17 @@
 ---
 brief_id: brief-2026-10-21-emudhra-ca-keys
 event_id: brief-2026-10-21-emudhra-ca-keys
-revision: 1
+revision: 2
 activity_at: "2026-10-21T12:20:28Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T13:09:06Z"
+    checksum: sha256:ab845900720aee4f102e4d9b5b4489b83f037d20aef071eca6dbd32658a21b03
+    summary: Retired this duplicate public page in favor of the consolidated eMudhra incident brief.
+    changed_fields:
+      - draft
+    maintenance: true
+draft: true
 title: 'eMudhra: Intermediate Certificate Authority private key recovery'
 slug: 2026-10-emudhra-ca-keys
 description: Eight eMudhra intermediate certificates were issued with insufficient cryptographic entropy, allowing the private keys to be easily recovered and used to impersonate trusted websites.
