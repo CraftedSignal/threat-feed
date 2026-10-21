@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e92d829c-d2cb-55bd-9330-2ce180ecdae5",
+  "id": "bundle--5f5e880c-8cb3-5b13-9f82-f3eb6d12cf70",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2824,6 +2824,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--08ebe034-17aa-5396-b73f-89b63d078848",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: fbcd.net",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'fbcd.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--09e81ef7-a18a-570e-afa8-92b86e3b2a98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:17:33.000Z",
@@ -2993,6 +3006,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2e1282f3-e584-5d65-af24-385f3d0b519f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: facebook.net",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'facebook.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -3028,6 +3054,19 @@
       "pattern": "[domain-name:value = 'gbrokl.xyz']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3386c0cb-954b-505a-90ec-6151cf4058e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: fb.com",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'fb.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
     },
     {
       "type": "indicator",
@@ -3136,6 +3175,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5b551014-6e25-51b8-b8b7-18a61337eafb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: tfbw.net",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'tfbw.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--5d6a6cb8-8dd0-51e0-b89d-c8829c6b2a33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T16:31:39.000Z",
@@ -3217,7 +3269,7 @@
       "id": "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.facebook.org",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.facebook.org']",
@@ -3256,7 +3308,7 @@
       "id": "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.facebook.com",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.facebook.com']",
@@ -3370,6 +3422,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--975a1904-9a86-5775-b939-335bdc87ebee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: fbstatic-a.akamaihd.net",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'fbstatic-a.akamaihd.net']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: facebook.com",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'facebook.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9f5728d4-39e0-58f7-800e-bbbdfb1f4183",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:17:02.000Z",
@@ -3399,7 +3477,7 @@
       "id": "indicator--a671dd9a-7a96-5ede-8c07-1193386207a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.fbstatic-a.akamaihd.net",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.fbstatic-a.akamaihd.net']",
@@ -3513,6 +3591,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--bfa0e1c9-c1f7-5de9-b346-5e5feb1bba09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: facebook.org",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'facebook.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c234951f-0293-5015-a05c-8587777fed0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:56.000Z",
@@ -3568,7 +3659,7 @@
       "id": "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.fbcd.net",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.fbcd.net']",
@@ -3685,7 +3776,7 @@
       "id": "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.facebook.net",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.facebook.net']",
@@ -3698,7 +3789,7 @@
       "id": "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.fb.com",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.fb.com']",
@@ -3737,7 +3828,7 @@
       "id": "indicator--ea5e31ca-9671-5915-82fb-764b3e1152e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.fbsbx.com",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.fbsbx.com']",
@@ -3763,7 +3854,7 @@
       "id": "indicator--efa00834-03f7-5e6f-817c-d86a3119ad9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "domain: *.tfbw.net",
       "description": "C2/Exfiltration target for Braodo Stealer",
       "pattern": "[domain-name:value = '*.tfbw.net']",
@@ -3795,6 +3886,19 @@
       "pattern": "[domain-name:value = 'gpoosl.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f21bc51f-de71-5832-8b65-133adb367824",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "name": "domain: fbsbx.com",
+      "description": "Command and control destination for Braodo Stealer",
+      "pattern": "[domain-name:value = 'fbsbx.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-19T02:52:13.000Z"
     },
     {
       "type": "indicator",
@@ -4888,7 +4992,7 @@
       "id": "relationship--06e632fb-92a2-5e23-a15e-19d7119c164e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850"
@@ -10187,6 +10291,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2e7505ab-af2b-59b0-b303-09daa15e31a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--2e1282f3-e584-5d65-af24-385f3d0b519f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2e8ff3df-f8a6-55fc-8d5b-13d283a83d92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T06:25:40.000Z",
@@ -11510,7 +11625,7 @@
       "id": "relationship--38bff59c-ffff-5d6c-b872-d9990f84649b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d"
@@ -11895,7 +12010,7 @@
       "id": "relationship--3b466725-45b0-5f74-9f08-d334af2fab05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d"
@@ -12742,7 +12857,7 @@
       "id": "relationship--42063101-30d9-5928-97f8-b81cf3f179c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "attack-pattern--5279ac6c-3729-558c-b35e-6ababdbfe7e0"
@@ -13175,6 +13290,17 @@
       "relationship_type": "has",
       "source_ref": "software--b22f9c3c-dafa-591b-b3dc-4e707fd4d7d1",
       "target_ref": "vulnerability--74382dbd-cdbb-5a8e-ad00-726d4c188572"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--44d3fa4a-6e08-5d34-9167-d536b0624f69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9"
     },
     {
       "type": "relationship",
@@ -16182,6 +16308,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5aa4de21-339b-53d1-8124-b58e68dd86a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--975a1904-9a86-5775-b939-335bdc87ebee"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5aa61ce5-e03b-53af-9284-2a4ab3b12d15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T14:01:07.000Z",
@@ -16273,7 +16410,7 @@
       "id": "relationship--5b4bb26d-7be6-5123-967f-9b40ce2b1f3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "threat-actor--42d91269-bc5f-5b80-a36a-e48befdd46f5"
@@ -19650,7 +19787,7 @@
       "id": "relationship--7407bca8-7529-5582-901a-74e979636cf4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be"
@@ -21447,6 +21584,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e39481e9-5309-5ed3-997d-45206f2893a2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f5d6728-56bc-50c9-a51a-e01204ff384b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--5b551014-6e25-51b8-b8b7-18a61337eafb"
     },
     {
       "type": "relationship",
@@ -27768,7 +27916,7 @@
       "id": "relationship--ac254586-392d-5ab6-a6c6-70682c41caac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--ea5e31ca-9671-5915-82fb-764b3e1152e2"
@@ -27886,6 +28034,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--acbad3cf-a83d-552f-84a3-10048aa537fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--3386c0cb-954b-505a-90ec-6151cf4058e4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ace33ea7-06ed-5abb-9a51-8c8f9deda7e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27944,7 +28103,7 @@
       "id": "relationship--ad423424-c672-5700-b03a-6b56c98673d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--a671dd9a-7a96-5ede-8c07-1193386207a3"
@@ -29250,6 +29409,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b6e81186-8de6-59a5-a05a-837add7644ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--bfa0e1c9-c1f7-5de9-b346-5e5feb1bba09"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b6ebacf9-f170-5d07-96b9-68e9ea5e1b62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T17:12:05.000Z",
@@ -29660,7 +29830,7 @@
       "id": "relationship--b991a074-0674-5ee8-a19e-bea43916e578",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--efa00834-03f7-5e6f-817c-d86a3119ad9d"
@@ -35509,6 +35679,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e22a27b7-812e-5964-a3f2-1a7ed6b36e3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--f21bc51f-de71-5832-8b65-133adb367824"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e230ecf2-1790-543d-8889-d232b3543c17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36176,6 +36357,17 @@
       "relationship_type": "uses",
       "source_ref": "report--26f7f0b6-e2ce-5493-93ae-c226312b39cc",
       "target_ref": "attack-pattern--872ef431-bc7f-5aa3-8a59-6967f6eb9f6f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e64006c4-2b54-5354-b182-d26c4fd59647",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
+      "target_ref": "indicator--08ebe034-17aa-5396-b73f-89b63d078848"
     },
     {
       "type": "relationship",
@@ -39340,7 +39532,7 @@
       "id": "relationship--fade32b7-6480-59bc-be19-e11d664412fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d"
@@ -69765,21 +69957,29 @@
       "id": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
-      "modified": "2026-10-19T02:52:13.000Z",
+      "modified": "2026-10-21T05:31:40.000Z",
       "name": "Braodo Stealer Python-Based Credential Harvesting",
       "description": "## Overview\n\nThe Braodo Stealer is a Python-based credential-harvesting malware identified in October 2026 that targets authenticated browser sessions to compromise user accounts. The malware specifically leverages the Meta Graph API to enumerate information related to the victim's Facebook and Meta advertising infrastructure. The threat is characterized by its execution from non-standard or highly suspicious directories on Windows systems, such as the Recycle Bin, Prefetch folders, or user-accessible public directories. By masquerading as standard Python binaries (e.g., python.exe, pythonw.exe), the malware attempts to blend into legitimate administrative or development activity. This campaign highlights the importance of monitoring process execution paths, especially for scripting engines that are frequently abused by attackers to facilitate command-and-control communication with legitimate social media infrastructure.\n\n## Attack Chain\n\n1. Initial infection typically via a dropper or malicious payload delivery mechanism.\n2. The malware drops a Python interpreter and supporting scripts into a non-standard location such as C:\\Users\\Public\\ or C:\\Windows\\Temp\\.\n3. The malware executes using a legitimate Python process name like python.exe or pythonw.exe to maintain a lower profile.\n4. It scans the host environment for existing browser session cookies to identify active Meta or Facebook authentication tokens.\n5. The Python script initiates an outbound connection to social media domains using its hijacked session context.\n6. It interacts with the Meta Graph API to enumerate advertising account details and connected metadata.\n7. Exfiltration of harvested credentials and advertising intelligence occurs over outbound HTTPS connections to Meta-affiliated infrastructure.\n\n## Impact\n\nSuccessful execution of Braodo Stealer results in the compromise of victim credentials and the potential takeover of Facebook or Meta advertising accounts. This allows attackers to perform unauthorized operations, such as managing ads or exfiltrating sensitive organizational financial data stored within advertising dashboards. Given the reliance on authenticated sessions, the impact can bypass standard credential-based authentication.\n\n## Recommendation\n\nPrioritize the implementation of process path monitoring for scripting environments.\n- Deploy the provided Sigma rule to detect outbound connections from Python processes spawned from suspicious directories.\n- Enable Sysmon Event ID 3 (Network Connection) logging across all endpoints to capture destination domains and associated processes.\n- Monitor for Python-related binaries executing from directories such as \\$Recycle.Bin, \\PerfLogs, or \\Windows\\Fonts.\n- Restrict write access to sensitive system directories to prevent the placement of malicious scripts by non-privileged processes.\n",
       "published": "2026-10-19T02:52:13.000Z",
       "object_refs": [
         "attack-pattern--5279ac6c-3729-558c-b35e-6ababdbfe7e0",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--08ebe034-17aa-5396-b73f-89b63d078848",
+        "indicator--2e1282f3-e584-5d65-af24-385f3d0b519f",
+        "indicator--3386c0cb-954b-505a-90ec-6151cf4058e4",
+        "indicator--5b551014-6e25-51b8-b8b7-18a61337eafb",
         "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850",
         "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d",
+        "indicator--975a1904-9a86-5775-b939-335bdc87ebee",
+        "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9",
         "indicator--a671dd9a-7a96-5ede-8c07-1193386207a3",
+        "indicator--bfa0e1c9-c1f7-5de9-b346-5e5feb1bba09",
         "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be",
         "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d",
         "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d",
         "indicator--ea5e31ca-9671-5915-82fb-764b3e1152e2",
         "indicator--efa00834-03f7-5e6f-817c-d86a3119ad9d",
+        "indicator--f21bc51f-de71-5832-8b65-133adb367824",
         "threat-actor--42d91269-bc5f-5b80-a36a-e48befdd46f5"
       ],
       "external_references": [
@@ -69790,15 +69990,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_process_outbound_connection_to_social_media_domain.yml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.splunk.com/en_us/blog/security/cracking-braodo-stealer-analyzing-python-malware-and-its-obfuscated-loader.html"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-braodo-stealer",
       "x_craftedsignal_event_id": "brief-2026-10-braodo-stealer",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-braodo-stealer/",
-      "x_craftedsignal_activity_at": "2026-10-19T02:52:13.000Z",
+      "x_craftedsignal_activity_at": "2026-10-21T05:31:40.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
