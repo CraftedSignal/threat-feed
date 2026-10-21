@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4bdc6ea5-2afa-5cef-a68d-c89f4fff97bb",
+  "id": "bundle--1fbd08ca-e019-581a-a1dd-b831c4f5806c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4246,19 +4246,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--d6ac259c-1dc2-53ee-9668-c55d7c133ab2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T06:16:05.000Z",
-      "modified": "2026-09-21T06:16:05.000Z",
-      "name": "domain: registry.hashicorp-aws.com",
-      "description": "Malicious Terraform provider registry used to deliver backdoors",
-      "pattern": "[domain-name:value = 'registry.hashicorp-aws.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-09-21T06:16:05.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--d7bcaf7a-f731-5d2e-ba92-cac6654ac4c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -6636,7 +6623,7 @@
       "id": "relationship--0ab1349c-4533-5a26-9978-fd2cf75dcb89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:47:44.000Z",
-      "modified": "2026-10-16T13:34:19.000Z",
+      "modified": "2026-10-21T06:16:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -16137,6 +16124,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3e0e3f80-dc05-568b-94c3-6f215e22eef2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5c3a0bf8-7e8d-511f-9338-f8190da679d7",
+      "target_ref": "vulnerability--77e5e396-5fc4-585b-8e94-6f662a7d3031"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3e176173-f188-5809-9f7e-f17868965843",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18439,7 +18437,7 @@
       "id": "relationship--49ab44f7-4923-571e-b5e6-0dd4f5c2efb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:47:44.000Z",
-      "modified": "2026-10-16T13:34:19.000Z",
+      "modified": "2026-10-21T06:16:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
       "target_ref": "attack-pattern--91214d7c-f910-594b-9f77-6d9385867ae2"
@@ -22608,7 +22606,7 @@
       "id": "relationship--5fc42ce2-dd2a-5a1c-9a28-dd5974a07802",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:47:44.000Z",
-      "modified": "2026-10-16T13:34:19.000Z",
+      "modified": "2026-10-21T06:16:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -23668,17 +23666,6 @@
       "relationship_type": "has",
       "source_ref": "software--e71521ea-315f-561d-99f4-5cbfb3b6bfeb",
       "target_ref": "vulnerability--56ccd649-b0c9-5d9c-b39e-b0d0396cc6fa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6598b9f9-1edb-583e-8dd5-7603dc99fb44",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T06:16:05.000Z",
-      "modified": "2026-09-21T06:16:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--26958fbc-49db-57b0-834b-029a009db897",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
     },
     {
       "type": "relationship",
@@ -27555,6 +27542,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--79190bf6-b705-5d8a-af59-9646df070fda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7b5f263b-86b6-5cb1-8ec3-2b23484a8e7a",
+      "target_ref": "vulnerability--77e5e396-5fc4-585b-8e94-6f662a7d3031"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7937b1bc-dd91-53be-a6e0-272fd33e53e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28618,17 +28616,6 @@
       "relationship_type": "has",
       "source_ref": "software--09a7f45d-0fd9-5c54-9cbc-eac19296a665",
       "target_ref": "vulnerability--7e09e272-eea4-5f64-aeb6-4fa04ed7224e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7eeeae1f-38ba-532a-b55d-bb05eb25bd64",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-14T10:47:44.000Z",
-      "modified": "2026-10-16T13:34:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -32017,17 +32004,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ebb667b1-d6b5-5487-a336-be59fa0acc43",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--907f19dd-0cc3-51a1-9fd4-2e718d2c0fce",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T06:16:05.000Z",
-      "modified": "2026-09-21T06:16:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--26958fbc-49db-57b0-834b-029a009db897",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -35548,17 +35524,6 @@
       "relationship_type": "uses",
       "source_ref": "report--511cbe9d-28ed-5baf-8ba4-3ec75e4b8757",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a3137832-4ae8-5172-b7b6-6d9d56099ea6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T06:16:05.000Z",
-      "modified": "2026-09-21T06:16:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--26958fbc-49db-57b0-834b-029a009db897",
-      "target_ref": "indicator--d6ac259c-1dc2-53ee-9668-c55d7c133ab2"
     },
     {
       "type": "relationship",
@@ -40986,6 +40951,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bf4d8587-32b2-50b4-b647-5676ecc17ae2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-14T10:47:44.000Z",
+      "modified": "2026-10-21T06:16:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
+      "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bf56fb7f-43b2-5360-a7b9-55f0c5220a5c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42181,17 +42157,6 @@
       "relationship_type": "has",
       "source_ref": "software--5e7a14b0-6886-5300-aacb-020d979a017a",
       "target_ref": "vulnerability--ed73e1fa-3455-5447-a78c-cb6dfa122d50"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c5efab57-a3a4-5faf-9631-ca9c2e3b8458",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T06:16:05.000Z",
-      "modified": "2026-09-21T06:16:05.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--26958fbc-49db-57b0-834b-029a009db897",
-      "target_ref": "threat-actor--4c9ad78d-a098-51ce-930c-02e8784696fc"
     },
     {
       "type": "relationship",
@@ -49918,17 +49883,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e99bd180-c4a2-5f1e-b771-3525cf235f77",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T06:16:05.000Z",
-      "modified": "2026-09-21T06:16:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--26958fbc-49db-57b0-834b-029a009db897",
-      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e9a7d505-97b2-51ec-8dbf-49883e841c76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53423,6 +53377,17 @@
       "relationship_type": "has",
       "source_ref": "software--a227d625-e715-52ff-a74f-c10559d83887",
       "target_ref": "vulnerability--cd4ac677-3f9a-5e6e-890e-c42aed56539f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fc1ddd30-a460-5884-89fa-e3512152fb7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-14T10:47:44.000Z",
+      "modified": "2026-10-21T06:16:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
+      "target_ref": "attack-pattern--5bff286c-bcad-5384-bd47-31bdc6f7b9f0"
     },
     {
       "type": "relationship",
@@ -65826,55 +65791,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--26958fbc-49db-57b0-834b-029a009db897",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T06:16:05.000Z",
-      "modified": "2026-09-21T06:16:05.000Z",
-      "name": "Jade Sleet Targets DevOps Engineers with FLATROOF and ROOFDECK Backdoors",
-      "description": "## Overview\n\nJade Sleet, a North Korean threat actor also known as PUKCHONG, Slow Pisces, TraderTraitor, and UNC4899, has been linked to the compromise of an Indian IT services provider. The campaign targets developers in the DevOps and cryptocurrency sectors using sophisticated social engineering lures presented as job interview opportunities. The adversary distributes weaponized GitHub repositories containing malicious Terraform dependency lock files ('.terraform.lock.hcl'). When developers execute 'terraform init', these files force the platform to download and execute attacker-controlled modules from malicious registry domains.\n\nFollowing initial access, the attackers deploy two Rust-based macOS implants: FLATROOF (Gaslight), which utilizes Telegram for C2 and browser data theft, and ROOFDECK, which leverages the Nostr protocol for decentralized C2, lateral movement, and persistence via Launch Agents. These tools are designed to target Apple Silicon architectures and implement complex evasion techniques, including the use of updated binaries that strip symbols to circumvent detection.\n\n## Attack Chain\n\n1. Attacker establishes contact with a target developer via social engineering lures posing as a job interview opportunity.\n2. Target is directed to a malicious GitHub repository (e.g., 'terraform-candidate-repo') containing a weaponized '.terraform.lock.hcl' file.\n3. Developer executes 'terraform init' in their local environment, triggering the download of malicious modules from 'registry.hashicorp-aws[.]com'.\n4. The malicious modules execute on the developer's macOS machine, establishing the initial foothold.\n5. Attacker deploys FLATROOF for reconnaissance, capturing browser data, keychain credentials, and shell histories.\n6. Attacker deploys ROOFDECK to establish persistent C2 via Launch Agents, signed with a private key to verify command integrity.\n7. Attacker uses ROOFDECK to perform lateral movement and exfiltrate sensitive cloud, pipeline, and source code credentials.\n\n## Impact\n\nSuccessful compromise allows the actor to gain deep access into corporate DevOps environments, source code pipelines, and cloud infrastructure. Victims are typically individual engineers, but the final objective involves credential exfiltration and unauthorized access to the target organization's sensitive technical assets. Previous activity by this group has resulted in multi-million dollar cryptocurrency thefts and supply chain compromises.\n\n## Recommendation\n\n1. Block the domain 'registry.hashicorp-aws[.]com' at the DNS and proxy level.\n2. Implement strict monitoring for 'terraform init' commands originating from non-authorized directories or execution contexts.\n3. Deploy detection for the creation of unauthorized Launch Agents on macOS endpoints using the Sigma rule provided below.\n4. Educate developers on the risks of executing 'terraform init' within untrusted repositories and verify the hash integrity of dependencies.\n",
-      "published": "2026-09-21T06:16:05.000Z",
-      "labels": [
-        "jade-sleet",
-        "macos",
-        "malware",
-        "social-engineering",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--d6ac259c-1dc2-53ee-9668-c55d7c133ab2",
-        "threat-actor--4c9ad78d-a098-51ce-930c-02e8784696fc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-jade-sleet-backdoors",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-jade-sleet-backdoors/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/09/jade-sleet-linked-to-indian-it-provider.html"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-jade-sleet-backdoors",
-      "x_craftedsignal_event_id": "brief-2026-09-jade-sleet-backdoors",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-jade-sleet-backdoors/",
-      "x_craftedsignal_activity_at": "2026-09-21T06:16:05.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--269d94ff-046a-514f-ad21-82eab892d233",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T02:23:43.000Z",
@@ -73951,7 +73867,7 @@
       "id": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:47:44.000Z",
-      "modified": "2026-10-16T13:34:19.000Z",
+      "modified": "2026-10-21T06:16:20.000Z",
       "name": "Local Privilege Escalation Vulnerability in Windows Kernel (CVE-2024-21338)",
       "description": "## Overview\n\nCVE-2024-21338 is a security vulnerability residing in the Windows Kernel that enables local privilege escalation on Windows 10 and Windows 11 systems. The vulnerability is specifically exploitable when Hypervisor-Protected Code Integrity (HVCI) is enabled, a configuration designed to protect kernel-mode processes. An attacker who has already obtained local administrator privileges can leverage this flaw to perform token manipulation, effectively transitioning to kernel-mode execution. The availability of multiple proof-of-concept exploits on platforms such as Sploitus significantly increases the risk of exploitation. Defenders should prioritize patching vulnerable systems, particularly those operating in environments where administrative access is provided to users or is a common initial compromise vector for attackers.\n\n## Impact\n\nSuccessful exploitation of CVE-2024-21338 results in a complete compromise of the host system's security boundary. By escalating from local administrator to kernel-level privileges, an attacker can bypass security features, disable EDR/AV solutions, install rootkits, and maintain persistent access that is highly resistant to detection. This vulnerability affects a wide range of Windows 10 and 11 builds, posing a severe risk to enterprise environments where kernel integrity is a primary defense component.\n\n## Recommendation\n\n- Patch all Windows 10 and 11 workstations and servers to the versions addressing CVE-2024-21338 immediately.\n- Audit administrative access across the fleet to identify and restrict users with unnecessary elevated privileges.\n- Utilize EDR telemetry to monitor for suspicious kernel-mode activity or unauthorized attempts to manipulate system process tokens.\n- Review patch status for the specific builds listed in the affected products section.\n",
       "published": "2026-10-14T10:47:44.000Z",
@@ -73967,7 +73883,8 @@
       ],
       "object_refs": [
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "attack-pattern--5bff286c-bcad-5384-bd47-31bdc6f7b9f0",
+        "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0",
         "attack-pattern--745c9492-77e4-5572-9132-308959464536",
         "attack-pattern--91214d7c-f910-594b-9f77-6d9385867ae2",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
@@ -73975,6 +73892,8 @@
         "software--2d0b259b-a1f4-52ae-9f69-1ced85f80125",
         "software--4dd1f552-e8e4-535d-bbe0-6ac78db868b2",
         "software--5c2e53ab-5ed8-58db-a7e2-48805289a4b7",
+        "software--5c3a0bf8-7e8d-511f-9338-f8190da679d7",
+        "software--7b5f263b-86b6-5cb1-8ec3-2b23484a8e7a",
         "software--a3f3fb90-f6e6-52e8-88d8-ad723ae4b6c1",
         "software--b548f992-fd91-5693-978c-3eb87e6ce134",
         "software--b994d593-e747-50d1-8985-2032ada87ee0",
@@ -73990,11 +73909,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://decoder.cloud/2023/02/13/localpotato-when-swapping-the-context-leads-you-to-system/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/LloydLabs/delete-self-poc"
         },
         {
           "source_name": "reference",
           "url": "https://github.com/Wh04m1001/CVE-2023-36874/tree/main"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/blackarrowsec/redteam-research/tree/26e6fc0c0d30d364758fa11c2922064a9a7fd309/LPE"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/decoder-it/LocalPotato"
         },
         {
           "source_name": "reference",
@@ -74016,9 +73947,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-14-cve-2024-21338",
       "x_craftedsignal_event_id": "brief-2026-10-14-cve-2024-21338",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-21338/",
-      "x_craftedsignal_activity_at": "2026-10-16T13:34:19.000Z",
+      "x_craftedsignal_activity_at": "2026-10-21T06:16:20.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -140064,6 +139995,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5c3a0bf8-7e8d-511f-9338-f8190da679d7",
+      "name": "Windows 7",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5c6403ec-f1a8-5ff8-a9ab-49dec3c9ba12",
       "name": "GitHub (CLI \u003c 2.99.0)",
       "vendor": "GitHub"
@@ -141647,6 +141585,13 @@
       "id": "software--7b2d996d-c233-56b3-aec8-946d9ac0f881",
       "name": "Angular (@angular/router \u003e= 21.2.0 \u003c 21.2.25)",
       "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7b5f263b-86b6-5cb1-8ec3-2b23484a8e7a",
+      "name": "Windows 8.1",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -148630,15 +148575,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Braodo Stealer"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--4c9ad78d-a098-51ce-930c-02e8784696fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Jade Sleet"
     },
     {
       "type": "threat-actor",
