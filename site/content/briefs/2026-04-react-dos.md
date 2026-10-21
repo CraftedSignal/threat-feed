@@ -1,27 +1,62 @@
 ---
+brief_id: brief-2026-04-08-react-dos
+event_id: brief-2026-04-08-react-dos
+revision: 2
+activity_at: "2026-10-21T10:18:30Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T10:18:30Z"
+    checksum: sha256:f1512ceac8a28bc70ebfb5a8885e22722a5ba097fa3ec621baf18e05ca42bad5
+    summary: poc_available
+    changed_fields:
+      - affected_vendors
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_signals
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CYBERTECHAJJU-CVE-2026-23869-EXPLOIT&utm_source=rss&utm_medium=rss
 title: React Server Components Denial of Service Vulnerability (CVE-2026-23869)
 slug: 2026-04-react-dos
 description: A denial of service vulnerability, CVE-2026-23869, exists in React Server Components due to excessive CPU usage triggered by specially crafted HTTP requests to Server Function endpoints, potentially leading to service disruption.
 date: "2026-04-08T20:16:23Z"
-severities:
-  - high
+lastmod: "2026-10-21T10:17:43Z"
 type: advisory
 types:
   - advisory
+severities:
+  - high
+exploitation_evidence:
+  status: unknown
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CYBERTECHAJJU-CVE-2026-23869-EXPLOIT&utm_source=rss&utm_medium=rss
 tags:
   - CVE-2026-23869
   - denial-of-service
   - react
+vendors:
+  - Vercel
+  - Facebook
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
     technique_id: T1499
     technique_name: Endpoint Denial of Service
+    subtechnique_id: T1499.001
+    subtechnique_name: OS Exhaustion Flood
 cves:
   - id: CVE-2026-23869
     cvss: 7.5
+    epss: 0.01551
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-23869
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CYBERTECHAJJU-CVE-2026-23869-EXPLOIT&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious React Server Function Requests
     description: Detects potentially malicious HTTP requests targeting React Server Function endpoints that may lead to a denial-of-service condition.
@@ -46,6 +81,14 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-10-21T10:17:43Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CYBERTECHAJJU-CVE-2026-23869-EXPLOIT&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-23869 is a denial-of-service (DoS) vulnerability affecting React Server Components. Specifically, the vulnerability impacts the `react-server-dom-parcel`, `react-server-dom-turbopack`, and `react-server-dom-webpack` packages in versions 19.0.0 through 19.0.4, 19.1.0 through 19.1.5, and 19.2.0 through 19.2.4. An attacker can exploit this vulnerability by sending specially crafted HTTP requests to Server Function endpoints. These malicious requests cause excessive CPU utilization on the server, potentially leading to service degradation or unavailability. The CPU usage can remain high for up to a minute before an error is thrown. This vulnerability poses a significant risk to applications utilizing the affected React Server Components, as it allows for relatively easy disruption of service.
