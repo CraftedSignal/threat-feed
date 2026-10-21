@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--de783c2c-a64d-54bf-94ed-1142bbe6e762",
+  "id": "bundle--739810f5-928d-5ef4-8372-9c6f24850bd3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -133254,6 +133254,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5682543-9f0c-54e5-8ff4-2dd83937ce11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:14:41.000Z",
+      "modified": "2026-10-21T14:14:41.000Z",
+      "name": "Oracle Systems: Multiple vulnerabilities",
+      "description": "## Overview\nOracle has issued an advisory regarding multiple vulnerabilities affecting Oracle Systems. The vulnerabilities allow for remote exploitation by anonymous or authenticated attackers, leading to potential compromises of confidentiality, integrity, and availability. No specific CVE identifiers or product-level technical details were provided in the initial security advisory.\n\n## Recommendation\n- Monitor official Oracle Security Bulletins for the release of specific CVE identifiers and affected product versions.\n- Establish an inventory of all deployed Oracle software to facilitate rapid assessment and patching once vendor updates are published.\n- Review access logs for anomalous remote connections or authentication attempts targeting core Oracle infrastructure.\n",
+      "published": "2026-10-21T14:14:41.000Z",
+      "labels": [
+        "advisory",
+        "oracle",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a6555892-663c-5dc9-a46f-50eaba413c72"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-oracle-systems-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-systems-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4091"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-oracle-systems-vulns",
+      "x_craftedsignal_event_id": "brief-2026-10-21-oracle-systems-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-systems-vulns/",
+      "x_craftedsignal_activity_at": "2026-10-21T14:14:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f57e46e3-3877-5e2a-afdb-2923d546afa9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-24T02:45:57.000Z",
@@ -136488,6 +136531,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ffe81a03-af51-50a8-aebf-5f6a45a458b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:14:26.000Z",
+      "modified": "2026-10-21T14:14:26.000Z",
+      "name": "Oracle TimesTen In-Memory Database: Multiple Vulnerabilities",
+      "description": "## Overview\n\nMultiple vulnerabilities have been identified in the Oracle TimesTen In-Memory Database. The flaws allow a remote, authenticated attacker to gain unauthorized access, potentially compromising the confidentiality, integrity, and availability of the affected database instances. No specific CVE identifiers or exploit details are provided in the current advisory. Users are encouraged to review vendor security updates.\n",
+      "published": "2026-10-21T14:14:26.000Z",
+      "labels": [
+        "database",
+        "oracle",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c50f144d-4212-5139-a0fb-d570b3b371ee"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-oracle-timesten-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-timesten-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4093"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-oracle-timesten-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-21-oracle-timesten-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-timesten-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-21T14:14:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -145355,6 +145441,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a6555892-663c-5dc9-a46f-50eaba413c72",
+      "name": "Oracle Systems",
+      "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a69b5fcf-d1bc-5227-ae12-f1b8499481d6",
       "name": "Frontend Post Submission Manager Lite – Frontend Posting WordPress Plugin (\u003c= 1.3.4)"
     },
@@ -147073,6 +147166,13 @@
       "id": "software--c50a83bb-cce3-5345-8a8f-0534901b8130",
       "name": "Post SMTP – Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP \u0026 Mobile App (\u003c= 4.0.1)",
       "vendor": "Post SMTP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c50f144d-4212-5139-a0fb-d570b3b371ee",
+      "name": "TimesTen In-Memory Database",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
