@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dfe06310-a9b5-57c0-95dd-4a5e0be41a74",
+  "id": "bundle--45a68211-7cfa-5c91-a551-ede3fc765b93",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5030,6 +5030,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--015b36ed-50b3-5736-8f2c-9df1380afa7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b0f9c62-710c-5f07-8073-8ee5541ea464",
+      "target_ref": "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--015c83a2-4fdc-561c-98d4-706968b9a929",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T19:51:41.000Z",
@@ -7952,6 +7963,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ec66d26-4b66-54f4-acdf-7a2d3fc7fa98",
       "target_ref": "vulnerability--c05e9ec3-147d-5fbb-97c3-798ab6a18244"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1062b500-6a5d-58e8-bc41-08698201e24e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e3c53cb6-e9f2-5307-a8fe-9c2894d0d2e8",
+      "target_ref": "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
     },
     {
       "type": "relationship",
@@ -20976,17 +20998,6 @@
       "relationship_type": "has",
       "source_ref": "software--35ddaf62-5fa3-5c89-870c-dbf3d90782c3",
       "target_ref": "vulnerability--6fc2728d-028d-5633-8480-e62038b80f56"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5480f1cc-ceb1-5b63-a65a-bbee4bf56d16",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--90072f89-df7b-5cfa-b4d6-057c5ecce6ba",
-      "target_ref": "vulnerability--85ed8c6c-d6d6-571f-ba3d-9b608293ddda"
     },
     {
       "type": "relationship",
@@ -44520,6 +44531,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cbc36c4b-e9e9-5e3f-b92e-c3d0c517c087",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a7010b0c-9e06-5b60-afd8-4bb6cdc65882",
+      "target_ref": "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cbd69fbc-924b-562a-809a-ac6c96d311d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:44:36.000Z",
@@ -44670,17 +44692,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8da581ee-c083-5f74-b5da-da9544bbf87a",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cccc8922-47f7-585e-9220-182c96af5802",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T16:29:19.000Z",
-      "modified": "2026-09-21T16:29:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ab8ce20b-785d-5686-8cc4-2d7834f39b31",
-      "target_ref": "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05"
     },
     {
       "type": "relationship",
@@ -46320,17 +46331,6 @@
       "relationship_type": "uses",
       "source_ref": "report--60f253d7-c302-599e-8119-b7f919dad031",
       "target_ref": "attack-pattern--7a7d3073-08a0-5675-9ad3-ea6b2fbac8d9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d55e326e-b5dd-5ab5-b348-154e0ef551d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ad3f0f42-a68f-546b-afdb-6bf65e9efe98",
-      "target_ref": "vulnerability--6673fcf8-ab7c-55f9-8dff-435350f084b6"
     },
     {
       "type": "relationship",
@@ -51171,17 +51171,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e45287be-dbd5-5d35-8039-78146e084efc",
       "target_ref": "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ea0370d0-5600-5025-b397-3f5d2f937cd5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T16:29:32.000Z",
-      "modified": "2026-09-21T16:29:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--af13bfb8-fba3-558d-80f0-e9e41519b852",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -89879,7 +89868,7 @@
       "id": "report--6d40a0d6-8252-5d4e-8e43-a7baa0767ff2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:11:38.000Z",
-      "modified": "2026-10-19T18:11:38.000Z",
+      "modified": "2026-10-21T16:43:21.000Z",
       "name": "Denial of Service Vulnerability in MongoDB PHP Driver via Uncontrolled Recursion",
       "description": "## Overview\n\nCVE-2026-112368 identifies a critical weakness in the BSON decoding logic within the MongoDB PHP driver. The vulnerability stems from uncontrolled recursion during the parsing process, which can be triggered by an unauthenticated attacker supplying a specially crafted BSON document. Because the failure occurs at the driver level, beneath the PHP execution layer, standard application-level exception or error handling mechanisms are unable to intercept the crash. Successful exploitation results in immediate process termination, leading to a denial-of-service condition for the affected PHP application. This issue is particularly significant for high-traffic web applications that accept user-supplied or external data payloads for MongoDB operations. Defenders should prioritize auditing applications that parse BSON inputs and apply vendor-provided patches as soon as they become available.\n\n## Impact\n\nThe impact of this vulnerability is a targeted denial-of-service affecting web applications relying on the MongoDB PHP driver. By causing the PHP process to crash unexpectedly, an attacker can degrade service availability for legitimate users. The inability to catch this error in PHP code means that affected services may require manual intervention or system-level restart logic to recover, potentially causing significant downtime in production environments.\n\n## Recommendation\n\n- Identify all application servers utilizing the MongoDB PHP driver by inspecting dependency manifests (e.g., composer.json) or server environment logs.\n- Monitor web server error logs for recurrent sudden process terminations or segmentation faults occurring during BSON decoding operations.\n- Apply the vendor-provided patch for CVE-2026-112368 across all affected production and development environments once released by MongoDB.\n- Implement input validation and schema enforcement at the application layer to reject unusually deep or malformed BSON documents before they reach the driver level.\n",
       "published": "2026-10-19T18:11:38.000Z",
@@ -89890,7 +89879,10 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b0f9c62-710c-5f07-8073-8ee5541ea464",
         "software--39c8b09d-96e2-54db-84a3-d18d2fba5a96",
+        "software--a7010b0c-9e06-5b60-afd8-4bb6cdc65882",
+        "software--e3c53cb6-e9f2-5307-a8fe-9c2894d0d2e8",
         "vulnerability--2d906dea-c5bf-51f0-a8a0-999b3024ad50"
       ],
       "external_references": [
@@ -89901,16 +89893,24 @@
         },
         {
           "source_name": "reference",
+          "url": "https://jira.mongodb.org/browse/PHPC-276"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112368"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1347/"
         }
       ],
-      "confidence": 40,
+      "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-mongodb-bson-recursion",
       "x_craftedsignal_event_id": "brief-2026-10-mongodb-bson-recursion",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mongodb-bson-recursion/",
-      "x_craftedsignal_activity_at": "2026-10-19T18:11:38.000Z",
-      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_activity_at": "2026-10-21T16:43:21.000Z",
+      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -110125,53 +110125,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ab8ce20b-785d-5686-8cc4-2d7834f39b31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T16:29:19.000Z",
-      "modified": "2026-09-21T16:29:19.000Z",
-      "name": "CVE-2026-75939 - Signature Verification Bypass in Red Hat oc-mirror",
-      "description": "## Overview\n\nCVE-2026-75939 involves a critical logic vulnerability in the `oc-mirror` tool, which is used to manage disconnected OpenShift environments. The tool incorrectly verifies PGP release image signatures by executing signature error checks before the entire signed body is fully processed. This premature validation allows a remote attacker, capable of intercepting or manipulating network traffic (e.g., via Man-in-the-Middle techniques), to present a PGP message that contains a valid Red Hat release key ID but a forged signature body. Because the tool fails to validate the entire payload, it accepts the tampered release as legitimate. This vulnerability significantly impacts the software supply chain integrity by allowing the mirroring of malicious container images into internal, disconnected enterprise registries, where they may later be deployed into production clusters.\n\n## Impact\n\nThe vulnerability allows for the unauthorized injection of malicious software components into isolated container registries. If exploited, an attacker can compromise the integrity of software deployments within an organization's internal infrastructure, potentially leading to arbitrary code execution across clusters that rely on the compromised mirror as a trusted source of truth.\n\n## Recommendation\n\n- Monitor for unauthorized or unexpected modifications to release image signatures or payloads being mirrored into disconnected registries.\n- Implement and enforce strict TLS validation for all network connections involved in the image mirroring process to mitigate potential interception of signature endpoints.\n- Patch the `oc-mirror` tool immediately once an official update is provided by Red Hat to address the signature verification logic flaw.\n- Audit internal container registry logs for image layers that originated from unexpected network sources or that lack valid, verifiable cryptographic signatures.\n",
-      "published": "2026-09-21T16:29:19.000Z",
-      "labels": [
-        "cloud",
-        "openshift",
-        "red-hat",
-        "supply-chain-security"
-      ],
-      "object_refs": [
-        "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ad3f0f42-a68f-546b-afdb-6bf65e9efe98",
-        "vulnerability--6673fcf8-ab7c-55f9-8dff-435350f084b6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-openshift-oc-mirror-pgp-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-openshift-oc-mirror-pgp-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75939"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-openshift-oc-mirror-pgp-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-21-openshift-oc-mirror-pgp-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-openshift-oc-mirror-pgp-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-21T16:29:19.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--abb9c3e9-99eb-53d2-8197-2312aca2c365",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-28T16:10:27.000Z",
@@ -111172,48 +111125,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--af13bfb8-fba3-558d-80f0-e9e41519b852",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-21T16:29:32.000Z",
-      "modified": "2026-09-21T16:29:32.000Z",
-      "name": "Stack-based Buffer Overflow in fetchmail NTLM Authentication",
-      "description": "## Overview\n\nCVE-2026-94184 is a critical vulnerability within the fetchmail utility, specifically occurring when the software is compiled with NTLM authentication support enabled. The issue stems from a stack-based buffer overflow that occurs during the processing of NTLM authentication responses. When a client connects to a malicious or compromised mail server, the server can supply a crafted Type 2 NTLM challenge. As the fetchmail client attempts to build the corresponding NTLM authenticate response, the data is written to a fixed-size stack buffer without adequate bounds checking. This flaw can be exploited to cause a crash (denial of service) or potentially achieve remote code execution depending on the specific memory layout and the presence of stack hardening features on the host system.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows a malicious mail server to terminate the fetchmail process or execute arbitrary code on the system running the client, potentially leading to full system compromise. The vulnerability affects all deployments of fetchmail where NTLM authentication support is compiled in, representing a significant risk to organizations using fetchmail for periodic email retrieval.\n\n## Recommendation\n\nPrioritize auditing internal and external mail relay infrastructure to identify instances where NTLM authentication is utilized with fetchmail. Review vendor release notes and apply patches to the latest version of fetchmail to remediate the buffer overflow. Given the low-level nature of this memory corruption vulnerability, prioritize patching on systems that retrieve mail from untrusted or external mail providers.\n",
-      "published": "2026-09-21T16:29:32.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--90072f89-df7b-5cfa-b4d6-057c5ecce6ba",
-        "vulnerability--85ed8c6c-d6d6-571f-ba3d-9b608293ddda"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-21-fetchmail-cve-2026-94184",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-fetchmail-cve-2026-94184/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94184"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-21-fetchmail-cve-2026-94184",
-      "x_craftedsignal_event_id": "brief-2026-09-21-fetchmail-cve-2026-94184",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-fetchmail-cve-2026-94184/",
-      "x_craftedsignal_activity_at": "2026-09-21T16:29:32.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.01219,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -140220,6 +140131,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b0f9c62-710c-5f07-8073-8ee5541ea464",
+      "name": "PHP Driver (2.5.x \u003c 2.5.5)",
+      "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2b436a4d-c1d2-59cd-9725-06dbc21282fb",
       "name": "sipgo (\u003c= 1.4.2)",
       "vendor": "emiago"
@@ -145581,13 +145499,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--90072f89-df7b-5cfa-b4d6-057c5ecce6ba",
-      "name": "fetchmail",
-      "vendor": "fetchmail"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--90193ae0-85db-5808-b636-37ab1662ec34",
       "name": "camel-quarkus-platform-http (\u003c 3.40.0)",
       "vendor": "Apache"
@@ -146802,6 +146713,13 @@
       "id": "software--a6e5031a-5374-5060-a0ac-01c66e8fc7f0",
       "name": "Webmin (\u003c= 1.280)",
       "vendor": "Webmin"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a7010b0c-9e06-5b60-afd8-4bb6cdc65882",
+      "name": "PHP Driver (\u003c 1.21.12)",
+      "vendor": "MongoDB"
     },
     {
       "type": "software",
@@ -150058,6 +149976,13 @@
       "id": "software--e3b16b00-93b4-5ce8-a553-7be0bcd07835",
       "name": "Bridge",
       "vendor": "Bridge"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e3c53cb6-e9f2-5307-a8fe-9c2894d0d2e8",
+      "name": "PHP Driver (2.1.x \u003c 2.1.12)",
+      "vendor": "MongoDB"
     },
     {
       "type": "software",
@@ -160882,22 +160807,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--6673fcf8-ab7c-55f9-8dff-435350f084b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-75939",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-75939",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75939"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--667559fe-643e-5c9a-80d8-3fb7e43166b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -163468,22 +163377,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-100369",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100369"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--85ed8c6c-d6d6-571f-ba3d-9b608293ddda",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-94184",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-94184",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94184"
         }
       ]
     },
