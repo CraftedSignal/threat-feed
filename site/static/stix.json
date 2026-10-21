@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d1c729d4-67fa-5f76-a16e-b708e73f38e2",
+  "id": "bundle--275c86d7-fef4-5121-a06a-4990001bd0a8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25763,6 +25763,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--71e90c39-874b-50bf-b107-0629116249a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T01:43:03.000Z",
+      "modified": "2026-10-21T01:43:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--71ecb415-8855-59fd-98eb-7484ba60c053",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34999,6 +35010,17 @@
       "relationship_type": "has",
       "source_ref": "software--40bd4bc2-4045-5486-992e-26879dbd08df",
       "target_ref": "vulnerability--b9d2216c-3878-5d97-9b23-f35ec10a799f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a11a01f5-d289-5135-b8af-a88891d26269",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T01:43:03.000Z",
+      "modified": "2026-10-21T01:43:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -46549,6 +46571,17 @@
       "relationship_type": "has",
       "source_ref": "software--b14a2b5d-a12c-50f1-8145-3c9d05423296",
       "target_ref": "vulnerability--0dd8209d-48b6-5e2b-bb79-9412b1c80d12"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dc92fa01-2ee6-5938-a0a4-7db372c3c500",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T01:43:03.000Z",
+      "modified": "2026-10-21T01:43:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
+      "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
     },
     {
       "type": "relationship",
@@ -89713,6 +89746,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T01:43:03.000Z",
+      "modified": "2026-10-21T01:43:03.000Z",
+      "name": "GoldenDMSA HackTool Execution",
+      "description": "## Overview\n\nGoldenDMSA is a specialized offensive security tool designed to target Active Directory environments by exploiting the authentication mechanisms of Group Managed Service Accounts (gMSA). The tool allows attackers to perform account manipulation and authentication bypass, potentially leading to unauthorized privilege escalation or persistence within a compromised domain. The tool's capabilities center on leveraging vulnerabilities in gMSA handling, often involving brute-force techniques against service accounts to recover credentials or impersonate accounts. Its use is typically associated with post-exploitation phases where an adversary seeks to solidify their hold on a domain controller or privileged identity management service. Defenders should monitor for the execution of this specific binary and suspicious command-line patterns indicating brute-force or service account enumeration attempts.\n\n## Attack Chain\n\n1. Initial compromise of a workstation or server joined to the Active Directory domain.\n2. Escalation of privileges to reach a security context capable of executing administrative utilities.\n3. Delivery of the GoldenDMSA.exe utility to the local system disk.\n4. Execution of the tool with command-line arguments specifying a security identifier (SID) or target account.\n5. Utilization of dictionary files or provided wordlists to conduct brute-force attacks against gMSA targets.\n6. Interaction with domain controllers to attempt authentication bypass or credential recovery.\n7. Successful exploitation resulting in the capture of service account secrets or unauthorized access to sensitive service resources.\n\n## Impact\n\nSuccessful use of GoldenDMSA allows attackers to bypass standard AD authentication controls, gain control over service accounts, and potentially perform unauthorized actions within the enterprise domain. This poses a severe risk to service integrity, as compromised gMSAs are often used for critical infrastructure and automated system tasks.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to detect the execution of the GoldenDMSA binary or associated command-line patterns on all endpoints and domain controllers.\n- Audit logs for the use of high-privilege service account operations that deviate from established baselines for gMSA authentication.\n- Implement stringent monitoring for brute-force patterns targeting AD service accounts using Event ID 4625 and 4768.\n",
+      "published": "2026-10-21T01:43:03.000Z",
+      "labels": [
+        "active-directory",
+        "hacktool",
+        "persistence",
+        "privilege-escalation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a",
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-goldendmsa",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-goldendmsa/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-goldendmsa",
+      "x_craftedsignal_event_id": "brief-2026-10-21-goldendmsa",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-goldendmsa/",
+      "x_craftedsignal_activity_at": "2026-10-21T01:43:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
