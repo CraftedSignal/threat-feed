@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-eks-tokenrequest-abuse
 event_id: brief-2026-10-21-eks-tokenrequest-abuse
-revision: 4
-activity_at: "2026-10-21T08:31:53Z"
+revision: 5
+activity_at: "2026-10-21T09:08:08Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:31:51Z"
@@ -39,11 +39,24 @@ revision_history:
       - updates
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_kubernetes_pod_exec_curl_wget_https_aws_eks.toml
+  - revision: 5
+    at: "2026-10-21T09:08:08Z"
+    checksum: sha256:2bf2ab474fcc44d25ac21109649aaee680ca04b651666f07f6ba3813098e2f7a
+    summary: 'added detection rule: Detect Authorized Anonymous Requests to EKS API'
+    changed_fields:
+      - lastmod
+      - references
+      - rules
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_anonymous_request_authorized_aws_eks.toml
 title: 'Amazon EKS: Improper TokenRequest API usage detection'
 slug: 2026-10-eks-tokenrequest-abuse
 description: Attackers can abuse the Kubernetes TokenRequest API to mint service account tokens without filesystem access, facilitating privilege escalation and movement to cloud resources via IAM Roles for Service Accounts (IRSA).
 date: "2026-10-21T07:47:08Z"
-lastmod: "2026-10-21T08:30:51Z"
+lastmod: "2026-10-21T09:06:51Z"
 type: advisory
 types:
   - advisory
@@ -68,6 +81,8 @@ tags:
   - discovery
   - execution
   - command-and-control
+  - cloud-security
+  - initial-access
 vendors:
   - Amazon
 products:
@@ -107,6 +122,14 @@ mitre_ttps:
     technique_name: Ingress Tool Transfer
     evidence: Attackers with permission to exec into workloads often run one-liners to stage tooling, pull scripts or binaries, or exfiltrate data over HTTPS.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    subtechnique_id: T1078.001
+    subtechnique_name: Default Accounts
+    evidence: Attackers may attempt to use anonymous accounts to gain initial access to the cluster or to avoid attribution of their activities within the cluster.
+    confidence_band: high
 references:
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_kubernetes_service_account_token_created_via_tokenrequest_aws_eks.toml
   - https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/token-v1/
@@ -116,6 +139,8 @@ references:
   - https://attack.mitre.org/techniques/T1613/
   - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_kubernetes_pod_exec_curl_wget_https_aws_eks.toml
   - https://cloud.hacktricks.wiki/en/pentesting-cloud/kubernetes-security/kubernetes-privilege-escalation/workload-and-pod-access.html
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_anonymous_request_authorized_aws_eks.toml
+  - https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF
 rules:
   - title: Detect Suspicious TokenRequest API Creation
     description: Detects the creation of a Kubernetes service account token via the TokenRequest API by a non-system identity, which may indicate credential theft or privilege escalation.
@@ -128,7 +153,18 @@ rules:
     data_sources:
       - webserver
       - kubernetes
-rules_count: 1
+  - title: Detect Authorized Anonymous Requests to EKS API
+    description: Detects authorized requests from system:anonymous or system:unauthenticated users with unusual user agents, excluding standard health check endpoints.
+    platform: sigma
+    severity: medium
+    tactics:
+      - initial_access
+    techniques:
+      - T1078.001
+    data_sources:
+      - webserver
+      - kubernetes
+rules_count: 2
 action_plan:
   priority: elevated
   owners:
@@ -174,6 +210,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/execution_kubernetes_pod_exec_curl_wget_https_aws_eks.toml
+  - at: "2026-10-21T09:06:51Z"
+    level: L1
+    summary: 'added detection rule: Detect Authorized Anonymous Requests to EKS API'
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/initial_access_anonymous_request_authorized_aws_eks.toml
 ---
 
 The Kubernetes TokenRequest API allows identities with appropriate RBAC permissions to programmatically generate short-lived tokens for service accounts. Because this process occurs via the API server, the resulting tokens do not leave traditional filesystem footprints, evading file-based monitoring. In Amazon EKS environments, attackers who have gained initial cluster access can leverage this API to mint tokens for highly privileged service accounts, effectively bypassing security controls meant to protect mounted secrets.
