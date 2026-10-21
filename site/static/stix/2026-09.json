@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d2e9a089-aded-54ea-8298-e191d14c330a",
+  "id": "bundle--d7720147-aeaf-56f1-9385-be9902f99bc6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17191,6 +17191,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--f555b7bf-d9cd-57ac-9aa5-81a66a667479",
       "target_ref": "threat-actor--d3772a64-3ecd-58f5-abd2-3a1c90e21db1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--416b30d0-e6d0-5268-a2e5-7f90c7d6a05a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-03T13:41:42.000Z",
+      "modified": "2026-10-21T00:48:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74934fea-4248-5e29-887a-6a4ce1b49601",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -85486,6 +85497,50 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.01244,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--74934fea-4248-5e29-887a-6a4ce1b49601",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-03T13:41:42.000Z",
+      "modified": "2026-10-21T00:48:03.000Z",
+      "name": "PowerShell Sensitive File Discovery Technique",
+      "description": "## Overview\n\nThis technique involves the use of PowerShell cmdlets to perform recursive directory searches specifically targeting sensitive file extensions associated with password managers and credential stores. Adversaries often execute these commands post-compromise to locate, exfiltrate, or harvest credentials necessary for privilege escalation or lateral movement. By leveraging cmdlets such as Get-ChildItem with recursion enabled, attackers can efficiently identify high-value targets across diverse directory structures on a compromised Windows host. Detection of this activity relies on monitoring PowerShell Script Block Logging, as these commands are frequently executed within volatile memory or via one-liners that bypass traditional file-system logging.\n\n## Attack Chain\n\n1. Initial access is established through spearphishing or exploit delivery on the target system.\n2. The attacker gains execution of a PowerShell instance or interactive shell.\n3. The attacker identifies the current user context and file system structure.\n4. The attacker executes a recursive search command (e.g., Get-ChildItem -Recurse) targeting specific patterns like \".kdbx\" or \".pass\".\n5. The search identifies the absolute path to credential-related files on the disk.\n6. The attacker reads or exfiltrates the discovered sensitive files to a C2-controlled endpoint.\n\n## Impact\n\nSuccessful discovery of sensitive files can lead to the compromise of password databases and plain-text credential files, significantly increasing the risk of full account takeover, lateral movement across the network, and long-term persistence through harvested authentication tokens.\n\n## Recommendation\n\n1. Enable PowerShell Script Block Logging (Event ID 4104) across all Windows endpoints to ensure the visibility of script execution.\n2. Deploy the provided Sigma rule to detect recursive file searches targeting known credential file extensions.\n3. Perform threat hunting for common PowerShell enumeration patterns and investigate high-frequency recursive search activity from unauthorized user accounts.\n",
+      "published": "2026-09-03T13:41:42.000Z",
+      "labels": [
+        "credential-access",
+        "discovery",
+        "powershell",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-09-03-powershell-sensitive-file-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-09-powershell-sensitive-file-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/powershell/powershell_script/posh_ps_sensitive_file_discovery.yml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-09-03-powershell-sensitive-file-discovery",
+      "x_craftedsignal_event_id": "brief-2026-09-03-powershell-sensitive-file-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-powershell-sensitive-file-discovery/",
+      "x_craftedsignal_activity_at": "2026-10-21T00:48:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
