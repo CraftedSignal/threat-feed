@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a2bb3722-b4c3-5554-b514-747c9eecf18b",
+  "id": "bundle--22302288-8d51-5d32-9c7d-fcdda1ff62c9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16773,17 +16773,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5a14c72c-d5ef-539f-a542-88ab43a1776f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T11:57:32.000Z",
-      "modified": "2026-07-23T11:57:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a95d406f-b001-5a58-9c7a-1ea65ca76d57",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5a168c3b-c55a-5bc1-bc36-ef8ce473d690",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -26108,17 +26097,6 @@
       "relationship_type": "uses",
       "source_ref": "report--60a768a8-7673-5f61-9f1a-f56383b5abf6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c83ad256-744b-53b4-9f26-b03bb2d4ca72",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T11:57:32.000Z",
-      "modified": "2026-07-23T11:57:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a95d406f-b001-5a58-9c7a-1ea65ca76d57",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -44072,52 +44050,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a95d406f-b001-5a58-9c7a-1ea65ca76d57",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-23T11:57:32.000Z",
-      "modified": "2026-07-23T11:57:32.000Z",
-      "name": "Exim: Multiple Vulnerabilities Allow Local Command Execution and Privilege Escalation",
-      "description": "## Overview\n\nA security advisory from CERT-Bund highlights multiple unpatched vulnerabilities within the Exim mail transfer agent. These flaws can be exploited by a local attacker to achieve arbitrary command execution and privilege escalation on the compromised system. While specific details such as CVE identifiers, versions affected, or the nature of each vulnerability are not provided in this advisory, the existence of these weaknesses presents a significant risk. An adversary with local access could leverage these vulnerabilities to take full control of the Exim service, potentially intercepting or manipulating email traffic, and subsequently elevate their privileges on the underlying Linux operating system to further their objectives. The advisory was published on July 23, 2026, indicating that these are newly disclosed issues.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities by a local attacker can lead to arbitrary command execution within the context of the Exim process, followed by privilege escalation to a higher level. This can result in a complete compromise of the mail server, allowing an attacker to gain unauthorized access to sensitive emails, alter system configurations, or deploy additional malicious payloads. The potential damage extends beyond email integrity, as a full system compromise of the Linux host could facilitate lateral movement within the network, data exfiltration, or the establishment of persistent access. Given Exim's widespread deployment as an MTA, a large number of Linux-based systems are at risk if these vulnerabilities remain unpatched.\n\n## Recommendation\n\n* Update Exim to the latest secure version immediately to patch the identified vulnerabilities. Consult the official Exim Project website or your Linux distribution's package manager for available security updates.\n* Implement robust monitoring of Exim service logs and system process creation events for any unusual activity or suspicious command execution that might indicate attempted or successful exploitation.\n* Perform regular security audits and vulnerability scanning of all Exim installations to identify and address any remaining security weaknesses.\n",
-      "published": "2026-07-23T11:57:32.000Z",
-      "labels": [
-        "command-execution",
-        "exim",
-        "privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ef97ea79-6a9b-590c-9dae-51322601649f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-exim-multiple-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-exim-multiple-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2494"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-exim-multiple-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-07-exim-multiple-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-exim-multiple-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-07-23T11:57:32.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a9849590-47e3-5f64-8707-5e4aec511a78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:02:48.000Z",
@@ -55688,13 +55620,6 @@
       "spec_version": "2.1",
       "id": "software--eee723ca-bc01-5052-a096-ed4e3d0222d2",
       "name": "VeloCloud Orchestrator (\u003c 6.4.2.4)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ef97ea79-6a9b-590c-9dae-51322601649f",
-      "name": "Exim",
-      "vendor": "Exim Project"
     },
     {
       "type": "software",
