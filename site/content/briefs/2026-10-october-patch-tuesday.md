@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-21-october-patch-tuesday
 event_id: brief-2026-10-21-october-patch-tuesday
-revision: 1
-activity_at: "2026-10-21T07:58:52Z"
+revision: 2
+activity_at: "2026-10-21T19:55:52Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-21T19:55:52Z"
+    checksum: sha256:818b8a7ea9f9a2bd54070910463ebaeca997b6589b68367fc989a85ee1c26aa2
+    summary: new product
+    changed_fields:
+      - cves
+      - lastmod
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-october-2026/
 title: Microsoft October 2026 Security Updates
 slug: 2026-10-october-patch-tuesday
 description: Microsoft addressed 1,413 vulnerabilities including 75 critical flaws and an exploited zero-day (CVE-2026-96951) bypass in Windows Shell that circumvents Mark of the Web protections.
 date: "2026-10-21T07:58:52Z"
+lastmod: "2026-10-21T19:54:47Z"
 type: advisory
 types:
   - advisory
@@ -83,14 +97,14 @@ mitre_ttps:
     evidence: CVE-2026-108398 ... allows execution of unauthorized code within a protected process context.
     confidence_band: high
 cves:
-  - id: CVE-2026-108398
-    kev_status: unknown
-  - id: CVE-2026-70229
-    kev_status: unknown
   - id: CVE-2026-96951
     cvss: 8.8
     epss: 0.01512
     kev_status: "false"
+  - id: CVE-2026-108398
+    kev_status: unknown
+  - id: CVE-2026-70229
+    kev_status: unknown
 references:
   - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-october-2026/
 action_plan:
@@ -109,6 +123,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-96951, CVE-2026-70229
       evidence: Confirmed active exploitation of Windows Shell
+updates:
+  - at: "2026-10-21T19:54:47Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-october-2026/
 ---
 
 The October 2026 Microsoft security release contains 1,413 CVEs, featuring one exploited zero-day (CVE-2026-96951) and two publicly disclosed zero-days. Notable risks include remote code execution (RCE) in identity services (AD DS, AD FS), critical RCE vulnerabilities in Microsoft Outlook, and 23 preview-pane triggered flaws in Office applications that allow code execution with minimal user interaction.
