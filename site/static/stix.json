@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--63dfd527-ef34-58bd-8675-6875e88c33e9",
+  "id": "bundle--75026b10-88c2-52cb-8eac-b5638db5710c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -112723,6 +112723,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a57a7535-d9bd-59d4-acd8-6fade6955c36",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T16:01:30.000Z",
+      "modified": "2026-10-22T16:01:30.000Z",
+      "name": "NetAlertX: Remote code execution (CVE-2024-46506)",
+      "description": "A remote code execution (RCE) vulnerability in NetAlertX, tracked as CVE-2024-46506, has been reported. A public Python exploit for this vulnerability has been published on Sploitus. The vulnerability has a CVSS score of 10.0 and an EPSS score of 62.7%.\n",
+      "published": "2026-10-22T16:01:30.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--4141dc3a-8e1f-56ad-90b9-7ff364839474"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-netalertx-rce-cve-2024-46506",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-netalertx-rce-cve-2024-46506/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FUFU-BYTE-CVE-2024-46506\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-netalertx-rce-cve-2024-46506",
+      "x_craftedsignal_event_id": "brief-2026-10-22-netalertx-rce-cve-2024-46506",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-netalertx-rce-cve-2024-46506/",
+      "x_craftedsignal_activity_at": "2026-10-22T16:01:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.62666,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a5b40445-12dd-5bbf-8a17-6d7a94a469a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T00:31:06.000Z",
@@ -163879,6 +163919,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108551",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108551"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4141dc3a-8e1f-56ad-90b9-7ff364839474",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-46506",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-46506",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-46506"
         }
       ]
     },
