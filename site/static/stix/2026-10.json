@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6a2b270e-7bbf-5f6e-9890-136decf7eaff",
+  "id": "bundle--bc2ae543-aa72-59a1-8eab-cf6fd10afed1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17531,6 +17531,17 @@
       "relationship_type": "has",
       "source_ref": "software--5b6ec971-0b87-5833-a5d2-8bc5394c77f3",
       "target_ref": "vulnerability--fd114317-2a6a-53f1-a46a-876c85f6dff9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--53763c5f-263b-5137-af03-4db79da73713",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a87c4dc1-566d-521c-8ee2-d26d8134a8d5",
+      "target_ref": "vulnerability--4f821ba5-71d9-51df-8883-1a850f533083"
     },
     {
       "type": "relationship",
@@ -40719,6 +40730,17 @@
       "relationship_type": "uses",
       "source_ref": "report--443abf08-5176-5707-8576-cdd7a475933c",
       "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e21e2d22-00c1-56ce-ba4e-f95de864fcd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T17:00:46.000Z",
+      "modified": "2026-10-22T17:00:46.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--644b89d8-350c-5eae-a66c-1e1f4065f7e6",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -71935,6 +71957,60 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--644b89d8-350c-5eae-a66c-1e1f4065f7e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T17:00:46.000Z",
+      "modified": "2026-10-22T17:00:46.000Z",
+      "name": "Apache Abdera: XML External Entity Injection (CVE-2026-113582)",
+      "description": "## Overview\n\nApache Abdera is susceptible to XML external entity (XXE) injection due to improper restriction of XML entity references. This vulnerability allows an unauthenticated attacker to manipulate XML input to access local files or trigger unauthorized server-side requests. Because the Apache Abdera project is retired and unsupported, no security patches will be released.\n\n## Impact\n\nSuccessful exploitation allows for the disclosure of sensitive server-side data or the execution of server-side request forgery (SSRF) attacks.\n\n## Recommendation\n\n* Migrate all applications currently utilizing Apache Abdera to a actively maintained library, as the project is retired and will not receive security updates.\n* If migration is not immediately possible, implement strict input validation and sanitization layers to ensure untrusted XML data does not reach the Abdera parser or its associated JDBC adapter paths.\n* Audit internal application dependencies to identify downstream products that may still bundle affected Apache Abdera artifacts.\n",
+      "published": "2026-10-22T17:00:46.000Z",
+      "labels": [
+        "vulnerability",
+        "web-application",
+        "xxe"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a87c4dc1-566d-521c-8ee2-d26d8134a8d5",
+        "vulnerability--4f821ba5-71d9-51df-8883-1a850f533083"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-apache-abdera-xxe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-abdera-xxe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attic.apache.org/projects/abdera.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lists.apache.org/thread.html/j32tow7bhfnn2p0obsqy1mhg1qs7hq91"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-113582\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-apache-abdera-xxe",
+      "x_craftedsignal_event_id": "brief-2026-10-22-apache-abdera-xxe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-abdera-xxe/",
+      "x_craftedsignal_activity_at": "2026-10-22T17:00:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -120483,6 +120559,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a87c4dc1-566d-521c-8ee2-d26d8134a8d5",
+      "name": "Abdera (all versions)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
       "name": "Performance Indicator System (1.0)",
       "vendor": "SourceCodester"
@@ -130333,6 +130416,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-100316",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100316"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4f821ba5-71d9-51df-8883-1a850f533083",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113582",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113582",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113582"
         }
       ]
     },
