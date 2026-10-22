@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7d44d872-b776-57e2-9cc1-8e92f1b4266c",
+  "id": "bundle--0406be3a-9778-57fc-a671-13c73e744d86",
   "objects": [
     {
       "type": "attack-pattern",
@@ -40272,6 +40272,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dfb74210-68e0-582a-81fc-aeb8190a5212",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T15:00:35.000Z",
+      "modified": "2026-10-22T15:00:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0171b438-decb-5c1c-b292-df0cfe973ea3",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dfc7bfc5-20ca-568c-9a59-51d29ac9562b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T13:56:52.000Z",
@@ -43528,6 +43539,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f1944597-a0d4-56a2-9256-877ff7501997",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af9d8449-4aef-55cc-8737-89295e14d757",
+      "target_ref": "vulnerability--34c36866-8f92-55f6-9970-13b672a632fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f1b8ebef-2a84-5f53-a2eb-9dfb27da993c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:45:43.000Z",
@@ -46159,6 +46181,56 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0171b438-decb-5c1c-b292-df0cfe973ea3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T15:00:35.000Z",
+      "modified": "2026-10-22T15:00:35.000Z",
+      "name": "Boldgrid W3 Total Cache Cleartext Credential Storage (CVE-2023-5359)",
+      "description": "## Overview\nCVE-2023-5359 affects the WordPress plugin W3 Total Cache (versions ≤ 2.7.5). The plugin stores sensitive configuration and API credentials in plain text within PHP files located in the `/wp-content/plugins/w3-total-cache/` directory. Due to insufficient access control, these files are directly accessible via standard HTTP GET requests, leading to the exposure of CloudFlare API keys, client secrets, and other third-party service credentials.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to obtain sensitive credentials. This may result in the takeover of associated services (e.g., CloudFlare DNS and CDN management), unauthorized access to external service accounts via compromised OAuth tokens, and potential manipulation of cached website content.\n\n## Recommendation\n- Update the W3 Total Cache plugin to version 2.7.6 or later immediately.\n- Revoke and regenerate all API keys, OAuth tokens, and client secrets associated with the affected WordPress installation.\n- Implement access restrictions in the web server configuration (e.g., .htaccess for Apache) to deny direct access to PHP files within the plugin directory, while explicitly allowing access only to required entry points like 'w3-total-cache.php'.\n- Conduct an audit of logs for unauthorized HTTP GET requests directed at the `/wp-content/plugins/w3-total-cache/` path to determine if exploitation has occurred.\n",
+      "published": "2026-10-22T15:00:35.000Z",
+      "labels": [
+        "credential-exposure",
+        "vulnerability",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af9d8449-4aef-55cc-8737-89295e14d757",
+        "vulnerability--34c36866-8f92-55f6-9970-13b672a632fc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-w3-total-cache-exposure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-w3-total-cache-exposure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ENZOCIPHER-CVE-2023-5359"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ENZOCIPHER-CVE-2023-5359\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-w3-total-cache-exposure",
+      "x_craftedsignal_event_id": "brief-2026-10-22-w3-total-cache-exposure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-w3-total-cache-exposure/",
+      "x_craftedsignal_activity_at": "2026-10-22T15:00:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -120550,6 +120622,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--af9d8449-4aef-55cc-8737-89295e14d757",
+      "name": "W3 Total Cache (\u003c 2.7.6)",
+      "vendor": "Boldgrid"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--afaeed17-d101-5c6d-ba09-d5f7e2451ee2",
       "name": "Planning Analytics (2.0, 2.1)",
       "vendor": "IBM"
@@ -128010,6 +128089,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111700",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111700"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--34c36866-8f92-55f6-9970-13b672a632fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-5359",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-5359",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-5359"
         }
       ]
     },
