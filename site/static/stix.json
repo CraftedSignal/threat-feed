@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f1a43c6e-6026-5a98-a767-551c2cfc7a40",
+  "id": "bundle--75a05d2b-bca5-53e4-a666-8a42b2b065ab",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11474,6 +11474,17 @@
       "relationship_type": "has",
       "source_ref": "software--92e424aa-e56f-5c75-8a2c-b1b9e3ae64fd",
       "target_ref": "vulnerability--e63b3662-1ddf-5d8f-b2eb-b73257fa3544"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f156abc-7638-5cef-a3a0-164526ad9f02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:57:21.000Z",
+      "modified": "2026-10-22T19:01:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9008aa93-6f69-59cf-a4dd-5d8d7d4231cf",
+      "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
     },
     {
       "type": "relationship",
@@ -104772,6 +104783,70 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9008aa93-6f69-59cf-a4dd-5d8d7d4231cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T07:57:21.000Z",
+      "modified": "2026-10-22T19:01:06.000Z",
+      "name": "eMudhra: Intermediate certificate private key compromise",
+      "description": "## Overview\n\nOn October 17, 2026, Mozilla confirmed that private keys associated with eight eMudhra intermediate certificates were compromised. These keys allow an attacker to issue fraudulent HTTPS certificates for websites they do not control, enabling the interception and modification of encrypted traffic (Man-in-the-Middle). \n\nMozilla implemented mitigations via OneCRL, a centralized certificate revocation list, for all standard Firefox configurations. Additionally, Mozilla released Firefox 158.0.1, Firefox ESR 115.43.1, and Firefox ESR 153.5.1 to provide protections for users with custom configurations, and updated the NSS library (version 3.131.1) to remove the root certificate that signed the affected intermediates.\n\n## Impact\n\nThe compromise of these intermediate keys allows an attacker capable of intercepting a user connection to impersonate any website, potentially exposing sensitive user data or allowing the injection of malicious content into HTTPS sessions.\n\n## Recommendation\n\n- Update all instances of Firefox to 158.0.1 (Desktop/Android) or the latest ESR versions (115.43.1 / 153.5.1) to ensure revocation coverage for custom configurations.\n- Organizations utilizing the NSS (Network Security Services) library should update to version 3.131.1 or later to ensure the affected root certificate is untrusted.\n- Audit infrastructure that relies on the eMudhra trust store for certificate validation.\n",
+      "published": "2026-10-21T07:57:21.000Z",
+      "labels": [
+        "certificate-authority",
+        "certificate-compromise",
+        "infrastructure-integrity",
+        "pki",
+        "supply-chain",
+        "supply-chain-security"
+      ],
+      "object_refs": [
+        "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--19d81591-baac-50c5-91cf-2bb5fe0a565a",
+        "software--5b314031-5e6e-540c-869b-4e2dbd8939d0",
+        "software--723c36fa-e826-5f3a-bbbc-6446245db89c",
+        "software--87ad9cef-7578-5eb1-813d-379234dcf9a3",
+        "software--b68293e9-d302-512b-b7b7-6d0b561b14fc",
+        "software--fe67d4d9-8104-5bd7-85a4-97012fa4f2df"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-emudhra-cert-compromise",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-cert-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://groups.google.com/a/mozilla.org/g/dev-tech-crypto/c/vSxZxnOMMvs"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://therecord.media/indian-tech-company-announces-withdrawal-certificate-business-incident"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.firefox.com/en-US/firefox/158.0.1/releasenotes/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-cert-compromise",
+      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-cert-compromise",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-cert-compromise/",
+      "x_craftedsignal_activity_at": "2026-10-22T19:01:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--901ec734-09f5-55b5-a113-5ddaeca1e088",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T04:24:16.000Z",
@@ -143887,6 +143962,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--19d81591-baac-50c5-91cf-2bb5fe0a565a",
+      "name": "Firefox (\u003c= 158.0.0)",
+      "vendor": "eMudhra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--19f2bdfa-b263-5f70-9b4f-b9f59e497455",
       "name": "webpki-roots (\u003c 1.0.10)"
     },
@@ -147394,6 +147476,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5b314031-5e6e-540c-869b-4e2dbd8939d0",
+      "name": "eMudhra intermediate certificates",
+      "vendor": "eMudhra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5b35893a-88c3-5f4d-b4e6-b3c4ffd5fe7f",
       "name": "vm2 (\u003c 3.12.2)"
     },
@@ -148702,6 +148791,13 @@
       "id": "software--7212816c-1796-5d8e-8464-078a49bb6175",
       "name": "Manufacturing Integration and Intelligence",
       "vendor": "SAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--723c36fa-e826-5f3a-bbbc-6446245db89c",
+      "name": "NSS (\u003c 3.131.1)",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -150031,6 +150127,13 @@
       "spec_version": "2.1",
       "id": "software--874eaa98-16c5-5e81-8b3a-6db3763e2b4b",
       "name": "python-utcp (\u003c 1.1.4)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--87ad9cef-7578-5eb1-813d-379234dcf9a3",
+      "name": "Firefox ESR (\u003c 115.43.1)",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -152637,6 +152740,13 @@
       "id": "software--b6711f9f-f725-52b3-a808-89da56d934fb",
       "name": "Active Directory Domain Services",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b68293e9-d302-512b-b7b7-6d0b561b14fc",
+      "name": "eMudhra Intermediate Certificates (issued April 2025 – October 2026)",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
@@ -156367,6 +156477,13 @@
       "id": "software--fe4c2811-51e4-5295-af63-2d06b66afeb8",
       "name": "Cloud SDK for Python",
       "vendor": "SAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fe67d4d9-8104-5bd7-85a4-97012fa4f2df",
+      "name": "Firefox ESR (\u003c 153.5.1)",
+      "vendor": "eMudhra"
     },
     {
       "type": "software",
