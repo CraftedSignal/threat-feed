@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-10-22-gitlab-rce
 event_id: brief-2026-10-22-gitlab-rce
-revision: 1
-activity_at: "2026-10-05T18:41:35Z"
+revision: 2
+activity_at: "2026-10-22T07:18:53Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-22T07:18:53Z"
+    checksum: sha256:10c2bc19f2af6e9951d1524d786b5701f082810cc40a497c650a1b1eda73ba73
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=8CCEC99A-03D9-5D89-A0D2-CAD1C226E86D&utm_source=rss&utm_medium=rss
 title: 'GitLab CE/EE: Unauthenticated remote code execution (CVE-2026-110264)'
 slug: 2026-10-gitlab-rce
 description: An integer overflow vulnerability in GitLab CE/EE allows unauthenticated attackers to execute arbitrary code via specially crafted regular expressions.
 date: "2026-10-05T18:41:35Z"
+lastmod: "2026-10-22T05:59:46Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +39,9 @@ qa_status:
   validation_status: Checked against NVD content
 cpes:
   - cpe:2.3:a:gitlab:ce_ee:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=8CCEC99A-03D9-5D89-A0D2-CAD1C226E86D&utm_source=rss&utm_medium=rss
 tags:
   - cve
   - rce
@@ -39,6 +57,8 @@ products:
   - GitLab CE/EE (19.3.0 - 19.3.5)
   - GitLab CE/EE (19.4.0 - 19.4.2)
   - GitLab CE/EE (19.5.0)
+  - GitLab CE (7.0-18.11.12)
+  - GitLab EE
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -52,6 +72,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110264
+  - https://sploitus.com/exploit?id=8CCEC99A-03D9-5D89-A0D2-CAD1C226E86D&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -68,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-110264
       evidence: Source advises patching across specified version branches.
+updates:
+  - at: "2026-10-22T05:59:46Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=8CCEC99A-03D9-5D89-A0D2-CAD1C226E86D&utm_source=rss&utm_medium=rss
 ---
 
 A critical integer overflow vulnerability (CVE-2026-110264) exists in GitLab CE/EE, enabling unauthenticated remote code execution. The vulnerability is triggered when the application processes a specially crafted regular expression. This issue affects multiple GitLab release branches: versions 7.0 through 18.11.12, 19.0.0 through 19.0.9, 19.1.0 through 19.1.8, 19.2.0 through 19.2.8, 19.3.0 through 19.3.5, 19.4.0 through 19.4.2, and 19.5.0.
