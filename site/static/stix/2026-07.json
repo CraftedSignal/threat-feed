@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--331e9091-d125-5c6a-9d77-b5bc67f85bf2",
+  "id": "bundle--dd4a53f1-2a6e-509c-b055-c2b96b92e823",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15290,17 +15290,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--69da3aad-603c-50d7-afa5-67318193e8b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6a3ac620-f9cc-5a21-bcbf-01d8df51adde",
-      "target_ref": "vulnerability--be473025-292b-5431-b9c0-f181b8b73b6f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6a18bee3-d41b-5be2-ac5d-8032a6c4f3f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -22319,17 +22308,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d0871796-8f31-5879-98c1-16d2f1ea0101",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ae96e242-facd-5fa4-bd18-3e9fb50734bb",
-      "target_ref": "vulnerability--be473025-292b-5431-b9c0-f181b8b73b6f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d08d953e-e83d-54a4-9ab5-785e4de96542",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:58:58.000Z",
@@ -25443,17 +25421,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--fdb947e3-f1ad-50a4-b4d1-bbbfb28b77c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T19:18:59.000Z",
-      "modified": "2026-07-24T19:18:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1b57c412-7b51-54e0-8c33-f3f82c78563a",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--fdde3706-7aea-580a-bb8d-fe49a2e466e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27192,55 +27159,6 @@
       },
       "x_craftedsignal_cvss_max": 6.5,
       "x_craftedsignal_epss_max": 0.00176,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1b57c412-7b51-54e0-8c33-f3f82c78563a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T19:18:59.000Z",
-      "modified": "2026-07-24T19:18:59.000Z",
-      "name": "Red Hat Advanced Cluster Management Vulnerability Allows Cluster-Admin Privilege Escalation",
-      "description": "## Overview\n\nA high-severity vulnerability, CVE-2026-17107, has been identified in the `cluster-proxy service-proxy` component of Red Hat Advanced Cluster Management for Kubernetes (RHACM) and multicluster-engine (MCE). This flaw enables an authenticated hub principal to achieve `cluster-admin` privileges across all managed clusters. The `service-proxy` component is designed to append impersonation group headers to proxied requests but fails to adequately remove or validate caller-supplied values. Attackers can exploit this by injecting a malicious `Impersonate-Group` header, such as `system:masters`. Coupled with the unrestricted impersonation permissions held by the spoke ServiceAccount, this bypasses authorization checks, allowing unauthorized privilege escalation. This vulnerability poses a significant risk to the security and integrity of environments utilizing RHACM or MCE, as it grants full administrative control over critical Kubernetes resources.\n\n## Attack Chain\n\n1. **Initial Access**: An attacker gains authenticated access as a hub principal to the Red Hat Advanced Cluster Management or Multicluster Engine platform.\n2. **Vulnerability Identification**: The authenticated attacker identifies the `cluster-proxy service-proxy` component as vulnerable, specifically its failure to validate or remove caller-supplied `Impersonate-Group` headers.\n3. **Request Crafting**: The attacker crafts a malicious proxied request intended for a managed cluster, embedding a forged `Impersonate-Group: system:masters` header within it.\n4. **Header Injection**: The crafted request, containing the malicious header, is sent to the `cluster-proxy service-proxy` component.\n5. **Lack of Validation**: The `service-proxy` processes the request and, due to the identified flaw, appends the attacker-supplied `Impersonate-Group` header without proper validation or prior removal of existing values.\n6. **Privilege Escalation via Spoke ServiceAccount**: The proxied request, now containing the injected `system:masters` group, reaches the target managed cluster. The spoke ServiceAccount, which possesses unrestricted impersonation permissions, processes this request with `cluster-admin` privileges.\n7. **Administrative Control**: The attacker successfully escalates privileges and gains `cluster-admin` access on the managed cluster, enabling full control over all Kubernetes resources and configurations within that cluster.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-17107 allows an authenticated attacker to gain `cluster-admin` privileges on all managed clusters within the Red Hat Advanced Cluster Management or Multicluster Engine environment. This grants full administrative control, potentially leading to complete compromise of the clusters, including data exfiltration, service disruption, deployment of malicious workloads, or further lateral movement within the compromised infrastructure. Given the critical role of cluster-admin privileges, this vulnerability could severely impact the confidentiality, integrity, and availability of the affected Kubernetes environments.\n\n## Recommendation\n\n* Patch CVE-2026-17107 by updating Red Hat Advanced Cluster Management for Kubernetes and multicluster-engine to the versions specified in the vendor advisory from Red Hat.\n* Monitor platform logs for the `cluster-proxy service-proxy` component for any unusual `Impersonate-Group` headers in proxied requests, particularly those not originating from known legitimate internal services.\n* Review and restrict ServiceAccount permissions within your Kubernetes environment to follow the principle of least privilege, especially for ServiceAccounts involved in proxying or impersonation, to limit the blast radius of similar vulnerabilities.\n",
-      "published": "2026-07-24T19:18:59.000Z",
-      "labels": [
-        "cloud",
-        "kubernetes",
-        "privilege-escalation",
-        "red-hat",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6a3ac620-f9cc-5a21-bcbf-01d8df51adde",
-        "software--ae96e242-facd-5fa4-bd18-3e9fb50734bb",
-        "vulnerability--be473025-292b-5431-b9c0-f181b8b73b6f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-17107-rhacm",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-17107-rhacm/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17107"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-17107-rhacm",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-17107-rhacm",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-17107-rhacm/",
-      "x_craftedsignal_activity_at": "2026-07-24T19:18:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -43984,13 +43902,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6a3ac620-f9cc-5a21-bcbf-01d8df51adde",
-      "name": "multicluster-engine",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6bed4f9c-8275-51ac-8d0c-66ff2ff9febe",
       "name": "SMS Alert – SMS \u0026 OTP for WooCommerce, Order Notifications \u0026 Abandoned Cart Recovery plugin (\u003c 3.9.7)"
     },
@@ -44947,13 +44858,6 @@
       "spec_version": "2.1",
       "id": "software--ae78e911-b0da-5b60-96d6-81ce5687627c",
       "name": "Fusion (26H1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ae96e242-facd-5fa4-bd18-3e9fb50734bb",
-      "name": "Red Hat Advanced Cluster Management for Kubernetes",
-      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -48229,22 +48133,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-44101",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44101"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--be473025-292b-5431-b9c0-f181b8b73b6f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-17107",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-17107",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17107"
         }
       ]
     },
