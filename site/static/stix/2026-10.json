@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9960a125-f69e-5ffc-84a2-0b60c415339a",
+  "id": "bundle--bdb8b6ea-262d-5587-a126-0423a45f22b2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18972,6 +18972,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b3ba619e-2dcf-556e-8e1e-661c2aef7be9",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c95da50-d96e-58be-a392-4801c48d1f07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b1ca2aa-d9e8-5e53-b944-8f0c70bfbe48",
+      "target_ref": "vulnerability--a0412388-946a-5527-a910-533ae8e6b23c"
     },
     {
       "type": "relationship",
@@ -41896,6 +41907,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3cef7f2c-ed11-5541-be11-1c4654eab8e5",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e9e6e0bb-0f9d-5841-af5c-c7f0758c74c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T14:00:01.000Z",
+      "modified": "2026-10-22T14:00:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9c524574-38dd-525e-a767-5610e1220ec1",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -85796,6 +85818,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9c524574-38dd-525e-a767-5610e1220ec1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T14:00:01.000Z",
+      "modified": "2026-10-22T14:00:01.000Z",
+      "name": "YiShaAdmin: Unauthenticated path traversal (CVE-2022-51022)",
+      "description": "## Overview\nYiShaAdmin versions 2.2 through 3.1 are vulnerable to unauthenticated path traversal via the /admin/File/DownloadFile endpoint. Attackers can leverage the 'filePath' and 'delete' parameters to read or remove arbitrary files on the underlying system. Exploitation in the wild has been observed since October 2023. This issue is resolved in commit 025b0628b1295bd2d9fd6c9b5b82692a345151ef.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to access sensitive system files or cause service disruption by deleting arbitrary files.\n\n## Recommendation\n- Update YiShaAdmin to the latest version or apply the fix provided in commit 025b0628b1295bd2d9fd6c9b5b82692a345151ef.\n- Implement a web application firewall (WAF) rule to inspect requests to /admin/File/DownloadFile for directory traversal sequences (e.g., ../, ..\\).\n- Deploy the provided Sigma rule to detect exploitation attempts targeting this endpoint.\n",
+      "published": "2026-10-22T14:00:01.000Z",
+      "labels": [
+        "cve-2022-51022",
+        "path-traversal",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2b1ca2aa-d9e8-5e53-b944-8f0c70bfbe48",
+        "vulnerability--a0412388-946a-5527-a910-533ae8e6b23c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-yishaadmin-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-yishaadmin-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/liukuo362573/YiShaAdmin/commit/025b0628b1295bd2d9fd6c9b5b82692a345151ef"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://huntr.com/bounties/2acdd87a-12bd-4ce4-994b-0081eb908128"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2022-51022\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.vulncheck.com/advisories/yishaadmin-3.1-unauthenticated-path-traversal-via-downloadfile-endpoint"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-yishaadmin-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-22-yishaadmin-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-yishaadmin-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-22T14:00:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9c6938bc-0954-5d0e-940c-609d2b61dacf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:55:54.000Z",
@@ -113744,6 +113824,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b1ca2aa-d9e8-5e53-b944-8f0c70bfbe48",
+      "name": "YiShaAdmin (2.2 through 3.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2b9f11e2-7c58-58cf-908f-b314195a3c32",
       "name": "Wubang Five-in-One Safety Production Management Information System (\u003c= 3.5)",
       "vendor": "Wuxi Wubang Security Software"
@@ -134636,6 +134722,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113470",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113470"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a0412388-946a-5527-a910-533ae8e6b23c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-51022",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-51022",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-51022"
         }
       ]
     },
