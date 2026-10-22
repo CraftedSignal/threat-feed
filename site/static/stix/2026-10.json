@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d0181db7-1d5a-521d-afc4-9aa904ff9a54",
+  "id": "bundle--e4ead0d0-b27c-5687-9a17-fc1fd119754f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -159,6 +159,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1027",
           "url": "https://attack.mitre.org/techniques/T1027"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--05c809e6-b78d-50a8-9596-6fa469119e77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "AppInit DLLs",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1546.010",
+          "url": "https://attack.mitre.org/techniques/T1546/010"
         }
       ]
     },
@@ -3174,6 +3190,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--1aa3b2db-833b-5d86-a8ed-38a5d155b2f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "ip: 165.227.201.8",
+      "description": "IP address used by threat actors to validate stolen AWS credentials",
+      "pattern": "[ipv4-addr:value = '165.227.201.8']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--1bc81ee8-f390-5c4d-bc06-dbc165697066",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: 1bbce8caa94f01c0aaa0b7ddae51553a8a32e1ce53d96d44fe583272aff7ad00",
+      "description": "Malicious LiteLLM 1.107.0 wheel (musllinux x86_64)",
+      "pattern": "[file:hashes.'SHA-256' = '1bbce8caa94f01c0aaa0b7ddae51553a8a32e1ce53d96d44fe583272aff7ad00']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--1ca45d30-9615-5054-b305-0e6cafc96922",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T08:39:25.000Z",
@@ -3473,6 +3515,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--49dbdaff-8485-589d-a934-ac59ab0d2494",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "ip: 168.100.8.57",
+      "description": "IP address used by threat actors to validate stolen AWS credentials",
+      "pattern": "[ipv4-addr:value = '168.100.8.57']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4f884754-57b6-5a8a-b87d-8bb44128a774",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:19:28.000Z",
@@ -3577,6 +3632,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--6d6c589b-f4bf-59d0-a9b6-5f2c837e38fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "domain: litellm.dev",
+      "description": "Exfiltration destination for stolen credentials via healthcheck endpoint",
+      "pattern": "[domain-name:value = 'litellm.dev']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--6ee404a6-62c1-5a94-8e87-a5dcebdc181c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:19:28.000Z",
@@ -3612,6 +3680,32 @@
       "pattern": "[domain-name:value = '*.gboogl.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7313892a-fbaf-5c0d-aefb-1b561a7469cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: 462d0c9f67ca522d9e0e4acd245e90b36ce0d5353604a66bb7c43a1ec4a6fcf7",
+      "description": "Malicious LiteLLM 1.107.0 wheel (Linux x86_64)",
+      "pattern": "[file:hashes.'SHA-256' = '462d0c9f67ca522d9e0e4acd245e90b36ce0d5353604a66bb7c43a1ec4a6fcf7']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--7506fdab-bf6f-503f-876c-a2202b9e91c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: c2e32d0ce2548aa662c18bf5001911a79fe5b30cf8357132275add02fdcde054",
+      "description": "Malicious LiteLLM 1.107.0 wheel (musllinux aarch64)",
+      "pattern": "[file:hashes.'SHA-256' = 'c2e32d0ce2548aa662c18bf5001911a79fe5b30cf8357132275add02fdcde054']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
     },
     {
       "type": "indicator",
@@ -3746,6 +3840,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--83989a85-ef5a-5301-a4a1-5ca645abccd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: 7598727f209d717041db37f7dca271d3a7d328a279890e0e1d55375729aeb86d",
+      "description": "Malicious LiteLLM 1.107.0 wheel (macOS x86_64)",
+      "pattern": "[file:hashes.'SHA-256' = '7598727f209d717041db37f7dca271d3a7d328a279890e0e1d55375729aeb86d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--8ab18d39-97ac-5e8d-b3c6-101a1db5fecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -3833,6 +3940,19 @@
       "pattern": "[domain-name:value = 'router.huggingface.co']",
       "pattern_type": "stix",
       "valid_from": "2026-10-05T12:17:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a531745b-46bf-5c3c-99ef-31ca7a96d1b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: bd1aeee419ea36da9aa2b657288da4101887be468f020ac63d22ba6ed84a3ea5",
+      "description": "Malicious LiteLLM 1.107.0 Docker image (Linux/amd64)",
+      "pattern": "[file:hashes.'SHA-256' = 'bd1aeee419ea36da9aa2b657288da4101887be468f020ac63d22ba6ed84a3ea5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
     },
     {
       "type": "indicator",
@@ -4136,6 +4256,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--d3595259-e16d-518a-aab3-6694fcdc1704",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: 668169d35b87bf51324080390b1b1c5ab12bd335cfe5f1a99e3689abd5e02ae6",
+      "description": "Malicious LiteLLM 1.107.0 wheel (Linux aarch64)",
+      "pattern": "[file:hashes.'SHA-256' = '668169d35b87bf51324080390b1b1c5ab12bd335cfe5f1a99e3689abd5e02ae6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d4d8630d-1872-51d4-b964-db62501f864b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "url: http://www.litellm.dev/healthcheck",
+      "description": "Exfiltration endpoint for stolen secrets",
+      "pattern": "[url:value = 'http://www.litellm.dev/healthcheck']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--d671c35d-6ce9-5bbf-8c92-a077699e9ca9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T10:33:30.000Z",
@@ -4201,6 +4347,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--e5f4b656-7710-5444-8fb1-e82739ce5b41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: 56b74573eed6e4aafe4b50603dbe7853e0345f188c8e44a09f1098caf1f4bcdf",
+      "description": "Malicious LiteLLM 1.107.0 Docker image (Linux/arm64)",
+      "pattern": "[file:hashes.'SHA-256' = '56b74573eed6e4aafe4b50603dbe7853e0345f188c8e44a09f1098caf1f4bcdf']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e694ac48-0556-5f0d-9d1d-e11bf9844809",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: 0aaf7ba346d41ef2f40390436738b001180d5a1c03aa093f121078a9969d9a1a",
+      "description": "Malicious LiteLLM 1.107.0 wheel (macOS arm64)",
+      "pattern": "[file:hashes.'SHA-256' = '0aaf7ba346d41ef2f40390436738b001180d5a1c03aa093f121078a9969d9a1a']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--e7b66575-106c-524c-9d3c-e8249211a9c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T06:25:40.000Z",
@@ -4236,6 +4408,19 @@
       "pattern": "[domain-name:value = '*.fbsbx.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ea93ebaa-dcf0-52c7-98d3-9d81fa0340e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "hash_sha256: 12d4ccc5c6f8d35cf4f2cf233b7f3e418e863e657d81ff5f5fc9e210005b9484",
+      "description": "Malicious LiteLLM 1.107.0 wheel (win_amd64)",
+      "pattern": "[file:hashes.'SHA-256' = '12d4ccc5c6f8d35cf4f2cf233b7f3e418e863e657d81ff5f5fc9e210005b9484']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:21:38.000Z"
     },
     {
       "type": "indicator",
@@ -4524,6 +4709,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--00dea51c-ad6c-539f-b5eb-c1672fb0835a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--1aa3b2db-833b-5d86-a8ed-38a5d155b2f2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--00eb1762-bd13-507c-a6d3-0bddf2990201",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T10:12:14.000Z",
@@ -4597,6 +4793,17 @@
       "relationship_type": "has",
       "source_ref": "software--e9221ac6-653b-5f7d-9f7e-1190740478f9",
       "target_ref": "vulnerability--dc743f9b-ca4e-5074-9d78-8ef60e458680"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0124cf06-9a62-50f9-b746-5f4e9934d103",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--ea93ebaa-dcf0-52c7-98d3-9d81fa0340e9"
     },
     {
       "type": "relationship",
@@ -8781,6 +8988,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b9204d6-48f0-51ac-92b8-f76f3fb882e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--6d6c589b-f4bf-59d0-a9b6-5f2c837e38fe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b95bad0-76c8-51f8-a850-bd6a07a1d2a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9767,6 +9985,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d36fb2cd-0a05-50ac-960f-43b9da3400e7",
       "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2325d802-2de0-5bf2-8f86-e8740952e717",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -11571,6 +11800,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a3f612d8-7651-5df8-b62d-7add1c12e41f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2f38e56f-2ef8-5f98-aac9-4e7a6c5018f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--83989a85-ef5a-5301-a4a1-5ca645abccd2"
     },
     {
       "type": "relationship",
@@ -13478,6 +13718,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3cdd41a7-cace-5a1b-ac56-a9de865850ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--e694ac48-0556-5f0d-9d1d-e11bf9844809"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d1e6dce-6e35-584d-9c37-001cf4e42f4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14193,6 +14444,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--41965808-6ed0-55f5-96d8-bbdd34bd0d00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--e5f4b656-7710-5444-8fb1-e82739ce5b41"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--41ae1525-cb3c-58c5-8122-df7b67c98aa6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:22:59.000Z",
@@ -14607,6 +14869,17 @@
       "relationship_type": "uses",
       "source_ref": "report--02ed77b2-250c-5cc3-b13c-a46f70143880",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--43f2adcc-ef0e-5817-bfca-7300bd58feee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--49dbdaff-8485-589d-a934-ac59ab0d2494"
     },
     {
       "type": "relationship",
@@ -18604,6 +18877,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5d711e84-8292-519d-8974-375b57a8ab29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--d3595259-e16d-518a-aab3-6694fcdc1704"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5d779099-a9eb-54e0-a1bb-5dcc150eb4b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:23:17.000Z",
@@ -19124,7 +19408,7 @@
       "id": "relationship--614f6935-3c62-527f-8a67-68e788654b56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:05:59.000Z",
-      "modified": "2026-10-21T17:05:59.000Z",
+      "modified": "2026-10-22T09:36:28.000Z",
       "relationship_type": "uses",
       "source_ref": "report--df9ba893-b2c6-523a-ba49-ab58f6a2b0a4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -21222,6 +21506,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6f05de6c-f52c-555f-af64-35df86189455",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--7313892a-fbaf-5c0d-aefb-1b561a7469cc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6f0f9397-2a6a-5728-a394-1b569402be32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T20:32:23.000Z",
@@ -23066,6 +23361,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a706e3fa-f59f-5798-aeb9-cc57c9339436",
       "target_ref": "attack-pattern--5e05d029-d159-5289-9f03-3641066e4011"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7a06f3f2-2051-5db6-a502-38aed9355d1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "attack-pattern--05c809e6-b78d-50a8-9596-6fa469119e77"
     },
     {
       "type": "relationship",
@@ -25420,6 +25726,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0c8211be-de99-5e83-8a5b-39f5bd90b643",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--894e3df6-60a3-5c68-b9ae-2a90cd1cd4c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--d4d8630d-1872-51d4-b964-db62501f864b"
     },
     {
       "type": "relationship",
@@ -30308,6 +30625,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a86c114d-bbda-540f-b9ed-8cc0277339c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--7506fdab-bf6f-503f-876c-a2202b9e91c5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a87190a5-7efb-5a16-8fa1-6d83fdf18577",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T20:20:31.000Z",
@@ -32662,6 +32990,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b7eb362a-38f7-5147-b6be-6247e68bb2de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T17:05:59.000Z",
+      "modified": "2026-10-22T09:36:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df9ba893-b2c6-523a-ba49-ab58f6a2b0a4",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b804661a-3903-5f09-8117-4b61d7e62e6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33549,6 +33888,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cc50f326-3642-585c-9803-354938081642",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc98f6ec-5667-50c5-b015-599ada1366c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
     },
     {
       "type": "relationship",
@@ -36589,6 +36939,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d12e1a88-909b-5bfc-b905-6a782785d868",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a05b45dc-bdf6-5dc2-bd3b-3219c0765361",
+      "target_ref": "vulnerability--a0ab9a5a-7820-5fcc-a305-71ea06182780"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d12f45d0-22d1-5a2c-8e9f-2ba345ccea05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36915,6 +37276,17 @@
       "relationship_type": "uses",
       "source_ref": "report--439a93b9-f320-5248-afd8-32912320165e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d3276b00-9eba-548c-98db-72e0e29491f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--a531745b-46bf-5c3c-99ef-31ca7a96d1b7"
     },
     {
       "type": "relationship",
@@ -41271,6 +41643,17 @@
       "relationship_type": "has",
       "source_ref": "software--fcfd626f-c59d-528f-9ee4-0cf72cea1cb2",
       "target_ref": "vulnerability--f84f486c-3c94-5209-b1aa-937d490cd783"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eb750df0-5431-5284-8100-1b8f9db17a8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "target_ref": "indicator--1bc81ee8-f390-5c4d-bc06-dbc165697066"
     },
     {
       "type": "relationship",
@@ -83266,6 +83649,73 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:21:38.000Z",
+      "modified": "2026-10-22T09:35:47.000Z",
+      "name": "LiteLLM Supply Chain Compromise",
+      "description": "## Overview\nOn October 21, 2026, version 1.107.0 of the LiteLLM package was identified as malicious on PyPI and Docker registries. The package contained embedded malicious scripts (`cook.pth`, `cook.py`, and `sitecustomize.py`) designed to execute automatically upon Python interpreter initialization. These scripts perform credential harvesting and attempt to establish command-and-control communication.\n\n## Attack Chain\n1. Compromised LiteLLM package (v1.107.0) is installed via PyPI or pulled from Docker registries.\n2. Python interpreter initializes, triggering the execution of `cook.pth` which imports `cook.py`.\n3. `cook.py` runs an obfuscated credential-stealer routine targeting browser, cloud, and AI secrets.\n4. Stolen credentials are encrypted and exfiltrated to an attacker-controlled endpoint (`www.litellm.dev/healthcheck`).\n5. On Linux and macOS systems, `sitecustomize.py` attempts to fetch a secondary stage payload URL from a GitHub dead drop.\n6. The second-stage script, if retrieved, would be downloaded and executed on the host.\n\n## Impact\nThe malicious package successfully harvested system, browser, developer, cloud, and AI tool secrets from compromised environments. The exfiltration endpoint was configured to receive this sensitive data via HTTP POST requests.\n\n## Recommendation\n- Immediately audit environments for the presence of LiteLLM v1.107.0 and downgrade to the known safe version (v1.106.2).\n- Review network logs for egress traffic to `www.litellm.dev` or communication attempts with GitHub-hosted dead drops from Python processes.\n- Rotate all credentials (cloud, AI, browser-stored) that may have been present in environments where the malicious package was executed.\n- Scan file systems for the artifacts `cook.pth`, `cook.py`, and `sitecustomize.py` in Python site-packages directories.\n",
+      "published": "2026-10-21T14:21:38.000Z",
+      "labels": [
+        "credential-theft",
+        "python",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--05c809e6-b78d-50a8-9596-6fa469119e77",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--1aa3b2db-833b-5d86-a8ed-38a5d155b2f2",
+        "indicator--1bc81ee8-f390-5c4d-bc06-dbc165697066",
+        "indicator--49dbdaff-8485-589d-a934-ac59ab0d2494",
+        "indicator--6d6c589b-f4bf-59d0-a9b6-5f2c837e38fe",
+        "indicator--7313892a-fbaf-5c0d-aefb-1b561a7469cc",
+        "indicator--7506fdab-bf6f-503f-876c-a2202b9e91c5",
+        "indicator--83989a85-ef5a-5301-a4a1-5ca645abccd2",
+        "indicator--a531745b-46bf-5c3c-99ef-31ca7a96d1b7",
+        "indicator--d3595259-e16d-518a-aab3-6694fcdc1704",
+        "indicator--d4d8630d-1872-51d4-b964-db62501f864b",
+        "indicator--e5f4b656-7710-5444-8fb1-e82739ce5b41",
+        "indicator--e694ac48-0556-5f0d-9d1d-e11bf9844809",
+        "indicator--ea93ebaa-dcf0-52c7-98d3-9d81fa0340e9",
+        "software--685a2c96-41ce-5886-9c40-dba8450a3532"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-litellm-compromise",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-litellm-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/blueteamsec/comments/1xbp4ez/security_litellm_11070_compromised_pypi_removed/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/litellm-compromised-steals-credentials"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-litellm-compromise",
+      "x_craftedsignal_event_id": "brief-2026-10-21-litellm-compromise",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-litellm-compromise/",
+      "x_craftedsignal_activity_at": "2026-10-22T09:35:47.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--97c33b32-dfec-51b9-8cbc-0f8a368a184f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T06:50:25.000Z",
@@ -102000,7 +102450,7 @@
       "id": "report--df9ba893-b2c6-523a-ba49-ab58f6a2b0a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:05:59.000Z",
-      "modified": "2026-10-21T17:05:59.000Z",
+      "modified": "2026-10-22T09:36:28.000Z",
       "name": "Node.js: DNS Resolver NUL Byte Truncation (CVE-2026-105482)",
       "description": "## Overview\nNode.js versions before 22.23.4, 24.22.1, and 26.12.1 are vulnerable to a NUL byte truncation issue within the `dns.resolve*` functions. The vulnerability exists because these functions pass hostname strings to the c-ares library, which processes them as C-style strings. When a NUL byte (`\\0`) is included in a hostname (e.g., `attacker.com\\0.trusted.corp`), application-level allowlist checks may evaluate the full string as legitimate, but the underlying DNS resolver truncates the string at the NUL byte, resulting in a query to an attacker-controlled domain. This flaw enables Server-Side Request Forgery (SSRF) against internal services.\n\n## Impact\nSuccessful exploitation allows an attacker to bypass domain-based allowlists implemented via `endsWith`, `includes`, or `match` functions. This facilitates SSRF attacks against internal infrastructure, including `169.254.169.254` (metadata services), local services, or restricted internal network assets.\n\n## Recommendation\n- Upgrade Node.js installations to the patched versions: 22.23.4, 24.22.1, or 26.12.1.\n- Implement application-level input validation to reject hostnames containing a NUL byte (`\\0`) before passing them to DNS resolution functions.\n- Audit custom security wrappers that rely on hostname string comparisons to filter outgoing traffic or allowlist internal resources.\n",
       "published": "2026-10-21T17:05:59.000Z",
@@ -102008,12 +102458,16 @@
         "dns",
         "nodejs",
         "ssrf",
-        "vulnerability"
+        "supply-chain",
+        "vulnerability",
+        "web-security"
       ],
       "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--5c97f18e-1c05-5961-8ffc-f3e9eef5107d",
+        "software--a05b45dc-bdf6-5dc2-bd3b-3219c0765361",
         "vulnerability--a0ab9a5a-7820-5fcc-a305-71ea06182780"
       ],
       "external_references": [
@@ -102033,14 +102487,18 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=4E75DBD2-8E80-56B2-BDA5-0C8BE7F08DA8\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-21-nodejs-dns-ssrf",
       "x_craftedsignal_event_id": "brief-2026-10-21-nodejs-dns-ssrf",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nodejs-dns-ssrf/",
-      "x_craftedsignal_activity_at": "2026-10-21T17:05:59.000Z",
+      "x_craftedsignal_activity_at": "2026-10-22T09:36:28.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -114552,6 +115010,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--685a2c96-41ce-5886-9c40-dba8450a3532",
+      "name": "LiteLLM (1.107.0)",
+      "vendor": "BerriAI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--685e78a9-3841-5ffe-aa23-1f5719295602",
       "name": "lopdf (\u003c 0.42.0)"
     },
@@ -116881,6 +117346,13 @@
       "id": "software--a0099c91-b126-5f23-af6c-3da827dd8691",
       "name": "WP Mailster (\u003c= 1.9.1.0)",
       "vendor": "WP Mailster"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a05b45dc-bdf6-5dc2-bd3b-3219c0765361",
+      "name": "Node.js (22.x, 24.x, 26.x)",
+      "vendor": "Node.js"
     },
     {
       "type": "software",

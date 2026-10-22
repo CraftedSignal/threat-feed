@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ecc91b0e-577e-55b8-9384-0246ba795940",
+  "id": "bundle--462b4734-d2b4-51dd-a57f-3dbf13fb637c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4687,18 +4687,6 @@
       "pattern": "[domain-name:value = '*.supabase.co']",
       "pattern_type": "stix",
       "valid_from": "2026-07-27T18:13:03.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--76941ab1-7314-546d-8e3e-d435d41b8539",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:15:11.000Z",
-      "modified": "2026-07-24T09:15:11.000Z",
-      "name": "url: https://www.hybrid-analysis.com/sample/8da5b75b6380a41eee3a399c43dfe0d99eeefaa1fd21027a07b1ecaa4cd96fdd?environmentId=120",
-      "pattern": "[url:value = 'https://www.hybrid-analysis.com/sample/8da5b75b6380a41eee3a399c43dfe0d99eeefaa1fd21027a07b1ecaa4cd96fdd?environmentId=120']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-24T09:15:11.000Z"
     },
     {
       "type": "indicator",
@@ -10095,17 +10083,6 @@
       "relationship_type": "has",
       "source_ref": "software--8396e3a6-5323-533d-a040-77904de889b3",
       "target_ref": "vulnerability--4f562fa1-fe87-57e3-b955-b328541293b8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--12c12a56-8b8d-5e6f-b60f-f2aeac0022d7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:15:11.000Z",
-      "modified": "2026-07-24T09:15:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4a0fc792-e02d-534b-8de2-0915338b1ee9",
-      "target_ref": "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7"
     },
     {
       "type": "relationship",
@@ -15555,17 +15532,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--56f394a0-552f-5f01-8485-b06f2109aef8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:14:06.000Z",
-      "modified": "2026-07-24T09:14:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--76eda820-9f35-5806-aa43-2b10e5f91a7e",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5712a37d-3b25-509b-9c30-82ffd9bb1def",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -18734,17 +18700,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--80ad1a0d-2f24-59c0-887c-8c7c86f7036e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:15:11.000Z",
-      "modified": "2026-07-24T09:15:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4a0fc792-e02d-534b-8de2-0915338b1ee9",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--80b9e737-b20b-593a-b31a-44a4fb77bbc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19306,17 +19261,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--87420af7-5001-5465-ad15-f6423ce99712",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:15:11.000Z",
-      "modified": "2026-07-24T09:15:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4a0fc792-e02d-534b-8de2-0915338b1ee9",
-      "target_ref": "indicator--76941ab1-7314-546d-8e3e-d435d41b8539"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--874e674a-500c-5aec-988d-3ceaab9f42cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T08:09:56.000Z",
@@ -19544,17 +19488,6 @@
       "relationship_type": "has",
       "source_ref": "software--bd3af374-777e-535c-a36f-a25b7beecfad",
       "target_ref": "vulnerability--0ac26304-3b41-5d4c-85a8-0c3b56da7cfb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8abc079d-aa9b-5b91-8ab0-f4af60cd2d4d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:14:06.000Z",
-      "modified": "2026-07-24T09:14:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--76eda820-9f35-5806-aa43-2b10e5f91a7e",
-      "target_ref": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568"
     },
     {
       "type": "relationship",
@@ -23262,17 +23195,6 @@
       "relationship_type": "has",
       "source_ref": "software--0ea95b01-dbce-5feb-86bf-f00e53def055",
       "target_ref": "vulnerability--4ca82d4a-a23f-528f-8ef6-f620f14b1da6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--baa81e80-449a-55bd-9ff0-157aa299f389",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:33:49.000Z",
-      "modified": "2026-07-24T09:33:49.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2fcbd4ee-053b-59e6-994e-026e0add0e33",
-      "target_ref": "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12"
     },
     {
       "type": "relationship",
@@ -31817,50 +31739,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--2fcbd4ee-053b-59e6-994e-026e0add0e33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:33:49.000Z",
-      "modified": "2026-07-24T09:33:49.000Z",
-      "name": "QT Vulnerability Enables File Manipulation",
-      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has reported a medium-severity vulnerability in QT software that allows a remote, unauthenticated attacker to manipulate files on affected systems. This flaw, disclosed on 2026-07-24, could lead to unauthorized modification, corruption, or deletion of critical data, potentially impacting system integrity and availability. While specific exploitation details are not provided, the nature of the vulnerability suggests an attacker could leverage it to achieve various malicious objectives by altering file contents or attributes. This vulnerability poses a significant risk to applications utilizing vulnerable QT components, as file manipulation can be a precursor to further system compromise or data exfiltration.\n\n## Attack Chain\n\n1. A remote, anonymous attacker identifies a system running a vulnerable QT component.\n2. The attacker crafts and sends a specially malformed input to the target QT application or service.\n3. The vulnerable QT component processes the malformed input.\n4. Due to the inherent flaw, this processing leads to an out-of-bounds write or similar condition, allowing arbitrary file manipulation.\n5. The attacker successfully alters, corrupts, or deletes files on the target system, impacting data integrity or system functionality.\n\n## Impact\n\nSuccessful exploitation of this QT vulnerability can lead to unauthorized file manipulation, resulting in data integrity loss, system instability, or even denial of service if critical system files are altered or deleted. The extent of the damage depends on the privileges of the affected QT application and the specific files targeted. While the advisory does not specify observed attacks or victim count, the ability to remotely manipulate files presents a significant risk for systems relying on QT components, potentially enabling further compromise or disruption of services.\n\n## Recommendation\n\n* Patch affected QT products as specified in this brief's `affected_products` section to the latest secure version immediately.\n",
-      "published": "2026-07-24T09:33:49.000Z",
-      "labels": [
-        "file-manipulation",
-        "qt",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--625bcfd0-9318-5abf-8fe9-295efe008e12",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--629158c6-9da4-5924-ba33-113ebe5db23d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-qt-file-manipulation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-qt-file-manipulation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2500"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-qt-file-manipulation",
-      "x_craftedsignal_event_id": "brief-2026-07-qt-file-manipulation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-qt-file-manipulation/",
-      "x_craftedsignal_activity_at": "2026-07-24T09:33:49.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--2ff8a7d9-3f07-5cfc-9bf8-b140e0413b3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T17:29:49.000Z",
@@ -33723,57 +33601,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-apache-wicket-vulnerabilities/",
       "x_craftedsignal_activity_at": "2026-07-28T10:59:12.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4a0fc792-e02d-534b-8de2-0915338b1ee9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:15:11.000Z",
-      "modified": "2026-07-24T09:15:11.000Z",
-      "name": "Suspicious Child Process Creation by Wscript or Cscript",
-      "description": "## Overview\n\nThis brief details a common adversary technique involving the use of Windows Script Host (WScript.exe or CScript.exe) to spawn suspicious child processes. This method is frequently employed by various threat actors and malware to facilitate defense evasion and execution. By leveraging WScript or CScript, attackers can execute Living Off The Land Binaries (LOLBINs) such as `regsvr32.exe`, `rundll32.exe`, `certutil.exe`, `msbuild.exe`, `wmic.exe`, and `mshta.exe`, or launch scripting interpreters like `cmd.exe`, `powershell.exe`, and `pwsh.exe`. This technique also enables attackers to spawn processes in a suspended state for code injection. While some legitimate scripts may use these tools, the detection serves as a strong indicator of potentially malicious activity aimed at bypassing security controls and advancing an attack.\n\n## Impact\n\nSuccessful execution of this technique can lead to a variety of negative outcomes, depending on the specific child process launched and the attacker's objectives. It enables adversaries to execute malicious code, establish persistence, elevate privileges, or perform data exfiltration, ultimately leading to system compromise, data loss, or the deployment of destructive malware. This technique is observed in campaigns related to data destruction, remote access Trojans (RATs) such as NjRAT and Remcos, and other advanced persistent threats, indicating its potential to facilitate severe operational disruption and financial damage.\n\n## Recommendation\n\n* Deploy the Sigma rule \"Detect Suspicious Child Process by Wscript or Cscript\" to your SIEM and tune for your environment to identify adversary activity.\n* Ensure process creation logging, specifically Sysmon EventID 1 or Windows Event Log Security 4688, is enabled and configured to capture parent and child process details, including command-line arguments, as required by the Sigma rule.\n* Investigate alerts generated by the \"Detect Suspicious Child Process by Wscript or Cscript\" rule, cross-referencing process lineage and command-line parameters with known legitimate activity.\n* Analyze the sample available at `https://www.hybrid-analysis.com/sample/8da5b75b6380a41eee3a399c43dfe0d99eeefaa1fd21027a07b1ecaa4cd96fdd?environmentId=120` to understand related behaviors if your organization encounters this specific threat.\n",
-      "published": "2026-07-24T09:15:11.000Z",
-      "labels": [
-        "LOLBIN",
-        "defense-evasion",
-        "endpoint-detection",
-        "execution",
-        "scripting"
-      ],
-      "object_refs": [
-        "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--76941ab1-7314-546d-8e3e-d435d41b8539"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-24-wscript-cscript-child-process",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-wscript-cscript-child-process/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.hybrid-analysis.com/sample/8da5b75b6380a41eee3a399c43dfe0d99eeefaa1fd21027a07b1ecaa4cd96fdd?environmentId=120"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.microsoft.com/security/blog/2022/01/15/destructive-malware-targeting-ukrainian-organizations/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-24-wscript-cscript-child-process",
-      "x_craftedsignal_event_id": "brief-2026-07-24-wscript-cscript-child-process",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-wscript-cscript-child-process/",
-      "x_craftedsignal_activity_at": "2026-07-24T09:15:11.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -36754,51 +36581,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-packagekit-security-bypass/",
       "x_craftedsignal_activity_at": "2026-07-29T09:47:44.000Z",
       "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--76eda820-9f35-5806-aa43-2b10e5f91a7e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T09:14:06.000Z",
-      "modified": "2026-07-24T09:14:06.000Z",
-      "name": "Apache Tomcat mod_jk Connector: Vulnerability Enables Security Bypass or Information Disclosure",
-      "description": "## Overview\n\nA medium-severity vulnerability has been identified in the Apache Tomcat mod_jk Connector, a module used to connect the Apache HTTP Server with Apache Tomcat. This flaw can be exploited by a remote, unauthenticated attacker to either bypass security mechanisms or disclose confidential information. The specific nature of the vulnerability involves how `mod_jk` processes incoming requests, potentially leading to misinterpretation of access controls or unintended exposure of internal data. This puts organizations using Apache HTTP Server as a frontend proxy to Tomcat, particularly those relying on `mod_jk` for secure routing, at risk of unauthorized access to application resources, sensitive configuration details, or other internal information. The vulnerability does not specify a particular version, implying that all versions of the `mod_jk` connector may be affected until a patch is released.\n\n## Attack Chain\n\n1. An unauthenticated attacker performs reconnaissance to identify web servers running Apache HTTP Server acting as a frontend for Apache Tomcat, utilizing the `mod_jk` connector.\n2. The attacker identifies a weakness in `mod_jk`'s request handling, potentially through malformed HTTP headers, URL paths, or request parameters.\n3. The attacker crafts a specialized HTTP request designed to exploit this vulnerability.\n4. The malicious HTTP request is sent to the Apache HTTP Server, which then forwards it to the `mod_jk` connector.\n5. Due to the vulnerability, the `mod_jk` connector misinterprets the crafted request, leading to an unintended security bypass or an information disclosure event.\n6. The Apache Tomcat backend processes the misinterpreted request, granting the attacker unauthorized access to internal resources or returning sensitive data in the HTTP response.\n7. The attacker receives confidential information (e.g., configuration files, internal application data, session tokens) or gains access to restricted application functionalities (e.g., administrative interfaces).\n\n## Impact\n\nSuccessful exploitation of this vulnerability can lead to significant unauthorized access and data breaches. Attackers could bypass authentication or authorization controls, gaining access to sensitive application components or internal network segments. The disclosure of information could include critical system configurations, proprietary application data, user credentials, or other confidential business information. The full extent of impact depends on the nature of the information disclosed or the access gained, potentially leading to further compromise of the affected system and associated backend services.\n\n## Recommendation\n\n* Consult the Apache Tomcat project's official security advisories for patches or mitigation steps for `mod_jk Connector`.\n* Implement robust monitoring of web server access logs and Tomcat application logs for unusual request patterns, access to sensitive endpoints, or large data transfers originating from unauthenticated sessions.\n* Review and harden `mod_jk` and Tomcat configurations to ensure least privilege access and restrict internal resource exposure.\n",
-      "published": "2026-07-24T09:14:06.000Z",
-      "labels": [
-        "defense-evasion",
-        "network",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5f494fc7-cb14-5873-a5b7-9b402d6c1a2a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-apache-tomcat-mod-jk-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-apache-tomcat-mod-jk-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2023-2337"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-apache-tomcat-mod-jk-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-07-apache-tomcat-mod-jk-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-apache-tomcat-mod-jk-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-07-24T09:14:06.000Z",
-      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -48838,13 +48620,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5f494fc7-cb14-5873-a5b7-9b402d6c1a2a",
-      "name": "Tomcat mod_jk Connector",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5ff4c7c4-6fb2-5cb2-9e7b-0b79ce811ea4",
       "name": "vantage6 (\u003c= 5.0.2)",
       "vendor": "vantage6"
@@ -48900,13 +48675,6 @@
       "spec_version": "2.1",
       "id": "software--62572b83-cf42-5b04-8805-8cbe2bef27b3",
       "name": "better-auth \u003c 1.6.22"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--629158c6-9da4-5924-ba33-113ebe5db23d",
-      "name": "QT",
-      "vendor": "The Qt Company"
     },
     {
       "type": "software",
