@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c631c4b5-8560-550c-aae9-c1676feb5f8a",
+  "id": "bundle--7cd03f1c-ecdd-51d8-9e7e-a77c204a6e64",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23061,6 +23061,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--72d35518-b406-5cd6-bc12-0b42cb983413",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3cd97d40-bbb4-542b-b568-c5047d58d3ad",
+      "target_ref": "vulnerability--dabf4f07-3b31-5d58-8b4d-11f713bea490"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--72d41a0b-a08e-594b-84e6-74d1de378ae2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29129,6 +29140,17 @@
       "relationship_type": "uses",
       "source_ref": "report--beb1cdfc-706a-5c0a-8fa2-2e09aa497731",
       "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9714024c-f6b5-5614-817a-2946f7b23b49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3cd97d40-bbb4-542b-b568-c5047d58d3ad",
+      "target_ref": "vulnerability--b1557946-6d2a-53a1-bf2b-3f0168c6ccea"
     },
     {
       "type": "relationship",
@@ -35557,6 +35579,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bd5b6dcd-f7c4-5a01-be18-ad0cd4cd125a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3cd97d40-bbb4-542b-b568-c5047d58d3ad",
+      "target_ref": "vulnerability--99c3da2c-8cc0-5ed1-afed-793b21588c10"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bd759f63-b067-5c2c-8937-87ad56e9b2bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41812,6 +41845,17 @@
       "relationship_type": "uses",
       "source_ref": "report--acea9e23-e69d-559e-b9b6-bfde8aaa2ca0",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e292aac3-48c9-54ad-944c-3bf9ebbb23fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3cd97d40-bbb4-542b-b568-c5047d58d3ad",
+      "target_ref": "vulnerability--b76b6d38-3f8b-5549-9897-46d83d343f88"
     },
     {
       "type": "relationship",
@@ -69873,6 +69917,55 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--58cac4a3-bd3b-53cc-959f-61905cd9225d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T23:52:41.000Z",
+      "modified": "2026-10-22T23:52:41.000Z",
+      "name": "HAPI FHIR: Cross-tenant partition override and authorization bypasses (CVE-2026-113873, CVE-2026-113874, CVE-2026-113875, CVE-2026-113876)",
+      "description": "## Overview\nFour vulnerabilities (CVE-2026-113873, CVE-2026-113874, CVE-2026-113875, CVE-2026-113876) have been identified in HAPI FHIR version 8.10.0, an open-source Java implementation of the HL7 FHIR standard. These vulnerabilities allow an authenticated user to override tenant partitions, bypass authorization controls, or induce heap exhaustion through crafted gzip payloads. The flaws enable unauthorized read or write access to data residing in partitions belonging to other tenants.\n\n## Impact\nSuccessful exploitation allows unauthorized cross-tenant data access, leading to a compromise of data isolation. An attacker with legitimate access to one tenant could potentially read or manipulate records within another tenant partition.\n\n## Recommendation\n- Inventory all internal and external-facing instances of HAPI FHIR to identify deployments running version 8.10.0.\n- Prioritize patching or updating HAPI FHIR instances to the secure version provided by the upstream maintainers as soon as it becomes available.\n- Review access logs for abnormal cross-partition requests if HAPI FHIR multi-tenancy is in active use.\n- Restrict access to FHIR API endpoints and implement robust input validation and rate limiting to mitigate potential DoS vectors such as heap exhaustion.\n",
+      "published": "2026-10-22T23:52:41.000Z",
+      "labels": [
+        "fhir",
+        "java",
+        "vulnerability",
+        "webserver"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3cd97d40-bbb4-542b-b568-c5047d58d3ad",
+        "vulnerability--99c3da2c-8cc0-5ed1-afed-793b21588c10",
+        "vulnerability--b1557946-6d2a-53a1-bf2b-3f0168c6ccea",
+        "vulnerability--b76b6d38-3f8b-5549-9897-46d83d343f88",
+        "vulnerability--dabf4f07-3b31-5d58-8b4d-11f713bea490"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-hapi-fhir-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-hapi-fhir-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/336"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-hapi-fhir-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-22-hapi-fhir-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hapi-fhir-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-22T23:52:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -118653,6 +118746,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3cd97d40-bbb4-542b-b568-c5047d58d3ad",
+      "name": "HAPI FHIR (8.10.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3cdde73a-f2ee-5f39-94a4-181b8a307bf3",
       "name": "llama.cpp (\u003c b11393)",
       "vendor": "llama.cpp"
@@ -139466,6 +139565,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--99c3da2c-8cc0-5ed1-afed-793b21588c10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113876",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113876",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113876"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--99cc0491-1f72-546c-96bf-75651b5e5079",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -141386,6 +141501,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b1557946-6d2a-53a1-bf2b-3f0168c6ccea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113874",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113874",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113874"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b159b08e-9de0-5925-892d-b86bd094b4fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -141796,6 +141927,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-10026",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10026"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b76b6d38-3f8b-5549-9897-46d83d343f88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113875",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113875",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113875"
         }
       ]
     },
@@ -144420,6 +144567,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108804",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108804"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dabf4f07-3b31-5d58-8b4d-11f713bea490",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113873",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113873",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113873"
         }
       ]
     },
