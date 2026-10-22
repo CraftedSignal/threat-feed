@@ -1,12 +1,25 @@
 ---
 brief_id: brief-2026-10-21-mikrotik-routeros-webfig-auth-bypass
 event_id: brief-2026-10-21-mikrotik-routeros-webfig-auth-bypass
-revision: 1
-activity_at: "2026-10-21T19:57:56Z"
+revision: 2
+activity_at: "2026-10-22T19:55:02Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-22T19:55:02Z"
+    checksum: sha256:1f6cbfeb1f9a316b5c1683c6425cf7e7d4edd00b91712f6866945eb3849a1688
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4109
 title: 'MikroTik RouterOS: WebFig session token replay vulnerability (CVE-2026-89035)'
 slug: 2026-10-mikrotik-routeros-webfig-auth-bypass
 description: MikroTik RouterOS versions 7.24.5 and earlier contain a session token replay vulnerability in the WebFig interface that allows unauthenticated attackers to hijack administrative sessions.
 date: "2026-10-21T19:57:56Z"
+lastmod: "2026-10-22T19:54:28Z"
 type: advisory
 types:
   - advisory
@@ -33,6 +46,7 @@ vendors:
   - MikroTik
 products:
   - RouterOS (<= 7.24.5)
+  - RouterOS
 mitre_ttps:
   - tactic_id: TA0003
     tactic_name: Persistence
@@ -52,6 +66,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-89035
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4109
 action_plan:
   priority: elevated
   owners:
@@ -68,6 +83,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-89035
       evidence: Vulnerability resides in libucrypto.so logic.
+updates:
+  - at: "2026-10-22T19:54:28Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4109
 ---
 
 MikroTik RouterOS versions through 7.24.5 are vulnerable to a session token replay attack within the WebFig interface. The vulnerability arises from the 'makeSessionKey' function in 'libucrypto.so', which generates session tokens using fixed, predictable salts. Because the implementation fails to incorporate session-specific or channel-specific input, tokens are not bound to the ECDH session used during initial authentication. Attackers who capture valid session tokens can replay them to bypass authentication and achieve administrative access. This access remains persistent until the router's internal token store is explicitly cleared. This finding builds upon the transport-layer weaknesses previously identified in CVE-2025-61481.
