@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b7cdc781-161b-5524-aa21-0bb7c2263aa8",
+  "id": "bundle--f0ad8350-cdfa-582e-b561-abe01eb7fde9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5877,6 +5877,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bfe5bc04-8dd3-5e8d-b4ce-f5ee9b67796f",
       "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--03b991d8-9622-5c8e-9357-f575d37a6862",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T11:47:21.000Z",
+      "modified": "2026-10-22T11:47:21.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--5d5fea5d-ad4d-5678-92a3-775001c38f41",
+      "target_ref": "threat-actor--db2c88f6-f9cb-561a-a945-8a7b7960da81"
     },
     {
       "type": "relationship",
@@ -13016,6 +13027,17 @@
       "relationship_type": "has",
       "source_ref": "software--e628d025-8de1-5d2f-9b9b-88ae4ebacd67",
       "target_ref": "vulnerability--9d393479-4cfa-53e0-b00f-2fa2389d01ed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--274c8fe8-0dd0-5f1c-b43e-e05ca72421fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T11:47:21.000Z",
+      "modified": "2026-10-22T11:47:21.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d5fea5d-ad4d-5678-92a3-775001c38f41",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -36798,6 +36820,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d059d712-7452-5599-875e-aad668ce4f25",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9cb2a612-b066-573a-b232-5ec9d64d4dc8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--68dafff3-a48a-52cc-93c5-61867c957121",
+      "target_ref": "vulnerability--b3184de4-f4ac-5a1c-a217-cc4c622fb311"
     },
     {
       "type": "relationship",
@@ -87408,6 +87441,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5d5fea5d-ad4d-5678-92a3-775001c38f41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T11:47:21.000Z",
+      "modified": "2026-10-22T11:47:21.000Z",
+      "name": "Keycloak: Privilege escalation in admin REST API (CVE-2026-94000)",
+      "description": "## Overview\nKeycloak up to version 26.8.1 contains a privilege escalation vulnerability (CVE-2026-94000) within its admin REST API. While Keycloak previously hardened \"group join\" operations to check for nested admin roles, the role-mapping endpoints (`RoleMapperResource.addRealmRoleMappings` and `ClientRoleMappingsResource.addClientRoleMapping`) do not recursively walk the children of a composite role. Consequently, an attacker holding only the `manage-users` role can map a composite role that transitively grants `realm-management/realm-admin` privileges, effectively escalating their own account or other users/groups to `realm-admin`.\n\n## Attack Chain\n1. Attacker obtains valid credentials for a Keycloak account assigned the `manage-users` role.\n2. Attacker enumerates available roles via the `.../role-mappings/.../available` endpoint, which is accessible to `manage-users` users.\n3. Attacker identifies a composite role (or creates one if existing roles permit) that wraps `realm-management/realm-admin` as a child.\n4. Attacker performs a `POST` request to `addRealmRoleMappings` or `addClientRoleMapping` to assign this composite role to a target user, group, or client.\n5. The Keycloak server fails to recursively inspect the nested children of the role and validates only the top-level role name.\n6. The target user, group, or client gains effective `realm-admin` permissions, allowing for further malicious activity such as creating new roles or accessing confidential information.\n\n## Impact\nSuccessful exploitation allows a user with restricted `manage-users` privileges to gain full `realm-admin` access. This facilitates complete control over the realm, including user management, configuration of clients, and access to sensitive information, effectively bypassing the principle of least privilege.\n\n## Recommendation\n- Update all Keycloak instances to a version where CVE-2026-94000 is patched.\n- Implement a policy to restrict the ability of `manage-users` to perform role-mapping operations if not strictly required for business operations.\n- Audit existing role-mapping assignments for composite roles that may grant elevated administrative permissions to unauthorized users.\n- Monitor logs for unusual `POST` requests to role mapping endpoints by users holding the `manage-users` role.\n",
+      "published": "2026-10-22T11:47:21.000Z",
+      "labels": [
+        "authentication-bypass",
+        "keycloak",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--68dafff3-a48a-52cc-93c5-61867c957121",
+        "threat-actor--db2c88f6-f9cb-561a-a945-8a7b7960da81",
+        "vulnerability--b3184de4-f4ac-5a1c-a217-cc4c622fb311"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-keycloak-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-keycloak-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B585227F-9AEE-5854-B896-D4F313104ED4"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B585227F-9AEE-5854-B896-D4F313104ED4\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-keycloak-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-10-22-keycloak-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-keycloak-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-10-22T11:47:21.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.6,
+      "x_craftedsignal_epss_max": 0.00401,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -147918,6 +148003,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--68dafff3-a48a-52cc-93c5-61867c957121",
+      "name": "Keycloak (\u003c= 26.8.1)",
+      "vendor": "Keycloak"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--68fbd30e-5e7c-58da-a731-b152e2949e5b",
       "name": "Guardium Data Protection (12.0, 12.1, 12.2)",
       "vendor": "IBM"
@@ -156454,6 +156546,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "TA419"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--db2c88f6-f9cb-561a-a945-8a7b7960da81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "SecFathy"
     },
     {
       "type": "threat-actor",
@@ -173297,6 +173398,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82307",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82307"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b3184de4-f4ac-5a1c-a217-cc4c622fb311",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-94000",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-94000",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94000"
         }
       ]
     },
