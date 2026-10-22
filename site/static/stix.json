@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a309e2c6-6fc4-559e-a878-5f91eebceeb8",
+  "id": "bundle--1b58323e-3cdf-54b8-bd14-49a558e8e21c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7809,6 +7809,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0f0826ff-51d9-5abd-a3d9-a5e30186b8c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T00:38:15.000Z",
+      "modified": "2026-10-22T00:38:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3133c461-dfb6-5137-84a4-ee4ddf013155",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0f5ed87f-17a7-56e6-870f-55acbf4f997b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14658,6 +14669,17 @@
       "relationship_type": "has",
       "source_ref": "software--733ebfd9-5861-5c3d-b65c-1e06ba9f2176",
       "target_ref": "vulnerability--49946fdf-788d-59a6-a137-ceb9657e592d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--31c9b81c-4bd1-5187-8b8c-0bf22644e7a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T00:38:15.000Z",
+      "modified": "2026-10-22T00:38:15.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--3133c461-dfb6-5137-84a4-ee4ddf013155",
+      "target_ref": "threat-actor--a3f1cf06-645b-5d6e-b721-fcf3aa10f837"
     },
     {
       "type": "relationship",
@@ -22919,6 +22941,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c34b9ad-a37b-5789-8018-e032fd05bd7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f4007d13-7932-5dcf-8b6d-9b75e773ea3b",
+      "target_ref": "vulnerability--2ba6fea9-ab13-5c1c-88ac-3fffe040014e"
     },
     {
       "type": "relationship",
@@ -39320,6 +39353,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dc62623f-8ff5-5332-aa10-f3ff33a7030b",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ae5dd763-9a21-585b-80b4-b3c4663cb22f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T00:38:15.000Z",
+      "modified": "2026-10-22T00:38:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3133c461-dfb6-5137-84a4-ee4ddf013155",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -71209,6 +71253,68 @@
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01703,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3133c461-dfb6-5137-84a4-ee4ddf013155",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T00:38:15.000Z",
+      "modified": "2026-10-22T00:38:15.000Z",
+      "name": "JetBrains YouTrack: Helpdesk authentication bypass via account merging (CVE-2026-86478)",
+      "description": "## Overview\n\nJetBrains YouTrack Helpdesk contains a critical authentication bypass vulnerability (CVE-2026-86478) originating from improper validation in the reporter account merging logic. The flaw allows an unauthenticated user to associate their reporter account with the email address of a legitimate target. Because the application fails to verify the reporter type or account ownership during the merge process, the attacker can force the system to merge their account into the target account, resulting in the generation of an interactive login URL that grants full access to the victim's session.\n\n## Attack Chain\n\n1. An attacker submits a public Helpdesk form using their own email address to trigger account creation as an unverified REPORTER.\n2. The attacker receives a confirmation email containing a magic-link signed token (valid for 14 days).\n3. The attacker opens the magic-link to establish a browser session as the reporter.\n4. The attacker navigates to their profile and modifies the associated email address to match that of the target user (e.g., an administrator).\n5. The attacker opens the original magic-link again.\n6. The `onReporterEmailVerified` function processes the session, detects the shared email, and executes an insecure merge into the target account.\n7. The system generates and returns a Hub interactive login URL associated with the merged (victim) account.\n8. The attacker navigates to the returned login URL to obtain an active, authenticated session as the victim.\n\n## Impact\n\nThe vulnerability allows full unauthorized access to any user account within the affected YouTrack instance, including accounts with administrative privileges, leading to complete instance compromise.\n\n## Recommendation\n\n- Patch YouTrack immediately: Upgrade to version 2025.3.161254 or 2026.1.14042 or later.\n- Mitigate until patched: Disable the Helpdesk feature or restrict account self-service profile updates.\n- Review Audit Logs: Monitor for unexpected \"Merging reporters with email\" events and excessive use of `POST /api/reporterLanding` endpoints from unknown or unverified reporter sessions.\n- Proactive Hardening: Rotate tokens and credentials for administrative accounts if a compromise is suspected.\n",
+      "published": "2026-10-22T00:38:15.000Z",
+      "labels": [
+        "account-takeover",
+        "authentication-bypass",
+        "cve",
+        "jetbrains"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f4007d13-7932-5dcf-8b6d-9b75e773ea3b",
+        "threat-actor--a3f1cf06-645b-5d6e-b721-fcf3aa10f837",
+        "vulnerability--2ba6fea9-ab13-5c1c-88ac-3fffe040014e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-jetbrains-youtrack-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-jetbrains-youtrack-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86478"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=99C6972E-C2A1-5ED0-94AF-A163B9AB855B"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=99C6972E-C2A1-5ED0-94AF-A163B9AB855B\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-jetbrains-youtrack-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-22-jetbrains-youtrack-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jetbrains-youtrack-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-22T00:38:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00606,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -153397,6 +153503,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f4007d13-7932-5dcf-8b6d-9b75e773ea3b",
+      "name": "YouTrack (\u003c 2025.3.161254, \u003c 2026.1.14042)",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f44319cc-2dd2-5a70-833d-5c89deba1781",
       "name": "AstronRPA (\u003c= 1.1.6)",
       "vendor": "AstronRPA"
@@ -154146,6 +154259,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Storm-0940"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--a3f1cf06-645b-5d6e-b721-fcf3aa10f837",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "LHeiakim"
     },
     {
       "type": "threat-actor",
@@ -158435,6 +158557,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-61628",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61628"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2ba6fea9-ab13-5c1c-88ac-3fffe040014e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86478",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86478",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86478"
         }
       ]
     },
