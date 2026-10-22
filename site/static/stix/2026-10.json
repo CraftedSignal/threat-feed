@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e4ead0d0-b27c-5687-9a17-fc1fd119754f",
+  "id": "bundle--64a0c0e7-691e-5731-9a49-5bcb6f76a731",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7422,6 +7422,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d71eb252-b8e2-5511-a9d0-2946faefd2e2",
       "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11d7053c-1826-533a-ab2a-4835f9a5f05d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T09:45:57.000Z",
+      "modified": "2026-10-22T09:45:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dfe17a8b-862e-5fe6-904d-63e6d07db225",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -15848,6 +15859,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dc4ac570-b9ae-50fb-8de4-507926e51a45",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4a455ea2-70f5-5b5c-963f-cb48f2d0b4bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--510cb52d-a2ee-512a-86b6-f28444d62db6",
+      "target_ref": "vulnerability--3d539830-6803-5b6f-845e-7dec809a7ef3"
     },
     {
       "type": "relationship",
@@ -35604,6 +35626,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4573114b-dd60-5ead-8432-793d2c6c8e28",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c86717a4-bae4-51b3-853e-a9597d1658bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9479bffb-df48-5f44-bc0d-50e15fa67b22",
+      "target_ref": "vulnerability--3d539830-6803-5b6f-845e-7dec809a7ef3"
     },
     {
       "type": "relationship",
@@ -102509,6 +102542,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dfe17a8b-862e-5fe6-904d-63e6d07db225",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T09:45:57.000Z",
+      "modified": "2026-10-22T09:45:57.000Z",
+      "name": "Roundcube Webmail: Stored XSS and Injection (CVE-2026-48849)",
+      "description": "## Overview\n\nCVE-2026-48849 is a stored Cross-Site Scripting (XSS), HTML injection, and CSS injection vulnerability affecting Roundcube Webmail. The vulnerability resides in the handling of the email subject field during session restoration processes. An attacker can inject malicious payloads into an email subject; these payloads are stored within draft or session restoration data. When the targeted user logs back into the webmail interface, the stored payload executes automatically in the user's authenticated context.\n\n## Attack Chain\n\n1. Attacker crafts an email subject containing XSS, HTML, or CSS payloads.\n2. Attacker logs into Roundcube Webmail and initiates a composition of a new message.\n3. Attacker inputs the malicious payload into the \"Subject\" field.\n4. Attacker triggers a background action (e.g., image attachment) to store the draft data.\n5. Attacker forces an invalidation or expiration of the session while the session restoration data is cached.\n6. Victim logs back into the Roundcube interface using valid credentials.\n7. Roundcube attempts to restore the previous session, triggering the execution of the injected payload from the subject field.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary JavaScript in the victim's session, DOM manipulation, visual defacement via CSS injection, and the creation of phishing overlays within the webmail interface. Payloads persist within the user's draft or session restoration data until removed.\n\n## Recommendation\n\n- Upgrade all Roundcube Webmail installations to version 1.6.16 or 1.7.1 immediately.\n- Review web server access logs for anomalous POST requests to mail composition or draft-saving endpoints containing script tags or HTML/CSS injection metacharacters.\n- Monitor webmail user activity for unexpected UI overlays or unusual script execution patterns following user logins.\n",
+      "published": "2026-10-22T09:45:57.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--510cb52d-a2ee-512a-86b6-f28444d62db6",
+        "software--9479bffb-df48-5f44-bc0d-50e15fa67b22",
+        "vulnerability--3d539830-6803-5b6f-845e-7dec809a7ef3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-roundcube-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-roundcube-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/roundcube/roundcubemail/releases/tag/1.6.16"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/roundcube/roundcubemail/releases/tag/1.7.1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://roundcube.net/news/2026/05/24/security-updates-1.6.16-and-1.7.1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANANDJOGAWADE-CVE-2026-48849-ROUNDCUBE-WEBMAIL-STORED-XSS"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANANDJOGAWADE-CVE-2026-48849-ROUNDCUBE-WEBMAIL-STORED-XSS\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-roundcube-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-22-roundcube-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-roundcube-xss/",
+      "x_craftedsignal_activity_at": "2026-10-22T09:45:57.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.4,
+      "x_craftedsignal_epss_max": 0.00261,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e0445ab4-319e-5f8f-83bb-f5071d18f8d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T06:54:57.000Z",
@@ -113980,6 +114072,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--510cb52d-a2ee-512a-86b6-f28444d62db6",
+      "name": "Roundcube Webmail (\u003e= 1.7.0, \u003c 1.7.1)",
+      "vendor": "Roundcube"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--51125e8d-ac5b-567f-ad25-a29bf673d3a6",
       "name": "Business Process Manager",
       "vendor": "IBM"
@@ -116876,6 +116975,13 @@
       "id": "software--945c346d-a1a3-5f5f-8409-a7987f55f19a",
       "name": "Payload (\u003e= 4.0.0-canary.0, \u003c 4.0.0-canary.34)",
       "vendor": "Payload"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9479bffb-df48-5f44-bc0d-50e15fa67b22",
+      "name": "Roundcube Webmail (\u003c 1.6.16)",
+      "vendor": "Roundcube"
     },
     {
       "type": "software",
@@ -126020,6 +126126,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108553",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108553"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3d539830-6803-5b6f-845e-7dec809a7ef3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-48849",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-48849",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48849"
         }
       ]
     },
