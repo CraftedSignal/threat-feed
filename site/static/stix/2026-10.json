@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fb9765f7-b703-5fa5-a340-e6532954a196",
+  "id": "bundle--9960a125-f69e-5ffc-84a2-0b60c415339a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13817,6 +13817,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3c6edeb2-b0f4-56f4-ba32-100c5fb2aa3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--842a2c50-8b40-5de1-9fc2-b1fe51480704",
+      "target_ref": "vulnerability--7f06cde6-b7a8-5175-9c84-da6da51e38d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3c7cf7be-fcf7-5d88-9f1f-2ff98e45cadb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17179,6 +17190,17 @@
       "relationship_type": "has",
       "source_ref": "software--6118ceb0-e9eb-59d3-ba13-819ad6ed300b",
       "target_ref": "vulnerability--c1a87005-c31e-5b94-8ecb-546e4bc42a72"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51b57cdf-e1cc-5a6f-bc40-3139efa2db3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a1260eed-5053-5c2a-8d70-9ca5289fa95b",
+      "target_ref": "vulnerability--7f06cde6-b7a8-5175-9c84-da6da51e38d4"
     },
     {
       "type": "relationship",
@@ -38622,6 +38644,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d788c592-890f-599b-94fd-72aa0311de44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
+      "target_ref": "vulnerability--7f06cde6-b7a8-5175-9c84-da6da51e38d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d78a0b50-959f-596b-839f-25ae1aecb331",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T16:32:56.000Z",
@@ -59491,6 +59524,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3c35286f-6b3b-5079-81be-213559e9d0c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T13:48:12.000Z",
+      "modified": "2026-10-22T13:48:12.000Z",
+      "name": "Oracle Java SE and GraalVM: JSSE Security Vulnerability (CVE-2026-91403)",
+      "description": "## Overview\nOracle has issued an out-of-band Security Alert for CVE-2026-91403, a critical vulnerability (CVSS 9.1) affecting the Java Secure Socket Extension (JSSE) component in Oracle Java SE, Oracle GraalVM for JDK, and Oracle GraalVM Enterprise Edition. The flaw is remotely exploitable without authentication or user interaction. Oracle notes that successful exploitation can expose critical data and allow unauthorized modification, creation, or deletion of information accessible to the affected Java runtime. Oracle has not publicly disclosed the underlying technical exploitation mechanism.\n\n## Impact\nSuccessful exploitation impacts the confidentiality and integrity of information accessible to the compromised Java environment. Oracle states there is no direct availability impact.\n\n## Recommendation\nOracle advises administrators to identify affected Java and GraalVM runtimes and prioritize the application of provided security patches.\n",
+      "published": "2026-10-22T13:48:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
+        "software--842a2c50-8b40-5de1-9fc2-b1fe51480704",
+        "software--a1260eed-5053-5c2a-8d70-9ca5289fa95b",
+        "vulnerability--7f06cde6-b7a8-5175-9c84-da6da51e38d4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-oracle-jsse-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-jsse-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://socprime.com/blog/cve-2026-91403-analysis/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-oracle-jsse-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-22-oracle-jsse-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-jsse-rce/",
+      "x_craftedsignal_activity_at": "2026-10-22T13:48:12.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -116329,6 +116404,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6c566ee4-ddc7-5935-953a-f8e30bab0450",
+      "name": "Java SE",
+      "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c79437d-8a47-5af2-8e60-4d7053e58f17",
       "name": "Argo CD (\u003e= 3.0.0, \u003c 3.3.15)",
       "vendor": "Argo Project"
@@ -117399,6 +117481,13 @@
       "id": "software--8417a287-0da3-538f-b008-950b714b9516",
       "name": "openchoreo (1.1.0-1.1.6)",
       "vendor": "OpenChoreo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--842a2c50-8b40-5de1-9fc2-b1fe51480704",
+      "name": "GraalVM for JDK",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -118593,6 +118682,13 @@
       "id": "software--a0ebf155-9216-5903-8c57-9b46916735fd",
       "name": "keda-operator (\u003c= 2.20.0)",
       "vendor": "KEDA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a1260eed-5053-5c2a-8d70-9ca5289fa95b",
+      "name": "GraalVM Enterprise Edition",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -131868,6 +131964,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102257",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102257"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7f06cde6-b7a8-5175-9c84-da6da51e38d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-91403",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-91403",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91403"
         }
       ]
     },
