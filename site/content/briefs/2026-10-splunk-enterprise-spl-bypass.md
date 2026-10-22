@@ -1,13 +1,25 @@
 ---
 brief_id: brief-2026-10-21-splunk-enterprise-spl-bypass
 event_id: brief-2026-10-21-splunk-enterprise-spl-bypass
-revision: 1
-activity_at: "2026-10-21T23:49:08Z"
+revision: 2
+activity_at: "2026-10-22T20:01:32Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-22T20:01:32Z"
+    checksum: sha256:3ac560feb42fa50401fb84f284116151b2a976ae064c1d271a33677a32d579cd
+    summary: added CVE-2026-76298
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/splunk-security-advisory-av26-1077
 title: 'Splunk Enterprise: Scheduled search SPL command safeguard bypass (CVE-2026-76291)'
 slug: 2026-10-splunk-enterprise-spl-bypass
 description: Splunk Enterprise versions prior to 10.4.4, 10.2.8, 10.0.11, and 9.4.16 contain a vulnerability where authenticated users with the schedule_search capability can bypass SPL command safeguards during scheduled searches, potentially leading to unauthorized data access, modification, or service disruption.
 date: "2026-10-21T23:49:08Z"
-lastmod: "2026-10-21T23:49:16Z"
+lastmod: "2026-10-22T19:59:57Z"
 type: advisory
 types:
   - advisory
@@ -55,7 +67,8 @@ cves:
     cvss: 8.8
     kev_status: "false"
   - id: CVE-2026-76298
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76291
   - https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.6/best-practices-for-splunk-platform-security/spl-safeguards-for-risky-commands
@@ -64,6 +77,7 @@ references:
   - https://help.splunk.com/en/splunk-enterprise/administer/manage-users-and-security/10.2/manage-splunk-platform-users-and-roles/about-configuring-role-based-user-access
   - https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.2/configuration-file-reference/10.2.0-configuration-file-reference/server.conf
   - https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/10.4/splunk-sidecars/sidecar-configuration-settings
+  - https://cyber.gc.ca/en/alerts-advisories/splunk-security-advisory-av26-1077
 action_plan:
   priority: elevated
   owners:
@@ -88,6 +102,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76298
+  - at: "2026-10-22T19:59:57Z"
+    level: L2
+    summary: added CVE-2026-76298
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/splunk-security-advisory-av26-1077
 ---
 
 Splunk Enterprise contains a vulnerability where the search scheduler fails to apply Search Processing Language (SPL) safeguards to scheduled searches. An authenticated user possessing the 'schedule_search' capability can leverage this flaw to execute restricted or risky SPL commands that would otherwise be blocked. This vulnerability allows for unauthorized disclosure or modification of data stored within the Splunk platform, as well as potential service disruption.
