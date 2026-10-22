@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ed9b21dc-8e4a-5ab7-873f-4cb67247d6cf",
+  "id": "bundle--d1ad5383-fee2-5101-99b7-e0c1b64ca02d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23931,7 +23931,7 @@
       "id": "relationship--7fd2b13c-57fd-5882-8c53-97c44c5b2900",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:52.000Z",
-      "modified": "2026-10-21T19:55:52.000Z",
+      "modified": "2026-10-22T07:34:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--88690551-a600-53b7-8943-5de047182b1d",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -31092,7 +31092,7 @@
       "id": "relationship--adbe6da3-7827-575a-bbf7-42e7a6b11a2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:52.000Z",
-      "modified": "2026-10-21T19:55:52.000Z",
+      "modified": "2026-10-22T07:34:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--88690551-a600-53b7-8943-5de047182b1d",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
@@ -41080,7 +41080,7 @@
       "id": "relationship--eafc4a83-a189-59fa-8ce9-c2d6f9ffd84f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:52.000Z",
-      "modified": "2026-10-21T19:55:52.000Z",
+      "modified": "2026-10-22T07:34:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--88690551-a600-53b7-8943-5de047182b1d",
       "target_ref": "attack-pattern--3fcf7be1-e99a-5a00-84ea-28df7d8fa759"
@@ -78955,7 +78955,7 @@
       "id": "report--88690551-a600-53b7-8943-5de047182b1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:52.000Z",
-      "modified": "2026-10-21T19:55:52.000Z",
+      "modified": "2026-10-22T07:34:57.000Z",
       "name": "Microsoft October 2026 Security Updates",
       "description": "## Overview\n\nThe October 2026 Microsoft security release contains 1,413 CVEs, featuring one exploited zero-day (CVE-2026-96951) and two publicly disclosed zero-days. Notable risks include remote code execution (RCE) in identity services (AD DS, AD FS), critical RCE vulnerabilities in Microsoft Outlook, and 23 preview-pane triggered flaws in Office applications that allow code execution with minimal user interaction.\n\n## Impact\n\nThe disclosed vulnerabilities include 75 critical-rated items. CVE-2026-96951 allows attackers to strip Mark of the Web (MOTW) protections, facilitating the execution of malicious payloads by bypassing SmartScreen and Office Protected View. Unauthenticated RCEs in DHCP, Microsoft QUIC, and printer drivers enable potential lateral movement. Identity fabric compromise via AD DS and AD FS could allow for complete domain takeover or authentication boundary bypass.\n\n## Recommendation\n\n- Prioritize patching of CVE-2026-96951 (Windows Shell), CVE-2026-70229 (AD DS), and the five critical Outlook RCE vulnerabilities.\n- Audit internal DHCP and QUIC-enabled services for exposure to unauthenticated network access.\n- Evaluate the exposure of AD FS and AD DS interfaces and implement restricted access to mitigate lateral movement risk.\n- For .NET environments, review existing WDAC policies and ensure assembly loading protections are maintained to mitigate CVE-2026-108398.\n",
       "published": "2026-10-21T07:58:52.000Z",
@@ -78998,9 +78998,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-october-patch-tuesday",
       "x_craftedsignal_event_id": "brief-2026-10-21-october-patch-tuesday",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-october-patch-tuesday/",
-      "x_craftedsignal_activity_at": "2026-10-21T19:55:52.000Z",
+      "x_craftedsignal_activity_at": "2026-10-22T07:34:57.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -81935,7 +81935,7 @@
       },
       "x_craftedsignal_cvss_max": 5.9,
       "x_craftedsignal_epss_max": 0.00425,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-october-patch-tuesday
 event_id: brief-2026-10-21-october-patch-tuesday
-revision: 2
-activity_at: "2026-10-21T19:55:52Z"
+revision: 3
+activity_at: "2026-10-22T07:34:57Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T19:55:52Z"
@@ -16,11 +16,20 @@ revision_history:
       - updates
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-october-2026/
+  - revision: 3
+    at: "2026-10-22T07:34:57Z"
+    checksum: sha256:03003985e1f034d06c7317b3ab3ac8a5bd22a1215db57c77ce0de7d92132a8d4
+    summary: new product
+    changed_fields:
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-october-2026/
 title: Microsoft October 2026 Security Updates
 slug: 2026-10-october-patch-tuesday
 description: Microsoft addressed 1,413 vulnerabilities including 75 critical flaws and an exploited zero-day (CVE-2026-96951) bypass in Windows Shell that circumvents Mark of the Web protections.
 date: "2026-10-21T07:58:52Z"
-lastmod: "2026-10-21T19:54:47Z"
+lastmod: "2026-10-22T07:34:22Z"
 type: advisory
 types:
   - advisory
@@ -125,6 +134,13 @@ action_plan:
       evidence: Confirmed active exploitation of Windows Shell
 updates:
   - at: "2026-10-21T19:54:47Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/patch-tuesday-analysis-october-2026/
+  - at: "2026-10-22T07:34:22Z"
     level: L1
     summary: new product
     sources:
