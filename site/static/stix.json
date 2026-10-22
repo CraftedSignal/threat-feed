@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1ad85158-3079-5782-a59f-1c405205daa3",
+  "id": "bundle--3db92662-5c07-5763-ab94-9029a74839f5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15344,6 +15344,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3263be8a-4af3-53b7-81f6-160da5decb0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
+      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--326c94a8-5f7d-5098-89a3-d6cfeba2530f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19095,17 +19106,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4623cb18-756d-52c0-95ec-12b82a598b9f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-22T17:47:07.000Z",
-      "modified": "2026-09-22T17:47:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--32b93e8d-af4d-513a-8920-1051df44f2ac",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--462bf330-529d-5c0c-8b27-85f24a7d3c91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22622,6 +22622,17 @@
       "relationship_type": "has",
       "source_ref": "software--b8769d4f-fc25-517a-a856-d90a91493f2e",
       "target_ref": "vulnerability--79fbc8da-60ff-5f28-83ee-e89313b3ffc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--58003135-5514-5d4f-9c58-79381dbae27d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T18:15:20.000Z",
+      "modified": "2026-10-22T18:15:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3cc5fd03-b587-5ebf-bbf8-8765a5c8e1cb",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -39544,17 +39555,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--aa97ef4a-c5d0-5e75-9184-55809ff5d1c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-22T17:46:58.000Z",
-      "modified": "2026-09-22T17:46:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--83b4ce39-efb5-51f1-a355-a517e4ae2573",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aaa5ef9e-9c9e-5d5e-9112-1bb51f77d979",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39914,17 +39914,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8f1a9405-d8ec-51b7-9418-f1499f64e55f",
       "target_ref": "indicator--48d189d7-0f06-59ef-84aa-a77ed0ca9b87"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ac85a1dd-0ab1-54ea-bd5d-7550fe4c0d8f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ad969f47-ac58-5203-9cb6-1dfc0b25fc1e",
-      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
     },
     {
       "type": "relationship",
@@ -49081,6 +49070,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d81e5897-1249-58d7-846a-a4ddae2d24a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--43f71461-5d8e-5a30-86da-19e1845a9beb",
+      "target_ref": "vulnerability--f7656f7d-a4f4-52fb-8908-0cb96b327441"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d83a2093-e2be-53ef-b479-3da9e8a04cfe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -49286,6 +49286,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bebec25d-b4d5-509a-9d73-a5d3be562724",
       "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d93f691d-fdc4-524f-b192-1d83dc28acbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--083eb94c-497b-55f2-8f71-4829d17be21f",
+      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
     },
     {
       "type": "relationship",
@@ -50397,17 +50408,6 @@
       "relationship_type": "has",
       "source_ref": "software--14823cc7-e9dd-5327-bf15-ce20f58ddfdc",
       "target_ref": "vulnerability--a60768a6-929a-5b3a-b662-eb0b19b08d20"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--de91dd65-2123-51c3-946a-6fede21cbc46",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-22T17:47:07.000Z",
-      "modified": "2026-09-22T17:47:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--32b93e8d-af4d-513a-8920-1051df44f2ac",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -73155,51 +73155,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--32b93e8d-af4d-513a-8920-1051df44f2ac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-22T17:47:07.000Z",
-      "modified": "2026-09-22T17:47:07.000Z",
-      "name": "Active Exploitation of Critical RCE Vulnerability in F5 BIG-IP APM",
-      "description": "## Overview\n\nA critical, unauthenticated remote code execution (RCE) vulnerability has been identified in F5 Networks BIG-IP Access Policy Manager (APM), an enterprise network and application access control solution. With a CVSS score of 9.8, this flaw allows unauthenticated attackers to send specially crafted network traffic to the device, enabling the execution of arbitrary code and leading to full system compromise. The Dutch National Cyber Security Centre (NCSC-NL) has confirmed that this vulnerability is being actively exploited by threat actors. Given the nature of the device as a network perimeter component, successful exploitation allows attackers to gain persistent access, exfiltrate sensitive data, or pivot into internal networks. Organizations utilizing F5 BIG-IP APM must prioritize the installation of security updates provided by F5 Networks and conduct forensic checks for signs of compromise using the indicators provided in the vendor's advisory.\n\n## Attack Chain\n\n1. Attacker performs network reconnaissance to identify internet-facing F5 BIG-IP APM instances.\n2. Attacker crafts malicious network packets designed to exploit the vulnerability within the APM module.\n3. Attacker sends the malicious traffic to the target APM device without requiring prior authentication.\n4. The vulnerable APM service processes the crafted traffic, resulting in memory corruption or logic exploitation.\n5. Arbitrary code is executed on the underlying BIG-IP system with the privileges of the APM service.\n6. Attacker establishes persistence or deploys additional malicious payloads to maintain access.\n7. Attacker utilizes the compromised device for lateral movement or data exfiltration from the internal network.\n\n## Impact\n\nSuccessful exploitation results in full system compromise of the F5 BIG-IP APM appliance. This provides attackers with a foothold in the organization's network perimeter, allowing for the potential theft of credentials, interception of session traffic, and lateral movement into protected internal segments. The active exploitation status indicates a high risk of immediate compromise for any unpatched, internet-exposed systems.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering and security teams:\n- Immediately identify all internet-facing F5 BIG-IP APM instances and verify their patch status against the latest F5 security advisory.\n- Apply the security updates provided by F5 Networks to address the vulnerability as a matter of urgency.\n- Review network logs and system logs for unexpected traffic patterns or indicators of compromise (IOCs) explicitly referenced in the official F5 Networks security advisory.\n- If immediate patching is not possible, implement the compensatory controls detailed in the F5 Networks security advisory to mitigate the risk of unauthenticated remote exploitation.\n",
-      "published": "2026-09-22T17:47:07.000Z",
-      "labels": [
-        "exploitation",
-        "network-security",
-        "remote-code-execution"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--714a53b4-d3f5-5a73-a234-d235e0dd4c85"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-22-f5-big-ip-apm-exploitation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-f5-big-ip-apm-exploitation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ncsc.nl/alerts/kwetsbaarheid-in-f5-networks-big-ip-apm-met-actief-misbruik"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-22-f5-big-ip-apm-exploitation",
-      "x_craftedsignal_event_id": "brief-2026-09-22-f5-big-ip-apm-exploitation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-f5-big-ip-apm-exploitation/",
-      "x_craftedsignal_activity_at": "2026-09-22T17:47:07.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--32bb3858-cf5e-52f5-8fec-3a40722cd740",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:08:42.000Z",
@@ -76545,6 +76500,52 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3cc5fd03-b587-5ebf-bbf8-8765a5c8e1cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T18:15:20.000Z",
+      "modified": "2026-10-22T18:15:20.000Z",
+      "name": "OpenCATS: Stored cross-site scripting (CVE-2026-115513)",
+      "description": "## Overview\n\nOpenCATS versions prior to 0.12.0 contain a stored cross-site scripting (XSS) vulnerability. An authenticated low-privileged user can inject malicious HTML or JavaScript payloads into fields such as Candidate, Company, Contact, Job Order, or List names. These payloads are stored unsanitized and rendered unescaped by the lib/MRU.php script within the 'Recent' (MRU) navigation panel. Any user, including a Site Administrator, viewing the navigation panel will execute the injected script.\n\n## Impact\n\nSuccessful exploitation allows for session hijacking, cookie theft, and privilege escalation by executing arbitrary JavaScript in the context of other users. Administrative accounts are susceptible to full compromise if they interact with the injected records.\n\n## Recommendation\n\n* Upgrade to OpenCATS version 0.12.0 or later immediately to apply the sanitization fixes.\n* Audit application logs for suspicious entries in Candidate, Company, Contact, or Job Order names that contain script tags or HTML attributes.\n* Monitor administrative user sessions for unusual browser activity or rapid privilege changes.\n",
+      "published": "2026-10-22T18:15:20.000Z",
+      "labels": [
+        "privilege-escalation",
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--43f71461-5d8e-5a30-86da-19e1845a9beb",
+        "vulnerability--f7656f7d-a4f4-52fb-8908-0cb96b327441"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-opencats-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-opencats-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115513"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-opencats-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-22-opencats-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-opencats-xss/",
+      "x_craftedsignal_activity_at": "2026-10-22T18:15:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -90585,13 +90586,19 @@
       "id": "report--65b16b0a-ee52-5dfa-a70b-6f19bdd4bd51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T16:14:42.000Z",
-      "modified": "2026-10-22T16:14:42.000Z",
+      "modified": "2026-10-22T18:16:06.000Z",
       "name": "Drupal Webform: Code injection via template engine (CVE-2026-96355)",
       "description": "## Overview\nDrupal Webform is affected by a vulnerability identified as CVE-2026-96355. This issue involves the improper neutralization of special elements within the module's template engine, resulting in Code Injection. This vulnerability affects Webform versions from 0.0.0 to 6.2.12 and from 6.3.0 to 6.3.1.\n",
       "published": "2026-10-22T16:14:42.000Z",
+      "labels": [
+        "cve-2026-96365",
+        "drupal",
+        "web-application"
+      ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ad969f47-ac58-5203-9cb6-1dfc0b25fc1e",
+        "software--083eb94c-497b-55f2-8f71-4829d17be21f",
+        "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
         "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
       ],
       "external_references": [
@@ -90603,14 +90610,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96355"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96365"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-22-drupal-webform-code-injection",
       "x_craftedsignal_event_id": "brief-2026-10-22-drupal-webform-code-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-drupal-webform-code-injection/",
-      "x_craftedsignal_activity_at": "2026-10-22T16:14:42.000Z",
+      "x_craftedsignal_activity_at": "2026-10-22T18:16:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -100345,59 +100356,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--83b4ce39-efb5-51f1-a355-a517e4ae2573",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-22T17:46:58.000Z",
-      "modified": "2026-09-22T17:46:58.000Z",
-      "name": "Stored and Reflected XSS Vulnerability in OpenPLC Runtime v3",
-      "description": "## Overview\n\nOpenPLC Runtime v3, developed by Autonomy Logic, contains a vulnerability identified as CVE-2026-88020. The flaw stems from improper neutralization of input within the product's web interface, specifically when the application routes programs based on unencoded query string parameters. This cross-site scripting (XSS) vulnerability allows an attacker to inject malicious scripts into the web interface. \n\nIf a logged-in operator visits a crafted link or navigates to a compromised page, the attacker can hijack active session cookies. By gaining control of an operator's session, an attacker can issue state-changing requests, potentially manipulating the programmable logic controller (PLC) and disrupting the physical industrial processes it manages. OpenPLC Runtime v3 has reached end-of-life status and will not receive security patches; the vendor advises all users to upgrade to OpenPLC v4 to remediate this issue.\n\n## Impact\n\nThe vulnerability affects critical infrastructure sectors including energy, water, manufacturing, and transportation systems globally. Successful exploitation allows for session hijacking, enabling unauthorized control over physical industrial processes. If exploited, an attacker could potentially override safety logic or disrupt operational technology (OT) services, leading to physical damage or process outages.\n\n## Recommendation\n\nPrioritized actions for security operations and IT teams:\n- Immediately migrate from OpenPLC v3 to OpenPLC v4, as v3 is end-of-life and will not be patched for CVE-2026-88020.\n- Isolate all OpenPLC web interfaces from public internet access by placing them behind firewalls or utilizing VPNs for remote management.\n- Implement strict network segmentation to ensure control system devices are not reachable from business or guest networks.\n- Conduct an audit of existing industrial control system (ICS) exposure to identify and block unauthorized access to web-based management consoles.\n",
-      "published": "2026-09-22T17:46:58.000Z",
-      "labels": [
-        "critical-infrastructure",
-        "cve-2026-88020",
-        "ics",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9d1a4dcf-825a-5e1f-84ae-e8ae5a7bd3b7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-openplc-runtime-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-openplc-runtime-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cwe.mitre.org/data/definitions/79.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-265-09"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-88020"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-09-openplc-runtime-xss",
-      "x_craftedsignal_event_id": "brief-2026-09-openplc-runtime-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-openplc-runtime-xss/",
-      "x_craftedsignal_activity_at": "2026-09-22T17:46:58.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -142844,6 +142802,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--083eb94c-497b-55f2-8f71-4829d17be21f",
+      "name": "Webform (0.0.0-6.2.12, 6.3.0-6.3.1)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0841404a-4705-521f-9f42-884330e441b1",
       "name": "Chat (\u003c= ac63d25297079eed5e4ba7e88d3b7a032637150d)",
       "vendor": "songxinjianqwe"
@@ -145066,6 +145031,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
+      "name": "Webform (versions 0.0.0 to 6.2.12 and 6.3.0 to 6.3.1)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2e229049-89c1-51b2-a020-2d67c2a85d96",
       "name": "Traefik (\u003c 3.7.16)",
       "vendor": "Traefik"
@@ -146192,6 +146164,13 @@
       "id": "software--43b0632c-688f-5625-a443-5802c898a34d",
       "name": "Ocean eComm Treasure Box (\u003c= 1.8.0)",
       "vendor": "OceanWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--43f71461-5d8e-5a30-86da-19e1845a9beb",
+      "name": "OpenCATS (\u003c 0.12.0)",
+      "vendor": "OpenCATS"
     },
     {
       "type": "software",
@@ -148783,13 +148762,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--714a53b4-d3f5-5a73-a234-d235e0dd4c85",
-      "name": "BIG-IP Access Policy Manager",
-      "vendor": "F5 Networks"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--717620e9-6494-5ebc-866f-bedffd0e357c",
       "name": "Jotform"
     },
@@ -151274,13 +151246,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9d1a4dcf-825a-5e1f-84ae-e8ae5a7bd3b7",
-      "name": "OpenPLC Runtime v3",
-      "vendor": "Autonomy Logic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9d23ab77-915b-5efe-b87d-3ef420e7d1ba",
       "name": "FortiSandbox PaaS (\u003c 5.0.7)",
       "vendor": "Fortinet"
@@ -152311,12 +152276,6 @@
       "id": "software--ad5811d4-5f95-573a-8611-69c82413dd5d",
       "name": "pfSense CE (2.7.0 through 2.9.0)",
       "vendor": "Netgate"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ad969f47-ac58-5203-9cb6-1dfc0b25fc1e",
-      "name": "Webform (0.0.0-6.2.12, 6.3.0-6.3.1)"
     },
     {
       "type": "software",
@@ -180337,6 +180296,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101920",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101920"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f7656f7d-a4f4-52fb-8908-0cb96b327441",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115513",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115513",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115513"
         }
       ]
     },

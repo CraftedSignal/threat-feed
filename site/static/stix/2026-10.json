@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bc2ae543-aa72-59a1-8eab-cf6fd10afed1",
+  "id": "bundle--49f93e9e-6bba-5d9a-a1ef-5d90288965d1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12585,6 +12585,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3263be8a-4af3-53b7-81f6-160da5decb0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
+      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--326c94a8-5f7d-5098-89a3-d6cfeba2530f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18202,6 +18213,17 @@
       "relationship_type": "has",
       "source_ref": "software--b8769d4f-fc25-517a-a856-d90a91493f2e",
       "target_ref": "vulnerability--79fbc8da-60ff-5f28-83ee-e89313b3ffc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--58003135-5514-5d4f-9c58-79381dbae27d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T18:15:20.000Z",
+      "modified": "2026-10-22T18:15:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3cc5fd03-b587-5ebf-bbf8-8765a5c8e1cb",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -31967,17 +31989,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ac85a1dd-0ab1-54ea-bd5d-7550fe4c0d8f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ad969f47-ac58-5203-9cb6-1dfc0b25fc1e",
-      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ac8a8949-a49a-5c78-87c3-2ab1a51588ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39073,6 +39084,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d81e5897-1249-58d7-846a-a4ddae2d24a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--43f71461-5d8e-5a30-86da-19e1845a9beb",
+      "target_ref": "vulnerability--f7656f7d-a4f4-52fb-8908-0cb96b327441"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d83a2093-e2be-53ef-b479-3da9e8a04cfe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -39223,6 +39245,17 @@
       "relationship_type": "has",
       "source_ref": "software--efbe1b6f-63c7-573b-9c13-4245c40bd7da",
       "target_ref": "vulnerability--d2c4556f-c13e-5692-99bf-220d945360a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d93f691d-fdc4-524f-b192-1d83dc28acbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--083eb94c-497b-55f2-8f71-4829d17be21f",
+      "target_ref": "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
     },
     {
       "type": "relationship",
@@ -60432,6 +60465,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3cc5fd03-b587-5ebf-bbf8-8765a5c8e1cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T18:15:20.000Z",
+      "modified": "2026-10-22T18:15:20.000Z",
+      "name": "OpenCATS: Stored cross-site scripting (CVE-2026-115513)",
+      "description": "## Overview\n\nOpenCATS versions prior to 0.12.0 contain a stored cross-site scripting (XSS) vulnerability. An authenticated low-privileged user can inject malicious HTML or JavaScript payloads into fields such as Candidate, Company, Contact, Job Order, or List names. These payloads are stored unsanitized and rendered unescaped by the lib/MRU.php script within the 'Recent' (MRU) navigation panel. Any user, including a Site Administrator, viewing the navigation panel will execute the injected script.\n\n## Impact\n\nSuccessful exploitation allows for session hijacking, cookie theft, and privilege escalation by executing arbitrary JavaScript in the context of other users. Administrative accounts are susceptible to full compromise if they interact with the injected records.\n\n## Recommendation\n\n* Upgrade to OpenCATS version 0.12.0 or later immediately to apply the sanitization fixes.\n* Audit application logs for suspicious entries in Candidate, Company, Contact, or Job Order names that contain script tags or HTML attributes.\n* Monitor administrative user sessions for unusual browser activity or rapid privilege changes.\n",
+      "published": "2026-10-22T18:15:20.000Z",
+      "labels": [
+        "privilege-escalation",
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--43f71461-5d8e-5a30-86da-19e1845a9beb",
+        "vulnerability--f7656f7d-a4f4-52fb-8908-0cb96b327441"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-opencats-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-opencats-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115513"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-opencats-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-22-opencats-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-opencats-xss/",
+      "x_craftedsignal_activity_at": "2026-10-22T18:15:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3cef7f2c-ed11-5541-be11-1c4654eab8e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T20:23:09.000Z",
@@ -72291,13 +72370,19 @@
       "id": "report--65b16b0a-ee52-5dfa-a70b-6f19bdd4bd51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T16:14:42.000Z",
-      "modified": "2026-10-22T16:14:42.000Z",
+      "modified": "2026-10-22T18:16:06.000Z",
       "name": "Drupal Webform: Code injection via template engine (CVE-2026-96355)",
       "description": "## Overview\nDrupal Webform is affected by a vulnerability identified as CVE-2026-96355. This issue involves the improper neutralization of special elements within the module's template engine, resulting in Code Injection. This vulnerability affects Webform versions from 0.0.0 to 6.2.12 and from 6.3.0 to 6.3.1.\n",
       "published": "2026-10-22T16:14:42.000Z",
+      "labels": [
+        "cve-2026-96365",
+        "drupal",
+        "web-application"
+      ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ad969f47-ac58-5203-9cb6-1dfc0b25fc1e",
+        "software--083eb94c-497b-55f2-8f71-4829d17be21f",
+        "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
         "vulnerability--3182d1ae-76c5-5b35-8fb6-49ceaa150ed7"
       ],
       "external_references": [
@@ -72309,14 +72394,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96355"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96365"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-22-drupal-webform-code-injection",
       "x_craftedsignal_event_id": "brief-2026-10-22-drupal-webform-code-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-drupal-webform-code-injection/",
-      "x_craftedsignal_activity_at": "2026-10-22T16:14:42.000Z",
+      "x_craftedsignal_activity_at": "2026-10-22T18:16:06.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -113448,6 +113537,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--083eb94c-497b-55f2-8f71-4829d17be21f",
+      "name": "Webform (0.0.0-6.2.12, 6.3.0-6.3.1)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0852a122-3d8f-502c-9da0-7a636276a38a",
       "name": ".NET",
       "vendor": "Microsoft"
@@ -115235,6 +115331,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2e20f8be-22ab-54dd-93f6-1ce5f60cf850",
+      "name": "Webform (versions 0.0.0 to 6.2.12 and 6.3.0 to 6.3.1)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2e229049-89c1-51b2-a020-2d67c2a85d96",
       "name": "Traefik (\u003c 3.7.16)",
       "vendor": "Traefik"
@@ -116078,6 +116181,13 @@
       "id": "software--43b0632c-688f-5625-a443-5802c898a34d",
       "name": "Ocean eComm Treasure Box (\u003c= 1.8.0)",
       "vendor": "OceanWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--43f71461-5d8e-5a30-86da-19e1845a9beb",
+      "name": "OpenCATS (\u003c 0.12.0)",
+      "vendor": "OpenCATS"
     },
     {
       "type": "software",
@@ -120825,12 +120935,6 @@
       "id": "software--ad5811d4-5f95-573a-8611-69c82413dd5d",
       "name": "pfSense CE (2.7.0 through 2.9.0)",
       "vendor": "Netgate"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ad969f47-ac58-5203-9cb6-1dfc0b25fc1e",
-      "name": "Webform (0.0.0-6.2.12, 6.3.0-6.3.1)"
     },
     {
       "type": "software",
@@ -142896,6 +143000,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101920",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101920"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f7656f7d-a4f4-52fb-8908-0cb96b327441",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115513",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115513",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115513"
         }
       ]
     },
