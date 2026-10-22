@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c63246c2-1081-5122-a91a-4a1659f141a8",
+  "id": "bundle--5c4745a2-3f5f-585e-85de-1b3ff9c3ce1a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7749,6 +7749,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1623837c-f96f-583f-990e-9c2df4efb00c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef61c356-e2ff-534a-850c-654498b8d278",
+      "target_ref": "vulnerability--9cb62cd0-757b-54db-a4c3-576d948afa82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--162d8dbe-ae9f-5c12-a39e-17fea7c22c9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9065,6 +9076,17 @@
       "relationship_type": "uses",
       "source_ref": "report--65fc641d-0372-5a1e-8723-76995252dbce",
       "target_ref": "indicator--bf3e941d-2df1-5162-9f77-2511d8442e4c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1f7801a5-c68a-5306-8282-6df23901fbfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T01:36:30.000Z",
+      "modified": "2026-10-22T01:36:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f52f5090-64b0-5788-b3a1-87648d2d837a",
+      "target_ref": "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05"
     },
     {
       "type": "relationship",
@@ -25206,6 +25228,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8c14a48a-104a-52b3-91d6-e4109a1ec925",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5283e534-d21f-5f3f-8b60-59fb11e43534",
+      "target_ref": "vulnerability--90e8e815-2fec-5aab-a188-2ec0990ed4d3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8c24cfb9-ad5a-5c0f-be77-91737564b493",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T00:19:35.000Z",
@@ -40756,6 +40789,17 @@
       "relationship_type": "uses",
       "source_ref": "report--953b26b0-49e8-557c-a0d0-02d720b8043e",
       "target_ref": "attack-pattern--123affda-6f11-58dc-8db2-3ea6a4c43493"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed8cbdb4-95f1-50e6-b4e7-a0657494879c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fac0f429-245a-532e-882f-e252544b0b06",
+      "target_ref": "vulnerability--e75d4ae8-0880-59dd-b8b8-8d8d5f044e03"
     },
     {
       "type": "relationship",
@@ -62936,6 +62980,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4fb083cc-6e62-503a-bf05-6b27b1eb5cb0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T01:36:35.000Z",
+      "modified": "2026-10-22T01:36:35.000Z",
+      "name": "Rex: SSH host key vulnerability (CVE-2026-94140)",
+      "description": "Rex versions through 1.16.1 for Perl hardcode 'StrictHostKeyChecking=no', which causes the application to accept unknown SSH host keys when performing remote rsync transfers.",
+      "published": "2026-10-22T01:36:35.000Z",
+      "labels": [
+        "rsync",
+        "ssh",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ef61c356-e2ff-534a-850c-654498b8d278",
+        "vulnerability--9cb62cd0-757b-54db-a4c3-576d948afa82"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-rex-ssh-mitm",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-rex-ssh-mitm/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/299"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-rex-ssh-mitm",
+      "x_craftedsignal_event_id": "brief-2026-10-22-rex-ssh-mitm",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rex-ssh-mitm/",
+      "x_craftedsignal_activity_at": "2026-10-22T01:36:35.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -97746,6 +97834,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d4743477-3460-5540-ad14-9ce65646cb6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T01:36:26.000Z",
+      "modified": "2026-10-22T01:36:26.000Z",
+      "name": "Robots-Validate: User-Agent matcher state leakage (CVE-2026-112921)",
+      "description": "## Overview\n\nThe Robots-Validate Perl module, specifically versions 0.4.3 through 0.4.9, contains a flaw where the internal state of the User-Agent matcher persists across consecutive requests. This leakage can result in false positive identifications of legitimate clients as imposter robots. The issue is resolved in version 0.4.10.\n\n## Impact\n\nThe vulnerability may cause unexpected denial of service or access rejection for legitimate web clients when using the affected module for request validation.\n\n## Recommendation\n\n- Audit systems for usage of the Robots-Validate Perl module.\n- Upgrade the Robots-Validate module to version 0.4.10 or later.\n",
+      "published": "2026-10-22T01:36:26.000Z",
+      "labels": [
+        "informational",
+        "perl",
+        "software-bug",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5283e534-d21f-5f3f-8b60-59fb11e43534",
+        "vulnerability--90e8e815-2fec-5aab-a188-2ec0990ed4d3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-robots-validate-state-leak",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-robots-validate-state-leak/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://metacpan.org/dist/Robots-Validate"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/301"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-robots-validate-state-leak",
+      "x_craftedsignal_event_id": "brief-2026-10-22-robots-validate-state-leak",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-robots-validate-state-leak/",
+      "x_craftedsignal_activity_at": "2026-10-22T01:36:26.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d50dae40-c803-5e4d-ac6f-4a7d8c567d7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T12:23:41.000Z",
@@ -105442,6 +105579,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f52f5090-64b0-5788-b3a1-87648d2d837a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T01:36:30.000Z",
+      "modified": "2026-10-22T01:36:30.000Z",
+      "name": "Net::LibSSH: Improper host key verification (CVE-2026-94423)",
+      "description": "## Overview\nThe Perl distribution Net::LibSSH contains a vulnerability (CVE-2026-94423) where the connect function fails to perform host key verification. This allows an attacker positioned in a man-in-the-middle capacity to intercept or spoof SSH traffic, as the client implicitly trusts any server it connects to. This affects all versions of Net::LibSSH prior to 0.004.\n\n## Impact\nSuccessful exploitation allows for man-in-the-middle attacks, potentially leading to the interception of sensitive data, credentials, or the execution of malicious commands on the client system if the SSH session is subsequently used for administrative operations.\n\n## Recommendation\n- Update the Net::LibSSH Perl module to version 0.004 or later.\n- Audit applications utilizing Net::LibSSH to identify instances where SSH connections are established to untrusted or external endpoints.\n- Implement network-level controls to restrict SSH outbound access to known, verified server IP ranges.\n",
+      "published": "2026-10-22T01:36:30.000Z",
+      "labels": [
+        "perl",
+        "ssh",
+        "supply-chain",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--06c109c8-8e07-5b04-b7b8-bf0681292f05",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fac0f429-245a-532e-882f-e252544b0b06",
+        "vulnerability--e75d4ae8-0880-59dd-b8b8-8d8d5f044e03"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-net-libssh-mitm",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-net-libssh-mitm/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://metacpan.org/dist/Net-LibSSH"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/300"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-net-libssh-mitm",
+      "x_craftedsignal_event_id": "brief-2026-10-22-net-libssh-mitm",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-net-libssh-mitm/",
+      "x_craftedsignal_activity_at": "2026-10-22T01:36:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5682543-9f0c-54e5-8ff4-2dd83937ce11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:14:41.000Z",
@@ -111384,6 +111571,12 @@
       "id": "software--5266a315-b6e8-56c9-ac1d-a1b8f1917cd6",
       "name": "Endpoint Security (\u003c 8.00.26.0012)",
       "vendor": "WatchGuard"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5283e534-d21f-5f3f-8b60-59fb11e43534",
+      "name": "Robots-Validate (0.4.3-0.4.9)"
     },
     {
       "type": "software",
@@ -117746,6 +117939,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ef61c356-e2ff-534a-850c-654498b8d278",
+      "name": "Rex (through 1.16.1)",
+      "vendor": "Rex"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ef9513ec-be9b-53b0-8867-d1efa963079a",
       "name": "SWIFI-SE2KIC firmware (\u003c=2.0.22)",
       "vendor": "Swann Communications"
@@ -118177,6 +118377,12 @@
       "id": "software--f9fcc798-a098-5d7c-a3fc-94507ace16a6",
       "name": "Podlove Podcast Publisher (\u003c= 4.5.6)",
       "vendor": "Podlove"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fac0f429-245a-532e-882f-e252544b0b06",
+      "name": "Net::LibSSH (\u003c 0.004)"
     },
     {
       "type": "software",
@@ -128979,6 +129185,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--90e8e815-2fec-5aab-a188-2ec0990ed4d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112921",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112921",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112921"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--90eb73d1-ab67-534a-bfb9-901a7c7c41b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -129869,6 +130091,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110370",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110370"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9cb62cd0-757b-54db-a4c3-576d948afa82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-94140",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-94140",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94140"
         }
       ]
     },
@@ -134973,6 +135211,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104850",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104850"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e75d4ae8-0880-59dd-b8b8-8d8d5f044e03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-94423",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-94423",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94423"
         }
       ]
     },
