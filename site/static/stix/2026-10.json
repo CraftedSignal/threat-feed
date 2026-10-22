@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d1ad5383-fee2-5101-99b7-e0c1b64ca02d",
+  "id": "bundle--d0181db7-1d5a-521d-afc4-9aa904ff9a54",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7996,6 +7996,17 @@
       "relationship_type": "has",
       "source_ref": "software--461ba7a1-6b8a-57c9-91be-05d43bb152b9",
       "target_ref": "vulnerability--8e14d62b-2182-5170-aacf-925ed7decac7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--164e88a0-5265-5f4d-88fd-adfa320496fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T07:48:52.000Z",
+      "modified": "2026-10-22T07:48:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--287d8a40-b222-5dfe-9a68-a6e85ac5226e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -29567,6 +29578,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0129238d-e2e8-5910-9192-18e347cab708",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a3b68264-b763-5248-8577-573d374e263b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0a21a71c-34bb-5bb0-9f8b-9fb7194be980",
+      "target_ref": "vulnerability--05cf56b6-03fa-5d52-b112-c934787385b7"
     },
     {
       "type": "relationship",
@@ -53643,6 +53665,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--287d8a40-b222-5dfe-9a68-a6e85ac5226e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T07:48:52.000Z",
+      "modified": "2026-10-22T07:48:52.000Z",
+      "name": "Pterodactyl Panel: Unauthenticated Remote Code Execution (CVE-2025-49132)",
+      "description": "## Overview\n\nCVE-2025-49132 is a critical vulnerability (CVSS 10.0) affecting Pterodactyl Panel that allows unauthenticated attackers to perform local file inclusion (LFI) via the 'locale' and 'namespace' parameters. This vulnerability can be escalated to remote code execution (RCE) by leveraging the pearcmd.php script. A working proof-of-concept exploit script is publicly available, increasing the risk of active exploitation.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, remote attacker to execute arbitrary code on the underlying host with the privileges of the web server user. This leads to full system compromise.\n\n## Recommendation\n\n- Upgrade Pterodactyl Panel to the version addressing GHSA-24wv-6c99-f843 immediately.\n- Review web access logs for requests containing 'locale' or 'namespace' parameters combined with sequences or paths attempting to access 'pearcmd.php'.\n- Monitor for unauthorized file creation or execution in the web directory and temporary directories (e.g., /tmp).\n- Restrict access to the Pterodactyl Panel web interface to known trusted IP ranges.\n",
+      "published": "2026-10-22T07:48:52.000Z",
+      "labels": [
+        "cve-2025-49132",
+        "lfi",
+        "pterodactyl",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0a21a71c-34bb-5bb0-9f8b-9fb7194be980",
+        "vulnerability--05cf56b6-03fa-5d52-b112-c934787385b7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-cve-2025-49132-pterodactyl-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-49132-pterodactyl-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/pterodactyl/panel/security/advisories/GHSA-24wv-6c99-f843"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XTENSHO-CVE-2025-49132-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XTENSHO-CVE-2025-49132-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-cve-2025-49132-pterodactyl-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-22-cve-2025-49132-pterodactyl-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-49132-pterodactyl-rce/",
+      "x_craftedsignal_activity_at": "2026-10-22T07:48:52.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.5446,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--288032f5-d8eb-5177-98d5-f5af043e812b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T01:43:38.000Z",
@@ -57579,6 +57657,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--393e63a9-d32f-5448-ae35-1ef4e101e0ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T07:48:39.000Z",
+      "modified": "2026-10-22T07:48:39.000Z",
+      "name": "Laravel Framework: Authentication Bypass (CVE-2026-114509)",
+      "description": "A public exploit has been published for CVE-2026-114509, a critical (CVSS 9.2) authentication bypass vulnerability in the Laravel `token` guard driver. The vulnerability allows an unauthenticated attacker to bypass authentication via JSON array injection (e.g., `{\"api_token\": [0]}`) when using a MySQL or MariaDB database. The application's failure to validate the input type combined with MySQL's implicit type coercion allows the bypass. PostgreSQL and SQLite are not affected.\n",
+      "published": "2026-10-22T07:48:39.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-114509",
+        "laravel"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--5a8e1a0d-c5bc-5b3e-8754-7fd4afe5fa57"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-laravel-tokenguard-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-laravel-tokenguard-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/laravel/framework/security/advisories/GHSA-f9x3-7vq9-cph6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=56B2A357-DC57-5411-9397-46C27E16A352"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=56B2A357-DC57-5411-9397-46C27E16A352\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-laravel-tokenguard-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-22-laravel-tokenguard-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-laravel-tokenguard-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-22T07:48:39.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -110421,6 +110550,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0a21a71c-34bb-5bb0-9f8b-9fb7194be980",
+      "name": "Panel (\u003c 1.11.11)",
+      "vendor": "Pterodactyl"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0a491b3c-7d7f-5181-b9da-709969c77391",
       "name": "Business Essentials for Contact Form 7 (\u003c= 1.2.1)",
       "vendor": "WordPress"
@@ -121178,6 +121314,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--05cf56b6-03fa-5d52-b112-c934787385b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-49132",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-49132",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-49132"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--05ebee39-13dc-523d-ad36-3116b9409d31",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -127316,6 +127468,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-97668",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97668"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5a8e1a0d-c5bc-5b3e-8754-7fd4afe5fa57",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114509",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114509",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114509"
         }
       ]
     },
