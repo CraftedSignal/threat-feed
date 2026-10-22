@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b3dbf47d-a145-5915-a874-e71bd8a6f5a0",
+  "id": "bundle--c8ff32e4-9d31-5b27-8842-165c0c5cba38",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9709,17 +9709,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1ac80f70-cb5a-5717-bb18-8ab4ad89c536",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T22:18:25.000Z",
-      "modified": "2026-07-24T22:18:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c17ad0fd-e5d5-5f6a-afd8-d6d36795a80c",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1ae34fb7-d04e-501f-98d5-77e7296b5ea0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:05:39.000Z",
@@ -14842,17 +14831,6 @@
       "relationship_type": "uses",
       "source_ref": "report--2e22eb06-9715-5da7-9b36-f4234b61d90c",
       "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--66aec30f-f277-5232-af3d-a6ac43815962",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T22:28:58.000Z",
-      "modified": "2026-07-24T22:28:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cae9d33a-b958-5e54-87bd-bcc4180d7925",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
     },
     {
       "type": "relationship",
@@ -20555,17 +20533,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bbe36291-fe12-5466-ba32-eec12d024421",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T22:28:58.000Z",
-      "modified": "2026-07-24T22:28:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cae9d33a-b958-5e54-87bd-bcc4180d7925",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bbf2b3ff-891a-5478-ad7d-9bebe39a3c32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T21:34:03.000Z",
@@ -24786,17 +24753,6 @@
       "relationship_type": "uses",
       "source_ref": "report--fb1dbe77-2a9b-56d2-a244-e8347a7d7c7b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fd24e447-abb3-5ad8-a2e0-257c9259c3f9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5f1b0f95-0e3f-5adf-a9c6-84f8708ac356",
-      "target_ref": "vulnerability--5021925e-1e30-5a8c-a5b5-1ef37647f433"
     },
     {
       "type": "relationship",
@@ -36785,52 +36741,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c17ad0fd-e5d5-5f6a-afd8-d6d36795a80c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T22:18:25.000Z",
-      "modified": "2026-07-24T22:18:25.000Z",
-      "name": "CVE-2025-71408 NLTK Eval Injection Vulnerability",
-      "description": "## Overview\n\nA critical eval injection vulnerability, identified as CVE-2025-71408, has been discovered in the Natural Language Toolkit (NLTK) Python library, affecting all versions prior to 3.9.3. This flaw resides within the `nltk.collocations` module, specifically when the `collocations.py` script is directly invoked via the command line. The vulnerability arises because the script's `__main__` block passes user-supplied command-line arguments directly to Python's `eval()` function without adequate sanitization or allowlist validation. An attacker who can control these command-line arguments can inject arbitrary Python expressions, bypassing the intended attribute lookup mechanism. This allows for the execution of arbitrary Python code, including operating system commands through Python's `os` module, leading to remote code execution (RCE) on the compromised system. The vulnerability presents a significant risk to applications and environments utilizing affected NLTK versions, especially those that process untrusted input via `collocations.py`.\n\n## Attack Chain\n\n1. An attacker crafts a malicious Python expression designed to execute arbitrary code or OS commands.\n2. The attacker delivers or injects this malicious expression into the command-line arguments intended for the `collocations.py` script.\n3. A vulnerable system or application executes `collocations.py`, passing the attacker-controlled command-line arguments.\n4. The `__main__` block within `collocations.py` directly processes these arguments and feeds them into the `eval()` function.\n5. Due to the `eval injection` vulnerability, the malicious Python expression is evaluated instead of benign data.\n6. Arbitrary Python code, including system-level commands leveraging the `os` module (e.g., `os.system(\"malicious_command\")`), is executed on the host.\n7. The attacker achieves remote code execution on the system, potentially leading to full system compromise, data exfiltration, or further lateral movement.\n\n## Impact\n\nSuccessful exploitation of CVE-2025-71408 grants attackers arbitrary code execution capabilities on the host system where vulnerable NLTK versions are deployed. This can lead to complete system compromise, allowing attackers to install malware, establish persistence, exfiltrate sensitive data, or disrupt operations. The broad use of NLTK in data science, academic research, and various applications suggests a wide potential impact across multiple sectors if not patched. The CVSS v3.1 Base Score of 7.8 indicates a high severity risk.\n\n## Recommendation\n\n* Prioritize patching all instances of NLTK (Natural Language Toolkit) to version 3.9.3 or later to remediate CVE-2025-71408 immediately.\n* Implement robust input validation and sanitization for any application that passes untrusted user input to command-line arguments, especially when those arguments are processed by Python scripts that may use functions like `eval()`.\n* Monitor process creation logs for unusual child processes spawned by Python interpreters, particularly if `collocations.py` is known to run on your systems.\n",
-      "published": "2026-07-24T22:18:25.000Z",
-      "labels": [
-        "eval-injection",
-        "python",
-        "remote-code-execution"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5f1b0f95-0e3f-5adf-a9c6-84f8708ac356",
-        "vulnerability--5021925e-1e30-5a8c-a5b5-1ef37647f433"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-nltk-eval-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-nltk-eval-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71408"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-nltk-eval-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-nltk-eval-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-nltk-eval-injection/",
-      "x_craftedsignal_activity_at": "2026-07-24T22:18:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c236fc85-d0e3-504a-b56e-90b86f7f137a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:24.000Z",
@@ -37194,54 +37104,6 @@
       "x_craftedsignal_activity_at": "2026-07-30T15:23:29.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--cae9d33a-b958-5e54-87bd-bcc4180d7925",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T22:28:58.000Z",
-      "modified": "2026-07-24T22:28:58.000Z",
-      "name": "Multiple HTTP/1.1 Request Smuggling Primitives in Blaze Java Parser",
-      "description": "## Overview\n\nFive distinct HTTP/1.1 conformance vulnerabilities have been identified in Blaze's hand-written Java parser, specifically within the `http/src/main/java/org/http4s/blaze/http/parser/` component. These laxities in parsing HTTP requests can lead to request-boundary disagreement between a strict intermediary proxy and a vulnerable Blaze server, a classic HTTP request smuggling scenario. The issue affects `http4s-blaze-server_2.13` (versions up to `0.23.17`), `blaze-http_2.13` (versions up to `0.23.17` and from `1.0.0-M1` to `1.0.0-M41`), and `blaze-http_3` (versions up to `0.23.17` and from `1.0.0-M1` to `1.0.0-M41`). These vulnerabilities are reachable via a default `BlazeServerBuilder` configuration. Attackers can leverage this discrepancy to bypass front-end access controls or authentication, poison response queues on pooled backend connections, and corrupt web caches, impacting the integrity and security of web applications. The primary risk lies in deployments using lenient or legacy intermediary proxies that do not strictly conform to RFC HTTP/1.1 parsing rules.\n\n## Attack Chain\n\n1. An attacker crafts a single HTTP/1.1 request containing ambiguous `Content-Length` or `Transfer-Encoding` headers, or other conformance violations, designed to be interpreted differently by an intermediary proxy and the vulnerable Blaze server.\n2. The attacker sends this specially crafted, malformed request to the fronting proxy of the target web application.\n3. The intermediary proxy, being RFC-strict, processes the initial part of the request, sanitizes or re-serializes it according to its own parsing rules, and forwards what it believes to be a complete, valid request to the backend Blaze server.\n4. The vulnerable Blaze server, due to its parsing laxities, interprets the forwarded request differently from the proxy, potentially seeing a second, embedded request where the proxy only saw data for the first.\n5. The Blaze server processes this \"smuggled\" second request, which could contain unauthorized commands or access to restricted resources.\n6. This discrepancy leads to various outcomes, such as bypassing authentication, accessing internal resources, poisoning caches, or manipulating subsequent requests in the proxy's queue, ultimately achieving the attacker's objective.\n\n## Impact\n\nThe actual exploitability of these vulnerabilities depends heavily on the fronting proxy's behavior, requiring a specific disagreement between the proxy's and the Blaze server's HTTP/1.1 parsers. If the proxy forwards malformed bytes that the Blaze server interprets differently, the consequences include bypassing front-end access control lists (ACLs) or authentication mechanisms, leading to unauthorized access. Attackers can also achieve response-queue poisoning on pooled backend connections, potentially serving malicious content or responses to other users. Additionally, web caches can be poisoned, leading to a denial-of-service or content manipulation. Risk is concentrated on systems using lenient or legacy intermediary proxies that do not strictly enforce HTTP/1.1 RFC compliance.\n\n## Recommendation\n\n* Upgrade `http4s-blaze-server` and `blaze-http` components to patched versions that address these HTTP/1.1 parsing vulnerabilities immediately.\n* Deploy affected applications behind an RFC-strict reverse proxy (such as nginx, HAProxy, Envoy, or AWS Application Load Balancer) that explicitly rejects or re-serializes malformed requests at the edge, mitigating the parsing discrepancies before they reach the vulnerable server.\n* Monitor web server logs and network traffic for anomalous HTTP request patterns, such as duplicate or malformed `Content-Length` or `Transfer-Encoding` headers, which could indicate request smuggling attempts.\n",
-      "published": "2026-07-24T22:28:58.000Z",
-      "labels": [
-        "http/1.1",
-        "java",
-        "request-smuggling",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4391f4f6-6e0e-5264-a50e-8c8f473a09c6",
-        "software--4dccd94d-6ced-5782-b262-58e9da95e0fe",
-        "software--88afae46-ab24-5cf0-bfa6-b244811b1cd9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-blaze-http-request-smuggling",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-blaze-http-request-smuggling/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-mhvj-jhpq-885v"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-blaze-http-request-smuggling",
-      "x_craftedsignal_event_id": "brief-2026-07-blaze-http-request-smuggling",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-blaze-http-request-smuggling/",
-      "x_craftedsignal_activity_at": "2026-07-24T22:28:58.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -41739,13 +41601,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4391f4f6-6e0e-5264-a50e-8c8f473a09c6",
-      "name": "http4s-blaze-server_2.13",
-      "vendor": "http4s"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--43dea3c0-6d4c-5ad0-a800-a52954bfa012",
       "name": "llama.cpp",
       "vendor": "Ollama"
@@ -41859,13 +41714,6 @@
       "spec_version": "2.1",
       "id": "software--4db0f6d4-393a-5e1d-839f-2f7d39c714a7",
       "name": "Elastic Defend"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--4dccd94d-6ced-5782-b262-58e9da95e0fe",
-      "name": "blaze-http_3",
-      "vendor": "http4s"
     },
     {
       "type": "software",
@@ -42041,13 +41889,6 @@
       "id": "software--5e1e5375-3f2c-5b4d-8d16-d3aa9cda8167",
       "name": "dynatrace-mcp-server (v1.8.5)",
       "vendor": "Dynatrace"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5f1b0f95-0e3f-5adf-a9c6-84f8708ac356",
-      "name": "NLTK (Natural Language Toolkit) \u003c 3.9.3",
-      "vendor": "NLTK"
     },
     {
       "type": "software",
@@ -42527,13 +42368,6 @@
       "id": "software--877a7f55-6b74-5598-bdc2-96ba16f08198",
       "name": "ArkSigner Desktop Client (v2.2.16.10 through 17062026)",
       "vendor": "ArkSigner Software and Hardware Industry and Trade Inc."
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--88afae46-ab24-5cf0-bfa6-b244811b1cd9",
-      "name": "blaze-http_2.13",
-      "vendor": "http4s"
     },
     {
       "type": "software",
@@ -45073,22 +44907,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-59309",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59309"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--5021925e-1e30-5a8c-a5b5-1ef37647f433",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-71408",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-71408",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71408"
         }
       ]
     },
