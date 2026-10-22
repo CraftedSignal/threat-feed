@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-21-emudhra-intermediate-ca-compromise
 event_id: brief-2026-10-21-emudhra-intermediate-ca-compromise
-revision: 1
-activity_at: "2026-10-21T14:19:28Z"
+revision: 2
+activity_at: "2026-10-22T18:48:43Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-22T18:48:43Z"
+    checksum: sha256:447f192b633310967b0dae440ae198280afd9e2b4481ade6b80a04e57138a685
+    summary: added coverage for emSign ECC Root CA - G3 +3 products
+    changed_fields:
+      - affected_products
+      - iocs
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html
 title: eMudhra Intermediate Certificate Authority Compromise (CVE-2026-111943)
 slug: 2026-10-emudhra-intermediate-ca-compromise
 description: The compromise of eight eMudhra intermediate certificate authority private keys due to a flawed key-generation process allows for the issuance of fraudulent, trusted certificates, necessitating urgent patches across programming language runtimes and browsers.
 date: "2026-10-21T14:19:28Z"
-lastmod: "2026-10-22T03:37:05Z"
+lastmod: "2026-10-22T18:48:09Z"
 type: advisory
 types:
   - advisory
@@ -33,6 +48,8 @@ tags:
   - tls
   - infrastructure-security
   - informational
+  - cryptography
+  - web-security
 vendors:
   - Mozilla
   - eMudhra
@@ -50,12 +67,22 @@ products:
   - certifi
   - webpki-roots (< 1.0.10)
   - Sonatype products and distributions
+  - emSign ECC Root CA - G3
+  - emSign Root CA - G1
+  - emSign Root TLS CA - G1
+  - CertiNext
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1588.004
     technique_name: Digital Certificates
     evidence: Private keys associated with eight eMudhra intermediate certificate authority certificates were compromised, potentially allowing unauthorized parties to create certificates that could appear trustworthy to vulnerable clients.
+    confidence_band: high
+  - tactic_id: TA0006
+    tactic_name: Credential Access
+    technique_id: T1552
+    technique_name: Unsecured Credentials
+    evidence: Each private key should have been a huge random number, but all eight were below 256, so anyone could work them out almost instantly.
     confidence_band: high
 cves:
   - id: CVE-2026-111943
@@ -67,6 +94,7 @@ references:
   - https://blog.talosintelligence.com/compromised-intermediate-certificates/
   - https://www.sonatype.com/blog/emudhra-ca-incident-sonatypes-assessment-and-guidance
   - https://guide.sonatype.com/security-event/6a82b8e8-2715-4157-956b-ddcca5014b57
+  - https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html
 iocs:
   - type: hash_sha256
     value: E7568FE6E12331F4FD7DE61DA4C7559D0F8EB192A218D4741A3BA75184333838
@@ -118,6 +146,13 @@ updates:
       - sonatype
     source_urls:
       - https://www.sonatype.com/blog/emudhra-ca-incident-sonatypes-assessment-and-guidance
+  - at: "2026-10-22T18:48:09Z"
+    level: L2
+    summary: added coverage for emSign ECC Root CA - G3 +3 products
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html
 ---
 
 On October 17, 2026, a security researcher identified that eight intermediate certificate authorities operated by eMudhra possessed insecurely generated private keys, which could be independently recovered. This compromise allows an attacker to issue fraudulent, trusted TLS and code-signing certificates. While there is no evidence of widespread abuse prior to defensive actions, the severity of the cryptographic failure prompted immediate revocation and denylisting efforts across browsers and language runtimes. The Go Project released CVE-2026-111943 to hardcode a denylist of the affected keys in the crypto/x509 library to protect applications that do not rely on system-level certificate revocation mechanisms.
