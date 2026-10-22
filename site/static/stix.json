@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b3a600cf-08fe-5d24-b72a-9ee0cbd44733",
+  "id": "bundle--e4423a21-e08a-5d1e-927e-e7de86d4cd9a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12800,6 +12800,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--25d3724e-cdb8-5e28-8aae-11b0466c122f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:49:48.000Z",
+      "modified": "2026-10-22T12:49:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3c5b9f09-e289-5f4c-818c-21f6e8770ba9",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--25daba33-6953-58c5-9fe9-f801e9d363e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12858,7 +12869,7 @@
       "id": "relationship--2641cd41-4c6e-560e-ae96-c96506318473",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T12:02:02.000Z",
-      "modified": "2026-10-22T12:02:02.000Z",
+      "modified": "2026-10-22T12:50:38.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f5588ff3-9226-50ab-adb2-f978ae867301",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -16371,6 +16382,17 @@
       "relationship_type": "has",
       "source_ref": "software--ea2d3bc7-a31b-5098-8e8f-727cacab25e4",
       "target_ref": "vulnerability--52d17400-188d-5c52-84a9-b558dee5b5dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3844c85d-2f1d-5ba3-a484-4e718a1350dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--04a2887d-0e21-5b21-b04e-e1953aa90bae",
+      "target_ref": "vulnerability--ba71d58b-83cf-553a-a91d-469ac8482261"
     },
     {
       "type": "relationship",
@@ -20720,6 +20742,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4dcd08bf-d0bb-5560-8695-e1e72df9fbef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ea8c43cd-c99a-5e85-af52-6c52a7eb5971",
+      "target_ref": "vulnerability--ad322ff2-0509-58d7-8b01-01d6f4164055"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4dd30b26-3cc7-5896-b69d-c43d291b8151",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:03:29.000Z",
@@ -24603,6 +24636,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6108c676-6719-56cc-b1db-242c1ab9bb83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:49:22.000Z",
+      "modified": "2026-10-22T12:49:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--409ba7fd-0508-5dd1-9cd6-70720c1051e4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--610a74f5-da7b-518e-991e-f2665d7abf3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -25017,6 +25061,17 @@
       "relationship_type": "has",
       "source_ref": "software--c779aeec-b0d8-506c-a846-569d27be8782",
       "target_ref": "vulnerability--4e0a2d7f-9b9f-5367-a8ae-8cd7e3a9008a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6326e7d1-ab5f-5794-9b19-8f5b276a0f67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e21d2b02-a5a4-5145-93f6-7080e483fa24",
+      "target_ref": "vulnerability--10df61c8-30fb-537f-a3e6-70c84e3c7159"
     },
     {
       "type": "relationship",
@@ -27470,6 +27525,17 @@
       "relationship_type": "uses",
       "source_ref": "report--26f7f0b6-e2ce-5493-93ae-c226312b39cc",
       "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f713c6f-c7d7-557b-9a44-ec23c380b996",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1e5f8b05-75d2-51cb-82db-4a3857ecabad",
+      "target_ref": "vulnerability--ba71d58b-83cf-553a-a91d-469ac8482261"
     },
     {
       "type": "relationship",
@@ -36402,6 +36468,17 @@
       "relationship_type": "has",
       "source_ref": "software--a5473b1f-94ab-524c-afa9-5b0b6e097ef1",
       "target_ref": "vulnerability--c85b9f60-6cc7-5156-9603-df75a73e4691"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9aa5c01c-2ba8-59b4-85b9-28c0be362b7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:49:22.000Z",
+      "modified": "2026-10-22T12:49:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--409ba7fd-0508-5dd1-9cd6-70720c1051e4",
+      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
     },
     {
       "type": "relationship",
@@ -57361,6 +57438,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fdcf2f6b-0dce-5732-9bed-a751d919c350",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:49:13.000Z",
+      "modified": "2026-10-22T12:49:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--89e91f0d-594d-5457-ab92-d857ba7ba9db",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fdd7b5ed-0167-5cb7-8dc0-b07013963e0e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -76334,6 +76422,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3c5b9f09-e289-5f4c-818c-21f6e8770ba9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:49:48.000Z",
+      "modified": "2026-10-22T12:49:48.000Z",
+      "name": "RedisBloom and Redis OSS: Count-Min Sketch RDB deserialization integer overflow (CVE-2026-62356)",
+      "description": "## Overview\nRedisBloom is vulnerable to an integer-overflow issue (CVE-2026-62356) within its Count-Min Sketch (CMSketch) RDB deserialization process. By providing a crafted CMSketch object through the `RESTORE` command or malicious RDB file ingestion, an authenticated attacker can cause the server to allocate an undersized heap buffer. Subsequent interaction with the sketch via commands such as `CMS.QUERY`, `CMS.INCRBY`, or `CMS.INFO` triggers out-of-bounds memory access. This behavior causes a crash (denial of service) or potential remote code execution. A non-weaponized proof-of-concept demonstrating the denial-of-service condition is publicly available.\n\n## Attack Chain\n1. Attacker authenticates to the Redis instance.\n2. Attacker crafts a malicious CMSketch object with dimensions designed to induce integer overflow in the length computation.\n3. Attacker sends the payload to the target via `RESTORE` or triggers ingestion of a compromised RDB file.\n4. The server's `CMSRdbLoad` routine performs a 64-bit length calculation that wraps around, resulting in the allocation of an undersized heap buffer.\n5. The server commits the poisoned CMSketch object to memory.\n6. Attacker invokes CMS commands (`CMS.QUERY`, `CMS.INCRBY`, `CMS.INFO`) on the object.\n7. The server calculates an index based on the corrupted object dimensions and performs an out-of-bounds access on the undersized heap buffer, leading to SIGSEGV/crash or potential arbitrary code execution.\n\n## Impact\nSuccessful exploitation allows for persistent denial-of-service (the corrupted object remains in memory across restarts if persisted to RDB) and provides a primitive for potential remote code execution in the context of the Redis server process.\n\n## Recommendation\n1. Patch immediately by upgrading to Redis OSS 8.8.2 or later, and RedisBloom 2.8.24 or later.\n2. If an immediate upgrade is not feasible, restrict access to `RESTORE`, `MIGRATE`, `DEBUG`, and RDB ingestion commands via Redis ACLs to trusted users only.\n3. Treat all serialized data import pathways, including replication, RDB preloading, and backup restoration, as high-risk vectors.\n",
+      "published": "2026-10-22T12:49:48.000Z",
+      "labels": [
+        "dos",
+        "integer-overflow",
+        "rce",
+        "redis"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--04a2887d-0e21-5b21-b04e-e1953aa90bae",
+        "software--1e5f8b05-75d2-51cb-82db-4a3857ecabad",
+        "vulnerability--ba71d58b-83cf-553a-a91d-469ac8482261"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-redisbloom-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-redisbloom-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/RedisBloom/RedisBloom/security/advisories/GHSA-q5p6-hwxh-c23h"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=375DF200-1D6B-5FA8-8688-3F16234B3A15"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=375DF200-1D6B-5FA8-8688-3F16234B3A15\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-redisbloom-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-22-redisbloom-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-redisbloom-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-22T12:49:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3c6d5c1e-2eed-503f-8445-beb6bd9335d1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T10:40:46.000Z",
@@ -77787,6 +77930,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--409ba7fd-0508-5dd1-9cd6-70720c1051e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:49:22.000Z",
+      "modified": "2026-10-22T12:49:22.000Z",
+      "name": "CozyThemes Rootblox WordPress plugin Local File Inclusion (CVE-2026-112832)",
+      "description": "## Overview\n\nCVE-2026-112832 is a critical Local File Inclusion (LFI) vulnerability discovered in the CozyThemes Rootblox plugin for WordPress, affecting all versions up to and including 1.0.6. The vulnerability stems from improper control of filename parameters used in PHP include or require statements, allowing unauthenticated attackers to read sensitive files on the server or achieve Remote Code Execution (RCE). As of October 22, 2026, proof-of-concept exploit code is publicly available.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to achieve high confidentiality, integrity, and availability impact, typically resulting in full site compromise through arbitrary PHP code execution or unauthorized access to sensitive application files.\n\n## Recommendation\n\n- Identify all WordPress instances running the 'Rootblox' plugin.\n- Deactivate and uninstall the Rootblox plugin immediately if it is version 1.0.6 or earlier until a secure version is confirmed available by the vendor.\n- Review web server access logs for requests containing path traversal sequences (e.g., ../) targeting PHP file inclusion parameters commonly used by the plugin.\n",
+      "published": "2026-10-22T12:49:22.000Z",
+      "labels": [
+        "lfi",
+        "vulnerability",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ea8c43cd-c99a-5e85-af52-6c52a7eb5971",
+        "vulnerability--ad322ff2-0509-58d7-8b01-01d6f4164055"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-rootblox-lfi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-rootblox-lfi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://patchstack.com/database/wordpress/plugin/rootblox/vulnerability/wordpress-rootblox-plugin-1-0-6-local-file-inclusion-vulnerability?_s_id=cve"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-112832"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-112832\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-rootblox-lfi",
+      "x_craftedsignal_event_id": "brief-2026-10-22-rootblox-lfi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rootblox-lfi/",
+      "x_craftedsignal_activity_at": "2026-10-22T12:49:22.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -102567,6 +102766,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--89e91f0d-594d-5457-ab92-d857ba7ba9db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:49:13.000Z",
+      "modified": "2026-10-22T12:49:13.000Z",
+      "name": "Signal RingRTC: Unauthenticated call termination denial-of-service (CVE-2026-113380)",
+      "description": "## Overview\n\nCVE-2026-113380 is a critical-severity vulnerability (CVSS 9.3) in the RingRTC library, which provides voice and video calling capabilities for Signal. An attacker can exploit this flaw by flooding the call’s Finite State Machine (FSM) event queue with junk data. Because the application processes hang-up commands as standard FSM events without priority or rate limiting, the legitimate termination signal becomes blocked behind the attacker's traffic. This prevents the application from tearing down audio and video tracks after a user attempts to end a call. The issue was resolved in RingRTC version 2.72.0.\n\n## Attack Chain\n\n1. Attacker initiates a voice or video call with the target.\n2. Attacker transmits high-frequency junk traffic to the target peer.\n3. Junk traffic fills the target application’s FSM event queue.\n4. Victim attempts to terminate the call via the user interface.\n5. The termination request is placed in the FSM event queue behind the existing junk traffic.\n6. The target device fails to process the hang-up event in a timely manner.\n7. Audio and video capture remains active on the victim’s device while the call state persists.\n\n## Impact\n\nSuccessful exploitation allows a malicious caller to maintain unauthorized access to a victim's microphone and camera after the victim believes the call has concluded.\n\n## Recommendation\n\n* Update Signal applications to the latest available version to incorporate RingRTC 2.72.0 or higher.\n* In the absence of an immediate update, users should manually verify that the call indicator disappears and the application reflects an inactive state after ending a call.\n",
+      "published": "2026-10-22T12:49:13.000Z",
+      "labels": [
+        "denial-of-service",
+        "signal",
+        "vulnerability",
+        "webrtc"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e21d2b02-a5a4-5145-93f6-7080e483fa24",
+        "vulnerability--10df61c8-30fb-537f-a3e6-70c84e3c7159"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-signal-ringrtc-hangup-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-signal-ringrtc-hangup-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/signal-vulnerability-lets-malicious-callers-block-hang-ups/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-signal-ringrtc-hangup-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-10-22-signal-ringrtc-hangup-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-signal-ringrtc-hangup-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-10-22T12:49:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00321,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -138645,7 +138891,7 @@
       "id": "report--f5588ff3-9226-50ab-adb2-f978ae867301",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T12:02:02.000Z",
-      "modified": "2026-10-22T12:02:02.000Z",
+      "modified": "2026-10-22T12:50:38.000Z",
       "name": "DedeCMS: PHP code injection in ShowMsg() (CVE-2021-48016)",
       "description": "## Overview\nDedeCMS versions through 5.8.1-beta are vulnerable to PHP code injection within the ShowMsg() function. The vulnerability arises because the application improperly handles the HTTP Referer header, writing it directly into a DedeTemplate string before inclusion. An unauthenticated attacker can exploit this by sending a crafted HTTP request to the '/plus/flink.php?dopost=save' endpoint with an empty validate code field. Successful exploitation results in arbitrary PHP and system command execution. This vulnerability has been subject to in-the-wild exploitation since at least October 14, 2023.\n\n## Attack Chain\n1. Attacker identifies a target running DedeCMS 5.8.1-beta or earlier.\n2. Attacker crafts a malicious HTTP request targeting '/plus/flink.php?dopost=save'.\n3. Attacker includes a malicious payload within the 'Referer' header.\n4. Attacker ensures the 'validate' parameter is empty to bypass simple verification.\n5. The server-side ShowMsg() function processes the crafted 'Referer' header.\n6. The application writes the 'Referer' value into a template string and includes it.\n7. Arbitrary PHP code injected in the 'Referer' header is executed by the server.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to execute arbitrary PHP code and system commands on the underlying host, potentially leading to full system compromise.\n\n## Recommendation\n- Inventory all internet-facing instances of DedeCMS.\n- Patch affected instances immediately; confirm if the vendor has provided a specific update that remediates the ShowMsg() injection vulnerability.\n- If a patch is unavailable, restrict access to '/plus/flink.php' at the web application firewall or reverse proxy level.\n- Enable detailed web server logging to capture 'Referer' headers and audit requests to the 'flink.php' endpoint for anomalous payloads containing PHP tags or shell commands.\n",
       "published": "2026-10-22T12:02:02.000Z",
@@ -138669,14 +138915,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48016"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2021-48016\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-22-dedecms-code-injection",
       "x_craftedsignal_event_id": "brief-2026-10-22-dedecms-code-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dedecms-code-injection/",
-      "x_craftedsignal_activity_at": "2026-10-22T12:02:02.000Z",
+      "x_craftedsignal_activity_at": "2026-10-22T12:50:38.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -142381,6 +142631,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--04a2887d-0e21-5b21-b04e-e1953aa90bae",
+      "name": "Redis OSS (\u003c 8.8.2)",
+      "vendor": "Redis"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--04bf873a-e7f4-5fc4-99b2-6d626f60ce66",
       "name": "Cpanel::JSON::XS (\u003c 4.80)",
       "vendor": "cPanel"
@@ -144036,6 +144293,13 @@
       "id": "software--1e365a8d-c746-5eff-8ea8-14dd028e8c0a",
       "name": "Forminator Forms (\u003c= 1.57.2)",
       "vendor": "WPMU DEV"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1e5f8b05-75d2-51cb-82db-4a3857ecabad",
+      "name": "RedisBloom (\u003c 2.8.24)",
+      "vendor": "Redis"
     },
     {
       "type": "software",
@@ -154836,6 +155100,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e21d2b02-a5a4-5145-93f6-7080e483fa24",
+      "name": "RingRTC (\u003c 2.72.0)",
+      "vendor": "Signal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e22068e7-1765-5409-b676-3960a4b23414",
       "name": "NeuVector (\u003c 5.4.11, \u003c 5.5.4, \u003c 5.6.2)",
       "vendor": "SUSE"
@@ -155287,6 +155558,13 @@
       "id": "software--ea87ca79-49c4-549a-8c91-26f6e916090d",
       "name": "Login with phone number (\u003c= 1.8.77)",
       "vendor": "Hamid Alinia"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ea8c43cd-c99a-5e85-af52-6c52a7eb5971",
+      "name": "Rootblox (\u003c= 1.0.6)",
+      "vendor": "CozyThemes"
     },
     {
       "type": "software",
@@ -158081,6 +158359,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114220",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114220"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--10df61c8-30fb-537f-a3e6-70c84e3c7159",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113380",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113380",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113380"
         }
       ]
     },
@@ -173015,6 +173309,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--ad322ff2-0509-58d7-8b01-01d6f4164055",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112832",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112832",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112832"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ad501437-32f9-57c8-955e-ed6f9fc92ee9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -174065,6 +174375,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-41753",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41753"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ba71d58b-83cf-553a-a91d-469ac8482261",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62356",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62356",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62356"
         }
       ]
     },

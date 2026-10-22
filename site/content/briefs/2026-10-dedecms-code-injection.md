@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-22-dedecms-code-injection
 event_id: brief-2026-10-22-dedecms-code-injection
-revision: 1
-activity_at: "2026-10-22T12:02:02Z"
+revision: 2
+activity_at: "2026-10-22T12:50:38Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-22T12:50:38Z"
+    checksum: sha256:71fd21ffb41e0271e59f30a3243554fa47f9ce1122e4cbe84a11b0b77e459a3c
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2021-48016&utm_source=rss&utm_medium=rss
 title: 'DedeCMS: PHP code injection in ShowMsg() (CVE-2021-48016)'
 slug: 2026-10-dedecms-code-injection
 description: DedeCMS through 5.8.1-beta contains a PHP code injection vulnerability in the ShowMsg() function, allowing unauthenticated attackers to execute arbitrary system commands via a crafted HTTP Referer header.
 date: "2026-10-22T12:02:02Z"
+lastmod: "2026-10-22T12:49:36Z"
 type: threat
 types:
   - threat
@@ -23,6 +37,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:dedecms:dedecms:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2021-48016&utm_source=rss&utm_medium=rss
 tags:
   - php-injection
   - remote-code-execution
@@ -44,6 +61,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2021-48016
+  - https://sploitus.com/exploit?id=CVE-2021-48016&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2021-48016 Exploitation - PHP Code Injection via Referer Header
     description: Detects attempts to exploit the DedeCMS ShowMsg() vulnerability by checking for common PHP injection patterns within the HTTP Referer header sent to the flink.php endpoint.
@@ -73,6 +91,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2021-48016
       evidence: Vulnerability is exploited via /plus/flink.php
+updates:
+  - at: "2026-10-22T12:49:36Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2021-48016&utm_source=rss&utm_medium=rss
 ---
 
 DedeCMS versions through 5.8.1-beta are vulnerable to PHP code injection within the ShowMsg() function. The vulnerability arises because the application improperly handles the HTTP Referer header, writing it directly into a DedeTemplate string before inclusion. An unauthenticated attacker can exploit this by sending a crafted HTTP request to the '/plus/flink.php?dopost=save' endpoint with an empty validate code field. Successful exploitation results in arbitrary PHP and system command execution. This vulnerability has been subject to in-the-wild exploitation since at least October 14, 2023.
