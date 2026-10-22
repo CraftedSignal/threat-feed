@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-22-cisco-security-patches
 event_id: brief-2026-10-22-cisco-security-patches
-revision: 1
-activity_at: "2026-10-22T10:47:10Z"
+revision: 2
+activity_at: "2026-10-22T19:58:26Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-22T19:58:26Z"
+    checksum: sha256:becd44a22d2d5ab8eaaf476b78353fb173b8ed841b7803e3a29d7a80d27736a2
+    summary: added coverage for Expressway
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4105
 title: Cisco Security Updates for Expressway, Unified Communications, and Snort 3
 slug: 2026-10-cisco-security-patches
 description: Cisco has patched 34 vulnerabilities, including critical-severity remote code execution and authentication bypass flaws, affecting Expressway Series, Unified Communications products, and Snort 3.
 date: "2026-10-22T10:47:10Z"
+lastmod: "2026-10-22T19:56:30Z"
 type: threat
 types:
   - threat
@@ -26,6 +40,7 @@ tags:
   - vulnerability
   - cisco
   - patch-management
+  - remote-code-execution
 vendors:
   - Cisco
 products:
@@ -47,6 +62,7 @@ products:
   - UTD for IOS XE
   - IOS XR
   - Secure Client
+  - Expressway
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -75,6 +91,7 @@ cves:
     kev_status: "false"
 references:
   - https://www.securityweek.com/cisco-patches-34-vulnerabilities-across-multiple-products/
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4105
 action_plan:
   priority: elevated
   owners:
@@ -91,6 +108,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-76466 and general Snort 3 vulnerabilities.
       evidence: Source advisory reporting on patch availability.
+updates:
+  - at: "2026-10-22T19:56:30Z"
+    level: L2
+    summary: added coverage for Expressway
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4105
 ---
 
 Cisco released security updates addressing 34 vulnerabilities across multiple product lines, including Expressway Series, Unified Communications products, Snort 3, IOS XR, and Secure Client. The vulnerabilities include critical-severity flaws capable of remote code execution (RCE), authentication bypass, and denial-of-service (DoS). Cisco reports no evidence of active exploitation in the wild as of the release date.
