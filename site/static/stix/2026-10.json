@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fef44965-15f3-590a-8650-988a68a06728",
+  "id": "bundle--76b81f6b-655a-5d57-8624-71f1dfc385f3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10517,6 +10517,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2641cd41-4c6e-560e-ae96-c96506318473",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:02:02.000Z",
+      "modified": "2026-10-22T12:02:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5588ff3-9226-50ab-adb2-f978ae867301",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--264e947c-5ae8-53cf-bbbd-6f13b89f3050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T18:27:42.000Z",
@@ -19401,6 +19412,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a320a2bd-717a-5fdc-b6a8-5bd18527da11",
       "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5f13b82f-7a8b-549f-837f-4e20b583b0ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b15701a0-ef28-57af-ab0f-bbf650c06d5b",
+      "target_ref": "vulnerability--b0c331ff-88e6-571b-9a00-bda2b0aae776"
     },
     {
       "type": "relationship",
@@ -108663,6 +108685,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5588ff3-9226-50ab-adb2-f978ae867301",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-22T12:02:02.000Z",
+      "modified": "2026-10-22T12:02:02.000Z",
+      "name": "DedeCMS: PHP code injection in ShowMsg() (CVE-2021-48016)",
+      "description": "## Overview\nDedeCMS versions through 5.8.1-beta are vulnerable to PHP code injection within the ShowMsg() function. The vulnerability arises because the application improperly handles the HTTP Referer header, writing it directly into a DedeTemplate string before inclusion. An unauthenticated attacker can exploit this by sending a crafted HTTP request to the '/plus/flink.php?dopost=save' endpoint with an empty validate code field. Successful exploitation results in arbitrary PHP and system command execution. This vulnerability has been subject to in-the-wild exploitation since at least October 14, 2023.\n\n## Attack Chain\n1. Attacker identifies a target running DedeCMS 5.8.1-beta or earlier.\n2. Attacker crafts a malicious HTTP request targeting '/plus/flink.php?dopost=save'.\n3. Attacker includes a malicious payload within the 'Referer' header.\n4. Attacker ensures the 'validate' parameter is empty to bypass simple verification.\n5. The server-side ShowMsg() function processes the crafted 'Referer' header.\n6. The application writes the 'Referer' value into a template string and includes it.\n7. Arbitrary PHP code injected in the 'Referer' header is executed by the server.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to execute arbitrary PHP code and system commands on the underlying host, potentially leading to full system compromise.\n\n## Recommendation\n- Inventory all internet-facing instances of DedeCMS.\n- Patch affected instances immediately; confirm if the vendor has provided a specific update that remediates the ShowMsg() injection vulnerability.\n- If a patch is unavailable, restrict access to '/plus/flink.php' at the web application firewall or reverse proxy level.\n- Enable detailed web server logging to capture 'Referer' headers and audit requests to the 'flink.php' endpoint for anomalous payloads containing PHP tags or shell commands.\n",
+      "published": "2026-10-22T12:02:02.000Z",
+      "labels": [
+        "php-injection",
+        "remote-code-execution",
+        "web-application-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b15701a0-ef28-57af-ab0f-bbf650c06d5b",
+        "vulnerability--b0c331ff-88e6-571b-9a00-bda2b0aae776"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-22-dedecms-code-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-dedecms-code-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48016"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-22-dedecms-code-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-22-dedecms-code-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dedecms-code-injection/",
+      "x_craftedsignal_activity_at": "2026-10-22T12:02:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5682543-9f0c-54e5-8ff4-2dd83937ce11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:14:41.000Z",
@@ -119063,6 +119131,13 @@
       "id": "software--b14a2b5d-a12c-50f1-8145-3c9d05423296",
       "name": "Osclass (\u003c= 8.3.1)",
       "vendor": "Osclass"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b15701a0-ef28-57af-ab0f-bbf650c06d5b",
+      "name": "DedeCMS (\u003c= 5.8.1-beta)",
+      "vendor": "DedeCMS"
     },
     {
       "type": "software",
@@ -135339,6 +135414,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-60432",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60432"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b0c331ff-88e6-571b-9a00-bda2b0aae776",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-48016",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-48016",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48016"
         }
       ]
     },
