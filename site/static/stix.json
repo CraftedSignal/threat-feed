@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f55f4e2b-443f-524c-ab7c-2d16f6b6fb5d",
+  "id": "bundle--f1306bfd-ba21-553f-925b-0b189356d4e8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -104409,7 +104409,7 @@
       "id": "report--93afc05a-f932-5b99-8781-34f1df5ce14b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T16:07:10.000Z",
-      "modified": "2026-10-21T16:07:10.000Z",
+      "modified": "2026-10-22T07:17:03.000Z",
       "name": "Mozilla Firefox and Thunderbird Multiple Vulnerabilities",
       "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities affecting various versions of Mozilla Firefox and Thunderbird. These flaws allow for arbitrary code execution, compromise of sensitive data, and denial of service. The vulnerabilities are detailed in Mozilla security advisories MFSA 2026-111 through MFSA 2026-115.\n\n## Impact\n\nSuccessful exploitation may result in unauthorized arbitrary code execution, loss of data confidentiality, or application-level denial of service.\n\n## Recommendation\n\n- Inventory all enterprise installations of Mozilla Firefox and Thunderbird to identify versions within the affected ranges.\n- Upgrade Mozilla Firefox to version 158.0.1 or later.\n- Upgrade Mozilla Firefox ESR to version 115.43.1 or 153.5.1 or later as appropriate for the specific release track.\n- Upgrade Mozilla Thunderbird to version 153.5.1 or 158.0.1 or later.\n- Review the specific Mozilla security advisories (MFSA 2026-111 to MFSA 2026-115) for additional technical context.\n",
       "published": "2026-10-21T16:07:10.000Z",
@@ -104468,9 +104468,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-21-mozilla-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-21-mozilla-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mozilla-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-21T16:07:10.000Z",
+      "x_craftedsignal_activity_at": "2026-10-22T07:17:03.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -104478,7 +104478,7 @@
       },
       "x_craftedsignal_cvss_max": 5.9,
       "x_craftedsignal_epss_max": 0.00425,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",

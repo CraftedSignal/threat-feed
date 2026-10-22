@@ -1,8 +1,16 @@
 ---
 brief_id: brief-2026-10-21-mozilla-vulnerabilities
 event_id: brief-2026-10-21-mozilla-vulnerabilities
-revision: 1
-activity_at: "2026-10-21T16:07:10Z"
+revision: 2
+activity_at: "2026-10-22T07:17:03Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-22T07:17:03Z"
+    checksum: sha256:f437bf2917079ee908c2b13a348f61eba141b6903a18142206f4d049be61763d
+    summary: Updated cves, priority_score
+    changed_fields:
+      - cves
+      - priority_score
 title: Mozilla Firefox and Thunderbird Multiple Vulnerabilities
 slug: 2026-10-mozilla-vulnerabilities
 description: Multiple vulnerabilities in Mozilla Firefox and Thunderbird, including CVE-2026-113399 through CVE-2026-113869, may lead to arbitrary code execution, data confidentiality compromise, or denial of service.
