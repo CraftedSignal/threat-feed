@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--649123d6-a723-5cd5-b683-da04a9d4edd7",
+  "id": "bundle--2569716e-27d3-5696-82f0-f9ac05d90bbc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -255,6 +255,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1098.001",
           "url": "https://attack.mitre.org/techniques/T1098/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Digital Certificates",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1588.004",
+          "url": "https://attack.mitre.org/techniques/T1588/004"
         }
       ]
     },
@@ -3087,6 +3103,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--0f36937a-9512-5b3e-aa34-baaf0df6e2cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: E7568FE6E12331F4FD7DE61DA4C7559D0F8EB192A218D4741A3BA75184333838",
+      "description": "Compromised EM EV TLS CA - G3B intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = 'E7568FE6E12331F4FD7DE61DA4C7559D0F8EB192A218D4741A3BA75184333838']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--103416a0-0e0c-56df-9405-77f02994ec71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:51:37.000Z",
@@ -3256,6 +3285,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2f40e8e8-61f6-5f7c-bcde-a3bd14895857",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: CB6E15165AC802E9B3F993F16C25D41F4E81C21EBDE71AE1B012AC00BF9C7C3F",
+      "description": "Compromised EM OV TLS CA - G3C intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = 'CB6E15165AC802E9B3F993F16C25D41F4E81C21EBDE71AE1B012AC00BF9C7C3F']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -3399,6 +3441,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--4f884754-57b6-5a8a-b87d-8bb44128a774",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: 432EC25F0D28DE9006D97BF752F17BBB2CD41F669933FCB072D9A1148D0261F3",
+      "description": "Compromised EM EV TLS CA - G3C intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = '432EC25F0D28DE9006D97BF752F17BBB2CD41F669933FCB072D9A1148D0261F3']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--517ac4a1-7936-59b6-b190-49196fb2154f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -3438,6 +3493,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5df17b40-7c7f-537b-a560-e0e2ce4049a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: 9E39DE2881273ACC225A149C72BA3E0F51424963669AB633EE1DC7DF5DB067B4",
+      "description": "Compromised EM OV CS CA - G3B intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = '9E39DE2881273ACC225A149C72BA3E0F51424963669AB633EE1DC7DF5DB067B4']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--5e211955-0b97-542c-aa95-ccffaa69926d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T10:33:30.000Z",
@@ -3473,6 +3541,19 @@
       "pattern": "[ipv4-addr:value = '212.73.134.136']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6ee404a6-62c1-5a94-8e87-a5dcebdc181c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: 98B896625C0C230ADEEC3EB2CF6AAD5001ECF9156A68644E82374CE5833BC25B",
+      "description": "Compromised EM OV TLS CA - G3B intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = '98B896625C0C230ADEEC3EB2CF6AAD5001ECF9156A68644E82374CE5833BC25B']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
     },
     {
       "type": "indicator",
@@ -3542,6 +3623,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--7ba9a7ef-054c-586d-8a05-f31566992fd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: 0164D7CEAE5BB909C272AF151FF44B1177AE9B47D9424B94F1D9558C30934D19",
+      "description": "Compromised EM DV TLS CA - G3C intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = '0164D7CEAE5BB909C272AF151FF44B1177AE9B47D9424B94F1D9558C30934D19']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--7c62aaa4-7a7d-5e1b-86e0-a884da6f677d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -3590,6 +3684,19 @@
       "pattern": "[ipv4-addr:value = '23.248.249.90']",
       "pattern_type": "stix",
       "valid_from": "2026-10-07T16:46:44.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8227e40c-40e9-5514-8e7b-5a6fe3ee6253",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: 4B2460A466F95FD40113BCDCCA2CEB29B3B093921DE45474DA7DF48874C630B1",
+      "description": "Compromised EM OV CS CA - G3C intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = '4B2460A466F95FD40113BCDCCA2CEB29B3B093921DE45474DA7DF48874C630B1']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
     },
     {
       "type": "indicator",
@@ -4032,6 +4139,19 @@
       "pattern": "[domain-name:value = '*.facebook.net']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e2dbeede-377e-563b-915e-925afb8cc4c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "hash_sha256: 42C4ACCD12C4F59597925E1A08A7A90102608543809308D50EC427E118BA1493",
+      "description": "Compromised EM DV TLS CA - G3B intermediate certificate",
+      "pattern": "[file:hashes.'SHA-256' = '42C4ACCD12C4F59597925E1A08A7A90102608543809308D50EC427E118BA1493']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-21T14:19:28.000Z"
     },
     {
       "type": "indicator",
@@ -8541,6 +8661,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b72826a-a656-5437-9374-6030dcc78aaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c44dd70d-f148-518a-a484-e0fef8c09812",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b8ebdde-6059-5ebb-9f2c-51dbad93e993",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:41:50.000Z",
@@ -9725,6 +9856,17 @@
       "relationship_type": "has",
       "source_ref": "software--90945eb0-ad1c-519d-a2ba-71ba57055ef5",
       "target_ref": "vulnerability--f5206ec9-ebb3-57d3-bc5b-bb45c3222c78"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2450fdd7-f5db-57b0-9080-612be02b1d27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b147da75-fe62-5346-9e75-7aaa83ee8c76",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -11555,6 +11697,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--305be7a3-d5c7-56ad-88df-0f6c6db27597",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c2d16395-782f-53df-97d8-e16c24568830",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--308c88d4-e860-5e21-9285-ed0796f3317a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:21:32.000Z",
@@ -12310,6 +12463,17 @@
       "relationship_type": "has",
       "source_ref": "software--0da18a11-e1fa-5e30-8f2f-67cdda1da56a",
       "target_ref": "vulnerability--99cc0491-1f72-546c-96bf-75651b5e5079"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--368e47ca-ed1a-5236-80ac-b59dbc113395",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--2f40e8e8-61f6-5f7c-bcde-a3bd14895857"
     },
     {
       "type": "relationship",
@@ -13696,6 +13860,17 @@
       "relationship_type": "has",
       "source_ref": "software--af1d8220-3e61-5517-a07a-cda47b4775c6",
       "target_ref": "vulnerability--c2d22936-9cc2-5b86-a0d7-5c9c17b6a6d0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--406d40f9-6f99-51fb-b146-8dd990efd303",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e"
     },
     {
       "type": "relationship",
@@ -16285,6 +16460,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--50dced84-c042-5d3d-852e-31b49b184d6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--7ba9a7ef-054c-586d-8a05-f31566992fd0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--50fe9522-1031-5d13-917b-e3cd2feec51e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17458,6 +17644,28 @@
       "relationship_type": "uses",
       "source_ref": "report--977db557-1988-5084-a8d4-eeb782a38555",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--595527b6-79aa-5a58-ada1-ad1d0dd47d38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--8227e40c-40e9-5514-8e7b-5a6fe3ee6253"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5955c7ae-70ac-5807-ae3d-ba7d64492f0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--5df17b40-7c7f-537b-a560-e0e2ce4049a0"
     },
     {
       "type": "relationship",
@@ -23116,6 +23324,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7d4f622e-35d5-59ca-aa65-836a8987c069",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0f8a065a-e23f-54cd-8ad9-52f0820c0abd",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7d6c2805-0c25-56eb-982f-5b5ddc310fe2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24249,6 +24468,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--847cc1ea-8a57-5431-a7f2-d17e69bbe551",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--09c6eec5-02d7-51cb-9ba6-8580f8c0e78f",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8493b940-e3f3-558c-bd71-865fd8314292",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25037,6 +25267,17 @@
       "relationship_type": "has",
       "source_ref": "software--71b58fe7-0805-5e75-9df2-367ad37b5af7",
       "target_ref": "vulnerability--a9982962-a8bb-5210-85ac-8ed9d99aa742"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89eccee3-7b61-5c64-b7e5-599fc0994a5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f68c01aa-7355-5c02-bc55-ad5d7bf134e2",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -28165,6 +28406,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9de09185-3d16-58fa-83ec-d9067f71c728",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--6ee404a6-62c1-5a94-8e87-a5dcebdc181c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9df00608-13f7-503c-a325-73a25fbee5db",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28810,6 +29062,17 @@
       "relationship_type": "has",
       "source_ref": "software--ca7e87d7-1a37-5c8c-ae95-427c162ee357",
       "target_ref": "vulnerability--edbc7cae-2407-5bb8-a29b-f7187c378fff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a25c71d2-856c-5a2f-842a-882dc146f0c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7c75da17-4430-5fc2-96fa-6e859eceb56f",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -36283,6 +36546,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d34f7615-17c0-51d9-a1af-883e326f6865",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--0f36937a-9512-5b3e-aa34-baaf0df6e2cc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d36534b6-2daf-5ab4-90af-106dcdd92bf0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:04.000Z",
@@ -36818,6 +37092,17 @@
       "relationship_type": "has",
       "source_ref": "software--fd699de3-bb37-5e0e-99dc-f76b9b522aeb",
       "target_ref": "vulnerability--21c1014f-9307-58f8-bebb-1a1f7931b97b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d674c5fb-760b-54c0-96b7-583071505b9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--854be65a-64b4-5c1b-b029-6e13e0e2d644",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -39770,6 +40055,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e74aabe8-ad36-5589-9d78-a25c5c65151f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--4f884754-57b6-5a8a-b87d-8bb44128a774"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e77195d1-4826-5642-9d98-a9a9a0388a37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -41229,6 +41525,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a7fa3060-b456-501d-b8b3-738c4ed4360f",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef86a44c-d24d-576a-a01a-962e75c5bb4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--19f2bdfa-b263-5f70-9b4f-b9f59e497455",
+      "target_ref": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
     },
     {
       "type": "relationship",
@@ -42879,6 +43186,17 @@
       "relationship_type": "uses",
       "source_ref": "report--eddc737b-d0a9-5a15-bb21-f8929f15eb24",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--faa7117a-605c-5a05-bf94-30258d48e33f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "target_ref": "indicator--e2dbeede-377e-563b-915e-925afb8cc4c8"
     },
     {
       "type": "relationship",
@@ -63381,6 +63699,90 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--516b16be-6ffd-5c1b-8b14-c43123f25886",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T14:19:28.000Z",
+      "modified": "2026-10-22T03:37:05.000Z",
+      "name": "eMudhra Intermediate Certificate Authority Compromise (CVE-2026-111943)",
+      "description": "## Overview\n\nOn October 17, 2026, a security researcher identified that eight intermediate certificate authorities operated by eMudhra possessed insecurely generated private keys, which could be independently recovered. This compromise allows an attacker to issue fraudulent, trusted TLS and code-signing certificates. While there is no evidence of widespread abuse prior to defensive actions, the severity of the cryptographic failure prompted immediate revocation and denylisting efforts across browsers and language runtimes. The Go Project released CVE-2026-111943 to hardcode a denylist of the affected keys in the crypto/x509 library to protect applications that do not rely on system-level certificate revocation mechanisms.\n\n## Impact\n\nAn attacker in possession of the compromised intermediate keys could potentially impersonate legitimate websites, intercept encrypted traffic, or sign malicious code. The risk is highest for applications that manage independent certificate bundles or runtimes that do not consume browser-based revocation lists like CRLSet or OneCRL.\n\n## Recommendation\n\n- Upgrade Go environments to version 1.26.10, 1.27.3, or later and rebuild all compiled applications to incorporate the new cryptographic denylist.\n- Update Firefox to version 158.0.1, ESR 115.43.1, or ESR 153.5.1 and ensure NSS is patched to 3.131.1 or later.\n- Audit and update software dependencies that maintain embedded certificate bundles, specifically Python's 'certifi' and Rust's 'webpki-roots' (ensure version 1.0.10 or newer).\n- Monitor certificate chain telemetry for the presence of the eight identified compromised intermediate CA public keys.\n",
+      "published": "2026-10-21T14:19:28.000Z",
+      "labels": [
+        "browser",
+        "certificate-authority",
+        "client-side",
+        "informational",
+        "infrastructure-security",
+        "pki",
+        "supply-chain",
+        "tls",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0d975051-badf-59f4-8106-d9d308cd943e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--0f36937a-9512-5b3e-aa34-baaf0df6e2cc",
+        "indicator--2f40e8e8-61f6-5f7c-bcde-a3bd14895857",
+        "indicator--4f884754-57b6-5a8a-b87d-8bb44128a774",
+        "indicator--5df17b40-7c7f-537b-a560-e0e2ce4049a0",
+        "indicator--6ee404a6-62c1-5a94-8e87-a5dcebdc181c",
+        "indicator--7ba9a7ef-054c-586d-8a05-f31566992fd0",
+        "indicator--8227e40c-40e9-5514-8e7b-5a6fe3ee6253",
+        "indicator--e2dbeede-377e-563b-915e-925afb8cc4c8",
+        "software--09c6eec5-02d7-51cb-9ba6-8580f8c0e78f",
+        "software--0f8a065a-e23f-54cd-8ad9-52f0820c0abd",
+        "software--19f2bdfa-b263-5f70-9b4f-b9f59e497455",
+        "software--7c75da17-4430-5fc2-96fa-6e859eceb56f",
+        "software--854be65a-64b4-5c1b-b029-6e13e0e2d644",
+        "software--b147da75-fe62-5346-9e75-7aaa83ee8c76",
+        "software--c2d16395-782f-53df-97d8-e16c24568830",
+        "software--c44dd70d-f148-518a-a484-e0fef8c09812",
+        "software--f68c01aa-7355-5c02-bc55-ad5d7bf134e2",
+        "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-21-emudhra-intermediate-ca-compromise",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-ca-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.talosintelligence.com/compromised-intermediate-certificates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://guide.sonatype.com/security-event/6a82b8e8-2715-4157-956b-ddcca5014b57"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://socprime.com/blog/cve-2026-111943-analysis/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4064"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sonatype.com/blog/emudhra-ca-incident-sonatypes-assessment-and-guidance"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-21-emudhra-intermediate-ca-compromise",
+      "x_craftedsignal_event_id": "brief-2026-10-21-emudhra-intermediate-ca-compromise",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-emudhra-intermediate-ca-compromise/",
+      "x_craftedsignal_activity_at": "2026-10-22T03:37:05.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00145,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -108885,6 +109287,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--09c6eec5-02d7-51cb-9ba6-8580f8c0e78f",
+      "name": "certifi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--09cb162f-b9df-5bf1-8308-942ccb9784f2",
       "name": "W (\u003c= 3.18.0)",
       "vendor": "Vincent Peugnet"
@@ -109219,6 +109627,12 @@
       "id": "software--0f5c7983-815c-5396-8fb4-8b2ff79ad0f8",
       "name": "Active Directory Federation Services",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0f8a065a-e23f-54cd-8ad9-52f0820c0abd",
+      "name": "Firefox"
     },
     {
       "type": "software",
@@ -109705,6 +110119,12 @@
       "id": "software--19ae470e-8089-59d0-9db9-30f01aa64ea4",
       "name": "Armatura One (\u003c4.7.2)",
       "vendor": "Armatura LLC"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--19f2bdfa-b263-5f70-9b4f-b9f59e497455",
+      "name": "webpki-roots (\u003c 1.0.10)"
     },
     {
       "type": "software",
@@ -113580,6 +114000,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7c75da17-4430-5fc2-96fa-6e859eceb56f",
+      "name": "Thunderbird"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7ca48ffc-b574-5201-8724-603a7e83e96a",
       "name": "russh (\u003c= 0.63.0)",
       "vendor": "russh"
@@ -114027,6 +114453,12 @@
       "id": "software--854bc175-6a34-5c29-b9d6-0cc31c496e91",
       "name": "fast-jwt (\u003c= 6.3.0)",
       "vendor": "NearForm"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--854be65a-64b4-5c1b-b029-6e13e0e2d644",
+      "name": "Firefox ESR"
     },
     {
       "type": "software",
@@ -115889,6 +116321,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b147da75-fe62-5346-9e75-7aaa83ee8c76",
+      "name": "Firefox (\u003c 158.0.1, \u003c ESR 115.43.1, \u003c ESR 153.5.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b14a2b5d-a12c-50f1-8145-3c9d05423296",
       "name": "Osclass (\u003c= 8.3.1)",
       "vendor": "Osclass"
@@ -116499,6 +116937,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c2d16395-782f-53df-97d8-e16c24568830",
+      "name": "Go (\u003c 1.26.10, \u003c 1.27.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c2db6465-1c54-5498-a764-67afcc15bfff",
       "name": "Splunk Enterprise (\u003c 10.4.4, \u003c 10.2.8, \u003c 10.0.11, \u003c 9.4.16)",
       "vendor": "Splunk"
@@ -116586,6 +117030,12 @@
       "id": "software--c44051b0-dd63-547a-acf5-7b94d72a294d",
       "name": "Thirty bees (\u003c= 1.7.0)",
       "vendor": "Thirty bees"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c44dd70d-f148-518a-a484-e0fef8c09812",
+      "name": "NSS (\u003c 3.131.1)"
     },
     {
       "type": "software",
@@ -118565,6 +119015,12 @@
       "id": "software--f67b5040-ee91-5971-bf10-edfb5e7721aa",
       "name": "WPC Shop as a Customer for WooCommerce (\u003c= 2.0.0)",
       "vendor": "WPClever"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f68c01aa-7355-5c02-bc55-ad5d7bf134e2",
+      "name": "Sonatype products and distributions"
     },
     {
       "type": "software",
@@ -123388,6 +123844,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-12544",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12544"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3a7114a3-96ac-5316-be01-883bb4969af5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-111943",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-111943",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111943"
         }
       ]
     },

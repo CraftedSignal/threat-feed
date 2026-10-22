@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e1d67a88-e6ce-52e2-82e9-8e1de0a3b45d",
+  "id": "bundle--91e7d7c6-718e-5cf6-8ff9-51ee59407aa8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10297,17 +10297,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--15f19a50-12e1-5b99-921b-3140362649b2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8f32cafa-f29f-5406-a8b4-b40b27754a45",
-      "target_ref": "vulnerability--94e436df-f478-5bd3-a19f-496d911cc085"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--160d2d92-6e22-5fdb-a1c2-7818deefe16a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:50:04.000Z",
@@ -16710,17 +16699,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--66dd0eec-af06-5a75-876b-60c488eda764",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T04:18:20.000Z",
-      "modified": "2026-07-24T04:18:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2479c3c7-14a6-5982-8c33-063cc4161afb",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6717893a-bcba-543e-8fb7-a8b39de955ce",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T08:09:56.000Z",
@@ -20109,17 +20087,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--91091ab1-c3ea-5852-9a1b-0e1e827d6688",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7eeab12a-dae7-5759-9f4a-d5aea9479b8f",
-      "target_ref": "vulnerability--94e436df-f478-5bd3-a19f-496d911cc085"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9113915b-02ed-5e4b-bb6c-7d501f875eb9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T16:38:03.000Z",
@@ -21084,17 +21051,6 @@
       "relationship_type": "has",
       "source_ref": "software--f4f685e1-3e11-5097-82c3-d6af5a09ae72",
       "target_ref": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9da801d1-98da-5cbd-9e2e-c67e880a5b26",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T04:18:20.000Z",
-      "modified": "2026-07-24T04:18:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2479c3c7-14a6-5982-8c33-063cc4161afb",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -31243,54 +31199,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00329,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2479c3c7-14a6-5982-8c33-063cc4161afb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-24T04:18:20.000Z",
-      "modified": "2026-07-24T04:18:20.000Z",
-      "name": "Wpify Woo Plugin Privilege Escalation Vulnerability (CVE-2026-12736)",
-      "description": "## Overview\n\nA critical privilege escalation vulnerability, tracked as CVE-2026-12736, has been identified in the Wpify Woo plugin for WordPress, impacting all versions up to and including 5.4.16. This flaw stems from improper validation within the `SettingsApi::save_option()` REST route, accessible via `POST /wp-json/wpify-woo/v1/option`. The vulnerable route directly passes user-supplied 'option' and 'data' parameters to WordPress's `update_option()` function without adequate allowlisting or sanitization. This oversight enables authenticated attackers, requiring only 'Shop Manager' level access or higher, to manipulate sensitive WordPress options. Exploitation can lead to the elevation of privileges to Administrator, for instance, by altering the `default_role` to `administrator` and `users_can_register` to `1`, or by disabling critical security plugins through modification of the `active_plugins` option. This vulnerability poses a significant risk as it can grant full control over affected WordPress sites to malicious actors.\n\n## Attack Chain\n\n1. **Initial Access:** An authenticated attacker obtains or compromises credentials for a WordPress user with 'Shop Manager' capabilities or higher on the target site.\n2. **Vulnerability Identification:** The attacker identifies the privilege escalation vulnerability in the Wpify Woo plugin, specifically targeting the `SettingsApi::save_option()` REST route at `/wp-json/wpify-woo/v1/option`.\n3. **Malicious Request Crafting:** The attacker crafts a HTTP POST request targeting the vulnerable REST endpoint. This request includes the `option` parameter set to a sensitive WordPress option name (e.g., `default_role`, `users_can_register`, or `active_plugins`) and the `data` parameter set to a value that facilitates privilege escalation (e.g., `administrator`, `1`, or a serialized array to disable plugins).\n4. **Request Execution:** The attacker sends the specially crafted POST request to the WordPress instance via the vulnerable REST API endpoint.\n5. **Option Overwrite:** The vulnerable `SettingsApi::save_option()` function, lacking proper input validation and sanitization, calls `update_option()` with the attacker-controlled `option` and `data` values, overwriting the legitimate WordPress setting.\n6. **Privilege Escalation:** The targeted WordPress option is successfully overwritten, leading to an elevated privilege context. For example, `default_role` is set to `administrator` and `users_can_register` to `1`.\n7. **Administrator Account Creation/Activation:** The attacker then registers a new user account (if `users_can_register` was enabled and `default_role` set to administrator), or modifies an existing user's role to administrator.\n8. **Full Control:** The attacker gains full administrative control over the WordPress site, enabling further malicious activities such as arbitrary code execution, data exfiltration, or website defacement.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-12736 grants authenticated attackers with 'Shop Manager' level access, or higher, full administrative control over the affected WordPress site. This means attackers can bypass security measures, create new administrator accounts, inject malicious code, deface the website, exfiltrate sensitive data, or install backdoors, leading to complete compromise of the web application and potentially the underlying server. While specific victim counts are not available, all WordPress installations running vulnerable versions of the Wpify Woo plugin are at risk.\n\n## Recommendation\n\n* **Patch CVE-2026-12736** immediately by updating the Wpify Woo plugin to a version beyond 5.4.16 as soon as a fix is available.\n* **Deploy the Sigma rule** in this brief to your SIEM to detect exploitation attempts against the `/wp-json/wpify-woo/v1/option` REST route.\n* **Review web server access logs** for suspicious POST requests to the `/wp-json/wpify-woo/v1/option` endpoint, especially those containing sensitive WordPress option names like `default_role`, `users_can_register`, or `active_plugins` in the query string.\n* **Implement Web Application Firewall (WAF)** rules to block or alert on requests to the `/wp-json/wpify-woo/v1/option` endpoint that attempt to modify core WordPress options, specifically looking for `option=` and `data=` parameters with sensitive values.\n",
-      "published": "2026-07-24T04:18:20.000Z",
-      "labels": [
-        "privilege-escalation",
-        "web-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7eeab12a-dae7-5759-9f4a-d5aea9479b8f",
-        "software--8f32cafa-f29f-5406-a8b4-b40b27754a45",
-        "vulnerability--94e436df-f478-5bd3-a19f-496d911cc085"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-wpify-woo-privesc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-wpify-woo-privesc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12736"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-wpify-woo-privesc",
-      "x_craftedsignal_event_id": "brief-2026-07-wpify-woo-privesc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-wpify-woo-privesc/",
-      "x_craftedsignal_activity_at": "2026-07-24T04:18:20.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -49485,12 +49393,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7eeab12a-dae7-5759-9f4a-d5aea9479b8f",
-      "name": "Wpify Woo plugin (\u003c= 5.4.16)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7f5e3bcf-a5b4-5ea5-9930-6b7793f7ae65",
       "name": "Samba (4.24.x \u003c 4.24.4)",
       "vendor": "Samba"
@@ -53347,22 +53249,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-13063",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13063"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--94e436df-f478-5bd3-a19f-496d911cc085",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-12736",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-12736",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12736"
         }
       ]
     },
