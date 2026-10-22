@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b906bfda-91ff-5904-ad37-d6f3fe95d0ea",
+  "id": "bundle--43f2c0d2-bc7d-55b4-b62a-692f4ff902b8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15394,6 +15394,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4426ede4-1420-5cec-af20-ad5bbbf24c11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T19:54:29.000Z",
+      "modified": "2026-10-22T23:04:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
+      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--44321e8e-5c4f-537a-81da-31656bf70f03",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19731,7 +19742,7 @@
       "id": "relationship--5dedfa40-843a-5395-ab91-484e37fa2f78",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:54:29.000Z",
-      "modified": "2026-10-21T19:54:29.000Z",
+      "modified": "2026-10-22T23:04:55.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
       "target_ref": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
@@ -25294,6 +25305,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--800f5bea-7805-590a-a7a3-75f7f1d66490",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T19:54:29.000Z",
+      "modified": "2026-10-22T23:04:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--800f8b5d-31ba-5dc5-b76c-135de2a19987",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28546,6 +28568,17 @@
       "relationship_type": "uses",
       "source_ref": "report--37499e17-c6ce-5140-b70b-0c970fa9adec",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--944a12b0-0a38-50c6-a0e4-897f794ab4ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-21T19:54:29.000Z",
+      "modified": "2026-10-22T23:04:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
+      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
     },
     {
       "type": "relationship",
@@ -81472,18 +81505,29 @@
       "id": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:54:29.000Z",
-      "modified": "2026-10-21T19:54:29.000Z",
-      "name": "Storm-0940 exploitation of ARTEX framework for supply chain compromise",
-      "description": "Storm-0940 has utilized the ARTEX penetration testing framework to automate attacks against hundreds of organizations. By compromising ConnectWise applications, the actor has accessed downstream customer tenants at high speeds, sometimes reaching privileged infrastructure in less than 3 hours. The actor uses these compromised application identities to perform reconnaissance, modify application credentials for persistence, and access Microsoft 365 resources via Microsoft Graph. This activity did not involve the compromise of Microsoft corporate systems or products.\n",
+      "modified": "2026-10-22T23:04:55.000Z",
+      "name": "Storm-0940 exploitation of ConnectWise Cloud Backup",
+      "description": "## Overview\n\nMicrosoft has linked the threat actor Storm-0940 to a supply chain attack involving ConnectWise Cloud Backup. The attackers compromised application identities associated with the service to target downstream customer environments. The campaign, active since September 2026, utilized an agentic AI penetration-testing framework named ARTEX to automate reconnaissance, password spraying, and OAuth application abuse. The activity resulted in privileged access to over 2,250 Microsoft 365 tenants, with attackers performing follow-on operations via Microsoft Graph, including credential modifications and privilege escalations. ConnectWise has suspended the affected services, including Cloud Backup, SaaS Security, and Cloud Management, to facilitate investigation and restoration.\n\n## Attack Chain\n\n1. Compromise of ConnectWise application identities.\n2. Execution of the ARTEX agentic AI framework to manage automated operations.\n3. Reconnaissance and mass scanning of downstream customer Microsoft 365 tenants.\n4. Authentication to target tenants via compromised OAuth application credentials.\n5. Establishment of privileged cloud persistence and modification of application credentials.\n6. Privilege escalation and data access via Microsoft Graph API.\n\n## Impact\n\nThe campaign affected more than 2,250 Microsoft 365 customer tenants across several industries, including aerospace, manufacturing, chemicals, energy, defense, and financial services. Attackers achieved privileged cloud persistence in many organizations within three hours of initial targeting.\n\n## Recommendation\n\n- Immediately disable affected ConnectWise application connections in Microsoft 365 tenants as per vendor guidance.\n- Review Microsoft 365 audit logs for unauthorized OAuth application activity and changes to application credentials linked to ConnectWise.\n- Investigate Microsoft Graph API activity for suspicious reconnaissance, privilege escalation, or modification of application permissions.\n- Preserve all forensic logs and audit records prior to making any configuration changes in affected environments.\n- Verify backup coverage and recovery functionality independently after service restoration before re-establishing connections.\n",
       "published": "2026-10-21T19:54:29.000Z",
       "labels": [
         "agentic-ai",
+        "ai-enabled",
         "cloud-security",
         "oauth-abuse",
+        "storm-0940",
         "supply-chain"
       ],
       "object_refs": [
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
+        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b7d7600-5de0-538d-a689-da77e5315594",
+        "software--80ad2385-e208-5b44-bd1f-839ee46b95e5",
+        "software--847b3a93-9edb-5b5f-9d32-75f10bb9ca95",
+        "software--97cad874-a8df-5335-a535-a9c9e331e2ad",
+        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
+        "software--faf424e5-7dbe-5b6f-b85c-9cbb1f19a508",
         "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
       ],
       "external_references": [
@@ -81498,15 +81542,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/microsoft-storm-0940-connectwise-supply-chain-attack"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/blueteamsec/comments/1xby0w4/aidriven_largescale_nationstate_campaign_using/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/cybersecurity/comments/1xbvaem/aidriven_largescale_nationstate_campaign_using/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-storm-0940-artex",
       "x_craftedsignal_event_id": "brief-2026-10-21-storm-0940-artex",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-storm-0940-artex/",
-      "x_craftedsignal_activity_at": "2026-10-21T19:54:29.000Z",
+      "x_craftedsignal_activity_at": "2026-10-22T23:04:55.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -116172,6 +116228,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0b7d7600-5de0-538d-a689-da77e5315594",
+      "name": "SaaS Security"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0b7eac48-9c11-5ab2-a061-4f6912fbb401",
       "name": "OpenSSL"
     },
@@ -121494,6 +121556,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--80ad2385-e208-5b44-bd1f-839ee46b95e5",
+      "name": "ConnectWise"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8118ad8b-8908-510d-b5eb-11dbfa02e32a",
       "name": "Video-stitch (\u003c 2.0.0-beta.1)",
       "vendor": "Video-stitch"
@@ -121755,6 +121823,12 @@
       "id": "software--844fbb10-8ecb-5e5f-a3c1-a63e0fcf5718",
       "name": "Quiz And Survey Master (\u003c= 11.2.7)",
       "vendor": "ExpressTech"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--847b3a93-9edb-5b5f-9d32-75f10bb9ca95",
+      "name": "ConnectWise Automate"
     },
     {
       "type": "software",
@@ -122595,6 +122669,12 @@
       "spec_version": "2.1",
       "id": "software--97229595-aa18-5d92-8c63-8dda6f4859b9",
       "name": "basic-ftp (\u003c= 6.2.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--97cad874-a8df-5335-a535-a9c9e331e2ad",
+      "name": "Cloud Management"
     },
     {
       "type": "software",
@@ -126829,6 +126909,12 @@
       "id": "software--facbb7f4-366f-5e04-baad-85b74a907572",
       "name": "JHipster",
       "vendor": "JHipster"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--faf424e5-7dbe-5b6f-b85c-9cbb1f19a508",
+      "name": "Cloud Backup"
     },
     {
       "type": "software",
