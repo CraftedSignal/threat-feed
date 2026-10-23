@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 5
-activity_at: "2026-10-23T11:27:22Z"
+revision: 6
+activity_at: "2026-10-23T22:05:51Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -53,11 +53,27 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 6
+    at: "2026-10-23T22:05:51Z"
+    checksum: sha256:c510aa1d49b476b2c4148c6d743bf63651eb80c90320069cdee605d424b7df60
+    summary: new product
+    changed_fields:
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-23T11:26:43Z"
+lastmod: "2026-10-23T22:04:31Z"
 type: advisory
 types:
   - advisory
@@ -73,6 +89,25 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:php:php:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:siemens:ruggedcom_ape1808_firmware:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.7:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.8:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.9:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.10:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.11:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.12:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.13:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.14:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.15:-:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.16:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.17:-:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:10.2.18:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.4:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.5:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.6:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.7:*:*:*:*:*:*:*
+  - cpe:2.3:o:paloaltonetworks:pan-os:11.1.8:-:*:*:*:*:*:*
 has_poc: true
 tags:
   - php
@@ -86,6 +121,7 @@ products:
   - PHP
   - PHP (5.4 <= 8.5.11)
   - PHP (5.4 through 8.5.11)
+  - PHP (5.4 - 8.5.11)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -96,11 +132,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-109618
     cvss: 9.8
-    epss: 0.05307
+    epss: 0.1162
     kev_status: "false"
   - id: CVE-2026-109619
     cvss: 8.1
-    epss: 0.05757
+    epss: 0.05991
     kev_status: "false"
 references:
   - https://www.php.net/archive/2026.php#2026-10-20-1
@@ -123,6 +159,9 @@ references:
   - https://blog.checkpoint.com/ai-security/php2shell-log4shell-at-ai-speed-a-cisos-perspective/
   - https://www.imperva.com/blog/php2shell-early-attack-activity-through-impervas-lens/
   - https://www.forum-nas.fr/threads/vuln%C3%A9rabilit%C3%A9s-dans-php-php2shell-affectant-plusieurs-produits-qnap.27227/
+  - https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-151/
+  - https://docs.litespeedtech.com/lsws/changelog/
+  - https://www.php.net/archive/2026.php
 action_plan:
   priority: immediate_escalation
   owners:
@@ -169,6 +208,13 @@ updates:
   - at: "2026-10-23T11:26:43Z"
     level: L2
     summary: poc_available
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-23T22:04:31Z"
+    level: L1
+    summary: new product
     sources:
       - pwn-watch
     source_urls:
