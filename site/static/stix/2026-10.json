@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--81fe93e8-f34c-5c35-9c77-b6531d6386d2",
+  "id": "bundle--121092d2-995a-5555-9824-701e71ae47b7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6288,7 +6288,7 @@
       "id": "relationship--095a8c9c-5d87-5014-97fa-37f3f7fb093c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:08.000Z",
-      "modified": "2026-10-20T23:53:08.000Z",
+      "modified": "2026-10-23T11:37:55.000Z",
       "relationship_type": "uses",
       "source_ref": "report--ced12e04-2a84-5a23-90cd-69c1340eec27",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -19998,6 +19998,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--7b3ff263-fa6d-5edc-b2b0-17bb65e09f29"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5d509c3c-9205-5494-8aa0-b0603e325ce7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8270ff4b-67c4-5cd4-a31f-7ed6a4679008",
+      "target_ref": "vulnerability--945ea2f1-2943-5eec-8949-d1a7623d1857"
     },
     {
       "type": "relationship",
@@ -104780,7 +104791,7 @@
       "id": "report--ced12e04-2a84-5a23-90cd-69c1340eec27",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:08.000Z",
-      "modified": "2026-10-20T23:53:08.000Z",
+      "modified": "2026-10-23T11:37:55.000Z",
       "name": "Pillow: Heap buffer overflow in ImagingJpegDecode",
       "description": "## Overview\n\nPillow contains a heap-based buffer overflow vulnerability within the `ImagingJpegDecode` function. The issue arises when the library processes lossless (SOF3) JPEG images while performing downscaling, such as when calling `Image.thumbnail()` or `JpegImageFile.draft()`. When these methods request a scaled output, Pillow shrinks the internal decode buffer to match the expected scaled dimensions. However, the underlying libjpeg-turbo implementation ignores the scaling request for lossless (SOF3) streams and writes full-width scanlines into the undersized buffer.\n\nAn attacker can exploit this by providing a maliciously crafted, standards-compliant 8-bit grayscale lossless JPEG. The buffer overflow occurs because there is no geometry validation comparing the libjpeg output dimensions against the allocated `state-\u003ebuffer`. Depending on the image dimensions and requested scaling factors, this can result in writing attacker-controlled pixel data past the end of the heap-allocated buffer. While the library ultimately throws an `OSError` due to geometry mismatches, the memory corruption occurs during the decompression process.\n\n## Attack Chain\n\n1. Attacker crafts a standards-compliant 8-bit grayscale lossless (SOF3) JPEG image file.\n2. Attacker hosts or delivers the file to a target system utilizing a vulnerable version of Pillow.\n3. The victim application calls `Image.open()` on the malicious file, which is parsed successfully by Pillow's SOF parser.\n4. The application calls `Image.thumbnail()` or `JpegImageFile.draft()` on the image object, triggering a scaling request (e.g., scale factor s \u003e= 2).\n5. Pillow computes expected scaled dimensions and allocates a `state-\u003ebuffer` using `calloc` based on the reduced size.\n6. The `ImagingJpegDecode` function calls `jpeg_start_decompress` and proceeds to `jpeg_read_scanlines` without validating the actual JPEG output dimensions.\n7. libjpeg-turbo writes the full-width pixel scanlines into the undersized buffer, causing an out-of-bounds heap write of `(W - ceil(W/s)) x components` bytes.\n8. The overflow corrupts heap memory with attacker-controlled pixel values.\n\n## Impact\n\nSuccessful exploitation allows for memory corruption on systems using Pillow to process user-supplied images. This can lead to application crashes or potentially arbitrary code execution depending on the heap layout and the ability to influence memory state through crafted pixel data. This vulnerability affects any system or service that automatically generates thumbnails or processes image uploads using Pillow with standard library defaults.\n\n## Recommendation\n\n1. Identify and inventory all applications within the environment that utilize the Pillow library for image processing.\n2. Implement strict input validation or sanitization for JPEG files to detect or reject lossless (SOF3) images if the functionality is not explicitly required.\n3. Monitor internal application logs for `OSError` exceptions originating from `PIL.JpegImagePlugin` or `libImaging` during image processing, as these may indicate attempted exploitation.\n4. Apply patches provided by the Pillow project as soon as they become available for the affected versions.\n",
       "published": "2026-10-20T23:53:08.000Z",
@@ -104792,7 +104803,8 @@
       "object_refs": [
         "attack-pattern--745c9492-77e4-5572-9132-308959464536",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1164f32b-e4bc-5ef9-9211-7762049364e2"
+        "software--8270ff4b-67c4-5cd4-a31f-7ed6a4679008",
+        "vulnerability--945ea2f1-2943-5eec-8949-d1a7623d1857"
       ],
       "external_references": [
         {
@@ -104803,20 +104815,25 @@
         {
           "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-8g5g-8vmr-9782"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=79817203-79D8-5F7D-8F84-E8EF827B1B5C\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-20-pillow-heap-overflow",
       "x_craftedsignal_event_id": "brief-2026-10-20-pillow-heap-overflow",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-heap-overflow/",
-      "x_craftedsignal_activity_at": "2026-10-20T23:53:08.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T11:37:55.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00321,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -119002,13 +119019,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1164f32b-e4bc-5ef9-9211-7762049364e2",
-      "name": "Pillow",
-      "vendor": "python-pillow"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--11a912f9-8465-5d78-b39d-f8c932918613",
       "name": "Incus (\u003e= 7.1.0, \u003c 7.5.0)",
       "vendor": "Incus"
@@ -124211,6 +124221,13 @@
       "id": "software--823d46b5-7832-5ee5-846e-861af5c04ece",
       "name": "LearnPress (\u003c= 4.4.10)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8270ff4b-67c4-5cd4-a31f-7ed6a4679008",
+      "name": "Pillow (\u003c 13.0.0)",
+      "vendor": "python-pillow"
     },
     {
       "type": "software",

@@ -1,12 +1,30 @@
 ---
 brief_id: brief-2026-10-20-pillow-heap-overflow
 event_id: brief-2026-10-20-pillow-heap-overflow
-revision: 1
-activity_at: "2026-10-20T23:53:08Z"
+revision: 2
+activity_at: "2026-10-23T11:37:55Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T11:37:55Z"
+    checksum: sha256:502ba9cadfc22b9401a14596320d4b671a749058a54be39f1ed1a27d503e764f
+    summary: poc_available; added CVE-2026-112403; pillow version < 13.0.0
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=79817203-79D8-5F7D-8F84-E8EF827B1B5C&utm_source=rss&utm_medium=rss
 title: 'Pillow: Heap buffer overflow in ImagingJpegDecode'
 slug: 2026-10-pillow-heap-overflow
 description: A heap-based buffer overflow in Pillow’s ImagingJpegDecode function occurs when processing lossless (SOF3) JPEG files, leading to out-of-bounds memory writes during scanline decompression.
 date: "2026-10-20T23:53:08Z"
+lastmod: "2026-10-23T11:37:05Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +39,11 @@ source_assessment:
   likelihood: likely
 qa_status:
   verdict: pass
+cpes:
+  - cpe:2.3:a:python_pillow:pillow:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=79817203-79D8-5F7D-8F84-E8EF827B1B5C&utm_source=rss&utm_medium=rss
 tags:
   - image-processing
   - memory-corruption
@@ -28,7 +51,7 @@ tags:
 vendors:
   - python-pillow
 products:
-  - Pillow
+  - Pillow (< 13.0.0)
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -38,15 +61,20 @@ mitre_ttps:
     subtechnique_name: Windows Command Shell
     evidence: The heap buffer overflow can lead to arbitrary memory writes during the image decompression process.
     confidence_band: med
+cves:
+  - id: CVE-2026-112403
+    epss: 0.00321
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-8g5g-8vmr-9782
+  - https://sploitus.com/exploit?id=79817203-79D8-5F7D-8F84-E8EF827B1B5C&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
     - SOC
     - Detection Engineering
   immediate_actions:
-    - action: Inventory applications using Pillow and prepare for deployment of patched versions.
+    - action: Patch Pillow to 13.0.0 or later
       owner: IT Operations
       due: 48h
   hunt_leads:
@@ -59,9 +87,17 @@ action_plan:
       disposition: hunt_now
   mitigation_plan:
     - priority: immediate
-      action: Upgrade Pillow to the latest version once the fix is released.
+      action: Upgrade Pillow to 13.0.0 or later
       owner: IT Operations
       addresses: Pillow
+updates:
+  - at: "2026-10-23T11:37:05Z"
+    level: L2
+    summary: poc_available; added CVE-2026-112403; pillow version < 13.0.0
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=79817203-79D8-5F7D-8F84-E8EF827B1B5C&utm_source=rss&utm_medium=rss
 ---
 
 Pillow contains a heap-based buffer overflow vulnerability within the `ImagingJpegDecode` function. The issue arises when the library processes lossless (SOF3) JPEG images while performing downscaling, such as when calling `Image.thumbnail()` or `JpegImageFile.draft()`. When these methods request a scaled output, Pillow shrinks the internal decode buffer to match the expected scaled dimensions. However, the underlying libjpeg-turbo implementation ignores the scaling request for lossless (SOF3) streams and writes full-width scanlines into the undersized buffer.
