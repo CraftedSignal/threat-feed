@@ -1,16 +1,46 @@
 ---
+brief_id: brief-2026-10-ahsay-cbs-rce
+event_id: brief-2026-10-ahsay-cbs-rce
+revision: 2
+activity_at: "2026-10-23T09:22:30Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T09:22:30Z"
+    checksum: sha256:00eed54739bac0b9df71694f998416e941aef281ba9944fa04b33b9177ce48bd
+    summary: new product
+    changed_fields:
+      - cpes
+      - cves
+      - lastmod
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
 title: Unauthenticated Remote Code Execution in Ahsay AhsayCBS
 slug: 2026-10-ahsay-cbs-rce
 description: Ahsay AhsayCBS up to version 10.3.2 is vulnerable to unauthenticated remote OS command injection via the /rps/api/json/UpdateReceivers.do endpoint, enabling full system compromise.
 date: "2026-10-04T09:01:29Z"
-lastmod: "2026-10-09T10:40:25Z"
+lastmod: "2026-10-23T09:21:39Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "5"
+  rating: A5
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Needs environment validation in lab
 cpes:
   - cpe:2.3:a:ahsay:ahsaycbs:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:ahsay:cloud_backup_suite:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=01552F8F-EE68-5958-8B08-C7BF7F992387&utm_source=rss&utm_medium=rss
@@ -49,15 +79,19 @@ mitre_ttps:
 cves:
   - id: CVE-2026-105134
     cvss: 10
-    epss: 0.01843
+    epss: 0.3831
+    kev_status: "false"
   - id: CVE-2026-105133
     cvss: 7.3
-    epss: 0.00383
+    epss: 0.05794
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105134
   - https://nvd.nist.gov/vuln/detail/CVE-2026-105133
   - https://sploitus.com/exploit?id=01552F8F-EE68-5958-8B08-C7BF7F992387&utm_source=rss&utm_medium=rss
   - https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/
+  - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
+  - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 rules:
   - title: Detects CVE-2026-105134 Exploitation - Unauthenticated RCE via /rps/api/json/UpdateReceivers.do
     description: Detects exploitation attempts against CVE-2026-105134 by identifying suspicious command injection patterns in the 'random' parameter of the UpdateReceivers.do endpoint.
@@ -109,6 +143,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/
+  - at: "2026-10-23T09:21:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
 ---
 
 Ahsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.

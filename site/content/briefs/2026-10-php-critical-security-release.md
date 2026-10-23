@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 3
-activity_at: "2026-10-21T20:58:00Z"
+revision: 4
+activity_at: "2026-10-23T09:22:30Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -28,11 +28,25 @@ revision_history:
     source_urls:
       - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-php-could-allow-for-remote-code-execution_2026-119
       - https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities
+  - revision: 4
+    at: "2026-10-23T09:22:30Z"
+    checksum: sha256:515b11256f9c8ad654b6258f38e43fd18fcd0ca6c4381eb685875599395b3e7c
+    summary: php version 5.4 <= 8.5.11
+    changed_fields:
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - priority
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-21T20:58:00Z"
+lastmod: "2026-10-23T09:21:53Z"
 type: advisory
 types:
   - advisory
@@ -46,6 +60,8 @@ source_assessment:
   rating: A2
 qa_status:
   verdict: pass
+cpes:
+  - cpe:2.3:a:php:php:*:*:*:*:*:*:*:*
 tags:
   - php
   - security-release
@@ -56,6 +72,7 @@ vendors:
 products:
   - PHP (affected versions not yet confirmed)
   - PHP
+  - PHP (5.4 <= 8.5.11)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -65,9 +82,13 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-109618
-    kev_status: unknown
+    cvss: 9.8
+    epss: 0.05307
+    kev_status: "false"
   - id: CVE-2026-109619
-    kev_status: unknown
+    cvss: 8.1
+    epss: 0.05757
+    kev_status: "false"
 references:
   - https://www.php.net/archive/2026.php#2026-10-20-1
   - https://cert.europa.eu/publications/security-advisories/2026-018/
@@ -75,6 +96,20 @@ references:
   - https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8
   - https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities
   - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-php-could-allow-for-remote-code-execution_2026-119
+  - https://blog.talosintelligence.com/i-had-plans-for-that-second/
+  - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - https://security.paloaltonetworks.com/CVE-2026-109618
+  - https://www.synology.com/en-us/security/advisory/Synology_SA_26_14
+  - https://www.synology.com/en-global/company/news/article/php2shell/Synology%20Statement%20on%20PHP2Shell%20Vulnerabilities
+  - https://www.fortiguard.com/psirt/FG-IR-26-186
+  - https://www.dfs.ny.gov/industry_guidance/industry_letters/il20261022-cyber-php-patching
+  - https://community.citrix.com/techzone-blogs/110_security-updates/protecting-netscaler-management-access-from-php-cve-2026-109618-cve-2026-109619-r1640/
+  - https://www.ox.security/blog/php2shell-24-hours-in-99-3-of-measurable-php-instances-are-still-unpatched/
+  - https://www.ipa.go.jp/security/security-alert/2026/alert20261022.html
+  - https://aws.amazon.com/blogs/security/using-aws-waf-to-apply-mitigations-for-php2shell-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619/
+  - https://blog.checkpoint.com/ai-security/php2shell-log4shell-at-ai-speed-a-cisos-perspective/
+  - https://www.imperva.com/blog/php2shell-early-attack-activity-through-impervas-lens/
+  - https://www.forum-nas.fr/threads/vuln%C3%A9rabilit%C3%A9s-dans-php-php2shell-affectant-plusieurs-produits-qnap.27227/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -111,6 +146,13 @@ updates:
     source_urls:
       - https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities
       - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-php-could-allow-for-remote-code-execution_2026-119
+  - at: "2026-10-23T09:21:53Z"
+    level: L2
+    summary: php version 5.4 <= 8.5.11
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 ---
 
 The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.
