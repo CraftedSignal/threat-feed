@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-litellm-compromise
 event_id: brief-2026-10-21-litellm-compromise
-revision: 2
-activity_at: "2026-10-23T08:42:30Z"
+revision: 3
+activity_at: "2026-10-23T21:46:25Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T08:42:30Z"
@@ -16,11 +16,22 @@ revision_history:
       - updates
     source_urls:
       - https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/
+  - revision: 3
+    at: "2026-10-23T21:46:25Z"
+    checksum: sha256:b5ce3dcb43bdd812bea049ba09c24dd75d56e3504bced47db857c8b40c21ff36
+    summary: new IOCs
+    changed_fields:
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/
 title: LiteLLM Supply Chain Compromise
 slug: 2026-10-litellm-compromise
 description: A malicious version of the LiteLLM Python package (v1.107.0) was distributed via PyPI and Docker, containing credential theft functionality and dormant command-and-control capabilities.
 date: "2026-10-21T14:21:38Z"
-lastmod: "2026-10-23T08:40:58Z"
+lastmod: "2026-10-23T21:44:47Z"
 type: advisory
 types:
   - advisory
@@ -74,6 +85,7 @@ references:
   - https://www.reddit.com/r/blueteamsec/comments/1xbp4ez/security_litellm_11070_compromised_pypi_removed/
   - https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html
   - https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/
+  - https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/
 iocs:
   - type: url
     value: http://www.litellm.dev/healthcheck
@@ -151,6 +163,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/
+  - at: "2026-10-23T21:44:47Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/
 ---
 
 On October 21, 2026, version 1.107.0 of the LiteLLM package was identified as malicious on PyPI and Docker registries. The package contained embedded malicious scripts (`cook.pth`, `cook.py`, and `sitecustomize.py`) designed to execute automatically upon Python interpreter initialization. These scripts perform credential harvesting and attempt to establish command-and-control communication.
