@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bfbe42f7-d75b-5ae0-abfc-2564116b2e67",
+  "id": "bundle--c8f61cc4-549c-575a-9e2e-0be3bb7e17db",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1071,6 +1071,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1078",
           "url": "https://attack.mitre.org/techniques/T1078"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--594c6ecb-02f9-54b9-9a1d-5f61ad33e922",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Bidirectional Communication",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1102.002",
+          "url": "https://attack.mitre.org/techniques/T1102/002"
         }
       ]
     },
@@ -3237,6 +3253,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--0971ba5b-74ea-55f9-9df3-66b7fce220e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: poe.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'poe.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--0b48a28b-e5c4-5633-b43e-c7507a18b13a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-01T11:56:59.000Z",
@@ -3328,6 +3357,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--12818570-3646-5fe3-942a-2f111fc06920",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: router.huggingface.co",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'router.huggingface.co']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--146b2a0f-ad32-5a7e-afe7-83b56ea2e5cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T11:00:36.000Z",
@@ -3367,6 +3409,58 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--225b1301-f3a2-505a-bfca-b7b74564a849",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.mistral.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.mistral.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--242c6bf7-79a5-5f51-ab9d-42689d6eb142",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.ai21.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.ai21.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--24d29efc-fdfa-5239-9b69-4abaf48e4161",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.runpod.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.runpod.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--274b3ecd-9a4f-5379-bb09-481554a2801d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: chat.openai.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'chat.openai.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--274e88e2-6445-5f20-8acd-cbe78ffecabb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:45:57.000Z",
@@ -3389,6 +3483,19 @@
       "pattern": "[file:hashes.'SHA-256' = 'e842dd7642c8e04b5ec20b6393848a9c904e4832930950c16664fe7800ba382e']",
       "pattern_type": "stix",
       "valid_from": "2026-09-28T16:17:15.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--28c8b615-308b-5e8b-8669-1afa0613416c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: perplexity.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'perplexity.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -3419,6 +3526,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2cb78d70-2717-594c-b2be-f48d7107503d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.moonshot.cn",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.moonshot.cn']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--2d597f8b-423a-5274-8076-f70b949d60e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-16T13:01:43.000Z",
@@ -3428,6 +3548,19 @@
       "pattern": "[ipv4-addr:value = '161.35.146.120']",
       "pattern_type": "stix",
       "valid_from": "2026-09-16T13:01:43.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2e536227-e80f-502f-bc87-15727ee8c7fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: gemini.google.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'gemini.google.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -3471,6 +3604,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--36c9a709-7e4f-5d4a-8085-c7b0e6b28dda",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: bard.google.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'bard.google.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--3af6154d-7481-5d7a-977f-cdc371881025",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-11T08:29:40.000Z",
@@ -3480,6 +3626,19 @@
       "pattern": "[domain-name:value = 'mail.uaiubifas.top']",
       "pattern_type": "stix",
       "valid_from": "2026-09-11T08:29:40.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3d11f16c-4da5-5c81-a25c-b246438fa87b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: claude.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'claude.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -3584,6 +3743,19 @@
       "pattern": "[domain-name:value = 'tele-sync.opik.net']",
       "pattern_type": "stix",
       "valid_from": "2026-09-07T12:56:11.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4b8d20ac-89fb-56bd-acb4-ac75f89d8ca5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.inference.wandb.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.inference.wandb.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -3731,6 +3903,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5b7b3ea8-42e4-59fa-8873-72af27bdbfcb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.groq.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.groq.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--601be919-a7fb-5d92-930b-eddf4ab6b86a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-02T00:07:40.000Z",
@@ -3740,6 +3925,19 @@
       "pattern": "[domain-name:value = 'rivasatv.com']",
       "pattern_type": "stix",
       "valid_from": "2026-09-02T00:07:40.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--60b156ed-9512-5229-b4ba-10787cfac8a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: inference-endpoint.huggingface.cloud",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'inference-endpoint.huggingface.cloud']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -3939,6 +4137,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--78058fe6-f9ff-5df7-9245-1fc790766896",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: chatgpt.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'chatgpt.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--788a121f-dd91-516f-8b72-5e3ca3abf8a6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-16T07:01:36.000Z",
@@ -4004,6 +4215,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--820214ef-c7fc-553f-a6d8-e8c596c5df42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.deepseek.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.deepseek.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--826ce74e-8a80-577e-b167-e8cbdfc6f798",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-02T18:24:08.000Z",
@@ -4013,6 +4237,32 @@
       "pattern": "[domain-name:value = 'mindmoster.com.cn']",
       "pattern_type": "stix",
       "valid_from": "2026-09-02T18:24:08.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--836b3b57-2596-582a-adf3-5ff2c522c6cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.replicate.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.replicate.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--858b9eba-cac2-5db5-ab4b-60eb5ca0d0c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.azure.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.azure.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4052,6 +4302,19 @@
       "pattern": "[domain-name:value = 'steelseries-cn.com.cn']",
       "pattern_type": "stix",
       "valid_from": "2026-09-02T18:24:08.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--87b6acea-09ae-5365-88d5-66eb7eed07a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.openai.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.openai.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4134,6 +4397,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--9292ff69-6267-5333-8a90-212959044adf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.x.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.x.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--92e1b42b-2fd1-594c-9aec-f9c5a91e7a3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-06T10:42:50.000Z",
@@ -4173,6 +4449,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--9a629fb7-60bb-5e9c-a8b0-56941e32e1ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: openclaw.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'openclaw.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9f36a1cc-fc55-5dc4-8537-e0af4741bf3c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-28T16:17:15.000Z",
@@ -4208,6 +4497,19 @@
       "pattern": "[file:hashes.'SHA-256' = 'F266609E91985F0FE3E31C5E8FAEEEC4FFA5E0322D8B6F15FE69F4C5165B9559']",
       "pattern_type": "stix",
       "valid_from": "2026-09-01T11:06:41.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--aa6c1238-4f06-5e44-97a1-dcaaaf372e2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: chat.deepseek.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'chat.deepseek.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4299,6 +4601,19 @@
       "pattern": "[domain-name:value = 'novaoraprime.com']",
       "pattern_type": "stix",
       "valid_from": "2026-09-02T00:07:40.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b6caf9e5-baca-5024-be4a-a27b0b972fa3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.cohere.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.cohere.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4459,6 +4774,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c1c527b6-2106-54af-bd15-6ad14c37b25e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.moonshot.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.moonshot.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c4b705b3-f0b9-5f6d-a080-ca28787f5e84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-02T18:24:08.000Z",
@@ -4485,6 +4813,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c60cd86b-0a2e-555c-a501-7f0d155b9090",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.perplexity.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.perplexity.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c7286caf-708d-58fe-8861-4969e68d7e8f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T20:01:41.000Z",
@@ -4507,6 +4848,19 @@
       "pattern": "[domain-name:value = 'itorrents.org']",
       "pattern_type": "stix",
       "valid_from": "2026-09-17T13:13:14.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c7a52d15-7b72-590b-9f3a-2f2989c9ae7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api-inference.huggingface.co",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api-inference.huggingface.co']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4585,6 +4939,32 @@
       "pattern": "[domain-name:value = 'setupmypasskey.com']",
       "pattern_type": "stix",
       "valid_from": "2026-09-13T11:00:36.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d37a7811-ab72-5cbc-81a9-563f34853e1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.modal.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.modal.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d3f9ceb6-bd68-51eb-bfba-8d94f3535774",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: trace.wandb.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'trace.wandb.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4732,6 +5112,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--dcdd9794-6717-5fcb-85b3-94ed3ee0d94e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.anthropic.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.anthropic.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--dda3a055-f5d5-5d1e-a4ac-2c5152c91146",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-16T07:01:36.000Z",
@@ -4754,6 +5147,19 @@
       "pattern": "[domain-name:value = 'img.monderhouse.space']",
       "pattern_type": "stix",
       "valid_from": "2026-09-04T15:44:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--dece91c5-1ece-5970-a65c-93a06921e65c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: openrouter.ai",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'openrouter.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4901,6 +5307,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--f128c3d1-66f4-5792-bdb2-daffe68b9375",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: generativelanguage.googleapis.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'generativelanguage.googleapis.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--f294fb50-78bd-58f9-be78-b856742a308c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T20:01:41.000Z",
@@ -4923,6 +5342,19 @@
       "pattern": "[url:value = 'http://krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion/blog/f80863cff7bd3f7607c6486f3615c67a133e57a0cd5f4b6d749c3f1f3c3a1a9e/']",
       "pattern_type": "stix",
       "valid_from": "2026-09-13T21:17:50.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f3ac0943-0c23-519f-92f9-0a28e552285f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: copilot.microsoft.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'copilot.microsoft.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "indicator",
@@ -4992,6 +5424,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--feec1fcb-b858-5dd8-b1c4-6ff16e8c10ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.bedrock.aws",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.bedrock.aws']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--ff233359-989e-537e-82d6-f3e4466bea30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-09T18:47:44.000Z",
@@ -5014,6 +5459,19 @@
       "pattern": "[file:hashes.MD5 = '030085f202d1ccb73a0dc0b7eb6e1787']",
       "pattern_type": "stix",
       "valid_from": "2026-09-13T21:17:50.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--ff4ec2c7-d586-52aa-a469-35983b1ff68f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "domain: api.gemini.google.com",
+      "description": "Known LLM endpoint",
+      "pattern": "[domain-name:value = 'api.gemini.google.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-18T19:04:04.000Z"
     },
     {
       "type": "relationship",
@@ -7900,6 +8358,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--119238fe-5ebc-50d1-b6ce-91e7019fb579",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--9292ff69-6267-5333-8a90-212959044adf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--11977f36-1bb2-504e-989d-cbb773b39066",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-16T21:58:13.000Z",
@@ -7951,6 +8420,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fd546576-c5c9-5a51-8bb6-59da79ac8d6f",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11afedcc-4005-57ec-ac72-34c427145f4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--c7a52d15-7b72-590b-9f3a-2f2989c9ae7d"
     },
     {
       "type": "relationship",
@@ -9836,6 +10316,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1bdf18cb-437a-5b8f-816f-b89782af2084",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--c1c527b6-2106-54af-bd15-6ad14c37b25e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1be6914e-1cdb-5a27-b378-5bc83e39df5d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-15T06:56:24.000Z",
@@ -10162,6 +10653,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e56d3bfe-9f9d-5599-aebb-ffdcea1eb210",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1db1b763-c1b5-5181-bf81-ec9784e53639",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--dcdd9794-6717-5fcb-85b3-94ed3ee0d94e"
     },
     {
       "type": "relationship",
@@ -10551,6 +11053,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1f515df2-e662-599e-ad8e-45c3fd101347",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--36c9a709-7e4f-5d4a-8085-c7b0e6b28dda"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1f630a57-d86a-545d-b9fa-e93e2c867b13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10793,6 +11306,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--20a4dfd3-d97a-549a-8050-1d4031a27d1f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--2cb78d70-2717-594c-b2be-f48d7107503d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--20a97169-24c1-53c2-a0ca-b9c2031b7983",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-15T15:40:57.000Z",
@@ -10822,6 +11346,17 @@
       "relationship_type": "has",
       "source_ref": "software--ff2b8cf5-457c-53e3-b76e-da585bcd177f",
       "target_ref": "vulnerability--7dc51ca8-246e-544f-a443-3e221df76ac7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2104586b-ee19-5c09-b951-e66293a33049",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--225b1301-f3a2-505a-bfca-b7b74564a849"
     },
     {
       "type": "relationship",
@@ -12912,6 +13447,17 @@
       "relationship_type": "has",
       "source_ref": "software--bdd35777-aaa7-5d75-8e42-53fe9b25d352",
       "target_ref": "vulnerability--abb4468f-b0c7-5206-a286-447ced8302b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2b238ea9-a76b-5ed9-9621-c6dd218924cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--d3f9ceb6-bd68-51eb-bfba-8d94f3535774"
     },
     {
       "type": "relationship",
@@ -18163,6 +18709,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--469b012c-05b9-58f3-8bbd-2d9ec3bd43ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--24d29efc-fdfa-5239-9b69-4abaf48e4161"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--46ab79e7-3982-52ea-99c3-e23336d98c37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-17T13:57:40.000Z",
@@ -20396,6 +20953,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--53bd058a-6379-5d0e-b026-e32a0c2fe0bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--feec1fcb-b858-5dd8-b1c4-6ff16e8c10ca"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--53c6692a-e05a-5e9a-a1ce-09506e8e0fd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21980,6 +22548,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5cbbc4b8-9c79-5d0a-ae9f-523f030466be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--60b156ed-9512-5229-b4ba-10787cfac8a9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5cd3e79e-0200-5d0a-a8c6-1249c89320c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22801,6 +23380,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4277dcb7-3b12-5437-8f39-c739e803dfb7",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--616b30b2-61cb-5b02-82b2-038acfdddd63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--242c6bf7-79a5-5f51-ab9d-42689d6eb142"
     },
     {
       "type": "relationship",
@@ -25577,6 +26167,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7163742c-34ce-5e77-996d-721b75436fe0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--ff4ec2c7-d586-52aa-a469-35983b1ff68f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--716af809-05d7-5bbe-b677-1723bac16809",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28327,6 +28928,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--80e8fd05-d08b-533d-84e4-bd24db142c3c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--f3ac0943-0c23-519f-92f9-0a28e552285f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--80ea5c77-c768-5661-987b-cff8f6c955fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-04T13:26:07.000Z",
@@ -29075,6 +29687,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8489801b-db8d-57c7-bb36-8043141c1268",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "attack-pattern--594c6ecb-02f9-54b9-9a1d-5f61ad33e922"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8499033b-529e-570e-be7f-2c6a061dac1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T11:00:36.000Z",
@@ -29313,6 +29936,17 @@
       "relationship_type": "has",
       "source_ref": "software--48a94127-06a7-547e-8ca8-f20234b901cc",
       "target_ref": "vulnerability--938814d9-81e2-5afa-b9af-97aeba5da85f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--860e382b-1de8-5d28-8947-61c1132accfa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--f128c3d1-66f4-5792-bdb2-daffe68b9375"
     },
     {
       "type": "relationship",
@@ -31627,6 +32261,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93102727-b8ad-59f6-8b61-fe5dfd8d9ae3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--b6caf9e5-baca-5024-be4a-a27b0b972fa3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9315b517-a004-59c1-85e3-44a5951288de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32635,6 +33280,17 @@
       "relationship_type": "has",
       "source_ref": "software--56ca79ea-2b75-52bd-8f96-a21cad980f19",
       "target_ref": "vulnerability--378fbf25-eb2d-5874-b49f-97fd00f81c75"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98efd09b-abbc-5d0b-b3a7-44564a8add84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--c60cd86b-0a2e-555c-a501-7f0d155b9090"
     },
     {
       "type": "relationship",
@@ -34311,6 +34967,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a1e0b504-0f6c-5c6b-a730-edc9d978dfdb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--12818570-3646-5fe3-942a-2f111fc06920"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a1e5379a-b173-5b0a-84e8-83ecbe5e09ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34718,6 +35385,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a4709406-0c11-5cb3-b36b-40199ccbc6bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--858b9eba-cac2-5db5-ab4b-60eb5ca0d0c1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a4922f49-4ed1-5037-8282-90d458e38a33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T20:40:02.000Z",
@@ -34769,6 +35447,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1f3d6156-efff-5a8b-9d52-35453541bed4",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a510e8c7-095a-5cbe-8686-b6bc42549637",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--2e536227-e80f-502f-bc87-15727ee8c7fe"
     },
     {
       "type": "relationship",
@@ -41263,6 +41952,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c8a7d691-bbde-540e-8780-2b49601a7114",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--9a629fb7-60bb-5e9c-a8b0-56941e32e1ec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c8cb2919-a9f9-5263-8f80-959c90355f3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-21T06:26:17.000Z",
@@ -41886,6 +42586,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0cc0d7fb-cfcd-5776-ae88-916b720b2a5f",
       "target_ref": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cc023a0d-014e-51d1-afe9-0f6d5661bcde",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--4b8d20ac-89fb-56bd-acb4-ac75f89d8ca5"
     },
     {
       "type": "relationship",
@@ -43250,6 +43961,17 @@
       "relationship_type": "uses",
       "source_ref": "report--191c7441-a1c7-5475-a44f-4cbced7e8b8e",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d3a5b8f2-a658-549a-97a2-3fa8af1bf128",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--274b3ecd-9a4f-5379-bb09-481554a2801d"
     },
     {
       "type": "relationship",
@@ -44761,6 +45483,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--da2f6942-0418-5176-96e3-7bde7dd6db4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--5b7b3ea8-42e4-59fa-8873-72af27bdbfcb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--da38600a-a268-5d26-9147-5433a8cdfa1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-15T18:58:16.000Z",
@@ -44867,6 +45600,17 @@
       "relationship_type": "has",
       "source_ref": "software--6bac8618-bffd-5297-a85e-aca7e3936d0f",
       "target_ref": "vulnerability--75d24b5b-fc8e-53f4-8b24-a1fde493b586"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--db076743-235a-5334-9ed2-2a04815685ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--28c8b615-308b-5e8b-8669-1afa0613416c"
     },
     {
       "type": "relationship",
@@ -45065,6 +45809,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0b97cdc5-49d9-5f24-8b57-68c5cf9fbd08",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dc28ea3e-2368-5cc9-bf93-e159f53793e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--836b3b57-2596-582a-adf3-5ff2c522c6cb"
     },
     {
       "type": "relationship",
@@ -45509,6 +46264,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ddb5ece3-aac3-53ec-be8c-fd8667025d18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--dece91c5-1ece-5970-a65c-93a06921e65c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ddcadb00-a142-5d32-81d3-0b559afa9e35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:14:20.000Z",
@@ -45692,6 +46458,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d6199651-c6d1-52db-818e-34e08ecd5392",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--deeeec6f-3b02-5189-bd73-061a4c231a71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--87b6acea-09ae-5365-88d5-66eb7eed07a5"
     },
     {
       "type": "relationship",
@@ -46862,6 +47639,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e53eed39-c458-5277-b048-5b253f398321",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--3d11f16c-4da5-5c81-a25c-b246438fa87b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e53fef8c-0d0c-59c4-8787-5216a9bc8ce5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-08T19:34:58.000Z",
@@ -47324,6 +48112,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7b414b3-27f5-578e-87a9-4508f1bae752",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--aa6c1238-4f06-5e44-97a1-dcaaaf372e2b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7b7d4d1-c240-5fd3-9ad5-63e091410fd5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:15:46.000Z",
@@ -47357,6 +48156,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7f10867-53e8-5777-b519-33ef72089648",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--d37a7811-ab72-5cbc-81a9-563f34853e1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e804536f-0002-58a3-8fd6-a9d505922ba5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T18:28:56.000Z",
@@ -47386,6 +48196,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a477c57f-2d9f-5fcb-84e9-55b79618811d",
       "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e84550da-4b6d-5d77-8303-3e0f63aef02a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--78058fe6-f9ff-5df7-9245-1fc790766896"
     },
     {
       "type": "relationship",
@@ -47551,6 +48372,17 @@
       "relationship_type": "has",
       "source_ref": "software--ea7461f8-c1d5-53ff-b264-780874f7b47d",
       "target_ref": "vulnerability--5eb5a251-f8ed-5552-8e66-5a926ba6b4bd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e8bb03eb-9e83-512e-b0a3-27f604b548f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--820214ef-c7fc-553f-a6d8-e8c596c5df42"
     },
     {
       "type": "relationship",
@@ -48409,6 +49241,17 @@
       "relationship_type": "has",
       "source_ref": "software--50853bb0-f0b9-5e77-ab8f-23cf77f89db7",
       "target_ref": "vulnerability--502fcc96-d934-5c0c-babe-0f128e912835"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec4863d2-2b92-52dc-8ff2-fc184cc8bc07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "target_ref": "indicator--0971ba5b-74ea-55f9-9df3-66b7fce220e6"
     },
     {
       "type": "relationship",
@@ -76630,6 +77473,84 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--56965410-fab9-5a34-be65-d9c9c61004b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:04:04.000Z",
+      "modified": "2026-10-23T14:36:22.000Z",
+      "name": "Detection of Malicious Use of LLM Endpoints for Command and Control",
+      "description": "## Overview\n\nAdversaries are increasingly leveraging the capabilities of Large Language Models (LLMs) to dynamically perform malicious actions on compromised systems. This threat involves malware or post-exploitation scripts that utilize legitimate LLM APIs as a proxy for command and control (C2) or to execute logic within the affected system. This behavior is characterized by network connections to a broad range of AI and ML infrastructure providers, including OpenAI, Anthropic, Mistral, and various specialized inference services, initiated by unsigned binaries or common Windows/macOS scripting utilities such as PowerShell, curl, or WScript. Because these connections mimic legitimate traffic to AI services, detection must focus on the process context, specifically identifying unauthorized or unsigned code initiating the requests.\n\n## Attack Chain\n\n1. Initial access is established through standard means, such as spearphishing or exploiting a public-facing service.\n2. The attacker drops an unsigned or obfuscated payload (e.g., PowerShell script or malicious executable) into a non-standard directory like /tmp/ or \\Users\\Public\\.\n3. The malicious process executes and gathers system information or target data.\n4. The process initiates an HTTPS connection to an LLM provider's API endpoint (e.g., api.openai.com).\n5. The attacker sends instructions or prompts to the LLM API to generate code or malicious commands tailored to the system state.\n6. The response from the LLM is parsed and executed locally by the malicious process.\n7. The process performs further actions, such as exfiltrating data or establishing persistent access, based on the AI-generated logic.\n\n## Impact\n\nSuccessful exploitation allows attackers to bypass traditional static signature-based defenses by using dynamically generated, AI-assisted malicious logic. This increases the complexity of incident response and attribution, as the malicious commands originate from a legitimate, trusted API service. Affected organizations risk unauthorized data exfiltration, automated system exploitation, and stealthy persistence, as the C2 channel is obscured by traffic destined for reputable AI infrastructure.\n\n## Recommendation\n\n1. Deploy the provided EQL-based detection rules across all endpoints to monitor for suspicious processes communicating with known LLM API domains.\n2. Implement strict network segmentation and egress filtering to prevent unauthorized processes from accessing cloud-based AI service APIs.\n3. Perform a historical search on network proxy and DNS logs for connections to the listed LLM endpoints originating from high-risk or non-standard process paths.\n4. Review and harden systems to prevent the execution of unsigned binaries or unauthorized scripting tools in sensitive environments.\n5. If an alert triggers, investigate the process tree and parent process to confirm whether the connection originates from a legitimate user-installed application or a malicious actor.\n",
+      "published": "2026-09-18T19:04:04.000Z",
+      "labels": [
+        "ai-security",
+        "c2-traffic",
+        "command-and-control",
+        "endpoint-detection"
+      ],
+      "object_refs": [
+        "attack-pattern--594c6ecb-02f9-54b9-9a1d-5f61ad33e922",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--0971ba5b-74ea-55f9-9df3-66b7fce220e6",
+        "indicator--12818570-3646-5fe3-942a-2f111fc06920",
+        "indicator--225b1301-f3a2-505a-bfca-b7b74564a849",
+        "indicator--242c6bf7-79a5-5f51-ab9d-42689d6eb142",
+        "indicator--24d29efc-fdfa-5239-9b69-4abaf48e4161",
+        "indicator--274b3ecd-9a4f-5379-bb09-481554a2801d",
+        "indicator--28c8b615-308b-5e8b-8669-1afa0613416c",
+        "indicator--2cb78d70-2717-594c-b2be-f48d7107503d",
+        "indicator--2e536227-e80f-502f-bc87-15727ee8c7fe",
+        "indicator--36c9a709-7e4f-5d4a-8085-c7b0e6b28dda",
+        "indicator--3d11f16c-4da5-5c81-a25c-b246438fa87b",
+        "indicator--4b8d20ac-89fb-56bd-acb4-ac75f89d8ca5",
+        "indicator--5b7b3ea8-42e4-59fa-8873-72af27bdbfcb",
+        "indicator--60b156ed-9512-5229-b4ba-10787cfac8a9",
+        "indicator--78058fe6-f9ff-5df7-9245-1fc790766896",
+        "indicator--820214ef-c7fc-553f-a6d8-e8c596c5df42",
+        "indicator--836b3b57-2596-582a-adf3-5ff2c522c6cb",
+        "indicator--858b9eba-cac2-5db5-ab4b-60eb5ca0d0c1",
+        "indicator--87b6acea-09ae-5365-88d5-66eb7eed07a5",
+        "indicator--9292ff69-6267-5333-8a90-212959044adf",
+        "indicator--9a629fb7-60bb-5e9c-a8b0-56941e32e1ec",
+        "indicator--aa6c1238-4f06-5e44-97a1-dcaaaf372e2b",
+        "indicator--b6caf9e5-baca-5024-be4a-a27b0b972fa3",
+        "indicator--c1c527b6-2106-54af-bd15-6ad14c37b25e",
+        "indicator--c60cd86b-0a2e-555c-a501-7f0d155b9090",
+        "indicator--c7a52d15-7b72-590b-9f3a-2f2989c9ae7d",
+        "indicator--d37a7811-ab72-5cbc-81a9-563f34853e1b",
+        "indicator--d3f9ceb6-bd68-51eb-bfba-8d94f3535774",
+        "indicator--dcdd9794-6717-5fcb-85b3-94ed3ee0d94e",
+        "indicator--dece91c5-1ece-5970-a65c-93a06921e65c",
+        "indicator--f128c3d1-66f4-5792-bdb2-daffe68b9375",
+        "indicator--f3ac0943-0c23-519f-92f9-0a28e552285f",
+        "indicator--feec1fcb-b858-5dd8-b1c4-6ff16e8c10ca",
+        "indicator--ff4ec2c7-d586-52aa-a469-35983b1ff68f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-09-llm-c2-detection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-09-llm-c2-detection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/command_and_control_common_llm_endpoint.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-09-llm-c2-detection",
+      "x_craftedsignal_event_id": "brief-2026-09-llm-c2-detection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-llm-c2-detection/",
+      "x_craftedsignal_activity_at": "2026-10-23T14:36:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {

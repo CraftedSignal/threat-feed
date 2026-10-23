@@ -1,18 +1,47 @@
 ---
+brief_id: brief-2026-10-linux-base64-obfuscated-execution
+event_id: brief-2026-10-linux-base64-obfuscated-execution
+revision: 2
+activity_at: "2026-10-23T14:39:51Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T14:39:51Z"
+    checksum: sha256:3bd8b6ab03c4656e48400a575aafc4bb5c56cacd5f474bdbeccd3894d17e5acc
+    summary: OS linux
+    changed_fields:
+      - affected_os
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/defense_evasion_interpreter_launched_from_decoded_payload.toml
 title: Detection of Base64 Decoded Payloads Piped to Interpreters on Linux
 slug: 2026-10-linux-base64-obfuscated-execution
 description: Adversaries exploit Base64 encoding to obfuscate malicious payloads on Linux systems, piping the decoded output directly to interpreters to execute code while evading disk-based security controls.
 date: "2026-10-02T14:08:48Z"
+lastmod: "2026-10-23T14:37:13Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Rule requires environment-specific tuning to filter out legitimate admin scripts
 tags:
   - defense-evasion
   - execution
   - linux
   - obfuscation
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
@@ -32,6 +61,8 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Piping the output to interpreters like bash or python for execution.
     confidence_band: high
+references:
+  - https://github.com/elastic/detection-rules/blob/main/rules/linux/defense_evasion_interpreter_launched_from_decoded_payload.toml
 rules:
   - title: Detect Base64 Decoded Payload Piped to Interpreter
     description: Detects Base64 decoding utilities or language-specific decoding libraries being used to pipe data directly to an interpreter, often used to execute obfuscated malicious code.
@@ -64,6 +95,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Technique relies on sequential execution within 3 seconds
+updates:
+  - at: "2026-10-23T14:37:13Z"
+    level: L1
+    summary: OS linux
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/linux/defense_evasion_interpreter_launched_from_decoded_payload.toml
 ---
 
 Adversaries targeting Linux environments frequently utilize Base64 encoding to obfuscate malicious command-line payloads. By encoding binary or script data, they attempt to bypass security controls that monitor for signature-based matches on disk. The attack involves leveraging standard system utilities, such as `base64`, `openssl`, or language-specific interpreters like `python`, `perl`, or `ruby`, to perform the decoding. 
