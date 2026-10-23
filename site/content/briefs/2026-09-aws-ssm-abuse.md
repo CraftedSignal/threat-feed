@@ -1,14 +1,47 @@
 ---
+brief_id: brief-2026-09-aws-ssm-abuse
+event_id: brief-2026-09-aws-ssm-abuse
+revision: 2
+activity_at: "2026-10-23T14:44:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T14:44:15Z"
+    checksum: sha256:e599a863c439775cc0931fbfff703fe19255f3c52734f340ac08ba0d946d425b
+    summary: exploited:true
+    changed_fields:
+      - affected_products
+      - exploitation_evidence
+      - lastmod
+      - references
+      - rules
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_aws_ssm_session_manager_child_process.toml
 title: Abuse of AWS Systems Manager Session Manager for Remote Execution
 slug: 2026-09-aws-ssm-abuse
 description: Adversaries abuse AWS Systems Manager (SSM) Session Manager to gain interactive shell access and perform remote command execution on EC2 instances or managed hybrid nodes.
 date: "2026-09-18T19:14:31Z"
-lastmod: "2026-09-19T13:22:46Z"
+lastmod: "2026-10-23T14:43:39Z"
 type: advisory
 types:
   - advisory
 severities:
   - medium
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_aws_ssm_session_manager_child_process.toml
+  observed_at: "2026-10-23T09:50:34Z"
+  confidence: high
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
 tags:
   - cloud-security
   - remote-execution
@@ -133,6 +166,13 @@ updates:
       - elastic
     source_urls:
       - https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ssm_inventory_reconnaissance.toml
+  - at: "2026-10-23T14:43:39Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_aws_ssm_session_manager_child_process.toml
 ---
 
 AWS Systems Manager (SSM) Session Manager is a service designed to provide interactive shell access to EC2 instances and managed hybrid nodes without the need for bastion hosts or open inbound network ports. While this functionality is intended for legitimate administrative access, it presents a significant vector for post-exploitation activity. Adversaries with access to valid AWS credentials or those who have compromised an instance role with `ssm:StartSession` permissions can leverage the SSM agent to spawn arbitrary processes. 

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--06108d47-4082-5347-992b-9ae68c32cb5d",
+  "id": "bundle--ad714977-d88c-52d3-9595-df2e68712ad3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2927,6 +2927,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1546.008",
           "url": "https://attack.mitre.org/techniques/T1546/008"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Local Account",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1136.001",
+          "url": "https://attack.mitre.org/techniques/T1136/001"
         }
       ]
     },
@@ -40979,6 +40995,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d9e69c34-79a5-5b77-a6e3-573403d9e867",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T14:41:58.000Z",
+      "modified": "2026-10-23T14:41:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9c1a428c-6a65-5051-b17f-00a1e0ab340e",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d9e9e9f8-56c2-5422-92cd-677110c608dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46816,6 +46843,17 @@
       "relationship_type": "uses",
       "source_ref": "report--396b0a24-627c-505c-9a69-6a5df55707a3",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fa34aebe-5035-554d-84f4-d6818891e5d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T14:41:58.000Z",
+      "modified": "2026-10-23T14:41:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9c1a428c-6a65-5051-b17f-00a1e0ab340e",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
     },
     {
       "type": "relationship",
@@ -54518,6 +54556,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1d63df84-7fa6-55da-827c-de432b1b927a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T14:42:31.000Z",
+      "modified": "2026-10-23T14:42:31.000Z",
+      "name": "Linux Namespace Manipulation Using Unshare",
+      "description": "## Overview\nThe `unshare` command in Linux is used to create new namespaces, isolating processes from the rest of the system. While this mechanism is used for containerization and security, it can be exploited to break out of containers or elevate privileges by bypassing security controls.\n\n## Investigative Context\nLegitimate system management tools (such as `udevadm`, `systemd-udevd`, and `snap` package management) may invoke `unshare` as part of normal operations. Investigations should focus on the process tree, user account context, and command-line arguments to distinguish between administrative tasks and malicious activity.\n",
+      "published": "2026-10-23T14:42:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--54010353-808e-56c8-8dc2-848eb73d9be7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-namespace-manipulation-unshare",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-namespace-manipulation-unshare/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/privilege_escalation_unshare_namespace_manipulation.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://man7.org/linux/man-pages/man1/unshare.1.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.crowdstrike.com/blog/cve-2022-0185-kubernetes-container-escape-using-linux-kernel-exploit/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-namespace-manipulation-unshare",
+      "x_craftedsignal_event_id": "brief-2026-10-23-namespace-manipulation-unshare",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-namespace-manipulation-unshare/",
+      "x_craftedsignal_activity_at": "2026-10-23T14:42:31.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_epss_max": 0.25151,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1d7a6d83-9a5d-516b-81a2-868d7801dffc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:13:03.000Z",
@@ -59905,6 +59991,60 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01686,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--31e9e537-9444-5ee3-8790-2215636420b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T14:42:06.000Z",
+      "modified": "2026-10-23T14:42:06.000Z",
+      "name": "Linux Web Server: Suspicious Child Process Execution",
+      "description": "Adversaries may exploit vulnerabilities in web applications to execute commands via a web server or deploy web shells to establish persistent access. This detection monitors for web server processes (such as Nginx, Apache, or Java-based application servers) spawning script interpreters, command-line interface programs, or tools associated with reverse shells and system enumeration.\n",
+      "published": "2026-10-23T14:42:06.000Z",
+      "labels": [
+        "initial-access",
+        "linux",
+        "persistence",
+        "web-shell"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--508a9d87-0204-548e-8a63-aa43e1ef62b1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-linux-web-server-child-execution",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-linux-web-server-child-execution/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_webserver_suspicious_child_execution.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pentestlab.blog/tag/web-shell/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/security-labs/elastic-response-to-the-the-spring4shell-vulnerability-cve-2022-22965"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-linux-web-server-child-execution",
+      "x_craftedsignal_event_id": "brief-2026-10-23-linux-web-server-child-execution",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-web-server-child-execution/",
+      "x_craftedsignal_activity_at": "2026-10-23T14:42:06.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.99638,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -90544,6 +90684,50 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.17116,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9c1a428c-6a65-5051-b17f-00a1e0ab340e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T14:41:58.000Z",
+      "modified": "2026-10-23T14:41:58.000Z",
+      "name": "Linux: Unauthorized use of OpenSSL for password hash generation",
+      "description": "## Overview\n\nThe OpenSSL command-line utility provides functionality for cryptographic operations, including the generation of password hashes via the 'passwd' subcommand. Attackers frequently leverage this capability during post-exploitation to manipulate local accounts, such as creating new privileged users or resetting passwords for existing accounts to ensure continued access to the target host.\n\n## Impact\n\nSuccessful exploitation allows for persistent unauthorized access to the Linux system. This facilitates account manipulation (T1098) and local account creation (T1136.001), potentially enabling attackers to bypass standard authentication controls or establish backdoors.\n\n## Recommendation\n\nDeploy process-creation monitoring to capture 'openssl' executions. Baseline all administrative scripts and service accounts that legitimately use 'openssl passwd' for provisioning or system maintenance to reduce noise. Investigate any instances where this command is executed by non-administrative users or from unexpected parent processes.\n",
+      "published": "2026-10-23T14:41:58.000Z",
+      "labels": [
+        "credential-access",
+        "linux",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-linux-openssl-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-linux-openssl-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_openssl_passwd_hash_generation.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-linux-openssl-persistence",
+      "x_craftedsignal_event_id": "brief-2026-10-23-linux-openssl-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-openssl-persistence/",
+      "x_craftedsignal_activity_at": "2026-10-23T14:41:58.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -136962,6 +137146,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104935",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104935"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--54010353-808e-56c8-8dc2-848eb73d9be7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-0185",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-0185",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0185"
         }
       ]
     },

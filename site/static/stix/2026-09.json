@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c8f61cc4-549c-575a-9e2e-0be3bb7e17db",
+  "id": "bundle--aeedaa41-f100-5777-a3ea-040c6071c256",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2511,6 +2511,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1490",
           "url": "https://attack.mitre.org/techniques/T1490"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c5addc90-3a19-5e9b-b356-3b3172f3355b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Service Dashboard",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1538",
+          "url": "https://attack.mitre.org/techniques/T1538"
         }
       ]
     },
@@ -8218,7 +8234,7 @@
       "id": "relationship--10861eae-e7dc-503a-81c7-76a9781be774",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:14:31.000Z",
-      "modified": "2026-09-18T19:14:31.000Z",
+      "modified": "2026-10-23T14:44:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--cda93334-d7aa-5eb0-b519-ada29533886d",
       "target_ref": "attack-pattern--5d22e947-f5b5-5413-afc0-4129fd64c345"
@@ -10598,6 +10614,17 @@
       "relationship_type": "uses",
       "source_ref": "report--88038ff6-7a68-5f7a-acfd-1078934b158e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1d130771-02f7-566b-afd8-ecf155ecf61a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:14:31.000Z",
+      "modified": "2026-10-23T14:44:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cda93334-d7aa-5eb0-b519-ada29533886d",
+      "target_ref": "attack-pattern--c5addc90-3a19-5e9b-b356-3b3172f3355b"
     },
     {
       "type": "relationship",
@@ -15449,6 +15476,17 @@
       "relationship_type": "uses",
       "source_ref": "report--55ab98f2-e8f1-5886-8724-15a2ef724d0c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--34d74c25-c3d4-5f9e-bd09-dcc9d614b38d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50943c80-50a2-54fe-babf-36566c0e42ba",
+      "target_ref": "vulnerability--cbf43716-75a7-51ac-9dbc-846b4ba58c69"
     },
     {
       "type": "relationship",
@@ -27417,6 +27455,17 @@
       "relationship_type": "uses",
       "source_ref": "report--699bc090-c0b6-566d-a0be-e808077fa85b",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7930a26c-cb58-5a60-ad7c-1d3fe484f97b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:14:31.000Z",
+      "modified": "2026-10-23T14:44:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cda93334-d7aa-5eb0-b519-ada29533886d",
+      "target_ref": "attack-pattern--54500921-0f86-5a32-bf2e-550a4f6013ef"
     },
     {
       "type": "relationship",
@@ -39895,6 +39944,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bcc52872-c714-5d34-b300-1f40a7d3834a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-18T19:14:31.000Z",
+      "modified": "2026-10-23T14:44:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cda93334-d7aa-5eb0-b519-ada29533886d",
+      "target_ref": "attack-pattern--6b7b86a9-346d-5b18-8c55-2d4bd08889f8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bccd919c-0fef-50fe-a6f3-2941e8e7f190",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T13:56:48.000Z",
@@ -51951,6 +52011,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fbb4eb0c-64ee-5116-8ebf-0fac43e40f4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50943c80-50a2-54fe-babf-36566c0e42ba",
+      "target_ref": "vulnerability--282e43af-16f2-5af1-81c9-53499c78b98e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fbbac1a0-eed6-5c2e-bda3-a591184afd85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-16T19:07:43.000Z",
@@ -52570,7 +52641,7 @@
       "id": "relationship--ff4ede50-fdf3-517e-9518-1778b49a700b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:14:31.000Z",
-      "modified": "2026-09-18T19:14:31.000Z",
+      "modified": "2026-10-23T14:44:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--cda93334-d7aa-5eb0-b519-ada29533886d",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -55306,7 +55377,7 @@
       "id": "report--09380052-8aa8-5113-91a0-2f42fbc872d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-27T19:54:07.000Z",
-      "modified": "2026-09-28T01:21:41.000Z",
+      "modified": "2026-10-23T14:44:15.000Z",
       "name": "Active Exploitation of Citrix NetScaler Vulnerabilities CVE-2026-88771 and CVE-2026-88772",
       "description": "## Overview\n\nCISA has officially added two vulnerabilities affecting Citrix NetScaler to its Known Exploited Vulnerabilities (KEV) Catalog, citing evidence of active exploitation in the wild. The identified vulnerabilities are CVE-2026-88771, which involves improper input validation, and CVE-2026-88772, which involves improper restriction of operations within the bounds of a memory buffer. These vulnerabilities are documented as frequent attack vectors that allow malicious actors to target organizations by exploiting weaknesses in input handling and memory management on network appliances. Given their inclusion in the KEV catalog, these flaws are considered high-risk, necessitating immediate remediation to prevent potential unauthorized access or system compromise. Defenders should prioritize patching all internet-facing NetScaler instances to mitigate the risk posed by these actively exploited CVEs.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities in Citrix NetScaler appliances can grant attackers unauthorized control over affected assets. Because NetScaler devices often sit at the network edge as gateways or load balancers, compromise poses a significant risk to the integrity and confidentiality of the entire internal enterprise environment. Organizations that fail to patch these vulnerabilities risk total asset takeover by threat actors.\n\n## Recommendation\n\n- Immediately identify all internet-facing Citrix NetScaler instances and apply the latest security patches provided by the vendor to address CVE-2026-88771 and CVE-2026-88772.\n- Implement a risk-based vulnerability management program as recommended by CISA, prioritizing KEV catalog entries for immediate remediation.\n- Audit network logs and administrative access logs for unusual activity originating from or targeting NetScaler management interfaces, as exploitation often involves unauthorized input or memory manipulation.\n- Review CISA Binding Operational Directive 26-04 for guidance on required forensic checks for signs of compromise on assets where these vulnerabilities were present prior to patching.\n",
       "published": "2026-09-27T19:54:07.000Z",
@@ -55318,6 +55389,7 @@
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--4a9ab0dc-b301-52ff-902d-307c94b3b091",
+        "software--50943c80-50a2-54fe-babf-36566c0e42ba",
         "software--b2589841-aa46-5605-a68f-ca52711fc198",
         "vulnerability--282e43af-16f2-5af1-81c9-53499c78b98e",
         "vulnerability--cbf43716-75a7-51ac-9dbc-846b4ba58c69"
@@ -55330,24 +55402,45 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/network/initial_access_netscaler_log_poisoning_command_injection.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=47F4D662-7265-5507-AF7B-22B94A1EC716\u0026utm_source=rss\u0026utm_medium=rss"
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/09/cisa-says-attackers-are-exploiting-two.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-3587"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-88772"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/citrix-confirms-2-netscaler-zero-days-after-admins-pulled-the-plug/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sophos.com/en-us/blog/citrix-netscaler-cve-2026-88771-cve-2026-88772-in-active-exploitation"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-09-27-citrix-kev",
       "x_craftedsignal_event_id": "brief-2026-09-27-citrix-kev",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-citrix-kev/",
-      "x_craftedsignal_activity_at": "2026-09-28T01:21:41.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T14:44:15.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.05305,
       "x_craftedsignal_kev_status": "false"
     },
@@ -113243,20 +113336,28 @@
       "id": "report--cda93334-d7aa-5eb0-b519-ada29533886d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:14:31.000Z",
-      "modified": "2026-09-18T19:14:31.000Z",
+      "modified": "2026-10-23T14:44:15.000Z",
       "name": "Abuse of AWS Systems Manager Session Manager for Remote Execution",
       "description": "## Overview\n\nAWS Systems Manager (SSM) Session Manager is a service designed to provide interactive shell access to EC2 instances and managed hybrid nodes without the need for bastion hosts or open inbound network ports. While this functionality is intended for legitimate administrative access, it presents a significant vector for post-exploitation activity. Adversaries with access to valid AWS credentials or those who have compromised an instance role with `ssm:StartSession` permissions can leverage the SSM agent to spawn arbitrary processes. \n\nThe SSM agent utilizes worker processes, such as `ssm-session-worker` and `ssm-document-worker`, to handle incoming requests. When an attacker initiates a session, their commands are executed as child processes of these workers. This technique allows for stealthy remote execution, as the activity originates from a trusted system binary. Detection of this behavior is challenging due to the mix of legitimate administrative traffic and malicious commands, necessitating careful behavioral analysis and environment-specific tuning.\n\n## Attack Chain\n\n1. Attacker gains access to AWS credentials or compromises an IAM role with `ssm:StartSession` permissions.\n2. Attacker initiates a session using the AWS CLI or SDK to connect to a target EC2 instance or managed node.\n3. The SSM Agent on the target host receives the connection request and spawns a `ssm-session-worker` process.\n4. The attacker sends shell commands or scripts through the established SSM tunnel.\n5. The `ssm-session-worker` spawns a child process (e.g., `/bin/bash` or `powershell.exe`) to execute the attacker's instructions.\n6. Attacker performs reconnaissance, credential harvesting, or further lateral movement using the elevated privileges of the agent.\n7. Attacker maintains persistent access or exfiltrates data by executing additional payloads from the shell session.\n\n## Impact\n\nSuccessful abuse of SSM Session Manager allows an attacker to operate within the target environment as an authenticated administrator. This grants them the ability to bypass network-level security controls, execute arbitrary code, steal sensitive credentials stored on the instance, and move laterally across the cloud environment. The potential damage includes full system compromise, data theft, and the deployment of further malware, affecting any sector that relies on AWS EC2 or SSM for infrastructure management.\n\n## Recommendation\n\nPrioritize the identification of unauthorized SSM session activity by auditing CloudTrail logs for `StartSession` events. Enable process-creation logging on all managed nodes to detect anomalous child processes spawned by SSM worker binaries.\n\n- Deploy the Sigma rule below to monitor process lineages originating from SSM session workers.\n- Review CloudTrail logs to map `ssm-session-worker` process timestamps to specific IAM principals or AWS access keys.\n- Establish an exclusion list for known automation service accounts and standard administrative scripts to reduce false positives in the detection rule.\n- Enforce the Principle of Least Privilege for IAM roles assigned to EC2 instances, ensuring only authorized users have access to SSM Session Manager.\n",
       "published": "2026-09-18T19:14:31.000Z",
       "labels": [
+        "aws",
+        "cloud",
         "cloud-security",
+        "discovery",
         "lateral-movement",
+        "reconnaissance",
         "remote-execution"
       ],
       "object_refs": [
+        "attack-pattern--54500921-0f86-5a32-bf2e-550a4f6013ef",
         "attack-pattern--5d22e947-f5b5-5413-afc0-4129fd64c345",
+        "attack-pattern--6b7b86a9-346d-5b18-8c55-2d4bd08889f8",
+        "attack-pattern--c5addc90-3a19-5e9b-b356-3b3172f3355b",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0bd7c670-1f9a-55d3-9eb2-25ba0d539e41"
+        "software--0bd7c670-1f9a-55d3-9eb2-25ba0d539e41",
+        "software--4d5ad849-cfe6-5017-b15a-f10db33beac7"
       ],
       "external_references": [
         {
@@ -113270,7 +113371,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_aws_ssm_session_manager_child_process.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ssm_inventory_reconnaissance.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/lateral_movement_aws_ssm_start_session_to_ec2_instance.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://hackingthe.cloud/aws/post_exploitation/run_shell_commands_on_ec2/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://permiso.io/blog/lucr-3-scattered-spider-getting-saas-y-in-the-cloud"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/sites/default/files/2023-11/aa23-320a_scattered_spider_0.pdf"
         },
         {
           "source_name": "reference",
@@ -113280,13 +113405,16 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-09-aws-ssm-abuse",
       "x_craftedsignal_event_id": "brief-2026-09-aws-ssm-abuse",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-aws-ssm-abuse/",
-      "x_craftedsignal_activity_at": "2026-09-18T19:14:31.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T14:44:15.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/execution_aws_ssm_session_manager_child_process.toml",
+        "observed_at": "2026-10-23T09:50:34.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -132922,6 +133050,13 @@
       "id": "software--50873b59-f4e7-51e4-a623-e8b0656d82e9",
       "name": "Extended Passport Protocol (EPP) processing library",
       "vendor": "SAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--50943c80-50a2-54fe-babf-36566c0e42ba",
+      "name": "NetScaler Application Delivery Controller",
+      "vendor": "Citrix"
     },
     {
       "type": "software",
