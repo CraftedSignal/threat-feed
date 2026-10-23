@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4936cc25-bbab-5c89-b52f-600d96eb07e9",
+  "id": "bundle--f6145bf5-1839-5a17-8d46-cf860d2fe0ef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -132277,6 +132277,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df2936dc-e24b-598d-b040-043fc7408d56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T00:19:21.000Z",
+      "modified": "2026-10-23T00:19:21.000Z",
+      "name": "Exim: SQL injection vulnerability in ETRN command handler (CVE-2025-26794)",
+      "description": "A proof-of-concept exploit for CVE-2025-26794 has been published on Sploitus. The vulnerability affects Exim version 4.98 when configured with SQLite DBM storage and allows for SQL injection via the ETRN command handler. The vulnerability has a CVSS 3.1 score of 9.8 and an EPSS score of 77.5%.\n",
+      "published": "2026-10-23T00:19:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--c7823d3f-d473-583b-b50f-82ededba4f58"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-exim-sqli-cve-2025-26794",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-exim-sqli-cve-2025-26794/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-XPLOITGH0ST-CVE-2025-26794-EXPLOIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-exim-sqli-cve-2025-26794",
+      "x_craftedsignal_event_id": "brief-2026-10-23-exim-sqli-cve-2025-26794",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-exim-sqli-cve-2025-26794/",
+      "x_craftedsignal_activity_at": "2026-10-23T00:19:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.77486,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--df309b2c-358c-5a50-ab4a-e18ecbcc98ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T14:24:50.000Z",
@@ -177157,6 +177197,22 @@
           "source_name": "cve",
           "external_id": "CVE-2018-16763",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-16763"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c7823d3f-d473-583b-b50f-82ededba4f58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-26794",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-26794",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-26794"
         }
       ]
     },
