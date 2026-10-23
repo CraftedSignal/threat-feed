@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--be29142f-7011-56db-9ed5-8c9ada1d900c",
+  "id": "bundle--14c16445-77c3-5cec-b30e-2ecddc049c59",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6337,7 +6337,7 @@
       "id": "relationship--09434724-e69c-50d9-a55d-859cb3740494",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-19T14:08:58.000Z",
+      "modified": "2026-10-23T20:29:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -21429,7 +21429,7 @@
       "id": "relationship--644408d2-a302-5a88-ab90-d917e2993b40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-19T14:08:58.000Z",
+      "modified": "2026-10-23T20:29:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -35843,6 +35843,17 @@
       "relationship_type": "has",
       "source_ref": "software--56229123-9027-5574-bdd1-fde157f89312",
       "target_ref": "vulnerability--8d947f0d-af5c-5763-9e47-b1dd93ee5881"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b913ef20-49be-5ec2-9b1f-e12a97591247",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9b139a5e-9d36-51ab-b747-3cd0a1c65cce",
+      "target_ref": "vulnerability--9bca492f-8621-5d4a-81da-075489abc451"
     },
     {
       "type": "relationship",
@@ -118861,7 +118872,7 @@
       "id": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-19T14:08:58.000Z",
+      "modified": "2026-10-23T20:29:43.000Z",
       "name": "Remote Code Execution Vulnerability in Collabora Online",
       "description": "## Overview\n\nCollabora Online has disclosed a critical security vulnerability affecting its built-in CODE server, often deployed within platforms such as Nextcloud. The vulnerability allows a remote, unauthenticated attacker to execute arbitrary program code on the underlying host. The code executes with the same privileges as the web server user, which typically corresponds to the service account running the Collabora Online or web server process (e.g., www-data or similar). Because the vulnerability does not require authentication, it represents a high risk to organizations exposing these collaboration tools to the internet. Defenders should prioritize identifying instances of Collabora Online and monitoring for unauthorized processes spawned by the web server service account.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-facing Collabora Online or Nextcloud instances.\n2. Attacker sends a crafted, unauthenticated HTTP request to the vulnerable CODE server endpoint.\n3. The request exploits an input validation or handling flaw in the Collabora Online service.\n4. The exploit triggers the execution of arbitrary commands or code within the server memory.\n5. The web server process executes the malicious payload using the service account permissions.\n6. The attacker may establish a web shell or a reverse shell to maintain access.\n7. Final objective: full compromise of the web server context, data exfiltration, or lateral movement into the hosting environment.\n\n## Impact\n\nSuccessful exploitation allows for full Remote Code Execution (RCE) on the server hosting the Collabora Online instance. This can lead to total system compromise, theft of sensitive documents stored within the collaborative environment, or the use of the server as a pivot point into the internal network. Organizations in all sectors using Collabora Online for document collaboration are at risk.\n\n## Recommendation\n\n- Monitor web server access logs for anomalous HTTP requests targeting CODE server endpoints, specifically those containing suspicious parameters or shell metacharacters.\n- Audit all internet-facing instances of Collabora Online and restrict access to authorized IP ranges where possible.\n- Enable process creation logging (e.g., Sysmon Event ID 1) for the web server service account to detect unexpected child processes (e.g., /bin/sh, /bin/bash, curl, or wget) spawned by the web server process.\n- Monitor for unauthorized file modifications or the creation of new files within the document storage directories associated with the collaboration platform.\n",
       "published": "2026-10-19T14:08:58.000Z",
@@ -118873,7 +118884,8 @@
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c1ff06a0-9d94-5fe4-b0e9-c02e49586770"
+        "software--9b139a5e-9d36-51ab-b747-3cd0a1c65cce",
+        "vulnerability--9bca492f-8621-5d4a-81da-075489abc451"
       ],
       "external_references": [
         {
@@ -118884,20 +118896,25 @@
         {
           "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4011"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-collabora-code-rce",
       "x_craftedsignal_event_id": "brief-2026-10-collabora-code-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-collabora-code-rce/",
-      "x_craftedsignal_activity_at": "2026-10-19T14:08:58.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T20:29:43.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01225,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -128842,6 +128859,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9b139a5e-9d36-51ab-b747-3cd0a1c65cce",
+      "name": "Collabora Online (\u003c 26.4.303)",
+      "vendor": "Collabora"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9b1b284d-5958-5993-9492-379e4f5c0857",
       "name": "camel-knative (4.0.0-4.18.4, 4.19.0-4.22.0)",
       "vendor": "Apache"
@@ -130589,13 +130613,6 @@
       "id": "software--c1dcd92e-20a5-5f49-a86e-fc8cec7f04ca",
       "name": "storybook (\u003e= 8.0.0, \u003c 8.6.19)",
       "vendor": "Storybook"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c1ff06a0-9d94-5fe4-b0e9-c02e49586770",
-      "name": "Collabora Online",
-      "vendor": "Collabora"
     },
     {
       "type": "software",
@@ -146485,6 +146502,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55797",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55797"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9bca492f-8621-5d4a-81da-075489abc451",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110447",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110447",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110447"
         }
       ]
     },
