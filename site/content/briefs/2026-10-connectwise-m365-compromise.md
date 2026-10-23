@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-connectwise-m365-compromise
 event_id: brief-2026-10-connectwise-m365-compromise
-revision: 2
-activity_at: "2026-10-23T06:53:33Z"
+revision: 3
+activity_at: "2026-10-23T07:54:23Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T06:53:33Z"
@@ -18,11 +18,23 @@ revision_history:
       - updates
     source_urls:
       - https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html
+  - revision: 3
+    at: "2026-10-23T07:54:23Z"
+    checksum: sha256:51df0f2b00312eb4b5acd11645cc47f596360cee9ab7f3e20396d2dd08060281
+    summary: new IOCs
+    changed_fields:
+      - affected_products
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access
 title: Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise Credentials
 slug: 2026-10-connectwise-m365-compromise
 description: Threat actors are exploiting a compromised service principal credential belonging to ConnectWise Cloud Backup to gain unauthorized access to 173 Microsoft 365 tenants and potentially escalate privileges.
 date: "2026-10-17T06:39:10Z"
-lastmod: "2026-10-22T05:35:11Z"
+lastmod: "2026-10-23T07:53:46Z"
 type: advisory
 types:
   - advisory
@@ -56,6 +68,7 @@ products:
   - Microsoft 365
   - Microsoft Entra ID
   - Exchange Online
+  - ConnectWise Cloud Management - MS Teams
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -127,11 +140,17 @@ references:
   - https://www.darkreading.com/identity-access-management-security/connectwise-disables-cloud-backups-downstream-msps
   - https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html
   - https://therecord.media/china-cyber-connectwise-ai
+  - https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
+  - https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access
 iocs:
   - type: ip
     value: 144.172.64.128
+  - type: ip
+    value: 144.172.64.99
+  - type: ip
+    value: 144.172.64.60
 ioc_counts:
-  ip: 1
+  ip: 3
 action_plan:
   priority: immediate_escalation
   owners:
@@ -183,6 +202,20 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html
+  - at: "2026-10-23T07:52:47Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
+  - at: "2026-10-23T07:53:46Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - huntress
+    source_urls:
+      - https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access
 ---
 
 Security researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. 
