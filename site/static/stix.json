@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--85b30e69-e048-52bf-acdd-2cfcbc76b841",
+  "id": "bundle--c17f0fb4-f2ed-5a0f-b84c-3deecd4f56d0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12978,6 +12978,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--272fb433-ae19-521c-9fa9-02a67113b31e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9ad07911-025f-59f6-9eed-372fc1fba9c8",
+      "target_ref": "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--27443af8-01f8-53a9-a4d9-bed9d37287d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T14:39:29.000Z",
@@ -16186,6 +16197,17 @@
       "relationship_type": "uses",
       "source_ref": "report--559a54f6-625f-5b41-8941-f62b5bdca300",
       "target_ref": "attack-pattern--477183ac-e0ef-567d-be60-d5cbb114344b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3788225b-b3f2-53b6-b296-07fe8f15c69f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--52ffa7c2-730b-598e-806e-d6de27efb610",
+      "target_ref": "vulnerability--fabb578c-1994-5821-903b-c0bde024a731"
     },
     {
       "type": "relationship",
@@ -19552,6 +19574,17 @@
       "relationship_type": "has",
       "source_ref": "software--1773893d-44f2-5340-927d-3691449833f6",
       "target_ref": "vulnerability--1fb563b8-8834-551a-b1bb-6c8f4c539d1e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--482d717f-d369-5cd9-926b-6cfc4dfbd0ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fe740598-e17c-548f-a0df-65e08df5f9a5",
+      "target_ref": "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
     },
     {
       "type": "relationship",
@@ -23021,17 +23054,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--596a94aa-a96d-5be0-a741-3da2523f8e60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T20:44:45.000Z",
-      "modified": "2026-09-23T20:44:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--43d0b290-f09b-5d6f-b055-b1eb1039ba08",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5999dea2-458f-5c17-a851-128c7163158e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25107,6 +25129,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2b1a6a0f-9e04-5754-afb1-f31a22a4dc68",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--635d635b-08b9-5308-96c9-12fd7e3cd990",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T20:48:03.000Z",
+      "modified": "2026-10-23T20:48:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd1f7333-1958-543b-8214-ce0ed1f7c581",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -32492,17 +32525,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8652a2dd-2465-50ad-b6f6-61aebfb7c039",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8db63615-5a8f-53e7-b2a1-006c60851483",
-      "target_ref": "vulnerability--d2d979a3-516c-5064-8d6b-93396a5ea25d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--86680d1f-1aac-5089-a0e4-dbea48cf5922",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39312,6 +39334,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a824d899-9457-5fae-8800-5225c7d3c7fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bf9093b4-6dad-591f-ba7d-ef37d5ac528d",
+      "target_ref": "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a8395519-2f22-554d-a31e-43dfa231be55",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41563,17 +41596,6 @@
       "relationship_type": "uses",
       "source_ref": "report--3f0f5067-b8f8-579a-a240-f49bc0fbd981",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b2ebe636-4464-5220-b8aa-474a5e98f36f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T20:44:45.000Z",
-      "modified": "2026-09-23T20:44:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--43d0b290-f09b-5d6f-b055-b1eb1039ba08",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -45494,17 +45516,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c6168e42-aeea-5f77-b05b-d4d12592826e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f3c90e06-191e-5727-ad78-a39a4c1d56fb",
-      "target_ref": "vulnerability--75426d27-7fb1-542b-bb86-a9e5996ec72d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c619e040-4371-5db6-b2df-03bea936eed9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:28:40.000Z",
@@ -47906,7 +47917,7 @@
       "id": "relationship--d13c0b73-5d2d-5112-8f4c-aed5b67ea2dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T16:47:01.000Z",
-      "modified": "2026-10-23T19:51:54.000Z",
+      "modified": "2026-10-23T20:49:01.000Z",
       "relationship_type": "uses",
       "source_ref": "report--62f10350-eb03-52f4-af13-1c4d9c9f576a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -49142,17 +49153,6 @@
       "relationship_type": "uses",
       "source_ref": "report--558bab0b-88be-5a9a-8201-38c8e2d37982",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d6a2dc22-1830-5308-98eb-6a16e27882c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fd62222c-795f-5399-aebc-6170ceb7538d",
-      "target_ref": "vulnerability--15d82670-9f7c-5634-a6d2-cce11fcf336a"
     },
     {
       "type": "relationship",
@@ -50484,17 +50484,6 @@
       "relationship_type": "uses",
       "source_ref": "report--4b8bd179-8fb9-51d9-8afa-2bd354d6145e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dc9ed5d7-f4b3-502e-b79b-fdf84956b8de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T20:44:23.000Z",
-      "modified": "2026-09-23T20:44:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--21e747c1-02f5-5967-b17c-5e424cb48e0e",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -57997,17 +57986,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b470eb12-6403-53de-b861-d00116b2f766",
       "target_ref": "attack-pattern--01959e06-6fa4-5fae-a45c-0c4b168701d2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ff7d2036-6d6d-55c7-997d-30f1089527cd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5e5640af-cbea-5187-bbba-3456070ce0ec",
-      "target_ref": "vulnerability--1fb7618f-e5fb-5a7d-8423-9feda8412fe9"
     },
     {
       "type": "relationship",
@@ -68584,51 +68562,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--20fa5e5e-361c-5f6e-b671-87e2fbd43a4d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T20:44:53.000Z",
-      "modified": "2026-10-16T07:31:13.000Z",
-      "name": "Use-After-Free Vulnerability in librsvg",
-      "description": "## Overview\n\nA high-severity use-after-free vulnerability, tracked as CVE-2026-96889, has been identified in librsvg, a library used by various GNOME applications for rendering Scalable Vector Graphics (SVG). The flaw is triggered when the library processes an SVG document containing nested XML inclusions (Xincludes) with duplicate entity declarations. Due to improper memory management, the parser incorrectly deallocates an XML entity that remains in active use, resulting in a use-after-free condition. \n\nAn attacker can exploit this by enticing a victim to open or process a maliciously crafted SVG file. Depending on the target environment and the application utilizing the library, this vulnerability could be leveraged to crash the process (denial of service) or potentially achieve arbitrary code execution within the context of the user running the affected application.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-96889 can lead to application instability, service disruption, or arbitrary code execution. As librsvg is commonly integrated into image viewers, web browsers, and desktop environments, this flaw poses a risk to a wide range of Linux-based systems. Defenders should prioritize updating librsvg to the latest patched versions provided by their distribution maintainers.\n\n## Recommendation\n\n- Monitor Linux distribution security advisories for updated packages of librsvg.\n- Patch CVE-2026-96889 on all systems where librsvg is installed as a dependency.\n- Implement sandboxing or process isolation for applications that parse untrusted SVG files to limit the potential impact of code execution.\n",
-      "published": "2026-09-23T20:44:53.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--fd62222c-795f-5399-aebc-6170ceb7538d",
-        "vulnerability--15d82670-9f7c-5634-a6d2-cce11fcf336a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-librsvg-use-after-free",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-librsvg-use-after-free/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96889"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=EF1A6D89-18D6-5B53-907A-62E21981BCD8\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-librsvg-use-after-free",
-      "x_craftedsignal_event_id": "brief-2026-09-23-librsvg-use-after-free",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-librsvg-use-after-free/",
-      "x_craftedsignal_activity_at": "2026-10-16T07:31:13.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.00151,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--210e9318-72fc-5c3c-9dbb-536a8159fd5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:16:23.000Z",
@@ -68906,47 +68839,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--21e747c1-02f5-5967-b17c-5e424cb48e0e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T20:44:23.000Z",
-      "modified": "2026-09-23T20:44:23.000Z",
-      "name": "Authorization Bypass in AWX CopyAPIView",
-      "description": "## Overview\n\nCVE-2026-76648 identifies a critical authorization bypass vulnerability within the CopyAPIView component (located in awx/awx/api/generics.py) of the Ansible AWX platform. The vulnerability stems from an inconsistency in permission enforcement within the component's handlers. While the get() handler correctly enforces object-level Role-Based Access Control (RBAC) using request.user.can_access, the post() handler fails to implement equivalent checks. \n\nWhen processing copy requests for JobTemplates, the system performs validation against model-level roles like 'add' and 'copy_related', but fails to verify if the user possesses read access to the source object. This allows an authenticated user with limited resource-level permissions (such as inventory or execution environment use roles) to initiate copy operations on JobTemplates for which they do not have authorized access. This bypass leads to unauthorized data operations and potentially facilitates information disclosure or improper state manipulation within the automation environment.\n\n## Impact\n\nThe vulnerability results in an authorization bypass, enabling users to perform unauthorized copy operations on JobTemplate resources. Successful exploitation could allow unauthorized users to gain visibility into restricted automation templates or manipulate the state of the system by copying sensitive job definitions, undermining the principle of least privilege within the automation pipeline.\n\n## Recommendation\n\nPrioritize the identification and implementation of official patches from the AWX project for this authorization flaw. If a patch is not immediately available, restrict access to the affected API endpoints or limit user permissions associated with JobTemplate creation and modification until the system is updated. Audit existing user roles to ensure that access to 'use_role' and 'add' permissions for resources are restricted to authorized personnel.\n",
-      "published": "2026-09-23T20:44:23.000Z",
-      "object_refs": [
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8db63615-5a8f-53e7-b2a1-006c60851483",
-        "vulnerability--d2d979a3-516c-5064-8d6b-93396a5ea25d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-cve-2026-76648-awx-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-76648-awx-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76648"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-cve-2026-76648-awx-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-23-cve-2026-76648-awx-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-76648-awx-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-23T20:44:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -80111,53 +80003,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--43d0b290-f09b-5d6f-b055-b1eb1039ba08",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T20:44:45.000Z",
-      "modified": "2026-09-23T20:44:45.000Z",
-      "name": "Jinja Injection Vulnerability in Ansible Automation Controller",
-      "description": "## Overview\n\nCVE-2026-84714 describes a critical input-validation vulnerability in the sanitize_jinja() function within Ansible Automation Controller. The function utilizes regular expressions to filter user-supplied Jinja code but fails to account for nested expressions, as the patterns terminate at the first encountered '}' or '%' character. Consequently, attackers can bypass these filters using nested Jinja syntax, such as empty dictionaries, which remain executable by ansible-core within the execution environment. This flaw affects multiple critical launch-time fields, including ad-hoc command module arguments, machine credential parameters (username, become_method, become_user), and inventory host names. A low-privileged user can leverage this vulnerability to bypass administrative module allowlists for ad-hoc commands, execute arbitrary code within the execution environment, and exfiltrate secrets from co-attached credentials by templating environment variables. The vulnerability allows for an escalation of privilege across defined credential access-control boundaries.\n\n## Impact\n\nSuccessful exploitation allows low-privileged users to achieve arbitrary command execution within the Ansible execution environment and gain unauthorized access to sensitive credentials. This poses a significant risk to organizations relying on Ansible Automation Controller for secure infrastructure orchestration, as it permits attackers to bypass established security policies, such as ad-hoc command module allowlists, and exfiltrate credentials they would not normally be authorized to access.\n\n## Recommendation\n\n1. Monitor for and apply vendor-supplied patches for Ansible Automation Controller to address CVE-2026-84714.\n2. Review and audit existing Jinja templates used in inventory host names and credential parameters for unauthorized nested expressions.\n3. Restrict permissions for users authorized to define ad-hoc command parameters or inventory settings within the Automation Controller interface.\n4. Implement strict monitoring on the execution environment to detect unexpected command patterns or unauthorized access to credential-related environment variables.\n",
-      "published": "2026-09-23T20:44:45.000Z",
-      "labels": [
-        "ansible",
-        "jinja-injection",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5e5640af-cbea-5187-bbba-3456070ce0ec",
-        "vulnerability--1fb7618f-e5fb-5a7d-8423-9feda8412fe9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-ansible-jinja-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-ansible-jinja-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84714"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-ansible-jinja-injection",
-      "x_craftedsignal_event_id": "brief-2026-09-23-ansible-jinja-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-ansible-jinja-injection/",
-      "x_craftedsignal_activity_at": "2026-09-23T20:44:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--43e339c2-c977-57e9-84c4-a300c69c0814",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:07:44.000Z",
@@ -90946,7 +90791,7 @@
       "id": "report--62f10350-eb03-52f4-af13-1c4d9c9f576a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T16:47:01.000Z",
-      "modified": "2026-10-23T19:51:54.000Z",
+      "modified": "2026-10-23T20:49:01.000Z",
       "name": "Remote Code Execution Vulnerability in Ivanti Connect Secure",
       "description": "## Overview\n\nIvanti has disclosed a critical zero-day vulnerability, CVE-2026-104935, affecting Ivanti Connect Secure, a solution used to provide remote access to organizational systems and applications. The vulnerability allows an unauthenticated, remote attacker to execute arbitrary commands on the appliance without the need for valid credentials. Ivanti has assigned a CVSS score of 8.6 to this vulnerability. The Netherlands National Cyber Security Centre (NCSC) and Ivanti have confirmed that this vulnerability is being actively exploited by malicious actors in the wild to gain unauthorized access to target organizations. Due to the nature of the appliance providing network-level access, successful exploitation significantly compromises the security of downstream internal systems. Organizations are advised to verify their current version and apply security patches immediately. Because the vulnerability allows for persistent unauthorized control, patching alone is insufficient if the system has already been compromised; incident response procedures must be followed if intrusion is suspected.\n\n## Impact\n\nThe vulnerability allows for full system control by unauthorized actors, potentially leading to widespread data exfiltration, lateral movement within the network, and the deployment of additional malicious tools. The vulnerability is being exploited in the wild against a limited number of customers. The NCSC classifies both the risk of exploitation and the potential damage as high.\n\n## Recommendation\n\n- Identify the current version of Ivanti Connect Secure and verify it against the patches listed by Ivanti.\n- Apply the relevant security update immediately. For the 22.8 series, update to 22.8R2.5 or migrate to the 25.1 branch (25.1.1.2 or newer). For the 25.1 series, update to 25.1.1.2, 25.1.2.2 (if supported by migration path), or 25.1.3.0/25.1.3.1.\n- Initiate incident response procedures if unauthorized access is suspected, as patching does not remediate established backdoors or persistence.\n- Monitor logs for unusual authentication activity or unexpected process execution occurring on the Connect Secure appliance.\n",
       "published": "2026-10-13T16:47:01.000Z",
@@ -90962,7 +90807,10 @@
         "software--093a6de8-841e-55bf-95fd-51991e8c3a69",
         "software--1c2ce1fa-a3f1-5d4c-8900-f352ea53d766",
         "software--69f7304e-6fc7-5f6d-999b-16112bff0742",
+        "software--9ad07911-025f-59f6-9eed-372fc1fba9c8",
         "software--9d42f3d6-c058-5755-a04c-a217256b9575",
+        "software--bf9093b4-6dad-591f-ba7d-ef37d5ac528d",
+        "software--fe740598-e17c-548f-a0df-65e08df5f9a5",
         "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
       ],
       "external_references": [
@@ -91007,9 +90855,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-13-ivanti-connect-secure-rce",
       "x_craftedsignal_event_id": "brief-2026-10-13-ivanti-connect-secure-rce",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ivanti-connect-secure-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T19:51:54.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T20:49:01.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -122464,6 +122312,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bd1f7333-1958-543b-8214-ce0ed1f7c581",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T20:48:03.000Z",
+      "modified": "2026-10-23T20:48:03.000Z",
+      "name": "SmarterTools SmarterMail: Unauthenticated remote code execution (CVE-2025-52691)",
+      "description": "## Overview\nSmarterMail Build 9406 and earlier contains an unauthenticated arbitrary file upload vulnerability (CVE-2025-52691). The vulnerability allows an attacker to upload arbitrary files to any location on the mail server, which can be leveraged to achieve remote code execution. Public exploit code for this vulnerability is actively circulating on platforms such as GitHub and KitPloit. \n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to gain remote code execution on the mail server with high privileges (CVSS 10.0).\n\n## Recommendation\n- Upgrade SmarterMail to Build 9413 or later immediately to remediate CVE-2025-52691.\n- Audit web server access logs for anomalous POST requests directed at SmarterMail file upload endpoints.\n- Restrict internet exposure of SmarterMail management interfaces where possible.\n",
+      "published": "2026-10-23T20:48:03.000Z",
+      "labels": [
+        "cve",
+        "file-upload",
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--52ffa7c2-730b-598e-806e-d6de27efb610",
+        "vulnerability--fabb578c-1994-5821-903b-c0bde024a731"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-smartermail-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-smartermail-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-52691"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RXERIUM-CVE-2025-52691\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2025-124"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-smartermail-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-23-smartermail-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-smartermail-rce/",
+      "x_craftedsignal_activity_at": "2026-10-23T20:48:03.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.85655,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bd20cbd4-b6d2-54c2-b7e8-89834ef75537",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T20:12:11.000Z",
@@ -122764,51 +122668,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.0015,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--be4c5d2d-c7d9-521b-ba0e-d84a8f868c8a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T20:44:30.000Z",
-      "modified": "2026-09-23T20:44:30.000Z",
-      "name": "Credential Exposure in Red Hat Ansible Automation Platform via CVE-2026-84499",
-      "description": "## Overview\n\nCVE-2026-84499 is a security vulnerability in the Red Hat Ansible Automation Platform automation-controller where sensitive survey data, specifically password-type fields, are improperly handled during validation. These fields are typically stored encrypted and intended to be write-only, masking their value when viewed via the UI or API. However, when a user with the JobTemplate Admin role modifies a schedule or workflow job template node to use a stricter survey length specification, the automation-controller triggers a revalidation process. During this process, the application inadvertently decrypts the stored password and echoes the plaintext value directly into the HTTP response body as part of a minimum/maximum length validation error message. This allows a malicious or compromised administrative user to recover plaintext credentials belonging to higher-privileged users, leading to potential privilege escalation or lateral movement across the infrastructure managed by Ansible.\n\n## Impact\n\nSuccessful exploitation results in the exposure of plaintext credentials stored within Ansible surveys. This impacts organizations using the platform for automated secret management or infrastructure orchestration, potentially leading to unauthorized access to downstream systems and administrative takeover of the automation-controller environment.\n\n## Recommendation\n\n- Upgrade Red Hat Ansible Automation Platform to the patched version once released by Red Hat to resolve CVE-2026-84499.\n- Audit logs for the automation-controller for frequent or suspicious modifications to job template survey specifications by low-privileged administrators.\n- Restrict the 'JobTemplate Admin' role in Ansible environments to highly trusted personnel until the patch is applied.\n",
-      "published": "2026-09-23T20:44:30.000Z",
-      "labels": [
-        "credential-theft",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f3c90e06-191e-5727-ad78-a39a4c1d56fb",
-        "vulnerability--75426d27-7fb1-542b-bb86-a9e5996ec72d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-ansible-controller-vuln",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-ansible-controller-vuln/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84499"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-ansible-controller-vuln",
-      "x_craftedsignal_event_id": "brief-2026-09-23-ansible-controller-vuln",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-ansible-controller-vuln/",
-      "x_craftedsignal_activity_at": "2026-09-23T20:44:30.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -150228,6 +150087,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--52ffa7c2-730b-598e-806e-d6de27efb610",
+      "name": "SmarterMail (\u003c 100.0.9413)",
+      "vendor": "SmarterTools"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--530b632a-2de8-5174-84a9-a83120da7d82",
       "name": "Grav (1.7.53 - 1.7.53.4)",
       "vendor": "Grav"
@@ -151013,13 +150879,6 @@
       "id": "software--5e51efea-8d82-5232-85b1-98e19747e484",
       "name": "Coraza WAF (\u003e= 3.0.0, \u003c 3.8.1)",
       "vendor": "Coraza"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5e5640af-cbea-5187-bbba-3456070ce0ec",
-      "name": "Ansible Automation Controller",
-      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -153916,13 +153775,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8db63615-5a8f-53e7-b2a1-006c60851483",
-      "name": "AWX",
-      "vendor": "Ansible"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8ddc24b7-b5ec-5a3a-bad1-4713cde22e5d",
       "name": "Junos OS (24.2R2 to \u003c24.2R2-S3)",
       "vendor": "Juniper Networks"
@@ -154551,6 +154403,13 @@
       "id": "software--9a8c61d7-e449-5bf7-97cd-785da5e7768e",
       "name": "IBM i (7.3, 7.4, 7.5, 7.6)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9ad07911-025f-59f6-9eed-372fc1fba9c8",
+      "name": "Connect Secure (\u003c= 25.1.2.2)",
+      "vendor": "Ivanti"
     },
     {
       "type": "software",
@@ -156728,6 +156587,13 @@
       "id": "software--bf6831fa-0130-55df-b6b1-10cfdac8559f",
       "name": "apostrophe (\u003c 4.33.0)",
       "vendor": "ApostropheCMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bf9093b4-6dad-591f-ba7d-ef37d5ac528d",
+      "name": "Connect Secure (\u003c= 22.8R2.4)",
+      "vendor": "Ivanti"
     },
     {
       "type": "software",
@@ -159496,13 +159362,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f3c90e06-191e-5727-ad78-a39a4c1d56fb",
-      "name": "Ansible Automation Platform (automation-controller)",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f4007d13-7932-5dcf-8b6d-9b75e773ea3b",
       "name": "YouTrack (\u003c 2025.3.161254, \u003c 2026.1.14042)",
       "vendor": "JetBrains"
@@ -159999,12 +159858,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fd62222c-795f-5399-aebc-6170ceb7538d",
-      "name": "librsvg"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fd699de3-bb37-5e0e-99dc-f76b9b522aeb",
       "name": "hydra-core (\u003c 1.3.6, \u003e= 1.4.0.dev0, \u003c 1.4.0.dev9)",
       "vendor": "Meta"
@@ -160043,6 +159896,13 @@
       "id": "software--fe67d4d9-8104-5bd7-85a4-97012fa4f2df",
       "name": "Firefox ESR (\u003c 153.5.1)",
       "vendor": "eMudhra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fe740598-e17c-548f-a0df-65e08df5f9a5",
+      "name": "Connect Secure (\u003c= 25.1.1.1)",
+      "vendor": "Ivanti"
     },
     {
       "type": "software",
@@ -162356,22 +162216,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--15d82670-9f7c-5634-a6d2-cce11fcf336a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96889",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96889",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96889"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--15e2964a-53f8-50e7-80a7-64b34a570940",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -163390,22 +163234,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107639",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107639"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1fb7618f-e5fb-5a7d-8423-9feda8412fe9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-84714",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-84714",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84714"
         }
       ]
     },
@@ -171662,22 +171490,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96620",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96620"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--75426d27-7fb1-542b-bb86-a9e5996ec72d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-84499",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-84499",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84499"
         }
       ]
     },
@@ -181428,22 +181240,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--d2d979a3-516c-5064-8d6b-93396a5ea25d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-76648",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-76648",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76648"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--d2ffcf73-3523-5954-b480-3d77d02b5c8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -185278,6 +185074,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-97663",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97663"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fabb578c-1994-5821-903b-c0bde024a731",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-52691",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-52691",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-52691"
         }
       ]
     },

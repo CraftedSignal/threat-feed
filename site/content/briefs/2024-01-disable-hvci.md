@@ -1,13 +1,37 @@
 ---
+brief_id: brief-2024-01-02-disable-hvci
+event_id: brief-2024-01-02-disable-hvci
+revision: 1
+activity_at: "2024-01-02T12:00:00Z"
 title: Windows HVCI Disabled via Registry Modification
 slug: 2024-01-disable-hvci
 description: Detection of Hypervisor-protected Code Integrity (HVCI) being disabled by modifying specific Windows registry keys, potentially allowing the execution of malicious kernel-mode code.
 date: "2024-01-02T12:00:00Z"
+lastmod: "2026-10-23T20:48:23Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+cpes:
+  - cpe:2.3:o:microsoft:windows_10:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10:20h2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10:21h1:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10:21h2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10:1607:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10:1809:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10:1909:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_11:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_8.1:-:*:*:*:-:*:*:*
+  - cpe:2.3:o:microsoft:windows_8.1:-:*:*:*:rt:*:*:*
+  - cpe:2.3:o:microsoft:windows_server:20h2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server:2022:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2012:r2:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2016:-:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_server_2019:-:*:*:*:*:*:*:*
 tags:
   - defense-evasion
   - registry-modification
@@ -19,17 +43,26 @@ products:
   - Splunk Enterprise
   - Splunk Enterprise Security
   - Splunk Cloud
+affected_os:
+  - Windows
 mitre_ttps:
   - tactic_id: TA0005
     tactic_name: Defense Evasion
     technique_id: T1562
     technique_name: Impair Defenses
+    subtechnique_id: T1562.001
+    subtechnique_name: Disable or Modify Tools
 cves:
   - id: CVE-2022-21894
     cvss: 4.4
-    epss: 0.40934
+    epss: 0.06768
+    kev_status: "false"
 references:
   - https://www.microsoft.com/en-us/security/blog/2023/04/11/guidance-for-investigating-attacks-using-cve-2022-21894-the-blacklotus-campaign/
+  - https://securelist.com/uefi-bootkit-blackx/121539/
+  - https://pwn.watch/i/blackx-uefi-bootkit-baton-drop-secure-boot-bypass
+  - https://support.microsoft.com/en-us/servicing/os/windows/2023/03/how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023
+  - https://nvd.nist.gov/vuln/detail/CVE-2022-21894
 rules:
   - title: Detect HVCI Disable via Registry
     description: Detects disabling of Hypervisor-protected Code Integrity (HVCI) by monitoring changes in the Windows registry.
@@ -54,6 +87,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-10-23T20:48:23Z"
+    level: L1
+    summary: OS windows
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/blackx-uefi-bootkit-baton-drop-secure-boot-bypass
 ---
 
 This threat brief focuses on the disabling of Hypervisor-protected Code Integrity (HVCI) on Windows systems. HVCI is a critical security feature that protects the kernel and system processes from tampering by malicious code. Attackers may disable HVCI to bypass security controls and execute unsigned kernel-mode code, leading to kernel-level rootkits or other severe security breaches. This activity is detected by monitoring changes to specific Windows registry keys related to HVCI configuration using Sysmon Event ID 13. The activity is associated with the BlackLotus Campaign, which exploits CVE-2022-21894.
