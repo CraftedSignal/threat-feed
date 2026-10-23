@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--293fbb59-7c7d-53c9-a831-ff554237dda6",
+  "id": "bundle--ad4ff64b-bb7c-50e3-87e2-aaa2b527d8fa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18860,6 +18860,17 @@
       "relationship_type": "uses",
       "source_ref": "report--00852565-94db-5a7c-8057-1cdcae3b2bcd",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--45918cb9-62f3-5c90-b090-f7c2437431a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3b45797e-8e5a-5bad-9abb-407a166a4593",
+      "target_ref": "vulnerability--72d3af34-919c-5168-9c7c-817a2088d47f"
     },
     {
       "type": "relationship",
@@ -75350,6 +75361,46 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3953e9ce-4824-5f9d-b56f-737c5c3024a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T07:36:31.000Z",
+      "modified": "2026-10-23T07:36:31.000Z",
+      "name": "libexpat: Denial of service via XML entity amplification (CVE-2026-115506)",
+      "description": "libexpat through 2.9.0 contains a denial of service vulnerability because the billion laughs protection in accountingDiffTolerated() within xmlparse.c detects entity amplification too late. Attackers can supply a moderately sized XML document with a large DTD and nested entity expansions to consume tens of seconds of CPU per parse.\n",
+      "published": "2026-10-23T07:36:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3b45797e-8e5a-5bad-9abb-407a166a4593",
+        "vulnerability--72d3af34-919c-5168-9c7c-817a2088d47f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-libexpat-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-libexpat-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115506"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-libexpat-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-23-libexpat-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-libexpat-dos/",
+      "x_craftedsignal_activity_at": "2026-10-23T07:36:31.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -146499,6 +146550,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3b45797e-8e5a-5bad-9abb-407a166a4593",
+      "name": "libexpat (\u003c= 2.9.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3b61d2c3-7c1d-50bc-bb48-be6a70ff9226",
       "name": "Legion Zone",
       "vendor": "Lenovo"
@@ -168603,6 +168660,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108707",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108707"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--72d3af34-919c-5168-9c7c-817a2088d47f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115506",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115506",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115506"
         }
       ]
     },
