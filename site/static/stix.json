@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b539b0a3-c260-5866-a9cb-3502b1ba7aaa",
+  "id": "bundle--9d4618a9-3f05-5f4f-b5eb-454dda9b052a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1055,6 +1055,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1041",
           "url": "https://attack.mitre.org/techniques/T1041"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4d0af17a-0cf5-5449-9b4f-3f03ed5f77f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Windows Service",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1543.003",
+          "url": "https://attack.mitre.org/techniques/T1543/003"
         }
       ]
     },
@@ -2741,6 +2757,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Multi-hop Proxy",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1090.003",
+          "url": "https://attack.mitre.org/techniques/T1090/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--da26685a-06ae-5445-a6a5-2e777dbba577",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3509,6 +3541,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--280cddcc-5a3b-5832-a45b-ee309d076743",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "name": "url: https://egyptanimals.com/animals/photoalbum",
+      "description": "Delivery location for MATCHWOK",
+      "pattern": "[url:value = 'https://egyptanimals.com/animals/photoalbum']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-23T08:57:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--28830461-db4a-5b62-b109-f3c9dc521a1f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-28T16:17:15.000Z",
@@ -4220,6 +4265,19 @@
       "pattern": "[domain-name:value = 'router.huggingface.co']",
       "pattern_type": "stix",
       "valid_from": "2026-10-05T12:17:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--a2ac37bf-8fe4-5d0d-aed8-4b855c136041",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "name": "url: https://uztickets.com",
+      "description": "C\u0026C server for MATCHWOK",
+      "pattern": "[url:value = 'https://uztickets.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-23T08:57:26.000Z"
     },
     {
       "type": "indicator",
@@ -22102,6 +22160,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--551fea4e-9e99-53e6-9edf-6d177dfa3268",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "indicator--a2ac37bf-8fe4-5d0d-aed8-4b855c136041"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--552c2b4c-f070-5ac0-b4f0-4b4a7dfe9d01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22560,6 +22629,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e458053f-b4d4-5dc9-bfe2-aa05d2a313bd",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--57c2cd59-aa5f-5fff-a1da-034f88870a8e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -28383,6 +28463,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--74896283-fe8b-5e27-b58c-3c48cecfbdef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--74a2f8d6-896d-5bd8-aa61-3c81f10d06e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32999,6 +33090,17 @@
       "relationship_type": "uses",
       "source_ref": "report--02ed77b2-250c-5cc3-b13c-a46f70143880",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89e71605-fe44-536e-a79c-14daaee916ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "indicator--280cddcc-5a3b-5832-a45b-ee309d076743"
     },
     {
       "type": "relationship",
@@ -40087,6 +40189,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ad71618f-3e9f-5826-b632-1659cf747d41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ad74499c-3c45-50c7-972c-7ea70b92f29c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41678,6 +41791,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f5a3f918-ba61-5659-b8b4-fab3a7e3d522",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b4dab0e3-ab94-5fb0-9af6-3a61e62f1baf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "threat-actor--8f4bd893-29a9-5087-8e9a-24c6af559c48"
     },
     {
       "type": "relationship",
@@ -44212,6 +44336,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c2c97c4f-16eb-5fa3-b6ea-dfe9f75ef239",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c2d350d2-7958-5a3d-a7f4-969a08b02546",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45165,6 +45300,17 @@
       "relationship_type": "has",
       "source_ref": "software--b9239228-b320-53f5-84f0-09108b0873d1",
       "target_ref": "vulnerability--010db60e-6232-5e90-b072-86afe194fa38"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c6783e3d-3433-529a-9f09-54b30d29cbd7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "target_ref": "attack-pattern--4d0af17a-0cf5-5449-9b4f-3f03ed5f77f1"
     },
     {
       "type": "relationship",
@@ -132166,6 +132312,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df6c800a-6e98-5296-8550-edf3cb63c802",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:57:26.000Z",
+      "modified": "2026-10-23T08:57:26.000Z",
+      "name": "UAC-0099 and Sandworm collaboration: MythicRatatoskr backdoor and destructive wiping",
+      "description": "## Overview\nESET research identified a collaboration between UAC-0099 and Sandworm targeting a Ukrainian grain logistics firm. UAC-0099 provided initial access via spearphishing and the MATCHWOK backdoor, subsequently deploying the novel Go-based 'MythicRatatoskr' backdoor. This backdoor leverages the Yggdrasil decentralized mesh network for C2 communications, providing robust, non-centralized connectivity. After lateral movement and the deployment of proxy tools, Sandworm executed a destructive data-wiping attack using SDelete via Active Directory Group Policy.\n\n## Attack Chain\n1. Initial Access: UAC-0099 delivered a malicious attachment via spearphishing email (July 16, 2025).\n2. Execution: A scheduled task 'pdfopentask' executed a PowerShell payload from %temp%.\n3. Downloader: Deployment of the MATCHBOIL downloader to fetch and execute the MATCHWOK backdoor.\n4. Backdoor Deployment: Delivery of the MythicRatatoskr backdoor, which persists as a Windows service.\n5. Lateral Movement: Additional MythicRatatoskr samples deployed to other hosts via OpenSSH SFTP.\n6. Proxy Deployment: Deployment of a SOCKS5 server via MythicRatatoskr to facilitate internal pivoting.\n7. Impact: Sandworm deployed SDelete via Active Directory Group Policy to perform data wiping (September 17, 2025).\n\n## Impact\nThe campaign resulted in the compromise of multiple internal systems and culminated in destructive data-wiping operations against the target organization, leading to significant operational disruption.\n\n## Recommendation\n- Deploy detection for atypical Windows services, particularly those running Go-compiled binaries that exhibit Yggdrasil mesh networking characteristics.\n- Monitor for the creation of scheduled tasks named 'pdfopentask' and unauthorized PowerShell execution from temporary directories.\n- Audit Active Directory Group Policy objects for the unauthorized distribution of utility tools such as SDelete.\n- Hunt for outbound traffic over non-standard ports or encrypted overlay networks (specifically Yggdrasil-related IPv6 traffic) originating from internal assets.\n",
+      "published": "2026-10-23T08:57:26.000Z",
+      "labels": [
+        "backdoor",
+        "sandworm",
+        "uac-0099",
+        "wiper",
+        "yggdrasil"
+      ],
+      "object_refs": [
+        "attack-pattern--4d0af17a-0cf5-5449-9b4f-3f03ed5f77f1",
+        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
+        "attack-pattern--da1b04d6-bd79-5cd2-832f-48168b8c4d7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--280cddcc-5a3b-5832-a45b-ee309d076743",
+        "indicator--a2ac37bf-8fe4-5d0d-aed8-4b855c136041",
+        "threat-actor--8f4bd893-29a9-5087-8e9a-24c6af559c48"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-mythicratatoskr-uac0099",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-mythicratatoskr-uac0099/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.welivesecurity.com/en/eset-research/mythicratatoskr-yggdrasil-enabled-backdoor-deployed-uac0099-sandworm-collaboration/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-mythicratatoskr-uac0099",
+      "x_craftedsignal_event_id": "brief-2026-10-23-mythicratatoskr-uac0099",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mythicratatoskr-uac0099/",
+      "x_craftedsignal_activity_at": "2026-10-23T08:57:26.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--df883db2-a49a-505e-9eba-80e50866fc75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:16:02.000Z",
@@ -157664,6 +157862,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Candiru"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--8f4bd893-29a9-5087-8e9a-24c6af559c48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Sandworm"
     },
     {
       "type": "threat-actor",
