@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-ahsay-cbs-rce
 event_id: brief-2026-10-ahsay-cbs-rce
-revision: 3
-activity_at: "2026-10-23T11:27:22Z"
+revision: 4
+activity_at: "2026-10-23T14:34:49Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T09:22:30Z"
@@ -27,11 +27,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
+  - revision: 4
+    at: "2026-10-23T14:34:49Z"
+    checksum: sha256:e236bc11c3454686cb8c087402c713f1bbbf82f243e8b65f083c63ed71392555
+    summary: new product
+    changed_fields:
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
 title: Unauthenticated Remote Code Execution in Ahsay AhsayCBS
 slug: 2026-10-ahsay-cbs-rce
 description: Ahsay AhsayCBS up to version 10.3.2 is vulnerable to unauthenticated remote OS command injection via the /rps/api/json/UpdateReceivers.do endpoint, enabling full system compromise.
 date: "2026-10-04T09:01:29Z"
-lastmod: "2026-10-23T11:26:27Z"
+lastmod: "2026-10-23T14:33:55Z"
 type: advisory
 types:
   - advisory
@@ -131,13 +141,6 @@ action_plan:
       addresses: CVE-2026-105134
       evidence: Upgrading to version 10.3.4 is able to resolve this issue.
 updates:
-  - at: "2026-10-04T09:01:54Z"
-    level: L2
-    summary: added coverage for AhsayCBS (<= 10.3.2)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-105133
   - at: "2026-10-05T15:44:14Z"
     level: L2
     summary: poc_available; added CVE-2026-105133
@@ -160,6 +163,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
   - at: "2026-10-23T11:26:27Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
+  - at: "2026-10-23T14:33:55Z"
     level: L1
     summary: new product
     sources:

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-nodejs-dns-ssrf
 event_id: brief-2026-10-21-nodejs-dns-ssrf
-revision: 3
-activity_at: "2026-10-22T22:18:10Z"
+revision: 4
+activity_at: "2026-10-23T14:34:49Z"
 revision_history:
   - revision: 2
     at: "2026-10-22T09:36:28Z"
@@ -31,11 +31,24 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=FA050262-2C57-5CB9-911F-4281149901A9&utm_source=rss&utm_medium=rss
+  - revision: 4
+    at: "2026-10-23T14:34:49Z"
+    checksum: sha256:f6b4ceb45339f199c0fa8b112070a986a2510c14bdb22c1958af63d8b99dcff1
+    summary: added CVE-2026-111497
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/nodejs-october-2026-security-releases
 title: 'Node.js: DNS Resolver NUL Byte Truncation (CVE-2026-105482)'
 slug: 2026-10-nodejs-dns-ssrf
 description: Node.js is vulnerable to NUL byte truncation in dns.resolve* functions, allowing attackers to bypass allowlist filters and perform SSRF by injecting a NUL character into hostname strings.
 date: "2026-10-21T17:05:59Z"
-lastmod: "2026-10-22T22:17:29Z"
+lastmod: "2026-10-23T14:34:09Z"
 type: advisory
 types:
   - advisory
@@ -71,6 +84,7 @@ products:
   - Node.js (22.x, 24.x, 26.x)
   - Node.js (22.x < 22.23.4, 24.x < 24.22.1, 26.x < 26.12.1)
   - Brotli (1.0.10, 1.1.1, 1.2.1)
+  - Brotli (1.0.3 <= version <= 1.2.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -94,7 +108,8 @@ cves:
   - id: CVE-2026-105482
     kev_status: unknown
   - id: CVE-2026-111497
-    kev_status: unknown
+    epss: 0.0048
+    kev_status: "false"
 references:
   - https://nodejs.org/en/blog/vulnerability/october-2026-security-releases
   - https://sploitus.com/exploit?id=4E75DBD2-8E80-56B2-BDA5-0C8BE7F08DA8
@@ -103,6 +118,12 @@ references:
   - https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1367/
   - https://github.com/google/brotli/commit/0ed4268a
   - https://sploitus.com/exploit?id=FA050262-2C57-5CB9-911F-4281149901A9&utm_source=rss&utm_medium=rss
+  - https://pwn.watch/i/nodejs-october-2026-security-releases
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111497
+  - https://nodejs.org/en/blog/release/v26.12.1
+  - https://vercel.com/kb/bulletin/node-js-security-advisory
+  - https://www.imperva.com/blog/node2shell-from-brotli-data-to-remote-code-execution/
+  - https://www.aikido.dev/blog/node2shell-nodejs-brotli-rce-cve-2026-111497
 rules:
   - title: Detect CVE-2026-105482 - Potential SSRF via NUL Byte in Hostname
     description: Detects attempts to pass hostnames containing a NUL byte to Node.js DNS resolver functions, which is indicative of an allowlist bypass attempt.
@@ -137,7 +158,7 @@ action_plan:
       evidence: Source indicates NUL byte injection is the core mechanism of bypass.
   mitigation_plan:
     - priority: immediate
-      action: Upgrade affected Node.js products.
+      action: Upgrade Node.js to 22.23.4 or later
       owner: IT Operations
       addresses: CVE-2026-105482
       evidence: Node.js October 2026 security release.
@@ -158,6 +179,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=FA050262-2C57-5CB9-911F-4281149901A9&utm_source=rss&utm_medium=rss
+  - at: "2026-10-23T14:34:09Z"
+    level: L2
+    summary: added CVE-2026-111497
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/nodejs-october-2026-security-releases
 ---
 
 Node.js versions before 22.23.4, 24.22.1, and 26.12.1 are vulnerable to a NUL byte truncation issue within the `dns.resolve*` functions. The vulnerability exists because these functions pass hostname strings to the c-ares library, which processes them as C-style strings. When a NUL byte (`\0`) is included in a hostname (e.g., `attacker.com\0.trusted.corp`), application-level allowlist checks may evaluate the full string as legitimate, but the underlying DNS resolver truncates the string at the NUL byte, resulting in a query to an attacker-controlled domain. This flaw enables Server-Side Request Forgery (SSRF) against internal services.
