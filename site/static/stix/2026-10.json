@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--33b6e4b0-aafd-51ff-953c-1374378a13f9",
+  "id": "bundle--ebbeacd2-efc1-5cb7-895d-98c24d7c896f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -94139,6 +94139,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--adfb64e3-afa5-5e4a-a3a0-07973adb0035",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T04:36:40.000Z",
+      "modified": "2026-10-23T04:36:40.000Z",
+      "name": "open-iscsi: Memory corruption in iscsiuio DHCPv4 parser (CVE-2026-115484)",
+      "description": "A vulnerability exists in the iscsiuio component of open-iscsi (CVE-2026-115484) where the DHCPv4 option parser incorrectly calculates the length of options data. This causes the component to read beyond the allocated buffer into adjacent heap memory. An attacker on the same network segment can send a crafted DHCP response to crash the daemon or corrupt its network configuration.\n",
+      "published": "2026-10-23T04:36:40.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--c923042d-3418-5759-acec-6c539c216a1b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-open-iscsi-iscsiuio-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-open-iscsi-iscsiuio-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115484"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-open-iscsi-iscsiuio-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-23-open-iscsi-iscsiuio-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-open-iscsi-iscsiuio-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-23T04:36:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ae575541-94ff-5d1f-a33a-13bb06043a6f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:17:20.000Z",
@@ -144016,6 +144055,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110895",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c923042d-3418-5759-acec-6c539c216a1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115484",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115484",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115484"
         }
       ]
     },
