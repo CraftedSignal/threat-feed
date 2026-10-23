@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-connectwise-m365-compromise
 event_id: brief-2026-10-connectwise-m365-compromise
-revision: 3
-activity_at: "2026-10-23T07:54:23Z"
+revision: 4
+activity_at: "2026-10-23T08:06:29Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T06:53:33Z"
@@ -30,18 +30,36 @@ revision_history:
       - updates
     source_urls:
       - https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access
+  - revision: 4
+    at: "2026-10-23T08:06:29Z"
+    checksum: sha256:4a315bfbb867c637396c11baf3cd0707311366b019dd6577df12a355e450667d
+    summary: exploited:true
+    changed_fields:
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - threat_actor
+      - updates
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
 title: Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise Credentials
 slug: 2026-10-connectwise-m365-compromise
 description: Threat actors are exploiting a compromised service principal credential belonging to ConnectWise Cloud Backup to gain unauthorized access to 173 Microsoft 365 tenants and potentially escalate privileges.
 date: "2026-10-17T06:39:10Z"
-lastmod: "2026-10-23T07:53:46Z"
-type: advisory
+lastmod: "2026-10-23T08:05:18Z"
+type: threat
 types:
-  - advisory
+  - threat
 severities:
   - critical
+actors:
+  - Storm-0940
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
+  observed_at: "2026-10-21T18:23:55Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -181,13 +199,6 @@ action_plan:
       addresses: Account Manipulation
       evidence: Adding a credential to an MSP management application can extend access
 updates:
-  - at: "2026-10-18T09:13:18Z"
-    level: L2
-    summary: added coverage for ConnectWise Cloud Backup +3 products
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html
   - at: "2026-10-19T21:24:25Z"
     level: L1
     summary: new IOCs
@@ -216,6 +227,13 @@ updates:
       - huntress
     source_urls:
       - https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access
+  - at: "2026-10-23T08:05:18Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
 ---
 
 Security researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. 

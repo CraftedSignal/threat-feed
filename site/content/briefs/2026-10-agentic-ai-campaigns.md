@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-22-agentic-ai-campaigns
 event_id: brief-2026-10-22-agentic-ai-campaigns
-revision: 3
-activity_at: "2026-10-23T07:34:29Z"
+revision: 4
+activity_at: "2026-10-23T08:06:29Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T06:30:36Z"
@@ -25,18 +25,32 @@ revision_history:
       - updates
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
+  - revision: 4
+    at: "2026-10-23T08:06:29Z"
+    checksum: sha256:c136e0962aaff3da524c8d69646a17ea9fa0d26f557a579b174ccc1e0b948dba
+    summary: exploited:true
+    changed_fields:
+      - exploitation_evidence
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
 title: Threat actors utilizing autonomous AI agent frameworks for offensive operations
 slug: 2026-10-agentic-ai-campaigns
 description: CrowdStrike identified four threat actors leveraging AI agent frameworks, such as Claude Code, to automate and execute multi-stage cyber campaigns including reconnaissance, exploitation, and data exfiltration.
 date: "2026-10-22T19:41:42Z"
-lastmod: "2026-10-23T07:33:30Z"
+lastmod: "2026-10-23T08:05:28Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
+  observed_at: "2026-10-23T08:05:15Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -116,6 +130,13 @@ updates:
   - at: "2026-10-23T07:33:30Z"
     level: L1
     summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
+  - at: "2026-10-23T08:05:28Z"
+    level: L3
+    summary: exploited:true
     sources:
       - crowdstrike
     source_urls:

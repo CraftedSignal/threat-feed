@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b6307f0d-f416-57f8-ba3b-239a746d76be",
+  "id": "bundle--8898e40b-4cce-5061-a199-dbe477734c69",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3746,7 +3746,7 @@
       "id": "indicator--4c5a0be7-346b-5ef5-a5e3-6707d9803411",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "name": "ip: 144.172.64.60",
       "description": "IP associated with failed login attempts.",
       "pattern": "[ipv4-addr:value = '144.172.64.60']",
@@ -4435,7 +4435,7 @@
       "id": "indicator--c6da5151-ea3c-5887-88e3-e6e30c9fa007",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "name": "ip: 144.172.64.99",
       "description": "Infrastructure used by Storm-0940 for password spraying and ConnectWise-related access.",
       "pattern": "[ipv4-addr:value = '144.172.64.99']",
@@ -4838,7 +4838,7 @@
       "id": "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "name": "ip: 144.172.64.128",
       "description": "Observed source of malicious authentication and Graph token requests",
       "pattern": "[ipv4-addr:value = '144.172.64.128']",
@@ -9034,17 +9034,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--139866af-af12-5ca9-ac64-21a6282b22d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--024b9e9f-2ef9-531d-9934-736fe876953f",
-      "target_ref": "vulnerability--96492ebd-54cc-575e-9afe-4d00cf72c661"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--13988f12-c0b4-5ca5-ad36-cb5e4e4730bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T16:38:22.000Z",
@@ -9994,7 +9983,7 @@
       "id": "relationship--1883cbb0-1cda-5590-8c3b-f628a89df410",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-23T07:34:29.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -12521,17 +12510,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--24d6a1e7-acf9-5d9b-9630-67b025a86447",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T08:02:41.000Z",
-      "modified": "2026-09-23T08:02:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2be665fd-5d47-500f-88bb-e9b8d11cee76",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--24de3cbf-afd6-53ad-9be6-48e4c8346b89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13734,7 +13712,7 @@
       "id": "relationship--2b2d637b-3536-50b1-b352-559744ad77b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "indicator--c6da5151-ea3c-5887-88e3-e6e30c9fa007"
@@ -13914,6 +13892,17 @@
       "relationship_type": "has",
       "source_ref": "software--73f2c8e0-18e8-545d-8dd0-142a094ddec4",
       "target_ref": "vulnerability--1ffb03ba-6e9d-53fc-b66d-1e28fd4dfdc9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2c57be48-430d-554d-a860-f1a308d07621",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-14T00:30:24.000Z",
+      "modified": "2026-10-23T08:05:33.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--1adfe3b5-bbc9-52fc-8217-3ec01b097d1b",
+      "target_ref": "threat-actor--b926e420-1476-594d-8b52-7038ac54c48c"
     },
     {
       "type": "relationship",
@@ -14794,6 +14783,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7dd588db-45c5-5f2d-8a68-54f269e7d761",
       "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3039747e-db66-5044-888d-cbd4e85a66bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-17T06:39:10.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
+      "target_ref": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
     },
     {
       "type": "relationship",
@@ -18200,7 +18200,7 @@
       "id": "relationship--426debf4-15aa-5ba2-9b70-87aa65242413",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "indicator--4c5a0be7-346b-5ef5-a5e3-6707d9803411"
@@ -22732,7 +22732,7 @@
       "id": "relationship--590d4e17-2f3b-5c6b-bd70-9e91c9051c07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-23T07:34:29.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -24951,17 +24951,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--636d5e41-4dff-5c8f-beff-c7076693e6df",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--926e775a-f33c-5668-b41a-9ec8f4495117",
-      "target_ref": "vulnerability--ce510494-aea3-5eaf-92e4-e19a56506178"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--63751460-68c0-59f9-be29-dac2e6761c18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-25T22:55:24.000Z",
@@ -25317,7 +25306,7 @@
       "id": "relationship--650371aa-7ba4-5f33-a9b9-30aacfd9b48a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a"
@@ -25779,7 +25768,7 @@
       "id": "relationship--6718d2ee-26c7-5051-a91a-5834d5c360ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
@@ -33641,17 +33630,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8cf33f3a-eee4-5d69-a3f2-c103ec989125",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T07:55:23.000Z",
-      "modified": "2026-09-23T07:55:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--96d5a984-c3db-5775-a34d-19bc5c6e9aad",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8d0a59f1-92af-5def-b798-e29eb4c95d37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:59:05.000Z",
@@ -33670,17 +33648,6 @@
       "relationship_type": "uses",
       "source_ref": "report--66bc402f-1e0c-5376-b734-39c7d5a91071",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8d0cffd1-2ed0-5bec-9d17-0aa4630330d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T07:55:16.000Z",
-      "modified": "2026-09-23T07:55:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6a14ecd6-e098-5bb6-b48b-004a764cfe37",
-      "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
     },
     {
       "type": "relationship",
@@ -34524,7 +34491,7 @@
       "id": "relationship--91d0d18d-3757-5b7b-9e21-400768c608dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
@@ -36361,7 +36328,7 @@
       "id": "relationship--9b2b2bcf-5f5c-548f-b28b-c1856f7dcfb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a"
@@ -37043,7 +37010,7 @@
       "id": "relationship--9dca06f2-7ad3-58c5-bd87-1f9b5567fb58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-23T07:34:29.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
@@ -38675,17 +38642,6 @@
       "relationship_type": "has",
       "source_ref": "software--6f412add-4345-5a97-abd9-0d652d4fa90f",
       "target_ref": "vulnerability--b23caf5e-f19c-547b-bdd5-4d8b550f290e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a6132757-21f8-5e8b-b087-164e898a421b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--51ee6cbf-b899-56ea-b222-89e96700e9b6",
-      "target_ref": "vulnerability--435f72f1-f424-5b87-a394-e01d79f83377"
     },
     {
       "type": "relationship",
@@ -42147,7 +42103,7 @@
       "id": "relationship--b7e78e93-1c99-5527-b1d9-ad8bcc518d4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
@@ -47647,7 +47603,7 @@
       "id": "relationship--d2191d75-a594-5989-9da5-dcc1dfdae64f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-23T07:34:29.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -51343,7 +51299,7 @@
       "id": "relationship--e2f58c84-8299-5ceb-a437-52b15f4dae40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -52696,7 +52652,7 @@
       "id": "relationship--e8371281-2dd6-511e-9df9-2418b60fe056",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
@@ -53301,7 +53257,7 @@
       "id": "relationship--eae046f2-2d3a-5bd7-9e4d-552375afb18a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
@@ -65847,6 +65803,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1adfe3b5-bbc9-52fc-8217-3ec01b097d1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-14T00:30:24.000Z",
+      "modified": "2026-10-23T08:05:33.000Z",
+      "name": "FAMOUS CHOLLIMA Laptop Farm Operations Disrupted",
+      "description": "## Overview\n\nIn late September 2026, CrowdStrike's Counter Adversary Operations team collaborated with the FBI to dismantle several \"laptop farms\" located within the United States. These facilities were maintained by the DPRK-nexus actor FAMOUS CHOLLIMA to facilitate fraudulent remote employment at various American companies. By securing roles using stolen or synthetic identities, operatives trick organizations into shipping corporate-managed hardware to U.S.-based residential addresses controlled by the actor.\n\nOnce received, facilitators at these farms configure the devices with hardware and software, including Remote Monitoring and Management (RMM) tools, allowing remote actors in the DPRK to bypass geolocation controls and satisfy identity verification requirements. This infrastructure serves as a proxy for the actors, providing a physical presence to fulfill Know Your Client (KYC) requirements and enabling long-term persistence within victim networks. Targeted sectors include aerospace, energy, financial services, healthcare, and defense engineering. The disruption demonstrates a concerted effort to dismantle the physical U.S. infrastructure supporting these illicit revenue-generating operations.\n\n## Attack Chain\n\n1. Actor assumes a fraudulent or stolen identity to apply for remote positions at target organizations.\n2. Actor successfully secures employment and manipulates the onboarding process to redirect corporate-issued hardware to residential \"laptop farm\" addresses.\n3. Physical facilitators at the laptop farm receive the hardware and connect it to local power and network infrastructure.\n4. Facilitators install Remote Monitoring and Management (RMM) software to grant the remote actor persistent access to the corporate device.\n5. Facilitators or the actor spoof device identifiers, such as mapping video capture cards as webcams, to bypass endpoint monitoring and fraud detection.\n6. Actors use the farm-hosted devices to authenticate into the victim's corporate environment, appearing to originate from domestic IP space.\n7. The actor conducts daily work tasks under the fraudulent persona to receive wages while simultaneously leveraging the persistent access for broader network infiltration.\n8. Illicit wages are siphoned to the regime, and the access is maintained for ongoing espionage or long-term operational goals.\n\n## Impact\n\nThe campaign has impacted dozens of organizations across critical sectors including aerospace, energy, financial services, healthcare, cybersecurity, defense engineering, and government technology. Successful exploitation allows the actor to siphon illicit wages back to the DPRK regime while maintaining persistent, authenticated access within high-value corporate and government environments, effectively bypassing standard remote work security controls.\n\n## Recommendation\n\n* Implement rigorous physical address verification during the employee onboarding process to identify and flag residential addresses associated with known shipping hubs or \"laptop farm\" indicators.\n* Monitor for the use of unauthorized RMM software and remote access tools within corporate device fleets; block or alert on the execution of tools not officially supported by IT (reference T1219).\n* Analyze hardware inventory for anomalous device identifiers, such as multiple unrelated users sharing identical webcam or peripheral hardware IDs.\n* Implement multi-factor authentication (MFA) that relies on hardware-bound identity verification rather than solely on IP-based geolocation, which the actor actively circumvents through farm infrastructure.\n* Conduct periodic audits of remote worker geolocation and network traffic patterns to identify persistent connections originating from shared or suspicious domestic infrastructure.\n",
+      "published": "2026-10-14T00:30:24.000Z",
+      "labels": [
+        "dprk",
+        "employment-fraud",
+        "initial-access",
+        "insider-threat",
+        "laptop-farm"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--b926e420-1476-594d-8b52-7038ac54c48c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-famous-chollima-disruption",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-famous-chollima-disruption/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.crowdstrike.com/en-us/blog/fbi-disrupts-famous-chollima-operation-with-crowdstrike-assistance/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-famous-chollima-disruption",
+      "x_craftedsignal_event_id": "brief-2026-10-famous-chollima-disruption",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-famous-chollima-disruption/",
+      "x_craftedsignal_activity_at": "2026-10-23T08:05:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/fbi-disrupts-famous-chollima-operation-with-crowdstrike-assistance/",
+        "observed_at": "2026-10-23T08:05:15.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1afe50fa-9777-5dec-9e1c-3957823c4f15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T23:16:51.000Z",
@@ -70146,7 +70150,7 @@
       "id": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-23T07:34:29.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "name": "Threat actors utilizing autonomous AI agent frameworks for offensive operations",
       "description": "## Overview\n\nCrowdStrike Counter Adversary Operations has identified four previously unreported threat actors deploying autonomous AI agent frameworks to conduct offensive cyber campaigns. These campaigns leverage AI agents to perform decision-making and command execution across the attack kill chain. Observed activities between May and August 2026 show threat actors customizing open-source projects, such as PentestGPT, to create modular, autonomous penetration testing harnesses. These agents operate with varying degrees of human intervention, utilizing frameworks to enumerate target environments, select exploitation methods, and exfiltrate data at machine speed.\n\n## Attack Chain\n\n1. **Infrastructure Preparation**: Actors deploy purpose-built autonomous penetration testing harnesses, often integrating open-source frameworks (e.g., PentestGPT) with custom Python scripts and MCP servers.\n2. **Target Enumeration**: AI agents are instructed to perform automated reconnaissance to map the target environment.\n3. **Task Selection**: Agents (either single or dual-agent architectures) select attack stages from a predefined state machine or standard operating procedure.\n4. **Exploitation**: AI agents identify and execute exploitation methods against identified vulnerabilities or targets.\n5. **Post-Exploitation**: Agents carry out predefined post-execution workflows, including credential harvesting.\n6. **Data Exfiltration**: Agents execute commands to exfiltrate sensitive data, such as medical records or corporate client information.\n\n## Impact\n\nDocumented impact includes successful compromises of at least 15 healthcare entities in Argentina, multiple government domains across various countries, and private-sector entities in the biotechnology, technology, and SaaS sectors. Data exfiltration has been confirmed in multiple instances, including credentials and medical records.\n\n## Recommendation\n\n- **Enhance Behavioral Monitoring**: Focus on identifying automated, non-human-like patterns of activity, such as rapid sequential execution of reconnaissance and exploitation commands, which are characteristic of agentic AI frameworks.\n- **Restrict AI Tooling**: Implement strict controls and visibility over the use of AI agent platforms and related proxies (\"transfer stations\") within the corporate environment to detect unauthorized use of AI-driven pentesting harnesses.\n- **Identity-Centric Defense**: Given the actors' focus on credential exfiltration, implement and enforce robust multi-factor authentication (MFA) and continuous authorization for all access to sensitive internal data and SaaS environments.\n- **Threat Hunting**: Hunt for unusual Python scripts or MCP (Model Context Protocol) server configurations in environments that might serve as staging areas for autonomous agents.\n",
       "published": "2026-10-22T19:41:42.000Z",
@@ -70178,13 +70182,16 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-22-agentic-ai-campaigns",
       "x_craftedsignal_event_id": "brief-2026-10-22-agentic-ai-campaigns",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-agentic-ai-campaigns/",
-      "x_craftedsignal_activity_at": "2026-10-23T07:34:29.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T08:06:29.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
+        "observed_at": "2026-10-23T08:05:15.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -71076,53 +71083,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2be665fd-5d47-500f-88bb-e9b8d11cee76",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T08:02:41.000Z",
-      "modified": "2026-09-23T08:02:41.000Z",
-      "name": "Active Exploitation of Cisco Identity Services Engine Zero-Day CVE-2026-76460",
-      "description": "## Overview\n\nCisco has issued a high-priority security advisory regarding an actively exploited zero-day vulnerability, designated as CVE-2026-76460, impacting the Cisco Identity Services Engine (ISE). This disclosure marks the second instance of a Cisco zero-day being identified as exploited in the wild within a 48-hour window. The vulnerability allows for exploitation of the ISE platform, which is critical for network access control and policy management. Organizations utilizing Cisco ISE should treat this as a high-priority incident, as threat actors are currently leveraging the vulnerability to gain unauthorized access or execute code within protected network environments. Defenders must monitor Cisco security advisories for immediate patch availability and mitigation steps, as this pattern suggests a concerted campaign targeting Cisco network infrastructure.\n\n## Impact\n\nThe vulnerability poses a severe risk to organizational security, as Cisco ISE functions as a central hub for network authentication, authorization, and policy enforcement. Successful exploitation could allow attackers to bypass security controls, gain persistent access to network management infrastructure, or perform lateral movement within the enterprise. Given the active exploitation status, immediate remediation is required to prevent unauthorized access to sensitive internal network segments managed by ISE.\n\n## Recommendation\n\nPrioritize the immediate application of security patches released by Cisco for CVE-2026-76460 upon their availability. Monitor network traffic logs for anomalous behavior originating from or targeting Cisco ISE management interfaces. Review Cisco's official security advisory portal for official configuration mitigations that may be deployed prior to patching.\n",
-      "published": "2026-09-23T08:02:41.000Z",
-      "labels": [
-        "cve",
-        "network-infrastructure",
-        "vulnerability-management"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--024b9e9f-2ef9-531d-9934-736fe876953f",
-        "vulnerability--96492ebd-54cc-575e-9afe-4d00cf72c661"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-cisco-ise-cve-2026-76460",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-ise-cve-2026-76460/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cyberscoop.com/cisco-ise-zero-day-cve-2026-76460"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-cisco-ise-cve-2026-76460",
-      "x_craftedsignal_event_id": "brief-2026-09-23-cisco-ise-cve-2026-76460",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cisco-ise-cve-2026-76460/",
-      "x_craftedsignal_activity_at": "2026-09-23T08:02:41.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.14026,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -90241,7 +90201,7 @@
       "id": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-23T07:54:23.000Z",
+      "modified": "2026-10-23T08:06:29.000Z",
       "name": "Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise Credentials",
       "description": "## Overview\n\nSecurity researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. \n\nIn addition to direct data access, the threat actors have demonstrated the ability to escalate privileges within affected tenants by modifying application configurations and adding new client secrets to other highly privileged MSP management and security applications. This activity effectively persists the actor's presence and expands their reach across the MSP's downstream client base. ConnectWise has temporarily suspended application access while investigating the breach. Defenders should prioritize auditing Entra ID sign-in and audit logs for the specified application IDs and unauthorized activities occurring from known attacker infrastructure.\n\n## Attack Chain\n\n1. Attacker gains access to the ConnectWise Cloud Backup service principal credential via an undisclosed method.\n2. Actor authenticates to Microsoft Graph as the compromised ConnectWise Cloud Backup application using the stolen credential.\n3. Attacker uses the app's inherited permissions to access sensitive organizational data, including Exchange mailboxes, SharePoint, and OneDrive files.\n4. Actor interacts with Entra ID to assign the application Global Administrator privileges.\n5. Actor uses the application context to identify other trusted, privileged MSP or security management applications installed in the tenant.\n6. Actor executes scripts (observed using Python-urllib/3.12 user-agent) to add new client secrets to these trusted applications.\n7. Actor leverages the new client secrets to facilitate long-term persistence and facilitate movement into other downstream customer tenants.\n\n## Impact\n\nAt least 173 Microsoft 365 customer tenants have been confirmed as compromised. The attack allows for unauthorized access to sensitive mailboxes, SharePoint/OneDrive files, and directory data. Furthermore, the ability to inject credentials into security and MSP management tools creates a high risk of supply chain contamination, potentially allowing the attacker to pivot from a single compromised tenant into the MSP's entire client base.\n\n## Recommendation\n\n* Disable the ConnectWise Cloud Backup (App ID: 506e08f9-6e9a-4da4-942b-a099a03644ae) and ConnectWise Cloud Management app (App ID: 24205314-2b89-4e07-a2a4-579e898a5640) in your Entra ID environment until confirmed safe by the vendor.\n* Audit Entra audit logs for any unauthorized modification of application credentials or role assignments involving the specified App IDs since October 13, 2026.\n* Block the IP address 144.172.64.128 at the network perimeter or within cloud conditional access policies as it has been identified as a source of malicious authentication activity.\n* Enable and review Microsoft Graph activity logs for abnormal data access patterns or unauthorized token requests.\n* Perform a credential rotation for all MSP and security-related applications that may have been accessed or modified by the ConnectWise service principal.\n",
       "published": "2026-10-17T06:39:10.000Z",
@@ -90272,7 +90232,8 @@
         "software--8d2502d2-ca6a-518a-b301-216cd1ee97c5",
         "software--adec0406-a0d9-50a6-ae86-24e2a775687e",
         "software--c0d448e9-bd7d-544a-a1cc-9a1e0607e2bb",
-        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8"
+        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
+        "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
       ],
       "external_references": [
         {
@@ -90312,13 +90273,16 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-connectwise-m365-compromise",
       "x_craftedsignal_event_id": "brief-2026-10-connectwise-m365-compromise",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-connectwise-m365-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-23T07:54:23.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T08:06:29.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+        "observed_at": "2026-10-21T18:23:55.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -92577,53 +92541,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6a14ecd6-e098-5bb6-b48b-004a764cfe37",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T07:55:16.000Z",
-      "modified": "2026-09-23T07:55:16.000Z",
-      "name": "Arbitrary File Read Vulnerability in mcp-atlassian",
-      "description": "## Overview\n\nThe mcp-atlassian package (prior to version 0.22.0) is vulnerable to an arbitrary file read vulnerability (CVE-2026-77253) due to a lack of path validation in its Jira and Confluence attachment upload tools. When an MCP server is deployed in a multi-user or HTTP-exposed environment, an attacker with write-tool access can trigger the upload of arbitrary local files accessible to the MCP process. The tools receive a 'file_path' parameter, perform minimal existence checks, and directly open the file for reading before transmitting it to the configured Jira or Confluence instance as an attachment. This vulnerability potentially allows for the exfiltration of sensitive server-side assets, including environment variables, service account credentials, mounted secrets, and source code. Defenders should immediately audit MCP deployments for exposure and upgrade to version 0.22.0 or later, which introduces necessary path validation logic.\n\n## Attack Chain\n\n1. The MCP server is deployed with HTTP access enabled, allowing remote interaction with its defined toolset.\n2. An attacker identifies the 'upload_attachment' (Confluence) or 'update_issue' (Jira) tool within the mcp-atlassian configuration.\n3. The attacker crafts a request to the MCP server invoking the write-capable attachment tool.\n4. The attacker provides a target local file path (e.g., '/etc/passwd' or a local secret file) as the 'file_path' or 'attachments' argument.\n5. The mcp-atlassian library receives the path and fails to invoke 'validate_safe_path()' or verify the file against an allowed directory list.\n6. The server process opens the specified file using Python's 'open(file_path, \"rb\")'.\n7. The process reads the file contents and transmits them as an attachment to the Jira issue or Confluence page associated with the authenticated user.\n8. The attacker retrieves the exfiltrated sensitive content from the Jira or Confluence instance.\n\n## Impact\n\nSuccessful exploitation allows for unauthorized exfiltration of sensitive local data to enterprise issue tracking systems. This represents a significant risk in containerized or cloud-hosted environments where MCP servers may have access to mounted secrets, Kubernetes service account tokens, or local configuration files. Depending on the server's permissions, an attacker could extract credentials to pivot into deeper infrastructure or exfiltrate intellectual property via Jira and Confluence attachments.\n\n## Recommendation\n\n1. Upgrade the 'mcp-atlassian' package to version 0.22.0 or later immediately to resolve CVE-2026-77253.\n2. If an immediate upgrade is not possible, enable 'READ_ONLY_MODE=true' on all MCP server instances to prevent the invocation of vulnerable write tools.\n3. Implement strict network access controls for MCP servers exposed over HTTP; restrict access to authorized users or service identities only.\n4. Conduct a review of file system permissions for the user account running the MCP server process to minimize the impact of potential path traversal, ensuring it cannot read sensitive configuration or secret files.\n5. Audit Jira and Confluence audit logs for anomalous attachment uploads from the MCP-associated service account.\n",
-      "published": "2026-09-23T07:55:16.000Z",
-      "labels": [
-        "cve-2026-77253",
-        "data-exfiltration",
-        "mcp",
-        "path-traversal"
-      ],
-      "object_refs": [
-        "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--926e775a-f33c-5668-b41a-9ec8f4495117",
-        "vulnerability--ce510494-aea3-5eaf-92e4-e19a56506178"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-mcp-atlassian-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-mcp-atlassian-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-vc25-24vv-fxxm"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-mcp-atlassian-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-09-mcp-atlassian-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-mcp-atlassian-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-09-23T07:55:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -107231,55 +107148,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--96d5a984-c3db-5775-a34d-19bc5c6e9aad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T07:55:23.000Z",
-      "modified": "2026-09-23T07:55:23.000Z",
-      "name": "XXE Vulnerability in MPXJ MerlinReader",
-      "description": "## Overview\n\nThe MPXJ project library contains an XML External Entity (XXE) injection vulnerability (CVE-2026-61570) within its MerlinReader component. The issue originates from the use of default DocumentBuilder configurations that do not disable Document Type Definition (DTD) processing when parsing XML content stored in the ZTIMEINTERVALS column of Merlin project SQLite files. \n\nAn attacker can supply a malicious Merlin project file containing a crafted XML payload to trigger the vulnerability. While the current processing logic within MPXJ limits the ability to exfiltrate the contents of the read files, the vulnerability exposes local system files to unauthorized access. This issue affects multiple language ports including Maven, RubyGems, NuGet, and Python/pip packages for MPXJ versions 5.5.5 through 16.4.0. Users are advised to upgrade to MPXJ 16.4.1 or later to resolve this vulnerability.\n\n## Impact\n\nThe vulnerability allows an attacker to perform arbitrary file reads on the system where the MPXJ library parses untrusted Merlin project files. While successful exploitation is hindered by subsequent application logic preventing direct exfiltration of the data, it represents a high-severity security risk for any software component or enterprise application utilizing MPXJ to process external Merlin project files.\n\n## Recommendation\n\n* Upgrade all instances of MPXJ to version 16.4.1 or later to remediate CVE-2026-61570.\n* Implement strict validation of Merlin project files before ingestion into any application utilizing the MPXJ library.\n* If upgrading is not immediately possible, implement pre-processing steps to strip doctype declarations from the ZTIMEINTERVALS column of Merlin SQLite databases prior to passing them to the reader.\n",
-      "published": "2026-09-23T07:55:23.000Z",
-      "labels": [
-        ".net",
-        "java",
-        "python",
-        "ruby",
-        "vulnerability",
-        "xxe"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--51ee6cbf-b899-56ea-b222-89e96700e9b6",
-        "vulnerability--435f72f1-f424-5b87-a394-e01d79f83377"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-22-mpxj-xxe",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-mpxj-xxe/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-5vvx-3h34-f3gj"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-22-mpxj-xxe",
-      "x_craftedsignal_event_id": "brief-2026-09-22-mpxj-xxe",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-mpxj-xxe/",
-      "x_craftedsignal_activity_at": "2026-09-23T07:55:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -143167,13 +143035,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--024b9e9f-2ef9-531d-9934-736fe876953f",
-      "name": "Identity Services Engine (ISE)",
-      "vendor": "Cisco"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0278965d-3cd5-5c3b-99b1-399540b20cd7",
       "name": "MoviePilot (\u003c= 3.1.5)",
       "vendor": "MoviePilot"
@@ -147745,13 +147606,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--51ee6cbf-b899-56ea-b222-89e96700e9b6",
-      "name": "mpxj (\u003e= 5.5.5, \u003c 16.4.1)",
-      "vendor": "MPXJ"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5229f7dc-6efa-5129-bd7a-05de387a6c95",
       "name": "modern-tar (0.3.5-0.8.5)"
     },
@@ -151649,12 +151503,6 @@
       "id": "software--924f152d-5424-5c20-a729-debb7ae2778d",
       "name": "Junos OS (\u003c24.4R2-S3)",
       "vendor": "Juniper Networks"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--926e775a-f33c-5668-b41a-9ec8f4495117",
-      "name": "mcp-atlassian (\u003c 0.22.0)"
     },
     {
       "type": "software",
@@ -157722,6 +157570,15 @@
     {
       "type": "threat-actor",
       "spec_version": "2.1",
+      "id": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Storm-0940"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
       "id": "threat-actor--a3f1cf06-645b-5d6e-b721-fcf3aa10f837",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -157763,6 +157620,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Turla"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--b926e420-1476-594d-8b52-7038ac54c48c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "FAMOUS CHOLLIMA"
     },
     {
       "type": "threat-actor",
@@ -164594,22 +164460,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-100705",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100705"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--435f72f1-f424-5b87-a394-e01d79f83377",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-61570",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-61570",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61570"
         }
       ]
     },
@@ -172184,22 +172034,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--96492ebd-54cc-575e-9afe-4d00cf72c661",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-76460",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-76460",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76460"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--96831d57-358f-5928-bac8-76f8f316b454",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -177650,22 +177484,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103765",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103765"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ce510494-aea3-5eaf-92e4-e19a56506178",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-77253",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-77253",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77253"
         }
       ]
     },

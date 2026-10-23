@@ -1,8 +1,13 @@
 ---
+brief_id: brief-2026-10-famous-chollima-disruption
+event_id: brief-2026-10-famous-chollima-disruption
+revision: 1
+activity_at: "2026-10-14T00:30:24Z"
 title: FAMOUS CHOLLIMA Laptop Farm Operations Disrupted
 slug: 2026-10-famous-chollima-disruption
 description: The U.S. FBI and CrowdStrike disrupted domestic laptop farms operated by the DPRK-nexus actor FAMOUS CHOLLIMA to conduct employment fraud and gain persistent access to victim organizations.
 date: "2026-10-14T00:30:24Z"
+lastmod: "2026-10-23T08:05:33Z"
 type: threat
 types:
   - threat
@@ -10,12 +15,35 @@ severities:
   - high
 actors:
   - FAMOUS CHOLLIMA
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://www.crowdstrike.com/en-us/blog/fbi-disrupts-famous-chollima-operation-with-crowdstrike-assistance/
+  observed_at: "2026-10-23T08:05:15Z"
+  confidence: high
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: almost certain
+qa_status:
+  verdict: pass
 tags:
   - laptop-farm
   - employment-fraud
   - initial-access
   - insider-threat
   - dprk
+references:
+  - https://www.crowdstrike.com/en-us/blog/fbi-disrupts-famous-chollima-operation-with-crowdstrike-assistance/
+updates:
+  - at: "2026-10-23T08:05:33Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/fbi-disrupts-famous-chollima-operation-with-crowdstrike-assistance/
 ---
 
 In late September 2026, CrowdStrike's Counter Adversary Operations team collaborated with the FBI to dismantle several "laptop farms" located within the United States. These facilities were maintained by the DPRK-nexus actor FAMOUS CHOLLIMA to facilitate fraudulent remote employment at various American companies. By securing roles using stolen or synthetic identities, operatives trick organizations into shipping corporate-managed hardware to U.S.-based residential addresses controlled by the actor.
