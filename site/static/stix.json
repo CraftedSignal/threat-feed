@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1292f0cc-0483-59a3-a9fe-c1c0a9099a07",
+  "id": "bundle--054ebba3-be9f-51ab-a72b-5eeada273fbd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7083,6 +7083,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--09f61133-8c24-5092-b016-3ab62f8d5088",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "target_ref": "vulnerability--b2eed242-d90f-518e-969a-d64c07a97b8a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--09fb9835-12b8-5e32-a97c-52cb95034e11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11717,7 +11728,7 @@
       "id": "relationship--20375294-24b3-5e32-beeb-524cae22cd06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T14:34:49.000Z",
+      "modified": "2026-10-23T15:41:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -20283,6 +20294,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4b39f8bb-0c37-5a22-95e9-c2732ffc5015",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "target_ref": "vulnerability--896e1a79-1556-534d-820d-f98d1a261fe3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4b42d318-0dcb-5d81-af9b-9949fa1c7bcb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:57:44.000Z",
@@ -26622,7 +26644,7 @@
       "id": "relationship--6a228af2-c39e-5c77-a15d-b1241d3b8510",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T14:34:49.000Z",
+      "modified": "2026-10-23T15:41:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -37105,7 +37127,7 @@
       "id": "relationship--9ce84b89-92a9-562f-bd3b-b399c9f9d171",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T14:34:49.000Z",
+      "modified": "2026-10-23T15:41:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -46668,6 +46690,17 @@
       "relationship_type": "has",
       "source_ref": "software--8a438daf-6aad-5d6e-a3f4-640992e0f53c",
       "target_ref": "vulnerability--1e58936f-3bdb-50d1-8fea-55b491475113"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--caa2551a-22d7-51e3-b848-62ab1f387540",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "target_ref": "vulnerability--5b70b9d7-a433-5af4-adc2-6cfc89f2d01c"
     },
     {
       "type": "relationship",
@@ -56799,6 +56832,17 @@
       "relationship_type": "has",
       "source_ref": "software--5b16841b-6fe5-5c5e-baf3-553740f1012d",
       "target_ref": "vulnerability--ba36a01f-b227-5ee4-a9e6-375ab6d9046c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f836e632-daf0-5ec8-b674-ba31f485da13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "target_ref": "vulnerability--4917a049-9b91-5950-ae46-a54826580b01"
     },
     {
       "type": "relationship",
@@ -128258,7 +128302,7 @@
       "id": "report--cd8d203c-902d-563b-8686-561c6243394f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:00:46.000Z",
-      "modified": "2026-10-23T15:00:46.000Z",
+      "modified": "2026-10-23T15:41:17.000Z",
       "name": "HPE Networking Wireless Operating System Multiple Vulnerabilities",
       "description": "## Overview\n\nHPE has released a security advisory (HPESBNW05162) addressing multiple vulnerabilities affecting HPE Networking Wireless Operating Systems, specifically AOS-10 and AOS-8 releases. The vulnerabilities affect versions prior to 10.8.1.2, 10.7.2.7, 10.4.1.14, 8.13.3.1, and 8.10.0.24. Administrators should consult the linked security bulletin for specific remediation paths and patch availability.\n\n## Recommendation\n\n- Identify all instances of HPE Networking Wireless Operating Systems (AOS-10 and AOS-8) within the network environment.\n- Upgrade firmware to the following versions or later: 10.8.1.2, 10.7.2.7, 10.4.1.14, 8.13.3.1, or 8.10.0.24.\n- Monitor the HPE Security Bulletin Library for any additional disclosures or updates related to these advisory revisions.\n",
       "published": "2026-10-23T15:00:46.000Z",
@@ -128270,7 +128314,11 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--24d37cea-3d30-57cb-b3e6-3d1a47099247"
+        "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+        "vulnerability--4917a049-9b91-5950-ae46-a54826580b01",
+        "vulnerability--5b70b9d7-a433-5af4-adc2-6cfc89f2d01c",
+        "vulnerability--896e1a79-1556-534d-820d-f98d1a261fe3",
+        "vulnerability--b2eed242-d90f-518e-969a-d64c07a97b8a"
       ],
       "external_references": [
         {
@@ -128280,7 +128328,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://csaf.arubanetworking.hpe.com/2026/hpe_networking_-_hpesbnw05162.txt"
+        },
+        {
+          "source_name": "reference",
           "url": "https://cyber.gc.ca/en/alerts-advisories/hpe-security-advisory-av26-1079"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/hpe-aruba-aos-critical-rce-oct-2026"
         },
         {
           "source_name": "reference",
@@ -128289,20 +128345,26 @@
         {
           "source_name": "reference",
           "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us\u0026docLocale=en_US"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-79844"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-23-hpe-aos-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-23-hpe-aos-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hpe-aos-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-23T15:00:46.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T15:41:17.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00499,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -130762,7 +130824,7 @@
       "id": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T14:34:49.000Z",
+      "modified": "2026-10-23T15:41:17.000Z",
       "name": "Unauthenticated Remote Code Execution in Ahsay AhsayCBS",
       "description": "## Overview\n\nAhsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated remote attacker to execute arbitrary system commands, leading to full server compromise, data exfiltration, or deployment of additional malicious payloads such as ransomware. The impact is critical, affecting any environment where AhsayCBS is exposed to the network.\n\n## Recommendation\n\n- Upgrade all instances of AhsayCBS to version 10.3.4 or later immediately.\n- Apply the rules below to identify exploitation attempts targeting the identified API endpoint.\n- Restrict network access to the AhsayCBS management interface to trusted IP addresses only, especially for the Replication Receiver component.\n",
       "published": "2026-10-04T09:01:29.000Z",
@@ -130816,9 +130878,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-ahsay-cbs-rce",
       "x_craftedsignal_event_id": "brief-2026-10-ahsay-cbs-rce",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ahsay-cbs-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T14:34:49.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T15:41:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -167581,6 +167643,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4917a049-9b91-5950-ae46-a54826580b01",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79846",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79846",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79846"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--492a12bb-466e-5748-a243-ede1ea6240e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -169255,6 +169333,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-90910",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90910"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5b70b9d7-a433-5af4-adc2-6cfc89f2d01c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79851",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79851",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79851"
         }
       ]
     },
@@ -173533,6 +173627,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--896e1a79-1556-534d-820d-f98d1a261fe3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79845",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79845",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79845"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8985035c-12a6-5a7e-92d3-4991c3ef2722",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -177799,6 +177909,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101809",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101809"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b2eed242-d90f-518e-969a-d64c07a97b8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79844",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79844",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79844"
         }
       ]
     },
