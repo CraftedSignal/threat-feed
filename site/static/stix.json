@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--13413221-ee31-516a-86e7-2be6568fe995",
+  "id": "bundle--1292f0cc-0483-59a3-a9fe-c1c0a9099a07",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38268,6 +38268,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a247422e-8fde-5092-a88f-d09c50f106b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:37:55.000Z",
+      "modified": "2026-10-23T15:37:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2c824b8e-dff7-5d29-859d-240c9cdbe5ee",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a25c71d2-856c-5a2f-842a-882dc146f0c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51915,6 +51926,17 @@
       "relationship_type": "has",
       "source_ref": "software--9651d397-407c-5098-bed2-e25938a634fc",
       "target_ref": "vulnerability--fba21b36-3ff2-56cd-940d-f26df0912bed"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e2ed73bf-1b6e-5d82-bcdb-6797cf7eb603",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d00a0a91-1979-581d-873d-f6e1bf8e5cad",
+      "target_ref": "vulnerability--24680b8e-a1b3-5d8c-8c7e-bb6f36504372"
     },
     {
       "type": "relationship",
@@ -72077,6 +72099,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2c824b8e-dff7-5d29-859d-240c9cdbe5ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:37:55.000Z",
+      "modified": "2026-10-23T15:37:55.000Z",
+      "name": "i-doit Pro: Path traversal vulnerability (CVE-2023-37739)",
+      "description": "## Overview\ni-doit Pro versions 25 and below contain a path traversal vulnerability. An authenticated attacker, regardless of privilege level, can exploit this flaw by manipulating the 'file' parameter within the 'file_manager' component to access unauthorized files on the underlying filesystem.\n\n## Attack Chain\n1. Attacker authenticates to the i-doit Pro application with valid, potentially low-privileged, credentials.\n2. Attacker identifies a target file on the host system to retrieve.\n3. Attacker crafts an HTTP GET request to the application, specifically targeting the /index.php or /?moduleID endpoints.\n4. Attacker injects path traversal sequences (e.g., ../../../) into the 'file' parameter of the 'file_manager' component.\n5. The application fails to sanitize the input, allowing the traversal to escape the intended directory.\n6. The application returns the contents of the requested file in the HTTP response.\n\n## Impact\nSuccessful exploitation allows authenticated attackers to read sensitive system files, potentially leading to information disclosure of configuration files, credentials, or internal application logic.\n\n## Recommendation\n1. Inventory all instances of i-doit Pro to identify versions 25 or below.\n2. Apply security updates provided by synetics GmbH to remediate CVE-2023-37739.\n3. Until patched, restrict access to the i-doit Pro administrative interface to trusted networks only.\n4. Monitor web access logs for requests containing suspicious path traversal sequences (e.g., '../') directed at the 'file_manager' parameter.\n",
+      "published": "2026-10-23T15:37:55.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d00a0a91-1979-581d-873d-f6e1bf8e5cad",
+        "vulnerability--24680b8e-a1b3-5d8c-8c7e-bb6f36504372"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-idoit-pro-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-idoit-pro-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LEEKENGHWA-CVE-2023-37739---PATH-TRAVERSAL-IN-I-DOIT-PRO-25-AND-BELOW"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LEEKENGHWA-CVE-2023-37739---PATH-TRAVERSAL-IN-I-DOIT-PRO-25-AND-BELOW\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-idoit-pro-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-23-idoit-pro-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-idoit-pro-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:37:55.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.01328,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -163715,6 +163783,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-23651",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-23651"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--24680b8e-a1b3-5d8c-8c7e-bb6f36504372",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-37739",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-37739",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-37739"
         }
       ]
     },
