@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0eed27c9-fc16-54c6-aa28-ac5351968d22",
+  "id": "bundle--aae3ca02-798d-5e28-9d88-67edf9f3891b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7228,6 +7228,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ce9409fe-53a7-54b6-bf7d-5636304e5f84",
       "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--101d244d-b68c-5d94-97a3-2b5a8f4aff05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T01:19:09.000Z",
+      "modified": "2026-10-23T01:19:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--547c62d0-0aed-5309-b1e3-6480d0d13e62",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -14961,6 +14972,17 @@
       "relationship_type": "has",
       "source_ref": "software--aced3eee-0794-5c4a-a4e2-0d58efd937ad",
       "target_ref": "vulnerability--e0e9f84b-1f90-54e9-b0a3-b7e5dfdc0bd8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--417b810d-c1df-5f7b-bdc9-53c16c2a6a1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--70232077-6fec-5fe2-a28e-d96a37fe29a7",
+      "target_ref": "vulnerability--85b9754b-ed0b-5dc5-b008-6ddbfa54e1cc"
     },
     {
       "type": "relationship",
@@ -68647,6 +68669,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--547c62d0-0aed-5309-b1e3-6480d0d13e62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T01:19:09.000Z",
+      "modified": "2026-10-23T01:19:09.000Z",
+      "name": "Coraza WAF: Multipart upload filename parsing bypass (CVE-2026-114101)",
+      "description": "## Overview\n\nCoraza WAF versions before 3.8.1 contain a vulnerability (CVE-2026-114101) in the multipart upload filename parsing logic. The underlying use of Go's `mime.ParseMediaType` function causes the parser to ignore RFC 5987 `filename*` parameters that utilize non-UTF-8 or non-US-ASCII character sets. An attacker can leverage this behavior by providing a decoy filename parameter while utilizing an unsupported character set encoding (e.g., `iso-8859-1`) to bypass security rules configured to inspect file types or names, allowing malicious files to reach the backend application.\n\n## Impact\n\nSuccessful exploitation allows for the bypass of WAF file-based security rules. This enables an attacker to upload potentially malicious files that would otherwise be blocked by the WAF, increasing the risk of remote code execution or unauthorized file access on the backend application.\n\n## Recommendation\n\n- Upgrade Coraza to version 3.8.1 or later by updating the dependency in `go.mod`.\n- Audit existing WAF rules that rely on `FILES` or filename-based inspection to determine if they are susceptible to bypasses using non-standard character set encodings.\n- Implement additional file validation logic on the backend application server as a secondary defense layer, independent of WAF inspection.\n",
+      "published": "2026-10-23T01:19:09.000Z",
+      "labels": [
+        "bypass",
+        "vulnerability",
+        "waf",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--70232077-6fec-5fe2-a28e-d96a37fe29a7",
+        "vulnerability--85b9754b-ed0b-5dc5-b008-6ddbfa54e1cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-coraza-waf-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-coraza-waf-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-114101"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=61FF52EA-AE7E-516E-80F6-E36419433611"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=61FF52EA-AE7E-516E-80F6-E36419433611\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-coraza-waf-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-23-coraza-waf-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-coraza-waf-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-23T01:19:09.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4,
+      "x_craftedsignal_epss_max": 0.00198,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--54aacc18-370d-5a18-aad6-c64f85eed130",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T00:09:53.000Z",
@@ -88613,6 +88691,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9a5d3afb-22fa-5929-a463-f4e1e3248edb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T01:19:17.000Z",
+      "modified": "2026-10-23T01:19:17.000Z",
+      "name": "ImageMagick Arbitrary Code Execution (CVE-2024-41817)",
+      "description": "A public proof-of-concept exploit for CVE-2024-41817 has been published on Sploitus. The vulnerability allows for arbitrary code execution in ImageMagick versions \u003c= 7.1.1-35 via malicious XML delegation. The CVSS score for this vulnerability is 7.8, and the EPSS score is 0.9%. The exploit was tested on Ubuntu 22.04.5 LTS and includes functionality to detect vulnerable versions, generate payloads, and deploy the exploit.\n",
+      "published": "2026-10-23T01:19:17.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--d944684a-2743-58cb-90a9-9aaf6f0ca871"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-imagemagick-cve-2024-41817",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-imagemagick-cve-2024-41817/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-8rxc-922v-phg8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DXSK-CVE-2024-41817-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DXSK-CVE-2024-41817-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-imagemagick-cve-2024-41817",
+      "x_craftedsignal_event_id": "brief-2026-10-23-imagemagick-cve-2024-41817",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-imagemagick-cve-2024-41817/",
+      "x_craftedsignal_activity_at": "2026-10-23T01:19:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.00934,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -121126,6 +121252,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--70232077-6fec-5fe2-a28e-d96a37fe29a7",
+      "name": "Coraza WAF (\u003c 3.8.1)",
+      "vendor": "Coraza"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--705dff01-ecec-590e-9fed-e3c4fec1b7f3",
       "name": "NLTK (\u003c= 3.10.3)",
       "vendor": "NLTK Project"
@@ -137925,6 +138058,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--85b9754b-ed0b-5dc5-b008-6ddbfa54e1cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114101",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114101",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114101"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8617d4f4-b257-5d67-bd63-e97d86c36dfb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -144543,6 +144692,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109701",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109701"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d944684a-2743-58cb-90a9-9aaf6f0ca871",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-41817",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-41817",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-41817"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6145bf5-1839-5a17-8d46-cf860d2fe0ef",
+  "id": "bundle--93feec84-1f33-57a9-b538-05c9056d600f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8218,6 +8218,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d4092d30-2240-5831-8a83-54be07536602",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--101d244d-b68c-5d94-97a3-2b5a8f4aff05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T01:19:09.000Z",
+      "modified": "2026-10-23T01:19:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--547c62d0-0aed-5309-b1e3-6480d0d13e62",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -18089,6 +18100,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--417b810d-c1df-5f7b-bdc9-53c16c2a6a1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--70232077-6fec-5fe2-a28e-d96a37fe29a7",
+      "target_ref": "vulnerability--85b9754b-ed0b-5dc5-b008-6ddbfa54e1cc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--41965808-6ed0-55f5-96d8-bbdd34bd0d00",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
@@ -19163,17 +19185,6 @@
       "relationship_type": "has",
       "source_ref": "software--57cb8408-39d6-5086-a679-fc5efdb7ecbb",
       "target_ref": "vulnerability--d19991e3-e010-565e-88b1-64ef7ceb6830"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--46df3323-02dc-5024-8b60-55c8f022affb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T01:17:34.000Z",
-      "modified": "2026-09-23T01:17:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--48397a4a-0e15-528f-a873-f26cc95307f5",
-      "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
     },
     {
       "type": "relationship",
@@ -30596,17 +30607,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7dee9b01-3cba-52bd-a3fd-6c48c0d360cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T01:17:57.000Z",
-      "modified": "2026-09-23T01:17:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--00040aa4-d2ea-5ca1-8ec3-b66915385c27",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7dfb2488-f06f-5390-a029-7c8bb888c88b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T09:51:20.000Z",
@@ -35685,17 +35685,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e7e46389-f60a-59db-98e3-99cf90034503",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--96dde413-8494-5abb-aef8-c1f5bb8d234f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T00:39:54.000Z",
-      "modified": "2026-09-23T00:39:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8d046c7b-c6eb-5c8d-a927-17c19d9e1860",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -50968,17 +50957,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e058fc5f-b9e9-5d63-b6a2-383168207ce4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--436ed132-9cfd-554d-a94b-c9f3572271a5",
-      "target_ref": "vulnerability--62a67762-3654-5909-b6f7-57950fc22ddf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e05f9978-e511-58d3-b8ec-62f0f0da4235",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:58:10.000Z",
@@ -52053,17 +52031,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7de1b2e5-4f8a-5fd8-9c76-aa89ffe4a9ac",
       "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e4f08e3a-4c26-5d4b-9786-a904f5533a65",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T01:17:57.000Z",
-      "modified": "2026-09-23T01:17:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--00040aa4-d2ea-5ca1-8ec3-b66915385c27",
-      "target_ref": "attack-pattern--91214d7c-f910-594b-9f77-6d9385867ae2"
     },
     {
       "type": "relationship",
@@ -57751,56 +57718,6 @@
       "relationship_type": "has",
       "source_ref": "software--73183d66-b420-5424-9638-5d186b1b8403",
       "target_ref": "vulnerability--8ee512df-96eb-5610-9e52-df673cae918e"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--00040aa4-d2ea-5ca1-8ec3-b66915385c27",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T01:17:57.000Z",
-      "modified": "2026-09-23T01:17:57.000Z",
-      "name": "Detection of LSASS Process Handle Access via Windows API",
-      "description": "## Overview\n\nThe Local Security Authority Subsystem Service (LSASS) is a critical Windows component responsible for managing user authentication and security policies. Adversaries often target the LSASS process handle to extract authentication material (such as NTLM hashes or Kerberos tickets) from memory. This process, known as credential dumping, is a foundational step for lateral movement and privilege escalation.\n\nThe detection logic focuses on monitoring sensitive Windows API calls - specifically OpenProcess, OpenThread, and ReadProcessMemory - when they target 'lsass.exe'. This approach is highly effective at identifying unauthorized access attempts originating from non-standard or suspicious processes. To ensure signal quality, the detection logic includes filtering for legitimate software paths and common Windows updates, while focusing on rare, low-frequency access events that are statistically likely to be unauthorized. Defenders should investigate the process lineage, digital signatures, and access rights requested by the calling process to distinguish legitimate administrative activity from malicious credential access.\n\n## Attack Chain\n\n1. An adversary gains initial code execution on a Windows host via an exploited service or malicious file.\n2. The adversary attempts to interact with protected system processes to gain higher-level privileges.\n3. The adversary process calls the 'OpenProcess' API with high-level access masks targeting 'lsass.exe'.\n4. The adversary process calls 'ReadProcessMemory' to copy the memory contents of 'lsass.exe' into the malicious process's address space.\n5. The malicious process may utilize a tool (e.g., Mimikatz, procdump) to parse the dumped memory for credentials.\n6. Credentials (passwords, hashes, or tickets) are exfiltrated or used immediately for lateral movement.\n7. The adversary maintains persistence while using the stolen credentials to move laterally within the domain.\n\n## Impact\n\nSuccessful exploitation of LSASS memory allows adversaries to capture plaintext credentials, NTLM hashes, and Kerberos tickets. This facilitates lateral movement, privilege escalation, and domain-wide compromise. Unauthorized memory access poses a critical risk to identity security, enabling attackers to impersonate privileged users and maintain long-term access within the environment.\n\n## Recommendation\n\n- Deploy the detection logic within an Elastic SIEM environment configured for ES|QL to identify rare API calls targeting LSASS.\n- Investigate the process lineage of any process triggering an alert; prioritize unsigned executables or those located in non-standard directories.\n- Utilize Osquery to audit current system services for unsigned executables or suspicious user accounts as identified in the investigation guide.\n- Enforce strict monitoring of 'ReadProcessMemory' and 'OpenProcess' events targeting 'lsass.exe' across all high-value Windows endpoints.\n- Validate that identified processes have a legitimate business purpose; block and isolate hosts if malicious intent (such as credential dumping) is confirmed through subsequent forensic triage.\n",
-      "published": "2026-09-23T01:17:57.000Z",
-      "labels": [
-        "credential-access",
-        "detection",
-        "endpoint",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "attack-pattern--91214d7c-f910-594b-9f77-6d9385867ae2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-lsass-api-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-lsass-api-access/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://attack.mitre.org/techniques/T1003/001/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/windows/credential_access_lsass_openprocess_api.toml"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-09-lsass-api-access",
-      "x_craftedsignal_event_id": "brief-2026-09-lsass-api-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-lsass-api-access/",
-      "x_craftedsignal_activity_at": "2026-09-23T01:17:57.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -81058,71 +80975,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--48397a4a-0e15-528f-a873-f26cc95307f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T01:17:34.000Z",
-      "modified": "2026-09-23T01:17:34.000Z",
-      "name": "Entra ID Device-Bound PRT Replay via First-Party Apps",
-      "description": "## Overview\n\nAdversaries are increasingly exploiting the trust model of Entra ID device-bound Primary Refresh Tokens (PRTs) to gain unauthorized access to Microsoft Graph, SharePoint, OneDrive, and Exchange Online. By harvesting a PRT cookie from a compromised Windows workstation, attackers can perform an off-box authentication replay using first-party FOCI (Family of Client IDs) applications such as Azure CLI, Azure PowerShell, or VS Code. Because the stolen PRT retains the device ID of the original, compliant workstation, this technique successfully bypasses Conditional Access policies that require a managed or compliant device, even when the connection originates from an untrusted IP address. This threat is particularly dangerous as it misuses legitimate administrative tooling to access high-value cloud resources, often leaving minimal footprint within traditional network-based monitoring. Organizations must differentiate between legitimate on-box activity and anomalous off-box token redemption to identify active compromises.\n\n## Attack Chain\n\n1. Attacker establishes persistence or code execution on the target Windows workstation using administrative privileges.\n2. Attacker utilizes custom tooling (e.g., PRTremote, TokenTactics, or AADInternals) to interact with the Windows Authentication Broker (WAM) or extract stored PRT cookies.\n3. Attacker exfiltrates the PRT cookie and associated device-bound metadata, such as the `deviceid` and nonce, to an external C2 infrastructure.\n4. Attacker initiates an authentication request to Entra ID using a first-party client ID (e.g., Azure CLI `04b07795-8ddb-461a-bbee-02f9e1bf7b46`).\n5. The Entra ID service validates the request, seeing a valid PRT associated with a compliant or Intune-managed device ID.\n6. Conditional Access policies evaluate the request as originating from a compliant device, granting the attacker a session token.\n7. Attacker uses the granted access token to interact with Microsoft Graph, SharePoint, or Exchange Online to exfiltrate data or enumerate directory objects.\n\n## Impact\n\nSuccessful exploitation allows attackers to gain authenticated access to sensitive cloud environments while evading device-based security controls. This can result in unauthorized data exfiltration from SharePoint and OneDrive, access to enterprise mailboxes, and potential reconnaissance of the entire Microsoft 365 tenant directory. Because the tokens are tied to legitimate compliant devices, traditional IP-based filtering or device compliance checks are rendered ineffective, enabling long-lived access within the five-minute valid window of the PRT cookie nonce.\n\n## Recommendation\n\n1. Deploy the provided ES|QL detection query to monitor for PRT replay events from first-party FOCI clients that originate from IPs not associated with the legitimate user's device sign-in history.\n2. Validate anomalous sign-in events by verifying if the Graph client activity correlates with the workstation's expected egress IP.\n3. Implement conditional access logging to specifically track `primaryRefreshToken` redemption attempts that present `is_compliant` or `is_managed` status.\n4. In the event of a confirmed compromise, initiate a global revocation of refresh tokens and PRTs for the affected user identity.\n5. Investigate endpoints for the presence of token-harvesting artifacts such as `BrowserCore.exe` execution, scheduled tasks, or temporary files containing nonce strings.\n",
-      "published": "2026-09-23T01:17:34.000Z",
-      "labels": [
-        "cloud",
-        "credential-access",
-        "defense-evasion",
-        "identity"
-      ],
-      "object_refs": [
-        "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--15f02ef2-1c43-51bf-82de-93cafbf578ce",
-        "software--28ee369c-acac-5afb-81cf-e25224434b7d",
-        "software--57f54a74-5820-5ca1-8a60-c9709c477dfc",
-        "software--709f6146-493c-5660-a201-1402c8765699",
-        "software--c4f4f702-9d82-5156-88ef-6344a8578318"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-entra-id-prt-replay",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-entra-id-prt-replay/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/Gerenios/AADInternals"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/armadin-public/PRTremote"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/dmcxblue/ANIMO/blob/master/helpers/scripts/GrabTokenAzureAD/PrtExtractor.cs"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/rvrsh3ll/TokenTactics"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.armadin.com/blog-posts/prtremote-extract-prt-cookies-remotely-with-interactivetoken-scheduled-task"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-entra-id-prt-replay",
-      "x_craftedsignal_event_id": "brief-2026-09-entra-id-prt-replay",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-entra-id-prt-replay/",
-      "x_craftedsignal_activity_at": "2026-09-23T01:17:34.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--48530fe4-8952-5e48-a169-5c2807ad5da0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:56.000Z",
@@ -84663,6 +84515,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--547c62d0-0aed-5309-b1e3-6480d0d13e62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T01:19:09.000Z",
+      "modified": "2026-10-23T01:19:09.000Z",
+      "name": "Coraza WAF: Multipart upload filename parsing bypass (CVE-2026-114101)",
+      "description": "## Overview\n\nCoraza WAF versions before 3.8.1 contain a vulnerability (CVE-2026-114101) in the multipart upload filename parsing logic. The underlying use of Go's `mime.ParseMediaType` function causes the parser to ignore RFC 5987 `filename*` parameters that utilize non-UTF-8 or non-US-ASCII character sets. An attacker can leverage this behavior by providing a decoy filename parameter while utilizing an unsupported character set encoding (e.g., `iso-8859-1`) to bypass security rules configured to inspect file types or names, allowing malicious files to reach the backend application.\n\n## Impact\n\nSuccessful exploitation allows for the bypass of WAF file-based security rules. This enables an attacker to upload potentially malicious files that would otherwise be blocked by the WAF, increasing the risk of remote code execution or unauthorized file access on the backend application.\n\n## Recommendation\n\n- Upgrade Coraza to version 3.8.1 or later by updating the dependency in `go.mod`.\n- Audit existing WAF rules that rely on `FILES` or filename-based inspection to determine if they are susceptible to bypasses using non-standard character set encodings.\n- Implement additional file validation logic on the backend application server as a secondary defense layer, independent of WAF inspection.\n",
+      "published": "2026-10-23T01:19:09.000Z",
+      "labels": [
+        "bypass",
+        "vulnerability",
+        "waf",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--70232077-6fec-5fe2-a28e-d96a37fe29a7",
+        "vulnerability--85b9754b-ed0b-5dc5-b008-6ddbfa54e1cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-coraza-waf-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-coraza-waf-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-114101"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=61FF52EA-AE7E-516E-80F6-E36419433611"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=61FF52EA-AE7E-516E-80F6-E36419433611\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-coraza-waf-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-23-coraza-waf-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-coraza-waf-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-23T01:19:09.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4,
+      "x_craftedsignal_epss_max": 0.00198,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -104019,52 +103927,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8d046c7b-c6eb-5c8d-a927-17c19d9e1860",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T00:39:54.000Z",
-      "modified": "2026-09-23T00:39:54.000Z",
-      "name": "Vaultwarden Access Control Bypass via Membership Validation Failure",
-      "description": "## Overview\n\nVaultwarden versions 1.37.3 and earlier contain a critical vulnerability in the organization access control logic. The application fails to properly enforce membership status checks within key cipher access-restriction functions, specifically `get_user_collections_access_flags`, `get_group_collections_access_flags`, and `is_in_full_access_group`. As a result, users who have been revoked from an organization or users whose membership is currently in a pending state retain their ability to perform read, write, and delete operations on organization-managed ciphers, as well as interact with associated attachments. This flaw allows unauthorized individuals to access or modify protected credentials beyond their intended privilege level. Defenders should prioritize updating to the latest patched version to ensure proper access control enforcement.\n\n## Impact\n\nSuccessful exploitation allows unauthorized users to access, modify, or delete organization-wide secrets and attachments. This could lead to massive credential exposure within enterprise Vaultwarden deployments, effectively granting revoked or unvetted users complete control over corporate secrets.\n\n## Recommendation\n\n- Upgrade all Vaultwarden instances to a version later than 1.37.3 immediately.\n- Review organization audit logs for access activity by users with revoked or pending statuses.\n- Ensure all service accounts and API clients utilizing the Vaultwarden API are patched and audited for abnormal cipher access patterns.\n",
-      "published": "2026-09-23T00:39:54.000Z",
-      "labels": [
-        "access-control",
-        "authentication",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--436ed132-9cfd-554d-a94b-c9f3572271a5",
-        "vulnerability--62a67762-3654-5909-b6f7-57950fc22ddf"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-22-vaultwarden-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-vaultwarden-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95814"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-22-vaultwarden-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-22-vaultwarden-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-vaultwarden-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-23T00:39:54.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8d2d3f56-fe01-5f88-a999-767ed9f4e2b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T15:42:31.000Z",
@@ -108833,6 +108695,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9a5d3afb-22fa-5929-a463-f4e1e3248edb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T01:19:17.000Z",
+      "modified": "2026-10-23T01:19:17.000Z",
+      "name": "ImageMagick Arbitrary Code Execution (CVE-2024-41817)",
+      "description": "A public proof-of-concept exploit for CVE-2024-41817 has been published on Sploitus. The vulnerability allows for arbitrary code execution in ImageMagick versions \u003c= 7.1.1-35 via malicious XML delegation. The CVSS score for this vulnerability is 7.8, and the EPSS score is 0.9%. The exploit was tested on Ubuntu 22.04.5 LTS and includes functionality to detect vulnerable versions, generate payloads, and deploy the exploit.\n",
+      "published": "2026-10-23T01:19:17.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--d944684a-2743-58cb-90a9-9aaf6f0ca871"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-imagemagick-cve-2024-41817",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-imagemagick-cve-2024-41817/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/ImageMagick/ImageMagick/security/advisories/GHSA-8rxc-922v-phg8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DXSK-CVE-2024-41817-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DXSK-CVE-2024-41817-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-imagemagick-cve-2024-41817",
+      "x_craftedsignal_event_id": "brief-2026-10-23-imagemagick-cve-2024-41817",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-imagemagick-cve-2024-41817/",
+      "x_craftedsignal_activity_at": "2026-10-23T01:19:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.00934,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -147141,13 +147051,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--436ed132-9cfd-554d-a94b-c9f3572271a5",
-      "name": "Vaultwarden (\u003c= 1.37.3)",
-      "vendor": "Vaultwarden"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--437804eb-694c-503d-a7d1-9fcd5dc3be1d",
       "name": "Microsoft Defender",
       "vendor": "Microsoft"
@@ -148245,13 +148148,6 @@
       "id": "software--57cb8408-39d6-5086-a679-fc5efdb7ecbb",
       "name": "authentik (\u003c= 2026.2.6)",
       "vendor": "authentik"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--57f54a74-5820-5ca1-8a60-c9709c477dfc",
-      "name": "SharePoint Online",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -149719,6 +149615,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--70232077-6fec-5fe2-a28e-d96a37fe29a7",
+      "name": "Coraza WAF (\u003c 3.8.1)",
+      "vendor": "Coraza"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--705dff01-ecec-590e-9fed-e3c4fec1b7f3",
       "name": "NLTK (\u003c= 3.10.3)",
       "vendor": "NLTK Project"
@@ -149743,13 +149646,6 @@
       "id": "software--709d81c7-3cbc-53a7-904d-02a1944c2f35",
       "name": "ZoneMinder (\u003c 1.38.3)",
       "vendor": "ZoneMinder"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--709f6146-493c-5660-a201-1402c8765699",
-      "name": "OneDrive for Business",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -154716,13 +154612,6 @@
       "id": "software--c4bc0add-f88b-570b-9a06-e41ae9d1c6b1",
       "name": "Maximo Application Suite - Location Service for Esri Component (9.0, 9.1, 9.2)",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c4f4f702-9d82-5156-88ef-6344a8578318",
-      "name": "Microsoft Graph",
-      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -167507,22 +167396,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--62a67762-3654-5909-b6f7-57950fc22ddf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-95814",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-95814",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95814"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--62acf04c-a39e-53db-a157-df964c659d72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -170621,6 +170494,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-83399",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83399"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--85b9754b-ed0b-5dc5-b008-6ddbfa54e1cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114101",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114101",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114101"
         }
       ]
     },
@@ -178861,6 +178750,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109701",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109701"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d944684a-2743-58cb-90a9-9aaf6f0ca871",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-41817",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-41817",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-41817"
         }
       ]
     },
