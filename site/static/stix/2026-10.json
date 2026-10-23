@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--22d56dd1-64a9-53b9-a104-a0db0b8adb4f",
+  "id": "bundle--be8623b2-95c6-5f42-b83c-67d01e8ba439",
   "objects": [
     {
       "type": "attack-pattern",
@@ -55580,6 +55580,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1b32aa9b-1c3d-582e-9100-386c3a6a7d78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T23:01:44.000Z",
+      "modified": "2026-10-23T23:01:44.000Z",
+      "name": "Fortra GoAnywhere MFT: Deserialization command injection (CVE-2025-10035)",
+      "description": "CVE-2025-10035 is a deserialization vulnerability in the License Servlet of Fortra GoAnywhere MFT. According to public reports, the vulnerability may allow an attacker with a forged license response signature to deserialize arbitrary objects, potentially leading to command injection. Multiple exploit proofs of concept have been publicly associated with this CVE.\n",
+      "published": "2026-10-23T23:01:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--1f54944a-11f8-510b-a9be-7a7315652832"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-goanywhere-mft-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-goanywhere-mft-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEMEHACKERS-CVE-2025-10035"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEMEHACKERS-CVE-2025-10035\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-goanywhere-mft-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-10-23-goanywhere-mft-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-goanywhere-mft-deserialization/",
+      "x_craftedsignal_activity_at": "2026-10-23T23:01:44.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.99799,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1b694d7e-a8ec-5820-9d49-a04eabfbd6b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:27:19.000Z",
@@ -63764,7 +63808,7 @@
       "id": "report--393e63a9-d32f-5448-ae35-1ef4e101e0ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T07:48:39.000Z",
-      "modified": "2026-10-22T07:48:39.000Z",
+      "modified": "2026-10-23T23:02:41.000Z",
       "name": "Laravel Framework: Authentication Bypass (CVE-2026-114509)",
       "description": "A public exploit has been published for CVE-2026-114509, a critical (CVSS 9.2) authentication bypass vulnerability in the Laravel `token` guard driver. The vulnerability allows an unauthenticated attacker to bypass authentication via JSON array injection (e.g., `{\"api_token\": [0]}`) when using a MySQL or MariaDB database. The application's failure to validate the input type combined with MySQL's implicit type coercion allows the bypass. PostgreSQL and SQLite are not affected.\n",
       "published": "2026-10-22T07:48:39.000Z",
@@ -63785,7 +63829,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-f9x3-7vq9-cph6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/laravel/framework/releases/tag/v12.68.0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/laravel/framework/releases/tag/v13.29.0"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/laravel/framework/security/advisories/GHSA-f9x3-7vq9-cph6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114509"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/laravel-tokenguard-auth-bypass-cve-2026-114509"
         },
         {
           "source_name": "reference",
@@ -63799,14 +63863,15 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-22-laravel-tokenguard-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-22-laravel-tokenguard-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-laravel-tokenguard-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-22T07:48:39.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T23:02:41.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
+      "x_craftedsignal_epss_max": 0.00403,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -137158,6 +137223,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91218",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91218"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1f54944a-11f8-510b-a9be-7a7315652832",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-10035",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-10035",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-10035"
         }
       ]
     },
