@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cfa2ba75-6668-5e3a-9643-8c4199c9a8bc",
+  "id": "bundle--e269d33a-de34-5b22-9244-c0b72a4c1ac4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9315,6 +9315,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--149e5e98-5876-515a-a66d-a6f55e6262fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T17:43:59.000Z",
+      "modified": "2026-10-23T17:43:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dc3d346f-27f7-5ba6-8d3e-ef387ac1e410",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--14a9873a-6b73-587e-9897-aa11d2781432",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11694,7 +11705,7 @@
       "id": "relationship--20375294-24b3-5e32-beeb-524cae22cd06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T16:39:11.000Z",
+      "modified": "2026-10-23T17:44:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -26654,7 +26665,7 @@
       "id": "relationship--6a228af2-c39e-5c77-a15d-b1241d3b8510",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T16:39:11.000Z",
+      "modified": "2026-10-23T17:44:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -37145,6 +37156,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9c763298-f546-5a31-8766-1a80d1398fc0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b0d70b9c-5bf7-5676-978d-788189f6394c",
+      "target_ref": "vulnerability--cfefa9fb-3fef-58e3-b49e-f58d1ff6bc7a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9c7bcd23-6341-51e4-a8ed-74bb80a77334",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37203,7 +37225,7 @@
       "id": "relationship--9ce84b89-92a9-562f-bd3b-b399c9f9d171",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T16:39:11.000Z",
+      "modified": "2026-10-23T17:44:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -40089,6 +40111,17 @@
       "relationship_type": "has",
       "source_ref": "software--23ac71e0-aaf9-5c9c-b6b7-ecd2ffdcdf57",
       "target_ref": "vulnerability--bb843db9-3bcd-5e9f-8960-53a00680dc38"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ab7ac28c-f8b3-56c7-9bf4-b6ae31a583a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4c2b7d91-620d-500d-b46e-f252ce5fdc17",
+      "target_ref": "vulnerability--26ef83e8-3593-5c36-9c1f-1816ee482382"
     },
     {
       "type": "relationship",
@@ -54382,6 +54415,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ec05d18f-3a0d-5d43-ac2a-174eadb2a8d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T17:43:59.000Z",
+      "modified": "2026-10-23T17:43:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dc3d346f-27f7-5ba6-8d3e-ef387ac1e410",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ec0ae773-3996-5e02-ace5-7d04ed9226b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T16:08:30.000Z",
@@ -61215,6 +61259,55 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--09894410-4328-5339-9675-3d9b078c3b0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T17:43:48.000Z",
+      "modified": "2026-10-23T17:43:48.000Z",
+      "name": "Fortinet FortiSIEM: Unauthenticated remote code execution (CVE-2026-106173)",
+      "description": "CVE-2026-106173 is an unauthenticated remote code execution vulnerability in Fortinet FortiSIEM. The vulnerability exists in the gRPC `QueryResultReq` handler, which processes untrusted metadata without proper path validation. Attackers can leverage path traversal sequences and NUL-byte injection to write arbitrary files to the filesystem. Publicly available exploit code targets the default gRPC port 27918.\n",
+      "published": "2026-10-23T17:43:48.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4c2b7d91-620d-500d-b46e-f252ce5fdc17",
+        "vulnerability--26ef83e8-3593-5c36-9c1f-1816ee482382"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-fortisiem-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-fortisiem-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://horizon3.ai/attack-research/cve-2026-106173-deep-dive-fortisiem-grpc-path-traversal-file-write-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=169A54EE-0D7E-5990-A956-2520F778FA10"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=169A54EE-0D7E-5990-A956-2520F778FA10\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-fortisiem-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-23-fortisiem-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fortisiem-rce/",
+      "x_craftedsignal_activity_at": "2026-10-23T17:43:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00459,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -114637,6 +114730,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a5cdc5dd-4725-5ee2-a1fd-d4f8462c88f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T17:43:39.000Z",
+      "modified": "2026-10-23T17:43:39.000Z",
+      "name": "PHP: Session Upload Progress Injection (CVE-2026-115560)",
+      "description": "Public proof-of-concept exploit code for CVE-2026-115560 has been released on Sploitus. The vulnerability is described as a PHP Session Upload Progress Injection.\n",
+      "published": "2026-10-23T17:43:39.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-php-session-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-php-session-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=21ECC387-5A3C-5E76-A26E-F5872215776E"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=21ECC387-5A3C-5E76-A26E-F5872215776E\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-php-session-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-23-php-session-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-session-injection/",
+      "x_craftedsignal_activity_at": "2026-10-23T17:43:39.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a605c99b-abd8-561d-9fdc-4545c53f085e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-28T14:15:21.000Z",
@@ -131493,7 +131628,7 @@
       "id": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T16:39:11.000Z",
+      "modified": "2026-10-23T17:44:45.000Z",
       "name": "Unauthenticated Remote Code Execution in Ahsay AhsayCBS",
       "description": "## Overview\n\nAhsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated remote attacker to execute arbitrary system commands, leading to full server compromise, data exfiltration, or deployment of additional malicious payloads such as ransomware. The impact is critical, affecting any environment where AhsayCBS is exposed to the network.\n\n## Recommendation\n\n- Upgrade all instances of AhsayCBS to version 10.3.4 or later immediately.\n- Apply the rules below to identify exploitation attempts targeting the identified API endpoint.\n- Restrict network access to the AhsayCBS management interface to trusted IP addresses only, especially for the Replication Receiver component.\n",
       "published": "2026-10-04T09:01:29.000Z",
@@ -131547,9 +131682,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-ahsay-cbs-rce",
       "x_craftedsignal_event_id": "brief-2026-10-ahsay-cbs-rce",
-      "x_craftedsignal_revision": 6,
+      "x_craftedsignal_revision": 7,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ahsay-cbs-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T16:39:11.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T17:44:45.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -133790,6 +133925,56 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--dc3d346f-27f7-5ba6-8d3e-ef387ac1e410",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T17:43:59.000Z",
+      "modified": "2026-10-23T17:43:59.000Z",
+      "name": "Wikibase: Remote Code Execution via Object Injection (CVE-2026-103441)",
+      "description": "## Overview\n\nCVE-2026-103441 is an object injection vulnerability affecting the Wikibase Repository action=parse API. The flaw stems from the API accepting PHP-serialized entities without sufficient validation. This allows attackers to trigger a Smarty destructor that performs unauthorized file operations. In configurations where PHP gadget chains are present, this primitive can be leveraged to achieve remote code execution. The vulnerability requires a low-privilege account to perform the injection via the request body.\n\n## Impact\n\nSuccessful exploitation allows for remote code execution under the context of the web server user. The vulnerability has been assigned a CVSS score of 8.7 (High).\n\n## Recommendation\n\n* Prioritize identification of Wikibase installations within the environment.\n* Audit web application logs for POST requests to api.php targeting action=parse that contain serialized PHP structures.\n* Apply patches released via the official Wikibase Gerrit repository to remediate the API handling of serialized objects.\n",
+      "published": "2026-10-23T17:43:59.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b0d70b9c-5bf7-5676-978d-788189f6394c",
+        "vulnerability--cfefa9fb-3fef-58e3-b49e-f58d1ff6bc7a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-wikibase-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wikibase-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://bombobombone.github.io/posts/cve-2026-103441/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOMBOBOMBONE-CVE-2026-103441"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOMBOBOMBONE-CVE-2026-103441\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-wikibase-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-23-wikibase-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wikibase-rce/",
+      "x_craftedsignal_activity_at": "2026-10-23T17:43:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00282,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -156667,6 +156852,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b0d70b9c-5bf7-5676-978d-788189f6394c",
+      "name": "Wikibase Repository",
+      "vendor": "Wikimedia"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b0fdda39-f174-5695-b53f-ac8c7ba31103",
       "name": "imagemagick-php (\u003c= 3.3.5)",
       "vendor": "orbitale"
@@ -164955,6 +165147,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--26ef83e8-3593-5c36-9c1f-1816ee482382",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-106173",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-106173",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106173"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--271a7999-6c5d-589d-ad43-543f5c2b373c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -170053,6 +170261,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106040",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106040"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115560",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115560",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115560"
         }
       ]
     },
@@ -181765,6 +181989,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109620",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109620"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cfefa9fb-3fef-58e3-b49e-f58d1ff6bc7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103441",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103441",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103441"
         }
       ]
     },
