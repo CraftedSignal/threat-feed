@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6a27defc-7f6f-526a-8a52-fc63321e1f46",
+  "id": "bundle--a2fee795-8069-5039-b45b-41cdcecd47dc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5835,6 +5835,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--03f59fc0-8eaf-5c8a-b249-3b456da7aef4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6908ba1a-515c-5db9-8213-53b9407056ac",
+      "target_ref": "vulnerability--e27ac236-3f2c-53ab-b2b5-fbcdffc2583d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--03fbb3c5-e7d9-5778-921e-39500fb81bbc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T02:23:43.000Z",
@@ -7118,6 +7129,17 @@
       "relationship_type": "has",
       "source_ref": "software--7c2fb53e-a98a-5ce1-aa1c-4a1b6e4d5ae4",
       "target_ref": "vulnerability--fb1ae7a5-b123-5a0d-a9c9-8a653fbff6bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0a65f381-7202-55e3-bc11-0f3d85582c11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:47:11.000Z",
+      "modified": "2026-10-23T06:47:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--209a6a55-bd7d-5c97-96b8-a4992861c740",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -9593,6 +9615,17 @@
       "relationship_type": "has",
       "source_ref": "software--ef61c356-e2ff-534a-850c-654498b8d278",
       "target_ref": "vulnerability--9cb62cd0-757b-54db-a4c3-576d948afa82"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1629ec40-4532-5c7a-bec3-f2deec05f9a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:47:22.000Z",
+      "modified": "2026-10-23T06:47:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c2a65501-dd46-556c-8382-d6f3d1b62890",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -28979,6 +29012,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--76f2be61-4241-531f-8d1e-26e025f53706",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3dc1daf3-8fcc-5fba-a794-8d7bf21e52fc",
+      "target_ref": "vulnerability--31365f28-267d-51dd-9892-8d59f01ce120"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--76fd6166-3ca1-56cb-aacc-ee6a24d1b209",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44188,6 +44232,17 @@
       "relationship_type": "has",
       "source_ref": "software--b2f84452-4efb-52ec-bac8-54be8c4582f2",
       "target_ref": "vulnerability--f4fd7080-c54d-5b80-a5c3-2dd7db3012ac"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c23aaa87-da0f-530f-a8fd-cad4ec428fa3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:47:11.000Z",
+      "modified": "2026-10-23T06:47:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--209a6a55-bd7d-5c97-96b8-a4992861c740",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -67886,6 +67941,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--209a6a55-bd7d-5c97-96b8-a4992861c740",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:47:11.000Z",
+      "modified": "2026-10-23T06:47:11.000Z",
+      "name": "Anti-Spam by CleanTalk: Stored Cross-Site Scripting (CVE-2026-109198)",
+      "description": "## Overview\n\nThe Anti-Spam by CleanTalk - Spam Protection Without CAPTCHA plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) via the 'user_email' parameter in versions 6.89.1 and earlier. Insufficient input sanitization and output escaping allow unauthenticated attackers to inject malicious scripts during the registration process. The script executes when an administrator views the plugin's 'Non-checkable users' or 'Spam users' tab.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site with the vulnerable CleanTalk plugin installed and user registration enabled.\n2. Attacker submits a registration request using a malicious payload in the 'user_email' field.\n3. The plugin fails to sanitize the malicious input and stores it in the WordPress database.\n4. The plugin flags the registration as spam or 'non-checkable' based on its internal logic.\n5. An administrator navigates to the plugin's dashboard to review the spam reports.\n6. The plugin displays the list of spam users, causing the stored XSS payload to execute within the administrator's browser session.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary JavaScript in the context of an administrator's browser session. This can lead to unauthorized actions performed on behalf of the administrator, such as creating new administrative accounts, modifying plugin settings, or redirecting site traffic.\n\n## Recommendation\n\nUpdate the \"Anti-Spam by CleanTalk - Spam Protection Without CAPTCHA\" plugin to the latest version available beyond 6.89.1. Ensure user registration settings are restricted to known users until a patch is applied if the plugin cannot be updated immediately.\n",
+      "published": "2026-10-23T06:47:11.000Z",
+      "labels": [
+        "plugin-vulnerability",
+        "web-application",
+        "wordpress",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6908ba1a-515c-5db9-8213-53b9407056ac",
+        "vulnerability--e27ac236-3f2c-53ab-b2b5-fbcdffc2583d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-cleantalk-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cleantalk-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109198"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-cleantalk-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-23-cleantalk-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cleantalk-xss/",
+      "x_craftedsignal_activity_at": "2026-10-23T06:47:11.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -122544,6 +122647,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c2a65501-dd46-556c-8382-d6f3d1b62890",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:47:22.000Z",
+      "modified": "2026-10-23T06:47:22.000Z",
+      "name": "The Music Store WordPress Plugin: Directory traversal vulnerability (CVE-2026-115497)",
+      "description": "## Overview\n\nThe Music Store eCommerce plugin for WordPress contains a directory traversal vulnerability (CVE-2026-115497). An unauthenticated attacker can exploit this flaw by manipulating the 'f' parameter in requests to the plugin. Successful exploitation requires the attacker to possess a valid 'purchase_id' token, which can be acquired through legitimate plugin usage. This vulnerability allows for the unauthorized reading of arbitrary files on the underlying server, potentially exposing sensitive system or application configuration files.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to read arbitrary files from the server's filesystem, leading to potential information disclosure of sensitive credentials, configuration files, or other private data stored on the web server.\n\n## Recommendation\n\n- Update the \"The Music Store - WordPress eCommerce\" plugin to the version containing the patch for CVE-2026-115497 once available from the vendor.\n- Implement web application firewall (WAF) rules to inspect the 'f' parameter for directory traversal sequences (e.g., ../, ..\\/) in HTTP requests targeting this plugin.\n- Monitor web server access logs for anomalous requests to the plugin containing directory traversal patterns in query parameters.\n",
+      "published": "2026-10-23T06:47:22.000Z",
+      "labels": [
+        "cve-2026-115497",
+        "directory-traversal",
+        "file-read",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3dc1daf3-8fcc-5fba-a794-8d7bf21e52fc",
+        "vulnerability--31365f28-267d-51dd-9892-8d59f01ce120"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-music-store-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-music-store-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115497"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-music-store-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-23-music-store-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-music-store-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-23T06:47:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c2b35579-a062-5bd1-8146-b99885a8a1bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:51:46.000Z",
@@ -146701,6 +146852,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3dc1daf3-8fcc-5fba-a794-8d7bf21e52fc",
+      "name": "The Music Store – WordPress eCommerce (\u003c= 1.4.7)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3dcad062-21c2-59a7-92c9-106335bdd8e5",
       "name": "kin-openapi (\u003c= 0.145.0)"
     },
@@ -149208,6 +149365,13 @@
       "id": "software--68fbd30e-5e7c-58da-a731-b152e2949e5b",
       "name": "Guardium Data Protection (12.0, 12.1, 12.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6908ba1a-515c-5db9-8213-53b9407056ac",
+      "name": "Anti-Spam by CleanTalk – Spam Protection Without CAPTCHA (\u003c= 6.89.1)",
+      "vendor": "CleanTalk"
     },
     {
       "type": "software",
@@ -162790,6 +162954,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108860",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108860"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--31365f28-267d-51dd-9892-8d59f01ce120",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115497",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115497",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115497"
         }
       ]
     },
@@ -179734,6 +179914,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102243",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102243"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e27ac236-3f2c-53ab-b2b5-fbcdffc2583d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109198",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109198",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109198"
         }
       ]
     },
