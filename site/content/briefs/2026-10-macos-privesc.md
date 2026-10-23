@@ -1,28 +1,64 @@
 ---
+brief_id: brief-2026-10-macos-privesc
+event_id: brief-2026-10-macos-privesc
+revision: 2
+activity_at: "2026-10-23T09:36:43Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T09:36:43Z"
+    checksum: sha256:cf71280c4ab1d85820f8f99478058d4a4af9d0a8b4ce8431e47fe09fbf1fd68c
+    summary: added coverage for macOS (< 26.6)
+    changed_fields:
+      - action_plan
+      - affected_os
+      - affected_products
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783&utm_source=rss&utm_medium=rss
 title: CVE-2023-42931 Privilege Escalation in macOS diskutil
 slug: 2026-10-macos-privesc
 description: A local privilege escalation vulnerability in the macOS diskutil utility allows unprivileged users to gain root access via manipulated filesystem mounting.
 date: "2026-10-16T10:33:12Z"
+lastmod: "2026-10-23T09:34:35Z"
 type: threat
 types:
   - threat
 severities:
   - high
-exploited: true
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Source validated, detection logic defined
 cpes:
   - cpe:2.3:o:apple:macos:*:*:*:*:*:*:*:*
 tags:
   - privilege-escalation
   - macos
   - local-exploitation
+  - lpe
+  - xpc
+  - cve-2026-43783
 vendors:
   - Apple
 products:
   - macOS (< 12.7.2, 13.6.3, 14.2)
+  - macOS (< 26.6)
 affected_os:
   - macOS Monterey
   - macOS Ventura
   - macOS Sonoma
+  - macOS
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -34,9 +70,17 @@ cves:
   - id: CVE-2023-42931
     cvss: 7.8
     epss: 0.01171
+    kev_status: unknown
+  - id: CVE-2026-43783
+    cvss: 7.8
+    epss: 0.00129
+    kev_status: "false"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-D0RB-CVE-2023-42931
   - https://www.alter-solutions.fr/blog/local-privilege-escalating-my-way-to-root-throught-apple-macos-filesystems
+  - https://andrd3v.github.io/cve-2026-43783/index.html
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious diskutil Execution for Mounting
     description: Detects the use of the diskutil utility to mount filesystems, which may be a precursor to CVE-2023-42931 exploitation by unprivileged users.
@@ -60,6 +104,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Source advisory
+    - action: Upgrade macOS to version 26.6 or later
+      owner: IT Operations
+      due: 72h
+      evidence: Source identifies vulnerability in versions < 26.6
   hunt_leads:
     - lead: Search for unauthorized setuid binary creation following diskutil execution
       technique_id: T1068
@@ -69,12 +117,33 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Exploit script creates a setuid shell payload
+    - lead: Monitor for unusual XPC communication to com.apple.DesktopServicesHelper
+      technique_id: T1068
+      data_needed:
+        - macOS Endpoint Security Framework (ESF) events or system-level XPC monitoring
+      priority: high
+      confidence: medium
+      disposition: hunt_now
+      evidence: Daemon registers a mach service under com.apple.DesktopServicesHelper and listens for incoming XPC connections.
   mitigation_plan:
     - priority: immediate
       action: Upgrade Apple macOS to 12.7.2, 13.6.3, 14.2
       owner: IT Operations
       addresses: CVE-2023-42931
       evidence: Source documentation
+    - priority: immediate
+      action: Patch macOS to 26.6 or later
+      owner: IT Operations
+      addresses: CVE-2026-43783
+      evidence: Vulnerability fixed in 26.6
+updates:
+  - at: "2026-10-23T09:34:35Z"
+    level: L2
+    summary: added coverage for macOS (< 26.6)
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2023-42931 is a local privilege escalation vulnerability affecting multiple versions of macOS, including Monterey, Ventura, and Sonoma. The vulnerability resides in the 'diskutil' command-line utility, which fails to properly restrict filesystem mounting options when invoked by unprivileged users. An attacker can leverage this flaw to gain full root control of the host system. The vulnerability was publicly disclosed alongside a functional proof-of-concept exploit that automates the exploitation process. The exploit targets how 'diskutil' manages filesystem permissions, allowing for the deployment and execution of setuid binaries. Given the availability of this exploit code, unpatched systems are at significant risk of unauthorized administrative access.
