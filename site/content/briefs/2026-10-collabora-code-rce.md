@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-collabora-code-rce
 event_id: brief-2026-10-collabora-code-rce
-revision: 2
-activity_at: "2026-10-23T20:29:43Z"
+revision: 3
+activity_at: "2026-10-23T21:24:16Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T20:29:43Z"
@@ -18,11 +18,28 @@ revision_history:
       - updates
     source_urls:
       - https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0
-title: Remote Code Execution Vulnerability in Collabora Online
+  - revision: 3
+    at: "2026-10-23T21:24:16Z"
+    checksum: sha256:7528d90194ae7c025e34e056de003fb7cefcc917790b07222614676759ccfc50
+    summary: new product
+    changed_fields:
+      - affected_products
+      - content
+      - cpes
+      - exploitation_evidence
+      - lastmod
+      - priority_signals
+      - references
+      - summary
+      - title
+      - updates
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-110447
+title: 'Collabora Online Built-in CODE Server: OS Command Injection (CVE-2026-110447)'
 slug: 2026-10-collabora-code-rce
-description: Collabora Online contains a critical vulnerability that allows an unauthenticated, remote attacker to execute arbitrary code with the privileges of the web server user.
+description: Collabora Online - Built-in CODE Server, when used within the NextCloud platform, contains an OS command injection vulnerability that allows for remote code execution when the CODE server is not running.
 date: "2026-10-19T14:08:58Z"
-lastmod: "2026-10-23T20:29:11Z"
+lastmod: "2026-10-23T21:23:45Z"
 type: advisory
 types:
   - advisory
@@ -40,6 +57,7 @@ qa_status:
   validation_status: needs_environment_validation
 cpes:
   - cpe:2.3:a:collabora:online:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:collabora:online_built_in_code_server:*:*:*:*:*:*:*:*
 tags:
   - remote-code-execution
   - web-application
@@ -47,6 +65,7 @@ vendors:
   - Collabora
 products:
   - Collabora Online (< 26.4.303)
+  - Collabora Online – Built-in CODE Server (< 26.4.303)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -67,6 +86,12 @@ cves:
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4011
   - https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-110447
+  - https://github.com/CollaboraOnline/online/security/advisories/GHSA-g3vx-3m76-fghh
+  - https://help.nextcloud.com/t/to-collabora-built-in-user-update-asap/250516
+  - https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk
+  - https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk
+  - https://www.cve.org/CVERecord?id=CVE-2026-110447
 action_plan:
   priority: immediate_escalation
   owners:
@@ -95,32 +120,21 @@ action_plan:
 updates:
   - at: "2026-10-23T20:29:11Z"
     level: L2
-    summary: added CVE-2026-110447; collabora online version < 26.4.303
+    summary: added CVE-2026-110447;
     sources:
       - cisa
     source_urls:
       - https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0
+  - at: "2026-10-23T21:23:45Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-110447
 ---
 
-Collabora Online has disclosed a critical security vulnerability affecting its built-in CODE server, often deployed within platforms such as Nextcloud. The vulnerability allows a remote, unauthenticated attacker to execute arbitrary program code on the underlying host. The code executes with the same privileges as the web server user, which typically corresponds to the service account running the Collabora Online or web server process (e.g., www-data or similar). Because the vulnerability does not require authentication, it represents a high risk to organizations exposing these collaboration tools to the internet. Defenders should prioritize identifying instances of Collabora Online and monitoring for unauthorized processes spawned by the web server service account.
-
-## Attack Chain
-
-1. Attacker performs reconnaissance to identify internet-facing Collabora Online or Nextcloud instances.
-2. Attacker sends a crafted, unauthenticated HTTP request to the vulnerable CODE server endpoint.
-3. The request exploits an input validation or handling flaw in the Collabora Online service.
-4. The exploit triggers the execution of arbitrary commands or code within the server memory.
-5. The web server process executes the malicious payload using the service account permissions.
-6. The attacker may establish a web shell or a reverse shell to maintain access.
-7. Final objective: full compromise of the web server context, data exfiltration, or lateral movement into the hosting environment.
-
-## Impact
-
-Successful exploitation allows for full Remote Code Execution (RCE) on the server hosting the Collabora Online instance. This can lead to total system compromise, theft of sensitive documents stored within the collaborative environment, or the use of the server as a pivot point into the internal network. Organizations in all sectors using Collabora Online for document collaboration are at risk.
+CVE-2026-110447 is an OS command injection vulnerability in the Collabora Online - Built-in CODE Server. The vulnerability occurs when the server is used within the NextCloud platform and the CODE server is not running, allowing for remote code execution.
 
 ## Recommendation
-
-- Monitor web server access logs for anomalous HTTP requests targeting CODE server endpoints, specifically those containing suspicious parameters or shell metacharacters.
-- Audit all internet-facing instances of Collabora Online and restrict access to authorized IP ranges where possible.
-- Enable process creation logging (e.g., Sysmon Event ID 1) for the web server service account to detect unexpected child processes (e.g., /bin/sh, /bin/bash, curl, or wget) spawned by the web server process.
-- Monitor for unauthorized file modifications or the creation of new files within the document storage directories associated with the collaboration platform.
+Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 guidance and CISA’s “Forensics Triage Requirements.” If mitigations are unavailable, discontinue use of the product. Stakeholders should evaluate asset internet exposure and ensure adherence to BOD 26-04 patching guidelines.

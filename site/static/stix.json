@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c17f0fb4-f2ed-5a0f-b84c-3deecd4f56d0",
+  "id": "bundle--fa9b97b0-b5fb-54e1-8686-53f42e6427b6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6909,7 +6909,7 @@
       "id": "relationship--09434724-e69c-50d9-a55d-859cb3740494",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-23T20:29:43.000Z",
+      "modified": "2026-10-23T21:24:16.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -22053,6 +22053,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5425ee82-5524-5561-80a0-bf0e12c66042",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6892849c-7476-5304-acb5-448c9495b0aa",
+      "target_ref": "vulnerability--9bca492f-8621-5d4a-81da-075489abc451"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--545cbc92-109b-5cad-9863-dd5d5636a077",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-26T14:59:41.000Z",
@@ -25312,7 +25323,7 @@
       "id": "relationship--644408d2-a302-5a88-ab90-d917e2993b40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-23T20:29:43.000Z",
+      "modified": "2026-10-23T21:24:16.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -142361,9 +142372,9 @@
       "id": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-23T20:29:43.000Z",
-      "name": "Remote Code Execution Vulnerability in Collabora Online",
-      "description": "## Overview\n\nCollabora Online has disclosed a critical security vulnerability affecting its built-in CODE server, often deployed within platforms such as Nextcloud. The vulnerability allows a remote, unauthenticated attacker to execute arbitrary program code on the underlying host. The code executes with the same privileges as the web server user, which typically corresponds to the service account running the Collabora Online or web server process (e.g., www-data or similar). Because the vulnerability does not require authentication, it represents a high risk to organizations exposing these collaboration tools to the internet. Defenders should prioritize identifying instances of Collabora Online and monitoring for unauthorized processes spawned by the web server service account.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-facing Collabora Online or Nextcloud instances.\n2. Attacker sends a crafted, unauthenticated HTTP request to the vulnerable CODE server endpoint.\n3. The request exploits an input validation or handling flaw in the Collabora Online service.\n4. The exploit triggers the execution of arbitrary commands or code within the server memory.\n5. The web server process executes the malicious payload using the service account permissions.\n6. The attacker may establish a web shell or a reverse shell to maintain access.\n7. Final objective: full compromise of the web server context, data exfiltration, or lateral movement into the hosting environment.\n\n## Impact\n\nSuccessful exploitation allows for full Remote Code Execution (RCE) on the server hosting the Collabora Online instance. This can lead to total system compromise, theft of sensitive documents stored within the collaborative environment, or the use of the server as a pivot point into the internal network. Organizations in all sectors using Collabora Online for document collaboration are at risk.\n\n## Recommendation\n\n- Monitor web server access logs for anomalous HTTP requests targeting CODE server endpoints, specifically those containing suspicious parameters or shell metacharacters.\n- Audit all internet-facing instances of Collabora Online and restrict access to authorized IP ranges where possible.\n- Enable process creation logging (e.g., Sysmon Event ID 1) for the web server service account to detect unexpected child processes (e.g., /bin/sh, /bin/bash, curl, or wget) spawned by the web server process.\n- Monitor for unauthorized file modifications or the creation of new files within the document storage directories associated with the collaboration platform.\n",
+      "modified": "2026-10-23T21:24:16.000Z",
+      "name": "Collabora Online Built-in CODE Server: OS Command Injection (CVE-2026-110447)",
+      "description": "## Overview\nCVE-2026-110447 is an OS command injection vulnerability in the Collabora Online - Built-in CODE Server. The vulnerability occurs when the server is used within the NextCloud platform and the CODE server is not running, allowing for remote code execution.\n\n## Recommendation\nApply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 guidance and CISA’s “Forensics Triage Requirements.” If mitigations are unavailable, discontinue use of the product. Stakeholders should evaluate asset internet exposure and ensure adherence to BOD 26-04 patching guidelines.\n",
       "published": "2026-10-19T14:08:58.000Z",
       "labels": [
         "remote-code-execution",
@@ -142373,6 +142384,7 @@
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6892849c-7476-5304-acb5-448c9495b0aa",
         "software--9b139a5e-9d36-51ab-b747-3cd0a1c65cce",
         "vulnerability--9bca492f-8621-5d4a-81da-075489abc451"
       ],
@@ -142384,19 +142396,43 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/CollaboraOnline/online/security/advisories/GHSA-g3vx-3m76-fghh"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://help.nextcloud.com/t/to-collabora-built-in-user-update-asap/250516"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110447"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4011"
         },
         {
           "source_name": "reference",
           "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/directives/bod-26-04-implementation-guidance-prioritizing-security-updates-based-risk"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-110447"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-collabora-code-rce",
       "x_craftedsignal_event_id": "brief-2026-10-collabora-code-rce",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-collabora-code-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T20:29:43.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T21:24:16.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -151459,6 +151495,13 @@
       "spec_version": "2.1",
       "id": "software--68891d13-714c-5f11-934c-73371d9b5314",
       "name": "Television (0.15.0 - 0.15.9)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6892849c-7476-5304-acb5-448c9495b0aa",
+      "name": "Collabora Online – Built-in CODE Server (\u003c 26.4.303)",
+      "vendor": "Collabora"
     },
     {
       "type": "software",
