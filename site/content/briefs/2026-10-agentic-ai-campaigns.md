@@ -1,12 +1,25 @@
 ---
 brief_id: brief-2026-10-22-agentic-ai-campaigns
 event_id: brief-2026-10-22-agentic-ai-campaigns
-revision: 1
-activity_at: "2026-10-22T19:41:42Z"
+revision: 2
+activity_at: "2026-10-23T06:30:36Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T06:30:36Z"
+    checksum: sha256:d3ea3fb8a901e709263ea81c751cb03e702cdd9f24b80af5abfc9f19ad431402
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
 title: Threat actors utilizing autonomous AI agent frameworks for offensive operations
 slug: 2026-10-agentic-ai-campaigns
 description: CrowdStrike identified four threat actors leveraging AI agent frameworks, such as Claude Code, to automate and execute multi-stage cyber campaigns including reconnaissance, exploitation, and data exfiltration.
 date: "2026-10-22T19:41:42Z"
+lastmod: "2026-10-23T06:30:00Z"
 type: advisory
 types:
   - advisory
@@ -26,6 +39,10 @@ tags:
   - threat-intelligence
   - ai-security
   - campaign
+vendors:
+  - Anthropic
+products:
+  - Claude Code
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
@@ -77,6 +94,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Source states agentic AI operates at machine speed and conducts multi-stage intrusions
+updates:
+  - at: "2026-10-23T06:30:00Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
 ---
 
 CrowdStrike Counter Adversary Operations has identified four previously unreported threat actors deploying autonomous AI agent frameworks to conduct offensive cyber campaigns. These campaigns leverage AI agents to perform decision-making and command execution across the attack kill chain. Observed activities between May and August 2026 show threat actors customizing open-source projects, such as PentestGPT, to create modular, autonomous penetration testing harnesses. These agents operate with varying degrees of human intervention, utilizing frameworks to enumerate target environments, select exploitation methods, and exfiltrate data at machine speed.

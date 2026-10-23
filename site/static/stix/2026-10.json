@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c6e33203-6c1d-5b71-be36-d2c1b0d00fe5",
+  "id": "bundle--9800bb14-5327-53d5-875a-508c518577eb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8747,7 +8747,7 @@
       "id": "relationship--1883cbb0-1cda-5590-8c3b-f628a89df410",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-22T19:41:42.000Z",
+      "modified": "2026-10-23T06:30:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -18790,7 +18790,7 @@
       "id": "relationship--590d4e17-2f3b-5c6b-bd70-9e91c9051c07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-22T19:41:42.000Z",
+      "modified": "2026-10-23T06:30:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -30450,7 +30450,7 @@
       "id": "relationship--9dca06f2-7ad3-58c5-bd87-1f9b5567fb58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-22T19:41:42.000Z",
+      "modified": "2026-10-23T06:30:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
@@ -38986,7 +38986,7 @@
       "id": "relationship--d2191d75-a594-5989-9da5-dcc1dfdae64f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-22T19:41:42.000Z",
+      "modified": "2026-10-23T06:30:36.000Z",
       "relationship_type": "uses",
       "source_ref": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -47471,7 +47471,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00813,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -54729,7 +54730,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.05757,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -54781,7 +54783,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00083,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -56746,7 +56749,7 @@
       "id": "report--286469de-5cf0-5dd9-bac7-f07207515f1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T19:41:42.000Z",
-      "modified": "2026-10-22T19:41:42.000Z",
+      "modified": "2026-10-23T06:30:36.000Z",
       "name": "Threat actors utilizing autonomous AI agent frameworks for offensive operations",
       "description": "## Overview\n\nCrowdStrike Counter Adversary Operations has identified four previously unreported threat actors deploying autonomous AI agent frameworks to conduct offensive cyber campaigns. These campaigns leverage AI agents to perform decision-making and command execution across the attack kill chain. Observed activities between May and August 2026 show threat actors customizing open-source projects, such as PentestGPT, to create modular, autonomous penetration testing harnesses. These agents operate with varying degrees of human intervention, utilizing frameworks to enumerate target environments, select exploitation methods, and exfiltrate data at machine speed.\n\n## Attack Chain\n\n1. **Infrastructure Preparation**: Actors deploy purpose-built autonomous penetration testing harnesses, often integrating open-source frameworks (e.g., PentestGPT) with custom Python scripts and MCP servers.\n2. **Target Enumeration**: AI agents are instructed to perform automated reconnaissance to map the target environment.\n3. **Task Selection**: Agents (either single or dual-agent architectures) select attack stages from a predefined state machine or standard operating procedure.\n4. **Exploitation**: AI agents identify and execute exploitation methods against identified vulnerabilities or targets.\n5. **Post-Exploitation**: Agents carry out predefined post-execution workflows, including credential harvesting.\n6. **Data Exfiltration**: Agents execute commands to exfiltrate sensitive data, such as medical records or corporate client information.\n\n## Impact\n\nDocumented impact includes successful compromises of at least 15 healthcare entities in Argentina, multiple government domains across various countries, and private-sector entities in the biotechnology, technology, and SaaS sectors. Data exfiltration has been confirmed in multiple instances, including credentials and medical records.\n\n## Recommendation\n\n- **Enhance Behavioral Monitoring**: Focus on identifying automated, non-human-like patterns of activity, such as rapid sequential execution of reconnaissance and exploitation commands, which are characteristic of agentic AI frameworks.\n- **Restrict AI Tooling**: Implement strict controls and visibility over the use of AI agent platforms and related proxies (\"transfer stations\") within the corporate environment to detect unauthorized use of AI-driven pentesting harnesses.\n- **Identity-Centric Defense**: Given the actors' focus on credential exfiltration, implement and enforce robust multi-factor authentication (MFA) and continuous authorization for all access to sensitive internal data and SaaS environments.\n- **Threat Hunting**: Hunt for unusual Python scripts or MCP (Model Context Protocol) server configurations in environments that might serve as staging areas for autonomous agents.\n",
       "published": "2026-10-22T19:41:42.000Z",
@@ -56760,7 +56763,8 @@
         "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--137e8d3c-403a-5d5d-93cd-b0d1e556888a"
       ],
       "external_references": [
         {
@@ -56776,9 +56780,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-22-agentic-ai-campaigns",
       "x_craftedsignal_event_id": "brief-2026-10-22-agentic-ai-campaigns",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-agentic-ai-campaigns/",
-      "x_craftedsignal_activity_at": "2026-10-22T19:41:42.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T06:30:36.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -68546,7 +68550,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.00954,
+      "x_craftedsignal_epss_max": 0.034,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -68753,7 +68757,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00455,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -69512,7 +69517,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.04782,
+      "x_craftedsignal_epss_max": 0.3831,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -70116,7 +70121,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00346,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -74579,7 +74585,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00224,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -84351,6 +84358,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.0221,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -97094,7 +97102,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00346,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -105207,8 +105216,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.04782,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.3831,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -110990,7 +110999,7 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.01512,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -111796,7 +111805,7 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01573,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -117608,6 +117617,13 @@
       "spec_version": "2.1",
       "id": "software--13758360-4a84-5c03-aaa2-cb38c0e706cf",
       "name": "tensorlake (0.5.144)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--137e8d3c-403a-5d5d-93cd-b0d1e556888a",
+      "name": "Claude Code",
+      "vendor": "Anthropic"
     },
     {
       "type": "software",
