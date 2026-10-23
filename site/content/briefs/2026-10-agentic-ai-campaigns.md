@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-22-agentic-ai-campaigns
 event_id: brief-2026-10-22-agentic-ai-campaigns
-revision: 2
-activity_at: "2026-10-23T06:30:36Z"
+revision: 3
+activity_at: "2026-10-23T07:34:29Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T06:30:36Z"
@@ -15,11 +15,21 @@ revision_history:
       - updates
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
+  - revision: 3
+    at: "2026-10-23T07:34:29Z"
+    checksum: sha256:8e57337d7cdb4826f86c6ec4c830174bc1533440417252a9e94953e72ce31c5b
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
 title: Threat actors utilizing autonomous AI agent frameworks for offensive operations
 slug: 2026-10-agentic-ai-campaigns
 description: CrowdStrike identified four threat actors leveraging AI agent frameworks, such as Claude Code, to automate and execute multi-stage cyber campaigns including reconnaissance, exploitation, and data exfiltration.
 date: "2026-10-22T19:41:42Z"
-lastmod: "2026-10-23T06:30:00Z"
+lastmod: "2026-10-23T07:33:30Z"
 type: advisory
 types:
   - advisory
@@ -43,6 +53,7 @@ vendors:
   - Anthropic
 products:
   - Claude Code
+  - Claude
 mitre_ttps:
   - tactic_id: TA0007
     tactic_name: Discovery
@@ -96,6 +107,13 @@ action_plan:
       evidence: Source states agentic AI operates at machine speed and conducts multi-stage intrusions
 updates:
   - at: "2026-10-23T06:30:00Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/
+  - at: "2026-10-23T07:33:30Z"
     level: L1
     summary: new product
     sources:
