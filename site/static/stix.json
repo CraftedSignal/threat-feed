@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7426bc3b-d9ee-54bc-9ba1-904bf9f51613",
+  "id": "bundle--0f2aac74-3613-57df-b80c-694187d31803",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9113,6 +9113,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--13b5e01a-faab-59d5-9dc1-7a79105220fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T05:22:41.000Z",
+      "modified": "2026-10-23T05:22:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--10a2f6ad-e7a0-5172-897c-ae0930534b7e",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--13bb5a3b-0451-50ec-8fc1-126bfbc4b00d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12618,17 +12629,6 @@
       "relationship_type": "uses",
       "source_ref": "report--d080b733-51f8-5df6-96f7-38a2d149608e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--25826837-ddca-58db-85d3-4443e28a4889",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e00c9dcb-8ef0-5c4b-845c-c6204222ac49",
-      "target_ref": "vulnerability--93991809-5d62-5b9f-8aa8-7c67cde37601"
     },
     {
       "type": "relationship",
@@ -36096,17 +36096,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--993f6192-8d76-5b0b-be7f-8b98c34f2b8f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T04:41:17.000Z",
-      "modified": "2026-09-23T04:41:17.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fb50b731-4a8b-5bb9-9d82-8917cbed0baa",
-      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9951b99c-0079-505d-931d-cf65bcd92c33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:54:16.000Z",
@@ -47085,6 +47074,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cfb04093-c533-57d9-a6c7-314b5bf771ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--49228858-d988-5a70-8477-1a81eccf6717",
+      "target_ref": "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cfb66035-e9a0-5dda-b3d4-0b76e9e61796",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53032,6 +53032,17 @@
       "relationship_type": "has",
       "source_ref": "software--246b63c0-da4b-582d-ad2c-dea572af8b84",
       "target_ref": "vulnerability--4ec26f55-c21e-5c61-85d9-bcb7f5d49840"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e96c4e18-1f4b-5e5f-b8de-cb34228c609c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--627a294f-9638-5d23-bca8-3220cf9293c7",
+      "target_ref": "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc"
     },
     {
       "type": "relationship",
@@ -62230,6 +62241,63 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--10a2f6ad-e7a0-5172-897c-ae0930534b7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T05:22:41.000Z",
+      "modified": "2026-10-23T05:22:41.000Z",
+      "name": "Myeventon Eventon: Unauthenticated User Email Disclosure (CVE-2024-0235)",
+      "description": "## Overview\nCVE-2024-0235 is a vulnerability in the Myeventon Eventon plugin for WordPress that allows unauthenticated users to access sensitive information. An attacker can trigger the 'eventon_get_virtual_users' AJAX action via a crafted request to '/wp-admin/admin-ajax.php' to retrieve a list of user emails. Publicly available exploit tools indicate that this vulnerability is being targeted for mass scanning and enumeration by security researchers and potentially threat actors. \n\n## Impact\nSuccessful exploitation leads to the unauthorized disclosure of user email addresses, which facilitates subsequent targeted phishing, credential stuffing, or social engineering attacks against the organization's user base.\n\n## Recommendation\n- Update Myeventon Eventon to version 2.2.8 or later for free editions, or 4.5.5 or later for premium editions.\n- Inspect web server access logs for repeated requests to '/wp-admin/admin-ajax.php' containing the parameter 'eventon_get_virtual_users'.\n- Restrict access to the WordPress administrative dashboard and associated AJAX endpoints to known, trusted IP ranges where possible.\n",
+      "published": "2026-10-23T05:22:41.000Z",
+      "labels": [
+        "eventon",
+        "information-disclosure",
+        "vulnerability",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--49228858-d988-5a70-8477-1a81eccf6717",
+        "software--627a294f-9638-5d23-bca8-3220cf9293c7",
+        "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-myeventon-eventon-cve-2024-0235",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-myeventon-eventon-cve-2024-0235/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0235"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CAPPRICIO-SECURITIES-CVE-2024-0235"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CAPPRICIO-SECURITIES-CVE-2024-0235\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-myeventon-eventon-cve-2024-0235",
+      "x_craftedsignal_event_id": "brief-2026-10-23-myeventon-eventon-cve-2024-0235",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-myeventon-eventon-cve-2024-0235/",
+      "x_craftedsignal_activity_at": "2026-10-23T05:22:41.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.3,
+      "x_craftedsignal_epss_max": 0.37957,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -141313,53 +141381,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fb50b731-4a8b-5bb9-9d82-8917cbed0baa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T04:41:17.000Z",
-      "modified": "2026-09-23T04:41:17.000Z",
-      "name": "Stack-Based Buffer Overflow in Fast FAC1203R Gigabit Edition",
-      "description": "## Overview\n\nA critical security vulnerability (CVE-2026-96257) has been identified in the Fast FAC1203R Gigabit Edition firmware version 2.0.4. The vulnerability originates in the copy_msg_element function within the Device Discovery Service. Due to improper input validation, an attacker can trigger a stack-based buffer overflow by sending a specially crafted packet to the device. Because the service is exposed and reachable remotely, this flaw allows for unauthenticated remote code execution with the privileges of the service. Publicly available exploit code exists, increasing the risk of active exploitation. The vendor has not responded to disclosure attempts, and no security patches are currently available.\n\n## Impact\n\nSuccessful exploitation results in full system compromise, allowing an attacker to execute arbitrary code with elevated privileges on the network device. This facilitates deeper lateral movement into the local network, traffic interception, and potential persistence within the infrastructure. This vulnerability is rated with a CVSS v3.1 base score of 10.0, indicating the highest level of severity.\n\n## Recommendation\n\n1. Restrict network access to the Device Discovery Service on all Fast FAC1203R units to trusted management segments only.\n2. Implement network-level egress and ingress filtering to identify anomalous packet structures targeting common device discovery ports.\n3. Monitor device logs for signs of service crashes or unauthorized configuration changes, which may indicate attempted exploitation of CVE-2026-96257.\n4. Isolate vulnerable hardware from the public internet until a firmware update is provided by the vendor.\n",
-      "published": "2026-09-23T04:41:17.000Z",
-      "labels": [
-        "buffer-overflow",
-        "cve",
-        "remote-code-execution"
-      ],
-      "object_refs": [
-        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e00c9dcb-8ef0-5c4b-845c-c6204222ac49",
-        "vulnerability--93991809-5d62-5b9f-8aa8-7c67cde37601"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-cve-2026-96257",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-96257/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96257"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-cve-2026-96257",
-      "x_craftedsignal_event_id": "brief-2026-09-23-cve-2026-96257",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-96257/",
-      "x_craftedsignal_activity_at": "2026-09-23T04:41:17.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.01038,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--fb6afa61-4ce2-5cfa-81dd-9494614a2b94",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:13.000Z",
@@ -147104,6 +147125,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--49228858-d988-5a70-8477-1a81eccf6717",
+      "name": "Eventon Free (\u003c 2.2.8)",
+      "vendor": "Myeventon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4922b298-9a67-5773-84c5-569abcacad2c",
       "name": "DHCP Server",
       "vendor": "Microsoft"
@@ -148657,6 +148685,13 @@
       "spec_version": "2.1",
       "id": "software--6258ee44-bf66-5b57-a39f-6a8c7474fff0",
       "name": "Magento (e-commerce platform)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--627a294f-9638-5d23-bca8-3220cf9293c7",
+      "name": "Eventon Premium (\u003c 4.5.5)",
+      "vendor": "Myeventon"
     },
     {
       "type": "software",
@@ -155746,13 +155781,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--e00c9dcb-8ef0-5c4b-845c-c6204222ac49",
-      "name": "FAC1203R Gigabit Edition (2.0.4)",
-      "vendor": "Fast"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--e05f1fd6-5266-5f34-baeb-db7ea4c8745f",
       "name": "Linux Kernel",
       "vendor": "Linux"
@@ -161611,6 +161639,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96604",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96604"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--28708266-054e-5a1d-b3c5-1a1423c514bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-0235",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-0235",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0235"
         }
       ]
     },
@@ -171755,22 +171799,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103585",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103585"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--93991809-5d62-5b9f-8aa8-7c67cde37601",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96257",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96257",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96257"
         }
       ]
     },
