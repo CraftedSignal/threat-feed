@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-23-velocloud-orchestrator-sqli
 event_id: brief-2026-10-23-velocloud-orchestrator-sqli
-revision: 2
-activity_at: "2026-10-23T11:27:22Z"
+revision: 3
+activity_at: "2026-10-23T15:05:54Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T11:27:22Z"
@@ -16,11 +16,24 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/arista-velocloud-orchestrator-cve-2026-114625
+  - revision: 3
+    at: "2026-10-23T15:05:54Z"
+    checksum: sha256:47b7cca5bd5fe273a12745baef0e8a153dfa6abdec0ecc4bb1169b84d7b4cd19
+    summary: new product
+    changed_fields:
+      - affected_products
+      - cves
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4124
 title: 'Arista VeloCloud Orchestrator: SQL Injection Privilege Escalation (CVE-2026-114625)'
 slug: 2026-10-velocloud-orchestrator-sqli
 description: Arista VeloCloud Orchestrator (VCO) is under active exploitation by attackers using a critical SQL injection vulnerability (CVE-2026-114625) to escalate from low-privilege tenant accounts to superuser operator status.
 date: "2026-10-23T10:36:30Z"
-lastmod: "2026-10-23T11:26:29Z"
+lastmod: "2026-10-23T15:04:09Z"
 type: threat
 types:
   - threat
@@ -43,6 +56,7 @@ vendors:
 products:
   - VeloCloud Orchestrator (< 5.2.3.18, 6.1.3.10, 6.4.2.12)
   - VeloCloud Orchestrator (< 5.2.3.18, < 6.1.3.10, < 6.4.2.12)
+  - VeloCloud Orchestrator
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -53,12 +67,14 @@ mitre_ttps:
 cves:
   - id: CVE-2026-114625
     cvss: 9.9
+    epss: 0.00555
     kev_status: "false"
 references:
   - https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/
   - https://pwn.watch/i/arista-velocloud-orchestrator-cve-2026-114625
   - https://nvd.nist.gov/vuln/detail/CVE-2026-114625
   - https://advisories.ncsc.nl/2026/ncsc-2026-0385.html
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4124
 iocs:
   - type: ip
     value: 74.82.197.86
@@ -112,6 +128,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/arista-velocloud-orchestrator-cve-2026-114625
+  - at: "2026-10-23T15:04:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4124
 ---
 
 Arista Networks has released security patches for CVE-2026-114625, a critical-severity SQL injection vulnerability in the VeloCloud Orchestrator (VCO) on-premises management tool. The vulnerability enables an authenticated user with low-level tenant role privileges to escalate to a superuser operator, granting unauthorized access to privileged internal functionality. Arista has confirmed active exploitation in the wild.

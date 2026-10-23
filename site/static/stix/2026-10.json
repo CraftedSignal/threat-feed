@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--df14ba5d-5325-5108-be65-cf92eb8fdb56",
+  "id": "bundle--8389cea0-efec-5154-b260-d72c5b05a32e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3608,7 +3608,7 @@
       "id": "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T11:27:22.000Z",
+      "modified": "2026-10-23T15:05:54.000Z",
       "name": "ip: 38.54.50.151",
       "description": "Source IP address observed in exploitation attempts",
       "pattern": "[ipv4-addr:value = '38.54.50.151']",
@@ -3842,7 +3842,7 @@
       "id": "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T11:27:22.000Z",
+      "modified": "2026-10-23T15:05:54.000Z",
       "name": "ip: 74.82.197.86",
       "description": "Source IP address observed in exploitation attempts",
       "pattern": "[ipv4-addr:value = '74.82.197.86']",
@@ -21503,6 +21503,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6621c402-c24e-5ef9-9def-e7af1a134ea9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--370e472a-c988-557f-8d0d-9343a61e6a5c",
+      "target_ref": "vulnerability--21f88650-dad5-5bc7-83ed-51509e7528ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6636f9fc-ec8f-5279-8715-3ec729ac2592",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:20:13.000Z",
@@ -25162,6 +25173,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3e4d5496-383d-5a05-b101-4578f21474bc",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7bb38be9-90c7-5b34-8db1-aabbc4c514e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--75987235-010c-5fdb-a573-fc7750ba763f",
+      "target_ref": "vulnerability--71a8bf6a-4b57-50cc-ac3a-1c051c90deab"
     },
     {
       "type": "relationship",
@@ -32129,6 +32151,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a53daed8-81c2-5b97-ae25-0fc5dd48ab0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cbf12f4e-04d8-53b7-abe8-0af656ccdae1",
+      "target_ref": "vulnerability--71a8bf6a-4b57-50cc-ac3a-1c051c90deab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a5411270-4eff-59da-a821-3b7dae15d958",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:00:21.000Z",
@@ -36309,6 +36342,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--be3f441c-e39e-5363-bfe0-684a3fa38989",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:04:12.000Z",
+      "modified": "2026-10-23T15:04:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b701d4e1-5188-56c0-b405-eb6bf76af652",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--be5be2e5-c8ed-510c-89bb-5133520e9322",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T14:14:46.000Z",
@@ -36741,7 +36785,7 @@
       "id": "relationship--c1d6cb3f-ace7-5082-8f7b-a9d2cda9999a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T11:27:22.000Z",
+      "modified": "2026-10-23T15:05:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "target_ref": "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935"
@@ -43525,6 +43569,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e6d6ab6d-dd5d-55e2-b0df-147ec130f183",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T13:06:13.000Z",
+      "modified": "2026-10-23T15:04:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--102e36c2-b739-5616-ae12-eb281f060a12",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e6de2eea-9009-5e91-ad40-70c62e18e7d1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:47:08.000Z",
@@ -44276,7 +44331,7 @@
       "id": "relationship--eae5fc97-c7ef-5f50-ab81-5420570dcb5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T11:27:22.000Z",
+      "modified": "2026-10-23T15:05:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -47235,7 +47290,7 @@
       "id": "relationship--fc1b94e5-a0d0-58e0-82d3-bd089e7bf55b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T11:27:22.000Z",
+      "modified": "2026-10-23T15:05:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "target_ref": "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4"
@@ -51374,6 +51429,60 @@
       },
       "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--102e36c2-b739-5616-ae12-eb281f060a12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-20T13:06:13.000Z",
+      "modified": "2026-10-23T15:04:34.000Z",
+      "name": "Google Android: Heap-based buffer overflow in media.swcodec (CVE-2026-0006)",
+      "description": "## Overview\n\nCVE-2026-0006 is a critical heap-based buffer overflow vulnerability residing in the `media.swcodec` component of Google Android 16.0. The vulnerability allows for controlled native code execution within the context of the media codec daemon. Researchers have published a proof-of-concept (PoC) demonstrating a successful Return-Oriented Programming (ROP) chain. The exploit requires an attacker to successfully leak memory offsets from the target environment to build a functional payload, which is then delivered via a malformed video file (APV format). While the current research PoC requires an application to decode the file and a separate oracle mechanism to derive base addresses, the discovery of a working ROP chain in this critical system process represents a significant risk for Android 16.0 devices. The exploit, as demonstrated, results in a controlled native call, verified by triggering an assertion failure that logs a specific nonce.\n\n## Attack Chain\n\n1. An attacker identifies a target Android 16.0 device running the vulnerable `media.swcodec` service.\n2. The attacker delivers a primary video file (`CLEAN_MSG.mp4`) containing metadata that allows for memory structure analysis.\n3. A memory leak oracle (demonstrated in the PoC as `apvscan`) is used to derive critical addresses, including the codec base and `malloc` offsets.\n4. An attacker-controlled script (`gen_forge.py`) uses these leaked addresses to generate a malicious APV payload designed to overwrite heap structures.\n5. The attacker provides a secondary, weaponized video file (`JT_LOG.mp4`) containing the forged APV payload to the target application.\n6. The `media.swcodec` service processes the weaponized file, triggering the heap overflow.\n7. The ROP chain executes, utilizing functions such as `__libunwind_Registers_arm64_jumpto` to redirect the control flow.\n8. The final objective is achieved when the ROP chain executes an arbitrary native function, such as `__android_log_assert`, to demonstrate control.\n\n## Impact\n\nThe vulnerability carries a CVSS 3.1 score of 9.8, indicating high impact on confidentiality, integrity, and availability. Successful exploitation grants an attacker the ability to execute arbitrary code within the `media.swcodec` process. While current demonstrations are limited to the media daemon and do not include sandbox escapes or kernel-level escalation, the ability to control execution flow in a privileged codec daemon provides a foundation for more sophisticated attacks against the platform.\n\n## Recommendation\n\nPrioritized, concrete actions for security teams:\n- Monitor for and prioritize the application of security patches provided by Google for Android 16.0 that address CVE-2026-0006.\n- Implement mobile threat defense (MTD) solutions that can detect the execution of unauthorized native binaries or anomalous media processing activities on Android devices.\n- Audit the use of applications that parse third-party video files and ensure they are running within the standard Android application sandbox with restricted permissions.\n- Utilize binary instrumentation or memory protection features, such as Hardware-assisted Control Flow Integrity (CFI), where available, to mitigate ROP-based exploitation attempts.\n",
+      "published": "2026-10-20T13:06:13.000Z",
+      "labels": [
+        "android",
+        "media-codec",
+        "mobile",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--75987235-010c-5fdb-a573-fc7750ba763f",
+        "software--cbf12f4e-04d8-53b7-abe8-0af656ccdae1",
+        "vulnerability--71a8bf6a-4b57-50cc-ac3a-1c051c90deab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-android-swcodec-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-android-swcodec-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-R3N3R0-CVE-2026-0006-STEP-2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-3580"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-android-swcodec-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-android-swcodec-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-android-swcodec-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:04:34.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00676,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -56709,6 +56818,48 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.00405,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--240a7d5f-cbad-50f3-aaed-d69044d225ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:03:23.000Z",
+      "modified": "2026-10-23T15:03:23.000Z",
+      "name": "OpenProject: Information disclosure vulnerability",
+      "description": "## Overview\nA vulnerability in OpenProject allows a remote, authenticated attacker to disclose sensitive information. The specific nature of the vulnerability and affected versions were not disclosed in the initial advisory. Users are encouraged to monitor for vendor updates regarding this information disclosure flaw.\n\n## Recommendation\n- Inventory all instances of OpenProject across the organization.\n- Monitor the official OpenProject security advisories for patch releases and version-specific impact details.\n- Restrict access to OpenProject instances to trusted users, as the vulnerability requires authentication.\n",
+      "published": "2026-10-23T15:03:23.000Z",
+      "labels": [
+        "information-disclosure",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c9ab29d6-febd-5b6f-b890-c3e0ac61d35c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-openproject-infoleak",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openproject-infoleak/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4135"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-openproject-infoleak",
+      "x_craftedsignal_event_id": "brief-2026-10-23-openproject-infoleak",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openproject-infoleak/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:03:23.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -71784,6 +71935,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--59d6c17c-3f3b-5d17-8541-200a9c9e905d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:04:26.000Z",
+      "modified": "2026-10-23T15:04:26.000Z",
+      "name": "Rsyslog: Remote file manipulation vulnerability",
+      "description": "## Overview\n\nA vulnerability has been identified in rsyslog that allows a remote, unauthenticated attacker to perform unauthorized file manipulation on the target host. No patch is currently available for this vulnerability. Security teams should monitor for updates from the maintainers and consider restricting network access to rsyslog services as a temporary mitigation.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to manipulate files on the system running the vulnerable rsyslog service.\n\n## Recommendation\n\n* Monitor official rsyslog security advisories for the release of a patch and apply it immediately upon availability.\n* Restrict network access to rsyslog services to trusted internal sources to prevent unauthenticated remote exploitation.\n* Monitor system logs and filesystem integrity for unauthorized modifications to sensitive configuration or system files, particularly those handled by the rsyslog service.\n",
+      "published": "2026-10-23T15:04:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-rsyslog-file-manipulation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-rsyslog-file-manipulation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4119"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-rsyslog-file-manipulation",
+      "x_craftedsignal_event_id": "brief-2026-10-23-rsyslog-file-manipulation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rsyslog-file-manipulation/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:04:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a068822-1a4b-5d87-ab76-e82e1d13f6f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T02:32:17.000Z",
@@ -83833,7 +84022,7 @@
       "id": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T11:27:22.000Z",
+      "modified": "2026-10-23T15:05:54.000Z",
       "name": "Arista VeloCloud Orchestrator: SQL Injection Privilege Escalation (CVE-2026-114625)",
       "description": "## Overview\n\nArista Networks has released security patches for CVE-2026-114625, a critical-severity SQL injection vulnerability in the VeloCloud Orchestrator (VCO) on-premises management tool. The vulnerability enables an authenticated user with low-level tenant role privileges to escalate to a superuser operator, granting unauthorized access to privileged internal functionality. Arista has confirmed active exploitation in the wild.\n\n## Impact\n\nSuccessful exploitation results in the compromise of the VCO host, allowing attackers to access internal-only management functionality, masquerade as a superuser, and impact the confidentiality, integrity, and availability of the orchestrator and its managed data.\n\n## Recommendation\n\n- Upgrade on-premises VCO installations immediately to version 5.2.3.18, 6.1.3.10, 6.4.2.12, or later.\n- Block inbound traffic from malicious IP addresses 74.82.197.86 and 38.54.50.151 at the network perimeter.\n- Review VCO web access, backend, and database logs for anomalous request patterns originating from existing authenticated sessions.\n- Restrict access to the VCO web interface to trusted management networks until patches are applied.\n",
       "published": "2026-10-23T10:36:30.000Z",
@@ -83843,6 +84032,7 @@
         "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4",
         "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935",
         "software--060171ab-1338-5c15-a798-b8f3fbdfd65a",
+        "software--370e472a-c988-557f-8d0d-9343a61e6a5c",
         "software--88585bd7-4235-5f3b-b66f-63fdccbf74b4",
         "vulnerability--21f88650-dad5-5bc7-83ed-51509e7528ea"
       ],
@@ -83866,21 +84056,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4124"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-23-velocloud-orchestrator-sqli",
       "x_craftedsignal_event_id": "brief-2026-10-23-velocloud-orchestrator-sqli",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-velocloud-orchestrator-sqli/",
-      "x_craftedsignal_activity_at": "2026-10-23T11:27:22.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T15:05:54.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.00555,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -98793,6 +98988,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b701d4e1-5188-56c0-b405-eb6bf76af652",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:04:12.000Z",
+      "modified": "2026-10-23T15:04:12.000Z",
+      "name": "Libexpat: Denial of Service vulnerability",
+      "description": "## Overview\n\nA vulnerability has been identified in the expat XML parsing library that can be exploited by a remote, unauthenticated attacker to trigger a Denial of Service (DoS) condition. As of this advisory, no patch is available to address this issue. Organizations using software that bundles or links against the expat library should monitor vendor security bulletins for updates.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to crash the affected application or service, resulting in a Denial of Service.\n",
+      "published": "2026-10-23T15:04:12.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--74d736ca-38a9-509e-872e-7f495f5842d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-expat-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-expat-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4123"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-expat-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-23-expat-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-expat-dos/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:04:12.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -117927,6 +118161,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fcfc7c5b-733c-5d99-b7a5-9ed30a932608",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:03:42.000Z",
+      "modified": "2026-10-23T15:03:42.000Z",
+      "name": "IBM SPSS Modeler: Authenticated remote file manipulation",
+      "description": "## Overview\n\nIBM has reported a vulnerability in IBM SPSS Modeler that permits an authenticated remote attacker to perform unauthorized file manipulation. The advisory does not currently provide a CVE identifier, specific affected version ranges, or technical details regarding the exploit path. Users are advised to monitor the IBM support portal for forthcoming patches or remediation guidance.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to manipulate files within the context of the application, potentially leading to unauthorized data modification or system configuration changes.\n\n## Recommendation\n\n- Audit user access levels for IBM SPSS Modeler to ensure only authorized personnel have authenticated access.\n- Review file system permissions for the application's installation and data directories to follow the principle of least privilege.\n- Monitor the official IBM security bulletin for the release of security patches.\n",
+      "published": "2026-10-23T15:03:42.000Z",
+      "labels": [
+        "file-manipulation",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9d665975-f63b-53b4-8159-14edb3f660a8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-ibm-spss-file-manipulation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ibm-spss-file-manipulation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4132"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-ibm-spss-file-manipulation",
+      "x_craftedsignal_event_id": "brief-2026-10-23-ibm-spss-file-manipulation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ibm-spss-file-manipulation/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:03:42.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fd34a60b-36a0-5a79-934f-dd1f9fd3a0e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:02:40.000Z",
@@ -121572,6 +121848,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--370e472a-c988-557f-8d0d-9343a61e6a5c",
+      "name": "VeloCloud Orchestrator",
+      "vendor": "Arista"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3731fc47-7b75-5f30-a870-7bb07c7cd11e",
       "name": "XClarity Controller 3",
       "vendor": "Lenovo"
@@ -124539,6 +124822,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--74d736ca-38a9-509e-872e-7f495f5842d8",
+      "name": "expat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--74e0560c-0d76-5eb6-b117-4f7c67ff7747",
       "name": "Meraki MX (\u003c 3.12.4.0)",
       "vendor": "Cisco"
@@ -124576,6 +124865,13 @@
       "id": "software--7576b640-1d7b-54e0-a666-d481bc9f3ffb",
       "name": "PyMongo (3.5.0 - 4.18.1)",
       "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--75987235-010c-5fdb-a573-fc7750ba763f",
+      "name": "Android (16.0)",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -124977,6 +125273,13 @@
       "id": "software--7f78aa42-9f3a-51e4-a67c-9df626fb8f14",
       "name": "DHP-W610AV (1.02EUb03)",
       "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
+      "name": "rsyslog",
+      "vendor": "Rsyslog"
     },
     {
       "type": "software",
@@ -126420,6 +126723,13 @@
       "id": "software--9d42f3d6-c058-5755-a04c-a217256b9575",
       "name": "Connect Secure (25.1.2.2 and older)",
       "vendor": "Ivanti"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9d665975-f63b-53b4-8159-14edb3f660a8",
+      "name": "SPSS Modeler",
+      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -128439,6 +128749,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c9ab29d6-febd-5b6f-b890-c3e0ac61d35c",
+      "name": "OpenProject",
+      "vendor": "OpenProject"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c9b45d74-7fdd-54eb-8683-4004f184b94c",
       "name": "FacturaScripts (\u003c 2026.7)",
       "vendor": "FacturaScripts"
@@ -128539,6 +128856,13 @@
       "spec_version": "2.1",
       "id": "software--cbcabbad-8526-523d-bc66-96e7a6732bb5",
       "name": "Node.js (\u003c 22.23.4, \u003c 24.22.1, \u003c 26.12.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cbf12f4e-04d8-53b7-abe8-0af656ccdae1",
+      "name": "Android (December 2024 Security Patch Level)",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -139946,6 +140270,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113658",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113658"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--71a8bf6a-4b57-50cc-ac3a-1c051c90deab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-0006",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-0006",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0006"
         }
       ]
     },
