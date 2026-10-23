@@ -1,19 +1,50 @@
 ---
+brief_id: brief-2026-10-connectwise-m365-compromise
+event_id: brief-2026-10-connectwise-m365-compromise
+revision: 2
+activity_at: "2026-10-23T06:53:33Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T06:53:33Z"
+    checksum: sha256:87f6ca39c80c552aaaeeeae2976a645d6fb6b32f6f7396605819776151e06b13
+    summary: added coverage for ConnectWise Cloud Backup +2 products
+    changed_fields:
+      - affected_products
+      - iocs
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html
 title: Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise Credentials
 slug: 2026-10-connectwise-m365-compromise
 description: Threat actors are exploiting a compromised service principal credential belonging to ConnectWise Cloud Backup to gain unauthorized access to 173 Microsoft 365 tenants and potentially escalate privileges.
 date: "2026-10-17T06:39:10Z"
-lastmod: "2026-10-19T21:24:25Z"
+lastmod: "2026-10-22T05:35:11Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Source documentation sufficient for tactical response
 tags:
   - cloud-security
   - supply-chain
   - identity-theft
   - m365
+  - storm-0940
+  - artex
 vendors:
   - ConnectWise
   - Microsoft
@@ -24,23 +55,24 @@ products:
   - ConnectWise Cloud Management
   - Microsoft 365
   - Microsoft Entra ID
+  - Exchange Online
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1078.004
-    technique_name: 'Valid Accounts: Cloud Accounts'
+    technique_name: Cloud Accounts
     evidence: The adversary has been observed authenticating to the app using their own tooling, in a manner analogous to the backup service.
     confidence_band: high
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1098.002
-    technique_name: 'Account Manipulation: Additional Cloud Credentials'
+    technique_name: Additional Email Delegate Permissions
     evidence: Adding a credential to an MSP management application can extend access beyond the one tenant.
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1136.003
-    technique_name: 'Create Account: Cloud Account'
+    technique_name: Cloud Account
     evidence: The ConnectWise Cloud Management app added itself to the Global Administrator role.
     confidence_band: high
   - tactic_id: TA0006
@@ -53,18 +85,48 @@ mitre_ttps:
     tactic_name: Initial Access
     technique_id: T1078
     technique_name: Valid Accounts
+    subtechnique_id: T1078.004
+    subtechnique_name: Cloud Accounts
     evidence: The attack is particularly dangerous as it allows an attacker to abuse the application's credentials to access customers' Microsoft 365 environments.
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1136
     technique_name: Create Account
+    subtechnique_id: T1136.003
+    subtechnique_name: Cloud Account
     evidence: The client secrets offer a way to authenticate as that application and establish persistence, providing an alternative means to regain access.
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078.004
+    technique_name: Cloud Accounts
+    evidence: the threat actor... has been observed... using compromised accounts to move through targeted environments.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1098.001
+    technique_name: Additional Cloud Credentials
+    evidence: It has also been observed establishing persistence by adding credentials to existing OAuth applications within cloud infrastructures
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1133
+    technique_name: External Remote Services
+    evidence: ConnectWise Cloud Backup supply chain compromise... acquire OAuth credentials, allowing them to authenticate into downstream client environments
+    confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1110.003
+    technique_name: Password Spraying
+    evidence: Storm-0940... has been leveraging a botnet... to conduct highly evasive password spray attacks.
     confidence_band: high
 references:
   - https://www.securityweek.com/connectwise-suspends-cloud-services-in-response-to-cyberattack/
   - https://therecord.media/connectwise-suspends-cloud-backup-service-supply-chain-attack
   - https://www.darkreading.com/identity-access-management-security/connectwise-disables-cloud-backups-downstream-msps
+  - https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html
+  - https://therecord.media/china-cyber-connectwise-ai
 iocs:
   - type: ip
     value: 144.172.64.128
@@ -114,6 +176,13 @@ updates:
       - dark-reading
     source_urls:
       - https://www.darkreading.com/identity-access-management-security/connectwise-disables-cloud-backups-downstream-msps
+  - at: "2026-10-22T05:35:11Z"
+    level: L2
+    summary: added coverage for ConnectWise Cloud Backup +2 products
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html
 ---
 
 Security researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. 

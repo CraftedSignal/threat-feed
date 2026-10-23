@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--91885949-afff-5bda-b2a0-1e01bd0388c5",
+  "id": "bundle--2813007d-7440-5327-86fc-e88c52646b05",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3622,19 +3622,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--626db5e4-b8e6-5b8b-92e8-2fc40b75b954",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "name": "ip: 144.172.64.60",
-      "description": "Malicious infrastructure used by ARTEX/Storm-0940",
-      "pattern": "[ipv4-addr:value = '144.172.64.60']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-17T10:28:56.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--69c10e62-bd26-5ee6-8b73-92cfb221f35d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T08:39:25.000Z",
@@ -4168,19 +4155,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--c444ea4c-d585-57de-933c-c1c5b0754a15",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "name": "ip: 144.172.64.128",
-      "description": "External hosting provider IP used to request unauthorized Microsoft Graph tokens",
-      "pattern": "[ipv4-addr:value = '144.172.64.128']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-17T10:28:56.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--c848f323-a4c4-5eb0-a490-e65cc45d74cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:02:59.000Z",
@@ -4346,19 +4320,6 @@
       "pattern": "[domain-name:value = '*.facebook.net']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--d8a07bea-b967-5c50-ae65-9fa9d567b0de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "name": "ip: 144.172.64.99",
-      "description": "Malicious infrastructure used by ARTEX/Storm-0940",
-      "pattern": "[ipv4-addr:value = '144.172.64.99']",
-      "pattern_type": "stix",
-      "valid_from": "2026-10-17T10:28:56.000Z"
     },
     {
       "type": "indicator",
@@ -4548,7 +4509,7 @@
       "id": "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
       "name": "ip: 144.172.64.128",
       "description": "Observed source of malicious authentication and Graph token requests",
       "pattern": "[ipv4-addr:value = '144.172.64.128']",
@@ -5422,17 +5383,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--04586437-541c-59d1-8a5b-9458f34e3bf4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--04920438-60cf-589f-80e7-1e4060a2bcb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:43:09.000Z",
@@ -6104,17 +6054,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--089e9bec-f222-5b53-9c78-e58ca8d7401a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57a5e8f1-d8d5-5942-af80-cfcbfe984576",
-      "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--08acd884-ed25-5153-9e63-18e933fb3dc9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6683,17 +6622,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f0a44e98-1e8b-53cd-b869-43838bc8a32f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0c3c4248-bb22-5174-a75d-5ce12caa7385",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57a5e8f1-d8d5-5942-af80-cfcbfe984576",
-      "target_ref": "indicator--c444ea4c-d585-57de-933c-c1c5b0754a15"
     },
     {
       "type": "relationship",
@@ -14376,17 +14304,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3d56c695-f3e3-5117-849d-ece7ac4bc943",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
-      "target_ref": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3d7613f3-9aab-536f-8b6a-b38ef34b7ee9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:42:04.000Z",
@@ -15549,17 +15466,6 @@
       "relationship_type": "has",
       "source_ref": "software--06e38619-9983-596d-bbed-4a872c98e894",
       "target_ref": "vulnerability--c1a87005-c31e-5b94-8ecb-546e4bc42a72"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4426ede4-1420-5cec-af20-ad5bbbf24c11",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T19:54:29.000Z",
-      "modified": "2026-10-22T23:04:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
-      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
     },
     {
       "type": "relationship",
@@ -17056,17 +16962,6 @@
       "relationship_type": "has",
       "source_ref": "software--6d0523c9-431e-575b-b62a-931c486e4314",
       "target_ref": "vulnerability--dd4bfd34-8181-5ad2-99ee-9f20d3566c50"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4d2c2e1e-67b8-5341-8e02-dd69dffebe82",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57a5e8f1-d8d5-5942-af80-cfcbfe984576",
-      "target_ref": "indicator--626db5e4-b8e6-5b8b-92e8-2fc40b75b954"
     },
     {
       "type": "relationship",
@@ -19920,17 +19815,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5dedfa40-843a-5395-ab91-484e37fa2f78",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T19:54:29.000Z",
-      "modified": "2026-10-22T23:04:55.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
-      "target_ref": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5e0955a5-34d7-5cbe-a26a-329d27386b60",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T14:55:49.000Z",
@@ -21001,7 +20885,7 @@
       "id": "relationship--650371aa-7ba4-5f33-a9b9-30aacfd9b48a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a"
@@ -21386,7 +21270,7 @@
       "id": "relationship--6718d2ee-26c7-5051-a91a-5834d5c360ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
@@ -22226,17 +22110,6 @@
       "relationship_type": "has",
       "source_ref": "software--93388c38-9a01-516b-bb7f-d8ff2322cffa",
       "target_ref": "vulnerability--65b49753-1b91-55cd-b48a-7a57d549c184"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6cda2e75-f741-5b8f-80d2-981feb208211",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57a5e8f1-d8d5-5942-af80-cfcbfe984576",
-      "target_ref": "indicator--d8a07bea-b967-5c50-ae65-9fa9d567b0de"
     },
     {
       "type": "relationship",
@@ -25541,17 +25414,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--800f5bea-7805-590a-a7a3-75f7f1d66490",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T19:54:29.000Z",
-      "modified": "2026-10-22T23:04:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--800f8b5d-31ba-5dc5-b76c-135de2a19987",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -28357,6 +28219,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--91d0d18d-3757-5b7b-9e21-400768c608dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-17T06:39:10.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
+      "target_ref": "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9207c110-ff1a-5504-8d19-2ffd32389fc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T18:03:39.000Z",
@@ -28815,17 +28688,6 @@
       "relationship_type": "uses",
       "source_ref": "report--37499e17-c6ce-5140-b70b-0c970fa9adec",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--944a12b0-0a38-50c6-a0e4-897f794ab4ab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T19:54:29.000Z",
-      "modified": "2026-10-22T23:04:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
-      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
     },
     {
       "type": "relationship",
@@ -29988,7 +29850,7 @@
       "id": "relationship--9b2b2bcf-5f5c-548f-b28b-c1856f7dcfb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a"
@@ -30256,17 +30118,6 @@
       "relationship_type": "has",
       "source_ref": "software--454f33c2-2a93-5223-9706-e2f490cee12e",
       "target_ref": "vulnerability--8746432f-2d8b-58f0-bcb8-f89ecb8aa13c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9c1f1d42-8e70-5310-9626-6561f78a02e4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57a5e8f1-d8d5-5942-af80-cfcbfe984576",
-      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
     },
     {
       "type": "relationship",
@@ -34715,6 +34566,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b7e78e93-1c99-5527-b1d9-ad8bcc518d4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-17T06:39:10.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
+      "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b7eb362a-38f7-5147-b6be-6247e68bb2de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:05:59.000Z",
@@ -39126,17 +38988,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d28498fe-664f-5c71-baa8-180e2cedbb9c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57a5e8f1-d8d5-5942-af80-cfcbfe984576",
-      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d286810a-4522-54a2-bde0-2e0669a6ba87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42110,7 +41961,7 @@
       "id": "relationship--e2f58c84-8299-5ceb-a437-52b15f4dae40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -43166,7 +43017,7 @@
       "id": "relationship--e8371281-2dd6-511e-9df9-2418b60fe056",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
@@ -43643,6 +43494,17 @@
       "relationship_type": "has",
       "source_ref": "software--be0294a1-b411-5810-ae2e-0ca40b871baf",
       "target_ref": "vulnerability--8a76307b-9231-5111-af68-b5b2d0c54d21"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eae046f2-2d3a-5bd7-9e4d-552375afb18a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-17T06:39:10.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
+      "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
     },
     {
       "type": "relationship",
@@ -69989,62 +69851,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--57a5e8f1-d8d5-5942-af80-cfcbfe984576",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-17T10:28:56.000Z",
-      "modified": "2026-10-22T19:42:21.000Z",
-      "name": "Unauthorized Access via Compromised ConnectWise M365 Vendor Credentials",
-      "description": "## Overview\n\nThreat actors have obtained API secret credentials for ConnectWise Cloud Backup (formerly SkyKick) and ConnectWise Cloud Management - MS Teams applications. These credentials allow attackers to impersonate these legitimate service provider applications to authenticate into customer Microsoft 365 tenants. Because these applications are granted broad permissions to interact with Exchange, OneDrive, SharePoint, and Entra ID data, the compromise provides attackers with extensive read/write access. Observed activity beginning October 15, 2026, involves automated scripts iterating through target tenants to request Microsoft Graph tokens. Attackers have been observed using these elevated permissions to grant themselves Global Administrator roles and add malicious credentials to other applications within the target tenant, creating a persistent backdoor independent of the initial compromised integration.\n\n## Attack Chain\n\n1. Attackers obtain valid API client assertions for ConnectWise service applications via a breach of the vendor infrastructure.\n2. Attackers perform automated authentication to customer Microsoft 365 tenants using the compromised application identities from a hosting provider IP (144.172.64.128).\n3. Attackers acquire Microsoft Graph API tokens with the permissions historically consented to the ConnectWise applications.\n4. Attackers leverage the compromised app's directory permissions to escalate their privilege level to Global Administrator.\n5. Attackers create new credentials for existing, unrelated applications within the tenant to ensure long-term persistence.\n6. Attackers potentially exfiltrate sensitive data from mailboxes, OneDrive, and SharePoint repositories.\n\n## Impact\n\nAt least 162 M365 tenants have been confirmed compromised as of October 16, 2026. The compromise allows attackers to read and potentially exfiltrate sensitive directory, email, and document data. The establishment of persistence via new application credentials means that even if the initial ConnectWise integration is disabled, the attacker maintains unauthorized access until the newly added fraudulent credentials are removed.\n\n## Recommendation\n\n1. Immediately disable the affected ConnectWise applications (App IDs: 506e08f9-6e9a-4da4-942b-a099a03644ae and 24205314-2b89-4e07-a2a4-579e898a5640) in your Microsoft 365 environment.\n2. Perform a comprehensive audit of all applications in the Entra ID portal to identify and remove any unauthorized credentials added recently.\n3. Review Microsoft Entra sign-in logs for any API-based authentication attempts originating from the identified malicious IP 144.172.64.128.\n4. Ensure all newly added credentials for high-privilege applications are thoroughly vetted and approved by internal security teams.\n",
-      "published": "2026-10-17T10:28:56.000Z",
-      "labels": [
-        "cloud-security",
-        "identity-compromise",
-        "m365",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
-        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
-        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--626db5e4-b8e6-5b8b-92e8-2fc40b75b954",
-        "indicator--c444ea4c-d585-57de-933c-c1c5b0754a15",
-        "indicator--d8a07bea-b967-5c50-ae65-9fa9d567b0de",
-        "software--bd2024a1-1488-51f4-addb-4b68cc724cd6",
-        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
-        "software--dce94d01-8cba-51dd-b913-f828d29c2ae4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-connectwise-m365-abuse",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-connectwise-m365-abuse/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-connectwise-m365-abuse",
-      "x_craftedsignal_event_id": "brief-2026-10-connectwise-m365-abuse",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-connectwise-m365-abuse/",
-      "x_craftedsignal_activity_at": "2026-10-22T19:42:21.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--57be9c9d-29b4-511c-bf09-19368003d560",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T23:49:08.000Z",
@@ -74154,26 +73960,30 @@
       "id": "report--63383a56-6ddc-5b1d-8e49-b42ae3be14c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
-      "modified": "2026-10-19T21:24:25.000Z",
+      "modified": "2026-10-23T06:53:33.000Z",
       "name": "Unauthorized Access to Microsoft 365 Tenants via Compromised ConnectWise Credentials",
       "description": "## Overview\n\nSecurity researchers have identified an active campaign where unknown threat actors are leveraging a compromised Microsoft 365 (M365) service principal credential associated with ConnectWise Cloud Backup (formerly SkyKick) to access customer environments. The compromised application holds extensive permissions to mailboxes, OneDrive, SharePoint, Teams, and directory data. The attackers have been observed moving through impacted tenants in a scripted manner, obtaining Microsoft Graph tokens to facilitate unauthorized data access. \n\nIn addition to direct data access, the threat actors have demonstrated the ability to escalate privileges within affected tenants by modifying application configurations and adding new client secrets to other highly privileged MSP management and security applications. This activity effectively persists the actor's presence and expands their reach across the MSP's downstream client base. ConnectWise has temporarily suspended application access while investigating the breach. Defenders should prioritize auditing Entra ID sign-in and audit logs for the specified application IDs and unauthorized activities occurring from known attacker infrastructure.\n\n## Attack Chain\n\n1. Attacker gains access to the ConnectWise Cloud Backup service principal credential via an undisclosed method.\n2. Actor authenticates to Microsoft Graph as the compromised ConnectWise Cloud Backup application using the stolen credential.\n3. Attacker uses the app's inherited permissions to access sensitive organizational data, including Exchange mailboxes, SharePoint, and OneDrive files.\n4. Actor interacts with Entra ID to assign the application Global Administrator privileges.\n5. Actor uses the application context to identify other trusted, privileged MSP or security management applications installed in the tenant.\n6. Actor executes scripts (observed using Python-urllib/3.12 user-agent) to add new client secrets to these trusted applications.\n7. Actor leverages the new client secrets to facilitate long-term persistence and facilitate movement into other downstream customer tenants.\n\n## Impact\n\nAt least 173 Microsoft 365 customer tenants have been confirmed as compromised. The attack allows for unauthorized access to sensitive mailboxes, SharePoint/OneDrive files, and directory data. Furthermore, the ability to inject credentials into security and MSP management tools creates a high risk of supply chain contamination, potentially allowing the attacker to pivot from a single compromised tenant into the MSP's entire client base.\n\n## Recommendation\n\n* Disable the ConnectWise Cloud Backup (App ID: 506e08f9-6e9a-4da4-942b-a099a03644ae) and ConnectWise Cloud Management app (App ID: 24205314-2b89-4e07-a2a4-579e898a5640) in your Entra ID environment until confirmed safe by the vendor.\n* Audit Entra audit logs for any unauthorized modification of application credentials or role assignments involving the specified App IDs since October 13, 2026.\n* Block the IP address 144.172.64.128 at the network perimeter or within cloud conditional access policies as it has been identified as a source of malicious authentication activity.\n* Enable and review Microsoft Graph activity logs for abnormal data access patterns or unauthorized token requests.\n* Perform a credential rotation for all MSP and security-related applications that may have been accessed or modified by the ConnectWise service principal.\n",
       "published": "2026-10-17T06:39:10.000Z",
       "labels": [
+        "artex",
         "cloud-security",
         "identity-theft",
         "m365",
+        "storm-0940",
         "supply-chain"
       ],
       "object_refs": [
+        "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
         "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
         "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874",
+        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
         "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
+        "attack-pattern--e051365d-4c28-5c94-afb1-0ddd8a074fea",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "indicator--f7e1d1e6-0361-504a-9a22-84090f5f3a8a",
         "software--3309b0bb-1325-5005-8b9b-d8032f791256",
+        "software--66b7471f-1051-54fa-8415-87b792c4fc53",
         "software--776551c5-792e-5921-81de-9db160939364",
         "software--8d2502d2-ca6a-518a-b301-216cd1ee97c5",
         "software--adec0406-a0d9-50a6-ae86-24e2a775687e",
@@ -74185,6 +73995,14 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-connectwise-m365-compromise",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-connectwise-m365-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://therecord.media/china-cyber-connectwise-ai"
         },
         {
           "source_name": "reference",
@@ -74202,9 +74020,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-connectwise-m365-compromise",
       "x_craftedsignal_event_id": "brief-2026-10-connectwise-m365-compromise",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-connectwise-m365-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-19T21:24:25.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T06:53:33.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -82334,80 +82152,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--83f2f024-d164-5f45-aba0-92be6d90aabe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-21T19:54:29.000Z",
-      "modified": "2026-10-22T23:04:55.000Z",
-      "name": "Storm-0940 exploitation of ConnectWise Cloud Backup",
-      "description": "## Overview\n\nMicrosoft has linked the threat actor Storm-0940 to a supply chain attack involving ConnectWise Cloud Backup. The attackers compromised application identities associated with the service to target downstream customer environments. The campaign, active since September 2026, utilized an agentic AI penetration-testing framework named ARTEX to automate reconnaissance, password spraying, and OAuth application abuse. The activity resulted in privileged access to over 2,250 Microsoft 365 tenants, with attackers performing follow-on operations via Microsoft Graph, including credential modifications and privilege escalations. ConnectWise has suspended the affected services, including Cloud Backup, SaaS Security, and Cloud Management, to facilitate investigation and restoration.\n\n## Attack Chain\n\n1. Compromise of ConnectWise application identities.\n2. Execution of the ARTEX agentic AI framework to manage automated operations.\n3. Reconnaissance and mass scanning of downstream customer Microsoft 365 tenants.\n4. Authentication to target tenants via compromised OAuth application credentials.\n5. Establishment of privileged cloud persistence and modification of application credentials.\n6. Privilege escalation and data access via Microsoft Graph API.\n\n## Impact\n\nThe campaign affected more than 2,250 Microsoft 365 customer tenants across several industries, including aerospace, manufacturing, chemicals, energy, defense, and financial services. Attackers achieved privileged cloud persistence in many organizations within three hours of initial targeting.\n\n## Recommendation\n\n- Immediately disable affected ConnectWise application connections in Microsoft 365 tenants as per vendor guidance.\n- Review Microsoft 365 audit logs for unauthorized OAuth application activity and changes to application credentials linked to ConnectWise.\n- Investigate Microsoft Graph API activity for suspicious reconnaissance, privilege escalation, or modification of application permissions.\n- Preserve all forensic logs and audit records prior to making any configuration changes in affected environments.\n- Verify backup coverage and recovery functionality independently after service restoration before re-establishing connections.\n",
-      "published": "2026-10-21T19:54:29.000Z",
-      "labels": [
-        "agentic-ai",
-        "ai-enabled",
-        "cloud-security",
-        "oauth-abuse",
-        "storm-0940",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839",
-        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0b7d7600-5de0-538d-a689-da77e5315594",
-        "software--80ad2385-e208-5b44-bd1f-839ee46b95e5",
-        "software--847b3a93-9edb-5b5f-9d32-75f10bb9ca95",
-        "software--97cad874-a8df-5335-a535-a9c9e331e2ad",
-        "software--c93f6b03-bd5c-53b2-bfd8-e36e4b1f97f8",
-        "software--faf424e5-7dbe-5b6f-b85c-9cbb1f19a508",
-        "threat-actor--a3909086-2413-5c37-9019-35041a26eb22"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-21-storm-0940-artex",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-storm-0940-artex/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://status.connectwise.com/pages/incident/619cf82551fec9053d612f09/6ad263692dc48705ab3da2cb"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.darkreading.com/cyberattacks-data-breaches/microsoft-storm-0940-connectwise-supply-chain-attack"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/blueteamsec/comments/1xby0w4/aidriven_largescale_nationstate_campaign_using/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.reddit.com/r/cybersecurity/comments/1xbvaem/aidriven_largescale_nationstate_campaign_using/"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-21-storm-0940-artex",
-      "x_craftedsignal_event_id": "brief-2026-10-21-storm-0940-artex",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-storm-0940-artex/",
-      "x_craftedsignal_activity_at": "2026-10-22T23:04:55.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "confirmed_active",
-        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
-        "observed_at": "2026-10-21T19:54:29.000Z",
-        "confidence": "medium"
-      },
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -117500,12 +117244,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0b7d7600-5de0-538d-a689-da77e5315594",
-      "name": "SaaS Security"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0b7eac48-9c11-5ab2-a061-4f6912fbb401",
       "name": "OpenSSL"
     },
@@ -121718,6 +121456,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--66b7471f-1051-54fa-8415-87b792c4fc53",
+      "name": "Exchange Online"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--66bfccde-a8d0-59cc-9a98-b95290d1b52b",
       "name": "@payloadcms/db-postgres (\u003c 3.73.0)",
       "vendor": "Payload"
@@ -122937,12 +122681,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--80ad2385-e208-5b44-bd1f-839ee46b95e5",
-      "name": "ConnectWise"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8118ad8b-8908-510d-b5eb-11dbfa02e32a",
       "name": "Video-stitch (\u003c 2.0.0-beta.1)",
       "vendor": "Video-stitch"
@@ -123204,12 +122942,6 @@
       "id": "software--844fbb10-8ecb-5e5f-a3c1-a63e0fcf5718",
       "name": "Quiz And Survey Master (\u003c= 11.2.7)",
       "vendor": "ExpressTech"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--847b3a93-9edb-5b5f-9d32-75f10bb9ca95",
-      "name": "ConnectWise Automate"
     },
     {
       "type": "software",
@@ -124057,12 +123789,6 @@
       "spec_version": "2.1",
       "id": "software--97229595-aa18-5d92-8c63-8dda6f4859b9",
       "name": "basic-ftp (\u003c= 6.2.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--97cad874-a8df-5335-a535-a9c9e331e2ad",
-      "name": "Cloud Management"
     },
     {
       "type": "software",
@@ -125699,12 +125425,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--bd2024a1-1488-51f4-addb-4b68cc724cd6",
-      "name": "ConnectWise Cloud Backup (\u003c= 2026-10-16)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--bd826e4f-fa30-527e-8d48-542a3c1b3159",
       "name": "markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)",
       "vendor": "markdown-it"
@@ -127096,12 +126816,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--dce94d01-8cba-51dd-b913-f828d29c2ae4",
-      "name": "ConnectWise Cloud Management - MS Teams (\u003c= 2026-10-16)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--dd03a442-38ed-531e-a3d0-fa047ced6d4e",
       "name": "Stormshield Network Security (versions \u003c 4.8.20 LTSB)",
       "vendor": "Stormshield"
@@ -128329,12 +128043,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--faf424e5-7dbe-5b6f-b85c-9cbb1f19a508",
-      "name": "Cloud Backup"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fb166def-27cd-56bc-8ed0-362a9378128b",
       "name": "Grav (2.0.0-rc.8 - 2.2.1)",
       "vendor": "Grav"
@@ -128680,15 +128388,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Wizard Spider"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--a3909086-2413-5c37-9019-35041a26eb22",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Storm-0940"
     },
     {
       "type": "threat-actor",
