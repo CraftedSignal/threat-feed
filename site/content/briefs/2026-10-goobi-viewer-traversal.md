@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-23-goobi-viewer-traversal
 event_id: brief-2026-10-23-goobi-viewer-traversal
-revision: 1
-activity_at: "2026-10-23T15:43:28Z"
+revision: 2
+activity_at: "2026-10-23T16:39:11Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T16:39:11Z"
+    checksum: sha256:f6748acad5ce779bd859245e08bec0ebead30ebba49f1636772c388347cf5613
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-46652&utm_source=rss&utm_medium=rss
 title: 'Goobi viewer: Arbitrary file write and remote code execution (CVE-2026-46652)'
 slug: 2026-10-goobi-viewer-traversal
 description: Goobi viewer versions 24.03 to 26.04 contain a path traversal vulnerability allowing remote code execution via a malicious Content-Disposition header in external file downloads.
 date: "2026-10-23T15:43:28Z"
+lastmod: "2026-10-23T16:38:36Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +37,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:goobi:goobi_viewer:24.03:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-46652&utm_source=rss&utm_medium=rss
 tags:
   - path-traversal
   - rce
@@ -45,6 +62,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46652
+  - https://sploitus.com/exploit?id=CVE-2026-46652&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -71,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-46652
       evidence: This issue has been patched in version 26.05.
+updates:
+  - at: "2026-10-23T16:38:36Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-46652&utm_source=rss&utm_medium=rss
 ---
 
 Goobi viewer versions 24.03 through 26.04 are vulnerable to path traversal via the `ExternalFilesDownloader.getFilename()` component. The application fails to sanitize the filename extracted from the `Content-Disposition` header provided by an external HTTP server, passing it directly to `Path.resolve()`. An attacker controlling an external resource can supply absolute paths or directory traversal sequences (e.g., ../) to write files to arbitrary locations writable by the Tomcat process. Exploitation targeting the web application directory results in remote code execution as the Tomcat user. This vulnerability is addressed in version 26.05.

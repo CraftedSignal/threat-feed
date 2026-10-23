@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-ahsay-cbs-rce
 event_id: brief-2026-10-ahsay-cbs-rce
-revision: 5
-activity_at: "2026-10-23T15:41:17Z"
+revision: 6
+activity_at: "2026-10-23T16:39:11Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T09:22:30Z"
@@ -46,11 +46,20 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
+  - revision: 6
+    at: "2026-10-23T16:39:11Z"
+    checksum: sha256:18eaaf3e06c80d68c1181245ae249ac3daf35b63d07e4daef30754dbdbdabf1d
+    summary: new product
+    changed_fields:
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
 title: Unauthenticated Remote Code Execution in Ahsay AhsayCBS
 slug: 2026-10-ahsay-cbs-rce
 description: Ahsay AhsayCBS up to version 10.3.2 is vulnerable to unauthenticated remote OS command injection via the /rps/api/json/UpdateReceivers.do endpoint, enabling full system compromise.
 date: "2026-10-04T09:01:29Z"
-lastmod: "2026-10-23T15:40:23Z"
+lastmod: "2026-10-23T16:38:37Z"
 type: advisory
 types:
   - advisory
@@ -150,13 +159,6 @@ action_plan:
       addresses: CVE-2026-105134
       evidence: Upgrading to version 10.3.4 is able to resolve this issue.
 updates:
-  - at: "2026-10-09T10:40:25Z"
-    level: L1
-    summary: OS windows
-    sources:
-      - securityweek
-    source_urls:
-      - https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/
   - at: "2026-10-23T09:21:39Z"
     level: L1
     summary: new product
@@ -179,6 +181,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
   - at: "2026-10-23T15:40:23Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/ahsay-ahsaycbs-cve-2026-105134
+  - at: "2026-10-23T16:38:37Z"
     level: L1
     summary: new product
     sources:
