@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--814655cc-3cdd-5dd2-9eb4-c59ffb6d9746",
+  "id": "bundle--0d318221-05b8-5eb8-884b-8ded3a7127ce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10479,6 +10479,17 @@
       "relationship_type": "uses",
       "source_ref": "report--f4d0cf0e-8558-5f4d-831f-e6391d85151f",
       "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1ade9172-7575-59ec-9c8d-a17bd2127c0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T04:06:05.000Z",
+      "modified": "2026-10-23T04:06:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--17fb1a20-718f-5485-88fa-3416aa29cacd",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -64108,6 +64119,54 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99931,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--17fb1a20-718f-5485-88fa-3416aa29cacd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T04:06:05.000Z",
+      "modified": "2026-10-23T04:06:05.000Z",
+      "name": "Plone: Unauthenticated user enumeration via plone.app.content",
+      "description": "## Overview\n\nThe Plone security team has disclosed an information disclosure vulnerability in `plone.app.content` (GHSA-vhwp-qc29-j4xp). The flaw permits unauthenticated users to list all users and groups registered on a Plone site. The leaked information includes specific user IDs and full names. The vulnerability affects Plone installations where the Plone REST API is enabled.\n\n## Impact\n\nSuccessful exploitation allows for the enumeration of organizational user directories, providing an attacker with a list of valid usernames that can be used for subsequent password spraying, phishing, or targeted social engineering campaigns.\n\n## Recommendation\n\n- Identify all Plone instances running `plone.app.content` and verify if the REST API is exposed.\n- Review the security advisory at https://github.com/plone/plone.app.content/security/advisories/GHSA-vhwp-qc29-j4xp for specific patching instructions and version updates.\n- Apply the vendor-provided patch or upgrade to the non-vulnerable version as specified in the advisory.\n",
+      "published": "2026-10-23T04:06:05.000Z",
+      "labels": [
+        "information-disclosure",
+        "reconnaissance",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--24a2cd5e-ae3d-56bd-9b40-c39a9b6cb05c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-plone-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-plone-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/plone/plone.app.content/security/advisories/GHSA-vhwp-qc29-j4xp"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/334"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-plone-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-10-23-plone-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-plone-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-10-23T04:06:05.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -144949,6 +145008,13 @@
       "id": "software--24911e18-b046-5833-b4d4-870844acf1a9",
       "name": "Simple Membership (\u003c= 4.8.3)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--24a2cd5e-ae3d-56bd-9b40-c39a9b6cb05c",
+      "name": "plone.app.content",
+      "vendor": "Plone"
     },
     {
       "type": "software",
