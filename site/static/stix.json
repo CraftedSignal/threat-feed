@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4ea4c5cb-fe70-5c6b-9134-4fa9d49eaaae",
+  "id": "bundle--6a27defc-7f6f-526a-8a52-fc63321e1f46",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10851,6 +10851,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1c38dc6b-d56f-5413-9d5d-238c2e7e8ee5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:43:25.000Z",
+      "modified": "2026-10-23T06:43:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e72625fa-b657-5af2-a949-79ac5cffa655",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1c470aa6-f38b-5169-9407-9fd3b83b2318",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13311,6 +13322,17 @@
       "relationship_type": "uses",
       "source_ref": "report--eaee12fe-bb07-5af9-872b-e6ad913788a2",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--29161b41-0ce7-5097-8ba3-d388cbad0a70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--55a7bfa7-d65b-58ca-b858-a03a07724137",
+      "target_ref": "vulnerability--62b41f97-cc69-5ba5-b932-fa61420fb097"
     },
     {
       "type": "relationship",
@@ -27769,6 +27791,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--718ad02d-e0cf-57c4-8e7d-e8d978464819",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--584f5333-4449-5b1e-9b3a-0fc90f6088ee",
+      "target_ref": "vulnerability--edb81e62-d8b1-577c-b183-7b2673dfaf6f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--718e16f7-3a7e-5599-a8b4-d4065900f97a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31300,17 +31333,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--81f8bf7a-1ea5-57d0-ad26-55fb381ba139",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4804e807-6003-5373-bd3f-493ca4cc64e3",
-      "target_ref": "vulnerability--7ba0d884-0446-5164-bbcb-c8de2d69c071"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--820037e3-3fb5-5fb7-b33c-c8881ed67e35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33430,6 +33452,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b4570d0c-c804-574c-8d69-913de74b37ef",
       "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8be384f8-ea71-512c-b32d-48b7895121f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:43:42.000Z",
+      "modified": "2026-10-23T06:43:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c39d2142-78be-5fac-bbb9-40048625df32",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -41735,17 +41768,6 @@
       "relationship_type": "has",
       "source_ref": "software--4b792a9d-1b2d-5828-9209-5c0e4ddb569b",
       "target_ref": "vulnerability--0bb290c8-1c7d-50ae-bb9b-1c1202617016"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b4fba0d7-bb0f-5d18-934d-63d0ae8cbbc6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T06:41:22.000Z",
-      "modified": "2026-09-23T16:43:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0e252b41-a8e4-5954-9792-7d0298cf62f5",
-      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
     },
     {
       "type": "relationship",
@@ -50975,17 +50997,6 @@
       "relationship_type": "uses",
       "source_ref": "report--21fe203d-31e3-5032-bd7f-ee29943cd08f",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e1439184-3eb3-5deb-af17-5142ffe83cf1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T06:41:22.000Z",
-      "modified": "2026-09-23T16:43:59.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0e252b41-a8e4-5954-9792-7d0298cf62f5",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -61809,60 +61820,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0e252b41-a8e4-5954-9792-7d0298cf62f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T06:41:22.000Z",
-      "modified": "2026-09-23T16:43:59.000Z",
-      "name": "Authorization Bypass Vulnerability in Photoview shareAlbum Mutation",
-      "description": "## Overview\n\nPhotoview versions 2.4.0 and earlier are affected by an authorization bypass vulnerability located in the shareAlbum GraphQL mutation. The vulnerability permits an authenticated user to perform a GraphQL request specifying an arbitrary album ID, even if that album does not belong to the requesting user. The application fails to validate ownership of the target album before processing the request, resulting in the generation of a functional share token. An attacker can leverage this to create persistent public access links for private albums, exposing sensitive photo collections and nested sub-albums to unauthorized parties without the owner's knowledge. This issue poses a significant risk to data privacy for users deploying Photoview in multi-user or shared environments.\n\n## Impact\n\nSuccessful exploitation allows for the complete unauthorized exposure of private media collections. Because the generated share tokens provide persistent access, an attacker retains control over the shared link, potentially leading to widespread data exfiltration if the albums contain sensitive personal content. The vulnerability affects all users running vulnerable instances of Photoview, impacting personal or organizational storage instances.\n\n## Recommendation\n\n1. Upgrade to the latest version of Photoview beyond 2.4.0 to resolve the authorization logic flaw.\n2. Audit current album share settings within the application to identify and revoke any suspicious or unauthorized tokens.\n3. Restrict access to the GraphQL endpoint for unauthorized users if immediate patching is not possible.\n",
-      "published": "2026-09-23T06:41:22.000Z",
-      "labels": [
-        "cve-2026-96673",
-        "graphql",
-        "sql-injection",
-        "vulnerability",
-        "web-application",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4804e807-6003-5373-bd3f-493ca4cc64e3",
-        "vulnerability--7ba0d884-0446-5164-bbcb-c8de2d69c071"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-photoview-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-photoview-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96271"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96673"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-photoview-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-23-photoview-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-photoview-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-23T16:43:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -99797,6 +99754,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--811b0d79-a610-5ad1-8153-c254458ebe00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:43:55.000Z",
+      "modified": "2026-10-23T06:43:55.000Z",
+      "name": "PHP: Information disclosure vulnerability",
+      "description": "## Overview\n\nThe BSI has reported an information disclosure vulnerability in PHP that can be exploited by a remote, unauthenticated attacker. As of this report, the vendor has not provided specific CVE identifiers, affected version ranges, or technical details regarding the exploit path. Further information is pending disclosure from the PHP development team.\n\n## Recommendation\n\n- Monitor the official PHP security advisory channels and the PHP website for the release of an updated version and associated technical details.\n- Audit web server configurations to ensure that PHP error reporting and information display settings (e.g., display_errors, expose_php) are configured to minimize information leakage.\n- Inventory all PHP-based applications within the environment to facilitate rapid patching once an affected version range is confirmed.\n",
+      "published": "2026-10-23T06:43:55.000Z",
+      "labels": [
+        "information-disclosure",
+        "php",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f8ad178d-b6f2-5642-a4d1-5134f66fc32f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-php-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-php-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2023-1506"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-php-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-10-23-php-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-10-23T06:43:55.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--81697a82-9f97-53b6-a79d-1fc9c374013f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T04:48:35.000Z",
@@ -123029,6 +123029,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c39d2142-78be-5fac-bbb9-40048625df32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:43:42.000Z",
+      "modified": "2026-10-23T06:43:42.000Z",
+      "name": "Coruna-like iOS exploit kit activity",
+      "description": "## Overview\nAnalysis of network traffic captured on 2026-10-16 identifies activity consistent with a Coruna-like exploit kit targeting iOS devices. The activity involves web-based delivery, leveraging HTML files and specific redirection patterns observed in packet captures. This activity is associated with recent reports regarding Coruna and DarkSword exploit kits.\n\n## Impact\nObserved traffic indicates potential unauthorized delivery of exploit payloads to iOS devices. While specific CVEs were not disclosed in this traffic analysis, the activity poses a risk of remote code execution or unauthorized device access.\n\n## Recommendation\n- Inventory iOS devices within the environment and ensure they are updated to the latest security baseline provided by Apple.\n- Review network egress logs for traffic patterns associated with known exploit kit redirectors.\n- Monitor for anomalous HTTP or HTTPS requests originating from iOS devices to untrusted or newly registered domains.\n- Analyze the provided PCAP and HTML artifacts from the source report in an isolated sandbox to identify environment-specific indicators of compromise.\n",
+      "published": "2026-10-23T06:43:42.000Z",
+      "labels": [
+        "exploit-kit",
+        "ios",
+        "web-traffic"
+      ],
+      "object_refs": [
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1de22a2e-dbab-5c28-9935-f041157ef735"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-coruna-like-ios-exploit",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-coruna-like-ios-exploit/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/2026-10-16-Coruna-like-and-DarkSword-exploit-kit-activity.txt"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.linkedin.com/posts/coruna-darksword-ugcPost-7518086916538507265-T0So/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.malware-traffic-analysis.net/2026/10/16/index.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://x.com/Unit42_Intel/status/2112321704148033732"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-coruna-like-ios-exploit",
+      "x_craftedsignal_event_id": "brief-2026-10-23-coruna-like-ios-exploit",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-coruna-like-ios-exploit/",
+      "x_craftedsignal_activity_at": "2026-10-23T06:43:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c3a1235a-1e9d-5352-a12f-33d62cfeeb49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-26T00:35:26.000Z",
@@ -135084,6 +135140,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e72625fa-b657-5af2-a949-79ac5cffa655",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:43:25.000Z",
+      "modified": "2026-10-23T06:43:25.000Z",
+      "name": "GStreamer libgstvideo heap buffer overflow (CVE-2026-86476)",
+      "description": "## Overview\nA heap buffer overflow vulnerability exists in the GStreamer `libgstvideo` component (specifically within `gst-plugins-base`), identified as CVE-2026-86476. The vulnerability stems from insufficient validation of `GstVideoMeta` structures when deserialized from untrusted `unixfd` peers. Attackers can provide fabricated plane strides within the metadata, leading to out-of-bounds reads and writes during frame processing. Proof-of-concept code demonstrates that these primitives can be used for information disclosure or heap-based remote code execution by overwriting function pointers.\n\n## Attack Chain\n1. An attacker establishes a connection with a target process over a `unixfd` transport.\n2. The attacker sends a serialized `GstVideoMeta` structure containing intentionally oversized or negative plane strides.\n3. The target receiver deserializes the malicious meta-data without performing range checks against the backing buffer size.\n4. The target process maps the frame, with `default_map()` failing to validate the geometry against the actual memory allocation.\n5. During subsequent processing (e.g., in `videoconvert`), the system performs `memcpy` or ORC kernel operations based on the attacker-controlled strides.\n6. Memory operations occur outside the buffer boundaries, resulting in either a crash (read) or corruption of adjacent heap objects (write).\n7. The attacker leverages the write primitive to overwrite function pointers in a neighbouring `GstMiniObject`.\n8. The application is triggered to call the corrupted pointer, redirecting control flow to attacker-supplied logic (e.g., `system()`).\n\n## Impact\nConfirmed impact includes out-of-bounds information disclosure and heap-based memory corruption. Demonstrations indicate potential for arbitrary code execution in pipelines that accept video buffers over `unixfd` from untrusted sources, particularly sandboxed decoders or portal-style privilege-boundary pipelines.\n\n## Recommendation\n- Inventory systems utilizing GStreamer `unixfdsrc` elements, specifically those handling media frames across process or privilege boundaries.\n- Apply security patches to GStreamer and dependent projects as soon as vendors release updates addressing the three validation points identified in the advisory: plane extent checks in `default_map()`, validation in the meta branch of `gst_video_frame_map_id()`, and range checks in `video_meta_deserialize()`.\n- Isolate media processing pipelines that consume data from untrusted sources to minimize the impact of potential memory corruption.\n",
+      "published": "2026-10-23T06:43:25.000Z",
+      "labels": [
+        "heap-overflow",
+        "memory-corruption",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--55a7bfa7-d65b-58ca-b858-a03a07724137",
+        "vulnerability--62b41f97-cc69-5ba5-b932-fa61420fb097"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-gstreamer-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gstreamer-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/0xSemizzz/CVE-2026-86476"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3FCE35B0-34B6-54F9-9C41-15CC8CFC9FD5\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-86476"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-gstreamer-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-23-gstreamer-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gstreamer-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-23T06:43:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_epss_max": 0.00209,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e739ca68-a264-51ab-8f0f-2f52ea7a3094",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:08:45.000Z",
@@ -135815,6 +135926,50 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e9032501-e6ed-5712-bb46-f39961b05bde",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T06:44:24.000Z",
+      "modified": "2026-10-23T06:44:24.000Z",
+      "name": "toml: Prototype pollution via ambiguous TOML key paths (CVE-2026-114142)",
+      "description": "The toml package (up to and including version 5.0.0) is susceptible to prototype pollution. The vulnerability arises from ambiguous key-path encoding where `quoteDottedString()` fails to escape double quotes, leading to path desynchronization. Combined with a table-array header that can clear security guards and a lack of `isOwnedContainer` checks during the `assign()` descent, an attacker can traverse into an object's prototype chain. Successfully crafting a specific TOML document allows for the injection of arbitrary properties into `Object.prototype`, which then become visible to every object in the Node.js process.\n",
+      "published": "2026-10-23T06:44:24.000Z",
+      "labels": [
+        "nodejs",
+        "prototype-pollution"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--584f5333-4449-5b1e-9b3a-0fc90f6088ee",
+        "vulnerability--edb81e62-d8b1-577c-b183-7b2673dfaf6f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-toml-node-prototype-pollution",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-toml-node-prototype-pollution/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-h895-cgqg-jf52"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-toml-node-prototype-pollution",
+      "x_craftedsignal_event_id": "brief-2026-10-23-toml-node-prototype-pollution",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-toml-node-prototype-pollution/",
+      "x_craftedsignal_activity_at": "2026-10-23T06:44:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_epss_max": 0.00315,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -144858,6 +145013,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1de22a2e-dbab-5c28-9935-f041157ef735",
+      "name": "iOS",
+      "vendor": "Apple"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1de2fc6e-6200-57c9-a293-59a01695e43a",
       "name": "Mobile VPN with SSL",
       "vendor": "WatchGuard"
@@ -147092,13 +147254,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4804e807-6003-5373-bd3f-493ca4cc64e3",
-      "name": "Photoview (\u003c= 2.4.0)",
-      "vendor": "Photoview"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--48685ecf-1af6-5136-ad4e-eeec9728c448",
       "name": "Lektor (3.3.14, 3.4.0b15)",
       "vendor": "Lektor"
@@ -147861,6 +148016,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--55a7bfa7-d65b-58ca-b858-a03a07724137",
+      "name": "libgstvideo (GStreamer 1.28.4 and earlier)",
+      "vendor": "GStreamer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--55c62f7b-697c-55d1-aa8f-7001c3e61507",
       "name": "CliInvoke (\u003e= 2.10.0, \u003c= 2.10.4)",
       "vendor": "Alastair Lundy"
@@ -148003,6 +148165,12 @@
       "id": "software--5836dbb0-b1e2-53d3-9d2e-004878c3254a",
       "name": "NetWeaver",
       "vendor": "SAP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--584f5333-4449-5b1e-9b3a-0fc90f6088ee",
+      "name": "toml (\u003c= 5.0.0)"
     },
     {
       "type": "software",
@@ -157061,6 +157229,13 @@
       "id": "software--f8842165-1e48-5b0c-b992-cfab22de933e",
       "name": "Easycms (\u003c= 1.6)",
       "vendor": "Easycms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f8ad178d-b6f2-5642-a4d1-5134f66fc32f",
+      "name": "PHP",
+      "vendor": "PHP"
     },
     {
       "type": "software",
@@ -167213,6 +167388,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--62b41f97-cc69-5ba5-b932-fa61420fb097",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86476",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86476",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86476"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--62eef2ca-2167-5ce9-bf58-356672df8804",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -169175,22 +169366,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-95684",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95684"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7ba0d884-0446-5164-bbcb-c8de2d69c071",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96271",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96271",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96271"
         }
       ]
     },
@@ -180471,6 +180646,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-87091",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87091"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--edb81e62-d8b1-577c-b183-7b2673dfaf6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114142",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114142",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114142"
         }
       ]
     },
