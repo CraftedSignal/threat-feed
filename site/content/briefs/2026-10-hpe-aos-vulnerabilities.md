@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-23-hpe-aos-vulnerabilities
 event_id: brief-2026-10-23-hpe-aos-vulnerabilities
-revision: 2
-activity_at: "2026-10-23T15:41:17Z"
+revision: 3
+activity_at: "2026-10-23T16:41:12Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T15:41:17Z"
@@ -16,11 +16,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/hpe-aruba-aos-critical-rce-oct-2026
+  - revision: 3
+    at: "2026-10-23T16:41:12Z"
+    checksum: sha256:4ebc6aefb517787f7b7465aedd2fbe6796f97fcf8252214c95b146b274bf9b0e
+    summary: added CVE-2026-79847 +2
+    changed_fields:
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/hpe-aruba-aos-critical-rce-oct-2026
 title: HPE Networking Wireless Operating System Multiple Vulnerabilities
 slug: 2026-10-hpe-aos-vulnerabilities
 description: HPE has addressed multiple vulnerabilities affecting various versions of its Networking Wireless Operating Systems (AOS-10 and AOS-8) that require firmware updates.
 date: "2026-10-23T15:00:46Z"
-lastmod: "2026-10-23T15:40:37Z"
+lastmod: "2026-10-23T16:40:28Z"
 type: advisory
 types:
   - advisory
@@ -63,6 +73,18 @@ cves:
     cvss: 10
     epss: 0.00499
     kev_status: "false"
+  - id: CVE-2026-79847
+    cvss: 10
+    epss: 0.00499
+    kev_status: "false"
+  - id: CVE-2026-79848
+    cvss: 10
+    epss: 0.00539
+    kev_status: "false"
+  - id: CVE-2026-79849
+    cvss: 10
+    epss: 0.00539
+    kev_status: "false"
 references:
   - https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us&docLocale=en_US
   - https://support.hpe.com/connect/s/securitybulletinlibrary?language=en_US
@@ -85,6 +107,13 @@ updates:
   - at: "2026-10-23T15:40:37Z"
     level: L2
     summary: added CVE-2026-79844 +3
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/hpe-aruba-aos-critical-rce-oct-2026
+  - at: "2026-10-23T16:40:28Z"
+    level: L2
+    summary: added CVE-2026-79847 +2
     sources:
       - pwn-watch
     source_urls:

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--278eb58d-5d4c-55f3-9315-43a0a0760830",
+  "id": "bundle--8293b328-1146-5c94-b490-603925746959",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5648,6 +5648,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0df07516-ffb2-5715-98cd-e9655c54f35b",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--055e67df-9855-5195-8822-d9ee2d9f053f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "target_ref": "vulnerability--c66218c9-9d3b-56a2-ae49-bb58caabb210"
     },
     {
       "type": "relationship",
@@ -12369,6 +12380,17 @@
       "relationship_type": "uses",
       "source_ref": "report--35772d9b-47f4-52f5-8d26-91bf3a4dbdec",
       "target_ref": "indicator--cefe8978-47bd-52d8-8ed8-a395418d3381"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e9f68f4-da53-5cf1-9bd8-faa4bbfdf8fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "target_ref": "vulnerability--8626e6b3-0904-5314-95fb-c9b6a524ba26"
     },
     {
       "type": "relationship",
@@ -31696,6 +31718,17 @@
       "relationship_type": "has",
       "source_ref": "software--40bd4bc2-4045-5486-992e-26879dbd08df",
       "target_ref": "vulnerability--b9d2216c-3878-5d97-9b23-f35ec10a799f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a119f19f-7f43-5f96-b950-aa87ce554064",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "target_ref": "vulnerability--050f658d-9f2c-508a-b1fe-1795f1e0780e"
     },
     {
       "type": "relationship",
@@ -106725,7 +106758,7 @@
       "id": "report--cd8d203c-902d-563b-8686-561c6243394f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:00:46.000Z",
-      "modified": "2026-10-23T15:41:17.000Z",
+      "modified": "2026-10-23T16:41:12.000Z",
       "name": "HPE Networking Wireless Operating System Multiple Vulnerabilities",
       "description": "## Overview\n\nHPE has released a security advisory (HPESBNW05162) addressing multiple vulnerabilities affecting HPE Networking Wireless Operating Systems, specifically AOS-10 and AOS-8 releases. The vulnerabilities affect versions prior to 10.8.1.2, 10.7.2.7, 10.4.1.14, 8.13.3.1, and 8.10.0.24. Administrators should consult the linked security bulletin for specific remediation paths and patch availability.\n\n## Recommendation\n\n- Identify all instances of HPE Networking Wireless Operating Systems (AOS-10 and AOS-8) within the network environment.\n- Upgrade firmware to the following versions or later: 10.8.1.2, 10.7.2.7, 10.4.1.14, 8.13.3.1, or 8.10.0.24.\n- Monitor the HPE Security Bulletin Library for any additional disclosures or updates related to these advisory revisions.\n",
       "published": "2026-10-23T15:00:46.000Z",
@@ -106738,10 +106771,13 @@
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+        "vulnerability--050f658d-9f2c-508a-b1fe-1795f1e0780e",
         "vulnerability--4917a049-9b91-5950-ae46-a54826580b01",
         "vulnerability--5b70b9d7-a433-5af4-adc2-6cfc89f2d01c",
+        "vulnerability--8626e6b3-0904-5314-95fb-c9b6a524ba26",
         "vulnerability--896e1a79-1556-534d-820d-f98d1a261fe3",
-        "vulnerability--b2eed242-d90f-518e-969a-d64c07a97b8a"
+        "vulnerability--b2eed242-d90f-518e-969a-d64c07a97b8a",
+        "vulnerability--c66218c9-9d3b-56a2-ae49-bb58caabb210"
       ],
       "external_references": [
         {
@@ -106777,16 +106813,16 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-23-hpe-aos-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-23-hpe-aos-vulnerabilities",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hpe-aos-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-23T15:41:17.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T16:41:12.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.00499,
+      "x_craftedsignal_epss_max": 0.00539,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -133161,6 +133197,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--050f658d-9f2c-508a-b1fe-1795f1e0780e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79849",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79849",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79849"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--052a92b7-fd31-51a5-a8af-8bb1d6aeedd5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -143609,6 +143661,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8626e6b3-0904-5314-95fb-c9b6a524ba26",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79848",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79848",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79848"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--864ba025-523c-5b75-a976-7b26eeaab817",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -149155,6 +149223,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19218",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19218"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c66218c9-9d3b-56a2-ae49-bb58caabb210",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79847",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79847",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79847"
         }
       ]
     },
