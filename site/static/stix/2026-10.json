@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--455aee2f-cd11-55df-bca4-b84243dfce5c",
+  "id": "bundle--d9a6e021-202f-5369-a7ef-402449d71e0a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -112037,6 +112037,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ed2f9504-cf62-5204-ae3c-8d4d7cbe5c74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:17:54.000Z",
+      "modified": "2026-10-23T08:17:54.000Z",
+      "name": "Web Shell Detection: Script Process Child of Common Web Processes",
+      "description": "This rule identifies suspicious processes (e.g., cmd.exe, powershell.exe, wmic.exe, curl.exe) \nlaunched by common web server applications such as w3wp.exe, httpd.exe, nginx.exe, and others. \nSuch behavior may indicate the exploitation of a vulnerability and the presence of a web shell \nproviding remote access.\n\nFalse positives may occur during security audits, maintenance, or administrative scripting. \nLegitimacy should be evaluated by aligning parent context, child identity, command scope, \nservice identity, and available artifact/destination evidence.",
+      "published": "2026-10-23T08:17:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--508a9d87-0204-548e-8a63-aa43e1ef62b1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-web-shell-detection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-web-shell-detection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/windows/persistence_webshell_detection.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/security-labs/elastic-response-to-the-the-spring4shell-vulnerability-cve-2022-22965"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/security-labs/hunting-for-persistence-using-elastic-security-part-1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/security/blog/2020/02/04/ghost-in-the-shell-investigating-web-shell-attacks/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-web-shell-detection",
+      "x_craftedsignal_event_id": "brief-2026-10-23-web-shell-detection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-web-shell-detection/",
+      "x_craftedsignal_activity_at": "2026-10-23T08:17:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.99638,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ed4f1b79-45aa-5386-bfc1-a62121479145",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:44:04.000Z",
@@ -135178,6 +135230,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109360",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109360"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--508a9d87-0204-548e-8a63-aa43e1ef62b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-22965",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-22965",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22965"
         }
       ]
     },
