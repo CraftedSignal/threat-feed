@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--98582085-c3aa-58cf-ae6a-97ea0e63ef71",
+  "id": "bundle--df14ba5d-5325-5108-be65-cf92eb8fdb56",
   "objects": [
     {
       "type": "attack-pattern",
@@ -14008,6 +14008,17 @@
       "relationship_type": "uses",
       "source_ref": "report--34dbe8aa-4c5a-5799-ad9c-e13c89858219",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--391ca1a0-c1f0-5ae5-b5c9-f51fda20169f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:01:12.000Z",
+      "modified": "2026-10-23T15:01:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4fba956c-e172-577f-8258-81db3cccc434",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -69231,6 +69242,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4fba956c-e172-577f-8258-81db3cccc434",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:01:12.000Z",
+      "modified": "2026-10-23T15:01:12.000Z",
+      "name": "The Qt Company: Qt framework denial of service vulnerability",
+      "description": "## Overview\n\nA security vulnerability in the Qt framework has been identified, which allows a remote and anonymous attacker to cause a denial of service (DoS) condition on affected systems. The vulnerability impact is limited to service availability. No information regarding a CVE identifier or specific exploited vectors is currently available.\n\n## Impact\n\nSuccessful exploitation results in a denial of service, rendering applications built using the affected versions of the Qt framework unresponsive or unavailable.\n\n## Recommendation\n\nIdentify systems and applications within your infrastructure that utilize the Qt framework. Monitor official security bulletins from The Qt Company for patch availability and follow standard vendor software update procedures once a fix is released.\n",
+      "published": "2026-10-23T15:01:12.000Z",
+      "labels": [
+        "denial-of-service",
+        "framework-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--629158c6-9da4-5924-ba33-113ebe5db23d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-qt-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-qt-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4137"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-qt-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-23-qt-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-qt-dos/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:01:12.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4febdc7f-b94a-527d-b0f3-199250e0f27b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:37:28.000Z",
@@ -85911,6 +85965,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8b88869e-0479-5b1c-a551-95fdaf08f690",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:01:19.000Z",
+      "modified": "2026-10-23T15:01:19.000Z",
+      "name": "TianoCore EDK2: PXE driver remote code execution",
+      "description": "## Overview\n\nA vulnerability has been identified in the TianoCore EDK2 PXE driver. A remote, unauthenticated attacker can exploit this flaw to execute arbitrary code with Ring-0 privileges or cause a denial-of-service state. Details regarding the specific vulnerability mechanism and the affected version range remain limited; users are advised to monitor the official TianoCore EDK2 project resources for upcoming security patches.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution at the highest privilege level (Ring-0) on affected firmware, potentially leading to persistent system compromise or system instability via a denial-of-service condition.\n\n## Recommendation\n\n- Identify systems utilizing TianoCore EDK2 firmware, particularly those utilizing PXE for network booting.\n- Monitor the official TianoCore EDK2 project security announcements for patch availability and apply firmware updates as soon as they are released.\n- Implement network-level access controls to restrict access to PXE booting services to authorized management segments only.\n",
+      "published": "2026-10-23T15:01:19.000Z",
+      "labels": [
+        "dos",
+        "firmware",
+        "pxe",
+        "rce"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f790e910-c368-5c46-adf4-bab51a20a2d2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-tianocore-edk2-pxe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-tianocore-edk2-pxe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4136"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-tianocore-edk2-pxe",
+      "x_craftedsignal_event_id": "brief-2026-10-23-tianocore-edk2-pxe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tianocore-edk2-pxe/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:01:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8b906409-050b-5d7b-9940-3cec8ab1691a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T08:34:03.000Z",
@@ -95269,6 +95367,49 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-process-backgrounding/",
       "x_craftedsignal_activity_at": "2026-10-08T19:06:57.000Z",
       "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ab01a38d-7608-5284-b4fa-1c00b252c510",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:00:27.000Z",
+      "modified": "2026-10-23T15:00:27.000Z",
+      "name": "Oracle Fusion Middleware critical vulnerabilities",
+      "description": "## Overview\nMultiple critical vulnerabilities have been identified in Oracle Fusion Middleware, with some reaching a CVSS score of 10.0. The vulnerabilities allow for unauthenticated remote code execution, unauthorized data access, data modification, and privilege escalation. While there is currently no evidence of active exploitation, the NCSC assesses both the likelihood of exploitation and the potential impact as high. Users are advised to apply the latest security updates provided by Oracle immediately.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary code, gain unauthorized access to sensitive data, modify or delete information, and disrupt system operations. The severity is elevated by the potential for privilege escalation, granting attackers greater control over the targeted systems.\n\n## Recommendation\n- Inventory all systems running Oracle Fusion Middleware to identify affected versions.\n- Apply the latest security patches and updates provided by Oracle immediately.\n- If the version status is unknown, consult with internal IT teams or service providers to audit current deployments.\n- Review official Oracle security documentation for specific installation instructions and hardening guidance.\n",
+      "published": "2026-10-23T15:00:27.000Z",
+      "labels": [
+        "oracle",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c8415a30-9edc-5319-81a3-ed7b1d825085"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-oracle-fusion-middleware-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-fusion-middleware-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ncsc.nl/alerts/kwetsbaarheden-in-oracle-fusion-middleware-producten-update-nu"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-oracle-fusion-middleware-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-23-oracle-fusion-middleware-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-fusion-middleware-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:00:27.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -104995,6 +105136,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cd8d203c-902d-563b-8686-561c6243394f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:00:46.000Z",
+      "modified": "2026-10-23T15:00:46.000Z",
+      "name": "HPE Networking Wireless Operating System Multiple Vulnerabilities",
+      "description": "## Overview\n\nHPE has released a security advisory (HPESBNW05162) addressing multiple vulnerabilities affecting HPE Networking Wireless Operating Systems, specifically AOS-10 and AOS-8 releases. The vulnerabilities affect versions prior to 10.8.1.2, 10.7.2.7, 10.4.1.14, 8.13.3.1, and 8.10.0.24. Administrators should consult the linked security bulletin for specific remediation paths and patch availability.\n\n## Recommendation\n\n- Identify all instances of HPE Networking Wireless Operating Systems (AOS-10 and AOS-8) within the network environment.\n- Upgrade firmware to the following versions or later: 10.8.1.2, 10.7.2.7, 10.4.1.14, 8.13.3.1, or 8.10.0.24.\n- Monitor the HPE Security Bulletin Library for any additional disclosures or updates related to these advisory revisions.\n",
+      "published": "2026-10-23T15:00:46.000Z",
+      "labels": [
+        "informational",
+        "networking",
+        "patch-management",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--24d37cea-3d30-57cb-b3e6-3d1a47099247"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-hpe-aos-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-hpe-aos-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/hpe-security-advisory-av26-1079"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.hpe.com/connect/s/securitybulletinlibrary?language=en_US"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05162en_us\u0026docLocale=en_US"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-hpe-aos-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-23-hpe-aos-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hpe-aos-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:00:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cdb97d7b-ae17-5f7e-8127-505066a3f1f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T02:15:08.000Z",
@@ -110475,6 +110668,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e304f473-4ab7-5c4b-b204-8ace0bf560fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T15:00:39.000Z",
+      "modified": "2026-10-23T15:00:39.000Z",
+      "name": "Fortinet: Multiple product security updates",
+      "description": "## Overview\nFortinet has released security updates for multiple products to address vulnerabilities across their infrastructure stack. Administrators are directed to the official Fortinet PSIRT advisories to identify specific CVEs and impact details for their environment and to apply the required patches.\n\n## Recommendation\n- Audit all internet-facing and internal Fortinet appliances to determine current firmware versions.\n- Patch FortiAnalyzer, FortiAuthenticator, FortiMail, FortiManager, and FortiOS to the minimum versions listed in the affected products section.\n- Review the Fortinet PSIRT advisories linked in the reference section for specific vulnerability impact and risk assessment.\n",
+      "published": "2026-10-23T15:00:39.000Z",
+      "labels": [
+        "informational",
+        "network-security",
+        "product-news",
+        "vulnerability-management"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--03b24531-f76c-530c-b47d-73ffdc22b575",
+        "software--56b754d4-2e82-5a25-9774-3da2ef4946ff",
+        "software--621219ae-e263-548e-98f1-70945b7e393e",
+        "software--c48ceecd-648e-5f7c-8af7-5b18da090f32",
+        "software--d158191c-d0cc-53c0-9035-53774c7aadbb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-fortinet-security-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-fortinet-security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/fortinet-security-advisory-av26-1081"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-fortinet-security-updates",
+      "x_craftedsignal_event_id": "brief-2026-10-23-fortinet-security-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fortinet-security-updates/",
+      "x_craftedsignal_activity_at": "2026-10-23T15:00:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -118764,6 +119009,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--03b24531-f76c-530c-b47d-73ffdc22b575",
+      "name": "FortiManager (\u003c 8.0.2, \u003c 7.6.8, \u003c 7.4.12, \u003c 7.2.13)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--03cdf99e-83f9-5baf-b53d-4c6367e63079",
       "name": "Fisheye/Crucible (\u003c= 4.9.15)",
       "vendor": "Atlassian"
@@ -120579,6 +120831,13 @@
       "id": "software--24a2cd5e-ae3d-56bd-9b40-c39a9b6cb05c",
       "name": "plone.app.content",
       "vendor": "Plone"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--24d37cea-3d30-57cb-b3e6-3d1a47099247",
+      "name": "HPE Networking Wireless Operating Systems (AOS-10 \u003c 10.8.1.2, 10.7.2.7, 10.4.1.14; AOS-8 \u003c 8.13.3.1, 8.10.0.24)",
+      "vendor": "HPE"
     },
     {
       "type": "software",
@@ -122716,6 +122975,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--56b754d4-2e82-5a25-9774-3da2ef4946ff",
+      "name": "FortiAuthenticator (\u003c 8.0.4, \u003c 6.6.11)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--56dcbcb4-86e1-5e54-b76b-0c34e32c20df",
       "name": "FortiSandbox (\u003c 5.0.7, 5.2.x \u003c 5.2.2)",
       "vendor": "Fortinet"
@@ -123342,9 +123608,23 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--621219ae-e263-548e-98f1-70945b7e393e",
+      "name": "FortiOS (\u003c 8.0.2, \u003c 7.6.8, \u003c 7.4.13, \u003c 7.2.14)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--627a294f-9638-5d23-bca8-3220cf9293c7",
       "name": "Eventon Premium (\u003c 4.5.5)",
       "vendor": "Myeventon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--629158c6-9da4-5924-ba33-113ebe5db23d",
+      "name": "Qt",
+      "vendor": "The Qt Company"
     },
     {
       "type": "software",
@@ -127903,6 +128183,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c48ceecd-648e-5f7c-8af7-5b18da090f32",
+      "name": "FortiMail (\u003c 8.0.2, \u003c 7.6.7, \u003c 7.4.9, 7.2 branch requires upgrade to 7.4+)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c4bc0add-f88b-570b-9a06-e41ae9d1c6b1",
       "name": "Maximo Application Suite - Location Service for Esri Component (9.0, 9.1, 9.2)",
       "vendor": "IBM"
@@ -128065,6 +128352,13 @@
       "id": "software--c830dd0d-0b58-5d2e-902b-d9b8918436ec",
       "name": "@apostrophecms/import-export (\u003c= 3.6.2)",
       "vendor": "ApostropheCMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c8415a30-9edc-5319-81a3-ed7b1d825085",
+      "name": "Fusion Middleware",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -128495,6 +128789,13 @@
       "id": "software--d1445723-2c7f-55e8-b95d-6f4f3603bbb5",
       "name": "hydra-optuna-sweeper (\u003e= 1.4.0.dev4, \u003c 1.4.0.dev10)",
       "vendor": "Hydra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d158191c-d0cc-53c0-9035-53774c7aadbb",
+      "name": "FortiAnalyzer (\u003c 8.0.2, \u003c 7.6.8, \u003c 7.4.12, \u003c 7.2.13)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -130051,6 +130352,13 @@
       "id": "software--f75089a9-e7f6-51a6-a626-210076a57fc2",
       "name": "FortiMail (7.2.0-7.2.9)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f790e910-c368-5c46-adf4-bab51a20a2d2",
+      "name": "EDK2",
+      "vendor": "TianoCore"
     },
     {
       "type": "software",
