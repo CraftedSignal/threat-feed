@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3beaf6df-c694-54b6-9f90-4ea21c7abce1",
+  "id": "bundle--c7ac1ad1-f9e6-5ed9-9491-497a3e2dc323",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3791,7 +3791,7 @@
       "id": "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "name": "ip: 38.54.50.151",
       "description": "Source IP address observed in exploitation attempts",
       "pattern": "[ipv4-addr:value = '38.54.50.151']",
@@ -4051,7 +4051,7 @@
       "id": "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "name": "ip: 74.82.197.86",
       "description": "Source IP address observed in exploitation attempts",
       "pattern": "[ipv4-addr:value = '74.82.197.86']",
@@ -7204,17 +7204,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0a6a00c4-06e3-5580-82ff-b2688a48050a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--2555a6e1-61ec-5554-a8d4-62013945ef71",
-      "target_ref": "vulnerability--67bce507-9925-5c8f-8a9b-eece3c338788"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0a80b10e-e426-54d7-850e-b2d3c5f82621",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8194,17 +8183,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0fdef95d-bfc3-5575-a277-576cdcc54137",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T10:42:51.000Z",
-      "modified": "2026-09-23T10:42:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2088f07f-6ab3-5def-8f72-a514dd5b990d",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--0fe0951d-f55e-5066-a8d2-2f4648f46769",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8432,6 +8410,17 @@
       "relationship_type": "has",
       "source_ref": "software--77747765-c7e8-571b-8c59-165c7442e079",
       "target_ref": "vulnerability--b5cb2235-4c8c-58e7-997e-2aeae4126e06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--10c80949-098c-55fa-a8bd-bf60ed45d758",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--060171ab-1338-5c15-a798-b8f3fbdfd65a",
+      "target_ref": "vulnerability--21f88650-dad5-5bc7-83ed-51509e7528ea"
     },
     {
       "type": "relationship",
@@ -11706,7 +11695,7 @@
       "id": "relationship--20375294-24b3-5e32-beeb-524cae22cd06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T09:22:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -18530,6 +18519,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8548c358-907b-5ecd-9680-2eb0c1bff9c1",
       "target_ref": "attack-pattern--4230ce8d-554c-5b26-b7eb-d78999320c4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--434f0325-aac2-5736-992d-c96e20abee15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
     },
     {
       "type": "relationship",
@@ -25552,17 +25552,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--655220c7-6797-5edf-bbd7-0845e493e28e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T10:42:43.000Z",
-      "modified": "2026-09-23T10:42:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3fa08041-cfbb-5de2-94f0-cfb3e0de3129",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--657f4730-b263-5210-a285-683b88203e96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T10:36:27.000Z",
@@ -26534,7 +26523,7 @@
       "id": "relationship--6a228af2-c39e-5c77-a15d-b1241d3b8510",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T09:22:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -37017,7 +37006,7 @@
       "id": "relationship--9ce84b89-92a9-562f-bd3b-b399c9f9d171",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T09:22:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -40724,7 +40713,7 @@
       "id": "relationship--afafdee3-3eda-5563-9c45-9602fb3a04b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-23T09:22:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -42965,6 +42954,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ba27f3f3-26ad-5ce1-a14a-05eeff8915da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ba2e930e-594c-5ed4-8339-81ab1e5a9392",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44409,7 +44409,7 @@
       "id": "relationship--c1d6cb3f-ace7-5082-8f7b-a9d2cda9999a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "relationship_type": "uses",
       "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "target_ref": "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935"
@@ -47922,17 +47922,6 @@
       "relationship_type": "has",
       "source_ref": "software--6c79437d-8a47-5af2-8e60-4d7053e58f17",
       "target_ref": "vulnerability--b951ce32-1127-5798-8624-130a174b3232"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d1ac1042-acaf-5b0a-b078-5fbda87e53cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0551b834-180f-538a-8c56-76712733fb40",
-      "target_ref": "vulnerability--0e83d73d-22b5-5f80-a5d4-369f3a43fc04"
     },
     {
       "type": "relationship",
@@ -53693,7 +53682,7 @@
       "id": "relationship--eae5fc97-c7ef-5f50-ab81-5420570dcb5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "relationship_type": "uses",
       "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -57202,7 +57191,7 @@
       "id": "relationship--fc1b94e5-a0d0-58e0-82d3-bd089e7bf55b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "relationship_type": "uses",
       "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "target_ref": "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4"
@@ -68097,7 +68086,7 @@
       "id": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-23T09:22:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "name": "PHP: Two critical vulnerabilities ahead of scheduled security release",
       "description": "The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.\n\n## Detection opportunity\n\nHunt for PHP or web-server workers spawning shells, scripting runtimes, discovery commands, or network utilities. The [community Sigma rule for suspicious PHP child processes](https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8) offers a starting point across Linux, macOS, and Windows. It requires process creation telemetry with both parent and child executable paths; use command lines and nearby HTTP requests to investigate matches. Tune known application jobs that intentionally start command-line tools.\n\nThis is generic post-execution behavior. A match does not establish exploitation of CVE-2026-109618 or CVE-2026-109619, and execution that stays inside the PHP worker will not match this rule.\n\n## Recommendation\n\n- Identify deployed PHP runtimes and the public applications that depend on them so owners can patch promptly.\n- Watch the PHP security release for confirmed affected and fixed versions; test and roll out the relevant updates.\n- Treat claims that all PHP versions are affected or that unauthenticated remote code execution is confirmed as provisional until the vendor publishes technical details.",
       "published": "2026-10-21T07:58:58.000Z",
@@ -68111,6 +68100,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--0e0d0604-49ae-5ea6-994c-24173700cf34",
+        "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
         "software--3f3095e8-f0b8-57f2-a1ac-16537864ac5e",
         "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
         "vulnerability--34527698-11d8-5fea-9630-5c7137991077",
@@ -68206,9 +68196,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-php-critical-security-release",
       "x_craftedsignal_event_id": "brief-2026-10-21-php-critical-security-release",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/",
-      "x_craftedsignal_activity_at": "2026-10-23T09:22:30.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T11:27:22.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -68270,47 +68260,6 @@
       },
       "x_craftedsignal_epss_max": 0.00083,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2088f07f-6ab3-5def-8f72-a514dd5b990d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T10:42:51.000Z",
-      "modified": "2026-09-23T10:42:51.000Z",
-      "name": "SQL Injection in Rename wp-login.php WordPress Plugin",
-      "description": "## Overview\n\nThe 'Rename wp-login.php to anything you want' plugin for WordPress (all versions up to and including 2.0.1) contains a critical security vulnerability identified as CVE-2026-93368. The vulnerability is a time-based SQL injection occurring within the 'log' (username) parameter. The flaw stems from insufficient input sanitization and the application of WordPress core 'wp_unslash()' function on user-supplied data before it reaches the plugin's handler. By stripping backslash escaping, this function allows raw single quotes to reach the database query unimpeded. Unauthenticated attackers can leverage this to append malicious SQL queries to existing ones, potentially leading to unauthorized data exfiltration from the WordPress database. Given that the 'log' parameter is processed during login attempts, this provides an accessible vector for attackers to perform blind SQL injection attacks by measuring database response times.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to perform SQL injection against the underlying database. This could result in unauthorized access to sensitive information stored in the WordPress database, including user credentials, configuration data, and site content. Since the vulnerability does not require administrative privileges, any internet-facing WordPress site running this plugin version is at risk of information disclosure.\n\n## Recommendation\n\nImmediate action is required for all WordPress installations utilizing the 'Rename wp-login.php to anything you want' plugin.\n\n* Update the plugin to the latest version (patch for CVE-2026-93368) as soon as it is released by the developer.\n* If an update is unavailable, deactivate and uninstall the plugin to eliminate the vulnerable code path.\n* Implement Web Application Firewall (WAF) rules to inspect the 'log' parameter for common SQL injection characters (such as single quotes and sleep/benchmark functions) specifically targeting requests to the plugin's custom login endpoint.\n* Monitor web server logs for suspicious POST requests to the login page containing SQL injection patterns.\n",
-      "published": "2026-09-23T10:42:51.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0551b834-180f-538a-8c56-76712733fb40",
-        "vulnerability--0e83d73d-22b5-5f80-a5d4-369f3a43fc04"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-wordpress-sqli",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-wordpress-sqli/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93368"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-wordpress-sqli",
-      "x_craftedsignal_event_id": "brief-2026-09-23-wordpress-sqli",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-wordpress-sqli/",
-      "x_craftedsignal_activity_at": "2026-09-23T10:42:51.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -78006,53 +77955,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3fa08041-cfbb-5de2-94f0-cfb3e0de3129",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T10:42:43.000Z",
-      "modified": "2026-09-23T10:42:43.000Z",
-      "name": "Remote Code Execution in CGServiSign via OS Command Injection",
-      "description": "## Overview\n\nCGServiSign, developed by Changing, is susceptible to an OS command injection vulnerability identified as CVE-2026-15027. This vulnerability allows an unauthenticated remote attacker to execute arbitrary OS commands on a victim's computer. The attack vector involves enticing a user to navigate to a malicious webpage, which subsequently leverages the local service interface of the CGServiSign software to inject and execute system-level commands. Given that this interaction occurs through a local service interface exposed to the browser, it presents a significant risk to workstations running the software, as the injected commands inherit the privileges of the service process, likely resulting in full system compromise for the affected host.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-15027 results in remote code execution on the victim's host. This grants the attacker the ability to install persistent malware, exfiltrate sensitive data, or move laterally within the victim's network. The scope of impact is limited to systems where CGServiSign is installed and active.\n\n## Recommendation\n\n1. Inventory all endpoints to identify installations of Changing CGServiSign.\n2. Restrict external network access to the local service interface if possible, or isolate affected hosts until a security patch is provided by Changing.\n3. Implement endpoint monitoring to track unexpected child processes spawned by the CGServiSign service executable.\n\n## Impact\n\n- \n",
-      "published": "2026-09-23T10:42:43.000Z",
-      "labels": [
-        "command-injection",
-        "cve-2026-15027",
-        "remote-code-execution"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2555a6e1-61ec-5554-a8d4-62013945ef71",
-        "vulnerability--67bce507-9925-5c8f-8a9b-eece3c338788"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-cgservisign-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-cgservisign-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15027"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-cgservisign-rce",
-      "x_craftedsignal_event_id": "brief-2026-09-23-cgservisign-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cgservisign-rce/",
-      "x_craftedsignal_activity_at": "2026-09-23T10:42:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.02173,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -101511,7 +101413,7 @@
       "id": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T10:36:30.000Z",
-      "modified": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "name": "Arista VeloCloud Orchestrator: SQL Injection Privilege Escalation (CVE-2026-114625)",
       "description": "## Overview\n\nArista Networks has released security patches for CVE-2026-114625, a critical-severity SQL injection vulnerability in the VeloCloud Orchestrator (VCO) on-premises management tool. The vulnerability enables an authenticated user with low-level tenant role privileges to escalate to a superuser operator, granting unauthorized access to privileged internal functionality. Arista has confirmed active exploitation in the wild.\n\n## Impact\n\nSuccessful exploitation results in the compromise of the VCO host, allowing attackers to access internal-only management functionality, masquerade as a superuser, and impact the confidentiality, integrity, and availability of the orchestrator and its managed data.\n\n## Recommendation\n\n- Upgrade on-premises VCO installations immediately to version 5.2.3.18, 6.1.3.10, 6.4.2.12, or later.\n- Block inbound traffic from malicious IP addresses 74.82.197.86 and 38.54.50.151 at the network perimeter.\n- Review VCO web access, backend, and database logs for anomalous request patterns originating from existing authenticated sessions.\n- Restrict access to the VCO web interface to trusted management networks until patches are applied.\n",
       "published": "2026-10-23T10:36:30.000Z",
@@ -101520,6 +101422,7 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4",
         "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935",
+        "software--060171ab-1338-5c15-a798-b8f3fbdfd65a",
         "software--88585bd7-4235-5f3b-b66f-63fdccbf74b4",
         "vulnerability--21f88650-dad5-5bc7-83ed-51509e7528ea"
       ],
@@ -101531,15 +101434,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://advisories.ncsc.nl/2026/ncsc-2026-0385.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114625"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/arista-velocloud-orchestrator-cve-2026-114625"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-23-velocloud-orchestrator-sqli",
       "x_craftedsignal_event_id": "brief-2026-10-23-velocloud-orchestrator-sqli",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-velocloud-orchestrator-sqli/",
-      "x_craftedsignal_activity_at": "2026-10-23T10:36:30.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T11:27:22.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -129624,7 +129539,7 @@
       "id": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T09:22:30.000Z",
+      "modified": "2026-10-23T11:27:22.000Z",
       "name": "Unauthenticated Remote Code Execution in Ahsay AhsayCBS",
       "description": "## Overview\n\nAhsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated remote attacker to execute arbitrary system commands, leading to full server compromise, data exfiltration, or deployment of additional malicious payloads such as ransomware. The impact is critical, affecting any environment where AhsayCBS is exposed to the network.\n\n## Recommendation\n\n- Upgrade all instances of AhsayCBS to version 10.3.4 or later immediately.\n- Apply the rules below to identify exploitation attempts targeting the identified API endpoint.\n- Restrict network access to the AhsayCBS management interface to trusted IP addresses only, especially for the Replication Receiver component.\n",
       "published": "2026-10-04T09:01:29.000Z",
@@ -129678,9 +129593,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-ahsay-cbs-rce",
       "x_craftedsignal_event_id": "brief-2026-10-ahsay-cbs-rce",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ahsay-cbs-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T09:22:30.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T11:27:22.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -144241,13 +144156,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0551b834-180f-538a-8c56-76712733fb40",
-      "name": "Rename wp-login.php to anything you want (\u003c= 2.0.1)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--05a23a42-4c9b-5822-9807-1110256f7ca6",
       "name": "Microsoft 365 Apps",
       "vendor": "Microsoft"
@@ -144265,6 +144173,13 @@
       "id": "software--05cb5578-9da9-558a-894a-bab5a6b58fb7",
       "name": "Square Squash (\u003c= e73f280)",
       "vendor": "Square"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--060171ab-1338-5c15-a798-b8f3fbdfd65a",
+      "name": "VeloCloud Orchestrator (\u003c 5.2.3.18, \u003c 6.1.3.10, \u003c 6.4.2.12)",
+      "vendor": "Arista"
     },
     {
       "type": "software",
@@ -145826,6 +145741,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
+      "name": "PHP (5.4 through 8.5.11)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1bdc4fcd-5a54-5f6a-947a-7f1d2efb344b",
       "name": "TEW-752DRU (1.03B01/1.03B03)",
       "vendor": "TRENDnet"
@@ -146304,13 +146226,6 @@
       "id": "software--2512724c-2baf-5951-94d6-bfc03ed6df31",
       "name": "The EU VAT Assistant for WooCommerce (\u003c= 2.1.30.260413)",
       "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--2555a6e1-61ec-5554-a8d4-62013945ef71",
-      "name": "CGServiSign",
-      "vendor": "Changing"
     },
     {
       "type": "software",
@@ -160067,22 +159982,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--0e83d73d-22b5-5f80-a5d4-369f3a43fc04",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-93368",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-93368",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93368"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--0e9fae70-5c9e-59c9-a68b-8fe52dc7f987",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -168941,22 +168840,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109157",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109157"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--67bce507-9925-5c8f-8a9b-eece3c338788",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15027",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15027",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15027"
         }
       ]
     },

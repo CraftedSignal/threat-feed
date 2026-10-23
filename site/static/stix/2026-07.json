@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2c09f11f-d11a-5561-ad19-fb1eec546536",
+  "id": "bundle--553795ac-4ec0-514d-9298-143e4e2b1833",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1970,18 +1970,6 @@
       "pattern": "[domain-name:value = 'minerxmr.ru']",
       "pattern_type": "stix",
       "valid_from": "2026-07-27T16:39:09.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--06ba8e5b-bb4e-57ff-9837-8828c01f064e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "name": "url: https://sploitus.com/exploit?id=966D5755-38DD-590D-A412-4BFEABA9FEE1",
-      "pattern": "[url:value = 'https://sploitus.com/exploit?id=966D5755-38DD-590D-A412-4BFEABA9FEE1']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-25T11:19:14.000Z"
     },
     {
       "type": "indicator",
@@ -6015,18 +6003,6 @@
       "pattern": "[domain-name:value = 'pool.4i7i.com']",
       "pattern_type": "stix",
       "valid_from": "2026-07-27T16:39:09.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--b8148baa-327f-5889-af15-f7bce59e2358",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "name": "domain: attacker.com",
-      "pattern": "[domain-name:value = 'attacker.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-25T11:19:14.000Z"
     },
     {
       "type": "indicator",
@@ -11403,17 +11379,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--348240aa-4179-521d-ba54-b2c0e49dbaf4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3498bcaf-77c5-57d2-8fa1-a325b6b85ecf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13570,17 +13535,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--53854744-9cb7-5149-b525-cc24598a9c0c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--53cd677b-4b5d-548f-9b23-01439bd66d76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -13852,17 +13806,6 @@
       "relationship_type": "uses",
       "source_ref": "report--38bc5359-e8fc-5d24-9c24-dccd7d47d3be",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5799e577-e983-55e9-b22b-cc3569e1ecef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -14281,17 +14224,6 @@
       "relationship_type": "has",
       "source_ref": "software--6bed4f9c-8275-51ac-8d0c-66ff2ff9febe",
       "target_ref": "vulnerability--220b72e5-a8a5-5af3-b84b-4098fba2e20c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5e550e08-b381-529c-9883-0c23645b9aba",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -17079,17 +17011,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--89ff08b0-888b-57b1-833e-a3b6cb5eb5d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "target_ref": "indicator--06ba8e5b-bb4e-57ff-9837-8828c01f064e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8a2b297f-0cea-5228-b26e-cdb0490215c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17977,17 +17898,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--835c9704-c7e3-542a-9266-1c8839736727"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9774363c-36db-5840-a181-d9471643e637",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -20419,17 +20329,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8d0a6787-94b2-5544-ac8e-1d739b906b45",
       "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bbabc442-3afa-5e9e-a8aa-90bb710ae031",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "target_ref": "indicator--b8148baa-327f-5889-af15-f7bce59e2358"
     },
     {
       "type": "relationship",
@@ -27369,62 +27268,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--31423cf7-d4ac-513b-bb30-80c879a01e32",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T11:19:14.000Z",
-      "modified": "2026-07-26T11:00:50.000Z",
-      "name": "SiYuan Missing Authorization Vulnerability in /mcp Endpoint (CVE-2026-66012)",
-      "description": "## Overview\n\nA critical missing authorization vulnerability, tracked as CVE-2026-66012, affects SiYuan versions prior to 3.7.2. This flaw exists in the POST /mcp kernel endpoint, which lacks proper administrative role enforcement and is only protected by a general authentication check. When the SiYuan Publish server is configured in anonymous mode (Conf.Publish.Enable=true and Conf.Publish.Auth.Enable=false), a remote unauthenticated attacker can exploit this vulnerability. The Publish reverse proxy, in this configuration, attaches an anonymous RoleReader JWT to proxied requests, granting the attacker access to 31 internal MCP tools. These tools include a file utility with comprehensive read, write, delete, rename, and copy capabilities across the entire workspace. Exploitation enables attackers to read sensitive configuration files containing plaintext API tokens and cookies, write arbitrary files, and plant malicious plugins that execute with elevated privileges upon the next desktop application launch, leading to complete system compromise and administrator takeover.\n\n## Attack Chain\n\n1. The SiYuan Publish server is enabled in anonymous mode, specifically with `Conf.Publish.Enable=true` and `Conf.Publish.Auth.Enable=false`.\n2. A remote unauthenticated attacker initiates a request targeting the `/mcp` kernel endpoint.\n3. The Publish reverse proxy intercepts the request and, due to the anonymous configuration, attaches an anonymous `RoleReader` JWT to it before forwarding to the kernel.\n4. The attacker leverages the compromised access to the `/mcp` endpoint's \"file tool\" to read `conf/conf.json`.\n5. Sensitive credentials, including `accessAuthCode`, `api.token`, and `cookieKey`, are extracted by the attacker from the plaintext `conf.json` file.\n6. Using the file tool's capabilities, the attacker writes arbitrary files into the SiYuan workspace.\n7. The attacker plants a malicious plugin into the `data/plugins/` directory within the SiYuan application data path.\n8. Upon the next desktop launch of the SiYuan application, the malicious plugin executes with `nodeIntegration:true` and no `contextIsolation`, resulting in administrator takeover of the underlying system.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-66012 allows a remote unauthenticated attacker to achieve full administrator takeover of the system running the vulnerable SiYuan desktop application. This includes the ability to read and exfiltrate sensitive configuration data containing API tokens and session cookies, manipulate or destroy any data within the SiYuan workspace, and execute arbitrary code with the privileges of the desktop user. The CVSS v3.1 Base Score of 10.0 reflects the critical nature and severe consequences of this vulnerability, affecting all users of SiYuan desktop clients before version 3.7.2 operating with a misconfigured Publish server.\n\n## Recommendation\n\n* Patch CVE-2026-66012 immediately by upgrading SiYuan to version 3.7.2 or later to address the missing authorization vulnerability.\n* Review the SiYuan Publish server configuration. Ensure that `Conf.Publish.Enable` is not set to `true` concurrently with `Conf.Publish.Auth.Enable` set to `false`. Enable authentication for the Publish server.\n* Implement file integrity monitoring for the `data/plugins/` directory within your SiYuan application workspace to detect unauthorized modifications or additions.\n* Monitor for unusual process creation events originating from the SiYuan desktop client application, especially any child processes launched with suspicious arguments or exhibiting elevated privileges not typically associated with legitimate SiYuan operations.\n",
-      "published": "2026-07-25T11:19:14.000Z",
-      "labels": [
-        "authorization-bypass",
-        "cve-2026-66012",
-        "rce",
-        "siyuan",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--06ba8e5b-bb4e-57ff-9837-8828c01f064e",
-        "indicator--b8148baa-327f-5889-af15-f7bce59e2358",
-        "software--55c52d6d-ace7-5105-b2e0-0cd490738206"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-siyuan-mcp-authz",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-siyuan-mcp-authz/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66012"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=966D5755-38DD-590D-A412-4BFEABA9FEE1\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-siyuan-mcp-authz",
-      "x_craftedsignal_event_id": "brief-2026-07-siyuan-mcp-authz",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-siyuan-mcp-authz/",
-      "x_craftedsignal_activity_at": "2026-07-26T11:00:50.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -41279,13 +41122,6 @@
       "spec_version": "2.1",
       "id": "software--54ce5f55-5f82-5c98-838e-79b1929ab1e9",
       "name": "Tongyi"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--55c52d6d-ace7-5105-b2e0-0cd490738206",
-      "name": "SiYuan \u003c v3.7.2",
-      "vendor": "SiYuan"
     },
     {
       "type": "software",

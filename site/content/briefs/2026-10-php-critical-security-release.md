@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 4
-activity_at: "2026-10-23T09:22:30Z"
+revision: 5
+activity_at: "2026-10-23T11:27:22Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -42,11 +42,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 5
+    at: "2026-10-23T11:27:22Z"
+    checksum: sha256:29404328b4cfba36b6e26616c18084295f39de88247fa404724a681e919aeb56
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - has_poc
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-23T09:21:53Z"
+lastmod: "2026-10-23T11:26:43Z"
 type: advisory
 types:
   - advisory
@@ -62,6 +73,7 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:php:php:*:*:*:*:*:*:*:*
+has_poc: true
 tags:
   - php
   - security-release
@@ -73,6 +85,7 @@ products:
   - PHP (affected versions not yet confirmed)
   - PHP
   - PHP (5.4 <= 8.5.11)
+  - PHP (5.4 through 8.5.11)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -149,6 +162,13 @@ updates:
   - at: "2026-10-23T09:21:53Z"
     level: L2
     summary: php version 5.4 <= 8.5.11
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-23T11:26:43Z"
+    level: L2
+    summary: poc_available
     sources:
       - pwn-watch
     source_urls:
