@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7d6beab9-2743-5350-aac1-4987b269e8b1",
+  "id": "bundle--219cb83c-65c6-55f7-bfd4-ea357b9c4733",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10217,6 +10217,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--19064920-6777-5cf1-9d9f-454a2ec22c31",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f7831b55-68c0-58ec-bbef-3a8dc032f316",
+      "target_ref": "vulnerability--56a8120a-366f-5697-b92f-5aef621ff7d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--190f9ac3-c7b1-51bf-b1a5-4b7925a2c257",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13667,6 +13678,17 @@
       "relationship_type": "uses",
       "source_ref": "report--893fd6e6-fff0-5c75-86bd-8525e7ef5e86",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a0175c5-e191-54ca-8d00-847671f9a0fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
+      "target_ref": "vulnerability--ebfc5a68-9ce2-5092-8ed7-593fce9545b5"
     },
     {
       "type": "relationship",
@@ -18419,6 +18441,17 @@
       "relationship_type": "has",
       "source_ref": "software--0936ebad-1f29-574b-bb2a-4c0cd49ec344",
       "target_ref": "vulnerability--5d885a1b-8a14-531d-a283-98ef03ba380f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--426a3279-fc41-5873-b96c-cfbd0c18e8ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
+      "target_ref": "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a"
     },
     {
       "type": "relationship",
@@ -42678,6 +42711,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b813ef3b-833e-5abc-8196-0ed8220d04bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T19:50:52.000Z",
+      "modified": "2026-10-23T19:50:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--151d3b13-22dc-5394-bcc9-16bd6f390760",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b823723f-8a41-5847-a17e-21bbeb141c58",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46726,17 +46770,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--caa2dbdd-3bfc-5f4f-8fad-ca5f4655ad3b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--43aa4eaa-2b45-543d-bcbe-9575dddd69f3",
-      "target_ref": "vulnerability--3f94cfe7-0f17-506e-99c6-536e5dc8c0e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--caa58a77-280a-5f8e-a108-fd5fc6379cb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48104,7 +48137,7 @@
       "id": "relationship--d13c0b73-5d2d-5112-8f4c-aed5b67ea2dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T16:47:01.000Z",
-      "modified": "2026-10-13T16:47:01.000Z",
+      "modified": "2026-10-23T19:51:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--62f10350-eb03-52f4-af13-1c4d9c9f576a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -48152,6 +48185,17 @@
       "relationship_type": "has",
       "source_ref": "software--227d7175-ac62-580d-a098-eb4e90f127e6",
       "target_ref": "vulnerability--22cfe01e-89f9-5c9d-9d51-b15edf4dbb7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d162f348-8569-5369-b816-7134c5deabd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--040fd2ac-f92b-5ed8-9c67-aedd186cd012",
+      "target_ref": "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
     },
     {
       "type": "relationship",
@@ -57561,6 +57605,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fbe325b6-7af2-5def-9eb6-455c4a295b7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--69f7304e-6fc7-5f6d-999b-16112bff0742",
+      "target_ref": "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fbee742f-5e1a-5344-ace3-861fbf007a4d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -63109,6 +63164,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--113cfe8d-a605-531a-b2d3-f31b490e73b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T19:51:12.000Z",
+      "modified": "2026-10-23T19:51:12.000Z",
+      "name": "ConnMan: Stack-based buffer overflow in DHCPv6 (CVE-2026-115863)",
+      "description": "## Overview\n\nConnMan versions up to and including 2.0 are vulnerable to a stack-based buffer overflow in the DHCPv6 implementation. The vulnerability resides in the `get_domains` function within `gdhcp/client.c`. Improper handling of the DOMAIN_LIST (option 24) in DHCPv6 Reply messages allows for memory corruption during DNS label parsing. The flaw is triggered when the client processes a crafted Reply message containing a DOMAIN_LIST option exceeding 1025 bytes, resulting in out-of-bounds reads and writes.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated, on-link attacker to crash the `connmand` service. Because `connmand` typically operates with root privileges, this results in a denial-of-service condition for the affected system's network management functionality.\n\n## Recommendation\n\nIdentify systems running `connmand` versions 2.0 or earlier. Monitor vendor security channels for the release of a patched version of ConnMan and schedule upgrades accordingly. As this is an on-link network attack, segment vulnerable systems where possible until patches are applied.\n",
+      "published": "2026-10-23T19:51:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f7831b55-68c0-58ec-bbef-3a8dc032f316",
+        "vulnerability--56a8120a-366f-5697-b92f-5aef621ff7d7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-connman-dhcpv6-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-connman-dhcpv6-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115863"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-connman-dhcpv6-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-23-connman-dhcpv6-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-connman-dhcpv6-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-23T19:51:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--11410e4c-b168-554f-83b5-1b28d1ba7fe7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T19:55:27.000Z",
@@ -64156,6 +64251,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--151d3b13-22dc-5394-bcc9-16bd6f390760",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T19:50:52.000Z",
+      "modified": "2026-10-23T19:50:52.000Z",
+      "name": "Kruize Autotune: REST API authentication bypass and credential exposure (CVE-2026-110975)",
+      "description": "## Overview\nA vulnerability in Kruize Autotune (CVE-2026-110975) allows unauthenticated users to access sensitive datasource configuration details. Specifically, the endpoints '/datasources' and 'datasource-metadata' fail to implement authentication checks. Due to insecure default Gson serialization settings, the application returns datasource objects containing plain-text secrets, including basic-auth passwords, bearer tokens, API keys, and OAuth2 client secrets. An attacker with network reach to the Autotune API can retrieve these credentials to gain unauthorized access to the connected monitoring stack.\n\n## Impact\nSuccessful exploitation results in the unauthorized disclosure of cleartext credentials used to access connected monitoring systems. This impact is limited to the credentials managed and stored within the Kruize Autotune datasource configuration.\n\n## Recommendation\n- Inventory all Kruize Autotune deployments and restrict network access to the REST API to trusted IP ranges only via network segmentation or firewall rules.\n- Audit the monitoring stack for any anomalous access or credential usage following potential exposure via the Autotune service.\n- Monitor for and apply vendor-provided security patches once available to remediate the insecure API endpoints and serialization logic.\n",
+      "published": "2026-10-23T19:50:52.000Z",
+      "labels": [
+        "authentication-bypass",
+        "credential-exposure",
+        "cve-2026-110975",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
+        "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-kruize-autotune-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-kruize-autotune-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110975"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-kruize-autotune-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-23-kruize-autotune-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kruize-autotune-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-23T19:50:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -80683,54 +80825,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--44680a98-c843-5a53-be32-34fcc6e7f5b1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-23T19:49:59.000Z",
-      "modified": "2026-09-23T19:49:59.000Z",
-      "name": "Security Policy Bypass in Forcepoint Security Engine (NGFW)",
-      "description": "## Overview\n\nForcepoint has released a security advisory concerning a critical security policy bypass vulnerability, identified as CVE-2026-12974, affecting the Forcepoint Security Engine (NGFW). The vulnerability impacts a range of software versions, specifically 7.1.0 to 7.1.13, 7.3.0 to 7.3.1, 7.33, 7.4.0 to 7.4.1, and 7.5.0. This flaw allows unauthorized modification or evasion of established network security policies enforced by the NGFW. Because the NGFW is a core component of perimeter and internal network traffic control, successful exploitation could permit attackers to bypass access controls, exfiltrate data, or facilitate lateral movement within the network. Defenders should immediately verify their NGFW version deployment and review the official Forcepoint support portal for relevant patches and remediation guidance.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-12974 enables unauthorized parties to bypass security policies enforced by Forcepoint Security Engine (NGFW). If left unpatched, this vulnerability could compromise network segmentation, expose internal assets, or allow attackers to bypass traffic filtering rules, potentially leading to unauthorized data access or network infiltration.\n\n## Recommendation\n\n- Immediately audit your environment for the affected Forcepoint Security Engine (NGFW) versions listed in this brief.\n- Review the official Forcepoint Security Advisory (CVE-2026-12974) via the Forcepoint Support Hub for available firmware updates and specific configuration workarounds.\n- Prioritize patching for internet-facing NGFW deployments that enforce critical perimeter security policies.\n- Monitor NGFW administrative logs for unauthorized or unexpected policy changes that may indicate exploitation attempts.\n",
-      "published": "2026-09-23T19:49:59.000Z",
-      "labels": [
-        "network-security",
-        "patch-management",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--43aa4eaa-2b45-543d-bcbe-9575dddd69f3",
-        "vulnerability--3f94cfe7-0f17-506e-99c6-536e5dc8c0e9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-23-forcepoint-ngfw-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-forcepoint-ngfw-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/forcepoint-security-advisory-av26-960"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://support.forcepoint.com/s/article/Security-Advisory-Security-Policy-Bypass-in-Forcepoint-Security-Engine-NGFW-CVE-2026-12974"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-23-forcepoint-ngfw-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-23-forcepoint-ngfw-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-forcepoint-ngfw-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-23T19:49:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--44703e8c-9bef-5202-8041-0581d5e28dd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:35:59.000Z",
@@ -91318,7 +91412,7 @@
       "id": "report--62f10350-eb03-52f4-af13-1c4d9c9f576a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T16:47:01.000Z",
-      "modified": "2026-10-13T16:47:01.000Z",
+      "modified": "2026-10-23T19:51:54.000Z",
       "name": "Remote Code Execution Vulnerability in Ivanti Connect Secure",
       "description": "## Overview\n\nIvanti has disclosed a critical zero-day vulnerability, CVE-2026-104935, affecting Ivanti Connect Secure, a solution used to provide remote access to organizational systems and applications. The vulnerability allows an unauthenticated, remote attacker to execute arbitrary commands on the appliance without the need for valid credentials. Ivanti has assigned a CVSS score of 8.6 to this vulnerability. The Netherlands National Cyber Security Centre (NCSC) and Ivanti have confirmed that this vulnerability is being actively exploited by malicious actors in the wild to gain unauthorized access to target organizations. Due to the nature of the appliance providing network-level access, successful exploitation significantly compromises the security of downstream internal systems. Organizations are advised to verify their current version and apply security patches immediately. Because the vulnerability allows for persistent unauthorized control, patching alone is insufficient if the system has already been compromised; incident response procedures must be followed if intrusion is suspected.\n\n## Impact\n\nThe vulnerability allows for full system control by unauthorized actors, potentially leading to widespread data exfiltration, lateral movement within the network, and the deployment of additional malicious tools. The vulnerability is being exploited in the wild against a limited number of customers. The NCSC classifies both the risk of exploitation and the potential damage as high.\n\n## Recommendation\n\n- Identify the current version of Ivanti Connect Secure and verify it against the patches listed by Ivanti.\n- Apply the relevant security update immediately. For the 22.8 series, update to 22.8R2.5 or migrate to the 25.1 branch (25.1.1.2 or newer). For the 25.1 series, update to 25.1.1.2, 25.1.2.2 (if supported by migration path), or 25.1.3.0/25.1.3.1.\n- Initiate incident response procedures if unauthorized access is suspected, as patching does not remediate established backdoors or persistence.\n- Monitor logs for unusual authentication activity or unexpected process execution occurring on the Connect Secure appliance.\n",
       "published": "2026-10-13T16:47:01.000Z",
@@ -91330,8 +91424,10 @@
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--040fd2ac-f92b-5ed8-9c67-aedd186cd012",
         "software--093a6de8-841e-55bf-95fd-51991e8c3a69",
         "software--1c2ce1fa-a3f1-5d4c-8900-f352ea53d766",
+        "software--69f7304e-6fc7-5f6d-999b-16112bff0742",
         "software--9d42f3d6-c058-5755-a04c-a217256b9575",
         "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
       ],
@@ -91343,15 +91439,43 @@
         },
         {
           "source_name": "reference",
+          "url": "https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-104935"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ivanti.com/blog/october-2026-security-update"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.ncsc.nl/alerts/zero-day-kwetsbaarheid-in-ivanti-connect-secure-update-direct"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-13-ivanti-connect-secure-rce",
       "x_craftedsignal_event_id": "brief-2026-10-13-ivanti-connect-secure-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ivanti-connect-secure-rce/",
-      "x_craftedsignal_activity_at": "2026-10-13T16:47:01.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T19:51:54.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -91359,7 +91483,7 @@
       },
       "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_epss_max": 0.25982,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -139471,6 +139595,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ec85d843-e705-57a7-945f-f3ce2a79ea2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T19:51:00.000Z",
+      "modified": "2026-10-23T19:51:00.000Z",
+      "name": "Amazon Web Services Multi Model Server: Relative path traversal (CVE-2026-115812)",
+      "description": "## Overview\nAmazon Web Services Multi Model Server (MMS) versions 1.1.11 and earlier contain a relative path traversal vulnerability. An attacker can exploit this during model archive extraction to potentially execute arbitrary code. Multi Model Server is end of life and no fixed version is available.\n\n## Impact\nThe vulnerability has been assigned a CVSS v3.1 base score of 9.8.\n\n## Recommendation\n- Discontinue use of Multi Model Server.\n- Migrate to a supported model serving solution.\n",
+      "published": "2026-10-23T19:51:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
+        "vulnerability--ebfc5a68-9ce2-5092-8ed7-593fce9545b5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-aws-multi-model-server-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-multi-model-server-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115812"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-aws-multi-model-server-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-23-aws-multi-model-server-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-multi-model-server-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-23T19:51:00.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ecf70c3d-37ee-57ec-8a11-792cf2e98ab9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T08:39:25.000Z",
@@ -146185,6 +146349,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--040fd2ac-f92b-5ed8-9c67-aedd186cd012",
+      "name": "Connect Secure (\u003c= 25.1.1.1, \u003c= 25.1.2.2, \u003c= 22.8R2.4)",
+      "vendor": "Ivanti"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--041eb578-d17f-5f73-8eab-a0eb66d353e6",
       "name": "A950RG (4.1.2cu.5268_B20221104)",
       "vendor": "TOTOLINK"
@@ -150026,13 +150197,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--43aa4eaa-2b45-543d-bcbe-9575dddd69f3",
-      "name": "Forcepoint Security Engine (NGFW) (7.1.0-7.1.13, 7.3.0-7.3.1, 7.33, 7.4.0-7.4.1, 7.5.0)",
-      "vendor": "Forcepoint"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--43af094f-5a8d-5bc4-a0bd-e9a098874723",
       "name": "Active Directory",
       "vendor": "Microsoft"
@@ -152318,6 +152482,13 @@
       "id": "software--69e8d171-8e74-5240-b451-119d026ad251",
       "name": "openGauss-server (\u003e= 2.1.0, \u003c 7.0.0-LTS)",
       "vendor": "openGauss"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--69f7304e-6fc7-5f6d-999b-16112bff0742",
+      "name": "Connect Secure",
+      "vendor": "Ivanti"
     },
     {
       "type": "software",
@@ -156457,6 +156628,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
+      "name": "Autotune",
+      "vendor": "Kruize"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae55afe6-4d17-5cbb-842c-67fb7c133f19",
       "name": "ZITADEL (3.0.0 through 3.4.15)",
       "vendor": "ZITADEL"
@@ -159069,6 +159247,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
+      "name": "Multi Model Server (\u003c= 1.1.11)",
+      "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dfa6e82f-bb69-5449-8359-4cabfad135fb",
       "name": "Caddy (\u003c 2.1.7)",
       "vendor": "Grav"
@@ -160346,6 +160531,13 @@
       "id": "software--f75089a9-e7f6-51a6-a626-210076a57fc2",
       "name": "FortiMail (7.2.0-7.2.9)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f7831b55-68c0-58ec-bbef-3a8dc032f316",
+      "name": "ConnMan (\u003c= 2.0)",
+      "vendor": "ConnMan"
     },
     {
       "type": "software",
@@ -167562,22 +167754,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--3f94cfe7-0f17-506e-99c6-536e5dc8c0e9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-12974",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-12974",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12974"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--3fb21e73-cb83-590f-9f3a-146a6359937d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -169748,6 +169924,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76519",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76519"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--56a8120a-366f-5697-b92f-5aef621ff7d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115863",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115863",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115863"
         }
       ]
     },
@@ -175892,6 +176084,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91140",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91140"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110975",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110975",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110975"
         }
       ]
     },
@@ -184356,6 +184564,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108094",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108094"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ebfc5a68-9ce2-5092-8ed7-593fce9545b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115812",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115812",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115812"
         }
       ]
     },
