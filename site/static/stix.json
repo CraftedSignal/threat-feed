@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0d318221-05b8-5eb8-884b-8ded3a7127ce",
+  "id": "bundle--84580f22-9896-5a7e-9ce8-3cbf37eb4dd1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1711,6 +1711,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1069.002",
           "url": "https://attack.mitre.org/techniques/T1069/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Application or System Exploitation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1499.004",
+          "url": "https://attack.mitre.org/techniques/T1499/004"
         }
       ]
     },
@@ -6420,6 +6436,17 @@
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--75cd86bc-d0f4-5263-b2d4-2808cfd26850"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--06f9b4a3-61e5-5952-8cea-5a466738b5e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T04:18:39.000Z",
+      "modified": "2026-10-23T04:18:39.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e3256674-87ec-50e0-8d5b-cd0fcb001b08",
+      "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
     },
     {
       "type": "relationship",
@@ -40443,6 +40470,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e2e285c8-6f5e-55ff-9bdc-a4af3d55f861",
       "target_ref": "attack-pattern--3c04b764-6b09-51ea-ae12-ed05d4e6b3bd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--af9ac56e-5cc0-5d3a-be68-490348e673f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--08d00654-76c0-51b8-8806-88464863b805",
+      "target_ref": "vulnerability--a61de1c3-d3ba-5aa7-9d7a-59f7837fb38d"
     },
     {
       "type": "relationship",
@@ -106716,6 +106754,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--94dc86d6-6674-539d-9e96-054afe12df68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T04:18:46.000Z",
+      "modified": "2026-10-23T04:18:46.000Z",
+      "name": "Mozilla SpiderMonkey: CacheIR Type Confusion (CVE-2026-109715)",
+      "description": "A public exploit is available for CVE-2026-109715. The vulnerability exists in the SpiderMonkey JavaScript engine's property-store IC generator. Due to an unguarded `SetGName` stub used for assignments to global-lexical bindings, the JIT compiler can perform a store using a slot offset from one object on a different target object. This results in an attacker-controlled Value write at an unintended memory location. The exploit allows an attacker to choose the offset via binding declarations and the Value via assignment.\n",
+      "published": "2026-10-23T04:18:46.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--25fd9cd6-d3f2-5900-bdec-97693c3f5347"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-cve-2026-109715",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-109715/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=834E8DB9-9292-5AFA-B56B-6401FD9976B8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=834E8DB9-9292-5AFA-B56B-6401FD9976B8\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-cve-2026-109715",
+      "x_craftedsignal_event_id": "brief-2026-10-23-cve-2026-109715",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-109715/",
+      "x_craftedsignal_activity_at": "2026-10-23T04:18:46.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00314,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9505a568-c11e-52f3-ac55-401b758888d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T08:54:06.000Z",
@@ -133025,6 +133107,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e3256674-87ec-50e0-8d5b-cd0fcb001b08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T04:18:39.000Z",
+      "modified": "2026-10-23T04:18:39.000Z",
+      "name": "OpenJS Foundation multer: Unauthenticated process crash via async fileFilter (CVE-2026-113872)",
+      "description": "## Overview\nA denial-of-service vulnerability exists in the multer middleware for Node.js (CVE-2026-113872). The vulnerability occurs when multer is configured with an asynchronous `fileFilter` and processes requests containing multiple files. If an earlier part of the multipart request triggers an error, the request teardown removes event listeners from the underlying busboy parser. If a subsequent asynchronous `fileFilter` completes after the teardown, it forces the parser to resume processing a truncated or malformed body. This triggers an error on the busboy instance that no longer has an error listener, resulting in an uncaught exception that terminates the Node.js process.\n\n## Attack Chain\n1. Attacker identifies an Express application using `multer` (\u003e= 2.0.0, \u003c= 2.4.0) with an asynchronous `fileFilter`.\n2. Attacker initiates a multipart/form-data request containing at least two file parts.\n3. Attacker triggers a failure on the first file part (e.g., via the `fileFilter` logic) to initiate the request teardown process.\n4. The application performs teardown, calling `busboy.removeAllListeners()`.\n5. The attacker's second, pending `fileFilter` completes after the teardown occurs.\n6. The `fileStream.resume()` call triggers the busboy parser to process the buffered input.\n7. The parser encounters an error (e.g., unexpected end of form) and emits it on the busboy instance.\n8. Due to the removed listeners, the error becomes an uncaught exception, crashing the Node.js process.\n\n## Impact\nThe vulnerability allows an unauthenticated remote attacker to cause a complete service disruption by crashing the target Node.js process with a single crafted HTTP request.\n\n## Recommendation\n- Upgrade `multer` to version `2.5.0` or later immediately.\n- If upgrading is not immediately possible, refactor the `fileFilter` to be synchronous and move any asynchronous validation logic into the route handler following the multer middleware.\n",
+      "published": "2026-10-23T04:18:39.000Z",
+      "object_refs": [
+        "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--08d00654-76c0-51b8-8806-88464863b805",
+        "vulnerability--a61de1c3-d3ba-5aa7-9d7a-59f7837fb38d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-multer-denial-of-service",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-multer-denial-of-service/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/expressjs/multer/security/advisories/GHSA-q7qp-rjg7-q26m"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113872"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0313CB25-1DC7-5562-8E69-38840C5DF6C3"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0313CB25-1DC7-5562-8E69-38840C5DF6C3\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-multer-denial-of-service",
+      "x_craftedsignal_event_id": "brief-2026-10-23-multer-denial-of-service",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-multer-denial-of-service/",
+      "x_craftedsignal_activity_at": "2026-10-23T04:18:39.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e329cd52-7a42-5494-b383-05e334a14de4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:08:17.000Z",
@@ -143225,6 +143360,13 @@
       "id": "software--08ba9e47-cbf4-5af3-9161-5824bd95dff6",
       "name": "GeoDirectory – WP Business Directory Plugin and Classified Listings Directory (\u003c= 2.8.187)",
       "vendor": "Ayecode"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--08d00654-76c0-51b8-8806-88464863b805",
+      "name": "multer (2.0.0 to 2.4.0)",
+      "vendor": "OpenJS Foundation"
     },
     {
       "type": "software",
@@ -161164,6 +161306,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--25fd9cd6-d3f2-5900-bdec-97693c3f5347",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109715",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109715",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109715"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--264cab22-40d6-5929-9398-bd009f0ebb65",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -173430,6 +173588,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96840",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96840"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a61de1c3-d3ba-5aa7-9d7a-59f7837fb38d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113872",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113872",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113872"
         }
       ]
     },
