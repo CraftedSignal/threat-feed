@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--25aa8ad3-8e20-51d9-bce3-24bd06e1a31a",
+  "id": "bundle--2c09f11f-d11a-5561-ad19-fb1eec546536",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11095,17 +11095,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3042c23a-4d40-562f-a4f7-58bb6feaccd8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T07:18:55.000Z",
-      "modified": "2026-07-25T07:18:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5ea86941-9634-5fed-952c-e016af819a63",
-      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--308249e6-ec95-56d4-ac01-9359de99ec96",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T16:06:01.000Z",
@@ -14435,17 +14424,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1e70d121-1e05-5e6c-a35c-f0c2ebaf6903",
       "target_ref": "attack-pattern--c2b690d8-4f77-5197-9bb3-2ef39b55fea6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--61dea288-a34d-5d2f-a228-517f72379241",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8392fe6b-4986-57f5-b4ff-9e29ce708687",
-      "target_ref": "vulnerability--f3f19a0f-5383-57a3-bd59-686494bb23d9"
     },
     {
       "type": "relationship",
@@ -21541,17 +21519,6 @@
       "relationship_type": "uses",
       "source_ref": "report--db6ffcf1-fb70-5dd6-af74-db7e9990933e",
       "target_ref": "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ce85ee90-ce75-5913-92f0-db0ca9ca9e13",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T07:18:55.000Z",
-      "modified": "2026-07-25T07:18:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5ea86941-9634-5fed-952c-e016af819a63",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -29899,55 +29866,6 @@
       },
       "x_craftedsignal_cvss_max": 5.4,
       "x_craftedsignal_epss_max": 0.00329,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5ea86941-9634-5fed-952c-e016af819a63",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-25T07:18:55.000Z",
-      "modified": "2026-07-25T07:18:55.000Z",
-      "name": "WPForms Pro Plugin Arbitrary File Upload Vulnerability Leading to RCE",
-      "description": "## Overview\n\nThe WPForms Pro plugin for WordPress, specifically all versions up to and including 1.10.1.1, contains a critical arbitrary file upload vulnerability tracked as CVE-2026-10818. This flaw resides within the `ajax_chunk_upload_finalize` function, where file type validation occurs *after* chunk metadata and file contents have already been written to the server's disk. Compounding the issue, the plugin fails to delete these assembled files even when validation ultimately fails. This design defect permits unauthenticated attackers to upload potentially executable files, such as PHP web shells, to the WordPress installation. Successful exploitation can lead to full remote code execution on the underlying web server, allowing threat actors to gain control of the compromised system, exfiltrate sensitive data, or further compromise the network.\n\n## Attack Chain\n\n1. An unauthenticated attacker sends a crafted HTTP POST request to the WordPress site.\n2. The request targets the `admin-ajax.php` endpoint, specifically invoking the `ajax_chunk_upload_finalize` function of the WPForms Pro plugin, including a malicious file payload (e.g., a PHP web shell) and chunk metadata.\n3. Due to the vulnerability (CVE-2026-10818), the plugin processes and writes the malicious file content to a temporary location on disk *before* performing any file type validation.\n4. The plugin then attempts file type validation against the uploaded content.\n5. This validation subsequently fails because the uploaded file is an executable script (e.g., `.php`), not an allowed file type.\n6. Critically, despite the validation failure, the plugin does not delete the temporarily assembled malicious file from the web server's disk, leaving it accessible.\n7. The attacker identifies the storage location of the uploaded malicious file (e.g., `shell.php`) and accesses it directly via a subsequent HTTP GET request.\n8. Executing the uploaded web shell achieves Remote Code Execution (RCE) on the compromised web server, allowing the attacker to run arbitrary commands.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10818 grants unauthenticated attackers remote code execution capabilities on the affected WordPress server. This means an attacker can completely compromise the web server, leading to data breaches, website defacement, arbitrary data modification or deletion, and potentially using the compromised server as a pivot point for further attacks into the internal network. The total number of affected WordPress sites running WPForms Pro is currently unknown, but given the plugin's popularity, a significant number of installations could be at risk if not patched promptly.\n\n## Recommendation\n\n* Patch CVE-2026-10818 immediately by updating the WPForms Pro plugin to version 1.10.1.2 or higher on all WordPress installations.\n* Deploy the Sigma rule \"Detects CVE-2026-10818 Exploitation - WPForms Pro Arbitrary File Upload Attempt\" to your SIEM to identify attempts to exploit this vulnerability against the `ajax_chunk_upload_finalize` function.\n* Review web server access logs for requests to `admin-ajax.php` with `action=wpforms_pro_ajax_chunk_upload_finalize` followed by subsequent GET requests to newly created PHP, JSP, ASPX, or other executable files.\n",
-      "published": "2026-07-25T07:18:55.000Z",
-      "labels": [
-        "arbitrary-file-upload",
-        "rce",
-        "web-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8392fe6b-4986-57f5-b4ff-9e29ce708687",
-        "vulnerability--f3f19a0f-5383-57a3-bd59-686494bb23d9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-wpforms-pro-arbitrary-file-upload",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-wpforms-pro-arbitrary-file-upload/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10818"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-wpforms-pro-arbitrary-file-upload",
-      "x_craftedsignal_event_id": "brief-2026-07-wpforms-pro-arbitrary-file-upload",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-wpforms-pro-arbitrary-file-upload/",
-      "x_craftedsignal_activity_at": "2026-07-25T07:18:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_epss_max": 0.02482,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -41847,13 +41765,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8392fe6b-4986-57f5-b4ff-9e29ce708687",
-      "name": "WPForms Pro plugin for WordPress \u003c= 1.10.1.1",
-      "vendor": "WPForms"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8396e3a6-5323-533d-a040-77904de889b3",
       "name": "VMware Telco Cloud Platform"
     },
@@ -46090,22 +46001,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-53502",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53502"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f3f19a0f-5383-57a3-bd59-686494bb23d9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-10818",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-10818",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10818"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0932d4f8-45c7-5b9b-9c65-5a6caa983cbf",
+  "id": "bundle--544fbb9f-48d5-556a-b7e1-92d5fb69c587",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20796,6 +20796,17 @@
       "relationship_type": "has",
       "source_ref": "software--c8dcfc8b-6cba-58c5-8033-e87e0f135667",
       "target_ref": "vulnerability--4d4d508c-e986-5804-9e04-5c85789e893c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4f2e54ed-4759-55d3-b85e-a69b81c10d9c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T07:20:26.000Z",
+      "modified": "2026-10-23T07:20:26.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--e3e754b2-40d6-548b-bb52-98771b56eeff",
+      "target_ref": "threat-actor--a3fb0264-076f-5ffb-8b76-3b8ba5b964c7"
     },
     {
       "type": "relationship",
@@ -133677,6 +133688,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e3e754b2-40d6-548b-bb52-98771b56eeff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T07:20:26.000Z",
+      "modified": "2026-10-23T07:20:26.000Z",
+      "name": "Lazarus Group Operation FlashHole Cyber-Espionage Campaign",
+      "description": "## Overview\n\nOperation FlashHole is a cyber-espionage campaign attributed to the Lazarus Group. Detailed technical documentation regarding the specific methodologies, infection vectors, and attack stages of this operation is hosted by Securelist.\n",
+      "published": "2026-10-23T07:20:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--a3fb0264-076f-5ffb-8b76-3b8ba5b964c7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-flashhole",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-flashhole/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/lazarus-operation-flashhole/121541/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.reddit.com/r/blueteamsec/comments/1xd4wq2/dissecting_operation_flashhole_a_complex_attack/"
+        }
+      ],
+      "x_craftedsignal_brief_id": "brief-2026-10-23-flashhole",
+      "x_craftedsignal_event_id": "brief-2026-10-23-flashhole",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-flashhole/",
+      "x_craftedsignal_activity_at": "2026-10-23T07:20:26.000Z",
+      "x_craftedsignal_severity": "rumour",
+      "x_craftedsignal_type": "rumour",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e41ba5f4-d744-5dfe-b182-07bf3ff860be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T11:39:30.000Z",
@@ -157651,6 +157703,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "LHeiakim"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--a3fb0264-076f-5ffb-8b76-3b8ba5b964c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Lazarus Group"
     },
     {
       "type": "threat-actor",
