@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--22f8e604-e53a-51b1-9c76-148d268022e7",
+  "id": "bundle--814655cc-3cdd-5dd2-9eb4-c59ffb6d9746",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36212,6 +36212,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9a203f9b-db5c-5d6b-a7b4-5c01beb9b49a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--58ee0bb2-229d-5b41-8c81-39421106e7d5",
+      "target_ref": "vulnerability--88ff8d3c-20de-5478-b2f2-959f573ddd74"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9a47ec03-5fb5-54c1-b24c-ce36ed00f08f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T08:24:01.000Z",
@@ -38826,6 +38837,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5378ae9a-d4ee-5950-b1ce-3c628c57a2be",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a6ef070c-c32d-5089-821f-ff5d35c3027f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T03:20:38.000Z",
+      "modified": "2026-10-23T03:20:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0871d9ac-d567-5bf6-8df5-1dc22ec73b1d",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -59854,6 +59876,62 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_epss_max": 0.01158,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0871d9ac-d567-5bf6-8df5-1dc22ec73b1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T03:20:38.000Z",
+      "modified": "2026-10-23T03:20:38.000Z",
+      "name": "Hugging Face datasets: Arbitrary code execution via pickle deserialization (CVE-2026-57845)",
+      "description": "## Overview\nA vulnerability (CVE-2026-57845) exists in the Hugging Face `datasets` library, specifically within the `dataset_module_factory` pandas-based builder. The library uses `pandas.read_pickle()` to process data files without proper validation. An attacker can supply a malicious pickle file that executes arbitrary code during the deserialization process when `load_dataset()` is invoked. The PoC demonstrates successful code execution by triggering a local file write upon loading a malicious pickle object. There is currently no upstream fix, PR, or confirmed patched release.\n\n## Attack Chain\n1. Attacker prepares a malicious pickle object using the `__reduce__()` method to embed a payload.\n2. Attacker hosts or supplies the malicious file as an input to the `load_dataset()` function.\n3. Victim application invokes `datasets.load_dataset()` pointing to the malicious file.\n4. The `dataset_module_factory` identifies the file and routes it to the `pandas` packaged builder.\n5. The builder invokes `pandas.read_pickle()` on the untrusted input.\n6. The `pickle` module deserializes the object, triggering the attacker-supplied callable.\n7. Arbitrary code executes within the context of the application process.\n\n## Impact\nSuccessful exploitation results in arbitrary code execution on the system running the `datasets` library. The PoC confirms that code execution occurs before the library attempts to convert the data into an Arrow table, rendering post-deserialization validation ineffective.\n\n## Recommendation\n- Identify all instances of the Hugging Face `datasets` library in production and development environments using automated inventory tools.\n- Immediately stop using pickle-formatted datasets from untrusted or external sources.\n- Migrate all data exchange to secure formats such as Parquet, Arrow, CSV, or JSON.\n- If existing data must be moved, use `Dataset.from_pandas()` with a trusted, already-loaded DataFrame rather than loading from disk via the `pandas` builder.\n- Implement strict input validation or access controls to prevent the loading of pickle files from arbitrary or internet-accessible locations.\n- Monitor logs for the execution of Python processes that import the `datasets` module and perform file operations in untrusted directories.\n",
+      "published": "2026-10-23T03:20:38.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--58ee0bb2-229d-5b41-8c81-39421106e7d5",
+        "vulnerability--88ff8d3c-20de-5478-b2f2-959f573ddd74"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-hugging-face-datasets-pickle-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-hugging-face-datasets-pickle-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/huggingface/datasets"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pandas.pydata.org/docs/reference/api/pandas.read_pickle.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F4E4EAEC-8A52-5213-893F-11BF7AC67BB6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=F4E4EAEC-8A52-5213-893F-11BF7AC67BB6\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-57845"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-hugging-face-datasets-pickle-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-23-hugging-face-datasets-pickle-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hugging-face-datasets-pickle-rce/",
+      "x_craftedsignal_activity_at": "2026-10-23T03:20:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -147678,6 +147756,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--58ee0bb2-229d-5b41-8c81-39421106e7d5",
+      "name": "datasets (\u003c= 5.1.0)",
+      "vendor": "Hugging Face"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--591c432e-ee66-5699-9331-c2d3abcaf0ea",
       "name": "Thunderbird (\u003c 153.5.1)",
       "vendor": "Mozilla"
@@ -170223,6 +170308,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96568",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96568"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--88ff8d3c-20de-5478-b2f2-959f573ddd74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-57845",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-57845",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57845"
         }
       ]
     },
