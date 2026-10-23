@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4e6b6791-e11c-554f-b7ba-071811880df3",
+  "id": "bundle--5ab16ccc-adc9-5d87-9dac-2f80bffad75a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8380,6 +8380,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--14d2b8f0-8a88-561d-ab49-3d7b8716d741",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d261bf06-d0fd-56b0-b356-9bae39c1bbdc",
+      "target_ref": "vulnerability--a3445c1d-937b-5777-89d3-d5a69c3278a6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--14d87c85-9871-532c-820e-236a554fb2d5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10154,7 +10165,7 @@
       "id": "relationship--20375294-24b3-5e32-beeb-524cae22cd06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T17:44:45.000Z",
+      "modified": "2026-10-23T18:44:10.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -14481,6 +14492,17 @@
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--d886943d-5f11-5a5f-8c2a-c12905b1bf2d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3ba8502b-8903-58bf-878b-ea09ef352605",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T18:43:16.000Z",
+      "modified": "2026-10-23T18:43:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--96c01384-8197-5b04-b60e-b654c38cbe6a",
+      "target_ref": "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae"
     },
     {
       "type": "relationship",
@@ -22108,6 +22130,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--68bd0045-d751-57dc-a733-9874ea054ec8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T18:43:16.000Z",
+      "modified": "2026-10-23T18:43:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--96c01384-8197-5b04-b60e-b654c38cbe6a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--68ce887d-8753-5272-b8ca-960ccd893854",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22386,7 +22419,7 @@
       "id": "relationship--6a228af2-c39e-5c77-a15d-b1241d3b8510",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T17:44:45.000Z",
+      "modified": "2026-10-23T18:44:10.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
@@ -31021,7 +31054,7 @@
       "id": "relationship--9ce84b89-92a9-562f-bd3b-b399c9f9d171",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T17:44:45.000Z",
+      "modified": "2026-10-23T18:44:10.000Z",
       "relationship_type": "uses",
       "source_ref": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -90770,6 +90803,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--96c01384-8197-5b04-b60e-b654c38cbe6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T18:43:16.000Z",
+      "modified": "2026-10-23T18:43:16.000Z",
+      "name": "Netdata: ndsudo local privilege escalation (CVE-2024-32019)",
+      "description": "## Overview\nNetdata’s `ndsudo` helper, which is installed with the SUID bit set, is vulnerable to local privilege escalation (CVE-2024-32019). The utility whitelists specific subcommands for execution but fails to use absolute paths when calling these commands, instead resolving them via the user-controlled `PATH` environment variable. An attacker can place a malicious binary with a whitelisted name (e.g., `nvme`) into a directory under their control, prepend that directory to the `PATH` variable, and invoke `ndsudo` to execute the malicious binary with root privileges.\n\n## Attack Chain\n1. Actor identifies a system running an affected version of Netdata with `ndsudo` installed as SUID-root.\n2. Actor identifies a command whitelisted by `ndsudo` that is not invoked via an absolute path (e.g., `nvme`).\n3. Actor creates a malicious binary and names it to match the targeted whitelisted command.\n4. Actor creates a writable directory (e.g., `/tmp/fakebin`) and places the malicious binary inside.\n5. Actor sets execution permissions on the malicious binary.\n6. Actor modifies the `PATH` environment variable to include the malicious directory at the beginning of the search path.\n7. Actor executes `ndsudo` with the target whitelisted subcommand, causing the utility to resolve and execute the malicious binary with root privileges.\n\n## Impact\nSuccessful exploitation grants a local, low-privileged user (typically members of the `netdata` group) full root access to the affected system.\n\n## Recommendation\n- Upgrade Netdata to version 1.45.3 (stable) or 1.45.0-169 (nightly) to address the insecure PATH resolution.\n- Audit systems for the presence of the `ndsudo` binary and ensure appropriate access controls are in place.\n- If immediate patching is not possible, ensure that users do not have access to execute `ndsudo` unless strictly required.\n",
+      "published": "2026-10-23T18:43:16.000Z",
+      "labels": [
+        "linux",
+        "local-exploitation",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d261bf06-d0fd-56b0-b356-9bae39c1bbdc",
+        "vulnerability--a3445c1d-937b-5777-89d3-d5a69c3278a6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-netdata-ndsudo-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-netdata-ndsudo-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/netdata/netdata/security/advisories/GHSA-pmhq-4cxq-wj93"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AYUB0X7-CVE-2024-32019-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AYUB0X7-CVE-2024-32019-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-netdata-ndsudo-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-10-23-netdata-ndsudo-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-netdata-ndsudo-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-10-23T18:43:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01165,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--96d91b9c-aa1d-52a8-ad8f-f6c0e10b4069",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:13.000Z",
@@ -108789,7 +108878,7 @@
       "id": "report--d42269b1-9f57-5011-bb76-774b07e73981",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T09:01:29.000Z",
-      "modified": "2026-10-23T17:44:45.000Z",
+      "modified": "2026-10-23T18:44:10.000Z",
       "name": "Unauthenticated Remote Code Execution in Ahsay AhsayCBS",
       "description": "## Overview\n\nAhsay AhsayCBS, a backup software solution, contains a critical security vulnerability (CVE-2026-105134) in the Replication Receiver component. The flaw exists within the /rps/api/json/UpdateReceivers.do endpoint, where the 'random' argument is processed in an insecure manner. An unauthenticated remote attacker can inject arbitrary OS commands by manipulating this argument, leading to complete unauthorized access and execution of code with the privileges of the AhsayCBS application. With a CVSS base score of 10.0, this vulnerability poses a severe risk to organizations using the affected software. Publicly available exploit code has been reported, significantly increasing the likelihood of exploitation. Administrators must upgrade to version 10.3.4 immediately to remediate the vulnerability.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated remote attacker to execute arbitrary system commands, leading to full server compromise, data exfiltration, or deployment of additional malicious payloads such as ransomware. The impact is critical, affecting any environment where AhsayCBS is exposed to the network.\n\n## Recommendation\n\n- Upgrade all instances of AhsayCBS to version 10.3.4 or later immediately.\n- Apply the rules below to identify exploitation attempts targeting the identified API endpoint.\n- Restrict network access to the AhsayCBS management interface to trusted IP addresses only, especially for the Replication Receiver component.\n",
       "published": "2026-10-04T09:01:29.000Z",
@@ -108843,9 +108932,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-ahsay-cbs-rce",
       "x_craftedsignal_event_id": "brief-2026-10-ahsay-cbs-rce",
-      "x_craftedsignal_revision": 7,
+      "x_craftedsignal_revision": 8,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ahsay-cbs-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T17:44:45.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T18:44:10.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -130940,6 +131029,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d261bf06-d0fd-56b0-b356-9bae39c1bbdc",
+      "name": "Netdata (\u003e= 1.44.0-60, \u003c 1.45.0-169 and \u003e= 1.45.0, \u003c 1.45.3)",
+      "vendor": "Netdata"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d280794b-d813-5261-a4ca-f12ee7b1984f",
       "name": "go-micro (\u003c 6.0.0)",
       "vendor": "go-micro"
@@ -146583,6 +146679,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105794",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105794"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a3445c1d-937b-5777-89d3-d5a69c3278a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-32019",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-32019",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32019"
         }
       ]
     },
