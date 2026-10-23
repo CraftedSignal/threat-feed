@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--242a48f6-204f-576f-8a6e-508630c81067",
+  "id": "bundle--3beaf6df-c694-54b6-9f90-4ea21c7abce1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3788,6 +3788,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T10:36:30.000Z",
+      "name": "ip: 38.54.50.151",
+      "description": "Source IP address observed in exploitation attempts",
+      "pattern": "[ipv4-addr:value = '38.54.50.151']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-23T10:36:30.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4c5a0be7-346b-5ef5-a5e3-6707d9803411",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
@@ -4031,6 +4044,19 @@
       "pattern": "[ipv4-addr:value = '203.160.133.172']",
       "pattern_type": "stix",
       "valid_from": "2026-10-07T16:46:44.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T10:36:30.000Z",
+      "name": "ip: 74.82.197.86",
+      "description": "Source IP address observed in exploitation attempts",
+      "pattern": "[ipv4-addr:value = '74.82.197.86']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-23T10:36:30.000Z"
     },
     {
       "type": "indicator",
@@ -44380,6 +44406,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c1d6cb3f-ace7-5082-8f7b-a9d2cda9999a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T10:36:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
+      "target_ref": "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c1da242b-f905-50d9-b935-454b95e8d07f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -47676,6 +47713,17 @@
       "relationship_type": "has",
       "source_ref": "software--c73779ab-9d09-538f-af06-a242d166c04e",
       "target_ref": "vulnerability--49946fdf-788d-59a6-a137-ceb9657e592d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d104c57c-6f85-5271-ad15-2950defea849",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--88585bd7-4235-5f3b-b66f-63fdccbf74b4",
+      "target_ref": "vulnerability--21f88650-dad5-5bc7-83ed-51509e7528ea"
     },
     {
       "type": "relationship",
@@ -53642,6 +53690,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--eae5fc97-c7ef-5f50-ab81-5420570dcb5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T10:36:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--eafc4a83-a189-59fa-8ce9-c2d6f9ffd84f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:52.000Z",
@@ -57136,6 +57195,17 @@
       "relationship_type": "uses",
       "source_ref": "report--194bacd3-4d6e-57d7-a8c1-2b16c2657857",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fc1b94e5-a0d0-58e0-82d3-bd089e7bf55b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T10:36:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
+      "target_ref": "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4"
     },
     {
       "type": "relationship",
@@ -101438,6 +101508,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:30.000Z",
+      "modified": "2026-10-23T10:36:30.000Z",
+      "name": "Arista VeloCloud Orchestrator: SQL Injection Privilege Escalation (CVE-2026-114625)",
+      "description": "## Overview\n\nArista Networks has released security patches for CVE-2026-114625, a critical-severity SQL injection vulnerability in the VeloCloud Orchestrator (VCO) on-premises management tool. The vulnerability enables an authenticated user with low-level tenant role privileges to escalate to a superuser operator, granting unauthorized access to privileged internal functionality. Arista has confirmed active exploitation in the wild.\n\n## Impact\n\nSuccessful exploitation results in the compromise of the VCO host, allowing attackers to access internal-only management functionality, masquerade as a superuser, and impact the confidentiality, integrity, and availability of the orchestrator and its managed data.\n\n## Recommendation\n\n- Upgrade on-premises VCO installations immediately to version 5.2.3.18, 6.1.3.10, 6.4.2.12, or later.\n- Block inbound traffic from malicious IP addresses 74.82.197.86 and 38.54.50.151 at the network perimeter.\n- Review VCO web access, backend, and database logs for anomalous request patterns originating from existing authenticated sessions.\n- Restrict access to the VCO web interface to trusted management networks until patches are applied.\n",
+      "published": "2026-10-23T10:36:30.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--4a91c886-b62c-5bb4-be2b-588d9af413a4",
+        "indicator--784aca13-2ee1-549e-8c0b-1cfec8565935",
+        "software--88585bd7-4235-5f3b-b66f-63fdccbf74b4",
+        "vulnerability--21f88650-dad5-5bc7-83ed-51509e7528ea"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-velocloud-orchestrator-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-velocloud-orchestrator-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-velocloud-orchestrator-sqli",
+      "x_craftedsignal_event_id": "brief-2026-10-23-velocloud-orchestrator-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-velocloud-orchestrator-sqli/",
+      "x_craftedsignal_activity_at": "2026-10-23T10:36:30.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--84d138b3-0393-5dfb-bbfe-daa18dca5e6c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T18:42:16.000Z",
@@ -130651,6 +130764,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d935c6e5-7fd9-58af-b2c8-3aa8735f8334",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:51.000Z",
+      "modified": "2026-10-23T10:36:51.000Z",
+      "name": "Pillow: Remote Code Execution and Memory Vulnerabilities",
+      "description": "Pillow contains security vulnerabilities that can be triggered by processing crafted image files or specific filenames. One flaw, CVE-2026-112900, involves the library passing an attacker-controlled filename to Ghostscript when opening EPS images, which can lead to operating system command execution. Other vulnerabilities include memory buffer overflows in JPEG and TIFF processing. Pillow maintainers released version 13.0.0 to address these issues.\n",
+      "published": "2026-10-23T10:36:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--3aaf8957-5172-55e9-b1f5-c699959f7e68",
+        "vulnerability--945ea2f1-2943-5eec-8949-d1a7623d1857",
+        "vulnerability--9aa705f4-b709-58bb-99b4-d31280fcf5cf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-pillow-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-pillow-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-23-pillow-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-23T10:36:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed",
+        "source_url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
+        "observed_at": "2026-10-23T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_epss_max": 0.00528,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d9665a28-b616-5fc4-b542-8246bd43c8a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T14:43:02.000Z",
@@ -130689,6 +130846,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--d99afa10-7794-59d1-8407-9691b2a2eac9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T10:36:40.000Z",
+      "modified": "2026-10-23T10:36:40.000Z",
+      "name": "Cacti: Unauthenticated remote code execution (CVE-2022-46169)",
+      "description": "A public exploit is available for CVE-2022-46169, which affects Cacti versions below 1.2.23. The vulnerability involves an authentication bypass via 'X-Forwarded-For' header spoofing and command injection via the 'poller_id' parameter in 'remote_agent.php'. The vulnerability has a CVSS 3.1 score of 9.8 and an EPSS score of 99.8%.\n",
+      "published": "2026-10-23T10:36:40.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--b35daf49-1107-54df-9b4d-63b1153796df"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-cacti-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cacti-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVAL3X-CVE-2022-46169_POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVAL3X-CVE-2022-46169_POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-cacti-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-23-cacti-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cacti-rce/",
+      "x_craftedsignal_activity_at": "2026-10-23T10:36:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown",
+        "source_url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVAL3X-CVE-2022-46169_POC",
+        "confidence": "low"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.99826,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -151863,6 +152066,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--88585bd7-4235-5f3b-b66f-63fdccbf74b4",
+      "name": "VeloCloud Orchestrator (\u003c 5.2.3.18, 6.1.3.10, 6.4.2.12)",
+      "vendor": "Arista"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8859c469-b134-5553-b3f5-00823098aee0",
       "name": "Windows Defender",
       "vendor": "Microsoft"
@@ -161921,6 +162131,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--21f88650-dad5-5bc7-83ed-51509e7528ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114625",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114625",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114625"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2202e3be-9c11-5350-a926-8add67d06536",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -164523,6 +164749,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102491",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102491"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3aaf8957-5172-55e9-b1f5-c699959f7e68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112393",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112393",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112393"
         }
       ]
     },
@@ -172881,6 +173123,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--945ea2f1-2943-5eec-8949-d1a7623d1857",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112403",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112403",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112403"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--948f5ced-9cb1-5180-9008-c285f57bcf62",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -173499,6 +173757,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108739",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108739"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9aa705f4-b709-58bb-99b4-d31280fcf5cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112900",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112900",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112900"
         }
       ]
     },
@@ -176011,6 +176285,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101878",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101878"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b35daf49-1107-54df-9b4d-63b1153796df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-46169",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-46169",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-46169"
         }
       ]
     },
