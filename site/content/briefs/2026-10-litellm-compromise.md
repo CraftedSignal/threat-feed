@@ -1,20 +1,37 @@
 ---
 brief_id: brief-2026-10-21-litellm-compromise
 event_id: brief-2026-10-21-litellm-compromise
-revision: 1
-activity_at: "2026-10-21T14:21:38Z"
+revision: 2
+activity_at: "2026-10-23T08:42:30Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-23T08:42:30Z"
+    checksum: sha256:78779900bbccf8645ae7040d9eb8b0952f99616ee21834f178fde1873a96874a
+    summary: exploited:true
+    changed_fields:
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/
 title: LiteLLM Supply Chain Compromise
 slug: 2026-10-litellm-compromise
 description: A malicious version of the LiteLLM Python package (v1.107.0) was distributed via PyPI and Docker, containing credential theft functionality and dormant command-and-control capabilities.
 date: "2026-10-21T14:21:38Z"
-lastmod: "2026-10-22T09:35:47Z"
+lastmod: "2026-10-23T08:40:58Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/
+  observed_at: "2026-10-23T08:10:46Z"
+  confidence: medium
 source_assessment:
   reliability: B
   credibility: "2"
@@ -56,6 +73,7 @@ references:
   - https://www.wiz.io/blog/litellm-compromised-steals-credentials
   - https://www.reddit.com/r/blueteamsec/comments/1xbp4ez/security_litellm_11070_compromised_pypi_removed/
   - https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html
+  - https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/
 iocs:
   - type: url
     value: http://www.litellm.dev/healthcheck
@@ -126,6 +144,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html
+  - at: "2026-10-23T08:40:58Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/
 ---
 
 On October 21, 2026, version 1.107.0 of the LiteLLM package was identified as malicious on PyPI and Docker registries. The package contained embedded malicious scripts (`cook.pth`, `cook.py`, and `sitecustomize.py`) designed to execute automatically upon Python interpreter initialization. These scripts perform credential harvesting and attempt to establish command-and-control communication.

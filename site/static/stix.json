@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7229d22e-4076-5711-9677-d4149dfaf06e",
+  "id": "bundle--b539b0a3-c260-5866-a9cb-3502b1ba7aaa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3382,7 +3382,7 @@
       "id": "indicator--1aa3b2db-833b-5d86-a8ed-38a5d155b2f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "ip: 165.227.201.8",
       "description": "IP address used by threat actors to validate stolen AWS credentials",
       "pattern": "[ipv4-addr:value = '165.227.201.8']",
@@ -3395,7 +3395,7 @@
       "id": "indicator--1bc81ee8-f390-5c4d-bc06-dbc165697066",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: 1bbce8caa94f01c0aaa0b7ddae51553a8a32e1ce53d96d44fe583272aff7ad00",
       "description": "Malicious LiteLLM 1.107.0 wheel (musllinux x86_64)",
       "pattern": "[file:hashes.'SHA-256' = '1bbce8caa94f01c0aaa0b7ddae51553a8a32e1ce53d96d44fe583272aff7ad00']",
@@ -3733,7 +3733,7 @@
       "id": "indicator--49dbdaff-8485-589d-a934-ac59ab0d2494",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "ip: 168.100.8.57",
       "description": "IP address used by threat actors to validate stolen AWS credentials",
       "pattern": "[ipv4-addr:value = '168.100.8.57']",
@@ -3876,7 +3876,7 @@
       "id": "indicator--6d6c589b-f4bf-59d0-a9b6-5f2c837e38fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "domain: litellm.dev",
       "description": "Exfiltration destination for stolen credentials via healthcheck endpoint",
       "pattern": "[domain-name:value = 'litellm.dev']",
@@ -3941,7 +3941,7 @@
       "id": "indicator--7313892a-fbaf-5c0d-aefb-1b561a7469cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: 462d0c9f67ca522d9e0e4acd245e90b36ce0d5353604a66bb7c43a1ec4a6fcf7",
       "description": "Malicious LiteLLM 1.107.0 wheel (Linux x86_64)",
       "pattern": "[file:hashes.'SHA-256' = '462d0c9f67ca522d9e0e4acd245e90b36ce0d5353604a66bb7c43a1ec4a6fcf7']",
@@ -3954,7 +3954,7 @@
       "id": "indicator--7506fdab-bf6f-503f-876c-a2202b9e91c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: c2e32d0ce2548aa662c18bf5001911a79fe5b30cf8357132275add02fdcde054",
       "description": "Malicious LiteLLM 1.107.0 wheel (musllinux aarch64)",
       "pattern": "[file:hashes.'SHA-256' = 'c2e32d0ce2548aa662c18bf5001911a79fe5b30cf8357132275add02fdcde054']",
@@ -4097,7 +4097,7 @@
       "id": "indicator--83989a85-ef5a-5301-a4a1-5ca645abccd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: 7598727f209d717041db37f7dca271d3a7d328a279890e0e1d55375729aeb86d",
       "description": "Malicious LiteLLM 1.107.0 wheel (macOS x86_64)",
       "pattern": "[file:hashes.'SHA-256' = '7598727f209d717041db37f7dca271d3a7d328a279890e0e1d55375729aeb86d']",
@@ -4227,7 +4227,7 @@
       "id": "indicator--a531745b-46bf-5c3c-99ef-31ca7a96d1b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: bd1aeee419ea36da9aa2b657288da4101887be468f020ac63d22ba6ed84a3ea5",
       "description": "Malicious LiteLLM 1.107.0 Docker image (Linux/amd64)",
       "pattern": "[file:hashes.'SHA-256' = 'bd1aeee419ea36da9aa2b657288da4101887be468f020ac63d22ba6ed84a3ea5']",
@@ -4552,7 +4552,7 @@
       "id": "indicator--d3595259-e16d-518a-aab3-6694fcdc1704",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: 668169d35b87bf51324080390b1b1c5ab12bd335cfe5f1a99e3689abd5e02ae6",
       "description": "Malicious LiteLLM 1.107.0 wheel (Linux aarch64)",
       "pattern": "[file:hashes.'SHA-256' = '668169d35b87bf51324080390b1b1c5ab12bd335cfe5f1a99e3689abd5e02ae6']",
@@ -4565,7 +4565,7 @@
       "id": "indicator--d4d8630d-1872-51d4-b964-db62501f864b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "url: http://www.litellm.dev/healthcheck",
       "description": "Exfiltration endpoint for stolen secrets",
       "pattern": "[url:value = 'http://www.litellm.dev/healthcheck']",
@@ -4656,7 +4656,7 @@
       "id": "indicator--e5f4b656-7710-5444-8fb1-e82739ce5b41",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: 56b74573eed6e4aafe4b50603dbe7853e0345f188c8e44a09f1098caf1f4bcdf",
       "description": "Malicious LiteLLM 1.107.0 Docker image (Linux/arm64)",
       "pattern": "[file:hashes.'SHA-256' = '56b74573eed6e4aafe4b50603dbe7853e0345f188c8e44a09f1098caf1f4bcdf']",
@@ -4669,7 +4669,7 @@
       "id": "indicator--e694ac48-0556-5f0d-9d1d-e11bf9844809",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: 0aaf7ba346d41ef2f40390436738b001180d5a1c03aa093f121078a9969d9a1a",
       "description": "Malicious LiteLLM 1.107.0 wheel (macOS arm64)",
       "pattern": "[file:hashes.'SHA-256' = '0aaf7ba346d41ef2f40390436738b001180d5a1c03aa093f121078a9969d9a1a']",
@@ -4734,7 +4734,7 @@
       "id": "indicator--ea93ebaa-dcf0-52c7-98d3-9d81fa0340e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "hash_sha256: 12d4ccc5c6f8d35cf4f2cf233b7f3e418e863e657d81ff5f5fc9e210005b9484",
       "description": "Malicious LiteLLM 1.107.0 wheel (win_amd64)",
       "pattern": "[file:hashes.'SHA-256' = '12d4ccc5c6f8d35cf4f2cf233b7f3e418e863e657d81ff5f5fc9e210005b9484']",
@@ -5088,7 +5088,7 @@
       "id": "relationship--00dea51c-ad6c-539f-b5eb-c1672fb0835a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--1aa3b2db-833b-5d86-a8ed-38a5d155b2f2"
@@ -5176,7 +5176,7 @@
       "id": "relationship--0124cf06-9a62-50f9-b746-5f4e9934d103",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--ea93ebaa-dcf0-52c7-98d3-9d81fa0340e9"
@@ -10665,7 +10665,7 @@
       "id": "relationship--1b9204d6-48f0-51ac-92b8-f76f3fb882e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--6d6c589b-f4bf-59d0-a9b6-5f2c837e38fe"
@@ -12106,7 +12106,7 @@
       "id": "relationship--2325d802-2de0-5bf2-8f86-e8740952e717",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -14515,7 +14515,7 @@
       "id": "relationship--2f38e56f-2ef8-5f98-aac9-4e7a6c5018f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--83989a85-ef5a-5301-a4a1-5ca645abccd2"
@@ -17089,7 +17089,7 @@
       "id": "relationship--3cdd41a7-cace-5a1b-ac56-a9de865850ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--e694ac48-0556-5f0d-9d1d-e11bf9844809"
@@ -18046,7 +18046,7 @@
       "id": "relationship--41965808-6ed0-55f5-96d8-bbdd34bd0d00",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--e5f4b656-7710-5444-8fb1-e82739ce5b41"
@@ -18519,7 +18519,7 @@
       "id": "relationship--43f2adcc-ef0e-5817-bfca-7300bd58feee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--49dbdaff-8485-589d-a934-ac59ab0d2494"
@@ -23876,7 +23876,7 @@
       "id": "relationship--5d711e84-8292-519d-8974-375b57a8ab29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--d3595259-e16d-518a-aab3-6694fcdc1704"
@@ -27231,7 +27231,7 @@
       "id": "relationship--6f05de6c-f52c-555f-af64-35df86189455",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--7313892a-fbaf-5c0d-aefb-1b561a7469cc"
@@ -29739,7 +29739,7 @@
       "id": "relationship--7a06f3f2-2051-5db6-a502-38aed9355d1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "attack-pattern--05c809e6-b78d-50a8-9596-6fa469119e77"
@@ -30513,6 +30513,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e836b9bf-6175-5b47-b85a-aa9dba562769",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e2405ee-3f54-5aa7-829b-7f966663ed19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:41:49.000Z",
+      "modified": "2026-10-23T08:41:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8a7b7bf3-71f4-5af8-a0b4-b0ac4c156c64",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -32874,7 +32885,7 @@
       "id": "relationship--894e3df6-60a3-5c68-b9ae-2a90cd1cd4c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--d4d8630d-1872-51d4-b964-db62501f864b"
@@ -39067,7 +39078,7 @@
       "id": "relationship--a86c114d-bbda-540f-b9ed-8cc0277339c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--7506fdab-bf6f-503f-876c-a2202b9e91c5"
@@ -43280,7 +43291,7 @@
       "id": "relationship--bc98f6ec-5667-50c5-b015-599ada1366c9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -46764,6 +46775,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ce80e93b-b333-5bf0-ac3a-83ba7c66d0a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e2892f6e-ce14-5458-a15f-187c2bfee9f9",
+      "target_ref": "vulnerability--a47e37c2-6134-5fa5-ab47-909deba91b3a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ce8a347b-60e9-52f5-9e61-d13c8bb209d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T05:00:08.000Z",
@@ -47779,7 +47801,7 @@
       "id": "relationship--d3276b00-9eba-548c-98db-72e0e29491f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--a531745b-46bf-5c3c-99ef-31ca7a96d1b7"
@@ -53455,7 +53477,7 @@
       "id": "relationship--eb750df0-5431-5284-8100-1b8f9db17a8c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "relationship_type": "uses",
       "source_ref": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "target_ref": "indicator--1bc81ee8-f390-5c4d-bc06-dbc165697066"
@@ -102945,6 +102967,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8a7b7bf3-71f4-5af8-a0b4-b0ac4c156c64",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T08:41:49.000Z",
+      "modified": "2026-10-23T08:41:49.000Z",
+      "name": "WizLearn Technologies Learning Management System: Authentication bypass (CVE-2026-63244)",
+      "description": "## Overview\n\nCVE-2026-63244 identifies an authentication bypass vulnerability within the WizLearn Technologies Learning Management System (LMS). An unauthenticated remote attacker can circumvent password authentication and OAuth flows by sending a specially crafted POST request. This vulnerability can lead to unauthorized access to user accounts and full administrative compromise of the LMS platform.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to obtain administrative privileges, potentially resulting in full system compromise, access to sensitive user data, and the ability to manage the learning environment without authorized credentials.\n\n## Recommendation\n\n1. Inventory all instances of WizLearn LMS deployed within the network.\n2. Prioritize the application of vendor-supplied patches for CVE-2026-63244 once available.\n3. Implement strict network access controls (e.g., VPN or IP whitelisting) for the LMS administrative interface to mitigate unauthorized access attempts until patches are deployed.\n4. Review web server access logs for anomalous, high-frequency POST requests to authentication or OAuth-related endpoints.\n",
+      "published": "2026-10-23T08:41:49.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-63244",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e2892f6e-ce14-5458-a15f-187c2bfee9f9",
+        "vulnerability--a47e37c2-6134-5fa5-ab47-909deba91b3a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-23-wizlearn-lms-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wizlearn-lms-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63244"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-23-wizlearn-lms-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-23-wizlearn-lms-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wizlearn-lms-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-23T08:41:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8a862bcf-b4c7-5fd7-b26e-c1c9143b8531",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T01:51:22.000Z",
@@ -107475,7 +107543,7 @@
       "id": "report--979b692c-aa94-52d3-8f68-3677c5b2aff5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
-      "modified": "2026-10-22T09:35:47.000Z",
+      "modified": "2026-10-23T08:42:30.000Z",
       "name": "LiteLLM Supply Chain Compromise",
       "description": "## Overview\nOn October 21, 2026, version 1.107.0 of the LiteLLM package was identified as malicious on PyPI and Docker registries. The package contained embedded malicious scripts (`cook.pth`, `cook.py`, and `sitecustomize.py`) designed to execute automatically upon Python interpreter initialization. These scripts perform credential harvesting and attempt to establish command-and-control communication.\n\n## Attack Chain\n1. Compromised LiteLLM package (v1.107.0) is installed via PyPI or pulled from Docker registries.\n2. Python interpreter initializes, triggering the execution of `cook.pth` which imports `cook.py`.\n3. `cook.py` runs an obfuscated credential-stealer routine targeting browser, cloud, and AI secrets.\n4. Stolen credentials are encrypted and exfiltrated to an attacker-controlled endpoint (`www.litellm.dev/healthcheck`).\n5. On Linux and macOS systems, `sitecustomize.py` attempts to fetch a secondary stage payload URL from a GitHub dead drop.\n6. The second-stage script, if retrieved, would be downloaded and executed on the host.\n\n## Impact\nThe malicious package successfully harvested system, browser, developer, cloud, and AI tool secrets from compromised environments. The exfiltration endpoint was configured to receive this sensitive data via HTTP POST requests.\n\n## Recommendation\n- Immediately audit environments for the presence of LiteLLM v1.107.0 and downgrade to the known safe version (v1.106.2).\n- Review network logs for egress traffic to `www.litellm.dev` or communication attempts with GitHub-hosted dead drops from Python processes.\n- Rotate all credentials (cloud, AI, browser-stored) that may have been present in environments where the malicious package was executed.\n- Scan file systems for the artifacts `cook.pth`, `cook.py`, and `sitecustomize.py` in Python site-packages directories.\n",
       "published": "2026-10-21T14:21:38.000Z",
@@ -107520,19 +107588,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.wiz.io/blog/litellm-compromised-steals-credentials"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-litellm-compromise",
       "x_craftedsignal_event_id": "brief-2026-10-21-litellm-compromise",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-litellm-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-22T09:35:47.000Z",
+      "x_craftedsignal_activity_at": "2026-10-23T08:42:30.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/",
+        "observed_at": "2026-10-23T08:10:46.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -155909,6 +155984,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e2892f6e-ce14-5458-a15f-187c2bfee9f9",
+      "name": "Learning Management System",
+      "vendor": "WizLearn Technologies"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e2979eaa-c3af-5d87-85dc-23e70f9d8a8e",
       "name": "vite (\u003c= 6.4.3, 7.0.0-7.3.6, 8.0.0-8.1.5, 8.2.0-8.2.3, 8.3.0-8.3.2)"
     },
@@ -173568,6 +173650,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92820",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92820"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a47e37c2-6134-5fa5-ab47-909deba91b3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63244",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63244",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63244"
         }
       ]
     },
