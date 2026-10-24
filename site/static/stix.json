@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dc7b70b6-967d-5993-9317-fbff7cf2b217",
+  "id": "bundle--0bcc8d54-1f9e-568c-bd34-b85650045dbc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12687,6 +12687,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2543a135-5ebc-57c5-9450-886ceb926f11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T03:34:49.000Z",
+      "modified": "2026-10-24T03:34:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74032b78-2843-5e85-8de8-3c2127350c40",
+      "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2560ec89-19f1-5be5-b0ab-5837563564b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T11:19:25.000Z",
@@ -23221,6 +23232,17 @@
       "relationship_type": "has",
       "source_ref": "software--aab0999f-331a-57e6-80ef-0faeb5d7cf5a",
       "target_ref": "vulnerability--9a3a7576-538c-5dd6-a2e9-4ea9b2f2595f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5a32f6fd-9de8-516e-b181-cd0edf22f4fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T03:34:49.000Z",
+      "modified": "2026-10-24T03:34:49.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--74032b78-2843-5e85-8de8-3c2127350c40",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -96825,6 +96847,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--74032b78-2843-5e85-8de8-3c2127350c40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T03:34:49.000Z",
+      "modified": "2026-10-24T03:34:49.000Z",
+      "name": "Credential Theft via Package Runtime Secret Access and IMDS Request",
+      "description": "## Overview\n\nThis threat involves credential-stealing malware delivered through compromised packages (e.g., PyPI, npm) that leverages package runtimes (Python, Node.js, Bun, Deno, Ruby, PHP, or Perl) to access local developer secrets. Following the harvesting of sensitive files such as SSH keys, registry tokens, or AI coding assistant credentials, the malicious process connects to cloud Instance Metadata Service (IMDS) endpoints within one minute to exfiltrate or hijack instance-level credentials. This sequence is characteristic of supply chain attacks where a malicious package is imported, executing its payload during interpreter runtime. Cloud SDKs are excluded from this behavior analysis as they typically read provider-specific credential chains before falling back to IMDS.\n\n## Impact\n\nSuccessful exploitation results in the exfiltration of sensitive local developer credentials (SSH keys, Git/GitHub/Vault tokens) and the potential hijacking of cloud instance roles, allowing attackers to access cloud resources associated with the victim's identity.\n\n## Recommendation\n\n- Implement monitoring for the access of sensitive credential paths by language interpreters and build-tool runtimes.\n- Enforce IMDSv2 with a hop limit of 1 and scope instance IAM roles to least privilege to minimize the impact of credential theft.\n- Audit and rotate credentials immediately if suspicious file access followed by IMDS network activity is observed.\n- Review environment dependencies for recently updated or suspect package versions in `site-packages`, `node_modules`, or virtual environments.\n",
+      "published": "2026-10-24T03:34:49.000Z",
+      "labels": [
+        "credential-access",
+        "imds",
+        "nodejs",
+        "python",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-package-runtime-credential-theft",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-package-runtime-credential-theft/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/cross-platform/credential_access_secret_file_access_followed_by_imds_request.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/litellm-compromised-steals-credentials"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-package-runtime-credential-theft",
+      "x_craftedsignal_event_id": "brief-2026-10-24-package-runtime-credential-theft",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-package-runtime-credential-theft/",
+      "x_craftedsignal_activity_at": "2026-10-24T03:34:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
