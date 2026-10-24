@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4828ba64-763e-5fb5-b846-116f5a989184",
+  "id": "bundle--52bc98f3-b702-5560-b06e-7d6ed3e1fa82",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16615,17 +16615,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8480a3d3-ace0-58c2-a28d-59a30e100292",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5d28ca65-c168-5e3a-82fa-bd8fadced282",
-      "target_ref": "vulnerability--dd278e04-9700-532c-8d5b-c875e532a971"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--84826b48-013e-5730-999a-68573603c846",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:03:50.000Z",
@@ -17656,17 +17645,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0899f934-c3b5-57f4-b68c-da2e4ef6ee32",
       "target_ref": "indicator--2edb740e-d166-58d2-8c5b-1077c39274e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--93ad996a-223c-51d3-9049-7dd9fe3199c7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-26T05:17:52.000Z",
-      "modified": "2026-07-26T05:17:52.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9fe2a52b-8617-53b8-89b9-3028b5357a04",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -33188,52 +33166,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9fe2a52b-8617-53b8-89b9-3028b5357a04",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-26T05:17:52.000Z",
-      "modified": "2026-07-26T05:17:52.000Z",
-      "name": "Code Injection Vulnerability in datamodel-code-generator (CVE-2026-63720)",
-      "description": "## Overview\n\ndatamodel-code-generator, a Python tool for generating data model code, is affected by a code injection vulnerability, CVE-2026-63720, in versions prior to 0.70.0. This flaw allows an attacker to achieve remote code execution (RCE) by manipulating input schemas. Specifically, by supplying a crafted `customBasePath` value containing embedded newlines and a dot-free Python expression, the attacker can cause arbitrary Python code to be emitted verbatim into a `from ... import ...` statement within the generated module. When this compromised module is subsequently imported, the malicious Python code executes, posing a significant risk to systems that process untrusted schemas using this tool.\n\n## Attack Chain\n\n1. An attacker prepares a malicious input schema designed for `datamodel-code-generator`.\n2. Within this schema, the attacker embeds a specially crafted `customBasePath` value.\n3. The `customBasePath` value includes embedded newline characters and a dot-free Python expression (e.g., `os.system('malicious_command')`).\n4. A legitimate user or automated system processes this malicious input schema using `datamodel-code-generator` prior to version 0.70.0.\n5. During the code generation process, the `datamodel-code-generator` tool insecurely embeds the malicious `customBasePath` verbatim into a `from ... import ...` statement of the output Python module without validating the identifier.\n6. When an application subsequently imports this newly generated, compromised Python module, the embedded malicious Python expression is executed.\n7. This execution leads to remote code execution (RCE) on the system where the generated module is imported, allowing the attacker to run arbitrary commands.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-63720 grants an attacker remote code execution capabilities on the system running the vulnerable `datamodel-code-generator` instance or any application that imports code generated from a malicious schema. This allows attackers to compromise the integrity and confidentiality of data, establish persistence, and potentially pivot to other systems within the environment. The severity of the impact depends on the privileges of the affected system, but generally represents a critical breach. No specific observed victims or targeted sectors are mentioned in the advisory, but any organization using affected versions of `datamodel-code-generator` to process untrusted schemas is at risk.\n\n## Recommendation\n\n* Patch `datamodel-code-generator` to version 0.70.0 or later immediately to remediate CVE-2026-63720.\n",
-      "published": "2026-07-26T05:17:52.000Z",
-      "labels": [
-        "code-injection",
-        "rce",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5d28ca65-c168-5e3a-82fa-bd8fadced282",
-        "vulnerability--dd278e04-9700-532c-8d5b-c875e532a971"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-63720",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-63720/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63720"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-63720",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-63720",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-63720/",
-      "x_craftedsignal_activity_at": "2026-07-26T05:17:52.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9fefac79-0e10-5af7-ba3f-b56d8db1667d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:29:20.000Z",
@@ -41105,12 +41037,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5d28ca65-c168-5e3a-82fa-bd8fadced282",
-      "name": "datamodel-code-generator \u003c 0.70.0"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5e1e5375-3f2c-5b4d-8d16-d3aa9cda8167",
       "name": "dynatrace-mcp-server (v1.8.5)",
       "vendor": "Dynatrace"
@@ -45466,22 +45392,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-16585",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16585"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--dd278e04-9700-532c-8d5b-c875e532a971",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-63720",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-63720",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63720"
         }
       ]
     },
