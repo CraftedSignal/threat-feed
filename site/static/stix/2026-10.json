@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a7fd8f4a-9397-5d95-b4f7-df0c19d9f3a9",
+  "id": "bundle--70e6b85d-995e-5f90-ba06-34f37aadd60c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15663,6 +15663,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--404b3f4d-2ac6-527f-b287-fa11f819b5ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0b57ff97-a74f-5958-90e4-6651480553be",
+      "target_ref": "vulnerability--96f2f611-933f-5263-9c49-67dd76aae813"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--404b9a7d-2662-5562-9f39-50366967f11e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29138,6 +29149,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8cae886d-da56-5e02-93a7-031cbbc9f7c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4b8723e6-caca-5eb6-a994-d03dd0c113f0",
+      "target_ref": "vulnerability--a6e7b7f7-3b9d-5a90-a5df-fe4bae92b523"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8cb38338-929b-542f-978a-fe19b9121449",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29684,6 +29706,17 @@
       "relationship_type": "has",
       "source_ref": "software--2aa5a60f-870c-53e9-9f2a-c66e62313989",
       "target_ref": "vulnerability--4b9c9ab7-4a59-5fd9-a514-3405b2eafce3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ff47970-c148-5154-b5a2-a603d30fe862",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T18:18:22.000Z",
+      "modified": "2026-10-24T18:18:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d1ee8930-f80b-56c2-a937-0741e620cb1e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -47119,6 +47152,17 @@
       "relationship_type": "has",
       "source_ref": "software--606d0376-83e7-5c6f-8edf-23bb59e868d2",
       "target_ref": "vulnerability--b1e736b3-3adc-5de9-8024-13b6e8f309cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eeddbb49-0a0f-5ee3-a16d-ffa1009b627a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T18:18:22.000Z",
+      "modified": "2026-10-24T18:18:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d1ee8930-f80b-56c2-a937-0741e620cb1e",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -112111,6 +112155,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d1ee8930-f80b-56c2-a937-0741e620cb1e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T18:18:22.000Z",
+      "modified": "2026-10-24T18:18:22.000Z",
+      "name": "Travisun Opptrix: Command injection in Schedule API (CVE-2026-115969)",
+      "description": "## Overview\nTravisun Opptrix version 0.4.0 is affected by a command injection vulnerability within the /api/auth/setup endpoint of the Schedule API component. While the maintainer stated the issue was a design flaw intended for local development environments, the project has been deprecated and taken offline. Remote exploitation of this flaw is possible, and public exploit code exists.\n\n## Impact\nSuccessful exploitation allows for remote command injection, potentially leading to unauthorized system access or arbitrary command execution on the host server.\n\n## Recommendation\n- Inventory systems for any remaining installations of Travisun Opptrix 0.4.0.\n- Decommission all instances of the software, as the project is deprecated, taken offline, and no security patches are being provided.\n- If immediate removal is not possible, restrict network access to the /api/auth/setup endpoint at the web application firewall or load balancer level.\n",
+      "published": "2026-10-24T18:18:22.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0b57ff97-a74f-5958-90e4-6651480553be",
+        "vulnerability--96f2f611-933f-5263-9c49-67dd76aae813"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-travisun-opptrix-cve-2026-115969",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-travisun-opptrix-cve-2026-115969/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115969"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-travisun-opptrix-cve-2026-115969",
+      "x_craftedsignal_event_id": "brief-2026-10-24-travisun-opptrix-cve-2026-115969",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-travisun-opptrix-cve-2026-115969/",
+      "x_craftedsignal_activity_at": "2026-10-24T18:18:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d1f1e43a-91b9-569e-ab08-a4e6191d0518",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:02:33.000Z",
@@ -120834,6 +120920,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f0310b64-486b-5039-a821-06a053efd1d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T18:18:29.000Z",
+      "modified": "2026-10-24T18:18:29.000Z",
+      "name": "Knit Pay UPI QR Code Payment Gateway: Missing Authorization Vulnerability (CVE-2026-114191)",
+      "published": "2026-10-24T18:18:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b8723e6-caca-5eb6-a994-d03dd0c113f0",
+        "vulnerability--a6e7b7f7-3b9d-5a90-a5df-fe4bae92b523"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-knit-pay-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-knit-pay-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114191"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-knit-pay-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-24-knit-pay-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-knit-pay-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-24T18:18:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f07fe908-06ff-50ed-9399-52a2cec08fd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T03:58:00.000Z",
@@ -126197,6 +126322,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0b57ff97-a74f-5958-90e4-6651480553be",
+      "name": "Opptrix (0.4.0)",
+      "vendor": "Travisun"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0b5d493d-8ac7-5f82-8eb1-bb9370dff118",
       "name": "Vibe-Trading (0.1.0-0.1.6)",
       "vendor": "HKUDS"
@@ -129319,6 +129451,13 @@
       "spec_version": "2.1",
       "id": "software--4b792a9d-1b2d-5828-9209-5c0e4ddb569b",
       "name": "office-converter (\u003c= 1.0.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4b8723e6-caca-5eb6-a994-d03dd0c113f0",
+      "name": "UPI QR Code Payment Gateway for WooCommerce (n/a through 1.6.3)",
+      "vendor": "Knit Pay"
     },
     {
       "type": "software",
@@ -151246,6 +151385,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--96f2f611-933f-5263-9c49-67dd76aae813",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115969",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115969",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115969"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9749133f-b93d-5ab0-9213-e9905213885a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -152776,6 +152931,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76066",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76066"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a6e7b7f7-3b9d-5a90-a5df-fe4bae92b523",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114191",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114191",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114191"
         }
       ]
     },
