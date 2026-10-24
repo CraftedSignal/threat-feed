@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e5a6f307-2d45-5fa6-b197-18a8831d0c23",
+  "id": "bundle--2027844a-8cf9-587a-845b-058d9a9e426f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8480,6 +8480,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1434c9dd-8620-5396-a3f2-94848a0e15dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--86a2a8d7-4a34-590d-8c0d-bc49b7eee5de",
+      "target_ref": "vulnerability--14ccc133-1ccb-522e-9358-a1cd7bd55380"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--143a68bb-d6e9-5d4d-ba02-2e1762f6054e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13642,7 +13653,7 @@
       "id": "relationship--32c12371-29a4-5e1d-a793-7db93b2021a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T14:16:08.000Z",
-      "modified": "2026-10-24T14:16:08.000Z",
+      "modified": "2026-10-24T15:15:31.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7b1bfc4c-2855-5112-883e-d8e3aed36b39",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -37732,7 +37743,7 @@
       "id": "relationship--bd5773aa-cf93-5d51-9cd8-1a8c340b4623",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T14:16:30.000Z",
-      "modified": "2026-10-24T14:16:30.000Z",
+      "modified": "2026-10-24T15:15:31.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1f0895be-a1ca-502b-bbb5-0b6f4f0bd7c7",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -52241,12 +52252,13 @@
       "id": "report--09d6e8c3-a177-5406-83b0-3ffdecb0cebe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T14:17:02.000Z",
-      "modified": "2026-10-24T14:17:02.000Z",
+      "modified": "2026-10-24T15:15:31.000Z",
       "name": "Postiz: Arbitrary file read via crafted media path (CVE-2026-115932)",
       "description": "## Overview\nPostiz is vulnerable to an arbitrary file read (CVE-2026-115932) due to improper input validation. When a post is published, the application treats media paths that are not web addresses as local files on the server's disk without verifying that the file resides within the designated upload directory. An attacker can store a crafted media path with a post to have the publishing worker read an arbitrary file and send it as an attachment to an attacker-controlled Discord server. \n\nThe vulnerability can also be exploited to determine if a file exists on the server and to exhaust backend memory. Because self-registration is open by default, an attacker does not require a pre-existing account to exploit these flaws.\n",
       "published": "2026-10-24T14:17:02.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--86a2a8d7-4a34-590d-8c0d-bc49b7eee5de",
         "vulnerability--14ccc133-1ccb-522e-9358-a1cd7bd55380"
       ],
       "external_references": [
@@ -52258,14 +52270,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115932"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-115932\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-24-postiz-arbitrary-file-read-06bda3fd",
       "x_craftedsignal_event_id": "brief-2026-10-24-postiz-arbitrary-file-read-06bda3fd",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-postiz-arbitrary-file-read-06bda3fd/",
-      "x_craftedsignal_activity_at": "2026-10-24T14:17:02.000Z",
+      "x_craftedsignal_activity_at": "2026-10-24T15:15:31.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -57852,7 +57868,7 @@
       "id": "report--1f0895be-a1ca-502b-bbb5-0b6f4f0bd7c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T14:16:30.000Z",
-      "modified": "2026-10-24T14:16:30.000Z",
+      "modified": "2026-10-24T15:15:31.000Z",
       "name": "open62541: Integer overflow in UA_DataType_fromStructureDescription (CVE-2026-116014)",
       "description": "## Overview\n\nThe open62541 library contains an integer overflow vulnerability in the UA_DataType_fromStructureDescription() function. The vulnerability occurs when processing 16-bit memSize fields within custom structure definitions. A malicious OPC UA server can deliver crafted DataType definitions via the UA_Client_getRemoteDataTypes() function, resulting in an overflow during calls to decodeBinaryStructure(). Successful exploitation causes heap corruption, which may lead to application crashes or remote code execution. This affects open62541 versions 1.5.0 through 1.5.6.\n\n## Impact\n\nSuccessful exploitation may result in heap corruption, causing service disruption via application crashes or potential remote code execution on the client-side system.\n\n## Recommendation\n\nUpdate the open62541 library to version 1.5.7 or later to address the integer overflow vulnerability in structure description parsing. Organizations utilizing libraries built on open62541 should identify internal applications using the library and schedule updates for the identified software.\n",
       "published": "2026-10-24T14:16:30.000Z",
@@ -57871,14 +57887,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116014"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-116014\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-24-open62541-integer-overflow",
       "x_craftedsignal_event_id": "brief-2026-10-24-open62541-integer-overflow",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-open62541-integer-overflow/",
-      "x_craftedsignal_activity_at": "2026-10-24T14:16:30.000Z",
+      "x_craftedsignal_activity_at": "2026-10-24T15:15:31.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -85149,7 +85169,7 @@
       "id": "report--7b1bfc4c-2855-5112-883e-d8e3aed36b39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T14:16:08.000Z",
-      "modified": "2026-10-24T14:16:08.000Z",
+      "modified": "2026-10-24T15:15:31.000Z",
       "name": "aBlocks: WordPress Plugin Privilege Escalation (CVE-2026-110018)",
       "description": "## Overview\nThe aBlocks - Gutenberg Blocks, User Dashboard Builder, Popup Builder, Form Builder \u0026 Animation Builder plugin for WordPress is vulnerable to a privilege escalation vulnerability (CVE-2026-110018) in versions up to and including 2.17.0. The vulnerability arises from an improperly configured REST API permission callback in the `/ablocks/v1/form-builder/registration` endpoint.\n\nThe plugin allows an attacker with Contributor-level access to manipulate the `roleSlug` attribute. By saving a block with `formType='login'` and subsequently triggering the registration endpoint, the attacker can bypass validation checks that only occur during the save process. The vulnerability is mitigated for administrator-level roles by an `is_safe_registration_role()` function that rejects roles with critical management capabilities, limiting escalation to the Editor role or lower.\n\n## Impact\nSuccessful exploitation allows an authenticated user with at least Contributor-level access to escalate their account privileges to Editor. This provides the attacker with elevated access to site content and administrative capabilities associated with the Editor role.\n\n## Recommendation\n- Update the \"aBlocks - Gutenberg Blocks, User Dashboard Builder, Popup Builder, Form Builder \u0026 Animation Builder\" plugin to a version released after 2.17.0.\n- Audit existing user accounts for unexpected elevation to Editor or other high-privilege roles.\n- Review WordPress REST API logs for anomalous requests to the `/ablocks/v1/form-builder/registration` endpoint, particularly from users with Contributor-level roles.\n",
       "published": "2026-10-24T14:16:08.000Z",
@@ -85173,14 +85193,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110018"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-110018\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-24-ablocks-privilege-escalation",
       "x_craftedsignal_event_id": "brief-2026-10-24-ablocks-privilege-escalation",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ablocks-privilege-escalation/",
-      "x_craftedsignal_activity_at": "2026-10-24T14:16:08.000Z",
+      "x_craftedsignal_activity_at": "2026-10-24T15:15:31.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -132285,6 +132309,13 @@
       "id": "software--866fee9f-6653-5282-a75b-a7d4e599dafb",
       "name": "Workspace (\u003c= launcher-v1.0.17)",
       "vendor": "OpenAgents"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--86a2a8d7-4a34-590d-8c0d-bc49b7eee5de",
+      "name": "postiz-app",
+      "vendor": "Gitroom"
     },
     {
       "type": "software",

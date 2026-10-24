@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-24-ablocks-privilege-escalation
 event_id: brief-2026-10-24-ablocks-privilege-escalation
-revision: 1
-activity_at: "2026-10-24T14:16:08Z"
+revision: 2
+activity_at: "2026-10-24T15:15:31Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-24T15:15:31Z"
+    checksum: sha256:6f00832ec8eefa13d19deaa877d71300fe2bd399c14cf3f65e0708bbb5c501e3
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-110018&utm_source=rss&utm_medium=rss
 title: 'aBlocks: WordPress Plugin Privilege Escalation (CVE-2026-110018)'
 slug: 2026-10-ablocks-privilege-escalation
 description: The aBlocks WordPress plugin fails to validate user input within the /ablocks/v1/form-builder/registration REST endpoint, allowing authenticated users with Contributor access to escalate privileges to Editor.
 date: "2026-10-24T14:16:08Z"
+lastmod: "2026-10-24T15:14:59Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +37,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:ablocks:ablocks:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-110018&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - privilege-escalation
@@ -44,6 +61,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110018
+  - https://sploitus.com/exploit?id=CVE-2026-110018&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -70,6 +88,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-110018
       evidence: Plugin version 2.17.0 and below are confirmed vulnerable.
+updates:
+  - at: "2026-10-24T15:14:59Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-110018&utm_source=rss&utm_medium=rss
 ---
 
 The aBlocks - Gutenberg Blocks, User Dashboard Builder, Popup Builder, Form Builder & Animation Builder plugin for WordPress is vulnerable to a privilege escalation vulnerability (CVE-2026-110018) in versions up to and including 2.17.0. The vulnerability arises from an improperly configured REST API permission callback in the `/ablocks/v1/form-builder/registration` endpoint.

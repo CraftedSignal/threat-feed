@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-24-open62541-integer-overflow
 event_id: brief-2026-10-24-open62541-integer-overflow
-revision: 1
-activity_at: "2026-10-24T14:16:30Z"
+revision: 2
+activity_at: "2026-10-24T15:15:31Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-24T15:15:31Z"
+    checksum: sha256:53cce69fd9795910ae97fefc0394dd752edd3b4228d17b989e33c9f6602c28ca
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-116014&utm_source=rss&utm_medium=rss
 title: 'open62541: Integer overflow in UA_DataType_fromStructureDescription (CVE-2026-116014)'
 slug: 2026-10-open62541-integer-overflow
 description: An integer overflow in the open62541 library allows a malicious OPC UA server to trigger heap corruption in clients, potentially leading to remote code execution.
 date: "2026-10-24T14:16:30Z"
+lastmod: "2026-10-24T15:14:58Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +38,9 @@ qa_status:
   validation_status: Validated against NVD source material
 cpes:
   - cpe:2.3:a:open62541:open62541:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-116014&utm_source=rss&utm_medium=rss
 vendors:
   - open62541
 products:
@@ -41,6 +58,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116014
+  - https://sploitus.com/exploit?id=CVE-2026-116014&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +85,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-116014
       evidence: CVE-2026-116014 advisory.
+updates:
+  - at: "2026-10-24T15:14:58Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-116014&utm_source=rss&utm_medium=rss
 ---
 
 The open62541 library contains an integer overflow vulnerability in the UA_DataType_fromStructureDescription() function. The vulnerability occurs when processing 16-bit memSize fields within custom structure definitions. A malicious OPC UA server can deliver crafted DataType definitions via the UA_Client_getRemoteDataTypes() function, resulting in an overflow during calls to decodeBinaryStructure(). Successful exploitation causes heap corruption, which may lead to application crashes or remote code execution. This affects open62541 versions 1.5.0 through 1.5.6.
