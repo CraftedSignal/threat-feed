@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6591b759-3cb6-510a-964c-e09feba0994c",
+  "id": "bundle--e770764b-b6f5-5166-925f-f621fe1919a6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7954,6 +7954,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0e841047-1767-50a7-80e9-fa1c3a1c551f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6bffa005-66a4-54f1-9be1-b1c09b7fa5b4",
+      "target_ref": "vulnerability--4bbcab45-1d7a-562b-b455-b057459fbbab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e8535d4-f7a1-5967-be3a-edcb45a9c253",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:40:58.000Z",
@@ -8885,17 +8896,6 @@
       "relationship_type": "has",
       "source_ref": "software--4a33e8c7-d489-5caa-8eab-eb160ddd9b3d",
       "target_ref": "vulnerability--5cf062b9-ec7f-5b62-b1fe-900d47207e2b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--12e7e7f0-25a1-5e4b-b4ba-6a143b2472b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--2703e14f-70b3-5a71-bbdb-363abbbe8b93",
-      "target_ref": "vulnerability--ac1acea2-686c-5549-919e-58df9db1bb33"
     },
     {
       "type": "relationship",
@@ -10220,6 +10220,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--191f5a0d-836b-57ca-8a41-b7870acf8297",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T21:31:16.000Z",
+      "modified": "2026-10-24T21:31:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a76661bf-7be0-5e43-8218-68d37c29036a",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--19236e05-2777-574b-a965-b155203cb235",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11503,17 +11514,6 @@
       "relationship_type": "has",
       "source_ref": "software--29124489-a274-53c2-9f5f-31c6fe9a4020",
       "target_ref": "vulnerability--64480201-3ff7-5a7d-84dd-566e8685324b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1eff613b-7d7a-5a85-9494-fd3ca62f50a9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0841404a-4705-521f-9f42-884330e441b1",
-      "target_ref": "vulnerability--e09d30ec-d35b-5e7f-b95c-95dafde3f32f"
     },
     {
       "type": "relationship",
@@ -13450,6 +13450,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7b1c947b-d689-5143-b9ff-84bc5aad8254",
       "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--295bff20-cb01-5e36-bca6-0cf05bf1011e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T21:31:16.000Z",
+      "modified": "2026-10-24T21:31:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a76661bf-7be0-5e43-8218-68d37c29036a",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -17326,6 +17337,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3d984737-4e43-5600-aa9f-dcade7ef93e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--93efe9fe-4c9f-52d1-baea-ac9496bd987f",
+      "target_ref": "vulnerability--4ab1d200-5666-5c73-bd80-9cae3250da65"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3da6edcf-b154-5167-b8a5-d0d04e7ad233",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17707,17 +17729,6 @@
       "relationship_type": "uses",
       "source_ref": "report--4b8bd179-8fb9-51d9-8afa-2bd354d6145e",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3f4255a5-bb9d-5207-af5c-7ddafb518757",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T20:47:48.000Z",
-      "modified": "2026-09-24T20:47:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--585f0419-51c7-5b3f-9789-76d4909b57ed",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -20017,6 +20028,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a446d919-61c8-5db3-ae07-3ecb961990f2",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4ac1f96e-9901-581d-91fa-2d2160d26705",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--79aa033d-ef5d-5e7d-bbb1-a8d7dac70741",
+      "target_ref": "vulnerability--4ab1d200-5666-5c73-bd80-9cae3250da65"
     },
     {
       "type": "relationship",
@@ -23581,17 +23603,6 @@
       "relationship_type": "has",
       "source_ref": "software--45fbe5c3-b21d-5f4f-bc32-dbd3b2da7451",
       "target_ref": "vulnerability--f3c60c66-32f2-5b31-8849-7150ce299fb6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5be6c92a-23e0-5f1f-a34e-ae346888050a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T20:47:57.000Z",
-      "modified": "2026-09-24T20:47:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e3894c2f-936e-5f20-a63b-aff4bb5d2836",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -30031,17 +30042,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7a3cc1b8-0f0c-5fb9-8bbf-78f6927290d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--cc15b2d3-d465-5629-a4fc-c6c563b7e423",
-      "target_ref": "vulnerability--ad2d6176-6dc4-5a0e-9a7f-8df1a2e9db40"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7a7701ef-1a70-5156-a5bd-99d61d2a1ca6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T05:34:45.000Z",
@@ -33811,17 +33811,6 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--b4995f18-ecf5-524c-a803-478a0ef66152",
       "target_ref": "threat-actor--04713873-a7a2-5ae8-b1d0-d25c6721366e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8cdf27b9-cf83-5849-bb53-0dcbddae4663",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T20:47:41.000Z",
-      "modified": "2026-09-24T20:47:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2d17f3c1-33c9-57d5-913c-6b9850f7f5f7",
-      "target_ref": "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930"
     },
     {
       "type": "relationship",
@@ -71698,47 +71687,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--2d17f3c1-33c9-57d5-913c-6b9850f7f5f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T20:47:41.000Z",
-      "modified": "2026-09-24T20:47:41.000Z",
-      "name": "Unauthenticated Account Takeover in Taskview Community via OAuth Dynamic Registration",
-      "description": "## Overview\n\nTaskview Community versions prior to 1.56.0 contain a critical vulnerability in the OAuth 2.0 Dynamic Client Registration endpoint that permits unauthenticated access. By default, this endpoint is active and lacks any form of identity verification, enabling any actor on the network to register an arbitrary OAuth client. An attacker can leverage this to register their own client application, receive valid credentials (client_id and client_secret), and initiate malicious OAuth flows. This vulnerability poses a significant risk to the integrity of user accounts within affected Taskview deployments, as it facilitates full unauthorized access to API data and account information. Defending against this requires immediate patching or, as a temporary measure, ensuring that the Dynamic Client Registration endpoint is explicitly disabled or restricted to trusted internal network ranges if the business logic allows.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to hijack user sessions and gain full API access to sensitive victim account data. Organizations utilizing Taskview Community to manage OAuth workflows are at high risk of large-scale account takeover events and data exfiltration through the application's API layer.\n\n## Recommendation\n\n- Upgrade Taskview Community to version 1.56.0 or later immediately to address the missing authentication in the OAuth registration endpoint.\n- Audit logs for the OAuth 2.0 Dynamic Client Registration endpoint to identify any unauthorized or unexpected client registration requests originating from outside authorized administrative subnets.\n- Review all registered OAuth clients for unrecognized or suspicious entries that may have been created by unauthorized actors during the exposure period.\n",
-      "published": "2026-09-24T20:47:41.000Z",
-      "object_refs": [
-        "attack-pattern--81fd65a4-87c0-58e0-918c-c27c275ab930",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--cc15b2d3-d465-5629-a4fc-c6c563b7e423",
-        "vulnerability--ad2d6176-6dc4-5a0e-9a7f-8df1a2e9db40"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-24-taskview-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-taskview-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93354"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-24-taskview-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-24-taskview-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-taskview-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-24T20:47:41.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--2d1ba297-6b57-5912-9ae9-7b7e1cee7563",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:49.000Z",
@@ -86261,47 +86209,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-library-management-upload/",
       "x_craftedsignal_activity_at": "2026-10-13T08:33:51.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--585f0419-51c7-5b3f-9789-76d4909b57ed",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T20:47:48.000Z",
-      "modified": "2026-09-24T20:47:48.000Z",
-      "name": "Improper Authorization Vulnerability in ruoyi-vue-pro",
-      "description": "## Overview\n\nA security vulnerability (CVE-2026-97324) exists in the ruoyi-vue-pro platform, specifically within the Demo-order Payment Callback Handler. The flaw is located in the `updateDemoOrderPaid` function within the `PayDemoOrderController.java` file. An attacker can perform remote exploitation by manipulating the `ID` argument, leading to improper authorization. This vulnerability allows an unauthenticated or unauthorized user to interact with the payment callback logic, potentially forcing state changes in payment records. Given that functional exploit code is publicly available, organizations running versions of ruoyi-vue-pro up to 2026.08 are at risk. The vendor has not provided a patch as of the disclosure date, necessitating immediate compensatory controls at the network or application perimeter to prevent unauthorized access to these sensitive callback endpoints.\n\n## Impact\n\nSuccessful exploitation allows an unauthorized party to manipulate the state of demo payment orders. In a production environment, if this handler is repurposed or exposed, it could lead to logical failures in payment processing, financial data inconsistency, and potential unauthorized state modifications that may impact business operations.\n\n## Recommendation\n\nPrioritized actions for detection and mitigation:\n- Implement strict IP allowlisting for the application’s administrative and callback endpoints to mitigate remote access.\n- Deploy WAF rules to monitor for suspicious or unexpected `ID` parameter values targeting the `/admin/demo/pay` URI patterns.\n- Review all custom modifications to `PayDemoOrderController.java` to ensure input validation and authorization checks are enforced before updating order records.\n- Restrict internet exposure of the ruoyi-vue-pro admin interfaces if not required for business operations.\n",
-      "published": "2026-09-24T20:47:48.000Z",
-      "object_refs": [
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2703e14f-70b3-5a71-bbdb-363abbbe8b93",
-        "vulnerability--ac1acea2-686c-5549-919e-58df9db1bb33"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-ruoyi-vue-pro-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-ruoyi-vue-pro-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97324"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-ruoyi-vue-pro-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-ruoyi-vue-pro-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-ruoyi-vue-pro-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-24T20:47:48.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -113970,6 +113877,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a76661bf-7be0-5e43-8218-68d37c29036a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T21:31:16.000Z",
+      "modified": "2026-10-24T21:31:16.000Z",
+      "name": "System.Linq.Dynamic.Core: Remote Code Execution (CVE-2023-32571)",
+      "description": "## Overview\n\nCVE-2023-32571 is a remote code execution vulnerability in the System.Linq.Dynamic.Core library. The flaw exists in the way the library parses untrusted input within specific LINQ methods, including Where, Select, and OrderBy. Successful exploitation allows for arbitrary assembly loading or direct system command execution. A public proof-of-concept exploit is available, demonstrating both assembly injection and direct process spawning.\n\n## Impact\n\nThe vulnerability allows unauthenticated, remote attackers to achieve full remote code execution on the underlying host. The CVSS score is 9.8 (Critical), reflecting the ability to achieve high levels of confidentiality, integrity, and availability impact without requiring user interaction or privileges.\n\n## Recommendation\n\n1. Inventory applications using the System.Linq.Dynamic.Core library to identify instances running versions within the 1.0.7.10 to 1.2.25 range.\n2. Update the library dependency to a version beyond 1.2.25 to remediate the vulnerability.\n3. Implement strict input validation for all data passed to LINQ query methods if immediate patching is not possible.\n",
+      "published": "2026-10-24T21:31:16.000Z",
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6bffa005-66a4-54f1-9be1-b1c09b7fa5b4",
+        "vulnerability--4bbcab45-1d7a-562b-b455-b057459fbbab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-system-linq-dynamic-core-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-system-linq-dynamic-core-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/zzzprojects/System.Linq.Dynamic.Core"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-32571"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SECTEX-CVE-2023-32571\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-system-linq-dynamic-core-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-24-system-linq-dynamic-core-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-system-linq-dynamic-core-rce/",
+      "x_craftedsignal_activity_at": "2026-10-24T21:31:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.34904,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a77d5be9-4ba2-572b-8da7-7cb6a4af3bbe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T16:21:43.000Z",
@@ -133411,6 +133369,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dcc5a324-9000-58f9-a6f1-74e88754fc95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T21:31:08.000Z",
+      "modified": "2026-10-24T21:31:08.000Z",
+      "name": "Vitejs and Voidzero Vite: Arbitrary File Read (CVE-2026-39636)",
+      "description": "## Overview\n\nCVE-2026-39636 is a high-severity vulnerability affecting Vitejs Vite and Voidzero Vite that permits unauthorized reading of arbitrary files from the host system. The vulnerability originates from insufficient validation within the WebSocket-based fetchModule component. Attackers can bypass existing HTTP filesystem security controls by sending a file:// URL within a WebSocket payload. A public proof-of-concept exploit script has been published, targeting WebSocket interfaces often exposed on port 8080.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to read arbitrary files from the filesystem of the server running the affected Vite application, potentially leading to the disclosure of sensitive source code, configuration files, or environment variables.\n\n## Recommendation\n\n- Upgrade Vitejs Vite installations to versions beyond 8.0.4.\n- Upgrade Voidzero Vite installations to versions beyond 0.1.15.\n- Audit infrastructure for Vite development or build servers exposing WebSocket interfaces to untrusted networks, particularly on port 8080.\n- Implement network-level access controls to restrict access to the Vite development server interface to authorized internal IP ranges only.\n",
+      "published": "2026-10-24T21:31:08.000Z",
+      "labels": [
+        "arbitrary-file-read",
+        "vite",
+        "web-vulnerability",
+        "websocket"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--79aa033d-ef5d-5e7d-bbb1-a8d7dac70741",
+        "software--93efe9fe-4c9f-52d1-baea-ac9496bd987f",
+        "vulnerability--4ab1d200-5666-5c73-bd80-9cae3250da65"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-vite-arbitrary-file-read",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-vite-arbitrary-file-read/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CATCHCATOOO-CVE-2026-39636-VULNERABILITY-EXP"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CATCHCATOOO-CVE-2026-39636-VULNERABILITY-EXP\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-vite-arbitrary-file-read",
+      "x_craftedsignal_event_id": "brief-2026-10-24-vite-arbitrary-file-read",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vite-arbitrary-file-read/",
+      "x_craftedsignal_activity_at": "2026-10-24T21:31:08.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00224,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dd275106-5e4d-58a0-bee7-3a9fff116210",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T18:50:47.000Z",
@@ -135729,51 +135739,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--e3894c2f-936e-5f20-a63b-aff4bb5d2836",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T20:47:57.000Z",
-      "modified": "2026-09-24T20:47:57.000Z",
-      "name": "Server-Side Request Forgery Vulnerability in songxinjianqwe Chat",
-      "description": "## Overview\n\nThe songxinjianqwe Chat application contains a server-side request forgery (SSRF) vulnerability identified as CVE-2026-97326. The issue resides within the chat-server component, specifically in the file ChatServer.java. This vulnerability allows remote, unauthenticated attackers to manipulate the application's internal request-handling logic to force the server to initiate unintended network connections. Such an attack could be leveraged to probe internal network services, bypass access controls, or exfiltrate sensitive data from internal systems. The vulnerability affects all versions of the application up to commit hash ac63d25297079eed5e4ba7e88d3b7a032637150d. Because the project utilizes a rolling release model, no specific version numbers are available for remediation. Publicly available exploit code exists, increasing the risk of active exploitation. The vendor has not responded to vulnerability disclosures, leaving remediation status uncertain.\n\n## Attack Chain\n\n1. Attacker identifies a public-facing instance of the songxinjianqwe Chat server.\n2. Attacker interacts with the ChatServer.java component via remote HTTP requests.\n3. Attacker identifies a parameter or input field within the API that triggers backend network requests.\n4. Attacker injects a malicious URI into the vulnerable input field to target an internal network resource.\n5. The ChatServer process parses the malicious input and makes an unintended request to the specified internal IP address or domain.\n6. Attacker observes response data or confirms successful connectivity to internal services to achieve unauthorized access or exfiltration.\n\n## Impact\n\nSuccessful exploitation of this SSRF vulnerability permits remote attackers to bypass network perimeters and interface with internal services that are otherwise unreachable. This can lead to unauthorized access to internal administration panels, internal API endpoints, or cloud metadata services. The degree of impact depends on the internal network topology and the permissions granted to the server hosting the Chat application.\n\n## Recommendation\n\nPrioritize the identification and isolation of internet-facing songxinjianqwe Chat instances within the infrastructure. Because the vendor has not provided a patch, consider implementing the following mitigations:\n\n- Restrict network egress traffic from the server running the Chat application to only necessary external endpoints, preventing the server from connecting to internal network ranges or sensitive cloud metadata services.\n- Implement strict ingress filtering or WAF rules to block malformed requests targeting the chat-server API parameters identified in CVE-2026-97326.\n- Monitor logs for unusual outbound connections originating from the chat-server application process, specifically requests directed toward private IP address ranges (e.g., 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).\n- Transition internal chat services to a more secure alternative or apply compensating controls such as network segmentation if the service must remain public-facing.\n",
-      "published": "2026-09-24T20:47:57.000Z",
-      "labels": [
-        "ssrf",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0841404a-4705-521f-9f42-884330e441b1",
-        "vulnerability--e09d30ec-d35b-5e7f-b95c-95dafde3f32f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-24-cve-2026-97326",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-97326/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97326"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-24-cve-2026-97326",
-      "x_craftedsignal_event_id": "brief-2026-09-24-cve-2026-97326",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-cve-2026-97326/",
-      "x_craftedsignal_activity_at": "2026-09-24T20:47:57.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -145996,13 +145961,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0841404a-4705-521f-9f42-884330e441b1",
-      "name": "Chat (\u003c= ac63d25297079eed5e4ba7e88d3b7a032637150d)",
-      "vendor": "songxinjianqwe"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0852a122-3d8f-502c-9da0-7a636276a38a",
       "name": ".NET",
       "vendor": "Microsoft"
@@ -147991,13 +147949,6 @@
       "id": "software--26feac3f-b08d-54ca-a45d-be7ee2e2f172",
       "name": "JTL-Connector for WooCommerce (\u003c= 2.4.3)",
       "vendor": "JTL-Software"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--2703e14f-70b3-5a71-bbdb-363abbbe8b93",
-      "name": "ruoyi-vue-pro (\u003c= 2026.08)",
-      "vendor": "YunaiV"
     },
     {
       "type": "software",
@@ -151904,6 +151855,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6bffa005-66a4-54f1-9be1-b1c09b7fa5b4",
+      "name": "System.Linq.Dynamic.Core (1.0.7.10 - 1.2.25)",
+      "vendor": "zzzprojects"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6c0e0d6c-3e5a-50f3-a276-332c0fa881cc",
       "name": "Cherry Plugin (\u003c 1.2.7)"
     },
@@ -152767,6 +152725,12 @@
       "id": "software--79a20397-7bb6-51bb-8634-ba159be4a184",
       "name": "pydantic-ai-slim (\u003e= 2.10.0, \u003c 2.53.0)",
       "vendor": "Pydantic"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--79aa033d-ef5d-5e7d-bbb1-a8d7dac70741",
+      "name": "Vite (\u003c= 0.1.15)"
     },
     {
       "type": "software",
@@ -154293,6 +154257,12 @@
       "id": "software--93e35277-b3a2-580d-a14f-219c167d9902",
       "name": "Crucible",
       "vendor": "Atlassian"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--93efe9fe-4c9f-52d1-baea-ac9496bd987f",
+      "name": "Vite (\u003c= 6.4.1, 7.3.1, 8.0.4)"
     },
     {
       "type": "software",
@@ -157551,13 +157521,6 @@
       "id": "software--cc00f6fc-1f61-5709-ac21-9765ac40317c",
       "name": "Commerce Cloud",
       "vendor": "SAP"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--cc15b2d3-d465-5629-a4fc-c6c563b7e423",
-      "name": "Taskview Community (\u003c 1.56.0)",
-      "vendor": "Taskview"
     },
     {
       "type": "software",
@@ -168122,6 +168085,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4ab1d200-5666-5c73-bd80-9cae3250da65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-39636",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-39636",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39636"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4ab9964d-1dd2-5bda-a119-bf08ee5669b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -168228,6 +168207,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113405",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113405"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4bbcab45-1d7a-562b-b455-b057459fbbab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-32571",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-32571",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-32571"
         }
       ]
     },
@@ -177850,22 +177845,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--ac1acea2-686c-5549-919e-58df9db1bb33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-97324",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-97324",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97324"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--ac393eb2-5b39-52b1-89b1-7d1630076569",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -177924,22 +177903,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-79977",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79977"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ad2d6176-6dc4-5a0e-9a7f-8df1a2e9db40",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-93354",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-93354",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93354"
         }
       ]
     },
@@ -183108,22 +183071,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115505",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115505"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e09d30ec-d35b-5e7f-b95c-95dafde3f32f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-97326",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-97326",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97326"
         }
       ]
     },
