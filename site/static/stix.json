@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f1d85996-8110-5794-b9cd-11cca91895f4",
+  "id": "bundle--697b4f17-48f6-50b0-85b6-81503c5e97db",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2367,6 +2367,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1613",
           "url": "https://attack.mitre.org/techniques/T1613"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Direct Volume Access",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1006",
+          "url": "https://attack.mitre.org/techniques/T1006"
         }
       ]
     },
@@ -45093,6 +45109,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c2b3315e-9834-5197-9af4-e3ce0703bd54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T09:07:36.000Z",
+      "modified": "2026-10-24T09:07:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba76b6d-9cfa-52f1-bdc4-c63e81e756e7",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c2bb9920-7bdb-5f55-b8bf-f520c5d5e80f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46574,6 +46601,17 @@
       "relationship_type": "has",
       "source_ref": "software--9479bffb-df48-5f44-bc0d-50e15fa67b22",
       "target_ref": "vulnerability--3d539830-6803-5b6f-845e-7dec809a7ef3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8685cb2-3d9b-5e4c-9e80-0f104c40fd6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T09:07:36.000Z",
+      "modified": "2026-10-24T09:07:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ba76b6d-9cfa-52f1-bdc4-c63e81e756e7",
+      "target_ref": "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1"
     },
     {
       "type": "relationship",
@@ -48598,6 +48636,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d20ffa76-454f-52d3-9983-c14f13f9535f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--32aeaf7f-5252-5bc6-97e2-c5257aee987e",
+      "target_ref": "vulnerability--9f733daf-10be-5d36-9ec6-7144cbf92e0d"
     },
     {
       "type": "relationship",
@@ -110796,6 +110845,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9ba76b6d-9cfa-52f1-bdc4-c63e81e756e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T09:07:36.000Z",
+      "modified": "2026-10-24T09:07:36.000Z",
+      "name": "aiohttp: Path traversal vulnerability (CVE-2024-23334)",
+      "description": "## Overview\nCVE-2024-23334 is a path traversal vulnerability affecting aiohttp versions earlier than 3.9.2. An attacker can exploit this vulnerability by uploading a compressed archive containing a symbolic link that points to sensitive files, such as /etc/shadow. This allows the attacker to read arbitrary files on the system outside of the intended directory. Publicly available exploit scripts are currently circulating, which automate the discovery of vulnerable hosts and attempt exploitation.\n\n## Impact\nSuccessful exploitation allows for unauthorized read access to arbitrary files on the filesystem, potentially exposing sensitive system information or credentials depending on the application context and permissions of the service running aiohttp.\n\n## Recommendation\n- Upgrade aiohttp to version 3.9.2 or later to mitigate the vulnerability.\n- Implement strict validation on uploaded file contents and reject archives containing symbolic links.\n- Identify all internet-facing services utilizing the aiohttp library and prioritize patching for those instances.\n- Monitor web application logs for file upload requests containing path traversal sequences or attempts to traverse outside of designated upload directories.\n",
+      "published": "2026-10-24T09:07:36.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--bba68a35-6a0b-5d9c-befe-54dd678156a1",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--32aeaf7f-5252-5bc6-97e2-c5257aee987e",
+        "vulnerability--9f733daf-10be-5d36-9ec6-7144cbf92e0d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-aiohttp-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-aiohttp-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SXYRXYY-AIOHTTP-EXPLOIT-CVE-2024-23334-CERTSTREAM"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SXYRXYY-AIOHTTP-EXPLOIT-CVE-2024-23334-CERTSTREAM\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-aiohttp-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-24-aiohttp-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aiohttp-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-24T09:07:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.76875,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9bbdc36e-4259-507d-9f5d-28fd5063af4f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T06:54:48.000Z",
@@ -149763,6 +149859,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--32aeaf7f-5252-5bc6-97e2-c5257aee987e",
+      "name": "aiohttp (\u003c 3.9.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--32d1f7e9-bada-5fc5-9103-5eb7a511566a",
       "name": "PPOM – Product Addons \u0026 Custom Fields for WooCommerce (\u003c= 34.0.10)",
       "vendor": "WordPress"
@@ -177666,6 +177768,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-44340",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-44340"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9f733daf-10be-5d36-9ec6-7144cbf92e0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-23334",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-23334",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-23334"
         }
       ]
     },
