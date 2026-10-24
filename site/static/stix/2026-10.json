@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8c6fb789-2dce-5412-961c-d1f507b0a332",
+  "id": "bundle--c98eed3d-83f8-5163-a46f-4391ae2365cb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10134,6 +10134,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1eee246f-a264-5431-b14a-aa44c5147da0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--29124489-a274-53c2-9f5f-31c6fe9a4020",
+      "target_ref": "vulnerability--64480201-3ff7-5a7d-84dd-566e8685324b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1f10c3c1-611a-5148-b4c4-d38a6e297322",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14831,6 +14842,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3c805e64-c578-5028-995d-3bf961acb89a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T02:03:09.000Z",
+      "modified": "2026-10-24T02:03:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f9bd87b6-02ea-5ee6-8c50-a957d504bfee",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3c8aafa8-4675-5f6c-bcd6-77a6fd3357ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:21:51.000Z",
@@ -18886,6 +18908,17 @@
       "relationship_type": "has",
       "source_ref": "software--6892849c-7476-5304-acb5-448c9495b0aa",
       "target_ref": "vulnerability--9bca492f-8621-5d4a-81da-075489abc451"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--544cf681-ec28-5367-a6f2-cdb4de200006",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ef791eb9-6afd-5b79-8838-c82b9a3ef914",
+      "target_ref": "vulnerability--64480201-3ff7-5a7d-84dd-566e8685324b"
     },
     {
       "type": "relationship",
@@ -22978,6 +23011,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5c61f5a1-04c2-5899-b59d-0cdb74424d87",
       "target_ref": "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6b5916ed-2d45-541a-9bac-a5ffc5ea1b9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--75e7e841-42de-528c-a017-97b7f25ce447",
+      "target_ref": "vulnerability--0f78d4bd-0767-54c8-9308-166327c11b3e"
     },
     {
       "type": "relationship",
@@ -39306,6 +39350,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ca293f91-f998-50f3-9250-59a65b37145b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T02:03:18.000Z",
+      "modified": "2026-10-24T02:03:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3edc3d4f-7093-58de-83bd-3f0b74dd9bbb",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ca305348-79d2-5865-9d45-c9c9fa8707aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -45583,6 +45638,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b3060f79-a594-5d99-a687-e516ec4e85f8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eb377121-2993-50bd-a198-f7b9dd88cf0d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T02:03:09.000Z",
+      "modified": "2026-10-24T02:03:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f9bd87b6-02ea-5ee6-8c50-a957d504bfee",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -65863,6 +65929,59 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3edc3d4f-7093-58de-83bd-3f0b74dd9bbb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T02:03:18.000Z",
+      "modified": "2026-10-24T02:03:18.000Z",
+      "name": "WP User Frontend Pro: Arbitrary file upload remote code execution (CVE-2025-3054)",
+      "description": "## Overview\nThe WP User Frontend Pro plugin for WordPress, specifically versions up to and including 4.1.3, contains a vulnerability that allows for arbitrary file uploads. This flaw resides in the upload_files function and requires the \"Private Message\" module to be enabled within the Business edition of the software. An authenticated attacker with at least Subscriber-level privileges can leverage this to upload malicious files, potentially leading to remote code execution. At the time of reporting, no official patch is documented.\n\n## Impact\nSuccessful exploitation allows for remote code execution on the server hosting the WordPress instance. This vulnerability is restricted to environments where the \"Private Message\" module is active in the Business version of the plugin.\n\n## Recommendation\n- Audit WordPress environments to determine if the WP User Frontend Pro plugin is installed and running version 4.1.3 or earlier.\n- Disable the \"Private Message\" module within the WP User Frontend Pro plugin configuration as a temporary mitigation until an official patch is released.\n- Review WordPress access logs for anomalous file upload attempts by users with \"Subscriber\" roles or higher.\n- Monitor the web server document root for newly created files with suspicious extensions (e.g., .php, .php5, .phtml) uploaded via the plugin's path.\n",
+      "published": "2026-10-24T02:03:18.000Z",
+      "labels": [
+        "file-upload",
+        "rce",
+        "vulnerability",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--75e7e841-42de-528c-a017-97b7f25ce447",
+        "vulnerability--0f78d4bd-0767-54c8-9308-166327c11b3e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-cve-2025-3054-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-3054-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FROGCHUNG-CVE-2025-3054-EXPLOIT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FROGCHUNG-CVE-2025-3054-EXPLOIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-cve-2025-3054-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-24-cve-2025-3054-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-3054-rce/",
+      "x_craftedsignal_activity_at": "2026-10-24T02:03:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00946,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -121248,6 +121367,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f9bd87b6-02ea-5ee6-8c50-a957d504bfee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T02:03:09.000Z",
+      "modified": "2026-10-24T02:03:09.000Z",
+      "name": "DroboAccess: Remote command injection via username parameter (CVE-2018-14699)",
+      "description": "## Overview\n\nCVE-2018-14699 is a blind command injection vulnerability located within the DroboAccess v2.1 application. The vulnerability resides in the enable_user function, which fails to sanitize user-provided input before passing it to a shell execution routine. This flaw allows unauthenticated remote attackers to execute arbitrary system commands. A proof-of-concept exploit script has been published, demonstrating the ability to drop a reverse shell script on the target and execute it via bash.\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated remote code execution with the privileges of the DroboAccess application, potentially leading to full system compromise of the affected Drobo NAS device.\n\n## Recommendation\n\n* Inventory all Drobo NAS devices and identify those running the vulnerable DroboAccess application version 2.1.\n* Monitor network logs for HTTP requests directed at DroboAccess management endpoints, specifically those targeting the enable_user functionality.\n* Investigate the provided proof-of-concept indicators, such as outbound bash connections or the creation of a 'revshell' file on the filesystem.\n* If the device remains unpatched or if patches are unavailable, isolate the affected NAS devices from public-facing internet access.\n",
+      "published": "2026-10-24T02:03:09.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--29124489-a274-53c2-9f5f-31c6fe9a4020",
+        "software--ef791eb9-6afd-5b79-8838-c82b9a3ef914",
+        "vulnerability--64480201-3ff7-5a7d-84dd-566e8685324b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-cve-2018-14699",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2018-14699/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.securityevaluators.com/call-me-a-doctor-new-vulnerabilities-in-drobo5n2-4f1d885df7fc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14699"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-REVOCAIN-CVE-2018-14699"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-REVOCAIN-CVE-2018-14699\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-cve-2018-14699",
+      "x_craftedsignal_event_id": "brief-2026-10-24-cve-2018-14699",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2018-14699/",
+      "x_craftedsignal_activity_at": "2026-10-24T02:03:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.29398,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f9d16ec4-958e-5481-9fae-6e69924bf847",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T09:35:59.000Z",
@@ -125102,6 +125277,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--29124489-a274-53c2-9f5f-31c6fe9a4020",
+      "name": "DroboAccess (v2.1)",
+      "vendor": "Drobo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2a070796-ab55-5c02-bfef-a6652364cb1e",
       "name": "N-Tron 700 Series (\u003c=Bootloader_2.0.6.1)",
       "vendor": "Red Lion Controls"
@@ -128764,6 +128946,12 @@
       "id": "software--75aeabf1-ceea-5705-8b21-f527347fc172",
       "name": "plugin-import-export (3.0.0 - 3.87.9)",
       "vendor": "Payload"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--75e7e841-42de-528c-a017-97b7f25ce447",
+      "name": "WP User Frontend Pro (\u003c= 4.1.3)"
     },
     {
       "type": "software",
@@ -134346,6 +134534,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ef791eb9-6afd-5b79-8838-c82b9a3ef914",
+      "name": "Drobo 5n2 Firmware (4.0.5-13.28.96115)",
+      "vendor": "Drobo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ef9513ec-be9b-53b0-8867-d1efa963079a",
       "name": "SWIFI-SE2KIC firmware (\u003c=2.0.22)",
       "vendor": "Swann Communications"
@@ -136455,6 +136650,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92766",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92766"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0f78d4bd-0767-54c8-9308-166327c11b3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-3054",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-3054",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-3054"
         }
       ]
     },
@@ -143847,6 +144058,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108097",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108097"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--64480201-3ff7-5a7d-84dd-566e8685324b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2018-14699",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2018-14699",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-14699"
         }
       ]
     },
