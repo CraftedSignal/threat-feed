@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5a38b724-7780-5958-a048-39235e535777",
+  "id": "bundle--db2ffdd5-eb65-5122-841d-0e7a294f7857",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27341,7 +27341,7 @@
       "id": "relationship--8323f659-70be-504c-a9e6-f19197140afe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T06:09:10.000Z",
-      "modified": "2026-10-24T06:09:10.000Z",
+      "modified": "2026-10-24T07:08:43.000Z",
       "relationship_type": "uses",
       "source_ref": "report--41367d7f-31ed-5ae4-ac9a-0a9a636941f1",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -67240,7 +67240,7 @@
       "id": "report--41367d7f-31ed-5ae4-ac9a-0a9a636941f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T06:09:10.000Z",
-      "modified": "2026-10-24T06:09:10.000Z",
+      "modified": "2026-10-24T07:08:43.000Z",
       "name": "User Profile Builder: Privilege Escalation via Gutenberg Register block (CVE-2026-115807)",
       "description": "## Overview\nThe User Profile Builder plugin for WordPress (versions up to and including 4.0.3) contains a privilege escalation vulnerability. The plugin's Gutenberg Register block handles the 'Assigned Role' attribute insecurely, passing it directly into the `[wppb-register]` shortcode without performing server-side authorization. The current implementation only restricts roles with `manage_options` or `remove_users` capabilities, leaving other high-privileged roles, such as Editor, unprotected. This allows authenticated users with Author-level access or higher to elevate their privileges by creating new accounts with these elevated roles.\n\n## Impact\nAn authenticated attacker can successfully escalate their privileges by creating accounts with elevated roles (e.g., Editor). This could lead to unauthorized content modification, user management, or further exploitation of the WordPress instance.\n\n## Recommendation\n* Update the User Profile Builder plugin to the latest version once a fix is released.\n* Audit WordPress user lists for unexpected account creations or unauthorized role assignments.\n* Restrict access to the Gutenberg Register block to trusted users only.\n* Monitor the `wp_user_registration` process for anomalies if logging is available for the `[wppb-register]` shortcode execution.\n",
       "published": "2026-10-24T06:09:10.000Z",
@@ -67265,14 +67265,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115807"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-115807\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-24-user-profile-builder-privilege-escalation",
       "x_craftedsignal_event_id": "brief-2026-10-24-user-profile-builder-privilege-escalation",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-user-profile-builder-privilege-escalation/",
-      "x_craftedsignal_activity_at": "2026-10-24T06:09:10.000Z",
+      "x_craftedsignal_activity_at": "2026-10-24T07:08:43.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -85729,7 +85733,7 @@
       "id": "report--80449e2b-54e8-5cef-a983-d1ab48d6bbad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T06:09:00.000Z",
-      "modified": "2026-10-24T06:09:00.000Z",
+      "modified": "2026-10-24T07:08:43.000Z",
       "name": "Prime Mover: Backup and Migration plugin PHP Object Injection (CVE-2026-115806)",
       "description": "The Prime Mover - Backup and Migration plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 2.2.1. The vulnerability exists due to deserialization of untrusted input in the migration search-and-replace routine (recursiveUnserializeReplace()).\n\nAn unauthenticated attacker can store a crafted, base64-encoded serialized object in wp_comments.comment_content through the standard comment-submission endpoint (wp-comments-post.php). When an administrator performs a routine Prime Mover export or restore, the plugin decodes the stored value and passes it to unserialize() without class restrictions. The plugin contains a Property-Oriented Programming (POP) chain within its bundled Freemius library (FS_Clone_Manager::__set → FS_Option_Manager::set_option → store() → update_option()).\n",
       "published": "2026-10-24T06:09:00.000Z",
@@ -85747,14 +85751,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115806"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-115806\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-24-prime-mover-cve",
       "x_craftedsignal_event_id": "brief-2026-10-24-prime-mover-cve",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-prime-mover-cve/",
-      "x_craftedsignal_activity_at": "2026-10-24T06:09:00.000Z",
+      "x_craftedsignal_activity_at": "2026-10-24T07:08:43.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-24-user-profile-builder-privilege-escalation
 event_id: brief-2026-10-24-user-profile-builder-privilege-escalation
-revision: 1
-activity_at: "2026-10-24T06:09:10Z"
+revision: 2
+activity_at: "2026-10-24T07:08:43Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-24T07:08:43Z"
+    checksum: sha256:fd251f133625cbd24e88abdf9f8a9b38404e636343b8c756377d1a87a141e0a3
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-115807&utm_source=rss&utm_medium=rss
 title: 'User Profile Builder: Privilege Escalation via Gutenberg Register block (CVE-2026-115807)'
 slug: 2026-10-user-profile-builder-privilege-escalation
 description: The User Profile Builder plugin for WordPress is vulnerable to privilege escalation because it fails to authorize the role assignment attribute in the Gutenberg Register block, allowing authenticated users to register accounts with higher-privileged roles.
 date: "2026-10-24T06:09:10Z"
+lastmod: "2026-10-24T07:08:05Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +38,9 @@ qa_status:
   validation_status: Awaiting vendor patch release
 cpes:
   - cpe:2.3:a:cozmoslabs:user_profile_builder:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-115807&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - privilege-escalation
@@ -46,6 +63,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115807
+  - https://sploitus.com/exploit?id=CVE-2026-115807&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -71,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-115807
       evidence: Plugin vulnerable to privilege escalation in versions <= 4.0.3
+updates:
+  - at: "2026-10-24T07:08:05Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-115807&utm_source=rss&utm_medium=rss
 ---
 
 The User Profile Builder plugin for WordPress (versions up to and including 4.0.3) contains a privilege escalation vulnerability. The plugin's Gutenberg Register block handles the 'Assigned Role' attribute insecurely, passing it directly into the `[wppb-register]` shortcode without performing server-side authorization. The current implementation only restricts roles with `manage_options` or `remove_users` capabilities, leaving other high-privileged roles, such as Editor, unprotected. This allows authenticated users with Author-level access or higher to elevate their privileges by creating new accounts with these elevated roles.
