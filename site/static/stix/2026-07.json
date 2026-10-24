@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0656b771-5687-536e-b940-5001db586013",
+  "id": "bundle--4828ba64-763e-5fb5-b846-116f5a989184",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10279,17 +10279,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--249534e8-3e45-549a-bd53-55e1b4f43ff3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9d032f5a-6369-5a53-8bf1-caa6279ec338",
-      "target_ref": "vulnerability--de8a51fa-94a1-5f2f-9cb6-f33bb478c1c5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--24957ff9-e50c-545e-9e78-2892612f2548",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12805,17 +12794,6 @@
       "relationship_type": "has",
       "source_ref": "software--2fb68a0b-a64f-597a-b950-4a92548ccc72",
       "target_ref": "vulnerability--99f1d9ae-5b80-5597-9a3e-01a144408f74"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4918eff3-d618-51ae-901a-bd5fb263ab06",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-26T02:17:58.000Z",
-      "modified": "2026-07-26T02:17:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6ab2f903-577c-5c99-94e2-2a1d60c10f60",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -15610,17 +15588,6 @@
       "relationship_type": "uses",
       "source_ref": "report--632ff760-a17a-5fa7-b027-e3617f21b3d6",
       "target_ref": "indicator--f091c8ab-53e7-5d5f-8378-957e9efcf1d4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7698ae37-73e7-59bf-9630-c7fd405760fe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-26T02:17:58.000Z",
-      "modified": "2026-07-26T02:17:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6ab2f903-577c-5c99-94e2-2a1d60c10f60",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -23380,17 +23347,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ece3a061-e65b-55e7-a8c4-1916369e8dd9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-26T02:17:58.000Z",
-      "modified": "2026-07-26T02:17:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6ab2f903-577c-5c99-94e2-2a1d60c10f60",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ecfb0f0d-8b17-59d7-9859-2a03778e159b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T18:18:49.000Z",
@@ -30459,56 +30415,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6ab2f903-577c-5c99-94e2-2a1d60c10f60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-26T02:17:58.000Z",
-      "modified": "2026-07-26T02:17:58.000Z",
-      "name": "Fluent Forms Pro Add On Pack Vulnerable to PHP Object Injection (CVE-2026-15962)",
-      "description": "## Overview\n\nThe Fluent Forms Pro Add On Pack plugin for WordPress, in all versions up to and including 6.2.6, is susceptible to a critical PHP Object Injection vulnerability, tracked as CVE-2026-15962. This flaw arises from the insecure deserialization of untrusted user input, making it possible for authenticated attackers with Subscriber-level access or higher to inject a malicious PHP object. When specific conditions are met - namely, user update integration is enabled and a user meta field is mapped - the vulnerability can be chained with a Property-Oriented Programming (POP) gadget to change user passwords, leading to potential administrator account takeover. This vulnerability poses a significant risk to the integrity and confidentiality of affected WordPress sites, allowing attackers to gain full control over the compromised instance.\n\n## Attack Chain\n\n1. **Initial Access / Authentication:** An attacker obtains or possesses valid credentials for a Subscriber-level or higher user account on a WordPress instance running the vulnerable Fluent Forms Pro Add On Pack plugin.\n2. **Configuration Reconnaissance:** The attacker confirms that 'user update integration' is enabled and a 'user meta field' is mapped within the plugin's settings, which are prerequisites for exploitation.\n3. **Crafting Malicious Payload:** The attacker prepares a specially crafted serialized PHP object that contains malicious data designed to trigger a specific Property-Oriented Programming (POP) chain within the plugin's or WordPress's codebase.\n4. **Submission of Malicious Data:** The crafted serialized PHP object is sent to a vulnerable Fluent Forms Pro Add On Pack plugin endpoint, typically via an authenticated HTTP POST request to a form processing function expecting serialized data.\n5. **Insecure Deserialization:** The plugin receives the untrusted, serialized PHP object and proceeds to deserialize it without proper validation or sanitization, initiating the PHP Object Injection.\n6. **POP Chain Execution:** The injected object's methods and properties are invoked through the POP chain, allowing the attacker to execute arbitrary actions within the context of the WordPress application.\n7. **Privilege Escalation:** The POP chain execution manipulates critical application data or functions, specifically targeting the ability to change passwords of arbitrary users, including administrator accounts.\n8. **Account Takeover:** With the administrator account's password changed, the attacker gains full administrative control over the WordPress site, enabling further compromise, data theft, or website defacement.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-15962 allows authenticated attackers to perform PHP Object Injection, which, when combined with a Property-Oriented Programming (POP) chain, can lead to severe consequences. The primary impact is the ability to change user passwords, including those of administrator accounts. This directly results in full administrator account takeover of the affected WordPress site, granting the attacker complete control over the website's content, data, and configuration. Such access can lead to data exfiltration, website defacement, injection of malicious code, or use of the compromised site for further attacks.\n\n## Recommendation\n\n* Immediately update the Fluent Forms Pro Add On Pack plugin to a version patched for CVE-2026-15962 to remediate the PHP Object Injection vulnerability.\n* As a temporary mitigation or if immediate patching is not possible, disable 'user update integration' and unmap any 'user meta fields' within the Fluent Forms Pro Add On Pack plugin settings, as these are necessary conditions for exploitation.\n* Regularly review user accounts and their privileges to ensure least privilege is applied, especially for accounts with Subscriber-level access or higher mentioned in the CVE-2026-15962 description.\n",
-      "published": "2026-07-26T02:17:58.000Z",
-      "labels": [
-        "deserialization",
-        "php-object-injection",
-        "privilege-escalation",
-        "rce",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9d032f5a-6369-5a53-8bf1-caa6279ec338",
-        "vulnerability--de8a51fa-94a1-5f2f-9cb6-f33bb478c1c5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-fluentforms-php-object-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-fluentforms-php-object-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15962"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-fluentforms-php-object-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-fluentforms-php-object-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-fluentforms-php-object-injection/",
-      "x_craftedsignal_activity_at": "2026-07-26T02:17:58.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -41990,12 +41896,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9d032f5a-6369-5a53-8bf1-caa6279ec338",
-      "name": "Fluent Forms Pro Add On Pack plugin \u003c= 6.2.6"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9dd416e0-ae21-51c3-a5f5-2bc62fdf54f4",
       "name": "Care Everywhere Gateway (14.3.10)"
     },
@@ -45582,22 +45482,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63720",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63720"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--de8a51fa-94a1-5f2f-9cb6-f33bb478c1c5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15962",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15962",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15962"
         }
       ]
     },

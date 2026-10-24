@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-05-11-cockpit-rce
 event_id: brief-2026-05-11-cockpit-rce
-revision: 2
-activity_at: "2026-05-11T14:17:09Z"
+revision: 3
+activity_at: "2026-10-24T03:04:34Z"
 revision_history:
   - revision: 2
     at: "2026-10-20T13:19:21Z"
@@ -11,10 +11,27 @@ revision_history:
     changed_fields:
       - slug
     maintenance: true
+  - revision: 3
+    at: "2026-10-24T03:04:34Z"
+    checksum: sha256:7224160915df535353a7f02816a30536f5beb63fa5a5239a9bd48399f17e497a
+    summary: poc_available
+    changed_fields:
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - priority_signals
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HAKAIOFFSEC-CVE-2026-4802&utm_source=rss&utm_medium=rss
 title: 'CVE-2026-4802: Cockpit Command Injection Vulnerability'
 slug: 2026-05-11-cockpit-rce
 description: CVE-2026-4802 is a command injection vulnerability in Cockpit's system logs UI that allows a remote attacker to execute arbitrary commands on the host by exploiting unsanitized user-controlled parameters in crafted links.
 date: "2026-05-11T14:17:09Z"
+lastmod: "2026-10-24T03:03:27Z"
 type: advisory
 types:
   - advisory
@@ -22,6 +39,11 @@ severities:
   - high
 exploitation_evidence:
   status: unknown
+cpes:
+  - cpe:2.3:a:red_hat:cockpit:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HAKAIOFFSEC-CVE-2026-4802&utm_source=rss&utm_medium=rss
 tags:
   - command injection
   - rce
@@ -35,16 +57,19 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
 cves:
   - id: CVE-2026-4802
     cvss: 8
-    epss: 0.01016
-    kev_status: unknown
+    epss: 0.0119
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4802
   - https://access.redhat.com/security/cve/CVE-2026-4802
   - https://bugzilla.redhat.com/show_bug.cgi?id=2451155
   - https://github.com/cockpit-project/cockpit/blob/e204cd130/pkg/systemd/logsJournal.jsx#L206-L210
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HAKAIOFFSEC-CVE-2026-4802&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect CVE-2026-4802 Exploitation Attempt via Crafted URL
     description: Detects CVE-2026-4802 exploitation — Attempts to inject shell metacharacters into Cockpit system logs UI via crafted URLs.
@@ -67,6 +92,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 2
+updates:
+  - at: "2026-10-24T03:03:27Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HAKAIOFFSEC-CVE-2026-4802&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-4802 is a command injection vulnerability affecting Cockpit, a web-based interface for system administration. The vulnerability stems from the system logs UI, where user-controlled parameters within crafted links are not properly sanitized. An attacker can exploit this flaw by injecting shell metacharacters and command substitutions into these parameters, leading to the execution of arbitrary shell commands on the affected system. Successful exploitation can result in a complete system compromise, allowing the attacker to gain full control of the targeted machine. This vulnerability poses a significant risk to systems utilizing Cockpit for remote administration.

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-nodejs-dns-ssrf
 event_id: brief-2026-10-21-nodejs-dns-ssrf
-revision: 4
-activity_at: "2026-10-23T14:34:49Z"
+revision: 5
+activity_at: "2026-10-24T03:04:34Z"
 revision_history:
   - revision: 2
     at: "2026-10-22T09:36:28Z"
@@ -44,11 +44,24 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/nodejs-october-2026-security-releases
+  - revision: 5
+    at: "2026-10-24T03:04:34Z"
+    checksum: sha256:023b32c7cfd653c9686c95404caf7b98e9c382f0875037f85cd87cc6ec53973d
+    summary: new product
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/nodejs-october-2026-security-releases
 title: 'Node.js: DNS Resolver NUL Byte Truncation (CVE-2026-105482)'
 slug: 2026-10-nodejs-dns-ssrf
 description: Node.js is vulnerable to NUL byte truncation in dns.resolve* functions, allowing attackers to bypass allowlist filters and perform SSRF by injecting a NUL character into hostname strings.
 date: "2026-10-21T17:05:59Z"
-lastmod: "2026-10-23T14:34:09Z"
+lastmod: "2026-10-24T03:04:03Z"
 type: advisory
 types:
   - advisory
@@ -78,13 +91,10 @@ tags:
   - brotli
 vendors:
   - Node.js
-  - Google
 products:
   - Node.js (< 22.23.4, < 24.22.1, < 26.12.1)
   - Node.js (22.x, 24.x, 26.x)
   - Node.js (22.x < 22.23.4, 24.x < 24.22.1, 26.x < 26.12.1)
-  - Brotli (1.0.10, 1.1.1, 1.2.1)
-  - Brotli (1.0.3 <= version <= 1.2.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -106,10 +116,10 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-105482
-    kev_status: unknown
-  - id: CVE-2026-111497
-    epss: 0.0048
+    cvss: 7.4
     kev_status: "false"
+  - id: CVE-2026-111497
+    kev_status: unknown
 references:
   - https://nodejs.org/en/blog/vulnerability/october-2026-security-releases
   - https://sploitus.com/exploit?id=4E75DBD2-8E80-56B2-BDA5-0C8BE7F08DA8
@@ -124,6 +134,11 @@ references:
   - https://vercel.com/kb/bulletin/node-js-security-advisory
   - https://www.imperva.com/blog/node2shell-from-brotli-data-to-remote-code-execution/
   - https://www.aikido.dev/blog/node2shell-nodejs-brotli-rce-cve-2026-111497
+  - https://socprime.com/blog/cve-2026-111497-node-js-brotli-decoder-flaw-enables-remote-code-execution/
+  - https://opensourcemalware.com/blog/node2shell-affects-python
+  - https://github.com/envoyproxy/envoy/security/advisories/GHSA-3wvj-j6qm-62mr
+  - https://patchtheplanet.org/brotli
+  - https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497
 rules:
   - title: Detect CVE-2026-105482 - Potential SSRF via NUL Byte in Hostname
     description: Detects attempts to pass hostnames containing a NUL byte to Node.js DNS resolver functions, which is indicative of an allowlist bypass attempt.
@@ -182,6 +197,13 @@ updates:
   - at: "2026-10-23T14:34:09Z"
     level: L2
     summary: added CVE-2026-111497
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/nodejs-october-2026-security-releases
+  - at: "2026-10-24T03:04:03Z"
+    level: L1
+    summary: new product
     sources:
       - pwn-watch
     source_urls:
