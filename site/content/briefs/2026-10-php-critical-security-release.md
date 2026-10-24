@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 7
-activity_at: "2026-10-24T11:14:07Z"
+revision: 8
+activity_at: "2026-10-24T14:17:37Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -80,11 +80,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 8
+    at: "2026-10-24T14:17:37Z"
+    checksum: sha256:7dd107fa97dd8817c23b5fa2f6a86c30b41f8dd373badb2827f90eb867ec068e
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-24T11:13:34Z"
+lastmod: "2026-10-24T14:16:04Z"
 type: advisory
 types:
   - advisory
@@ -133,6 +144,7 @@ products:
   - PHP (5.4 <= 8.5.11)
   - PHP (5.4 through 8.5.11)
   - PHP (5.4 - 8.5.11)
+  - PHP (< 8.5.12, < 8.4.27, < 8.3.36, < 8.2.35)
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -179,6 +191,7 @@ references:
   - https://ubuntu.com/security/CVE-2026-109618
   - https://www.vulncheck.com/blog/php2shell-vulnerabilities
   - https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/
+  - https://support.checkpoint.com/results/sk/sk1000302
 action_plan:
   priority: immediate_escalation
   owners:
@@ -206,15 +219,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-21T20:58:00Z"
-    level: L2
-    summary: Consolidated duplicate PHP advisory coverage into the verified canonical brief.
-    sources:
-      - huntress
-      - ms-isac
-    source_urls:
-      - https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities
-      - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-php-could-allow-for-remote-code-execution_2026-119
   - at: "2026-10-23T09:21:53Z"
     level: L2
     summary: php version 5.4 <= 8.5.11
@@ -239,6 +243,13 @@ updates:
   - at: "2026-10-24T11:13:34Z"
     level: L1
     summary: OS ubuntu 22.04; OS ubuntu 24.04
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-24T14:16:04Z"
+    level: L1
+    summary: new product
     sources:
       - pwn-watch
     source_urls:
