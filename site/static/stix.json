@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e15e3400-fef1-5e8e-b095-d7ebab47e191",
+  "id": "bundle--bb149f9a-39ca-508a-9055-9b9c88ef6444",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13207,6 +13207,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5d672aad-20b3-520f-9748-d4eb2a37fc24",
       "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--27cbf068-4181-5369-9425-ab9f1d1fc75c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ec9cc909-cc60-5f3c-9dd4-fe2192b1ce96",
+      "target_ref": "vulnerability--ee48d400-4f86-570d-a621-1723df5f3b1a"
     },
     {
       "type": "relationship",
@@ -45749,6 +45760,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c5823f73-c5e0-56a8-b9d4-171ea8b8227a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T15:55:02.000Z",
+      "modified": "2026-10-24T15:55:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ecd81ef8-0c42-506a-8308-7fb9c60ef45a",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c587093a-99a9-583c-8ac7-9327e7267a95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60879,7 +60901,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00553,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -68955,7 +68978,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00083,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -78602,8 +78626,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01109,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.03717,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -83934,6 +83958,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.0101,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -92524,7 +92549,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.47371,
+      "x_craftedsignal_epss_max": 0.57544,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -109952,7 +109977,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01003,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -116224,7 +116250,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.0088,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -118692,6 +118719,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01095,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -139921,6 +139949,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ecd81ef8-0c42-506a-8308-7fb9c60ef45a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T15:55:02.000Z",
+      "modified": "2026-10-24T15:55:02.000Z",
+      "name": "Microsoft Authentication Library for Node.js: Information disclosure via origin validation error (CVE-2026-109461)",
+      "description": "## Overview\n\nCVE-2026-109461 is an origin validation error in the Microsoft Authentication Library (MSAL) for Node.js. The vulnerability exists within the library's authorization code flow, where improper verification of the communication source allows an unauthorized attacker to potentially disclose sensitive parameters to an attacker-controlled endpoint. The issue affects versions starting from 5.0.0-beta.0 up to, but not including, 7.1.0.\n\n## Impact\n\nSuccessful exploitation allows for the disclosure of sensitive information transmitted during the authorization code flow. The confidentiality of tokens or authorization parameters may be compromised if an attacker can induce the library to send data to an unauthorized endpoint.\n\n## Recommendation\n\n* Upgrade the `@azure/msal-node` package to version 7.1.0 or higher immediately.\n* As a temporary mitigation, ensure that only the `auth_code` is passed to the `acquireTokenByCode` function in the application logic.\n* Audit applications utilizing MSAL Node for authorization code flows to identify potential exposure points where the validation logic may be bypassed.\n",
+      "published": "2026-10-24T15:55:02.000Z",
+      "labels": [
+        "cloud",
+        "supply-chain",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ec9cc909-cc60-5f3c-9dd4-fe2192b1ce96",
+        "vulnerability--ee48d400-4f86-570d-a621-1723df5f3b1a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-msal-node-auth-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-msal-node-auth-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-xcx6-jx8p-x3h5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-109461"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109461"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-msal-node-auth-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-10-24-msal-node-auth-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-msal-node-auth-disclosure/",
+      "x_craftedsignal_activity_at": "2026-10-24T15:55:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.9,
+      "x_craftedsignal_epss_max": 0.00348,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ecf70c3d-37ee-57ec-8a11-792cf2e98ab9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T08:39:25.000Z",
@@ -143373,7 +143457,7 @@
         "observed_at": "2026-10-24T06:25:57.000Z",
         "confidence": "medium"
       },
-      "x_craftedsignal_epss_max": 0.01225,
+      "x_craftedsignal_epss_max": 0.02285,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -160203,6 +160287,13 @@
       "id": "software--ec9b8e3e-5f2f-56bb-b104-9f8239fa44bc",
       "name": "@backstage/plugin-scaffolder-backend-module-sentry (\u003e= 0.3.0, \u003c 0.3.8)",
       "vendor": "Backstage"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ec9cc909-cc60-5f3c-9dd4-fe2192b1ce96",
+      "name": "msal-node (\u003e= 5.0.0-beta.0, \u003c 7.1.0)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -185310,6 +185401,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-83850",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83850"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ee48d400-4f86-570d-a621-1723df5f3b1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109461",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109461",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109461"
         }
       ]
     },
