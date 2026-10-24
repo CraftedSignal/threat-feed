@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-collabora-code-rce
 event_id: brief-2026-10-collabora-code-rce
-revision: 4
-activity_at: "2026-10-23T22:05:51Z"
+revision: 5
+activity_at: "2026-10-24T08:08:24Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T20:29:43Z"
@@ -46,18 +46,33 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/nextcloud-collabora-built-in-code-server-cve-2026-110447
+  - revision: 5
+    at: "2026-10-24T08:08:24Z"
+    checksum: sha256:e36ea46e6c4c2818be62fcfc8bbe43805e2c4ddcbc398a7d5f07304257f7e6a1
+    summary: exploited:true
+    changed_fields:
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html
 title: 'Collabora Online Built-in CODE Server: OS Command Injection (CVE-2026-110447)'
 slug: 2026-10-collabora-code-rce
 description: Collabora Online - Built-in CODE Server, when used within the NextCloud platform, contains an OS command injection vulnerability that allows for remote code execution when the CODE server is not running.
 date: "2026-10-19T14:08:58Z"
-lastmod: "2026-10-23T22:04:28Z"
+lastmod: "2026-10-24T08:07:46Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html
+  observed_at: "2026-10-24T06:25:57Z"
+  confidence: medium
 source_assessment:
   reliability: B
   credibility: "2"
@@ -107,6 +122,7 @@ references:
   - https://pwn.watch/i/nextcloud-collabora-built-in-code-server-cve-2026-110447
   - https://github.com/advisories/GHSA-f97p-r72q-64h2
   - https://github.com/CollaboraOnline/richdocumentscode/issues/354
+  - https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -154,6 +170,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/nextcloud-collabora-built-in-code-server-cve-2026-110447
+  - at: "2026-10-24T08:07:46Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html
 ---
 
 CVE-2026-110447 is an OS command injection vulnerability in the Collabora Online - Built-in CODE Server. The vulnerability occurs when the server is used within the NextCloud platform and the CODE server is not running, allowing for remote code execution.

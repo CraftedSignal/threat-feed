@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--db2ffdd5-eb65-5122-841d-0e7a294f7857",
+  "id": "bundle--c3100b2c-b46d-553a-baee-b5e45065f3cb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6397,7 +6397,7 @@
       "id": "relationship--09434724-e69c-50d9-a55d-859cb3740494",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-23T22:05:51.000Z",
+      "modified": "2026-10-24T08:08:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -21874,7 +21874,7 @@
       "id": "relationship--644408d2-a302-5a88-ab90-d917e2993b40",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-23T22:05:51.000Z",
+      "modified": "2026-10-24T08:08:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -121483,7 +121483,7 @@
       "id": "report--f6dfbe2c-e84f-500e-86fc-de74acc6b6c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
-      "modified": "2026-10-23T22:05:51.000Z",
+      "modified": "2026-10-24T08:08:24.000Z",
       "name": "Collabora Online Built-in CODE Server: OS Command Injection (CVE-2026-110447)",
       "description": "## Overview\nCVE-2026-110447 is an OS command injection vulnerability in the Collabora Online - Built-in CODE Server. The vulnerability occurs when the server is used within the NextCloud platform and the CODE server is not running, allowing for remote code execution.\n\n## Recommendation\nApply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 guidance and CISA’s “Forensics Triage Requirements.” If mitigations are unavailable, discontinue use of the product. Stakeholders should evaluate asset internet exposure and ensure adherence to BOD 26-04 patching guidelines.\n",
       "published": "2026-10-19T14:08:58.000Z",
@@ -121532,6 +121532,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4011"
         },
         {
@@ -121554,13 +121558,16 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-collabora-code-rce",
       "x_craftedsignal_event_id": "brief-2026-10-collabora-code-rce",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-collabora-code-rce/",
-      "x_craftedsignal_activity_at": "2026-10-23T22:05:51.000Z",
+      "x_craftedsignal_activity_at": "2026-10-24T08:08:24.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html",
+        "observed_at": "2026-10-24T06:25:57.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_epss_max": 0.01225,
       "x_craftedsignal_kev_status": "false"
