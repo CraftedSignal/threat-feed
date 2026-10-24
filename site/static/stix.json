@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bb149f9a-39ca-508a-9055-9b9c88ef6444",
+  "id": "bundle--74fc0d63-6284-51de-87b7-a6540acbfe57",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2239,22 +2239,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1593",
           "url": "https://attack.mitre.org/techniques/T1593"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "LLMNR/NBT-NS Poisoning and SMB Relay",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1557.001",
-          "url": "https://attack.mitre.org/techniques/T1557/001"
         }
       ]
     },
@@ -15851,6 +15835,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--34a4e3db-0002-5907-b28d-a10212f528d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--48786d47-7ecf-5e15-8024-09f920374466",
+      "target_ref": "vulnerability--5b631085-d8aa-59fd-8049-0a3d1813cf84"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--34aea19c-c446-5dd9-9bbd-2afd1527c929",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17519,17 +17514,6 @@
       "relationship_type": "uses",
       "source_ref": "report--53b0b991-7855-53e9-bd67-7660ec6ab5a2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3dd61b08-61ad-5b45-8588-a22683c90458",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:35.000Z",
-      "modified": "2026-09-24T16:14:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9cf94c0-be1f-574f-905e-03d63743a9d2",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -33627,17 +33611,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8a50f5a7-465f-5f20-9c72-368785047e4e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:25.000Z",
-      "modified": "2026-09-24T16:14:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--45b01cf7-2859-5442-8434-6065a375f2f2",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8a6f0dc7-9a1e-5a3d-8588-2c744f5c0b14",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T20:40:31.000Z",
@@ -33766,17 +33739,6 @@
       "relationship_type": "uses",
       "source_ref": "report--47ae9199-8c8b-5f29-811b-32f00f2c5746",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8b01973e-9d01-52c4-8db3-d15b8f5b895c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:35.000Z",
-      "modified": "2026-09-24T16:14:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9cf94c0-be1f-574f-905e-03d63743a9d2",
-      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -37847,17 +37809,6 @@
       "relationship_type": "uses",
       "source_ref": "report--d9d301b1-1fad-5e69-98ca-ab365c54a534",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9ea5b03a-59c0-52f7-9b6f-a76516397cff",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:35.000Z",
-      "modified": "2026-09-24T16:14:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9cf94c0-be1f-574f-905e-03d63743a9d2",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -46123,17 +46074,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c6915628-2bad-56f6-ae24-4cc46ce82cc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:35.000Z",
-      "modified": "2026-09-24T16:14:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9cf94c0-be1f-574f-905e-03d63743a9d2",
-      "target_ref": "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c6931090-b6be-5bc3-bb4c-a187984e0bd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54237,17 +54177,6 @@
       "relationship_type": "has",
       "source_ref": "software--deb5b88a-710a-52ee-86ff-72d9118c8300",
       "target_ref": "vulnerability--36b24a84-7147-59df-9d28-ab75351ae2a8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ead228cc-3d19-5286-97d6-2190d7ce74c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:25.000Z",
-      "modified": "2026-09-24T16:14:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--45b01cf7-2859-5442-8434-6065a375f2f2",
-      "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
     },
     {
       "type": "relationship",
@@ -81161,108 +81090,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--45b01cf7-2859-5442-8434-6065a375f2f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:25.000Z",
-      "modified": "2026-09-24T16:14:25.000Z",
-      "name": "Multiple Vulnerabilities in Botslab G980H Dashcams",
-      "description": "## Overview\n\nBotslab G980H dash cameras (versions 30010_QHG980HN5294SysFW+ and 58_QHG980HMCN5291SysFW+) are impacted by a significant set of 14 vulnerabilities, including CVE-2026-84399, CVE-2026-82566, CVE-2026-85496, CVE-2026-77967, CVE-2026-88761, CVE-2026-82716, CVE-2026-84403, CVE-2026-75558, CVE-2026-81630, CVE-2026-87118, CVE-2026-82708, CVE-2026-79959, CVE-2026-82585, and CVE-2026-88956. These flaws stem from poor implementation of authorization and session management within the firmware. \n\nDefenders should note that the vendor has not provided patches for these issues. The vulnerabilities allow an unauthenticated attacker located on an adjacent network to intercept sessions, guess session identifiers, or replay authentication tokens to execute unauthorized commands. The scope of impact is broad, potentially affecting any transportation sector organization using these specific camera models globally. Because these devices serve as sensitive recording equipment, successful exploitation poses a severe risk to both operational privacy and device integrity.\n\n## Impact\n\nSuccessful exploitation allows an attacker to bypass authentication, access sensitive captured data, modify device configurations, and disrupt device operation. These vulnerabilities affect the Transportation Systems critical infrastructure sector globally. Given the lack of vendor response or remediation, affected devices currently remain in an unpatched, vulnerable state.\n\n## Recommendation\n\n* Immediately isolate Botslab G980H dash cameras from public-facing or untrusted adjacent networks to prevent unauthorized remote access.\n* Implement strict network segmentation to ensure these devices cannot communicate with unauthorized endpoints.\n* Monitor network traffic originating from or destined to Botslab G980H hardware for anomalous authentication patterns or unauthorized API requests.\n* Contact Botslab directly for updates regarding the availability of firmware patches as no official mitigation or update currently exists.\n",
-      "published": "2026-09-24T16:14:25.000Z",
-      "labels": [
-        "firmware-vulnerability",
-        "ics",
-        "transportation"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2e22e02a-7bd0-5e96-8bd6-a77a04e40bad",
-        "software--9cd9b66e-a8df-5ad6-b95c-2306e823db60"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-botslab-dashcam-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-botslab-dashcam-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-01"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-75558"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-77967"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-79959"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-81630"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-82566"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-82585"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-82708"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-82716"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-84399"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-84403"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-85496"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-87118"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-88761"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-88956"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-botslab-dashcam-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-09-botslab-dashcam-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-botslab-dashcam-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-09-24T16:14:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--45f92d68-b037-55e2-987e-87e6ee4db7a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:47:22.000Z",
@@ -90115,6 +89942,46 @@
       },
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5fb54418-4892-5b87-9973-2507b4a57309",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T16:16:25.000Z",
+      "modified": "2026-10-24T16:16:25.000Z",
+      "name": "Christoph Vielgrader Relevanssi: Object injection via insecure deserialization (CVE-2026-114704)",
+      "description": "## Overview\nThe Relevanssi plugin for WordPress, maintained by Christoph Vielgrader, contains a deserialization of untrusted data vulnerability (CVE-2026-114704). This vulnerability allows for object injection. The issue affects Relevanssi versions from n/a through 4.28.4.\n\n## Impact\nThe vulnerability carries a CVSS v3.1 base score of 7.2.\n",
+      "published": "2026-10-24T16:16:25.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--48786d47-7ecf-5e15-8024-09f920374466",
+        "vulnerability--5b631085-d8aa-59fd-8049-0a3d1813cf84"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-relevanssi-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-relevanssi-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114704"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-relevanssi-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-10-24-relevanssi-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-relevanssi-deserialization/",
+      "x_craftedsignal_activity_at": "2026-10-24T16:16:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -121353,61 +121220,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b9cf94c0-be1f-574f-905e-03d63743a9d2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T16:14:35.000Z",
-      "modified": "2026-09-24T16:14:35.000Z",
-      "name": "Critical Vulnerabilities in Eufy Omni C20 and X10 Pro",
-      "description": "## Overview\n\nEufy Omni C20 and Omni X10 Pro smart home devices contain multiple critical vulnerabilities that expose them to remote exploitation. These flaws include CVE-2026-93289, an OS command injection vulnerability during the device pairing process; CVE-2026-93290, which involves the use of hard-coded credentials that can be retrieved via log files; and CVE-2026-93291, a flaw involving improper certificate validation. \n\nThese vulnerabilities collectively enable an unauthenticated, network-adjacent attacker to execute system-level commands, steal sensitive mapping data, or conduct man-in-the-middle attacks to achieve arbitrary code execution. Given that these devices are deployed globally in both home and IT environments, the potential impact includes unauthorized control over home automation hardware and potential pivot points into connected networks. Eufy has released firmware version 1.6.4 to address these security issues.\n\n## Impact\n\nThe successful exploitation of these vulnerabilities can lead to full device compromise, allowing an attacker to execute arbitrary system-level commands, monitor sensitive user data such as home mapping logs, and perform man-in-the-middle interceptions. These devices are used globally, and if left unpatched, they pose a significant risk to the integrity and confidentiality of the home or office network segment where they reside.\n\n## Recommendation\n\n- Upgrade Eufy Omni C20 and Omni X10 Pro firmware to version 1.6.4 or later immediately.\n- Isolate IoT devices on a dedicated, firewalled network segment separate from critical IT or business resources.\n- Disable or restrict remote management and internet access for these devices unless explicitly required for operation.\n- Implement VPN-only access for any necessary remote management tasks to reduce the attack surface.\n",
-      "published": "2026-09-24T16:14:35.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--aafc6e56-00f6-56b2-8fd2-cc0e966553df",
-        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5bc227db-aa91-50a5-9abf-1ebb9d631fc5",
-        "software--a086b28a-a7c9-5472-83bc-ae3e25e43003"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-eufy-omni-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-eufy-omni-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-267-02"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-93289"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-93290"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-93291"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-eufy-omni-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-09-eufy-omni-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-eufy-omni-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-09-24T16:14:35.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b9f20dbf-a46b-53db-a657-4c15198f2294",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T10:25:56.000Z",
@@ -149373,13 +149185,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2e22e02a-7bd0-5e96-8bd6-a77a04e40bad",
-      "name": "G980H Dashcams (30010_QHG980HN5294SysFW+)",
-      "vendor": "Botslab"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2e2be56a-44a1-52f5-bbc8-61bbccba6578",
       "name": "OMGF | GDPR/DSGVO Compliant, Faster Google Fonts. Easy. (\u003c= 6.3.10)",
       "vendor": "Daan van den Bergh"
@@ -150803,6 +150608,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--48786d47-7ecf-5e15-8024-09f920374466",
+      "name": "Relevanssi (n/a through 4.28.4)",
+      "vendor": "Christoph Vielgrader"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--487de083-b22b-5270-baf4-9cfc974a75ce",
       "name": "PowerPack Lite for Beaver Builder (\u003c= 1.3.1)",
       "vendor": "IdeaBox Creations"
@@ -151962,13 +151774,6 @@
       "id": "software--5b92beeb-0537-57a1-a8fc-cc05acf03984",
       "name": "Camel Quarkus (\u003c 3.40.0)",
       "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--5bc227db-aa91-50a5-9abf-1ebb9d631fc5",
-      "name": "Omni X10 Pro (\u003c 1.6.4)",
-      "vendor": "Eufy"
     },
     {
       "type": "software",
@@ -155832,13 +155637,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9cd9b66e-a8df-5ad6-b95c-2306e823db60",
-      "name": "G980H Dashcams (58_QHG980HMCN5291SysFW+)",
-      "vendor": "Botslab"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9cdad808-a563-5c88-9c9a-7a39900726b3",
       "name": "OpenCart Virtual POS Module (26.8.2 - 26.9.0)",
       "vendor": "Sipay Electronic Money and Payment Services Inc."
@@ -156015,13 +155813,6 @@
       "id": "software--a07e38ce-6e63-5915-bf08-f008cb2d2432",
       "name": "Online-Appointment-Booking-System (\u003c= f427b4757128ca253d33d0cc4e87bbb9c999a4d5)",
       "vendor": "girishsaraf"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a086b28a-a7c9-5472-83bc-ae3e25e43003",
-      "name": "Omni C20 (\u003c 1.6.4)",
-      "vendor": "Eufy"
     },
     {
       "type": "software",
@@ -170809,6 +170600,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-3408",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3408"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5b631085-d8aa-59fd-8049-0a3d1813cf84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114704",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114704",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114704"
         }
       ]
     },
