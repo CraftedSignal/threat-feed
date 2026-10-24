@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--941f3206-119c-5f81-b551-07f3e6381ca8",
+  "id": "bundle--0b9a0353-2cad-554f-8cb4-617bef0049d8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7175,6 +7175,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0df11fe8-0ef4-584e-b47d-b2ae26f103d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dfedf247-4d11-5479-a60b-02d1d2a551a3",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e14ca8d-58d1-5d53-b25d-0b8cc0ed15d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9800,6 +9811,17 @@
       "relationship_type": "uses",
       "source_ref": "report--33506415-4d65-588c-b9c0-75ac45e0d24b",
       "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1c8e73fb-7577-5bec-80fd-27b1277ab26b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T05:01:56.000Z",
+      "modified": "2026-10-24T05:01:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e1b57448-94fb-5e22-8323-b2b2bf24c78b",
+      "target_ref": "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a"
     },
     {
       "type": "relationship",
@@ -24236,6 +24258,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7285bd0b-432c-5aaa-b51a-6a3cda87f8ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--248d71ce-92fe-50d0-83a7-1d1b72fcaac8",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--729e2dab-1ec6-50b8-9e84-0e527cdf5ba3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:06:20.000Z",
@@ -32460,6 +32493,17 @@
       "relationship_type": "uses",
       "source_ref": "report--42b98835-0490-5af0-98fe-2cacc62494bc",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a16698a8-6b3e-5c3f-8678-72ce3c6a48aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2d2fd97f-5449-51a5-a307-cb8c4374f411",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
     },
     {
       "type": "relationship",
@@ -49235,6 +49279,17 @@
       "relationship_type": "has",
       "source_ref": "software--e71521ea-315f-561d-99f4-5cbfb3b6bfeb",
       "target_ref": "vulnerability--9b701122-09c3-5da1-8c81-a98dd899fa61"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fec7bcef-abfc-5f62-af46-fee99aa47827",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--765aef1d-991a-5a57-8ed8-8c5bc87d0fb3",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
     },
     {
       "type": "relationship",
@@ -114567,6 +114622,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e1b57448-94fb-5e22-8323-b2b2bf24c78b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T05:01:56.000Z",
+      "modified": "2026-10-24T05:01:56.000Z",
+      "name": "Microsoft Windows RDL Service Remote Code Execution (CVE-2024-38077)",
+      "description": "## Overview\nCVE-2024-38077 is a critical vulnerability impacting the Microsoft Windows Remote Desktop Licensing (RDL) service. An exploit PoC has been released publicly that utilizes RPC connections on port 135 to determine if a target host is vulnerable. The vulnerability has a CVSS 3.1 score of 9.8. Documentation indicates that patched versions of Windows Server 2016 and 2019 return an \"nca_s_fault_access_denied\" error during RPC probing, whereas unpatched systems or legacy versions (2008/2012) may behave differently.\n\n## Impact\nThe vulnerability allows unauthenticated, network-based remote code execution. The EPSS score is 84.2 percent, reflecting a high probability of exploitation.\n\n## Recommendation\n- Immediately patch Windows Server 2016 to build 10.0.14393.7159 or later.\n- Immediately patch Windows Server 2019 to build 10.0.17763.6054 or later.\n- Restrict access to RPC port 135 via host-based and network firewalls to only necessary administrative management stations.\n- Implement the hunt leads provided in this brief to identify internal scanning or reconnaissance activity targeting port 135.\n",
+      "published": "2026-10-24T05:01:56.000Z",
+      "object_refs": [
+        "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--248d71ce-92fe-50d0-83a7-1d1b72fcaac8",
+        "software--2d2fd97f-5449-51a5-a307-cb8c4374f411",
+        "software--765aef1d-991a-5a57-8ed8-8c5bc87d0fb3",
+        "software--dfedf247-4d11-5479-a60b-02d1d2a551a3",
+        "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-cve-2024-38077",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-38077/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ATLASSION-CVE-2024-38077-CHECK"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ATLASSION-CVE-2024-38077-CHECK\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-cve-2024-38077",
+      "x_craftedsignal_event_id": "brief-2026-10-24-cve-2024-38077",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-38077/",
+      "x_craftedsignal_activity_at": "2026-10-24T05:01:56.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.84232,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e1b5aae6-db03-562d-82e5-cfeb759859ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T22:30:50.000Z",
@@ -125736,6 +125840,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--248d71ce-92fe-50d0-83a7-1d1b72fcaac8",
+      "name": "Windows Server 2016 (\u003c 10.0.14393.7159)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--24911e18-b046-5833-b4d4-870844acf1a9",
       "name": "Simple Membership (\u003c= 4.8.3)",
       "vendor": "WordPress"
@@ -126118,6 +126229,13 @@
       "spec_version": "2.1",
       "id": "software--2d1bab7b-107b-537b-b53f-d14f8d133055",
       "name": "Microsoft Office Long Term Servicing Channel 2021",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2d2fd97f-5449-51a5-a307-cb8c4374f411",
+      "name": "Windows Server 2012 (All versions)",
       "vendor": "Microsoft"
     },
     {
@@ -129649,6 +129767,13 @@
       "id": "software--764ca619-93de-506b-a35b-0a2599218385",
       "name": "Jira Software Data Center (\u003c 9.12.40, 10.3.26, 11.3.12)",
       "vendor": "Atlassian"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--765aef1d-991a-5a57-8ed8-8c5bc87d0fb3",
+      "name": "Windows Server 2019 (\u003c 10.0.17763.6054)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -134588,6 +134713,13 @@
       "id": "software--dfd5a294-4fab-588c-a47c-bd97ed79e17d",
       "name": "Email Protection Gateway (EPG)",
       "vendor": "Kiteworks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--dfedf247-4d11-5479-a60b-02d1d2a551a3",
+      "name": "Windows Server 2008 (All versions)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -141436,6 +141568,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-85323",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85323"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-38077",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-38077",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38077"
         }
       ]
     },

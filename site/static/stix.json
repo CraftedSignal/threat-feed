@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a57b3b41-86c8-568a-a5a8-2d7812fb886b",
+  "id": "bundle--378a214e-7250-5363-8b98-fa43c607be1b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7880,6 +7880,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0df11fe8-0ef4-584e-b47d-b2ae26f103d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dfedf247-4d11-5479-a60b-02d1d2a551a3",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e14ca8d-58d1-5d53-b25d-0b8cc0ed15d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11037,6 +11048,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1c8e73fb-7577-5bec-80fd-27b1277ab26b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T05:01:56.000Z",
+      "modified": "2026-10-24T05:01:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e1b57448-94fb-5e22-8323-b2b2bf24c78b",
+      "target_ref": "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1c8fa2f8-44f8-5e43-8c04-d2d080247ce6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T11:13:06.000Z",
@@ -12628,17 +12650,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f185ed81-45dd-56d9-a9f0-081b5735b53c",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--24c4ecfe-a343-547d-bb3c-b0ec56af4eae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--034a8cb2-3e3b-5db8-ab84-48a9d5c3e18b",
-      "target_ref": "vulnerability--99655740-8d2d-5051-a893-a73838aa147d"
     },
     {
       "type": "relationship",
@@ -19569,17 +19580,6 @@
       "relationship_type": "has",
       "source_ref": "software--ad57410f-edd2-50a1-885e-389c1f57ae46",
       "target_ref": "vulnerability--c0ff62be-f586-54b0-b2fa-a421e6bf1edf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--47fe696d-8e83-58b6-bf54-9ff279bf5a70",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T04:46:06.000Z",
-      "modified": "2026-09-24T04:46:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1351b0bc-e2bc-5100-921c-07e6ce11238f",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -28369,6 +28369,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e4d5ed2c-1836-5f85-8fe9-4586b8544b18",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7285bd0b-432c-5aaa-b51a-6a3cda87f8ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--248d71ce-92fe-50d0-83a7-1d1b72fcaac8",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
     },
     {
       "type": "relationship",
@@ -38339,6 +38350,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a16698a8-6b3e-5c3f-8678-72ce3c6a48aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2d2fd97f-5449-51a5-a307-cb8c4374f411",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a171f1bf-487e-5ae8-9761-7076e3ad9948",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40480,17 +40502,6 @@
       "relationship_type": "has",
       "source_ref": "software--391d9960-3279-52b2-bc89-e1555d77a1f5",
       "target_ref": "vulnerability--94959a40-fede-54e9-8440-2ced258dac0c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ac358610-4138-582a-9f07-4cf9c07fff6f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T04:45:51.000Z",
-      "modified": "2026-09-24T04:45:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--44fe30be-dec3-5224-911f-0c9357bb175b",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -47388,17 +47399,6 @@
       "relationship_type": "has",
       "source_ref": "software--583567f9-9c6b-5ffe-8449-ea3a4101a362",
       "target_ref": "vulnerability--bec75f9c-37d5-548a-a6b5-fd63c1251b4c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ccefd8ee-8269-53b1-835f-87d19ce0fde5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--14d89de2-7579-5912-b9f9-8d6ab55d2b41",
-      "target_ref": "vulnerability--a10392f7-afd0-5f84-b7d6-a68fdc05bf8d"
     },
     {
       "type": "relationship",
@@ -58315,6 +58315,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fec7bcef-abfc-5f62-af46-fee99aa47827",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--765aef1d-991a-5a57-8ed8-8c5bc87d0fb3",
+      "target_ref": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--feca290a-14e7-52c2-b4e3-cc365c14d72b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -63947,47 +63958,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02727,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1351b0bc-e2bc-5100-921c-07e6ce11238f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T04:46:06.000Z",
-      "modified": "2026-09-24T04:46:06.000Z",
-      "name": "Path Traversal Vulnerability in ShopXO Ueditor Upload Interface",
-      "description": "## Overview\n\nShopXO versions up to 2.2.7 contain a path traversal vulnerability located in the Ueditor Upload Interface, specifically within the config/ueditor.php component. The vulnerability is triggered by manipulating the path_type argument during an upload request. This flaw allows a remote, unauthenticated attacker to bypass intended directory restrictions, potentially accessing or manipulating files outside of the application's expected upload path. The vulnerability was disclosed publicly, and proof-of-concept exploit code is currently available. As of the time of reporting, the maintainers have not released a patch to remediate this issue, leaving instances of ShopXO running these versions exposed to potential remote exploitation. Defenders should monitor web server logs for requests targeting the identified component with directory traversal patterns.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an attacker to perform path traversal, leading to unauthorized read or write access to files on the hosting server. This could lead to sensitive information disclosure or, if write access is achieved, potential remote code execution by uploading malicious scripts to the web server.\n\n## Recommendation\n\n- Implement egress filtering and restricted filesystem permissions for the web server user to limit the impact of potential path traversal exploitation.\n- Deploy WAF rules to inspect HTTP requests targeting 'config/ueditor.php' for directory traversal sequences like '../' or absolute paths within the 'path_type' parameter.\n- Restrict access to the ShopXO administration and upload endpoints to trusted IP addresses until a patch is provided.\n- Review web server access logs for anomalous POST requests containing path traversal payloads directed at the vulnerable component.\n",
-      "published": "2026-09-24T04:46:06.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--14d89de2-7579-5912-b9f9-8d6ab55d2b41",
-        "vulnerability--a10392f7-afd0-5f84-b7d6-a68fdc05bf8d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-24-shopxo-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-shopxo-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96898"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-24-shopxo-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-09-24-shopxo-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-shopxo-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-09-24T04:46:06.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -80976,52 +80946,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--44fe30be-dec3-5224-911f-0c9357bb175b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-24T04:45:51.000Z",
-      "modified": "2026-09-24T04:45:51.000Z",
-      "name": "Remote Out-of-Bounds Write in D-Link DIR-825",
-      "description": "## Overview\n\nCVE-2026-96891 is a critical security vulnerability discovered in the D-Link DIR-825 router, specifically affecting firmware version 3.00b32. The flaw resides within the tunnel_set_params function located in the rp-l2tp component, specifically within the source file tunnel.c. An attacker can trigger the vulnerability by sending a maliciously crafted input to the peer_hostname argument. Because the input handling fails to properly validate memory boundaries, this manipulation results in an out-of-bounds write condition. This flaw is remotely exploitable, posing a significant risk to affected devices by potentially allowing unauthenticated remote code execution or causing persistent denial-of-service conditions through device instability and memory corruption.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 9.8, indicating a high potential for severe impact. Successful exploitation allows remote attackers to compromise the integrity and availability of the affected D-Link DIR-825 hardware. This may lead to total device takeover or system crashes, impacting network availability for organizations or home users relying on this router.\n\n## Recommendation\n\n1. Identify all D-Link DIR-825 devices running firmware version 3.00b32 within the organization's network inventory.\n2. Restrict management interface access for identified devices to trusted administrative subnets until a vendor patch is applied.\n3. Monitor ingress traffic to the device for unusual strings or payload patterns targeting L2TP configurations that might indicate exploitation attempts.\n4. Contact D-Link support or check the official product security portal for firmware updates resolving CVE-2026-96891.\n",
-      "published": "2026-09-24T04:45:51.000Z",
-      "labels": [
-        "cve",
-        "network-security",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--034a8cb2-3e3b-5db8-ab84-48a9d5c3e18b",
-        "vulnerability--99655740-8d2d-5051-a893-a73838aa147d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-24-cve-2026-96891",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-dlink-dir825-oob-write/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96891"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-24-cve-2026-96891",
-      "x_craftedsignal_event_id": "brief-2026-09-24-cve-2026-96891",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-dlink-dir825-oob-write/",
-      "x_craftedsignal_activity_at": "2026-09-24T04:45:51.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -135790,6 +135714,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e1b57448-94fb-5e22-8323-b2b2bf24c78b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-24T05:01:56.000Z",
+      "modified": "2026-10-24T05:01:56.000Z",
+      "name": "Microsoft Windows RDL Service Remote Code Execution (CVE-2024-38077)",
+      "description": "## Overview\nCVE-2024-38077 is a critical vulnerability impacting the Microsoft Windows Remote Desktop Licensing (RDL) service. An exploit PoC has been released publicly that utilizes RPC connections on port 135 to determine if a target host is vulnerable. The vulnerability has a CVSS 3.1 score of 9.8. Documentation indicates that patched versions of Windows Server 2016 and 2019 return an \"nca_s_fault_access_denied\" error during RPC probing, whereas unpatched systems or legacy versions (2008/2012) may behave differently.\n\n## Impact\nThe vulnerability allows unauthenticated, network-based remote code execution. The EPSS score is 84.2 percent, reflecting a high probability of exploitation.\n\n## Recommendation\n- Immediately patch Windows Server 2016 to build 10.0.14393.7159 or later.\n- Immediately patch Windows Server 2019 to build 10.0.17763.6054 or later.\n- Restrict access to RPC port 135 via host-based and network firewalls to only necessary administrative management stations.\n- Implement the hunt leads provided in this brief to identify internal scanning or reconnaissance activity targeting port 135.\n",
+      "published": "2026-10-24T05:01:56.000Z",
+      "object_refs": [
+        "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--248d71ce-92fe-50d0-83a7-1d1b72fcaac8",
+        "software--2d2fd97f-5449-51a5-a307-cb8c4374f411",
+        "software--765aef1d-991a-5a57-8ed8-8c5bc87d0fb3",
+        "software--dfedf247-4d11-5479-a60b-02d1d2a551a3",
+        "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-24-cve-2024-38077",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-38077/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ATLASSION-CVE-2024-38077-CHECK"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ATLASSION-CVE-2024-38077-CHECK\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-24-cve-2024-38077",
+      "x_craftedsignal_event_id": "brief-2026-10-24-cve-2024-38077",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-38077/",
+      "x_craftedsignal_activity_at": "2026-10-24T05:01:56.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.84232,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e1b5aae6-db03-562d-82e5-cfeb759859ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T22:30:50.000Z",
@@ -146496,13 +146469,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--034a8cb2-3e3b-5db8-ab84-48a9d5c3e18b",
-      "name": "DIR-825 (3.00b32)",
-      "vendor": "D-Link"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--034c31b3-5eb5-52bb-b9f1-b2c6d0931b64",
       "name": "Traffic Server (8.0.0 through 8.1.11, 9.0.0 through 9.2.15, 10.0.0 through 10.1.4, 10.2.0)",
       "vendor": "Apache"
@@ -147790,13 +147756,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--14d89de2-7579-5912-b9f9-8d6ab55d2b41",
-      "name": "ShopXO (\u003c= 2.2.7)",
-      "vendor": "yhx070424"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--14e56707-d0ce-5582-bfa4-1004709cade8",
       "name": "Ghostscript",
       "vendor": "Artifex Software"
@@ -148714,6 +148673,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--248d71ce-92fe-50d0-83a7-1d1b72fcaac8",
+      "name": "Windows Server 2016 (\u003c 10.0.14393.7159)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--24911e18-b046-5833-b4d4-870844acf1a9",
       "name": "Simple Membership (\u003c= 4.8.3)",
       "vendor": "WordPress"
@@ -149178,6 +149144,13 @@
       "spec_version": "2.1",
       "id": "software--2d1bab7b-107b-537b-b53f-d14f8d133055",
       "name": "Microsoft Office Long Term Servicing Channel 2021",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2d2fd97f-5449-51a5-a307-cb8c4374f411",
+      "name": "Windows Server 2012 (All versions)",
       "vendor": "Microsoft"
     },
     {
@@ -153457,6 +153430,13 @@
       "id": "software--764ca619-93de-506b-a35b-0a2599218385",
       "name": "Jira Software Data Center (\u003c 9.12.40, 10.3.26, 11.3.12)",
       "vendor": "Atlassian"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--765aef1d-991a-5a57-8ed8-8c5bc87d0fb3",
+      "name": "Windows Server 2019 (\u003c 10.0.17763.6054)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -159466,6 +159446,13 @@
       "id": "software--dfd5a294-4fab-588c-a47c-bd97ed79e17d",
       "name": "Email Protection Gateway (EPG)",
       "vendor": "Kiteworks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--dfedf247-4d11-5479-a60b-02d1d2a551a3",
+      "name": "Windows Server 2008 (All versions)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -167550,6 +167537,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-85323",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85323"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3c19e6b7-b006-5950-875c-bf3a6ed9f27b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-38077",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-38077",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38077"
         }
       ]
     },
@@ -176516,22 +176519,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--99655740-8d2d-5051-a893-a73838aa147d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96891",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96891",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96891"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--9967c66c-ffa3-5b51-a30b-8638b03020f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -177406,22 +177393,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102240",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102240"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a10392f7-afd0-5f84-b7d6-a68fdc05bf8d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-96898",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-96898",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96898"
         }
       ]
     },
