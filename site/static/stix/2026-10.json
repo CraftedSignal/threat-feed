@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1a42702f-d1aa-5fe0-a669-9a6b6eaca9e6",
+  "id": "bundle--c27e0f7f-683d-5f1e-8b31-2adebb2ea03c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6130,6 +6130,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--072ec48a-5979-5687-8ef1-dcdde8f98314",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--59510ceb-d6c8-598a-a42b-becccfdaf133",
+      "target_ref": "vulnerability--94952196-e401-5313-8eea-87684f13ba3b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--07558cbb-ff79-52f5-966a-5b82ebbea618",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7831,6 +7842,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d71eb252-b8e2-5511-a9d0-2946faefd2e2",
       "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11c0b839-4edb-5202-bfa9-9cb82710d0b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--63fa218b-7476-51f9-920c-a9bd82b48a4c",
+      "target_ref": "vulnerability--68063cf0-8ffb-543e-94d5-7ab67f70b107"
     },
     {
       "type": "relationship",
@@ -13353,6 +13375,17 @@
       "relationship_type": "uses",
       "source_ref": "report--da635a75-e6c5-5778-baa3-8c82fb0aa518",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--322c078f-5ea9-58d3-bdde-563186add31f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8eaa463d-21d3-5371-83a0-89fad0b08066",
+      "target_ref": "vulnerability--68063cf0-8ffb-543e-94d5-7ab67f70b107"
     },
     {
       "type": "relationship",
@@ -24162,7 +24195,7 @@
       "id": "relationship--729e2dab-1ec6-50b8-9e84-0e527cdf5ba3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:06:20.000Z",
-      "modified": "2026-10-21T17:06:35.000Z",
+      "modified": "2026-10-24T03:46:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--400a85d5-ae43-5f5c-99e1-8a583e20bbc3",
       "target_ref": "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306"
@@ -35646,7 +35679,7 @@
       "id": "relationship--b48b098b-8971-5fd4-ac70-88ddc622f8ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:06:20.000Z",
-      "modified": "2026-10-21T17:06:35.000Z",
+      "modified": "2026-10-24T03:46:57.000Z",
       "relationship_type": "uses",
       "source_ref": "report--400a85d5-ae43-5f5c-99e1-8a583e20bbc3",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -37146,6 +37179,17 @@
       "relationship_type": "has",
       "source_ref": "software--7cc41921-c501-551e-a696-6e4fdffcd982",
       "target_ref": "vulnerability--293f1641-e374-5e8b-a259-d52d861573a4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bcc3cde5-20b0-5c9b-be05-1a1b5b3f6075",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--59510ceb-d6c8-598a-a42b-becccfdaf133",
+      "target_ref": "vulnerability--68063cf0-8ffb-543e-94d5-7ab67f70b107"
     },
     {
       "type": "relationship",
@@ -66345,7 +66389,7 @@
       "id": "report--400a85d5-ae43-5f5c-99e1-8a583e20bbc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:06:20.000Z",
-      "modified": "2026-10-21T17:06:35.000Z",
+      "modified": "2026-10-24T03:46:57.000Z",
       "name": "PyPA virtualenv: Zsh command injection in activate script (CVE-2026-113726)",
       "description": "## Overview\n\nThe virtualenv `activate` script fails to properly sanitize the environment name when setting the `PS1` prompt variable for zsh. In environments where the `PROMPT_SUBST` option is enabled (a default in frameworks like oh-my-zsh), the shell performs parameter and command substitution on the prompt string. An attacker who can influence the environment name or prompt string - such as through directory naming or CI/CD job metadata - can inject shell metacharacters (e.g., `$(...)`, backticks) to execute arbitrary commands every time the prompt is rendered. This vulnerability affects virtualenv versions through 21.14.3.\n\n## Impact\n\nSuccessful exploitation allows arbitrary command execution with the privileges of the user running the zsh session. This can be triggered by sourcing a malicious virtualenv activation script, which may be delivered via cloned repositories, unpacked archives, or CI/CD pipelines that dynamically name virtual environments based on external inputs.\n\n## Recommendation\n\n* Update virtualenv to version 21.14.4 or later.\n* For environments where immediate patching is not possible, set the environment variable `VIRTUAL_ENV_DISABLE_PROMPT=1` before sourcing any `activate` script.\n* Disable `PROMPT_SUBST` in zsh configurations if not strictly required for shell functionality.\n* Audit existing virtual environment directories for suspicious characters in their naming convention, particularly those sourced within automated build environments or CI/CD runners.\n",
       "published": "2026-10-21T17:06:20.000Z",
@@ -66363,8 +66407,10 @@
         "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306",
         "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--59510ceb-d6c8-598a-a42b-becccfdaf133",
         "software--63fa218b-7476-51f9-920c-a9bd82b48a4c",
         "software--8eaa463d-21d3-5371-83a0-89fad0b08066",
+        "vulnerability--68063cf0-8ffb-543e-94d5-7ab67f70b107",
         "vulnerability--94952196-e401-5313-8eea-87684f13ba3b"
       ],
       "external_references": [
@@ -66379,6 +66425,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-6w3r-xr62-4xcp"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-8rjx-v5ww-45pp"
         },
         {
@@ -66388,14 +66438,18 @@
         {
           "source_name": "reference",
           "url": "https://github.com/pypa/virtualenv/commit/602b26623a724827ff171bf11fef4ad186d01f74"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/pypa/virtualenv/pull/3418"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-21-virtualenv-command-injection",
       "x_craftedsignal_event_id": "brief-2026-10-21-virtualenv-command-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-21-virtualenv-command-injection/",
-      "x_craftedsignal_activity_at": "2026-10-21T17:06:35.000Z",
+      "x_craftedsignal_activity_at": "2026-10-24T03:46:57.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -127648,6 +127702,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--59510ceb-d6c8-598a-a42b-becccfdaf133",
+      "name": "virtualenv (\u003c 21.14.9)",
+      "vendor": "PyPA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--595a828f-76a4-51e0-b6da-6b697c80c9ee",
       "name": "Emergency Responder",
       "vendor": "Cisco"
@@ -144653,6 +144714,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106459",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106459"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--68063cf0-8ffb-543e-94d5-7ab67f70b107",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113723",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113723",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113723"
         }
       ]
     },
