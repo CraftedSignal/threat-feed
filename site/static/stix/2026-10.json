@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5dd803f4-0318-5616-ade8-cd1db075b935",
+  "id": "bundle--1b34df79-798d-59d7-9a4b-7d6551e074ff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -46232,6 +46232,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e80eec97-f8cf-525a-bcb9-e992446b4502",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--918f1b71-5293-5192-b4d6-2ea5c9f4457e",
+      "target_ref": "vulnerability--1c2d1591-719d-54da-a9f0-546fc7f9fbec"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e811e80c-c343-52e6-b8c3-c191c3690d9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:50:43.000Z",
@@ -81038,6 +81049,53 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--685f5621-cae1-52ed-808d-379aad9598d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T00:37:57.000Z",
+      "modified": "2026-10-25T00:37:57.000Z",
+      "name": "GEO my WP: Unauthenticated Local File Inclusion (CVE-2024-6330)",
+      "published": "2026-10-25T00:37:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--918f1b71-5293-5192-b4d6-2ea5c9f4457e",
+        "vulnerability--1c2d1591-719d-54da-a9f0-546fc7f9fbec"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-geo-my-wp-lfi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-geo-my-wp-lfi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-6330"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-6330\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-geo-my-wp-lfi",
+      "x_craftedsignal_event_id": "brief-2026-10-25-geo-my-wp-lfi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-geo-my-wp-lfi/",
+      "x_craftedsignal_activity_at": "2026-10-25T00:37:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-6330",
+        "observed_at": "2026-09-19T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.02143,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -133971,6 +134029,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--918f1b71-5293-5192-b4d6-2ea5c9f4457e",
+      "name": "GEO my WP (\u003c= 4.5.0.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--91ca1265-ee79-5527-b929-3b9a1632ef7f",
       "name": "virtualenv (\u003c= 21.7.11)",
       "vendor": "PyPA"
@@ -141549,6 +141613,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101479",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101479"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1c2d1591-719d-54da-a9f0-546fc7f9fbec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-6330",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-6330",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6330"
         }
       ]
     },
