@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ef1a9f89-5e9a-53da-97c0-7cfbf58c4fa5",
+  "id": "bundle--bc05bbf4-a0d7-5e06-9b99-28abc1bbed2d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6594,6 +6594,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bd5e8e4f-c01b-56da-9b20-fef11b5f9164",
       "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09c384b2-58e5-531e-a110-8f5586897ea4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T12:41:20.000Z",
+      "modified": "2026-10-25T12:41:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3b8b53c3-0797-5a3e-9b59-f284240bca30",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -23978,6 +23989,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6bfe7f1b-17ea-5e41-9668-476a29114f15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T12:41:20.000Z",
+      "modified": "2026-10-25T12:41:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3b8b53c3-0797-5a3e-9b59-f284240bca30",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6c1d7f25-73de-539d-8be0-75d2943dc5dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32510,6 +32532,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e654db8b-5321-554a-a666-dc56e05914a3",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9bba6f8b-7a50-5742-8c8a-809ae7a10249",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b98321a5-21e1-562d-bc57-c24a333e5f19",
+      "target_ref": "vulnerability--7ff67ba1-6466-5204-bd47-57319f421bd0"
     },
     {
       "type": "relationship",
@@ -42278,6 +42311,17 @@
       "relationship_type": "has",
       "source_ref": "software--b9702bd9-9e1b-55c4-9934-627e1b7936f0",
       "target_ref": "vulnerability--56865062-d9b9-5f42-8978-873490d8655d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d1984b24-ee47-5f0f-beec-fc205b09e127",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--04ef9bd3-d674-531b-a20a-375482d99aea",
+      "target_ref": "vulnerability--7ff67ba1-6466-5204-bd47-57319f421bd0"
     },
     {
       "type": "relationship",
@@ -67222,6 +67266,64 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3b8b53c3-0797-5a3e-9b59-f284240bca30",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T12:41:20.000Z",
+      "modified": "2026-10-25T12:41:20.000Z",
+      "name": "Jenkins: Arbitrary file read via CLI @ expansion (CVE-2024-23897)",
+      "description": "## Overview\nJenkins controller instances are vulnerable to an arbitrary file read vulnerability (CVE-2024-23897) due to a feature in the Jenkins CLI parser that replaces an '@' character followed by a file path with the content of that file. This feature is enabled by default and does not require authentication. The impact varies based on attacker permissions: users with Overall/Read permission can read full files, while unauthenticated users can read the first few lines of files depending on the CLI commands available. Public exploit code for this vulnerability is currently available.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to read sensitive files from the Jenkins controller filesystem. This may lead to the exposure of credentials, environment variables, configuration files, or other sensitive system data.\n\n## Recommendation\n- Upgrade Jenkins to version 2.442 or later, or Jenkins LTS to 2.426.3 or later, immediately to disable the vulnerable CLI expansion feature.\n- If patching is not immediately feasible, restrict access to the Jenkins CLI and HTTP endpoints to trusted networks only.\n- Review Jenkins access logs for anomalous requests to the CLI endpoint.\n",
+      "published": "2026-10-25T12:41:20.000Z",
+      "labels": [
+        "arbitrary-file-read",
+        "cve-2024-23897",
+        "jenkins",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--04ef9bd3-d674-531b-a20a-375482d99aea",
+        "software--b98321a5-21e1-562d-bc57-c24a333e5f19",
+        "vulnerability--7ff67ba1-6466-5204-bd47-57319f421bd0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-jenkins-cve-2024-23897",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-jenkins-cve-2024-23897/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/h4x0r-dz/CVE-2024-23897"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CC3305-CVE-2024-23897\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.jenkins.io/security/advisory/2024-01-24/#SECURITY-3314"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-jenkins-cve-2024-23897",
+      "x_craftedsignal_event_id": "brief-2026-10-25-jenkins-cve-2024-23897",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jenkins-cve-2024-23897/",
+      "x_craftedsignal_activity_at": "2026-10-25T12:41:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.99999,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -128160,6 +128262,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--04ef9bd3-d674-531b-a20a-375482d99aea",
+      "name": "Jenkins LTS Edition (\u003c 2.426.3)",
+      "vendor": "Jenkins"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--050c8bab-06dd-5552-a6eb-0bf5169fbe1e",
       "name": "n8n (\u003c 1.123.80)",
       "vendor": "n8n GmbH"
@@ -137442,6 +137551,13 @@
       "spec_version": "2.1",
       "id": "software--b9702bd9-9e1b-55c4-9934-627e1b7936f0",
       "name": "AhsayCBS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b98321a5-21e1-562d-bc57-c24a333e5f19",
+      "name": "Jenkins (\u003c 2.442)",
+      "vendor": "Jenkins"
     },
     {
       "type": "software",
@@ -152080,6 +152196,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109449",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109449"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7ff67ba1-6466-5204-bd47-57319f421bd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-23897",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-23897",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-23897"
         }
       ]
     },
