@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3eac6a78-e19f-5105-a07c-ee72b9097524",
+  "id": "bundle--f1ad06f8-c0f6-5cb1-a58d-8c6cfd464bed",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6735,7 +6735,7 @@
       "id": "relationship--07b39f04-4da9-522c-ad9a-fd5782953f17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T12:28:21.000Z",
-      "modified": "2026-10-25T12:28:21.000Z",
+      "modified": "2026-10-25T14:44:13.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0c5f8d71-341a-5ac5-b13e-2812ce09469b",
       "target_ref": "attack-pattern--3c04b764-6b09-51ea-ae12-ed05d4e6b3bd"
@@ -10783,7 +10783,7 @@
       "id": "relationship--1b46658b-37f7-5803-84a1-9e6476a50e81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T12:28:21.000Z",
-      "modified": "2026-10-25T12:28:21.000Z",
+      "modified": "2026-10-25T14:44:13.000Z",
       "relationship_type": "uses",
       "source_ref": "report--0c5f8d71-341a-5ac5-b13e-2812ce09469b",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
@@ -62225,7 +62225,7 @@
       "id": "report--0c5f8d71-341a-5ac5-b13e-2812ce09469b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T12:28:21.000Z",
-      "modified": "2026-10-25T12:28:21.000Z",
+      "modified": "2026-10-25T14:44:13.000Z",
       "name": "Dokploy: Authorization bypass and tenant application manipulation (CVE-2026-116068)",
       "description": "## Overview\n\nDokploy versions up to and including 0.30.10 contain an authorization bypass vulnerability. The flaw resides in the application's handling of `applicationId` values during API requests. An authenticated user (owner or admin) of one organization can provide a foreign `applicationId` belonging to a different tenant to invoke administrative procedures. \n\n## Impact\n\nConfirmed impact includes the ability for an attacker to overwrite environment variables and build secrets, modify source repository mappings, and perform disruptive actions such as deploying or stopping unauthorized applications across different tenant boundaries.\n\n## Recommendation\n\n- Upgrade Dokploy to a patched version beyond 0.30.10 immediately.\n- Audit logs for administrative API calls (specifically saveEnvironment, updateTraefikConfig, deploy, and stop) to identify suspicious cross-tenant application interactions.\n- Temporarily restrict administrative access to the Dokploy interface until the patch is applied.\n",
       "published": "2026-10-25T12:28:21.000Z",
@@ -62250,14 +62250,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116068"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-116068\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-25-dokploy-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-25-dokploy-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dokploy-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-25T12:28:21.000Z",
+      "x_craftedsignal_activity_at": "2026-10-25T14:44:13.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -81803,7 +81807,7 @@
       "id": "report--474419be-db56-501e-8f07-2911ce11a3e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T12:28:13.000Z",
-      "modified": "2026-10-25T12:28:13.000Z",
+      "modified": "2026-10-25T14:44:13.000Z",
       "name": "Paisa: Path traversal vulnerability (CVE-2026-116067)",
       "description": "## Overview\n\nPaisa versions before 0.7.8 contain a path traversal vulnerability in the GetFile, GetSheet, DeleteBackups, and DeleteSheetBackups handlers. This flaw allows unauthenticated attackers to leverage directory traversal sequences (../) in request parameters to access files or delete backup files residing outside the designated journal or sheets directories.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to read arbitrary files accessible to the server process and delete backup files, potentially leading to unauthorized data access and loss of recovery capability.\n\n## Recommendation\n\n- Upgrade Paisa to version 0.7.8 or later immediately.\n- Review web server access logs for requests containing \"../\" patterns targeting endpoints related to file and backup management.\n",
       "published": "2026-10-25T12:28:13.000Z",
@@ -81825,14 +81829,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116067"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-116067\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-25-paisa-path-traversal",
       "x_craftedsignal_event_id": "brief-2026-10-25-paisa-path-traversal",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-paisa-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-25T12:28:13.000Z",
+      "x_craftedsignal_activity_at": "2026-10-25T14:44:13.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

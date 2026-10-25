@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-25-paisa-path-traversal
 event_id: brief-2026-10-25-paisa-path-traversal
-revision: 1
-activity_at: "2026-10-25T12:28:13Z"
+revision: 2
+activity_at: "2026-10-25T14:44:13Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-25T14:44:13Z"
+    checksum: sha256:ce0b85a340b7cc9706dc4698b9c215bfe71ab42955308b360edf7f591a9e8e3c
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-116067&utm_source=rss&utm_medium=rss
 title: 'Paisa: Path traversal vulnerability (CVE-2026-116067)'
 slug: 2026-10-paisa-path-traversal
 description: Paisa versions prior to 0.7.8 contain a path traversal vulnerability in multiple API handlers, allowing unauthenticated attackers to read arbitrary files or delete backups via directory traversal sequences.
 date: "2026-10-25T12:28:13Z"
+lastmod: "2026-10-25T14:43:43Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +38,9 @@ qa_status:
   validation_status: Source verified against NVD
 cpes:
   - cpe:2.3:a:paisa:paisa:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-116067&utm_source=rss&utm_medium=rss
 tags:
   - web-application
   - path-traversal
@@ -37,6 +54,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116067
+  - https://sploitus.com/exploit?id=CVE-2026-116067&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -61,6 +79,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-116067
       evidence: Paisa before 0.7.8 contains a path traversal vulnerability
+updates:
+  - at: "2026-10-25T14:43:43Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-116067&utm_source=rss&utm_medium=rss
 ---
 
 Paisa versions before 0.7.8 contain a path traversal vulnerability in the GetFile, GetSheet, DeleteBackups, and DeleteSheetBackups handlers. This flaw allows unauthenticated attackers to leverage directory traversal sequences (../) in request parameters to access files or delete backup files residing outside the designated journal or sheets directories.
