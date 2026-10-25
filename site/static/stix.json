@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5a220570-1659-5058-8734-a3eed4ef76e2",
+  "id": "bundle--294c6305-94af-5246-a65e-94b7d511f0c6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8074,6 +8074,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0eac74c2-3890-5168-87f1-4fac32c7ae40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e97ed25-5557-56df-bec0-fff235d9f222",
+      "target_ref": "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0eb82d8f-1ba0-580d-b31b-c9e9e578198a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11198,17 +11209,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1d022750-610b-5e5f-ab79-535fd5140e22",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-25T20:55:09.000Z",
-      "modified": "2026-09-25T20:55:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--804422e9-9637-5649-82bc-668f1716e524",
-      "target_ref": "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1d044ab9-1129-5053-9b2e-a3988c928a1f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-26T14:59:41.000Z",
@@ -14010,17 +14010,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8da581ee-c083-5f74-b5da-da9544bbf87a",
       "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2c768dc4-5f77-5fa4-84d8-ee0cdb193725",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-25T20:55:09.000Z",
-      "modified": "2026-09-25T20:55:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--804422e9-9637-5649-82bc-668f1716e524",
-      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -18590,17 +18579,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--435c9d03-da77-5750-963e-59ff47a9c3e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-25T20:55:35.000Z",
-      "modified": "2026-09-25T20:55:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--805868df-2493-5716-9573-92d57ec3272d",
-      "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--435e111d-ae62-5aa3-8f85-f10cf75657d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19367,17 +19345,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1a09ad73-8e6d-5eb0-9a82-7a30497ba9b7",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--47398556-7e9e-5dbb-94f4-dc54d28bfdcb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--abde363e-9fcf-52e9-adff-1e0b06f0da7b",
-      "target_ref": "vulnerability--cdd09b94-f11c-55a8-aa93-0b99c72ca5c5"
     },
     {
       "type": "relationship",
@@ -21021,17 +20988,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4f1fd84e-5720-5398-bc54-5c004b7dd8e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c8dcfc8b-6cba-58c5-8033-e87e0f135667",
-      "target_ref": "vulnerability--4d4d508c-e986-5804-9e04-5c85789e893c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4f2e54ed-4759-55d3-b85e-a69b81c10d9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T07:20:26.000Z",
@@ -22469,17 +22425,6 @@
       "relationship_type": "has",
       "source_ref": "software--594b5448-2178-509f-96bb-ee877a9f7297",
       "target_ref": "vulnerability--83492d6a-6fe9-5060-bdfc-f9f0cde1fa25"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--564b9189-5ca3-5443-86db-c8462b8122d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-25T20:55:09.000Z",
-      "modified": "2026-09-25T20:55:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--804422e9-9637-5649-82bc-668f1716e524",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -38247,6 +38192,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a156222d-ad05-50ef-8d67-2d6a09b34d7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--615cf9fe-8777-5cac-8fd9-89975ecbdcdd",
+      "target_ref": "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a158a6b1-5817-52fd-a819-927c22825630",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T00:41:28.000Z",
@@ -39508,6 +39464,17 @@
       "relationship_type": "has",
       "source_ref": "software--b84aecac-893c-5f8b-bfc1-3e9a22c898e9",
       "target_ref": "vulnerability--794b02a1-57d3-5038-8eaf-c69295d68b94"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a74632e4-fa76-5182-88a7-164ba14d88f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T21:47:04.000Z",
+      "modified": "2026-10-25T21:47:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9533e5d8-bf22-5787-9ccc-48a36e36389f",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -42038,17 +42005,6 @@
       "relationship_type": "uses",
       "source_ref": "report--bf67eaf3-48db-5135-b095-4a6b79778ed4",
       "target_ref": "attack-pattern--e559d7a6-cefa-5b09-8bbe-67c6b9bf4bf3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b3455c56-5eb9-51c3-973a-457ae883e5a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-25T20:55:09.000Z",
-      "modified": "2026-09-25T20:55:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--804422e9-9637-5649-82bc-668f1716e524",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -100179,66 +100135,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--804422e9-9637-5649-82bc-668f1716e524",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-25T20:55:09.000Z",
-      "modified": "2026-09-25T20:55:27.000Z",
-      "name": "Information Disclosure and Account Hijacking in X-SpringBoot",
-      "description": "## Overview\n\nX-SpringBoot versions 6.0 and earlier contain a critical vulnerability where sensitive login verification codes are returned directly in the HTTP response body for unauthenticated API endpoints. Specifically, the endpoints '/sys/mobile/code' and '/sys/email/code' leak these codes without requiring authentication and without sending the codes to the intended account owners. An attacker can supply a target's mobile number or email address as a parameter to these endpoints and receive the valid verification code in the server response. With this code, the attacker can then authenticate as the victim via the '/sys/emailOrMobileLogin/login' endpoint. This flaw enables widespread account hijacking by bypassing standard MFA or verification workflows. Defenders should identify instances of X-SpringBoot 6.0 or lower and restrict access to these endpoints or upgrade to a patched version once available.\n\n## Attack Chain\n\n1. Attacker identifies a target mobile number or email address.\n2. Attacker sends an unauthenticated HTTP GET request to /sys/mobile/code or /sys/email/code.\n3. The vulnerable application processes the request and generates a verification code.\n4. The application improperly embeds the code in the JSON response body sent to the client.\n5. The attacker parses the HTTP response to extract the verification code.\n6. The attacker submits the stolen code along with the target's identifier to /sys/emailOrMobileLogin/login.\n7. The application validates the code, granting the attacker a session as the target user.\n8. Attacker gains full unauthorized access to the victim's account.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to hijack any account within an exposed X-SpringBoot instance. This could lead to full account takeover, unauthorized access to sensitive user data, and potential lateral movement if the hijacked accounts possess elevated privileges. Given the CVSS score of 9.1, the impact is severe, particularly for internet-facing installations.\n\n## Recommendation\n\n1. Identify and inventory all internet-facing instances of X-SpringBoot running version 6.0 or lower.\n2. Implement strict network-level access control to block external access to the /sys/mobile/code and /sys/email/code endpoints until a patch is applied.\n3. Deploy web application firewall (WAF) rules to inspect and alert on suspicious patterns of repeated requests to verification endpoints originating from single source IPs.\n4. Monitor application logs for high volumes of 200 OK responses to /sys/mobile/code or /sys/email/code that are not followed by successful logins from the target user's known devices.\n",
-      "published": "2026-09-25T20:55:09.000Z",
-      "labels": [
-        "authentication-bypass",
-        "cve",
-        "privilege-escalation",
-        "vulnerability",
-        "web-application",
-        "webserver"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--49352fa6-0e34-56e8-89b7-aa09aee8e00a",
-        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c8dcfc8b-6cba-58c5-8033-e87e0f135667",
-        "vulnerability--4d4d508c-e986-5804-9e04-5c85789e893c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-25-x-springboot-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-x-springboot-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97060"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97063"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97064"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-25-x-springboot-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-25-x-springboot-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-x-springboot-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-25T20:55:27.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--80449e2b-54e8-5cef-a983-d1ab48d6bbad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T06:09:00.000Z",
@@ -100279,52 +100175,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--805868df-2493-5716-9573-92d57ec3272d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-25T20:55:35.000Z",
-      "modified": "2026-09-25T20:55:35.000Z",
-      "name": "Arbitrary Code Execution in GNU libextractor via Environment Variable Injection",
-      "description": "## Overview\n\nGNU libextractor before version 1.16 contains a vulnerability where the library fails to properly validate the LIBEXTRACTOR_PREFIX environment variable when searching for plugins. Because this variable influences the library's plugin loading path, a local attacker can set it to a directory they control. If a setuid or setgid binary utilizes libextractor, the library will load and execute malicious plugins located in the attacker-supplied directory with the privileges of the binary. This vulnerability allows an attacker to achieve privilege escalation on the host system. This is particularly critical in environments where setuid/setgid binaries are commonly used or where libextractor is embedded in privileged services.\n\n## Impact\n\nSuccessful exploitation of this vulnerability enables a local attacker to execute arbitrary code with elevated privileges. This could lead to a full system compromise, data theft, or persistence on the affected host. The scope is limited to systems where libextractor is utilized by setuid or setgid programs.\n\n## Recommendation\n\n- Upgrade libextractor to version 1.16 or later immediately to address the insecure environment variable handling.\n- Audit existing setuid and setgid binaries on Linux systems to determine if they are linked against the affected libextractor library.\n- Implement environment variable sanitization policies for high-privilege service accounts to prevent the injection of arbitrary paths into library search variables.\n",
-      "published": "2026-09-25T20:55:35.000Z",
-      "labels": [
-        "linux",
-        "privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--abde363e-9fcf-52e9-adff-1e0b06f0da7b",
-        "vulnerability--cdd09b94-f11c-55a8-aa93-0b99c72ca5c5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-libextractor-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-libextractor-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100310"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-libextractor-rce",
-      "x_craftedsignal_event_id": "brief-2026-09-libextractor-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-libextractor-rce/",
-      "x_craftedsignal_activity_at": "2026-09-25T20:55:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -108036,6 +107886,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9533e5d8-bf22-5787-9ccc-48a36e36389f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T21:47:04.000Z",
+      "modified": "2026-10-25T21:47:04.000Z",
+      "name": "OpenThread: mDNS discovery proxy denial of service (CVE-2026-112325)",
+      "description": "## Overview\nOpenThread's native Multicast DNS (mDNS) implementation contains a vulnerability in the `Core::RecordCache::Matches()` function. The function fails to validate that the `mNextLabels` pointer of an incoming DNS-SD querier is non-NULL before passing it to `NameMatch()`. An attacker on a Thread mesh can send two specific, well-formed DNS-SD query packets that cause the `Matches()` function to dereference a NULL pointer, crashing the OpenThread Border Router (OTBR). This results in a denial of service (DoS) for the entire Thread network, as the router loses its capability to facilitate off-network connectivity.\n\n## Attack Chain\n1. An attacker gains access to a device on the Thread mesh (e.g., a compromised IoT sensor or light bulb).\n2. The attacker sends a first DNS-SD query (`QNAME`: `default.service.arpa.default.service.arpa`) to the Border Router.\n3. The Border Router processes the query, resulting in a cache entry with a non-NULL `mNextLabels` value.\n4. The attacker sends a second DNS-SD query (`QNAME`: `default.service.arpa`).\n5. The `StripDomainName()` function fails to strip the domain, resulting in an incoming querier with `mNextLabels = nullptr`.\n6. The `RecordCache::Matches()` function executes, comparing the new query against the cached entry.\n7. The `RecordCache::Matches()` function enters the `else` branch, invoking `NameMatch()` without checking if the querier's `mNextLabels` is NULL.\n8. `NameMatch()` dereferences the NULL pointer (address 0x0), crashing the process.\n\n## Impact\nThe crash causes an immediate denial of service on the OpenThread Border Router. Because the Border Router acts as the gateway between the Thread mesh and external networks, the entire Thread network is cut off from off-network connectivity until the service or device is manually recovered.\n\n## Recommendation\n- Upgrade OpenThread and OpenThread Border Router (OTBR) to a revision containing commit `b47613f1` or later.\n- Audit mesh networks for unauthorized devices, as the exploit requires adjacency to the Thread interface.\n- Implement monitoring for service crashes on Border Router hardware to identify potential exploitation attempts.\n",
+      "published": "2026-10-25T21:47:04.000Z",
+      "labels": [
+        "denial-of-service",
+        "iot",
+        "mdns",
+        "openthread"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e97ed25-5557-56df-bec0-fff235d9f222",
+        "software--615cf9fe-8777-5cac-8fd9-89975ecbdcdd",
+        "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-openthread-mdns-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openthread-mdns-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openthread/openthread/commit/b47613f1f5d5104c3168daacb696d7ea19834568"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openthread/openthread/security/advisories/GHSA-xf9m-rgrq-7vqf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B910636D-F009-5936-ABE2-290770E39363\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-112325"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-openthread-mdns-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-25-openthread-mdns-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openthread-mdns-dos/",
+      "x_craftedsignal_activity_at": "2026-10-25T21:47:04.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -151664,6 +151573,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5e97ed25-5557-56df-bec0-fff235d9f222",
+      "name": "OpenThread Border Router (\u003c b47613f1)",
+      "vendor": "OpenThread"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5ed0bcba-67ff-58ff-9e49-32ef621d1eff",
       "name": "Dragonfly (\u003c= 2.0.2)",
       "vendor": "DragonflyDB"
@@ -151849,6 +151765,13 @@
       "id": "software--6154dab9-b5c1-56d7-a13d-9acccfbb7f16",
       "name": "MW WP Form (\u003c= 5.1.7)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--615cf9fe-8777-5cac-8fd9-89975ecbdcdd",
+      "name": "OpenThread (\u003c b47613f1)",
+      "vendor": "OpenThread"
     },
     {
       "type": "software",
@@ -156270,13 +156193,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--abde363e-9fcf-52e9-adff-1e0b06f0da7b",
-      "name": "libextractor (\u003c 1.16)",
-      "vendor": "GNU"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--abfd5940-5fac-51db-94b3-55a8c05f563b",
       "name": "Smarty (5.0.0 – 5.8.4)",
       "vendor": "Smarty"
@@ -157863,13 +157779,6 @@
       "id": "software--c8cc9bce-d2f2-5a45-9854-221eced8f18e",
       "name": "Drupal (11.3.x \u003c 11.3.19)",
       "vendor": "Drupal"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c8dcfc8b-6cba-58c5-8033-e87e0f135667",
-      "name": "X-SpringBoot (\u003c= 6.0)",
-      "vendor": "X-SpringBoot"
     },
     {
       "type": "software",
@@ -169018,22 +168927,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--4d4d508c-e986-5804-9e04-5c85789e893c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-97063",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-97063",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97063"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--4da07341-e062-517d-aa3e-843c7d98246d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -171780,6 +171673,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101923",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101923"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112325",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112325",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112325"
         }
       ]
     },
@@ -181828,22 +181737,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92555",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92555"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--cdd09b94-f11c-55a8-aa93-0b99c72ca5c5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100310",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100310",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100310"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0430d9af-5dc3-53a0-b6e6-1807d4bc4f7b",
+  "id": "bundle--78bcd435-b001-5ccf-9214-e240df4ecda5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7496,6 +7496,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8abe287e-1e4d-57e2-872b-7890c4dcd8aa",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0eac74c2-3890-5168-87f1-4fac32c7ae40",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e97ed25-5557-56df-bec0-fff235d9f222",
+      "target_ref": "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be"
     },
     {
       "type": "relationship",
@@ -33812,6 +33823,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a156222d-ad05-50ef-8d67-2d6a09b34d7e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--615cf9fe-8777-5cac-8fd9-89975ecbdcdd",
+      "target_ref": "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a158a6b1-5817-52fd-a819-927c22825630",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T00:41:28.000Z",
@@ -34985,6 +35007,17 @@
       "relationship_type": "has",
       "source_ref": "software--38add08a-06a0-5bc2-ab43-4807a2ac8675",
       "target_ref": "vulnerability--c112f191-8e28-5c63-8fd5-347ca9cbdbe5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a74632e4-fa76-5182-88a7-164ba14d88f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T21:47:04.000Z",
+      "modified": "2026-10-25T21:47:04.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9533e5d8-bf22-5787-9ccc-48a36e36389f",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -96141,6 +96174,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9533e5d8-bf22-5787-9ccc-48a36e36389f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T21:47:04.000Z",
+      "modified": "2026-10-25T21:47:04.000Z",
+      "name": "OpenThread: mDNS discovery proxy denial of service (CVE-2026-112325)",
+      "description": "## Overview\nOpenThread's native Multicast DNS (mDNS) implementation contains a vulnerability in the `Core::RecordCache::Matches()` function. The function fails to validate that the `mNextLabels` pointer of an incoming DNS-SD querier is non-NULL before passing it to `NameMatch()`. An attacker on a Thread mesh can send two specific, well-formed DNS-SD query packets that cause the `Matches()` function to dereference a NULL pointer, crashing the OpenThread Border Router (OTBR). This results in a denial of service (DoS) for the entire Thread network, as the router loses its capability to facilitate off-network connectivity.\n\n## Attack Chain\n1. An attacker gains access to a device on the Thread mesh (e.g., a compromised IoT sensor or light bulb).\n2. The attacker sends a first DNS-SD query (`QNAME`: `default.service.arpa.default.service.arpa`) to the Border Router.\n3. The Border Router processes the query, resulting in a cache entry with a non-NULL `mNextLabels` value.\n4. The attacker sends a second DNS-SD query (`QNAME`: `default.service.arpa`).\n5. The `StripDomainName()` function fails to strip the domain, resulting in an incoming querier with `mNextLabels = nullptr`.\n6. The `RecordCache::Matches()` function executes, comparing the new query against the cached entry.\n7. The `RecordCache::Matches()` function enters the `else` branch, invoking `NameMatch()` without checking if the querier's `mNextLabels` is NULL.\n8. `NameMatch()` dereferences the NULL pointer (address 0x0), crashing the process.\n\n## Impact\nThe crash causes an immediate denial of service on the OpenThread Border Router. Because the Border Router acts as the gateway between the Thread mesh and external networks, the entire Thread network is cut off from off-network connectivity until the service or device is manually recovered.\n\n## Recommendation\n- Upgrade OpenThread and OpenThread Border Router (OTBR) to a revision containing commit `b47613f1` or later.\n- Audit mesh networks for unauthorized devices, as the exploit requires adjacency to the Thread interface.\n- Implement monitoring for service crashes on Border Router hardware to identify potential exploitation attempts.\n",
+      "published": "2026-10-25T21:47:04.000Z",
+      "labels": [
+        "denial-of-service",
+        "iot",
+        "mdns",
+        "openthread"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e97ed25-5557-56df-bec0-fff235d9f222",
+        "software--615cf9fe-8777-5cac-8fd9-89975ecbdcdd",
+        "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-openthread-mdns-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openthread-mdns-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openthread/openthread/commit/b47613f1f5d5104c3168daacb696d7ea19834568"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/openthread/openthread/security/advisories/GHSA-xf9m-rgrq-7vqf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=B910636D-F009-5936-ABE2-290770E39363\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-112325"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-openthread-mdns-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-25-openthread-mdns-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openthread-mdns-dos/",
+      "x_craftedsignal_activity_at": "2026-10-25T21:47:04.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9535f6fd-9c7a-5fe0-b4d4-e886fc1a75e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:56:08.000Z",
@@ -134108,6 +134200,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5e97ed25-5557-56df-bec0-fff235d9f222",
+      "name": "OpenThread Border Router (\u003c b47613f1)",
+      "vendor": "OpenThread"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5ed0bcba-67ff-58ff-9e49-32ef621d1eff",
       "name": "Dragonfly (\u003c= 2.0.2)",
       "vendor": "DragonflyDB"
@@ -134293,6 +134392,13 @@
       "id": "software--6154dab9-b5c1-56d7-a13d-9acccfbb7f16",
       "name": "MW WP Form (\u003c= 5.1.7)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--615cf9fe-8777-5cac-8fd9-89975ecbdcdd",
+      "name": "OpenThread (\u003c b47613f1)",
+      "vendor": "OpenThread"
     },
     {
       "type": "software",
@@ -151845,6 +151951,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101923",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101923"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--685dd7e2-01c9-50b6-962a-4e565f44a7be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112325",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112325",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112325"
         }
       ]
     },
