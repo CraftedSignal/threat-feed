@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--222d4168-e52e-5a11-83a0-7fca155fca68",
+  "id": "bundle--04216e22-30e2-5278-b6be-be35906412da",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3199,6 +3199,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1140",
           "url": "https://attack.mitre.org/techniques/T1140"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--f9bf9f66-f30f-5b4c-bc19-519de8cec1f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Sudo and Sudo Caching",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1548.003",
+          "url": "https://attack.mitre.org/techniques/T1548/003"
         }
       ]
     },
@@ -10555,6 +10571,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1a7a1199-d6db-55bd-a163-de60686aacdd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T10:42:51.000Z",
+      "modified": "2026-10-25T10:42:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5ff96e72-625d-5d4d-b06c-410d3446d2ce",
+      "target_ref": "attack-pattern--f9bf9f66-f30f-5b4c-bc19-519de8cec1f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1aaac15a-6667-5d58-a0e9-52a79ecc0031",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13492,6 +13519,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--296c55f0-eac7-563b-9ec0-ecfee6e433a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--86434e53-e707-5b03-b18f-ded5011604ca",
+      "target_ref": "vulnerability--40e44196-2d49-5a2c-a683-4eca230749ba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--29879098-f59d-5f90-a5f9-c6cce2c2a055",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-25T22:55:46.000Z",
@@ -15743,6 +15781,17 @@
       "relationship_type": "has",
       "source_ref": "software--defa8e90-657e-5b3d-82e8-5948c7f0780d",
       "target_ref": "vulnerability--47c4c4af-d6c0-5e90-ba2c-fa1d251f1a99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--345e78fa-633f-5a1e-afac-71b8e3e0987f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6acc28fb-8229-57e8-8e17-c0a63f54cdef",
+      "target_ref": "vulnerability--40e44196-2d49-5a2c-a683-4eca230749ba"
     },
     {
       "type": "relationship",
@@ -27810,6 +27859,17 @@
       "relationship_type": "has",
       "source_ref": "software--041eb578-d17f-5f73-8eab-a0eb66d353e6",
       "target_ref": "vulnerability--a99f3384-4bbe-5181-a7c5-ecb1fea2b9fd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f94aadf-d2d8-5cbb-aa30-f2742de7548d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bcd8e5ca-2fea-5624-a3af-cf387ad3db35",
+      "target_ref": "vulnerability--40e44196-2d49-5a2c-a683-4eca230749ba"
     },
     {
       "type": "relationship",
@@ -48571,6 +48631,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d27028b3-b299-5ec5-bb82-cfa83761656f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T10:42:51.000Z",
+      "modified": "2026-10-25T10:42:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5ff96e72-625d-5d4d-b06c-410d3446d2ce",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d286810a-4522-54a2-bde0-2e0669a6ba87",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50452,6 +50523,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dab886b4-b9e4-5ce4-9d28-cabdbd08c060",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--620c9079-3320-5758-b022-5560dc825cd8",
+      "target_ref": "vulnerability--40e44196-2d49-5a2c-a683-4eca230749ba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dab88936-5725-520c-baaf-2fcf5c86c232",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51152,6 +51234,17 @@
       "relationship_type": "has",
       "source_ref": "software--530b632a-2de8-5174-84a9-a83120da7d82",
       "target_ref": "vulnerability--895b96b9-2e61-59c9-b496-c2bc2d587859"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--de0c7b8a-7e15-5b4f-b03b-ffa4902ca51a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--71dd1273-1ffb-54a4-9ebb-baa96a570cc9",
+      "target_ref": "vulnerability--40e44196-2d49-5a2c-a683-4eca230749ba"
     },
     {
       "type": "relationship",
@@ -89808,6 +89901,62 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5ff96e72-625d-5d4d-b06c-410d3446d2ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T10:42:51.000Z",
+      "modified": "2026-10-25T10:42:51.000Z",
+      "name": "Fidelis Network and Deception: Local Privilege Escalation (CVE-2022-0486)",
+      "description": "## Overview\nCVE-2022-0486 encompasses a series of improper file permission vulnerabilities in Fidelis CommandPost, Collector, Sensor, and Sandbox components of Fidelis Network and Deception. The vulnerabilities exist because the 'fidelis' user holds sudo permissions to execute specific binaries and scripts that the user also owns. This allows a local attacker to modify the files, injecting arbitrary code or spawning shells to achieve root-level privilege escalation.\n\n## Attack Chain\n1. Attacker gains local command-line interface (CLI) access as the 'fidelis' user.\n2. Attacker identifies a vulnerable binary or script in the /FSS/ directory (e.g., /FSS/bin/shutdown.pl) that is owned by the 'fidelis' user.\n3. Attacker modifies the file permissions (e.g., chmod 700 or u+w) to allow write access.\n4. Attacker overwrites the content of the target script or binary with malicious code (e.g., executing /bin/sh).\n5. Attacker executes the modified file via sudo, providing a password if required by the sudoers configuration.\n6. The command executes with root privileges, granting the attacker full system control.\n\n## Impact\nSuccessful exploitation grants a local, authenticated 'fidelis' user full root-level control over the affected Fidelis component.\n\n## Recommendation\n- Update all Fidelis CommandPost, Collector, Sensor, and Sandbox instances to version 9.4.5 or later immediately.\n- Disable shell/SSH access to Fidelis products after initial configuration to prevent local access vectors.\n- If patching is not immediately possible, restrict ownership of vulnerable files (e.g., /FSS/bin/shutdown.pl, /FSS/setup/cert_mgmt) to root:fidelis and limit group permissions to read and execute only.\n",
+      "published": "2026-10-25T10:42:51.000Z",
+      "labels": [
+        "insecure-permissions",
+        "local-access",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--f9bf9f66-f30f-5b4c-bc19-519de8cec1f6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--620c9079-3320-5758-b022-5560dc825cd8",
+        "software--6acc28fb-8229-57e8-8e17-c0a63f54cdef",
+        "software--71dd1273-1ffb-54a4-9ebb-baa96a570cc9",
+        "software--86434e53-e707-5b03-b18f-ded5011604ca",
+        "software--bcd8e5ca-2fea-5624-a3af-cf387ad3db35",
+        "vulnerability--40e44196-2d49-5a2c-a683-4eca230749ba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-fidelis-lpe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-fidelis-lpe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HENRYREED-CVE-2022-0486"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HENRYREED-CVE-2022-0486\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-fidelis-lpe",
+      "x_craftedsignal_event_id": "brief-2026-10-25-fidelis-lpe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fidelis-lpe/",
+      "x_craftedsignal_activity_at": "2026-10-25T10:42:51.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.4,
+      "x_craftedsignal_epss_max": 0.00386,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -151981,6 +152130,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--620c9079-3320-5758-b022-5560dc825cd8",
+      "name": "Fidelis Sandbox (\u003c 9.4.5)",
+      "vendor": "Fidelissecurity"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--621219ae-e263-548e-98f1-70945b7e393e",
       "name": "FortiOS (\u003c 8.0.2, \u003c 7.6.8, \u003c 7.4.13, \u003c 7.2.14)",
       "vendor": "Fortinet"
@@ -152456,6 +152612,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6acc28fb-8229-57e8-8e17-c0a63f54cdef",
+      "name": "Fidelis CommandPost (\u003c 9.4.5)",
+      "vendor": "Fidelissecurity"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6acfa1cc-e00e-52ab-ae9c-e4bcbe6d4d67",
       "name": "Issuu Panel (\u003c 1.6.6)",
       "vendor": "Issuu"
@@ -152915,6 +153078,13 @@
       "id": "software--71b58fe7-0805-5e75-9df2-367ad37b5af7",
       "name": "plugin-scaffolder-backend (\u003c 4.1.0)",
       "vendor": "Backstage"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--71dd1273-1ffb-54a4-9ebb-baa96a570cc9",
+      "name": "Fidelis Collector (\u003c 9.4.5)",
+      "vendor": "Fidelissecurity"
     },
     {
       "type": "software",
@@ -154241,6 +154411,13 @@
       "id": "software--861d3828-d5bd-57c5-8400-ebaad62c19b0",
       "name": "DeepWiki-Open (\u003c= d92819a)",
       "vendor": "DeepWiki-Open"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--86434e53-e707-5b03-b18f-ded5011604ca",
+      "name": "Fidelis Sensor (\u003c 9.4.5)",
+      "vendor": "Fidelissecurity"
     },
     {
       "type": "software",
@@ -157323,6 +157500,13 @@
       "id": "software--bcb1f681-e37d-536a-a58f-b7b790e3738b",
       "name": "weForms (n/a through 1.6.28)",
       "vendor": "Bold Grid"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bcd8e5ca-2fea-5624-a3af-cf387ad3db35",
+      "name": "Fidelis Deception (\u003c 9.4.5)",
+      "vendor": "Fidelissecurity"
     },
     {
       "type": "software",
@@ -167853,6 +168037,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102874",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102874"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--40e44196-2d49-5a2c-a683-4eca230749ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-0486",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-0486",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-0486"
         }
       ]
     },
