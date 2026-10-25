@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--83000066-6a2e-5b6c-8354-045d4517d191",
+  "id": "bundle--f13dc76c-df7d-5f65-b67c-0d010f54dfb8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6237,6 +6237,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0cd7d4f3-bf36-5732-81e7-7ce9b7de1fc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--64a75572-cca8-5bc3-926c-597402d64f5b",
+      "target_ref": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0ce13641-ea14-5832-a583-92d0aabc9e75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6585,6 +6596,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2641072a-ed02-5613-848d-b349b812fd81",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0f1a49fe-ee8c-543f-8281-92a6b5b03e3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
+      "target_ref": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
     },
     {
       "type": "relationship",
@@ -20936,7 +20958,7 @@
       "id": "relationship--639c6721-b178-56a5-b080-fe5260ff04ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T07:09:14.000Z",
-      "modified": "2026-09-05T13:18:59.000Z",
+      "modified": "2026-10-25T07:41:32.000Z",
       "relationship_type": "uses",
       "source_ref": "report--077c77ec-f39b-5bcb-8da2-c133ab644adf",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -43585,7 +43607,7 @@
       "id": "relationship--e680ead1-5658-5fb4-bcd2-a2d7ad341f0f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T07:09:14.000Z",
-      "modified": "2026-09-05T13:18:59.000Z",
+      "modified": "2026-10-25T07:41:32.000Z",
       "relationship_type": "uses",
       "source_ref": "report--077c77ec-f39b-5bcb-8da2-c133ab644adf",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -49523,7 +49545,7 @@
       "id": "report--077c77ec-f39b-5bcb-8da2-c133ab644adf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T07:09:14.000Z",
-      "modified": "2026-09-05T13:18:59.000Z",
+      "modified": "2026-10-25T07:41:32.000Z",
       "name": "Unauthenticated Remote Code Execution in Elementor Pro",
       "description": "## Overview\n\nSecurity researchers have identified a critical vulnerability, tracked as CVE-2026-32475, affecting the Elementor Pro WordPress plugin. The flaw resides in the Forms module's File Upload field, where an improper validation sequence allows attackers to bypass extension blocklists. By submitting two file parts for the same field, an unauthenticated attacker can effectively neutralize the extension check and move a malicious PHP file into a public directory. The resulting file is written to 'wp-content/uploads/elementor/forms/\u0026lt;uniqid\u003e.php'. \n\nSuccessful exploitation allows for unauthenticated remote code execution. The vulnerability impacts all plugin versions up to and including 4.2.1. This is particularly dangerous due to the ubiquity of Elementor Form widgets with file upload functionality enabled across WordPress installations. Furthermore, a secondary, distinct vulnerability in WordPress core (CVE-2026-65640) was disclosed, which allows for RCE via malicious Postscript files, though this requires higher-privileged access compared to the Elementor flaw.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site running a vulnerable version of Elementor Pro (\u003c= 4.2.1).\n2. Attacker locates a public-facing page containing an Elementor Form widget with a File Upload field.\n3. Attacker crafts a multipart HTTP request targeting the File Upload field.\n4. Attacker submits the request containing two file parts for the same field to trigger the validation logic discrepancy.\n5. The plugin fails to correctly validate the second file part, allowing the PHP file to pass the blocklist check.\n6. The application writes the malicious PHP script to the public web-accessible directory 'wp-content/uploads/elementor/forms/'.\n7. Attacker requests the newly created .php file via a direct HTTP GET request.\n8. Web server executes the attacker's script, resulting in arbitrary code execution.\n\n## Impact\n\nSuccessful exploitation results in full unauthenticated remote code execution on the underlying web server. This allows attackers to gain persistent access, exfiltrate site data, and potentially pivot into the internal network. Given the high prevalence of Elementor Pro, the potential victim count is significant across various sectors hosting WordPress-based web applications.\n\n## Recommendation\n\n* Immediately update Elementor Pro to version 4.2.2 or higher to address CVE-2026-32475.\n* Audit 'wp-content/uploads/elementor/forms/' for any unauthorized .php files.\n* Update WordPress core to version 7.0.4 or higher to mitigate the secondary RCE risk associated with CVE-2026-65640.\n* Deploy the provided Sigma rule to detect unexpected .php file creation within the Elementor forms directory.\n",
       "published": "2026-08-20T07:09:14.000Z",
@@ -49537,14 +49559,19 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5b9391f4-9992-5fc5-8b5d-184f87877a69",
-        "software--622735e4-7ada-5bdb-adf1-1443efe90f0a"
+        "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
+        "software--64a75572-cca8-5bc3-926c-597402d64f5b",
+        "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27"
       ],
       "external_references": [
         {
           "source_name": "craftedsignal",
           "external_id": "brief-2026-08-elementor-rce",
           "url": "https://feed.craftedsignal.io/briefs/2026-08-elementor-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-32475\u0026utm_source=rss\u0026utm_medium=rss"
         },
         {
           "source_name": "reference",
@@ -49558,15 +49585,17 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-08-elementor-rce",
       "x_craftedsignal_event_id": "brief-2026-08-elementor-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-elementor-rce/",
-      "x_craftedsignal_activity_at": "2026-09-05T13:18:59.000Z",
+      "x_craftedsignal_activity_at": "2026-10-25T07:41:32.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 9,
+      "x_craftedsignal_epss_max": 0.01995,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -113725,6 +113754,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3ba67261-e20f-575c-b5a5-d9d5ea3c8a46",
+      "name": "Elementor Pro (4.2.1)",
+      "vendor": "Elementor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3c058fcb-e343-52cf-a44a-683216fc1565",
       "name": "ASP-CMS",
       "vendor": "ASP-CMS"
@@ -115187,12 +115223,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5b9391f4-9992-5fc5-8b5d-184f87877a69",
-      "name": "WordPress Core (7.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5bbb17ba-8a0f-54fb-9fa1-ec9d53bc6cd0",
       "name": "Chrome (\u003c 153.0.8010.37)"
     },
@@ -115438,12 +115468,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--622735e4-7ada-5bdb-adf1-1443efe90f0a",
-      "name": "Elementor Pro (4.2.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--624e8ba5-061f-50f9-8d46-8f3da250cb64",
       "name": "better-auth (\u003c 1.1.20)"
     },
@@ -115583,6 +115607,13 @@
       "id": "software--649b60f1-bca9-59d2-a6b2-51e44b112789",
       "name": "Accelerate (1.14.0)",
       "vendor": "Hugging Face"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--64a75572-cca8-5bc3-926c-597402d64f5b",
+      "name": "WordPress Core (7.0)",
+      "vendor": "Elementor"
     },
     {
       "type": "software",
@@ -137809,6 +137840,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-70668",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70668"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b306440f-6fc6-52df-ad8a-52771d4f1e27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-32475",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-32475",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32475"
         }
       ]
     },

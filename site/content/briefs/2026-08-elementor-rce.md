@@ -1,14 +1,46 @@
 ---
+brief_id: brief-2026-08-elementor-rce
+event_id: brief-2026-08-elementor-rce
+revision: 2
+activity_at: "2026-10-25T07:41:32Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-25T07:41:32Z"
+    checksum: sha256:0998ceaabb3ad4db056e858a3f4372aede965d1dee6ea09fbf29f397fd40324a
+    summary: poc_available; added CVE-2026-32475
+    changed_fields:
+      - affected_vendors
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - rules
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-32475&utm_source=rss&utm_medium=rss
 title: Unauthenticated Remote Code Execution in Elementor Pro
 slug: 2026-08-elementor-rce
 description: Elementor Pro versions 4.2.1 and below contain a critical file upload vulnerability (CVE-2026-32475) that allows unauthenticated attackers to achieve remote code execution by bypassing extension validation.
 date: "2026-08-20T07:09:14Z"
-lastmod: "2026-09-05T13:18:59Z"
+lastmod: "2026-10-25T07:40:48Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: B
+  credibility: "2"
+  rating: B2
+  likelihood: very likely
+qa_status:
+  verdict: pass
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-32475&utm_source=rss&utm_medium=rss
 tags:
   - web-vulnerability
   - wordpress
@@ -16,7 +48,6 @@ tags:
   - cve-2026-32475
 vendors:
   - Elementor
-  - WordPress
 products:
   - Elementor Pro (4.2.1)
   - WordPress Core (7.0)
@@ -33,22 +64,17 @@ mitre_ttps:
     technique_name: Command and Scripting Interpreter
     evidence: Successful exploitation of the flaw could allow an attacker to upload arbitrary files, including PHP scripts, that could then be used to achieve remote code execution.
     confidence_band: high
+cves:
+  - id: CVE-2026-32475
+    cvss: 9
+    epss: 0.01995
+    kev_status: "false"
+  - id: CVE-2026-65640
+    kev_status: unknown
 references:
   - https://thehackernews.com/2026/08/elementor-pro-flaw-could-let.html
   - https://www.securityweek.com/elementor-pro-wordpress-plugin-vulnerability-exploited-to-hack-sites/
-rules:
-  - title: Detect CVE-2026-32475 Exploitation - PHP File Upload in Elementor Forms
-    description: Detects the creation of .php files in the Elementor forms upload directory which is indicative of CVE-2026-32475 exploitation.
-    platform: sigma
-    severity: high
-    tactics:
-      - execution
-    techniques:
-      - T1190
-    data_sources:
-      - file_event
-      - linux
-rules_count: 1
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-32475&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -82,6 +108,13 @@ updates:
       - securityweek
     source_urls:
       - https://www.securityweek.com/elementor-pro-wordpress-plugin-vulnerability-exploited-to-hack-sites/
+  - at: "2026-10-25T07:40:48Z"
+    level: L2
+    summary: poc_available; added CVE-2026-32475
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-32475&utm_source=rss&utm_medium=rss
 ---
 
 Security researchers have identified a critical vulnerability, tracked as CVE-2026-32475, affecting the Elementor Pro WordPress plugin. The flaw resides in the Forms module's File Upload field, where an improper validation sequence allows attackers to bypass extension blocklists. By submitting two file parts for the same field, an unauthenticated attacker can effectively neutralize the extension check and move a malicious PHP file into a public directory. The resulting file is written to 'wp-content/uploads/elementor/forms/&lt;uniqid>.php'. 

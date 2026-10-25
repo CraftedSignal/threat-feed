@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9eb20d13-c9be-52b9-a78b-6b5513f5da1e",
+  "id": "bundle--035ff636-a08b-51aa-a46e-58be2c4d26c7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -111643,6 +111643,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cca34372-af64-5547-a4ea-b459d348113f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T07:40:29.000Z",
+      "modified": "2026-10-25T07:40:29.000Z",
+      "name": "Linux Kernel: Guest-to-host escape vulnerability (CVE-2026-99999)",
+      "description": "A public PoC exploit for CVE-2026-99999 has been published. The vulnerability resides in the Linux kernel's IPv4 stack and allows for guest-to-host escape, specifically documented as allowing host memory leaks and header overwrites. Testing indicates the exploit requires root access within a guest and interaction with `/dev/net/tun`. The vulnerability must be addressed at the host kernel level.\n",
+      "published": "2026-10-25T07:40:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--ef16a96a-7bf3-56db-a1e9-f5f81005c596"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-linux-kernel-pwnescape",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-pwnescape/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6495C5F0-9E83-5E2C-8011-824AA5EF1742"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=6495C5F0-9E83-5E2C-8011-824AA5EF1742\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord/?id=CVE-2026-99999"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-linux-kernel-pwnescape",
+      "x_craftedsignal_event_id": "brief-2026-10-25-linux-kernel-pwnescape",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-pwnescape/",
+      "x_craftedsignal_activity_at": "2026-10-25T07:40:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_epss_max": 0.00323,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--cca83c73-b9c2-5767-82b8-1a8be6ffdda9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T12:17:54.000Z",
@@ -161107,6 +161155,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109967",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109967"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ef16a96a-7bf3-56db-a1e9-f5f81005c596",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99999",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99999",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99999"
         }
       ]
     },
