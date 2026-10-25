@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 8
-activity_at: "2026-10-24T14:17:37Z"
+revision: 9
+activity_at: "2026-10-25T04:40:39Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -91,11 +91,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 9
+    at: "2026-10-25T04:40:39Z"
+    checksum: sha256:504263cad6de0ff16555ab4928d14f33493e3cd36a3c8c6ea6b780ccd9c1cc64
+    summary: new product
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-24T14:16:04Z"
+lastmod: "2026-10-25T04:40:09Z"
 type: advisory
 types:
   - advisory
@@ -145,6 +157,7 @@ products:
   - PHP (5.4 through 8.5.11)
   - PHP (5.4 - 8.5.11)
   - PHP (< 8.5.12, < 8.4.27, < 8.3.36, < 8.2.35)
+  - PHP (<= 8.5.11)
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -158,11 +171,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-109618
     cvss: 9.8
-    epss: 0.1162
+    epss: 0.11841
     kev_status: "false"
   - id: CVE-2026-109619
     cvss: 8.1
-    epss: 0.05991
+    epss: 0.06217
     kev_status: "false"
 references:
   - https://www.php.net/archive/2026.php#2026-10-20-1
@@ -192,6 +205,8 @@ references:
   - https://www.vulncheck.com/blog/php2shell-vulnerabilities
   - https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/
   - https://support.checkpoint.com/results/sk/sk1000302
+  - https://github.com/0x4D31/honeypot-data/blob/main/reports/php2shell/2026-10-24-confirmed-rce.md
+  - https://www.qnap.com/en-us/security-advisory/qsa-26-18
 action_plan:
   priority: immediate_escalation
   owners:
@@ -219,13 +234,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-23T09:21:53Z"
-    level: L2
-    summary: php version 5.4 <= 8.5.11
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-23T11:26:43Z"
     level: L2
     summary: poc_available
@@ -248,6 +256,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-24T14:16:04Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-25T04:40:09Z"
     level: L1
     summary: new product
     sources:
