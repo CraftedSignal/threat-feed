@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--52bc98f3-b702-5560-b06e-7d6ed3e1fa82",
+  "id": "bundle--296084fe-d104-5f8b-a9c4-890c4a2d74bc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1407,22 +1407,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1563",
           "url": "https://attack.mitre.org/techniques/T1563"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Subvert Trust Controls",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1553",
-          "url": "https://attack.mitre.org/techniques/T1553"
         }
       ]
     },
@@ -9355,17 +9339,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--17a1a40e-03d3-5c22-aa65-eaf7ac65ed15",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T08:18:16.000Z",
-      "modified": "2026-07-27T08:18:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3864a38f-568b-58dc-b997-0e881c323c14",
-      "target_ref": "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--17b7abde-d3fd-54f2-84a2-7b389c3a090a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T08:20:39.000Z",
@@ -9428,17 +9401,6 @@
       "relationship_type": "has",
       "source_ref": "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f",
       "target_ref": "vulnerability--3d31e280-e0c3-5608-8b53-2345cf94f516"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--187674e7-3d01-564a-a94f-857c2cc4b787",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T08:18:16.000Z",
-      "modified": "2026-07-27T08:18:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3864a38f-568b-58dc-b997-0e881c323c14",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -14459,17 +14421,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--63d37a1f-735c-5b2f-90bb-b63e78459891",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5796b90e-07b3-5df1-8f76-8bf7e280f40a",
-      "target_ref": "vulnerability--52647844-9bbd-5101-b03b-10d4ae0dd953"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6401bd27-2ae0-5067-b185-ddd652a06609",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16677,17 +16628,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--2a4aef3b-9406-5de7-9d08-ab21fc8bdd09"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8551e8b3-4532-5755-a539-fb65fdfe7574",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7bc0986c-f8ce-577c-a2a3-980a82b53ce3",
-      "target_ref": "vulnerability--52647844-9bbd-5101-b03b-10d4ae0dd953"
     },
     {
       "type": "relationship",
@@ -19431,17 +19371,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--aec0096a-dc83-5b11-bdb0-42c1ad4e43c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--13f3296f-ebd2-5b89-90f2-6824eb026323",
-      "target_ref": "vulnerability--52647844-9bbd-5101-b03b-10d4ae0dd953"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aec3697c-5567-5f61-87b4-279fcfa20882",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20395,17 +20324,6 @@
       "relationship_type": "has",
       "source_ref": "software--ad07df1c-8c1a-54e8-811d-6e6df081ce79",
       "target_ref": "vulnerability--3b7b8f7e-4cca-598c-baef-bd71948605bb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bcda6312-4746-510b-9f2b-5c1cf7211ec0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6128f483-280a-5349-841c-9f6776c83ebb",
-      "target_ref": "vulnerability--52647844-9bbd-5101-b03b-10d4ae0dd953"
     },
     {
       "type": "relationship",
@@ -22815,17 +22733,6 @@
       "relationship_type": "has",
       "source_ref": "software--2fb68a0b-a64f-597a-b950-4a92548ccc72",
       "target_ref": "vulnerability--fffbd483-9047-541e-9807-12453ebb7485"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e4fde39d-8acf-5e37-9603-19027ce25c26",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7a7b7298-2c91-52f6-aeab-9f9cd68e02a2",
-      "target_ref": "vulnerability--52647844-9bbd-5101-b03b-10d4ae0dd953"
     },
     {
       "type": "relationship",
@@ -27663,64 +27570,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3864a38f-568b-58dc-b997-0e881c323c14",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T08:18:16.000Z",
-      "modified": "2026-07-27T08:18:16.000Z",
-      "name": "Improper Signature Verification in Lenze Products (CVE-2026-14837)",
-      "description": "## Overview\n\nCVE-2026-14837 describes an improper signature verification vulnerability affecting several Lenze industrial control system (ICS) products. This flaw is present in the SSH enablement mechanism across various models, including c430 (versions prior to 1.15.2), c520 (versions prior to 1.15.2), c550 (versions prior to 1.15.2), i950 GenA (versions prior to 1.14.2), and i950 GenB (versions prior to 2.0.3). A low-privileged local attacker with existing access to the device can exploit this vulnerability to bypass the cryptographic signature verification process for the SSH enable file. By doing so, the attacker can activate SSH access on the device, granting themselves unauthorized administrative control and potentially leading to full system compromise. This vulnerability poses a significant risk to the operational technology (OT) environments where these devices are deployed, as it can facilitate unauthorized changes, data exfiltration, or disruption of critical processes.\n\n## Attack Chain\n\n1. Attacker gains initial low-privileged local access to a vulnerable Lenze industrial control device.\n2. Attacker crafts a malicious or modified SSH enable file designed to activate SSH services with unauthorized parameters.\n3. Attacker leverages CVE-2026-14837 to bypass the device's cryptographic signature verification mechanism for the SSH enable file.\n4. The attacker deploys the crafted SSH enable file onto the device, which the system now falsely accepts as legitimate due to the signature bypass.\n5. The Lenze device processes the seemingly valid enable file, leading to the unauthorized activation of SSH services.\n6. Attacker establishes an unauthorized administrative SSH session to the device.\n7. Attacker gains complete administrative control over the compromised Lenze device, allowing for system configuration changes, arbitrary command execution, and potential disruption of industrial processes.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-14837 leads to unauthorized administrative access and complete system compromise of affected Lenze devices. This can have severe consequences for industrial and critical infrastructure environments. Attackers gaining full control could manipulate operational parameters, disrupt production processes, cause equipment damage, or facilitate further lateral movement into other connected systems. The compromise could result in operational downtime, financial losses, safety incidents, and potential environmental damage, especially in sectors relying on these controllers.\n\n## Recommendation\n\n* Patch all affected Lenze products (c430, c520, c550, i950 GenA, i950 GenB) to the fixed versions provided by Lenze to remediate CVE-2026-14837.\n* Restrict local physical and network access to Lenze devices to only authorized personnel to mitigate the initial access vector required for CVE-2026-14837 exploitation.\n* Monitor device logs for unauthorized SSH service activation or unusual activity originating from local accounts, which could indicate attempted exploitation of CVE-2026-14837 or post-exploitation activities.\n",
-      "published": "2026-07-27T08:18:16.000Z",
-      "labels": [
-        "ics",
-        "industrial-control-system",
-        "ot",
-        "signature-bypass",
-        "ssh",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--ce03e15a-3e03-5639-98e6-b790ad78c8fb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--13f3296f-ebd2-5b89-90f2-6824eb026323",
-        "software--5796b90e-07b3-5df1-8f76-8bf7e280f40a",
-        "software--6128f483-280a-5349-841c-9f6776c83ebb",
-        "software--7a7b7298-2c91-52f6-aeab-9f9cd68e02a2",
-        "software--7bc0986c-f8ce-577c-a2a3-980a82b53ce3",
-        "vulnerability--52647844-9bbd-5101-b03b-10d4ae0dd953"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-lenze-cve-2026-14837",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-lenze-cve-2026-14837/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14837"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.certvde.com/en/advisories/VDE-2026-077/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-lenze-cve-2026-14837",
-      "x_craftedsignal_event_id": "brief-2026-07-lenze-cve-2026-14837",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-lenze-cve-2026-14837/",
-      "x_craftedsignal_activity_at": "2026-07-27T08:18:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -40274,13 +40123,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--13f3296f-ebd2-5b89-90f2-6824eb026323",
-      "name": "c430 (\u003c 1.15.2)",
-      "vendor": "Lenze"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--16263169-538c-5553-abd8-3bf44858cb25",
       "name": "datamodel-code-generator (\u003c= 0.62.0)",
       "vendor": "datamodel-code-generator"
@@ -40979,13 +40821,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5796b90e-07b3-5df1-8f76-8bf7e280f40a",
-      "name": "c520 (\u003c 1.15.2)",
-      "vendor": "Lenze"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--57b432fd-cc7c-5ceb-8f81-c30886da51ad",
       "name": "Auditd Manager"
     },
@@ -41046,13 +40881,6 @@
       "spec_version": "2.1",
       "id": "software--5ffdc3fc-c8ac-518c-9130-47915bd6bfc9",
       "name": "perl"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--6128f483-280a-5349-841c-9f6776c83ebb",
-      "name": "i950 GenB (\u003c 2.0.3)",
-      "vendor": "Lenze"
     },
     {
       "type": "software",
@@ -41335,23 +41163,9 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7a7b7298-2c91-52f6-aeab-9f9cd68e02a2",
-      "name": "i950 GenA (\u003c 1.14.2)",
-      "vendor": "Lenze"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7b810f58-042b-5a2d-ae5a-9f402402ddf4",
       "name": "Network Packet Capture integration",
       "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--7bc0986c-f8ce-577c-a2a3-980a82b53ce3",
-      "name": "c550 (\u003c 1.15.2)",
-      "vendor": "Lenze"
     },
     {
       "type": "software",
@@ -43984,22 +43798,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-47882",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47882"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--52647844-9bbd-5101-b03b-10d4ae0dd953",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-14837",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-14837",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14837"
         }
       ]
     },
