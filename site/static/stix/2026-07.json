@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--296084fe-d104-5f8b-a9c4-890c4a2d74bc",
+  "id": "bundle--d6b78a37-9595-529c-89d3-2780febfdfba",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20361,17 +20361,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bdaf9969-9490-5c17-a702-b332856c5d25",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T09:25:16.000Z",
-      "modified": "2026-07-27T09:25:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--28fd473a-736b-58e8-9483-4311d3b3b6f5",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bdbe58bf-1b73-5912-8034-79853bb41b25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T08:13:12.000Z",
@@ -21857,17 +21846,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d921e566-d06e-5130-bf80-907e2a006691",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T09:26:05.000Z",
-      "modified": "2026-07-27T09:26:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5fc39d1c-eb6c-566c-9c7b-f2c71a70045c",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d93b7892-fe1c-57a0-a445-bec64c85b90e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:53:41.000Z",
@@ -22612,17 +22590,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1853643c-0706-5f26-a6c2-85d924aa230f",
       "target_ref": "attack-pattern--bac156b6-bc91-5ec1-bed6-f4b925686559"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e437318e-35f7-52c7-be66-57e8ff82c979",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T09:25:16.000Z",
-      "modified": "2026-07-27T09:25:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--28fd473a-736b-58e8-9483-4311d3b3b6f5",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -23866,17 +23833,6 @@
       "relationship_type": "uses",
       "source_ref": "report--993cc27d-6e2d-59e1-9a35-828561d8e6db",
       "target_ref": "indicator--9fb9647a-cbd8-5992-9401-31166eabcbf9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f7eaaa0f-aca2-5b89-864f-a5ae89be72e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T09:26:05.000Z",
-      "modified": "2026-07-27T09:26:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5fc39d1c-eb6c-566c-9c7b-f2c71a70045c",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
     },
     {
       "type": "relationship",
@@ -26689,53 +26645,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--28fd473a-736b-58e8-9483-4311d3b3b6f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T09:25:16.000Z",
-      "modified": "2026-07-27T09:25:16.000Z",
-      "name": "Multiple Vulnerabilities in libssh2 Library Discovered",
-      "description": "## Overview\n\nSeveral high-severity vulnerabilities have been identified in libssh2, a client-side C library implementing the SSH2 protocol. These flaws allow a remote, unauthenticated attacker to exploit affected applications, potentially leading to critical outcomes such as arbitrary code execution, denial-of-service, or the disclosure of sensitive information. The specific vulnerabilities are not detailed in this advisory, but their presence poses a significant risk to any software or system that integrates and utilizes libssh2 for SSH communication. Given libssh2's widespread adoption across various operating systems and applications, organizations must promptly identify their usage of this library and apply necessary updates to mitigate the risk of compromise. The advisory did not specify any observed exploitation in the wild, but the potential impact is severe.\n\n## Attack Chain\n\n1. A remote, unauthenticated attacker identifies an application or service that utilizes a vulnerable version of the libssh2 library.\n2. The attacker crafts malicious SSH packets or data designed to exploit a specific flaw within the libssh2 implementation.\n3. The targeted application processes the malformed SSH input via the vulnerable libssh2 library.\n4. Depending on the specific vulnerability triggered, the library's improper handling of the input leads to a memory corruption, out-of-bounds read, or other critical error.\n5. This can result in three primary outcomes: a denial-of-service state causing application or system crashes, the unintended disclosure of sensitive memory contents or other confidential information, or the execution of arbitrary code within the context of the vulnerable application.\n6. If arbitrary code execution is achieved, the attacker can leverage this access to establish persistence, escalate privileges, or pivot further into the compromised network, depending on the application's permissions and environment.\n7. The attacker ultimately achieves their objective, which could include data exfiltration, complete system compromise, or prolonged service disruption.\n\n## Impact\n\nThe successful exploitation of these libssh2 vulnerabilities could result in severe consequences for affected organizations. Depending on the nature of the application utilizing libssh2, an attacker could render critical services unavailable through denial-of-service attacks, gain unauthorized access to sensitive data via information disclosure, or achieve full system compromise through arbitrary code execution. Given that libssh2 is a fundamental component for SSH communications, the potential attack surface is broad, affecting various types of applications, including client-side tools, development environments, and network services across Windows, Linux, and macOS platforms. The lack of specific details about observed exploitation does not diminish the high potential impact if these vulnerabilities are targeted by malicious actors.\n\n## Recommendation\n\n* Update libssh2 to the latest patched version immediately upon availability to remediate the identified vulnerabilities.\n* Identify and inventory all applications and systems within your environment that utilize the `libssh2` library, prioritizing those exposed to untrusted networks.\n* Monitor network traffic for unusual SSH connection patterns, unexpected data transfers, or anomalous process activity originating from applications that rely on `libssh2`.\n",
-      "published": "2026-07-27T09:25:16.000Z",
-      "labels": [
-        "denial-of-service",
-        "information-disclosure",
-        "library",
-        "remote-code-execution",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9f135be4-d572-5b04-8746-a13ec1a1091e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-27-libssh2-multiple-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-libssh2-multiple-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2516"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-27-libssh2-multiple-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-07-27-libssh2-multiple-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-libssh2-multiple-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-07-27T09:25:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--292a1c69-4ff5-54ec-98e3-76e227a2a178",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T07:20:04.000Z",
@@ -29530,52 +29439,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-aws-s3-public-acl/",
       "x_craftedsignal_activity_at": "2026-07-30T13:31:46.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5fc39d1c-eb6c-566c-9c7b-f2c71a70045c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T09:26:05.000Z",
-      "modified": "2026-07-27T09:26:05.000Z",
-      "name": "OpenCTI Security Bypass and Information Disclosure Vulnerability",
-      "description": "## Overview\n\nA vulnerability has been identified in OpenCTI, a widely used open-source threat intelligence platform, which allows a remote and anonymous attacker to bypass existing security mechanisms and disclose sensitive information. This critical flaw enables unauthorized access to confidential intelligence data and circumvention of protective controls embedded within the platform. While the specific technical details of the exploitation method are not publicly disclosed by the BSI advisory, the potential for an unauthenticated attacker to compromise the integrity and confidentiality of an organization's threat intelligence data poses a significant risk. Successful exploitation could severely impact an organization's ability to effectively manage and respond to cyber threats, making immediate patching and heightened vigilance crucial for all OpenCTI users.\n\n## Attack Chain\n\n1. An anonymous, remote attacker identifies a vulnerable OpenCTI instance accessible over the network.\n2. The attacker crafts and sends a malicious request designed to exploit the specific vulnerability within OpenCTI.\n3. The crafted request leverages the flaw to bypass authentication or authorization checks implemented in the platform.\n4. Upon successfully bypassing security measures, the attacker gains unauthorized access to internal OpenCTI functionalities or sensitive data repositories.\n5. The attacker then initiates actions to disclose confidential threat intelligence information stored within the platform.\n6. Sensitive data, such as indicators of compromise (IOCs), threat actor profiles, or detailed attack reports, becomes accessible to the attacker.\n7. The attacker exfiltrates the newly disclosed information from the compromised OpenCTI instance.\n\n## Impact\n\nSuccessful exploitation of this OpenCTI vulnerability could lead to the unauthorized access and exfiltration of highly sensitive threat intelligence data. This includes, but is not limited to, indicators of compromise, threat actor profiles, attack patterns, and analytical insights, all of which are critical for an organization's defensive posture. Compromise of such data can severely undermine an organization's ability to detect and respond to cyber threats, potentially revealing their internal security strategies to adversaries, leading to reputational damage, regulatory non-compliance, and significant operational setbacks. While the advisory does not specify observed victim counts or targeted sectors, any organization deploying OpenCTI is at risk, facing potential data integrity loss and disruption of their threat intelligence operations.\n\n## Recommendation\n\n* Immediately apply all available security patches and updates for OpenCTI to remediate the identified vulnerability.\n* Review OpenCTI access logs for any unusual activity, particularly from anonymous or unauthorized sources, that might indicate attempts to bypass security or access sensitive data.\n* Implement strict network segmentation and access controls to limit remote accessibility to OpenCTI instances, thereby reducing the attack surface for remote exploitation.\n* Monitor outbound network connections from the OpenCTI server for any anomalous data transfers that could signify exfiltration of sensitive information.\n",
-      "published": "2026-07-27T09:26:05.000Z",
-      "labels": [
-        "information-disclosure",
-        "opencti",
-        "security-bypass",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1027964c-80b6-5c94-8dcf-d807f3fe61d0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-opencti-security-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-opencti-security-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2515"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-opencti-security-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-opencti-security-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-opencti-security-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-27T09:26:05.000Z",
-      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -40042,13 +39905,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1027964c-80b6-5c94-8dcf-d807f3fe61d0",
-      "name": "OpenCTI",
-      "vendor": "OpenCTI"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--103890f0-58b5-5542-81fc-b1e236f251a6",
       "name": "PBX"
     },
@@ -41659,12 +41515,6 @@
       "id": "software--9ead10bb-c37d-57b7-90fb-c77431a151e4",
       "name": "datamodel-code-generator (\u003e= 0.17.0, \u003c= 0.60.1)",
       "vendor": "datamodel-code-generator"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--9f135be4-d572-5b04-8746-a13ec1a1091e",
-      "name": "libssh2"
     },
     {
       "type": "software",
