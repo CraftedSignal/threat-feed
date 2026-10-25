@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0354f168-9a43-56e4-824b-7bf5d5491bc3",
+  "id": "bundle--4d988499-fc0b-5e3b-89d1-c091cbb3e420",
   "objects": [
     {
       "type": "attack-pattern",
@@ -85916,6 +85916,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5501fd6d-7be8-5ceb-8f18-83519a0fbe98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T16:32:37.000Z",
+      "modified": "2026-10-25T16:32:37.000Z",
+      "name": "ImageMagick: Stack-based buffer overflow in bzip2 decoding (CVE-2026-116149)",
+      "description": "ImageMagick before 6.9.13-58 and 7.x before 7.1.2-33 contains a stack-based buffer overflow in the handling of bzip2 compressed images. Attackers can supply a crafted image using bzip2 compression to overwrite stack memory during decoding, causing crashes or memory corruption.\n",
+      "published": "2026-10-25T16:32:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--731d6df6-9883-5099-a6b0-026237b0e8eb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-imagemagick-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-imagemagick-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116149"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-imagemagick-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-25-imagemagick-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-imagemagick-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-25T16:32:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--55337a9d-1a54-5a4a-af92-c73174ba7bde",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T20:20:11.000Z",
@@ -124857,6 +124896,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c37d7dc4-4f05-5597-8a09-19662c973e8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T16:32:45.000Z",
+      "modified": "2026-10-25T16:32:45.000Z",
+      "name": "vLLM: Server-side request forgery in P2pNcclConnector (CVE-2026-116176)",
+      "description": "vLLM from 0.9.2 before 0.24.0 contains a server-side request forgery vulnerability that allows API callers to force outbound connections by embedding a decode address in the X-Request-Id header. Attackers can make a P2pNcclConnector prefill worker ZMQ-connect to an attacker host, leaking the NCCL unique_id and KV-cache tensors or blocking the worker.\n",
+      "published": "2026-10-25T16:32:45.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--f0f447e4-e7d6-5c3d-a476-87de45be6bef"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-vllm-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-vllm-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116176"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-vllm-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-10-25-vllm-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vllm-ssrf/",
+      "x_craftedsignal_activity_at": "2026-10-25T16:32:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -173065,6 +173143,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--731d6df6-9883-5099-a6b0-026237b0e8eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116149",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116149",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116149"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--73695e8b-eef4-592c-a2bb-e913af33e881",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -185619,6 +185713,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103690",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103690"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f0f447e4-e7d6-5c3d-a476-87de45be6bef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116176",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116176",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116176"
         }
       ]
     },

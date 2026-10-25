@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0e0dd5a6-2e2d-5095-ac9e-9a15ccbfeda2",
+  "id": "bundle--120907ce-c57d-5901-b9a0-83a752e49ae3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3571,18 +3571,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--54ac8f83-83e3-5a34-909b-31065cd0a4b9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:27:06.000Z",
-      "modified": "2026-07-27T16:27:06.000Z",
-      "name": "url: https://www.vulncheck.com/advisories/siyuan-desktop-before-reflected-xss-to-rce-via-siyuan-protocol",
-      "pattern": "[url:value = 'https://www.vulncheck.com/advisories/siyuan-desktop-before-reflected-xss-to-rce-via-siyuan-protocol']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-27T16:27:06.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--565fc29e-5a6a-58ad-bebd-14064da7f03e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -6008,18 +5996,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--c09ecde6-81e1-5a1e-9228-e9322bf01bac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:27:06.000Z",
-      "modified": "2026-07-27T16:27:06.000Z",
-      "name": "url: https://github.com/siyuan-note/siyuan/security/advisories/GHSA-6gx2-8gcr-x83f",
-      "pattern": "[url:value = 'https://github.com/siyuan-note/siyuan/security/advisories/GHSA-6gx2-8gcr-x83f']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-27T16:27:06.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--c0ae36e1-2b41-5589-91b7-8f6785884bb4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -7864,17 +7840,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--03a4f208-5cff-54fb-b7d7-d7031f46ad44",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:27:06.000Z",
-      "modified": "2026-07-27T16:27:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd68353b-12a7-5f33-bf81-f3e6d3f30b76",
-      "target_ref": "indicator--54ac8f83-83e3-5a34-909b-31065cd0a4b9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--03b3b8dc-e071-54bc-86f3-a9ce0a777f17",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8289,17 +8254,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--68568c03-0e81-5c5d-9de9-bd52bc569561"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0a0b92c7-1e0f-5f2e-8bfb-63d76f1676fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:27:06.000Z",
-      "modified": "2026-07-27T16:27:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd68353b-12a7-5f33-bf81-f3e6d3f30b76",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -8982,17 +8936,6 @@
       "relationship_type": "uses",
       "source_ref": "report--505209b4-3201-5729-b721-6f06231d4835",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--163b1eaf-f3fd-502d-9bda-560c72525f0a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:27:06.000Z",
-      "modified": "2026-07-27T16:27:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd68353b-12a7-5f33-bf81-f3e6d3f30b76",
-      "target_ref": "indicator--c09ecde6-81e1-5a1e-9228-e9322bf01bac"
     },
     {
       "type": "relationship",
@@ -10478,17 +10421,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1ad14bf6-422f-5af9-ad18-8ba514bcde44",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2df2e62c-de8b-58dc-beb6-a6ae91c56066",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:27:06.000Z",
-      "modified": "2026-07-27T16:27:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fd68353b-12a7-5f33-bf81-f3e6d3f30b76",
-      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
     },
     {
       "type": "relationship",
@@ -13360,17 +13292,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--dfbfc62a-2d93-5800-89f3-df14921db69e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--585f8baa-a86d-5b9f-985d-557ef0b712f1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:18:30.000Z",
-      "modified": "2026-07-27T16:18:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--97aed333-8c94-523c-88c9-f79e0d00c4d8",
-      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -17654,17 +17575,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9dea06df-6657-5ccb-bdbf-d12b27d80d25",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c565c31e-384a-50c3-93c0-bb9f02e13efd",
-      "target_ref": "vulnerability--650b7656-fbc6-57bb-9594-33e0ddeb2ff0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9e1b3eac-1903-5876-a219-2ce07a7111c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T09:21:55.000Z",
@@ -20939,17 +20849,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f473bfca-87b9-52d9-95eb-14a0e32c6d42",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d6492b6a-5707-5765-84ca-b65a645c360e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:18:30.000Z",
-      "modified": "2026-07-27T16:18:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--97aed333-8c94-523c-88c9-f79e0d00c4d8",
-      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
     },
     {
       "type": "relationship",
@@ -31244,60 +31143,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--97aed333-8c94-523c-88c9-f79e0d00c4d8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:18:30.000Z",
-      "modified": "2026-07-27T16:18:30.000Z",
-      "name": "Rundll32 UNC Path Execution for Malicious DLL Loading",
-      "description": "## Overview\n\nThreat actors are actively leveraging `rundll32.exe`, a legitimate Windows utility, to execute malicious Dynamic Link Libraries (DLLs) stored on remote Universal Naming Convention (UNC) network paths. This technique allows attackers to bypass certain security controls, execute arbitrary code, and move laterally across a network. The execution of DLLs from UNC shares enables adversaries to stage payloads on accessible network resources, rather than directly on the victim's local disk, potentially reducing their footprint and complicating detection. This method has been observed as part of intrusion chains, including those involving the ACR Stealer, highlighting its use in real-world campaigns for stealthy code execution and further compromise.\n\n## Attack Chain\n\n1. **Initial Foothold**: An attacker gains initial access to a network or system through an unspecified vector (e.g., exploiting a vulnerability, phishing).\n2. **Lateral Movement Preparation**: The adversary identifies or establishes an accessible network share (SMB/CIFS) on a compromised host or attacker-controlled infrastructure within the target environment.\n3. **Malicious DLL Staging**: A malicious DLL, often disguised as a legitimate file, is placed onto the prepared remote UNC share.\n4. **Remote Execution Command**: The attacker remotely executes `rundll32.exe` on a target workstation or server, providing the UNC path to the staged malicious DLL and an exported function to execute. This command could be initiated via remote services, WMI, or other execution methods.\n5. **DLL Loading and Execution**: The `rundll32.exe` process attempts to load the DLL from the specified UNC path, bypassing local file execution policies for signed binaries.\n6. **Malicious Payload Delivery**: Upon successful loading, the malicious DLL executes its payload, which can range from reconnaissance and credential dumping to establishing persistence, deploying additional malware (e.g., stealer, ransomware), or exfiltrating data.\n\n## Impact\n\nSuccessful exploitation of this technique allows threat actors to achieve arbitrary code execution on target systems, leading to potential complete system compromise. The use of a legitimate signed binary like `rundll32.exe` makes detection challenging, contributing to increased dwell time and enabling deeper penetration into an organization's network. Observed in campaigns like those involving the ACR Stealer, this method facilitates data theft, further lateral movement, and can serve as a stepping stone for ransomware deployment or other high-impact activities, ultimately leading to significant financial and reputational damage.\n\n## Recommendation\n\n* Deploy the Sigma rule \"Rundll32 UNC Path Execution\" to your SIEM to detect instances of rundll32.exe attempting to load DLLs from network shares.\n* Ensure Sysmon process-creation logging is enabled on all Windows endpoints to provide the necessary telemetry for the `process_creation` log source.\n* Implement strict network segmentation and access controls to limit SMB/CIFS share accessibility and prevent unauthorized staging of malicious files.\n* Review and monitor outbound network connections from `rundll32.exe` processes for suspicious activity, as identified in the `https://www.microsoft.com/en-us/security/blog/2026/07/16/acr-stealer-two-observed-intrusion-chains-amid-increased-threat-activity/` reference.\n",
-      "published": "2026-07-27T16:18:30.000Z",
-      "labels": [
-        "code-execution",
-        "lateral-movement",
-        "malware",
-        "stealth"
-      ],
-      "object_refs": [
-        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
-        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-rundll32-unc-path-execution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-rundll32-unc-path-execution/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/windows/process_creation/proc_creation_win_rundll32_unc_path.yml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cybereason.com/blog/rundll32-the-infamous-proxy-for-executing-malicious-code"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/07/16/acr-stealer-two-observed-intrusion-chains-amid-increased-threat-activity/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-rundll32-unc-path-execution",
-      "x_craftedsignal_event_id": "brief-2026-07-rundll32-unc-path-execution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-rundll32-unc-path-execution/",
-      "x_craftedsignal_activity_at": "2026-07-27T16:18:30.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--993cc27d-6e2d-59e1-9a35-828561d8e6db",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:17.000Z",
@@ -37802,63 +37647,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--fd68353b-12a7-5f33-bf81-f3e6d3f30b76",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T16:27:06.000Z",
-      "modified": "2026-07-27T16:27:06.000Z",
-      "name": "CVE-2026-66395 - SiYuan Desktop Reflected XSS to RCE",
-      "description": "## Overview\n\nCVE-2026-66395 details a critical reflected cross-site scripting (XSS) vulnerability impacting SiYuan desktop versions prior to 3.7.2. This flaw, residing in the bazaar plugin readme handler, enables an attacker to achieve Remote Code Execution (RCE). The attack vector involves crafting a malicious `siyuan://` deep link that embeds an HTML payload within the `plugin name` parameter. When a user is persuaded to open this link, the SiYuan application, built on Electron, processes the URL. Due to an insecure configuration of its Electron renderer, the malicious HTML is rendered via `insertAdjacentHTML`, granting the attacker full Node.js access and the ability to execute arbitrary code on the victim's system. This vulnerability poses a significant threat, as it can lead to complete system compromise if exploited.\n\n## Attack Chain\n\n1. Attacker crafts a malicious `siyuan://` deep link, embedding an XSS payload within the `plugin name` parameter.\n2. The crafted deep link is delivered to a victim, typically via social engineering tactics such as email or chat messages.\n3. The victim is enticed to click or open the malicious deep link.\n4. The operating system's deep link handler invokes the installed SiYuan desktop application to process the `siyuan://` URL.\n5. The SiYuan application processes the URL, passing the malicious `plugin name` parameter to the bazaar plugin readme handler.\n6. The `readme` handler renders the crafted HTML payload using `insertAdjacentHTML` within an insecurely configured Electron renderer process.\n7. The embedded JavaScript within the HTML payload executes with full Node.js privileges, allowing the attacker to run arbitrary code on the victim's system.\n8. This results in Remote Code Execution (RCE), enabling further compromise such as data exfiltration, installation of malware, or establishing persistence.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-66395 grants an attacker Remote Code Execution (RCE) capabilities on the victim's system. This can lead to severe consequences, including full control over the compromised machine, sensitive data theft, privilege escalation, and deployment of additional malicious payloads like ransomware or backdoors. While specific victim counts or targeted sectors are not detailed in the source, any user of SiYuan desktop applications running a vulnerable version is at risk, across all operating systems where the application is deployed (Windows, Linux, macOS). The high CVSS score of 9.6 reflects the critical nature of this vulnerability.\n\n## Recommendation\n\n* Patch CVE-2026-66395 immediately by updating SiYuan desktop to version 3.7.2 or later on all affected Windows, Linux, and macOS systems.\n* Deploy the provided Sigma rule \"Detect Suspicious Child Process from SiYuan Desktop\" to your SIEM and tune for your environment to identify potential RCE attempts originating from the SiYuan application.\n* Monitor process creation events for `SiYuan.exe` (or `siyuan` on Linux/macOS) spawning unusual child processes such as command shells or scripting interpreters, as outlined in the Sigma rule.\n* Educate users about the dangers of opening deep links from untrusted or suspicious sources, especially those that appear to invoke `siyuan://` protocol.\n",
-      "published": "2026-07-27T16:27:06.000Z",
-      "labels": [
-        "electron-app",
-        "rce",
-        "reflected-xss"
-      ],
-      "object_refs": [
-        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--54ac8f83-83e3-5a34-909b-31065cd0a4b9",
-        "indicator--c09ecde6-81e1-5a1e-9228-e9322bf01bac",
-        "software--c565c31e-384a-50c3-93c0-bb9f02e13efd",
-        "vulnerability--650b7656-fbc6-57bb-9594-33e0ddeb2ff0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-66395-siyuan-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-66395-siyuan-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/siyuan-note/siyuan/security/advisories/GHSA-6gx2-8gcr-x83f"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66395"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/siyuan-desktop-before-reflected-xss-to-rce-via-siyuan-protocol"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-66395-siyuan-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-66395-siyuan-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-66395-siyuan-rce/",
-      "x_craftedsignal_activity_at": "2026-07-27T16:27:06.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ffd3187f-7924-5c9e-a183-b78e67c441e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T15:44:29.000Z",
@@ -40129,13 +39917,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c565c31e-384a-50c3-93c0-bb9f02e13efd",
-      "name": "SiYuan Desktop (\u003c 3.7.2)",
-      "vendor": "SiYuan-Note"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c5e09640-41c9-5155-98d0-45a594bc9eb7",
       "name": "Spikster (\u003c= e1cdf8c)",
       "vendor": "Spikster"
@@ -41946,22 +41727,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-67349",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67349"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--650b7656-fbc6-57bb-9594-33e0ddeb2ff0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-66395",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-66395",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66395"
         }
       ]
     },
