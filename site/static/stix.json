@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3df0d5a9-205f-5a04-a1a3-7be8304ea184",
+  "id": "bundle--08132aa2-bd1f-5367-ab74-c4e67a003913",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2511,6 +2511,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1562",
           "url": "https://attack.mitre.org/techniques/T1562"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c792307e-c993-5bb1-97a5-9173d9b07757",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Credentials",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1589.001",
+          "url": "https://attack.mitre.org/techniques/T1589/001"
         }
       ]
     },
@@ -5083,6 +5099,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--00d8775a-8da6-5631-a595-33f02d7618a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f55d7904-9947-5526-9251-531e117b5bae",
+      "target_ref": "vulnerability--d55e0941-4218-5804-8071-7c434f21dce7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--00daa56b-7e84-517f-950e-d72a663eff59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7455,6 +7482,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d3372d9d-37e7-5be7-9e4b-9e0491fafe8e",
       "target_ref": "attack-pattern--78a28ea5-e51f-5a18-babd-8d7038019208"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0bc33f53-186c-59b0-98fd-9bbbafe92d73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5e2cff8f-fc00-5b14-b54b-993878373553",
+      "target_ref": "vulnerability--e088c50b-c4b2-5ceb-9c39-1bbcd5614e05"
     },
     {
       "type": "relationship",
@@ -20824,6 +20862,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4d78e780-262d-5944-82f7-c1b3253daa89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a3e7f3a-0ff4-5dcd-9d95-3fdd2b9f464a",
+      "target_ref": "vulnerability--7653aaa0-46da-5678-ada6-9b191437233c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4d7a0862-f590-56d3-90ae-00fb4448ad84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26177,6 +26226,17 @@
       "relationship_type": "has",
       "source_ref": "software--744a686e-b294-50e8-b06d-1389328c6a23",
       "target_ref": "vulnerability--8e76e292-dbf3-5efa-8e9d-0d7101d06e4e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6712f0f2-9842-5126-bf5e-ae7e24c769fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T04:25:53.000Z",
+      "modified": "2026-10-25T04:25:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--84af90dc-e57a-5fd6-8096-4adfecce0c67",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -40741,6 +40801,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bafcac93-7368-5859-b6f7-608a6099480e",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--adba73ff-c0da-5572-bf1f-f1927f543b6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T04:26:01.000Z",
+      "modified": "2026-10-25T04:26:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--712c2046-3c39-58fc-b167-c8db2541bd07",
+      "target_ref": "attack-pattern--c792307e-c993-5bb1-97a5-9173d9b07757"
     },
     {
       "type": "relationship",
@@ -95421,6 +95492,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--712c2046-3c39-58fc-b167-c8db2541bd07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T04:26:01.000Z",
+      "modified": "2026-10-25T04:26:01.000Z",
+      "name": "YunaiV ruoyi-vue-pro: Improper authentication in SMS Code Verification (CVE-2026-116006)",
+      "description": "## Overview\nA vulnerability exists in the SMS Code Verification component of ruoyi-vue-pro (versions up to 2026.09). An attacker can exploit this remotely by manipulating the `mobile` or `code` parameters processed by `AuthController.java` to perform improper authentication. Public exploit code is available for this vulnerability. The vendor has been unresponsive to disclosure efforts.\n\n## Impact\nSuccessful exploitation allows for improper authentication, potentially granting unauthorized access to the application.\n\n## Recommendation\n- Inventory all instances of ruoyi-vue-pro version 2026.09 or earlier.\n- Implement strict rate limiting and monitoring on the SMS code verification endpoint handled by `AuthController.java` to detect anomalous authentication attempts.\n- Prioritize application-level logging for all authentication-related requests, specifically tracking the frequency and validity of SMS verification codes associated with specific mobile numbers.\n",
+      "published": "2026-10-25T04:26:01.000Z",
+      "object_refs": [
+        "attack-pattern--c792307e-c993-5bb1-97a5-9173d9b07757",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f55d7904-9947-5526-9251-531e117b5bae",
+        "vulnerability--d55e0941-4218-5804-8071-7c434f21dce7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-ruoyi-vue-pro-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ruoyi-vue-pro-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116006"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-ruoyi-vue-pro-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-25-ruoyi-vue-pro-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ruoyi-vue-pro-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-25T04:26:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--71773a7f-40f3-573b-aa24-02e9df502b7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T02:31:43.000Z",
@@ -97161,6 +97273,46 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--76f4e06e-792e-5b38-a86e-2075735d696e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T04:25:44.000Z",
+      "modified": "2026-10-25T04:25:44.000Z",
+      "name": "Restaurant_IMS: SQL injection in lsmodal.php (CVE-2026-115999)",
+      "description": "A vulnerability has been found in mansi-k Restaurant_IMS commit d7ad49f61ab7cc1ec6eb359ac2b5378bdbde0694. The function `mysqli_connect` in `lsmodal.php` is affected. Manipulation of the `login_id` or `epsw` arguments allows for SQL injection. Remote exploitation is possible. The vendor was contacted but did not respond. No version details are provided due to the project's rolling release approach.\n",
+      "published": "2026-10-25T04:25:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5e2cff8f-fc00-5b14-b54b-993878373553",
+        "vulnerability--e088c50b-c4b2-5ceb-9c39-1bbcd5614e05"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-restaurant-ims-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-restaurant-ims-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115999"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-restaurant-ims-sqli",
+      "x_craftedsignal_event_id": "brief-2026-10-25-restaurant-ims-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-restaurant-ims-sqli/",
+      "x_craftedsignal_activity_at": "2026-10-25T04:25:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -101820,6 +101972,52 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--84af90dc-e57a-5fd6-8096-4adfecce0c67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T04:25:53.000Z",
+      "modified": "2026-10-25T04:25:53.000Z",
+      "name": "Zylon PrivateGPT: Server-side request forgery (CVE-2026-116000)",
+      "description": "## Overview\n\nA server-side request forgery (SSRF) vulnerability exists in the URI Artifact Loader component of Zylon PrivateGPT, specifically within the `load_file_from_uri` function of `private_gpt/server/ingest/uri_loader.py`. The vulnerability arises from improper handling of the `Value` argument, which can be manipulated by a remote attacker to force the server to make unintended network requests. Public exploit code for this vulnerability is available. The vendor has not responded to vulnerability disclosures.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to perform SSRF, potentially accessing internal services, scanning private network segments, or exfiltrating sensitive data from the host environment or internal network accessible to the PrivateGPT server.\n\n## Recommendation\n\nPrioritize the identification and isolation of internet-facing Zylon PrivateGPT instances. Given the lack of a vendor response or patch, restrict network access to these instances using egress filtering to prevent unauthorized internal requests.\n",
+      "published": "2026-10-25T04:25:53.000Z",
+      "labels": [
+        "ssrf",
+        "vulnerability",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8a3e7f3a-0ff4-5dcd-9d95-3fdd2b9f464a",
+        "vulnerability--7653aaa0-46da-5678-ada6-9b191437233c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-zylon-privategpt-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-zylon-privategpt-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116000"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-zylon-privategpt-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-10-25-zylon-privategpt-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-zylon-privategpt-ssrf/",
+      "x_craftedsignal_activity_at": "2026-10-25T04:25:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -151734,6 +151932,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5e2cff8f-fc00-5b14-b54b-993878373553",
+      "name": "Restaurant_IMS (commit d7ad49f61ab7cc1ec6eb359ac2b5378bdbde0694)",
+      "vendor": "mansi-k"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5e450706-619c-52a2-8192-367ad5dff073",
       "name": "Radar (\u003c 1.12.2)",
       "vendor": "Radar"
@@ -154458,6 +154663,13 @@
       "id": "software--8a1ece92-bec7-5736-bf70-2d3d340f00e4",
       "name": "Photo Reviews for WooCommerce (\u003c= 1.2.30)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8a3e7f3a-0ff4-5dcd-9d95-3fdd2b9f464a",
+      "name": "PrivateGPT (1.0.0, 1.0.1)",
+      "vendor": "Zylon"
     },
     {
       "type": "software",
@@ -160365,6 +160577,13 @@
       "id": "software--f558085d-a0cb-52e5-b5bc-d7960090d5fd",
       "name": "GeoDirectory (\u003c= 2.8.186)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f55d7904-9947-5526-9251-531e117b5bae",
+      "name": "ruoyi-vue-pro (\u003c= 2026.09)",
+      "vendor": "YunaiV"
     },
     {
       "type": "software",
@@ -172912,6 +173131,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7653aaa0-46da-5678-ada6-9b191437233c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116000",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116000",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116000"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--766dc3c1-2ee2-5e8a-9442-0aed24bc0db2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -182768,6 +183003,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d55e0941-4218-5804-8071-7c434f21dce7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116006",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116006",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116006"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d563b0b0-fe18-5c88-ac38-2db647cabb75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -183898,6 +184149,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115505",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115505"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e088c50b-c4b2-5ceb-9c39-1bbcd5614e05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115999",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115999",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115999"
         }
       ]
     },
