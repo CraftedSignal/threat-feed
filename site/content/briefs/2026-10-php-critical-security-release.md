@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 9
-activity_at: "2026-10-25T04:40:39Z"
+revision: 10
+activity_at: "2026-10-25T06:42:04Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -103,11 +103,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 10
+    at: "2026-10-25T06:42:04Z"
+    checksum: sha256:bad1b7c2c2eec5e6c506992a44aa0b9df59e66285169d5f87e415ca2974fbc2e
+    summary: OS linux
+    changed_fields:
+      - affected_os
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-25T04:40:09Z"
+lastmod: "2026-10-25T06:41:34Z"
 type: advisory
 types:
   - advisory
@@ -161,6 +172,7 @@ products:
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -207,6 +219,7 @@ references:
   - https://support.checkpoint.com/results/sk/sk1000302
   - https://github.com/0x4D31/honeypot-data/blob/main/reports/php2shell/2026-10-24-confirmed-rce.md
   - https://www.qnap.com/en-us/security-advisory/qsa-26-18
+  - https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins
 action_plan:
   priority: immediate_escalation
   owners:
@@ -234,13 +247,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-23T11:26:43Z"
-    level: L2
-    summary: poc_available
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-23T22:04:31Z"
     level: L1
     summary: new product
@@ -265,6 +271,13 @@ updates:
   - at: "2026-10-25T04:40:09Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-25T06:41:34Z"
+    level: L1
+    summary: OS linux
     sources:
       - pwn-watch
     source_urls:
