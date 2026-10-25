@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b53f5af7-c9f2-50ac-a4dd-0ff508898c79",
+  "id": "bundle--ae763c8b-9002-58aa-81e0-a1a805034b68",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11445,6 +11445,17 @@
       "relationship_type": "has",
       "source_ref": "software--d0c513de-6681-5fc4-a01f-38f84b7869e8",
       "target_ref": "vulnerability--31f7b914-2d3a-561d-a442-bf4189f61ecc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--25167d8a-787b-5733-ac28-c054b2f0e012",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T17:47:02.000Z",
+      "modified": "2026-10-25T17:47:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7b9a02f7-55b8-5a75-bb49-b8b2fac85875",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -29544,6 +29555,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--89e6b77e-813e-58b4-acf9-ca97322d185d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5ba25a9a-16cf-5f30-94c9-8287a3ace3b0",
+      "target_ref": "vulnerability--e234bf50-0570-52a7-8896-812bb74a2472"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--89e71605-fe44-536e-a79c-14daaee916ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T08:57:26.000Z",
@@ -41211,6 +41233,17 @@
       "relationship_type": "uses",
       "source_ref": "report--944aad97-1cc9-5093-9a65-731c30439f35",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c9bd1a8b-617e-5671-93c5-acfcd11d4054",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T17:47:02.000Z",
+      "modified": "2026-10-25T17:47:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7b9a02f7-55b8-5a75-bb49-b8b2fac85875",
+      "target_ref": "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306"
     },
     {
       "type": "relationship",
@@ -58429,6 +58462,50 @@
         "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1ae0f84d-718c-5952-b777-60abc51df0ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T17:46:42.000Z",
+      "modified": "2026-10-25T17:46:42.000Z",
+      "name": "FreeBSD: Public exploit for CVE-2026-45258",
+      "description": "A public one-day local privilege escalation exploit has been published for CVE-2026-45258. The vulnerability is rated with a CVSS 3.1 score of 7.8 and affects FreeBSD 14.3, 14.4, and 15.0.\n",
+      "published": "2026-10-25T17:46:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--7d74c2b7-58cf-54b8-b009-4116c17a04c4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-freebsd-lpe-cve-2026-45258",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-freebsd-lpe-cve-2026-45258/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YAYOI-CS-CVE-2026-45258_1DAY_LPE_EXPLOIT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YAYOI-CS-CVE-2026-45258_1DAY_LPE_EXPLOIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-freebsd-lpe-cve-2026-45258",
+      "x_craftedsignal_event_id": "brief-2026-10-25-freebsd-lpe-cve-2026-45258",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-freebsd-lpe-cve-2026-45258/",
+      "x_craftedsignal_activity_at": "2026-10-25T17:46:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00153,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -87918,6 +87995,59 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7b9a02f7-55b8-5a75-bb49-b8b2fac85875",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T17:47:02.000Z",
+      "modified": "2026-10-25T17:47:02.000Z",
+      "name": "Wazuh Manager: Remote code execution via insecure deserialization (CVE-2025-24016)",
+      "description": "## Overview\n\nCVE-2025-24016 is a critical remote code execution vulnerability affecting Wazuh Manager versions 4.4.0 through 4.9.0. The vulnerability exists within the DistributedAPI, where input parameters are serialized as JSON and processed using an insecure deserialization method in `framework/wazuh/core/cluster/common.py`. Attackers with API access can exploit this by injecting a crafted, unsanitized dictionary - specifically targeting the `__unhandled_exc__` parameter - into the `/security/user/authenticate/run_as` endpoint to achieve arbitrary Python code execution.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution on the master Wazuh server with the privileges of the Wazuh service. The vulnerability can also be leveraged to trigger a denial of service (server shutdown) via unauthorized execution of the `exit` function.\n\n## Recommendation\n\nUpgrade all instances of Wazuh Manager to version 4.9.1 or later immediately. Access to the Wazuh API should be restricted to trusted sources and protected by robust authentication and network-level access controls to mitigate exploitation attempts by unauthorized parties.\n",
+      "published": "2026-10-25T17:47:02.000Z",
+      "labels": [
+        "insecure-deserialization",
+        "rce",
+        "vulnerability",
+        "wazuh"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--65c46ec0-1d8a-5475-ac40-da65faef6306",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5ba25a9a-16cf-5f30-94c9-8287a3ace3b0",
+        "vulnerability--e234bf50-0570-52a7-8896-812bb74a2472"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-wazuh-rce-cve-2025-24016",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wazuh-rce-cve-2025-24016/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GLOSTARRX1-CVE-2025-24016"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GLOSTARRX1-CVE-2025-24016\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-wazuh-rce-cve-2025-24016",
+      "x_craftedsignal_event_id": "brief-2026-10-25-wazuh-rce-cve-2025-24016",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wazuh-rce-cve-2025-24016/",
+      "x_craftedsignal_activity_at": "2026-10-25T17:47:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.9384,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -133725,6 +133855,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5ba25a9a-16cf-5f30-94c9-8287a3ace3b0",
+      "name": "Wazuh Manager (4.4.0 through 4.9.0)",
+      "vendor": "Wazuh"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5bc861ac-670d-5d5a-a98b-cc1bd6be63ee",
       "name": "manong (\u003c= 7c9e5228e133b9267ad3a415833bc9bb53193bb4)",
       "vendor": "nemoTyrant"
@@ -153167,6 +153304,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7d74c2b7-58cf-54b8-b009-4116c17a04c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-45258",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-45258",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45258"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7d76703f-2612-564f-a389-d37368977883",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -162265,6 +162418,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107083",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107083"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e234bf50-0570-52a7-8896-812bb74a2472",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-24016",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-24016",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-24016"
         }
       ]
     },
