@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--96e238cf-330d-56bb-af84-44ed32458873",
+  "id": "bundle--6ea2daf5-aaaf-5c6d-9457-0319db77f737",
   "objects": [
     {
       "type": "attack-pattern",
@@ -62958,6 +62958,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0fd30be0-56a5-537a-b6b6-be301b0fccc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T22:47:38.000Z",
+      "modified": "2026-10-25T22:47:38.000Z",
+      "name": "Ruby on Rails: Information disclosure via /rails/info/properties (CVE-2023-23138)",
+      "description": "CVE-2023-23138 involves a configuration issue where the `/rails/info/properties` endpoint in Ruby on Rails applications remains accessible. If enabled, this endpoint provides information including application root, environment mode, database adapter, database schema version, and various component versions (Ruby, RubyGems, Rack, Rails, etc.). A public exploit tool has been released to test for this configuration.\n",
+      "published": "2026-10-25T22:47:38.000Z",
+      "labels": [
+        "information-disclosure",
+        "ruby-on-rails"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--17014278-e71b-5052-b751-24f13b2fe1af"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-ruby-rails-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ruby-rails-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OMARATALLAHH-CVE-2023-23138"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OMARATALLAHH-CVE-2023-23138\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-ruby-rails-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-10-25-ruby-rails-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ruby-rails-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-10-25T22:47:38.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 6.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -163223,6 +163270,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101039",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101039"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--17014278-e71b-5052-b751-24f13b2fe1af",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-23138",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-23138",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-23138"
         }
       ]
     },
