@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7679f106-1f30-51a7-973b-1dddd3fdca68",
+  "id": "bundle--c630938d-afbf-59b2-9938-c0194e08e8dd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22151,6 +22151,17 @@
       "relationship_type": "has",
       "source_ref": "software--6892849c-7476-5304-acb5-448c9495b0aa",
       "target_ref": "vulnerability--9bca492f-8621-5d4a-81da-075489abc451"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5443f41a-9259-5c31-af25-09abd52a01f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3d351c6c-e355-55a1-bf57-4ad543b99203",
+      "target_ref": "vulnerability--444c2161-90f2-5c0f-981d-3eea43e4ae2c"
     },
     {
       "type": "relationship",
@@ -79658,6 +79669,45 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-remote-access-monitor/",
       "x_craftedsignal_activity_at": "2026-10-19T13:56:45.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4254c3cd-5bbc-539e-b9b1-d55c631faa44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T00:10:18.000Z",
+      "modified": "2026-10-25T00:10:18.000Z",
+      "name": "OpenJPEG: Heap buffer overflow in opj_dwt_encode_and_deinterleave_v (CVE-2026-107080)",
+      "description": "## Overview\n\nOpenJPEG versions 2.4.0 through 2.5.4, and the git master branch up to commit 8314119b, contain an out-of-bounds read and write vulnerability in the `opj_dwt_encode_and_deinterleave_v()` function located in `src/lib/openjp2/dwt.c`. This heap buffer overflow occurs during the reversible 5/3 forward Discrete Wavelet Transform (DWT) encoding process. The vulnerability is currently unpatched in the upstream repository.\n\n## Impact\n\nAn attacker who can influence the input provided to the OpenJPEG encoder can trigger this heap buffer overflow, resulting in a denial of service (DoS) for the application utilizing the library.\n\n## Recommendation\n\n* Inventory applications and services in your environment that utilize the OpenJPEG library (versions 2.4.0 to 2.5.4).\n* Monitor upstream OpenJPEG development for the release of an official patch for CVE-2026-107080.\n* If the library is embedded, consider restricting input processing for untrusted JPEG 2000 images until a security update is applied.\n",
+      "published": "2026-10-25T00:10:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3d351c6c-e355-55a1-bf57-4ad543b99203",
+        "vulnerability--444c2161-90f2-5c0f-981d-3eea43e4ae2c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-openjpeg-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openjpeg-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/375"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-openjpeg-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-25-openjpeg-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openjpeg-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-25T00:10:18.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -149524,6 +149574,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3d351c6c-e355-55a1-bf57-4ad543b99203",
+      "name": "OpenJPEG (2.4.0 - 2.5.4, git master through 8314119b)",
+      "vendor": "OpenJPEG"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3d7c6c8e-f98d-59f3-bb03-f92895fc564c",
       "name": "containerd (2.1.0 to \u003c2.2.7, 2.3.0 to \u003c2.3.4)",
       "vendor": "containerd"
@@ -167942,6 +167999,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109566",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109566"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--444c2161-90f2-5c0f-981d-3eea43e4ae2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107080",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107080",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107080"
         }
       ]
     },
