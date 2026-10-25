@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bfa5c6fa-abef-5fc0-a44a-d4bd00347130",
+  "id": "bundle--668953a7-1257-5be3-9499-0a5a935efe31",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7854,17 +7854,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0041a8ba-56c8-53c2-b320-f7c5ad79c4c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T11:05:32.000Z",
-      "modified": "2026-07-27T11:05:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1d2bc187-b282-56ea-8d77-da8acbef9185",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--007fe573-e23c-50cf-b17f-0a6f92671593",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:07:58.000Z",
@@ -9423,17 +9412,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a9849590-47e3-5f64-8707-5e4aec511a78",
       "target_ref": "attack-pattern--3648fae3-5597-5cb8-bf1c-2340b67e3cef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--18aa3c62-0fc6-5249-ba63-743648d28190",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T11:04:42.000Z",
-      "modified": "2026-07-27T11:04:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6bb7ef02-2f3c-5f4d-9a63-d2045975bec5",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -18436,17 +18414,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a1d99a25-fb83-509d-8d7e-88253d8a618a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T11:04:42.000Z",
-      "modified": "2026-07-27T11:04:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6bb7ef02-2f3c-5f4d-9a63-d2045975bec5",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a1db7609-721d-5715-a6e8-851dfa166fdc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:53:41.000Z",
@@ -25743,51 +25710,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--1d2bc187-b282-56ea-8d77-da8acbef9185",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T11:05:32.000Z",
-      "modified": "2026-07-27T11:05:32.000Z",
-      "name": "Zabbix Cross-Site Scripting Vulnerability",
-      "description": "## Overview\n\nA critical, unpatched Cross-Site Scripting (XSS) vulnerability has been identified in Zabbix, a popular open-source monitoring software. This flaw, detailed in an advisory published on July 27, 2026, allows a remote, unauthenticated attacker to inject and execute arbitrary malicious scripts in the context of a victim's browser session. By leveraging this vulnerability, an attacker could potentially hijack user sessions, perform unauthorized actions on behalf of the victim, or exfiltrate sensitive data displayed within the Zabbix interface. Given Zabbix's widespread use for enterprise monitoring, this vulnerability poses a significant risk as compromised instances could lead to unauthorized access to critical operational data and system controls.\n\n## Attack Chain\n\n1. An unauthenticated attacker identifies a vulnerable input field or parameter within the Zabbix web interface that lacks proper sanitization or encoding of user-supplied data.\n2. The attacker crafts a malicious JavaScript payload designed to achieve their objective, such as session hijacking, data exfiltration, or redirection to a controlled site.\n3. The malicious payload is injected by the attacker into the vulnerable Zabbix application parameter, potentially through a stored data field (e.g., a dashboard element) or a reflective parameter in a URL.\n4. A legitimate Zabbix user, typically with administrative or high-privilege access, subsequently accesses the compromised Zabbix application page containing or reflecting the injected payload.\n5. Upon rendering the page, the victim's web browser executes the malicious JavaScript payload within the security context of the victim's session.\n6. The executed script performs unauthorized actions such as stealing the victim's session cookies, modifying Zabbix configurations, or performing actions on behalf of the victim.\n7. The attacker uses the stolen session or unauthorized access to exfiltrate sensitive monitoring data, tamper with system alerts, or potentially escalate privileges within the Zabbix environment.\n\n## Impact\n\nSuccessful exploitation of this XSS vulnerability can lead to significant consequences for affected organizations. Attackers could gain unauthorized access to critical monitoring data, including system metrics, network configurations, and potentially sensitive environment variables. This could enable further reconnaissance, privilege escalation, or lateral movement within the victim's network. The integrity of monitoring data could be compromised, leading to missed alerts or false reporting. The primary impact includes unauthorized data exposure, session hijacking, defacement of the Zabbix interface, and the execution of arbitrary code within the victim's browser, potentially allowing for malware delivery or credential theft.\n\n## Recommendation\n\n* Patch Zabbix installations immediately upon the release of an official security update from the vendor.\n* Monitor web server access logs for HTTP requests containing common Cross-Site Scripting (XSS) payload patterns, especially in URL parameters or POST data, to detect exploitation attempts.\n* Implement and configure a Web Application Firewall (WAF) to detect and block XSS attempts against Zabbix web interfaces.\n* Deploy the provided Sigma rule to your SIEM for detecting potential XSS exploitation attempts.\n",
-      "published": "2026-07-27T11:05:32.000Z",
-      "labels": [
-        "cross-site-scripting",
-        "vulnerability",
-        "web-application",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ae9ee780-7a9a-5f78-aa97-eca3f67fb173"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-zabbix-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-zabbix-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2525"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-zabbix-xss",
-      "x_craftedsignal_event_id": "brief-2026-07-zabbix-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-zabbix-xss/",
-      "x_craftedsignal_activity_at": "2026-07-27T11:05:32.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--1e382001-66bd-50d0-96bf-7b02089095f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T16:33:09.000Z",
@@ -29926,53 +29848,6 @@
       "x_craftedsignal_activity_at": "2026-07-28T18:15:09.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6bb7ef02-2f3c-5f4d-9a63-d2045975bec5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T11:04:42.000Z",
-      "modified": "2026-07-27T11:04:42.000Z",
-      "name": "FFmpeg: Multiple Vulnerabilities",
-      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has issued an advisory regarding multiple critical vulnerabilities in the widely used FFmpeg multimedia framework. A remote, unauthenticated attacker can exploit these flaws to achieve a range of impacts, including memory corruption, arbitrary code execution (RCE), denial-of-service (DoS) conditions, and the disclosure of confidential information. While the advisory does not detail specific observed exploitation in the wild, the nature of these vulnerabilities, particularly RCE, poses a significant risk to any system or application that processes untrusted multimedia files using FFmpeg. These vulnerabilities underscore the importance of promptly updating FFmpeg installations to mitigate potential attacks.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities could lead to severe consequences for affected systems. Attackers could achieve full system compromise through arbitrary code execution, enabling them to install malware, steal sensitive data, or take control of the compromised machine. Denial-of-service attacks could render critical services or applications unavailable, leading to significant operational disruption and financial losses. Additionally, memory corruption issues might be leveraged for further exploitation, and information disclosure could expose proprietary or personal data, leading to privacy breaches and regulatory penalties. The broad use of FFmpeg across various platforms and applications means a wide range of systems are potentially at risk.\n\n## Recommendation\n\n* **Update FFmpeg:** Immediately update all instances of FFmpeg to the latest patched version provided by the FFmpeg project or your respective operating system/application vendor.\n* **Implement Input Validation:** Review applications that process multimedia files using FFmpeg and ensure robust input validation and sanitization are in place to prevent the submission of malformed or malicious files.\n* **Monitor Process Activity:** Configure logging and monitoring for unusual process creation or network connections originating from applications or services that utilize FFmpeg, which could indicate successful arbitrary code execution.\n* **Network Segmentation:** Isolate systems running FFmpeg processing workloads to limit the blast radius in case of compromise.\n",
-      "published": "2026-07-27T11:04:42.000Z",
-      "labels": [
-        "denial-of-service",
-        "information-disclosure",
-        "memory-corruption",
-        "rce",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--021fa932-3d22-566e-9750-6ce90c5cca94"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-ffmpeg-multiple-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-ffmpeg-multiple-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2526"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-ffmpeg-multiple-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-07-ffmpeg-multiple-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-ffmpeg-multiple-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-07-27T11:04:42.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -39571,13 +39446,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--021fa932-3d22-566e-9750-6ce90c5cca94",
-      "name": "ffmpeg",
-      "vendor": "FFmpeg project"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--026448c5-5a95-5ea1-b4c5-4e943d5b531a",
       "name": "uwsgi"
     },
@@ -41526,13 +41394,6 @@
       "spec_version": "2.1",
       "id": "software--ae78e911-b0da-5b60-96d6-81ce5687627c",
       "name": "Fusion (26H1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ae9ee780-7a9a-5f78-aa97-eca3f67fb173",
-      "name": "Zabbix",
-      "vendor": "Zabbix"
     },
     {
       "type": "software",
