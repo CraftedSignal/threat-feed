@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae763c8b-9002-58aa-81e0-a1a805034b68",
+  "id": "bundle--0430d9af-5dc3-53a0-b6e6-1807d4bc4f7b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47573,6 +47573,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ea1815d5-acbe-5ebf-a527-27fc0658cfd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
+      "target_ref": "vulnerability--0d17a695-41ba-5058-b44c-46792ab7fe49"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ea240531-d9ec-5faf-9b67-d5369954dd00",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -83797,6 +83808,46 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02521,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6ccf1393-4f2a-5310-9f68-28662e8d8da4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T20:30:02.000Z",
+      "modified": "2026-10-25T20:30:02.000Z",
+      "name": "SourceCodester Performance Indicator System: SQL Injection in Contact argument (CVE-2026-116060)",
+      "description": "A vulnerability has been identified in SourceCodester Performance Indicator System 1.0. The flaw exists in the '/opils/staff/adddealer.php' file. Manipulation of the 'Contact' argument can lead to SQL injection. The vulnerability can be exploited remotely, and the exploit has been publicly disclosed.\n",
+      "published": "2026-10-25T20:30:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a88c419b-7f71-5043-9c6e-2f5dca3c1236",
+        "vulnerability--0d17a695-41ba-5058-b44c-46792ab7fe49"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-sourcecodester-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-sourcecodester-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116060"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-sourcecodester-sqli",
+      "x_craftedsignal_event_id": "brief-2026-10-25-sourcecodester-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sourcecodester-sqli/",
+      "x_craftedsignal_activity_at": "2026-10-25T20:30:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -143250,6 +143301,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104120",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104120"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0d17a695-41ba-5058-b44c-46792ab7fe49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116060",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116060",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116060"
         }
       ]
     },
