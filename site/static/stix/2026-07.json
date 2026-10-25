@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3e99c8cb-f663-5e30-b84b-556c5de8c12c",
+  "id": "bundle--0e0dd5a6-2e2d-5095-ac9e-9a15ccbfeda2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -191,22 +191,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1499",
           "url": "https://attack.mitre.org/techniques/T1499"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--1756a75f-27b2-553e-b071-d3f47f4ed343",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Trusted Developer Utilities Proxy Execution",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1127",
-          "url": "https://attack.mitre.org/techniques/T1127"
         }
       ]
     },
@@ -1087,22 +1071,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1037",
           "url": "https://attack.mitre.org/techniques/T1037"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Create Account",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1136",
-          "url": "https://attack.mitre.org/techniques/T1136"
         }
       ]
     },
@@ -7852,17 +7820,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--03320390-cdf4-5972-aead-24cce61b08c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:28:54.000Z",
-      "modified": "2026-07-28T18:19:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f39393b8-baf8-5b16-b3c8-a9a9341fd1a5",
-      "target_ref": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--03351100-0211-5a94-a3cd-ebc598252223",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8182,17 +8139,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--06e2a28e-b269-5c3b-a86f-962d0f053e42",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:33:49.000Z",
-      "modified": "2026-07-28T18:37:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c06dae8f-9eca-5bff-b9e0-b5fff89a94d0",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--06f45e5c-3924-5258-b39e-98721c40f298",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T09:45:55.000Z",
@@ -8222,17 +8168,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c236fc85-d0e3-504a-b56e-90b86f7f137a",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--076776a3-0e53-5016-8a27-d6f370075b1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:35:51.000Z",
-      "modified": "2026-07-27T15:35:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d2f26b67-678d-56d6-bfb9-753b9f4fa44a",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -8321,17 +8256,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0899f934-c3b5-57f4-b68c-da2e4ef6ee32",
       "target_ref": "indicator--f394e75f-04ef-5385-847a-c36ea581861b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0939df0e-57c4-5686-bac5-7e0e6f0e83d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:33:49.000Z",
-      "modified": "2026-07-28T18:37:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c06dae8f-9eca-5bff-b9e0-b5fff89a94d0",
-      "target_ref": "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7"
     },
     {
       "type": "relationship",
@@ -8772,17 +8696,6 @@
       "relationship_type": "has",
       "source_ref": "software--0971df65-9909-5b93-a40b-cdccffdf5f43",
       "target_ref": "vulnerability--23bb0d96-97c3-56e6-8769-7298c709c466"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--10745ed4-3aaf-5cd5-bc00-cd6c8378146e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:31:41.000Z",
-      "modified": "2026-07-28T18:32:09.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--57834c2e-d099-5fbc-9c43-aed70ac503bc",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -11405,17 +11318,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--39763548-321a-53aa-9505-6d7ec6fb899b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:18:54.000Z",
-      "modified": "2026-07-27T15:18:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6f63d398-c369-5f3d-8b79-eee4ae6a618d",
-      "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--39fad8a2-b99d-5278-b99c-cbc4a5536d67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T08:09:56.000Z",
@@ -13253,17 +13155,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5552da90-404e-516b-ab53-fc0ddc4382e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:28:54.000Z",
-      "modified": "2026-07-28T18:19:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f39393b8-baf8-5b16-b3c8-a9a9341fd1a5",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--557d2b84-79eb-503b-896f-ca18ae853e98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -14639,17 +14530,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6de724bd-8b77-5e3f-8406-c32376349444",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:35:51.000Z",
-      "modified": "2026-07-27T15:35:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d2f26b67-678d-56d6-bfb9-753b9f4fa44a",
-      "target_ref": "attack-pattern--55190cce-3978-5d43-b6a3-64cdd80a5d56"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6e234875-0337-5707-b952-c89e3111c5ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T11:25:48.000Z",
@@ -14921,17 +14801,6 @@
       "relationship_type": "uses",
       "source_ref": "report--668186ad-79f0-5f18-a7b9-23ee6c8293f9",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--72b15084-5158-5033-89a0-6ce7e3fcf008",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:32:29.000Z",
-      "modified": "2026-07-27T15:34:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b678fa6d-35ba-5e33-b658-f7c9b25b7d5f",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -15383,17 +15252,6 @@
       "relationship_type": "uses",
       "source_ref": "report--632ff760-a17a-5fa7-b027-e3617f21b3d6",
       "target_ref": "indicator--d52100b2-c0f2-54fa-a435-8a5a62c23b43"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--797ff263-1485-56fe-bfa6-806050caf5ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:33:49.000Z",
-      "modified": "2026-07-28T18:37:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c06dae8f-9eca-5bff-b9e0-b5fff89a94d0",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
     },
     {
       "type": "relationship",
@@ -17301,17 +17159,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--96ea43f5-dcec-58ed-bff4-db557e1a0a4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:30:56.000Z",
-      "modified": "2026-07-28T18:32:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--11ea4fc8-5e56-5c1b-8ae0-995263c40a14",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--96f753ba-b4ac-5d96-995a-db67623e83c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18276,17 +18123,6 @@
       "relationship_type": "uses",
       "source_ref": "report--06dd00d2-137f-5b80-95d3-d661e7028eeb",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a6d8e7b4-ba4c-50ea-98ab-1625d8d7d2c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:28:54.000Z",
-      "modified": "2026-07-28T18:19:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f39393b8-baf8-5b16-b3c8-a9a9341fd1a5",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
     },
     {
       "type": "relationship",
@@ -19446,17 +19282,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b7d4c545-4462-5dbd-a09e-c7bee93aa678",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:35:51.000Z",
-      "modified": "2026-07-27T15:35:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d2f26b67-678d-56d6-bfb9-753b9f4fa44a",
-      "target_ref": "attack-pattern--1756a75f-27b2-553e-b071-d3f47f4ed343"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b8021b01-d291-56f5-b24a-2ce5e03ef82e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19717,17 +19542,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e334da4b-c6e9-5343-ab3b-03c778394ea6",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bc67ea5f-dccc-54c6-b52e-9af90bbde6d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:26:08.000Z",
-      "modified": "2026-07-28T18:00:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4ceaa78e-30a8-545c-8b08-dda5e11c5bc0",
-      "target_ref": "attack-pattern--244e0bc7-bed3-5485-8c2d-a9f992f55426"
     },
     {
       "type": "relationship",
@@ -21448,17 +21262,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dad3f39f-0f6a-5dd6-9c5e-763a13ac4694",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--01ae53ae-06dd-55ee-8154-4dee205c48a1",
-      "target_ref": "vulnerability--993ecd75-df00-5de0-a8aa-8cbf73393a6f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--daf02ad2-bca3-55d6-8d02-ceb1382f87b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T16:33:09.000Z",
@@ -22192,17 +21995,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e53953e9-e396-55bc-be4a-c90751588d6b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e683ce6b-a2ca-56e5-9029-5fa5f02bbf21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:28:54.000Z",
-      "modified": "2026-07-28T18:19:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f39393b8-baf8-5b16-b3c8-a9a9341fd1a5",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -22977,17 +22769,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f2b6c1e9-8948-5016-9ebc-f1c00bb07a56",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:35:00.000Z",
-      "modified": "2026-07-27T15:35:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7aa6756b-f21c-51b2-a7a9-6eb2fbccb187",
-      "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f323f16e-428d-597e-875f-9af705c6e4c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-27T16:39:09.000Z",
@@ -22995,17 +22776,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ccc1163e-3dc9-5ac7-b07d-192abd0bb3f4",
       "target_ref": "indicator--844ea9d7-a927-5063-b675-6e3d4ec63f23"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f35d523f-7f2e-5396-a9d3-ab1eb9db2538",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:26:08.000Z",
-      "modified": "2026-07-28T18:00:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4ceaa78e-30a8-545c-8b08-dda5e11c5bc0",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -23725,17 +23495,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ff2d190c-510c-5281-871f-66061d478ff4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:30:56.000Z",
-      "modified": "2026-07-28T18:32:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--11ea4fc8-5e56-5c1b-8ae0-995263c40a14",
-      "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ff4b21c8-9b6c-5ff2-84a9-18699c9ba874",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T10:18:10.000Z",
@@ -24360,62 +24119,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--11ea4fc8-5e56-5c1b-8ae0-995263c40a14",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:30:56.000Z",
-      "modified": "2026-07-28T18:32:00.000Z",
-      "name": "Suspicious Powershell Script Detected by ML",
-      "description": "## Overview\n\nElastic has developed a machine learning rule designed to detect suspicious PowerShell scripts exhibiting unusual data characteristics, such as obfuscation. This rule, with a `machine_learning_job_id` of `v3_windows_anomalous_script_ea`, targets the common adversary tactic of leveraging PowerShell's capabilities for task automation and configuration management while attempting to evade detection. Adversaries frequently employ obfuscation techniques to conceal malicious payloads and commands within PowerShell scripts, making them harder for traditional signature-based security tools to identify. This ML-driven detection helps defenders by flagging these anomalous scripts in Windows environments, providing an early warning of potential malicious execution or defense evasion attempts. The rule helps to identify scripts that might be part of various attack campaigns.\n\n## Impact\n\nSuccessful execution of highly obfuscated or anomalous PowerShell scripts can lead to significant compromise, including arbitrary code execution, persistence mechanisms, privilege escalation, data exfiltration, or the deployment of ransomware. Attackers use these scripts to bypass security controls, maintain covert access, and perform post-exploitation activities. The direct impact on the organization could range from data breaches and operational disruption to financial losses and reputational damage, depending on the attacker's final objectives.\n\n## Recommendation\n\n* Review alerts generated by the `v3_windows_anomalous_script_ea` machine learning job to identify and investigate any flagged PowerShell activity.\n* Examine the source endpoint and user account associated with detections from the `windows` integration to determine if the activity aligns with expected behavior or is suspicious.\n* Implement enhanced monitoring for PowerShell activity across your network, specifically focusing on the `windows` log source, to detect obfuscation and unusual script characteristics.\n* Regularly update and review the exceptions list for the `v3_windows_anomalous_script_ea` rule to ensure legitimate administrative scripts are not unnecessarily triggering alerts.\n",
-      "published": "2026-07-27T15:30:56.000Z",
-      "labels": [
-        "endpoint",
-        "execution",
-        "investigation-guide",
-        "machine-learning",
-        "threat-detection",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4cdbe714-07d6-5995-b123-b22752cba59c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-suspicious-powershell-script",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-suspicious-powershell-script/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/execution_ml_windows_anomalous_script.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/security-labs/detecting-living-off-the-land-attacks-with-new-elastic-integration"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-suspicious-powershell-script",
-      "x_craftedsignal_event_id": "brief-2026-07-suspicious-powershell-script",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-suspicious-powershell-script/",
-      "x_craftedsignal_activity_at": "2026-07-28T18:32:00.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -27634,67 +27337,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--4ceaa78e-30a8-545c-8b08-dda5e11c5bc0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:26:08.000Z",
-      "modified": "2026-07-28T18:00:34.000Z",
-      "name": "Statistical Model Detected Command-and-Control Beaconing Activity",
-      "description": "## Overview\n\nThis brief describes a detection capability from Elastic Security designed to identify command-and-control (C2) beaconing activity. The detection relies on a statistical model that analyzes network logs to pinpoint periodic, stealthy communication patterns indicative of C2. C2 beaconing allows attackers to maintain covert communication channels with compromised systems, receive instructions, deliver additional payloads, exfiltrate sensitive data, and ensure persistence within a network. The rule specifically targets the output of Elastic's Network Beaconing Identification integration, which processes network events collected by the Elastic Defend integration from both Windows and Linux endpoints. It intelligently filters out known benign processes like `metricbeat.exe`, `MsMpEng.exe`, `OUTLOOK.EXE`, and `dnf` to reduce false positives and focus on genuinely anomalous behavior. This detection capability is crucial for identifying sophisticated post-exploitation activities often associated with various threat actors.\n\n## Attack Chain\n\nThis brief describes a detection mechanism for command-and-control (C2) beaconing, which is a post-compromise activity. It does not detail a specific attack chain from initial access through impact, as the focus is on the detection of the C2 communication behavior itself rather than the full sequence of an adversary's actions. The beaconing activity typically occurs after initial access has been gained and malware has been deployed, serving to maintain persistent communication between the compromised host and the attacker's C2 infrastructure.\n\n## Impact\n\nSuccessful C2 beaconing enables adversaries to maintain long-term unauthorized access to compromised systems and networks. This can lead to various severe impacts including persistent data exfiltration of sensitive information, deployment of additional malicious payloads (e.g., ransomware), lateral movement across the network, and establishment of backdoors for future access. The stealthy nature of beaconing, by mimicking legitimate traffic patterns, allows attackers to operate undetected for extended periods, maximizing the potential for damage and intellectual property theft. The specific number of victims and sectors targeted can vary widely depending on the adversary and their objectives, but the underlying capability of sustained C2 communication significantly elevates the risk of profound financial, reputational, and operational damage.\n\n## Recommendation\n\n* Deploy the Network Beaconing Identification integration and Elastic Defend to collect the necessary `ml_beaconing.all` log data for this detection.\n* Monitor alerts generated by the \"Statistical Model Detected C2 Beaconing Activity\" rule in your Elastic Security environment for potential C2 communications.\n* Investigate network traffic logs and associated processes for any alerts, cross-referencing IP addresses with threat intelligence as part of your incident response process.\n* Regularly review and update the list of excluded `process.name` values in the rule's query to minimize false positives arising from legitimate applications that exhibit periodic network communication.\n* Isolate systems identified with C2 beaconing activity to prevent further communication and conduct a thorough forensic analysis and malware scan.\n",
-      "published": "2026-07-27T15:26:08.000Z",
-      "labels": [
-        "beaconing",
-        "command-and-control",
-        "endpoint-security",
-        "machine-learning",
-        "network-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--244e0bc7-bed3-5485-8c2d-a9f992f55426",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2ff1c390-ab8e-5db2-b7bb-ef75dfd9c696",
-        "software--69e4c18e-5145-57be-b5cb-9776196e1314",
-        "software--8e5b5bcd-2cb8-59cf-8b55-ed3ac44e5ac5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-c2-beaconing-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-c2-beaconing-detection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.elastic.co/en/integrations/beaconing"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/beaconing/command_and_control_beaconing.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/security-labs/identifying-beaconing-malware-using-elastic"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-c2-beaconing-detection",
-      "x_craftedsignal_event_id": "brief-2026-07-c2-beaconing-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-c2-beaconing-detection/",
-      "x_craftedsignal_activity_at": "2026-07-28T18:00:34.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--4d02b951-6c12-5e20-b975-6f914f222a33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T22:24:50.000Z",
@@ -28217,64 +27859,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--57834c2e-d099-5fbc-9c43-aed70ac503bc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:31:41.000Z",
-      "modified": "2026-07-28T18:32:09.000Z",
-      "name": "Detection of Rare PowerShell Scripts on Windows Systems",
-      "description": "## Overview\n\nElastic has developed a machine learning rule to identify the execution of rare PowerShell scripts on Windows systems, leveraging script block hashes to detect deviations from established environmental baselines. This detection method focuses on scripts that have rarely or never been observed within a specific Windows host's historical activity, differentiating it from entropy-based anomaly detection. The objective is to uncover potentially malicious activity such as malware execution, the establishment of persistence mechanisms, or other suspicious behaviors that leverage PowerShell. This rule is integrated into the Elastic security platform, requiring specific ML jobs and data from the Windows integration to be active in Kibana version 9.4.0 or higher. While the rule identifies unusual behavior, false positives may occur with newly installed legitimate programs or infrequently run legitimate scripts.\n\n## Attack Chain\n\nThis brief describes a detection methodology rather than a specific attack chain. The Elastic machine learning rule is designed to identify the *execution* phase of an attack, specifically focusing on the rarity of PowerShell script blocks. When an attacker executes a novel or infrequently used PowerShell script, whether for initial payload delivery, command and control, persistence, or data exfiltration, this ML rule aims to flag the anomalous execution. It does not cover the initial access vector but rather the post-exploitation activity where PowerShell is often heavily utilized. The detection focuses on the inherent unusualness of the script itself within the context of the monitored environment.\n\n## Impact\n\nThe successful execution of rare PowerShell scripts, if malicious, can lead to severe consequences, including system compromise, data theft, and the deployment of ransomware. Such scripts are frequently used by threat actors for various post-exploitation activities like privilege escalation, lateral movement, establishing persistence, or directly executing payloads. If this activity goes undetected, attackers can maintain a foothold within the network, escalate privileges, exfiltrate sensitive data, disrupt operations through ransomware, or deploy destructive malware. Early detection of such anomalous PowerShell usage is critical for containing potential breaches and mitigating their impact before significant damage occurs.\n\n## Recommendation\n\n* Deploy the `v3_windows_rare_script_ea` machine learning job to your Elastic environment to enable this detection rule.\n* Ensure the Elastic Agent System `windows` integration is properly configured and collecting PowerShell script block logs on all Windows hosts.\n* Upon detection, investigate the PowerShell script block hash by retrieving the full script content and examining it for malicious indicators using tools like VirusTotal, Hybrid-Analysis, or Any.run.\n* Analyze the process execution chain (parent process tree) of the PowerShell process flagged by the rule to determine its origin and legitimacy.\n* Review the `user.name` field associated with the alert to determine if the activity is part of an expected workflow for that user.\n",
-      "published": "2026-07-27T15:31:41.000Z",
-      "labels": [
-        "execution",
-        "machine-learning",
-        "powershell",
-        "threat-detection",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4eaed9df-412c-53f6-9605-56b257f7a56e",
-        "software--8eb73f86-0153-5125-b7b3-47ab89ac8a3d",
-        "software--985f63fd-641c-58fc-b067-9f91ebccf34c",
-        "software--b35be390-f131-5298-a019-368da39e3178",
-        "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-rare-powershell-script",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-rare-powershell-script/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/execution_ml_windows_rare_script.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/security-labs/detecting-living-off-the-land-attacks-with-new-elastic-integration"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-rare-powershell-script",
-      "x_craftedsignal_event_id": "brief-2026-07-rare-powershell-script",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-rare-powershell-script/",
-      "x_craftedsignal_activity_at": "2026-07-28T18:32:09.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--579b41f7-74cf-546d-8a5b-1f5c8a05e9aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T21:31:24.000Z",
@@ -28317,8 +27901,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.04265,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.07223,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -29516,54 +29100,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--6f63d398-c369-5f3d-8b79-eee4ae6a618d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:18:54.000Z",
-      "modified": "2026-07-27T15:18:54.000Z",
-      "name": "Path Traversal Vulnerability in NitroShare Desktop (CVE-2026-66050)",
-      "description": "## Overview\n\nA significant path traversal vulnerability, tracked as CVE-2026-66050, affects NitroShare Desktop versions through 0.3.4. The flaw resides within the application's LAN file transfer server, allowing unauthenticated attackers operating on the same local network to exploit a lack of path validation. By crafting a malicious filename that includes directory traversal sequences within the JSON item header name field, an attacker can write arbitrary files to locations outside the intended transfer root directory. This means that if the current user has write permissions to a sensitive directory, such as the Windows Startup folder, an attacker can place a malicious executable there. Upon the next user login or system restart, this executable will be automatically executed, granting the attacker persistent code execution on the compromised system. This vulnerability poses a high risk due to its unauthenticated nature and potential for persistent compromise.\n\n## Attack Chain\n\n1. An unauthenticated attacker, located on the same local area network (LAN) as a victim running NitroShare Desktop, identifies the vulnerable service.\n2. The attacker crafts a specially designed filename payload containing directory traversal sequences (e.g., `../../../../ProgramData/Microsoft/Windows/Start Menu/Programs/Startup/malicious.exe`) within the JSON item header.\n3. This malicious filename and the accompanying file payload are sent to the NitroShare LAN file transfer server as part of a file transfer request.\n4. Due to the path traversal vulnerability (CVE-2026-66050), the NitroShare server fails to properly validate the path.\n5. NitroShare writes the incoming file payload to the arbitrary path specified by the attacker, such as the Windows Startup folder.\n6. Upon the next user logon or system reboot, the malicious executable placed in the Startup folder is automatically executed by the operating system.\n7. The attacker achieves persistent code execution on the victim's system, allowing for further compromise or control.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-66050 allows an unauthenticated attacker on the same local network to achieve persistent code execution on a vulnerable Windows system. The primary impact is the ability to write arbitrary files to any location the NitroShare service's user context has write access. This can be leveraged to place malicious executables in critical system startup locations, such as the Windows Startup folder (e.g., `C:\\Users\\\u0026lt;username\u003e\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup` or `C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`), ensuring the malware runs every time the user logs in. This grants the attacker a durable foothold, enabling further attacks such as data exfiltration, lateral movement, or ransomware deployment, without requiring user interaction beyond the initial network presence.\n\n## Recommendation\n\n* Patch CVE-2026-66050 immediately by updating NitroShare Desktop to a version past 0.3.4 once available.\n* Deploy the Sigma rule \"Detects CVE-2026-66050 Exploitation - File Write to Startup Folder\" to your SIEM to detect suspicious file writes to critical persistence locations.\n* Monitor `file_event` logs for suspicious file creations or modifications within Windows Startup directories (e.g., `C:\\Users\\\u0026lt;username\u003e\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup`).\n* Implement network segmentation to restrict access to the LAN file transfer service, limiting the attack surface for unauthenticated attackers.\n",
-      "published": "2026-07-27T15:18:54.000Z",
-      "labels": [
-        "code-execution",
-        "path-traversal",
-        "persistence",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--01ae53ae-06dd-55ee-8154-4dee205c48a1",
-        "vulnerability--993ecd75-df00-5de0-a8aa-8cbf73393a6f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-27-nitroshare-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-nitroshare-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66050"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-27-nitroshare-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-07-27-nitroshare-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-nitroshare-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-07-27T15:18:54.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.01115,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--714f9cea-3da7-536c-8fdd-60464eaa860e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T09:44:54.000Z",
@@ -30080,54 +29616,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--7aa6756b-f21c-51b2-a7a9-6eb2fbccb187",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:35:00.000Z",
-      "modified": "2026-07-27T15:35:00.000Z",
-      "name": "Anomalous Process For a Linux Population Detection",
-      "description": "## Overview\n\nElastic has released a machine learning detection rule, \"Anomalous Process For a Linux Population\", designed to identify rare and unusual process executions across multiple Linux hosts within an entire fleet. Published on July 27, 2026, this rule leverages machine learning to establish baselines of legitimate activity and reduce false positives typically associated with single-machine anomaly detection. Its purpose is to uncover potential malware and suspicious behaviors indicative of persistence or other malicious activity by flagging processes that deviate from the normal operational patterns across a population of hosts. The rule is available for Elastic users leveraging Elastic Defend, Auditd Manager, or Network Packet Capture integrations.\n\n## Impact\n\nFailure to detect anomalous processes can allow attackers to maintain persistence within an environment, execute arbitrary code, or exfiltrate sensitive data without immediate detection. Undetected malware or suspicious processes could lead to complete system compromise, data breaches, and significant operational disruption. This rule aims to identify such activity early, mitigating the risk of prolonged attacker presence and the associated financial and reputational damage to organizations.\n\n## Recommendation\n\n* Enable Elastic Defend, Auditd Manager, or Network Packet Capture integrations to feed necessary process execution data into Elastic Security.\n* Deploy the associated Machine Learning job \"v3_linux_anomalous_process_all_hosts_ea\" as part of the \"Anomalous Process For a Linux Population\" rule within Elastic Security.\n* Investigate processes flagged by the \"Anomalous Process For a Linux Population\" rule by examining their execution chain, prevalence, location, and associated user activity.\n* Review arguments and working directories of anomalous processes to determine their origin and purpose.\n* Establish exceptions for known benign, rare processes, such as newly installed software or infrequently run maintenance tasks, to reduce false positives.\n",
-      "published": "2026-07-27T15:35:00.000Z",
-      "labels": [
-        "linux",
-        "machine-learning",
-        "persistence",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-anomalous-linux-process-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-anomalous-linux-process-detection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/persistence_ml_linux_anomalous_process_all_hosts.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-anomalous-linux-process-detection",
-      "x_craftedsignal_event_id": "brief-2026-07-anomalous-linux-process-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-anomalous-linux-process-detection/",
-      "x_craftedsignal_activity_at": "2026-07-27T15:35:00.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--7c66ea2c-3f05-520f-bae6-303b463fc296",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T19:30:23.000Z",
@@ -30386,8 +29874,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.8957,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.93558,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -32478,8 +31966,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.27861,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.26518,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -33341,71 +32829,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-parent-process-suspicious-cluster/",
       "x_craftedsignal_activity_at": "2026-07-28T18:23:45.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b678fa6d-35ba-5e33-b658-f7c9b25b7d5f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:32:29.000Z",
-      "modified": "2026-07-27T15:34:20.000Z",
-      "name": "Unusual Hour for a User to Logon",
-      "description": "## Overview\n\nThis brief describes an Elastic Security machine learning rule designed to identify credential compromise and unauthorized access attempts by flagging user logons occurring at unusual times of day for a specific user. Developed by Elastic, this detection leverages data from Elastic Defend or the System integration, making it applicable across various endpoint and system environments. The rule calculates a baseline of normal logon hours for each user and then triggers an alert when a significant deviation is observed. This is crucial for defenders as it can expose attackers utilizing stolen credentials from different geographical locations or performing malicious activities outside typical business hours, potentially leading to unauthorized system access, data exfiltration, or further network penetration. The rule has a minimum stack version of 9.4.0 to use Entity Analytics fields for enhanced accuracy.\n\n## Impact\n\nIf an adversary successfully uses compromised credentials to log in at an unusual time, this can lead to unauthorized access to sensitive systems and data. This often precedes further malicious activities such as data exfiltration, lateral movement within the network, or the deployment of malware. While this rule detects anomalous behavior rather than a specific attack, the successful exploitation of valid accounts, as indicated by this anomaly, can result in significant reputational damage, regulatory fines, and operational disruption for affected organizations across any sector. The immediate impact is a breach of trust and unauthorized presence in the environment.\n\n## Recommendation\n\n* Investigate the user account flagged by the \"Unusual Hour for a User to Logon\" ML rule by contacting the account owner to verify the legitimacy of the logon activity.\n* Enable Elastic Defend or the System integration on all relevant endpoints and servers to ensure comprehensive log collection for logon events.\n* Review other alerts and user activity associated with the flagged user for the past 48 hours to identify broader suspicious behavior.\n* Reset passwords for any confirmed compromised accounts and other potentially affected credentials as part of incident response.\n",
-      "published": "2026-07-27T15:32:29.000Z",
-      "labels": [
-        "identity-and-access-audit",
-        "initial-access",
-        "machine-learning",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2ff1c390-ab8e-5db2-b7bb-ef75dfd9c696",
-        "software--722f01e0-ae72-576d-8a55-5b3511f8f9ac",
-        "software--8a78a810-a2c7-51f4-8416-2b89942c891e",
-        "software--8e5b5bcd-2cb8-59cf-8b55-ed3ac44e5ac5",
-        "software--a47aa67c-818a-50a3-8d7c-fb20afda3ad3",
-        "software--a6c41433-1afe-56af-b465-a686a1143dff",
-        "software--b35be390-f131-5298-a019-368da39e3178",
-        "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a",
-        "software--e0a29af0-d2b5-5b59-bf85-278a1662dbcd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-27-unusual-logon-hour",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-unusual-logon-hour/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/initial_access_ml_auth_rare_hour_for_a_user_to_logon.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_high_count_events_for_a_host_name.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_linux_anomalous_network_port_activity.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-27-unusual-logon-hour",
-      "x_craftedsignal_event_id": "brief-2026-07-27-unusual-logon-hour",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-unusual-logon-hour/",
-      "x_craftedsignal_activity_at": "2026-07-27T15:34:20.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -34466,60 +33889,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-sip-register-brute-force/",
       "x_craftedsignal_activity_at": "2026-07-31T19:10:54.000Z",
       "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c06dae8f-9eca-5bff-b9e0-b5fff89a94d0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:33:49.000Z",
-      "modified": "2026-07-28T18:37:58.000Z",
-      "name": "Unusual Linux Network Activity Detected by Machine Learning",
-      "description": "## Overview\n\nThis brief details an Elastic Machine Learning (ML) rule designed to identify unusual network activity originating from Linux processes that typically do not engage in network communication. Published by Elastic, this rule, `Unusual Linux Network Activity`, was updated on `2026-07-24` and requires Elastic Stack version `9.4.0` or newer with Entity Analytics (EA) fields. Its primary purpose is to detect potential malicious behaviors such as command-and-control (C2) communications, lateral movement attempts, the establishment of persistence mechanisms, or data exfiltration. The rule operates by monitoring network traffic from Linux endpoints and flagging processes exhibiting unexpected outbound connections. This anomaly can signify process exploitation or injection, where legitimate applications are compromised and leveraged by threat actors to gain remote access, control the host, or execute unauthorized network operations. This capability is crucial for defenders to spot subtle indications of compromise that traditional signature-based methods might miss.\n\n## Attack Chain\n\nThis brief describes a machine learning detection rule designed to identify anomalous activity rather than a specific attack chain. The rule identifies behavior indicative of multiple stages of an attack, including:\n\n1. **Exploitation/Injection:** A legitimate Linux process, typically not expected to engage in network activity, is exploited or injected with malicious code.\n2. **Command and Control (C2):** The compromised process initiates unexpected outbound network connections to C2 infrastructure.\n3. **Persistence:** The anomalous network activity could be part of a mechanism to maintain long-term access to the host.\n4. **Lateral Movement:** The compromised process attempts to connect to other systems within the network.\n5. **Data Exfiltration:** The unusual network connections are used to transfer sensitive data from the compromised host to external attacker-controlled destinations.\n6. **Remote Access/Control:** The attacker uses the compromised process and its anomalous network activity to remotely control the host.\n\n## Impact\n\nSuccessful exploitation leveraging anomalous network activity can lead to a range of severe consequences for an organization. Such activity is a strong indicator of compromise, potentially enabling threat actors to establish persistent access to systems, exfiltrate sensitive data, or move laterally across the network to compromise additional assets. For instance, a compromised, non-network-aware process initiating outbound connections could be indicative of an advanced persistent threat (APT) maintaining C2 channels or a data theft operation. The impact can include significant financial losses due to data breaches, reputational damage, operational disruption, and regulatory penalties. The specific sectors targeted are not identified by the rule itself, as it's a generic anomaly detection mechanism applicable across all Linux environments.\n\n## Recommendation\n\n* Implement the Elastic Defend or Network Packet Capture integration on all Linux endpoints as described in the Elastic rule's `setup` guide to ensure the necessary telemetry is collected for the ML job.\n* Enable the `Unusual Linux Network Activity` Machine Learning rule within your Elastic Security environment and monitor for alerts generated by `v3_linux_anomalous_network_activity_ea`.\n* Configure anomaly detection jobs within Kibana as per the helper guide referenced in the rule's `setup` section to ensure proper functioning of the ML model.\n* Investigate all high-severity alerts from the `Unusual Linux Network Activity` rule by examining destination IP addresses and ports, associated user accounts, process arguments, and execution history as recommended in the rule's `note` section.\n",
-      "published": "2026-07-27T15:33:49.000Z",
-      "labels": [
-        "detection-rule",
-        "endpoint",
-        "linux",
-        "machine-learning",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2ff1c390-ab8e-5db2-b7bb-ef75dfd9c696",
-        "software--722f01e0-ae72-576d-8a55-5b3511f8f9ac",
-        "software--b35be390-f131-5298-a019-368da39e3178"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-unusual-linux-network-activity-ml",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-unusual-linux-network-activity-ml/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/ml_linux_anomalous_network_activity.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-unusual-linux-network-activity-ml",
-      "x_craftedsignal_event_id": "brief-2026-07-unusual-linux-network-activity-ml",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-unusual-linux-network-activity-ml/",
-      "x_craftedsignal_activity_at": "2026-07-28T18:37:58.000Z",
-      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -35970,55 +35339,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--d2f26b67-678d-56d6-bfb9-753b9f4fa44a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:35:51.000Z",
-      "modified": "2026-07-27T15:35:51.000Z",
-      "name": "Anomalous Linux Compiler Activity Detection",
-      "description": "## Overview\n\nElastic has released a machine learning detection rule designed to identify anomalous compiler activity in Linux environments. This rule, known as `v3_linux_rare_user_compiler_ea`, is triggered when a user context that typically does not execute compilers suddenly begins doing so. Such activity can be a strong indicator of unauthorized software changes, illicit software deployment, or local privilege escalation attempts. Adversaries may leverage compilers to compile and deploy custom malware, exploits, or rootkits on compromised systems. The detection relies on data ingested from integrations like Elastic Defend, Auditd Manager, or Network Packet Capture and utilizes entity analytics to establish baselines of normal user behavior, flagging significant deviations. While rated with low severity, this activity warrants investigation as it can precede or accompany more severe malicious actions in a Linux environment.\n\n## Attack Chain\n\nThis brief describes a detection capability rather than a specific attack chain. However, anomalous compiler activity observed on a system often occurs during the following stages of an attack:\n\n1. **Initial Access / Execution**: An attacker gains initial access and executes a payload that might include a compiler or a script to download and compile malicious code.\n2. **Persistence**: An attacker compiles a backdoor or other persistent mechanism to maintain access.\n3. **Privilege Escalation**: An attacker compiles and executes a local exploit (e.g., a kernel exploit) to elevate privileges on the compromised system, often leveraging `make` or `gcc`.\n4. **Defense Evasion**: Compiling custom tools or modified versions of legitimate tools to evade detection by security software.\n5. **Resource Development**: An attacker may use compilers to build tools or malware directly on a compromised system for further stages of attack.\n6. **Impact**: The compiled malicious code is executed, leading to data exfiltration, system compromise, or other objectives.\n\n## Impact\n\nSuccessful exploitation indicated by anomalous compiler activity can lead to significant consequences including unauthorized system modifications, deployment of malicious software (such as backdoors or rootkits), and local privilege escalation. This can grant attackers deeper control over the compromised system, facilitate lateral movement, enable data theft, or disrupt critical services. While this specific rule flags an indicator rather than a direct impact, unaddressed anomalous compiler use can be a precursor to or component of a more severe breach.\n\n## Recommendation\n\n* Deploy the `v3_linux_rare_user_compiler_ea` machine learning job and ensure data is being ingested from Elastic Defend, Auditd Manager, or Network Packet Capture integrations to activate the `Anomalous Linux Compiler Activity` detection rule.\n* Review and tune the `Anomalous Linux Compiler Activity` detection rule's false positive scenarios for your environment, considering legitimate use cases such as development environments, automated build systems, or scheduled maintenance.\n* Establish a clear process for users to notify security teams of legitimate compiler usage to proactively reduce false positives.\n* For alerts generated by `Anomalous Linux Compiler Activity`, initiate an investigation to review the user account, specific compiler, source/destination of activity, recent system changes, and audit trails for signs of privilege escalation or other suspicious actions.\n* Implement incident response procedures, such as isolating affected systems, terminating suspicious processes, and conducting thorough forensic analysis, upon confirmation of malicious compiler activity.\n",
-      "published": "2026-07-27T15:35:51.000Z",
-      "labels": [
-        "defense-evasion",
-        "detection-rule",
-        "endpoint",
-        "linux",
-        "machine-learning",
-        "privilege-escalation",
-        "resource-development"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--1756a75f-27b2-553e-b071-d3f47f4ed343",
-        "attack-pattern--55190cce-3978-5d43-b6a3-64cdd80a5d56",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-anomalous-linux-compiler-activity",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-anomalous-linux-compiler-activity/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/ml/resource_development_ml_linux_anomalous_compiler_activity.toml"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-anomalous-linux-compiler-activity",
-      "x_craftedsignal_event_id": "brief-2026-07-anomalous-linux-compiler-activity",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-anomalous-linux-compiler-activity/",
-      "x_craftedsignal_activity_at": "2026-07-27T15:35:51.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -37795,88 +37115,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f39393b8-baf8-5b16-b3c8-a9a9341fd1a5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-27T15:28:54.000Z",
-      "modified": "2026-07-28T18:19:31.000Z",
-      "name": "Spike in User Account Management Events",
-      "description": "## Overview\n\nThis threat brief details a detection rule developed by Elastic Security, designed to identify potential privilege escalation or unauthorized activity on Windows systems. The rule, part of the Privileged Access Detection (PAD) integration, leverages machine learning to detect unusual spikes in user account management events for individual users. Such events include the creation, modification, or deletion of user accounts. Adversaries frequently exploit these activities to gain unauthorized access, elevate privileges, or establish persistence within an environment. The rule helps defenders identify deviations from normal behavior patterns, enabling timely intervention against threats related to account manipulation. While the rule itself is a detection mechanism, the underlying activity it identifies is critical for understanding adversary behavior.\n\n## Attack Chain\n\n1. **Initial Access**: An adversary gains unauthorized access to a Windows system through various initial access vectors such as exploiting vulnerabilities, phishing, or credential compromise.\n2. **Local Reconnaissance**: The attacker enumerates existing user accounts, groups, and their associated privileges on the compromised system or domain to identify potential targets for manipulation.\n3. **Account Creation (Persistence/Bypass)**: The adversary creates new user accounts, often with elevated privileges or using names designed to blend in, to establish persistence or create backdoor access points.\n4. **Account Modification (Privilege Escalation)**: The attacker modifies attributes of existing user accounts, such as adding a standard user to a privileged group (e.g., local Administrators), to escalate privileges.\n5. **Account Deletion (Defense Evasion/Disruption)**: The attacker deletes legitimate user accounts, service accounts, or audit-related accounts to hinder detection, remove evidence, or cause operational disruption.\n6. **Repeated Account Manipulation**: The adversary performs a rapid succession of these account management operations (creation, modification, deletion) over a short period, leading to a \"spike\" in activity that deviates from established baselines.\n7. **Maintenance of Access**: The attacker leverages the newly created or modified accounts to maintain control over the system, deploy additional tools, or move laterally within the network.\n8. **Achievement of Objective**: The adversary achieves their final objective, which may include data exfiltration, further compromise of network resources, or deployment of malicious payloads.\n\n## Impact\n\nA successful privilege escalation or unauthorized account manipulation can lead to significant consequences for an organization. Adversaries can establish persistent access to systems, bypass existing security controls, and move laterally across the network unimpeded. This can result in unauthorized data access, intellectual property theft, system disruption, or the deployment of ransomware. The compromise of administrative accounts grants attackers broad control over an environment, making detection and remediation significantly more challenging.\n\n## Recommendation\n\n* Ensure Windows logs are collected efficiently by the Elastic System integration on all relevant endpoints, as this telemetry is foundational for the Privileged Access Detection rule.\n* Deploy and configure the Elastic Privileged Access Detection (PAD) integration within your Elastic environment, including enabling the preconfigured anomaly detection job `pad_windows_high_count_user_account_management_events_ea`.\n* Upon detection of a \"Spike in User Account Management Events\", immediately review the specific user account(s) involved to verify legitimacy and isolate any affected accounts.\n* Consult the Elastic-provided investigation guide for \"Spike in User Account Management Events\" for detailed triage steps and further analysis.\n",
-      "published": "2026-07-27T15:28:54.000Z",
-      "labels": [
-        "account-management",
-        "anomaly-detection",
-        "machine-learning",
-        "persistence",
-        "privilege-escalation",
-        "privileged-access-detection",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--009f3067-1ab0-5e58-81d4-0af3bf5a6d88",
-        "software--22477adb-c89d-53dc-b63d-20066a576686",
-        "software--962d6662-aee0-54bd-8362-7c60c2bd1fe2",
-        "software--a0016c54-c818-5d89-9b60-87e14f260fa9",
-        "software--a44f5f2e-c2bf-57a6-b699-670358d11fe9",
-        "software--a700610c-6949-5e4b-8e82-4ffb9dfd7620",
-        "software--d3abb09c-a387-5772-8bf0-338013be3347",
-        "software--d4322349-159b-5512-8f75-efa243ce2271"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-spike-user-account-management",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-spike-user-account-management/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.elastic.co/en/integrations/pad"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_high_count_user_account_management_events.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_device_by_user.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_privilege_assigned_to_user.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_region_name_by_user.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/pad/privileged_access_ml_windows_rare_source_ip_by_user.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-spike-user-account-management",
-      "x_craftedsignal_event_id": "brief-2026-07-spike-user-account-management",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-spike-user-account-management/",
-      "x_craftedsignal_activity_at": "2026-07-28T18:19:31.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f3f7655c-5169-5ff7-b682-8dfa7e2127ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:27:59.000Z",
@@ -38691,13 +37929,6 @@
       "spec_version": "2.1",
       "id": "software--01818af9-cb01-578b-9a80-c512854d57e6",
       "name": "civitai.com"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--01ae53ae-06dd-55ee-8154-4dee205c48a1",
-      "name": "NitroShare Desktop \u003c= 0.3.4",
-      "vendor": "NitroShare"
     },
     {
       "type": "software",
@@ -39521,13 +38752,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4eaed9df-412c-53f6-9605-56b257f7a56e",
-      "name": "Elastic Agent System Windows Integration",
-      "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4f2c31aa-b1a7-5567-a67d-a2540f1e388d",
       "name": "huggingface.co"
     },
@@ -39785,13 +39009,6 @@
       "id": "software--68ab322a-d010-5494-a0aa-27489fecf14c",
       "name": "CentreStack (\u003c 17.4)",
       "vendor": "CentreStack"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--69e4c18e-5145-57be-b5cb-9776196e1314",
-      "name": "Network Beaconing Identification integration",
-      "vendor": "Elastic"
     },
     {
       "type": "software",
@@ -40119,13 +39336,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8a78a810-a2c7-51f4-8416-2b89942c891e",
-      "name": "Windows",
-      "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8b251ba4-3de2-5e9b-92e6-877de9049d52",
       "name": "vault-secrets-webhook (1.22.2)",
       "vendor": "Banzai Cloud"
@@ -40313,12 +39523,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--962d6662-aee0-54bd-8362-7c60c2bd1fe2",
-      "name": "Okta"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9661a519-5a1e-5aa6-b930-42864ad4229b",
       "name": "Ansible Automation Platform",
       "vendor": "Red Hat"
@@ -40362,13 +39566,6 @@
       "id": "software--98565c7e-0b8d-573b-8efe-30bb3d400c39",
       "name": "validation-model (\u003e= 1.31.1, \u003c= 1.31.70)",
       "vendor": "veraPDF"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--985f63fd-641c-58fc-b067-9f91ebccf34c",
-      "name": "Kibana 9.4.0+",
-      "vendor": "Elastic"
     },
     {
       "type": "software",
@@ -40505,13 +39702,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a47aa67c-818a-50a3-8d7c-fb20afda3ad3",
-      "name": "System",
-      "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a53f4fc4-7303-51e5-90da-d1eb72b24796",
       "name": "LM Studio"
     },
@@ -40539,12 +39729,6 @@
       "id": "software--a6c41433-1afe-56af-b465-a686a1143dff",
       "name": "Auditd Manager",
       "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a700610c-6949-5e4b-8e82-4ffb9dfd7620",
-      "name": "Elastic Fleet"
     },
     {
       "type": "software",
@@ -41252,13 +40436,6 @@
       "id": "software--dfa27830-36a0-572e-b541-168ad8cb3335",
       "name": "LoadMaster \u003c 7.2.63.3",
       "vendor": "Progress Software"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e0a29af0-d2b5-5b59-bf85-278a1662dbcd",
-      "name": "Elastic Security",
-      "vendor": "Elastic"
     },
     {
       "type": "software",
@@ -43169,22 +42346,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18358",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18358"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--993ecd75-df00-5de0-a8aa-8cbf73393a6f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-66050",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-66050",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66050"
         }
       ]
     },

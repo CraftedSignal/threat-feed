@@ -1,13 +1,26 @@
 ---
 brief_id: brief-2026-10-25-vllm-resource-exhaustion
 event_id: brief-2026-10-25-vllm-resource-exhaustion
-revision: 1
-activity_at: "2026-10-25T14:32:24Z"
+revision: 2
+activity_at: "2026-10-25T16:08:31Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-25T16:08:31Z"
+    checksum: sha256:64e9431bea6b0f03bcba0cef387c4a77507976e827e334c51cb78fb56eeb448d
+    summary: added CVE-2026-114055
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-gx7p-2j49-hfq4
 title: 'vLLM: Uncontrolled resource consumption via image processing (CVE-2026-116177)'
 slug: 2026-10-vllm-resource-exhaustion
 description: An unauthenticated denial of service vulnerability in vLLM versions 0.10.2 through 0.24.x allows attackers to trigger an out-of-memory condition by submitting decompression-bomb images to the /v1/chat/completions endpoint.
 date: "2026-10-25T14:32:24Z"
-lastmod: "2026-10-25T14:32:32Z"
+lastmod: "2026-10-25T16:07:32Z"
 type: advisory
 types:
   - advisory
@@ -34,6 +47,7 @@ vendors:
 products:
   - vLLM (0.10.2 <= version < 0.25.0)
   - vLLM (0.8.5 <= version < 0.31.0)
+  - vllm (>= 0.7.3, < 0.31.0)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -48,9 +62,14 @@ cves:
   - id: CVE-2026-116180
     cvss: 7.7
     kev_status: "false"
+  - id: CVE-2026-114055
+    cvss: 7.5
+    epss: 0.00343
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116177
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116180
+  - https://github.com/advisories/GHSA-gx7p-2j49-hfq4
 action_plan:
   priority: elevated
   owners:
@@ -102,6 +121,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-116180
+  - at: "2026-10-25T16:07:32Z"
+    level: L2
+    summary: added CVE-2026-114055
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-gx7p-2j49-hfq4
 ---
 
 vLLM versions 0.10.2 through 0.24.x are vulnerable to uncontrolled resource consumption (CVE-2026-116177). The vulnerability originates in the Nemotron-VL processor configuration, which sets the Pillow library attribute Image.MAX_IMAGE_PIXELS to None. This removes the default safety limit for image processing, allowing an unauthenticated attacker to supply a large, malicious image file to the /v1/chat/completions API endpoint, leading to process memory exhaustion and service denial.
