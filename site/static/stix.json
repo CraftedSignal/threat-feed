@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c630938d-afbf-59b2-9938-c0194e08e8dd",
+  "id": "bundle--ef379bfe-a307-5b1d-b74f-db46889c7a46",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20655,6 +20655,17 @@
       "relationship_type": "has",
       "source_ref": "software--e20fb03d-aba2-5ec3-ae31-f149f5cf967e",
       "target_ref": "vulnerability--d5aa2ee5-d0c4-5f25-9cc1-515a4b773fcc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4cf9db59-236c-57e1-a112-5ecceaa49527",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--74e43fdc-2dd4-5d69-9a28-a18d3498a0df",
+      "target_ref": "vulnerability--8d990511-917a-560d-a540-d5e3a094f6d2"
     },
     {
       "type": "relationship",
@@ -141926,6 +141937,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f40e97cc-7ee7-5035-8e82-5f144cffc113",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T00:27:09.000Z",
+      "modified": "2026-10-25T00:27:09.000Z",
+      "name": "Unitree Robotics Unitree Go2: OS command injection in chat_go (CVE-2026-115995)",
+      "description": "## Overview\nA security vulnerability has been identified in the Unitree Go2 (versions up to 1.1.11.4). The vulnerability exists in the set_volume function within the gpt_thread.py file of the chat_go component. Manipulating the 'Value' argument leads to OS command injection (CWE-78). The attack can be launched remotely. The vendor has confirmed the issue via internal ticket #474.\n\n## Recommendation\n- Upgrade to version 1.1.11.5, which is sufficient to resolve this issue.\n",
+      "published": "2026-10-25T00:27:09.000Z",
+      "labels": [
+        "hardware",
+        "iot",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--74e43fdc-2dd4-5d69-9a28-a18d3498a0df",
+        "vulnerability--8d990511-917a-560d-a540-d5e3a094f6d2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-unitree-go2-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-unitree-go2-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115995"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-unitree-go2-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-25-unitree-go2-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-unitree-go2-rce/",
+      "x_craftedsignal_activity_at": "2026-10-25T00:27:09.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f44dfdda-441b-5bdd-9022-93ec263dac13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T02:18:42.000Z",
@@ -152924,6 +152981,13 @@
       "id": "software--74e0560c-0d76-5eb6-b117-4f7c67ff7747",
       "name": "Meraki MX (\u003c 3.12.4.0)",
       "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--74e43fdc-2dd4-5d69-9a28-a18d3498a0df",
+      "name": "Unitree Go2 (\u003c= 1.1.11.4)",
+      "vendor": "Unitree Robotics"
     },
     {
       "type": "software",
@@ -175215,6 +175279,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-31694",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31694"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8d990511-917a-560d-a540-d5e3a094f6d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115995",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115995",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115995"
         }
       ]
     },
