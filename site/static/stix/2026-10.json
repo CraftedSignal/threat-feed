@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fb769fe9-0940-5d3c-bfea-84e228ccfb29",
+  "id": "bundle--b53f5af7-c9f2-50ac-a4dd-0ff508898c79",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29060,6 +29060,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--86fab4f2-fd53-523d-a63a-124483c96104",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6de8ce07-c1c5-599d-b45d-9b1d9d2ad7e6",
+      "target_ref": "vulnerability--d19bbfcc-b75a-5a23-977e-5216a1e081b1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--87067d63-27cc-53d5-a275-b458b9ba094c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33867,6 +33878,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a1c8dbe5-03dd-501f-acf3-948e9f5fc1c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6ca50696-9eff-5a72-979f-82869c5fda7f",
+      "target_ref": "vulnerability--5cefaaf7-3b64-5545-9dc6-a067a44b724a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a1cdb5a7-4247-5851-a80a-e2416867bffc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35821,6 +35843,17 @@
       "relationship_type": "has",
       "source_ref": "software--d3c09f93-d69d-5f2b-9ba2-3950d9a15392",
       "target_ref": "vulnerability--2ce9646d-f512-5abc-9bef-0a8aba12e37e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ac91f415-130b-57dc-a132-e18c7bbddcbc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T16:45:19.000Z",
+      "modified": "2026-10-25T16:45:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4c0373d1-8803-57d1-a29e-dd23feda0e75",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -44984,6 +45017,17 @@
       "relationship_type": "has",
       "source_ref": "software--49451de6-df86-5935-863e-2f65b3fce292",
       "target_ref": "vulnerability--87a78547-bfa1-586d-8227-21ab1e2fa77e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ddc102bd-ea70-5798-b4eb-b27bc45439a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T16:45:29.000Z",
+      "modified": "2026-10-25T16:45:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a835dff8-e480-52e0-ba48-0dd63e916f02",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -73748,6 +73792,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4c0373d1-8803-57d1-a29e-dd23feda0e75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T16:45:19.000Z",
+      "modified": "2026-10-25T16:45:19.000Z",
+      "name": "OpenPetra: Unauthenticated XSS in serverMFinDev.asmx (CVE-2024-40509)",
+      "description": "## Overview\n\nOpenPetra version 2023.02 is vulnerable to an unauthenticated cross-site scripting (XSS) attack via the 'tab' parameter in the 'serverMFinDev.asmx' web service. An attacker can craft a malicious URL to inject arbitrary JavaScript, which executes when an authenticated user interacts with the application interface, specifically by hovering over the left index item. Successful exploitation allows for the theft of sensitive session cookies.\n\n## Impact\n\nSuccessful exploitation results in the theft of session cookies from authenticated users, potentially leading to full account takeover. The vulnerability is rated at CVSS 7.3.\n\n## Recommendation\n\n- Identify all instances of OpenPetra 2023.02 within the environment.\n- Apply the latest available security patches or upgrades provided by the OpenPetra project to remediate CVE-2024-40509.\n- Implement Content Security Policy (CSP) headers to mitigate the impact of reflected XSS attacks.\n- Hunt for exploitation attempts targeting the 'serverMFinDev.asmx' endpoint in web access logs.\n",
+      "published": "2026-10-25T16:45:19.000Z",
+      "labels": [
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6de8ce07-c1c5-599d-b45d-9b1d9d2ad7e6",
+        "vulnerability--d19bbfcc-b75a-5a23-977e-5216a1e081b1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-openpetra-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openpetra-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40509"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JANSEN-C-MOREIRA-CVE-2024-40509"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JANSEN-C-MOREIRA-CVE-2024-40509\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-openpetra-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-25-openpetra-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openpetra-xss/",
+      "x_craftedsignal_activity_at": "2026-10-25T16:45:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00782,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4c2aeba1-0f8b-5f7b-b1a4-d8535ebaf61c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T20:12:02.000Z",
@@ -102054,6 +102152,58 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a835dff8-e480-52e0-ba48-0dd63e916f02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-25T16:45:29.000Z",
+      "modified": "2026-10-25T16:45:29.000Z",
+      "name": "LibreNMS: Reflected Cross-Site Scripting (CVE-2025-66850)",
+      "description": "## Overview\n\nCVE-2025-66850 is a reflected Cross-Site Scripting (XSS) vulnerability in the LibreNMS routing module. The vulnerability exists within the 'protocol' parameter of the '/routing' endpoint. Insufficient input validation and the failure to perform HTML entity encoding allow an attacker to inject and execute arbitrary JavaScript in the browser of an authenticated user. This vulnerability affects LibreNMS versions up to and including 24.9.1. An undocumented fix was included in version 24.10.0.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to execute malicious scripts in the victim's browser session. Observed and theoretical impacts include the harvesting of session cookies, creation of unauthorized administrative accounts, or redirection of users to attacker-controlled domains.\n\n## Recommendation\n\n- Patch LibreNMS instances by upgrading to version 24.10.0 or later immediately.\n- Review web server access logs for requests containing script tags or common XSS payloads targeting the '/routing' endpoint.\n- Audit sessions of administrative users if the environment remained unpatched.\n",
+      "published": "2026-10-25T16:45:29.000Z",
+      "labels": [
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6ca50696-9eff-5a72-979f-82869c5fda7f",
+        "vulnerability--5cefaaf7-3b64-5545-9dc6-a067a44b724a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-25-librenms-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-librenms-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/joelatplay/CVE-2025-66850"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOELATPLAY-CVE-2025-66850"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOELATPLAY-CVE-2025-66850\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-25-librenms-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-25-librenms-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-librenms-xss/",
+      "x_craftedsignal_activity_at": "2026-10-25T16:45:29.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -134497,6 +134647,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6ca50696-9eff-5a72-979f-82869c5fda7f",
+      "name": "LibreNMS (\u003c= 24.9.1)",
+      "vendor": "LibreNMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6d04fe83-8c0f-59ec-af93-bf6c14b8772d",
       "name": "Incus (7.0.0-7.0.1, 7.1.0-7.4.0)",
       "vendor": "Incus"
@@ -134556,6 +134713,13 @@
       "id": "software--6de3ae47-fe23-5080-9916-eceb97fba70a",
       "name": "Excel",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6de8ce07-c1c5-599d-b45d-9b1d9d2ad7e6",
+      "name": "OpenPetra (2023.02)",
+      "vendor": "OpenPetra"
     },
     {
       "type": "software",
@@ -150283,6 +150447,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5cefaaf7-3b64-5545-9dc6-a067a44b724a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-66850",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-66850",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66850"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5cf062b9-ec7f-5b62-b1fe-900d47207e2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160757,6 +160937,22 @@
           "source_name": "cve",
           "external_id": "CVE-2022-45451",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-45451"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d19bbfcc-b75a-5a23-977e-5216a1e081b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-40509",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-40509",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40509"
         }
       ]
     },
