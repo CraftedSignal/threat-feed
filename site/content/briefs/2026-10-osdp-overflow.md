@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-osdp-overflow
 event_id: brief-2026-10-osdp-overflow
-revision: 3
-activity_at: "2026-10-23T22:05:51Z"
+revision: 4
+activity_at: "2026-10-26T17:46:46Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T19:59:57Z"
@@ -31,11 +31,24 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-19741
+  - revision: 4
+    at: "2026-10-26T17:46:46Z"
+    checksum: sha256:9a8dcc1f4e8b03634d09b37e9ef203818ad7c210eb4d336a91d1e333d4203a8c
+    summary: added coverage for Zephyr RTOS
+    changed_fields:
+      - action_plan
+      - cves
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81038
 title: Stack-Based Buffer Overflow in Zephyr RTOS OSDP Implementation
 slug: 2026-10-osdp-overflow
 description: A vulnerability in the Zephyr RTOS OSDP Control Panel implementation allows attackers with access to the RS-485 bus to trigger a stack-based buffer overflow and potential code execution.
 date: "2026-10-19T22:24:23Z"
-lastmod: "2026-10-23T22:04:39Z"
+lastmod: "2026-10-26T17:46:12Z"
 type: advisory
 types:
   - advisory
@@ -81,6 +94,12 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: 'The impact is a full user-mode-to-kernel escape: an arbitrary kernel write primitive (integrity and, through it, code execution at supervisor privilege).'
     confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1498
+    technique_name: Network Denial of Service
+    evidence: On builds with CONFIG_ASSERT enabled, the zero-length pull trips the assertion inside net_buf_simple_pull_mem() and panics the device, giving a remotely triggered denial of service.
+    confidence_band: high
 cves:
   - id: CVE-2026-76788
     cvss: 8.8
@@ -88,12 +107,16 @@ cves:
   - id: CVE-2026-19741
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-81038
+    cvss: 7.1
+    kev_status: "false"
   - id: CVE-2026-19676
     kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76788
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19676
   - https://nvd.nist.gov/vuln/detail/CVE-2026-19741
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-81038
 action_plan:
   priority: immediate_escalation
   owners:
@@ -110,6 +133,10 @@ action_plan:
       owner: Firmware Engineering
       due: 48h
       evidence: Firmware image built with CONFIG_OPENTHREAD_JOINER_AUTOSTART=y that never overrode the PSKd therefore shipped with a publicly known joining credential
+    - action: Inventory all Bluetooth-enabled devices running Zephyr RTOS versions that implement the Object Transfer Service.
+      owner: IT Operations
+      due: 48h
+      evidence: The OACP characteristic is reachable by any peer within radio range.
   hunt_leads:
     - lead: Monitor Thread network commissioning logs for unexpected join requests or unauthorized commissioner activity within 802.15.4 radio environments
       data_needed:
@@ -119,6 +146,15 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: An unauthenticated attacker within 802.15.4 radio range of an uncommissioned device can run any stock Thread commissioner registered with J01NME
+    - lead: Monitor Bluetooth protocol logs for high frequencies of OACP Checksum Calculation requests resulting in error codes such as BT_GATT_OTS_OACP_RES_INV_OBJ or BT_GATT_OTS_OACP_RES_OPCODE_NOT_SUP.
+      technique_id: T1498
+      data_needed:
+        - Bluetooth controller logs
+        - GATT event logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Any peer within radio range that can connect to a device running the OTS server can enable OACP indications and write a nine-byte Calculate Checksum command that fails validation.
   mitigation_plan:
     - priority: immediate
       action: Apply firmware updates provided by vendors utilizing the patched Zephyr RTOS version.
@@ -130,6 +166,11 @@ action_plan:
       owner: Firmware Engineering
       addresses: CVE-2026-19741
       evidence: The fix removes the default from CONFIG_OPENTHREAD_JOINER_PSKD and adds a BUILD_ASSERT() in modules/openthread/openthread.c
+    - priority: immediate
+      action: Update Zephyr RTOS to the patched version once available.
+      owner: IT Operations
+      addresses: CVE-2026-81038
+      evidence: NVD vulnerability disclosure for CVE-2026-81038.
 updates:
   - at: "2026-10-21T19:59:14Z"
     level: L2
@@ -145,6 +186,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-19741
+  - at: "2026-10-26T17:46:12Z"
+    level: L2
+    summary: added coverage for Zephyr RTOS
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-81038
 ---
 
 CVE-2026-76788 identifies a critical buffer overflow vulnerability within the Open Supervised Device Protocol (OSDP) implementation in the Zephyr RTOS, specifically within the `cp_decode_response()` function. This vulnerability stems from improper bounds checking when handling `REPLY_KEYPAD` and `REPLY_RAW` frames, which are copied into stack-allocated `osdp_event` structures. Because the code trusts length fields provided by the Peripheral Device without validating them against the `OSDP_EVENT_MAX_DATALEN` constant, an attacker can supply an oversized payload.
