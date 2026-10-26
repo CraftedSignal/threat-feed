@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 12
-activity_at: "2026-10-26T10:54:37Z"
+revision: 13
+activity_at: "2026-10-26T16:02:18Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -139,11 +139,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 13
+    at: "2026-10-26T16:02:18Z"
+    checksum: sha256:f7e8660c8a61e4df10dd1dbc73471eca5b5bbdc647997e7837a076ccd5b743fd
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-26T10:54:04Z"
+lastmod: "2026-10-26T16:01:42Z"
 type: advisory
 types:
   - advisory
@@ -195,6 +206,7 @@ products:
   - PHP (< 8.5.12, < 8.4.27, < 8.3.36, < 8.2.35)
   - PHP (<= 8.5.11)
   - PHP (5.4-8.5.11)
+  - PHP (5.4 <= version <= 8.5.11)
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -255,6 +267,8 @@ references:
   - https://forum.peplink.com/t/peplink-security-advisory-php2shell-vulnerability-cve-2026-109618-and-cve-2026-109619/62868
   - https://cert-portal.siemens.com/productcert/html/ssa-566512.html
   - https://www.ibm.com/support/pages/security-bulletin-multiple-vulnerabilities-addressed-ibm-sevone-network-performance-management-october-2026
+  - https://www.jpcert.or.jp/at/2026/at260033.html
+  - https://download.se.com/files?p_Doc_Ref=SESB-2026-295-01&p_File_Name=SESB-2026-295-01.pdf&p_enDocType=Security+and+Safety+Notice
 action_plan:
   priority: immediate_escalation
   owners:
@@ -282,13 +296,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-24T14:16:04Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-25T04:40:09Z"
     level: L1
     summary: new product
@@ -311,6 +318,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-26T10:54:04Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-26T16:01:42Z"
     level: L1
     summary: new product
     sources:
