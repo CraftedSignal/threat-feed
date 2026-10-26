@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9327f17a-49b6-5db6-a724-0845418e472d",
+  "id": "bundle--10a3d2e6-ba1a-5b53-b97f-60475d69338f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21252,6 +21252,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--50b05bc3-4048-5be0-a65e-e84423b4f463",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bd9b8590-e768-5c46-b552-61e6828dd4a0",
+      "target_ref": "vulnerability--450b6d61-a185-50f1-aa0a-07b2a2ef43e4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--50b11206-d48f-55f4-a31e-5170435c279b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T13:07:54.000Z",
@@ -34745,6 +34756,17 @@
       "relationship_type": "has",
       "source_ref": "software--7ca48ffc-b574-5201-8724-603a7e83e96a",
       "target_ref": "vulnerability--e63a6995-21f5-5f59-82b6-645ac0ee0d99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--919b8db5-4473-579b-bd83-125e9531d350",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b8086796-a9c3-5ac1-9a09-716a3373c597",
+      "target_ref": "vulnerability--a380c05c-b1b9-5cca-a414-84765984e660"
     },
     {
       "type": "relationship",
@@ -55638,17 +55660,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f2b6f877-46b6-54cb-bb4c-e32a0776c76c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--adf12bef-ee43-5ffd-aa82-4e714f2c356f",
-      "target_ref": "vulnerability--4367c4f5-3df5-5b42-9d98-7a8ca23042a1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f2b856cd-81fb-5fe7-afe1-83ea00f0f9a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T16:36:55.000Z",
@@ -75638,6 +75649,46 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--38d4cd6e-5e57-552b-9775-135b50fe5cdb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T05:34:43.000Z",
+      "modified": "2026-10-26T05:34:43.000Z",
+      "name": "Yoosee GM8135S Camera: Improper cryptographic signature verification (CVE-2026-116116)",
+      "description": "A vulnerability exists in the Secure Boot component of the Yoosee GM8135S Camera, firmware version 21.00.01.36. The flaw results in improper verification of cryptographic signatures. Exploitation requires local access. The vendor was contacted but did not respond. Public exploit code is available.\n",
+      "published": "2026-10-26T05:34:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b8086796-a9c3-5ac1-9a09-716a3373c597",
+        "vulnerability--a380c05c-b1b9-5cca-a414-84765984e660"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-yoosee-gm8135s-secure-boot",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-yoosee-gm8135s-secure-boot/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116116"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-yoosee-gm8135s-secure-boot",
+      "x_craftedsignal_event_id": "brief-2026-10-26-yoosee-gm8135s-secure-boot",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-yoosee-gm8135s-secure-boot/",
+      "x_craftedsignal_activity_at": "2026-10-26T05:34:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -126533,51 +126584,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c952e9e1-9dcd-576d-80bd-9c84feb16f42",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T04:57:26.000Z",
-      "modified": "2026-09-26T04:57:26.000Z",
-      "name": "Authentication Bypass in OpenClaw Slack",
-      "description": "## Overview\n\nOpenClaw Slack versions prior to 2026.8.1 contain an authentication bypass vulnerability, tracked as CVE-2026-100575, within the application's multi-person direct messaging component. The flaw stems from a failure to correctly validate sender allowlists when participants interact with automated agents configured within the chat environment. By bypassing these sender policies, an unauthorized or disallowed participant in a multi-person conversation can trigger agent execution, effectively masquerading as authorized users. This allows attackers to invoke tools and access sensitive data granted to the agent service accounts, potentially leading to unauthorized data exfiltration or manipulation of connected third-party services. Given the reliance on agent-based workflows, this vulnerability presents a significant risk to organizations using OpenClaw Slack for internal automation.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthorized users within a multi-person chat thread to perform actions on behalf of Slack agents. This can result in unauthorized access to internal tools, data retrieval, and the potential execution of malicious commands or queries through agent-integrated systems. The scope of impact is limited to the permissions granted to the specific Slack agent compromised by the bypass.\n\n## Recommendation\n\n1. Upgrade OpenClaw Slack installations to version 2026.8.1 or later immediately to resolve CVE-2026-100575.\n2. Review and audit current Slack agent permissions to minimize the potential blast radius of unauthorized interactions.\n3. Restrict sensitive agent integrations to dedicated channels where participant access can be strictly managed until the patch is deployed.\n",
-      "published": "2026-09-26T04:57:26.000Z",
-      "labels": [
-        "authentication-bypass",
-        "cloud",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--adf12bef-ee43-5ffd-aa82-4e714f2c356f",
-        "vulnerability--4367c4f5-3df5-5b42-9d98-7a8ca23042a1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-openclaw-slack-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-openclaw-slack-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100575"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-openclaw-slack-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-openclaw-slack-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-openclaw-slack-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-26T04:57:26.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c9baadbc-008f-5d0d-9834-67d9ec839d6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-27T03:03:54.000Z",
@@ -134960,6 +134966,46 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e2101e27-3c0e-5c06-9276-666274cdad0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T05:34:52.000Z",
+      "modified": "2026-10-26T05:34:52.000Z",
+      "name": "Halo: Path traversal in View Name Resolver (CVE-2026-116117)",
+      "description": "A flaw has been identified in halo-dev halo up to 2.27.0-beta.1, specifically within the function `run.halo.app.theme.DefaultViewNameResolver.resolveViewNameOrDefault`. Manipulation of the `template` argument can lead to path traversal. The attack can be launched remotely. Exploit code has been published. The vendor did not respond to disclosure.\n",
+      "published": "2026-10-26T05:34:52.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bd9b8590-e768-5c46-b552-61e6828dd4a0",
+        "vulnerability--450b6d61-a185-50f1-aa0a-07b2a2ef43e4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-halo-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-halo-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116117"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-halo-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-26-halo-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-halo-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-26T05:34:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -155695,13 +155741,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--adf12bef-ee43-5ffd-aa82-4e714f2c356f",
-      "name": "Slack (\u003c 2026.8.1)",
-      "vendor": "OpenClaw"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ae1019d0-e08c-5274-9928-762a47ea5cd3",
       "name": "SkillHub (\u003c= 0.2.22)",
       "vendor": "iFlytek"
@@ -156128,6 +156167,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b8086796-a9c3-5ac1-9a09-716a3373c597",
+      "name": "GM8135S Camera (21.00.01.36)",
+      "vendor": "Yoosee"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b8235f64-63ab-56ef-a65c-66fcc65b9a31",
       "name": "Superdome Flex",
       "vendor": "HPE"
@@ -156441,6 +156487,13 @@
       "id": "software--bd826e4f-fa30-527e-8d48-542a3c1b3159",
       "name": "markdown-it (14.1.0-14.3.2, 15.0.0-15.0.2)",
       "vendor": "markdown-it"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bd9b8590-e768-5c46-b552-61e6828dd4a0",
+      "name": "halo (up to 2.27.0-beta.1)",
+      "vendor": "halo-dev"
     },
     {
       "type": "software",
@@ -167306,22 +167359,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--4367c4f5-3df5-5b42-9d98-7a8ca23042a1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100575",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100575",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100575"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--4372faa3-f82b-5c7a-8134-f83cc2ab8626",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -167476,6 +167513,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114263",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114263"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--450b6d61-a185-50f1-aa0a-07b2a2ef43e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116117",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116117",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116117"
         }
       ]
     },
@@ -176916,6 +176969,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-32019",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-32019"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a380c05c-b1b9-5cca-a414-84765984e660",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116116",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116116",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116116"
         }
       ]
     },
