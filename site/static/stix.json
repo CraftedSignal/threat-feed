@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e0ba6030-7059-5d3d-a61f-15ed3cac934b",
+  "id": "bundle--b2993534-a929-5829-a7e2-e7ceeb6ad203",
   "objects": [
     {
       "type": "attack-pattern",
@@ -53332,6 +53332,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ea2cfe86-d82f-5d2c-bc73-df0a6f3d5672",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T15:52:09.000Z",
+      "modified": "2026-10-26T15:52:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6ce49885-bb4c-5c74-a2d6-d3d825babab8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ea341fe9-402b-5e01-be95-6c8e1b0fa002",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T23:49:08.000Z",
@@ -71171,6 +71182,55 @@
       },
       "x_craftedsignal_epss_max": 0.99477,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2c559205-2059-547d-a681-dfb0a8a32628",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T15:52:03.000Z",
+      "modified": "2026-10-26T15:52:03.000Z",
+      "name": "Red Hat: Multiple Security Vulnerabilities in Enterprise Linux and Streams for Apache Kafka",
+      "description": "## Overview\n\nRed Hat has issued security notifications regarding vulnerabilities affecting several enterprise products. The affected software includes all versions of Red Hat Enterprise Linux (RHEL) 6, 7, 8, 9, and 10, as well as specific versions of StreamsHub Console for Apache Kafka and Streams for Apache Kafka 2 and 3. As of October 26, 2026, the specific nature of the vulnerabilities and associated CVE identifiers were not disclosed in the Cyber Centre advisory. Administrators are directed to monitor the Red Hat Security Advisory portal for specific patch releases and remediation guidance.\n\n## Recommendation\n\n- Inventory all systems running RHEL 6, 7, 8, 9, and 10 to identify exposure.\n- Inventory deployments of StreamsHub Console for Apache Kafka and Streams for Apache Kafka 2 and 3.\n- Regularly monitor the official Red Hat Security Advisories page for specific CVE updates and patching instructions for the identified products.\n- Prioritize patching once Red Hat releases the specific advisories and security updates for the affected versions.\n",
+      "published": "2026-10-26T15:52:03.000Z",
+      "labels": [
+        "informational",
+        "vulnerability-management"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--126ee77d-fbd3-5c38-a488-772788378c2b",
+        "software--16c1d6b7-d6c3-5a5b-b4df-2f82a0ebcde4",
+        "software--1ffd9628-bfff-5a4c-b8c1-d776a5bf8175",
+        "software--4a50ab5d-49cf-56a4-b5e1-130edd2ee10d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-red-hat-security-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-security-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://access.redhat.com/security/security-updates/security-advisories"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/red-hat-security-advisory-av26-1084"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-red-hat-security-advisory",
+      "x_craftedsignal_event_id": "brief-2026-10-26-red-hat-security-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-security-advisory/",
+      "x_craftedsignal_activity_at": "2026-10-26T15:52:03.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -93599,6 +93659,56 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-impacket-wmiexec/",
       "x_craftedsignal_activity_at": "2026-10-12T17:46:57.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6ce49885-bb4c-5c74-a2d6-d3d825babab8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T15:52:09.000Z",
+      "modified": "2026-10-26T15:52:09.000Z",
+      "name": "Siemens Mendix SAML: Authentication bypass",
+      "description": "## Overview\n\nSiemens has released security advisory SSA-137528 regarding an authentication bypass vulnerability affecting specific versions of the Mendix SAML module. The vulnerability impacts modules compatible with Mendix 9, 10, and 11. Siemens advises users and administrators to update to the patched versions to mitigate the potential for unauthorized access.\n\n## Impact\n\nSuccessful exploitation could allow an unauthenticated attacker to bypass authentication mechanisms, potentially leading to unauthorized access to affected applications.\n\n## Recommendation\n\n- Upgrade Mendix SAML (Mendix 10 compatible) to V4.2.4 or later.\n- Upgrade Mendix SAML (Mendix 11 compatible) to V4.2.4 or later.\n- Upgrade Mendix SAML (Mendix 9 compatible) to V3.6.29 or later.\n- Review the Siemens security advisory SSA-137528 for additional configuration guidance.\n",
+      "published": "2026-10-26T15:52:09.000Z",
+      "labels": [
+        "authentication-bypass",
+        "industrial-control-systems",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6d062cf1-df7a-5914-9009-287e97ba72fa",
+        "software--b921d5fa-dd2b-56fc-916e-db9395ef4287",
+        "software--daaa3195-ad9a-529c-8f9d-ae7533f6e8ca"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-siemens-mendix-saml",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-siemens-mendix-saml/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cert-portal.siemens.com/productcert/html/ssa-137528.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/control-systems-siemens-security-advisory-av26-1083"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-siemens-mendix-saml",
+      "x_craftedsignal_event_id": "brief-2026-10-26-siemens-mendix-saml",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-siemens-mendix-saml/",
+      "x_craftedsignal_activity_at": "2026-10-26T15:52:09.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -146171,6 +146281,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--126ee77d-fbd3-5c38-a488-772788378c2b",
+      "name": "Streams for Apache Kafka 2 (all versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--12a0db1c-f40f-5769-98ca-48aa0629bac2",
       "name": "The Ultimate Multisite – WordPress Multisite SaaS \u0026 WaaS Platform (\u003c= 2.15.0)",
       "vendor": "WordPress"
@@ -146440,6 +146557,13 @@
       "id": "software--16a04cf7-8bb2-5e26-86c3-011b17b347e5",
       "name": "AcyMailing (\u003c= 11.1.0)",
       "vendor": "AcyMailing"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--16c1d6b7-d6c3-5a5b-b4df-2f82a0ebcde4",
+      "name": "StreamsHub Console for Apache Kafka (\u003c 0.12.10, \u003c 0.14.2)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -146939,6 +147063,13 @@
       "id": "software--1ff5b976-d173-5403-9960-3e21d3c6c8ab",
       "name": "Stormshield Network Security (versions \u003c 5.0.10)",
       "vendor": "Stormshield"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1ffd9628-bfff-5a4c-b8c1-d776a5bf8175",
+      "name": "Streams for Apache Kafka 3 (all versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -149231,6 +149362,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4a50ab5d-49cf-56a4-b5e1-130edd2ee10d",
+      "name": "Red Hat Enterprise Linux (all versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4a72b99e-ea59-53a6-b1eb-911004c3c462",
       "name": "youtube-downloader (\u003c= 4.0.1)",
       "vendor": "athlon1600"
@@ -151347,6 +151485,13 @@
       "id": "software--6d0523c9-431e-575b-b62a-931c486e4314",
       "name": "EmployeeRecruitmentSystem (\u003c= 922ff6d208278282e7c8e36d70d9ae356adec9fe)",
       "vendor": "krupalshah"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6d062cf1-df7a-5914-9009-287e97ba72fa",
+      "name": "Mendix SAML (Mendix 9 compatible) (\u003c V3.6.29)",
+      "vendor": "Siemens"
     },
     {
       "type": "software",
@@ -155806,6 +155951,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b921d5fa-dd2b-56fc-916e-db9395ef4287",
+      "name": "Mendix SAML (Mendix 11 compatible) (\u003c V4.2.4)",
+      "vendor": "Siemens"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b9239228-b320-53f5-84f0-09108b0873d1",
       "name": "OpenSSL (1.0.2x \u003c 1.0.2zs)",
       "vendor": "OpenSSL"
@@ -157579,6 +157731,13 @@
       "id": "software--daa84ebd-adce-5df9-bcf5-9a52a158fa4c",
       "name": "Stormshield Network Security (versions \u003c 5.1.4 EA)",
       "vendor": "Stormshield"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--daaa3195-ad9a-529c-8f9d-ae7533f6e8ca",
+      "name": "Mendix SAML (Mendix 10 compatible) (\u003c V4.2.4)",
+      "vendor": "Siemens"
     },
     {
       "type": "software",
