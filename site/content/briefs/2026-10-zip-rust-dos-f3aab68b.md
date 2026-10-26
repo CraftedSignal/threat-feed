@@ -1,17 +1,34 @@
 ---
 brief_id: brief-2026-10-26-zip-rust-dos-f3aab68b
 event_id: brief-2026-10-26-zip-rust-dos-f3aab68b
-revision: 1
-activity_at: "2026-10-26T17:45:50Z"
+revision: 2
+activity_at: "2026-10-26T19:46:22Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-26T19:46:22Z"
+    checksum: sha256:2f47d1f41b09cd3f6fdf365abe4af9c6070c636b429f31b1bce7b6d199561c78
+    summary: severity → high; added CVE-2026-115908
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - references
+      - severity
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115908
 title: 'zip Rust Library: Denial of Service via ZIP64 Uncompressed Size (CVE-2026-115909)'
 slug: 2026-10-zip-rust-dos-f3aab68b
 description: The zip Rust library is vulnerable to a denial-of-service condition where a malicious ZIP64 archive triggers an unrecoverable process abort through an impossible memory allocation request.
 date: "2026-10-26T17:45:50Z"
+lastmod: "2026-10-26T19:44:52Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -23,12 +40,17 @@ cpes:
   - cpe:2.3:a:zip_project:zip:*:*:*:*:*:rust:*:*
 products:
   - zip (< 9.0.0)
+  - zip (7.2.0 <= version < 9.0.0)
 cves:
   - id: CVE-2026-115909
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-115908
+    cvss: 7.4
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115909
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-115908
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +77,14 @@ action_plan:
       owner: Software Engineering
       addresses: CVE-2026-115909
       evidence: This issue is fixed in version 9.0.0.
+updates:
+  - at: "2026-10-26T19:44:52Z"
+    level: L2
+    summary: severity → high; added CVE-2026-115908
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115908
 ---
 
 The zip Rust library (versions 1.3.0 through 8.x) contains a vulnerability in `ZipArchive::extract` where the library trusts an attacker-controlled uncompressed size value from a ZIP64 archive. The library uses this value to initialize memory via `Vec::with_capacity`. If a malicious archive specifies an excessively large size, the application attempts an impossible memory allocation. Because this allocation path is infallible in Rust, the process is aborted immediately. This abort cannot be caught by `catch_unwind` or worker threads, enabling a persistent denial-of-service attack against any application that processes untrusted ZIP archives using this library.
