@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5731a510-cd4e-5e3c-8fb0-361a65b4b9c0",
+  "id": "bundle--5a890b5e-18bb-5cfd-bfb9-6c72676881be",
   "objects": [
     {
       "type": "attack-pattern",
@@ -121715,7 +121715,7 @@
       "id": "report--e304f473-4ab7-5c4b-b204-8ace0bf560fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:00:39.000Z",
-      "modified": "2026-10-23T15:00:39.000Z",
+      "modified": "2026-10-26T11:55:56.000Z",
       "name": "Fortinet: Multiple product security updates",
       "description": "## Overview\nFortinet has released security updates for multiple products to address vulnerabilities across their infrastructure stack. Administrators are directed to the official Fortinet PSIRT advisories to identify specific CVEs and impact details for their environment and to apply the required patches.\n\n## Recommendation\n- Audit all internet-facing and internal Fortinet appliances to determine current firmware versions.\n- Patch FortiAnalyzer, FortiAuthenticator, FortiMail, FortiManager, and FortiOS to the minimum versions listed in the affected products section.\n- Review the Fortinet PSIRT advisories linked in the reference section for specific vulnerability impact and risk assessment.\n",
       "published": "2026-10-23T15:00:39.000Z",
@@ -121728,10 +121728,15 @@
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--03b24531-f76c-530c-b47d-73ffdc22b575",
+        "software--1ee70cf5-3a03-5108-8f13-11fbb606749e",
+        "software--3e35ec2b-5e09-5e67-8d88-5004a23a3a82",
         "software--56b754d4-2e82-5a25-9774-3da2ef4946ff",
         "software--621219ae-e263-548e-98f1-70945b7e393e",
+        "software--78deb0b4-8eec-5057-92a1-bdbcdd90e0f0",
         "software--c48ceecd-648e-5f7c-8af7-5b18da090f32",
-        "software--d158191c-d0cc-53c0-9035-53774c7aadbb"
+        "software--cddf7c74-61d5-5251-bb68-cfe2ae76fbc6",
+        "software--d158191c-d0cc-53c0-9035-53774c7aadbb",
+        "software--de412588-cd76-598c-b953-b0db62fec49a"
       ],
       "external_references": [
         {
@@ -121745,15 +121750,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://digital.nhs.uk/cyber-alerts/2026/cc-4879"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/fortinet-ai-found-flaws-hardening-release-oct-2026"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-23-fortinet-security-updates",
       "x_craftedsignal_event_id": "brief-2026-10-23-fortinet-security-updates",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fortinet-security-updates/",
-      "x_craftedsignal_activity_at": "2026-10-23T15:00:39.000Z",
+      "x_craftedsignal_activity_at": "2026-10-26T11:55:56.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -132610,6 +132623,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1ee70cf5-3a03-5108-8f13-11fbb606749e",
+      "name": "FortiAuthenticator (8.0.0–8.0.3, 6.6.0–6.6.10)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1eeea37a-d53d-5e15-9a2f-6b050bb8faa4",
       "name": "Motor.NET before 0.19.0 (\u003c 0.19.0)"
     },
@@ -134116,6 +134136,13 @@
       "id": "software--3e24ee11-280b-5d7b-b77d-fa4d146729e0",
       "name": "Incus (7.3.0 - 7.4.x)",
       "vendor": "Linux Containers"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3e35ec2b-5e09-5e67-8d88-5004a23a3a82",
+      "name": "FortiManager (8.0.0–8.0.1, 7.6.0–7.6.7, 7.4.0–7.4.11, 7.2.0–7.2.12)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -137250,6 +137277,13 @@
       "id": "software--784a6bf8-f4b3-5448-a406-0653d6adb27a",
       "name": "WorkSpaces Skylight (\u003c 2.6.2034.0)",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--78deb0b4-8eec-5057-92a1-bdbcdd90e0f0",
+      "name": "FortiAnalyzer (8.0.0–8.0.1, 7.6.0–7.6.7, 7.4.0–7.4.11, 7.2.0–7.2.12)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -141544,6 +141578,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cddf7c74-61d5-5251-bb68-cfe2ae76fbc6",
+      "name": "FortiMail (8.0.0–8.0.1, 7.6.0–7.6.6, 7.4.0–7.4.8, 7.2.0–7.2.9)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cde21b03-7e31-5745-85e0-de59a690314c",
       "name": "jackson-core (2.22.0 - 2.22.2)",
       "vendor": "FasterXML"
@@ -142249,6 +142290,13 @@
       "id": "software--de40da62-8dc8-56a3-a6a8-139952495953",
       "name": "CICD-toolchain-for-serverless-applications (1.0.7-1.0.10)",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--de412588-cd76-598c-b953-b0db62fec49a",
+      "name": "FortiOS (8.0.0–8.0.1, 7.6.0–7.6.7, 7.4.0–7.4.12, 7.2.0–7.2.13)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
