@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-26-burrito-auth-bypass
 event_id: brief-2026-10-26-burrito-auth-bypass
-revision: 1
-activity_at: "2026-10-26T19:44:55Z"
+revision: 2
+activity_at: "2026-10-26T21:06:54Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-26T21:06:54Z"
+    checksum: sha256:53c77058bef7a670c2b7183c9fc828677eb4d4d95589f21bf825fbd3e4e5fbd2
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-102649&utm_source=rss&utm_medium=rss
 title: 'Burrito: Authentication bypass in webhook processing (CVE-2026-102649)'
 slug: 2026-10-burrito-auth-bypass
 description: Burrito Kubernetes operator prior to 0.13.0 fails to verify webhook signatures when the secret is empty, allowing attackers to forge repository events and trigger unauthorized terraform plan operations.
 date: "2026-10-26T19:44:55Z"
+lastmod: "2026-10-26T21:05:58Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +38,9 @@ qa_status:
   validation_status: Source verified, requires environment configuration audit
 cpes:
   - cpe:2.3:a:burrito:burrito:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-102649&utm_source=rss&utm_medium=rss
 vendors:
   - Burrito
 products:
@@ -47,6 +64,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-102649
+  - https://sploitus.com/exploit?id=CVE-2026-102649&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -72,6 +90,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-102649
       evidence: The underlying library skips signature verification when the secret is empty.
+updates:
+  - at: "2026-10-26T21:05:58Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-102649&utm_source=rss&utm_medium=rss
 ---
 
 Burrito is a Terraform Automation Collaboration Software (TACoS) Kubernetes operator. Versions prior to 0.13.0 contain a vulnerability (CVE-2026-102649) where the `POST /api/webhook` endpoint fails to authenticate GitHub and GitLab events if a `TerraformRepository` has no `webhookSecret` defined. Because the secret is optional, the underlying library `go-playground/webhooks` skips verification, allowing unauthenticated attackers with network access to the `burrito-server` to submit forged webhook payloads.

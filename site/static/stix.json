@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b143642b-464f-53d4-885a-5ab5e06fb435",
+  "id": "bundle--d10a5084-d1af-5edd-8eb0-6d61467d6118",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5875,7 +5875,7 @@
       "id": "relationship--03b31ca2-23e1-5e78-b7d6-1d84d47f5868",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:44:55.000Z",
-      "modified": "2026-10-26T19:44:55.000Z",
+      "modified": "2026-10-26T21:06:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9d0fc1a5-4e00-5ce9-9776-704f1a1a0efa",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -11742,6 +11742,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b3c5bd5c-ad40-5af0-81bc-b651f3d90240",
       "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--208eabd5-2676-53ad-b690-706d31285b68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:06:03.000Z",
+      "modified": "2026-10-26T21:06:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f140adbf-8cb5-51ef-82e3-fe14595dc0b4",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -26896,7 +26907,7 @@
       "id": "relationship--6cfe65a5-108a-5703-adf1-acc1ac732708",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:44:55.000Z",
-      "modified": "2026-10-26T19:44:55.000Z",
+      "modified": "2026-10-26T21:06:54.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9d0fc1a5-4e00-5ce9-9776-704f1a1a0efa",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -28851,17 +28862,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--762046da-075f-5b2b-9295-29137527fcd1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T21:01:01.000Z",
-      "modified": "2026-09-29T10:33:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3eea5352-048e-52fc-bcad-9e085d1d5b2c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--762319d1-0dbf-5b97-8bb9-740a4d388d95",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29133,6 +29133,17 @@
       "relationship_type": "has",
       "source_ref": "software--1b0966fa-f4c2-503e-998c-5b43509bb440",
       "target_ref": "vulnerability--7eac0ee2-2582-51f2-b7c2-ea6d05cd7414"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--773d7afc-ccde-53b9-acfd-ca78a2223622",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:06:03.000Z",
+      "modified": "2026-10-26T21:06:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f140adbf-8cb5-51ef-82e3-fe14595dc0b4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -31355,17 +31366,6 @@
       "relationship_type": "has",
       "source_ref": "software--ff0ba572-a82b-5a85-bb2b-0973a9d2f55c",
       "target_ref": "vulnerability--25838e34-aaa2-5602-8d32-f9d3fe4fe751"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--81ca03c2-a596-501e-ab7d-feefce4ca5d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T21:01:01.000Z",
-      "modified": "2026-09-29T10:33:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3eea5352-048e-52fc-bcad-9e085d1d5b2c",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -36415,6 +36415,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9d76e3c1-330b-5cf8-af96-df2192e97f3b",
       "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--99c96a65-2b4c-53c1-98f3-685dc93b5753",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:06:13.000Z",
+      "modified": "2026-10-26T21:06:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8d47a9db-56f3-52cb-9df8-0ed798f710c4",
+      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
     },
     {
       "type": "relationship",
@@ -41655,6 +41666,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b2939458-fb2e-5b81-adb4-c6e22094dab0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--71553594-36b5-585a-96c4-f5956675e309",
+      "target_ref": "vulnerability--56225a91-f549-5db0-acd9-ebd3e417eb62"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b2b49d24-11e8-5f0d-990d-5d518d0c4194",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43532,17 +43554,6 @@
       "relationship_type": "has",
       "source_ref": "software--e9c397dc-67ae-5f58-bf84-b73e9c15f149",
       "target_ref": "vulnerability--73695e8b-eef4-592c-a2bb-e913af33e881"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bc2017d8-f2fc-5c6a-9e65-1187e12e50a7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--479d58ff-de3e-5ad4-a9a4-0d3149160463",
-      "target_ref": "vulnerability--c433177b-07cc-5e4a-9300-b2c1b34748fc"
     },
     {
       "type": "relationship",
@@ -46601,6 +46612,17 @@
       "relationship_type": "has",
       "source_ref": "software--2d0b259b-a1f4-52ae-9f69-1ced85f80125",
       "target_ref": "vulnerability--77e5e396-5fc4-585b-8e94-6f662a7d3031"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c9eb0b55-fea1-52bf-ae76-7969aa5699bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--72988d1c-a9f5-5141-8094-c146b71fc7b5",
+      "target_ref": "vulnerability--4a1ee103-9735-5db9-a31a-e5638cc4593a"
     },
     {
       "type": "relationship",
@@ -78828,53 +78850,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3eea5352-048e-52fc-bcad-9e085d1d5b2c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T21:01:01.000Z",
-      "modified": "2026-09-29T10:33:29.000Z",
-      "name": "Arbitrary File Upload Vulnerability in Ultra Addons for Contact Form 7",
-      "description": "## Overview\n\nThe Ultra Addons for Contact Form 7 plugin for WordPress is affected by a critical arbitrary file upload vulnerability, identified as CVE-2026-82901. The flaw resides within the 'uacf7_wpcf7_mail_components' function, which fails to adequately validate file types during upload operations. This vulnerability affects all versions of the plugin up to and including 3.5.50. \n\nThe exploitation of this vulnerability is contingent upon the 'PDF Generator' module being enabled within the plugin settings, which is not the default configuration. When active, an unauthenticated attacker can upload malicious files, such as PHP shells, directly to the web server. Successful exploitation allows for remote code execution, granting the attacker control over the WordPress environment. Organizations using this plugin should verify if the PDF Generator module is active and update to a patched version immediately.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-82901 enables unauthenticated remote code execution on WordPress instances. This can lead to full site compromise, data exfiltration, and the establishment of persistent backdoors. Because the plugin is a common add-on for Contact Form 7, a wide range of WordPress-based business sites are potentially at risk. The impact includes unauthorized access to site configuration, database content, and the ability to execute system-level commands with the privileges of the web server process.\n\n## Recommendation\n\n- Upgrade the Ultra Addons for Contact Form 7 plugin to a version beyond 3.5.50 immediately to remediate CVE-2026-82901.\n- Review the configuration of the Ultra Addons plugin to ensure the PDF Generator module is disabled if it is not strictly required for business operations.\n- Audit the WordPress uploads directory for unexpected files with executable extensions (e.g., .php, .php5, .phtml) created after the plugin was deployed.\n- Monitor web server access logs for anomalous POST requests directed at plugin-specific endpoints associated with file uploads.\n",
-      "published": "2026-09-26T21:01:01.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--479d58ff-de3e-5ad4-a9a4-0d3149160463",
-        "vulnerability--c433177b-07cc-5e4a-9300-b2c1b34748fc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-26-ultra-addons-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-ultra-addons-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82901"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=172FA149-9828-57FE-BD97-95D3C7BF14C0\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-26-ultra-addons-rce",
-      "x_craftedsignal_event_id": "brief-2026-09-26-ultra-addons-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-ultra-addons-rce/",
-      "x_craftedsignal_activity_at": "2026-09-29T10:33:29.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.03717,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3f4205e4-141f-57c4-84fe-18d40804dc52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T15:45:22.000Z",
@@ -105690,6 +105665,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8d47a9db-56f3-52cb-9df8-0ed798f710c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:06:13.000Z",
+      "modified": "2026-10-26T21:06:13.000Z",
+      "name": "Anuko Time Tracker: Authenticated SQL Injection via puncher.php (CVE-2022-24707)",
+      "description": "## Overview\nCVE-2022-24707 is an authenticated SQL injection vulnerability affecting Anuko Time Tracker versions prior to 1.20.0.5642. The vulnerability resides in the puncher.php component, where the 'date' parameter in a POST request fails to properly sanitize input. An attacker with low-level privileges can inject arbitrary SQL commands to extract contents from the 'tt_users' table by leveraging the application's functionality to write entry notes.\n\n## Attack Chain\n1. Attacker authenticates to the target Anuko Time Tracker instance using valid user credentials.\n2. Attacker interacts with the /puncher.php interface to initiate a time entry session.\n3. Attacker identifies the project ID associated with the current user session.\n4. Attacker sends a malicious POST request to /puncher.php, injecting a SQL payload into the 'date' parameter designed to query the 'tt_users' table.\n5. The application executes the injected SQL, causing the database to write the contents of the 'tt_users' table into the 'note' field of the current time entry.\n6. Attacker navigates to /time_edit.php to view the created entry and exfiltrate the stolen credentials from the note field.\n\n## Impact\nSuccessful exploitation allows for the exfiltration of usernames and password hashes from the 'tt_users' table, leading to potential privilege escalation or full compromise of the application.\n\n## Recommendation\n- Upgrade Anuko Time Tracker to version 1.20.0.5642 or later to patch the vulnerable parameter handling in puncher.php.\n- Audit existing time entries for suspicious content in the 'note' field, particularly those containing database syntax or account credentials.\n- Implement restrictive access controls for the 'puncher' plugin if it is not required for all users.\n",
+      "published": "2026-10-26T21:06:13.000Z",
+      "labels": [
+        "credential-theft",
+        "sqli",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--72988d1c-a9f5-5141-8094-c146b71fc7b5",
+        "vulnerability--4a1ee103-9735-5db9-a31a-e5638cc4593a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-anuko-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-anuko-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-24707"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-MULTI-HTTP-ANUKO_CVE_2022_24707_SQLI"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-MULTI-HTTP-ANUKO_CVE_2022_24707_SQLI\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-anuko-sqli",
+      "x_craftedsignal_event_id": "brief-2026-10-26-anuko-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-anuko-sqli/",
+      "x_craftedsignal_activity_at": "2026-10-26T21:06:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.07159,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d4abf1a-cb0e-5a29-8cf9-c24eb6745c05",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T11:41:47.000Z",
@@ -111547,7 +111577,7 @@
       "id": "report--9d0fc1a5-4e00-5ce9-9776-704f1a1a0efa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:44:55.000Z",
-      "modified": "2026-10-26T19:44:55.000Z",
+      "modified": "2026-10-26T21:06:54.000Z",
       "name": "Burrito: Authentication bypass in webhook processing (CVE-2026-102649)",
       "description": "## Overview\nBurrito is a Terraform Automation Collaboration Software (TACoS) Kubernetes operator. Versions prior to 0.13.0 contain a vulnerability (CVE-2026-102649) where the `POST /api/webhook` endpoint fails to authenticate GitHub and GitLab events if a `TerraformRepository` has no `webhookSecret` defined. Because the secret is optional, the underlying library `go-playground/webhooks` skips verification, allowing unauthenticated attackers with network access to the `burrito-server` to submit forged webhook payloads.\n\n## Impact\nAn attacker can create or delete `TerraformPullRequest` custom resources by injecting forged events. By pairing a valid pull request number with a controlled branch, an attacker can force the operator to execute a `terraform plan` using its stored Git and cloud credentials. While the vulnerability does not directly trigger a `terraform apply`, it facilitates unauthorized exposure of infrastructure changes and potential code execution during the plan phase if the attacker-controlled branch contains malicious provider or data-source configurations.\n\n## Recommendation\n- Upgrade Burrito to version 0.13.0 or later immediately.\n- Audit all `TerraformRepository` configurations in your Kubernetes environment to ensure the `webhookSecret` field is configured and non-empty.\n- Restrict network access to the `burrito-server` endpoint to only allow incoming traffic from legitimate GitHub or GitLab IP ranges.\n",
       "published": "2026-10-26T19:44:55.000Z",
@@ -111567,14 +111597,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102649"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-102649\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-26-burrito-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-26-burrito-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-burrito-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-26T19:44:55.000Z",
+      "x_craftedsignal_activity_at": "2026-10-26T21:06:54.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -114609,7 +114643,7 @@
       "id": "report--a51dd0a2-ddf3-5725-abdb-b3cf2a30ed3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:45:02.000Z",
-      "modified": "2026-10-26T19:45:02.000Z",
+      "modified": "2026-10-26T21:06:54.000Z",
       "name": "HashiCorp Consul: Authorization bypass in service mesh proxy registration (CVE-2026-105608)",
       "description": "HashiCorp Consul and Consul Enterprise are vulnerable to an authorization bypass in service mesh proxy registration (CVE-2026-105608). This vulnerability allows a user with service write permission to apply Envoy escape-hatch configuration without the required mesh write permission. This issue is resolved in Consul Community Edition 2.1.0 and Consul Enterprise 2.1.0 and 1.21.19.\n",
       "published": "2026-10-26T19:45:02.000Z",
@@ -114626,14 +114660,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105608"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-105608\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-26-hashicorp-consul-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-26-hashicorp-consul-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hashicorp-consul-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-26T19:45:02.000Z",
+      "x_craftedsignal_activity_at": "2026-10-26T21:06:54.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -141475,6 +141513,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f140adbf-8cb5-51ef-82e3-fe14595dc0b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:06:03.000Z",
+      "modified": "2026-10-26T21:06:03.000Z",
+      "name": "Adminer: Arbitrary file read via rogue MySQL server (CVE-2020-35572)",
+      "description": "## Overview\nCVE-2020-35572 allows an unauthenticated attacker to perform arbitrary file reads on the server hosting Adminer. By forcing the Adminer application to connect to a rogue MySQL server controlled by the attacker, the application can be instructed to execute the 'LOAD DATA LOCAL INFILE' command, exfiltrating contents of arbitrary files from the target filesystem to the attacker's database. A functional proof-of-concept exploit module has been identified and linked to the Kittysploit framework.\n\n## Attack Chain\n1. Attacker initializes a rogue MySQL server accessible from the target Adminer host.\n2. Attacker identifies the target Adminer instance (e.g., /adminer.php).\n3. Attacker triggers a connection from the target Adminer instance to the rogue MySQL server by submitting the rogue server address in the 'auth[server]' field via a POST request.\n4. Adminer performs a handshake with the rogue MySQL server.\n5. Attacker observes the connection and obtains the SQL token required for subsequent administrative operations.\n6. Attacker sends a POST request containing a malicious SQL query: 'LOAD DATA LOCAL INFILE \"[path]\" INTO TABLE [table]'.\n7. Adminer reads the file from its local filesystem and transmits the content to the rogue MySQL server.\n8. Attacker retrieves the exfiltrated data by querying the rogue MySQL database.\n\n## Impact\nSuccessful exploitation results in the unauthorized disclosure of sensitive files (e.g., /etc/passwd or configuration files) from the server hosting the vulnerable Adminer instance, potentially leading to full system compromise.\n\n## Recommendation\n- Patch Adminer to a version beyond 4.7.8 immediately.\n- If patching is not possible, restrict access to the Adminer interface to trusted IP addresses using firewall rules or web server access control lists.\n- Disable the 'LOAD DATA LOCAL' functionality in the MySQL client configuration on the server if not required.\n- Monitor for unexpected outbound network connections initiated by the web server service account.\n",
+      "published": "2026-10-26T21:06:03.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--71553594-36b5-585a-96c4-f5956675e309",
+        "vulnerability--56225a91-f549-5db0-acd9-ebd3e417eb62"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-adminer-file-read",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-adminer-file-read/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35572"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-MULTI-HTTP-ADMINER_CVE_2020_35572_FILEREAD"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:EXPLOITS-MULTI-HTTP-ADMINER_CVE_2020_35572_FILEREAD\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-adminer-file-read",
+      "x_craftedsignal_event_id": "brief-2026-10-26-adminer-file-read",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-adminer-file-read/",
+      "x_craftedsignal_activity_at": "2026-10-26T21:06:03.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.1,
+      "x_craftedsignal_epss_max": 0.02003,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f157710d-53bf-5e0a-aa0d-b80c7d5450e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-28T03:11:42.000Z",
@@ -143045,7 +143134,7 @@
       "id": "report--f54139d4-7db2-5c67-a9a1-a86b8e9ca9ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:45:45.000Z",
-      "modified": "2026-10-26T19:45:45.000Z",
+      "modified": "2026-10-26T21:06:54.000Z",
       "name": "HashiCorp Consul-k8s: Cross-namespace authorization bypass (CVE-2026-110720)",
       "description": "Consul-k8s versions 0.42.0 and later are vulnerable to a cross-namespace authorization bypass in component ACL binding rules that may allow an attacker to obtain elevated Consul privileges. This vulnerability is identified as CVE-2026-110720 and has a CVSS v3.1 base score of 9.9. This vulnerability is fixed in consul-k8s versions 2.1.0 and 1.8.18.\n",
       "published": "2026-10-26T19:45:45.000Z",
@@ -143062,14 +143151,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110720"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-110720\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-26-consul-k8s-acl-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-26-consul-k8s-acl-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-consul-k8s-acl-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-26T19:45:45.000Z",
+      "x_craftedsignal_activity_at": "2026-10-26T21:06:54.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -150857,12 +150950,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--479d58ff-de3e-5ad4-a9a4-0d3149160463",
-      "name": "Ultra Addons for Contact Form 7 (\u003c= 3.5.50)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--47c674b3-eaf7-5845-8448-ffd69980a603",
       "name": "certifi (\u003c 2026.10.18)",
       "vendor": "eMudhra"
@@ -153447,6 +153534,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--71553594-36b5-585a-96c4-f5956675e309",
+      "name": "Adminer (\u003c= 4.7.8)",
+      "vendor": "Adminer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--717620e9-6494-5ebc-866f-bedffd0e357c",
       "name": "Jotform"
     },
@@ -153519,6 +153613,13 @@
       "id": "software--727f7d65-07e0-58a2-87b7-7da855153a37",
       "name": "Theme My Login (\u003c= 7.2.1)",
       "vendor": "Theme My Login"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--72988d1c-a9f5-5141-8094-c146b71fc7b5",
+      "name": "Time Tracker (\u003c 1.20.0.5642)",
+      "vendor": "Anuko"
     },
     {
       "type": "software",
@@ -169540,6 +169641,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4a1ee103-9735-5db9-a31a-e5638cc4593a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-24707",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-24707",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-24707"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4a287ea4-0a37-5818-b54f-b006b5f1418c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -170782,6 +170899,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63120",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63120"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--56225a91-f549-5db0-acd9-ebd3e417eb62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2020-35572",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2020-35572",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-35572"
         }
       ]
     },
@@ -181998,22 +182131,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107805",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107805"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c433177b-07cc-5e4a-9300-b2c1b34748fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-82901",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-82901",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82901"
         }
       ]
     },

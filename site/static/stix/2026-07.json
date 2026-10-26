@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b8c21d90-1dcb-56ca-8b37-a40f215c6c65",
+  "id": "bundle--ec922ac3-f3ef-5dcb-bf47-af3337f1621b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -943,22 +943,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1133",
           "url": "https://attack.mitre.org/techniques/T1133"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--c4eac0b5-7f75-5208-a560-6d98b706ea49",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Inhibit System Recovery",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1490",
-          "url": "https://attack.mitre.org/techniques/T1490"
         }
       ]
     },
@@ -3292,17 +3276,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--19782a7a-9bfa-58a7-b37a-93cbdb6e3136",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c3517f96-9000-5b35-8e1b-a93387a6656e",
-      "target_ref": "vulnerability--59bdcd59-2cb1-5462-963d-b84440338add"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--197a7659-dd56-506d-84d8-749edc3e60fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3750,17 +3723,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ad7dac15-e563-574e-98a3-f420b644e9f3",
       "target_ref": "indicator--e124990d-124a-5888-8e50-49a0c86b2f1c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--268daf4c-4492-59f1-acce-45e14c2dd7a1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8ecf86b0-8659-5a1a-96d6-60bb4969a1e7",
-      "target_ref": "vulnerability--87ae1978-e8bc-5eb2-b136-996916502437"
     },
     {
       "type": "relationship",
@@ -4619,17 +4581,6 @@
       "relationship_type": "has",
       "source_ref": "software--d912faa2-5233-5ca4-9ace-35bd4e8fd3a7",
       "target_ref": "vulnerability--4f562fa1-fe87-57e3-b955-b328541293b8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3d090e04-35ef-520f-9a14-5163ca937b40",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9106e359-2570-5316-8baf-92e3d9d9d571",
-      "target_ref": "vulnerability--87ae1978-e8bc-5eb2-b136-996916502437"
     },
     {
       "type": "relationship",
@@ -5514,17 +5465,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5b56b7c4-4e37-534b-bb24-950d9cce9dc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T20:22:47.000Z",
-      "modified": "2026-07-28T20:22:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c7cb75c4-8349-5a08-9fb7-414ed6e0aa8b",
-      "target_ref": "attack-pattern--c4eac0b5-7f75-5208-a560-6d98b706ea49"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5bd95a36-aa2c-5458-b25c-050c4731fdb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:20:12.000Z",
@@ -5884,17 +5824,6 @@
       "relationship_type": "has",
       "source_ref": "software--dcccde26-f4fc-58aa-bf14-e9fa6ab7af78",
       "target_ref": "vulnerability--c70f33ba-ec25-57de-8d62-e676b9243b48"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6aa77339-c99f-5f22-8ca2-4e3ef74febad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba34c304-ce73-5af6-882f-3548c3ea4c39",
-      "target_ref": "vulnerability--1558927f-c8a8-5ed0-b555-27f3af100bb9"
     },
     {
       "type": "relationship",
@@ -7083,17 +7012,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ad7dac15-e563-574e-98a3-f420b644e9f3",
       "target_ref": "indicator--5d7d4961-d841-5586-bf27-60fff4e6140f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--917ca214-7165-532e-bc60-acaacda057f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T20:22:47.000Z",
-      "modified": "2026-07-28T20:22:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c7cb75c4-8349-5a08-9fb7-414ed6e0aa8b",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -8451,17 +8369,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--be244427-48b2-5cf9-aebe-59f369e13403",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T20:22:47.000Z",
-      "modified": "2026-07-28T20:22:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c7cb75c4-8349-5a08-9fb7-414ed6e0aa8b",
-      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bf38e937-4c33-5488-8036-0c529ab16df7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9250,17 +9157,6 @@
       "relationship_type": "has",
       "source_ref": "software--28e75ebf-582f-5ad6-8618-463671f5cc04",
       "target_ref": "vulnerability--7c6e492d-47ce-5743-a228-27a17a7fa117"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d9f7db15-8949-5310-a70c-8b2086440d4e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T20:21:12.000Z",
-      "modified": "2026-07-28T20:21:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2c959fd4-096e-56a9-a55a-64211a086d9d",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -11984,57 +11880,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2c959fd4-096e-56a9-a55a-64211a086d9d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T20:21:12.000Z",
-      "modified": "2026-07-28T20:21:12.000Z",
-      "name": "IBM WebSphere Application Server Authentication Bypass Vulnerability (CVE-2026-16184)",
-      "description": "## Overview\n\nIBM has identified a high-severity vulnerability, CVE-2026-16184, affecting its WebSphere Application Server versions 9.0 and 8.5. This flaw, categorized as a Missing Authorization (CWE-862), allows a remote, unauthenticated attacker to bypass the server's authentication mechanisms. By sending a specially crafted request, an attacker can gain unauthorized access to the application server. This vulnerability can lead to unauthorized information disclosure, data modification, or denial of service, depending on the accessed resources and the attacker's capabilities post-bypass. Organizations using affected WebSphere versions are advised to apply the necessary patches provided by IBM to mitigate the risk of exploitation.\n\n## Attack Chain\n\n1. A remote, unauthenticated attacker identifies a public-facing IBM WebSphere Application Server instance running a vulnerable version (9.0 or 8.5).\n2. The attacker performs initial reconnaissance to understand the server's exposed endpoints and the expected authentication process.\n3. The attacker crafts a specific HTTP request designed to exploit the missing authorization vulnerability (CWE-862) within the WebSphere server's authentication logic.\n4. This crafted request is intentionally formed to bypass standard authentication checks, possibly by manipulating specific HTTP headers, cookies, URL parameters, or the request body content.\n5. The attacker sends this unauthenticated, crafted request to the vulnerable WebSphere Application Server.\n6. The server processes the request, and due to the underlying vulnerability, it fails to properly enforce authentication requirements, allowing the request to proceed as if authenticated.\n7. Consequently, the attacker gains unauthorized access to resources, functionalities, or administrative interfaces within the application server without providing valid credentials.\n8. With unauthorized access, the attacker can potentially perform actions such as information disclosure, unauthorized data modification, or disrupt the availability of the server.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-16184 could lead to a significant compromise of the affected IBM WebSphere Application Server instance. Attackers could gain unauthorized access to sensitive data, modify application configurations, or disrupt critical services, leading to a loss of confidentiality, integrity, and availability for applications hosted on the server. While specific victim counts or sectors are not detailed, any organization running unpatched versions of WebSphere Application Server 9.0 or 8.5, particularly those exposed to the internet, is at risk.\n\n## Recommendation\n\n* Patch CVE-2026-16184 on all IBM WebSphere Application Server 9.0 and 8.5 instances immediately by applying the updates referenced in the IBM Corporation advisory `https://www.ibm.com/support/pages/node/7281628`.\n* Monitor `webserver` logs for suspicious unauthenticated requests, specifically looking for abnormal access patterns to sensitive endpoints.\n* Implement strong network segmentation and access controls to limit exposure of IBM WebSphere Application Server instances to untrusted networks.\n",
-      "published": "2026-07-28T20:21:12.000Z",
-      "labels": [
-        "authentication-bypass",
-        "vulnerability",
-        "websphere"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8ecf86b0-8659-5a1a-96d6-60bb4969a1e7",
-        "software--9106e359-2570-5316-8baf-92e3d9d9d571",
-        "vulnerability--87ae1978-e8bc-5eb2-b136-996916502437"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-ibm-websphere-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-ibm-websphere-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16184"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7281628"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-ibm-websphere-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-ibm-websphere-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-ibm-websphere-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-28T20:21:12.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -16573,55 +16418,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--afaf7755-7e98-5ae5-b856-2556b391475e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T20:21:57.000Z",
-      "modified": "2026-07-28T20:21:57.000Z",
-      "name": "IBM WebSphere Application Server Liberty Denial of Service Vulnerability (CVE-2026-16192)",
-      "description": "## Overview\n\nIBM has disclosed CVE-2026-16192, a denial of service vulnerability impacting IBM WebSphere Application Server - Liberty, specifically versions ranging from 17.0.0.3 up to and including 26.0.0.8. The vulnerability, classified as uncontrolled recursion (CWE-674), manifests when the `restConnector-2.0` feature is enabled within the server configuration. While the specific mechanism of triggering the recursion is not detailed, an attacker with network access could send specially crafted requests to the server, exploiting this flaw to consume excessive resources and ultimately render the application server unresponsive. This vulnerability carries a CVSS v3.1 base score of 7.1 (High), indicating a significant impact on system availability if exploited. Defenders should prioritize patching or implementing mitigating controls to prevent service disruption.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-16192 leads to a denial of service (DoS) condition on the affected IBM WebSphere Application Server - Liberty instance. This means the server could become unresponsive or crash, severely disrupting the services and applications hosted on it. The unavailability of critical business applications can result in significant operational losses, reputational damage, and financial repercussions for organizations. The vulnerability specifically targets the availability of the system and does not mention data confidentiality or integrity being compromised.\n\n## Recommendation\n\n* Apply the latest security updates and patches provided by IBM for WebSphere Application Server - Liberty to address CVE-2026-16192. Refer to the IBM security bulletin referenced for specific patch details.\n* If immediate patching is not feasible, disable the `restConnector-2.0` feature in your IBM WebSphere Application Server - Liberty configurations if it is not essential for operations. This mitigates the risk of exploitation for CVE-2026-16192.\n* Monitor IBM support pages for additional guidance or updated advisories related to CVE-2026-16192.\n",
-      "published": "2026-07-28T20:21:57.000Z",
-      "labels": [
-        "denial-of-service",
-        "vulnerability",
-        "websphere"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ba34c304-ce73-5af6-882f-3548c3ea4c39",
-        "vulnerability--1558927f-c8a8-5ed0-b555-27f3af100bb9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-16192-liberty-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-16192-liberty-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16192"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7281648"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-16192-liberty-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-16192-liberty-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-16192-liberty-dos/",
-      "x_craftedsignal_activity_at": "2026-07-28T20:21:57.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b13e85a5-c287-5e8f-90b8-131bbaab3135",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T07:19:57.000Z",
@@ -17391,58 +17187,6 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.57528,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c7cb75c4-8349-5a08-9fb7-414ed6e0aa8b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T20:22:47.000Z",
-      "modified": "2026-07-28T20:22:47.000Z",
-      "name": "SuperPlane Broken Object-Level Authorization Vulnerability (CVE-2026-57510)",
-      "description": "## Overview\n\nCVE-2026-57510 details a broken object-level authorization vulnerability affecting SuperPlane versions prior to 0.27.0. This flaw resides within the CanvasService gRPC handlers, which are responsible for managing canvas and queue resources. An authenticated user with legitimate viewer-level access to one organization can exploit this vulnerability to gain unauthorized access to resources belonging to other organizations. By supplying arbitrary canvas or queue Universally Unique Identifiers (UUIDs) without proper organization scoping, an attacker can bypass access controls. This allows for reading sensitive cross-tenant execution history and event payloads that may contain secrets, writing unauthorized queue items and canvas events into victim organizations, deleting arbitrary canvases, and ultimately disrupting critical automation workflows across different tenant environments. The vulnerability poses a significant risk to data confidentiality, integrity, and system availability in multi-tenant SuperPlane deployments.\n\n## Attack Chain\n\n1. An attacker gains legitimate authenticated viewer-level access to a SuperPlane organization.\n2. The attacker identifies the target SuperPlane instance is running a version prior to 0.27.0.\n3. The attacker crafts gRPC requests targeting the CanvasService handlers.\n4. The attacker includes arbitrary canvas or queue UUIDs in these requests that do not belong to their authorized organization.\n5. Due to the broken object-level authorization, the CanvasService gRPC handlers process these requests without enforcing organization-level scoping.\n6. The attacker successfully accesses resources (e.g., execution history, event payloads) belonging to other organizations.\n7. The attacker leverages this access to read sensitive secrets, write malicious queue items or canvas events, or delete critical canvases.\n8. The attacker disrupts automation workflows across tenant boundaries, achieving data collection and system impact objectives.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-57510 can lead to severe consequences for SuperPlane deployments utilizing versions prior to 0.27.0. Attackers can read sensitive cross-tenant execution history and event payloads, which may contain critical secrets, compromising data confidentiality across multiple organizations. Furthermore, the vulnerability enables unauthorized modification of data by allowing attackers to write queue items and canvas events into victim organizations. The ability to delete arbitrary canvases can result in significant data loss and disruption. Critically, this flaw can be leveraged to disrupt automation workflows across tenant boundaries, leading to service degradation, operational outages, and potentially widespread business impact for affected SuperPlane customers. The broad scope of potential impact makes this a high-severity threat.\n\n## Recommendation\n\n* Immediately upgrade all SuperPlane installations to version 0.27.0 or later to patch CVE-2026-57510.\n* Implement robust monitoring for unusual gRPC activity within your SuperPlane environment, specifically looking for attempts to access or manipulate canvas or queue UUIDs that are not associated with the authenticated user's organization.\n* Review access logs for any indications of cross-tenant resource access by single-tenant authenticated users, particularly after patching CVE-2026-57510.\n",
-      "published": "2026-07-28T20:22:47.000Z",
-      "labels": [
-        "api-security",
-        "authorization-bypass",
-        "cloud",
-        "cve",
-        "grpc",
-        "multi-tenancy",
-        "saas"
-      ],
-      "object_refs": [
-        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
-        "attack-pattern--c4eac0b5-7f75-5208-a560-6d98b706ea49",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c3517f96-9000-5b35-8e1b-a93387a6656e",
-        "vulnerability--59bdcd59-2cb1-5462-963d-b84440338add"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-superplane-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-superplane-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57510"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-superplane-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-superplane-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-superplane-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-28T20:22:47.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -19767,13 +19511,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8ecf86b0-8659-5a1a-96d6-60bb4969a1e7",
-      "name": "WebSphere Application Server 9.0",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8ef4edcc-8901-546b-b8f3-fb8965058003",
       "name": "PowerVM Hypervisor (FW1110.00-FW1110.20)",
       "vendor": "IBM"
@@ -19810,13 +19547,6 @@
       "id": "software--904edd9d-6adb-5793-9e1a-9dc58c5c630a",
       "name": "validation-model-jakarta (\u003e= 1.25.73, \u003c= 1.30.1)",
       "vendor": "veraPDF"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--9106e359-2570-5316-8baf-92e3d9d9d571",
-      "name": "WebSphere Application Server 8.5",
-      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -20149,13 +19879,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ba34c304-ce73-5af6-882f-3548c3ea4c39",
-      "name": "WebSphere Application Server - Liberty",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ba838570-833c-5016-862f-bdd52d335ba6",
       "name": "Red Hat Quay 3",
       "vendor": "Red Hat"
@@ -20219,13 +19942,6 @@
       "spec_version": "2.1",
       "id": "software--c1f23673-c1bb-5538-934e-a0622fdb49b3",
       "name": "Ruby on Rails Active Storage (7.0.0 \u003c= 7.2.3.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c3517f96-9000-5b35-8e1b-a93387a6656e",
-      "name": "SuperPlane \u003c 0.27.0",
-      "vendor": "SuperPlane"
     },
     {
       "type": "software",
@@ -20794,22 +20510,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-44095",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44095"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1558927f-c8a8-5ed0-b555-27f3af100bb9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-16192",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-16192",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16192"
         }
       ]
     },
@@ -21408,22 +21108,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--59bdcd59-2cb1-5462-963d-b84440338add",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-57510",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-57510",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57510"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--59d80835-b394-5a11-bafe-1e25bf06b096",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21722,22 +21406,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54725",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54725"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--87ae1978-e8bc-5eb2-b136-996916502437",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-16184",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-16184",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16184"
         }
       ]
     },
