@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d30868e8-c8da-5605-be3a-d48234eea7f8",
+  "id": "bundle--54004848-efc1-5526-87c8-0406d1389291",
   "objects": [
     {
       "type": "attack-pattern",
@@ -853,22 +853,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--84099a94-eca8-52f4-aa1f-c23c46737607",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Unused/Unsupported Cloud Regions",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1535",
-          "url": "https://attack.mitre.org/techniques/T1535"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1151,22 +1135,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1568",
           "url": "https://attack.mitre.org/techniques/T1568"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Cloud Service Discovery",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1526",
-          "url": "https://attack.mitre.org/techniques/T1526"
         }
       ]
     },
@@ -3032,17 +3000,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--065c015f-371a-5076-9609-862f581ddacd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--06818c4b-4d07-52f7-a9c9-a8125314446d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:17.000Z",
@@ -3248,17 +3205,6 @@
       "relationship_type": "uses",
       "source_ref": "report--34a4891e-864f-502c-bc34-4f173c00e3bc",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0da8323e-f06e-5efc-915a-660d4e44b971",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--84099a94-eca8-52f4-aa1f-c23c46737607"
     },
     {
       "type": "relationship",
@@ -4462,17 +4408,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2cb97db2-18a4-5507-89f7-7230fb4937fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2d48c714-2ce8-560c-905a-9f56838bc2ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:25:06.000Z",
@@ -4667,17 +4602,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8763c190-3124-52f5-b724-2fab6d24370f",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--308249e6-ec95-56d4-ac01-9359de99ec96",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
     },
     {
       "type": "relationship",
@@ -6299,17 +6223,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--5c5eb518-ba84-5cf7-b41a-dc8f545d3bfa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--5cae8659-41f7-5999-bda0-79a48ef6953c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7036,17 +6949,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--71214872-134b-50c0-ac35-42486d1523bf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--722fb958-6c17-582c-8f9b-9cf09362547c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:42:32.000Z",
@@ -7351,17 +7253,6 @@
       "relationship_type": "uses",
       "source_ref": "report--41caeede-16cf-548c-a09d-4c974e8a8cb9",
       "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7ac49523-8d64-515c-8a3f-b912ec7ac189",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
     },
     {
       "type": "relationship",
@@ -8968,17 +8859,6 @@
       "relationship_type": "uses",
       "source_ref": "report--cfe82f22-2195-5272-93e5-ae0e6ebdb858",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a8caf7dc-4217-57a6-9e5d-74f5b2166f0a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -10710,17 +10590,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d907ac4f-6749-5b0e-b6d4-8636335c82a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d91e605f-bfcc-5bb4-b1d0-96f69f5a767b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T15:14:37.000Z",
@@ -10948,17 +10817,6 @@
       "relationship_type": "has",
       "source_ref": "software--b5ac11ad-32d4-5b4d-8dfe-ce45bf5a66b8",
       "target_ref": "vulnerability--cb18fe19-4674-5a98-953e-817dfd2ad242"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dcb8f63f-a712-5173-92f0-6acb72cc609d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "target_ref": "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7"
     },
     {
       "type": "relationship",
@@ -21897,61 +21755,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e74d3f4f-5fd9-517c-bff2-85a22d034fb7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:06:01.000Z",
-      "modified": "2026-07-28T16:06:01.000Z",
-      "name": "Unauthenticated MCP Servers Expose Cloud Data and Enable Command Execution",
-      "description": "## Overview\n\nWiz Research has identified a critical security risk stemming from widely exposed and unauthenticated Model Context Protocol (MCP) servers across various cloud environments, including those operated by Fortune 500 companies. Despite the protocol's rapid adoption, many organizations have not implemented the security features introduced in the March 2025 specification, leaving older protocol versions (specifically 2024-11-05) vulnerable. These exposed MCP servers allow anonymous callers to access sensitive data, perform destructive write and delete operations on critical systems, and in rare but severe cases, achieve remote code execution and steal cloud credentials. The inherent design of MCP, which by default describes its capabilities, facilitates reconnaissance for attackers. Detection is challenging as malicious interactions often mimic legitimate operations, making it difficult for security teams to differentiate between authorized and unauthorized access without specific application-level logging.\n\n## Attack Chain\n\n1. **Reconnaissance and Discovery**: An attacker scans the internet to identify publicly accessible MCP servers.\n2. **Unauthenticated Connection**: An anonymous client connects to the identified MCP server without requiring any authentication.\n3. **Tool Catalog Retrieval**: The attacker sends a `tools/list` request, receiving a full, machine-readable catalog of all functionalities (tools) exposed by the server, including their descriptions and parameter schemas.\n4. **Sensitive Data Access**: The attacker invokes tools that proxy sensitive data from backend systems such as production databases, internal mailboxes, issue trackers, and regulated records, leading to the exfiltration of PII, business records, or security findings.\n5. **Write and Delete Operations**: The attacker utilizes tools to create, update, or delete records within critical CRM, IAM, or infrastructure backends, potentially causing data corruption or service disruption.\n6. **Code Execution and Network Access**: The attacker exploits tools designed for direct command execution or leverages embedded language-model agents with shell access to the backend, using carefully crafted prompts to bypass guardrails.\n7. **Credential Access via SSRF**: The attacker directs tools that fetch URLs or proxy requests towards the cloud metadata endpoint, performing Server-Side Request Forgery (SSRF) to obtain temporary cloud credentials.\n8. **Secret Exposure**: The attacker directly retrieves hardcoded credentials or database connection strings that are sometimes embedded within tool responses or retrieved from logs (e.g., Lambda environment variables), leading to further compromise.\n\n## Impact\n\nThe successful exploitation of unauthenticated MCP servers leads to severe consequences across multiple dimensions. Organizations risk exposure of highly sensitive information, including employee PII, internal business records, and detailed application security findings, which can result in data breaches and regulatory penalties. Attackers can gain the ability to perform unauthorized write and delete operations on critical systems like CRM, IAM platforms, and underlying infrastructure, potentially leading to data manipulation, account compromise, or denial of service. The most severe impact includes remote code execution on backend servers and the theft of cloud credentials, which can grant attackers pervasive access to an organization's cloud environment, facilitating lateral movement, resource manipulation, and large-scale data exfiltration. The report notes that detection is particularly difficult because unauthorized access often appears as legitimate activity due to baked-in credentials and the lack of explicit authentication failures.\n\n## Recommendation\n\n* **Audit MCP Servers**: Conduct a comprehensive audit to identify all Internet-reachable MCP servers and verify their authentication requirements, as described in the Wiz research.\n* **Implement Authentication**: For any public-facing MCP server, enforce authentication for tool execution, even if the tool catalog remains open. Leverage the OAuth 2.1 support introduced in the March 2025 MCP specification where possible.\n* **Principle of Least Privilege**: Limit the permissions of MCP servers and scope their backend credentials to the absolute minimum required for their intended function to prevent anonymous access to sensitive data or destructive actions.\n* **Enable Agent Logging**: For MCP servers wrapping language-model agents, enable and capture agent prompts and invocation logs, as these are critical artifacts for detecting potential code execution or data exfiltration attempts.\n",
-      "published": "2026-07-28T16:06:01.000Z",
-      "labels": [
-        "AI",
-        "cloud-security",
-        "command-execution",
-        "data-exposure",
-        "unauthenticated-access"
-      ],
-      "object_refs": [
-        "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "attack-pattern--84099a94-eca8-52f4-aa1f-c23c46737607",
-        "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7",
-        "attack-pattern--c2e6b7a7-4d3e-5088-b103-b0a679e94ab5",
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e7f233c0-c38f-52b7-b4f7-3fd0865b1491"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-exposed-mcp-servers",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-exposed-mcp-servers/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.wiz.io/blog/the-risk-hiding-behind-exposed-mcp-servers"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-exposed-mcp-servers",
-      "x_craftedsignal_event_id": "brief-2026-07-exposed-mcp-servers",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-exposed-mcp-servers/",
-      "x_craftedsignal_activity_at": "2026-07-28T16:06:01.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e86ee4a4-59c5-5451-99aa-7492a29ed8fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T16:28:12.000Z",
@@ -24893,12 +24696,6 @@
       "spec_version": "2.1",
       "id": "software--e7a9aec0-827e-5bd6-b906-6261a4d35391",
       "name": "ruby-vips (\u003c 2.2.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e7f233c0-c38f-52b7-b4f7-3fd0865b1491",
-      "name": "Model Context Protocol (MCP) server (protocol version 2024-11-05)"
     },
     {
       "type": "software",

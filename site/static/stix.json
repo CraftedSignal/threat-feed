@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--57347ce7-f5fa-5f6a-8e4e-c6ddbf8b5319",
+  "id": "bundle--52ff0602-f1e5-5058-bb0e-e0459fca1c5e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10208,6 +10208,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9d36ca99-acc8-597b-a259-c408207f7b71",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1903431e-eeef-5f54-9185-d5af9bd24126",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T16:13:19.000Z",
+      "modified": "2026-10-26T16:13:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--056d0929-cdb9-5ef5-a9f3-03bab38fa993",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -29385,6 +29396,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--78d80cad-ff2b-5a00-b498-1650a1dee5e4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T16:13:58.000Z",
+      "modified": "2026-10-26T16:13:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--650bc081-2f82-5396-a9b2-bec6256aedcb",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--78e3e7b4-0a9c-5a91-a41f-8e99ae447228",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32362,6 +32384,17 @@
       "relationship_type": "uses",
       "source_ref": "report--aff3b2c4-866f-5f85-887f-d5e57dd0833d",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--872d5900-ea0e-57aa-a735-575e84794be0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f8ad178d-b6f2-5642-a4d1-5134f66fc32f",
+      "target_ref": "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc"
     },
     {
       "type": "relationship",
@@ -59206,6 +59239,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--056d0929-cdb9-5ef5-a9f3-03bab38fa993",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T16:13:19.000Z",
+      "modified": "2026-10-26T16:13:19.000Z",
+      "name": "GitHub Actions: Residual vulnerabilities in pull_request_target and workflow triggers",
+      "description": "## Overview\nGitHub implemented several security controls throughout 2026 to mitigate 'Pwn request' vulnerabilities, where untrusted fork code could execute with repository secrets. These protections include fork checkout restrictions in `actions/checkout@v7`, read-only cache tokens, and workflow execution policies. However, these controls are not universal and can be bypassed through specific workflow misconfigurations. Vulnerabilities persist in workflows using non-default event triggers, manual git cloning, direct shell interpolation of event context, and persistent artifacts or runner state.\n\n## Attack Chain\n1. Actor submits a malicious pull request to a target repository or comments on an issue to trigger a workflow.\n2. The target repository's CI workflow fires, triggered by `pull_request_target`, `workflow_run`, or `issue_comment`.\n3. The workflow uses an outdated or SHA-pinned version of `actions/checkout` (pre-July 2026) that lacks fork protection, or uses `git` CLI/third-party actions to bypass the protection logic.\n4. The malicious code is checked out or downloaded into the workflow workspace.\n5. The workflow executes the untrusted code or scripts in an environment containing elevated secrets (e.g., `GITHUB_TOKEN`, `DEPLOY_KEY`).\n6. The actor achieves unauthorized code execution, exfiltrating secrets or poisoning downstream build artifacts.\n\n## Impact\nSuccessful exploitation allows attackers to gain code execution within the context of a target repository's CI/CD pipeline. This grants access to repository secrets, enables the exfiltration of sensitive build data, and permits the injection of malicious code into subsequent deployment or release artifacts.\n\n## Recommendation\n- Update all `actions/checkout` references to version v7.0.0 or higher.\n- If using SHA pinning, ensure the pinned SHAs correspond to patched versions (v2.8.0, v3.7.0, v4.4.0, v5.1.0, v6.1.0, or v7.0.0+).\n- Replace direct `git clone`, `gh pr checkout`, or `gh repo clone` commands with approved, hardened checkout actions.\n- Never interpolate event context directly into shell commands; pass all untrusted inputs through environment variables.\n- Implement authorization checks for `issue_comment` and `repository_dispatch` triggers, verifying that the actor has appropriate repository permissions.\n- Transition to ephemeral runners to prevent cross-workflow state poisoning on self-hosted environments.\n",
+      "published": "2026-10-26T16:13:19.000Z",
+      "labels": [
+        "ci-cd",
+        "cloud-security",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e3a37777-8a2a-59da-bbff-d6a1b171186d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-github-actions-pwn-request",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-github-actions-pwn-request/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/github-actions-security-pwn-request-reckoning"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-github-actions-pwn-request",
+      "x_craftedsignal_event_id": "brief-2026-10-26-github-actions-pwn-request",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-github-actions-pwn-request/",
+      "x_craftedsignal_activity_at": "2026-10-26T16:13:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -91148,6 +91225,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--650bc081-2f82-5396-a9b2-bec6256aedcb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T16:13:58.000Z",
+      "modified": "2026-10-26T16:13:58.000Z",
+      "name": "@graphql-tools/utils: Prototype pollution in mergeIncrementalResult",
+      "description": "## Overview\n\nThe `@graphql-tools/utils` package (versions 10.10.1 through 12.0.1) contains a prototype pollution vulnerability in the `mergeIncrementalResult` function. The function incorrectly validates path segments by using strict equality checks (`===`) against forbidden keys like `'__proto__'`, `'constructor'`, and `'prototype'`. Because the function does not verify that these path segments are primitive types (strings or numbers), an attacker can supply an object, such as an array `[\"__proto__\"]`. In JavaScript, this is coerced into the string `\"__proto__\"` during property access, successfully bypassing the protection check and allowing the attacker to write values onto `Object.prototype`. This can lead to authorization bypass, configuration manipulation, or unexpected application behavior in any consuming Node.js process.\n\n## Attack Chain\n\n1. An attacker gains control over, or performs a MITM attack on, an upstream GraphQL subgraph or transport layer.\n2. The attacker crafts a malicious incremental GraphQL response (such as an `@defer` or `@stream` patch).\n3. The attacker sets the `path` field in the response to include a non-primitive, array-based segment: `[[\"__proto__\"], \"maliciousKey\"]`.\n4. The consuming application receives the malicious response and passes it to the public `mergeIncrementalResult` helper.\n5. `mergeIncrementalResult` calls `setObjectKeyPath`, which checks the array `[\"__proto__\"]` against the forbidden strings; the check fails (returning false) because the types do not match, allowing the segment to proceed.\n6. During assignment, `current[key]` triggers `ToPropertyKey` coercion, converting the array to the string `\"__proto__\"`.\n7. The function resolves `Object.prototype` and assigns the attacker's value to the chosen key.\n8. Unrelated objects created subsequently in the Node.js process inherit the polluted property, altering application logic.\n\n## Impact\n\nAn attacker can overwrite properties on `Object.prototype`, potentially impacting global application security controls (e.g., overriding `isAdmin` flags or configuration objects). This effect persists for the lifetime of the Node.js process and applies to all objects instantiated after the pollution event, escaping the scope of the original GraphQL response.\n\n## Recommendation\n\n* Upgrade `@graphql-tools/utils` to a patched version once available, or implement a wrapper to validate that all path segments are strictly primitive strings or numbers before calling `mergeIncrementalResult`.\n* Use `Object.freeze(Object.prototype)` in the consuming Node.js application to mitigate the impact of prototype pollution attempts.\n* Implement runtime input validation on all upstream data sources that provide incremental GraphQL responses.\n",
+      "published": "2026-10-26T16:13:58.000Z",
+      "labels": [
+        "graphql",
+        "prototype-pollution",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0890e38a-bac3-5485-a6b5-266231ec701d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-graphql-tools-prototype-pollution-9385e300",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-graphql-tools-prototype-pollution-9385e300/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-c4qx-w738-7hr3"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-graphql-tools-prototype-pollution-9385e300",
+      "x_craftedsignal_event_id": "brief-2026-10-26-graphql-tools-prototype-pollution-9385e300",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-graphql-tools-prototype-pollution-9385e300/",
+      "x_craftedsignal_activity_at": "2026-10-26T16:13:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6535eb28-d44c-5910-af6c-77b47752108e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T13:38:14.000Z",
@@ -113583,12 +113704,13 @@
       "id": "report--a5cdc5dd-4725-5ee2-a1fd-d4f8462c88f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T17:43:39.000Z",
-      "modified": "2026-10-23T17:43:39.000Z",
+      "modified": "2026-10-26T16:14:36.000Z",
       "name": "PHP: Session Upload Progress Injection (CVE-2026-115560)",
       "description": "Public proof-of-concept exploit code for CVE-2026-115560 has been released on Sploitus. The vulnerability is described as a PHP Session Upload Progress Injection.\n",
       "published": "2026-10-23T17:43:39.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f8ad178d-b6f2-5642-a4d1-5134f66fc32f",
         "vulnerability--58a27c02-5430-5c8d-abc9-e0300af10ffc"
       ],
       "external_references": [
@@ -113596,6 +113718,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-23-php-session-injection",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-php-session-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://socprime.com/blog/cve-2026-115560-new-unpatched-php-rce-risk-requires-immediate-mitigation/"
         },
         {
           "source_name": "reference",
@@ -113609,9 +113735,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-23-php-session-injection",
       "x_craftedsignal_event_id": "brief-2026-10-23-php-session-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-session-injection/",
-      "x_craftedsignal_activity_at": "2026-10-23T17:43:39.000Z",
+      "x_craftedsignal_activity_at": "2026-10-26T16:14:36.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -145576,6 +145702,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0890e38a-bac3-5485-a6b5-266231ec701d",
+      "name": "@graphql-tools/utils (\u003e= 10.10.1, \u003c= 12.0.1)",
+      "vendor": "Ardatan"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--08a0916a-6c47-5d0f-80c6-03bbad7482ef",
       "name": "Molongui Authorship – Author Boxes, Guest Authors \u0026 Co-Authors (\u003c= 5.2.12)",
       "vendor": "Molongui"
@@ -158271,6 +158404,13 @@
       "id": "software--e3a2b4fc-8d21-58c5-8885-f0a7a8383dd6",
       "name": "NooBaa",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e3a37777-8a2a-59da-bbff-d6a1b171186d",
+      "name": "GitHub Actions",
+      "vendor": "GitHub"
     },
     {
       "type": "software",
