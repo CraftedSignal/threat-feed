@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bf89dae0-a2d7-5334-9058-a8fb32dea243",
+  "id": "bundle--b143642b-464f-53d4-885a-5ab5e06fb435",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21074,6 +21074,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5041ce6b-9d76-5aae-af47-1b47929be3a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e38cfdca-d60c-53d9-8e9d-3f099d55f39e",
+      "target_ref": "vulnerability--69d1b8d8-31f4-5095-b377-4c52cb67c64d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--504c5b6b-e8b9-5b8c-ae6f-db25941ce1b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T19:44:16.000Z",
@@ -25579,6 +25590,17 @@
       "modified": "2026-09-28T06:47:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--80e8edda-c89e-5eea-9f08-9db8b89cb334",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--664adfc6-ed89-5312-9742-74f476db7a2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T20:04:35.000Z",
+      "modified": "2026-10-26T20:04:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--11133507-f46c-59f2-a0cb-53ba0bc0d543",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -31586,6 +31608,17 @@
       "relationship_type": "has",
       "source_ref": "software--b2919bc3-3a81-5534-b8e5-264fe2a1ebed",
       "target_ref": "vulnerability--8063ffc5-ad6b-5461-b2bd-fc356b24039b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--82b0625b-426e-5d12-8012-75e0cfab704e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T20:04:35.000Z",
+      "modified": "2026-10-26T20:04:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--11133507-f46c-59f2-a0cb-53ba0bc0d543",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -63230,6 +63263,62 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--11133507-f46c-59f2-a0cb-53ba0bc0d543",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T20:04:35.000Z",
+      "modified": "2026-10-26T20:04:35.000Z",
+      "name": "OpenSTAManager: Authenticated OS Command Injection (CVE-2025-69212)",
+      "description": "## Overview\nCVE-2025-69212 is a critical authenticated remote code execution vulnerability affecting OpenSTAManager versions 2.9.8 and earlier. The flaw resides in the 'plugins/importFE_ZIP/actions.php' file within the 'decodeP7M' function. An attacker with low-privileged access can leverage unsanitized file paths derived from an uploaded ZIP archive to perform OS command injection on the host server.\n\n## Impact\nSuccessful exploitation allows an authenticated attacker to execute arbitrary OS commands with the privileges of the web server process, potentially leading to full system compromise.\n\n## Recommendation\n- Inventory all deployments of OpenSTAManager and identify versions 2.9.8 or earlier.\n- Upgrade OpenSTAManager to a patched version once released by the vendor.\n- Implement strict file upload validation and restrict access to the 'plugins/importFE_ZIP/' directory.\n- Monitor web server access logs for anomalous POST requests directed at 'plugins/importFE_ZIP/actions.php'.\n",
+      "published": "2026-10-26T20:04:35.000Z",
+      "labels": [
+        "rce",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e38cfdca-d60c-53d9-8e9d-3f099d55f39e",
+        "vulnerability--69d1b8d8-31f4-5095-b377-4c52cb67c64d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-openstamanager-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openstamanager-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69212"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:SCANNER-HTTP-OPENSTAMANAGER_CVE_2025_69212_DETECT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KS:SCANNER-HTTP-OPENSTAMANAGER_CVE_2025_69212_DETECT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-openstamanager-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-26-openstamanager-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openstamanager-rce/",
+      "x_craftedsignal_activity_at": "2026-10-26T20:04:35.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01944,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -159856,6 +159945,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e38cfdca-d60c-53d9-8e9d-3f099d55f39e",
+      "name": "OpenSTAManager (\u003c= 2.9.8)",
+      "vendor": "Devcode"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e39779c6-5873-5954-8afe-b2b86ff780a1",
       "name": "Confluence Data Center and Server (\u003c= 11.0.0, \u003c= 10.2.19, \u003c= 9.2.26)",
       "vendor": "Atlassian"
@@ -172782,6 +172878,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112015",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112015"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--69d1b8d8-31f4-5095-b377-4c52cb67c64d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-69212",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-69212",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69212"
         }
       ]
     },
