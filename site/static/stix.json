@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--131ad27b-3566-5623-962b-a693d32076b4",
+  "id": "bundle--699dda99-9236-5a89-be67-3d12b2a1d980",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4230,6 +4230,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--988796a8-dbbd-5663-b745-3447ebe521f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "name": "ip: 193.26.115.221",
+      "description": "Source IP observed in the campaign, associated with AsyncRAT activity and German hosting provider 1337 Services GmbH.",
+      "pattern": "[ipv4-addr:value = '193.26.115.221']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-26T09:54:31.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -4655,6 +4668,19 @@
       "pattern": "[domain-name:value = '*.facebook.net']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e249400a-2d84-5435-ade6-0d0fc35b3e07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "name": "domain: exy.sh",
+      "description": "Infrastructure associated with the hosting provider identified in the campaign.",
+      "pattern": "[domain-name:value = 'exy.sh']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-26T09:54:31.000Z"
     },
     {
       "type": "indicator",
@@ -10549,6 +10575,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1a5d2747-7b65-55f4-b738-3d1f5571e55c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "indicator--988796a8-dbbd-5663-b745-3447ebe521f6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1a5d6be2-21da-5ae2-8ce4-54297b5e08a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T20:32:48.000Z",
@@ -11381,6 +11418,17 @@
       "relationship_type": "has",
       "source_ref": "software--23076e47-96ec-533d-82f8-31c2560c7093",
       "target_ref": "vulnerability--d8238017-c154-5ac8-9a38-96d3ad22796b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1e3521ae-383b-5be6-864d-1a43f8f81011",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a"
     },
     {
       "type": "relationship",
@@ -35178,6 +35226,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9355173e-5304-579d-b6a3-fabbd85ea832",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9365030f-5fb1-5be8-8b1a-a7e54ea237a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T21:23:53.000Z",
@@ -36087,6 +36146,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9d36ca99-acc8-597b-a259-c408207f7b71",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--97a79c4b-54a0-5878-870e-bea7532191a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "indicator--e249400a-2d84-5435-ade6-0d0fc35b3e07"
     },
     {
       "type": "relationship",
@@ -43560,6 +43630,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bbb2c2fe-55ae-5dfd-96d1-1b5610cde59f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bbb6dbda-9bf8-5707-ad1d-236926910981",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46493,6 +46574,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9b7aeca1-5c94-5fab-9b20-7bac8959b1e9",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c91110b4-861a-5f8e-a7b8-40e7d3fd1b5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -113044,6 +113136,58 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00353,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-26T09:54:31.000Z",
+      "name": "Microsoft 365 Adversary-in-the-Middle Token Replay Campaign",
+      "description": "## Overview\nBetween July 14 and September 22, 2026, threat actors conducted a widespread campaign targeting Microsoft 365 users. The attackers utilized Adversary-in-the-Middle (AitM) infrastructure to intercept login credentials and MFA codes, allowing them to capture valid session tokens. These tokens were subsequently replayed to gain access to corporate mailboxes without triggering MFA. The campaign resulted in the compromise of 97 accounts across 79 organizations, with observed persistence mechanisms including the registration of rogue Entra devices and the addition of unauthorized MFA methods.\n\n## Attack Chain\n1. Victims are directed to a malicious AitM login page that proxies communication with legitimate Microsoft services.\n2. The AitM proxy captures the victim's credentials, MFA inputs, and the resulting valid session access token.\n3. Attackers replay the captured access token from their own infrastructure within minutes to hijack active sessions.\n4. Attackers gain unauthorized access to Microsoft 365 services and proceed to establish long-term persistence.\n5. Attackers register rogue Entra devices and add unauthorized authenticator apps to maintain access even after session expiration.\n6. Attackers configure hidden inbox rules to delete or hide sensitive communications (e.g., payroll, bonus) and distribute outbound spam.\n\n## Impact\nThe campaign successfully compromised 97 accounts across 79 organizations. Attackers registered at least 48 fake devices in victim directories and leveraged compromised mailboxes for outbound spam campaigns. Specific inbox rules were used to obfuscate activity and hide incoming financial communications.\n\n## Recommendation\n- Restrict the device-code authentication workflow using Microsoft Entra Conditional Access policies to prevent unauthorized device registration.\n- Audit Microsoft Entra directories for unauthorized or suspicious registered devices.\n- Review and enforce MFA requirements using Conditional Access policies for all users, all cloud apps, and all client app types unconditionally.\n- Implement periodic audits of inbox rules across the environment, specifically searching for rules with minimal naming or obscured characters.\n- Immediately revoke active sessions and reset credentials for any accounts identified with suspicious MFA registration activity.\n",
+      "published": "2026-10-26T09:54:31.000Z",
+      "labels": [
+        "aitm",
+        "cloud-security",
+        "m365",
+        "phishing",
+        "token-theft"
+      ],
+      "object_refs": [
+        "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8",
+        "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a",
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--988796a8-dbbd-5663-b745-3447ebe521f6",
+        "indicator--e249400a-2d84-5435-ade6-0d0fc35b3e07",
+        "software--28ee369c-acac-5afb-81cf-e25224434b7d",
+        "software--d93c17d5-7ee7-5ebf-88c3-3a3e36bc31fd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-m365-token-replay",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-m365-token-replay/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/microsoft-365-token-replay-attacks.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-m365-token-replay",
+      "x_craftedsignal_event_id": "brief-2026-10-26-m365-token-replay",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-m365-token-replay/",
+      "x_craftedsignal_activity_at": "2026-10-26T09:54:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
