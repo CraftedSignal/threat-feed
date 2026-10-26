@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a91a9e42-ca16-58dd-a1f9-3f3a3c6b1be1",
+  "id": "bundle--2b491687-3062-5c12-a079-5dc9d451a7ff",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4853,17 +4853,6 @@
       "relationship_type": "uses",
       "source_ref": "report--714f9cea-3da7-536c-8fdd-60464eaa860e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--321e78a4-d12c-55d9-bc00-23f509c8e33f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T13:24:04.000Z",
-      "modified": "2026-07-28T13:24:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d1502676-25ef-5c25-b085-202356b9194e",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -12586,17 +12575,6 @@
       "relationship_type": "has",
       "source_ref": "software--c1f23673-c1bb-5538-934e-a0622fdb49b3",
       "target_ref": "vulnerability--23bb0d96-97c3-56e6-8769-7298c709c466"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fee74980-1acb-50cc-8cf4-896e0bfc64d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3cd3ed63-2cee-5cc1-92f4-17430e60d14f",
-      "target_ref": "vulnerability--f49c0c1d-4012-56e7-a978-8bebb92a56f4"
     },
     {
       "type": "relationship",
@@ -21959,57 +21937,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d1502676-25ef-5c25-b085-202356b9194e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T13:24:04.000Z",
-      "modified": "2026-07-28T13:24:04.000Z",
-      "name": "CVE-2026-7187: Missing Authentication Vulnerability in Universal Software Inc. UKBS",
-      "description": "## Overview\n\nCVE-2026-7187 describes a critical missing authentication vulnerability affecting Universal Software Inc.'s UKBS product, specifically versions through 2026-07-28. This vulnerability allows an unauthenticated attacker to access and execute critical functions within the UKBS application that are not properly protected by Access Control Lists (ACLs). The exploitation of this flaw could enable unauthorized data manipulation, information disclosure, or other system modifications. The vendor, Universal Software Inc., has explicitly stated that the affected UKBS product is no longer supported, meaning no official patches or security updates will be released to address this vulnerability. This significantly elevates the risk for any organizations still operating exposed UKBS instances, as they remain permanently vulnerable to this high-severity flaw.\n\n## Attack Chain\n\n1. **Reconnaissance**: An attacker identifies internet-facing or internally accessible instances of Universal Software Inc. UKBS within a target environment.\n2. **Vulnerability Identification**: The attacker discovers specific critical function endpoints or APIs within the UKBS application that are susceptible to CVE-2026-7187 due to a lack of proper authentication enforcement.\n3. **Unauthenticated Request**: The attacker crafts and sends a direct HTTP request to the identified critical function endpoint, deliberately omitting any authentication credentials or session tokens.\n4. **Authentication Bypass**: The vulnerable UKBS application fails to perform the necessary authentication checks on the incoming request, allowing it to proceed as if it were from an authenticated user.\n5. **Unauthorized Function Execution**: The UKBS application processes and executes the critical function specified in the unauthenticated request, granting the attacker access to functionality intended only for authorized users.\n6. **ACL Bypass and Impact**: The execution of the critical function bypasses the internal Access Control Lists (ACLs), allowing the attacker to perform operations such as data modification, sensitive information retrieval, or system configuration changes without proper authorization.\n7. **Objective Achievement**: The attacker achieves their objective, which could range from unauthorized data manipulation or exfiltration to further system compromise, leveraging the access gained through the critical function.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-7187 allows an unauthenticated attacker to perform unauthorized actions on affected Universal Software Inc. UKBS instances by accessing critical functionality intended for authenticated users. This can lead to sensitive data exposure, data corruption, unauthorized system configuration changes, or even complete compromise of the application and potentially the underlying system. The severity is compounded by the vendor's declaration that the product is unsupported, meaning organizations with deployed UKBS instances through version 28072026 face a persistent, unpatchable vulnerability. Any organization still using this product is at severe risk, as there is no official fix available.\n\n## Recommendation\n\n* Given the unsupported status, immediately decommission any Universal Software Inc. UKBS instances that are not absolutely essential.\n* For essential UKBS instances, implement strict network segmentation and firewall rules to restrict all external access and limit internal access to only necessary, trusted systems.\n* Configure network intrusion detection/prevention systems (NIDS/NIPS) to monitor for unusual or unauthenticated requests targeting UKBS application endpoints (e.g., suspicious POST/GET requests to known critical paths) and block them.\n* Monitor application logs for Universal Software Inc. UKBS for any unauthenticated access attempts to critical functions or anomalous activity that could indicate successful exploitation.\n",
-      "published": "2026-07-28T13:24:04.000Z",
-      "labels": [
-        "CVE-2026-7187",
-        "UKBS",
-        "missing-authentication",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3cd3ed63-2cee-5cc1-92f4-17430e60d14f",
-        "vulnerability--f49c0c1d-4012-56e7-a978-8bebb92a56f4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-CVE-2026-7187",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-7187/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7187"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0664"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-CVE-2026-7187",
-      "x_craftedsignal_event_id": "brief-2026-07-CVE-2026-7187",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-7187/",
-      "x_craftedsignal_activity_at": "2026-07-28T13:24:04.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d2088cb2-ec71-5d5e-8632-87e446da40ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:43:48.000Z",
@@ -24431,13 +24358,6 @@
       "spec_version": "2.1",
       "id": "software--3be25397-3303-5373-b060-ffbe8e285db4",
       "name": "thin"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3cd3ed63-2cee-5cc1-92f4-17430e60d14f",
-      "name": "UKBS (through 28072026)",
-      "vendor": "Universal Software Inc."
     },
     {
       "type": "software",
@@ -28340,22 +28260,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18255",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18255"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f49c0c1d-4012-56e7-a978-8bebb92a56f4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-7187",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-7187",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7187"
         }
       ]
     },

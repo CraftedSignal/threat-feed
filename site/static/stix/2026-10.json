@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d1c42d61-b9b8-5b44-bca0-044d66f74acb",
+  "id": "bundle--0991cee5-4bbc-5001-ae17-5eabfff1a2c9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -28624,6 +28624,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--83234eb5-eb88-5da4-a751-ecaf697e612a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a4f67279-2d05-51bd-abb9-5a7f96bc9953",
+      "target_ref": "vulnerability--b0f10644-5118-5c55-8be7-9e09934c5f60"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8323f659-70be-504c-a9e6-f19197140afe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T06:09:10.000Z",
@@ -45894,6 +45905,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dfb12bab-4ab6-5c3f-b82d-ecf14b143527",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--df8c0de6-accf-5efe-b93d-755891df5742",
+      "target_ref": "vulnerability--814367cc-adc9-5a75-a430-298e8d248401"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dfb74210-68e0-582a-81fc-aeb8190a5212",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T15:00:35.000Z",
@@ -48673,6 +48695,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3917d3f2-31f9-559b-928d-7a26f680b10b",
       "target_ref": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec7f73ea-4e10-5fac-8602-02a79a5fb3c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T13:41:51.000Z",
+      "modified": "2026-10-26T13:41:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b1fe0958-3e2e-5493-b4ac-cc8a8744ddea",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -52098,6 +52131,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--006171b5-25ff-54bb-819d-dad1700022c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T13:42:14.000Z",
+      "modified": "2026-10-26T13:42:14.000Z",
+      "name": "David Lingren Media Library Assistant: Blind SQL Injection (CVE-2026-115948)",
+      "description": "## Overview\n\nDavid Lingren Media Library Assistant is affected by a Blind SQL Injection vulnerability (CVE-2026-115948). The vulnerability involves the improper neutralization of special elements used in an SQL command. The affected versions range from n/a through 3.42.",
+      "published": "2026-10-26T13:42:14.000Z",
+      "labels": [
+        "sql-injection",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a4f67279-2d05-51bd-abb9-5a7f96bc9953",
+        "vulnerability--b0f10644-5118-5c55-8be7-9e09934c5f60"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-media-library-assistant-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-media-library-assistant-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115948"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-media-library-assistant-sqli",
+      "x_craftedsignal_event_id": "brief-2026-10-26-media-library-assistant-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-media-library-assistant-sqli/",
+      "x_craftedsignal_activity_at": "2026-10-26T13:42:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -106180,6 +106258,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b1fe0958-3e2e-5493-b4ac-cc8a8744ddea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T13:41:51.000Z",
+      "modified": "2026-10-26T13:41:51.000Z",
+      "name": "Frappe Builder: Server-side request forgery (CVE-2026-115717)",
+      "description": "## Overview\nFrappe Builder versions prior to 1.36.1 are affected by a server-side request forgery (SSRF) vulnerability. The 'convert_to_webp' API endpoint fails to enforce necessary access controls and does not properly validate user-supplied URLs. An attacker with low-privilege authentication can trigger arbitrary GET requests from the server, which follows redirects without validating destination IPs. This can be exploited to reach internal network resources or cloud metadata services. The application may store the resulting image response in a world-readable file, facilitating data exfiltration.\n\n## Impact\nSuccessful exploitation allows authenticated low-privilege users to perform internal network reconnaissance or access sensitive cloud metadata services. Potential data exfiltration may occur if the server-side response is stored in an accessible public file.\n\n## Recommendation\n- Upgrade Frappe Builder to version 1.36.1 or later to apply necessary access controls and URL validation to the 'convert_to_webp' endpoint.\n- Review access logs for the 'convert_to_webp' endpoint to identify patterns of abnormal internal network probing.\n- Restrict the server's egress traffic to internal network ranges or cloud metadata endpoints (e.g., 169.254.169.254).\n",
+      "published": "2026-10-26T13:41:51.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--df8c0de6-accf-5efe-b93d-755891df5742",
+        "vulnerability--814367cc-adc9-5a75-a430-298e8d248401"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-frappe-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-frappe-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115717"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-frappe-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-10-26-frappe-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-frappe-ssrf/",
+      "x_craftedsignal_activity_at": "2026-10-26T13:41:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b2454df6-d6c2-5ef6-9c68-1a435956a6dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:43:28.000Z",
@@ -108206,6 +108325,45 @@
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_epss_max": 0.00332,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b8f1bd55-b9fa-5c02-8be5-fe631a4ee121",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T13:41:58.000Z",
+      "modified": "2026-10-26T13:41:58.000Z",
+      "name": "libimobiledevice: AFC Service double-free vulnerability (CVE-2026-116260)",
+      "description": "A weakness has been identified in libimobiledevice up to 1.4.0. This issue affects the function service_receive of the file src/afc.c of the component AFC Service. Executing a manipulation can lead to a double free. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond.\n",
+      "published": "2026-10-26T13:41:58.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a65b56d7-d2fd-5426-8c49-a707711b1ef9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-libimobiledevice-double-free",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-libimobiledevice-double-free/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116260"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-libimobiledevice-double-free",
+      "x_craftedsignal_event_id": "brief-2026-10-26-libimobiledevice-double-free",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-libimobiledevice-double-free/",
+      "x_craftedsignal_activity_at": "2026-10-26T13:41:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -139573,6 +139731,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a4f67279-2d05-51bd-abb9-5a7f96bc9953",
+      "name": "Media Library Assistant (n/a through 3.42)",
+      "vendor": "David Lingren"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a5151b2c-7943-5e1a-8cbc-7aaacd2e749b",
       "name": "Telegram Desktop (\u003c= 7.2.8)",
       "vendor": "Telegram"
@@ -142378,6 +142543,13 @@
       "id": "software--df8b1049-3b35-5f49-bb5d-957201d926f6",
       "name": "Multi Model Server (\u003c= 1.1.11)",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--df8c0de6-accf-5efe-b93d-755891df5742",
+      "name": "Frappe Builder (\u003c 1.36.1)",
+      "vendor": "Frappe"
     },
     {
       "type": "software",
@@ -155859,6 +156031,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--814367cc-adc9-5a75-a430-298e8d248401",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115717",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115717",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115717"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8144f56f-19d9-56c1-9d77-2191d564c70d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -159507,6 +159695,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a65b56d7-d2fd-5426-8c49-a707711b1ef9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116260",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116260",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116260"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a698c3a6-5d79-5526-a5b7-f807136fc435",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -160445,6 +160649,22 @@
           "source_name": "cve",
           "external_id": "CVE-2021-48016",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48016"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b0f10644-5118-5c55-8be7-9e09934c5f60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115948",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115948",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115948"
         }
       ]
     },
