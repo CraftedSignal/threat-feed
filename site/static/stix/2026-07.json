@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--54004848-efc1-5526-87c8-0406d1389291",
+  "id": "bundle--5e7f3700-a9e0-525e-98aa-187519279e89",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1237,22 +1237,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Steal Application Access Token",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1528",
-          "url": "https://attack.mitre.org/techniques/T1528"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2355,18 +2339,6 @@
       "pattern": "[url:value = 'https://xenbits.xen.org/xsa/advisory-501.html']",
       "pattern_type": "stix",
       "valid_from": "2026-07-29T13:54:17.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--ad075180-b169-5588-9771-42d44a995c3d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:41:25.000Z",
-      "modified": "2026-07-28T16:41:25.000Z",
-      "name": "domain: attacker.com",
-      "pattern": "[domain-name:value = 'attacker.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-28T16:41:25.000Z"
     },
     {
       "type": "indicator",
@@ -4448,17 +4420,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1ad14bf6-422f-5af9-ad18-8ba514bcde44",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2dfb67b0-f3d8-5be1-b1e0-a3bc10408891",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ac120132-a067-5486-8611-03a0ed94e3d8",
-      "target_ref": "vulnerability--1660ae8c-074a-58b9-9610-65282b77eff7"
     },
     {
       "type": "relationship",
@@ -7103,17 +7064,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7813fab7-71d5-5b85-b925-54444fb32be0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:28:12.000Z",
-      "modified": "2026-07-28T16:28:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e86ee4a4-59c5-5451-99aa-7492a29ed8fd",
-      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--7842a44b-e0d2-54dc-814b-e0ca85de3a71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:00:05.000Z",
@@ -7407,17 +7357,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6a551507-f390-5774-a9ac-0e12a98d300e",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7e59905c-75a3-56c1-a151-d3a8412c4115",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--66a2585a-7401-53d8-adfc-e4d033d27ed5",
-      "target_ref": "vulnerability--2bd981a3-4937-5e27-9203-50e06109a8c2"
     },
     {
       "type": "relationship",
@@ -8056,17 +7995,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8775b60a-729c-50e3-a523-7dff06104df2",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9113915b-02ed-5e4b-bb6c-7d501f875eb9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:38:03.000Z",
-      "modified": "2026-07-28T16:38:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fc8c02ea-e981-511d-8b8c-a427f2020ded",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
     },
     {
       "type": "relationship",
@@ -9303,17 +9231,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b4303d2e-2dea-550b-b4a7-ef467136dad9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:41:25.000Z",
-      "modified": "2026-07-28T16:41:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8d0a6787-94b2-5544-ac8e-1d739b906b45",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b44d4749-a8f9-56da-b14f-a6d530f37aae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:05:39.000Z",
@@ -9490,17 +9407,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b936eac7-bc3f-5323-9f4f-37a1e7761d71",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:38:03.000Z",
-      "modified": "2026-07-28T16:38:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fc8c02ea-e981-511d-8b8c-a427f2020ded",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b9bf1db7-7820-5989-a9c1-67c6064563e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9585,17 +9491,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0d774616-cdbc-5a0c-8e74-c09c65aabc9b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bb9927e0-644a-5929-9314-aaf9f3d720ce",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:41:25.000Z",
-      "modified": "2026-07-28T16:41:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8d0a6787-94b2-5544-ac8e-1d739b906b45",
-      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
     },
     {
       "type": "relationship",
@@ -9798,17 +9693,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c2c36d6e-14b8-59bd-9574-f9034b129d84",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:41:25.000Z",
-      "modified": "2026-07-28T16:41:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8d0a6787-94b2-5544-ac8e-1d739b906b45",
-      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c2cead16-61f6-5947-b39d-f08858bde146",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9871,17 +9755,6 @@
       "relationship_type": "uses",
       "source_ref": "report--78a8e2dc-1671-5596-a031-0d491713c7cd",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c4968f76-5a7c-5b48-90fc-93fb50965827",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:28:12.000Z",
-      "modified": "2026-07-28T16:28:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e86ee4a4-59c5-5451-99aa-7492a29ed8fd",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
     },
     {
       "type": "relationship",
@@ -10513,28 +10386,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d56a228e-defc-5d9b-9f99-a21e47c78ee1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0fc00f1e-485e-5b2d-b748-c9ca18cf99d4",
-      "target_ref": "vulnerability--2bd981a3-4937-5e27-9203-50e06109a8c2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d60981a8-15fe-5d80-9049-7b4e65b970ec",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T17:02:19.000Z",
-      "modified": "2026-07-28T17:02:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f473bfca-87b9-52d9-95eb-14a0e32c6d42",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d6aea81c-c784-51c9-9771-3f4196d62e25",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10850,17 +10701,6 @@
       "relationship_type": "has",
       "source_ref": "software--4648467d-11ba-525e-919a-c848316b9e79",
       "target_ref": "vulnerability--3b7b8f7e-4cca-598c-baef-bd71948605bb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--de68a840-ff13-58d0-b5a1-70910b1d7597",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:28:12.000Z",
-      "modified": "2026-07-28T16:28:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e86ee4a4-59c5-5451-99aa-7492a29ed8fd",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -11283,17 +11123,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e9198ade-491d-5172-b331-98e0db996695",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T17:02:19.000Z",
-      "modified": "2026-07-28T17:02:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f473bfca-87b9-52d9-95eb-14a0e32c6d42",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e979e49a-7417-5133-a945-fd2668a9316e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T17:22:09.000Z",
@@ -11587,17 +11416,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ba5f8aa5-fd97-503a-8fa3-55dad3a098de",
       "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f20c8677-e9f1-535a-a348-35d4097455c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:41:25.000Z",
-      "modified": "2026-07-28T16:41:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8d0a6787-94b2-5544-ac8e-1d739b906b45",
-      "target_ref": "indicator--ad075180-b169-5588-9771-42d44a995c3d"
     },
     {
       "type": "relationship",
@@ -15791,57 +15609,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5e3d01c1-28f9-5477-8292-64915225e06b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:22:02.000Z",
-      "modified": "2026-10-20T00:30:03.000Z",
-      "name": "HTTP Request Smuggling Vulnerability in tiny-http CVE-2026-66752",
-      "description": "## Overview\n\nA remote attacker can exploit CVE-2026-66752, an HTTP request smuggling vulnerability present in tiny-http versions through 0.12.0. This flaw allows an attacker to manipulate how the tiny-http server interprets HTTP requests, particularly when it is behind a front-end proxy that correctly handles HTTP framing. By sending a `Transfer-Encoding` header with any value, even non-chunked ones, the tiny-http library incorrectly applies chunk-decoding and discards the `Content-Length` header. This discrepancy in parsing leads to desynchronization of request framing between the proxy and the vulnerable server, enabling request smuggling attacks. Furthermore, attackers can trigger failed body reads by sending non-chunked bodies with specific `Transfer-Encoding` values, which can exhaust server resources by tying up connections and consuming worker threads without notifying clients, effectively leading to a denial of service.\n\n## Attack Chain\n\n1. Attacker identifies a web server running tiny-http (version 0.12.0 or earlier) potentially behind a reverse proxy or load balancer.\n2. Attacker crafts an HTTP request containing a `Transfer-Encoding` header set to a non-chunked value (e.g., `Transfer-Encoding: invalid-encoding`).\n3. The request also includes a `Content-Length` header for the initial part of the request.\n4. The front-end proxy correctly processes the `Transfer-Encoding` and `Content-Length` headers according to HTTP specifications and forwards the byte stream to the tiny-http server.\n5. The vulnerable tiny-http server, upon receiving the `Transfer-Encoding` header, unconditionally attempts to apply chunk-decoding and discards the `Content-Length` value.\n6. This misinterpretation causes a desynchronization in request framing between the proxy and the tiny-http server, allowing the tiny-http server to incorrectly interpret subsequent legitimate requests as part of the attacker's initial request (request smuggling).\n7. Alternatively, sending a non-chunked body with the specific `Transfer-Encoding` value can trigger failed body reads.\n8. These failed reads exhaust server resources by tying up connections and consuming worker threads, resulting in a denial of service for legitimate users.\n\n## Impact\n\nThe primary impact of this vulnerability is HTTP request smuggling, which can lead to various further attacks such as bypassing security controls (e.g., WAFs, access controls), cache poisoning, and session hijacking. Additionally, the vulnerability can be exploited for denial of service (DoS), as failed body reads can consume server resources, leading to connection exhaustion and worker thread starvation without providing error feedback to clients. This can render the affected tiny-http based applications unavailable to legitimate users.\n\n## Recommendation\n\n* Upgrade all instances of tiny-http to a version patched against CVE-2026-66752 immediately to prevent exploitation.\n* Review web server and proxy configurations to ensure they strictly adhere to RFC specifications for HTTP header parsing and request framing, especially concerning `Transfer-Encoding` and `Content-Length` headers, to mitigate HTTP request smuggling risks.\n",
-      "published": "2026-07-28T16:22:02.000Z",
-      "labels": [
-        "denial-of-service",
-        "http-request-smuggling",
-        "vulnerability",
-        "webserver"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ac120132-a067-5486-8611-03a0ed94e3d8",
-        "vulnerability--1660ae8c-074a-58b9-9610-65282b77eff7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-tiny-http-request-smuggling",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-tiny-http-request-smuggling/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66752"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-THEOPAID-CVE-2026-66752-HTTP-REQUEST-SMUGGLING-VIA-UNPARSED-TRANSFER-ENCODING-VALUES-TINY_HTTP-\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-tiny-http-request-smuggling",
-      "x_craftedsignal_event_id": "brief-2026-07-tiny-http-request-smuggling",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-tiny-http-request-smuggling/",
-      "x_craftedsignal_activity_at": "2026-10-20T00:30:03.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.4,
-      "x_craftedsignal_epss_max": 0.00329,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--5f8d6cee-ef53-5b1e-aa67-5ac8ba2d5cf9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:31:46.000Z",
@@ -17594,60 +17361,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00428,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--8d0a6787-94b2-5544-ac8e-1d739b906b45",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:41:25.000Z",
-      "modified": "2026-07-28T16:41:25.000Z",
-      "name": "Poweradmin Vulnerable to Host Header Injection in Authentication Redirects",
-      "description": "## Overview\n\nA critical Host Header Injection vulnerability, tracked as CVE-2026-54588, has been identified in Poweradmin versions prior to 4.2.4 and from 4.3.0 through 4.3.2. This flaw arises because Poweradmin dynamically constructs callback URLs for its OpenID Connect (OIDC), SAML, and logout authentication processes using the attacker-controlled `HTTP_HOST` request header without proper validation. An unauthenticated attacker can exploit this by sending a specially crafted request with a spoofed `Host` header, causing the Identity Provider (IdP) to redirect a victim's authorization code to an attacker-controlled server. This enables full account takeover without requiring credentials. If the compromised Poweradmin account possesses administrative privileges, attackers can gain full control over DNS zones, leading to severe consequences such as MX hijacking, SPF/DKIM manipulation, subdomain takeovers, and SSL certificate theft.\n\n## Attack Chain\n\n1. Attacker identifies a vulnerable Poweradmin instance (version \u003c 4.2.4 or \u003e= 4.3.0 and \u003c 4.3.3).\n2. Attacker crafts an HTTP request to Poweradmin, spoofing the `Host` header (e.g., `Host: attacker.com`) and potentially `X-Forwarded-Proto`.\n3. Poweradmin's OIDC service (`OidcService::getCallbackUrl()`), or SAML/Logout services, uses the spoofed `Host` header to construct a malicious `redirect_uri` (e.g., `http://attacker.com/oidc/callback`).\n4. Poweradmin then initiates an OAuth 2.0 authorization request, redirecting the victim's browser to the legitimate Identity Provider (IdP) with the malicious `redirect_uri` embedded.\n5. The victim authenticates successfully with the IdP.\n6. The IdP, trusting the `redirect_uri` provided by Poweradmin, redirects the victim's authorization code to the attacker-controlled server (e.g., `attacker.com/oidc/callback`).\n7. The attacker's server captures the authorization code and exchanges it with the IdP for an access token.\n8. The attacker uses the stolen access token to gain full authenticated access to the victim's Poweradmin account, achieving full account takeover.\n\n## Impact\n\nThe direct impact of this vulnerability is full account takeover of any user in Poweradmin by an unauthenticated attacker. This requires no prior credentials, malware, or existing access. In configurations where Poweradmin serves as the DNS management system, a compromised administrator account grants full control over DNS zones. This can lead to critical consequences, including MX record hijacking (redirecting all inbound email to attacker's servers for intercepting password resets and 2FA codes), manipulation of SPF/DKIM records (enabling spoofed, cryptographically authenticated emails), subdomain takeovers, and SSL certificate theft. The CVSS 3.1 score ranges from 8.2 (High) for standard deployments to 9.3 (Critical) if a misconfigured reverse proxy propagates the spoofed host header.\n\n## Recommendation\n\n* Immediately patch CVE-2026-54588 by upgrading Poweradmin to version 4.2.4 or 4.3.3 or newer.\n* As an immediate mitigation for CVE-2026-54588, set the `interface.base_url` parameter in `config/settings.php` to your legitimate Poweradmin URL. This activates a safe branch in `SamlConfigurationService`.\n* Implement filtering or validation of the `Host` header at the web server or reverse proxy level to ensure it only accepts requests for expected domain names, especially for applications like Poweradmin that handle authentication.\n* Block the indicator `attacker.com` at your network perimeter, including DNS resolvers, web application firewalls, and proxy servers.\n",
-      "published": "2026-07-28T16:41:25.000Z",
-      "labels": [
-        "account-takeover",
-        "dns-hijacking",
-        "host-header-injection",
-        "oidc",
-        "saml",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
-        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--ad075180-b169-5588-9771-42d44a995c3d",
-        "software--0fc00f1e-485e-5b2d-b748-c9ca18cf99d4",
-        "software--66a2585a-7401-53d8-adfc-e4d033d27ed5",
-        "vulnerability--2bd981a3-4937-5e27-9203-50e06109a8c2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-poweradmin-host-header-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-poweradmin-host-header-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-3735-5339-xfwx"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-poweradmin-host-header-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-poweradmin-host-header-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-poweradmin-host-header-injection/",
-      "x_craftedsignal_activity_at": "2026-07-28T16:41:25.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.6,
-      "x_craftedsignal_epss_max": 0.00312,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -21755,63 +21468,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e86ee4a4-59c5-5451-99aa-7492a29ed8fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:28:12.000Z",
-      "modified": "2026-07-28T16:28:12.000Z",
-      "name": "Cross-origin OAuth token-request redirects can expose signed request metadata",
-      "description": "## Overview\n\nThe `oauth` Ruby gem, specifically versions 0.5.5 through 1.1.5, contains a critical vulnerability (CVE-2026-54605) in its `OAuth::Consumer#token_request` method. This flaw allows for cross-origin signed-request disclosure, Server-Side Request Forgery (SSRF), and confused-deputy behavior. When an application uses the gem to request OAuth 1.0 tokens, the `token_request` helper follows HTTP 3xx redirects. If an attacker can control or compromise an OAuth server to return a redirect to a malicious host, the vulnerable gem will re-sign the original token request, including sensitive OAuth 1.0 metadata like `oauth_consumer_key`, `oauth_signature`, `oauth_nonce`, and `oauth_timestamp`, and send it to the attacker-controlled endpoint. This also exposes the application server's network position, enabling SSRF attacks against internal or external targets, and can force the application to make signed requests to unintended origins, leading to confused-deputy scenarios. The vulnerability is due to improper parsing of the `Location` header, lack of redirect limits, and recursive handling of cross-host redirects that mutate the consumer's configured `site`. Patching to version 1.1.6 or later is recommended.\n\n## Attack Chain\n\n1. An application, using the vulnerable `oauth` Ruby gem (v0.5.5-1.1.5), initiates an OAuth 1.0 token request (e.g., `OAuth::Consumer#get_request_token` or `OAuth::Consumer#get_access_token`) to a legitimate OAuth provider.\n2. The OAuth provider's token endpoint, either compromised or influenced by an attacker, responds with an HTTP 3xx redirect. This redirect's `Location` header points to an attacker-controlled domain (e.g., `https://attacker.example/...`).\n3. The vulnerable `OAuth::Consumer#token_request` method in the `oauth` gem automatically parses the `Location` header, modifies the consumer's `site` configuration to the attacker's domain, and rebuilds its internal HTTP client.\n4. The `oauth` gem then recursively attempts the token request, this time targeting the attacker-controlled `site` but still using the application's legitimate OAuth 1.0 consumer key and secrets to sign the request.\n5. The application server makes an outbound network connection, sending the newly signed OAuth 1.0 token request, which now includes sensitive parameters like `oauth_consumer_key`, `oauth_signature`, `oauth_nonce`, and `oauth_timestamp`, to the attacker-controlled host.\n6. The attacker receives this signed request, gaining access to sensitive integration metadata and potentially discovering internal network services via Server-Side Request Forgery (SSRF) if the attacker's endpoint is crafted to target internal resources from the application server's network position.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-54605 can result in three main security property losses: **cross-origin signed-request metadata disclosure**, **Server-Side Request Forgery (SSRF) from the application server**, and **confused-deputy behavior**. Attackers can receive sensitive OAuth 1.0 parameters such as `oauth_consumer_key`, `oauth_signature_method`, `oauth_timestamp`, `oauth_nonce`, `oauth_version`, and `oauth_signature`. While the disclosed OAuth 1 signature is bound to the signed request and not a reusable bearer token, it still exposes sensitive integration metadata. SSRF allows the attacker to use the application server's network position to access internal network resources or other targets. Confused-deputy behavior enables a malicious or compromised token endpoint to cause the trusted application to initiate signed requests to unintended origins, potentially granting the attacker unauthorized access or control.\n\n## Recommendation\n\n* Patch the `oauth` Ruby gem to version 1.1.6 or later immediately to address CVE-2026-54605.\n* Ensure configured OAuth token endpoints are fixed absolute URLs controlled by a trusted provider, as described in the \"Workarounds\" section in the source advisory.\n* Avoid using tenant-controlled OAuth token endpoint URLs unless the tenant is fully trusted, as outlined in the \"Workarounds\" section in the source advisory.\n* Implement network egress filtering to block outbound application-server traffic to internal metadata services and other sensitive internal addresses, particularly for services interacting with the `oauth` gem.\n* Deploy a trusted proxy in front of OAuth providers that explicitly rejects token endpoint redirects to different origins, as described in the \"Workarounds\" section in the source advisory.\n",
-      "published": "2026-07-28T16:28:12.000Z",
-      "labels": [
-        "gem",
-        "oauth",
-        "ruby",
-        "ssrf",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--667d3e6d-fb9e-52b6-a3c3-b70dd78fa566"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-oauth-cross-origin-redirect",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-oauth-cross-origin-redirect/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-prq8-7wvh-44qh"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/ruby-oauth/oauth/commit/d74b767f"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/ruby-oauth/oauth2/security/advisories/GHSA-pp92-crg2-gfv9"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-oauth-cross-origin-redirect",
-      "x_craftedsignal_event_id": "brief-2026-07-oauth-cross-origin-redirect",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-oauth-cross-origin-redirect/",
-      "x_craftedsignal_activity_at": "2026-07-28T16:28:12.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e881f28b-a78a-5b9e-9f81-d6a17de24257",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:37:25.000Z",
@@ -22243,52 +21899,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f473bfca-87b9-52d9-95eb-14a0e32c6d42",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T17:02:19.000Z",
-      "modified": "2026-07-28T17:02:19.000Z",
-      "name": "SIPSorcery: Malformed UDP Packet Can Remotely Terminate Media Sessions (DoS)",
-      "description": "## Overview\n\nA high-severity denial-of-service vulnerability, tracked as CVE-2026-54632, affects versions of the SIPSorcery NuGet package up to and including 10.0.8. An unauthenticated attacker can exploit this flaw by sending a single malformed UDP packet to a vulnerable SIPSorcery RTP/ICE socket. The vulnerability stems from inadequate length checks when processing packet data and STUN attributes, which can lead to runtime exceptions such as `IndexOutOfRangeException` or `NullReferenceException`. Crucially, the UDP receive loop in `UdpReceiver.EndReceiveFrom` incorrectly responds to these exceptions by closing the entire channel rather than merely discarding the problematic packet. This systemic flaw allows a single, small, unauthenticated packet to terminate an active RTP or WebRTC media session, causing a Denial of Service. The issue is reachable during ICE connectivity checks, even before DTLS handshakes or STUN `MESSAGE-INTEGRITY` verification.\n\n## Attack Chain\n\n1. An attacker crafts a specially malformed UDP packet (e.g., a 1-byte packet or a STUN message with a short `XOR-MAPPED-ADDRESS` attribute length of 0-7 bytes).\n2. The attacker sends this malformed UDP packet to the target SIPSorcery RTP/ICE socket, whose port is typically advertised during ICE candidate exchange.\n3. The SIPSorcery application's `UdpReceiver` receives the packet and passes it for processing to `RTPChannel.OnRTPPacketReceived` or `STUNAttribute.ParseMessageAttributes`.\n4. Due to insufficient length validation in these parsing routines, the application attempts to index untrusted bytes beyond the packet's bounds or with null values, leading to an `IndexOutOfRangeException` or `NullReferenceException`.\n5. The `UdpReceiver.EndReceiveFrom` method, which manages the UDP receive loop, catches this application exception within a general `catch-all` block.\n6. Instead of logging the error, dropping the malformed packet, and continuing the receive loop, the `catch-all` block incorrectly invokes `Close()`.\n7. The invocation of `Close()` forcefully tears down the active RTP or WebRTC media session channel, resulting in a complete Denial of Service for the affected communication.\n\n## Impact\n\nThe primary impact of CVE-2026-54632 is a complete Denial of Service for active RTP or WebRTC media sessions utilizing vulnerable SIPSorcery instances. A single, small, unauthenticated malformed UDP packet is sufficient to terminate an ongoing session. There is no observed loss of confidentiality or integrity. While exposure is lower for blind off-path attackers who must first discover ephemeral ports, peer or on-path attackers can easily exploit this vulnerability. Organizations relying on SIPSorcery for VoIP, WebRTC, or other media communication could experience significant service disruptions, failed calls, and communication outages.\n\n## Recommendation\n\n* Upgrade the `SIPSorcery` NuGet package to version `10.0.9` or later immediately to patch CVE-2026-54632.\n* As a temporary workaround for CVE-2026-54632, restrict access to the RTP/ICE port at the network layer to only known and trusted peers.\n",
-      "published": "2026-07-28T17:02:19.000Z",
-      "labels": [
-        "denial-of-service",
-        "nuget",
-        "sipsorcery",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c4f6f486-d706-53ed-bcbe-c4f63bb899c9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-sipsorcery-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-sipsorcery-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-28gm-jrmw-xx93"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-sipsorcery-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-sipsorcery-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-sipsorcery-dos/",
-      "x_craftedsignal_activity_at": "2026-07-28T17:02:19.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f4c0601c-60bb-5d8f-9a64-d319aa157905",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:05:39.000Z",
@@ -22659,52 +22269,6 @@
       "x_craftedsignal_kev_status": "unknown"
     },
     {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--fc8c02ea-e981-511d-8b8c-a427f2020ded",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T16:38:03.000Z",
-      "modified": "2026-07-28T16:38:03.000Z",
-      "name": "QTINeon NeonRelay Unauthenticated Denial-of-Service Amplification Vulnerability",
-      "description": "## Overview\n\nA high-severity denial-of-service amplification vulnerability, identified as CVE-2026-54609, exists within the `NeonRelay` component of QTINeon across its Java, Python, and TypeScript implementations (all versions 1.0.0). This flaw allows an unauthenticated attacker to leverage the relay to overwhelm a connected host by sending specially crafted `RECONNECT_REQUEST` packets. The relay's reconnect handler forwards these requests to the host without proper deduplication or size limitations on its `pendingReconnects` map, unlike the existing safeguards in the connect flow. An attacker, knowing a valid session ID, can send numerous `RECONNECT_REQUEST` packets with spoofed source IP addresses. Each unique spoofed IP receives a fresh token bucket, rendering the per-source rate limiter ineffective and turning the relay into a potent DoS amplification vector against the backend host. Furthermore, the handling of an excessive number of spoofed IPs can lead to the clearing of legitimate rate limit states, exacerbating the impact.\n\n## Attack Chain\n\n1. An unauthenticated attacker identifies a target QTINeon NeonRelay instance and obtains a valid session ID.\n2. The attacker crafts numerous `RECONNECT_REQUEST` packets, each originating from a different, spoofed source IP address.\n3. These spoofed `RECONNECT_REQUEST` packets are sent to the vulnerable `NeonRelay` instance.\n4. The `NeonRelay` instance receives the packets and, due to the vulnerability, forwards each unique `sessionId:clientId` key (from a new spoofed source) to the backend host without checking for existing pending reconnects or enforcing a size cap.\n5. Each forwarded packet triggers a new reconnect attempt on the host, consuming its resources for processing these requests.\n6. As the number of spoofed IPs exceeds `maxRateLimiters`, the relay's `performCleanup` function clears all rate limiting states, including for legitimate clients, leading to further resource exhaustion and potential service disruption.\n7. The host becomes overwhelmed, leading to a denial-of-service condition for legitimate users, with the relay acting as an amplification point.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-54609 enables an unauthenticated attacker to execute a denial-of-service attack against the backend host connected via the vulnerable `NeonRelay`. The amplification nature of the vulnerability means a relatively small number of attacker-initiated packets can generate a large volume of traffic and processing load on the target host. This can lead to resource exhaustion, degradation of service, or complete unavailability for legitimate users. The vulnerability also poses a secondary risk where the clearing of all rate limit states can reset protections for legitimate traffic, making the host more susceptible to other forms of attack or simple overload. Given the relay's design prevents direct client exposure to the host's real address, this amplification path is the primary DoS vector. All three implementations of `NeonRelay` (Java, Python, TypeScript) are affected.\n\n## Recommendation\n\n* Implement network-level filtering to drop packets with spoofed source addresses (BCP38/uRPF) to partially mitigate the amplification path.\n* Monitor for an unusually high volume of `RECONNECT_REQUEST` packets or a rapid increase in the number of unique source IPs attempting to reconnect through the `NeonRelay` component.\n* Apply patches for CVE-2026-54609 immediately once they become available from QuietTerminal for all affected `qti-neon` versions across Java, Python, and TypeScript implementations.\n* If possible, implement application-level rate limiting on the number of unique `sessionId:clientId` reconnect attempts processed by the `NeonRelay` to prevent the `pendingReconnects` map from growing unbounded as referenced in CVE-2026-54609.\n",
-      "published": "2026-07-28T16:38:03.000Z",
-      "labels": [
-        "amplification",
-        "denial-of-service",
-        "network",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--be88fdda-031a-56cc-a9d8-68b9dde0f35b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-qtineon-unauthenticated-relay-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-qtineon-unauthenticated-relay-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-85rg-p3fr-xc2f"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-qtineon-unauthenticated-relay-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-qtineon-unauthenticated-relay-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-qtineon-unauthenticated-relay-dos/",
-      "x_craftedsignal_activity_at": "2026-07-28T16:38:03.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
       "type": "software",
       "spec_version": "2.1",
       "id": "software--009f3067-1ab0-5e58-81d4-0af3bf5a6d88",
@@ -22826,13 +22390,6 @@
       "spec_version": "2.1",
       "id": "software--0cc774ff-4d92-5a37-ba3b-918202b53066",
       "name": "mongrel_rails"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0fc00f1e-485e-5b2d-b748-c9ca18cf99d4",
-      "name": "Poweradmin (\u003e= 4.3.0, \u003c 4.3.3)",
-      "vendor": "Poweradmin"
     },
     {
       "type": "software",
@@ -23526,20 +23083,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--667d3e6d-fb9e-52b6-a3c3-b70dd78fa566",
-      "name": "oauth (\u003e= 0.5.5, \u003c= 1.1.5)",
-      "vendor": "ruby-oauth"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--66a2585a-7401-53d8-adfc-e4d033d27ed5",
-      "name": "Poweradmin (\u003c 4.2.4)",
-      "vendor": "Poweradmin"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--676cff85-ba8f-5229-9ad5-02d2fa60affc",
       "name": "TinyWeb 0.0.8"
     },
@@ -24116,13 +23659,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ac120132-a067-5486-8611-03a0ed94e3d8",
-      "name": "tiny-http \u003c= 0.12.0 (\u003c= 0.12.0)",
-      "vendor": "tiny-http"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ad07df1c-8c1a-54e8-811d-6e6df081ce79",
       "name": "PHP 8.3"
     },
@@ -24309,13 +23845,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--be88fdda-031a-56cc-a9d8-68b9dde0f35b",
-      "name": "qti-neon = 1.0.0",
-      "vendor": "QuietTerminal"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--bfdf393f-2e68-5ba5-aaaa-84b5313865ff",
       "name": "CHARX SEC-3150",
       "vendor": "Phoenix Contact"
@@ -24370,13 +23899,6 @@
       "spec_version": "2.1",
       "id": "software--c46c1a08-a565-509e-9204-cd0eba507dac",
       "name": "swagger-typescript-api (\u003c= 13.12.1)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c4f6f486-d706-53ed-bcbe-c4f63bb899c9",
-      "name": "SIPSorcery (\u003c= 10.0.8)",
-      "vendor": "SIPSorcery"
     },
     {
       "type": "software",
@@ -25043,22 +24565,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--1660ae8c-074a-58b9-9610-65282b77eff7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-66752",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-66752",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66752"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--16cd9d38-2496-5fd7-b2f5-8daa15099d7b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25245,22 +24751,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-66066",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66066"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2bd981a3-4937-5e27-9203-50e06109a8c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-54588",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-54588",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54588"
         }
       ]
     },
