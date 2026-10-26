@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6ea4f634-de64-5919-bad5-e00333b3de8f",
+  "id": "bundle--8a1af514-ea29-59e6-b8e8-a2672447b2bc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6130,6 +6130,17 @@
       "relationship_type": "has",
       "source_ref": "software--cc00f6fc-1f61-5709-ac21-9765ac40317c",
       "target_ref": "vulnerability--00a4fae6-41a9-511f-b9b7-873ed98907ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--064b5c6b-b118-52e9-8dcc-f555a810fce4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:06:41.000Z",
+      "modified": "2026-10-26T22:06:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2445179e-c4c2-5d8c-bf01-889bb99dec19",
+      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
     },
     {
       "type": "relationship",
@@ -18043,6 +18054,17 @@
       "relationship_type": "uses",
       "source_ref": "report--00ab1869-9a47-5355-a7ff-493d6535e723",
       "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--48cc3173-aa1d-50c1-b147-2c286b791825",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:06:41.000Z",
+      "modified": "2026-10-26T22:06:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2445179e-c4c2-5d8c-bf01-889bb99dec19",
+      "target_ref": "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2"
     },
     {
       "type": "relationship",
@@ -49815,6 +49837,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--edc0d0c8-33d9-5179-b9d5-5296ff543c7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--36dd42ee-94c6-50e5-95db-1de3ff65c182",
+      "target_ref": "vulnerability--19bb2b24-5400-518a-9c7d-a3cbef2c1b63"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--edc6bb47-5d8e-5460-85af-11a0155f8edf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T16:43:53.000Z",
@@ -52297,6 +52330,17 @@
       "relationship_type": "uses",
       "source_ref": "report--94083d7a-1748-54c2-b564-003413385e9b",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fb888ad5-6f48-5063-9960-ec5f079311f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:06:41.000Z",
+      "modified": "2026-10-26T22:06:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2445179e-c4c2-5d8c-bf01-889bb99dec19",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
     },
     {
       "type": "relationship",
@@ -63610,6 +63654,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2445179e-c4c2-5d8c-bf01-889bb99dec19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:06:41.000Z",
+      "modified": "2026-10-26T22:06:41.000Z",
+      "name": "AI Coding Assistant: Indirect Prompt Injection via Local Markdown Files",
+      "description": "## Overview\n\nAI coding agents, such as OpenAI's Codex and Anthropic's Claude Code, are susceptible to an indirect prompt injection vector involving local markdown instruction files. When an agent is launched within a directory containing a malicious \"AGENTS.md\" file, the agent consumes the file as part of its project context and treats the contained text as trusted instructions. This allows an attacker to manipulate the agent's configuration, leading to unauthorized code execution, the installation of malicious packages (e.g., via NPM), or the exfiltration of sensitive credentials. As the agent's behavior is consistent with its intended design, there is no conventional software vulnerability to patch.\n\n## Attack Chain\n\n1. An attacker places a malicious \"AGENTS.md\" file in a user-accessible directory, typically the Downloads folder (~/Downloads).\n2. The user navigates to the compromised directory using their terminal or IDE.\n3. The user launches an AI coding agent within the directory.\n4. The AI agent automatically parses the \"AGENTS.md\" file to interpret project-specific instructions or configuration.\n5. The AI agent executes malicious commands contained within the \"AGENTS.md\" file.\n6. The agent performs follow-on activities, such as modifying its local configuration, installing unauthorized packages, or accessing and exfiltrating login tokens.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary command execution within the agent's context. Observed impacts include unauthorized installation of NPM packages and potential theft of login tokens.\n\n## Recommendation\n\n* Treat the user's Downloads directory (~/Downloads) as a hostile environment; strictly avoid running AI coding agents in this directory.\n* Audit active AI agent configurations for unexpected changes or unknown directives.\n* Implement and maintain approval gates for all actions taken by AI agents, including configuration modifications and package installations.\n* If suspicious activity is detected, rotate all credentials and login tokens associated with the AI agent immediately.\n* Enable sandbox environments for all AI agent operations to limit access to sensitive directories and system resources.\n",
+      "published": "2026-10-26T22:06:41.000Z",
+      "labels": [
+        "ai-security",
+        "prompt-injection",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--1c2f2ef4-96d1-5f02-86f0-bf0721251ef2",
+        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--536f3b0c-d299-5924-9b1f-1a0febd18fb7",
+        "software--559f3143-5486-5b6e-b7b0-2b806a87bfab"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-ai-agent-markdown-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ai-agent-markdown-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.darkreading.com/application-security/in-the-wild-attack-ai-agents-trust-markdown"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-ai-agent-markdown-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-26-ai-agent-markdown-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ai-agent-markdown-injection/",
+      "x_craftedsignal_activity_at": "2026-10-26T22:06:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2479fefb-67da-5887-a401-983d17a42dc6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T14:39:01.000Z",
@@ -70770,6 +70861,54 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3c556ce4-4e29-5793-af0a-58c6164bd8f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:07:01.000Z",
+      "modified": "2026-10-26T22:07:01.000Z",
+      "name": "Alertus Desktop Alert: Unauthenticated Remote HTML Injection (CVE-2026-38903)",
+      "description": "Alertus Desktop Alert v5.4.98.0 for Windows is susceptible to remote HTML injection due to a failure in the PKI module to validate certificate chains. An attacker who can redirect DNS resolution can serve forged responses signed with an attacker-generated key. The client renders this input in a Trident (IE) WebBrowser control without sanitization, enabling JavaScript execution, protocol handler navigation, and the spawning of registered executables.\n",
+      "published": "2026-10-26T22:07:01.000Z",
+      "labels": [
+        "HTML injection",
+        "certificate validation bypass"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--36dd42ee-94c6-50e5-95db-1de3ff65c182",
+        "vulnerability--19bb2b24-5400-518a-9c7d-a3cbef2c1b63"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-alertus-desktop-alert-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-alertus-desktop-alert-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8AB36901-52F0-5195-8367-1777996720AB"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8AB36901-52F0-5195-8367-1777996720AB\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-alertus-desktop-alert-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-26-alertus-desktop-alert-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-alertus-desktop-alert-rce/",
+      "x_craftedsignal_activity_at": "2026-10-26T22:07:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -103426,6 +103565,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a041018d-e853-598c-a5b7-d66c0890bcc3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:06:50.000Z",
+      "modified": "2026-10-26T22:06:50.000Z",
+      "name": "Microsoft Windows: IPv6 stack memory corruption (CVE-2024-38063)",
+      "description": "A public Proof-of-Concept exploit script for CVE-2024-38063 has been identified. The vulnerability involves memory corruption via crafted IPv6 Interface header packets. The CVSS score for this vulnerability is 9.8.\n",
+      "published": "2026-10-26T22:06:50.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--403a2145-bda6-5c78-b2e0-c8a2b4f1f551"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-cve-2024-38063-poc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-38063-poc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ZENZUE-CVE-2024-38063-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ZENZUE-CVE-2024-38063-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-cve-2024-38063-poc",
+      "x_craftedsignal_event_id": "brief-2026-10-26-cve-2024-38063-poc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-38063-poc/",
+      "x_craftedsignal_activity_at": "2026-10-26T22:06:50.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.70564,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -137072,6 +137255,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--36dd42ee-94c6-50e5-95db-1de3ff65c182",
+      "name": "Desktop Alert (v5.4.98.0)",
+      "vendor": "Alertus"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--36e800d9-187d-5600-9305-c03693071960",
       "name": "eStore (n/a - 1.6.13)",
       "vendor": "ThemeGrill"
@@ -138517,6 +138707,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--536f3b0c-d299-5924-9b1f-1a0febd18fb7",
+      "name": "Codex"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--537b16d2-08c2-59c9-9b19-e99764364b69",
       "name": "php-travel-agency-system",
       "vendor": "oretnom23"
@@ -138652,6 +138848,12 @@
       "id": "software--5591fc10-8bfa-5a63-97de-39830b00a165",
       "name": "Chromium (\u003c 142.0.7444.59)",
       "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--559f3143-5486-5b6e-b7b0-2b806a87bfab",
+      "name": "Claude Code"
     },
     {
       "type": "software",
@@ -150008,6 +150210,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--19bb2b24-5400-518a-9c7d-a3cbef2c1b63",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-38903",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-38903",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38903"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1a0e2ae2-1d24-5956-831d-1b02792d9186",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -154018,6 +154236,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105801",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105801"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--403a2145-bda6-5c78-b2e0-c8a2b4f1f551",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-38063",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-38063",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38063"
         }
       ]
     },

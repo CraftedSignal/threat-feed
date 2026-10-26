@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--05d166cb-36c5-5df4-b7b8-03e0b0a91319",
+  "id": "bundle--c71b4760-9808-5987-a6ac-2877e2e05624",
   "objects": [
     {
       "type": "attack-pattern",
@@ -559,22 +559,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1543",
           "url": "https://attack.mitre.org/techniques/T1543"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Data Destruction",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1485",
-          "url": "https://attack.mitre.org/techniques/T1485"
         }
       ]
     },
@@ -1847,18 +1831,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--7de403eb-0bed-53d0-9323-77ec092a3570",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:54:03.000Z",
-      "modified": "2026-07-28T21:54:03.000Z",
-      "name": "url: https://gist.github.com/thegr1ffyn/9648b0fe4fcf7d569ac8e61dd11eebaf",
-      "pattern": "[url:value = 'https://gist.github.com/thegr1ffyn/9648b0fe4fcf7d569ac8e61dd11eebaf']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-28T21:54:03.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--890c7494-0544-54fa-aba6-acb54f6cd0d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:54:17.000Z",
@@ -2148,18 +2120,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--bb5234f6-6c70-549a-9e65-528283a89362",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:53:14.000Z",
-      "modified": "2026-07-28T21:53:14.000Z",
-      "name": "url: https://gist.github.com/thegr1ffyn/2a87e81f985883acc30d0118c52da4d3",
-      "pattern": "[url:value = 'https://gist.github.com/thegr1ffyn/2a87e81f985883acc30d0118c52da4d3']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-28T21:53:14.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--c1cf2d94-b462-52e4-ba78-e6bddc3f8554",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:53:41.000Z",
@@ -2217,18 +2177,6 @@
       "pattern": "[domain-name:value = 'wgetip.com']",
       "pattern_type": "stix",
       "valid_from": "2026-07-30T13:32:17.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--d5a090bb-c2e2-50c5-ace6-4296b6b29bdc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:49:12.000Z",
-      "modified": "2026-07-28T21:49:12.000Z",
-      "name": "ip: 169.254.169.254",
-      "pattern": "[ipv4-addr:value = '169.254.169.254']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-28T21:49:12.000Z"
     },
     {
       "type": "indicator",
@@ -2863,17 +2811,6 @@
       "relationship_type": "has",
       "source_ref": "software--8396e3a6-5323-533d-a040-77904de889b3",
       "target_ref": "vulnerability--0ac26304-3b41-5d4c-85a8-0c3b56da7cfb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0f734558-3520-52ac-b7be-fc084271712d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:04:16.000Z",
-      "modified": "2026-07-28T22:04:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6c4b0505-a53d-5a92-beb8-4ef4d8556e8c",
-      "target_ref": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526"
     },
     {
       "type": "relationship",
@@ -5507,17 +5444,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--63a23973-ecc7-5899-8458-ab1b5ee72b37",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:53:14.000Z",
-      "modified": "2026-07-28T21:53:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e35b7ed-3723-5212-9e67-7516fdc8200c",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6401bd27-2ae0-5067-b185-ddd652a06609",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5558,17 +5484,6 @@
       "relationship_type": "has",
       "source_ref": "software--a5b8a5da-f329-5803-889b-068a8dc4d032",
       "target_ref": "vulnerability--23bb0d96-97c3-56e6-8769-7298c709c466"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--64f9f718-c5bc-5210-9dfc-2528991785e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:54:03.000Z",
-      "modified": "2026-07-28T21:54:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a989e58b-5774-55d5-adfe-3c6dd41cd780",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -5723,17 +5638,6 @@
       "relationship_type": "has",
       "source_ref": "software--dcccde26-f4fc-58aa-bf14-e9fa6ab7af78",
       "target_ref": "vulnerability--c70f33ba-ec25-57de-8d62-e676b9243b48"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6aab80e7-2b56-5541-a666-eb56468c1a8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:49:12.000Z",
-      "modified": "2026-07-28T21:49:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f705c9a4-78dd-512c-b0ee-ecff370c5ba6",
-      "target_ref": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c"
     },
     {
       "type": "relationship",
@@ -6130,17 +6034,6 @@
       "relationship_type": "has",
       "source_ref": "software--f5212e4d-2d60-5482-b5d3-8ac427efc4cf",
       "target_ref": "vulnerability--033ff980-35a7-5c91-bf3e-7f9a40081362"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--78bd4294-3eb6-5aa3-9a97-15a5d76eecc6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:53:14.000Z",
-      "modified": "2026-07-28T21:53:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e35b7ed-3723-5212-9e67-7516fdc8200c",
-      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -6970,17 +6863,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--94b05ac3-d7d5-5239-9fea-3d25274d0ed4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:54:03.000Z",
-      "modified": "2026-07-28T21:54:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a989e58b-5774-55d5-adfe-3c6dd41cd780",
-      "target_ref": "indicator--7de403eb-0bed-53d0-9323-77ec092a3570"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--94cb7da2-d455-5085-9866-0238f3c212a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7256,17 +7138,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9c8428c7-7d71-5f29-8063-b024b000304a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:49:12.000Z",
-      "modified": "2026-07-28T21:49:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f705c9a4-78dd-512c-b0ee-ecff370c5ba6",
-      "target_ref": "indicator--d5a090bb-c2e2-50c5-ace6-4296b6b29bdc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9cc81b20-d52f-589e-8083-35bb033d9afd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7527,17 +7398,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1853643c-0706-5f26-a6c2-85d924aa230f",
       "target_ref": "indicator--4fe7266a-3aa2-5e12-b1ba-949ba596db77"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a7115729-4c71-529b-b287-eba2d5a6e803",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:49:12.000Z",
-      "modified": "2026-07-28T21:49:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f705c9a4-78dd-512c-b0ee-ecff370c5ba6",
-      "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
     },
     {
       "type": "relationship",
@@ -7905,17 +7765,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b250933f-2311-5a3d-8310-6041c7016dab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:52:07.000Z",
-      "modified": "2026-07-28T21:52:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1ef9b6b5-841b-524f-b0b7-a83ca89ba848",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b26ac963-6213-5aaa-a1e7-c5df3a622df4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T07:20:10.000Z",
@@ -8000,17 +7849,6 @@
       "relationship_type": "has",
       "source_ref": "software--098328bc-1e2e-5a00-8b98-f94c5785f4d3",
       "target_ref": "vulnerability--dad36dba-2268-57e4-995c-156677be9bee"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b4eabc2d-7676-5ace-a168-3ab98a217e3c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:49:12.000Z",
-      "modified": "2026-07-28T21:49:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f705c9a4-78dd-512c-b0ee-ecff370c5ba6",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -9698,17 +9536,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ee9a5d20-4c71-5ac6-8823-85dc6afaebad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:53:14.000Z",
-      "modified": "2026-07-28T21:53:14.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e35b7ed-3723-5212-9e67-7516fdc8200c",
-      "target_ref": "indicator--bb5234f6-6c70-549a-9e65-528283a89362"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--eed023d2-25e4-5687-a73a-28a5af732660",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10112,17 +9939,6 @@
       "relationship_type": "uses",
       "source_ref": "report--63dd1eda-a53f-5e25-abe5-6a3da3253db2",
       "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fb7432c5-6f05-545a-8f04-decef73f55c4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:49:12.000Z",
-      "modified": "2026-07-28T21:49:12.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f705c9a4-78dd-512c-b0ee-ecff370c5ba6",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
     },
     {
       "type": "relationship",
@@ -11331,56 +11147,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--1ef9b6b5-841b-524f-b0b7-a83ca89ba848",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:52:07.000Z",
-      "modified": "2026-07-28T21:52:07.000Z",
-      "name": "datamodel-code-generator Vulnerable to Code Injection via Unescaped Carriage Return",
-      "description": "## Overview\n\nThe `datamodel-code-generator` Python package, specifically versions between `0.14.1` and `0.60.1` inclusive, contains a critical code injection vulnerability, CVE-2026-54654. This flaw allows arbitrary Python code execution during the import of generated code when a developer utilizes the `--extra-template-data` command-line option with an input file containing a maliciously crafted `comment` field. If this `comment` field includes an unescaped carriage return (`\\r`), Python's tokenizer treats it as a line terminator, allowing subsequent text to be parsed as executable Python code instead of remaining within a comment block. This poses a significant risk to developers and CI/CD pipelines that process untrusted or attacker-controlled input in their `--extra-template-data` files, potentially leading to supply chain compromises and remote code execution in development environments.\n\n## Attack Chain\n\n1. An attacker crafts a malicious `--extra-template-data` file.\n2. The malicious file's `comment` field contains a literal carriage return (`\\r`) followed by arbitrary Python code.\n3. A developer or CI/CD pipeline invokes `datamodel-code-generator` (versions `0.14.1` to `0.60.1`) with the `--extra-template-data` option pointing to the malicious file.\n4. The `datamodel-code-generator` uses Jinja2 templates, which interpolate the `comment` value directly without escaping line terminators.\n5. The generated Python code file will contain the unescaped carriage return within what should be a comment line.\n6. When this generated Python file is subsequently imported by a Python interpreter, the bare `\\r` acts as a physical line terminator.\n7. The Python interpreter ceases treating the line as a comment after the `\\r` and parses the attacker-controlled Python code that follows.\n8. This results in arbitrary Python code execution within the context of the importing process, achieving code injection.\n\n## Impact\n\nThis vulnerability (CVE-2026-54654) affects any developer or CI pipeline that uses `datamodel-code-generator` versions between `0.14.1` and `0.60.1` and processes `--extra-template-data` files influenced by attacker-controlled input. Successful exploitation grants attackers arbitrary Python code execution within the developer's or build system's environment during the import phase of the generated code. This can lead to severe consequences, including intellectual property theft, unauthorized access to source code repositories, injection of malicious dependencies, and compromise of build artifacts, potentially affecting an organization's entire software supply chain. The vulnerability does not require the schema itself to be malicious, only the `comment` field in the extra template data.\n\n## Recommendation\n\n* Upgrade `datamodel-code-generator` to version `0.60.2` or later immediately to remediate CVE-2026-54654.\n* Implement strict input validation for all `--extra-template-data` files, particularly the `comment` field, to prevent the inclusion of unescaped carriage returns (`\\r`), vertical tabs (`\\x0b`), or form feeds (`\\x0c`) before invoking `datamodel-code-generator`.\n* Review CI/CD pipelines and developer workflows that use `datamodel-code-generator` and process external or untrusted data sources to ensure such inputs are properly sanitized.\n",
-      "published": "2026-07-28T21:52:07.000Z",
-      "labels": [
-        "code-injection",
-        "python",
-        "rce",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--12f7cec5-8954-5c6e-95bc-91792e558e33"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-datamodel-code-generator-code-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-code-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.python.org/3/reference/lexical_analysis.html#physical-lines"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-wjv6-jcfj-mf9r"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-datamodel-code-generator-code-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-datamodel-code-generator-code-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-code-injection/",
-      "x_craftedsignal_activity_at": "2026-07-28T21:52:07.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--23348056-caaf-5e10-999f-6b519048b7d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T04:19:05.000Z",
@@ -12267,53 +12033,6 @@
       },
       "x_craftedsignal_cvss_max": 9,
       "x_craftedsignal_epss_max": 0.00322,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3e35b7ed-3723-5212-9e67-7516fdc8200c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:53:14.000Z",
-      "modified": "2026-07-28T21:53:14.000Z",
-      "name": "datamodel-code-generator Arbitrary Local File Read Vulnerability",
-      "description": "## Overview\n\nA high-severity arbitrary local file read vulnerability (CVE-2026-55389) has been discovered in `datamodel-code-generator` versions 0.61.0 and earlier. This Python library is commonly used in development workflows, CI/CD pipelines, and multi-tenant services to generate data models from OpenAPI or JSON-Schema specifications. The vulnerability allows an attacker to craft a malicious JSON-Schema containing `$ref` fields that reference arbitrary local files on the system running the generator. This can be achieved using `file://` URIs for absolute paths or `../` sequences for relative path traversal, effectively bypassing the `--no-allow-remote-refs` security control. Successful exploitation leads to unauthorized information disclosure, including sensitive data like `/etc/passwd`, private keys (e.g., `id_rsa`), configuration files, and allows mapping of the host's filesystem layout. The fix was released in version 0.62.0, which applies the remote-ref gate to `file://` references and local JSON Schema refs outside the input base path.\n\n## Attack Chain\n\n1. **Attacker crafts malicious JSON-Schema:** An attacker creates a JSON-Schema file (e.g., `probe.json`) containing a `$ref` field with a crafted URI.\n2. **References sensitive local files:** The `$ref` field uses a `file://` scheme to point to an absolute path (e.g., `file:///etc/passwd`) or `../` path traversal sequences (e.g., `../.ssh/id_rsa`) to reference arbitrary local files.\n3. **Victim executes `datamodel-code-generator`:** A victim's system, such as a CI/CD pipeline, development environment, or multi-tenant service, invokes the `datamodel-code-generator` utility to process the attacker's untrusted schema (e.g., `datamodel-codegen --input probe.json --output o.py`).\n4. **Vulnerable reference resolution:** `datamodel-code-generator`'s internal logic, specifically within the `_get_ref_body` function, attempts to resolve the `$ref` target.\n5. **Bypasses security control:** The vulnerability allows the `file://` scheme to be explicitly exempted from the `allow_remote_refs` check, or for relative paths, the `is_relative_to(base_path)` check is not enforced, allowing traversal outside the base directory.\n6. **Arbitrary file read:** The vulnerable code path (`_get_ref_body_from_url` or `_get_ref_body_from_remote`) proceeds to load the content of the arbitrary local file referenced in the `$ref` field.\n7. **Filesystem oracle and information disclosure:** Depending on the target file's content and permissions, the tool either generates an error message (e.g., \"TypeError: Expected dict, got str\") indicating the file was read and parsed, or directly incorporates schema-shaped secrets (e.g., from `const`/`default`/`enum`/`description` fields) from the read file into the generated Python code.\n8. **Exfiltration via generated code or errors:** The attacker receives the generated Python code (if it contains secrets) or observes the process's error messages (providing an oracle for file existence and permissions), thereby exfiltrating sensitive information or mapping the victim's filesystem layout.\n\n## Impact\n\nThis vulnerability leads to arbitrary local file read (CWE-22) and subsequent information disclosure (CWE-200), bypassing a documented security control (`--no-allow-remote-refs`). Any application, CI pipeline, or multi-tenant service running `datamodel-code-generator` on untrusted schemas is at risk. Attackers can read any file accessible to the process user, including sensitive system files like `/etc/passwd`, private keys (e.g., PEM `id_rsa`), and configuration files (e.g., service-account JSON, Kubernetes secret manifests). This allows for host filesystem mapping by probing arbitrary paths and exfiltrating secret values verbatim if they are embedded within schema-shaped nodes. The issue does not require authentication or special privileges, making it a critical threat for environments processing untrusted input.\n\n## Recommendation\n\n* Upgrade `pip/datamodel-code-generator` to version `0.62.0` or higher to remediate CVE-2026-55389.\n* Ensure the `--no-allow-remote-refs` flag is enabled when invoking `datamodel-code-generator` with untrusted input, as this flag's bypass for `file://` references was fixed in version `0.62.0`.\n* Restrict execution permissions for `datamodel-code-generator` processes to the minimum necessary files and directories to limit potential damage from exploitation.\n* Block the proof-of-concept URL `https://gist.github.com/thegr1ffyn/2a87e81f985883acc30d0118c52da4d3` at network perimeters to prevent access to known exploit code.\n",
-      "published": "2026-07-28T21:53:14.000Z",
-      "labels": [
-        "information-disclosure",
-        "path-traversal",
-        "python",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--bb5234f6-6c70-549a-9e65-528283a89362",
-        "software--b7955ae4-1e4f-5b0f-b12d-c45c217716d0"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-datamodel-code-generator-file-read",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-file-read/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-8359-h9fx-j6v9"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-datamodel-code-generator-file-read",
-      "x_craftedsignal_event_id": "brief-2026-07-datamodel-code-generator-file-read",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-file-read/",
-      "x_craftedsignal_activity_at": "2026-07-28T21:53:14.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -13487,54 +13206,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6c4b0505-a53d-5a92-beb8-4ef4d8556e8c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:04:16.000Z",
-      "modified": "2026-07-28T22:04:16.000Z",
-      "name": "Goshs WebDAV MOVE Method Bypasses No-Delete Flag",
-      "description": "## Overview\n\nA critical vulnerability, tracked as CVE-2026-64863, has been discovered in the `goshs` WebDAV server (versions up to 2.1.3 and 1.1.4). The `--no-delete` command-line flag, intended to prevent file deletion and overwriting, is ineffective against the WebDAV `MOVE` HTTP method. This logical flaw allows a remote attacker to bypass a configured security control, enabling unauthorized deletion of source files or overwriting of existing destination files, even when the server operator believes deletion is disabled. The issue stems from the server's `wdGuard` handler, which incorrectly classifies `MOVE` as a write-only operation, thus failing to apply the `fs.NoDelete` check to it. This oversight defeats the security intent of the `--no-delete` flag, jeopardizing data integrity for systems using `goshs` to serve files with deletion restrictions.\n\n## Attack Chain\n\n1. An attacker identifies a `goshs` server running with WebDAV enabled and the `--no-delete` flag configured (e.g., `goshs --webdav --no-delete`).\n2. The attacker attempts to `DELETE` a file, which is correctly blocked by the server, returning an HTTP 403 Forbidden status, confirming the `--no-delete` flag is active for the `DELETE` verb.\n3. The attacker crafts an HTTP `MOVE` request targeting a sensitive file (e.g., `/secret.txt`) with a `Destination` header pointing to a new path (e.g., `/gone.txt`).\n4. The server processes the `MOVE` request, effectively deleting `/secret.txt` from its original location and moving its content to `/gone.txt`, bypassing the `--no-delete` control.\n5. Alternatively, the attacker crafts an HTTP `MOVE` request with an `Overwrite: T` header, targeting a source file (e.g., `/gone.txt`) and a destination path that corresponds to an existing, sensitive file (e.g., `/victim.txt`).\n6. The server processes this `MOVE` request, first invoking `RemoveAll` on the existing `/victim.txt` and then moving the content of `/gone.txt` to `/victim.txt`.\n7. This results in the original content of `/victim.txt` being destroyed and replaced with the attacker-controlled content, allowing data destruction or overwriting, despite the `--no-delete` flag.\n\n## Impact\n\nThe impact of CVE-2026-64863 is significant for `goshs` deployments where file integrity and prevention of deletion/overwriting are paramount. If an operator sets up `goshs` with `--no-delete` to protect critical data, such as archived artifacts or confidential documents, any authenticated (or unauthenticated, if no ACLs are in place) WebDAV client can exploit this flaw. This allows an attacker to rename confidential files away, effectively deleting them from their expected location, or worse, overwrite existing sensitive files with arbitrary content. This directly violates the intended security posture, leading to data loss, data corruption, or the unavailability of critical information, undermining the trust in the configured security controls.\n\n## Recommendation\n\n* **Patch CVE-2026-64863**: Update `goshs` to a patched version immediately. Monitor the official GitHub repository for releases that address this vulnerability.\n* **Deploy the Sigma rule in this brief**: Implement the provided Sigma rule into your SIEM to detect suspicious WebDAV `MOVE` requests, particularly those including the `Overwrite: T` header.\n* **Enable webserver logging**: Ensure comprehensive logging for your `goshs` instances, including HTTP method, URI, status codes, and request headers (specifically `Overwrite`). This is crucial for the provided Sigma rule.\n",
-      "published": "2026-07-28T22:04:16.000Z",
-      "labels": [
-        "data-destruction",
-        "file-deletion",
-        "golang",
-        "server",
-        "vulnerability",
-        "webdav"
-      ],
-      "object_refs": [
-        "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--65bfcfbf-5c6d-55ba-b28b-2b730370002a",
-        "software--77eb0d59-5a08-537c-a8f0-31402c0caafd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-goshs-webdav-move-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-goshs-webdav-move-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-hq33-8jgp-8qq3"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-goshs-webdav-move-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-goshs-webdav-move-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-goshs-webdav-move-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-28T22:04:16.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -15548,54 +15219,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-env-printenv-container-enum/",
       "x_craftedsignal_activity_at": "2026-07-29T12:40:56.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a989e58b-5774-55d5-adfe-3c6dd41cd780",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:54:03.000Z",
-      "modified": "2026-07-28T21:54:03.000Z",
-      "name": "`datamodel-code-generator` Vulnerable to Code Injection via `default_factory` Field",
-      "description": "## Overview\n\n`datamodel-code-generator` versions 0.17.0 through 0.60.1 are affected by a high-severity code injection vulnerability (CVE-2026-54653) that allows for arbitrary Python code execution. This vulnerability arises when the tool generates Python models from an attacker-controlled JSON Schema, OpenAPI, YAML, JSON, Avro, Protobuf, or XSD schema. Specifically, if a property within the input schema contains a `\"default_factory\"` key, its value is interpolated verbatim as a raw Python expression into the generated `Field(default_factory=...)` or `field(default_factory=...)` call. This code executes at class-definition time when the generated Python module is imported by a consumer. No special CLI flags are required for exploitation, making any developer or CI pipeline processing untrusted schemas susceptible. The fix involves validating `default_factory` values to only accept `dict`, `list`, and `set`.\n\n## Attack Chain\n\n1. An attacker crafts a malicious schema (e.g., JSON Schema, OpenAPI, YAML) containing a `\"default_factory\"` key with arbitrary Python code as its value.\n2. A victim developer or CI pipeline uses `datamodel-code-generator` (versions 0.17.0 through 0.60.1) to generate Python data models from this attacker-controlled schema.\n3. During code generation, the `datamodel-code-generator` parser (e.g., `jsonschema.py`) identifies the `\"default_factory\"` key.\n4. The value associated with `\"default_factory\"` is retrieved from `self.extras` within the `JsonSchemaObject`.\n5. When constructing the Python model (e.g., Pydantic v2, dataclass, msgspec), `datamodel-code-generator` interpolates the raw, unvalidated `default_factory` value directly into the generated Python code without sanitization.\n6. The victim's Python application or environment imports the newly generated Python module.\n7. Upon import, the interpolated malicious Python code embedded in the `default_factory` argument is executed at class-definition time within the importing process, leading to arbitrary code execution.\n8. The attacker achieves their objective, such as filesystem reads (e.g., copying `/etc/passwd`), environment variable exfiltration, or secondary network calls.\n\n## Impact\n\nThis vulnerability poses a significant supply chain risk to developers and CI pipelines. Any environment that uses `datamodel-code-generator` to process schemas not authored internally (e.g., third-party API specs, public schema registries, vendored files, remote introspection endpoints) is directly affected. Successful exploitation leads to arbitrary Python code execution within the importing process at module import time. This can result in data exfiltration, system compromise (e.g., filesystem read/write, network access), or further malicious activity on CI runners where build environments often have elevated privileges. While `typing.TypedDict` output models are not vulnerable, all other supported output model types, including Pydantic v2, dataclasses, and msgspec, are susceptible.\n\n## Recommendation\n\n* Upgrade `datamodel-code-generator` to version `0.60.2` or later immediately to patch CVE-2026-54653.\n* Review CI/CD pipelines and developer workstations to ensure all instances of `datamodel-code-generator` are updated.\n* Implement controls to validate or restrict the source of schemas used for code generation, especially those from external or untrusted origins.\n* Monitor for unexpected process execution or file system modifications originating from Python processes that have recently imported newly generated data models, particularly if untrusted schemas are processed.\n",
-      "published": "2026-07-28T21:54:03.000Z",
-      "labels": [
-        "code-injection",
-        "cve",
-        "developer-tools",
-        "python",
-        "rce",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--7de403eb-0bed-53d0-9323-77ec092a3570",
-        "software--9ead10bb-c37d-57b7-90fb-c77431a151e4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-datamodel-code-generator-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-386q-5hp3-95m9"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-datamodel-code-generator-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-datamodel-code-generator-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-rce/",
-      "x_craftedsignal_activity_at": "2026-07-28T21:54:03.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -18290,64 +17913,6 @@
       "x_craftedsignal_kev_status": "unknown"
     },
     {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--f705c9a4-78dd-512c-b0ee-ecff370c5ba6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:49:12.000Z",
-      "modified": "2026-07-28T21:49:12.000Z",
-      "name": "datamodel-code-generator Vulnerable to SSRF Protection Bypass via DNS Rebinding",
-      "description": "## Overview\n\nThe `datamodel-code-generator` Python library, specifically versions `0.62.0` and earlier, contains a high-severity Server-Side Request Forgery (SSRF) protection bypass vulnerability, tracked as CVE-2026-55391. Discovered by Hamza Haroon (thegr1ffyn), this flaw stems from a time-of-check/time-of-use (TOCTOU) race condition during DNS resolution, allowing a DNS rebinding attack. The library's anti-SSRF guard performs an initial IP validation that passes if a hostname resolves to a public IP; however, the subsequent `httpx` connection performs a separate, unpinned DNS resolution. An attacker can leverage this by controlling a low-TTL DNS record that resolves to a public IP during the validation phase and then switches to a private IP (e.g., `127.0.0.1` or `169.254.169.254`) during the connection phase. This bypasses the intended private network protection, enabling access to internal network services, cloud instance metadata APIs, and internal host/port probing when the tool processes attacker-influenced URLs, such as those provided via the `--url` argument or remote `$ref` references in schemas. The vulnerability is present in versions up to `0.62.0` and was fixed in version `0.63.0`.\n\n## Attack Chain\n\n1. An attacker registers a domain name (e.g., `attacker.com`) and configures its DNS records with a very low Time-To-Live (TTL).\n2. The attacker configures the domain to initially resolve to a public, internet-routable IP address.\n3. The attacker influences a victim's `datamodel-code-generator` instance (e.g., in a CI pipeline or local development environment) to fetch a URL pointing to `http://attacker.com/schema.json` via the `--url` command-line argument or a remote `$ref` within a schema.\n4. The `datamodel-code-generator`'s `_validate_url_for_fetch()` function performs the initial DNS resolution of `attacker.com` (resolution #1). The public IP passes the SSRF guard's check.\n5. Between validation and connection, the attacker rapidly changes the DNS record for `attacker.com` to resolve to a private IP address (e.g., `127.0.0.1`, `169.254.169.254`, or another internal network address).\n6. The `httpx.get()` function within `datamodel-code-generator` performs its own, independent DNS resolution for `attacker.com` (resolution #2). Due to the low TTL and attacker's control, this resolution now returns the private IP address.\n7. `httpx` connects to the private IP address, bypassing the initial validation and establishing an SSRF connection to an internal service or resource.\n8. The attacker gains unauthorized access to internal HTTP services, reads cloud instance metadata credentials, or conducts internal network reconnaissance.\n\n## Impact\n\nThis Server-Side Request Forgery (SSRF) vulnerability (CWE-918) via a time-of-check/time-of-use (TOCTOU) resolution gap (CWE-367) affects any service or CI pipeline that executes `datamodel-code-generator` against attacker-influenced URLs. Successful exploitation allows attackers to bypass network segmentation controls, leading to the unauthorized disclosure of sensitive information such as cloud instance-metadata credentials (e.g., from `169.254.169.254`). Attackers can also access internal-only HTTP services, perform port and host probing of the internal network, and reflect the content fetched from internal targets into the generated output, potentially exposing internal data. While specific victim counts are not available, the widespread use of `datamodel-code-generator` implies a broad attack surface for organizations using the tool in potentially vulnerable configurations.\n\n## Recommendation\n\n* Upgrade `datamodel-code-generator` to version `0.63.0` or later immediately to remediate CVE-2026-55391.\n* Implement strict network egress filtering on systems running `datamodel-code-generator` to restrict outbound connections to only necessary and trusted external destinations, blocking access to private IP ranges, especially `169.254.169.254`.\n* Monitor DNS query logs for suspicious or rapid changes in IP resolution for external domains accessed by internal tools.\n* Avoid running `datamodel-code-generator` in environments where `--url` parameters or remote `$ref` references can be influenced by untrusted external input.\n",
-      "published": "2026-07-28T21:49:12.000Z",
-      "labels": [
-        "dns-rebinding",
-        "python",
-        "ssrf",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--d5a090bb-c2e2-50c5-ace6-4296b6b29bdc",
-        "software--16263169-538c-5553-abd8-3bf44858cb25"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-datamodel-ssrf-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-ssrf-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://gist.github.com/thegr1ffyn/c1d54dd6ff2a4c0d7d0dabe00c4985f4"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-vx7x-vcc2-c44g"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/koxudaxi/datamodel-code-generator-ghsa-vx7x-vcc2-c44g/pull/1"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-datamodel-ssrf-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-datamodel-ssrf-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-ssrf-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-28T21:49:12.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
       "type": "software",
       "spec_version": "2.1",
       "id": "software--00f5aa2d-97b8-5b87-83ff-75e4ab634a90",
@@ -18481,23 +18046,9 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--12f7cec5-8954-5c6e-95bc-91792e558e33",
-      "name": "datamodel-code-generator (0.14.1 to 0.60.1)",
-      "vendor": "datamodel-code-generator project"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--13a85dfa-5380-5f01-bea1-72f22a5b3c53",
       "name": "CHARX SEC-3050",
       "vendor": "Phoenix Contact"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--16263169-538c-5553-abd8-3bf44858cb25",
-      "name": "datamodel-code-generator (\u003c= 0.62.0)",
-      "vendor": "datamodel-code-generator"
     },
     {
       "type": "software",
@@ -19028,13 +18579,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--65bfcfbf-5c6d-55ba-b28b-2b730370002a",
-      "name": "goshs \u003c= 2.1.3",
-      "vendor": "patrickhener"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6648159f-b654-53a0-8371-48d6e99e9800",
       "name": "Zitadel 4.x",
       "vendor": "Zitadel"
@@ -19137,13 +18681,6 @@
       "spec_version": "2.1",
       "id": "software--77b16181-f170-5c6e-ac6d-e7be198a5c3c",
       "name": "OpenVPN"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--77eb0d59-5a08-537c-a8f0-31402c0caafd",
-      "name": "goshs \u003c= 1.1.4",
-      "vendor": "patrickhener"
     },
     {
       "type": "software",
@@ -19414,13 +18951,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9ead10bb-c37d-57b7-90fb-c77431a151e4",
-      "name": "datamodel-code-generator (\u003e= 0.17.0, \u003c= 0.60.1)",
-      "vendor": "datamodel-code-generator"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9f699ad1-789d-5aec-8e6d-9ab9d544703b",
       "name": "Red Hat OpenShift Container Platform 4",
       "vendor": "Red Hat"
@@ -19579,12 +19109,6 @@
       "id": "software--b6e0ecf7-34f6-529a-a958-a6884a587b9f",
       "name": "Db2 12.1",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--b7955ae4-1e4f-5b0f-b12d-c45c217716d0",
-      "name": "datamodel-code-generator \u003c= 0.61.0"
     },
     {
       "type": "software",
