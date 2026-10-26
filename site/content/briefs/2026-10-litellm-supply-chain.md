@@ -1,19 +1,37 @@
 ---
 brief_id: brief-2026-10-21-litellm-supply-chain
 event_id: brief-2026-10-21-litellm-supply-chain
-revision: 1
-activity_at: "2026-10-21T19:06:48Z"
+revision: 2
+activity_at: "2026-10-26T12:57:14Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-26T12:57:14Z"
+    checksum: sha256:16c950002d5c95b077beece3fb95349f8e04f2af4c7377f4f2289d6ed6a86053
+    summary: exploited:true
+    changed_fields:
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://therecord.media/litellm-hackers-ai-malware
 title: 'LiteLLM: Supply chain compromise of version 1.107.0'
 slug: 2026-10-litellm-supply-chain
 description: The LiteLLM Python package version 1.107.0 was compromised via stolen GitHub CLI OAuth tokens to distribute a credential-stealing backdoor that harvests cloud and developer secrets.
 date: "2026-10-21T19:06:48Z"
+lastmod: "2026-10-26T12:56:40Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://therecord.media/litellm-hackers-ai-malware
+  observed_at: "2026-10-26T12:00:00Z"
+  confidence: medium
 source_assessment:
   reliability: A
   credibility: "1"
@@ -58,6 +76,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html
+  - https://therecord.media/litellm-hackers-ai-malware
 iocs:
   - type: url
     value: https://litellm.dev/healthcheck
@@ -105,6 +124,14 @@ action_plan:
       owner: Development
       addresses: LiteLLM 1.107.0
       evidence: Users who have downloaded the malicious version are advised to ... pin version 1.106.2 by digest.
+updates:
+  - at: "2026-10-26T12:56:40Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - therecord
+    source_urls:
+      - https://therecord.media/litellm-hackers-ai-malware
 ---
 
 LiteLLM version 1.107.0 was identified as malicious, having been distributed via PyPI and Docker images containing unauthorized code. The compromise occurred through the theft of GitHub CLI OAuth tokens belonging to three project engineers, which allowed the threat actor to trigger and approve a malicious release. All affected tokens have been revoked, and the organization is currently migrating to a more secure account management structure.

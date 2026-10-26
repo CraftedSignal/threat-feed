@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--23fd174e-ae14-5b07-ac12-f81574bbac54",
+  "id": "bundle--42d6a1c3-6445-5043-a127-daf6faf37b35",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3453,7 +3453,7 @@
       "id": "indicator--1cc8a229-156f-5b25-94ba-db36646520ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:06:48.000Z",
-      "modified": "2026-10-21T19:06:48.000Z",
+      "modified": "2026-10-26T12:57:14.000Z",
       "name": "url: https://litellm.dev/healthcheck",
       "description": "C2 exfiltration endpoint observed in the malicious LiteLLM 1.107.0 payload.",
       "pattern": "[url:value = 'https://litellm.dev/healthcheck']",
@@ -15627,7 +15627,7 @@
       "id": "relationship--34012f4f-3f30-5175-9bc9-d6600c71e35f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:06:48.000Z",
-      "modified": "2026-10-21T19:06:48.000Z",
+      "modified": "2026-10-26T12:57:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa279e2b-7961-5ab8-b059-c7a63ae2035e",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -24647,7 +24647,7 @@
       "id": "relationship--60c01b71-52a8-5860-832d-806bed02980e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:06:48.000Z",
-      "modified": "2026-10-21T19:06:48.000Z",
+      "modified": "2026-10-26T12:57:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa279e2b-7961-5ab8-b059-c7a63ae2035e",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -25384,7 +25384,7 @@
       "id": "relationship--647438dc-c952-5dd6-bd56-d696334e3f4a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:06:48.000Z",
-      "modified": "2026-10-21T19:06:48.000Z",
+      "modified": "2026-10-26T12:57:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa279e2b-7961-5ab8-b059-c7a63ae2035e",
       "target_ref": "indicator--1cc8a229-156f-5b25-94ba-db36646520ba"
@@ -33986,7 +33986,7 @@
       "id": "relationship--8cac2c48-3f11-5d5f-bdd7-c6d4033fb8f9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:06:48.000Z",
-      "modified": "2026-10-21T19:06:48.000Z",
+      "modified": "2026-10-26T12:57:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa279e2b-7961-5ab8-b059-c7a63ae2035e",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
@@ -57383,7 +57383,7 @@
       "id": "relationship--fa82864c-95b7-551f-893b-e8999ead31eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:06:48.000Z",
-      "modified": "2026-10-21T19:06:48.000Z",
+      "modified": "2026-10-26T12:57:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa279e2b-7961-5ab8-b059-c7a63ae2035e",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -115696,7 +115696,7 @@
       "id": "report--aa279e2b-7961-5ab8-b059-c7a63ae2035e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:06:48.000Z",
-      "modified": "2026-10-21T19:06:48.000Z",
+      "modified": "2026-10-26T12:57:14.000Z",
       "name": "LiteLLM: Supply chain compromise of version 1.107.0",
       "description": "## Overview\n\nLiteLLM version 1.107.0 was identified as malicious, having been distributed via PyPI and Docker images containing unauthorized code. The compromise occurred through the theft of GitHub CLI OAuth tokens belonging to three project engineers, which allowed the threat actor to trigger and approve a malicious release. All affected tokens have been revoked, and the organization is currently migrating to a more secure account management structure.\n\n## Attack Chain\n\n1. Threat actor obtains GitHub CLI OAuth tokens belonging to three project engineers.\n2. Threat actor uses one compromised account to trigger a project-releaser run.\n3. Threat actor uses a second compromised account to approve the malicious release.\n4. Malicious LiteLLM 1.107.0 package is published to PyPI and Docker Hub.\n5. User installs or updates the malicious LiteLLM package.\n6. Python interpreter loads the malicious 'cook.pth' file upon startup.\n7. 'cook.pth' triggers the 'privcollect' payload to harvest cloud tokens, keys, and browser data.\n8. Background daemon checks a GitHub-hosted dead drop for further instructions and executes returned Python code.\n\n## Impact\n\nSuccessful exploitation results in the unauthorized exfiltration of cloud credentials, SSH private keys, browser data, and authentication files for various AI development tools. Collected data is exfiltrated as a GZIP-compressed TAR archive via HTTP POST requests to 'litellm.dev/healthcheck'.\n\n## Recommendation\n\n- Pin dependencies to version 1.106.2 using cryptographic digests to prevent accidental installation of compromised versions.\n- Review all environments where LiteLLM 1.107.0 was installed for signs of credential harvesting or persistent backdoors.\n- Revoke and rotate all cloud credentials, API keys, and certificates present on systems that ran version 1.107.0.\n- Monitor Python environments for the presence of files named 'cook.pth' or usage of the 'cook' module, which are indicative of this specific malware.\n- Implement supply chain security practices such as ephemeral build environments and restricted permissions for GitHub CLI tokens used in automated release pipelines.\n",
       "published": "2026-10-21T19:06:48.000Z",
@@ -115724,18 +115724,25 @@
         {
           "source_name": "reference",
           "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://therecord.media/litellm-hackers-ai-malware"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-21-litellm-supply-chain",
       "x_craftedsignal_event_id": "brief-2026-10-21-litellm-supply-chain",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-litellm-supply-chain/",
-      "x_craftedsignal_activity_at": "2026-10-21T19:06:48.000Z",
+      "x_craftedsignal_activity_at": "2026-10-26T12:57:14.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://therecord.media/litellm-hackers-ai-malware",
+        "observed_at": "2026-10-26T12:00:00.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
