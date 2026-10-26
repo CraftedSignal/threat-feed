@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8b85e7bf-f173-543b-9c09-b146e59e4c76",
+  "id": "bundle--9327f17a-49b6-5db6-a724-0845418e472d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7333,6 +7333,17 @@
       "relationship_type": "has",
       "source_ref": "software--d1445723-2c7f-55e8-b95d-6f4f3603bbb5",
       "target_ref": "vulnerability--3312181a-17a8-5569-949b-3eb8332c184e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0b1509ef-5ab5-5852-9751-2de03c638a79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9bf3243a-959d-5fe5-856f-5000354b9788",
+      "target_ref": "vulnerability--faf1d783-2b3f-5541-a8e7-29eb340a3b6c"
     },
     {
       "type": "relationship",
@@ -15869,17 +15880,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e9b6000f-98e3-513c-a90d-b36109db0814",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--356cbd96-9118-5dfd-a825-521affaa9a35",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T02:55:43.000Z",
-      "modified": "2026-10-02T11:34:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3c352a64-dc08-5133-bda8-313714834064",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -44506,17 +44506,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c106c1f5-68fa-5b2e-9bee-f0e9f52f6b1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9940bcfe-a2b6-5aa8-b029-bd639b0da3dd",
-      "target_ref": "vulnerability--2202e3be-9c11-5350-a926-8add67d06536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c129f91a-dd62-52c7-8edc-7c103375a5cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T06:23:00.000Z",
@@ -52921,17 +52910,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e6b96afa-a73d-5466-84bb-441e9a0833ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T02:55:43.000Z",
-      "modified": "2026-10-02T11:34:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3c352a64-dc08-5133-bda8-313714834064",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e6bbb85c-d9cc-5b41-af20-43de960c1264",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T16:56:30.000Z",
@@ -56111,17 +56089,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f4e0eaf8-3d78-5c89-9a24-d8020cf3fb21",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T02:55:34.000Z",
-      "modified": "2026-09-26T02:55:34.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--21ea5766-3461-5b57-ba5e-c2b3583221bd",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f4eccdd5-ed21-5ddf-9ff0-1b7bddb39ef2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T11:52:21.000Z",
@@ -56525,17 +56492,6 @@
       "relationship_type": "uses",
       "source_ref": "report--288deb01-2e4d-5c24-9d08-cc2bf1fa5e6a",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f715e136-c5a4-52b0-b7c7-fcd6b7ffafe1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--110c0894-b267-5720-b3ba-a72ff7b8182e",
-      "target_ref": "vulnerability--2bc7aa52-9a26-5a66-9f87-fe1bc1403c31"
     },
     {
       "type": "relationship",
@@ -68875,52 +68831,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--21ea5766-3461-5b57-ba5e-c2b3583221bd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T02:55:34.000Z",
-      "modified": "2026-09-26T02:55:34.000Z",
-      "name": "Stack-Based Out-of-Bounds Write in Ghidra Decompiler",
-      "description": "## Overview\n\nGhidra versions through 12.1.4 contain a stack-based out-of-bounds write vulnerability located in the decompiler's leftshift128 function. This vulnerability is triggered when the decompiler processes p-code containing negative shift amounts. An attacker can exploit this by providing a specially crafted binary containing specific instruction sequences. When a user opens or performs analysis on this malicious binary within Ghidra, the decompiler's memory becomes corrupted during the calculation process. This memory corruption can lead to the execution of arbitrary code with the privileges of the user running the Ghidra application. This is particularly relevant for security researchers and reverse engineers who frequently analyze untrusted binaries.\n\n## Impact\n\nThe vulnerability poses a significant risk to the security research community and software analysts who use Ghidra for reverse engineering tasks. If exploited, an attacker could gain control over the analyst's machine, potentially leading to the theft of sensitive project data, intellectual property, or further lateral movement within an organization's network.\n\n## Recommendation\n\nPrioritized, concrete actions for security teams:\n- Identify and inventory all instances of Ghidra 12.1.4 or earlier within the development and research environments.\n- Upgrade all instances of Ghidra to the latest patched version available from the official National Security Agency repository.\n- Implement a policy to sandbox reverse engineering tools, including Ghidra, to minimize the impact of potential arbitrary code execution vulnerabilities.\n- Alert users who frequently analyze third-party or untrusted binaries to be cautious when importing unknown files into the Ghidra environment until patches are applied.\n",
-      "published": "2026-09-26T02:55:34.000Z",
-      "labels": [
-        "cve-2026-100504",
-        "memory-corruption",
-        "software-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9940bcfe-a2b6-5aa8-b029-bd639b0da3dd",
-        "vulnerability--2202e3be-9c11-5350-a926-8add67d06536"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-ghidra-oob-write",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-ghidra-oob-write/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100504"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-ghidra-oob-write",
-      "x_craftedsignal_event_id": "brief-2026-09-ghidra-oob-write",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-ghidra-oob-write/",
-      "x_craftedsignal_activity_at": "2026-09-26T02:55:34.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--21fe203d-31e3-5032-bd7f-ee29943cd08f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T04:47:50.000Z",
@@ -77169,53 +77079,6 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--3c352a64-dc08-5133-bda8-313714834064",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T02:55:43.000Z",
-      "modified": "2026-10-02T11:34:32.000Z",
-      "name": "Path Traversal Vulnerability in Laranode File Manager",
-      "description": "## Overview\n\nLaranode versions before 1.2.1 contain a critical path traversal vulnerability in the POST /filemanager/upload-file endpoint. This vulnerability allows an authenticated attacker to manipulate the 'path' parameter within a file upload request to escape the intended directory constraints. By injecting directory traversal sequences (e.g., ../), an attacker can write arbitrary files to unauthorized locations on the host filesystem. This impact is significant in multi-tenant environments, as it allows attackers to upload malicious PHP scripts into the web root of other tenants, resulting in remote code execution (RCE) in the context of those tenants. Organizations utilizing Laranode should prioritize upgrading to version 1.2.1 or later to remediate this flaw.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows for unauthorized file system access and remote code execution. In multi-tenant environments, this poses a severe risk of cross-tenant data compromise and service disruption. The ability to write arbitrary files provides attackers with a mechanism to establish persistence or pivot further into the infrastructure.\n\n## Recommendation\n\n- Upgrade all instances of Laranode to version 1.2.1 or later immediately.\n- Implement strict input validation on the 'path' parameter in file upload endpoints to prevent directory traversal attempts.\n- Apply the principle of least privilege to the web application process to restrict write access to sensitive directory structures outside the application's scope.\n- Monitor web application logs for suspicious POST requests to /filemanager/upload-file containing directory traversal sequences such as '../'.\n",
-      "published": "2026-09-26T02:55:43.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--110c0894-b267-5720-b3ba-a72ff7b8182e",
-        "vulnerability--2bc7aa52-9a26-5a66-9f87-fe1bc1403c31"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-26-laranode-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-laranode-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100520"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=CB617279-9AA6-534B-8B61-04992CEFA920\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-26-laranode-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-09-26-laranode-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-laranode-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-02T11:34:32.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.00937,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -122732,6 +122595,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bfdf64a3-2e75-5ba1-867c-c238c16186b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T04:24:18.000Z",
+      "modified": "2026-10-26T04:24:18.000Z",
+      "name": "Rocq Prover: Soundness vulnerability in guard checker (CVE-2026-72705)",
+      "description": "## Overview\n\nThe Rocq (formerly Coq) kernel contains a soundness vulnerability in its guard checker, identified as CVE-2026-72705. The flaw occurs because the guard checker fails to correctly track recursive calls made through a fixpoint's own arguments. This allows for the construction of proofs that appear valid but conclude false propositions, such as 0 = 1, without the use of axioms, tactics, plugins, or unsafe flags. The system reports these malformed proofs as closed under the global context.\n\n## Impact\n\nThe vulnerability compromises the integrity of formally verified proofs generated by the Rocq Prover. If an attacker produces a false proof in a system relying on Rocq for verification, the security or logic properties guaranteed by that proof are invalidated.\n\n## Recommendation\n\n- Identify all projects or systems utilizing the Rocq Prover to generate formal proofs.\n- Monitor official Rocq development channels for the release of a patched version.\n- Review critical proofs that were generated using affected versions of the Rocq kernel to verify they do not rely on the identified guard checker flaw.\n",
+      "published": "2026-10-26T04:24:18.000Z",
+      "labels": [
+        "formal-verification",
+        "rocq",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9bf3243a-959d-5fe5-856f-5000354b9788",
+        "vulnerability--faf1d783-2b3f-5541-a8e7-29eb340a3b6c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-rocq-guard-checker-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-rocq-guard-checker-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/383"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-rocq-guard-checker-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-10-26-rocq-guard-checker-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rocq-guard-checker-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-10-26T04:24:18.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.3,
+      "x_craftedsignal_epss_max": 0.00176,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bfe5bc04-8dd3-5e8d-b4ce-f5ee9b67796f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:00:42.000Z",
@@ -142739,6 +142648,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f8271dba-9d1a-50e9-a37e-0aef208e2ec3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T04:24:24.000Z",
+      "modified": "2026-10-26T04:24:24.000Z",
+      "name": "Lean 4: Kernel soundness bug (CVE-2026-72711)",
+      "description": "A soundness bug in the Lean 4 kernel (CVE-2026-72711) allows for the construction of checked proofs of False, including 0 = 1. The proof passes the kernel at maximum checking (--trust=0). The issue is caused by the kernel's 'add_opaque' path, which skips the 'check_no_metavar_no_fvar' closure check that is otherwise performed by the definition and theorem paths.\n",
+      "published": "2026-10-26T04:24:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e8fb0a05-4660-543c-868d-04999601f2c1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-lean-4-kernel-soundness",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-lean-4-kernel-soundness/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/380"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-lean-4-kernel-soundness",
+      "x_craftedsignal_event_id": "brief-2026-10-26-lean-4-kernel-soundness",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lean-4-kernel-soundness/",
+      "x_craftedsignal_activity_at": "2026-10-26T04:24:24.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 6.3,
+      "x_craftedsignal_epss_max": 0.00176,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f8282df7-2caf-515d-94bc-5d213542a779",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T13:41:30.000Z",
@@ -146617,13 +146566,6 @@
       "id": "software--10fc409a-2154-5ac4-bd87-4f6d555173cc",
       "name": "ioFog Controller (3.8.0 through 3.9.1)",
       "vendor": "Eclipse"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--110c0894-b267-5720-b3ba-a72ff7b8182e",
-      "name": "Laranode (\u003c 1.2.1)",
-      "vendor": "Laranode"
     },
     {
       "type": "software",
@@ -154476,13 +154418,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9940bcfe-a2b6-5aa8-b029-bd639b0da3dd",
-      "name": "Ghidra (\u003c= 12.1.4)",
-      "vendor": "National Security Agency"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--99555648-873c-50cd-bec2-f1a0333a163c",
       "name": "Payload (\u003c 3.90.0, \u003e= 4.0.0-canary.0 \u003c 4.0.0-canary.34)",
       "vendor": "Payload"
@@ -154604,6 +154539,13 @@
       "id": "software--9bdabc64-7c54-5b20-b94e-4c8325dc218f",
       "name": "3CXDesktopApp",
       "vendor": "3CX"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9bf3243a-959d-5fe5-856f-5000354b9788",
+      "name": "Rocq Prover",
+      "vendor": "Rocq"
     },
     {
       "type": "software",
@@ -163716,22 +163658,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--2202e3be-9c11-5350-a926-8add67d06536",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100504",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100504",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100504"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--226f23ed-95c9-5a5d-a920-1639a5092c90",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -164830,22 +164756,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-86478",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86478"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2bc7aa52-9a26-5a66-9f87-fe1bc1403c31",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100520",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100520",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100520"
         }
       ]
     },
@@ -183780,6 +183690,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e8fb0a05-4660-543c-868d-04999601f2c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-72711",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-72711",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72711"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e9cbbed3-f8cf-5737-8085-fc0d29737f8e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -185726,6 +185652,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-52691",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-52691"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--faf1d783-2b3f-5541-a8e7-29eb340a3b6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-72705",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-72705",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72705"
         }
       ]
     },
