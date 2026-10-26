@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--368e0662-6a85-5f58-8b39-cf816f0aeca5",
+  "id": "bundle--79264023-ef92-5e27-8177-da789cbb84a8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3566,17 +3566,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--18a32e08-1a9c-5349-87df-ffe0ae727eee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T18:02:48.000Z",
-      "modified": "2026-07-28T18:02:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a9849590-47e3-5f64-8707-5e4aec511a78",
-      "target_ref": "attack-pattern--3648fae3-5597-5cb8-bf1c-2340b67e3cef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--18b8a5b5-4517-53c5-bd6d-cf9f921c1ded",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-28T18:28:59.000Z",
@@ -4805,17 +4794,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ba525b89-4916-5162-8170-6e460214314a",
       "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--359aeb6c-c102-57f7-9eea-d8b4ccf2a8d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T18:02:48.000Z",
-      "modified": "2026-07-28T18:02:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a9849590-47e3-5f64-8707-5e4aec511a78",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
     },
     {
       "type": "relationship",
@@ -9766,17 +9744,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f5e5f8e9-8ee2-5323-8f2e-20191e3071dd",
       "target_ref": "attack-pattern--f8a5616a-53f6-5d8f-940e-1f38c11312fa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c6ef5675-c27c-59c5-93a7-0f1a381d7dfa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T18:01:51.000Z",
-      "modified": "2026-07-28T18:01:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--644149cf-6d2c-5cc8-a83d-aa1525f3b548",
-      "target_ref": "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1"
     },
     {
       "type": "relationship",
@@ -15461,65 +15428,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--644149cf-6d2c-5cc8-a83d-aa1525f3b548",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T18:01:51.000Z",
-      "modified": "2026-07-28T18:01:51.000Z",
-      "name": "Potential Data Exfiltration Activity to an Unusual IP Address",
-      "description": "## Overview\n\nElastic has developed a machine learning detection rule, \"Potential Data Exfiltration Activity to an Unusual IP Address,\" designed to identify abnormal outbound network traffic patterns that may indicate data exfiltration. This rule, updated on July 27, 2026, analyzes network and file events collected by integrations such as Elastic Defend and Network Packet Capture. By focusing on data transfers to unusual geo-locations (determined by IP address) that deviate significantly from an organization's normal traffic, the rule aims to detect suspicious command and control (C2) communications used for data theft. This detection mechanism leverages Elastic's Anomaly Detection feature to flag these deviations, providing an early warning system for potential data loss and unauthorized data movement. The rule is part of the Data Exfiltration Detection integration within the Elastic Security platform.\n\n## Impact\n\nIf the detected activity represents actual data exfiltration, the impact can be severe, leading to significant financial losses, reputational damage, and regulatory penalties. Confidential company data, intellectual property, or sensitive customer information could be compromised and used for competitive advantage, blackmail, or further malicious activities. Organizations may face operational disruption, increased security remediation costs, and loss of customer trust. Early detection of such anomalies, as provided by this ML rule, is crucial for mitigating these severe consequences and preventing successful data breaches.\n\n## Recommendation\n\n* Install the \"Data Exfiltration Detection\" integration assets in Kibana as per Elastic's documentation.\n* Ensure Elastic Fleet is properly configured and functional to support the Data Exfiltration Detection integration.\n* Deploy and configure Elastic Defend and Network Packet Capture integrations to collect comprehensive network and file event logs required for this ML rule.\n* Complete the setup steps for the preconfigured anomaly detection jobs, specifically ensuring the `ded_high_sent_bytes_destination_ip_ea` ML job is active.\n* Review and triage alerts generated by the \"Potential Data Exfiltration Activity to an Unusual IP Address\" rule, cross-referencing unusual IP addresses with threat intelligence databases and analyzing historical network logs.\n",
-      "published": "2026-07-28T18:01:51.000Z",
-      "labels": [
-        "data-loss-prevention",
-        "elastic",
-        "exfiltration",
-        "machine-learning",
-        "network-security"
-      ],
-      "object_refs": [
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--2ece9f0a-d72a-55fa-a8c6-fed7b2b5ed3f",
-        "software--2ff1c390-ab8e-5db2-b7bb-ef75dfd9c696",
-        "software--722f01e0-ae72-576d-8a55-5b3511f8f9ac",
-        "software--8e5b5bcd-2cb8-59cf-8b55-ed3ac44e5ac5",
-        "software--b35be390-f131-5298-a019-368da39e3178",
-        "software--ce7b85a0-1a77-51f0-aa7e-8db22db7394a"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-potential-data-exfiltration-ml",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-potential-data-exfiltration-ml/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.elastic.co/en/integrations/ded"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/blog/detect-data-exfiltration-activity-with-kibanas-new-integration"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-potential-data-exfiltration-ml",
-      "x_craftedsignal_event_id": "brief-2026-07-potential-data-exfiltration-ml",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-potential-data-exfiltration-ml/",
-      "x_craftedsignal_activity_at": "2026-07-28T18:01:51.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--656c1d81-f55b-563d-a3cb-b4f4cc27542d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:30:03.000Z",
@@ -18049,60 +17957,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-env-printenv-container-enum/",
       "x_craftedsignal_activity_at": "2026-07-29T12:40:56.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a9849590-47e3-5f64-8707-5e4aec511a78",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T18:02:48.000Z",
-      "modified": "2026-07-28T18:02:48.000Z",
-      "name": "Potential Data Exfiltration Activity to an Unusual Destination Port",
-      "description": "## Overview\n\nThis brief details a machine learning-based detection rule developed by Elastic, designed to identify potential data exfiltration activities within an organization's network. The rule, titled \"Potential Data Exfiltration Activity to an Unusual Destination Port,\" leverages Elastic's anomaly detection capabilities to flag instances where an unusual volume of data (high bytes) is transferred to destination ports that deviate from established normal traffic patterns. This behavior is indicative of adversaries attempting to exfiltrate sensitive information over command and control (C2) channels. The detection relies on the Data Exfiltration Detection integration, requiring network and file events collected by Elastic Defend or Network Packet Capture integrations. While not tied to a specific threat actor or campaign, this rule helps defenders identify stealthy exfiltration attempts that might bypass traditional signature-based detections by recognizing anomalous network behavior, thereby providing an early warning system against sophisticated data theft operations.\n\n## Attack Chain\n\n(No specific attack chain is provided as this brief describes a generic machine learning detection rule, not a specific incident or exploitation scenario.)\n\n## Impact\n\nSuccessful data exfiltration, which this machine learning rule aims to detect, can result in severe consequences for an organization. This includes the loss of sensitive intellectual property, customer data, and financial records, leading to significant financial damages through regulatory fines, legal liabilities, and direct costs associated with incident response. Beyond monetary losses, data breaches severely damage an organization's reputation and customer trust. Early detection of anomalous data transfers to unusual ports, as identified by this rule, is crucial to mitigate these impacts by enabling timely intervention before large-scale data theft occurs. The rule acts as a proactive measure against stealthy exfiltration methods often employed by sophisticated threat actors to maintain persistence and siphon data without immediate detection.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering teams:\n* Install the Elastic Data Exfiltration Detection integration and configure preconfigured anomaly detection jobs as described in the `setup` instructions within the rule.\n* Ensure network events are collected from endpoints via `Elastic Defend` and network capture via `Network Packet Capture` integrations to feed the machine learning job with essential telemetry.\n* Upon detection, investigate alerts by reviewing `network_traffic` logs to identify the source IP, destination port, and data volume, correlating findings with other security alerts for a comprehensive view.\n* Identify and document legitimate internal applications and external services that utilize non-standard ports to minimize false positives and improve the accuracy of the machine learning model.\n* Review and update firewall and intrusion detection/prevention system rules based on findings from anomalous traffic to block further unauthorized data transfers.\n",
-      "published": "2026-07-28T18:02:48.000Z",
-      "labels": [
-        "data-exfiltration",
-        "elastic-defend",
-        "machine-learning",
-        "network-packet-capture",
-        "network-security"
-      ],
-      "object_refs": [
-        "attack-pattern--3648fae3-5597-5cb8-bf1c-2340b67e3cef",
-        "attack-pattern--4cb06bc1-a177-59d7-804c-95f4bab7e7e1",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-elastic-ml-exfil-port",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-elastic-ml-exfil-port/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://docs.elastic.co/en/integrations/ded"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/blog/detect-data-exfiltration-activity-with-kibanas-new-integration"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/guide/en/security/current/prebuilt-ml-jobs.html"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-07-elastic-ml-exfil-port",
-      "x_craftedsignal_event_id": "brief-2026-07-elastic-ml-exfil-port",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-elastic-ml-exfil-port/",
-      "x_craftedsignal_activity_at": "2026-07-28T18:02:48.000Z",
-      "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -22263,13 +22117,6 @@
       "spec_version": "2.1",
       "id": "software--2ccab42b-855f-5e01-af09-5e79cb08e77d",
       "name": "dssrf (\u003c= 1.0.4)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--2ece9f0a-d72a-55fa-a8c6-fed7b2b5ed3f",
-      "name": "Data Exfiltration Detection integration",
-      "vendor": "Elastic"
     },
     {
       "type": "software",
