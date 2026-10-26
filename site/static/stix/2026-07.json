@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ec922ac3-f3ef-5dcb-bf47-af3337f1621b",
+  "id": "bundle--05d166cb-36c5-5df4-b7b8-03e0b0a91319",
   "objects": [
     {
       "type": "attack-pattern",
@@ -191,22 +191,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1546",
           "url": "https://attack.mitre.org/techniques/T1546"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Gather Victim Network Information",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1590",
-          "url": "https://attack.mitre.org/techniques/T1590"
         }
       ]
     },
@@ -943,22 +927,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1133",
           "url": "https://attack.mitre.org/techniques/T1133"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--c5addc90-3a19-5e9b-b356-3b3172f3355b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Cloud Service Dashboard",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1538",
-          "url": "https://attack.mitre.org/techniques/T1538"
         }
       ]
     },
@@ -2083,18 +2051,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--abad8a2c-208d-5a3d-b512-d9c1c277a769",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "name": "ip: 169.254.169.254",
-      "pattern": "[ipv4-addr:value = '169.254.169.254']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-28T21:34:03.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--ac15b8b3-22b4-52ce-b2e8-7d8bfa77cc10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:17.000Z",
@@ -2224,18 +2180,6 @@
       "pattern": "[domain-name:value = 'plansonval.impostosrapido.top']",
       "pattern_type": "stix",
       "valid_from": "2026-07-29T14:53:41.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--c9171f0b-0959-5c8e-a4b9-611d64089f2d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "name": "url: http://127.0.0.1:\u0026lt;port\u003e/health",
-      "pattern": "[url:value = 'http://127.0.0.1:\u003cport\u003e/health']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-28T21:34:03.000Z"
     },
     {
       "type": "indicator",
@@ -2430,18 +2374,6 @@
       "pattern": "[x-craftedsignal-indicator:value = '/run/secrets/kubernetes.io/serviceaccount/token']",
       "pattern_type": "stix",
       "valid_from": "2026-07-29T12:33:36.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--f1b8aa3d-8555-5cd9-9797-f63283db44a8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "name": "url: http://169.254.169.254/latest/meta-data/iam/security-credentials/\u0026lt;role\u003e",
-      "pattern": "[url:value = 'http://169.254.169.254/latest/meta-data/iam/security-credentials/\u003crole\u003e']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-28T21:34:03.000Z"
     },
     {
       "type": "indicator",
@@ -4860,28 +4792,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4473a581-3831-5dfe-980c-cea82fc8d7b8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1a57cb70-f87d-518e-846d-5c20d800d2d3",
-      "target_ref": "indicator--abad8a2c-208d-5a3d-b512-d9c1c277a769"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--44c63733-ae1d-5ac2-b6d4-1301d5ff46c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1a57cb70-f87d-518e-846d-5c20d800d2d3",
-      "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--44f6b781-9837-5ec3-8395-f694448084cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:01.000Z",
@@ -5384,17 +5294,6 @@
       "relationship_type": "uses",
       "source_ref": "report--993cc27d-6e2d-59e1-9a35-828561d8e6db",
       "target_ref": "indicator--ff8b9709-1ef5-5f10-a461-4f599205c0c7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5768f5ce-fb4b-5989-a4c6-d64872d6620a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:55.000Z",
-      "modified": "2026-07-28T21:34:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--38bc5359-e8fc-5d24-9c24-dccd7d47d3be",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -6495,17 +6394,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ad7dac15-e563-574e-98a3-f420b644e9f3",
       "target_ref": "indicator--39d7a59a-2ccf-5da9-97bb-7ede2d6de1c8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7f84b0cd-5e0c-581f-b236-41d052cb3829",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1a57cb70-f87d-518e-846d-5c20d800d2d3",
-      "target_ref": "indicator--c9171f0b-0959-5c8e-a4b9-611d64089f2d"
     },
     {
       "type": "relationship",
@@ -8171,17 +8059,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b6fa89a9-9ee6-5637-9f1f-c68925fb52f4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1a57cb70-f87d-518e-846d-5c20d800d2d3",
-      "target_ref": "attack-pattern--c5addc90-3a19-5e9b-b356-3b3172f3355b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b90c80c9-c9f4-55bb-bd89-a937cf3d8b6f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8292,17 +8169,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--bbf2b3ff-891a-5478-ad7d-9bebe39a3c32",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1a57cb70-f87d-518e-846d-5c20d800d2d3",
-      "target_ref": "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bc47a4f8-cd16-5cb5-906f-083edbc2e67e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T05:21:46.000Z",
@@ -8387,17 +8253,6 @@
       "relationship_type": "has",
       "source_ref": "software--bfdf393f-2e68-5ba5-aaaa-84b5313865ff",
       "target_ref": "vulnerability--146892db-bbe7-55f9-9546-a7e50d7afcd3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bffe9442-ea39-56cc-bd87-8b772a2bc353",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1a57cb70-f87d-518e-846d-5c20d800d2d3",
-      "target_ref": "indicator--f1b8aa3d-8555-5cd9-9797-f63283db44a8"
     },
     {
       "type": "relationship",
@@ -11272,57 +11127,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--1a57cb70-f87d-518e-846d-5c20d800d2d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:03.000Z",
-      "modified": "2026-07-28T21:34:03.000Z",
-      "name": "Datamodel Code Generator Vulnerable to SSRF via URL Parameter",
-      "description": "## Overview\n\nVersions `0.9.1` through `0.60.2` of the `datamodel-code-generator` tool are susceptible to Server-Side Request Forgery (SSRF) when the optional `[http]` extra is installed. This vulnerability arises because the tool's built-in HTTP fetcher, utilized when the `--url` command-line argument is supplied, lacks critical validation for host and IP addresses and unconditionally follows HTTP redirects. An attacker can craft a malicious URL that redirects to internal network resources, loopback addresses, private IP ranges, or cloud metadata services like `169.254.169.254`. If successfully exploited, the tool will fetch content from these internal destinations and embed any sensitive information (e.g., IAM credentials, internal API responses) directly into the generated `.py` source code. This poses a significant risk of internal network reconnaissance, sensitive data disclosure, and credential exfiltration, particularly if the generated files are committed to a public or attacker-accessible repository. Organizations using `datamodel-code-generator` should upgrade to version `0.61.0` or later to mitigate this risk.\n\n## Attack Chain\n\n1. An attacker crafts a malicious external URL (e.g., `https://attacker.com/schema.json`) that issues an HTTP 302 redirect to an internal network resource, a private IP address, or a cloud metadata service (e.g., `http://169.254.169.254/latest/meta-data/iam/security-credentials/\u0026lt;role\u003e`).\n2. A victim executes the `datamodel-code-generator` tool, providing the attacker-controlled external URL via the `--url` command-line argument.\n3. The `datamodel-code-generator` tool, specifically its `http.get_body` function, initiates an HTTP GET request to the provided external URL.\n4. The external server responds with an HTTP 302 redirect to the internal target specified by the attacker.\n5. Due to the `follow_redirects=True` setting and absence of host/IP validation, `datamodel-code-generator` transparently follows the redirect and fetches content from the sensitive internal resource, effectively bypassing network boundaries.\n6. The response body from the internal resource (e.g., IAM role credentials, confidential internal API responses, or system information) is processed and interpreted as a schema.\n7. Sensitive information extracted from this internal response body is subsequently embedded into the generated Python `.py` source file, for example, as docstrings, class attributes, or field descriptions.\n8. The generated `.py` file, now containing the exfiltrated sensitive data, is potentially committed to a version control system, making the internal information accessible to the attacker or a wider audience.\n\n## Impact\n\nThis SSRF vulnerability can have significant consequences, primarily affecting organizations that use `datamodel-code-generator` with unverified URLs or within environments where internal services are accessible from development workstations or CI/CD pipelines. The observed damages include internal network reconnaissance through port scanning localhost or private IP ranges, and the disclosure of highly sensitive information. This can involve the exfiltration of cloud IAM credentials from metadata services (e.g., AWS EC2), internal API keys, or proprietary data from intranet applications. If the generated Python files containing this sensitive data are then committed to a repository, it constitutes a direct exfiltration channel, potentially granting attackers access to cloud infrastructure or other critical internal systems.\n\n## Recommendation\n\n* Upgrade `datamodel-code-generator` to version `0.61.0` or higher immediately to patch CVE-2026-54691.\n* Deploy the `Detect datamodel-code-generator SSRF attempts to internal IPs` Sigma rule to your SIEM to identify suspicious invocations of the tool targeting internal or private IP addresses.\n* Review existing codebases for `datamodel-codegen` invocations that use the `--url` parameter, especially in automated CI/CD pipelines, to ensure URLs are trusted and do not point to attacker-controlled domains or could redirect to internal resources.\n* Implement source code analysis tools to scan generated `.py` files for embedded sensitive information (e.g., API keys, credentials, private IPs) that may have resulted from past exploitation of this vulnerability.\n",
-      "published": "2026-07-28T21:34:03.000Z",
-      "labels": [
-        "code-generation",
-        "python",
-        "ssrf",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--25515e1b-9d0e-52cb-be3f-39b976615b23",
-        "attack-pattern--c5addc90-3a19-5e9b-b356-3b3172f3355b",
-        "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--abad8a2c-208d-5a3d-b512-d9c1c277a769",
-        "indicator--c9171f0b-0959-5c8e-a4b9-611d64089f2d",
-        "indicator--f1b8aa3d-8555-5cd9-9797-f63283db44a8",
-        "software--566a3d7c-0af5-54ab-ae08-c1a1da310554"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-datamodel-code-generator-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-rfr2-mq9m-x2qx"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-datamodel-code-generator-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-07-datamodel-code-generator-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-ssrf/",
-      "x_craftedsignal_activity_at": "2026-07-28T21:34:03.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--1ab61047-bc47-5226-bfc2-7bd701c1e2d5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T11:26:47.000Z",
@@ -12408,59 +12212,6 @@
       "x_craftedsignal_activity_at": "2026-07-29T09:45:55.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--38bc5359-e8fc-5d24-9c24-dccd7d47d3be",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T21:34:55.000Z",
-      "modified": "2026-07-28T21:34:55.000Z",
-      "name": "datamodel-code-generator Vulnerable to Arbitrary Local File Read via XSD Path Traversal",
-      "description": "## Overview\n\nVersions 0.59.0 through 0.61.0 of `datamodel-code-generator`, a tool for generating data models, contain a high-severity path traversal vulnerability (CVE-2026-55390). When processing an attacker-controlled XML Schema Definition (XSD) file, the tool fails to properly sanitize `schemaLocation` attributes within `\u0026lt;xs:include\u003e`, `\u0026lt;xs:import\u003e`, `\u0026lt;xs:redefine\u003e`, and `\u0026lt;xs:override\u003e` elements. This allows an attacker to specify relative paths using `../` or absolute paths, enabling the `datamodel-code-generator` process to read arbitrary files outside the intended project directory. The contents of these external files are subsequently incorporated into the generated Python models, leading to information disclosure. The default configuration is affected, and existing `--no-allow-remote-refs` options do not mitigate this specific XSD-based vector, making it a significant risk for applications and CI pipelines that process untrusted XSD input.\n\n## Attack Chain\n\n1. An attacker crafts a malicious XSD file containing an `\u0026lt;xs:include\u003e` or `\u0026lt;xs:import\u003e` element with a `schemaLocation` attribute.\n2. The `schemaLocation` attribute is set to either a path traversal sequence (e.g., `../../etc/passwd`) or an absolute path (e.g., `/var/log/apache2/access.log`).\n3. The attacker convinces a victim to generate models using the malicious XSD file, for instance, by integrating it into a build pipeline or using it in a multi-tenant environment.\n4. The victim executes `datamodel-codegen --input attacker.xsd --input-file-type xmlschema --output generated_models.py`.\n5. During the XSD parsing process, `datamodel-code-generator` resolves the malicious `schemaLocation`.\n6. Due to the vulnerability, the tool reads the content of the arbitrary local file specified in the `schemaLocation`.\n7. The content of the sensitive file is then folded into the generated Python output file (`generated_models.py`).\n8. The attacker subsequently obtains the generated output, thereby exfiltrating the contents of the sensitive local file.\n\n## Impact\n\nThis vulnerability (CVE-2026-55390) enables arbitrary local file read (CWE-22) leading to significant information disclosure (CWE-200). Any environment that uses `datamodel-code-generator` to process untrusted XML Schema Definition (XSD) files is at risk. This includes development workflows, CI/CD pipelines, and multi-tenant services where an attacker can supply an XSD. Attackers can read sensitive files such as configuration files, source code, private keys, or system credentials. While verbatim disclosure is guaranteed for XML/XSD-shaped data, the tool reads raw bytes of any file, making it a potent primitive for arbitrary file access. The compromised data, once incorporated into generated models, can be exfiltrated via various means, such as being committed to a repository, logged, or returned by a service.\n\n## Recommendation\n\n* Upgrade `datamodel-code-generator` to version `0.62.0` or newer immediately to address CVE-2026-55390.\n* Implement checks to reject resolved `schemaLocation` targets that are not strictly relative to the base path when processing XSD files in any custom integration.\n* Ensure that any automated systems or services processing untrusted XSD files run with the principle of least privilege, limiting their access to sensitive file system locations.\n",
-      "published": "2026-07-28T21:34:55.000Z",
-      "labels": [
-        "information-disclosure",
-        "path-traversal",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--869e4592-9a1b-5e4d-bdc4-d706459a1272"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-datamodel-code-generator-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://gist.github.com/thegr1ffyn/c7096b797926348875d888652867eeb4"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-442q-2j6p-642g"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/koxudaxi/datamodel-code-generator-ghsa-442q-2j6p-642g/pull/1"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-datamodel-code-generator-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-07-datamodel-code-generator-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-datamodel-code-generator-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-07-28T21:34:55.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -19187,13 +18938,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--566a3d7c-0af5-54ab-ae08-c1a1da310554",
-      "name": "datamodel-code-generator (0.9.1 - 0.60.2)",
-      "vendor": "koxudaxi"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--578d68a0-8db9-5464-91b0-0b9d5505f37c",
       "name": "Langflow OSS (1.0.0 - 1.10.1)",
       "vendor": "IBM"
@@ -19465,13 +19209,6 @@
       "spec_version": "2.1",
       "id": "software--8684c1b0-806e-55ec-96b3-b3c86535c4ef",
       "name": "caddy"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--869e4592-9a1b-5e4d-bdc4-d706459a1272",
-      "name": "datamodel-code-generator (\u003e= 0.59.0, \u003c= 0.61.0)",
-      "vendor": "koxudaxi"
     },
     {
       "type": "software",

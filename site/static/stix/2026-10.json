@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6b116f43-564a-5461-823e-be3d92218d31",
+  "id": "bundle--6ea4f634-de64-5919-bad5-e00333b3de8f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5760,6 +5760,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--049f3e8c-0943-54d7-869a-6d5db1df599f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2d9318f5-9554-51cd-8465-4575f3ad173b",
+      "target_ref": "vulnerability--e2c0a4f1-9f7f-558e-aaa4-c92c2c13a282"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--04ac110a-3d2c-5fa9-8879-4be1269f1cc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8825,6 +8836,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
       "target_ref": "vulnerability--9c1ad73a-a757-504f-9456-ae9021a6e9c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1464d2ff-d9db-59da-af32-a645b35f7878",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--041eb578-d17f-5f73-8eab-a0eb66d353e6",
+      "target_ref": "vulnerability--e194ec73-5280-5285-bdd0-45e4a6e92ab3"
     },
     {
       "type": "relationship",
@@ -37110,6 +37132,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ae194cc2-6e2d-501a-bace-3ce3273655ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--96a044dc-710f-57e2-b288-98bea2b4f778",
+      "target_ref": "vulnerability--e2c0a4f1-9f7f-558e-aaa4-c92c2c13a282"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ae2d7a56-5b51-5e14-921c-aae664f1921d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64556,6 +64589,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--27e03321-d672-5dbd-94b5-d020f08a4478",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:47:12.000Z",
+      "modified": "2026-10-26T21:47:12.000Z",
+      "name": "Rembg: Arbitrary file disclosure and arbitrary ONNX computation (CVE-2026-115924)",
+      "description": "Rembg versions prior to 2.0.82 contain a vulnerability in the /api/remove endpoint (CVE-2026-115924). The endpoint improperly processes the `extras.sam_model` parameter, passing it through `rembg/commands/s_command.py` to `rembg/sessions/sam.py`. \n\nAn attacker can supply a `sam_model` value combining path traversal and URL fragment syntax. This allows the attacker to force the application to download malicious ONNX encoder and decoder files into a local path. These files can then be used to load target files via ONNX external data, enabling the disclosure of file contents through the returned PNG mask and the execution of arbitrary ONNX computation.\n",
+      "published": "2026-10-26T21:47:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--9e6def8e-5a3c-5276-8cb5-826f222ca67c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-rembg-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-rembg-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115924"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-rembg-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-26-rembg-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rembg-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-26T21:47:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--285a1f59-5039-55fa-a49a-9caf1625563f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:17:13.000Z",
@@ -84892,6 +84964,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6628361e-f87e-5cae-87ff-cf96325f2baa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:46:51.000Z",
+      "modified": "2026-10-26T21:46:51.000Z",
+      "name": "HashiCorp Consul: Authorization bypass in service mesh leaf certificate API (CVE-2026-105765)",
+      "description": "HashiCorp Consul and Consul Enterprise 1.17.0 up to 2.0.4 are vulnerable to an authorization bypass in the agent's service mesh leaf certificate API. This vulnerability (CVE-2026-105765) may allow an attacker without a valid ACL token to retrieve a cached service leaf certificate and its private key. The vulnerability is fixed in Consul Community Edition 2.1.0 and Consul Enterprise 2.1.0 and 1.21.19.\n",
+      "published": "2026-10-26T21:46:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--277a7e5e-0344-54c5-aa0d-ae09bf82b837"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-hashicorp-consul-auth-bypass-c4f2d72e",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-hashicorp-consul-auth-bypass-c4f2d72e/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105765"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-hashicorp-consul-auth-bypass-c4f2d72e",
+      "x_craftedsignal_event_id": "brief-2026-10-26-hashicorp-consul-auth-bypass-c4f2d72e",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-hashicorp-consul-auth-bypass-c4f2d72e/",
+      "x_craftedsignal_activity_at": "2026-10-26T21:46:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--66692302-8407-5a22-ac42-d06b42f78484",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:50:39.000Z",
@@ -95803,6 +95914,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8a1b9107-3ce5-539b-b188-2250c901b143",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:46:44.000Z",
+      "modified": "2026-10-26T21:46:44.000Z",
+      "name": "OctoPrint: Hard-coded cryptographic key in Flask Secret Key Handler (CVE-2014-125135)",
+      "description": "## Overview\nA vulnerability exists in the Flask Secret Key Handler component of OctoPrint versions 1.0.0 and 1.1.0. The implementation uses a hard-coded cryptographic key. The attack may be performed from remote. \n\n## Recommendation\nUpgrading to version 1.11.1 is able to address this issue.\n",
+      "published": "2026-10-26T21:46:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2d9318f5-9554-51cd-8465-4575f3ad173b",
+        "software--96a044dc-710f-57e2-b288-98bea2b4f778",
+        "vulnerability--e2c0a4f1-9f7f-558e-aaa4-c92c2c13a282"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-octoprint-secret-key",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-octoprint-secret-key/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-125135"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-octoprint-secret-key",
+      "x_craftedsignal_event_id": "brief-2026-10-26-octoprint-secret-key",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-octoprint-secret-key/",
+      "x_craftedsignal_activity_at": "2026-10-26T21:46:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8a7b7bf3-71f4-5af8-a0b4-b0ac4c156c64",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T08:41:49.000Z",
@@ -95852,14 +96004,15 @@
       "id": "report--8a862bcf-b4c7-5fd7-b26e-c1c9143b8531",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T01:51:22.000Z",
-      "modified": "2026-10-22T01:51:22.000Z",
+      "modified": "2026-10-26T21:47:50.000Z",
       "name": "TOTOLINK A950RG: Remote command injection via UploadCustomModule (CVE-2026-114575)",
       "description": "A remote command injection vulnerability (CVE-2026-114575) exists in the TOTOLINK A950RG router, firmware version 4.1.2cu.5268_B20221104. The vulnerability is located in the UploadCustomModule function of the lib/cste_modules/product.so file. Exploitation is achieved by manipulating the FileMd5 argument. Proof-of-concept exploit code has been published.\n",
       "published": "2026-10-22T01:51:22.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--041eb578-d17f-5f73-8eab-a0eb66d353e6",
-        "vulnerability--a99f3384-4bbe-5181-a7c5-ecb1fea2b9fd"
+        "vulnerability--a99f3384-4bbe-5181-a7c5-ecb1fea2b9fd",
+        "vulnerability--e194ec73-5280-5285-bdd0-45e4a6e92ab3"
       ],
       "external_references": [
         {
@@ -95870,21 +96023,24 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114575"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116506"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-22-totolink-cve-2026-114575",
       "x_craftedsignal_event_id": "brief-2026-10-22-totolink-cve-2026-114575",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-totolink-cve-2026-114575/",
-      "x_craftedsignal_activity_at": "2026-10-22T01:51:22.000Z",
+      "x_craftedsignal_activity_at": "2026-10-26T21:47:50.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.0221,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -127259,6 +127415,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e9ed3309-eca8-5f28-aea2-a1bbcf341cd4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T21:47:03.000Z",
+      "modified": "2026-10-26T21:47:03.000Z",
+      "name": "Routinator: Denial of Service via malformed AS range (CVE-2026-72758)",
+      "description": "Routinator is vulnerable to a denial-of-service condition (CVE-2026-72758). When parsing an AS range, if the provided maximum value is smaller than the minimum value, the software fails to reach the maximum value, resulting in an infinite loop and memory exhaustion. The CVSS v3.1 Base Score is 7.5.\n",
+      "published": "2026-10-26T21:47:03.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--ab48071a-258a-5258-8bac-ab1860058f50"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-routinator-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-routinator-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72758"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-routinator-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-26-routinator-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-routinator-dos/",
+      "x_craftedsignal_activity_at": "2026-10-26T21:47:03.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ea167a49-1dec-5eeb-8d34-a5fa57f9b4c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T03:40:43.000Z",
@@ -136487,6 +136682,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2d9318f5-9554-51cd-8465-4575f3ad173b",
+      "name": "OctoPrint 1.1.0"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2df4ff89-7888-5cc0-b181-9d35fa1c9a41",
       "name": "Parse Server (\u003c 8.6.102, 9.0.0 \u003c 9.10.5-alpha.2)",
       "vendor": "Parse Platform"
@@ -142085,6 +142286,12 @@
       "id": "software--96813745-0611-5a8a-a50d-e5cf8a6ce76f",
       "name": "OpenSearch",
       "vendor": "OpenSearch"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--96a044dc-710f-57e2-b288-98bea2b4f778",
+      "name": "OctoPrint 1.0.0"
     },
     {
       "type": "software",
@@ -151155,6 +151362,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-22250",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22250"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--277a7e5e-0344-54c5-aa0d-ae09bf82b837",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105765",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105765",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105765"
         }
       ]
     },
@@ -162601,6 +162824,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9e6def8e-5a3c-5276-8cb5-826f222ca67c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115924",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115924",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115924"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9e9c96ee-1735-5d31-84a3-b509c61d394f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -163891,6 +164130,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110673",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110673"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ab48071a-258a-5258-8bac-ab1860058f50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-72758",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-72758",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72758"
         }
       ]
     },
@@ -168713,6 +168968,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e194ec73-5280-5285-bdd0-45e4a6e92ab3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116506",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116506",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116506"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e1d2c0d5-20e8-532a-9ef2-bb7b569635b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -168803,6 +169074,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109198",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109198"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e2c0a4f1-9f7f-558e-aaa4-c92c2c13a282",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2014-125135",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2014-125135",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-125135"
         }
       ]
     },
