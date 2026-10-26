@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--761e63b4-f01a-57b3-af41-489adea3ea49",
+  "id": "bundle--d7c96dc5-0b52-5d00-8a24-537edd38cda5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5384,6 +5384,17 @@
       "relationship_type": "has",
       "source_ref": "software--ecd15cfa-a571-5d90-a4b8-ee9ec71a13b2",
       "target_ref": "vulnerability--7baf32ae-740d-5460-8e92-69e2cfff7688"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--02b08edb-4d29-5295-b3dc-df20d512f53d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+      "target_ref": "vulnerability--42b6dc00-e03b-5dd7-ac02-37dc60013abc"
     },
     {
       "type": "relationship",
@@ -36551,6 +36562,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b0114e6e-950b-5786-8081-8c6a964d6eb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+      "target_ref": "vulnerability--39fb67a6-ed6a-56ae-8319-34624affbdb5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b017a4b0-6ceb-587b-a689-4b908de95867",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38527,6 +38549,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--0b3b6edc-e4b0-5393-ab71-7aca1a8241b0",
       "target_ref": "threat-actor--cb984d3a-68f9-5935-bf27-e8deeb8c6b32"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bac2f291-a84f-56b4-87f4-a5621148043a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T07:37:18.000Z",
+      "modified": "2026-10-26T07:37:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af54afa2-b677-505f-9481-f30f00ffdf24",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -41464,6 +41497,17 @@
       "relationship_type": "has",
       "source_ref": "software--a2818cf5-522e-55f1-bea7-d17db7576ebf",
       "target_ref": "vulnerability--fab35d64-3d49-5e99-927d-730aca310262"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ca793f4d-c1fa-528c-be84-6d58c6fd539a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22ee9cbf-0ce5-518a-9e53-6c57839dd3a3",
+      "target_ref": "vulnerability--14b4244d-740d-5513-a7a4-6be1977c5505"
     },
     {
       "type": "relationship",
@@ -75955,6 +75999,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5288de7f-bd24-5db6-9361-8cd78054b60c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T07:37:08.000Z",
+      "modified": "2026-10-26T07:37:08.000Z",
+      "name": "HeyCyan App: Improper access control in FileProvider (CVE-2026-116106)",
+      "description": "A security vulnerability has been identified in the FileProvider component of HeyCyan App version 1.0.103 on Android. The issue is characterized by improper access controls that can be manipulated remotely. The vendor did not respond to disclosure attempts.\n",
+      "published": "2026-10-26T07:37:08.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22ee9cbf-0ce5-518a-9e53-6c57839dd3a3",
+        "vulnerability--14b4244d-740d-5513-a7a4-6be1977c5505"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-heycyan-fileprovider-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-heycyan-fileprovider-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116106"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-heycyan-fileprovider-access",
+      "x_craftedsignal_event_id": "brief-2026-10-26-heycyan-fileprovider-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-heycyan-fileprovider-access/",
+      "x_craftedsignal_activity_at": "2026-10-26T07:37:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--52e1d2c1-4f2f-51f3-a93c-b2160e9ee824",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:08:22.000Z",
@@ -104354,6 +104438,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--af54afa2-b677-505f-9481-f30f00ffdf24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T07:37:18.000Z",
+      "modified": "2026-10-26T07:37:30.000Z",
+      "name": "Fuji Electric V-SFT: Stack-based buffer overflow (CVE-2026-107894)",
+      "description": "## Overview\n\nFuji Electric V-SFT contains a stack-based buffer overflow vulnerability identified as CVE-2026-107894. This vulnerability is triggered when the application parses a specially crafted V7 file. Successful exploitation may result in information exposure or arbitrary code execution within the context of the application.\n\n## Impact\n\nSuccessful exploitation could lead to arbitrary code execution or unauthorized information disclosure.\n\n## Recommendation\n\n- Identify all instances of Fuji Electric V-SFT software within the organization.\n- Monitor for unusual file-opening activity or unexpected child processes originating from the V-SFT application process.\n- Check with the vendor for the availability of security updates or patches addressing CVE-2026-107894 and deploy them to all affected systems.\n",
+      "published": "2026-10-26T07:37:18.000Z",
+      "labels": [
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+        "vulnerability--39fb67a6-ed6a-56ae-8319-34624affbdb5",
+        "vulnerability--42b6dc00-e03b-5dd7-ac02-37dc60013abc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-fuji-v-sft-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-fuji-v-sft-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107894"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107895"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-fuji-v-sft-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-26-fuji-v-sft-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fuji-v-sft-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-26T07:37:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--af573500-5529-5901-ac6a-75638435b172",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T20:32:23.000Z",
@@ -131871,6 +132005,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--22ee9cbf-0ce5-518a-9e53-6c57839dd3a3",
+      "name": "HeyCyan App (1.0.103)",
+      "vendor": "HeyCyan"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--23076e47-96ec-533d-82f8-31c2560c7093",
       "name": "SmarterMail (\u003c 100.0.9511)",
       "vendor": "SmarterTools"
@@ -133436,6 +133577,13 @@
       "id": "software--44f71785-0a96-517e-88f3-040ff27f278f",
       "name": "GitPython (\u003c 3.2.1)",
       "vendor": "GitPython"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+      "name": "V-SFT",
+      "vendor": "Fuji Electric"
     },
     {
       "type": "software",
@@ -144699,6 +144847,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--14b4244d-740d-5513-a7a4-6be1977c5505",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116106",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116106",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116106"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--14b47d7b-7c6e-5f63-ad5a-2ccbe3531097",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -148427,6 +148591,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--39fb67a6-ed6a-56ae-8319-34624affbdb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107895",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107895",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--39fc4103-517f-5973-8b62-0df8cd342d07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -149269,6 +149449,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102483",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102483"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42b6dc00-e03b-5dd7-ac02-37dc60013abc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107894",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107894",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107894"
         }
       ]
     },

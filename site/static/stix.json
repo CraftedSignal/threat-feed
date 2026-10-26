@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--10a3d2e6-ba1a-5b53-b97f-60475d69338f",
+  "id": "bundle--ecf98460-7166-5977-a958-7c0b33fd20a6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5599,6 +5599,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--02b08edb-4d29-5295-b3dc-df20d512f53d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+      "target_ref": "vulnerability--42b6dc00-e03b-5dd7-ac02-37dc60013abc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--02b5aefc-212d-5221-9cbc-033d83214313",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7388,17 +7399,6 @@
       "relationship_type": "has",
       "source_ref": "software--d7967f08-2c23-5e6e-b811-910937968273",
       "target_ref": "vulnerability--49946fdf-788d-59a6-a137-ceb9657e592d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0b4bcb52-803f-5da8-87fa-a5da8075d763",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T06:57:37.000Z",
-      "modified": "2026-09-26T06:57:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bb61e98d-877d-5fb1-8ccc-0350e51e6233",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -10241,17 +10241,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--190210c1-8de9-5eb6-8d13-30d332d5b5fc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T06:57:37.000Z",
-      "modified": "2026-09-26T06:57:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bb61e98d-877d-5fb1-8ccc-0350e51e6233",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1905574c-ad26-59ed-a928-b1073f83cf79",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T20:32:56.000Z",
@@ -10424,17 +10413,6 @@
       "relationship_type": "has",
       "source_ref": "software--20601169-b9a7-5b96-a89a-acf7882d9214",
       "target_ref": "vulnerability--c55a09ad-c78e-5f33-9ec9-cae9cb5c0ff7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--19cc33a5-7959-57cf-9636-88eaa8b2c0b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--88828c2a-eec5-5a8e-af22-7c47cd502a4a",
-      "target_ref": "vulnerability--ea2e48ff-9531-5ed9-a44f-edffd81453f2"
     },
     {
       "type": "relationship",
@@ -18117,17 +18095,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--413aadf5-43d3-5d49-abeb-89d99a91df87",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T06:57:05.000Z",
-      "modified": "2026-09-26T06:57:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--9f82ac72-8324-5b2f-b367-eb6e5be9824d",
-      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--415796bd-ea3e-5eb9-9dd9-66a402553f57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24416,17 +24383,6 @@
       "relationship_type": "uses",
       "source_ref": "report--41fb8962-720f-5d21-9899-e8e04297f7b0",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5fdd38f1-faf0-5339-81b7-dea0f57dd56c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T06:57:37.000Z",
-      "modified": "2026-09-26T06:57:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bb61e98d-877d-5fb1-8ccc-0350e51e6233",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -40975,6 +40931,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b0114e6e-950b-5786-8081-8c6a964d6eb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+      "target_ref": "vulnerability--39fb67a6-ed6a-56ae-8319-34624affbdb5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b011a1f0-7088-55d1-8d7c-42a5c139e966",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T19:16:53.000Z",
@@ -43263,6 +43230,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bac2f291-a84f-56b4-87f4-a5621148043a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T07:37:18.000Z",
+      "modified": "2026-10-26T07:37:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--af54afa2-b677-505f-9481-f30f00ffdf24",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bac6c08e-af2d-5288-b590-cada3ca3258d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44293,17 +44271,6 @@
       "relationship_type": "has",
       "source_ref": "software--fbaa4fd3-7543-50f7-93ec-19461efa1130",
       "target_ref": "vulnerability--11f4a3fe-7cb1-539f-97a2-1443f8f3b7c4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bf646f14-8de2-523b-b4df-21c90c5d8a5a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fc6fae1a-de1d-5b04-a843-352434772d84",
-      "target_ref": "vulnerability--5d7ba0c6-870e-52fa-bb4d-ea251bff3a00"
     },
     {
       "type": "relationship",
@@ -46691,6 +46658,17 @@
       "relationship_type": "has",
       "source_ref": "software--a2818cf5-522e-55f1-bea7-d17db7576ebf",
       "target_ref": "vulnerability--fab35d64-3d49-5e99-927d-730aca310262"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ca793f4d-c1fa-528c-be84-6d58c6fd539a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--22ee9cbf-0ce5-518a-9e53-6c57839dd3a3",
+      "target_ref": "vulnerability--14b4244d-740d-5513-a7a4-6be1977c5505"
     },
     {
       "type": "relationship",
@@ -84964,6 +84942,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5288de7f-bd24-5db6-9361-8cd78054b60c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T07:37:08.000Z",
+      "modified": "2026-10-26T07:37:08.000Z",
+      "name": "HeyCyan App: Improper access control in FileProvider (CVE-2026-116106)",
+      "description": "A security vulnerability has been identified in the FileProvider component of HeyCyan App version 1.0.103 on Android. The issue is characterized by improper access controls that can be manipulated remotely. The vendor did not respond to disclosure attempts.\n",
+      "published": "2026-10-26T07:37:08.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--22ee9cbf-0ce5-518a-9e53-6c57839dd3a3",
+        "vulnerability--14b4244d-740d-5513-a7a4-6be1977c5505"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-heycyan-fileprovider-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-heycyan-fileprovider-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116106"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-heycyan-fileprovider-access",
+      "x_craftedsignal_event_id": "brief-2026-10-26-heycyan-fileprovider-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-heycyan-fileprovider-access/",
+      "x_craftedsignal_activity_at": "2026-10-26T07:37:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--52e1d2c1-4f2f-51f3-a93c-b2160e9ee824",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:08:22.000Z",
@@ -111083,52 +111101,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--9f82ac72-8324-5b2f-b367-eb6e5be9824d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T06:57:05.000Z",
-      "modified": "2026-09-26T06:57:05.000Z",
-      "name": "Authorization Bypass in @openclaw/whatsapp npm package",
-      "description": "## Overview\n\nThe @openclaw/whatsapp npm package, used for integrating WhatsApp functionality, contains a critical authorization flaw (CVE-2026-100532) in versions prior to 2026.8.1. The vulnerability stems from a failure to enforce the 'owner-only' security boundary on the generic channel-tool path used for the WhatsApp login process. \n\nBy design, the login tool should only be accessible to the configured owner of the service. However, because the tool fails to preserve or validate the sender's owner status during the interaction, any non-owner user capable of steering the tool can invoke the login functionality. This action forces the service to generate a new QR code for a configured account. This process effectively disconnects the currently active WhatsApp account from the Gateway, leading to a denial-of-service condition. While the primary impact is service disruption, an attacker with physical access to the device can perform a subsequent QR code scan to relink the gateway to an account of their choosing, leading to unauthorized account control.\n\n## Impact\n\nSuccessful exploitation leads to immediate denial-of-service as the active WhatsApp account is disconnected from the Gateway. In scenarios where an attacker can scan the newly generated QR code, they can hijack the gateway's WhatsApp integration. This vulnerability affects all environments deploying @openclaw/whatsapp versions earlier than 2026.8.1.\n\n## Recommendation\n\n* Immediately upgrade the @openclaw/whatsapp dependency to version 2026.8.1 or later.\n* Audit logs for unauthorized access attempts to the login tool path or unexpected QR code generation events triggered by non-administrative service accounts.\n* Implement stricter access control logic at the application layer if upgrading is delayed, ensuring only authorized user IDs are permitted to interact with the channel-tool path.\n",
-      "published": "2026-09-26T06:57:05.000Z",
-      "labels": [
-        "npm",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--fc6fae1a-de1d-5b04-a843-352434772d84",
-        "vulnerability--5d7ba0c6-870e-52fa-bb4d-ea251bff3a00"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-26-openclaw-whatsapp-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-openclaw-whatsapp-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100532"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-26-openclaw-whatsapp-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-26-openclaw-whatsapp-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-openclaw-whatsapp-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-26T06:57:05.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--9fe8b0c7-42e3-54c9-8768-9356410c869d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:48:20.000Z",
@@ -116479,6 +116451,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--af54afa2-b677-505f-9481-f30f00ffdf24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T07:37:18.000Z",
+      "modified": "2026-10-26T07:37:30.000Z",
+      "name": "Fuji Electric V-SFT: Stack-based buffer overflow (CVE-2026-107894)",
+      "description": "## Overview\n\nFuji Electric V-SFT contains a stack-based buffer overflow vulnerability identified as CVE-2026-107894. This vulnerability is triggered when the application parses a specially crafted V7 file. Successful exploitation may result in information exposure or arbitrary code execution within the context of the application.\n\n## Impact\n\nSuccessful exploitation could lead to arbitrary code execution or unauthorized information disclosure.\n\n## Recommendation\n\n- Identify all instances of Fuji Electric V-SFT software within the organization.\n- Monitor for unusual file-opening activity or unexpected child processes originating from the V-SFT application process.\n- Check with the vendor for the availability of security updates or patches addressing CVE-2026-107894 and deploy them to all affected systems.\n",
+      "published": "2026-10-26T07:37:18.000Z",
+      "labels": [
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+        "vulnerability--39fb67a6-ed6a-56ae-8319-34624affbdb5",
+        "vulnerability--42b6dc00-e03b-5dd7-ac02-37dc60013abc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-fuji-v-sft-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-fuji-v-sft-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107894"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107895"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-fuji-v-sft-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-26-fuji-v-sft-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fuji-v-sft-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-26T07:37:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--af573500-5529-5901-ac6a-75638435b172",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T20:32:23.000Z",
@@ -120989,49 +121011,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--bb61e98d-877d-5fb1-8ccc-0350e51e6233",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-26T06:57:37.000Z",
-      "modified": "2026-09-26T06:57:37.000Z",
-      "name": "Authorization Bypass Vulnerability in OpenClaw Codex",
-      "description": "## Overview\n\nOpenClaw Codex versions prior to 2026.7.1 are susceptible to an authorization bypass vulnerability (CVE-2026-100586) involving the creation of native conversation bindings. The vulnerability stems from a failure to properly validate authorization levels when a user attempts to bind a conversation to the native Codex runtime. An attacker who is a channel participant, even without owner-level privileges, can leverage this flaw to create unauthorized bindings. \n\nOnce a malicious binding is established, the attacker can execute \"host-capable\" turns. Because these turns are processed by the native Codex runtime, they inherit the privileges of the application process itself. This allows for unauthorized interaction with the host file system, execution of local system tools, and potential manipulation of running processes. Given the severity of the access provided, this vulnerability represents a significant risk to host environment integrity and data confidentiality. Defenders should prioritize patching all instances of OpenClaw Codex to version 2026.7.1 or later.\n\n## Impact\n\nSuccessful exploitation allows unprivileged channel participants to gain elevated access within the host environment. This can lead to unauthorized exfiltration of sensitive files, execution of malicious system commands, and potential lateral movement or persistence by manipulating system processes. The scope of impact is limited to the system where the affected Codex instance is running.\n\n## Recommendation\n\n* Patch all internet-facing and internal installations of OpenClaw Codex to version 2026.7.1 or later to remediate CVE-2026-100586.\n* Audit application logs for abnormal creation of native conversation bindings or execution of unexpected host-level commands originating from non-owner user accounts.\n* Enforce strict network segmentation for hosts running the Codex runtime to limit potential post-exploitation activity if the service is compromised.\n",
-      "published": "2026-09-26T06:57:37.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--88828c2a-eec5-5a8e-af22-7c47cd502a4a",
-        "vulnerability--ea2e48ff-9531-5ed9-a44f-edffd81453f2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-26-openclaw-codex-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-openclaw-codex-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100586"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-26-openclaw-codex-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-26-openclaw-codex-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-openclaw-codex-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-26T06:57:37.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -147617,6 +147596,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--22ee9cbf-0ce5-518a-9e53-6c57839dd3a3",
+      "name": "HeyCyan App (1.0.103)",
+      "vendor": "HeyCyan"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--23076e47-96ec-533d-82f8-31c2560c7093",
       "name": "SmarterMail (\u003c 100.0.9511)",
       "vendor": "SmarterTools"
@@ -149443,6 +149429,13 @@
       "id": "software--44f989cc-a022-5462-9ae1-eade5ebc2284",
       "name": "Contrast (\u003c 1.8.1)",
       "vendor": "Edgeless Systems"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--450e29d0-618f-5e01-b12f-37917c1eac79",
+      "name": "V-SFT",
+      "vendor": "Fuji Electric"
     },
     {
       "type": "software",
@@ -153598,13 +153591,6 @@
       "id": "software--887c2f01-2164-5fb4-b3a4-9892ddf8a192",
       "name": "Vertex AI",
       "vendor": "Google"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--88828c2a-eec5-5a8e-af22-7c47cd502a4a",
-      "name": "Codex (\u003c 2026.7.1)",
-      "vendor": "OpenClaw"
     },
     {
       "type": "software",
@@ -159900,13 +159886,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fc6fae1a-de1d-5b04-a843-352434772d84",
-      "name": "@openclaw/whatsapp (\u003c 2026.8.1)",
-      "vendor": "openclaw"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fc8f3807-c3bb-5d89-98cd-c7a74945f35f",
       "name": "GitLab CE",
       "vendor": "GitLab"
@@ -162233,6 +162212,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114493",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114493"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--14b4244d-740d-5513-a7a4-6be1977c5505",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116106",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116106",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116106"
         }
       ]
     },
@@ -166335,6 +166330,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--39fb67a6-ed6a-56ae-8319-34624affbdb5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107895",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107895",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--39fc4103-517f-5973-8b62-0df8cd342d07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -167321,6 +167332,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101880",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101880"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--42b6dc00-e03b-5dd7-ac02-37dc60013abc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107894",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107894",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107894"
         }
       ]
     },
@@ -169833,22 +169860,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-83396",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83396"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--5d7ba0c6-870e-52fa-bb4d-ea251bff3a00",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100532",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100532",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100532"
         }
       ]
     },
@@ -183801,22 +183812,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-86326",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86326"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--ea2e48ff-9531-5ed9-a44f-edffd81453f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100586",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100586",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100586"
         }
       ]
     },
