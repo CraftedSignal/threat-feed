@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c71b4760-9808-5987-a6ac-2877e2e05624",
+  "id": "bundle--5eb49f6f-2406-5af7-94ca-0d1b5802aa75",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3805,17 +3805,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2d725223-c6a1-5d69-b0dd-1b777730447f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:21:07.000Z",
-      "modified": "2026-07-28T22:21:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--34446a9d-0ad0-58a4-bf13-196f90dd6386",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2d98e268-b68e-553e-8b2b-0c0e51d241f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6815,17 +6804,6 @@
       "relationship_type": "has",
       "source_ref": "software--b8769d4f-fc25-517a-a856-d90a91493f2e",
       "target_ref": "vulnerability--eb38e243-b5fa-51d0-a5aa-116232278a77"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--93a34781-e63b-5c14-bb15-3e326a6c020c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:21:07.000Z",
-      "modified": "2026-07-28T22:21:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--34446a9d-0ad0-58a4-bf13-196f90dd6386",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -11734,53 +11712,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.02132,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--34446a9d-0ad0-58a4-bf13-196f90dd6386",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:21:07.000Z",
-      "modified": "2026-07-28T22:21:07.000Z",
-      "name": "SQL Injection Vulnerability in @hypequery/clickhouse Allows Arbitrary SQL Execution",
-      "description": "## Overview\n\nA critical SQL injection vulnerability, identified as CVE-2026-54658, has been discovered in the `@hypequery/clickhouse` npm package, specifically within its `escapeValue()` function. This flaw affects all versions of the library prior to 2.0.2. Attackers can exploit this by providing user-controlled input containing a trailing backslash character (`\\`) followed by arbitrary SQL code when interacting with an application that uses the vulnerable library to query a ClickHouse database. The `escapeValue()` function's improper handling of backslashes before escaping single quotes allows the attacker's malicious SQL to be injected and executed. This can lead to unauthorized data access, modification, or deletion, posing a significant threat to data integrity and confidentiality for organizations using this package. The vulnerability highlights a supply chain risk for applications relying on third-party libraries for database interactions.\n\n## Attack Chain\n\n1. An attacker identifies a web application or service that utilizes the `@hypequery/clickhouse` library to interact with a ClickHouse database.\n2. The attacker discovers an input field or parameter in the application that processes user-supplied values, which are subsequently passed into a SQL query via the vulnerable `escapeValue()` function.\n3. The attacker crafts a malicious input string that contains legitimate data followed by a backslash (`\\`) and then their arbitrary SQL injection payload (e.g., `user_input_data\\' OR 1=1--`).\n4. When the application uses `@hypequery/clickhouse` to prepare the query, the `escapeValue()` function is called on the malicious input.\n5. Due to the flaw in versions prior to 2.0.2, the trailing backslash in the attacker's input escapes the legitimate single quote character that the library would normally add to close the string.\n6. This mis-escaping causes the attacker's SQL injection payload (e.g., `OR 1=1--`) to be interpreted as part of the SQL query itself, rather than as literal string data.\n7. The application then executes the manipulated SQL query against the backend ClickHouse database.\n8. The arbitrary SQL code is executed on the ClickHouse database, allowing the attacker to perform actions such as data exfiltration, unauthorized data modification, or other database manipulation, depending on the attacker's payload and the database user's privileges.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-54658 allows attackers to achieve arbitrary SQL execution within the context of the affected ClickHouse database. This can lead to severe consequences, including full compromise of the database's data, such as exfiltration of sensitive information, modification of existing records, or deletion of critical data. Organizations whose applications rely on `@hypequery/clickhouse` are at risk of significant data breaches and operational disruption if their user-facing inputs are not adequately protected. No specific victim counts or sectors were identified in the advisory, but any application using the vulnerable library is exposed.\n\n## Recommendation\n\n* Upgrade `@hypequery/clickhouse` to version 2.0.2 or later immediately to apply the patch for CVE-2026-54658.\n* Review applications using `@hypequery/clickhouse` for proper input validation on all user-controlled parameters that are passed into database queries.\n",
-      "published": "2026-07-28T22:21:07.000Z",
-      "labels": [
-        "clickhouse",
-        "npm",
-        "sql-injection",
-        "supply-chain",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--262736a9-6025-5806-acb6-03ba6660c383"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-clickhouse-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-clickhouse-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-6wcc-39rp-hh9p"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-clickhouse-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-clickhouse-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-clickhouse-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-07-28T22:21:07.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -18143,13 +18074,6 @@
       "id": "software--24b4b472-59a9-557b-9072-7e937f10f72c",
       "name": "validation-model (\u003e= 1.25.73, \u003c= 1.30.1)",
       "vendor": "veraPDF"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--262736a9-6025-5806-acb6-03ba6660c383",
-      "name": "@hypequery/clickhouse (\u003c 2.0.2)",
-      "vendor": "hypequery"
     },
     {
       "type": "software",
