@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fd5d4b85-84e5-50a7-b230-768f7f7277ca",
+  "id": "bundle--d576942a-a31c-5055-96d0-e25af1e7ce6b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8151,6 +8151,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5e439da6-3738-5ac7-8436-59ed1658aa64",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--111f96be-6952-5abb-bb5c-338e8136cc2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:34:54.000Z",
+      "modified": "2026-10-26T22:34:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0d42e8e2-895f-530e-aef5-ad03abec3dfa",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -57609,6 +57620,51 @@
       },
       "x_craftedsignal_cvss_max": 8.6,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0d42e8e2-895f-530e-aef5-ad03abec3dfa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T22:34:54.000Z",
+      "modified": "2026-10-26T22:34:54.000Z",
+      "name": "Godot Engine: Arbitrary code execution via .po translation file",
+      "description": "## Overview\nA code-execution vulnerability has been identified in Godot 4.x versions 4.1.0 through 4.7.2. The vulnerability exists within the translation loading component, specifically in the parsing logic for .po (Portable Object) files. The engine fails to validate the 'Plural-Forms' header against the GNU gettext grammar within `core/io/translation_loader_po.cpp`. Exploitation occurs during the first plural lookup, where a maliciously crafted header can lead to code execution. This vulnerability is not present in Godot 3.5.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution within the context of the running Godot application.\n\n## Recommendation\n- Inventory all projects utilizing Godot Engine 4.1.0 through 4.7.2.\n- Implement strict input validation for all external translation files (.po) loaded by the engine until a security update is applied.\n- Monitor for and apply upcoming patches from the Godot Engine developers for the affected 4.x versions.\n",
+      "published": "2026-10-26T22:34:54.000Z",
+      "labels": [
+        "code-execution",
+        "godot",
+        "translation",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2f3ae046-d16b-550f-b5be-e6137e5d684a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-26-godot-arbitrary-code-execution",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-godot-arbitrary-code-execution/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/396"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-26-godot-arbitrary-code-execution",
+      "x_craftedsignal_event_id": "brief-2026-10-26-godot-arbitrary-code-execution",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-godot-arbitrary-code-execution/",
+      "x_craftedsignal_activity_at": "2026-10-26T22:34:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -138090,6 +138146,13 @@
       "id": "software--2f349bef-7bf4-5269-b9eb-c809264340e8",
       "name": "Coze Studio (\u003c 0.5.0)",
       "vendor": "Coze"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2f3ae046-d16b-550f-b5be-e6137e5d684a",
+      "name": "Godot Engine (4.1.0 through 4.7.2)",
+      "vendor": "Godot Engine"
     },
     {
       "type": "software",

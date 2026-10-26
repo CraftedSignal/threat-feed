@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5eb49f6f-2406-5af7-94ca-0d1b5802aa75",
+  "id": "bundle--ca58cfb5-a91e-5714-aa29-f427343c163e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4065,17 +4065,6 @@
       "relationship_type": "uses",
       "source_ref": "report--0084b622-aee4-5667-8ae2-1c3c5622092a",
       "target_ref": "indicator--9cabde50-ac21-5081-bf1f-e9ed22a4a745"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3300518b-1fd6-5ec2-8fbd-358a75aaf8ab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:24:50.000Z",
-      "modified": "2026-07-28T22:24:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4d02b951-6c12-5e20-b975-6f914f222a33",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -8414,17 +8403,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cb7c0c91-e9b8-5126-8193-3c0cf8d670cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:24:50.000Z",
-      "modified": "2026-07-28T22:24:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4d02b951-6c12-5e20-b975-6f914f222a33",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cb8485d7-fdcb-57d9-b7c5-464ae8a25d68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9070,17 +9048,6 @@
       "relationship_type": "has",
       "source_ref": "software--54876aaa-bc16-5dd5-b080-3a05dd6b2a3b",
       "target_ref": "vulnerability--62dfb2f4-69dd-595f-8ae1-df694f342afb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e20c602b-5777-5f9f-9aa5-2ee3b0ddd86b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--95884e28-7037-57e1-97df-176f74724f3d",
-      "target_ref": "vulnerability--c796a671-d510-5b59-ba33-cfa2c946b876"
     },
     {
       "type": "relationship",
@@ -12423,52 +12390,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-interactive-shell-container/",
       "x_craftedsignal_activity_at": "2026-07-29T12:54:53.000Z",
       "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--4d02b951-6c12-5e20-b975-6f914f222a33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:24:50.000Z",
-      "modified": "2026-07-28T22:24:50.000Z",
-      "name": "Path Traversal Vulnerability in openhole-server (CVE-2026-54650)",
-      "description": "## Overview\n\nA high-severity path traversal vulnerability, tracked as CVE-2026-54650, affects `openhole-server` and the `openhole CLI` in versions 0.1.1 and earlier. Discovered by GHSA, this flaw allows an unauthenticated remote attacker to access arbitrary files outside the intended web root on local services exposed through the `openhole` tunnel. The vulnerability stems from the server incorrectly forwarding the URL-decoded request path (`r.URL.Path`) to tunnel clients instead of preserving the original, percent-encoded request-target. This leads to percent-encoded dot-segments (`%2e%2e/` for `../`) and separators (`%2f` for `/`) being decoded and interpreted literally by the backend, bypassing Go's `ServeMux` protections against literal path traversals. This could enable attackers to read sensitive configuration files, system files like `/etc/passwd`, and potentially bypass existing path-based access controls.\n\n## Attack Chain\n\n1. An unauthenticated remote attacker crafts a malicious HTTP request targeting an `openhole-server` instance.\n2. The request path includes specifically engineered URL-encoded directory traversal sequences, such as `/%2e%2e/` (for `../`) and potentially `%2f` (for `/`).\n3. The `openhole-server` receives this request and, due to the vulnerability, URL-decodes the `r.URL.Path` parameter.\n4. The percent-encoded traversal sequences are transformed into their literal forms (e.g., `%2e%2e` becomes `..` and `%2f` becomes `/`).\n5. The server then forwards this URL-decoded path to the tunneled backend service, effectively bypassing Go's `ServeMux` protection that typically rejects literal `../` sequences.\n6. The backend service processes the path, interpreting the literal `../` sequences as directory traversals, allowing access to files outside its intended web root or application directory.\n7. The attacker gains unauthorized access to and reads sensitive files (e.g., `/etc/passwd`, application configuration files) from the victim's system, which are then returned in the HTTP response.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-54650 can lead to severe consequences for organizations utilizing vulnerable versions of `openhole-server`. An unauthenticated remote attacker can read arbitrary files from the underlying system that hosts the tunneled service, beyond the intended web or application root. This can expose sensitive information such as user credentials, system configuration, source code, and other proprietary data. The vulnerability also allows for the bypass of path-based access controls, potentially granting access to restricted areas or functionalities. While specific victim counts or targeted sectors are not detailed, any organization using affected `openhole-server` instances is at risk of significant data breaches and unauthorized system access.\n\n## Recommendation\n\n* Immediately upgrade `openhole-server` and `openhole CLI` to version `v0.1.2` or later to remediate CVE-2026-54650.\n* Deploy the Sigma rule \"Detect CVE-2026-54650 Exploitation Attempt in openhole-server\" to your SIEM to identify HTTP requests containing suspicious URL-encoded path traversal sequences.\n* Enable comprehensive webserver logging to capture full HTTP request paths and query parameters for detection and forensic analysis.\n",
-      "published": "2026-07-28T22:24:50.000Z",
-      "labels": [
-        "path-traversal",
-        "vulnerability",
-        "webserver"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6dc36ea9-c8a1-5c93-91d3-71bc15c2be64",
-        "software--95058bbc-ccf2-5095-a877-1e56f0c556fc"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-openhole-server-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-openhole-server-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-fh2f-xfxc-q9cc"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-openhole-server-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-07-openhole-server-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-openhole-server-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-07-28T22:24:50.000Z",
-      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -16702,65 +16623,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--cf382a82-8561-5c05-8fe5-7e5d65327de5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-28T22:23:45.000Z",
-      "modified": "2026-07-28T22:23:45.000Z",
-      "name": "Prototype Pollution Vulnerability in Style Dictionary convertTokenData Function",
-      "description": "## Overview\n\nA significant prototype pollution vulnerability, tracked as CVE-2026-54639, has been identified in the Style Dictionary library, affecting versions `\u003e=4.3.0` but prior to `5.4.4`. This flaw resides within the `convertTokenData()` utility function. An attacker can exploit this by introducing a specially crafted token array, for instance, `[{ key: '{__proto__.foo}', value: 'malicious' }]`. When this malicious input is processed by the vulnerable function, it leads to a global pollution of the `Object.prototype`. This means that any object subsequently created within the application's runtime will inherit the injected `foo` property with an attacker-controlled value. The vulnerability can be triggered directly via `convertTokenData()`, indirectly through Style Dictionary's Expand API, or during its transform lifecycle. This poses a high risk to NodeJS server applications and a moderate risk to web applications using Style Dictionary, allowing for potential manipulation of application logic, bypass of security controls, or data tampering.\n\n## Attack Chain\n\n1. An attacker identifies a target application using Style Dictionary versions `\u003e=4.3.0` and `\u003c5.4.4`.\n2. The attacker crafts a malicious token data structure, such as `[{ key: '{__proto__.foo}', value: 'malicious' }]`, containing a key that targets the JavaScript `__proto__` property.\n3. The crafted token data is introduced into the vulnerable application, for example, through an untrusted configuration file, API endpoint, or user-controlled input.\n4. The application processes the malicious token data, either by directly invoking the `convertTokenData()` utility function, or indirectly via Style Dictionary's `Expand API` or `transform lifecycle` mechanisms.\n5. Due to insufficient sanitization and validation within the `convertTokenData()` function, the specially crafted `__proto__` key is processed.\n6. The `Object.prototype` is globally polluted, injecting a new property (`foo`) with an attacker-defined value (`malicious`) into all newly created objects, potentially leading to arbitrary code execution or logic manipulation.\n\n## Impact\n\nThe impact of this prototype pollution vulnerability varies depending on the application context. For NodeJS server applications integrating Style Dictionary, the impact is considered high, as global object modification can lead to severe consequences, including remote code execution, denial of service, or data manipulation. For web applications, the impact is rated as moderate, potentially leading to client-side attacks like cross-site scripting (XSS) or data exfiltration. In scenarios where the user of Style Dictionary also maintains the tokens and access is strictly controlled, the impact is low. Successful exploitation can enable attackers to manipulate application behavior, bypass authentication or authorization checks, or inject malicious properties into system-level objects, compromising the integrity and security of the affected application.\n\n## Recommendation\n\n* Patch CVE-2026-54639 immediately by upgrading the `npm/style-dictionary` package to version `5.4.4` or higher.\n* Implement the provided workaround by sanitizing all token data recursively to check for object keys containing `__proto__` before processing them with Style Dictionary.\n* Ensure that, if using the workaround, the `expand` configuration option in Style Dictionary is explicitly set to `false` to prevent indirect exploitation pathways.\n",
-      "published": "2026-07-28T22:23:45.000Z",
-      "labels": [
-        "nodejs",
-        "npm",
-        "prototype-pollution",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--95884e28-7037-57e1-97df-176f74724f3d",
-        "vulnerability--c796a671-d510-5b59-ba33-cfa2c946b876"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-style-dictionary-pollution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-style-dictionary-pollution/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-vj5c-m527-mpff"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/style-dictionary/style-dictionary/pull/1702"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://styledictionary.com/reference/config/#expand"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://styledictionary.com/reference/utilities/convert-token-data/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-style-dictionary-pollution",
-      "x_craftedsignal_event_id": "brief-2026-07-style-dictionary-pollution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-style-dictionary-pollution/",
-      "x_craftedsignal_activity_at": "2026-07-28T22:23:45.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.00132,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d0e1d116-b4bd-5369-967f-865a8a815630",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:20:49.000Z",
@@ -18550,13 +18412,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6dc36ea9-c8a1-5c93-91d3-71bc15c2be64",
-      "name": "openhole-server (\u003c= 0.1.1)",
-      "vendor": "bablilayoub"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--708d0d91-ca9a-5567-916c-d7a2af3e17c6",
       "name": "WhatsApp Web"
     },
@@ -18776,13 +18631,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--95058bbc-ccf2-5095-a877-1e56f0c556fc",
-      "name": "openhole CLI (\u003c= 0.1.1)",
-      "vendor": "bablilayoub"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--95586825-0338-5c07-9aaa-7f694a91ca22",
       "name": "proot-distro (5.1.4)",
       "vendor": "Termux"
@@ -18792,13 +18640,6 @@
       "spec_version": "2.1",
       "id": "software--9568da97-8ed2-506f-8268-c5942a452da2",
       "name": "lsphp"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--95884e28-7037-57e1-97df-176f74724f3d",
-      "name": "Style Dictionary (\u003e= 4.3.0, \u003c 5.4.4)",
-      "vendor": "Style Dictionary"
     },
     {
       "type": "software",
@@ -21023,22 +20864,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-67201",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67201"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--c796a671-d510-5b59-ba33-cfa2c946b876",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-54639",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-54639",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54639"
         }
       ]
     },
