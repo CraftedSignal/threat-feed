@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 15
-activity_at: "2026-10-27T03:30:48Z"
+revision: 16
+activity_at: "2026-10-27T04:02:42Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -172,11 +172,22 @@ revision_history:
       - updates
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-109618
+  - revision: 16
+    at: "2026-10-27T04:02:42Z"
+    checksum: sha256:1fde5a34a4ac2d79ddfc8dd2a65736be9af84fa1752ad07c3f4abfb5045647bc
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-27T03:30:12Z"
+lastmod: "2026-10-27T04:02:07Z"
 type: advisory
 types:
   - advisory
@@ -234,6 +245,7 @@ products:
   - PHP (5.4-8.5.11)
   - PHP (5.4 <= version <= 8.5.11)
   - PHP (< 8.5.12, 8.4.27, 8.3.36, 8.2.35)
+  - PHP (< 8.2.35, < 8.3.36, < 8.4.27, < 8.5.12)
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -299,6 +311,8 @@ references:
   - https://cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-014/
   - https://deltacontrols.com/wp-content/uploads/SecB0015_Security_Bulletin.pdf
   - https://www.cve.org/CVERecord?id=CVE-2026-109618
+  - https://www.cve.org/CVERecord?id=CVE-2026-109619
+  - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -326,13 +340,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-26T01:47:01Z"
-    level: L1
-    summary: OS rhel 9
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-26T10:54:04Z"
     level: L1
     summary: new product
@@ -361,6 +368,13 @@ updates:
       - cisa-kev
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-109618
+  - at: "2026-10-27T04:02:07Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
 ---
 
 The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.
