@@ -174,7 +174,7 @@ func CheckBriefWithMode(path string, data []byte, mode Mode) []Issue {
 	for _, cve := range brief.CVEs {
 		declaredCVEs[strings.ToUpper(cve.ID)] = true
 	}
-	for _, token := range cvePattern.FindAllString(string(data), -1) {
+	for _, token := range cvePattern.FindAllString(currentBriefWithoutRevisionHistory(string(data)), -1) {
 		if !declaredCVEs[strings.ToUpper(token)] {
 			issues = append(issues, issue(path, "cves", "brief.cve_undeclared", strings.ToUpper(token)+" appears in public content but is absent from structured cves"))
 		}
@@ -201,6 +201,30 @@ func CheckBriefWithMode(path string, data []byte, mode Mode) []Issue {
 		issues = append(issues, issue(path, "body", "brief.active_html", "active raw HTML is not allowed in public brief content"))
 	}
 	return sorted(issues)
+}
+
+// Historical revision entries are immutable audit data, not assertions in the
+// current brief. A correction may remove a CVE from the current structured
+// record while the old revision summary still names it.
+func currentBriefWithoutRevisionHistory(data string) string {
+	lines := strings.Split(data, "\n")
+	out := make([]string, 0, len(lines))
+	inHistory := false
+	for _, line := range lines {
+		if line == "revision_history:" {
+			inHistory = true
+			continue
+		}
+		if inHistory {
+			if line != "" && !strings.HasPrefix(line, " ") {
+				inHistory = false
+			} else {
+				continue
+			}
+		}
+		out = append(out, line)
+	}
+	return strings.Join(out, "\n")
 }
 
 // CheckBriefAppendOnly compares a changed brief with its previously published
