@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--de0047dc-8af0-5c9a-b492-e7ddb8183ae6",
+  "id": "bundle--50da84ba-afc7-5e49-bf2b-57b102ddc1cb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12809,6 +12809,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--294b4c7c-b955-580a-afa9-eef25104dddd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1de22a2e-dbab-5c28-9935-f041157ef735",
+      "target_ref": "vulnerability--65e9280f-9985-5f94-921e-6dcfbb15a8da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--29545025-f4f2-51d8-9ebe-95182ad6374c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T02:37:30.000Z",
@@ -15126,6 +15137,17 @@
       "relationship_type": "has",
       "source_ref": "software--73e07ebc-8636-51aa-93a3-3f09d2865ef5",
       "target_ref": "vulnerability--f73c5395-880d-5962-bb72-ab01117d7bd2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--35e77695-1db9-5009-bbfc-fed6e4a9db45",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c7286c11-4da4-579e-89a0-c54af56e0f4b",
+      "target_ref": "vulnerability--65e9280f-9985-5f94-921e-6dcfbb15a8da"
     },
     {
       "type": "relationship",
@@ -20245,6 +20267,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--512f216c-746e-5968-a6db-df22cb30b905",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eaaf694f-431a-5f79-8ea2-01e8bbcd532f",
+      "target_ref": "vulnerability--c2c82f11-72a5-5b11-9361-f00af773ec3f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--514cbbeb-7a59-5504-abfe-66784adb59ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T12:48:09.000Z",
@@ -24245,6 +24278,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9905e00c-4d4e-5954-89f1-ee6e028132f5",
       "target_ref": "attack-pattern--46682804-f779-59b9-b9a4-c0a9a3d1310f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6610d1a3-298b-56ee-98bc-6a5bb8c44a6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1de22a2e-dbab-5c28-9935-f041157ef735",
+      "target_ref": "vulnerability--2bed77ab-bef3-5618-b0f4-74cc51e0abd8"
     },
     {
       "type": "relationship",
@@ -29129,6 +29173,17 @@
       "relationship_type": "has",
       "source_ref": "software--445ec35d-ada4-5765-b07d-24a940b5ba05",
       "target_ref": "vulnerability--f664cec8-afda-5995-93b2-70d81c6bb415"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7ea91c7e-6caa-52b5-a6bd-e42e7532935b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c7286c11-4da4-579e-89a0-c54af56e0f4b",
+      "target_ref": "vulnerability--2bed77ab-bef3-5618-b0f4-74cc51e0abd8"
     },
     {
       "type": "relationship",
@@ -70755,6 +70810,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--335e8e04-3eb0-54f3-9cf5-4d369b76ba79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T15:38:30.000Z",
+      "modified": "2026-10-27T15:38:30.000Z",
+      "name": "Microsoft Authenticator: Token theft via AccountChooserActivity (CVE-2026-80097)",
+      "description": "## Overview\n\nMicrosoft has addressed a vulnerability (CVE-2026-80097) in the Microsoft Authenticator app for Android that enabled unauthorized applications to impersonate trusted services (e.g., Teams, Outlook). The flaw resided in the 'AccountChooserActivity' component, which could be invoked by any installed application to initiate a token request. By supplying spoofed metadata, an attacker could deceive the Authenticator broker into returning valid authentication tokens for a user's work account. Microsoft confirms that successful exploitation requires the victim to complete a sign-in flow within the application. The vulnerability is rated \"Important\" with a CVSS score of 8.6. There is no evidence of exploitation in the wild.\n\n## Impact\n\nSuccessful exploitation allows an attacker to authenticate as the victim, granting full access to resources accessible via the Microsoft Graph API, including email, files, and calendar items associated with the work account signed into the Authenticator app on the device.\n\n## Recommendation\n\n- Update Microsoft Authenticator for Android to version 6.2606.4246 or later immediately.\n- For organizations using Mobile Device Management (MDM), enforce a minimum version policy for Microsoft Authenticator across all managed Android endpoints.\n- Review and audit application permissions on mobile devices to identify and remove suspicious or unauthorized apps that may be leveraging this or similar brokering components.\n",
+      "published": "2026-10-27T15:38:30.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eaaf694f-431a-5f79-8ea2-01e8bbcd532f",
+        "vulnerability--c2c82f11-72a5-5b11-9361-f00af773ec3f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-microsoft-authenticator-flaw",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-microsoft-authenticator-flaw/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-microsoft-authenticator-flaw",
+      "x_craftedsignal_event_id": "brief-2026-10-27-microsoft-authenticator-flaw",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-microsoft-authenticator-flaw/",
+      "x_craftedsignal_activity_at": "2026-10-27T15:38:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_epss_max": 0.00442,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--33d249c5-8eb1-599e-93b2-31459003287d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T20:33:11.000Z",
@@ -87219,6 +87315,53 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--61634b20-92ca-5218-af9e-4f327825d9d9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T15:38:41.000Z",
+      "modified": "2026-10-27T15:38:41.000Z",
+      "name": "Apple iOS and iPadOS: Multiple Vulnerabilities (CVE-2019-5598, CVE-2026-64759)",
+      "description": "## Overview\n\nThe NCSC-NL has identified multiple vulnerabilities in Apple iOS and iPadOS, including CVE-2019-5598 and CVE-2026-64759. These flaws present a maximum risk score of 8.8. Exploitation could allow attackers to access sensitive information, elevate privileges, or crash the affected device. While no active exploitation is currently reported, the potential impact warrants immediate remediation.\n\n## Impact\n\nSuccessful exploitation could lead to unauthorized access to personal data, complete device takeover, or temporary service disruption.\n\n## Recommendation\n\n* Update all Apple iOS and iPadOS devices to the latest available software version immediately to address these vulnerabilities.\n* Contact Apple support or an internal IT service provider if there is uncertainty regarding the current patch status of deployed devices.\n",
+      "published": "2026-10-27T15:38:41.000Z",
+      "labels": [
+        "apple",
+        "mobile",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1de22a2e-dbab-5c28-9935-f041157ef735",
+        "software--c7286c11-4da4-579e-89a0-c54af56e0f4b",
+        "vulnerability--2bed77ab-bef3-5618-b0f4-74cc51e0abd8",
+        "vulnerability--65e9280f-9985-5f94-921e-6dcfbb15a8da"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-apple-ios-ipados-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apple-ios-ipados-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ncsc.nl/alerts/kwetsbaarheden-in-apple-ios-en-ipados-update-nu"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-apple-ios-ipados-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-27-apple-ios-ipados-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apple-ios-ipados-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-27T15:38:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -150638,6 +150781,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c7286c11-4da4-579e-89a0-c54af56e0f4b",
+      "name": "iPadOS",
+      "vendor": "Apple"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c73779ab-9d09-538f-af06-a242d166c04e",
       "name": "Jira Service Management Data Center",
       "vendor": "Atlassian"
@@ -152443,6 +152593,13 @@
       "id": "software--ea8c43cd-c99a-5e85-af52-6c52a7eb5971",
       "name": "Rootblox (\u003c= 1.0.6)",
       "vendor": "CozyThemes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eaaf694f-431a-5f79-8ea2-01e8bbcd532f",
+      "name": "Authenticator (\u003c 6.2606.4246)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -158238,6 +158395,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-86478",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86478"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2bed77ab-bef3-5618-b0f4-74cc51e0abd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2019-5598",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2019-5598",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-5598"
         }
       ]
     },
@@ -164142,6 +164315,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115907",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115907"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--65e9280f-9985-5f94-921e-6dcfbb15a8da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-64759",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-64759",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64759"
         }
       ]
     },
@@ -173438,6 +173627,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-12148",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12148"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c2c82f11-72a5-5b11-9361-f00af773ec3f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-80097",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-80097",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80097"
         }
       ]
     },
