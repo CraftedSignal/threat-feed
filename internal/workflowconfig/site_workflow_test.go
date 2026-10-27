@@ -154,6 +154,30 @@ func TestSiteWorkflowMinimizesProductionArtifactAndPermissions(t *testing.T) {
 	}
 }
 
+func TestSiteWorkflowStagesOnlyCurrentSTIXReleasesBeforeUpload(t *testing.T) {
+	workflow := loadSiteWorkflow(t)
+	jobs := mapping(t, workflow["jobs"], "jobs")
+	build := mapping(t, jobs["build"], "jobs.build")
+	steps := sequence(t, build["steps"], "jobs.build.steps")
+
+	stageIndex, uploadIndex := -1, -1
+	for index, rawStep := range steps {
+		step := mapping(t, rawStep, "jobs.build.steps")
+		if run, _ := step["run"].(string); strings.Contains(run, "npm run stage-stix") {
+			stageIndex = index
+		}
+		if uses, _ := step["uses"].(string); strings.Contains(uses, "actions/upload-pages-artifact") {
+			uploadIndex = index
+		}
+	}
+	if stageIndex < 0 {
+		t.Fatal("jobs.build must stage only current STIX releases")
+	}
+	if uploadIndex < 0 || stageIndex >= uploadIndex {
+		t.Fatalf("STIX staging step %d must run before Pages upload step %d", stageIndex, uploadIndex)
+	}
+}
+
 func TestSiteWorkflowSkipsNoopScheduledBuilds(t *testing.T) {
 	workflow := loadSiteWorkflow(t)
 	jobs := mapping(t, workflow["jobs"], "jobs")
