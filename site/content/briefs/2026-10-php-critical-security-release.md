@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 19
-activity_at: "2026-10-27T12:38:51Z"
+revision: 20
+activity_at: "2026-10-27T14:38:29Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -215,11 +215,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 20
+    at: "2026-10-27T14:38:29Z"
+    checksum: sha256:141344416043015541589390effb9988768f6a557e58916c9456457f49a151ed
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-27T12:38:17Z"
+lastmod: "2026-10-27T14:37:54Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -285,6 +296,7 @@ products:
   - PHP (< 8.5.12)
   - RHEL 9 php
   - RHEL (8.0.30-8.el9_8.1)
+  - RHEL 9 (php <= 8.0.30)
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -353,6 +365,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-109619
   - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
   - https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html
+  - https://www.wiz.io/blog/php2shell-exploitation-so-far
+  - https://support.citrix.com/external/article/CTX697263
 action_plan:
   priority: immediate_escalation
   owners:
@@ -380,13 +394,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-27T03:30:12Z"
-    level: L3
-    summary: exploited:true
-    sources:
-      - cisa-kev
-    source_urls:
-      - https://www.cve.org/CVERecord?id=CVE-2026-109618
   - at: "2026-10-27T04:02:07Z"
     level: L1
     summary: new product
@@ -409,6 +416,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-27T12:38:17Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-27T14:37:54Z"
     level: L1
     summary: new product
     sources:
