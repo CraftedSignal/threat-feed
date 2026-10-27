@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-adobe-security-updates
 event_id: brief-2026-10-adobe-security-updates
-revision: 3
-activity_at: "2026-10-27T18:03:07Z"
+revision: 4
+activity_at: "2026-10-27T18:06:43Z"
 revision_history:
   - revision: 2
     at: "2026-10-20T19:46:18Z"
@@ -30,11 +30,23 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-104349
+  - revision: 4
+    at: "2026-10-27T18:06:43Z"
+    checksum: sha256:4724abfb19a5debcb019c4f5dc9a4887f0d4a6f272c47481a4427ac2dbe9ba5f
+    summary: added CVE-2026-90531 +2
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48379
 title: Adobe Security Updates - October 2026
 slug: 2026-10-adobe-security-updates
 description: Roundup of Adobe security advisories published in October 2026.
 date: "2026-10-13T20:38:10Z"
-lastmod: "2026-10-27T18:02:21Z"
+lastmod: "2026-10-27T18:04:37Z"
 type: threat
 claim_state: <nil>
 types:
@@ -56,7 +68,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-103848
     cvss: 9.9
-    epss: 0.01364
+    epss: 0.01408
     kev_status: "false"
   - id: CVE-2026-104340
     cvss: 7.8
@@ -110,11 +122,23 @@ cves:
     cvss: 7.8
     epss: 0.00374
     kev_status: "false"
+  - id: CVE-2026-92909
+    cvss: 9.8
+    epss: 0.00794
+    kev_status: "false"
+  - id: CVE-2026-90531
+    cvss: 9.6
+    epss: 0.014
+    kev_status: "false"
+  - id: CVE-2026-95631
+    cvss: 8.7
+    epss: 0.00856
+    kev_status: "false"
   - id: CVE-2026-100134
     kev_status: unknown
   - id: CVE-2026-104349
     kev_status: unknown
-  - id: CVE-2026-104350
+  - id: CVE-2026-48379
     kev_status: unknown
   - id: CVE-2026-104351
     kev_status: unknown
@@ -125,8 +149,6 @@ cves:
   - id: CVE-2026-100133
     kev_status: unknown
   - id: CVE-2026-91013
-    kev_status: unknown
-  - id: CVE-2026-92909
     kev_status: unknown
   - id: CVE-2026-105895
     kev_status: unknown
@@ -144,8 +166,6 @@ cves:
     kev_status: unknown
   - id: CVE-2026-83662
     kev_status: unknown
-  - id: CVE-2026-90531
-    kev_status: unknown
   - id: CVE-2026-90532
     kev_status: unknown
   - id: CVE-2026-103966
@@ -157,8 +177,6 @@ cves:
   - id: CVE-2026-106625
     kev_status: unknown
   - id: CVE-2026-92910
-    kev_status: unknown
-  - id: CVE-2026-95631
     kev_status: unknown
   - id: CVE-2026-103830
     kev_status: unknown
@@ -176,6 +194,8 @@ cves:
     kev_status: unknown
   - id: CVE-2026-110083
     kev_status: unknown
+  - id: CVE-2026-104350
+    kev_status: unknown
   - id: CVE-2026-104354
     kev_status: unknown
   - id: CVE-2026-105489
@@ -187,15 +207,8 @@ cves:
   - id: CVE-2026-48360
     kev_status: unknown
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-104349
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-48379
 updates:
-  - at: "2026-10-27T18:01:20Z"
-    level: L2
-    summary: added CVE-2026-103836 +4
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-104350
   - at: "2026-10-27T18:01:24Z"
     level: L2
     summary: added CVE-2026-103840 +1
@@ -218,9 +231,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-104349
+  - at: "2026-10-27T18:04:37Z"
+    level: L2
+    summary: added CVE-2026-90531 +2
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-48379
 ---
 
-This roundup covers 52 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Acrobat for Edge, Adobe Commerce, Campaign Classic, Commerce, Connect, Experience Manager, Framemaker, Substance 3D Stager, Substance3D - Stager.
+This roundup covers 53 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Acrobat for Edge, Adobe Commerce, Campaign Classic, Commerce, Connect, Creative Cloud Desktop, Experience Manager, Framemaker, Substance 3D Stager, Substance3D - Stager.
 
 ## Summary
 
@@ -246,7 +266,7 @@ This roundup covers 52 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-103967](#cve-2026-103967) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103967) (authoritative) |
 | [CVE-2026-104340](#cve-2026-104340) | Framemaker | High | 7.8 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104340) (authoritative) |
 | [CVE-2026-104341](#cve-2026-104341) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104341) (authoritative) |
-| [CVE-2026-104342](#cve-2026-104342) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104342) (authoritative) |
+| [CVE-2026-104342](#cve-2026-104342) | Framemaker | High | 7.8 | 0.37% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104342) (authoritative) |
 | [CVE-2026-104344](#cve-2026-104344) | Framemaker | High | 7.8 | 0.24% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104344) (authoritative) |
 | [CVE-2026-106625](#cve-2026-106625) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106625) (authoritative) |
 | [CVE-2026-92908](#cve-2026-92908) | Adobe Commerce | High | 8.3 | 0.60% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92908) (authoritative) |
@@ -278,6 +298,7 @@ This roundup covers 52 Adobe security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-105780](#cve-2026-105780) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105780) (authoritative) |
 | [CVE-2026-105781](#cve-2026-105781) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105781) (authoritative) |
 | [CVE-2026-48360](#cve-2026-48360) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48360) (authoritative) |
+| [CVE-2026-104349](#cve-2026-104349) | Creative Cloud Desktop |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104349) (authoritative) |
 
 
 ## CVE-2026-100133
@@ -317,6 +338,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-100133
 
 
 
+
 Related in this roundup: [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92911](#cve-2026-92911), [CVE-2026-92922](#cve-2026-92922).
 
 ## CVE-2026-103849
@@ -327,6 +349,7 @@ Affected products:
 - Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103849
+
 
 
 
@@ -437,6 +460,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91013
 
 
 
+
 Related in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).
 
 ## CVE-2026-92464
@@ -447,6 +471,7 @@ Affected products:
 - Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92464
+
 
 
 
@@ -554,6 +579,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92909
 
 
 
+
 Related in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).
 
 ## CVE-2026-103848
@@ -564,6 +590,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103848
+
 
 
 
@@ -666,6 +693,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105895
 
 
 
+
 Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).
 
 ## CVE-2026-106626
@@ -676,6 +704,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106626
+
 
 
 
@@ -775,6 +804,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106629
 
 
 
+
 Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).
 
 ## CVE-2026-106630
@@ -785,6 +815,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106630
+
 
 
 
@@ -880,6 +911,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48382
 
 
 
+
 Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).
 
 ## CVE-2026-48383
@@ -890,6 +922,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48383
+
 
 
 
@@ -981,6 +1014,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-75732
 
 
 
+
 Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).
 
 ## CVE-2026-83662
@@ -991,6 +1025,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83662
+
 
 
 
@@ -1078,6 +1113,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-90531
 
 
 
+
 Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).
 
 ## CVE-2026-90532
@@ -1088,6 +1124,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-90532
+
 
 
 
@@ -1170,6 +1207,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103966
 
 
 
+
 Related in this roundup: [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).
 
 ## CVE-2026-103967
@@ -1180,6 +1218,7 @@ Affected products:
 - Framemaker
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103967
+
 
 
 
@@ -1259,6 +1298,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104340
 
 
 
+
 Related in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).
 
 ## CVE-2026-104341
@@ -1269,6 +1309,7 @@ Affected products:
 - Framemaker
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104341
+
 
 
 
@@ -1344,6 +1385,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104342
 
 
 
+
 Related in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).
 
 ## CVE-2026-104344
@@ -1354,6 +1396,7 @@ Affected products:
 - Framemaker
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104344
+
 
 
 
@@ -1425,6 +1468,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106625
 
 
 
+
 Related in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344).
 
 ## CVE-2026-92908
@@ -1435,6 +1479,7 @@ Affected products:
 - Adobe Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92908
+
 
 
 
@@ -1502,6 +1547,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92910
 
 
 
+
 Related in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-95631](#cve-2026-95631).
 
 ## CVE-2026-92911
@@ -1512,6 +1558,7 @@ Affected products:
 - Adobe Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92911
+
 
 
 
@@ -1575,6 +1622,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-92922
 
 
 
+
 Related in this roundup: [CVE-2026-100133](#cve-2026-100133), [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92911](#cve-2026-92911).
 
 ## CVE-2026-95631
@@ -1585,6 +1633,7 @@ Affected products:
 - Commerce
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-95631
+
 
 
 
@@ -1643,6 +1692,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103830
 
 
 
+
 Related in this roundup: [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).
 
 ## CVE-2026-103832
@@ -1653,6 +1703,7 @@ Affected products:
 - Substance 3D Stager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103832
+
 
 
 
@@ -1708,6 +1759,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103833
 
 
 
+
 Related in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).
 
 ## CVE-2026-103834
@@ -1718,6 +1770,7 @@ Affected products:
 - Substance 3D Stager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103834
+
 
 
 
@@ -1766,6 +1819,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103835
 
 
 
+
 Related in this roundup: [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103839](#cve-2026-103839), [CVE-2026-103851](#cve-2026-103851).
 
 ## CVE-2026-103836
@@ -1776,6 +1830,7 @@ Affected products:
 - Substance 3D Stager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103836
+
 
 
 
@@ -1823,6 +1878,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103837
 
 
 
+
 Related in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103840](#cve-2026-103840).
 
 ## CVE-2026-103838
@@ -1833,6 +1889,7 @@ Affected products:
 - Substance3D - Stager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103838
+
 
 
 
@@ -1876,6 +1933,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103839
 
 
 
+
 Related in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103851](#cve-2026-103851).
 
 ## CVE-2026-103840
@@ -1886,6 +1944,7 @@ Affected products:
 - Substance 3D Stager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103840
+
 
 
 
@@ -1925,6 +1984,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-103851
 
 
 
+
 Related in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103839](#cve-2026-103839).
 
 ## CVE-2026-106634
@@ -1935,6 +1995,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-106634
+
 
 
 
@@ -1970,6 +2031,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-110083
 
 
 
+
 Related in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110084](#cve-2026-110084).
 
 ## CVE-2026-110084
@@ -1980,6 +2042,7 @@ Affected products:
 - Experience Manager
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-110084
+
 
 
 
@@ -2018,6 +2081,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104350
 
 
 
+
 Related in this roundup: [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).
 
 ## CVE-2026-104351
@@ -2028,6 +2092,7 @@ Affected products:
 - Campaign Classic
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104351
+
 
 
 
@@ -2053,6 +2118,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104353
 
 
 
+
 Related in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).
 
 ## CVE-2026-104354
@@ -2063,6 +2129,7 @@ Affected products:
 - Campaign Classic
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104354
+
 
 
 
@@ -2084,6 +2151,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105489
 
 
 
+
 Related in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).
 
 ## CVE-2026-105779
@@ -2094,6 +2162,7 @@ Affected products:
 - Campaign Classic
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105779
+
 
 
 
@@ -2111,6 +2180,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105780
 
 
 
+
 Related in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105781](#cve-2026-105781).
 
 ## CVE-2026-105781
@@ -2123,6 +2193,7 @@ Affected products:
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-105781
 
 
+
 Related in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780).
 
 ## CVE-2026-48360
@@ -2133,3 +2204,12 @@ Affected products:
 - Connect
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-48360
+
+## CVE-2026-104349
+
+Adobe Creative Cloud Desktop is vulnerable to an uncontrolled search path element issue, allowing a local, low-privileged attacker to achieve arbitrary code execution. Successful exploitation requires the user to open a malicious file, leading to execution in the context of the current user.
+
+Affected products:
+- Creative Cloud Desktop
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-104349
