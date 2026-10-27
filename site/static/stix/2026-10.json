@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--54522027-5945-55d4-bb8c-8ebbea13f50e",
+  "id": "bundle--83631e70-a354-506d-9761-ee47ba3619df",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10410,6 +10410,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1bf625c0-797b-5c4a-9ce9-1c5f6ef3b66c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--da2eb90e-8e8c-5028-b6ca-24f945d7f557",
+      "target_ref": "vulnerability--88ae80b2-7bd5-5b2e-a61f-d66be8183c2d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1bf73935-62a5-5a6e-8111-329f87b87706",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T18:51:04.000Z",
@@ -19415,6 +19426,17 @@
       "relationship_type": "has",
       "source_ref": "software--9329335c-53ad-5ded-8514-aadfd1e9efd1",
       "target_ref": "vulnerability--b444a73e-17b8-5ef5-a50b-ec1355e88d81"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4d9c7bca-c86d-5a8a-80f4-ef119756c774",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T04:13:38.000Z",
+      "modified": "2026-10-27T04:13:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7a542906-4d3e-5523-aea7-57384b7c938f",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -50472,6 +50494,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ebd8d28e-f93f-5a4f-b70a-fd66f9c653b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--aa4d59a8-ffe2-53ca-8d8d-7eb4edac8e56",
+      "target_ref": "vulnerability--187bf6c8-225a-540f-9443-545e526e3130"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ebe2bb60-5500-51fa-84ba-82167f31ccba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T08:39:35.000Z",
@@ -69828,6 +69861,50 @@
       },
       "x_craftedsignal_epss_max": 0.00249,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--34ad2445-fdca-5b03-972d-ec4a2a7adac6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T04:13:28.000Z",
+      "modified": "2026-10-27T04:13:28.000Z",
+      "name": "oretnom23 Computer Laboratory Management System: Stored XSS (CVE-2024-34225)",
+      "published": "2026-10-27T04:13:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--aa4d59a8-ffe2-53ca-8d8d-7eb4edac8e56",
+        "vulnerability--187bf6c8-225a-540f-9443-545e526e3130"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-cve-2024-34225",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-34225/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DOVANKHA-CVE-2024-34225"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DOVANKHA-CVE-2024-34225\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-cve-2024-34225",
+      "x_craftedsignal_event_id": "brief-2026-10-27-cve-2024-34225",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-34225/",
+      "x_craftedsignal_activity_at": "2026-10-27T04:13:28.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.1,
+      "x_craftedsignal_epss_max": 0.00572,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -92607,6 +92684,56 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7a542906-4d3e-5523-aea7-57384b7c938f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T04:13:38.000Z",
+      "modified": "2026-10-27T04:13:38.000Z",
+      "name": "oretnom23 School Fees Management System: Stored XSS in tname parameter (CVE-2023-49987)",
+      "description": "## Overview\nA stored cross-site scripting (XSS) vulnerability exists in the School Fees Management System version 1.0. An authenticated attacker with administrative access can inject arbitrary web scripts through the tname parameter within the /management/term component. Successful exploitation requires an authenticated user with administrative privileges to interact with the vulnerable form to save the payload, which is subsequently executed in the context of the user viewing the term management page.\n\n## Impact\nSuccessful exploitation allows for the execution of arbitrary JavaScript in the victim's browser session, potentially leading to session hijacking, unauthorized actions performed on behalf of the administrator, or unauthorized access to sensitive system data managed by the application.\n\n## Recommendation\n- Audit logs for the specified endpoint (/management/term) to identify potential injection of script tags.\n- Implement input validation and output encoding for the tname parameter within the School Fees Management System to prevent script injection.\n- As version 1.0 appears to be the only version listed, evaluate the use of this software within the environment given the lack of identified security updates.\n",
+      "published": "2026-10-27T04:13:38.000Z",
+      "labels": [
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--da2eb90e-8e8c-5028-b6ca-24f945d7f557",
+        "vulnerability--88ae80b2-7bd5-5b2e-a61f-d66be8183c2d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-school-fees-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-school-fees-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GERALDOALCANTARA-CVE-2023-49987"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GERALDOALCANTARA-CVE-2023-49987\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-school-fees-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-27-school-fees-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-school-fees-xss/",
+      "x_craftedsignal_activity_at": "2026-10-27T04:13:38.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.4,
+      "x_craftedsignal_epss_max": 0.00431,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -146244,6 +146371,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--aa4d59a8-ffe2-53ca-8d8d-7eb4edac8e56",
+      "name": "Computer Laboratory Management System (1.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--aa4e0a42-69e7-5975-9d0f-53b0f5eda849",
       "name": "Consul Enterprise (\u003c 2.1.0, \u003c 1.21.19)",
       "vendor": "HashiCorp"
@@ -148620,6 +148753,13 @@
       "id": "software--da2b3e59-bc67-570a-869c-ace201114c38",
       "name": "PEAK-System Device Driver Setup (\u003c=5.1.2.1151)",
       "vendor": "HMS Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--da2eb90e-8e8c-5028-b6ca-24f945d7f557",
+      "name": "School Fees Management System (1.0)",
+      "vendor": "oretnom23"
     },
     {
       "type": "software",
@@ -152900,6 +153040,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-98260",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98260"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--187bf6c8-225a-540f-9443-545e526e3130",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-34225",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-34225",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-34225"
         }
       ]
     },
@@ -163844,6 +164000,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96682",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96682"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--88ae80b2-7bd5-5b2e-a61f-d66be8183c2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-49987",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-49987",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-49987"
         }
       ]
     },
