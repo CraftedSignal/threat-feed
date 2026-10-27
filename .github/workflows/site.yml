@@ -231,6 +231,9 @@ jobs:
       - name: Build site
         run: hugo --minify --gc
 
+      - name: Stage current STIX releases
+        run: npm run stage-stix
+
       - name: Validate generated sitemap
         working-directory: .
         run: go run ./cmd/feedcheck --generated-site site/public
@@ -334,6 +337,9 @@ jobs:
 
       - name: Build site
         run: hugo --minify --gc
+
+      - name: Stage current STIX releases
+        run: npm run stage-stix
 
       - name: Validate generated sitemap
         working-directory: .
