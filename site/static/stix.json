@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a7d3b136-11c8-517b-a3e4-6632583b9b01",
+  "id": "bundle--95a9c119-bccb-5a52-a59e-5ed108cc027e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13586,6 +13586,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--272cc501-8edb-5559-879d-c901f00a5d6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--627e67bf-90a4-5c95-960e-bd3374860763",
+      "target_ref": "vulnerability--830b8e28-93df-5ada-b7d6-acff811bea3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--272f33c7-a058-5632-b504-937cad22e74d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15144,6 +15155,17 @@
       "relationship_type": "uses",
       "source_ref": "report--35772d9b-47f4-52f5-8d26-91bf3a4dbdec",
       "target_ref": "indicator--cefe8978-47bd-52d8-8ed8-a395418d3381"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e978dcb-b321-52a4-939d-383312675435",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T18:02:25.000Z",
+      "modified": "2026-10-27T18:02:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--588d4378-41d5-5eb5-9c7c-ca13c5879b7b",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
     },
     {
       "type": "relationship",
@@ -31769,6 +31791,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7af154d7-d7f0-5d84-88ee-bea6f34f5a72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ab76d847-95a0-554d-9d52-dc043e6a7a88",
+      "target_ref": "vulnerability--b652a6ad-3b15-5656-9492-0e7b57fce773"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7af8109f-15e4-5fa1-993e-7ff6a409b9ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38655,6 +38688,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--99b1c107-d8c4-560d-90d4-879ad022dbca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--627e67bf-90a4-5c95-960e-bd3374860763",
+      "target_ref": "vulnerability--454a6978-58e2-5f9d-b71c-0c8b9de790b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--99b3b125-713b-5d35-a6b6-3e918dd461a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T14:08:48.000Z",
@@ -43231,6 +43275,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ae751796-2279-54c9-9c7d-1858d9641833",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T18:00:52.000Z",
+      "modified": "2026-10-27T18:00:52.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9bacfef2-ffd1-5c16-ac85-cc9a29b8510e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ae7b7378-6518-5418-b886-175724d84add",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T17:28:09.000Z",
@@ -46406,6 +46461,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cc50f326-3642-585c-9803-354938081642",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bc93761c-8973-59e2-b1e6-5585ea97dd29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3f08187d-5998-5836-80eb-1e7e6752b54b",
+      "target_ref": "vulnerability--19e6315b-7065-5dbb-a0e6-f25505130673"
     },
     {
       "type": "relationship",
@@ -57894,6 +57960,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ecd42f04-f989-5df8-bcb4-d8a56ea8bd7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T18:02:25.000Z",
+      "modified": "2026-10-27T18:02:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--588d4378-41d5-5eb5-9c7c-ca13c5879b7b",
+      "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ed07ac28-19a6-5bc9-99bf-1ee007b91470",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-30T02:30:53.000Z",
@@ -59144,6 +59221,17 @@
       "relationship_type": "has",
       "source_ref": "software--acc132b5-66f1-5af9-98d1-67df74354940",
       "target_ref": "vulnerability--065f00e5-f649-5aaf-a0dd-7972b731d720"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2a67d6b-1781-5e59-97ae-17b8ca2eb257",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1c548780-2a13-5856-8250-40e92ec8422c",
+      "target_ref": "vulnerability--d15137bc-4e5d-53bc-b8f9-ab6cd9ec5298"
     },
     {
       "type": "relationship",
@@ -72867,20 +72955,30 @@
       "id": "report--2027a56b-94b2-5ff5-8cbf-d41c8d380396",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T20:38:10.000Z",
-      "modified": "2026-10-20T19:46:18.000Z",
+      "modified": "2026-10-27T18:03:07.000Z",
       "name": "Adobe Security Updates - October 2026",
-      "description": "## Overview\n\nThis roundup covers 42 Adobe security vulnerabilities. CVSS base scores range from 7.2 to 10.0. None are reported as actively exploited at the time of release. The issues affect Adobe Commerce, Commerce, Experience Manager, Framemaker, Substance 3D Stager, Substance3D - Stager.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-100133](#cve-2026-100133) | Adobe Commerce | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100133) (authoritative) |\n| [CVE-2026-103849](#cve-2026-103849) | Commerce | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103849) (authoritative) |\n| [CVE-2026-91013](#cve-2026-91013) | Commerce | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91013) (authoritative) |\n| [CVE-2026-92464](#cve-2026-92464) | Commerce | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92464) (authoritative) |\n| [CVE-2026-92909](#cve-2026-92909) | Commerce | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92909) (authoritative) |\n| [CVE-2026-103848](#cve-2026-103848) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103848) (authoritative) |\n| [CVE-2026-105895](#cve-2026-105895) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105895) (authoritative) |\n| [CVE-2026-106626](#cve-2026-106626) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106626) (authoritative) |\n| [CVE-2026-106629](#cve-2026-106629) | Experience Manager | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106629) (authoritative) |\n| [CVE-2026-106630](#cve-2026-106630) | Experience Manager | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106630) (authoritative) |\n| [CVE-2026-48382](#cve-2026-48382) | Experience Manager | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48382) (authoritative) |\n| [CVE-2026-48383](#cve-2026-48383) | Experience Manager | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48383) (authoritative) |\n| [CVE-2026-75732](#cve-2026-75732) | Experience Manager | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75732) (authoritative) |\n| [CVE-2026-83662](#cve-2026-83662) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83662) (authoritative) |\n| [CVE-2026-90531](#cve-2026-90531) | Experience Manager | Critical | 9.6 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-90531) (authoritative) |\n| [CVE-2026-90532](#cve-2026-90532) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-90532) (authoritative) |\n| [CVE-2026-103966](#cve-2026-103966) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103966) (authoritative) |\n| [CVE-2026-103967](#cve-2026-103967) | Framemaker | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103967) (authoritative) |\n| [CVE-2026-104340](#cve-2026-104340) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104340) (authoritative) |\n| [CVE-2026-104341](#cve-2026-104341) | Framemaker | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104341) (authoritative) |\n| [CVE-2026-104342](#cve-2026-104342) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104342) (authoritative) |\n| [CVE-2026-104344](#cve-2026-104344) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104344) (authoritative) |\n| [CVE-2026-106625](#cve-2026-106625) | Framemaker | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106625) (authoritative) |\n| [CVE-2026-92908](#cve-2026-92908) | Adobe Commerce | High | 8.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92908) (authoritative) |\n| [CVE-2026-92910](#cve-2026-92910) | Commerce | High | 7.2 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92910) (authoritative) |\n| [CVE-2026-92911](#cve-2026-92911) | Adobe Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92911) (authoritative) |\n| [CVE-2026-92922](#cve-2026-92922) | Adobe Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92922) (authoritative) |\n| [CVE-2026-95631](#cve-2026-95631) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-95631) (authoritative) |\n| [CVE-2026-103830](#cve-2026-103830) | Substance 3D Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103830) (authoritative) |\n| [CVE-2026-103832](#cve-2026-103832) | Substance 3D Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103832) (authoritative) |\n| [CVE-2026-103833](#cve-2026-103833) | Substance 3D Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103833) (authoritative) |\n| [CVE-2026-103834](#cve-2026-103834) | Substance 3D Stager | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103834) (authoritative) |\n| [CVE-2026-103835](#cve-2026-103835) | Substance3D - Stager | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103835) (authoritative) |\n| [CVE-2026-103836](#cve-2026-103836) | Substance 3D Stager | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103836) (authoritative) |\n| [CVE-2026-103837](#cve-2026-103837) | Substance 3D Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103837) (authoritative) |\n| [CVE-2026-103838](#cve-2026-103838) | Substance3D - Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103838) (authoritative) |\n| [CVE-2026-103839](#cve-2026-103839) | Substance3D - Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103839) (authoritative) |\n| [CVE-2026-103840](#cve-2026-103840) | Substance 3D Stager | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103840) (authoritative) |\n| [CVE-2026-103851](#cve-2026-103851) | Substance3D - Stager | High | 7.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103851) (authoritative) |\n| [CVE-2026-106634](#cve-2026-106634) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106634) (authoritative) |\n| [CVE-2026-110083](#cve-2026-110083) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-110083) (authoritative) |\n| [CVE-2026-110084](#cve-2026-110084) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-110084) (authoritative) |\n\n\n## CVE-2026-100133\n\nAdobe Commerce contains a stored Cross-Site Scripting (XSS) vulnerability allowing attackers to inject malicious JavaScript into form fields. When a victim accesses the affected page, the script executes within the victim's session, enabling potential account takeover or unauthorized actions due to the elevated privileges or scope changes associated with the session.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-100133\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92911](#cve-2026-92911), [CVE-2026-92922](#cve-2026-92922).\n\n## CVE-2026-103849\n\nAdobe Commerce contains an improper neutralization of special elements vulnerability in its template engine, allowing a remote, unauthenticated attacker to achieve arbitrary code execution. The vulnerability permits attackers to gain elevated access or control over user sessions without requiring user interaction.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103849\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-91013\n\nAdobe Commerce contains a stored Cross-Site Scripting (XSS) vulnerability that allows attackers to inject malicious JavaScript into form fields. When a victim accesses the affected page, the script executes in their browser, potentially leading to unauthorized account access or session hijacking.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-91013\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-92464\n\nAdobe Commerce contains an improper input validation vulnerability that allows a high-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and carries a high impact on the integrity and availability of the affected system.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92464\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-92909\n\nCVE-2026-92909 describes an incorrect authorization vulnerability in Adobe Commerce that allows a remote, unauthenticated attacker to achieve arbitrary code execution. The flaw does not require user interaction, making it a high-severity remote code execution risk for e-commerce environments.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92909\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-103848\n\nAdobe Experience Manager contains an OS command injection vulnerability, classified under CWE-78, that allows an unauthenticated or low-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the scope of the affected application, posing a critical risk to environment integrity.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103848\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-105895\n\nCVE-2026-105895 is an improper input validation vulnerability in Adobe Experience Manager that allows for unauthenticated arbitrary code execution. The vulnerability is highly critical, as it does not require user interaction and can lead to elevated access or account compromise within the context of the running application session.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-105895\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-106626\n\nAdobe Experience Manager is vulnerable to an improper input validation flaw that allows a highly privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the overall system security scope.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106626\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-106629\n\nAdobe Experience Manager contains a stored cross-site scripting (XSS) vulnerability allowing remote attackers to inject malicious JavaScript into form fields. When rendered in a victim's browser, this script can execute with the context of the user session, potentially leading to unauthorized account access or session hijacking.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106629\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-106630\n\nAdobe Experience Manager contains a stored Cross-Site Scripting (XSS) vulnerability allowing attackers to inject malicious scripts into form fields. When rendered in a victim's browser, the script executes, potentially leading to unauthorized session access or account compromise.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106630\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-48382\n\nAdobe Experience Manager contains an incorrect authorization vulnerability that allows for remote code execution without user interaction. An unauthenticated attacker can exploit this flaw to gain unauthorized access, potentially escalating privileges within the context of the affected session.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-48382\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-48383\n\nAdobe Experience Manager contains an incorrect authorization vulnerability that allows for unauthenticated arbitrary code execution. The vulnerability is characterized by a changed scope and high severity, potentially leading to unauthorized system access or account takeover without requiring user interaction.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-48383\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-75732\n\nAdobe Experience Manager contains an incorrect authorization vulnerability that allows for unauthenticated, remote arbitrary code execution. Successful exploitation results in full control over the session or account with elevated privileges, impacting the integrity and availability of the system.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-75732\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-83662\n\nAdobe Experience Manager is vulnerable to a reflected Cross-Site Scripting (XSS) attack. An attacker can exploit this by enticing a user to visit a maliciously crafted URL, allowing the injection of arbitrary scripts into the victim's session. Successful exploitation may lead to session hijacking or unauthorized actions performed on behalf of the authenticated user.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-83662\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-90531\n\nAdobe Experience Manager contains an XML External Entity (XXE) vulnerability that allows a low-privileged attacker to achieve privilege escalation and access restricted internal resources without requiring user interaction. The vulnerability significantly changes the security scope of the affected application.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-90531\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-90532\n\nAdobe Experience Manager is vulnerable to an incorrect authorization flaw allowing unauthenticated, remote attackers to achieve arbitrary code execution. The vulnerability does not require user interaction and can lead to account or session takeover with elevated privileges.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-90532\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-103966\n\nAdobe Framemaker contains a heap-based buffer overflow vulnerability that allows for arbitrary code execution. The vulnerability is triggered when a user opens a specially crafted, malicious file, necessitating user interaction to achieve exploitation in the context of the current user.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103966\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-103967\n\nAdobe Framemaker contains an out-of-bounds write vulnerability that can be exploited by enticing a user to open a specially crafted malicious file. Successful exploitation allows an attacker to achieve arbitrary code execution within the security context of the current user.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103967\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104340\n\nAdobe Framemaker contains a heap-based buffer overflow vulnerability that allows an attacker to achieve arbitrary code execution. The vulnerability is triggered when a user opens a specially crafted, malicious file, necessitating user interaction to execute the exploit.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104340\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104341\n\nAdobe Framemaker contains an out-of-bounds write vulnerability that allows for arbitrary code execution. The vulnerability is triggered when a user opens a specially crafted malicious file, requiring user interaction to execute the attack.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104341\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104342\n\nAdobe Framemaker contains a use-after-free vulnerability that can be triggered when a user opens a maliciously crafted file. Successful exploitation allows for arbitrary code execution within the context of the currently logged-in user, requiring user interaction to execute the attack.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104342\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104344\n\nAdobe Framemaker is vulnerable to a heap-based buffer overflow that allows for arbitrary code execution. The vulnerability is triggered when a user is convinced to open a maliciously crafted file, making this primarily an exploitation vector via user interaction.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104344\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-106625\n\nAdobe Framemaker contains an out-of-bounds write vulnerability that allows for arbitrary code execution. An attacker can exploit this by enticing a user to open a specially crafted malicious file, leading to code execution in the context of the currently logged-in user.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106625\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344).\n\n## CVE-2026-92908\n\nAdobe Commerce contains an incorrect authorization vulnerability that allows a low-privileged attacker to bypass security features. This vulnerability grants unauthorized read and write access to the affected instance, potentially leading to limited availability disruption without requiring user interaction.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92908\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-100133](#cve-2026-100133), [CVE-2026-92911](#cve-2026-92911), [CVE-2026-92922](#cve-2026-92922).\n\n## CVE-2026-92910\n\nCVE-2026-92910 is an incorrect authorization vulnerability in Adobe Commerce that allows a remote, unauthenticated attacker to bypass security features. Successful exploitation results in unauthorized read and limited write access to the application, without requiring user interaction.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92910\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-92911\n\nAdobe Commerce contains a stored Cross-Site Scripting (XSS) vulnerability that allows low-privileged attackers to inject malicious JavaScript into form fields. When viewed by a user, the script executes within the victim's browser context, potentially leading to session hijacking or unauthorized account access.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92911\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-100133](#cve-2026-100133), [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92922](#cve-2026-92922).\n\n## CVE-2026-92922\n\nAdobe Commerce is vulnerable to a stored Cross-Site Scripting (XSS) attack. A high-privileged attacker can inject malicious scripts into form fields, which are then executed in the context of a victim's browser session. This can lead to account takeover or session hijacking.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92922\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-100133](#cve-2026-100133), [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92911](#cve-2026-92911).\n\n## CVE-2026-95631\n\nAdobe Commerce contains an improper input validation vulnerability that allows a high-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the integrity and availability of the system through changed scope.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-95631\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910).\n\n## CVE-2026-103830\n\nCVE-2026-103830 describes a stack-based buffer overflow vulnerability in Adobe Substance 3D Stager. An attacker can exploit this by enticing a user to open a specially crafted malicious file, leading to arbitrary code execution within the context of the currently logged-in user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103830\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103832\n\nCVE-2026-103832 describes an out-of-bounds write vulnerability in Adobe Substance 3D Stager. An attacker can exploit this flaw by enticing a user to open a specially crafted malicious file, which may lead to arbitrary code execution within the context of the current user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103832\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103833\n\nCVE-2026-103833 is an out-of-bounds write vulnerability in Adobe Substance 3D Stager. An attacker can exploit this flaw by enticing a user to open a specially crafted malicious file, which may lead to arbitrary code execution within the context of the current user session.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103833\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103834\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds write flaw that can be exploited by enticing a user to open a malicious file. Successful exploitation allows an attacker to execute arbitrary code within the security context of the current user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103834\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103835\n\nSubstance3D - Stager contains an out-of-bounds write vulnerability that allows for arbitrary code execution if a user is tricked into opening a specially crafted malicious file. Successful exploitation occurs in the context of the current user session.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103835\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103839](#cve-2026-103839), [CVE-2026-103851](#cve-2026-103851).\n\n## CVE-2026-103836\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds write issue triggered by opening a malicious file. Successful exploitation allows an attacker to achieve arbitrary code execution in the context of the current user, requiring user interaction.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103836\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103837\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds write flaw that can be triggered when a user opens a specially crafted malicious file. Successful exploitation allows for arbitrary code execution in the context of the current user, necessitating user interaction to execute the attack.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103837\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103838\n\nAdobe Substance 3D Stager contains an out-of-bounds write vulnerability that can be triggered when a user opens a maliciously crafted file. Successful exploitation allows for arbitrary code execution in the context of the current user, requiring manual user interaction to execute the malicious file.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103838\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103839](#cve-2026-103839), [CVE-2026-103851](#cve-2026-103851).\n\n## CVE-2026-103839\n\nAdobe Substance3D Stager is vulnerable to an out-of-bounds write flaw that allows an attacker to achieve arbitrary code execution. Successful exploitation requires a user to open a specially crafted malicious file, leading to execution within the context of the currently logged-in user.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103839\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103851](#cve-2026-103851).\n\n## CVE-2026-103840\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds read when parsing maliciously crafted files. An attacker can exploit this vulnerability by tricking a user into opening a malicious file, leading to potential code execution within the context of the current user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103840\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837).\n\n## CVE-2026-103851\n\nAdobe Substance 3D Stager is vulnerable to a stack-based buffer overflow triggered by opening a specially crafted malicious file, which allows an attacker to achieve arbitrary code execution in the context of the user running the application.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103851\n\n\n\n\nRelated in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103839](#cve-2026-103839).\n\n## CVE-2026-106634\n\nAdobe Experience Manager is vulnerable to a path traversal flaw (CVE-2026-106634) that allows low-privileged attackers to perform arbitrary file system writes without user interaction. The vulnerability results in a changed scope and could be leveraged by an attacker to write files to unauthorized locations on the host system.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106634\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-110083\n\nAdobe Experience Manager contains an SQL injection vulnerability (CVE-2026-110083) that allows a low-privileged, unauthenticated attacker to bypass security features, resulting in unauthorized read and limited write access to the application data. Exploitation is remote and does not require user interaction, making it a critical threat to the integrity of the affected content management system.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-110083\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-110084\n\nAdobe Experience Manager is vulnerable to a Blind XPath injection, allowing a low-privileged attacker to bypass security features and gain unauthorized read/write access. The vulnerability does not require user interaction and is classified as an XML injection issue.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-110084\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083).",
+      "description": "## Overview\n\nThis roundup covers 52 Adobe security vulnerabilities. CVSS base scores range from 7.1 to 10.0. None are reported as actively exploited at the time of release. The issues affect Acrobat for Edge, Adobe Commerce, Campaign Classic, Commerce, Connect, Experience Manager, Framemaker, Substance 3D Stager, Substance3D - Stager.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-100133](#cve-2026-100133) | Adobe Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100133) (authoritative) |\n| [CVE-2026-103849](#cve-2026-103849) | Commerce | Critical | 10.0 | 0.84% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103849) (authoritative) |\n| [CVE-2026-91013](#cve-2026-91013) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91013) (authoritative) |\n| [CVE-2026-92464](#cve-2026-92464) | Commerce | Critical | 9.1 | 0.87% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92464) (authoritative) |\n| [CVE-2026-92909](#cve-2026-92909) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92909) (authoritative) |\n| [CVE-2026-103848](#cve-2026-103848) | Experience Manager | Critical | 9.9 | 1.36% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103848) (authoritative) |\n| [CVE-2026-105895](#cve-2026-105895) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105895) (authoritative) |\n| [CVE-2026-106626](#cve-2026-106626) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106626) (authoritative) |\n| [CVE-2026-106629](#cve-2026-106629) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106629) (authoritative) |\n| [CVE-2026-106630](#cve-2026-106630) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106630) (authoritative) |\n| [CVE-2026-48382](#cve-2026-48382) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48382) (authoritative) |\n| [CVE-2026-48383](#cve-2026-48383) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48383) (authoritative) |\n| [CVE-2026-75732](#cve-2026-75732) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-75732) (authoritative) |\n| [CVE-2026-83662](#cve-2026-83662) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83662) (authoritative) |\n| [CVE-2026-90531](#cve-2026-90531) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-90531) (authoritative) |\n| [CVE-2026-90532](#cve-2026-90532) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-90532) (authoritative) |\n| [CVE-2026-103966](#cve-2026-103966) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103966) (authoritative) |\n| [CVE-2026-103967](#cve-2026-103967) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103967) (authoritative) |\n| [CVE-2026-104340](#cve-2026-104340) | Framemaker | High | 7.8 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104340) (authoritative) |\n| [CVE-2026-104341](#cve-2026-104341) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104341) (authoritative) |\n| [CVE-2026-104342](#cve-2026-104342) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104342) (authoritative) |\n| [CVE-2026-104344](#cve-2026-104344) | Framemaker | High | 7.8 | 0.24% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104344) (authoritative) |\n| [CVE-2026-106625](#cve-2026-106625) | Framemaker |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106625) (authoritative) |\n| [CVE-2026-92908](#cve-2026-92908) | Adobe Commerce | High | 8.3 | 0.60% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92908) (authoritative) |\n| [CVE-2026-92910](#cve-2026-92910) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92910) (authoritative) |\n| [CVE-2026-92911](#cve-2026-92911) | Adobe Commerce | High | 8.7 | 0.86% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92911) (authoritative) |\n| [CVE-2026-92922](#cve-2026-92922) | Adobe Commerce | High | 8.1 | 0.90% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-92922) (authoritative) |\n| [CVE-2026-95631](#cve-2026-95631) | Commerce |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-95631) (authoritative) |\n| [CVE-2026-103830](#cve-2026-103830) | Substance 3D Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103830) (authoritative) |\n| [CVE-2026-103832](#cve-2026-103832) | Substance 3D Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103832) (authoritative) |\n| [CVE-2026-103833](#cve-2026-103833) | Substance 3D Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103833) (authoritative) |\n| [CVE-2026-103834](#cve-2026-103834) | Substance 3D Stager | High | 7.8 | 0.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103834) (authoritative) |\n| [CVE-2026-103835](#cve-2026-103835) | Substance3D - Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103835) (authoritative) |\n| [CVE-2026-103836](#cve-2026-103836) | Substance 3D Stager | High | 7.8 | 0.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103836) (authoritative) |\n| [CVE-2026-103837](#cve-2026-103837) | Substance 3D Stager | High | 7.8 | 0.14% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103837) (authoritative) |\n| [CVE-2026-103838](#cve-2026-103838) | Substance3D - Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103838) (authoritative) |\n| [CVE-2026-103839](#cve-2026-103839) | Substance3D - Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103839) (authoritative) |\n| [CVE-2026-103840](#cve-2026-103840) | Substance 3D Stager | High | 7.8 | 0.16% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103840) (authoritative) |\n| [CVE-2026-103851](#cve-2026-103851) | Substance3D - Stager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-103851) (authoritative) |\n| [CVE-2026-106634](#cve-2026-106634) | Experience Manager | High | 7.7 | 0.46% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-106634) (authoritative) |\n| [CVE-2026-110083](#cve-2026-110083) | Experience Manager |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-110083) (authoritative) |\n| [CVE-2026-110084](#cve-2026-110084) | Experience Manager | High | 7.1 | 0.47% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-110084) (authoritative) |\n| [CVE-2026-100134](#cve-2026-100134) | Acrobat for Edge |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-100134) (authoritative) |\n| [CVE-2026-104350](#cve-2026-104350) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104350) (authoritative) |\n| [CVE-2026-104351](#cve-2026-104351) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104351) (authoritative) |\n| [CVE-2026-104353](#cve-2026-104353) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104353) (authoritative) |\n| [CVE-2026-104354](#cve-2026-104354) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-104354) (authoritative) |\n| [CVE-2026-105489](#cve-2026-105489) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105489) (authoritative) |\n| [CVE-2026-105779](#cve-2026-105779) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105779) (authoritative) |\n| [CVE-2026-105780](#cve-2026-105780) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105780) (authoritative) |\n| [CVE-2026-105781](#cve-2026-105781) | Campaign Classic |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-105781) (authoritative) |\n| [CVE-2026-48360](#cve-2026-48360) | Connect |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-48360) (authoritative) |\n\n\n## CVE-2026-100133\n\nAdobe Commerce contains a stored Cross-Site Scripting (XSS) vulnerability allowing attackers to inject malicious JavaScript into form fields. When a victim accesses the affected page, the script executes within the victim's session, enabling potential account takeover or unauthorized actions due to the elevated privileges or scope changes associated with the session.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-100133\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92911](#cve-2026-92911), [CVE-2026-92922](#cve-2026-92922).\n\n## CVE-2026-103849\n\nAdobe Commerce contains an improper neutralization of special elements vulnerability in its template engine, allowing a remote, unauthenticated attacker to achieve arbitrary code execution. The vulnerability permits attackers to gain elevated access or control over user sessions without requiring user interaction.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103849\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-91013\n\nAdobe Commerce contains a stored Cross-Site Scripting (XSS) vulnerability that allows attackers to inject malicious JavaScript into form fields. When a victim accesses the affected page, the script executes in their browser, potentially leading to unauthorized account access or session hijacking.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-91013\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-92464\n\nAdobe Commerce contains an improper input validation vulnerability that allows a high-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and carries a high impact on the integrity and availability of the affected system.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92464\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-92909\n\nCVE-2026-92909 describes an incorrect authorization vulnerability in Adobe Commerce that allows a remote, unauthenticated attacker to achieve arbitrary code execution. The flaw does not require user interaction, making it a high-severity remote code execution risk for e-commerce environments.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92909\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92910](#cve-2026-92910), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-103848\n\nAdobe Experience Manager contains an OS command injection vulnerability, classified under CWE-78, that allows an unauthenticated or low-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the scope of the affected application, posing a critical risk to environment integrity.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103848\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-105895\n\nCVE-2026-105895 is an improper input validation vulnerability in Adobe Experience Manager that allows for unauthenticated arbitrary code execution. The vulnerability is highly critical, as it does not require user interaction and can lead to elevated access or account compromise within the context of the running application session.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-105895\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-106626\n\nAdobe Experience Manager is vulnerable to an improper input validation flaw that allows a highly privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the overall system security scope.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106626\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-106629\n\nAdobe Experience Manager contains a stored cross-site scripting (XSS) vulnerability allowing remote attackers to inject malicious JavaScript into form fields. When rendered in a victim's browser, this script can execute with the context of the user session, potentially leading to unauthorized account access or session hijacking.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106629\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-106630\n\nAdobe Experience Manager contains a stored Cross-Site Scripting (XSS) vulnerability allowing attackers to inject malicious scripts into form fields. When rendered in a victim's browser, the script executes, potentially leading to unauthorized session access or account compromise.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106630\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-48382\n\nAdobe Experience Manager contains an incorrect authorization vulnerability that allows for remote code execution without user interaction. An unauthenticated attacker can exploit this flaw to gain unauthorized access, potentially escalating privileges within the context of the affected session.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-48382\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-48383\n\nAdobe Experience Manager contains an incorrect authorization vulnerability that allows for unauthenticated arbitrary code execution. The vulnerability is characterized by a changed scope and high severity, potentially leading to unauthorized system access or account takeover without requiring user interaction.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-48383\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-75732\n\nAdobe Experience Manager contains an incorrect authorization vulnerability that allows for unauthenticated, remote arbitrary code execution. Successful exploitation results in full control over the session or account with elevated privileges, impacting the integrity and availability of the system.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-75732\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-83662\n\nAdobe Experience Manager is vulnerable to a reflected Cross-Site Scripting (XSS) attack. An attacker can exploit this by enticing a user to visit a maliciously crafted URL, allowing the injection of arbitrary scripts into the victim's session. Successful exploitation may lead to session hijacking or unauthorized actions performed on behalf of the authenticated user.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-83662\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-90531\n\nAdobe Experience Manager contains an XML External Entity (XXE) vulnerability that allows a low-privileged attacker to achieve privilege escalation and access restricted internal resources without requiring user interaction. The vulnerability significantly changes the security scope of the affected application.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-90531\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-90532\n\nAdobe Experience Manager is vulnerable to an incorrect authorization flaw allowing unauthenticated, remote attackers to achieve arbitrary code execution. The vulnerability does not require user interaction and can lead to account or session takeover with elevated privileges.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-90532\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-103966\n\nAdobe Framemaker contains a heap-based buffer overflow vulnerability that allows for arbitrary code execution. The vulnerability is triggered when a user opens a specially crafted, malicious file, necessitating user interaction to achieve exploitation in the context of the current user.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103966\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-103967\n\nAdobe Framemaker contains an out-of-bounds write vulnerability that can be exploited by enticing a user to open a specially crafted malicious file. Successful exploitation allows an attacker to achieve arbitrary code execution within the security context of the current user.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103967\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104340\n\nAdobe Framemaker contains a heap-based buffer overflow vulnerability that allows an attacker to achieve arbitrary code execution. The vulnerability is triggered when a user opens a specially crafted, malicious file, necessitating user interaction to execute the exploit.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104340\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104341\n\nAdobe Framemaker contains an out-of-bounds write vulnerability that allows for arbitrary code execution. The vulnerability is triggered when a user opens a specially crafted malicious file, requiring user interaction to execute the attack.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104341\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104342\n\nAdobe Framemaker contains a use-after-free vulnerability that can be triggered when a user opens a maliciously crafted file. Successful exploitation allows for arbitrary code execution within the context of the currently logged-in user, requiring user interaction to execute the attack.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104342\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104344](#cve-2026-104344), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-104344\n\nAdobe Framemaker is vulnerable to a heap-based buffer overflow that allows for arbitrary code execution. The vulnerability is triggered when a user is convinced to open a maliciously crafted file, making this primarily an exploitation vector via user interaction.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104344\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-106625](#cve-2026-106625).\n\n## CVE-2026-106625\n\nAdobe Framemaker contains an out-of-bounds write vulnerability that allows for arbitrary code execution. An attacker can exploit this by enticing a user to open a specially crafted malicious file, leading to code execution in the context of the currently logged-in user.\n\nAffected products:\n- Framemaker\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106625\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103966](#cve-2026-103966), [CVE-2026-103967](#cve-2026-103967), [CVE-2026-104340](#cve-2026-104340), [CVE-2026-104341](#cve-2026-104341), [CVE-2026-104342](#cve-2026-104342), [CVE-2026-104344](#cve-2026-104344).\n\n## CVE-2026-92908\n\nAdobe Commerce contains an incorrect authorization vulnerability that allows a low-privileged attacker to bypass security features. This vulnerability grants unauthorized read and write access to the affected instance, potentially leading to limited availability disruption without requiring user interaction.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92908\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-100133](#cve-2026-100133), [CVE-2026-92911](#cve-2026-92911), [CVE-2026-92922](#cve-2026-92922).\n\n## CVE-2026-92910\n\nCVE-2026-92910 is an incorrect authorization vulnerability in Adobe Commerce that allows a remote, unauthenticated attacker to bypass security features. Successful exploitation results in unauthorized read and limited write access to the application, without requiring user interaction.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92910\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-95631](#cve-2026-95631).\n\n## CVE-2026-92911\n\nAdobe Commerce contains a stored Cross-Site Scripting (XSS) vulnerability that allows low-privileged attackers to inject malicious JavaScript into form fields. When viewed by a user, the script executes within the victim's browser context, potentially leading to session hijacking or unauthorized account access.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92911\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-100133](#cve-2026-100133), [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92922](#cve-2026-92922).\n\n## CVE-2026-92922\n\nAdobe Commerce is vulnerable to a stored Cross-Site Scripting (XSS) attack. A high-privileged attacker can inject malicious scripts into form fields, which are then executed in the context of a victim's browser session. This can lead to account takeover or session hijacking.\n\nAffected products:\n- Adobe Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-92922\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-100133](#cve-2026-100133), [CVE-2026-92908](#cve-2026-92908), [CVE-2026-92911](#cve-2026-92911).\n\n## CVE-2026-95631\n\nAdobe Commerce contains an improper input validation vulnerability that allows a high-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the integrity and availability of the system through changed scope.\n\nAffected products:\n- Commerce\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-95631\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103849](#cve-2026-103849), [CVE-2026-91013](#cve-2026-91013), [CVE-2026-92464](#cve-2026-92464), [CVE-2026-92909](#cve-2026-92909), [CVE-2026-92910](#cve-2026-92910).\n\n## CVE-2026-103830\n\nCVE-2026-103830 describes a stack-based buffer overflow vulnerability in Adobe Substance 3D Stager. An attacker can exploit this by enticing a user to open a specially crafted malicious file, leading to arbitrary code execution within the context of the currently logged-in user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103830\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103832\n\nCVE-2026-103832 describes an out-of-bounds write vulnerability in Adobe Substance 3D Stager. An attacker can exploit this flaw by enticing a user to open a specially crafted malicious file, which may lead to arbitrary code execution within the context of the current user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103832\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103833\n\nCVE-2026-103833 is an out-of-bounds write vulnerability in Adobe Substance 3D Stager. An attacker can exploit this flaw by enticing a user to open a specially crafted malicious file, which may lead to arbitrary code execution within the context of the current user session.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103833\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103834\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds write flaw that can be exploited by enticing a user to open a malicious file. Successful exploitation allows an attacker to execute arbitrary code within the security context of the current user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103834\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103835\n\nSubstance3D - Stager contains an out-of-bounds write vulnerability that allows for arbitrary code execution if a user is tricked into opening a specially crafted malicious file. Successful exploitation occurs in the context of the current user session.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103835\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103839](#cve-2026-103839), [CVE-2026-103851](#cve-2026-103851).\n\n## CVE-2026-103836\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds write issue triggered by opening a malicious file. Successful exploitation allows an attacker to achieve arbitrary code execution in the context of the current user, requiring user interaction.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103836\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103837](#cve-2026-103837), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103837\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds write flaw that can be triggered when a user opens a specially crafted malicious file. Successful exploitation allows for arbitrary code execution in the context of the current user, necessitating user interaction to execute the attack.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103837\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103840](#cve-2026-103840).\n\n## CVE-2026-103838\n\nAdobe Substance 3D Stager contains an out-of-bounds write vulnerability that can be triggered when a user opens a maliciously crafted file. Successful exploitation allows for arbitrary code execution in the context of the current user, requiring manual user interaction to execute the malicious file.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103838\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103839](#cve-2026-103839), [CVE-2026-103851](#cve-2026-103851).\n\n## CVE-2026-103839\n\nAdobe Substance3D Stager is vulnerable to an out-of-bounds write flaw that allows an attacker to achieve arbitrary code execution. Successful exploitation requires a user to open a specially crafted malicious file, leading to execution within the context of the currently logged-in user.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103839\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103851](#cve-2026-103851).\n\n## CVE-2026-103840\n\nAdobe Substance 3D Stager is vulnerable to an out-of-bounds read when parsing maliciously crafted files. An attacker can exploit this vulnerability by tricking a user into opening a malicious file, leading to potential code execution within the context of the current user.\n\nAffected products:\n- Substance 3D Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103840\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103830](#cve-2026-103830), [CVE-2026-103832](#cve-2026-103832), [CVE-2026-103833](#cve-2026-103833), [CVE-2026-103834](#cve-2026-103834), [CVE-2026-103836](#cve-2026-103836), [CVE-2026-103837](#cve-2026-103837).\n\n## CVE-2026-103851\n\nAdobe Substance 3D Stager is vulnerable to a stack-based buffer overflow triggered by opening a specially crafted malicious file, which allows an attacker to achieve arbitrary code execution in the context of the user running the application.\n\nAffected products:\n- Substance3D - Stager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-103851\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103835](#cve-2026-103835), [CVE-2026-103838](#cve-2026-103838), [CVE-2026-103839](#cve-2026-103839).\n\n## CVE-2026-106634\n\nAdobe Experience Manager is vulnerable to a path traversal flaw (CVE-2026-106634) that allows low-privileged attackers to perform arbitrary file system writes without user interaction. The vulnerability results in a changed scope and could be leveraged by an attacker to write files to unauthorized locations on the host system.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-106634\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-110083](#cve-2026-110083), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-110083\n\nAdobe Experience Manager contains an SQL injection vulnerability (CVE-2026-110083) that allows a low-privileged, unauthenticated attacker to bypass security features, resulting in unauthorized read and limited write access to the application data. Exploitation is remote and does not require user interaction, making it a critical threat to the integrity of the affected content management system.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-110083\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110084](#cve-2026-110084).\n\n## CVE-2026-110084\n\nAdobe Experience Manager is vulnerable to a Blind XPath injection, allowing a low-privileged attacker to bypass security features and gain unauthorized read/write access. The vulnerability does not require user interaction and is classified as an XML injection issue.\n\nAffected products:\n- Experience Manager\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-110084\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-103848](#cve-2026-103848), [CVE-2026-105895](#cve-2026-105895), [CVE-2026-106626](#cve-2026-106626), [CVE-2026-106629](#cve-2026-106629), [CVE-2026-106630](#cve-2026-106630), [CVE-2026-48382](#cve-2026-48382), [CVE-2026-48383](#cve-2026-48383), [CVE-2026-75732](#cve-2026-75732), [CVE-2026-83662](#cve-2026-83662), [CVE-2026-90531](#cve-2026-90531), [CVE-2026-90532](#cve-2026-90532), [CVE-2026-106634](#cve-2026-106634), [CVE-2026-110083](#cve-2026-110083).\n\n## CVE-2026-100134\n\nCVE-2026-100134 is an out-of-bounds write vulnerability in Adobe's Acrobat for Edge extension. Successful exploitation allows a remote attacker to achieve arbitrary code execution in the context of the currently logged-in user by tricking a victim into opening a malicious file.\n\nAffected products:\n- Acrobat for Edge\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-100134\n\n## CVE-2026-104350\n\nAdobe Campaign Classic (ACC) contains a reflected Cross-Site Scripting (XSS) vulnerability. An unauthenticated attacker can execute arbitrary scripts in the context of a victim's session via a crafted URL, potentially leading to unauthorized account or session access.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104350\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).\n\n## CVE-2026-104351\n\nAdobe Campaign Classic (ACC) contains a code injection vulnerability allowing low-privileged, unauthenticated attackers to execute arbitrary code. The vulnerability is a result of improper control over code generation, which can lead to remote code execution (RCE) in the context of the user running the service. The vulnerability has a CVSS v3.1 base score of 9.9 and does not require user interaction for exploitation.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104351\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).\n\n## CVE-2026-104353\n\nAdobe Campaign Classic (ACC) is vulnerable to an OS command injection flaw, identified as CVE-2026-104353. A low-privileged, unauthenticated attacker can exploit this vulnerability to achieve arbitrary code execution in the context of the running application user without requiring user interaction.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104353\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).\n\n## CVE-2026-104354\n\nAdobe Campaign Classic (ACC) contains an SQL injection vulnerability that allows an authenticated attacker with high privileges to execute arbitrary code. The vulnerability involves improper neutralization of special elements in SQL commands, which can lead to remote code execution under the context of the service user. No user interaction is required for successful exploitation, and the scope of the vulnerability is changed.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-104354\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).\n\n## CVE-2026-105489\n\nAdobe Campaign Classic is vulnerable to an SQL injection vulnerability (CVE-2026-105489) that allows a low-privileged attacker to achieve arbitrary code execution without user interaction. The vulnerability involves improper neutralization of special elements in SQL commands, potentially impacting system integrity and confidentiality.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-105489\n\n\n\n\n\nRelated in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).\n\n## CVE-2026-105779\n\nAdobe Campaign Classic (ACC) is vulnerable to a SQL injection flaw that allows low-privileged attackers to bypass security controls, resulting in unauthorized read and limited write access to the application database. The vulnerability does not require user interaction and impacts the overall security scope of the affected instance.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-105779\n\n\n\n\nRelated in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105780](#cve-2026-105780), [CVE-2026-105781](#cve-2026-105781).\n\n## CVE-2026-105780\n\nAdobe Campaign Classic (ACC) contains an incorrect authorization vulnerability that allows a low-privileged attacker to achieve arbitrary code execution. The vulnerability does not require user interaction and impacts the system with a changed scope, indicating potential for significant privilege escalation or lateral movement within the application context.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-105780\n\n\n\nRelated in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105781](#cve-2026-105781).\n\n## CVE-2026-105781\n\nAdobe Campaign Classic (ACC) is vulnerable to a critical SQL injection (CVE-2026-105781), allowing unauthenticated remote attackers to execute arbitrary SQL commands. Successful exploitation can lead to arbitrary code execution within the context of the current user, potentially resulting in elevated access or session compromise. The vulnerability does not require user interaction and impacts the scope of the affected application.\n\nAffected products:\n- Campaign Classic\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-105781\n\n\nRelated in this roundup: [CVE-2026-104350](#cve-2026-104350), [CVE-2026-104351](#cve-2026-104351), [CVE-2026-104353](#cve-2026-104353), [CVE-2026-104354](#cve-2026-104354), [CVE-2026-105489](#cve-2026-105489), [CVE-2026-105779](#cve-2026-105779), [CVE-2026-105780](#cve-2026-105780).\n\n## CVE-2026-48360\n\nAdobe Connect is susceptible to a code injection vulnerability triggered by user interaction, such as visiting a crafted URL or interacting with a malicious web page. Successful exploitation allows for arbitrary code execution in the context of the current user.\n\nAffected products:\n- Connect\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-48360",
       "published": "2026-10-13T20:38:10.000Z",
       "labels": [
         "roundup"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--03b53cb2-54f4-5132-bbbf-49109cd477e6",
         "vulnerability--23534e69-d989-5dc2-9ae5-a700bc49a02d",
+        "vulnerability--2f822c0f-e75a-542c-b7e6-897f0903b328",
+        "vulnerability--321eee32-a8bf-5ed0-8f4a-2622dbec6653",
         "vulnerability--3b751981-4468-52bd-b9fa-eb34f73e56ad",
+        "vulnerability--6a447d85-8ed4-5a5f-82bd-4a22d8813203",
+        "vulnerability--8047e0bc-5c54-5ca3-b7c0-3143756a66ad",
         "vulnerability--82d17311-fabf-5c1c-92ed-ad7a7022d778",
         "vulnerability--899f32ea-419a-5361-a6a9-649083c076e4",
-        "vulnerability--a80cb315-ab7e-507c-aef0-613a701774cc"
+        "vulnerability--8eb9e785-4261-5271-af3f-4ece9c6d0879",
+        "vulnerability--95811024-9bc2-5a32-ac9f-cabc69e2a1c9",
+        "vulnerability--a80cb315-ab7e-507c-aef0-613a701774cc",
+        "vulnerability--e8f60762-d01b-5288-893f-149de03849a0",
+        "vulnerability--fb4ae4cb-bec2-534f-bb0b-037c05f9c346",
+        "vulnerability--fcbc6be8-c0eb-5e97-b52e-f59129662c9d"
       ],
       "external_references": [
         {
@@ -72890,15 +72988,15 @@
         },
         {
           "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100134"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104349"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-adobe-security-updates",
       "x_craftedsignal_event_id": "brief-2026-10-adobe-security-updates",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-adobe-security-updates/",
-      "x_craftedsignal_activity_at": "2026-10-20T19:46:18.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T18:03:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -77195,6 +77293,46 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2d3f703e-eb19-53ff-b1af-68429d80d56a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T18:01:51.000Z",
+      "modified": "2026-10-27T18:01:51.000Z",
+      "name": "node-tesseract: OS command injection in lib/tesseract.js (CVE-2026-117511)",
+      "description": "A vulnerability has been found in desmondmorris node-tesseract up to 0.2.7. The process function in lib/tesseract.js, part of the Command Builder component, is affected by OS command injection through manipulation of the image argument. The attack can be executed remotely. The exploit has been disclosed to the public, and the project has not responded to an early issue report.\n",
+      "published": "2026-10-27T18:01:51.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1c548780-2a13-5856-8250-40e92ec8422c",
+        "vulnerability--d15137bc-4e5d-53bc-b8f9-ab6cd9ec5298"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-node-tesseract-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-node-tesseract-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117511"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-node-tesseract-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-27-node-tesseract-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-node-tesseract-rce/",
+      "x_craftedsignal_activity_at": "2026-10-27T18:01:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -93197,6 +93335,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--588d4378-41d5-5eb5-9c7c-ca13c5879b7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T18:02:25.000Z",
+      "modified": "2026-10-27T18:02:25.000Z",
+      "name": "GFI KerioConnect: Stored Cross-Site Scripting in Webmail (CVE-2026-112353)",
+      "description": "## Overview\nGFI KerioConnect (Kerio Connect) versions prior to 10.0.8 Patch 2 contain a stored cross-site scripting (XSS) vulnerability within the Webmail component. The vulnerability arises from insufficient sanitization of event-handler attributes in SVG email attachments. Exploitation allows remote attackers to execute arbitrary JavaScript in the context of an authenticated victim's session. Proofpoint Threat Research has confirmed in-the-wild exploitation of this vulnerability for credential and mailbox data theft.\n\n## Attack Chain\n1. Attacker crafts a malicious SVG file containing JavaScript within event-handler attributes.\n2. Attacker sends the crafted SVG file as an email attachment to a targeted user.\n3. Victim accesses their account via the vulnerable KerioConnect Webmail interface.\n4. Victim interacts with or triggers a preview of the malicious email attachment.\n5. The KerioConnect temporary-download endpoint serves the SVG content.\n6. Due to an insufficient Content-Security-Policy (CSP) sandbox, the embedded JavaScript executes in the victim's browser session.\n7. Malicious scripts exfiltrate user credentials or mailbox contents to an attacker-controlled server.\n\n## Impact\nConfirmed exploitation results in unauthorized credential theft and access to mailbox contents for authenticated users.\n\n## Recommendation\nUpgrade all GFI KerioConnect installations to version 10.0.8 Patch 2 or later immediately.\n",
+      "published": "2026-10-27T18:02:25.000Z",
+      "labels": [
+        "cve-2026-112353",
+        "data-theft",
+        "webmail",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ab76d847-95a0-554d-9d52-dc043e6a7a88",
+        "vulnerability--b652a6ad-3b15-5656-9492-0e7b57fce773"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-gfi-kerioconnect-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gfi-kerioconnect-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112353"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-gfi-kerioconnect-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-27-gfi-kerioconnect-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gfi-kerioconnect-xss/",
+      "x_craftedsignal_activity_at": "2026-10-27T18:02:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--58ae39e0-234c-571e-b1f7-c5a4c8c21b03",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T16:08:41.000Z",
@@ -105643,6 +105829,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7ab32d3b-469c-5aec-a8b8-304368147064",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T18:02:06.000Z",
+      "modified": "2026-10-27T18:02:19.000Z",
+      "name": "Autodesk Fusion: Reflected Cross-site Scripting (CVE-2026-102637)",
+      "description": "## Overview\nA Reflected Cross-site Scripting (XSS) vulnerability in the Autodesk Fusion desktop application can be triggered when a user invokes a Fusion protocol URL containing a maliciously crafted HTML payload in the 'documentName' parameter. \n\n## Impact\nA malicious actor may leverage this vulnerability to read local files or execute arbitrary code in the context of the current Autodesk Fusion process.\n",
+      "published": "2026-10-27T18:02:06.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--627e67bf-90a4-5c95-960e-bd3374860763",
+        "vulnerability--454a6978-58e2-5f9d-b71c-0c8b9de790b0",
+        "vulnerability--830b8e28-93df-5ada-b7d6-acff811bea3d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-autodesk-fusion-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-autodesk-fusion-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102637"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102638"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-autodesk-fusion-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-27-autodesk-fusion-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-autodesk-fusion-xss/",
+      "x_craftedsignal_activity_at": "2026-10-27T18:02:19.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7abb1bbb-1667-534e-b52e-3088ff306e18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:41:11.000Z",
@@ -117742,6 +117973,56 @@
       },
       "x_craftedsignal_cvss_max": 5.9,
       "x_craftedsignal_epss_max": 0.76875,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9bacfef2-ffd1-5c16-ac85-cc9a29b8510e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T18:00:52.000Z",
+      "modified": "2026-10-27T18:00:52.000Z",
+      "name": "Ajenti: Remote code execution via improper access control (CVE-2026-27975)",
+      "description": "## Overview\n\nAjenti contains a high-severity remote code execution vulnerability (CVE-2026-27975) stemming from improper access control (CWE-284). The flaw allows an unauthenticated remote attacker to gain access to the server and execute arbitrary commands. This issue is confirmed fixed in Ajenti version 2.2.13.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to achieve full remote code execution on the underlying server, resulting in potential compromise of confidentiality, integrity, and availability.\n\n## Recommendation\n\n- Upgrade Ajenti to version 2.2.13 or later immediately.\n- Review access logs for any unauthenticated requests to the Ajenti management interface originating from unauthorized or external network segments.\n",
+      "published": "2026-10-27T18:00:52.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3f08187d-5998-5836-80eb-1e7e6752b54b",
+        "vulnerability--19e6315b-7065-5dbb-a0e6-f25505130673"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-ajenti-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ajenti-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-vcw3-r3fx-j444"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/ajenti/ajenti/releases/tag/v2.2.13"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27975"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-ajenti-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-27-ajenti-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ajenti-rce/",
+      "x_craftedsignal_activity_at": "2026-10-27T18:00:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00588,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -157038,6 +157319,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1c548780-2a13-5856-8250-40e92ec8422c",
+      "name": "node-tesseract (\u003c= 0.2.7)",
+      "vendor": "desmondmorris"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1c9b751b-437f-5395-8e7c-0bc59b72a50e",
       "name": "compression (\u003c 1.8.2)",
       "vendor": "Node.js Foundation"
@@ -159082,6 +159370,13 @@
       "id": "software--3ef5547e-5990-5785-add6-026bdfa0d553",
       "name": "@vue/server-renderer (\u003c= 3.5.41)",
       "vendor": "Vue"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3f08187d-5998-5836-80eb-1e7e6752b54b",
+      "name": "ajenti (\u003c 2.2.13)",
+      "vendor": "Ajenti"
     },
     {
       "type": "software",
@@ -161385,6 +161680,13 @@
       "id": "software--627a294f-9638-5d23-bca8-3220cf9293c7",
       "name": "Eventon Premium (\u003c 4.5.5)",
       "vendor": "Myeventon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--627e67bf-90a4-5c95-960e-bd3374860763",
+      "name": "Fusion",
+      "vendor": "Autodesk"
     },
     {
       "type": "software",
@@ -165964,6 +166266,13 @@
       "id": "software--ab74ee56-cd8f-5663-9559-ac6c138d718a",
       "name": "FAC1900R (20190827_2.0.2)",
       "vendor": "FAST"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ab76d847-95a0-554d-9d52-dc043e6a7a88",
+      "name": "KerioConnect (\u003c 10.0.8 Patch 2)",
+      "vendor": "GFI"
     },
     {
       "type": "software",
@@ -171342,6 +171651,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--03b53cb2-54f4-5132-bbbf-49109cd477e6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103837",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103837",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103837"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--03d0f37d-c80d-58f9-a72c-1de874e6a16d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -173736,6 +174061,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-38903",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38903"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--19e6315b-7065-5dbb-a0e6-f25505130673",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-27975",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-27975",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27975"
         }
       ]
     },
@@ -176526,6 +176867,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2f822c0f-e75a-542c-b7e6-897f0903b328",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92464",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92464",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92464"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2fa65572-2e1e-5d27-a652-309c635307f5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -176824,6 +177181,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-21333",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-21333"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--321eee32-a8bf-5ed0-8f4a-2622dbec6653",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103836",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103836",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103836"
         }
       ]
     },
@@ -179032,6 +179405,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-100161",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100161"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--454a6978-58e2-5f9d-b71c-0c8b9de790b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102638",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102638",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102638"
         }
       ]
     },
@@ -183278,6 +183667,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6a447d85-8ed4-5a5f-82bd-4a22d8813203",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103834",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103834",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103834"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6a524e5a-eaad-5fae-b662-32cf4b01e85d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -185422,6 +185827,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8047e0bc-5c54-5ca3-b7c0-3143756a66ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-110084",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-110084",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110084"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--80571e05-3337-5ed6-a24d-771f937fb656",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -185640,6 +186061,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103849",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103849"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--830b8e28-93df-5ada-b7d6-acff811bea3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-102637",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-102637",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102637"
         }
       ]
     },
@@ -187150,6 +187587,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8eb9e785-4261-5271-af3f-4ece9c6d0879",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92908",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92908",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92908"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8ecac634-e016-52da-b78c-3fba295eb8c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -187784,6 +188237,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110889",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110889"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--95811024-9bc2-5a32-ac9f-cabc69e2a1c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92911",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92911",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92911"
         }
       ]
     },
@@ -191630,6 +192099,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b652a6ad-3b15-5656-9492-0e7b57fce773",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112353",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112353",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112353"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b6de7a89-eb93-5d56-bf2b-5e623282d5e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -194590,6 +195075,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d15137bc-4e5d-53bc-b8f9-ab6cd9ec5298",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-117511",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-117511",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117511"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d15ef8d6-4038-5ece-9811-fb56dccc8cb8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -196958,6 +197459,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e8f60762-d01b-5288-893f-149de03849a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104342",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104342",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104342"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e8fb0a05-4660-543c-868d-04999601f2c1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -199230,6 +199747,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--fb4ae4cb-bec2-534f-bb0b-037c05f9c346",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103840",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103840",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103840"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--fb58759d-8b02-5c58-994e-cc12796ad1b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -199352,6 +199885,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-93430",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93430"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fcbc6be8-c0eb-5e97-b52e-f59129662c9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104344",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104344",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104344"
         }
       ]
     },
