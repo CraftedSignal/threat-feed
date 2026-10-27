@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0b2c103f-bbae-5900-99b5-d1084bac0b1e",
+  "id": "bundle--cdb72acc-50b3-57fa-9394-cc9c3a03d7db",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10508,6 +10508,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1cab9c29-148c-51dc-935a-a0ab14b2bc23",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--19570003-f1f9-512e-ac8b-46860943c9cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
+      "target_ref": "vulnerability--a47d40e4-45de-57d3-be1a-fc7226d97285"
     },
     {
       "type": "relationship",
@@ -34030,6 +34041,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8a398b99-ac96-5001-9689-5d92a2d4b54f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T12:49:06.000Z",
+      "modified": "2026-10-27T12:49:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--626f3cd6-060c-56e7-b60e-2b8f48282dec",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8a39e64f-7826-5699-a482-b5ce53634f3e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T12:56:33.000Z",
@@ -52528,6 +52550,17 @@
       "relationship_type": "has",
       "source_ref": "software--13e13dd5-2bad-573e-8f55-2b90920c9178",
       "target_ref": "vulnerability--8bc71a18-c80a-544f-8a61-3c67fd1d342e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--df482b7e-28c4-5091-947f-c6f6203af1d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
+      "target_ref": "vulnerability--07691423-172b-578e-a7cd-22e5763d4c09"
     },
     {
       "type": "relationship",
@@ -94166,6 +94199,62 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--626f3cd6-060c-56e7-b60e-2b8f48282dec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T12:49:06.000Z",
+      "modified": "2026-10-27T12:49:06.000Z",
+      "name": "Apple iOS: CoreGraphics PDF stack out-of-bounds write vulnerabilities (CVE-2026-112611, CVE-2026-112610)",
+      "description": "## Overview\nTwo out-of-bounds write vulnerabilities in the CoreGraphics PDF rendering stack were identified through function-level differential analysis of iOS 27.0 and 27.2 binaries. The vulnerabilities involve improper bounds checking during the processing of Type 5 (lattice-form Gouraud) shading (CVE-2026-112611) and CMap recursion (CVE-2026-112610). These flaws allow an attacker to write attacker-chosen values to out-of-bounds memory locations when a target application renders a maliciously crafted PDF. Apple addressed these issues in iOS 27.2.\n\n## Impact\nThe vulnerabilities allow for the writing of arbitrary IEEE-754 double values to memory. While the published research and accompanying artifacts are restricted to crash-only oracles, the ability to perform out-of-bounds writes carries the potential for arbitrary code execution if chained with other primitives.\n\n## Recommendation\n- Update all iOS devices to iOS 27.2 (24B115) or later to mitigate the underlying vulnerabilities addressed in security advisory HT149230.\n- Monitor for unauthorized or suspicious crash reports related to CoreGraphics or QuickLook processes using the provided crash-analysis methodology.\n- Implement strict document handling policies for mobile devices, specifically limiting the automatic previewing or rendering of untrusted PDF files.\n",
+      "published": "2026-10-27T12:49:06.000Z",
+      "labels": [
+        "apple",
+        "coregraphics",
+        "ios",
+        "oob-write",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
+        "vulnerability--07691423-172b-578e-a7cd-22e5763d4c09",
+        "vulnerability--a47d40e4-45de-57d3-be1a-fc7226d97285"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-coregraphics-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-coregraphics-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E1FD2A00-1407-524F-855F-860D624C87B0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E1FD2A00-1407-524F-855F-860D624C87B0\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.apple.com/en-us/149230"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-coregraphics-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-10-27-coregraphics-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-coregraphics-oob-write/",
+      "x_craftedsignal_activity_at": "2026-10-27T12:49:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -155508,6 +155597,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4e70be3a-3385-5b5b-bae9-8adddbf4dcf7",
+      "name": "iOS (\u003c= 27.0)",
+      "vendor": "Apple"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4e76229e-2564-5e82-aa1f-a135dd762b02",
       "name": "VxWorks 7",
       "vendor": "Wind River"
@@ -166941,6 +167037,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-50053",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50053"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--07691423-172b-578e-a7cd-22e5763d4c09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112610",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112610",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112610"
         }
       ]
     },
@@ -183997,6 +184109,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92820",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92820"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a47d40e4-45de-57d3-be1a-fc7226d97285",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112611",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112611",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112611"
         }
       ]
     },
