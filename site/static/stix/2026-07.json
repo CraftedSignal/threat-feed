@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--55578f54-8a2d-5593-9149-5d7755338ce7",
+  "id": "bundle--72206b00-f0ba-503a-b66a-d7548fb5cb34",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4567,17 +4567,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e2c95527-121c-52e6-9c75-eb60cb2fdc91",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--227acc76-e12c-5aa8-9715-f7c7b9167b62",
-      "target_ref": "vulnerability--599b4164-7f91-57e2-85f3-ced87ea49739"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e4df1965-cc0c-5a53-8cd8-567a6dc5591e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:24.000Z",
@@ -5589,57 +5578,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.08188,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--2607d159-c097-5998-9466-85c386c7fcf3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T21:01:13.000Z",
-      "modified": "2026-07-29T21:01:13.000Z",
-      "name": "Unauthenticated Remote Code Execution in RSFiles! Joomla Component",
-      "description": "## Overview\n\nCVE-2026-57827 is a critical-severity unauthenticated arbitrary file upload vulnerability affecting the RSFiles! component (com_rsfiles) for Joomla. The vulnerability stems from a design flaw where the component utilizes a split-controller approach, separating the permission-guarded pre-flight check from the actual file-write operation. Because the file-write method in the 'rsfiles.upload' task is unguarded and lacks file-type validation or CSRF protection, an attacker can directly invoke the task to upload arbitrary files, including PHP webshells, to the server. If the component's downloads directory lacks proper .htaccess restrictions - which is the default state for many installations - these files can be executed, leading to full system compromise as the web server user. This flaw affects versions prior to 1.17.12.\n\n## Attack Chain\n\n1. Attacker identifies a target running a vulnerable version of the RSFiles! Joomla component.\n2. Attacker crafts a malicious multipart/form-data HTTP POST request containing a PHP webshell.\n3. Attacker sends the request to /index.php, targeting the component with the parameters 'option=com_rsfiles' and 'task=rsfiles.upload'.\n4. The Joomla frontend controller dispatches the request to the unguarded rsfiles.upload() method, bypassing security checks.\n5. The server writes the malicious PHP file to /components/com_rsfiles/downloads/ on the filesystem.\n6. Attacker sends an HTTP GET request to the path of the uploaded file to execute arbitrary commands.\n7. The server executes the malicious PHP script with the privileges of the web service user (e.g., www-data).\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated remote code execution, enabling attackers to extract sensitive data such as configuration files, database credentials, and user information. Furthermore, attackers can pivot into internal networks, establish persistent backdoors, or perform full site defacement. The lack of authentication requirements makes this vulnerability highly dangerous, as it allows for automated scanning and mass exploitation of vulnerable Joomla instances.\n\n## Recommendation\n\n- Upgrade the RSFiles! component to version 1.17.12 or higher immediately to enforce permission checks and file-type validation on the upload task.\n- Review web server access logs for HTTP POST requests to 'option=com_rsfiles\u0026task=rsfiles.upload' originating from unknown or unauthorized IPs.\n- Audit the /components/com_rsfiles/downloads/ directory for suspicious files, particularly those with .php extensions, using the Sigma rules provided below.\n- Verify that the downloads folder is configured with appropriate .htaccess or web server configuration to prevent the execution of scripts.\n",
-      "published": "2026-07-29T21:01:13.000Z",
-      "labels": [
-        "cve-2026-57827",
-        "file-upload",
-        "joomla",
-        "rce"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--227acc76-e12c-5aa8-9715-f7c7b9167b62",
-        "vulnerability--599b4164-7f91-57e2-85f3-ced87ea49739"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-rsfiles-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-rsfiles-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://mysites.guru/blog/rsfiles-unauthenticated-file-upload-rce"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57827"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-rsfiles-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-rsfiles-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-rsfiles-rce/",
-      "x_craftedsignal_activity_at": "2026-07-29T21:01:13.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01602,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -9202,13 +9140,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--227acc76-e12c-5aa8-9715-f7c7b9167b62",
-      "name": "RSFiles!",
-      "vendor": "RSJoomla"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--27b8ebe1-76e5-52b1-af48-991e18761fb0",
       "name": "twiggy"
     },
@@ -10739,22 +10670,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-44092",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44092"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--599b4164-7f91-57e2-85f3-ced87ea49739",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-57827",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-57827",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57827"
         }
       ]
     },

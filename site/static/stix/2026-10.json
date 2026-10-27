@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e4de6f65-0b21-57ad-ac25-305252277054",
+  "id": "bundle--a052ba2e-0be7-5ecd-8023-852cd26cf680",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5340,6 +5340,17 @@
       "relationship_type": "uses",
       "source_ref": "report--69185147-82c0-56a0-8478-6ce8897de045",
       "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--01b1c36c-407f-54ce-b79e-1319b7aa2e1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c1dd28ca-0979-53d0-bc65-1f7f9be45dc0",
+      "target_ref": "vulnerability--0c7eae8f-0570-508f-a0bb-9bf157dc5c81"
     },
     {
       "type": "relationship",
@@ -59903,6 +59914,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--06ce2eb4-6258-5e95-9d20-e469c07af496",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T21:53:28.000Z",
+      "modified": "2026-10-27T21:53:28.000Z",
+      "name": "Samtools: Multiple security vulnerabilities",
+      "description": "## Overview\n\nMultiple vulnerabilities have been disclosed in the samtools package. The maintainers have released version 1.25 to address these issues. Backported fixes are also available in versions 1.24.1, 1.23.3, 1.22.4, and 1.21.3. CVE identifiers have not yet been assigned by the CVE naming authority and will be updated on the project's GitHub page upon assignment.\n\n## Recommendation\n\n* Inventory all systems running samtools to identify versions 1.24 and earlier.\n* Update samtools to version 1.25, or apply the relevant backported version (1.24.1, 1.23.3, 1.22.4, or 1.21.3) appropriate for your environment.\n",
+      "published": "2026-10-27T21:53:28.000Z",
+      "labels": [
+        "informational",
+        "software-update",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--364e0d39-7d0e-57dd-b3b5-a1e335ab607e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-samtools-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-samtools-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/404"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-samtools-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-27-samtools-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-samtools-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-27T21:53:28.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--06d73c8e-32f9-591b-8123-a5ab93d90d6a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T21:40:54.000Z",
@@ -106789,6 +106843,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9068de72-c070-58ff-98e6-db72f49540db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T21:53:40.000Z",
+      "modified": "2026-10-27T21:53:40.000Z",
+      "name": "git-annex: Cross-repository data exfiltration (CVE-2026-112818)",
+      "description": "## Overview\n\ngit-annex versions prior to 10.20261026 are vulnerable to a cross-repository data exfiltration flaw, tracked as CVE-2026-112818. This vulnerability allows for unauthorized access or leakage of data between managed repositories. The maintainer has released a patched version and provided backported patches for previous releases to address the risk.\n\n## Impact\n\nSuccessful exploitation allows for the unauthorized exfiltration of data across repositories managed by git-annex, potentially leading to the exposure of sensitive information stored in those environments.\n\n## Recommendation\n\n* Upgrade git-annex to version 10.20261026 or apply the available backported patches provided by the maintainer for older versions.\n* Inventory systems utilizing git-annex to identify versions requiring the security update.\n",
+      "published": "2026-10-27T21:53:40.000Z",
+      "labels": [
+        "exfiltration",
+        "git-annex",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c1dd28ca-0979-53d0-bc65-1f7f9be45dc0",
+        "vulnerability--0c7eae8f-0570-508f-a0bb-9bf157dc5c81"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-git-annex-data-exfiltration",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-git-annex-data-exfiltration/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://git-annex.branchable.com/download/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/394"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-git-annex-data-exfiltration",
+      "x_craftedsignal_event_id": "brief-2026-10-27-git-annex-data-exfiltration",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-git-annex-data-exfiltration/",
+      "x_craftedsignal_activity_at": "2026-10-27T21:53:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--908a2d50-39dc-5d2c-be16-859ce1c87c8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T03:09:31.000Z",
@@ -148648,6 +148750,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--364e0d39-7d0e-57dd-b3b5-a1e335ab607e",
+      "name": "samtools (\u003c= 1.24)",
+      "vendor": "samtools"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3661d007-2927-52e4-a811-ad6adb3f92bf",
       "name": "snap7 (\u003c= 1.4.3)",
       "vendor": "Snap7"
@@ -156658,6 +156767,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c1dd28ca-0979-53d0-bc65-1f7f9be45dc0",
+      "name": "git-annex (\u003c 10.20261026)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c20a3d78-7e4f-5feb-b2e8-347e2606ee0b",
       "name": "Vault Community Edition (\u003c 2.1.2)",
       "vendor": "HashiCorp"
@@ -161376,6 +161491,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116180",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116180"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0c7eae8f-0570-508f-a0bb-9bf157dc5c81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112818",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112818",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112818"
         }
       ]
     },
