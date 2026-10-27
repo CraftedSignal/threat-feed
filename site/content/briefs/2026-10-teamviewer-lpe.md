@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-27-teamviewer-lpe
 event_id: brief-2026-10-27-teamviewer-lpe
-revision: 1
-activity_at: "2026-10-27T18:05:02Z"
+revision: 2
+activity_at: "2026-10-27T20:02:31Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-27T20:02:31Z"
+    checksum: sha256:f2d8474383cef9a4ea04d003f88706e1df0e3e8579575767decadbdb0d8c47ca
+    summary: added coverage for TeamViewer Full Client (< 15.83) +2 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92375
 title: 'TeamViewer: Local privilege escalation via installer staging (CVE-2026-111583)'
 slug: 2026-10-teamviewer-lpe
 description: An improper access control vulnerability in the TeamViewer installer staging directory allows local low-privileged users to achieve arbitrary code execution as SYSTEM via a crafted installer options file.
 date: "2026-10-27T18:05:02Z"
-lastmod: "2026-10-27T18:05:32Z"
+lastmod: "2026-10-27T20:01:20Z"
 type: advisory
 types:
   - advisory
@@ -37,6 +52,8 @@ tags:
   - integer-overflow
   - macos
   - teamviewer
+  - ipc
+  - cve-2026-92375
 vendors:
   - TeamViewer
 products:
@@ -46,6 +63,7 @@ products:
   - TeamViewer Portable (< 15.83)
   - TeamViewer Remote Control App (< 15.83)
   - TeamViewer Host (< 15.83)
+  - Remote Management Monitoring component (< 26.10.1)
 affected_os:
   - Windows
   - Linux
@@ -76,11 +94,15 @@ cves:
   - id: CVE-2026-92374
     cvss: 7.8
     kev_status: "false"
+  - id: CVE-2026-92375
+    cvss: 7.8
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111583
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111585
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92372
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92374
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-92375
 action_plan:
   priority: elevated
   owners:
@@ -136,6 +158,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Vulnerability allows a local attacker to bypass installer package verification
+    - lead: Monitor for unexpected script execution or child processes spawned by TeamViewer related services under SYSTEM or root context
+      technique_id: T1068
+      data_needed:
+        - Process creation logs (Event ID 1)
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: allows a local authenticated attacker with low privileges to execute scripts as SYSTEM/root.
   mitigation_plan:
     - priority: immediate
       action: Upgrade to version 15.82 or later.
@@ -157,6 +187,11 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-92374
       evidence: TeamViewer Full Client and Host prior to version 15.83 for macOS are vulnerable
+    - priority: immediate
+      action: Update TeamViewer Full Client and Host to 15.83 and Remote Management Monitoring component to 26.10.1
+      owner: IT Operations
+      addresses: CVE-2026-92375
+      evidence: TeamViewer Full Client or Host prior to version 15.83 and the Remote Management Monitoring component prior to version 26.10.1
 updates:
   - at: "2026-10-27T18:05:17Z"
     level: L2
@@ -179,6 +214,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92374
+  - at: "2026-10-27T20:01:20Z"
+    level: L2
+    summary: added coverage for TeamViewer Full Client (< 15.83) +2 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-92375
 ---
 
 TeamViewer Full Client and Host for Windows versions prior to 15.82 are vulnerable to a local privilege escalation flaw. During the installation of the Advanced Asset Management component, the installer uses an insecurely permissioned staging directory. A local authenticated user with low privileges can place a crafted installer options file in this directory, which is then processed by the installer, resulting in execution of arbitrary commands with SYSTEM privileges during service activation.

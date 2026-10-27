@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-27-epics-base-vulnerabilities
 event_id: brief-2026-10-27-epics-base-vulnerabilities
-revision: 1
-activity_at: "2026-10-27T16:40:03Z"
+revision: 2
+activity_at: "2026-10-27T20:02:31Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-27T20:02:31Z"
+    checksum: sha256:4427a9a876d217e7abbda313a1bec3a53ba9103935ebac43219e0df1f79f135a
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
 title: 'EPICS Base: Remote code execution and denial of service (CVE-2026-114595, CVE-2026-114596, CVE-2026-114597, CVE-2026-114598)'
 slug: 2026-10-epics-base-vulnerabilities
 description: EPICS Base versions 7.0.10 and earlier contain multiple critical vulnerabilities in network request processing that could allow unauthenticated remote attackers to cause denial-of-service, disclose memory contents, or execute arbitrary code.
 date: "2026-10-27T16:40:03Z"
+lastmod: "2026-10-27T20:00:39Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -31,6 +46,7 @@ vendors:
   - The EPICS Community
 products:
   - EPICS Base (<=7.0.10)
+  - EPICS Base (<= 7.0.10)
 cves:
   - id: CVE-2026-114595
     kev_status: unknown
@@ -46,6 +62,8 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-114596
   - https://www.cve.org/CVERecord?id=CVE-2026-114597
   - https://www.cve.org/CVERecord?id=CVE-2026-114598
+  - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
+  - https://github.com/epics-base/epics-base/releases/tag/R7.0.11
 action_plan:
   priority: immediate_escalation
   owners:
@@ -72,6 +90,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-114595, CVE-2026-114596, CVE-2026-114597, CVE-2026-114598
       evidence: Affected users should update to the 7.0.11 release.
+updates:
+  - at: "2026-10-27T20:00:39Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
 ---
 
 Multiple vulnerabilities exist in EPICS Base release 7.0.10 and prior, primarily involving integer overflows and improper handling of length parameters during network message parsing. These flaws can lead to out-of-bounds memory access, corruption, and remote code execution (RCE). The EPICS Community has released version 7.0.11 to address these issues.
