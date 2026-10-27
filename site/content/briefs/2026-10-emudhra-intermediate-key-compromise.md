@@ -40,6 +40,7 @@ aliases:
   - /briefs/2026-10-emudhra-ca-compromise/
   - /briefs/2026-10-emudhra-ca-keys/
   - /briefs/2026-10-certifi-compromised-roots/
+  - /briefs/2026-10-emudhra-cert-compromise/
 title: 'eMudhra: Eight compromised intermediate CA keys threaten TLS trust'
 slug: 2026-10-emudhra-intermediate-key-compromise
 description: Eight eMudhra intermediate CA private keys were recoverable because of weak key generation. Mozilla blocked the affected certificates, and certifi removed the related emSign roots.
