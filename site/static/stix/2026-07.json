@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f272f747-3ee2-59dd-b7b2-d6e3d94fa8d8",
+  "id": "bundle--0ba2fed3-1f3e-5bc9-99dc-ea8faa739a8f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -159,22 +159,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1486",
           "url": "https://attack.mitre.org/techniques/T1486"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Valid Accounts",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1078",
-          "url": "https://attack.mitre.org/techniques/T1078"
         }
       ]
     },
@@ -2702,17 +2686,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6bbdc813-07a0-5493-8412-b948173bcaa5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba838570-833c-5016-862f-bdd52d335ba6",
-      "target_ref": "vulnerability--f497eda0-a9ed-5a14-96c8-38082dea7131"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6bf0032b-f323-5edc-92bc-3b4d42b47f06",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4249,17 +4222,6 @@
       "relationship_type": "has",
       "source_ref": "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
       "target_ref": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c722bdc5-d975-5e93-a280-5404cf26d3f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T17:17:44.000Z",
-      "modified": "2026-07-29T17:17:44.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d97eedfd-adbe-56d3-bacc-a74f5656b813",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -9067,60 +9029,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d97eedfd-adbe-56d3-bacc-a74f5656b813",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T17:17:44.000Z",
-      "modified": "2026-07-29T17:17:44.000Z",
-      "name": "Authorization Bypass in Red Hat Quay",
-      "description": "## Overview\n\nA security vulnerability identified as CVE-2026-18255 affects Red Hat Quay 3. The issue stems from an incorrect authorization flaw (CWE-863) where users assigned to the GLOBAL_READONLY_SUPER_USERS role can improperly access and view robot account tokens associated with repositories they do not own or possess membership in. By successfully retrieving these tokens, an attacker with read-only superuser privileges can impersonate any robot account within the environment, effectively bypassing intended access restrictions. This vulnerability poses a significant risk to the integrity and confidentiality of container image registries managed by Red Hat Quay. Administrators should prioritize identifying users with excessive read-only privileges and applying relevant security patches provided by Red Hat to mitigate this privilege escalation vector.\n\n## Impact\n\nSuccessful exploitation allows for the unauthorized impersonation of robot accounts, which may be used for automated image pulls, pushes, or other CI/CD pipeline activities. Depending on the privileges granted to the targeted robot accounts, this could lead to the unauthorized exfiltration of container images or the injection of malicious images into repositories, impacting the software supply chain of affected organizations.\n\n## Recommendation\n\n- Update Red Hat Quay 3 instances to the latest security version provided by Red Hat to remediate CVE-2026-18255.\n- Review the list of users configured within the GLOBAL_READONLY_SUPER_USERS role and apply the principle of least privilege.\n- Audit access logs for unusual patterns of repository access or API token retrieval by administrative accounts.\n",
-      "published": "2026-07-29T17:17:44.000Z",
-      "labels": [
-        "auth-bypass",
-        "container-security",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ba838570-833c-5016-862f-bdd52d335ba6",
-        "vulnerability--f497eda0-a9ed-5a14-96c8-38082dea7131"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-quay-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-quay-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://access.redhat.com/security/cve/CVE-2026-18255"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2508454"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18255"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-quay-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-quay-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-quay-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-29T17:17:44.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--dc756098-6139-5792-8e12-55725c2c16be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T23:32:35.000Z",
@@ -10238,13 +10146,6 @@
       "spec_version": "2.1",
       "id": "software--b88ed930-c64e-58c0-9b0d-e49e46c25c77",
       "name": "ESXi"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ba838570-833c-5016-862f-bdd52d335ba6",
-      "name": "Red Hat Quay 3",
-      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -11902,22 +11803,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-53502",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53502"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f497eda0-a9ed-5a14-96c8-38082dea7131",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18255",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18255",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18255"
         }
       ]
     },

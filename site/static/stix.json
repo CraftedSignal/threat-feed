@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--268194c8-5ebd-5b89-8d31-1728755e6fb1",
+  "id": "bundle--ce74f50c-450c-5bf6-9137-08f444dfc68c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6663,6 +6663,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9d76e3c1-330b-5cf8-af96-df2192e97f3b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0716f32e-b84e-5dd5-a08c-801025bdea0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:34:27.000Z",
+      "modified": "2026-10-27T17:34:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a2d59458-16f8-557f-a48e-4299109343fe",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "relationship",
@@ -59555,6 +59566,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fbda19f2-572e-504e-9c8b-e4626ce50922",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:34:27.000Z",
+      "modified": "2026-10-27T17:34:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a2d59458-16f8-557f-a48e-4299109343fe",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fbe325b6-7af2-5def-9eb6-455c4a295b7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -91488,6 +91510,48 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--587f0eb1-d90a-580a-80aa-931fbd1d952e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:35:26.000Z",
+      "modified": "2026-10-27T17:35:26.000Z",
+      "name": "NoMachine: Remote Code Execution vulnerability",
+      "description": "## Overview\nA vulnerability in NoMachine allows a remote, unauthenticated attacker to execute arbitrary code. The BSI advisory notes that the vulnerability can be exploited by an anonymous attacker, but specific CVE identifiers or technical details regarding the vulnerability class were not disclosed in the initial advisory.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution on systems running the affected NoMachine software.\n\n## Recommendation\n- Inventory all systems running NoMachine across the environment.\n- Monitor NoMachine services for the spawning of unexpected child processes or abnormal outbound network connections.\n- Review official NoMachine security update channels for patch availability and apply updates immediately upon release.\n",
+      "published": "2026-10-27T17:35:26.000Z",
+      "labels": [
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--aaee24c6-0f53-53d2-a6d5-a5c00f38173f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-nomachine-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-nomachine-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4174"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-nomachine-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-27-nomachine-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nomachine-rce/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:35:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--58ae39e0-234c-571e-b1f7-c5a4c8c21b03",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T16:08:41.000Z",
@@ -96282,6 +96346,48 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6410db67-797d-5baa-a2b0-94d7d44fed20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:35:01.000Z",
+      "modified": "2026-10-27T17:35:01.000Z",
+      "name": "Qt Framework: Multiple vulnerabilities",
+      "description": "## Overview\n\nThe BSI has reported multiple vulnerabilities within the Qt framework. A remote, unauthenticated attacker can leverage these flaws to induce a denial-of-service (DoS) state, or to perform unauthorized data disclosure or manipulation. Specific CVE identifiers or technical exploit details remain undisclosed in the initial advisory.\n\n## Impact\n\nThe vulnerabilities allow for service disruption (DoS), as well as the potential compromise of data integrity and confidentiality for applications utilizing the affected Qt libraries.\n\n## Recommendation\n\n- Inventory all internal applications and third-party software that rely on the Qt framework.\n- Establish a process to monitor Qt Group security advisories for specific version releases and patch updates.\n- Prioritize patching for internet-facing applications utilizing affected Qt components once updates become available.\n",
+      "published": "2026-10-27T17:35:01.000Z",
+      "labels": [
+        "denial-of-service",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6156f721-ddad-54f2-9437-af18d044740b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-qt-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-qt-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4178"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-qt-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-27-qt-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-qt-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:35:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -101965,6 +102071,49 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-scheduled-task-cmd/",
       "x_craftedsignal_activity_at": "2026-10-12T17:58:06.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7446301d-b9ca-5a0c-af2a-3ba7d2101a74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:35:38.000Z",
+      "modified": "2026-10-27T17:35:38.000Z",
+      "name": "Red Hat Enterprise Linux: xdg-dbus-proxy security bypass",
+      "description": "## Overview\n\nThe BSI reports a vulnerability in the xdg-dbus-proxy utility within Red Hat Enterprise Linux. This flaw permits a remote, unauthenticated attacker to bypass established security restrictions. Successful exploitation may result in arbitrary code execution on the affected system. Details regarding the specific exploitation vector and underlying vulnerability mechanism remain undisclosed at this time.\n\n## Impact\n\nSuccessful exploitation allows for the bypass of security controls and may lead to remote arbitrary code execution, granting the attacker unauthorized control over the affected system.\n\n## Recommendation\n\nPrioritize inventorying all RHEL systems that utilize the xdg-dbus-proxy package. Monitor official Red Hat security advisories for patch availability and apply updates immediately once released.\n",
+      "published": "2026-10-27T17:35:38.000Z",
+      "labels": [
+        "linux",
+        "security-bypass",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4ceed688-eb80-50e6-810f-94595ef19dcd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-xdg-dbus-proxy-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4172"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-27-red-hat-xdg-dbus-proxy-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-red-hat-xdg-dbus-proxy-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:35:38.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -117746,6 +117895,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a02ad1ae-1100-5d58-ab54-a6b623c32632",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:34:54.000Z",
+      "modified": "2026-10-27T17:34:54.000Z",
+      "name": "OpenBao: Multiple security bypass vulnerabilities",
+      "description": "## Overview\nThe German BSI has issued an advisory regarding multiple vulnerabilities in OpenBao that permit the bypass of existing security measures. At this time, the vendor has not disclosed technical details, specific vulnerability mechanisms, or affected version ranges. Users are advised to monitor the official OpenBao security channels for patch availability and further technical updates.\n\n## Recommendation\n- Inventory all internal instances of OpenBao within your cloud environment.\n- Subscribe to official OpenBao security notifications to receive alerts regarding pending patches.\n- Prepare to update affected deployments once the vendor releases version-specific security fixes.\n",
+      "published": "2026-10-27T17:34:54.000Z",
+      "labels": [
+        "cloud",
+        "security-bypass",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--107b7c11-fb13-5803-bc6a-a671a993dfa6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-openbao-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openbao-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4180"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-openbao-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-27-openbao-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openbao-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:34:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a041018d-e853-598c-a5b7-d66c0890bcc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T22:06:50.000Z",
@@ -118489,6 +118681,56 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a2d59458-16f8-557f-a48e-4299109343fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:34:27.000Z",
+      "modified": "2026-10-27T17:34:27.000Z",
+      "name": "Nextcloud: Multiple vulnerabilities in Server and plugins",
+      "description": "## Overview\nNextcloud has issued a security advisory regarding multiple vulnerabilities affecting the Nextcloud Server core and several official applications: Tables, Whiteboard, Files Confidential, Collectives, and Richdocuments. Successful exploitation of these issues may allow an attacker to bypass security measures, access or modify sensitive data, or impact service availability via Denial-of-Service (DoS). Specific CVE identifiers were not provided in the source material. Users are advised to review the official Nextcloud advisory portal for specific version remediation details.\n\n## Impact\nImpact includes unauthorized data disclosure, data manipulation, security control bypass, and service disruption (DoS).\n\n## Recommendation\n- Inventory all Nextcloud instances and integrated applications, specifically Tables, Whiteboard, Files Confidential, Collectives, and Richdocuments.\n- Review the official Nextcloud security advisory portal to identify and apply the necessary patches for your specific versions.\n- Prioritize patching of internet-facing Nextcloud instances.\n",
+      "published": "2026-10-27T17:34:27.000Z",
+      "labels": [
+        "nextcloud",
+        "vulnerability",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5dd94902-d91c-5311-984d-c82066cfca88",
+        "software--74b4ffa4-b0ee-5111-8e1b-84591c882f41",
+        "software--af2dafae-393c-56ca-a27d-5eb0230c023b",
+        "software--ce2554cd-bc7a-5575-ba5c-5ccb7a6fd9da",
+        "software--d8345ff5-ff49-5be2-8874-5058cd3363ab",
+        "software--d8e6d74c-ea89-53b4-80db-64c8ad4ec29d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-nextcloud-multi-vuln",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-nextcloud-multi-vuln/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4185"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-nextcloud-multi-vuln",
+      "x_craftedsignal_event_id": "brief-2026-10-27-nextcloud-multi-vuln",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nextcloud-multi-vuln/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:34:27.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -123610,7 +123852,7 @@
       "id": "report--b129d44c-fb94-541f-934a-667a235d2d36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T16:07:25.000Z",
-      "modified": "2026-10-21T16:07:25.000Z",
+      "modified": "2026-10-27T17:36:21.000Z",
       "name": "Mattermost Server: Multiple security vulnerabilities",
       "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple unspecified vulnerabilities in Mattermost Server. These vulnerabilities, identified in Mattermost security bulletins MMSA-2026-00772 and MMSA-2026-00783, could allow an attacker to trigger unspecified security issues. Details regarding specific vulnerability types or exploitation vectors remain undisclosed by the vendor.\n\n## Recommendation\n\n* Inventory all internal Mattermost Server instances to identify versions 11.10.x, 11.11.x, and 11.7.x.\n* Upgrade Mattermost Server instances to the following patched versions immediately:\n * Upgrade version 11.10.x to 11.10.3 or later.\n * Upgrade version 11.11.x to 11.11.2 or later.\n * Upgrade version 11.7.x to 11.7.13 or later.\n* Monitor the official Mattermost Security Updates portal for further technical disclosures.\n",
       "published": "2026-10-21T16:07:25.000Z",
@@ -123622,7 +123864,8 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--8386c197-2341-580a-b111-8428af33f966",
         "software--d02a290c-f4c9-5603-a7d8-e5354262e42f",
-        "software--db4894b0-211f-5ac0-962c-fec838034bbc"
+        "software--db4894b0-211f-5ac0-962c-fec838034bbc",
+        "software--f3ea32a8-c925-5f3f-92e7-6ecf05ea6a49"
       ],
       "external_references": [
         {
@@ -123636,15 +123879,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4179"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cert.ssi.gouv.fr/avis/CERTFR-2026-AVI-1348/"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-21-mattermost-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-21-mattermost-vulnerabilities",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mattermost-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-21T16:07:25.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T17:36:21.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -130498,6 +130745,49 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c2b0d63b-08df-5da6-999e-5f830330766b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:35:19.000Z",
+      "modified": "2026-10-27T17:35:19.000Z",
+      "name": "Red Hat OpenShift GitOps: File manipulation and information disclosure",
+      "description": "## Overview\n\nRed Hat OpenShift GitOps contains a vulnerability involving the go-git library that allows a remote, unauthenticated attacker to manipulate files or access sensitive information within the environment. Specific details regarding the exploitation vector and affected versions remain pending further disclosure from the vendor.\n\n## Recommendation\n\n- Inventory instances of Red Hat OpenShift GitOps to assess current exposure.\n- Monitor the Red Hat security advisory portal for upcoming patch releases and CVE identifiers associated with this issue.\n- Review access logs and integrity monitoring for file-system changes in environments managing Git repositories via OpenShift GitOps.\n",
+      "published": "2026-10-27T17:35:19.000Z",
+      "labels": [
+        "cloud",
+        "openshift",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--553c1293-0332-5b06-aa8d-031e186498c2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-redhat-openshift-gitops-gogit",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-redhat-openshift-gitops-gogit/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4175"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-redhat-openshift-gitops-gogit",
+      "x_craftedsignal_event_id": "brief-2026-10-27-redhat-openshift-gitops-gogit",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-redhat-openshift-gitops-gogit/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:35:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -153774,6 +154064,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--107b7c11-fb13-5803-bc6a-a671a993dfa6",
+      "name": "OpenBao",
+      "vendor": "OpenBao"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--109d595a-831b-5278-b319-19d19c939121",
       "name": "Uncanny Automator (\u003c= 7.6.1.1)",
       "vendor": "Uncanny Owl"
@@ -157866,6 +158163,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--553c1293-0332-5b06-aa8d-031e186498c2",
+      "name": "OpenShift GitOps",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--55408c06-2006-59f3-8710-77a6ac571b60",
       "name": "Traefik (\u003c 2.11.60)",
       "vendor": "Traefik"
@@ -158462,6 +158766,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5dd94902-d91c-5311-984d-c82066cfca88",
+      "name": "Nextcloud Richdocuments",
+      "vendor": "Nextcloud"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5de39055-84e4-50f4-8ac5-9b2f8b2b7ff9",
       "name": "DB-GPT (\u003c= 0.8.2)",
       "vendor": "DB-GPT"
@@ -158778,6 +159089,13 @@
       "id": "software--6154dab9-b5c1-56d7-a13d-9acccfbb7f16",
       "name": "MW WP Form (\u003c= 5.1.7)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6156f721-ddad-54f2-9437-af18d044740b",
+      "name": "Qt",
+      "vendor": "Qt Group"
     },
     {
       "type": "software",
@@ -160030,6 +160348,13 @@
       "id": "software--74a3fe36-0f5d-5a3f-ad81-dd3300dd18ed",
       "name": "Qwik (\u003c 1.20.0)",
       "vendor": "Builder.io"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--74b4ffa4-b0ee-5111-8e1b-84591c882f41",
+      "name": "Nextcloud Whiteboard",
+      "vendor": "Nextcloud"
     },
     {
       "type": "software",
@@ -163625,6 +163950,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--af2dafae-393c-56ca-a27d-5eb0230c023b",
+      "name": "Nextcloud Files Confidential",
+      "vendor": "Nextcloud"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--af3d75c3-1298-5155-a18b-c454c4d913ff",
       "name": "Casdoor (\u003c 3.54.1)",
       "vendor": "Casbin"
@@ -165308,6 +165640,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ce2554cd-bc7a-5575-ba5c-5ccb7a6fd9da",
+      "name": "Nextcloud Collectives",
+      "vendor": "Nextcloud"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ce8cef7d-2d3d-5383-bd9e-f0da63eeb529",
       "name": "Conversational Forms for ChatBot (\u003c= 1.5.1)",
       "vendor": "QuantumCloud"
@@ -165856,6 +166195,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d8345ff5-ff49-5be2-8874-5058cd3363ab",
+      "name": "Nextcloud Server",
+      "vendor": "Nextcloud"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d871f397-0c55-5f84-be4a-c56d729d4ec8",
       "name": "snappy-java (\u003c 1.1.10.9)",
       "vendor": "Xerial"
@@ -165872,6 +166218,13 @@
       "id": "software--d8d6beec-b6df-57e4-927d-e07c39080d84",
       "name": "Claude",
       "vendor": "Anthropic"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d8e6d74c-ea89-53b4-80db-64c8ad4ec29d",
+      "name": "Nextcloud Tables",
+      "vendor": "Nextcloud"
     },
     {
       "type": "software",
@@ -167410,6 +167763,13 @@
       "id": "software--f33c07df-48c0-547a-8ac1-f312c6559321",
       "name": "FusionPBX (\u003c= 5.6.5)",
       "vendor": "FusionPBX"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f3ea32a8-c925-5f3f-92e7-6ecf05ea6a49",
+      "name": "Mattermost Server",
+      "vendor": "Mattermost"
     },
     {
       "type": "software",
