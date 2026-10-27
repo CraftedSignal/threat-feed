@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6d8418dc-c3fb-50cd-b2c2-8f7bc98af3f8",
+  "id": "bundle--eeaa90f6-0117-5978-b5a2-eb9379b6b4ce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15847,6 +15847,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6a5a63e6-e509-5145-879e-0a02887f8c64",
       "target_ref": "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3294aab2-297f-50c1-93cd-275dcdeef23b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T10:52:42.000Z",
+      "modified": "2026-10-27T10:52:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f3377458-af0e-57cf-80cd-de655d3e3d96",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -34217,6 +34228,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b333070b-65f5-5d51-b8d1-7bfc485a3085",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8a88fb0b-6dcf-5839-9b0d-94c8cf6deaac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T10:52:42.000Z",
+      "modified": "2026-10-27T10:52:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f3377458-af0e-57cf-80cd-de655d3e3d96",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -54182,6 +54204,17 @@
       "relationship_type": "has",
       "source_ref": "software--5b7facef-bf69-50ef-8b54-45bdd50a0b22",
       "target_ref": "vulnerability--fd151b75-9b50-5642-afdf-9cc2d4c19a90"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e631a750-15f7-5838-a7ec-6329564983b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7603c1ba-a840-5c88-891a-ca613596da11",
+      "target_ref": "vulnerability--b970e619-4a04-5b8e-b38a-8525548b0774"
     },
     {
       "type": "relationship",
@@ -145701,6 +145734,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f3377458-af0e-57cf-80cd-de655d3e3d96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T10:52:42.000Z",
+      "modified": "2026-10-27T10:52:42.000Z",
+      "name": "SPIP: Unauthenticated Remote Code Execution (CVE-2026-77647)",
+      "description": "## Overview\n\nCVE-2026-77647 is a critical remote code execution vulnerability affecting the SPIP web publishing system. The flaw is triggered via the 'X-Spip-Filtre' HTTP header, allowing unauthenticated attackers to execute arbitrary code on the target server. The vulnerability has a CVSS 3.1 score of 9.8. Proof-of-concept exploit code is publicly available, increasing the likelihood of exploitation.\n\n## Impact\n\nSuccessful exploitation allows for unauthenticated remote code execution, leading to full server compromise, data exfiltration, or complete loss of availability.\n\n## Recommendation\n\n- Identify all internet-facing SPIP installations within your environment.\n- Patch SPIP instances immediately to the vendor-recommended version addressing CVE-2026-77647.\n- Monitor web server access logs for anomalous HTTP requests containing the 'X-Spip-Filtre' header.\n- Block identified malicious IP addresses associated with exploit attempts at the perimeter firewall or WAF.\n",
+      "published": "2026-10-27T10:52:42.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7603c1ba-a840-5c88-891a-ca613596da11",
+        "vulnerability--b970e619-4a04-5b8e-b38a-8525548b0774"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-spip-rce-cve-2026-77647",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-spip-rce-cve-2026-77647/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77647"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=5CD76E7F-401B-56E3-9708-9B4D80A939BB"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=5CD76E7F-401B-56E3-9708-9B4D80A939BB\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-spip-rce-cve-2026-77647",
+      "x_craftedsignal_event_id": "brief-2026-10-27-spip-rce-cve-2026-77647",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-spip-rce-cve-2026-77647/",
+      "x_craftedsignal_activity_at": "2026-10-27T10:52:42.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.02292,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f33886a4-b918-5df1-92c6-81bb500c1748",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T12:22:12.000Z",
@@ -157540,6 +157624,13 @@
       "id": "software--75fd3844-21e9-5831-80be-ab8900f02057",
       "name": "holaOS (\u003c= 2026.822.1)",
       "vendor": "holaOS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7603c1ba-a840-5c88-891a-ca613596da11",
+      "name": "SPIP (\u003c 4.4.20)",
+      "vendor": "SPIP"
     },
     {
       "type": "software",
@@ -185449,6 +185540,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-28113",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-28113"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b970e619-4a04-5b8e-b38a-8525548b0774",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-77647",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-77647",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77647"
         }
       ]
     },
