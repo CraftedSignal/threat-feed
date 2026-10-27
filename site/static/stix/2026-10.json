@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1983ea0e-c3f3-5763-b6fa-493d82d49bdd",
+  "id": "bundle--9b3c6f57-2cff-584b-9295-e78396f0fe62",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6574,7 +6574,7 @@
       "id": "relationship--07bd750a-3e3c-5827-aed1-143d8951aee2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-27T10:08:26.000Z",
+      "modified": "2026-10-27T10:24:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -45789,7 +45789,7 @@
       "id": "relationship--d3d1d233-8060-504c-8162-741f422abb56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-27T10:08:26.000Z",
+      "modified": "2026-10-27T10:24:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
@@ -53335,7 +53335,7 @@
       "id": "relationship--f81a08b9-9838-59b9-b7f8-6235fec7ced5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-27T10:08:26.000Z",
+      "modified": "2026-10-27T10:24:14.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "target_ref": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39"
@@ -59443,7 +59443,7 @@
       "id": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-27T10:08:26.000Z",
+      "modified": "2026-10-27T10:24:14.000Z",
       "name": "Dahua IP cameras and recorders: P2P cloud access hijacking",
       "description": "## Overview\nCERT-UA has identified an ongoing campaign where attackers exploit Dahua surveillance devices via the Easy4IP P2P cloud access service. Attackers leverage predictable serial number patterns to reach devices through the manufacturer’s cloud relay, bypassing NAT and firewall protections. Once access to the device management interface is obtained, attackers attempt to compromise the device using weak or default passwords, or by exploiting authentication bypass vulnerabilities CVE-2021-33044 and CVE-2021-33045 on unpatched firmware. Confirmed indicators of compromise include the presence of unknown user accounts, unauthorized changes to device configuration, and suspicious DVRIP login events originating from 127.0.0.1.\n\n## Attack Chain\n1. Serial Number Discovery: Attackers probe the Easy4IP P2P service by guessing or iterating through predictable device serial numbers.\n2. Cloud Relay Traversal: Attackers utilize the P2P connection to communicate with the target device, effectively bypassing local network perimeter controls.\n3. Authentication Attempt: Attackers attempt to authenticate to the device management service using common/default credentials or by chaining CVE-2021-33044 and CVE-2021-33045.\n4. Device Compromise: Upon successful authentication, attackers gain administrative access to the device.\n5. Persistence: Attackers create unauthorized backdoor accounts (e.g., \"p2pwn\") to maintain future access.\n6. Impact: Attackers modify device settings, view video streams, and apply visual overlays to the video feed.\n\n## Impact\nUnauthorized access to surveillance video, loss of device configuration control, and potential use of cameras as entry points into internal network segments. CERT-UA has confirmed active hijacking and exploitation campaigns.\n\n## Recommendation\n- Disable P2P/Cloud Access immediately on all Dahua devices unless explicitly required for business operations.\n- Patch all affected Dahua IP cameras, NVRs, and DVRs to the latest firmware to remediate CVE-2021-33044 and CVE-2021-33045.\n- Audit existing device accounts and remove any unknown or unauthorized user entries.\n- Isolate surveillance devices into a dedicated VLAN with restricted access to the internet and internal production networks.\n",
       "published": "2026-10-27T08:32:13.000Z",
@@ -59506,9 +59506,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-dahua-p2p-hijacking",
       "x_craftedsignal_event_id": "brief-2026-10-27-dahua-p2p-hijacking",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dahua-p2p-hijacking/",
-      "x_craftedsignal_activity_at": "2026-10-27T10:08:26.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T10:24:14.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

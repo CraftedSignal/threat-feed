@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--52ea4871-dad6-5ce5-b9e5-bbb0705563e4",
+  "id": "bundle--1f22b625-e7d8-53e3-99f5-dbc92213ec26",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4788,17 +4788,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4ab85356-6971-5e35-af8e-589c58e5df69",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T10:18:10.000Z",
-      "modified": "2026-07-29T10:18:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6d5ea447-7a58-501b-a4fb-e6a1a00b0d6f",
-      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4acaea66-ddd0-5f12-bb53-4712047c22bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7527,17 +7516,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b220c047-9de0-5dae-974c-c72bfe50eca4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--46a836c7-bdbd-5170-a5f0-d2eff71ecf4f",
-      "target_ref": "vulnerability--eba3f3c2-b797-5ce3-93ac-2a70263f67df"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b26ac963-6213-5aaa-a1e7-c5df3a622df4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T07:20:10.000Z",
@@ -9734,17 +9712,6 @@
       "relationship_type": "has",
       "source_ref": "software--1eab9fe6-7dc3-57b2-b0d7-0a498f5b452e",
       "target_ref": "vulnerability--7b80c13a-c3ee-57ab-b33e-c5d57d08179e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ff4b21c8-9b6c-5ff2-84a9-18699c9ba874",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T10:18:10.000Z",
-      "modified": "2026-07-29T10:18:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6d5ea447-7a58-501b-a4fb-e6a1a00b0d6f",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "report",
@@ -12540,64 +12507,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6d5ea447-7a58-501b-a4fb-e6a1a00b0d6f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T10:18:10.000Z",
-      "modified": "2026-07-29T10:18:10.000Z",
-      "name": "CVE-2025-10656: WordPress Spreadsheet Price Changer Plugin Missing Authorization Vulnerability",
-      "description": "## Overview\n\nA critical Missing Authorization vulnerability, tracked as CVE-2025-10656, has been identified in the \"Spreadsheet Price Changer for WooCommerce and WP E-commerce - Light\" plugin for WordPress. This flaw impacts all versions of the plugin up to and including 2.4.37. The vulnerability resides within the `user_filter` function, which fails to properly enforce authorization checks. This oversight allows unauthenticated attackers to send specially crafted requests that result in the creation of new administrator accounts on the affected WordPress site. The successful exploitation of this vulnerability grants attackers full administrative control, enabling them to manipulate website content, install malicious plugins, exfiltrate data, or otherwise compromise the integrity and availability of the web application.\n\n## Attack Chain\n\n1. An unauthenticated attacker identifies a WordPress site running the vulnerable Spreadsheet Price Changer for WooCommerce and WP E-commerce - Light plugin.\n2. The attacker crafts a malicious HTTP request targeting the `user_filter` function within the `sellingcommander.php` file of the plugin.\n3. This request leverages the Missing Authorization vulnerability (CVE-2025-10656) by including parameters designed to register a new user with elevated privileges.\n4. Due to the lack of proper authentication checks, the plugin processes the attacker's request as legitimate.\n5. The vulnerable plugin creates a new administrator account on the WordPress site as specified by the attacker.\n6. The attacker uses the credentials of the newly created administrator account to log into the WordPress dashboard.\n7. With administrative access, the attacker gains full control over the compromised WordPress site.\n\n## Impact\n\nThe successful exploitation of CVE-2025-10656 results in a complete compromise of the affected WordPress site. Attackers gain full administrative control, which can lead to severe consequences including, but not limited to, website defacement, arbitrary code execution (via malicious plugin/theme uploads), data theft, deployment of web shells, or redirection of legitimate users to malicious sites. This vulnerability poses a significant risk to the integrity and availability of the targeted web application and associated data, potentially affecting customers and business operations.\n\n## Recommendation\n\n* Immediately update the \"Spreadsheet Price Changer for WooCommerce and WP E-commerce - Light\" plugin to a patched version beyond 2.4.37, or disable and remove the plugin if an update is not available.\n* Review web server access logs for any suspicious HTTP requests targeting `sellingcommander.php` or the `user_filter` function, especially those originating from unusual IP addresses or user agents.\n* Monitor WordPress user logs for the creation of new administrator accounts that were not legitimately authorized.\n",
-      "published": "2026-07-29T10:18:10.000Z",
-      "labels": [
-        "cve",
-        "missing-authorization",
-        "plugin",
-        "privilege-escalation",
-        "web",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--46a836c7-bdbd-5170-a5f0-d2eff71ecf4f",
-        "vulnerability--eba3f3c2-b797-5ce3-93ac-2a70263f67df"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-wordpress-price-changer-cve-2025-10656",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-wordpress-price-changer-cve-2025-10656/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-10656"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://plugins.trac.wordpress.org/browser/excel-like-price-change-for-woocommerce-and-wp-e-commerce-light/trunk/sellingcommander.php#L3725"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/1f891b68-72c4-4f94-bd49-52576ad710f9?source=cve"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-wordpress-price-changer-cve-2025-10656",
-      "x_craftedsignal_event_id": "brief-2026-07-wordpress-price-changer-cve-2025-10656",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-wordpress-price-changer-cve-2025-10656/",
-      "x_craftedsignal_activity_at": "2026-07-29T10:18:10.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -17312,13 +17221,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--46a836c7-bdbd-5170-a5f0-d2eff71ecf4f",
-      "name": "Spreadsheet Price Changer for WooCommerce and WP E-commerce – Light (\u003c= 2.4.37)",
-      "vendor": "holest"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--46ef6e2a-8696-5cf5-8f0d-7b300346b5b7",
       "name": "waitress-serve"
     },
@@ -20141,22 +20043,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-9322",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9322"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--eba3f3c2-b797-5ce3-93ac-2a70263f67df",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2025-10656",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2025-10656",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-10656"
         }
       ]
     },

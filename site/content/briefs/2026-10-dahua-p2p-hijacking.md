@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-dahua-p2p-hijacking
 event_id: brief-2026-10-27-dahua-p2p-hijacking
-revision: 2
-activity_at: "2026-10-27T10:08:26Z"
+revision: 3
+activity_at: "2026-10-27T10:24:14Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T10:08:26Z"
@@ -16,11 +16,20 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
+  - revision: 3
+    at: "2026-10-27T10:24:14Z"
+    checksum: sha256:bbcd8a8ef2357362e99b55330843dcb4c138ed1b02d7f45109332092cbd974d6
+    summary: new IOCs
+    changed_fields:
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
 title: 'Dahua IP cameras and recorders: P2P cloud access hijacking'
 slug: 2026-10-dahua-p2p-hijacking
 description: Attackers are hijacking Dahua IP cameras and recorders via the Easy4IP P2P cloud access feature by using brute-force attacks or exploiting CVE-2021-33044 and CVE-2021-33045 to gain unauthorized device control.
 date: "2026-10-27T08:32:13Z"
-lastmod: "2026-10-27T10:07:50Z"
+lastmod: "2026-10-27T10:23:39Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -154,6 +163,13 @@ updates:
   - at: "2026-10-27T10:07:50Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
+  - at: "2026-10-27T10:23:39Z"
+    level: L1
+    summary: new IOCs
     sources:
       - pwn-watch
     source_urls:
