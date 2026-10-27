@@ -1,12 +1,29 @@
 ---
 brief_id: brief-2026-10-20-llmjacking-gcp
 event_id: brief-2026-10-20-llmjacking-gcp
-revision: 1
-activity_at: "2026-10-20T23:53:02Z"
+revision: 2
+activity_at: "2026-10-27T23:36:18Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-27T23:36:18Z"
+    checksum: sha256:b41a8f7dd7ef622927b2da3d9da5d6bcc1e9072c0c6068c0be8601d87291f7ac
+    summary: added coverage for Vertex AI
+    changed_fields:
+      - action_plan
+      - affected_products
+      - iocs
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/initial_access_gcp_vertexai_inference_by_caller_from_new_asn.toml
 title: 'Google Cloud Platform: Billing account hijacking for unauthorized AI usage'
 slug: 2026-10-llmjacking-gcp
 description: Threat actors are hijacking Google Cloud Platform billing accounts via phishing and policy manipulation to conduct large-scale, unauthorized LLM inference, resulting in significant financial losses for victims.
 date: "2026-10-20T23:53:02Z"
+lastmod: "2026-10-27T23:35:36Z"
 type: advisory
 types:
   - advisory
@@ -28,10 +45,15 @@ tags:
   - phishing
   - billing-fraud
   - identity-compromise
+  - cloud
+  - gcp
+  - llmjacking
+  - vertex-ai
 vendors:
   - Google
 products:
   - Google Cloud Platform
+  - Vertex AI
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -65,8 +87,20 @@ mitre_ttps:
     subtechnique_name: Cloud Accounts
     evidence: In each of the intrusions investigated, Wiz CIRT observed that after the initial login, subsequent threat actor activity shifted to originate from IP addresses geolocated within each victim organization's headquartered country.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    subtechnique_id: T1078.004
+    subtechnique_name: Cloud Accounts
+    evidence: Stolen Google Cloud credentials, including exported service account keys and OAuth tokens, are used for LLMjacking from attacker infrastructure.
+    confidence_band: high
 references:
   - https://www.wiz.io/blog/from-phishing-to-llmjacking
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_vertexai_role_granted.toml
+  - https://cloud.google.com/vertex-ai/docs/general/audit-logging
+  - https://www.elastic.co/docs/reference/integrations/gcp_vertexai
+  - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/initial_access_gcp_vertexai_inference_by_caller_from_new_asn.toml
 iocs:
   - type: ip
     value: 212.73.134.136
@@ -125,12 +159,35 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The threat actor deleted safety policies at the organization level, such as iam.allowedPolicyMemberDomains.
+    - lead: Identify anomalies in GCP Vertex AI model inference traffic originating from hosting providers or unrecognized geographic regions.
+      technique_id: T1078.004
+      data_needed:
+        - GCP Data Access Audit Logs (aiplatform.googleapis.com)
+        - source.as.organization.name
+        - client.user.email
+      priority: high
+      confidence: medium
+      disposition: hunt_now
+      evidence: Stolen Google Cloud credentials... used for LLMjacking from attacker infrastructure.
   mitigation_plan:
     - priority: immediate
       action: Implement strict identity governance and multi-factor authentication (MFA) enforcement across all GCP administrator accounts.
       owner: IT Operations
       addresses: Initial Access
       evidence: Attacker used phishing to bypass standard authentication.
+    - priority: immediate
+      action: Revoke compromised service account keys, OAuth tokens, and reset user sessions for accounts observed accessing Vertex AI from suspicious ASNs.
+      owner: IT Operations
+      addresses: T1078.004
+      evidence: If the activity is not authorized, disable or delete the service account key, revoke the user sessions and OAuth tokens.
+updates:
+  - at: "2026-10-27T23:35:36Z"
+    level: L1
+    summary: added coverage for Vertex AI
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/initial_access_gcp_vertexai_inference_by_caller_from_new_asn.toml
 ---
 
 The Wiz Customer Incident Response Team (CIRT) has identified a trend where threat actors compromise Google Cloud Platform (GCP) credentials to hijack billing accounts for unauthorized AI resource consumption. By leveraging phishing campaigns via sponsored search ads, attackers obtain valid user credentials and MFA codes. Once access is gained, they perform privilege escalation and modify organizational policies, such as 'iam.allowedPolicyMemberDomains', to remove guardrails that restrict IAM membership to verified domains. This allows the integration of external, attacker-controlled accounts. The attackers then link external GCP projects to the victim's billing account. By executing AI workloads within these foreign projects, the actors obfuscate their prompts and outputs from the victim's visibility while simultaneously billing the victim for all API usage. This 'LLMjacking' activity leads to rapid billing surges, often reaching hundreds of thousands of dollars within 48 hours of initial compromise.

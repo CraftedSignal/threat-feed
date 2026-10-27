@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--26d1f435-e5f4-5e4b-8f1f-65e63fb8fa2b",
+  "id": "bundle--e00b2046-1390-5a7d-aef5-7fb798fb7534",
   "objects": [
     {
       "type": "attack-pattern",
@@ -239,6 +239,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1588.007",
           "url": "https://attack.mitre.org/techniques/T1588/007"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Secrets Management Stores",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1555.006",
+          "url": "https://attack.mitre.org/techniques/T1555/006"
         }
       ]
     },
@@ -3361,7 +3377,7 @@
       "id": "indicator--03a511c9-bebf-5634-bf95-73b9b6bad6be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: *.gsoolg.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = '*.gsoolg.com']",
@@ -3569,7 +3585,7 @@
       "id": "indicator--22c92e98-52bc-5066-976a-f4d7281d0a50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: *.groosl.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = '*.groosl.com']",
@@ -3673,7 +3689,7 @@
       "id": "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gbrokl.space",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gbrokl.space']",
@@ -3699,7 +3715,7 @@
       "id": "indicator--334cc45e-78dc-5627-973d-28018846b066",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gbrokl.xyz",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gbrokl.xyz']",
@@ -3789,7 +3805,7 @@
       "id": "indicator--455284e0-9a8e-5f93-9470-ebd55a428c36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gcslom.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gcslom.com']",
@@ -3867,7 +3883,7 @@
       "id": "indicator--517ac4a1-7936-59b6-b190-49196fb2154f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gsool.xyz",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gsool.xyz']",
@@ -3958,7 +3974,7 @@
       "id": "indicator--6b5546b0-4d0c-560d-98b7-91d83eb1e816",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "ip: 212.73.134.136",
       "description": "Attacker infrastructure - IP seen in the initial login from the phishing page",
       "pattern": "[ipv4-addr:value = '212.73.134.136']",
@@ -4023,7 +4039,7 @@
       "id": "indicator--72d7fbec-0326-53dd-9de7-4092e27a95f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: *.gboogl.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = '*.gboogl.com']",
@@ -4101,7 +4117,7 @@
       "id": "indicator--7b3ff263-fa6d-5edc-b2b0-17bb65e09f29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gcoalg.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gcoalg.com']",
@@ -4140,7 +4156,7 @@
       "id": "indicator--7fe6bced-8fef-5e76-a4bc-f08f81e4fc3e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: *.gxoosl.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = '*.gxoosl.com']",
@@ -4166,7 +4182,7 @@
       "id": "indicator--82cb1280-88c8-5dfe-859c-e087e02da5e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: groolg.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'groolg.com']",
@@ -4205,7 +4221,7 @@
       "id": "indicator--8eb6c0cc-8b68-515b-b7cf-b2570bf93aed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: groonl.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'groonl.com']",
@@ -4542,7 +4558,7 @@
       "id": "indicator--c3f1fd01-4fd4-5d53-9d48-f217cd40fb02",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gsool.space",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gsool.space']",
@@ -4711,7 +4727,7 @@
       "id": "indicator--d7bcaf7a-f731-5d2e-ba92-cac6654ac4c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: *.gprokl.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = '*.gprokl.com']",
@@ -4840,7 +4856,7 @@
       "id": "indicator--e9e0f513-1563-5483-9622-8094711c47bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gsoosl.xyz",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gsoosl.xyz']",
@@ -4931,7 +4947,7 @@
       "id": "indicator--f072fa06-7f76-5553-969d-1212d9dcb0a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gpoosl.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gpoosl.com']",
@@ -4996,7 +5012,7 @@
       "id": "indicator--f9f0a134-b1d0-556f-8170-eb8da2fd9677",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "domain: gzoozl.com",
       "description": "Attacker infrastructure - phishing domain",
       "pattern": "[domain-name:value = 'gzoozl.com']",
@@ -5904,7 +5920,7 @@
       "id": "relationship--030609c3-874a-58aa-a379-65e641b04d74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--c3f1fd01-4fd4-5d53-9d48-f217cd40fb02"
@@ -10081,17 +10097,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--15356459-c812-5620-9c5f-b403853805f6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-27T23:10:17.000Z",
-      "modified": "2026-10-01T12:44:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ad32fb80-ca60-5a0d-af8c-3a91d2dba247",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--153d5b76-2ca2-55e5-b9da-e717daf3a333",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T17:41:15.000Z",
@@ -13384,7 +13389,7 @@
       "id": "relationship--2503f049-a30b-5efa-96da-942d0a8120ba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--7fe6bced-8fef-5e76-a4bc-f08f81e4fc3e"
@@ -13703,7 +13708,7 @@
       "id": "relationship--26e8c871-c6c3-5ca3-9a4a-8dd7d8c5cbc5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--8eb6c0cc-8b68-515b-b7cf-b2570bf93aed"
@@ -15408,7 +15413,7 @@
       "id": "relationship--2ed746d0-28a6-57eb-97e7-c0930759fbc7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--f9f0a134-b1d0-556f-8170-eb8da2fd9677"
@@ -20201,6 +20206,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4589e175-ffaa-54c0-82fb-d4e4d6730247",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:10.000Z",
+      "modified": "2026-10-27T23:35:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--02404e24-422f-5d4f-8b75-ea4760e383a8",
+      "target_ref": "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--458a4e44-4f12-52e9-9adc-b375c87e4f88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T06:22:11.000Z",
@@ -20219,6 +20235,17 @@
       "relationship_type": "has",
       "source_ref": "software--3b45797e-8e5a-5bad-9abb-407a166a4593",
       "target_ref": "vulnerability--72d3af34-919c-5168-9c7c-817a2088d47f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4591ce0e-116e-5da4-9319-36dfd13e7b03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:02.000Z",
+      "modified": "2026-10-27T23:35:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9407122e-6c33-5d47-b4a7-a431710e3fca",
+      "target_ref": "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c"
     },
     {
       "type": "relationship",
@@ -23908,17 +23935,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--56aa0468-3afd-591e-a4fe-21fcfc65eae2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1cb687c8-5a8e-57ef-a1c5-90aad7264cc2",
-      "target_ref": "vulnerability--03977f43-8dd5-57f7-8c9d-cc4a3d88004c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--56acae57-0927-5e97-b0bd-c89445cd1678",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25176,7 +25192,7 @@
       "id": "relationship--5c207d80-c0b3-5d68-95d0-3489ebf39130",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--30d02463-5cfa-511e-8953-9fc09b22bff9"
@@ -25382,6 +25398,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5d157f35-709b-51b1-a617-842475a0e5a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:02.000Z",
+      "modified": "2026-10-27T23:35:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9407122e-6c33-5d47-b4a7-a431710e3fca",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5d287621-cfff-5583-bd02-7f1d6eff620c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25484,7 +25511,7 @@
       "id": "relationship--5d4fe6d6-159a-59f4-a9d2-57ca15c6494d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--7b3ff263-fa6d-5edc-b2b0-17bb65e09f29"
@@ -26232,7 +26259,7 @@
       "id": "relationship--610a74f5-da7b-518e-991e-f2665d7abf3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--517ac4a1-7936-59b6-b190-49196fb2154f"
@@ -29848,17 +29875,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--7173b19e-4084-5433-8bf1-0f0ee37e9415",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-27T23:10:17.000Z",
-      "modified": "2026-10-01T12:44:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ad32fb80-ca60-5a0d-af8c-3a91d2dba247",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--71779b28-1252-528d-a7c7-73d007ac2c9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:42:36.000Z",
@@ -30852,7 +30868,7 @@
       "id": "relationship--759b3001-b028-5a5e-a1b9-5b2d7f85a7c0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--f072fa06-7f76-5553-969d-1212d9dcb0a4"
@@ -33723,7 +33739,7 @@
       "id": "relationship--81f268ae-f57f-5757-838a-a05e62fa8d30",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--72d7fbec-0326-53dd-9de7-4092e27a95f2"
@@ -35802,7 +35818,7 @@
       "id": "relationship--8aa34ff0-2f05-580d-b8e2-70097724d806",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--03a511c9-bebf-5634-bf95-73b9b6bad6be"
@@ -36253,7 +36269,7 @@
       "id": "relationship--8c8b9535-b598-5d0d-89a1-6df0ffe199cd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--334cc45e-78dc-5627-973d-28018846b066"
@@ -39707,7 +39723,7 @@
       "id": "relationship--9bc5ebbe-e5d4-5306-85b1-e73e4d67a93f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
@@ -43488,17 +43504,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--acc1322f-9bfb-5f74-be2f-947189a097e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba44415a-a7c0-528a-9f7c-40ad27103d1b",
-      "target_ref": "vulnerability--03977f43-8dd5-57f7-8c9d-cc4a3d88004c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--acc47b4f-05a6-59d5-b4e0-17e3b6773e21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43986,7 +43991,7 @@
       "id": "relationship--af1420c4-3860-5ed9-9647-b282213a6e38",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--6b5546b0-4d0c-560d-98b7-91d83eb1e816"
@@ -49802,17 +49807,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c85d9e7a-b081-59e3-81d4-955d01cb99ee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-27T23:10:17.000Z",
-      "modified": "2026-10-01T12:44:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ad32fb80-ca60-5a0d-af8c-3a91d2dba247",
-      "target_ref": "attack-pattern--872ef431-bc7f-5aa3-8a59-6967f6eb9f6f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c86717a4-bae4-51b3-853e-a9597d1658bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50663,7 +50657,7 @@
       "id": "relationship--cbfbed59-2531-5860-a224-ee38dec3c6e5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3"
@@ -51100,6 +51094,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ce866e3d-7845-5546-8c8f-2a78686e8926",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:10.000Z",
+      "modified": "2026-10-27T23:35:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--02404e24-422f-5d4f-8b75-ea4760e383a8",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ce8a347b-60e9-52f5-9e61-d13c8bb209d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T05:00:08.000Z",
@@ -51147,7 +51152,7 @@
       "id": "relationship--cef5196e-cfed-51ae-a466-676bd618bb3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--455284e0-9a8e-5f93-9470-ebd55a428c36"
@@ -51727,6 +51732,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d11117d0-1347-5b5d-a1ae-48cc824a6823",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:22.000Z",
+      "modified": "2026-10-27T23:35:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--35d723cb-4b52-50c5-b536-64fd6cf129e7",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d111dec9-3a07-5808-bf09-9a967bfed9c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T16:39:28.000Z",
@@ -52005,7 +52021,7 @@
       "id": "relationship--d1ff025f-6afa-5ff4-ae2f-25c5b2e81e9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -52724,17 +52740,6 @@
       "relationship_type": "has",
       "source_ref": "software--e6a9cd52-0f8c-5261-97ae-df6ac6381931",
       "target_ref": "vulnerability--e264deb0-0b34-5c5f-8744-e2e2eefda841"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d57e5c06-ecef-5c80-8b76-2b511c6a04a9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ae3bdd0c-696d-5ce0-831e-5e0b54a071a7",
-      "target_ref": "vulnerability--03977f43-8dd5-57f7-8c9d-cc4a3d88004c"
     },
     {
       "type": "relationship",
@@ -54084,7 +54089,7 @@
       "id": "relationship--daaa09a4-c796-56cf-b10a-c76b75a94552",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--82cb1280-88c8-5dfe-859c-e087e02da5e2"
@@ -55676,17 +55681,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e1af9d16-5390-52ca-a0dc-d67bdd9e73fb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-27T23:10:17.000Z",
-      "modified": "2026-10-01T12:44:55.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ad32fb80-ca60-5a0d-af8c-3a91d2dba247",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e1bc9ab3-2791-55e7-99fe-a9ef79a7c520",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T21:53:07.000Z",
@@ -57208,7 +57202,7 @@
       "id": "relationship--e77195d1-4826-5642-9d98-a9a9a0388a37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--22c92e98-52bc-5066-976a-f4d7281d0a50"
@@ -57285,7 +57279,7 @@
       "id": "relationship--e7aca99f-37e0-5b07-be6e-f876e99c5410",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--e9e0f513-1563-5483-9622-8094711c47bc"
@@ -57659,7 +57653,7 @@
       "id": "relationship--e8d1e7de-3dd3-5ffb-9647-4da93b6cf282",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
@@ -57945,7 +57939,7 @@
       "id": "relationship--e9fb5993-ed01-5e77-9a13-b1016c0f9563",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "relationship_type": "uses",
       "source_ref": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "target_ref": "indicator--d7bcaf7a-f731-5d2e-ba92-cac6654ac4c6"
@@ -60626,17 +60620,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f58f24ba-cf11-52ba-9f4a-8f1653f28f8f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9197c936-2eeb-5d10-a1b3-89c011684a37",
-      "target_ref": "vulnerability--03977f43-8dd5-57f7-8c9d-cc4a3d88004c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f5a2f77b-f4ec-59fa-acc6-321179f0788f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61238,17 +61221,6 @@
       "relationship_type": "has",
       "source_ref": "software--486062a9-75cd-5ca5-bfc8-d925604c4506",
       "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f88cdc11-8ceb-5a8d-b074-6e329540f992",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--023b663c-bb7c-5a16-95a6-66756fb6a42b",
-      "target_ref": "vulnerability--03977f43-8dd5-57f7-8c9d-cc4a3d88004c"
     },
     {
       "type": "relationship",
@@ -63848,6 +63820,61 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--02404e24-422f-5d4f-8b75-ea4760e383a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:10.000Z",
+      "modified": "2026-10-27T23:35:10.000Z",
+      "name": "Microsoft Azure AI Foundry: Unauthorized API key and connection secret access",
+      "description": "## Overview\n\nMicrosoft Foundry (Azure AI Services) accounts store API keys that grant inference access across all model deployments, bypassing Entra ID conditional access. These accounts and projects also store connection secrets for downstream services such as Azure OpenAI, storage, and search. Threat actors use compromised high-privilege identities to retrieve these keys or secrets as a primary step for LLMjacking and lateral movement into connected data resources.\n\n## Impact\n\nSuccessful retrieval of API keys enables unauthorized inference usage, leading to potential financial loss and data exposure. Disclosure of connection secrets allows attackers to pivot from an AI project to integrated Azure services.\n\n## Recommendation\n\n- Monitor Azure Activity Logs for administrative operations involving key listing, regeneration, or secret retrieval by high-privilege principals.\n- Prioritize the use of Entra ID authentication for AI services and set 'disableLocalAuth' on Foundry accounts where key-based access is not strictly required.\n- Review and audit high-privilege roles (e.g., Owner, Contributor) assigned to AI resource groups.\n- Exclude automated service principals from monitoring via an allowlist if they require routine access to secrets for deployment pipelines.\n",
+      "published": "2026-10-27T23:35:10.000Z",
+      "labels": [
+        "azure",
+        "cloud-security",
+        "credential-access",
+        "llmjacking"
+      ],
+      "object_refs": [
+        "attack-pattern--09898053-6050-568b-9b47-61c1e3e2e624",
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557",
+        "software--d2321d20-a0b1-5977-9e46-6cbcc91899b0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-azure-ai-keys-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ai-keys-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/credential_access_azure_ai_foundry_keys_or_connection_secrets_accessed.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/connections-add"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/authentication"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-azure-ai-keys-access",
+      "x_craftedsignal_event_id": "brief-2026-10-27-azure-ai-keys-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ai-keys-access/",
+      "x_craftedsignal_activity_at": "2026-10-27T23:35:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -81441,6 +81468,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--35d723cb-4b52-50c5-b536-64fd6cf129e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:22.000Z",
+      "modified": "2026-10-27T23:35:22.000Z",
+      "name": "Microsoft Azure AI Foundry: Responsible AI policy tampering",
+      "description": "## Overview\n\nMicrosoft Azure AI Services (Foundry) utilizes Responsible AI (RAI) policies to regulate prompt and completion categories, identify jailbreak attempts, and block protected material. These guardrails are configured via RAI policies (`Microsoft.CognitiveServices/accounts/raiPolicies`) and term-level blocklists (`raiBlocklists`). An adversary with sufficient administrative privileges can modify or delete these configurations to neutralize safety guardrails. Such actions prevent the platform from blocking or logging harmful model interactions, thereby removing critical visibility into adversarial usage of AI deployments.\n\n## Impact\n\nSuccessful manipulation of RAI policies disables security controls over AI model inputs and outputs. This allows for the execution of harmful prompts, injection of malicious payloads, and data exfiltration through AI models without triggering platform-native alerts or blocks.\n\n## Recommendation\n\n- Monitor Azure Activity Logs for administrative write or delete operations against RAI policies and custom blocklists.\n- Establish a principle of least privilege by restricting `Microsoft.CognitiveServices/accounts/raiPolicies/*` permissions to a highly limited group of authorized administrators.\n- Integrate Azure Activity Logs into your SIEM/XDR platform to alert on modifications to the Cognitive Services control plane.\n- Audit existing RAI policy configurations and verify that any observed modifications align with approved change management records.\n",
+      "published": "2026-10-27T23:35:22.000Z",
+      "labels": [
+        "azure",
+        "cloud-security",
+        "defense-evasion",
+        "genai"
+      ],
+      "object_refs": [
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-azure-ai-foundry-filter-tamper",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ai-foundry-filter-tamper/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/defense_evasion_azure_ai_foundry_content_filter_modified_or_deleted.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/content-filters"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-azure-ai-foundry-filter-tamper",
+      "x_craftedsignal_event_id": "brief-2026-10-27-azure-ai-foundry-filter-tamper",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-azure-ai-foundry-filter-tamper/",
+      "x_craftedsignal_activity_at": "2026-10-27T23:35:22.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--35f4eca4-ba97-5407-a3ea-93b8a94b1502",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T16:02:31.000Z",
@@ -97127,15 +97207,19 @@
       "id": "report--5eeb8e6d-c4df-50d0-ad2c-cb77249089d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
-      "modified": "2026-10-20T23:53:02.000Z",
+      "modified": "2026-10-27T23:36:18.000Z",
       "name": "Google Cloud Platform: Billing account hijacking for unauthorized AI usage",
       "description": "## Overview\n\nThe Wiz Customer Incident Response Team (CIRT) has identified a trend where threat actors compromise Google Cloud Platform (GCP) credentials to hijack billing accounts for unauthorized AI resource consumption. By leveraging phishing campaigns via sponsored search ads, attackers obtain valid user credentials and MFA codes. Once access is gained, they perform privilege escalation and modify organizational policies, such as 'iam.allowedPolicyMemberDomains', to remove guardrails that restrict IAM membership to verified domains. This allows the integration of external, attacker-controlled accounts. The attackers then link external GCP projects to the victim's billing account. By executing AI workloads within these foreign projects, the actors obfuscate their prompts and outputs from the victim's visibility while simultaneously billing the victim for all API usage. This 'LLMjacking' activity leads to rapid billing surges, often reaching hundreds of thousands of dollars within 48 hours of initial compromise.\n\n## Attack Chain\n\n1. Attacker purchases sponsored search ads for terms like \"google cloud\" to host phishing kits on Google Sites.\n2. Victim clicks the malicious ad, provides credentials and MFA tokens on a deceptive login page, which captures the data and redirects to a legitimate Google prompt.\n3. Attacker uses harvested credentials to initiate login, bypassing MFA through the captured session data.\n4. Attacker enables the Gemini API in existing, low-usage projects and creates service accounts with high-privileged roles (e.g., 'roles/ml.admin').\n5. Attacker dismantles organizational policies by deleting 'iam.allowedPolicyMemberDomains' to allow external account access.\n6. Attacker invites external attacker-controlled accounts to the organization's billing account and assigns the 'roles/billing.admin' role.\n7. Attacker links their external GCP projects to the victim's billing account to offload AI API costs.\n8. Attacker demotes original billing administrators to 'viewer' roles to prevent detection and reclamation of administrative control.\n\n## Impact\n\nVictim organizations in the cloud sector have faced significant financial damage, with unauthorized Gemini API charges reaching tens to hundreds of thousands of dollars within 48 hours. Because workloads are executed in foreign projects, organizations lack visibility into the nature of the data being processed, creating both financial and data security risks.\n\n## Recommendation\n\n* Monitor Google Workspace and GCP audit logs for logins originating from the documented IP infrastructure (212.73.134.136).\n* Regularly audit GCP IAM configurations for unexpected additions of external domains or personal email addresses (e.g., @gmail.com) to high-privileged roles.\n* Audit GCP organization policies for modifications to 'iam.allowedPolicyMemberDomains', as this is a primary indicator of disabling organizational guardrails.\n* Monitor for unexpected enabling of the Gemini API product in projects, especially those with minimal historical activity.\n* Proactively audit billing account permissions to ensure only authorized corporate identities hold 'roles/billing.admin' or other administrative roles.\n",
       "published": "2026-10-20T23:53:02.000Z",
       "labels": [
         "billing-fraud",
+        "cloud",
         "cloud-security",
+        "gcp",
         "identity-compromise",
-        "phishing"
+        "llmjacking",
+        "phishing",
+        "vertex-ai"
       ],
       "object_refs": [
         "attack-pattern--0cb03e08-5735-5709-b2a1-8e469d517fb3",
@@ -97160,7 +97244,8 @@
         "indicator--e9e0f513-1563-5483-9622-8094711c47bc",
         "indicator--f072fa06-7f76-5553-969d-1212d9dcb0a4",
         "indicator--f9f0a134-b1d0-556f-8170-eb8da2fd9677",
-        "software--34eaa165-ad48-55f6-af84-ad5b93e0ca21"
+        "software--34eaa165-ad48-55f6-af84-ad5b93e0ca21",
+        "software--887c2f01-2164-5fb4-b3a4-9892ddf8a192"
       ],
       "external_references": [
         {
@@ -97170,15 +97255,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cloud.google.com/vertex-ai/docs/general/audit-logging"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp/persistence_gcp_vertexai_role_granted.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/gcp_vertexai/initial_access_gcp_vertexai_inference_by_caller_from_new_asn.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.elastic.co/docs/reference/integrations/gcp_vertexai"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.wiz.io/blog/from-phishing-to-llmjacking"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-20-llmjacking-gcp",
       "x_craftedsignal_event_id": "brief-2026-10-20-llmjacking-gcp",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-llmjacking-gcp/",
-      "x_craftedsignal_activity_at": "2026-10-20T23:53:02.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T23:36:18.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -116317,6 +116418,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9407122e-6c33-5d47-b4a7-a431710e3fca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T23:35:02.000Z",
+      "modified": "2026-10-27T23:35:02.000Z",
+      "name": "Amazon Bedrock: Unauthorized Model Inference (LLMjacking)",
+      "description": "## Overview\n\nLLMjacking involves threat actors gaining unauthorized access to Amazon Bedrock through stolen AWS credentials. These actors often distribute access tokens across proxy networks or resell them, resulting in high-volume inference requests originating from a wide array of global IP addresses. This activity increases operational costs and leverages the compromised identity for unauthorized Generative AI consumption.\n\n## Impact\n\n- Unauthorized financial expenditure due to excessive model inference calls.\n- Potential leakage of proprietary information or data sent to models via compromised accounts.\n- Risk of further account compromise if the principal has broader IAM permissions beyond Bedrock access.\n\n## Recommendation\n\n- Monitor AWS CloudTrail management events for `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream` actions.\n- Implement alerts for IAM principals or roles exhibiting activity from three or more unique countries and source IPs within a 4-hour window.\n- Investigate principals flagged for this behavior by checking `aws_cloudtrail.user_identity.access_key_id` consistency across disparate geographic regions.\n- Enforce Principle of Least Privilege for Bedrock access, ensuring service-linked roles are scoped to necessary regions and functions.\n- Configure AWS Budgets to detect and trigger alerts on abnormal spend associated with Bedrock usage.\n",
+      "published": "2026-10-27T23:35:02.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "credential-access",
+        "llmjacking"
+      ],
+      "object_refs": [
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--d3a58f2c-9521-50dc-be06-a5f640e2a92c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6c94b5c3-dbe6-58e7-8641-41320b2aef7a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-llmjacking-bedrock",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-llmjacking-bedrock/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/logging-using-cloudtrail.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/credential_access_bedrock_invocation_high_number_of_countries.toml"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-llmjacking-bedrock",
+      "x_craftedsignal_event_id": "brief-2026-10-27-llmjacking-bedrock",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-llmjacking-bedrock/",
+      "x_craftedsignal_activity_at": "2026-10-27T23:35:02.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--94083d7a-1748-54c2-b564-003413385e9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T16:37:52.000Z",
@@ -125880,81 +126031,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--ad32fb80-ca60-5a0d-af8c-3a91d2dba247",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-27T23:10:17.000Z",
-      "modified": "2026-10-01T12:44:55.000Z",
-      "name": "Obot Docker Quickstart Authentication Misconfiguration",
-      "description": "## Overview\n\nObot, an open-source AI agent and Model Context Protocol (MCP) platform, contains a critical security misconfiguration in its documented Docker quickstart procedure affecting all versions up to and including commit d7e6970. The default configuration exposes the application on 0.0.0.0:8080 without enabling authentication. By design, unauthenticated requests are assigned to a synthetic 'nobody' user that possesses both Owner and Admin roles within the platform. \n\nThis allows any attacker with network reach to the exposed port to gain full administrative control over the Obot API and UI. Furthermore, the quickstart documentation instructs users to mount the host's /var/run/docker.sock into the container. Attackers gaining administrative access through the Obot interface can leverage this mounted socket to interact with the host's Docker engine, potentially leading to container breakout and full host system compromise. The issue is addressed by updated documentation that mandates enabling authentication via the OBOT_SERVER_ENABLE_AUTHENTICATION environment variable.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated remote attackers to gain full administrative access to the Obot platform. Due to the mounting of the host Docker socket, an attacker can escalate privileges from the application level to the host operating system. This vulnerability affects any deployment that followed the standard quickstart instructions without manually overriding the default authentication settings.\n\n## Recommendation\n\nPrioritize securing Obot deployments immediately following the documentation update.\n- Set the environment variable OBOT_SERVER_ENABLE_AUTHENTICATION=true for all existing Obot containers.\n- Review network perimeter controls to ensure the Obot UI and API (port 8080) are not exposed to untrusted networks.\n- Verify container mounts to ensure that sensitive host resources, specifically /var/run/docker.sock, are restricted or removed if not strictly required for platform functionality.\n- Audit existing Obot logs for unauthorized API access or registry of external MCP servers occurring from unknown or unauthorized client IP addresses.\n",
-      "published": "2026-09-27T23:10:17.000Z",
-      "labels": [
-        "authentication-bypass",
-        "authorization-bypass",
-        "cloud",
-        "cve",
-        "cve-2026-101062",
-        "mcp",
-        "oauth",
-        "privilege-escalation",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--872ef431-bc7f-5aa3-8a59-6967f6eb9f6f",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--023b663c-bb7c-5a16-95a6-66756fb6a42b",
-        "software--1cb687c8-5a8e-57ef-a1c5-90aad7264cc2",
-        "software--9197c936-2eeb-5d10-a1b3-89c011684a37",
-        "software--ae3bdd0c-696d-5ce0-831e-5e0b54a071a7",
-        "software--ba44415a-a7c0-528a-9f7c-40ad27103d1b",
-        "vulnerability--03977f43-8dd5-57f7-8c9d-cc4a3d88004c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-27-obot-misconfiguration",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-obot-misconfiguration/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101062"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101064"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101065"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101084"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103758"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-27-obot-misconfiguration",
-      "x_craftedsignal_event_id": "brief-2026-09-27-obot-misconfiguration",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-obot-misconfiguration/",
-      "x_craftedsignal_activity_at": "2026-10-01T12:44:55.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -157322,13 +157398,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--023b663c-bb7c-5a16-95a6-66756fb6a42b",
-      "name": "obot (\u003c 0.21.1)",
-      "vendor": "Obot"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0278965d-3cd5-5c3b-99b1-399540b20cd7",
       "name": "MoviePilot (\u003c= 3.1.5)",
       "vendor": "MoviePilot"
@@ -159244,13 +159313,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--1cb687c8-5a8e-57ef-a1c5-90aad7264cc2",
-      "name": "Obot (0.21.1 - 0.24.1)",
-      "vendor": "Obot"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1cccbbbf-6cc3-5d63-98cc-11e71ae9e371",
       "name": "dulwich (\u003e= 0.23.1, \u003c= 1.2.7)",
       "vendor": "Dulwich"
@@ -159282,6 +159344,13 @@
       "id": "software--1d421ba9-bf2a-5351-b5bd-c330690b3668",
       "name": "Kubio AI Page Builder (\u003c= 2.9.2)",
       "vendor": "Kubio"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1d6600b6-7422-5821-b0bd-7c72f5cf8557",
+      "name": "Azure AI Foundry",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -166654,13 +166723,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9197c936-2eeb-5d10-a1b3-89c011684a37",
-      "name": "Obot (\u003c= 0.22.1)",
-      "vendor": "Obot"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--91ca1265-ee79-5527-b929-3b9a1632ef7f",
       "name": "virtualenv (\u003c= 21.7.11)",
       "vendor": "PyPA"
@@ -168490,13 +168552,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ae3bdd0c-696d-5ce0-831e-5e0b54a071a7",
-      "name": "Obot (\u003c 0.23.0)",
-      "vendor": "Obot"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ae50c15d-7b0a-5799-a998-b8d0a41c5039",
       "name": "Autotune",
       "vendor": "Kruize"
@@ -169130,13 +169185,6 @@
       "id": "software--ba37b417-e6d8-5363-90c1-edb42b004821",
       "name": "jQuery",
       "vendor": "OpenJS Foundation"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ba44415a-a7c0-528a-9f7c-40ad27103d1b",
-      "name": "Obot (\u003c= d7e6970)",
-      "vendor": "Obot"
     },
     {
       "type": "software",
@@ -170526,6 +170574,13 @@
       "id": "software--d21cc49e-ba8a-58c3-99c8-8e24757620f7",
       "name": "European VAT Compliance Assistant for WooCommerce (\u003c= 1.36.10)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d2321d20-a0b1-5977-9e46-6cbcc91899b0",
+      "name": "Azure AI Services",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -173679,22 +173734,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112942",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112942"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--03977f43-8dd5-57f7-8c9d-cc4a3d88004c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-101065",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-101065",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101065"
         }
       ]
     },
