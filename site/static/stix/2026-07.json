@@ -1,23 +1,7 @@
 {
   "type": "bundle",
-  "id": "bundle--1f22b625-e7d8-53e3-99f5-dbc92213ec26",
+  "id": "bundle--f8976acf-f364-5b2e-9c4c-ee6f8c801537",
   "objects": [
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Transfer Data to Cloud Account",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1537",
-          "url": "https://attack.mitre.org/techniques/T1537"
-        }
-      ]
-    },
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
@@ -303,22 +287,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1033",
           "url": "https://attack.mitre.org/techniques/T1033"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--429a6830-d83b-5acb-a98c-8015a8ae6a71",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Data from Information Repositories",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1213",
-          "url": "https://attack.mitre.org/techniques/T1213"
         }
       ]
     },
@@ -3292,17 +3260,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1f1515ad-7b4a-5e02-8d92-b969c5853693",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:29:48.000Z",
-      "modified": "2026-07-29T11:29:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5588f7ae-c290-5938-bb9a-686af4f0c5e8",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1f1bccfd-2641-502b-8486-e088c27e1455",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3886,17 +3843,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--310b718c-38d5-5282-8edb-5040fb088c76",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:26:47.000Z",
-      "modified": "2026-07-29T11:26:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1ab61047-bc47-5226-bfc2-7bd701c1e2d5",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3188ed29-4c53-5988-9083-03265564a9df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4359,17 +4305,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--402e8b49-644b-5796-af5a-6a3da4fb4a5f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:29:48.000Z",
-      "modified": "2026-07-29T11:29:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5588f7ae-c290-5938-bb9a-686af4f0c5e8",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--412d79c4-dd55-5a9b-b846-3f42cdb3752a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:31.000Z",
@@ -4421,17 +4356,6 @@
       "relationship_type": "has",
       "source_ref": "software--f5212e4d-2d60-5482-b5d3-8ac427efc4cf",
       "target_ref": "vulnerability--41035bdf-705d-552e-8b06-4585a0c070f9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--420e8519-d4ea-5f9a-8fe7-c170e8355ef9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:29:48.000Z",
-      "modified": "2026-07-29T11:29:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5588f7ae-c290-5938-bb9a-686af4f0c5e8",
-      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
     },
     {
       "type": "relationship",
@@ -4685,17 +4609,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ca851a2d-49f2-570d-ac75-06590fe1373c",
       "target_ref": "indicator--c8c6bc82-453c-5275-96a1-d75ebb7a5f22"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--476d97f9-5e42-5deb-8e4e-6358dbb59412",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:26:47.000Z",
-      "modified": "2026-07-29T11:26:47.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1ab61047-bc47-5226-bfc2-7bd701c1e2d5",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -5349,17 +5262,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6620ad06-00b7-5b76-ad5b-70f266d79961",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:29:48.000Z",
-      "modified": "2026-07-29T11:29:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5588f7ae-c290-5938-bb9a-686af4f0c5e8",
-      "target_ref": "attack-pattern--429a6830-d83b-5acb-a98c-8015a8ae6a71"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--66813937-742c-543d-a989-a46c879fb8c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:02:27.000Z",
@@ -5598,17 +5500,6 @@
       "relationship_type": "uses",
       "source_ref": "report--34836b24-0199-543b-98f1-bd8e398b32ea",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--6e234875-0337-5707-b952-c89e3111c5ac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:25:48.000Z",
-      "modified": "2026-07-29T11:25:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e81d567-328b-5ee8-973a-e2fee9285c8a",
-      "target_ref": "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663"
     },
     {
       "type": "relationship",
@@ -5873,17 +5764,6 @@
       "relationship_type": "uses",
       "source_ref": "report--085b7ebc-4af8-5d68-b884-d84228e36ec1",
       "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--79abc6e0-4df2-5682-8e5d-6aa7d35bb3e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:29:48.000Z",
-      "modified": "2026-07-29T11:29:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5588f7ae-c290-5938-bb9a-686af4f0c5e8",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -7472,17 +7352,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--aff8ae2f-f71d-54b8-acb4-ab14efb88ee9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:25:48.000Z",
-      "modified": "2026-07-29T11:25:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e81d567-328b-5ee8-973a-e2fee9285c8a",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b0175736-afbf-5578-8ffe-c5a12e2cc6c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8601,17 +8470,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1e382001-66bd-50d0-96bf-7b02089095f9",
       "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--daf95efd-604a-553c-ada5-c820f3ea2ea6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:25:48.000Z",
-      "modified": "2026-07-29T11:25:48.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3e81d567-328b-5ee8-973a-e2fee9285c8a",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -10573,53 +10431,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--1ab61047-bc47-5226-bfc2-7bd701c1e2d5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:26:47.000Z",
-      "modified": "2026-07-29T11:26:47.000Z",
-      "name": "Multiple Vulnerabilities in Apache Traffic Server",
-      "description": "## Overview\n\nThis threat brief details multiple vulnerabilities identified in Apache Traffic Server that can be exploited by a remote, anonymous attacker. These flaws allow an attacker to bypass existing security mechanisms, access and manipulate sensitive data, initiate denial-of-service conditions, and in some cases, potentially achieve remote code execution. While the advisory from CERT-Bund (BSI) does not specify individual CVEs or provide details on active exploitation campaigns, the potential for code execution and significant data impact elevates the severity. Defenders using Apache Traffic Server should prioritize patching and closely monitor their environments for anomalous activity related to these potential attack vectors. The vulnerabilities affect various components of the server, making comprehensive mitigation essential to prevent compromise.\n\n## Attack Chain\n\n1. **Vulnerability Identification**: An anonymous attacker probes an internet-exposed Apache Traffic Server instance to identify exploitable vulnerabilities, potentially using reconnaissance tools or known vulnerability scanners.\n2. **Initial Exploitation**: The attacker crafts and sends a specially formed HTTP request, leveraging a specific vulnerability (e.g., malformed headers, input validation bypass, or logic flaw) to gain initial unauthorized access or trigger an unintended server response.\n3. **Security Mechanism Bypass**: Successful exploitation allows the attacker to circumvent security controls, such as authentication, authorization, or data sanitization, gaining a foothold or deeper access.\n4. **Data Exposure or Manipulation**: The attacker utilizes the bypass to access and exfiltrate sensitive data, or modify configurations and content within the Apache Traffic Server environment.\n5. **Denial-of-Service Initiation**: Alternatively, or in parallel, the attacker may trigger a denial-of-service condition by sending a flood of requests or exploiting a vulnerability that exhausts server resources or crashes core services.\n6. **Code Execution (Potential)**: In cases where the vulnerability permits, the attacker might inject and execute arbitrary code on the underlying operating system hosting Apache Traffic Server, achieving full system compromise.\n7. **Impact Fulfillment**: The attacker's objective is met, ranging from data exfiltration and manipulation to persistent system compromise or service disruption.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities in Apache Traffic Server could lead to severe consequences for affected organizations. Attackers could bypass critical security measures, gaining unauthorized access to internal systems or data streams handled by the server. This could result in the disclosure of sensitive information, leading to data breaches, or the manipulation of data, potentially corrupting critical system functions or content served to users. Furthermore, attackers could launch denial-of-service attacks, rendering the server or associated services unavailable, causing operational disruptions and financial losses. The most critical outcome is the potential for remote code execution, which would allow attackers to gain full control over the compromised server, enabling further lateral movement within the network or installation of additional malicious payloads.\n\n## Recommendation\n\n* Immediately apply all available security patches and updates for Apache Traffic Server to address the disclosed vulnerabilities.\n* Implement robust monitoring for abnormal network connections originating from or destined for Apache Traffic Server instances.\n* Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect unusual process creation or network activity on servers running Apache Traffic Server.\n* Review web server logs for suspicious request patterns, malformed HTTP headers, or excessive requests that could indicate exploitation attempts or denial-of-service attacks.\n* Ensure proper input validation and sanitization are implemented for all web applications fronted by Apache Traffic Server to reduce the attack surface.\n",
-      "published": "2026-07-29T11:26:47.000Z",
-      "labels": [
-        "apache",
-        "data-manipulation",
-        "dos",
-        "rce",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--068a9a18-91a3-5191-8272-d475b802b4bf"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-apache-traffic-server-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-apache-traffic-server-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2561"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-apache-traffic-server-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-07-apache-traffic-server-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-apache-traffic-server-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-07-29T11:26:47.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--1ad14bf6-422f-5af9-ad18-8ba514bcde44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T16:55:24.000Z",
@@ -11482,54 +11293,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3e81d567-328b-5ee8-973a-e2fee9285c8a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:25:48.000Z",
-      "modified": "2026-07-29T11:25:48.000Z",
-      "name": "Broadcom Brocade SANnav Vulnerabilities Allow Information Disclosure, SQL Injection, and Data Manipulation",
-      "description": "## Overview\n\nBroadcom Brocade SANnav is affected by multiple vulnerabilities that allow attackers from an adjacent network to compromise the system. These vulnerabilities enable malicious actors to perform SQL injection attacks, leading to unauthorized information disclosure and data manipulation. The specifics of these vulnerabilities are not detailed, but their impact suggests flaws in input validation and authentication mechanisms. As SANnav is a critical management platform for Storage Area Networks, successful exploitation could lead to significant operational disruptions, data integrity issues, and unauthorized access to sensitive network configurations. Organizations using Broadcom Brocade SANnav should prioritize applying any available patches or workarounds to mitigate these risks.\n\n## Attack Chain\n\n1. **Network Access**: An attacker gains access to an adjacent network segment that has connectivity to the target Broadcom Brocade SANnav instance.\n2. **Vulnerability Discovery**: The attacker identifies the exposed SANnav application and probes for specific vulnerabilities through reconnaissance and scanning.\n3. **Exploitation (SQL Injection)**: Maliciously crafted requests containing SQL injection payloads are sent by the attacker to exploit vulnerabilities in input fields or parameters within the SANnav application.\n4. **Information Disclosure**: Successful SQL injection or other vulnerabilities lead to the unauthorized disclosure of sensitive data from the SANnav database, such as system configurations, user credentials, or operational metrics.\n5. **Data Manipulation**: The attacker leverages the exploited vulnerabilities to modify or corrupt data stored within the SANnav database, potentially impacting the integrity or availability of storage area network management.\n6. **Undetermined Further Actions**: With compromised access to SANnav, the attacker may attempt to further impact the underlying SAN infrastructure, exfiltrate additional sensitive data, or establish persistence.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities in Broadcom Brocade SANnav results in unauthorized information disclosure and data manipulation. Attackers can extract sensitive configuration details, user credentials, and operational data, compromising the confidentiality of the storage area network. Furthermore, the ability to manipulate data can lead to data integrity issues, operational disruptions, and potential denial-of-service for critical SAN management functions. While no specific victim numbers or targeted sectors are mentioned, any organization utilizing Broadcom Brocade SANnav is at risk, particularly those handling sensitive data or operating critical IT infrastructure.\n\n## Recommendation\n\n* **Monitor Network Connections**: Regularly review network connection logs for unusual traffic patterns originating from adjacent network segments towards SANnav instances.\n* **Patch SANnav**: Apply the latest security patches and updates for Broadcom Brocade SANnav as soon as they become available from Broadcom.\n* **Review Access Controls**: Ensure strict network segmentation and access controls are in place to limit connectivity to SANnav from adjacent networks to only essential services and authorized personnel.\n* **Implement Input Validation**: Implement robust input validation at all entry points to SANnav applications to prevent SQL injection attempts.\n",
-      "published": "2026-07-29T11:25:48.000Z",
-      "labels": [
-        "data-manipulation",
-        "information-disclosure",
-        "network-attack",
-        "sql-injection",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--003dd11e-6b72-5943-8a73-a2bc6954b663",
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a97ba305-660c-5cf6-8556-4dd47e667ab7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-broadcom-brocade-sannav-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-broadcom-brocade-sannav-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2562"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-broadcom-brocade-sannav-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-07-broadcom-brocade-sannav-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-broadcom-brocade-sannav-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-07-29T11:25:48.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--41caeede-16cf-548c-a09d-4c974e8a8cb9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:52:25.000Z",
@@ -12040,55 +11803,6 @@
       "x_craftedsignal_activity_at": "2026-07-29T12:33:36.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5588f7ae-c290-5938-bb9a-686af4f0c5e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:29:48.000Z",
-      "modified": "2026-07-29T11:29:48.000Z",
-      "name": "IBM WebSphere Application Server and Liberty Multiple Vulnerabilities",
-      "description": "## Overview\n\nIBM has disclosed multiple vulnerabilities affecting its WebSphere Application Server and WebSphere Application Server Liberty products. These flaws enable a remote attacker to perform a range of malicious activities including arbitrary code execution, privilege escalation, denial of service attacks, information disclosure, file manipulation, cross-site scripting (XSS), and bypassing security mechanisms. The advisory does not specify individual CVEs or the exact nature of these vulnerabilities, nor does it detail any observed exploitation in the wild. Organizations utilizing these IBM WebSphere products are advised to apply security updates to mitigate the potential risks, which could lead to complete system compromise or disruption of services.\n\n## Attack Chain\n\n1. An attacker identifies a vulnerable instance of IBM WebSphere Application Server or WebSphere Application Server Liberty, potentially through reconnaissance or automated scanning.\n2. The attacker crafts a malicious request or input designed to exploit one of the identified vulnerabilities (e.g., an arbitrary code execution, XSS, or privilege escalation flaw).\n3. The vulnerable server processes the malicious input, leading to unauthorized code execution, script injection, or other unintended behavior.\n4. Leveraging the initial compromise, the attacker attempts to escalate privileges within the server environment to gain higher-level access.\n5. With elevated privileges, the attacker manipulates critical system files, accesses sensitive data through information disclosure flaws, or deploys further malicious payloads.\n6. The attacker may bypass existing security measures or controls to maintain persistence or expand their control over the compromised system.\n7. Depending on their objective, the attacker could then trigger a denial of service condition, exfiltrate sensitive data, or use the server as a platform for further attacks.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities could lead to significant impact across several vectors. Attackers could gain complete control over the affected WebSphere servers, allowing them to execute arbitrary code, steal sensitive data, corrupt or delete critical files, and disrupt business operations through denial of service attacks. The ability to bypass security measures further increases the risk of persistent access and broader network compromise. While no specific victim counts or sectors were identified in the source, any organization using affected IBM WebSphere products could be a target.\n\n## Recommendation\n\n* Apply the latest security patches from IBM for WebSphere Application Server and WebSphere Application Server Liberty immediately to mitigate all identified vulnerabilities.\n",
-      "published": "2026-07-29T11:29:48.000Z",
-      "labels": [
-        "code-execution",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
-        "attack-pattern--429a6830-d83b-5acb-a98c-8015a8ae6a71",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--a05d8ad3-8b88-583d-a75e-f09f23ff7dce",
-        "software--cc75f3ce-06d6-5f6a-aad5-10911484d64b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-29-ibm-websphere-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-ibm-websphere-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2564"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-29-ibm-websphere-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-07-29-ibm-websphere-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-ibm-websphere-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-07-29T11:29:48.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -16843,13 +16557,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--068a9a18-91a3-5191-8272-d475b802b4bf",
-      "name": "Apache Traffic Server",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--07253267-3664-56fc-9ea4-5d579530f538",
       "name": "php-fpm"
     },
@@ -17754,13 +17461,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a05d8ad3-8b88-583d-a75e-f09f23ff7dce",
-      "name": "WebSphere Application Server",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--a0a3ab1f-d192-5c33-b626-6e58628f0c12",
       "name": "WPL Real Estate plugin (\u003c= 5.2.0)",
       "vendor": "Realtyna"
@@ -17807,12 +17507,6 @@
       "spec_version": "2.1",
       "id": "software--a801161b-9c99-5cc2-9d5b-ca524926a398",
       "name": "daphne"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a97ba305-660c-5cf6-8556-4dd47e667ab7",
-      "name": "SANnav"
     },
     {
       "type": "software",
@@ -18085,13 +17779,6 @@
       "id": "software--cb76d035-8f10-535d-b266-bcfb07e2a681",
       "name": "Xlight FTP Server",
       "vendor": "Xlight"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--cc75f3ce-06d6-5f6a-aad5-10911484d64b",
-      "name": "WebSphere Application Server Liberty",
-      "vendor": "IBM"
     },
     {
       "type": "software",

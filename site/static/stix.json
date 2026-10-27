@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5da8bf21-a8ea-506a-aa2e-2df1e0a46a5c",
+  "id": "bundle--4db5110e-542d-5805-9b47-17c16d4e6f99",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20896,6 +20896,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4d6f21a3-a97c-5bde-b977-47c06e9636d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6a49c57d-2326-5ec0-9a2c-f0e837f0527c",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4d78e780-262d-5944-82f7-c1b3253daa89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36769,6 +36780,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--97c4da4a-c2f5-5a17-92cb-ab70877f7993",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6a49c57d-2326-5ec0-9a2c-f0e837f0527c",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--97c8cd3a-b9b1-5a66-9376-c2e17866acae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41744,7 +41766,7 @@
       "id": "relationship--afafdee3-3eda-5563-9c45-9602fb3a04b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-27T09:10:25.000Z",
+      "modified": "2026-10-27T11:35:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -70280,7 +70302,7 @@
       "id": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-27T09:10:25.000Z",
+      "modified": "2026-10-27T11:35:17.000Z",
       "name": "PHP: Two critical vulnerabilities ahead of scheduled security release",
       "description": "The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.\n\n## Detection opportunity\n\nHunt for PHP or web-server workers spawning shells, scripting runtimes, discovery commands, or network utilities. The [community Sigma rule for suspicious PHP child processes](https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8) offers a starting point across Linux, macOS, and Windows. It requires process creation telemetry with both parent and child executable paths; use command lines and nearby HTTP requests to investigate matches. Tune known application jobs that intentionally start command-line tools.\n\nThis is generic post-execution behavior. A match does not establish exploitation of CVE-2026-109618 or CVE-2026-109619, and execution that stays inside the PHP worker will not match this rule.\n\n## Recommendation\n\n- Identify deployed PHP runtimes and the public applications that depend on them so owners can patch promptly.\n- Watch the PHP security release for confirmed affected and fixed versions; test and roll out the relevant updates.\n- Treat claims that all PHP versions are affected or that unauthenticated remote code execution is confirmed as provisional until the vendor publishes technical details.",
       "published": "2026-10-21T07:58:58.000Z",
@@ -70301,6 +70323,7 @@
         "software--41f03b39-503f-58d2-90bf-a0a0698d58c1",
         "software--486062a9-75cd-5ca5-bfc8-d925604c4506",
         "software--4d24db10-eed8-5b83-9128-54d9e30bd7d3",
+        "software--6a49c57d-2326-5ec0-9a2c-f0e837f0527c",
         "software--74ca8a00-0afb-59a2-aef9-3f2524b4b96b",
         "software--860242fe-9325-561a-bee6-453eb97b9095",
         "software--88556d04-f0fd-5bd7-8bc6-04bf5a766010",
@@ -70505,9 +70528,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-php-critical-security-release",
       "x_craftedsignal_event_id": "brief-2026-10-21-php-critical-security-release",
-      "x_craftedsignal_revision": 17,
+      "x_craftedsignal_revision": 18,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/",
-      "x_craftedsignal_activity_at": "2026-10-27T09:10:25.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T11:35:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -156530,6 +156553,13 @@
       "id": "software--6a37e7df-cad3-53a3-b6b6-34d8d2d59753",
       "name": "Coze Studio (\u003c= 0.5.1)",
       "vendor": "ByteDance"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6a49c57d-2326-5ec0-9a2c-f0e837f0527c",
+      "name": "RHEL 9 php",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",

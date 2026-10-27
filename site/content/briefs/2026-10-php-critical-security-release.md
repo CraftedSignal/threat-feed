@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 17
-activity_at: "2026-10-27T09:10:25Z"
+revision: 18
+activity_at: "2026-10-27T11:35:17Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -195,11 +195,21 @@ revision_history:
       - updates
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
+  - revision: 18
+    at: "2026-10-27T11:35:17Z"
+    checksum: sha256:6c52adebc7f5f994618bc8ddb1463d790440b3af468745dd771e2488cca4ac1f
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-27T09:09:21Z"
+lastmod: "2026-10-27T11:34:44Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -263,6 +273,7 @@ products:
   - PHP (< 8.3.36)
   - PHP (< 8.4.27)
   - PHP (< 8.5.12)
+  - RHEL 9 php
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -358,13 +369,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-26T16:01:42Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-26T18:01:59Z"
     level: L1
     summary: new product
@@ -393,6 +397,13 @@ updates:
       - crowdstrike
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
+  - at: "2026-10-27T11:34:44Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 ---
 
 The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.
