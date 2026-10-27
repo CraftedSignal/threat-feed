@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b2c3bb56-60ae-5fb7-8500-610d24b817f5",
+  "id": "bundle--2831cd34-7620-544f-a290-96fabd3deebd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1503,6 +1503,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1048",
           "url": "https://attack.mitre.org/techniques/T1048"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6f6fe815-ba16-5d53-8c2a-ffcaa6eb282b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "System Firmware",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1542.001",
+          "url": "https://attack.mitre.org/techniques/T1542/001"
         }
       ]
     },
@@ -9330,6 +9346,17 @@
       "relationship_type": "uses",
       "source_ref": "report--93a5d4c9-95bc-512b-95c3-b3f51efc97e0",
       "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1259ae58-bd66-5d2a-96a7-9013ed8f014f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T20:59:50.000Z",
+      "modified": "2026-10-27T20:59:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f396cc5c-2746-50ee-bf35-18b844d67c5f",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -28628,6 +28655,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6c727f35-ab73-56a5-8d38-e7f684d46ca4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d83966f-e7e8-5aa5-8ce5-ffb3a80e70dc",
+      "target_ref": "vulnerability--8cb42ba7-d720-5741-b1ad-7afff4487abe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6c902811-942f-5588-9d76-44a54ab98c4a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39778,6 +39816,17 @@
       "relationship_type": "has",
       "source_ref": "software--7148ba32-2ec4-5e7a-9f46-85ad6b2c1401",
       "target_ref": "vulnerability--1eb9f445-f4bf-59ea-a920-da39ea1377d5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9c7e7ce1-939e-5047-b61a-eb53a5d4b8f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T20:59:50.000Z",
+      "modified": "2026-10-27T20:59:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f396cc5c-2746-50ee-bf35-18b844d67c5f",
+      "target_ref": "attack-pattern--6f6fe815-ba16-5d53-8c2a-ffcaa6eb282b"
     },
     {
       "type": "relationship",
@@ -61734,6 +61783,17 @@
       "relationship_type": "uses",
       "source_ref": "report--468ae626-0ecc-5d6e-9db3-c9786a1542ba",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fb8e81d9-6e9e-588a-b453-d85a7bf6a15f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8257c407-da6b-5fd0-90ae-7eba52644765",
+      "target_ref": "vulnerability--8cb42ba7-d720-5741-b1ad-7afff4487abe"
     },
     {
       "type": "relationship",
@@ -152257,6 +152317,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f396cc5c-2746-50ee-bf35-18b844d67c5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T20:59:50.000Z",
+      "modified": "2026-10-27T20:59:50.000Z",
+      "name": "TianoCore EDK II: ICMP-based buffer overflow in PXE Base Code driver (CVE-2026-97631)",
+      "description": "## Overview\n\nCVE-2026-97631 is a memory-corruption vulnerability in the PXE-Base Code driver (NetworkPkg/UefiPxeBcDxe) of the open-source TianoCore EDK II reference implementation. The vulnerability stems from an incorrect bounds check in the ICMP error handling logic, where the driver fails to restrict the copy of ICMP error messages to a fixed 504-byte buffer. An attacker with local network access can send a malicious, oversized ICMP error packet during a PXE network boot sequence to overwrite adjacent memory, allowing execution of code in the UEFI environment (Ring 0). Exploitation can bypass Secure Boot and TPM attestation, as the code runs before these security mechanisms are initialized. \n\n## Impact\n\nSuccessful exploitation enables arbitrary code execution at the UEFI firmware level (Ring 0), bypassing Secure Boot and TPM protections. While the initial payload lacks persistence, it can be used to install secondary payloads that reside in the firmware environment. Impact is limited to devices configured to boot from a network using EDK II-based firmware.\n\n## Recommendation\n\n- Identify systems within the environment that utilize PXE network booting for OS deployment or maintenance.\n- Contact hardware vendors (OEMs) and server manufacturers to obtain and deploy BIOS/UEFI firmware updates that patch CVE-2026-97631.\n- Disable network boot (PXE) functionality on systems where it is not required for daily operations to reduce the attack surface.\n- Implement network segmentation to restrict access to PXE infrastructure, ensuring only authorized deployment servers can communicate with target endpoints.\n",
+      "published": "2026-10-27T20:59:50.000Z",
+      "labels": [
+        "edk2",
+        "firmware",
+        "pxe",
+        "uefi",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--6f6fe815-ba16-5d53-8c2a-ffcaa6eb282b",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4d83966f-e7e8-5aa5-8ce5-ffb3a80e70dc",
+        "software--8257c407-da6b-5fd0-90ae-7eba52644765",
+        "vulnerability--8cb42ba7-d720-5741-b1ad-7afff4487abe"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-uefi-edk2-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-uefi-edk2-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/security/2026/10/code-execution-flaw-in-uefi-firmware-threatens-most-servers-on-planet-earth/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-uefi-edk2-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-27-uefi-edk2-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-uefi-edk2-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-27T20:59:50.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00432,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f3c3aee0-7e08-5f4f-8a4f-3a6652154cee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T22:22:27.000Z",
@@ -161605,6 +161715,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4d83966f-e7e8-5aa5-8ce5-ffb3a80e70dc",
+      "name": "Project Mu (\u003c= 2026-10-27)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4d83b7ee-8083-56f3-a52a-99ebc6eb6e5c",
       "name": "proxy-addr (\u003c 2.0.8)"
     },
@@ -165171,6 +165287,12 @@
       "id": "software--823d46b5-7832-5ee5-846e-861af5c04ece",
       "name": "LearnPress (\u003c= 4.4.10)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8257c407-da6b-5fd0-90ae-7eba52644765",
+      "name": "TianoCore EDK II (\u003c= 2026-10-27)"
     },
     {
       "type": "software",
@@ -188923,6 +189045,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109193",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109193"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8cb42ba7-d720-5741-b1ad-7afff4487abe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97631",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97631",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97631"
         }
       ]
     },
