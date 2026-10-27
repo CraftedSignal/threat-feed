@@ -212,7 +212,7 @@ jobs:
           extended: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           # Hugo 0.161+ invokes `node --permission` to sandbox the
           # postcss subprocess. The flag only landed unprefixed in
@@ -323,7 +323,7 @@ jobs:
           extended: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: '24'
           cache: 'npm'
@@ -372,7 +372,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
 
   notify-subscribers:
     # Notify only after the matching batch is live. The diff starts at the
@@ -434,7 +434,7 @@ jobs:
 
       - name: Set up Python
         if: steps.briefs.outputs.count != '0'
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.x'
 
