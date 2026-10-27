@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--790d2321-a0a8-50c2-91ab-3504775cddb8",
+  "id": "bundle--2be69930-ce16-577f-826d-cfd71b3b342b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17940,6 +17940,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--41eeb58a-6ea2-5a9f-914a-668e27855124",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:49.000Z",
+      "modified": "2026-10-27T17:58:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--18c8ca71-e0aa-5499-ac44-495159df0e55",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--42063101-30d9-5928-97f8-b81cf3f179c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -27587,6 +27598,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7248f144-9ba9-5229-b62a-ecc71821bbcd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--999c7803-5469-575b-a13f-9feb0509441f",
+      "target_ref": "vulnerability--4f9d92da-9100-5743-a818-064ba215ebba"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--724c69f9-8dee-5f28-a354-64b608f1f669",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33076,6 +33098,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8cca4354-8291-5aa2-9dba-386682e35c3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:49.000Z",
+      "modified": "2026-10-27T17:58:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--18c8ca71-e0aa-5499-ac44-495159df0e55",
+      "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8ccce99b-f3f7-514f-a2a5-e792bdb3dbaa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:04:29.000Z",
@@ -33369,6 +33402,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1561bb68-d855-5f16-b1e1-dff98d610875",
       "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8dee4086-ab83-576f-a203-9277c4362e3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dadeaf95-24be-5133-9273-556fb66b3d1a",
+      "target_ref": "vulnerability--9e6def8e-5a3c-5276-8cb5-826f222ca67c"
     },
     {
       "type": "relationship",
@@ -37153,6 +37197,17 @@
       "relationship_type": "has",
       "source_ref": "software--baf6578b-abed-5136-b8b4-ee86bbb53c5e",
       "target_ref": "vulnerability--6c20915c-e24b-51af-8322-a5698490b164"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a0f2f5c0-ede2-516c-a797-9492123099df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--564af730-f17d-5161-8877-03da86132bf9",
+      "target_ref": "vulnerability--4731558e-29c4-5b9e-8434-75b83d2c9345"
     },
     {
       "type": "relationship",
@@ -63785,19 +63840,26 @@
       "id": "report--18c8ca71-e0aa-5499-ac44-495159df0e55",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:53:49.000Z",
-      "modified": "2026-10-27T17:53:49.000Z",
+      "modified": "2026-10-27T17:58:45.000Z",
       "name": "Better Auth: OAuth state-to-Magic Link authentication bypass (CVE-2026-114607)",
       "description": "## Overview\n\nBetter Auth versions 1.4.0-beta.18 through 1.7.6 are vulnerable to an authentication bypass (CVE-2026-114607). The library incorrectly allows an OAuth sign-in state value to be accepted as a valid Magic Link token. An attacker can initiate an OAuth flow for a specific target email address, obtain the resulting state identifier, and submit it to the Magic Link endpoint to complete authentication as that user. This vulnerability persists if specific configurations regarding `storeToken` and `storeIdentifier` strategies are in use.\n\n## Attack Chain\n\n1. Attacker initiates an OAuth sign-in flow through Better Auth for a target email address.\n2. The application generates an OAuth state value to track this session.\n3. The attacker intercepts or extracts the OAuth state value associated with the target email address.\n4. The attacker submits the stolen OAuth state value to the Magic Link authentication endpoint.\n5. Better Auth erroneously treats the OAuth state value as a valid Magic Link token.\n6. The system grants the attacker a session associated with the target email address.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to gain full access to any existing user account if the email address is known, bypassing the need for mailbox access. If Magic Link sign-up is enabled for a non-existent email address, the attacker can create an account that the system incorrectly marks as email-verified, which can be leveraged to bypass secondary security controls or access gated application features.\n\n## Recommendation\n\n- Upgrade `better-auth` to version 1.7.7 or later as soon as it is released.\n- Until the update is applied, prioritize switching `account.storeStateStrategy` to `\"cookie\"` if feasible, or disable the vulnerable combinations of Magic Link and social/Generic OAuth providers.\n- Ensure all internal Better Auth plugins, adapters, and integrations are updated in synchronization with the core library to ensure consistent verification logic.\n- Review and update custom `verification.storeIdentifier.overrides` to include the `magic-link:` and `auth-state:` prefixes as required by the upcoming security patch.\n",
       "published": "2026-10-27T17:53:49.000Z",
       "labels": [
         "account-takeover",
+        "authentication",
         "authentication-bypass",
         "cloud",
+        "oauth",
+        "phishing",
+        "session-hijacking",
         "web-vulnerability"
       ],
       "object_refs": [
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--021a41ee-63c1-5eb8-a233-2a09798727ba",
+        "software--564af730-f17d-5161-8877-03da86132bf9",
         "vulnerability--4731558e-29c4-5b9e-8434-75b83d2c9345"
       ],
       "external_references": [
@@ -63808,15 +63870,23 @@
         },
         {
           "source_name": "reference",
+          "url": "https://datatracker.ietf.org/doc/html/rfc8628"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-965c-763c-88jm"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-q84f-53jg-9ppm"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-27-better-auth-oauth-magic-link-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-27-better-auth-oauth-magic-link-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-better-auth-oauth-magic-link-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-27T17:53:49.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T17:58:45.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -69450,12 +69520,13 @@
       "id": "report--27e03321-d672-5dbd-94b5-d020f08a4478",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T21:47:12.000Z",
-      "modified": "2026-10-26T21:47:12.000Z",
+      "modified": "2026-10-27T17:58:45.000Z",
       "name": "Rembg: Arbitrary file disclosure and arbitrary ONNX computation (CVE-2026-115924)",
       "description": "Rembg versions prior to 2.0.82 contain a vulnerability in the /api/remove endpoint (CVE-2026-115924). The endpoint improperly processes the `extras.sam_model` parameter, passing it through `rembg/commands/s_command.py` to `rembg/sessions/sam.py`. \n\nAn attacker can supply a `sam_model` value combining path traversal and URL fragment syntax. This allows the attacker to force the application to download malicious ONNX encoder and decoder files into a local path. These files can then be used to load target files via ONNX external data, enabling the disclosure of file contents through the returned PNG mask and the execution of arbitrary ONNX computation.\n",
       "published": "2026-10-26T21:47:12.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--dadeaf95-24be-5133-9273-556fb66b3d1a",
         "vulnerability--9e6def8e-5a3c-5276-8cb5-826f222ca67c"
       ],
       "external_references": [
@@ -69466,15 +69537,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-qr6x-7v33-6qmg"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115924"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-26-rembg-path-traversal",
       "x_craftedsignal_event_id": "brief-2026-10-26-rembg-path-traversal",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rembg-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-26T21:47:12.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T17:58:45.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -120725,6 +120800,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bd6fbf99-d154-52d9-b005-4e14997077cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:57:55.000Z",
+      "modified": "2026-10-27T17:57:55.000Z",
+      "name": "msgpack-python: Memory leak and use-after-free vulnerability (CVE-2026-114613)",
+      "description": "## Overview\n\nThe msgpack-python C extension (`msgpack._cmsgpack`) is vulnerable to an unbounded memory leak when deserializing MessagePack data that fails `strict_map_key` validation. The vulnerability occurs because the C extension fails to release references to constructed map values when a key is rejected. This can be exploited to cause a denial of service via memory exhaustion. \n\nAdditionally, an audit identified a use-after-free condition in the streaming `Unpacker` API. Stale references to objects in the parser stack can lead to incorrect reference count decrements (double `Py_DECREF`) if parsing fails after a nested container is processed. This can result in application crashes or memory corruption. Both vulnerabilities are tracked under CVE-2026-114613.\n\n## Impact\n\n- **Memory Leak:** Observed retention of approximately 4 MiB of memory per failed parse, leading to rapid process memory growth and potential service instability.\n- **Memory Safety:** The reference count corruption in the streaming API may lead to unpredictable application behavior, crashes, or use-after-free vulnerabilities.\n\n## Recommendation\n\n- Upgrade `msgpack` to version 1.2.3 or later immediately to address the memory leak and reference count corruption.\n- If immediate patching is not possible, evaluate the use of the pure-Python implementation of `msgpack`, which is reported not to exhibit this specific leak, though it may have performance implications.\n- Implement strict request-size and request-rate limiting at the application or WAF level for endpoints that accept MessagePack data to mitigate the impact of malicious inputs on memory utilization.\n",
+      "published": "2026-10-27T17:57:55.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--999c7803-5469-575b-a13f-9feb0509441f",
+        "vulnerability--4f9d92da-9100-5743-a818-064ba215ebba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-msgpack-memory-leak",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-msgpack-memory-leak/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-j586-36cw-2gc2"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-msgpack-memory-leak",
+      "x_craftedsignal_event_id": "brief-2026-10-27-msgpack-memory-leak",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-msgpack-memory-leak/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:57:55.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.0044,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bdb09f95-5664-588f-ae87-509422ec5a38",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T04:06:34.000Z",
@@ -148081,6 +148197,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--564af730-f17d-5161-8877-03da86132bf9",
+      "name": "better-auth (\u003e= 1.3.8-beta.3, \u003c 1.7.0-rc.3)",
+      "vendor": "better-auth"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--56b754d4-2e82-5a25-9774-3da2ef4946ff",
       "name": "FortiAuthenticator (\u003c 8.0.4, \u003c 6.6.11)",
       "vendor": "Fortinet"
@@ -152049,6 +152172,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--999c7803-5469-575b-a13f-9feb0509441f",
+      "name": "msgpack-python (\u003c 1.2.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--99bc3b8c-efd0-5889-84f4-05581b79e3d2",
       "name": "Chromium (unspecified version)",
       "vendor": "Google"
@@ -155522,6 +155651,13 @@
       "id": "software--dac26abe-049e-5641-b8d0-e6f48e538809",
       "name": "WPAdverts – Classifieds Plugin (\u003c= 2.3.4)",
       "vendor": "WPAdverts"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--dadeaf95-24be-5133-9273-556fb66b3d1a",
+      "name": "rembg (\u003c 2.0.82)",
+      "vendor": "Rembg"
     },
     {
       "type": "software",
@@ -166170,6 +166306,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92975",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92975"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4f9d92da-9100-5743-a818-064ba215ebba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114613",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114613",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114613"
         }
       ]
     },
