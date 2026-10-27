@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1fb2fae8-58a0-54ba-8d5d-27d55854de72",
+  "id": "bundle--1deb78af-767a-5636-8aa9-2def235d5735",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2107,19 +2107,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--ba4a7a6c-6bcc-5bf3-91d6-3bad3830bb9d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T05:21:46.000Z",
-      "modified": "2026-08-11T06:48:07.000Z",
-      "name": "domain: ia-cdn.com",
-      "description": "C2 domain infrastructure",
-      "pattern": "[domain-name:value = 'ia-cdn.com']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-29T05:21:46.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--c1cf2d94-b462-52e4-ba78-e6bddc3f8554",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:53:41.000Z",
@@ -3090,17 +3077,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--17eaf362-5ee8-5d72-b5fa-73b4d9128c36",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T05:21:46.000Z",
-      "modified": "2026-08-11T06:48:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e334da4b-c6e9-5343-ab3b-03c778394ea6",
-      "target_ref": "indicator--ba4a7a6c-6bcc-5bf3-91d6-3bad3830bb9d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--185fb291-dc6d-5ed3-8c00-4fe2558a466b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:17.000Z",
@@ -3361,17 +3337,6 @@
       "relationship_type": "has",
       "source_ref": "software--37e1629a-7137-583b-8ffa-9e3228a43b1f",
       "target_ref": "vulnerability--5a6818a0-881c-5a98-8700-2a1611e10609"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1e93fb0d-2a07-5820-82a7-bdc17746e2ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T05:21:46.000Z",
-      "modified": "2026-08-11T06:48:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e334da4b-c6e9-5343-ab3b-03c778394ea6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -7948,17 +7913,6 @@
       "relationship_type": "has",
       "source_ref": "software--97cec045-418b-59c8-8119-3a40b795d89c",
       "target_ref": "vulnerability--d4ea0dac-48ca-5263-a032-68c376be4d2d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bc47a4f8-cd16-5cb5-906f-083edbc2e67e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T05:21:46.000Z",
-      "modified": "2026-08-11T06:48:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e334da4b-c6e9-5343-ab3b-03c778394ea6",
-      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -17040,63 +16994,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e334da4b-c6e9-5343-ab3b-03c778394ea6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T05:21:46.000Z",
-      "modified": "2026-08-11T06:48:07.000Z",
-      "name": "Authentication Bypass in Advanced Responsive Video Embedder WordPress Plugin",
-      "description": "## Overview\n\nCVE-2026-18072 identifies a critical authentication bypass vulnerability in version 10.8.7 of the Advanced Responsive Video Embedder for Rumble, Odysee, YouTube, Vimeo, Kick … plugin for WordPress. This flaw arises from a hardcoded backdoor within the `_arve_uc_init()` function, which is registered on WordPress's `init` hook with priority 1, ensuring it executes before standard authentication checks. Unauthenticated attackers can exploit this by supplying a specific, hardcoded SHA-256 token via the `_wplogin` or `_wpm` URL parameter. The function compares the provided token against the static hash embedded directly in the plugin's source code, completely bypassing nonce verification, capability checks, and password validation. This allows attackers to authenticate as any existing administrator account, thereby achieving full administrative control over the affected WordPress site. The presence of this backdoor suggests it may have been maliciously introduced by an attacker who gained commit access to the plugin developers' account.\n\n## Attack Chain\n\n1. Attacker identifies a target WordPress site running the Advanced Responsive Video Embedder plugin version 10.8.7.\n2. Attacker obtains the publicly known hardcoded SHA-256 hash (acting as universal credentials) from the plugin's source code.\n3. Attacker crafts an HTTP GET or POST request targeting the vulnerable WordPress instance.\n4. The request includes a URL query parameter, either `_wplogin` or `_wpm`, containing the hardcoded SHA-256 token.\n5. The WordPress `init` hook triggers the `_arve_uc_init()` function, which processes the attacker-supplied token from the URL parameter.\n6. The `_arve_uc_init()` function validates the provided token against the internally hardcoded SHA-256 hash, bypassing all legitimate authentication mechanisms.\n7. The attacker is successfully authenticated as an arbitrarily selected existing administrator account on the WordPress site without needing valid credentials.\n8. Attacker gains full administrative control, enabling actions such as content modification, plugin/theme installation, data exfiltration, or further compromise of the web server.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-18072 grants unauthenticated attackers full administrative control over the affected WordPress site. This can lead to severe consequences including, but not limited to, complete website defacement, arbitrary code execution, exfiltration of sensitive data, creation of new malicious administrator accounts for persistence, and the use of the compromised site as a platform for further attacks (e.g., malware distribution, phishing campaigns). The exact number of victims is not specified, but any organization utilizing the vulnerable plugin version is at critical risk.\n\n## Recommendation\n\n* **Patch CVE-2026-18072 immediately** by updating the \"Advanced Responsive Video Embedder for Rumble, Odysee, YouTube, Vimeo, Kick …\" plugin to a version greater than 10.8.7.\n* **Deploy the Sigma rule below** to your SIEM to detect exploitation attempts of CVE-2026-18072, ensuring webserver logs are collected.\n* **Review webserver access logs** for the presence of `_wplogin` or `_wpm` query parameters, as indicated in the Sigma rule.\n",
-      "published": "2026-07-29T05:21:46.000Z",
-      "labels": [
-        "authentication-bypass",
-        "web-vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--ba4a7a6c-6bcc-5bf3-91d6-3bad3830bb9d",
-        "software--3ae4fe02-fa1e-5ba5-9a44-e7b718ad3803",
-        "software--613e24ca-8f5f-50d0-b7bb-ee8228b4e4a1",
-        "software--7759f4fc-75fc-59fc-bc60-e8fb07da3ce8",
-        "software--c822c43c-3ef4-5033-8fa0-87884fda9487",
-        "software--d05404f0-d005-5222-b8a6-2621344297fe",
-        "software--d056dfa5-d6a0-5435-8d8e-2045f67b7859",
-        "software--d6efeec3-36e6-59f8-a18f-3a15b88f7504",
-        "software--e5374e90-6953-572d-9bb8-75bb843acbd8"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-wordpress-arve-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-wordpress-arve-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18072"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/08/bdthemes-supply-chain-attack-poisons.html"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-wordpress-arve-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-wordpress-arve-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-wordpress-arve-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-11T06:48:07.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e53953e9-e396-55bc-be4a-c90751588d6b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T08:13:36.000Z",
@@ -17917,12 +17814,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3ae4fe02-fa1e-5ba5-9a44-e7b718ad3803",
-      "name": "Smart Admin Assistant (smart-admin-assistant)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3b1ba561-157d-5fbc-bee8-32fca54421b3",
       "name": "kubeletctl"
     },
@@ -18168,12 +18059,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--613e24ca-8f5f-50d0-b7bb-ee8228b4e4a1",
-      "name": "Element Pack Addons for Elementor (bdthemes-element-pack-lite)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--61486060-6dda-59cb-95c9-cb6f948f00bf",
       "name": "Wings (\u003c 1.12.3)",
       "vendor": "Pterodactyl"
@@ -18282,12 +18167,6 @@
       "spec_version": "2.1",
       "id": "software--76633737-29ec-5552-b42e-d8b7faeb2eac",
       "name": "fcgiwrap"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--7759f4fc-75fc-59fc-bc60-e8fb07da3ce8",
-      "name": "Prime Slider Addons for Elementor (bdthemes-prime-slider-lite)"
     },
     {
       "type": "software",
@@ -18872,12 +18751,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c822c43c-3ef4-5033-8fa0-87884fda9487",
-      "name": "Live Copy Paste for Elementor (live-copy-paste)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c868926c-f648-5b92-9495-1fca08a78e82",
       "name": "MeshCentral (1.1.21)",
       "vendor": "MeshCentral"
@@ -18939,18 +18812,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d05404f0-d005-5222-b8a6-2621344297fe",
-      "name": "Ultimate Store Kit (ultimate-store-kit)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d056dfa5-d6a0-5435-8d8e-2045f67b7859",
-      "name": "Ultimate Post Kit Addons for Elementor (ultimate-post-kit)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d05b2067-20ca-5f59-87bf-123b21dafd52",
       "name": "Axis2",
       "vendor": "Apache"
@@ -18960,12 +18821,6 @@
       "spec_version": "2.1",
       "id": "software--d45e93ba-3bce-591d-bccc-f7037347dec1",
       "name": "java"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d6efeec3-36e6-59f8-a18f-3a15b88f7504",
-      "name": "Pixel Gallery Addons for Elementor (pixel-gallery)"
     },
     {
       "type": "software",
@@ -19069,12 +18924,6 @@
       "id": "software--e5245ea9-ac91-58a9-88c3-d057d3509281",
       "name": "Apache Tomcat",
       "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e5374e90-6953-572d-9bb8-75bb843acbd8",
-      "name": "Advanced Responsive Video Embedder for Rumble, Odysee, YouTube, Vimeo, Kick … plugin (10.8.7)"
     },
     {
       "type": "software",
