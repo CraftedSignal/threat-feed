@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-27-dahua-p2p-hijacking
 event_id: brief-2026-10-27-dahua-p2p-hijacking
-revision: 1
-activity_at: "2026-10-27T08:32:13Z"
+revision: 2
+activity_at: "2026-10-27T10:08:26Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-27T10:08:26Z"
+    checksum: sha256:5c11cd5711fd9c3832edb88f44b36f196f3e6cc469b95b86464e3ea74686f5de
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
 title: 'Dahua IP cameras and recorders: P2P cloud access hijacking'
 slug: 2026-10-dahua-p2p-hijacking
 description: Attackers are hijacking Dahua IP cameras and recorders via the Easy4IP P2P cloud access feature by using brute-force attacks or exploiting CVE-2021-33044 and CVE-2021-33045 to gain unauthorized device control.
 date: "2026-10-27T08:32:13Z"
+lastmod: "2026-10-27T10:07:50Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -67,6 +82,9 @@ products:
   - IP cameras (all firmware < fixes for CVE-2021-33044/45)
   - NVRs (all firmware < fixes for CVE-2021-33044/45)
   - DVRs (all firmware < fixes for CVE-2021-33044/45)
+  - IP cameras
+  - NVRs
+  - DVRs
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -102,6 +120,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2021-33044
   - https://nvd.nist.gov/vuln/detail/CVE-2021-33045
   - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
+  - https://www.dahuasecurity.com/aboutUs/trustedCenter/details/582
 action_plan:
   priority: immediate_escalation
   owners:
@@ -131,6 +150,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2021-33044, CVE-2021-33045
       evidence: Dahua advisory confirms patches exist for these vulnerabilities.
+updates:
+  - at: "2026-10-27T10:07:50Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
 ---
 
 CERT-UA has identified an ongoing campaign where attackers exploit Dahua surveillance devices via the Easy4IP P2P cloud access service. Attackers leverage predictable serial number patterns to reach devices through the manufacturer’s cloud relay, bypassing NAT and firewall protections. Once access to the device management interface is obtained, attackers attempt to compromise the device using weak or default passwords, or by exploiting authentication bypass vulnerabilities CVE-2021-33044 and CVE-2021-33045 on unpatched firmware. Confirmed indicators of compromise include the presence of unknown user accounts, unauthorized changes to device configuration, and suspicious DVRIP login events originating from 127.0.0.1.
