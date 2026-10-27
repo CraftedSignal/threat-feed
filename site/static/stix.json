@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5d33b335-4d7a-58fd-bf91-d4bef0b3da9f",
+  "id": "bundle--b2c3bb56-60ae-5fb7-8500-610d24b817f5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16524,6 +16524,17 @@
       "relationship_type": "has",
       "source_ref": "software--64588570-c248-5703-a444-f87a8c65e750",
       "target_ref": "vulnerability--4189dddc-e95d-5fa4-8662-fbc9f244eba9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33d8edf2-f236-51ce-98f1-647e3d4767ce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T20:23:13.000Z",
+      "modified": "2026-10-27T20:23:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b1c2c2c8-0e07-5064-bad3-7dd0c135328b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -37259,6 +37270,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--a4d5ac04-1a19-5274-a0d4-1513424f73c3",
       "target_ref": "threat-actor--5391bdc2-1d29-5290-bcf1-3aca68779595"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--91fc21eb-6b2b-51bd-9dc2-d01b68de961b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c65189cc-b25f-51f6-8eb8-3df56c26ceaa",
+      "target_ref": "vulnerability--feab2485-7498-5bfa-9373-6e0b462bb679"
     },
     {
       "type": "relationship",
@@ -127189,6 +127211,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b1c2c2c8-0e07-5064-bad3-7dd0c135328b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T20:23:13.000Z",
+      "modified": "2026-10-27T20:23:13.000Z",
+      "name": "Adobe Campaign Classic: SQL Injection remote code execution (CVE-2026-105781)",
+      "description": "## Overview\n\nAdobe Campaign Classic is affected by an SQL injection vulnerability (CVE-2026-105781) that permits an unauthenticated remote attacker to achieve arbitrary code execution in the context of the application user. This vulnerability carries a CVSS score of 10.0 and does not require user interaction. A proof-of-concept exploit is publicly available, increasing the risk of exploitation.\n\n## Impact\n\nThe vulnerability allows an unauthenticated attacker to execute arbitrary SQL commands and achieve arbitrary code execution. This could lead to full system compromise, data exfiltration, or complete loss of availability for the Campaign Classic environment.\n\n## Recommendation\n\n1. Inventory all Adobe Campaign Classic instances within the environment.\n2. Apply the vendor-provided security updates documented in APSB26-162 immediately.\n3. Restrict network access to the Campaign Classic administrative and API interfaces to known, trusted management segments until patching is complete.\n",
+      "published": "2026-10-27T20:23:13.000Z",
+      "labels": [
+        "rce",
+        "sql-injection",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c65189cc-b25f-51f6-8eb8-3df56c26ceaa",
+        "vulnerability--feab2485-7498-5bfa-9373-6e0b462bb679"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-adobe-campaign-classic-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-adobe-campaign-classic-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-105781"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-105781\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.adobe.com/trust/security/products/campaign/apsb26-162.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-adobe-campaign-classic-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-27-adobe-campaign-classic-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-adobe-campaign-classic-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-10-27T20:23:13.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b1c44bb1-a947-5bfe-bd27-876365337d49",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T14:58:17.000Z",
@@ -169115,6 +169191,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c65189cc-b25f-51f6-8eb8-3df56c26ceaa",
+      "name": "Campaign Classic",
+      "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c6550fbd-9c44-52ab-b258-95d2e31827c8",
       "name": "Cube-studio (\u003c= 2026.09.01)",
       "vendor": "Cube-studio"
@@ -201864,6 +201947,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107891",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107891"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--feab2485-7498-5bfa-9373-6e0b462bb679",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105781",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105781",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105781"
         }
       ]
     },
