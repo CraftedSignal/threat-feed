@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a2778c59-b9c0-567b-b06f-c6e83e4cf5c3",
+  "id": "bundle--a56d55d9-aec2-5205-b751-20107d0280b5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2959,6 +2959,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1114.001",
           "url": "https://attack.mitre.org/techniques/T1114/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "SSH",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021.004",
+          "url": "https://attack.mitre.org/techniques/T1021/004"
         }
       ]
     },
@@ -25329,6 +25345,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--61d1fe19-1340-5a92-b111-80d3102e2e6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T16:06:16.000Z",
+      "modified": "2026-10-27T16:06:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
+      "target_ref": "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--61d24a57-ea52-5ff4-9c02-7504ef1da217",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -40989,6 +41016,17 @@
       "relationship_type": "has",
       "source_ref": "software--709d81c7-3cbc-53a7-904d-02a1944c2f35",
       "target_ref": "vulnerability--3ced7dbc-f8f7-5557-ae62-d8f9dac744d5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a9800a1b-bf46-539d-9cb8-07e232e7f1b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T16:06:16.000Z",
+      "modified": "2026-10-27T16:06:16.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -89321,6 +89359,47 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T16:06:16.000Z",
+      "modified": "2026-10-27T16:06:16.000Z",
+      "name": "Tailscale SSH Privilege Escalation Vulnerabilities",
+      "description": "## Overview\nTailscale is addressing a series of 11 vulnerabilities collectively dubbed 'Tailworm' affecting the Tailscale client (version 1.104.2 and earlier) and the headscale control server (version 0.29.5 and earlier). The most severe findings involve the Tailscale SSH feature, where improper handling of Unix privileges and SSH forwarding can allow an attacker who has gained a foothold on one device to bypass access policies and escalate to root privileges on target servers within the mesh network. There is currently no evidence of in-the-wild exploitation.\n\n## Impact\nSuccessful exploitation allows an attacker to move laterally across the mesh network and achieve root execution on target servers. The vulnerabilities can also lead to the exposure of administrative interfaces, access to cloud metadata services, and potential denial-of-service conditions.\n\n## Recommendation\n- Disable Tailscale SSH forwarding in existing access policies where not explicitly required as an immediate mitigating measure.\n- Review all current Tailscale SSH access policies to limit the potential reach of compromised nodes.\n- Patch Tailscale client and headscale control server installations as soon as the vendor releases the finalized versions.\n- Monitor for unauthorized device registration or abnormal lateral movement patterns originating from within the mesh VPN environment.\n",
+      "published": "2026-10-27T16:06:16.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5f2dd904-75b0-5f77-aaa7-b937f62688af",
+        "software--fc4bfcb0-56ad-5c6c-88af-b82d11775e3f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-tailscale-tailworm",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-tailscale-tailworm/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/tailscale-rushes-patches-after-uncoordinated-disclosure-of-tailworm-flaws/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-tailscale-tailworm",
+      "x_craftedsignal_event_id": "brief-2026-10-27-tailscale-tailworm",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tailscale-tailworm/",
+      "x_craftedsignal_activity_at": "2026-10-27T16:06:16.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -158260,6 +158339,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5f2dd904-75b0-5f77-aaa7-b937f62688af",
+      "name": "Tailscale client (\u003c= 1.104.2)",
+      "vendor": "Tailscale"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5f36bfea-93ca-53e7-9e24-90f5faf34aec",
       "name": "@rvf/set-get (\u003c 7.0.4)",
       "vendor": "rvf"
@@ -167540,6 +167626,13 @@
       "id": "software--fc480c58-d320-5ccc-b996-669e7b085a34",
       "name": "ChurcHope (\u003c 2.2)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fc4bfcb0-56ad-5c6c-88af-b82d11775e3f",
+      "name": "headscale (\u003c= 0.29.5)",
+      "vendor": "Tailscale"
     },
     {
       "type": "software",

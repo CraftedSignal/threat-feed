@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4a49da56-513f-5a73-8447-5a524a15ad98",
+  "id": "bundle--015b455f-fb33-5a29-b277-63015dbd5619",
   "objects": [
     {
       "type": "attack-pattern",
@@ -271,22 +271,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1498",
           "url": "https://attack.mitre.org/techniques/T1498"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--8fc1d6d6-b1da-5334-98f0-dcf1ea8100d6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Exploitation for Credential Access",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1212",
-          "url": "https://attack.mitre.org/techniques/T1212"
         }
       ]
     },
@@ -1499,17 +1483,6 @@
       "relationship_type": "has",
       "source_ref": "software--775fd442-360d-51b4-a66a-4d22a5be8c5d",
       "target_ref": "vulnerability--3e061fbf-07c4-53b8-8f11-fdbe71f618f2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1b854994-633e-5adf-81d3-396a57a2b1e4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T16:01:08.000Z",
-      "modified": "2026-07-29T16:01:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12fb4553-8063-5f0c-a5d4-bc92f78ceb55",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -3802,17 +3775,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9c254cf0-2eb1-5a21-af0b-b43e747991a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T16:01:08.000Z",
-      "modified": "2026-07-29T16:01:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--12fb4553-8063-5f0c-a5d4-bc92f78ceb55",
-      "target_ref": "attack-pattern--8fc1d6d6-b1da-5334-98f0-dcf1ea8100d6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9cc81b20-d52f-589e-8083-35bb033d9afd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5820,50 +5782,6 @@
       "x_craftedsignal_activity_at": "2026-07-30T08:12:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--12fb4553-8063-5f0c-a5d4-bc92f78ceb55",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T16:01:08.000Z",
-      "modified": "2026-07-29T16:01:08.000Z",
-      "name": "Prebid Server SSRF Vulnerability in Bidder Adapters",
-      "description": "## Overview\n\nPrebid Server is affected by a Server-Side Request Forgery (SSRF) vulnerability identified as CVE-2026-54735. The flaw originates in certain bidder adapters that fail to perform adequate input validation on user-supplied parameters before interpolating them into outbound request URLs. An attacker can supply malicious parameters in a bid request to force the Prebid Server instance to send HTTP requests to arbitrary destinations. This vulnerability enables attackers to perform reconnaissance on the internal network, interact with sensitive local endpoints, or exfiltrate metadata from the host environment. The vulnerability impacts Prebid Server versions prior to v4.4.0, as well as specific older release branches. Defenders should prioritize patching or disabling affected bidder adapters to mitigate unauthorized internal access.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to abuse the server as a proxy to reach internal resources that are otherwise inaccessible from the public internet. This can lead to the exposure of internal metadata services (e.g., cloud instance metadata), local administrative interfaces, or sensitive internal API endpoints. The severity is critical given the potential for unauthorized data extraction and lateral movement within the network hosting the Prebid Server instance.\n\n## Recommendation\n\n- Upgrade Prebid Server to version v4.4.0 or later to apply the necessary input validation logic.\n- Disable any bidder adapters known to be susceptible to parameter injection if patching cannot be performed immediately.\n- Implement egress filtering on the network hosting Prebid Server to restrict outbound connections to only verified and expected external bidder endpoints.\n- Audit web server logs and proxy logs for anomalous HTTP requests originating from the Prebid Server application to internal IP ranges (e.g., 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) or local loopback addresses.\n",
-      "published": "2026-07-29T16:01:08.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--8fc1d6d6-b1da-5334-98f0-dcf1ea8100d6",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c660d2b8-1de4-54f4-b271-76689247b0a8"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-29-prebid-server-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-prebid-server-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-4p3g-4hcj-wpvx"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54735"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-29-prebid-server-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-07-29-prebid-server-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-prebid-server-ssrf/",
-      "x_craftedsignal_activity_at": "2026-07-29T16:01:08.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -11261,13 +11179,6 @@
       "id": "software--c654e3f4-9c59-5003-bddd-a65c9fd356ec",
       "name": "WebSphere Application Server - Liberty (17.0.0.3 - 26.0.0.8)",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c660d2b8-1de4-54f4-b271-76689247b0a8",
-      "name": "prebid-server",
-      "vendor": "Prebid"
     },
     {
       "type": "software",
