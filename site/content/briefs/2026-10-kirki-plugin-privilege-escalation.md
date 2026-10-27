@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-27-kirki-plugin-privilege-escalation
 event_id: brief-2026-10-27-kirki-plugin-privilege-escalation
-revision: 1
-activity_at: "2026-10-27T07:49:02Z"
+revision: 2
+activity_at: "2026-10-27T08:32:51Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-27T08:32:51Z"
+    checksum: sha256:5e5aa1c79470ed41010abb55f4b52cf181f5ca364e1cd57e35e44d0c29b5b2ea
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-75891&utm_source=rss&utm_medium=rss
 title: 'Kirki: Privilege escalation via PHP object injection (CVE-2026-75891)'
 slug: 2026-10-kirki-plugin-privilege-escalation
 description: An authenticated PHP object injection vulnerability in the Kirki WordPress plugin allows attackers with subscriber-level access to escalate privileges to administrator via a POP chain.
 date: "2026-10-27T07:49:02Z"
+lastmod: "2026-10-27T08:31:42Z"
 type: advisory
 types:
   - advisory
@@ -23,6 +37,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:kirki:kirki:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-75891&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - plugin
@@ -46,6 +63,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-75891
+  - https://sploitus.com/exploit?id=CVE-2026-75891&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-75891 Exploitation - Suspicious AJAX request to Kirki
     description: Detects potential exploitation of CVE-2026-75891 by monitoring for POST requests to the Kirki AJAX handler containing serialized object syntax.
@@ -83,6 +101,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-75891
       evidence: No current patch specified; disabling is the only immediate mitigation
+updates:
+  - at: "2026-10-27T08:31:42Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-75891&utm_source=rss&utm_medium=rss
 ---
 
 The Kirki plugin for WordPress contains a vulnerability in the 'get-single-symbol' branch of the 'kirki_post_apis()' AJAX dispatcher. A missing capability check allows authenticated users with subscriber-level permissions to trigger the deserialization of untrusted input. The availability of a gadget chain (POP chain) enables attackers to overwrite administrator passwords, resulting in full administrative access.

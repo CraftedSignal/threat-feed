@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1deb78af-767a-5636-8aa9-2def235d5735",
+  "id": "bundle--e3af6da3-beda-5701-846b-9f50739161b2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -127,22 +127,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1070",
           "url": "https://attack.mitre.org/techniques/T1070"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Credentials from Password Stores",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1555",
-          "url": "https://attack.mitre.org/techniques/T1555"
         }
       ]
     },
@@ -3062,17 +3046,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ad7dac15-e563-574e-98a3-f420b644e9f3",
       "target_ref": "indicator--2be8bebe-3b6d-5154-a958-fe3e384f1433"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--17b7abde-d3fd-54f2-84a2-7b389c3a090a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T08:20:39.000Z",
-      "modified": "2026-07-29T08:20:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6f57bb82-38cd-516e-8fda-bf24268c7130",
-      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -7345,17 +7318,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a8ee060d-a449-572b-85cb-8afa138856e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T08:20:39.000Z",
-      "modified": "2026-07-29T08:20:39.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6f57bb82-38cd-516e-8fda-bf24268c7130",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a93c00e9-0d05-5857-ab24-a88b0ce08e44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:41:05.000Z",
@@ -9629,17 +9591,6 @@
       "relationship_type": "uses",
       "source_ref": "report--993cc27d-6e2d-59e1-9a35-828561d8e6db",
       "target_ref": "indicator--9fb9647a-cbd8-5992-9401-31166eabcbf9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f7eb6b08-673f-5fd9-b128-396e9e7f2c08",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--02a62843-08d5-593e-9bff-dff25d7bb8d0",
-      "target_ref": "vulnerability--aff74755-f9fc-5bcd-91a4-04fbf615b3e3"
     },
     {
       "type": "relationship",
@@ -13014,63 +12965,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6f57bb82-38cd-516e-8fda-bf24268c7130",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T08:20:39.000Z",
-      "modified": "2026-07-29T08:20:39.000Z",
-      "name": "Unauthenticated Credential Disclosure in Vacron VIN-DS783E-E6 via Hidden Functionality (CVE-2026-18191)",
-      "description": "## Overview\n\nCVE-2026-18191 identifies a critical Hidden Functionality vulnerability (CWE-912) affecting the Vacron VIN-DS783E-E6 device. This flaw enables unauthenticated remote attackers to exploit a specific, undisclosed hidden function within the device's software. By interacting with this function, attackers can obtain the device's administrator credentials, circumventing authentication mechanisms entirely. This vulnerability poses a severe risk, as it grants attackers initial access and full control over the device without needing prior authentication. The vulnerability has been assigned a CVSS v3.1 base score of 9.8 and a CVSS v4.0 score of 9.3, indicating a critical severity due to its network-exploitable, low-complexity, unauthenticated nature, and high impact on confidentiality, integrity, and availability. This threat highlights the importance of securing IoT and network-attached devices against hidden backdoors or debugging features that are not properly protected.\n\n## Attack Chain\n\n1. **Reconnaissance \u0026 Discovery**: An unauthenticated remote attacker scans target networks to identify internet-exposed or internally accessible Vacron VIN-DS783E-E6 devices.\n2. **Vulnerability Identification**: The attacker identifies that the discovered device is vulnerable to CVE-2026-18191, the hidden functionality flaw.\n3. **Crafted Request Generation**: The attacker crafts a specialized network request designed to interact with the device's specific, undisclosed hidden function. This request is structured to trigger the credential disclosure.\n4. **Unauthenticated Access**: The crafted request is sent to the vulnerable Vacron VIN-DS783E-E6 device over the network, bypassing normal authentication mechanisms due to the inherent flaw in the hidden function.\n5. **Credential Disclosure**: The device's hidden function processes the malicious request and, as a direct result of the vulnerability (CWE-912), exposes or transmits the stored administrator credentials (e.g., username and password).\n6. **Credential Exfiltration**: The attacker captures the disclosed administrator credentials from the device's network response.\n7. **Post-Exploitation Access**: The attacker utilizes the newly acquired administrator credentials to log into the device's administrative interface or establish authenticated remote access.\n8. **Device Control \u0026 Persistence**: With administrative access, the attacker gains full control over the VIN-DS783E-E6 device, enabling modification of configurations, potential pivoting to other network segments, or establishment of persistence mechanisms.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-18191 grants unauthenticated remote attackers full administrative control over the affected Vacron VIN-DS783E-E6 device. This can lead to complete compromise of the device's functionality, including monitoring its video feeds, altering device settings, or using it as an initial access point to pivot into other systems within the targeted network. Given the typical deployment of such devices in surveillance or infrastructure roles, the impact could range from privacy violations and operational disruption to broader network intrusions and data exfiltration. The high CVSS scores (9.8/9.3) reflect the critical nature of this vulnerability, indicating significant confidentiality, integrity, and availability impacts.\n\n## Recommendation\n\n* Patch CVE-2026-18191 on all Vacron VIN-DS783E-E6 devices immediately following vendor-provided instructions found in the TWCERT/CC advisories referenced in this brief.\n* Implement network segmentation to isolate Vacron VIN-DS783E-E6 devices from critical internal networks, limiting potential lateral movement even if the device is compromised.\n* Monitor network traffic for anomalous unauthenticated requests targeting Vacron VIN-DS783E-E6 devices, especially unusual patterns of access to administrative interfaces or undocumented network endpoints, potentially indicating attempts to exploit CVE-2026-18191.\n",
-      "published": "2026-07-29T08:20:39.000Z",
-      "labels": [
-        "CVE-2026-18191",
-        "credential-access",
-        "network-device",
-        "unauthenticated",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--02a62843-08d5-593e-9bff-dff25d7bb8d0",
-        "vulnerability--aff74755-f9fc-5bcd-91a4-04fbf615b3e3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-18191-vacron",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-18191-vacron/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18191"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.twcert.org.tw/en/cp-139-11049-db9ae-2.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.twcert.org.tw/tw/cp-132-11048-c8ce2-1.html"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-18191-vacron",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-18191-vacron",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-18191-vacron/",
-      "x_craftedsignal_activity_at": "2026-07-29T08:20:39.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -17466,13 +17360,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--02a62843-08d5-593e-9bff-dff25d7bb8d0",
-      "name": "VIN-DS783E-E6",
-      "vendor": "Vacron"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--034cbd28-e5de-5e46-91e2-79eea749eda4",
       "name": "Langflow OSS (1.0.0-1.10.1)",
       "vendor": "IBM"
@@ -20291,22 +20178,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-54737",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54737"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--aff74755-f9fc-5bcd-91a4-04fbf615b3e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18191",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18191",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18191"
         }
       ]
     },
