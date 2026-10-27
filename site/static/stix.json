@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--62993881-4b87-51b2-82a6-48088ed4a77b",
+  "id": "bundle--130720c3-28d2-5379-9cc7-4904915f5eb4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25295,6 +25295,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--62a71a4f-d39d-59b8-9529-eb8d963a4fd8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e6b0a4cc-d405-5629-a513-e1b41cde62bb",
+      "target_ref": "vulnerability--98d0e0fe-2cc9-52b0-a86b-7742f2a61a0e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--62d61b2d-dad9-55bb-9179-95716ab6655b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26222,7 +26233,7 @@
       "id": "relationship--6712f0f2-9842-5126-bf5e-ae7e24c769fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T04:25:53.000Z",
-      "modified": "2026-10-25T04:25:53.000Z",
+      "modified": "2026-10-27T01:10:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--84af90dc-e57a-5fd6-8096-4adfecce0c67",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -38821,6 +38832,17 @@
       "relationship_type": "uses",
       "source_ref": "report--d8c5ece2-e3e5-5848-b21b-522d25d36b3e",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a26c996d-e5ce-5404-9217-232d234900e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5d6df5f4-9d7b-593c-9d61-db40544be513",
+      "target_ref": "vulnerability--9c610ed5-e269-5958-94e1-6bffd28fe6ae"
     },
     {
       "type": "relationship",
@@ -55633,6 +55655,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--edee497c-9ca0-5f29-a9ef-4506cb875ad4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T01:09:20.000Z",
+      "modified": "2026-10-27T01:09:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--651c818b-b9a0-5c96-999a-e964450a272b",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--edfa3bda-4f6c-59af-bd3a-e9038fa943fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:05:45.000Z",
@@ -65267,6 +65300,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1513c62e-cb33-51be-8e56-e7243c678797",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T01:09:36.000Z",
+      "modified": "2026-10-27T01:09:36.000Z",
+      "name": "MZ Automation libiec61850: GOOSE message replay state rollback (CVE-2026-52134)",
+      "description": "## Overview\nCVE-2026-52134 affects the `parseGoosePayload()` function in `src/goose/goose_receiver.c` of libiec61850 v1.6. Controlled experiments demonstrated that replaying captured GOOSE frames can trigger state rollbacks (where a subscriber reverts to a lower `stNum`) or cause the library to trigger listener callbacks for messages marked as invalid. \n\n## Prerequisites\nTo conduct the described replay behavior, an actor must be able to access the relevant IEEE 802.3 Layer 2 broadcast domain or VLAN, capture legitimate GOOSE Ethernet frames (EtherType 0x88B8), and inject frames into the network.\n",
+      "published": "2026-10-27T01:09:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5d6df5f4-9d7b-593c-9d61-db40544be513",
+        "vulnerability--9c610ed5-e269-5958-94e1-6bffd28fe6ae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-libiec61850-goose-replay",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-libiec61850-goose-replay/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IF-FORGET-CVE-2026-52134-LIBIEC61850"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-IF-FORGET-CVE-2026-52134-LIBIEC61850\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-libiec61850-goose-replay",
+      "x_craftedsignal_event_id": "brief-2026-10-27-libiec61850-goose-replay",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-libiec61850-goose-replay/",
+      "x_craftedsignal_activity_at": "2026-10-27T01:09:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.008,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -93552,6 +93630,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--651c818b-b9a0-5c96-999a-e964450a272b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T01:09:20.000Z",
+      "modified": "2026-10-27T01:09:20.000Z",
+      "name": "Onyx Craft: Stored Cross-Site Scripting via iframe sandbox bypass (CVE-2026-116004)",
+      "description": "## Overview\nOnyx Craft versions up to and including 5.0.0 are vulnerable to stored Cross-Site Scripting (XSS) due to an unsafe iframe sandbox configuration within the craft output preview component. The component uses both `allow-scripts` and `allow-same-origin` attributes in the iframe sandbox. When the parent application and the rendered preview share the same origin, this combination permits framed JavaScript to bypass sandbox restrictions and modify the parent document's DOM. This vulnerability is tracked as CVE-2026-116004.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary JavaScript within the context of the parent application when a victim views attacker-controlled preview content. This can lead to unauthorized modification of the parent document, potential session hijacking, or data theft, depending on the privileges and sensitive information present in the parent application context.\n\n## Recommendation\n- Upgrade Onyx Craft to a patched version once released.\n- Implement a dedicated, isolated origin (subdomain) to serve generated preview content, ensuring it does not share cookies or application privileges with the main application.\n- Remove the `allow-same-origin` flag from iframe sandbox configurations where application requirements permit.\n- Apply a restrictive Content Security Policy (CSP) to preview content.\n- Implement browser regression tests to assert that preview content cannot access or modify the parent DOM.\n",
+      "published": "2026-10-27T01:09:20.000Z",
+      "labels": [
+        "cve-2026-116004",
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e6b0a4cc-d405-5629-a513-e1b41cde62bb",
+        "vulnerability--98d0e0fe-2cc9-52b0-a86b-7742f2a61a0e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-onyx-craft-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-onyx-craft-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/onyx-dot-app/onyx/blob/711a0479f1630dcce38f8f58212a63080702b753/web/src/app/craft/components/output-panel/PreviewTab.tsx"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116004"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=811587BD-D24F-5F13-8E83-AD8B36E24DE8\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vulners.com/cve/CVE-2026-116004"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-onyx-craft-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-27-onyx-craft-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-onyx-craft-xss/",
+      "x_craftedsignal_activity_at": "2026-10-27T01:09:20.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 3.5,
+      "x_craftedsignal_epss_max": 0.00199,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6535eb28-d44c-5910-af6c-77b47752108e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T13:38:14.000Z",
@@ -104007,7 +104144,7 @@
       "id": "report--84af90dc-e57a-5fd6-8096-4adfecce0c67",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T04:25:53.000Z",
-      "modified": "2026-10-25T04:25:53.000Z",
+      "modified": "2026-10-27T01:10:17.000Z",
       "name": "Zylon PrivateGPT: Server-side request forgery (CVE-2026-116000)",
       "description": "## Overview\n\nA server-side request forgery (SSRF) vulnerability exists in the URI Artifact Loader component of Zylon PrivateGPT, specifically within the `load_file_from_uri` function of `private_gpt/server/ingest/uri_loader.py`. The vulnerability arises from improper handling of the `Value` argument, which can be manipulated by a remote attacker to force the server to make unintended network requests. Public exploit code for this vulnerability is available. The vendor has not responded to vulnerability disclosures.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to perform SSRF, potentially accessing internal services, scanning private network segments, or exfiltrating sensitive data from the host environment or internal network accessible to the PrivateGPT server.\n\n## Recommendation\n\nPrioritize the identification and isolation of internet-facing Zylon PrivateGPT instances. Given the lack of a vendor response or patch, restrict network access to these instances using egress filtering to prevent unauthorized internal requests.\n",
       "published": "2026-10-25T04:25:53.000Z",
@@ -104031,20 +104168,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116000"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=C6AF2BC8-649C-546B-AB5D-8F0A5C3CDEDD\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-25-zylon-privategpt-ssrf",
       "x_craftedsignal_event_id": "brief-2026-10-25-zylon-privategpt-ssrf",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-zylon-privategpt-ssrf/",
-      "x_craftedsignal_activity_at": "2026-10-25T04:25:53.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T01:10:17.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.00288,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -154180,6 +154322,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5d6df5f4-9d7b-593c-9d61-db40544be513",
+      "name": "libiec61850 (1.6)",
+      "vendor": "MZ Automation GmbH"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5d7e58f8-2d6f-5f97-8660-e095e07cb406",
       "name": "Platform Services for VMware Tanzu Platform (10.x \u003c 10.4.6)",
       "vendor": "VMware"
@@ -162187,6 +162336,13 @@
       "id": "software--e6aabd28-e929-5ded-aee3-297199817444",
       "name": "S3",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e6b0a4cc-d405-5629-a513-e1b41cde62bb",
+      "name": "Onyx Craft (\u003c= 5.0.0)",
+      "vendor": "Onyx"
     },
     {
       "type": "software",
@@ -179746,6 +179902,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--98d0e0fe-2cc9-52b0-a86b-7742f2a61a0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116004",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116004",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116004"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9901c5d6-d9b7-5877-a62f-47af58bed47b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -180284,6 +180456,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108826",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108826"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9c610ed5-e269-5958-94e1-6bffd28fe6ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-52134",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-52134",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52134"
         }
       ]
     },

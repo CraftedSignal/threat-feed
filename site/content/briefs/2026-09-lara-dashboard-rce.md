@@ -1,14 +1,46 @@
 ---
+brief_id: brief-2026-09-07-lara-dashboard-rce
+event_id: brief-2026-09-07-lara-dashboard-rce
+revision: 2
+activity_at: "2026-10-27T01:10:17Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-27T01:10:17Z"
+    checksum: sha256:7956ceb3c49c0e62d5b3f8c4f0592e75b516de9cfe239e2e9408dcf365d83589
+    summary: poc_available; added CVE-2026-90932 +1
+    changed_fields:
+      - affected_products
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - rules
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
 title: Arbitrary File Upload and RCE in Lara Dashboard
 slug: 2026-09-lara-dashboard-rce
 description: Lara Dashboard versions prior to 1.3.2 are vulnerable to arbitrary file upload via the core-upgrades endpoint, allowing unauthorized administrators to achieve remote code execution.
 date: "2026-09-07T23:37:52Z"
-lastmod: "2026-09-14T13:34:23Z"
+lastmod: "2026-10-27T01:09:15Z"
 type: advisory
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
 tags:
   - web-application-vulnerability
   - rce
@@ -21,6 +53,7 @@ products:
   - Lara Dashboard (< 1.3.2)
   - LaraDashboard (0.9.2 - 1.2.2)
   - Laradashboard (<= 1.2.2)
+  - LaraDashboard (>= 0.9.2, <= 1.2.2)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -37,42 +70,21 @@ mitre_ttps:
 cves:
   - id: CVE-2026-86437
     cvss: 7.2
+    epss: 0.00711
+    kev_status: "false"
+  - id: CVE-2026-90932
+    cvss: 7.2
+    epss: 0.0082
+    kev_status: "false"
+  - id: CVE-2026-90933
+    cvss: 7.1
+    epss: 0.00301
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86437
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90932
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90933
-rules:
-  - title: Detects CVE-2026-86437 Exploitation - Malicious POST to core-upgrades
-    description: Detects unauthorized attempts to access the core-upgrades upload endpoint; while authorization logic occurs within the application, monitor requests to this endpoint for anomalies.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-  - title: Detect CVE-2026-90932 Exploitation - Path Traversal in Backup Parameters
-    description: Detects path traversal sequences in backup_file or filename parameters targeting LaraDashboard backup endpoints.
-    platform: sigma
-    severity: high
-    tactics:
-      - initial_access
-    techniques:
-      - T1190
-    data_sources:
-      - webserver
-  - title: Detect Unauthorized Access to Laradashboard License API
-    description: Detects unauthorized attempts to access Laradashboard License API endpoints by non-administrative users (requires mapping user roles to API access logs)
-    platform: sigma
-    severity: high
-    tactics:
-      - privilege_escalation
-    techniques:
-      - T1068
-    data_sources:
-      - webserver
-rules_count: 3
+  - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -104,6 +116,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-90933
+  - at: "2026-10-27T01:09:15Z"
+    level: L2
+    summary: poc_available; added CVE-2026-90932 +1
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
 ---
 
 Lara Dashboard versions before 1.3.2 contain an authorization flaw in the /admin/settings/core-upgrades/upload endpoint. The application incorrectly restricts access to this endpoint to the 'settings.edit' permission rather than enforcing 'Superadmin' status. This vulnerability allows an authenticated administrator with limited permissions to upload and extract arbitrary ZIP archives. By crafting a malicious archive, an attacker can overwrite critical application files, such as 'routes/web.php', with payloads containing system commands. These commands execute in the context of the web server user, providing the attacker with full control over the application environment, including access to database credentials and environment secrets. This attack allows for persistence and full system compromise, impacting the confidentiality, integrity, and availability of the host application.
