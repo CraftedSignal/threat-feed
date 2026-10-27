@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--abebc884-062a-5c00-9602-d11b6a49605b",
+  "id": "bundle--aeeca610-b02a-56fc-9a26-ebd2709141f4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8089,6 +8089,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--108df535-51da-5ef0-9cc2-d7c87df92b41",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a6b9a9fa-555c-595f-bcec-b5ecc6135f36",
+      "target_ref": "vulnerability--0df12a02-2718-5d5c-9870-a5fc08f6f7e8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--10b5b63f-c28d-5322-87fe-71ee255c9875",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14091,6 +14102,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4585adc8-cffb-57a2-ac43-5aa78c52f44b",
       "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2fab5cea-4454-59d9-b47a-5c248a773e89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fbc4f33b-0a13-5739-afc1-b940a1bbcf45",
+      "target_ref": "vulnerability--0df12a02-2718-5d5c-9870-a5fc08f6f7e8"
     },
     {
       "type": "relationship",
@@ -22752,6 +22774,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5e067137-2c5d-5331-a04e-13bdeb4fa397",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T09:20:19.000Z",
+      "modified": "2026-10-27T09:20:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d061d992-6415-5bf4-b204-f4eaa6119511",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5e0955a5-34d7-5cbe-a26a-329d27386b60",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T14:55:49.000Z",
@@ -24662,6 +24695,17 @@
       "relationship_type": "has",
       "source_ref": "software--6c79437d-8a47-5af2-8e60-4d7053e58f17",
       "target_ref": "vulnerability--f3e43fbf-cff9-5135-b60d-5b25e0e2c4e9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--686fa23b-354a-5a65-9e7a-dbaeb9c81c44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T09:20:32.000Z",
+      "modified": "2026-10-27T09:20:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f7b1b351-5b20-58d0-9eac-4b8a30cd794a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -34247,6 +34291,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--99964d1b-433f-51c7-8224-4b93df67ce3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3492a89b-251a-5c85-a7bc-ffd16b4d3afb",
+      "target_ref": "vulnerability--4b229b10-6f8d-5ab3-baf0-aadd7782248c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--999934ba-a712-5666-a558-b247d7fe77b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35541,6 +35596,17 @@
       "relationship_type": "has",
       "source_ref": "software--a06ef835-2a35-53c5-92d5-422cd66aa742",
       "target_ref": "vulnerability--24778a04-4bc4-5420-8905-b8742e50754f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9ffee897-7959-5228-b6f4-e06b078b29ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6a9bd67a-4b27-5f6b-baad-e430e762fd36",
+      "target_ref": "vulnerability--0df12a02-2718-5d5c-9870-a5fc08f6f7e8"
     },
     {
       "type": "relationship",
@@ -46061,6 +46127,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d5c8351c-1b44-5956-bbcb-d49af3140644",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T09:20:19.000Z",
+      "modified": "2026-10-27T09:20:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d061d992-6415-5bf4-b204-f4eaa6119511",
+      "target_ref": "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d5cf7322-bcb8-5215-9c98-ed21a929355b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48840,6 +48917,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ba68723b-c3f4-5c49-9457-1c4c4320b3dc",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e3795f7d-0f41-5ae7-af9c-37b5959105df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8c532318-a6ec-597b-8ec8-b58f01c85869",
+      "target_ref": "vulnerability--0df12a02-2718-5d5c-9870-a5fc08f6f7e8"
     },
     {
       "type": "relationship",
@@ -122397,6 +122485,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d061d992-6415-5bf4-b204-f4eaa6119511",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T09:20:19.000Z",
+      "modified": "2026-10-27T09:20:19.000Z",
+      "name": "Rust zip-rs/zip2: Arbitrary file overwrite and RCE via ZIP header mismatch (CVE-2026-115905)",
+      "description": "## Overview\nCVE-2026-115905 affects the `zip` crate in the Rust `zip-rs/zip2` ecosystem. The vulnerability arises from differential parsing where `ZipArchive` relies on the Central Directory File Header (CDFH) for file metadata, while `ZipStreamReader` relies on the Local File Header (LFH). An attacker can craft a ZIP archive where the CDFH points to a benign file to bypass gateway security inspections, but the LFH directs the extraction to a sensitive path, resulting in an arbitrary file overwrite or potential RCE. \n\n## Attack Chain\n1. Attacker crafts a malicious ZIP archive with mismatched CDFH and LFH filenames.\n2. CDFH is configured to contain a benign filename (e.g., doc_report.pdf).\n3. LFH is configured to contain a malicious path (e.g., /home/user/.ssh/authorized_keys or a system startup script).\n4. The victim or a gateway security appliance inspects the ZIP archive using a parser that only validates the CDFH.\n5. The security inspection concludes the archive is safe.\n6. The target application uses `ZipStreamReader` to extract the archive.\n7. The streaming extractor follows the LFH and overwrites a critical system or application file with attacker-controlled content.\n\n## Impact\nSuccessful exploitation allows for arbitrary file overwrites, leading to potential Remote Code Execution (RCE) or security control bypass.\n\n## Recommendation\n- Patch all projects using the Rust `zip` crate by updating the dependency to version 9.0.5 or newer.\n- Audit existing infrastructure for applications that perform streaming extraction of user-supplied ZIP archives.\n- Until patching is possible, implement validation logic that reconciles CDFH and LFH filenames before initiating extraction.\n- Deploy the triage scanner provided by `foxcornlab` to audit `Cargo.lock` and suspicious ZIP archives for header mismatches.\n",
+      "published": "2026-10-27T09:20:19.000Z",
+      "labels": [
+        "file-overwrite",
+        "rce",
+        "rust",
+        "vulnerability",
+        "zip"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--94afc18a-e28b-5cfc-8590-dcc0c02113cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3492a89b-251a-5c85-a7bc-ffd16b4d3afb",
+        "vulnerability--4b229b10-6f8d-5ab3-baf0-aadd7782248c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-zip-cloaking-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-zip-cloaking-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/zip-rs/zip2/security/advisories/GHSA-m665-v7pm-7grj"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2E6736F6-1DE3-52E5-ABC5-74F60C929D21"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=2E6736F6-1DE3-52E5-ABC5-74F60C929D21\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-zip-cloaking-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-10-27-zip-cloaking-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-zip-cloaking-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-10-27T09:20:19.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d07dbef3-05aa-5874-9d22-8b74b171e54a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T14:01:57.000Z",
@@ -135025,6 +135169,65 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f7b1b351-5b20-58d0-9eac-4b8a30cd794a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T09:20:32.000Z",
+      "modified": "2026-10-27T09:20:32.000Z",
+      "name": "Microsoft Windows: http.sys use-after-free remote code execution (CVE-2021-31166)",
+      "description": "## Overview\n\nCVE-2021-31166 is a critical use-after-free vulnerability located in the Windows `http.sys` driver, which handles HTTP requests. Successful exploitation allows an unauthenticated, remote attacker to execute arbitrary code on the target system. The vulnerability was initially patched in May 2021. Recent activity involves the publication of functional proof-of-concept code that utilizes a specifically crafted `Accept-Encoding` header to trigger the flaw.\n\n## Impact\n\nSuccessful exploitation leads to full system compromise, providing the attacker with the same privileges as the `http.sys` driver (typically `SYSTEM` level). This impact is confirmed for unpatched versions of Windows 10 and Windows Server 2004/20H2.\n\n## Recommendation\n\n1. Perform an immediate inventory of Windows systems to identify any running instances of the affected Windows 10 or Server versions (2004/20H2) that remain unpatched.\n2. Ensure all systems are updated to the security patch level released in May 2021 or later.\n3. For internet-facing systems that cannot be patched immediately, deploy the provided WAF block logic to inspect and drop incoming HTTP requests containing the specific `Accept-Encoding: doar-e, ftw, imo, ,` header string.\n4. Implement the detection rule below to monitor for malicious header patterns in web server logs.\n",
+      "published": "2026-10-27T09:20:32.000Z",
+      "labels": [
+        "http-protocol-stack",
+        "rce",
+        "vulnerability",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6a9bd67a-4b27-5f6b-baad-e430e762fd36",
+        "software--8c532318-a6ec-597b-8ec8-b58f01c85869",
+        "software--a6b9a9fa-555c-595f-bcec-b5ecc6135f36",
+        "software--fbc4f33b-0a13-5739-afc1-b940a1bbcf45",
+        "vulnerability--0df12a02-2718-5d5c-9870-a5fc08f6f7e8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-cve-2021-31166",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2021-31166/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/0vercl0k/CVE-2021-31166"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-31166"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BGSILVAIT-WIN-CVE-2021-31166\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-cve-2021-31166",
+      "x_craftedsignal_event_id": "brief-2026-10-27-cve-2021-31166",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2021-31166/",
+      "x_craftedsignal_activity_at": "2026-10-27T09:20:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.99867,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f7cd7b56-3e52-5b1d-809a-a7ba4e57f36a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T00:45:48.000Z",
@@ -140585,6 +140788,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3492a89b-251a-5c85-a7bc-ffd16b4d3afb",
+      "name": "zip2 (\u003c 9.0.5)",
+      "vendor": "zip-rs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--34c1fe94-3bd5-5cc2-9d79-c6beae7a2439",
       "name": "AWS IAM",
       "vendor": "Amazon"
@@ -143546,6 +143756,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6a9bd67a-4b27-5f6b-baad-e430e762fd36",
+      "name": "Windows 10 20H2 (\u003c 10.0.19042.982)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6aa2e0ae-2737-5b3c-b264-551fad45d2d4",
       "name": "appointment booking software (\u003c 2.0.0)",
       "vendor": "OpenReception"
@@ -145557,6 +145774,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8c532318-a6ec-597b-8ec8-b58f01c85869",
+      "name": "Windows Server 2004 (\u003c 10.0.19041.982)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8c621043-5e47-57a5-9324-0351060f7c6b",
       "name": "ShareTech appliances"
     },
@@ -146904,6 +147128,13 @@
       "id": "software--a69d4ca9-97e5-56a3-a32f-0367584289c7",
       "name": "Burrito (\u003c 0.13.0)",
       "vendor": "Burrito"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a6b9a9fa-555c-595f-bcec-b5ecc6135f36",
+      "name": "Windows Server 20H2 (\u003c 10.0.19042.982)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -151187,6 +151418,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fbc4f33b-0a13-5739-afc1-b940a1bbcf45",
+      "name": "Windows 10 2004 (\u003c 10.0.19041.982)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fbcc3b33-75f7-58e3-93be-8cb00339b828",
       "name": "LiteLLM (1.107.0)",
       "vendor": "LiteLLM"
@@ -152812,6 +153050,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113381",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113381"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0df12a02-2718-5d5c-9870-a5fc08f6f7e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-31166",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-31166",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-31166"
         }
       ]
     },
@@ -159164,6 +159418,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112360",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112360"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4b229b10-6f8d-5ab3-baf0-aadd7782248c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115905",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115905",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115905"
         }
       ]
     },
