@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2923c467-19f1-50fd-8342-eb619d7b28db",
+  "id": "bundle--6759a55f-6508-52fe-b58c-566f258debbd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11026,6 +11026,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1f8d7b57-0ee6-594e-9108-21748fb01d09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--251c878e-7f55-5d55-819a-2e0afe32f2ed",
+      "target_ref": "vulnerability--6b568fa9-3da1-5358-92b9-cea22b580221"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1fa292d1-b720-581a-97fa-507d5420b7fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11528,6 +11539,17 @@
       "relationship_type": "has",
       "source_ref": "software--a2af0893-6328-5102-b0da-97efe63aad30",
       "target_ref": "vulnerability--7ad6729a-c56f-5e39-9184-9e70cf8bc453"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--22e886a9-f205-5636-bcc6-303fbda60414",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9a505344-94bf-57b2-b6f8-bc5c93ccd8b9",
+      "target_ref": "vulnerability--f42d22cd-642a-5053-bf13-e75fb9740d44"
     },
     {
       "type": "relationship",
@@ -20277,6 +20299,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--52a3ace1-bdf1-5267-88c9-9b5fc26e64ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:09:50.000Z",
+      "modified": "2026-10-27T03:09:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5e48b72f-585e-544c-a0e8-43ce3eb8509c",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--52a4ce4e-a1eb-5bcf-b3ef-d97590309880",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25641,6 +25674,17 @@
       "relationship_type": "has",
       "source_ref": "software--8eaa463d-21d3-5371-83a0-89fad0b08066",
       "target_ref": "vulnerability--94952196-e401-5313-8eea-87684f13ba3b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6efcadbf-b5c8-55b5-8186-de8e05c3cde9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:09:50.000Z",
+      "modified": "2026-10-27T03:09:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5e48b72f-585e-544c-a0e8-43ce3eb8509c",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -47079,6 +47123,17 @@
       "modified": "2026-10-13T14:39:16.000Z",
       "relationship_type": "uses",
       "source_ref": "report--4b8bd179-8fb9-51d9-8afa-2bd354d6145e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dca51451-61a1-5495-bc83-93efda467a5e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:09:42.000Z",
+      "modified": "2026-10-27T03:09:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d6ee9dc8-1960-5827-b539-0ceb46a09bae",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -83849,6 +83904,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5e48b72f-585e-544c-a0e8-43ce3eb8509c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:09:50.000Z",
+      "modified": "2026-10-27T03:09:50.000Z",
+      "name": "Another Redis Desktop Manager: Local code execution via XSS (CVE-2024-23998)",
+      "description": "## Overview\n\nCVE-2024-23998 describes a vulnerability in Another Redis Desktop Manager (\u003c= 1.6.6) where improper sanitization of the 'font_faq' configuration string allows for Cross-Site Scripting (XSS). Because the application leverages the 'v-html' directive and enables 'nodeIntegration' within its Electron framework, an attacker who successfully injects malicious JavaScript into the application's resources - such as by distributing a trojanized installer or modifying the application's configuration files - can achieve Remote Code Execution (RCE) with the privileges of the application when the user interacts with the affected UI element.\n\n## Attack Chain\n\n1. Attacker obtains the distribution files for Another Redis Desktop Manager.\n2. Attacker modifies the 'en.js' file within the application resources to inject malicious JavaScript into the 'font_faq' string.\n3. Attacker repackages the application into a trojanized installer.\n4. User installs the malicious software (often bypassing security warnings).\n5. User launches the application and navigates to the Settings menu.\n6. User hovers the mouse cursor over the Font Family help icon.\n7. The application renders the 'font_faq' string via 'v-html', executing the injected JavaScript.\n8. The malicious script uses the enabled 'nodeIntegration' to execute arbitrary operating system commands, such as 'calc.exe'.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution on the host machine running Another Redis Desktop Manager. The severity is high (CVSS 9.6) as it permits full system compromise, data exfiltration, or persistence depending on the attacker's payload.\n\n## Recommendation\n\n* Inventory all installations of Another Redis Desktop Manager and ensure they are upgraded to a version later than 1.6.6.\n* Implement strict application control policies to prevent the execution of unauthorized or tampered binaries, specifically targeting the installation directory of Electron-based applications.\n* Utilize endpoint security tools to monitor for unexpected process-spawning behavior from 'electron.exe' or the main application process.\n",
+      "published": "2026-10-27T03:09:50.000Z",
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9a505344-94bf-57b2-b6f8-bc5c93ccd8b9",
+        "vulnerability--f42d22cd-642a-5053-bf13-e75fb9740d44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-cve-2024-23998",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-23998/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-EQSTLAB-CVE-2024-23998"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-EQSTLAB-CVE-2024-23998\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-cve-2024-23998",
+      "x_craftedsignal_event_id": "brief-2026-10-27-cve-2024-23998",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-23998/",
+      "x_craftedsignal_activity_at": "2026-10-27T03:09:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
+      "x_craftedsignal_epss_max": 0.00711,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5e495698-2837-5810-8ad7-d2eb0f5ed09e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T00:44:50.000Z",
@@ -100008,6 +100110,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--908a2d50-39dc-5d2c-be16-859ce1c87c8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:09:31.000Z",
+      "modified": "2026-10-27T03:09:31.000Z",
+      "name": "Microsoft Active Directory Certificate Services: Subject Key Identifier injection (CVE-2025-27740)",
+      "description": "## Overview\nCVE-2025-27740 is a privilege escalation vulnerability in Windows Server Active Directory Certificate Services (AD CS). The vulnerability exists because a pre-patch Enterprise CA may honor a `SubjectKeyIdentifier` (SKI) extension provided by a requestor in a certificate signing request (CSR) instead of deriving it from the public key. An attacker who can enroll for a certificate can inject the SKI of a target account that utilizes `X509:` strong mapping, potentially allowing authentication as that target account.\n\n## Exploitation\nA working proof-of-concept exploit has been published on Sploitus. The exploit demonstrates the ability to force an Enterprise CA to issue a certificate containing an attacker-controlled Subject Key Identifier.\n\n## Mitigation\nThe vulnerability is addressed by installing KB5055523 or subsequent cumulative updates. For systems where immediate patching is not possible, the provided guidance suggests auditing for privileged accounts using `X509:` strong mappings in `altSecurityIdentities` and considering a temporary transition to `X509:` issuer and subject mappings. Administrators can monitor for the `MSG_I_CA_SKI_OVERRIDDEN` event on patched CAs to detect probing attempts.\n",
+      "published": "2026-10-27T03:09:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a59f2665-eada-549e-aa11-e65f55373bcc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-adcs-ski-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-adcs-ski-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=46102541-3DBA-5E97-98AF-051BA8B1ECD6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=46102541-3DBA-5E97-98AF-051BA8B1ECD6\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-adcs-ski-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-27-adcs-ski-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-adcs-ski-injection/",
+      "x_craftedsignal_activity_at": "2026-10-27T03:09:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.03454,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -122988,6 +123134,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d6ee9dc8-1960-5827-b539-0ceb46a09bae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:09:42.000Z",
+      "modified": "2026-10-27T03:09:42.000Z",
+      "name": "Simple Machines Forum: Authorization bypass in profile controller (CVE-2026-43621)",
+      "description": "## Overview\nCVE-2026-43621 is an authorization flaw in the Simple Machines Forum (SMF) 3.0 profile controller. The `Profile::load()` function fails to validate the `u` (user) parameter against the authenticated session, allowing an attacker to request the account settings form of any member. Accessing this form is considered equivalent to account takeover, as the returned page contains the password change fields. The vulnerability is confirmed in SMF 3.0; versions 2.1.x are not affected.\n\n## Impact\nSuccessful exploitation allows low-privilege users to access the profile settings of arbitrary members, including the account-takeover password-change interface.\n\n## Recommendation\n- Upgrade to the release containing commit 6f0dc61958aa.\n- Until patched, implement WAF or reverse proxy rules to block `action=profile` requests where the `u` parameter does not match the authenticated user ID. Note that attackers may use obfuscated parameter variants such as array syntax (`u[]`), null bytes, or mixed separators to bypass naive filters.\n",
+      "published": "2026-10-27T03:09:42.000Z",
+      "labels": [
+        "account-takeover",
+        "authorization-bypass",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--251c878e-7f55-5d55-819a-2e0afe32f2ed",
+        "vulnerability--6b568fa9-3da1-5358-92b9-cea22b580221"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-smf-authz-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-smf-authz-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SimpleMachines/SMF/commit/6f0dc61958aa"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BAC70C0A-D74B-5A00-AD02-4B8D304247F2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=BAC70C0A-D74B-5A00-AD02-4B8D304247F2\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-smf-authz-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-27-smf-authz-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-smf-authz-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-27T03:09:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00363,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d71eb252-b8e2-5511-a9d0-2946faefd2e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:01:07.000Z",
@@ -138595,6 +138796,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--251c878e-7f55-5d55-819a-2e0afe32f2ed",
+      "name": "Simple Machines Forum (3.0)",
+      "vendor": "Simple Machines"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--25c229b7-737a-5939-9b24-9bf11f35da03",
       "name": "Maximo AI Service (9.1.0, 9.2.0)",
       "vendor": "IBM"
@@ -144919,6 +145127,13 @@
       "spec_version": "2.1",
       "id": "software--9a42749d-60df-5205-8538-ef9969fbf548",
       "name": "Qualcomm aqt1000 Firmware (All versions)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9a505344-94bf-57b2-b6f8-bc5c93ccd8b9",
+      "name": "Another Redis Desktop Manager (\u003c= 1.6.6)",
+      "vendor": "Goanother"
     },
     {
       "type": "software",
@@ -160828,6 +161043,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6b568fa9-3da1-5358-92b9-cea22b580221",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-43621",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-43621",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43621"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6b6e09f0-1180-573a-b35d-7628a2d03880",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -166358,6 +166589,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63354",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63354"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a59f2665-eada-549e-aa11-e65f55373bcc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-27740",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-27740",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27740"
         }
       ]
     },
@@ -173830,6 +174077,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-9205",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9205"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f42d22cd-642a-5053-bf13-e75fb9740d44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-23998",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-23998",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-23998"
         }
       ]
     },
