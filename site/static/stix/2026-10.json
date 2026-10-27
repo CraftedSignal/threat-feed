@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--98587fd1-24fe-5b8b-a2fd-37999e7129c3",
+  "id": "bundle--790d2321-a0a8-50c2-91ab-3504775cddb8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3308,6 +3308,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--141a3d8e-637b-5f34-9b27-65723ead823e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "hash_sha256: 9ca705d6466d4d71c3fb0cae5097933afe1de1bc139d53bb63565a52dc9ebccb",
+      "description": "Malicious password-protected PDF attachment",
+      "pattern": "[file:hashes.'SHA-256' = '9ca705d6466d4d71c3fb0cae5097933afe1de1bc139d53bb63565a52dc9ebccb']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-27T17:53:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--1a392f92-1232-5fa6-a9e4-835714dd298c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -3568,6 +3581,18 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--3806b01b-58aa-51b1-920b-bfb1bf70efa3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "ip: 67.205.150.245",
+      "pattern": "[ipv4-addr:value = '67.205.150.245']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-27T17:53:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--41deb973-45d3-541c-ac81-086743594659",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:44:36.000Z",
@@ -3711,6 +3736,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--5b4077e4-3b52-5d85-94b5-c7f8a46ae72a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "url: https://mm-lasertechnik.lastingonlineexperiences.de/1Dmw9/?key=NKsIDYXvtY",
+      "description": "Fake Microsoft login page",
+      "pattern": "[url:value = 'https://mm-lasertechnik.lastingonlineexperiences.de/1Dmw9/?key=NKsIDYXvtY']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-27T17:53:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--5b551014-6e25-51b8-b8b7-18a61337eafb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -3798,6 +3836,19 @@
       "pattern": "[domain-name:value = 'natcloudservice.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-08T19:12:19.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--72c5eabc-8d07-5909-b59b-b828fe59b442",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "url: https://nbpn.lastingonlineexperiences.de/nasa.php",
+      "description": "Credential harvesting server",
+      "pattern": "[url:value = 'https://nbpn.lastingonlineexperiences.de/nasa.php']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-27T17:53:26.000Z"
     },
     {
       "type": "indicator",
@@ -4023,6 +4074,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--94e78236-36c3-5cd4-8235-f177b18723b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "url: https://slotpastimaxwin50jt.online/autoproject@autoproject.com/index.php",
+      "description": "Initial redirect URL found in PDF",
+      "pattern": "[url:value = 'https://slotpastimaxwin50jt.online/autoproject@autoproject.com/index.php']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-27T17:53:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--975a1904-9a86-5775-b939-335bdc87ebee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -4201,6 +4265,18 @@
       "pattern": "[ipv4-addr:value = '108.61.163.187']",
       "pattern_type": "stix",
       "valid_from": "2026-10-01T10:33:30.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b5e2a391-e2e6-5a4f-a8f8-d11905327b21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "ip: 172.67.157.109",
+      "pattern": "[ipv4-addr:value = '172.67.157.109']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-27T17:53:26.000Z"
     },
     {
       "type": "indicator",
@@ -4461,6 +4537,18 @@
       "pattern": "[domain-name:value = '*.facebook.net']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e01702c2-6994-5e05-b91a-da277df37da3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "ip: 104.21.82.118",
+      "pattern": "[ipv4-addr:value = '104.21.82.118']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-27T17:53:26.000Z"
     },
     {
       "type": "indicator",
@@ -6533,6 +6621,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--076b81a0-dd18-5852-b8d1-839b6621f709",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f046b05d-f909-5be6-98fc-264d5f287f64",
+      "target_ref": "vulnerability--535c2d32-eebe-547a-8d08-7bc20871d3fb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0770650c-c425-5b68-af13-8df67ec33fd7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:58:10.000Z",
@@ -6650,6 +6749,17 @@
       "relationship_type": "has",
       "source_ref": "software--fc480c58-d320-5ccc-b996-669e7b085a34",
       "target_ref": "vulnerability--c832be25-2242-5dc3-8394-ac78fdca8635"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--07e24392-8d8f-50c2-b4d1-2e43b9f4af07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "target_ref": "indicator--72c5eabc-8d07-5909-b59b-b828fe59b442"
     },
     {
       "type": "relationship",
@@ -10493,6 +10603,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1b275b0b-c577-59f6-ba5f-c3faa608cbbd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bf156218-ee7e-5f64-82bf-9cef24355ec6",
+      "target_ref": "vulnerability--471936c5-b283-5d98-afa4-cc7e580b5e55"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1b34a1f6-a482-51e8-8cfd-9eaba028e093",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11666,6 +11787,17 @@
       "relationship_type": "has",
       "source_ref": "software--e0d4b588-b3a8-5d68-8f85-a85e4fa9c132",
       "target_ref": "vulnerability--a5cd79e1-00c3-5a35-b5ca-837c151362a9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--216702bd-4fcf-557e-aff6-6912aa2e615d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f046b05d-f909-5be6-98fc-264d5f287f64",
+      "target_ref": "vulnerability--dd375511-3900-53dc-87d7-0d9b155ea1a8"
     },
     {
       "type": "relationship",
@@ -15674,6 +15806,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--36fb92a1-d21a-5b73-b131-4fd6f535773a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bf156218-ee7e-5f64-82bf-9cef24355ec6",
+      "target_ref": "vulnerability--8f7d063d-1612-5fe7-a4c5-22617086d034"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--37278428-9a5d-5508-b97b-7ad24e793566",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T08:26:05.000Z",
@@ -18079,6 +18222,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5cf66729-6bfb-56c3-846c-7a9efca0c9a3",
       "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--435c4402-e006-53e0-bec7-e38fe57ed9c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "target_ref": "indicator--b5e2a391-e2e6-5a4f-a8f8-d11905327b21"
     },
     {
       "type": "relationship",
@@ -20862,6 +21016,17 @@
       "relationship_type": "has",
       "source_ref": "software--eaaf694f-431a-5f79-8ea2-01e8bbcd532f",
       "target_ref": "vulnerability--c2c82f11-72a5-5b11-9361-f00af773ec3f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--513f1f78-3baa-5a20-aa61-546d922fb4b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "target_ref": "indicator--5b4077e4-3b52-5d85-94b5-c7f8a46ae72a"
     },
     {
       "type": "relationship",
@@ -26179,6 +26344,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6bfc7a10-db9a-5dbf-8ca5-9704b29a86fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0cf92e6-efae-5928-a27e-e44c025e189f",
+      "target_ref": "vulnerability--471936c5-b283-5d98-afa4-cc7e580b5e55"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6bfe7f1b-17ea-5e41-9668-476a29114f15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T12:41:20.000Z",
@@ -27594,6 +27770,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bb266c28-4d38-5004-abea-ac6ff7f8b740",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7327a3f5-9157-5e5f-9f2b-58ea2f6dd3bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "target_ref": "indicator--141a3d8e-637b-5f34-9b27-65723ead823e"
     },
     {
       "type": "relationship",
@@ -37509,6 +37696,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a36ec157-36ea-5fb2-8db7-cf0a252f8101",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "target_ref": "indicator--e01702c2-6994-5e05-b91a-da277df37da3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3753638-67ca-5cdf-82c1-303a9d895f29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T19:45:21.000Z",
@@ -45176,6 +45374,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c9712f41-767e-5fdc-9e5d-2af718c25d9e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--021a41ee-63c1-5eb8-a233-2a09798727ba",
+      "target_ref": "vulnerability--4731558e-29c4-5b9e-8434-75b83d2c9345"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c97eeedf-44c3-5bb2-b8bd-b772c3e0cd22",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T15:55:12.000Z",
@@ -48476,6 +48685,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8c65218-4d07-5cb0-94e2-9e89ec982d7f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "target_ref": "indicator--3806b01b-58aa-51b1-920b-bfb1bf70efa3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d907fcd4-0f55-5a3d-aa61-ab1159f090b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T01:10:01.000Z",
@@ -50485,6 +50705,17 @@
       "relationship_type": "uses",
       "source_ref": "report--acea9e23-e69d-559e-b9b6-bfde8aaa2ca0",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e2821772-42bc-562c-a66b-63d8fac23215",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a0cf92e6-efae-5928-a27e-e44c025e189f",
+      "target_ref": "vulnerability--8f7d063d-1612-5fe7-a4c5-22617086d034"
     },
     {
       "type": "relationship",
@@ -53833,6 +54064,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f111479e-49e6-54ba-a676-086a7b8c5c37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:57.000Z",
+      "modified": "2026-10-27T17:54:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3ade4214-a2f5-5de4-819a-9104b75494f1",
+      "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f1146a90-8d24-573e-a8d3-5b2c5ccf5f1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54071,6 +54313,17 @@
       "relationship_type": "has",
       "source_ref": "software--275ec06d-1da7-59f7-b226-f98006518b95",
       "target_ref": "vulnerability--a39c612b-c8ac-5524-8770-eeedccf16f39"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2543769-5df7-56a9-804b-70078259a25f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "target_ref": "indicator--94e78236-36c3-5cd4-8235-f177b18723b2"
     },
     {
       "type": "relationship",
@@ -63525,6 +63778,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--18c8ca71-e0aa-5499-ac44-495159df0e55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:49.000Z",
+      "modified": "2026-10-27T17:53:49.000Z",
+      "name": "Better Auth: OAuth state-to-Magic Link authentication bypass (CVE-2026-114607)",
+      "description": "## Overview\n\nBetter Auth versions 1.4.0-beta.18 through 1.7.6 are vulnerable to an authentication bypass (CVE-2026-114607). The library incorrectly allows an OAuth sign-in state value to be accepted as a valid Magic Link token. An attacker can initiate an OAuth flow for a specific target email address, obtain the resulting state identifier, and submit it to the Magic Link endpoint to complete authentication as that user. This vulnerability persists if specific configurations regarding `storeToken` and `storeIdentifier` strategies are in use.\n\n## Attack Chain\n\n1. Attacker initiates an OAuth sign-in flow through Better Auth for a target email address.\n2. The application generates an OAuth state value to track this session.\n3. The attacker intercepts or extracts the OAuth state value associated with the target email address.\n4. The attacker submits the stolen OAuth state value to the Magic Link authentication endpoint.\n5. Better Auth erroneously treats the OAuth state value as a valid Magic Link token.\n6. The system grants the attacker a session associated with the target email address.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to gain full access to any existing user account if the email address is known, bypassing the need for mailbox access. If Magic Link sign-up is enabled for a non-existent email address, the attacker can create an account that the system incorrectly marks as email-verified, which can be leveraged to bypass secondary security controls or access gated application features.\n\n## Recommendation\n\n- Upgrade `better-auth` to version 1.7.7 or later as soon as it is released.\n- Until the update is applied, prioritize switching `account.storeStateStrategy` to `\"cookie\"` if feasible, or disable the vulnerable combinations of Magic Link and social/Generic OAuth providers.\n- Ensure all internal Better Auth plugins, adapters, and integrations are updated in synchronization with the core library to ensure consistent verification logic.\n- Review and update custom `verification.storeIdentifier.overrides` to include the `magic-link:` and `auth-state:` prefixes as required by the upcoming security patch.\n",
+      "published": "2026-10-27T17:53:49.000Z",
+      "labels": [
+        "account-takeover",
+        "authentication-bypass",
+        "cloud",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--021a41ee-63c1-5eb8-a233-2a09798727ba",
+        "vulnerability--4731558e-29c4-5b9e-8434-75b83d2c9345"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-better-auth-oauth-magic-link-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-better-auth-oauth-magic-link-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-965c-763c-88jm"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-better-auth-oauth-magic-link-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-27-better-auth-oauth-magic-link-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-better-auth-oauth-magic-link-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:53:49.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.0042,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -75236,6 +75536,66 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3ade4214-a2f5-5de4-819a-9104b75494f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:57.000Z",
+      "modified": "2026-10-27T17:54:36.000Z",
+      "name": "Authlib: Signature verification bypass in JWS JSON deserialization",
+      "description": "Authlib versions prior to 1.9.0 contain a vulnerability in the `JsonWebSignature.deserialize_json()` method. Due to an implementation error where a validation flag is initialized as `True` and never toggled if the `signatures` array is empty, the library treats payloads as verified without signature or key validation. This allows an unauthenticated caller to bypass authentication or authorization checks when processing forged JWS JSON objects.\n",
+      "published": "2026-10-27T17:53:57.000Z",
+      "labels": [
+        "authentication-bypass",
+        "authlib",
+        "crypto-vulnerability",
+        "jws-vulnerability",
+        "jwt",
+        "python"
+      ],
+      "object_refs": [
+        "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a0cf92e6-efae-5928-a27e-e44c025e189f",
+        "software--bf156218-ee7e-5f64-82bf-9cef24355ec6",
+        "vulnerability--471936c5-b283-5d98-afa4-cc7e580b5e55",
+        "vulnerability--8f7d063d-1612-5fe7-a4c5-22617086d034"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-authlib-jws-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-authlib-jws-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-6v38-4h7w-rj9h"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-8m4g-j4wp-wgcg"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114616"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-authlib-jws-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-27-authlib-jws-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-authlib-jws-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:54:36.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00383,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -122456,6 +122816,84 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c33e7cdf-a7d9-5fc7-b34d-e39ce06a06bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:52:56.000Z",
+      "modified": "2026-10-27T17:53:36.000Z",
+      "name": "EmbedThis GoAhead: Multiple TLS and Authentication Vulnerabilities (CVE-2026-115881, CVE-2026-115884)",
+      "description": "## Overview\n\nEmbedThis has released GoAhead version 6.1.1 to address multiple security vulnerabilities affecting various TLS backends and authentication mechanisms. The most significant issues include the failure to enforce Certificate Revocation Lists (CRL) when using the OpenSSL backend (CVE-2026-115881), improper validation of certificate chains in legacy LibreSSL configurations (CVE-2026-115884), and a session decryption risk in Mbed TLS builds. Additionally, a login bypass affects form-based authentication using the Blowfish password format.\n\nThese vulnerabilities are design and implementation flaws specific to how firmware developers compile the GoAhead server. Because these choices are locked into device firmware, individual device owners cannot remediate the issues through configuration changes alone and must rely on manufacturer-provided firmware updates.\n\n## Impact\n\nThe vulnerabilities allow for potential unauthorized access via revoked or forged client certificates, session interception for specific builds, and authentication bypasses on administrative interfaces. The affected population includes millions of devices such as routers, printers, and industrial controllers, though no reports of active exploitation have been confirmed as of late October 2026.\n\n## Recommendation\n\n- Identify devices in your environment utilizing the GoAhead web server for management interfaces.\n- Monitor manufacturer advisories for firmware updates that include GoAhead 6.1.1.\n- Prioritize applying updates to internet-facing devices.\n- If a firmware update is unavailable, restrict access to administrative management interfaces to trusted, internal network segments only.\n- Review administrative login logs for anomalous patterns, particularly if the device supports HTTP Basic or form-based authentication, to identify potential exploitation attempts of the login bypass.\n",
+      "published": "2026-10-27T17:52:56.000Z",
+      "labels": [
+        "authentication-bypass",
+        "tls",
+        "vulnerability",
+        "web-server"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f046b05d-f909-5be6-98fc-264d5f287f64",
+        "vulnerability--535c2d32-eebe-547a-8d08-7bc20871d3fb",
+        "vulnerability--dd375511-3900-53dc-87d7-0d9b155ea1a8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-goahead-tls-flaws",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-goahead-tls-flaws/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://foxio.io/blog/choose-your-backend-three-tls-bugs-in-goahead"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/embedthis/goahead/releases/tag/v6.1.1"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/embedthis/goahead/security"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/embedthis/goahead/security/advisories/GHSA-584w-ph2x-4gfq"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/embedthis/goahead/security/advisories/GHSA-5m75-xq69-c3c5"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/embedthis/goahead/security/advisories/GHSA-qj3g-66fp-rhhr"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/goahead-6-1-1-tls-auth-cgi-flaws-oct-2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/goahead-tls-flaws-allow-revoked-client.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.blazeinfosec.com/labs/goahead-sixteen-fixes-independent-investigation"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-goahead-tls-flaws",
+      "x_craftedsignal_event_id": "brief-2026-10-27-goahead-tls-flaws",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-goahead-tls-flaws/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:53:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c34d95a7-451b-54d2-a5cc-2ddb9e946e81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T13:59:44.000Z",
@@ -135659,6 +136097,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eb2adb75-699e-54cc-b957-44e516597832",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T17:53:26.000Z",
+      "modified": "2026-10-27T17:53:26.000Z",
+      "name": "Credential Phishing via Fake Project Bid Invitations",
+      "description": "Cofense Phishing Defence Centre identified a phishing campaign utilizing fraudulent project bid invitations. The emails contain password-protected PDF attachments, a tactic used to evade email security scanners that cannot inspect encrypted content. Upon opening the PDF, victims are prompted to interact with a link that mimics a OneDrive document preview. This leads to a fake document-sharing portal and subsequently a spoofed Microsoft login page designed to harvest user credentials.\n",
+      "published": "2026-10-27T17:53:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--141a3d8e-637b-5f34-9b27-65723ead823e",
+        "indicator--3806b01b-58aa-51b1-920b-bfb1bf70efa3",
+        "indicator--5b4077e4-3b52-5d85-94b5-c7f8a46ae72a",
+        "indicator--72c5eabc-8d07-5909-b59b-b828fe59b442",
+        "indicator--94e78236-36c3-5cd4-8235-f177b18723b2",
+        "indicator--b5e2a391-e2e6-5a4f-a8f8-d11905327b21",
+        "indicator--e01702c2-6994-5e05-b91a-da277df37da3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-phishing-bids",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-phishing-bids/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cofense.com/blog/locked-and-loaded-phishing-through-fake-bids-and-protected-documents"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-phishing-bids",
+      "x_craftedsignal_event_id": "brief-2026-10-27-phishing-bids",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-phishing-bids/",
+      "x_craftedsignal_activity_at": "2026-10-27T17:53:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://cofense.com/blog/locked-and-loaded-phishing-through-fake-bids-and-protected-documents",
+        "observed_at": "2026-10-27T17:53:26.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb6bfa5b-8b4f-581c-95ae-1254fb82e2a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T21:49:02.000Z",
@@ -142637,6 +143122,13 @@
       "id": "software--01f9a379-3b30-5093-83d2-2e689a46d6d2",
       "name": "crass (\u003c 1.0.7)",
       "vendor": "RubyGems"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--021a41ee-63c1-5eb8-a233-2a09798727ba",
+      "name": "better-auth (\u003c 1.7.7)",
+      "vendor": "better-auth"
     },
     {
       "type": "software",
@@ -151931,6 +152423,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a0cf92e6-efae-5928-a27e-e44c025e189f",
+      "name": "Authlib (\u003c 1.9.1)",
+      "vendor": "Authlib"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a0ebf155-9216-5903-8c57-9b46916735fd",
       "name": "keda-operator (\u003c= 2.20.0)",
       "vendor": "KEDA"
@@ -153519,6 +154018,13 @@
       "id": "software--bf09d5c6-1a83-51d0-9b07-162caf7df650",
       "name": "Kirki (\u003c= 6.2.5)",
       "vendor": "Kirki"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bf156218-ee7e-5f64-82bf-9cef24355ec6",
+      "name": "Authlib (prior to 1.9.0)",
+      "vendor": "Authlib"
     },
     {
       "type": "software",
@@ -156096,6 +156602,13 @@
       "id": "software--f03c92ed-e586-55fe-8b0b-0728fc290b85",
       "name": "The Real Cookie Banner: GDPR \u0026 ePrivacy Cookie Consent (\u003c= 5.3.5)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f046b05d-f909-5be6-98fc-264d5f287f64",
+      "name": "GoAhead (\u003c 6.1.1)",
+      "vendor": "EmbedThis"
     },
     {
       "type": "software",
@@ -164703,6 +165216,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--471936c5-b283-5d98-afa4-cc7e580b5e55",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-96760",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-96760",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96760"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--472918f6-5d35-549f-a779-46ca4a955d15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -164713,6 +165242,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76268",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76268"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4731558e-29c4-5b9e-8434-75b83d2c9345",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114607",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114607",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114607"
         }
       ]
     },
@@ -165977,6 +166522,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110769",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110769"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--535c2d32-eebe-547a-8d08-7bc20871d3fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115881",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115881",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115881"
         }
       ]
     },
@@ -172137,6 +172698,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-84823",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84823"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8f7d063d-1612-5fe7-a4c5-22617086d034",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114616",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114616",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114616"
         }
       ]
     },
@@ -179929,6 +180506,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102565",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102565"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dd375511-3900-53dc-87d7-0d9b155ea1a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115884",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115884",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115884"
         }
       ]
     },
