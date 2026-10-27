@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 20
-activity_at: "2026-10-27T14:38:29Z"
+revision: 21
+activity_at: "2026-10-27T16:40:44Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -226,11 +226,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - revision: 21
+    at: "2026-10-27T16:40:44Z"
+    checksum: sha256:f07a4262389503b836c2b0b92d6456788f2735ca4e86dd0af42b761a4acfb6ff
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-27T14:37:54Z"
+lastmod: "2026-10-27T16:40:10Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -297,6 +307,7 @@ products:
   - RHEL 9 php
   - RHEL (8.0.30-8.el9_8.1)
   - RHEL 9 (php <= 8.0.30)
+  - RHEL 9
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -394,13 +405,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-27T04:02:07Z"
-    level: L1
-    summary: new product
-    sources:
-      - crowdstrike
-    source_urls:
-      - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
   - at: "2026-10-27T09:09:21Z"
     level: L1
     summary: new product
@@ -423,6 +427,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-27T14:37:54Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
+  - at: "2026-10-27T16:40:10Z"
     level: L1
     summary: new product
     sources:

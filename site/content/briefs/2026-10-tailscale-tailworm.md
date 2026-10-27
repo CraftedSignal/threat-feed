@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-27-tailscale-tailworm
 event_id: brief-2026-10-27-tailscale-tailworm
-revision: 1
-activity_at: "2026-10-27T16:06:16Z"
+revision: 2
+activity_at: "2026-10-27T16:40:44Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-27T16:40:44Z"
+    checksum: sha256:e7c7b1bf34227b1df2dc0219a11cd770b031a52f7dc5ff4edb05a8535c96e354
+    summary: OS linux
+    changed_fields:
+      - affected_os
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
 title: Tailscale SSH Privilege Escalation Vulnerabilities
 slug: 2026-10-tailscale-tailworm
 description: Multiple privilege escalation and access control bypass vulnerabilities in Tailscale SSH, collectively dubbed Tailworm, allow an authenticated attacker to perform lateral movement and local privilege escalation.
 date: "2026-10-27T16:06:16Z"
+lastmod: "2026-10-27T16:40:11Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -27,6 +42,8 @@ vendors:
 products:
   - Tailscale client (<= 1.104.2)
   - headscale (<= 0.29.5)
+affected_os:
+  - Linux
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -42,6 +59,10 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://www.securityweek.com/tailscale-rushes-patches-after-uncoordinated-disclosure-of-tailworm-flaws/
+  - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
+  - https://tailworm.com/
+  - https://tailscale.com/ssh-investigation-update
+  - https://tailscale.com/security-bulletins
 action_plan:
   priority: elevated
   owners:
@@ -68,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: Tailworm vulnerabilities
       evidence: Tailscale is getting ready to ship a client update that addresses privilege escalation weaknesses
+updates:
+  - at: "2026-10-27T16:40:11Z"
+    level: L1
+    summary: OS linux
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
 ---
 
 Tailscale is addressing a series of 11 vulnerabilities collectively dubbed 'Tailworm' affecting the Tailscale client (version 1.104.2 and earlier) and the headscale control server (version 0.29.5 and earlier). The most severe findings involve the Tailscale SSH feature, where improper handling of Unix privileges and SSH forwarding can allow an attacker who has gained a foothold on one device to bypass access policies and escalate to root privileges on target servers within the mesh network. There is currently no evidence of in-the-wild exploitation.
