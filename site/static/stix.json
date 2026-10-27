@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--faad4593-d620-588b-9281-6d5632a911ee",
+  "id": "bundle--bf79b56c-0e17-537b-80f1-dc5005af9805",
   "objects": [
     {
       "type": "attack-pattern",
@@ -50327,6 +50327,17 @@
       "relationship_type": "uses",
       "source_ref": "report--74032b78-2843-5e85-8de8-3c2127350c40",
       "target_ref": "indicator--52586207-e9ec-5d26-ba38-89e6bdf9bb40"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d79a88c8-84d2-584f-95e1-404c165d8676",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--203cc7e2-77de-53a3-bb71-fe8b0785d7cf",
+      "target_ref": "vulnerability--9254da4f-0c74-5618-9373-204b0dc77694"
     },
     {
       "type": "relationship",
@@ -102800,6 +102811,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--818c5943-58e0-5e2a-bc0e-8f97d08e5bed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T00:09:15.000Z",
+      "modified": "2026-10-27T00:09:15.000Z",
+      "name": "CVE-2024-3094: Vulnerability Information",
+      "description": "## Overview\nCVE-2024-3094 is a high-severity vulnerability (CVSS 10.0) affecting Tukaani Xz versions 5.6.0 and 5.6.1. The attack vector is defined as network-based with low attack complexity. Publicly available scripts for detecting this vulnerability on the SSH binary have been published.\n\n## Technical Details\n- CVSS: 10.0\n- Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H\n- EPSS Score: 90.9%\n",
+      "published": "2026-10-27T00:09:15.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--203cc7e2-77de-53a3-bb71-fe8b0785d7cf",
+        "vulnerability--9254da4f-0c74-5618-9373-204b0dc77694"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-cve-2024-3094",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-3094/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ASHWANI95-CVE-2024-3094"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ASHWANI95-CVE-2024-3094\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-cve-2024-3094",
+      "x_craftedsignal_event_id": "brief-2026-10-27-cve-2024-3094",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-3094/",
+      "x_craftedsignal_activity_at": "2026-10-27T00:09:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.909,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8191e850-2ec2-53b7-aa40-2d2f6c12a45b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T07:02:26.000Z",
@@ -150373,6 +150429,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--203cc7e2-77de-53a3-bb71-fe8b0785d7cf",
+      "name": "Tukaani Xz (5.6.0, 5.6.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--20470b55-ac45-5bbe-adb6-eab5cf017ba5",
       "name": "lz4-java (\u003e= 1.7.0, \u003c= 1.8.1)"
     },
@@ -178934,6 +178996,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-20291",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20291"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9254da4f-0c74-5618-9373-204b0dc77694",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-3094",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-3094",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3094"
         }
       ]
     },
