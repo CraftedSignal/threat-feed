@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b8ceec1d-8a21-5a92-97a5-3da5f5c043fb",
+  "id": "bundle--4ced7d46-6fba-5376-8a1e-f60575c4eeec",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8519,6 +8519,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--127aea6c-5793-5b48-bfcd-fc3fab429034",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--180073cb-07cf-581a-8c19-e1b12baf46b3",
+      "target_ref": "vulnerability--78902dac-732b-5f93-be41-2ee9af537559"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--127d639e-5766-5e7e-99b6-d8608a6c07d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10264,6 +10275,17 @@
       "relationship_type": "has",
       "source_ref": "software--036685d9-0fad-5d2d-904b-b8ff0069befc",
       "target_ref": "vulnerability--56ccd649-b0c9-5d9c-b39e-b0d0396cc6fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1b3b0657-6ab7-55b3-9104-617154f3eebd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T14:03:13.000Z",
+      "modified": "2026-10-27T14:03:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--79254b20-2448-51ac-92a6-6c465156146a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -21323,6 +21345,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5745dcc5-4bf5-5a08-b0eb-31def3296d13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d1dc3e3a-9f27-5f2b-afb5-8ae0bed50ea6",
+      "target_ref": "vulnerability--78902dac-732b-5f93-be41-2ee9af537559"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5750b110-5e98-54cd-994c-db813115b004",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T16:07:02.000Z",
@@ -27952,6 +27985,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06e11807-5587-57b5-bd55-2c19674a9887",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--78b9962a-8e6e-5af6-b3d1-c9a344c0dd60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3567ae31-28a4-5cea-b412-503b73aab5ec",
+      "target_ref": "vulnerability--78902dac-732b-5f93-be41-2ee9af537559"
     },
     {
       "type": "relationship",
@@ -46388,6 +46432,17 @@
       "relationship_type": "uses",
       "source_ref": "report--06c5c4a2-5323-5239-b1a5-e54dd89f8e60",
       "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d6064590-9db0-5ef3-bd84-9cd8a3861466",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f2888370-ecc6-5ffd-9acf-048504004f67",
+      "target_ref": "vulnerability--78902dac-732b-5f93-be41-2ee9af537559"
     },
     {
       "type": "relationship",
@@ -94234,6 +94289,64 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--79254b20-2448-51ac-92a6-6c465156146a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T14:03:13.000Z",
+      "modified": "2026-10-27T14:03:13.000Z",
+      "name": "Microsoft Windows: Fastprox privilege escalation (CVE-2026-69451)",
+      "description": "## Overview\n\nCVE-2026-69451 is a high-severity vulnerability in the Windows Fastprox component. A proof-of-concept (PoC) tool titled \"fastprox_eop.exe\" has been published, which allows an attacker with low privileges to execute arbitrary commands on a compromised system. The exploit requires user interaction and is applicable to multiple versions of Windows 10.\n\n## Impact\n\nSuccessful exploitation allows a local attacker with low privileges to escalate their permissions to a higher integrity level, facilitating arbitrary command execution on the target system.\n\n## Recommendation\n\n1. Inventory all Windows 10 endpoints to identify systems running versions earlier than those listed in the affected products section.\n2. Deploy the relevant Microsoft security updates to remediate CVE-2026-69451 on all identified vulnerable systems.\n3. Monitor endpoint telemetry for unauthorized execution of \"fastprox_eop.exe\" or suspicious command lines involving the Fastprox component.\n",
+      "published": "2026-10-27T14:03:13.000Z",
+      "labels": [
+        "cve-2026-69451",
+        "privilege-escalation",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--180073cb-07cf-581a-8c19-e1b12baf46b3",
+        "software--3567ae31-28a4-5cea-b412-503b73aab5ec",
+        "software--d1dc3e3a-9f27-5f2b-afb5-8ae0bed50ea6",
+        "software--f2888370-ecc6-5ffd-9acf-048504004f67",
+        "vulnerability--78902dac-732b-5f93-be41-2ee9af537559"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-fastprox-eop",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-fastprox-eop/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://fj016.fr/blog/cve-2026-69451-en"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FJ016-CVE-2026-69451-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-FJ016-CVE-2026-69451-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-fastprox-eop",
+      "x_craftedsignal_event_id": "brief-2026-10-27-fastprox-eop",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fastprox-eop/",
+      "x_craftedsignal_activity_at": "2026-10-27T14:03:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_epss_max": 0.0057,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--794a1d20-8a3a-5e8a-b227-3b2f529a6f63",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T20:45:17.000Z",
@@ -140933,6 +141046,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--180073cb-07cf-581a-8c19-e1b12baf46b3",
+      "name": "Windows 10 22h2 (\u003c 10.0.19045.7725)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--180aaef7-10a8-55f1-96df-04e4605b9ea7",
       "name": "Wasmtime (39.0.0 - 48.0.3, 49.0.0 - 49.0.1)",
       "vendor": "Bytecode Alliance"
@@ -142415,6 +142535,13 @@
       "id": "software--351c4b61-b446-5588-a4dd-ddce41105f2c",
       "name": "http-foundation (\u003c 5.4.54, 6.x \u003c 6.4.46, 7.x \u003c 7.4.19, 8.x \u003c 8.1.7)",
       "vendor": "Symfony"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3567ae31-28a4-5cea-b412-503b73aab5ec",
+      "name": "Windows 10 1809 (\u003c 10.0.17763.9245)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -151096,6 +151223,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d1dc3e3a-9f27-5f2b-afb5-8ae0bed50ea6",
+      "name": "Windows 10 21h2 (\u003c 10.0.19044.7725)",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d1df2d63-cd81-56a5-a376-38a329e089d3",
       "name": "a2a-java-sdk-http-client-android (1.3.0.Final, 1.3.1.Final)",
       "vendor": "A2A Project"
@@ -152693,6 +152827,13 @@
       "id": "software--f28009e6-254a-5659-8c76-66a408a9135d",
       "name": "@sentry/nextjs (\u003e= 9.36.0, \u003c 9.47.2)",
       "vendor": "Sentry"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f2888370-ecc6-5ffd-9acf-048504004f67",
+      "name": "Windows 10 1607 (\u003c 10.0.14393.9512)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
@@ -165627,6 +165768,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110719",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110719"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--78902dac-732b-5f93-be41-2ee9af537559",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-69451",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-69451",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69451"
         }
       ]
     },
