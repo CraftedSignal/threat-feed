@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--df9e072d-c7f8-56ab-9e2d-029f2c5ddd3a",
+  "id": "bundle--1fb2fae8-58a0-54ba-8d5d-27d55854de72",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6500,17 +6500,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--890dc572-7056-54b6-9d67-b70925a794f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ba8e0aef-66f3-55df-b8a9-747ab5106ab6",
-      "target_ref": "vulnerability--a8a4c607-21e5-5e35-90a4-bdd3475174e4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--89fa88ba-23f0-58ef-a844-116805b86f16",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8678,17 +8667,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d4a9f0b9-4fc6-518e-aa7d-a58643da252a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T04:19:05.000Z",
-      "modified": "2026-07-29T04:19:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--23348056-caaf-5e10-999f-6b519048b7d8",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d4ec32b6-f0fd-5cef-8a69-6346478c2f13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:54:17.000Z",
@@ -9235,17 +9213,6 @@
       "relationship_type": "has",
       "source_ref": "software--b8b95de8-71b9-5f57-8848-23b7c9159c65",
       "target_ref": "vulnerability--f44f88b6-0553-5dcb-afc6-106e75cc8fe7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e7610d1b-83c6-5265-a14e-f9a3306c74c1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T04:19:05.000Z",
-      "modified": "2026-07-29T04:19:05.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--23348056-caaf-5e10-999f-6b519048b7d8",
-      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
     },
     {
       "type": "relationship",
@@ -11065,56 +11032,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--23348056-caaf-5e10-999f-6b519048b7d8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T04:19:05.000Z",
-      "modified": "2026-07-29T04:19:05.000Z",
-      "name": "Easy Digital Downloads Plugin Arbitrary File Upload Leads to RCE (CVE-2026-12476)",
-      "description": "## Overview\n\nA critical vulnerability, CVE-2026-12476, exists in the Easy Digital Downloads plugin for WordPress, affecting all versions up to and including 3.6.9. This flaw stems from improper file type validation within the `edd_do_ajax_import_file_upload()` function. Instead of robustly checking file contents or relying on WordPress's built-in MIME enforcement (`wp_handle_upload()`), the function only inspects the client-supplied `$_FILES['edd-import-file']['type']` Content-Type header against a narrow allow-list of CSV mime types. Following this superficial check, the `move_uploaded_file()` function is used, allowing files with arbitrary extensions (e.g., `.php` or `.phtml`) to be written to the web-accessible `wp-content/uploads/edd/exports/` directory. This makes it possible for authenticated attackers possessing Shop Manager-level access or higher to upload malicious files, such as web shells, ultimately leading to remote code execution on the compromised server. Defenders should prioritize patching and monitoring for suspicious file uploads and access attempts to the export directory.\n\n## Attack Chain\n\n1. An authenticated attacker with Shop Manager-level or higher privileges accesses the Easy Digital Downloads import file upload functionality, typically found within the WordPress administration interface.\n2. The attacker crafts a malicious file, such as a PHP web shell (e.g., `shell.php`), designed to execute arbitrary commands on the server.\n3. The attacker uploads the malicious file via the vulnerable `edd_do_ajax_import_file_upload()` function, manipulating the client-supplied `Content-Type` header to bypass the plugin's insufficient validation logic.\n4. The `move_uploaded_file()` function writes the malicious file with its original, executable extension (e.g., `.php`) to the web-accessible directory: `wp-content/uploads/edd/exports/`.\n5. The attacker sends an HTTP request to the newly uploaded malicious file, targeting its public URL (e.g., `example.com/wp-content/uploads/edd/exports/shell.php`).\n6. The web server executes the malicious file, granting the attacker remote code execution capabilities on the underlying system, often as the web server's user.\n7. The attacker can then perform further actions such as data exfiltration, creating persistent backdoors, or defacing the website.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-12476 grants attackers remote code execution capabilities on the affected WordPress server. This allows for full compromise of the website, including data theft (e.g., customer information, payment details if stored on the server), website defacement, injection of malicious code into website content, and complete system takeover. Attackers can install persistent backdoors, launch further attacks against other systems, or use the compromised server as a pivot point within the network. The integrity, confidentiality, and availability of the affected WordPress site and potentially other systems on the same host are severely jeopardized.\n\n## Recommendation\n\n* Patch CVE-2026-12476 by updating the Easy Digital Downloads plugin to version 3.6.10 or later immediately.\n* Deploy the Sigma rule \"Detect Possible CVE-2026-12476 Post-Exploitation Access\" to your SIEM and tune for your environment to identify attempts to access web shells in the Easy Digital Downloads export directory.\n* Monitor web server access logs for suspicious HTTP POST requests to `/wp-admin/admin-ajax.php` containing `action=edd_do_ajax_import_file_upload`, especially if the `Content-Type` header is not a standard CSV type or if it contains suspicious filenames.\n* Regularly review user accounts with Shop Manager-level access or higher, as these are prerequisites for exploiting this vulnerability.\n",
-      "published": "2026-07-29T04:19:05.000Z",
-      "labels": [
-        "arbitrary-file-upload",
-        "plugin",
-        "rce",
-        "web",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ba8e0aef-66f3-55df-b8a9-747ab5106ab6",
-        "vulnerability--a8a4c607-21e5-5e35-90a4-bdd3475174e4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-easy-digital-downloads-file-upload",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-easy-digital-downloads-file-upload/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12476"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-easy-digital-downloads-file-upload",
-      "x_craftedsignal_event_id": "brief-2026-07-easy-digital-downloads-file-upload",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-easy-digital-downloads-file-upload/",
-      "x_craftedsignal_activity_at": "2026-07-29T04:19:05.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_epss_max": 0.01176,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -18836,13 +18753,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ba8e0aef-66f3-55df-b8a9-747ab5106ab6",
-      "name": "Easy Digital Downloads plugin (\u003c= 3.6.9)",
-      "vendor": "Easy Digital Downloads"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--bb89e8a4-e277-541d-bcae-407ae05b0659",
       "name": "Sylius Mollie Plugin",
       "vendor": "Sylius"
@@ -20484,22 +20394,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-52856",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52856"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a8a4c607-21e5-5e35-90a4-bdd3475174e4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-12476",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-12476",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12476"
         }
       ]
     },
