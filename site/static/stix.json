@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d3434019-fc06-58a1-a606-35eafe1a1aa4",
+  "id": "bundle--37f8bb35-65dc-5158-ac97-67a6e54b4a3f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41578,7 +41578,7 @@
       "id": "relationship--afafdee3-3eda-5563-9c45-9602fb3a04b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-26T18:02:34.000Z",
+      "modified": "2026-10-27T03:30:48.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -69788,7 +69788,7 @@
       "id": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-26T18:02:34.000Z",
+      "modified": "2026-10-27T03:30:48.000Z",
       "name": "PHP: Two critical vulnerabilities ahead of scheduled security release",
       "description": "The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.\n\n## Detection opportunity\n\nHunt for PHP or web-server workers spawning shells, scripting runtimes, discovery commands, or network utilities. The [community Sigma rule for suspicious PHP child processes](https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8) offers a starting point across Linux, macOS, and Windows. It requires process creation telemetry with both parent and child executable paths; use command lines and nearby HTTP requests to investigate matches. Tune known application jobs that intentionally start command-line tools.\n\nThis is generic post-execution behavior. A match does not establish exploitation of CVE-2026-109618 or CVE-2026-109619, and execution that stays inside the PHP worker will not match this rule.\n\n## Recommendation\n\n- Identify deployed PHP runtimes and the public applications that depend on them so owners can patch promptly.\n- Watch the PHP security release for confirmed affected and fixed versions; test and roll out the relevant updates.\n- Treat claims that all PHP versions are affected or that unauthenticated remote code execution is confirmed as provisional until the vendor publishes technical details.",
       "published": "2026-10-21T07:58:58.000Z",
@@ -69922,6 +69922,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-109618"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cyfirma.com/research/cyfirma-threat-advisory-suspected-dprk-campaign-staging-php2shell-targeting-against-global-php-infrastructure/"
         },
         {
@@ -69992,13 +69996,16 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-php-critical-security-release",
       "x_craftedsignal_event_id": "brief-2026-10-21-php-critical-security-release",
-      "x_craftedsignal_revision": 14,
+      "x_craftedsignal_revision": 15,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/",
-      "x_craftedsignal_activity_at": "2026-10-26T18:02:34.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T03:30:48.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.cve.org/CVERecord?id=CVE-2026-109618",
+        "observed_at": "2026-10-26T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99997,
