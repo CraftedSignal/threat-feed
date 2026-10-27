@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f8976acf-f364-5b2e-9c4c-ee6f8c801537",
+  "id": "bundle--e73707a1-e00b-565d-9a9c-907fc8fa83b2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6582,17 +6582,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--95926091-21a0-5950-9e0a-4b3d2588710e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:40:58.000Z",
-      "modified": "2026-07-29T11:40:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--428d0bdb-754b-5aaa-ab19-0e35b52d3476",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--95d3bcbd-dc7b-53df-9ede-41ca4feb114b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:00:05.000Z",
@@ -11329,50 +11318,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-interactive-file-execution-in-containers/",
       "x_craftedsignal_activity_at": "2026-07-29T12:52:25.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--428d0bdb-754b-5aaa-ab19-0e35b52d3476",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T11:40:58.000Z",
-      "modified": "2026-07-29T11:40:58.000Z",
-      "name": "Apache Tomcat Vulnerability Allows Denial of Service",
-      "description": "## Overview\n\nA recently disclosed vulnerability in Apache Tomcat, identified by CERT-Bund, enables a remote and unauthenticated attacker to execute a Denial of Service (DoS) attack. This vulnerability, which does not yet have a public CVE ID, could be exploited by an anonymous actor to render affected Tomcat instances unresponsive or inoperable. Such an attack would disrupt web services and applications hosted on the server, impacting business operations and user access. The specifics of the vulnerability, such as the exact component or method of exploitation, are not detailed in the available intelligence. However, the potential for a complete service outage highlights the importance of immediate remediation and vigilant monitoring for organizations utilizing Apache Tomcat. This threat underscores the continuous need for robust patching strategies and effective incident response plans to mitigate availability risks.\n\n## Impact\n\nSuccessful exploitation of this vulnerability would lead to a Denial of Service condition on the affected Apache Tomcat server. This can result in the unavailability of all web applications and services hosted on that server, causing significant operational disruption. The impact could range from temporary service interruption to a prolonged outage, depending on the nature of the DoS and the attacker's intent. While no specific victim count or targeted sectors are mentioned, any organization using affected versions of Apache Tomcat is potentially at risk of losing critical service availability, leading to financial losses, reputational damage, and impaired user experience.\n\n## Recommendation\n\n* Apply the latest security patches and updates for Apache Tomcat as soon as they become available from the vendor to remediate the underlying vulnerability.\n* Implement monitoring for unusual resource consumption (CPU, memory, network I/O) on **Apache Tomcat** servers using host-based and **network connection** logs to detect potential DoS attacks.\n* Configure **webserver** logs to capture detailed request information and monitor for abnormally high request rates or suspicious request patterns that could indicate a DoS attempt.\n",
-      "published": "2026-07-29T11:40:58.000Z",
-      "labels": [
-        "apache",
-        "denial-of-service",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e5245ea9-ac91-58a9-88c3-d057d3509281"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-apache-tomcat-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-apache-tomcat-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2571"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-apache-tomcat-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-apache-tomcat-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-apache-tomcat-dos/",
-      "x_craftedsignal_activity_at": "2026-07-29T11:40:58.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -17908,13 +17853,6 @@
       "spec_version": "2.1",
       "id": "software--e45fa587-3239-517d-b8ec-c0296105aa48",
       "name": "VMware ESXi"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e5245ea9-ac91-58a9-88c3-d057d3509281",
-      "name": "Apache Tomcat",
-      "vendor": "Apache"
     },
     {
       "type": "software",
