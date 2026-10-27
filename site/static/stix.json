@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5be3fddf-0519-57e8-8773-7b9b402c3581",
+  "id": "bundle--5a820de1-764e-5dac-9939-58d1dd4e801d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -83517,6 +83517,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4770d5cc-0f12-57a6-914e-f6ceb4bbe734",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:53:13.000Z",
+      "modified": "2026-10-27T03:53:13.000Z",
+      "name": "Google Brotli Compression Library Vulnerabilities",
+      "description": "## Overview\n\nGoogle has released security updates for the Brotli compression library. The affected versions include 1.0.3 through 1.0.9, 1.1.0, and 1.2.0. Users and administrators are advised to update to versions 1.0.10, 1.1.1, or 1.2.1 respectively to mitigate security risks. The source advisory provides patch information but does not detail specific vulnerability classes or exploitation methods.\n\n## Recommendation\n\n- Identify applications or services in the environment that utilize the Brotli compression library as a dependency.\n- Update Brotli libraries to versions 1.0.10, 1.1.1, or 1.2.1 depending on the current branch in use.\n- Monitor the official Brotli GitHub repository for further security-related disclosures or patches.\n",
+      "published": "2026-10-27T03:53:13.000Z",
+      "labels": [
+        "software-update",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--35909925-bad5-578c-a304-026c77e5d06b",
+        "software--57737abc-0054-52d1-b35d-76281cb7e163",
+        "software--7b9646ca-52c7-5c54-b934-1f625d1dadd9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-google-brotli-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-google-brotli-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/google-security-advisory-av26-1085"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/google/brotli/releases"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-google-brotli-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-10-27-google-brotli-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-google-brotli-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-10-27T03:53:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--47ae9199-8c8b-5f29-811b-32f00f2c5746",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:14:20.000Z",
@@ -137219,6 +137267,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--de950190-3c7d-5726-92e5-3148f0c71f0a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:53:07.000Z",
+      "modified": "2026-10-27T03:53:07.000Z",
+      "name": "Craft CMS Security Updates",
+      "description": "## Overview\n\nCraft CMS has released security updates to address multiple vulnerabilities affecting the core CMS platform and the Commerce-mollie plugin. Administrators are advised to update their installations to the specified versions to mitigate potential security risks. The specific nature of the vulnerabilities remains undisclosed in the current advisory.\n\n## Recommendation\n\n- Upgrade CMS installations to version 4.18.9 or 5.11.2 immediately.\n- Upgrade the Commerce-mollie plugin to version 4.4.3.\n- Review the official Craft CMS security advisory page for future disclosures or technical details.\n",
+      "published": "2026-10-27T03:53:07.000Z",
+      "labels": [
+        "cms",
+        "vulnerability-management",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7ac03351-3a81-5005-8fff-6364610fa45a",
+        "software--83094a10-2750-5b9e-b2b4-97bd7348872d",
+        "software--b6ee97a6-cbae-55dc-9600-c5d6a66700cf"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-craft-cms-updates",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-craft-cms-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/craft-cms-security-advisory-av26-1086"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/craftcms/cms"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/craftcms/cms/security/advisories"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/craftcms/commerce-mollie"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-craft-cms-updates",
+      "x_craftedsignal_event_id": "brief-2026-10-27-craft-cms-updates",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-craft-cms-updates/",
+      "x_craftedsignal_activity_at": "2026-10-27T03:53:07.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dee71dc7-0b30-5106-98f2-f92238685b44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T02:34:27.000Z",
@@ -152168,6 +152273,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--35909925-bad5-578c-a304-026c77e5d06b",
+      "name": "Brotli (1.2.0 \u003c= v \u003c 1.2.1)",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3599a35d-c908-5fae-89ce-fdbaf8656e98",
       "name": "Apache Camel (org.apache.camel:camel-saxon) 4.0.0 before 4.18.5",
       "vendor": "Apache"
@@ -154118,6 +154230,13 @@
       "id": "software--57441119-ca91-5fcd-aca8-9e85e7b10912",
       "name": "Apache Camel (4.19.0 - 4.22.1)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--57737abc-0054-52d1-b35d-76281cb7e163",
+      "name": "Brotli (1.1.0 \u003c= v \u003c 1.1.1)",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -156475,6 +156594,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7ac03351-3a81-5005-8fff-6364610fa45a",
+      "name": "CMS (\u003c 5.11.2)",
+      "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7ac4f9d3-e5e6-52d6-b3a2-138495a8e16c",
       "name": "Bedrock",
       "vendor": "Amazon"
@@ -156519,6 +156645,13 @@
       "id": "software--7b7e8a08-e8d4-5609-96d0-e2632e94a35d",
       "name": "AWS STS",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7b9646ca-52c7-5c54-b934-1f625d1dadd9",
+      "name": "Brotli (1.0.3 \u003c= v \u003c 1.0.10)",
+      "vendor": "Google"
     },
     {
       "type": "software",
@@ -156995,6 +157128,13 @@
       "id": "software--82ee8084-5aaf-57c0-8838-2e7cff2fcaae",
       "name": "Ghost (6.22.1-6.63.9)",
       "vendor": "Ghost Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--83094a10-2750-5b9e-b2b4-97bd7348872d",
+      "name": "Commerce-mollie (\u003c 4.4.3)",
+      "vendor": "Craft CMS"
     },
     {
       "type": "software",
@@ -159946,6 +160086,13 @@
       "id": "software--b6ce0307-1b08-508a-9bc5-17191ad106b1",
       "name": "10Web Booster (\u003c= 2.34.10)",
       "vendor": "10Web"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b6ee97a6-cbae-55dc-9600-c5d6a66700cf",
+      "name": "CMS (\u003c 4.18.9)",
+      "vendor": "Craft CMS"
     },
     {
       "type": "software",
