@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e73707a1-e00b-565d-9a9c-907fc8fa83b2",
+  "id": "bundle--fab02deb-5b3a-52f5-879d-b70e383d966f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79,22 +79,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1622",
           "url": "https://attack.mitre.org/techniques/T1622"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--05c9ee42-89b4-57c8-a0fc-7f031f825405",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Network Sniffing",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1040",
-          "url": "https://attack.mitre.org/techniques/T1040"
         }
       ]
     },
@@ -565,22 +549,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Hide Artifacts",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1564",
-          "url": "https://attack.mitre.org/techniques/T1564"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--7a7d3073-08a0-5675-9ad3-ea6b2fbac8d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -597,22 +565,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--7ad22003-515e-5a37-9b82-4566493c555d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Software Deployment Tools",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1072",
-          "url": "https://attack.mitre.org/techniques/T1072"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--7c46b9d0-e088-590a-8734-3aa395dfed0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -623,22 +575,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1056",
           "url": "https://attack.mitre.org/techniques/T1056"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--7c7ac289-5d73-5794-b4a9-4c4398232198",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Reflective Code Loading",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1620",
-          "url": "https://attack.mitre.org/techniques/T1620"
         }
       ]
     },
@@ -981,22 +917,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Archive Collected Data",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1560",
-          "url": "https://attack.mitre.org/techniques/T1560"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1194,18 +1114,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--01e33381-ea48-592d-85e4-940947bd9ad4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "name": "filepath: /var/lib/kubelet/pki/",
-      "pattern": "[x-craftedsignal-indicator:value = '/var/lib/kubelet/pki/']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-29T12:32:00.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--07bdc090-ff79-5313-acf6-9d7da45415e9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:53:41.000Z",
@@ -1322,18 +1230,6 @@
       "pattern": "[domain-name:value = 'api.2ip.ua']",
       "pattern_type": "stix",
       "valid_from": "2026-07-30T13:32:17.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--201d79a1-8cd1-5382-a0a5-bf8436b930b0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "name": "file_path: /run/secrets/kubernetes.io/serviceaccount/ca.crt",
-      "pattern": "[x-craftedsignal-indicator:value = '/run/secrets/kubernetes.io/serviceaccount/ca.crt']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-29T12:33:36.000Z"
     },
     {
       "type": "indicator",
@@ -2011,18 +1907,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--b0e16b3f-9bf0-5110-893e-3536489f8e62",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "name": "file_path: /var/run/secrets/kubernetes.io/serviceaccount/token",
-      "pattern": "[x-craftedsignal-indicator:value = '/var/run/secrets/kubernetes.io/serviceaccount/token']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-29T12:33:36.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--b3fac60a-3038-56c9-bee7-c01f7c9e74e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:55:05.000Z",
@@ -2241,30 +2125,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--f126411e-4501-5372-8fe0-2b8ce34cf92b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "name": "file_path: /tmp/token",
-      "pattern": "[x-craftedsignal-indicator:value = '/tmp/token']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-29T12:33:36.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--f1471353-7430-5238-990f-8dc770f72c8e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "name": "file_path: /run/secrets/kubernetes.io/serviceaccount/token",
-      "pattern": "[x-craftedsignal-indicator:value = '/run/secrets/kubernetes.io/serviceaccount/token']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-29T12:33:36.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--f8023ce5-b17a-5628-8054-16d050669160",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T13:54:17.000Z",
@@ -2285,18 +2145,6 @@
       "pattern": "[url:value = 'http://thumbor-host:8888/unsafe/filters:watermark(%252e%252e/%252e%252e/%252e%252e/%252e%252e/etc/passwd,0,0,100)/some-valid-image.jpg']",
       "pattern_type": "stix",
       "valid_from": "2026-07-31T19:20:49.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--fa4a71a7-0f94-577b-808a-642f4f136650",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "name": "file_path: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt",
-      "pattern": "[x-craftedsignal-indicator:value = '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-29T12:33:36.000Z"
     },
     {
       "type": "indicator",
@@ -2534,17 +2382,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--06c5c322-4704-5f30-b537-bd8e30bcbba3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--05c9ee42-89b4-57c8-a0fc-7f031f825405"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--06dab291-cea8-5e5a-991c-f3c0c2ac1dc1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T18:18:23.000Z",
@@ -2563,17 +2400,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c236fc85-d0e3-504a-b56e-90b86f7f137a",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0786fabc-8be3-529d-a634-da383c44226c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:28:40.000Z",
-      "modified": "2026-07-29T12:28:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ce0ecabc-4884-5687-9eef-541aa45f5ed1",
-      "target_ref": "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7"
     },
     {
       "type": "relationship",
@@ -2875,17 +2701,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--15821275-ed79-597b-8167-c07b6e72c7dc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:30:54.000Z",
-      "modified": "2026-07-29T12:30:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ef5c2ba3-07c8-5ff6-ac48-fbd42090905c",
-      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--15914192-e32e-5d57-8443-1e131c4b4c19",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2893,17 +2708,6 @@
       "relationship_type": "has",
       "source_ref": "software--6cce35da-b7bc-5d2d-a6cf-fc30a262b573",
       "target_ref": "vulnerability--21389f68-141b-528a-aefe-6ebcc57f9256"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--15a7fa6d-b755-5794-b0f2-8959e758622a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:36:23.000Z",
-      "modified": "2026-07-29T12:36:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--eac2cae7-0c42-52cb-b0be-a6a280357902",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -3014,17 +2818,6 @@
       "relationship_type": "has",
       "source_ref": "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f",
       "target_ref": "vulnerability--3d31e280-e0c3-5608-8b53-2345cf94f516"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--18782f04-c007-5d09-90f4-b4750d446329",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:29:51.000Z",
-      "modified": "2026-07-29T12:29:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a3412417-6b87-54f3-987f-52f1568f3021",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -3337,17 +3130,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--21e864f5-f8c1-52e1-8757-63667901e0c7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "indicator--01e33381-ea48-592d-85e4-940947bd9ad4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--22bc3767-e02b-56be-83d1-4857a3d7e3d3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3399,17 +3181,6 @@
       "relationship_type": "has",
       "source_ref": "software--af2dfdd4-0650-5019-8fbe-9ffd1a42384d",
       "target_ref": "vulnerability--7b80c13a-c3ee-57ab-b33e-c5d57d08179e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--23c75182-b11c-584e-a708-f535b4198732",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:36:23.000Z",
-      "modified": "2026-07-29T12:36:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--eac2cae7-0c42-52cb-b0be-a6a280357902",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -3722,17 +3493,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--2e71a02a-657d-5e67-a511-0aa449560881",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2e98c1d9-859d-5a30-8e3e-60d5e2840f4d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T07:19:38.000Z",
@@ -3865,17 +3625,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--31af0bb6-9a52-5e62-a7a9-4c8d2fe4f6c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:20:19.000Z",
-      "modified": "2026-07-29T12:20:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a78e94d1-f963-51d7-9f22-d2ac1b56f939",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--323f02bc-281e-5fe1-994a-66fb599a3410",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3982,17 +3731,6 @@
       "relationship_type": "has",
       "source_ref": "software--13a85dfa-5380-5f01-bea1-72f22a5b3c53",
       "target_ref": "vulnerability--dea3c4ca-e3e5-5ad6-98d0-d4db55f181a7"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--357b2f77-ec44-5a8d-bd44-4e4d726e1446",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:36:23.000Z",
-      "modified": "2026-07-29T12:36:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--eac2cae7-0c42-52cb-b0be-a6a280357902",
-      "target_ref": "attack-pattern--7c7ac289-5d73-5794-b4a9-4c4398232198"
     },
     {
       "type": "relationship",
@@ -4206,17 +3944,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3b41559b-2340-5a8f-b2b9-6ad582d920f4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:29:51.000Z",
-      "modified": "2026-07-29T12:29:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a3412417-6b87-54f3-987f-52f1568f3021",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3bb780dc-f544-59f4-859f-ad5b535a88d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4235,17 +3962,6 @@
       "relationship_type": "has",
       "source_ref": "software--1279e06f-8c07-5e6f-b4ce-98635207f08b",
       "target_ref": "vulnerability--cad67b3d-1cea-5269-b32d-56a6c23cd9ec"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--3c876bed-0d15-58fc-90cb-91c757819af5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:38:26.000Z",
-      "modified": "2026-07-29T12:38:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f5e5f8e9-8ee2-5323-8f2e-20191e3071dd",
-      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
     },
     {
       "type": "relationship",
@@ -4294,17 +4010,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3efc7619-cb08-509c-a8df-1e48132419ec",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "target_ref": "indicator--201d79a1-8cd1-5382-a0a5-bf8436b930b0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--412d79c4-dd55-5a9b-b846-3f42cdb3752a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:32:31.000Z",
@@ -4338,17 +4043,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--41d7049d-3a0e-557d-a832-df0a56abbeaa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--7ad22003-515e-5a37-9b82-4566493c555d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--41f75efb-aa9c-548d-8883-618108f4a851",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4367,17 +4061,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6870963e-6cd6-5cb5-981d-a9c1e3cb50fc",
       "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--423ea0e0-6933-5920-a3e8-9df4f6a804c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
     },
     {
       "type": "relationship",
@@ -4488,28 +4171,6 @@
       "relationship_type": "has",
       "source_ref": "software--54876aaa-bc16-5dd5-b080-3a05dd6b2a3b",
       "target_ref": "vulnerability--55d1ac93-fed4-5e53-97c2-dc904bfa5c6e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4400c613-9e24-5683-8266-1bfcbdd3ea36",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:36:23.000Z",
-      "modified": "2026-07-29T12:36:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--eac2cae7-0c42-52cb-b0be-a6a280357902",
-      "target_ref": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--4423ce09-644e-545f-9eb9-ebc1c9f05ccd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "target_ref": "indicator--b0e16b3f-9bf0-5110-893e-3536489f8e62"
     },
     {
       "type": "relationship",
@@ -4745,17 +4406,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4beb1039-5464-5152-b084-9cd6aab68109",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:29:51.000Z",
-      "modified": "2026-07-29T12:29:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a3412417-6b87-54f3-987f-52f1568f3021",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4c0800ce-3b38-5751-9332-69c3c2f6ff89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4866,17 +4516,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--541e0d95-37ed-59e4-8e52-8120320e93c3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--544a7a79-d3d7-536a-9036-88a3ad78c8f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4939,17 +4578,6 @@
       "relationship_type": "uses",
       "source_ref": "report--1853643c-0706-5f26-a6c2-85d924aa230f",
       "target_ref": "indicator--269f5247-c884-57b9-93eb-b4985762e2dc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--55bafaad-d825-5f24-ab50-282eb522cbc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:20:19.000Z",
-      "modified": "2026-07-29T12:20:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a78e94d1-f963-51d7-9f22-d2ac1b56f939",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -5669,17 +5297,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--76f891a9-1b95-5397-b798-ec8af84d308b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--774b9a77-bac7-5b08-b573-65f531646cb2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5973,17 +5590,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ad7dac15-e563-574e-98a3-f420b644e9f3",
       "target_ref": "indicator--39d7a59a-2ccf-5da9-97bb-7ede2d6de1c8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7fdc48e6-95c2-5788-94d6-df2aeee6c1d8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:20:19.000Z",
-      "modified": "2026-07-29T12:20:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a78e94d1-f963-51d7-9f22-d2ac1b56f939",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -6285,17 +5891,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8aeb69f9-b71e-51d4-a2a5-16a4cb02c87d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8b58c14b-c313-5b45-ac41-ca5c0407f98e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:24:07.000Z",
@@ -6380,17 +5975,6 @@
       "relationship_type": "uses",
       "source_ref": "report--d0e1d116-b4bd-5369-967f-865a8a815630",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8e9b99e5-fad6-5c38-9203-05eed7e2ca5a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -6681,17 +6265,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--98cf02b6-0284-565b-924a-5c171d5d0b4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c17bcaa7-7806-5541-bf05-067bb5b0f1a6",
-      "target_ref": "vulnerability--1de94188-c622-5779-bd2e-15f9f26b58db"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--98ec3665-5575-5822-9b70-a3bb23771c27",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6853,17 +6426,6 @@
       "relationship_type": "uses",
       "source_ref": "report--7fc70cfb-e348-5401-b5a3-072c32ed7fa0",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a019e86c-d450-5533-a2cc-ebd52b98cfdc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "target_ref": "indicator--f1471353-7430-5238-990f-8dc770f72c8e"
     },
     {
       "type": "relationship",
@@ -7066,17 +6628,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a80158bb-b95f-5445-bed4-938d45c0256f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:30:54.000Z",
-      "modified": "2026-07-29T12:30:54.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ef5c2ba3-07c8-5ff6-ac48-fbd42090905c",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a93c00e9-0d05-5857-ab24-a88b0ce08e44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:41:05.000Z",
@@ -7176,28 +6727,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--aa52790c-02b8-59be-96ee-65c954c72488",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "target_ref": "indicator--fa4a71a7-0f94-577b-808a-642f4f136650"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--aa5b6472-a6dc-5116-bf15-3674bdc0504a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aae9142e-d0a8-5373-8abe-996be2dc983c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T08:12:07.000Z",
@@ -7242,17 +6771,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--abfbaccd-4821-5e78-9491-682fd829d2b4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "target_ref": "indicator--f126411e-4501-5372-8fe0-2b8ce34cf92b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ac075883-06eb-5db8-8048-7fde4424a0c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:24:07.000Z",
@@ -7282,17 +6800,6 @@
       "relationship_type": "has",
       "source_ref": "software--cf7bce7c-2daa-58d5-a5b0-21ee59f60d93",
       "target_ref": "vulnerability--589cd11b-c521-5815-8173-ab9dae88227b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ac8cf427-c919-5118-a6f4-11672ad51f49",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:38:26.000Z",
-      "modified": "2026-07-29T12:38:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f5e5f8e9-8ee2-5323-8f2e-20191e3071dd",
-      "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
     },
     {
       "type": "relationship",
@@ -7880,17 +7387,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c6a5a855-af86-59d4-9e3e-9a64821fd2f8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:38:26.000Z",
-      "modified": "2026-07-29T12:38:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f5e5f8e9-8ee2-5323-8f2e-20191e3071dd",
-      "target_ref": "attack-pattern--f8a5616a-53f6-5d8f-940e-1f38c11312fa"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c6fbd888-7490-5249-a691-ebfd90fd6ca9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8078,17 +7574,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cc239111-a757-5725-b9fa-96c6fff6f0e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:38:26.000Z",
-      "modified": "2026-07-29T12:38:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f5e5f8e9-8ee2-5323-8f2e-20191e3071dd",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cc6475ad-5547-540a-9fd6-b87318c71728",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8140,17 +7625,6 @@
       "relationship_type": "uses",
       "source_ref": "report--12683c41-b4ae-5a71-a953-0f515a656455",
       "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ce5fdba1-8416-5d1a-a8c8-0f7704cec949",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:34:50.000Z",
-      "modified": "2026-07-29T12:34:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--db6ffcf1-fb70-5dd6-af74-db7e9990933e",
-      "target_ref": "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34"
     },
     {
       "type": "relationship",
@@ -8382,17 +7856,6 @@
       "relationship_type": "uses",
       "source_ref": "report--ca851a2d-49f2-570d-ac75-06590fe1373c",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d966ad66-6055-53b8-8d07-edea8c7fefa9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:28:40.000Z",
-      "modified": "2026-07-29T12:28:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ce0ecabc-4884-5687-9eef-541aa45f5ed1",
-      "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
     },
     {
       "type": "relationship",
@@ -9178,17 +8641,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f378817b-da52-5020-9ed0-619525852f60",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f4224487-b2e1-5472-bed6-3f41b77787e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T14:53:41.000Z",
@@ -9343,17 +8795,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f93a3fda-31db-5780-8ee6-f9d0176c7447",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:20:19.000Z",
-      "modified": "2026-07-29T12:20:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a78e94d1-f963-51d7-9f22-d2ac1b56f939",
-      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f94f7b07-748b-5856-981a-2c8586d673df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9427,17 +8868,6 @@
       "relationship_type": "uses",
       "source_ref": "report--63dd1eda-a53f-5e25-abe5-6a3da3253db2",
       "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fb9837a4-5339-5828-8c3a-3ba15408e43a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:37:25.000Z",
-      "modified": "2026-07-29T12:37:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e881f28b-a78a-5b9e-9f81-d6a17de24257",
-      "target_ref": "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597"
     },
     {
       "type": "relationship",
@@ -11704,58 +11134,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--551c4df5-cb51-502e-8183-97fced44fda1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:33:36.000Z",
-      "modified": "2026-07-29T12:33:36.000Z",
-      "name": "Kubernetes Service Account Token and Certificate Credential Access",
-      "description": "## Overview\n\nThis Elastic Defend for Containers rule targets malicious activity where adversaries compromise a container and then attempt to extract Kubernetes service account tokens or CA certificates. This activity, observed through file access or process execution, signals an attacker's intent to authenticate to the Kubernetes API server, allowing for privilege escalation, lateral movement, or broader cluster compromise. Attackers typically exec into a running pod, locate files such as `/var/run/secrets/kubernetes.io/serviceaccount/token` and `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt`, and then use tools like `cat`, `head`, or `less` to read these sensitive credentials. The goal is to obtain API access, enumerate cluster resources, list secrets, or deploy new, potentially more privileged workloads, posing a significant risk to the entire Kubernetes environment. This rule is designed for Elastic Stack version 9.3.0 and above.\n\n## Attack Chain\n\n1. **Initial Access to Container**: An adversary gains interactive access to a running container, often by `exec`ing into a pod.\n2. **Locate Service Account Credentials**: The attacker identifies standard paths for Kubernetes service account credentials, specifically `/var/run/secrets/kubernetes.io/serviceaccount/token` and `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt`.\n3. **Read Credentials**: Using common Linux utilities like `cat`, `head`, `tail`, `more`, `less`, `sed`, or `awk`, the adversary reads the content of the service account token and CA certificate files.\n4. **Exfiltrate/Use Token**: The extracted service account token is potentially copied to a temporary location (e.g., `/tmp/token`) or immediately used.\n5. **Kubernetes API Authentication**: The adversary utilizes the acquired token to authenticate with the Kubernetes API server, typically via `kubectl` or `curl` commands.\n6. **Resource Enumeration**: With API access, the attacker enumerates Kubernetes resources such as namespaces and secrets to gather intelligence about the cluster.\n7. **Privilege Escalation / Lateral Movement**: The adversary attempts to list secrets, spawn new pods with elevated privileges, or modify existing workloads to achieve persistence or further compromise the cluster.\n8. **Impact**: The attacker achieves arbitrary code execution within the cluster, sensitive data exfiltration, or complete control over Kubernetes resources.\n\n## Impact\n\nIf this attack succeeds, adversaries gain unauthorized access to the Kubernetes API server, enabling them to enumerate sensitive resources, list secrets, and spawn privileged workloads. This can lead to a full compromise of the Kubernetes cluster, including data exfiltration, service disruption, and the deployment of malicious software. The potential blast radius extends to all resources accessible by the compromised service account, which can be extensive depending on its RBAC permissions. Organizations face significant operational disruption and data breaches, potentially affecting critical applications and data hosted within the cluster.\n\n## Recommendation\n\n* Deploy the Sigma rules in this brief to your SIEM and tune for your environment, specifically focusing on process creation and file access logs from Linux containers.\n* Monitor for process creation events (`process_creation` log source) in Linux containers where utilities like `cat`, `head`, `tail`, `more`, `less`, `sed`, or `awk` are used to read files under `/var/run/secrets/kubernetes.io/serviceaccount/token` or `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt`.\n* Monitor for file access events (`file_event` log source) on Linux containers targeting `/var/run/secrets/kubernetes.io/serviceaccount/token` or `/var/run/secrets/kubernetes.io/serviceaccount/ca.crt`.\n* Harden Kubernetes deployments by setting `automountServiceAccountToken: false` for pods that do not require API access.\n* Implement `kubectl exec/attach` denial policies in production environments via RBAC or admission controllers to prevent adversaries from gaining interactive container shells.\n* Regularly review and trim the RBAC permissions of service accounts to adhere to the principle of least privilege, reducing the potential impact of token compromise.\n* Respond to detections by immediately deleting the affected pod to invalidate the `/var/run/secrets/kubernetes.io/serviceaccount/token` and scale down the owning Deployment/StatefulSet.\n* Kill any interactive shells attached to compromised containers and remove copied credential artifacts such as `/tmp/token` from affected nodes.\n",
-      "published": "2026-07-29T12:33:36.000Z",
-      "labels": [
-        "container",
-        "credential-access",
-        "elastic-defend",
-        "kubernetes",
-        "linux"
-      ],
-      "object_refs": [
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--201d79a1-8cd1-5382-a0a5-bf8436b930b0",
-        "indicator--b0e16b3f-9bf0-5110-893e-3536489f8e62",
-        "indicator--f126411e-4501-5372-8fe0-2b8ce34cf92b",
-        "indicator--f1471353-7430-5238-990f-8dc770f72c8e",
-        "indicator--fa4a71a7-0f94-577b-808a-642f4f136650",
-        "software--7e197d2a-b02d-552e-8999-af8bb997ed0f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-kubernetes-service-account-credential-access",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-kubernetes-service-account-credential-access/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/credential_access_service_account_token_or_cert_read.toml"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-kubernetes-service-account-credential-access",
-      "x_craftedsignal_event_id": "brief-2026-07-kubernetes-service-account-credential-access",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-kubernetes-service-account-credential-access/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:33:36.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--55aabb18-29b0-5e0d-ae5e-d00b84accd5a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:35.000Z",
@@ -12211,85 +11589,6 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-proot-distro-isolation-bypass/",
       "x_craftedsignal_activity_at": "2026-07-29T16:42:42.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--720dbbda-798a-5b84-b00d-43d4f35ade18",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:32:00.000Z",
-      "modified": "2026-07-29T13:01:41.000Z",
-      "name": "Sensitive File Compression Detected in Linux Containers for Credential Access",
-      "description": "## Overview\n\nThis brief describes a detection mechanism implemented by Elastic Defend for Containers aimed at identifying credential access and collection activities within Linux container environments. Adversaries often exploit compromised containers to locate and gather sensitive information, including cloud provider credentials (AWS, Azure, GCP), SSH keys, Docker configurations, and system configuration files (e.g., `/etc/passwd`, `/etc/shadow`). The detection focuses on the use of common compression utilities such as `zip`, `tar`, `gzip`, `hdiutil`, `7z`, `rar`, `7zip`, or `p7zip`, either executed directly or via shell processes (`bash`, `sh`, `zsh`), when their command-line arguments target known sensitive file paths. This activity signals an attacker's attempt to stage data for exfiltration after gaining access to a container. The detection was reintroduced with Elastic Stack version 9.3.0.\n\n## Attack Chain\n\n1. **Initial Access**: An adversary gains unauthorized access to a Linux container instance, potentially through a vulnerable application, misconfiguration, or compromised credentials for a management interface.\n2. **Discovery**: Within the compromised container, the adversary enumerates the file system to locate sensitive files containing credentials, configuration data, or other valuable information.\n3. **Collection - Locate Sensitive Data**: The attacker specifically targets files and directories known to store credentials or critical system configurations, such as `~/.ssh/`, `~/.aws/`, `~/.docker/`, `/etc/passwd`, `/etc/shadow`, or cloud-specific credential files (e.g., `application_default_credentials.json`).\n4. **Collection - Archive Sensitive Data**: To consolidate and prepare for exfiltration, the adversary executes a compression utility (e.g., `tar`, `zip`, `gzip`, `7z`) directly or via a shell script, specifying the previously identified sensitive files as input.\n5. **Staging**: The compression utility creates an archive file containing the collected sensitive data, typically in a temporary or accessible location within the container's file system, ready for the next phase.\n6. **Exfiltration (Implied)**: The adversary then moves the compressed archive out of the container environment to an external command and control server or storage location, completing the data theft objective.\n\n## Impact\n\nSuccessful sensitive file compression and subsequent exfiltration from a compromised container can lead to significant data breaches and further attacks. Attackers can leverage stolen SSH keys, cloud provider API credentials, or Docker configuration files to gain access to other systems, cloud resources, or orchestrate lateral movement within the victim's infrastructure. This can result in unauthorized cloud resource provisioning, data theft from cloud storage, disruption of services, and a broader compromise of the organization's environment, potentially incurring severe financial, reputational, and regulatory consequences.\n\n## Recommendation\n\n* Deploy the Sigma rule provided in this brief to your SIEM to detect suspicious compression activities targeting sensitive files within Linux containers.\n* Ensure Elastic Defend for Containers is properly configured and enabled on all Linux container hosts to collect process execution logs.\n* Review the investigation steps outlined in this brief for any triggered alerts to identify the container, process, and files involved.\n* Isolate affected containers immediately upon detection to prevent further data exfiltration or unauthorized access, as recommended in the remediation section.\n* Rotate any credentials (SSH keys, cloud API keys) potentially exposed by the collected sensitive files.\n",
-      "published": "2026-07-29T12:32:00.000Z",
-      "labels": [
-        "cloud-security",
-        "command-and-control",
-        "container",
-        "container-security",
-        "credential-access",
-        "data-collection",
-        "discovery",
-        "elastic-defend",
-        "execution",
-        "linux",
-        "network-scanning",
-        "network-sniffing",
-        "reconnaissance",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--05c9ee42-89b4-57c8-a0fc-7f031f825405",
-        "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c",
-        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
-        "attack-pattern--7ad22003-515e-5a37-9b82-4566493c555d",
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
-        "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--01e33381-ea48-592d-85e4-940947bd9ad4",
-        "software--51547b73-21d8-5e0e-93e3-0386e90ce1d6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-sensitive-file-compression-container",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-sensitive-file-compression-container/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://flare.io/learn/resources/blog/teampcp-cloud-native-ransomware"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/credential_access_collection_sensitive_files_compression_inside_a_container.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/discovery_kubelet_certificate_file_access.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/discovery_suspicious_network_tool_launched_inside_a_container.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/execution_tool_installation.toml"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-sensitive-file-compression-container",
-      "x_craftedsignal_event_id": "brief-2026-07-sensitive-file-compression-container",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-sensitive-file-compression-container/",
-      "x_craftedsignal_activity_at": "2026-07-29T13:01:41.000Z",
-      "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -13562,65 +12861,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--a3412417-6b87-54f3-987f-52f1568f3021",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:29:51.000Z",
-      "modified": "2026-07-29T12:29:51.000Z",
-      "name": "Detecting Interactive File Downloads in Linux Containers via Curl and Wget",
-      "description": "## Overview\n\nThis brief focuses on the detection of malicious file downloads occurring within Linux containers, a technique commonly employed by adversaries to introduce tools, secondary payloads, or establish covert command-and-control (C2) channels. Attackers often gain initial access to a container, then leverage common command-line utilities like `curl` or `wget` to retrieve external content from the internet. This method allows them to avoid embedding artifacts directly into container images, enabling a more dynamic and less detectable staging process. The Elastic Defend for Containers integration, available from version 9.3.0, specifically targets this behavior by monitoring `process_creation` events for `curl` and `wget` commands that are configured to write output to a file. Defenders must understand this technique to prevent the compromise of sensitive data, persistent C2 communication, and subsequent stages of attack within containerized environments.\n\n## Attack Chain\n\n1. **Initial Access to Container:** An adversary gains unauthorized access to a running Linux container, potentially through a vulnerable application, exposed API, or compromised credentials.\n2. **Establish Interactive Session:** The attacker initiates an interactive shell session within the compromised container using `kubectl exec`, `docker exec`, or similar commands.\n3. **Command Execution - Tool Download:** The attacker executes `curl` or `wget` within the interactive session to download a malicious file (e.g., a script, binary, or configuration file) from an internet-based URL or IP address.\n4. **File Staging:** The downloaded file is immediately saved to the container's filesystem, using arguments like `-o`, `--output`, or `--output-document`.\n5. **Preparation for Execution:** The attacker may then modify file permissions (e.g., `chmod +x`) to make the downloaded file executable, if it's a binary or script.\n6. **Follow-on Execution:** The downloaded file is executed, potentially leading to further compromise such as establishing C2 communication, data exfiltration, privilege escalation, or lateral movement within the cluster.\n7. **Impact:** The execution of the downloaded payload achieves the adversary's objective, ranging from sensitive data access to full control over the container and potentially the host system or broader Kubernetes cluster.\n\n## Impact\n\nThe successful execution of interactive file downloads within containers can lead to significant compromise. Adversaries can gain unauthorized access to sensitive data stored within the container or accessible from it. This technique is often a precursor to establishing persistent command-and-control (C2) communication channels, allowing attackers to maintain remote control over compromised containerized workloads. The downloaded files may contain malware, custom tools, or secondary payloads designed for further exploitation, data exfiltration, or lateral movement within the victim's cloud environment or Kubernetes cluster. This can ultimately lead to business disruption, data breaches, and regulatory non-compliance.\n\n## Recommendation\n\n* Deploy the Sigma rule \"Detect Interactive File Download in Linux Containers\" to your SIEM and tune for your environment by identifying legitimate uses of `curl` and `wget` for file downloads within containers.\n* Ensure that process creation logs from your containerized Linux environments, specifically those indicating `container.id` and process arguments, are collected and ingested into your security monitoring platform to enable the rule.\n* Investigate alerts generated by this rule by correlating container execution events with Kubernetes audit logs or Docker daemon logs to identify the user, source IP, and access path that initiated the interactive session.\n* Analyze the downloaded file's full path, size, hash, and format; retrieve it for static analysis and malware scanning.\n* Restrict interactive `exec` and `attach` permissions for non-administrative roles within your container orchestration platform (e.g., Kubernetes) to limit unauthorized access.\n* Implement runtime policies that block or restrict `curl` and `wget` usage within containers, especially for writing files from external sources, and enforce egress filtering to only allow outbound traffic to approved destinations.\n",
-      "published": "2026-07-29T12:29:51.000Z",
-      "labels": [
-        "cloud-security",
-        "command-and-control",
-        "container-security",
-        "elastic-defend",
-        "execution",
-        "linux",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7e197d2a-b02d-552e-8999-af8bb997ed0f",
-        "software--ad1ab0a6-333a-59cc-b9e7-0d966bb9c73c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-container-file-download",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-container-file-download/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#kubelet-api"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.aquasec.com/blog/kubernetes-exposed-exploiting-the-kubelet-api/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cyberark.com/resources/threat-research-blog/using-kubelet-client-to-attack-the-kubernetes-cluster"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-container-file-download",
-      "x_craftedsignal_event_id": "brief-2026-07-container-file-download",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-container-file-download/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:29:51.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--a390a6cb-ce82-52a2-8c7e-1c6b10a75089",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:45:58.000Z",
@@ -13759,57 +12999,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a78e94d1-f963-51d7-9f22-d2ac1b56f939",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:20:19.000Z",
-      "modified": "2026-07-29T12:20:19.000Z",
-      "name": "Critical Arbitrary File Upload in WordPress Extra Checkout Options Plugin Leads to RCE (CVE-2026-14270)",
-      "description": "## Overview\n\nA significant security vulnerability, CVE-2026-14270, has been identified in the Extra Checkout Options plugin for WordPress, affecting all versions up to and including 2.3.2. This flaw enables low-privileged authenticated users, specifically those with Subscriber-level access or higher, to achieve remote code execution (RCE) on affected WordPress installations. The vulnerability stems from a combination of missing authorization and inadequate nonce validation within the `eco_save_settings()` function, which allows attackers to modify the `tc_eco_custom_file_types` upload allowlist to include PHP files. This, coupled with insufficient authorization on the `wc_eco_upload_file` AJAX action, permits the upload of malicious PHP files using frontend nonces typically found on cart and checkout pages. Exploitation of this vulnerability grants attackers full control over the compromised WordPress site and potentially the underlying server.\n\n## Attack Chain\n\n1. An authenticated attacker with Subscriber-level privileges or higher logs into the vulnerable WordPress site.\n2. The attacker sends a crafted HTTP POST request to `wp-admin/admin-ajax.php` with the `action=eco_save_settings` parameter, exploiting missing authorization and nonce validation to modify the `tc_eco_custom_file_types` allowlist to include PHP file extensions.\n3. The attacker navigates to a cart or checkout page on the WordPress site to obtain a valid frontend upload nonce.\n4. Using the acquired nonce, the attacker sends another crafted HTTP POST request to `wp-admin/admin-ajax.php` with `action=wc_eco_upload_file`, uploading a malicious PHP file (e.g., a web shell).\n5. Due to insufficient authorization on the `wc_eco_upload_file` AJAX action, the plugin processes and saves the malicious PHP file to an accessible directory on the WordPress server.\n6. The attacker then makes a direct HTTP request to the URL of the newly uploaded PHP file.\n7. The web server executes the malicious PHP file, granting the attacker remote code execution capabilities on the underlying system.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-14270 grants attackers remote code execution on the compromised WordPress server. This can lead to severe consequences, including complete takeover of the website, defacement, theft of sensitive data (such as customer information or payment details), installation of backdoors for persistent access, or using the compromised server as a platform for launching further attacks (e.g., botnet participation, phishing campaigns). The impact extends beyond the immediate website to potentially affecting customer trust and leading to significant financial and reputational damages for the affected organization.\n\n## Recommendation\n\n* Immediately update the Extra Checkout Options plugin to a version patched against CVE-2026-14270.\n* Deploy the provided Sigma rules to your webserver logs or WAF to detect attempts to exploit CVE-2026-14270.\n* Monitor web server access logs for HTTP POST requests to `/wp-admin/admin-ajax.php` with `action=eco_save_settings` and `request_body` containing \"php\" within `tc_eco_custom_file_types`.\n* Monitor web server access logs for HTTP POST requests to `/wp-admin/admin-ajax.php` with `action=wc_eco_upload_file` and `request_body` indicating a PHP file upload (e.g., containing `\u003c?php` or `.php` in filenames).\n* Review file system integrity monitoring logs for unexpected PHP file creations in WordPress upload directories.\n",
-      "published": "2026-07-29T12:20:19.000Z",
-      "labels": [
-        "arbitrary-file-upload",
-        "plugin",
-        "rce",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c17bcaa7-7806-5541-bf05-067bb5b0f1a6",
-        "vulnerability--1de94188-c622-5779-bd2e-15f9f26b58db"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cve-2026-14270-extra-checkout-options-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-14270-extra-checkout-options-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14270"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-cve-2026-14270-extra-checkout-options-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-cve-2026-14270-extra-checkout-options-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-14270-extra-checkout-options-rce/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:20:19.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -15390,51 +14579,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ce0ecabc-4884-5687-9eef-541aa45f5ed1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:28:40.000Z",
-      "modified": "2026-07-29T12:28:40.000Z",
-      "name": "Curl SOCKS Proxy Detected via Elastic Defend for Containers",
-      "description": "## Overview\n\nThis threat brief details the use of the `curl` command-line tool with SOCKS proxy options within Linux container environments by attackers. This technique is employed to establish covert communication channels, bypass network egress filtering, facilitate data exfiltration, or maintain command and control (C2) over compromised systems. The detection, provided by Elastic Defend for Containers, focuses on identifying `curl` invocations that include specific arguments such as `--socks5-hostname`, `--proxy`, `--preproxy`, or `-x` combined with a SOCKS prefix. This activity signifies an operator, having gained initial shell access to a container, is attempting to tunnel traffic to external endpoints, fetch additional payloads, or transmit stolen data through an established SOCKS proxy, potentially set up via precursor tools like `ssh -D`, `chisel`, or `tor`.\n\n## Attack Chain\n\n1. **Initial Access**: An attacker gains initial access to a Linux container, typically through a vulnerable application, misconfiguration, or stolen credentials, leading to shell access within the container.\n2. **Environment Reconnaissance**: The attacker performs reconnaissance within the compromised container to identify network capabilities, installed tools, and potential egress paths.\n3. **Tunneling Setup**: The attacker deploys and configures a tunneling tool, such as `ssh -D`, `chisel`, `cloudflared`, `tor`, or `3proxy`, to establish a SOCKS proxy listener within the container or on the host.\n4. **Local Proxy Establishment**: The chosen tunneling mechanism creates a local SOCKS proxy, often listening on `localhost` (e.g., `localhost:1080`), to facilitate redirected network traffic.\n5. **Malicious `curl` Execution**: The attacker executes the `curl` command from within the container, explicitly directing it to use the locally established SOCKS proxy via options like `-x socks5h://localhost:1080` or `--socks5-hostname`.\n6. **External C2 Communication**: `curl` then uses the SOCKS tunnel to communicate with external command and control (C2) servers, receiving further instructions or sending beaconing traffic.\n7. **Data Exfiltration**: The attacker utilizes `curl` with data transfer options (`-d/--data`, `-T/--upload-file`) to exfiltrate sensitive data from the compromised container through the SOCKS tunnel to an attacker-controlled destination.\n8. **Payload Fetching**: `curl` may also be used to download additional malicious tools or payloads from external repositories via the SOCKS proxy, extending the attacker's presence and capabilities.\n\n## Impact\n\nSuccessful exploitation allows attackers to bypass network egress controls, establish persistent command and control channels, and exfiltrate sensitive data from compromised Linux container environments. This can lead to significant data breaches, further compromise of the underlying host or other containers, and disruption of critical services. While no specific victim counts or sectors are provided, the impact can be severe for any organization heavily relying on containerized applications, as it undermines their network segmentation and security controls.\n\n## Recommendation\n\n* Deploy the Sigma rules in this brief to your SIEM and tune for your environment.\n* Ensure Elastic Defend for Containers is enabled and configured to collect process execution logs from your Linux container environments, including `process.name` and `process.args` fields.\n* Investigate alerts from the `Detect Curl SOCKS Proxy Usage in Linux Containers` rule by retrieving the full `curl` command line, identifying the SOCKS proxy host and port, and analyzing target URLs for reputation.\n* Examine process ancestry and related Kubernetes metadata (pod, namespace, service account, node, image) for processes identified by the `Detect Curl SOCKS Proxy Usage in Linux Containers` rule to attribute the activity to a specific user or application.\n* Review network flows and DNS queries originating from containers flagged by the `Detect Curl SOCKS Proxy Usage in Linux Containers` rule, especially traffic traversing the identified SOCKS proxy, to quantify data volume and assess destination reputation.\n",
-      "published": "2026-07-29T12:28:40.000Z",
-      "labels": [
-        "command-and-control",
-        "container",
-        "linux",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681",
-        "attack-pattern--af8a173c-24c5-549d-93d6-e942357a5af7",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-curl-socks-proxy-container",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-curl-socks-proxy-container/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.trendmicro.com/en_us/research/25/f/tor-enabled-docker-exploit.html"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-curl-socks-proxy-container",
-      "x_craftedsignal_event_id": "brief-2026-07-curl-socks-proxy-container",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-curl-socks-proxy-container/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:28:40.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d0e1d116-b4bd-5369-967f-865a8a815630",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:20:49.000Z",
@@ -15823,50 +14967,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--db6ffcf1-fb70-5dd6-af74-db7e9990933e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:34:50.000Z",
-      "modified": "2026-07-29T12:34:50.000Z",
-      "name": "Deletion of Shell Command-Line History in Containers",
-      "description": "## Overview\n\nUnidentified adversaries are actively targeting Linux containers by deleting or disabling shell command-line history files. This tactic, often observed after initial access has been established (e.g., via `kubectl exec`), aims to erase forensic evidence and impede incident investigations. Attackers typically modify or remove files like `.bash_history`, `.sh_history`, or `.zsh_history`, or manipulate shell environment variables and functions (e.g., `HISTFILE=/dev/null`, `unset HISTFILE`, `history -c`) to prevent recording subsequent malicious commands. This technique is a crucial defense evasion mechanism that allows threat actors to conduct reconnaissance, elevate privileges, or exfiltrate data without leaving a clear trail of their actions within the compromised container, making post-compromise analysis significantly more challenging for defenders.\n\n## Attack Chain\n\n1. An attacker gains initial access to a Kubernetes cluster, potentially through compromised credentials or exposed services.\n2. The attacker utilizes `kubectl exec` to establish an interactive shell session within a target container, gaining a foothold in the runtime environment.\n3. Inside the container, the attacker executes reconnaissance commands (e.g., `ls -la /`, `cat /etc/passwd`, `env`) to understand the environment and identify sensitive data or credentials.\n4. To avoid detection, the attacker modifies shell settings or files to prevent command history logging, such as using `ln -sf /dev/null ~/.bash_history` or `export HISTFILE=/dev/null`.\n5. With history suppressed, the attacker proceeds with further malicious activities, such as credential access (e.g., stealing service account tokens), lateral movement, or data staging.\n6. The attacker may then exfiltrate sensitive data from the compromised container or establish persistence mechanisms for future access.\n\n## Impact\n\nSuccessful execution of this technique significantly impairs an organization's ability to detect, investigate, and respond to container compromises. By erasing command history, attackers obscure their actions, making it difficult to determine the scope of compromise, the tools used, and the data accessed. This lack of visibility can lead to prolonged dwell times, undetected lateral movement across the container environment, and potential for severe data breaches or disruption of critical services. Without command history, forensic analysis becomes reliant on less granular logs, potentially delaying remediation efforts and increasing the overall cost of an incident.\n\n## Recommendation\n\n* Deploy the Sigma rules in this brief to your SIEM and tune for your environment to detect attempts to delete or disable shell history files.\n* Implement robust container runtime security monitoring to capture `process_creation` and `file_event` logs, enabling activation of the provided Sigma rules.\n* Restrict `kubectl exec` and `kubectl attach` permissions via Kubernetes Role-Based Access Control (RBAC) to only authorized break-glass roles.\n* Enforce admission controls in Kubernetes to block container images or init scripts that unset HISTFILE or link `~/.bash_history` to `/dev/null`.\n* Review Kubernetes audit logs for `exec/attach` actions, correlating with container telemetry to identify suspicious activity.\n",
-      "published": "2026-07-29T12:34:50.000Z",
-      "labels": [
-        "container",
-        "defense-evasion",
-        "linux",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--0856bd82-6dcb-584e-bbac-9f484aa79d34",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-deletion-of-shell-cmdline-history-in-containers",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-deletion-of-shell-cmdline-history-in-containers/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/defense_evasion_deletion_of_shell_cmdline_history.toml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-deletion-of-shell-cmdline-history-in-containers",
-      "x_craftedsignal_event_id": "brief-2026-07-deletion-of-shell-cmdline-history-in-containers",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-deletion-of-shell-cmdline-history-in-containers/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:34:50.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--dc756098-6139-5792-8e12-55725c2c16be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T23:32:35.000Z",
@@ -16113,110 +15213,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e881f28b-a78a-5b9e-9f81-d6a17de24257",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:37:25.000Z",
-      "modified": "2026-07-29T12:37:25.000Z",
-      "name": "Dynamic Linker Modification for Defense Evasion and Privilege Escalation in Linux Containers",
-      "description": "## Overview\n\nThis threat brief details a technique where adversaries manipulate the Linux dynamic linker within containerized environments to achieve defense evasion, persistence, and privilege escalation. Discovered and monitored by Elastic's Cloud Defend, this technique involves modifying critical system files like `/etc/ld.so.preload`, `/etc/ld.so.conf.d/*`, or `/etc/ld.so.conf`. By altering these files, attackers can direct the system to load malicious shared libraries before legitimate ones, effectively hijacking execution flow. This allows for unauthorized access to system resources and helps malicious processes remain undetected. This behavior has been observed in various malware campaigns, including those by the TeamTNT group utilizing Hildegard malware and the Rocke group, highlighting its effectiveness in container compromise. The detection rule specifically targets the creation or modification of these files within Linux containers.\n\n## Attack Chain\n\n1. An adversary gains initial access to a vulnerable Linux container environment through various methods (e.g., exposed services, vulnerable applications, misconfigurations).\n2. The adversary identifies a writable location for a malicious shared object (`.so`) library within the container's filesystem.\n3. The adversary deploys a custom malicious shared library designed to hook legitimate system calls or perform arbitrary code execution.\n4. The adversary modifies `/etc/ld.so.preload` or a file within `/etc/ld.so.conf.d/` or `/etc/ld.so.conf` to reference the path of the malicious shared library.\n5. Upon the next execution of any new process within the affected container, the dynamic linker (`ld.so`) loads the malicious library specified in the preload configuration before other libraries.\n6. The malicious library executes its payload, which can include unauthorized access to system resources, maintaining persistence, escalating privileges, or hindering security tools by evading detection.\n7. The attacker leverages the compromised dynamic linker to control the container, exfiltrate data, or launch further attacks.\n\n## Impact\n\nSuccessful exploitation of this technique can lead to severe consequences within containerized environments. Adversaries gain unauthorized access to system resources, allowing them to execute arbitrary code, bypass security controls, and establish persistence. This can lead to full compromise of the container, enabling data exfiltration, cryptomining, or pivoting to other systems within the network. The ability to evade detection means that malicious activities can remain undiscovered for longer periods, increasing the risk of widespread compromise. Organizations using Linux containers without robust monitoring for file integrity of dynamic linker configurations are particularly vulnerable.\n\n## Recommendation\n\n* Deploy the Sigma rule in this brief to your SIEM to detect suspicious modifications to dynamic linker configuration files within containers.\n* Ensure `file_event` logging is enabled for Linux systems, particularly within container environments, to capture modifications to critical system files like `/etc/ld.so.preload`, `/etc/ld.so.conf.d/*`, and `/etc/ld.so.conf`.\n* Review container images and configurations to minimize potential vulnerabilities that could lead to initial access.\n* Implement file integrity monitoring (FIM) for sensitive files within containers, especially those related to system loaders, to detect unauthorized changes.\n* Regularly audit and restrict write permissions to system directories and configuration files within containers to prevent unauthorized modification of dynamic linker files.\n",
-      "published": "2026-07-29T12:37:25.000Z",
-      "labels": [
-        "container",
-        "defense-evasion",
-        "linux",
-        "persistence",
-        "privilege-escalation",
-        "threat-detection"
-      ],
-      "object_refs": [
-        "attack-pattern--ef5045e6-d78f-5963-9f19-c068d08d2597",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-dynamic-linker-hijacking-container",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-dynamic-linker-hijacking-container/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sysdig.com/blog/threat-detection-aws-cloud-containers/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://unit42.paloaltonetworks.com/hildegard-malware-teamtnt/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.anomali.com/blog/rocke-evolves-its-arsenal-with-a-new-malware-family-written-in-golang/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-dynamic-linker-hijacking-container",
-      "x_craftedsignal_event_id": "brief-2026-07-dynamic-linker-hijacking-container",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-dynamic-linker-hijacking-container/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:37:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--eac2cae7-0c42-52cb-b0be-a6a280357902",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:36:23.000Z",
-      "modified": "2026-07-29T12:36:23.000Z",
-      "name": "Suspicious Process Execution in Containers from Transient Directories",
-      "description": "## Overview\n\nThis threat brief details a technique where adversaries, having gained initial access to a container, leverage transient or low-trust directories such as `/tmp`, `/dev/shm`, `/var/tmp`, `/run`, `/var/run`, `/mnt`, `/media`, and `/boot` to stage and execute malicious payloads. This approach is primarily used to evade detection, establish persistence, and prepare for data exfiltration or further pivoting within the environment. Attackers often gain a shell via methods like `kubectl exec`, then download or copy tools (e.g., reverse shells, tunneling utilities) into these volatile directories, executing them interactively. By utilizing locations outside the container's image filesystem, they circumvent image-based security controls and complicate forensic analysis, signalling live operator control and attempts to bypass policy.\n\n## Attack Chain\n\n1. **Initial Access**: An adversary gains a shell into a container, potentially via a compromised application vulnerability, misconfigured API, or through mechanisms like `kubectl exec` or `attach` into a running pod.\n2. **Staging Malicious Tools**: The attacker uploads or downloads malicious binaries, scripts, or tools (e.g., static reverse shells, tunneling tools) into transient or low-trust directories within the compromised container, such as `/tmp`, `/dev/shm`, or `/var/tmp`.\n3. **Execution from Suspicious Directory**: The adversary executes these staged malicious tools or interactive shells directly from these transient directories. This avoids writing to the immutable parts of the container image, making detection and forensic analysis more challenging.\n4. **Defense Evasion**: By leveraging volatile storage locations and interactive execution, the attacker evades traditional image-based security controls and potentially established forensic collection mechanisms designed for persistent storage.\n5. **Command and Control (C2)**: The executed malicious tools establish C2 communication, often involving external callbacks or tunnels, to an attacker-controlled infrastructure for remote management and further instructions.\n6. **Data Exfiltration / Impact**: The attacker uses the established access to pivot within the environment, siphon sensitive data, establish persistence, or perform other malicious actions that may lead to further compromise or impact on the host system or other containers.\n\n## Impact\n\nSuccessful exploitation allows adversaries to maintain live operator control over compromised containers, enabling data theft and potentially pivoting to other parts of the cloud or Kubernetes environment. This technique facilitates evasion of forensic analysis and policy controls, leading to prolonged presence and unchecked malicious activities. Specific risks include exfiltration of sensitive data, establishment of persistence on the host or in other containers, and privileged access if the affected pod has elevated permissions or host namespace access, potentially leading to full cluster compromise. Uncontained threats can allow writes to critical system directories like `/boot` or exposure of credentials.\n\n## Recommendation\n\n* Deploy the Sigma rule in this brief to your SIEM and tune for your environment, paying particular attention to process creation logs for Linux containers.\n* Review Kubernetes API server audit logs for `pod/exec` or `attach` events around any alert, correlating them with the initiating user, source IP, and service account to identify the initial access vector.\n* Harden Kubernetes deployments by enforcing `readOnlyRootFilesystem` with `seccomp` and `AppArmor`, and mounting `/tmp` and `/dev/shm` with `noexec`, `nodev`, `nosuid` flags where appropriate to restrict execution from these paths.\n* Use admission policies to allowlist executable paths within containers and deny interactive TTYs for production workloads, preventing unauthorized process execution.\n* Implement NetworkPolicies to apply deny-all egress rules by default for production pods, then explicitly allow only necessary outbound connections to prevent C2 and data exfiltration.\n",
-      "published": "2026-07-29T12:36:23.000Z",
-      "labels": [
-        "cloud-native",
-        "command-and-control",
-        "container-security",
-        "defense-evasion",
-        "execution",
-        "kubernetes",
-        "linux"
-      ],
-      "object_refs": [
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-        "attack-pattern--7c7ac289-5d73-5794-b4a9-4c4398232198",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-suspicious-container-exec",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-suspicious-container-exec/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/defense_evasion_interactive_process_execution_from_suspicious_directory.toml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-suspicious-container-exec",
-      "x_craftedsignal_event_id": "brief-2026-07-suspicious-container-exec",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-suspicious-container-exec/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:36:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--eafe8da0-9884-5a4b-94b1-d97c588f2e51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T13:40:50.000Z",
@@ -16254,55 +15250,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cve-2026-18378/",
       "x_craftedsignal_activity_at": "2026-07-30T13:40:50.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--ef5c2ba3-07c8-5ff6-ac48-fbd42090905c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:30:54.000Z",
-      "modified": "2026-07-29T12:30:54.000Z",
-      "name": "Cloud Credential Search in Containers Detected",
-      "description": "## Overview\n\nThis threat brief details the detection of malicious activity within containerized environments where an attacker actively searches for cloud credentials. Threat actors, upon gaining initial access to a container, leverage common Linux system utilities such as `grep`, `find`, `cat`, `sed`, or `awk` to scan for patterns indicative of AWS, Azure, or Google Cloud Platform credentials. This activity often occurs via shell processes like `bash` or `sh` executing these search commands. The objective is to discover sensitive information, such as `aws_access_key_id`, `AZURE_CLIENT_SECRET`, or `private_key` from service accounts, which can then be used to escalate privileges, move laterally within the cloud environment, or execute a container breakout to compromise the underlying host or other cloud services. Early detection of such credential discovery attempts is critical to prevent broader cloud infrastructure compromise.\n\n## Attack Chain\n\n1. **Initial Container Compromise**: An attacker gains initial access to a running container, typically through exploiting a vulnerable application, misconfiguration, or exposed service.\n2. **Establish Container Access**: The attacker establishes persistent access or obtains a shell within the compromised container environment.\n3. **Discovery of System Utilities**: The attacker identifies and confirms the availability of common Linux system search utilities (`grep`, `find`, `cat`, `sed`, `awk`) within the container's file system.\n4. **Credential Search Execution**: The attacker executes these utilities, either directly or via a shell process (`bash`, `sh`, `zsh`), specifying arguments designed to locate files or environment variables containing cloud credential patterns (e.g., `aws_access_key_id`, `AZURE_CLIENT_SECRET`, `application_default_credentials.json`).\n5. **Credential Acquisition**: The search commands successfully identify and extract sensitive cloud credentials from configuration files, metadata services, or environment variables present in the container.\n6. **Cloud Privilege Escalation/Lateral Movement**: Using the acquired credentials, the attacker attempts to escalate privileges within the associated cloud environment or move laterally to access other cloud resources, services, or connected containers.\n7. **Container Breakout (Optional)**: In some advanced scenarios, the attacker may leverage the discovered credentials or further container vulnerabilities to perform a container breakout, gaining access to the underlying host operating system or other parts of the cloud infrastructure.\n8. **Impact and Persistence**: The attacker achieves their final objective, which may include data exfiltration, resource manipulation, service disruption, or establishing persistence in the cloud environment.\n\n## Impact\n\nSuccessful credential search and acquisition within a container can lead to severe consequences, including unauthorized access to sensitive data, compromise of cloud resources, and financial loss due to misuse of cloud accounts. Attackers can leverage these credentials to escalate privileges, move laterally across cloud services, deploy additional malicious infrastructure, or achieve a container breakout, impacting the underlying host and potentially the entire cloud tenant. The compromise of a single container can therefore serve as a gateway to broader cloud environment devastation.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to your SIEM to detect attempts to search for cloud credentials within containers.\n* Ensure `process_creation` logs are collected from your container environments with `product: linux` to activate the rule above.\n* Review access controls for all cloud resources to ensure least privilege is applied, minimizing the impact of compromised credentials.\n* Regularly scan container images for embedded static credentials or misconfigurations that could lead to initial access or credential exposure.\n* Implement runtime defense for containers to monitor and block suspicious process execution as identified by the Sigma rule.\n* Rotate cloud credentials frequently and use temporary credentials (e.g., IAM roles, managed identities) where possible to reduce the window of exposure for compromised long-lived credentials.\n",
-      "published": "2026-07-29T12:30:54.000Z",
-      "labels": [
-        "cloud",
-        "container",
-        "credential-access",
-        "discovery",
-        "linux"
-      ],
-      "object_refs": [
-        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--52c6835b-338c-5638-9954-41e360b96258",
-        "software--9b2c03fc-e727-5525-bfae-b08e895499c5",
-        "software--c90c4a9d-2d35-5529-864d-9a167c616bdf"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-cloud-cred-search-container",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-cloud-cred-search-container/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sysdig.com/blog/threat-detection-aws-cloud-containers/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-cloud-cred-search-container",
-      "x_craftedsignal_event_id": "brief-2026-07-cloud-cred-search-container",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-cloud-cred-search-container/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:30:54.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -16406,53 +15353,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-kubernetes-api-request-detection/",
       "x_craftedsignal_activity_at": "2026-07-29T12:50:04.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--f5e5f8e9-8ee2-5323-8f2e-20191e3071dd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T12:38:26.000Z",
-      "modified": "2026-07-29T12:38:26.000Z",
-      "name": "Detection of Encoded Payload Deobfuscation in Linux Containers",
-      "description": "## Overview\n\nAttackers are utilizing encoded payloads to evade detection within Linux container environments. This technique involves obfuscating malicious commands or data using encoding schemes like Base64, which is then decoded using built-in utilities such as `base64`, `openssl`, `xxd`, or scripting language snippets (Python, Perl, Ruby). This method allows threat actors to bypass host- and network-based security controls, facilitating covert execution of commands, staging of additional payloads, and establishing command and control (C2) communication from within compromised containers. The threat typically manifests when an attacker gains initial access, then interactively executes into a container to paste and deobfuscate the malicious content, often piping the decoded output directly into a shell for immediate execution or writing it as a dropper. This activity is a critical indicator of potential in-container compromise and subsequent malicious operations, warranting immediate investigation.\n\n## Attack Chain\n\n1. **Initial Access**: An attacker gains unauthorized access to a container environment, potentially through compromised credentials for a container orchestration platform or exploiting a vulnerability in a publicly exposed application running within a container.\n2. **Interactive Session**: The attacker establishes an interactive session within a targeted Linux container, often using `kubectl exec` or similar tools, to directly interact with the container's shell.\n3. **Payload Delivery**: A base64-encoded or similarly obfuscated malicious payload, such as a script or binary, is pasted or injected into the container's command line.\n4. **Payload Deobfuscation**: The attacker uses a common encoding/decoding utility (e.g., `base64 -d`, `openssl enc -d -base64`, `xxd -r`, `python -c 'import base64;...'`) or a scripting language one-liner to decode the obfuscated payload.\n5. **Execution Preparation**: The decoded content is typically piped directly into a shell (e.g., `| sh` or `| bash`) for immediate execution, or saved to a temporary file which is then made executable and run.\n6. **Malicious Execution**: The deobfuscated payload executes, performing actions such as establishing a C2 channel, downloading and running additional malware, enumerating the container or host environment, or attempting lateral movement.\n7. **Persistence/Lateral Movement**: The attacker may then establish persistence within the container (e.g., modifying cron jobs, adding SSH keys) or attempt to move laterally to other containers or the underlying host.\n\n## Impact\n\nSuccessful exploitation via encoded payloads can lead to comprehensive compromise of containerized applications and potentially the entire host system. Attackers can leverage the compromised container for data exfiltration, cryptomining, establishing long-term persistence, or as a pivot point for lateral movement into other parts of the network. While specific victim counts are not available, the technique is broadly applicable across any organization deploying Linux containers. The primary damage includes unauthorized resource utilization, data breaches, service disruption, and the potential for a full breach of the cloud environment.\n\n## Recommendation\n\n* Deploy the Sigma rule \"Encoded Payload Detected via Defend for Containers\" provided in this brief to your SIEM and tune it for your environment to detect suspicious deobfuscation activity within Linux containers.\n* Configure Elastic Defend for Containers to ensure `process_creation` logs for Linux containers are collected, which is required for the provided detection rule.\n* Review interactive session logs and `kube-apiserver/audit logs` to validate the legitimacy of any `exec/attach` commands associated with the decoding process described in the Attack Chain.\n* Implement strong RBAC and admission controls within your container orchestration platform to restrict `exec/attach` capabilities to only authorized users and block privileged pods.\n* Regularly snapshot container images/filesystems for forensic preservation in response to alerts from the provided Sigma rule.\n",
-      "published": "2026-07-29T12:38:26.000Z",
-      "labels": [
-        "container",
-        "defense-evasion",
-        "execution",
-        "linux"
-      ],
-      "object_refs": [
-        "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2",
-        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "attack-pattern--f8a5616a-53f6-5d8f-940e-1f38c11312fa",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-encoded-payload-detection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-encoded-payload-detection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://flare.io/learn/resources/blog/teampcp-cloud-native-ransomware"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-encoded-payload-detection",
-      "x_craftedsignal_event_id": "brief-2026-07-encoded-payload-detection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-encoded-payload-detection/",
-      "x_craftedsignal_activity_at": "2026-07-29T12:38:26.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -16950,22 +15850,9 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--51547b73-21d8-5e0e-93e3-0386e90ce1d6",
-      "name": "Defend for Containers",
-      "vendor": "Elastic"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--51976f6a-6f93-5eff-9bf6-bb99358aa5bb",
       "name": "CHARX SEC-3050 (1.0.0-1.9.0)",
       "vendor": "Phoenix Contact"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--52c6835b-338c-5638-9954-41e360b96258",
-      "name": "Amazon Web Services (AWS)"
     },
     {
       "type": "software",
@@ -17380,12 +16267,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9b2c03fc-e727-5525-bfae-b08e895499c5",
-      "name": "Google Cloud Platform (GCP)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9dd416e0-ae21-51c3-a5f5-2bc62fdf54f4",
       "name": "Care Everywhere Gateway (14.3.10)"
     },
@@ -17472,12 +16353,6 @@
       "spec_version": "2.1",
       "id": "software--ad07df1c-8c1a-54e8-811d-6e6df081ce79",
       "name": "PHP 8.3"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ad1ab0a6-333a-59cc-b9e7-0d966bb9c73c",
-      "name": "Docker"
     },
     {
       "type": "software",
@@ -17616,12 +16491,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c17bcaa7-7806-5541-bf05-067bb5b0f1a6",
-      "name": "Extra Checkout Options (addon for Extra Product Options \u0026 Add-Ons for WooCommerce) plugin \u003c= 2.3.2"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c1aa9299-3769-5d1b-952e-999a33066dce",
       "name": "Zitadel 3.x",
       "vendor": "Zitadel"
@@ -17704,12 +16573,6 @@
       "id": "software--c868926c-f648-5b92-9495-1fca08a78e82",
       "name": "MeshCentral (1.1.21)",
       "vendor": "MeshCentral"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c90c4a9d-2d35-5529-864d-9a167c616bdf",
-      "name": "Microsoft Azure"
     },
     {
       "type": "software",
@@ -18228,22 +17091,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-66421",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66421"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--1de94188-c622-5779-bd2e-15f9f26b58db",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-14270",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-14270",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14270"
         }
       ]
     },
