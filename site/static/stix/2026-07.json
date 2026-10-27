@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e3af6da3-beda-5701-846b-9f50739161b2",
+  "id": "bundle--262a1bb2-511c-56c1-b1a7-4efe470ef7a6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2859,17 +2859,6 @@
       "relationship_type": "has",
       "source_ref": "software--8396e3a6-5323-533d-a040-77904de889b3",
       "target_ref": "vulnerability--4f562fa1-fe87-57e3-b955-b328541293b8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1342ac9e-6df0-50f4-84a5-b35cda9ade81",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T08:41:24.000Z",
-      "modified": "2026-07-29T08:41:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--aa4c943c-9706-5e6d-b02b-861e141e342c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -9496,17 +9485,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f44918fa-3a75-5654-b55c-53bb3b201073",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T08:41:24.000Z",
-      "modified": "2026-07-29T08:41:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--aa4c943c-9706-5e6d-b02b-861e141e342c",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f472cd53-82ac-5a61-9b0b-1f6861703753",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-29T12:40:56.000Z",
@@ -14826,51 +14804,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--aa4c943c-9706-5e6d-b02b-861e141e342c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-29T08:41:24.000Z",
-      "modified": "2026-07-29T08:41:24.000Z",
-      "name": "Apache Axis2: Vulnerability Allows Code Execution",
-      "description": "## Overview\n\nA critical vulnerability has been identified in Apache Axis2, which allows an anonymous, remote attacker to execute arbitrary program code on affected systems. This flaw grants adversaries unauthenticated remote code execution capabilities, enabling them to compromise the integrity and confidentiality of the server where Apache Axis2 is deployed. The vulnerability highlights the severe risk associated with unpatched web service components, as it can lead to full system compromise, data exfiltration, or further network lateral movement without any prior authentication. Organizations utilizing Apache Axis2 in their infrastructure are strongly advised to address this vulnerability immediately to prevent potential exploitation.\n\n## Attack Chain\n\n1. An unauthenticated remote attacker identifies an internet-facing Apache Axis2 instance.\n2. The attacker sends a specially crafted malicious request to the vulnerable Apache Axis2 application.\n3. The Axis2 application processes the malformed request, inadvertently triggering the underlying vulnerability.\n4. The vulnerability allows for the execution of arbitrary code provided by the attacker within the context of the Axis2 application.\n5. This successfully achieves remote code execution on the server hosting Apache Axis2.\n6. The attacker gains control over the compromised system, allowing for further malicious activities such as data exfiltration or deploying additional malware.\n\n## Impact\n\nSuccessful exploitation of this Apache Axis2 vulnerability leads to critical impacts, including complete system compromise, unauthorized access to sensitive data, and potential disruption of services. Attackers gaining remote code execution can install backdoors, deploy ransomware, steal credentials, or pivot to other systems within the network. This unauthenticated RCE poses a significant threat to any organization running vulnerable versions of Apache Axis2, potentially leading to severe financial losses, reputational damage, and regulatory penalties due to data breaches.\n\n## Recommendation\n\n* Patch Apache Axis2 immediately to the latest secure version recommended by the vendor.\n* Monitor web server logs (e.g., Apache access logs, web application firewall logs) for unusual requests or error patterns indicative of exploit attempts against web services.\n* Deploy Web Application Firewall (WAF) rules to detect and block suspicious HTTP requests targeting Apache Axis2.\n",
-      "published": "2026-07-29T08:41:24.000Z",
-      "labels": [
-        "apache",
-        "remote-code-execution",
-        "vulnerability-exploitation"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d05b2067-20ca-5f59-87bf-123b21dafd52"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-apache-axis2-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-apache-axis2-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2540"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-apache-axis2-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-apache-axis2-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-apache-axis2-rce/",
-      "x_craftedsignal_activity_at": "2026-07-29T08:41:24.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--aa7b8c37-b93e-5d0f-a0fc-cb6e28920015",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T07:36:18.000Z",
@@ -18694,13 +18627,6 @@
       "spec_version": "2.1",
       "id": "software--d02ae953-a8e2-5451-9f64-b736a5abb4de",
       "name": "Cassandra",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--d05b2067-20ca-5f59-87bf-123b21dafd52",
-      "name": "Axis2",
       "vendor": "Apache"
     },
     {

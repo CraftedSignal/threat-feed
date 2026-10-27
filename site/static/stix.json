@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a2ae4e71-6a94-5f50-a6c8-aeed6c8dd7ae",
+  "id": "bundle--a084be75-e49a-50b8-a31c-4389f91d64aa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6089,6 +6089,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--048a4290-5a4d-5623-9986-46956f53d3fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--31388429-e221-5619-99de-1b8e6a0fc452",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--04920438-60cf-589f-80e7-1e4060a2bcb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:43:09.000Z",
@@ -9631,6 +9642,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--14d1adf0-c49e-5332-bb42-3665b03a699a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--31388429-e221-5619-99de-1b8e6a0fc452",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--14d2b8f0-8a88-561d-ab49-3d7b8716d741",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10258,6 +10280,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--17f65944-c5d3-5289-ab50-235199d0b353",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e59cd18b-9c72-5a42-ae52-2dd78d90494f",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1803ef58-95a6-5423-835b-03e6ea9c5c83",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -10694,6 +10727,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9ef7e67a-ecfd-5f0f-840f-01c72fd873d5",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1a4f0bec-29fe-5e12-b566-867be7865e9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d24db10-eed8-5b83-9128-54d9e30bd7d3",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
     },
     {
       "type": "relationship",
@@ -24950,6 +24994,17 @@
       "relationship_type": "has",
       "source_ref": "software--6fa89e41-07ee-515e-b782-ad2540a8c3b2",
       "target_ref": "vulnerability--4ad01212-4a03-5eb3-8005-88d35135eb1f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--60e4d9d9-4d0c-5469-b9b6-2c86a8b7d8c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--74ca8a00-0afb-59a2-aef9-3f2524b4b96b",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
     },
     {
       "type": "relationship",
@@ -41754,7 +41809,7 @@
       "id": "relationship--afafdee3-3eda-5563-9c45-9602fb3a04b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-27T04:02:42.000Z",
+      "modified": "2026-10-27T09:10:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -42374,6 +42429,17 @@
       "relationship_type": "has",
       "source_ref": "software--86479b76-2558-5f50-8912-f5b58b2db29b",
       "target_ref": "vulnerability--38bc1b53-fa0f-566e-9085-380d567fd6fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b1987fd3-cddb-56cc-b6b5-46c3a3151f89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--74ca8a00-0afb-59a2-aef9-3f2524b4b96b",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
     },
     {
       "type": "relationship",
@@ -43727,6 +43793,17 @@
       "relationship_type": "has",
       "source_ref": "software--3ce509c2-8854-5a46-b0b5-6b783566b9be",
       "target_ref": "vulnerability--927b2d95-d800-5e18-b195-b435c488de68"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b92a248b-6dbe-5ad6-b007-12aa86c5f7bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d24db10-eed8-5b83-9128-54d9e30bd7d3",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
     },
     {
       "type": "relationship",
@@ -47027,6 +47104,17 @@
       "relationship_type": "uses",
       "source_ref": "report--0b3b6edc-e4b0-5393-ab71-7aca1a8241b0",
       "target_ref": "indicator--f05a33d7-846b-584d-8e7f-c6b91e59bc95"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c7b1cee8-7b3e-5b50-82f2-7b014cff054d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e59cd18b-9c72-5a42-ae52-2dd78d90494f",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
     },
     {
       "type": "relationship",
@@ -70158,7 +70246,7 @@
       "id": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-27T04:02:42.000Z",
+      "modified": "2026-10-27T09:10:25.000Z",
       "name": "PHP: Two critical vulnerabilities ahead of scheduled security release",
       "description": "The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.\n\n## Detection opportunity\n\nHunt for PHP or web-server workers spawning shells, scripting runtimes, discovery commands, or network utilities. The [community Sigma rule for suspicious PHP child processes](https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8) offers a starting point across Linux, macOS, and Windows. It requires process creation telemetry with both parent and child executable paths; use command lines and nearby HTTP requests to investigate matches. Tune known application jobs that intentionally start command-line tools.\n\nThis is generic post-execution behavior. A match does not establish exploitation of CVE-2026-109618 or CVE-2026-109619, and execution that stays inside the PHP worker will not match this rule.\n\n## Recommendation\n\n- Identify deployed PHP runtimes and the public applications that depend on them so owners can patch promptly.\n- Watch the PHP security release for confirmed affected and fixed versions; test and roll out the relevant updates.\n- Treat claims that all PHP versions are affected or that unauthenticated remote code execution is confirmed as provisional until the vendor publishes technical details.",
       "published": "2026-10-21T07:58:58.000Z",
@@ -70173,15 +70261,19 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--0e0d0604-49ae-5ea6-994c-24173700cf34",
         "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
+        "software--31388429-e221-5619-99de-1b8e6a0fc452",
         "software--3f3095e8-f0b8-57f2-a1ac-16537864ac5e",
         "software--3f8a4b0e-6526-557f-b52d-9e4a01d8de0c",
         "software--41f03b39-503f-58d2-90bf-a0a0698d58c1",
         "software--486062a9-75cd-5ca5-bfc8-d925604c4506",
+        "software--4d24db10-eed8-5b83-9128-54d9e30bd7d3",
+        "software--74ca8a00-0afb-59a2-aef9-3f2524b4b96b",
         "software--860242fe-9325-561a-bee6-453eb97b9095",
         "software--88556d04-f0fd-5bd7-8bc6-04bf5a766010",
         "software--a1bd5acd-6b25-579c-8d28-a9f07c6a2a6e",
         "software--a1f03f18-ba21-5de4-a81b-a952b42e0b5b",
         "software--cfc64be4-6df2-5ab9-a5d3-eb187afc6915",
+        "software--e59cd18b-9c72-5a42-ae52-2dd78d90494f",
         "vulnerability--34527698-11d8-5fea-9630-5c7137991077",
         "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
       ],
@@ -70266,6 +70358,10 @@
         {
           "source_name": "reference",
           "url": "https://support.checkpoint.com/results/sk/sk1000302"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html"
         },
         {
           "source_name": "reference",
@@ -70375,9 +70471,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-php-critical-security-release",
       "x_craftedsignal_event_id": "brief-2026-10-21-php-critical-security-release",
-      "x_craftedsignal_revision": 16,
+      "x_craftedsignal_revision": 17,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/",
-      "x_craftedsignal_activity_at": "2026-10-27T04:02:42.000Z",
+      "x_craftedsignal_activity_at": "2026-10-27T09:10:25.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -84943,7 +85039,7 @@
       },
       "x_craftedsignal_cvss_max": 7.6,
       "x_craftedsignal_epss_max": 0.00481,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -103938,7 +104034,7 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.909,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -107359,6 +107455,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.0221,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -152641,6 +152738,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--31388429-e221-5619-99de-1b8e6a0fc452",
+      "name": "PHP (\u003c 8.2.35)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3143cc73-2fea-50d1-9b85-78a7dee782b4",
       "name": "BotSharp (\u003c= 5.2.0)",
       "vendor": "BotSharp"
@@ -154191,6 +154295,13 @@
       "id": "software--4ceed688-eb80-50e6-810f-94595ef19dcd",
       "name": "Enterprise Linux",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4d24db10-eed8-5b83-9128-54d9e30bd7d3",
+      "name": "PHP (\u003c 8.4.27)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -156786,6 +156897,13 @@
       "id": "software--74a3fe36-0f5d-5a3f-ad81-dd3300dd18ed",
       "name": "Qwik (\u003c 1.20.0)",
       "vendor": "Builder.io"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--74ca8a00-0afb-59a2-aef9-3f2524b4b96b",
+      "name": "PHP (\u003c 8.5.12)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",
@@ -163235,6 +163353,13 @@
       "id": "software--e5382c21-af86-5151-bdd0-0c3df9a711f5",
       "name": "Unbound (1.22.0-1.26.1)",
       "vendor": "NLnet Labs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e59cd18b-9c72-5a42-ae52-2dd78d90494f",
+      "name": "PHP (\u003c 8.3.36)",
+      "vendor": "PHP Group"
     },
     {
       "type": "software",

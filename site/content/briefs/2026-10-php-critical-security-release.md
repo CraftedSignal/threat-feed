@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-critical-security-release
 event_id: brief-2026-10-21-php-critical-security-release
-revision: 16
-activity_at: "2026-10-27T04:02:42Z"
+revision: 17
+activity_at: "2026-10-27T09:10:25Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T08:26:00Z"
@@ -183,12 +183,25 @@ revision_history:
       - updates
     source_urls:
       - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
+  - revision: 17
+    at: "2026-10-27T09:10:25Z"
+    checksum: sha256:602af48550f981bd181a3dbc669a9315eeea397a92de6057d87a6e8dc5d6cf9e
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
 title: 'PHP: Two critical vulnerabilities ahead of scheduled security release'
 slug: 2026-10-php-critical-security-release
 description: PHP has announced two critical vulnerabilities rated CVSS v4.0 9.2 and a security release scheduled for 21 October at 14:00 UTC. Exploit details and affected versions are not yet confirmed by PHP.
 date: "2026-10-21T07:47:00Z"
-lastmod: "2026-10-27T04:02:07Z"
+lastmod: "2026-10-27T09:09:21Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -246,6 +259,10 @@ products:
   - PHP (5.4 <= version <= 8.5.11)
   - PHP (< 8.5.12, 8.4.27, 8.3.36, 8.2.35)
   - PHP (< 8.2.35, < 8.3.36, < 8.4.27, < 8.5.12)
+  - PHP (< 8.2.35)
+  - PHP (< 8.3.36)
+  - PHP (< 8.4.27)
+  - PHP (< 8.5.12)
 affected_os:
   - Ubuntu 22.04
   - Ubuntu 24.04
@@ -313,6 +330,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-109618
   - https://www.cve.org/CVERecord?id=CVE-2026-109619
   - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
+  - https://thehackernews.com/2026/10/cisa-confirms-active-exploitation-of.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -340,13 +358,6 @@ action_plan:
       addresses: PHP
       evidence: PHP has not yet disclosed the affected or fixed versions; it plans to publish them with the release.
 updates:
-  - at: "2026-10-26T10:54:04Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/php2shell-cve-2026-109618-109619
   - at: "2026-10-26T16:01:42Z"
     level: L1
     summary: new product
@@ -369,6 +380,13 @@ updates:
     source_urls:
       - https://www.cve.org/CVERecord?id=CVE-2026-109618
   - at: "2026-10-27T04:02:07Z"
+    level: L1
+    summary: new product
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/obstacles-to-weaponizing-php2shell-likely-constrain-exploitation/
+  - at: "2026-10-27T09:09:21Z"
     level: L1
     summary: new product
     sources:
