@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--453a3279-46e9-51f8-80d2-5cccab8ec23d",
+  "id": "bundle--8f7bbb65-6c9f-52f6-88dc-f225206c305d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -132089,6 +132089,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f2652804-eac2-5b16-893e-afd220aa9f49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T03:45:10.000Z",
+      "modified": "2026-10-27T03:45:10.000Z",
+      "name": "OpenPanel: Sandbox escape (CVE-2026-116811)",
+      "description": "OpenPanel before 3.0.0 contains a sandbox escape vulnerability in the js-runtime validator that allows a project member to bypass the AST allowlist by aliasing the Function constructor. Attackers with write access can read payload.constructor.constructor into a local and call it to run arbitrary code in the worker process.\n",
+      "published": "2026-10-27T03:45:10.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--4ff48ab3-84be-58ac-92ac-7f1840a18045"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-openpanel-sandbox-escape",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openpanel-sandbox-escape/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116811"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-openpanel-sandbox-escape",
+      "x_craftedsignal_event_id": "brief-2026-10-27-openpanel-sandbox-escape",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openpanel-sandbox-escape/",
+      "x_craftedsignal_activity_at": "2026-10-27T03:45:10.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f267d681-8f68-53bb-835c-0d2de27e6f4e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:17:47.000Z",
@@ -158356,6 +158395,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92975",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92975"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4ff48ab3-84be-58ac-92ac-7f1840a18045",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116811",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116811",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116811"
         }
       ]
     },
