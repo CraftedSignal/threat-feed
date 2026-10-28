@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5e89808f-7c5e-5035-a0e7-ce50ee14d1d1",
+  "id": "bundle--7f53b965-b266-550a-b07f-8c2a668bd18f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -101,22 +101,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Unix Shell",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1059.004",
-          "url": "https://attack.mitre.org/techniques/T1059/004"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--745c9492-77e4-5572-9132-308959464536",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -159,22 +143,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1562",
           "url": "https://attack.mitre.org/techniques/T1562"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Use Alternate Authentication Material",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1550",
-          "url": "https://attack.mitre.org/techniques/T1550"
         }
       ]
     },
@@ -288,17 +256,6 @@
       "pattern": "[url:value = 'http://thumbor-host:8888/unsafe/filters:watermark(%252e%252e/%252e%252e/%252e%252e/%252e%252e/etc/passwd,0,0,100)/some-valid-image.jpg']",
       "pattern_type": "stix",
       "valid_from": "2026-07-31T19:20:49.000Z"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--025e3c90-5029-50d0-8c80-c3febcc45dc0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8932984e-346e-57c9-ad22-b5261b502cf3",
-      "target_ref": "vulnerability--2191ecb7-708b-58c2-aff3-46e0ed6fa5fe"
     },
     {
       "type": "relationship",
@@ -446,17 +403,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--1e2ec5f4-43b8-5799-8f55-05592b91557d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:29:49.000Z",
-      "modified": "2026-07-30T19:30:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2ff8a7d9-3f07-5cfc-9bf8-b140e0413b3a",
-      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1e46c67b-32f7-56fe-b349-8fea3dfc24f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -541,17 +487,6 @@
       "relationship_type": "has",
       "source_ref": "software--1b764e03-631a-51d5-9e7f-522553b0c4fd",
       "target_ref": "vulnerability--3b7b8f7e-4cca-598c-baef-bd71948605bb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--338895c4-5afa-5df2-bb53-224c5f7f069c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b8769d4f-fc25-517a-a856-d90a91493f2e",
-      "target_ref": "vulnerability--2f826fed-3247-5f7f-9e06-3195c690b806"
     },
     {
       "type": "relationship",
@@ -732,28 +667,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--54bd0026-f539-5a18-8edd-ce60eb974680",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:29:38.000Z",
-      "modified": "2026-07-30T17:29:38.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ada7689d-8dbd-5b5e-883f-54a3fcc75e76",
-      "target_ref": "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--551b7583-3bf2-57fc-bbd4-a7d33649e209",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:29:49.000Z",
-      "modified": "2026-07-30T19:30:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2ff8a7d9-3f07-5cfc-9bf8-b140e0413b3a",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--583c1b2b-d378-5e56-baae-3a0773f9225b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:10:46.000Z",
@@ -886,28 +799,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--74441aa8-c4cd-5c98-84d4-66b1ddbdb656",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8f6190c1-8f41-5131-b109-f9ff9ac354ca",
-      "target_ref": "vulnerability--2f826fed-3247-5f7f-9e06-3195c690b806"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--7519722b-bcee-5dc9-9b4d-4c6981ed112e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--fc309ea7-7d7d-517f-90c8-6d1dfc2e3039",
-      "target_ref": "vulnerability--e855b175-7a3f-5112-86c2-4cae7b7ea503"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--779461a1-a6c9-50b6-b749-7b2eeed9499d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:35.000Z",
@@ -985,17 +876,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--80b9e737-b20b-593a-b31a-44a4fb77bbc0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3cf97769-03b2-540a-ac70-9b0a9c65e7de",
-      "target_ref": "vulnerability--eb38e243-b5fa-51d0-a5aa-116232278a77"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8339af02-5404-59f5-9b68-e5d37cf15605",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1062,17 +942,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8cd52371-2b37-55cf-91e8-f377e5587dde",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a4767fe9-fca1-52f1-950a-9d4fdd18f5be",
-      "target_ref": "vulnerability--8151ebe0-d78a-5a64-8f69-5ad62db4f5ab"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8d5d2bd4-1d92-5857-925d-133dfc30f0b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T23:32:25.000Z",
@@ -1095,34 +964,12 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--922b5faf-f564-5c11-a244-11ab0a77818e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b8769d4f-fc25-517a-a856-d90a91493f2e",
-      "target_ref": "vulnerability--eb38e243-b5fa-51d0-a5aa-116232278a77"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--94a358b3-aea2-503a-a18f-e10cd728f4a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T21:31:53.000Z",
       "modified": "2026-09-01T14:31:23.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3334e71e-fe1e-5ae5-8aff-6093c9f31655",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9532e494-2b26-5ab0-98b3-15105c930cf2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:30:10.000Z",
-      "modified": "2026-07-30T17:30:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d2250161-6583-562f-8bbd-1960f6c433ea",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
@@ -1216,17 +1063,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a96c33ce-7d46-5cd1-848d-5e0682b11627",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3cf97769-03b2-540a-ac70-9b0a9c65e7de",
-      "target_ref": "vulnerability--2f826fed-3247-5f7f-9e06-3195c690b806"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a9ca5d84-5ad8-5c51-bb1d-1c04fcb4f02b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-30T19:30:56.000Z",
@@ -1234,17 +1070,6 @@
       "relationship_type": "uses",
       "source_ref": "report--29c551cf-1915-5e33-adc6-c4c10bc7a8fc",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ac7a365f-d171-5689-b78e-b69505420c29",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8ef4edcc-8901-546b-b8f3-fb8965058003",
-      "target_ref": "vulnerability--8151ebe0-d78a-5a64-8f69-5ad62db4f5ab"
     },
     {
       "type": "relationship",
@@ -1425,17 +1250,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e26bfa75-8cf7-5ed2-a690-cdb0644dd019",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--578d68a0-8db9-5464-91b0-0b9d5505f37c",
-      "target_ref": "vulnerability--16cd9d38-2496-5fd7-b2f5-8daa15099d7b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e4df1965-cc0c-5a53-8cd8-567a6dc5591e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:24.000Z",
@@ -1502,28 +1316,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f26b6d12-bfca-58ae-b1fa-1b4613a593f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c92d7037-49bc-5040-be85-6999ba7be33b",
-      "target_ref": "vulnerability--8151ebe0-d78a-5a64-8f69-5ad62db4f5ab"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f299cbc9-64b0-5058-8e36-f4ac0666f8ad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:29:49.000Z",
-      "modified": "2026-07-30T19:30:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--2ff8a7d9-3f07-5cfc-9bf8-b140e0413b3a",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f4e6d650-6014-5add-8989-45e7ff0e3f7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:20:21.000Z",
@@ -1586,17 +1378,6 @@
       "relationship_type": "has",
       "source_ref": "software--d02ae953-a8e2-5451-9f64-b736a5abb4de",
       "target_ref": "vulnerability--a97e7937-ab2f-58fe-a8a3-e58550a7d65d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fe2387c2-813f-524c-a120-7007a628fd28",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8f6190c1-8f41-5131-b109-f9ff9ac354ca",
-      "target_ref": "vulnerability--eb38e243-b5fa-51d0-a5aa-116232278a77"
     },
     {
       "type": "report",
@@ -1942,70 +1723,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--2ff8a7d9-3f07-5cfc-9bf8-b140e0413b3a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:29:49.000Z",
-      "modified": "2026-07-30T19:30:32.000Z",
-      "name": "Unauthenticated Remote Code Execution in IBM Langflow OSS",
-      "description": "## Overview\n\nIBM Langflow OSS versions 1.0.0 through 1.10.1 contain a critical vulnerability (CVE-2026-12940) in the Model Context Protocol (MCP) stdio launcher. The flaw originates in 'src/lfx/src/lfx/base/mcp/util.py', where the 'DANGEROUS_ENV_VARS' blocklist fails to filter sensitive environment variables, specifically 'SHELLOPTS', 'BASHOPTS', and 'PS4'. \n\nAn unauthenticated remote attacker can exploit this oversight by injecting these environment variables into the application's process execution flow. By manipulating these variables, an attacker can influence shell behavior to execute arbitrary OS commands when the launcher initiates subprocesses. Because the vulnerability allows for unauthenticated interaction with the MCP interface, it presents a significant risk for server compromise in environments hosting Langflow instances.\n\n## Attack Chain\n\n1. Attacker identifies a target server hosting IBM Langflow OSS (versions 1.0.0 through 1.10.1).\n2. Attacker interacts with the unauthenticated Model Context Protocol (MCP) endpoint exposed by the application.\n3. Attacker crafts a malicious request intended to trigger the stdio launcher process.\n4. Attacker injects forbidden environment variables ('SHELLOPTS', 'BASHOPTS', or 'PS4') into the application's request parameters.\n5. The 'DANGEROUS_ENV_VARS' blocklist in the vulnerable 'util.py' script fails to filter the injected variables.\n6. The application initializes a subprocess using the influenced environment settings.\n7. The shell interpreter executes arbitrary commands defined via the injected variables, resulting in remote code execution.\n\n## Impact\n\nSuccessful exploitation of this vulnerability leads to unauthenticated remote code execution on the underlying host. This grants an attacker the ability to execute arbitrary commands, potentially leading to total system compromise, data exfiltration, or deployment of further payloads. Given the nature of the application as an orchestration tool for AI workflows, attackers could potentially manipulate sensitive LLM inputs or access internal network resources from the compromised container or host.\n\n## Recommendation\n\n* Immediately upgrade IBM Langflow OSS to a patched version beyond 1.10.1 to mitigate CVE-2026-12940.\n* Review logs for unusual process spawning activities originating from the Langflow process user.\n* Restrict network access to the Langflow MCP management interface to trusted internal segments only, as the vulnerability does not require authentication.\n* Implement strict environment variable monitoring and container security policies to detect attempts to inject shell-specific variables into application subprocesses.\n",
-      "published": "2026-07-30T17:29:49.000Z",
-      "labels": [
-        "code-injection",
-        "cve-2026-12940",
-        "ibm",
-        "langflow",
-        "rce",
-        "remote-code-execution",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--578d68a0-8db9-5464-91b0-0b9d5505f37c",
-        "vulnerability--16cd9d38-2496-5fd7-b2f5-8daa15099d7b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-langflow-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-langflow-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12940"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13435"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7279987"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7279995"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-langflow-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-langflow-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-langflow-rce/",
-      "x_craftedsignal_activity_at": "2026-07-30T19:30:32.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--30614e77-fa1d-5c6c-b262-51ed2a1c9636",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T13:38:25.000Z",
@@ -2183,57 +1900,6 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_epss_max": 0.91655,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--454913b2-8c76-557c-8c84-99d244c9efd0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:30:02.000Z",
-      "modified": "2026-07-30T17:30:02.000Z",
-      "name": "IBM PowerVM Hypervisor Memory Integrity Vulnerability",
-      "description": "## Overview\n\nIBM has disclosed a vulnerability (CVE-2026-11885) affecting the PowerVM Hypervisor, specifically impacting firmware versions FW1110.00 through FW1110.20, FW1060.00 through FW1060.71, and FW950.00 through FW950.H1. The vulnerability is classified as a classic buffer overflow (CWE-120), occurring when the hypervisor processes a carefully crafted hypercall from a guest operating system.\n\nSuccessful exploitation allows a local attacker, already possessing low-level access to a guest OS, to perform operations that lead to a denial-of-service (system crash) or the corruption of protected OS memory. This vulnerability represents a significant risk for multi-tenant environments where the hypervisor is responsible for maintaining strict isolation boundaries between disparate workloads. Defenders should prioritize updating affected firmware versions to mitigate the risk of guest-to-host or guest-to-guest memory corruption.\n\n## Impact\n\nThe vulnerability poses a high risk to data integrity and system availability in virtualized environments. If exploited, an attacker could destabilize the host system or gain unauthorized control over the memory space of other guest partitions. This is particularly critical in enterprise data centers running consolidated workloads on IBM Power hardware. As of the time of disclosure, there is no evidence of active, widespread exploitation, but the ease of access (local/low privilege) makes it an attractive target for internal threat actors or compromised guest accounts.\n\n## Recommendation\n\n1. Audit existing IBM PowerVM environments to identify systems running the vulnerable firmware versions (FW1110.x, FW1060.x, FW950.x).\n2. Apply the relevant firmware updates as detailed in the vendor advisory: https://www.ibm.com/support/pages/node/7280628.\n3. Restrict administrative and low-level guest access to systems where patching cannot be performed immediately.\n4. Implement enhanced monitoring for hypervisor-level errors or unexpected partition resets that could indicate exploitation attempts against the hypercall interface.\n",
-      "published": "2026-07-30T17:30:02.000Z",
-      "labels": [
-        "buffer-overflow",
-        "hypervisor",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8ef4edcc-8901-546b-b8f3-fb8965058003",
-        "software--a4767fe9-fca1-52f1-950a-9d4fdd18f5be",
-        "software--c92d7037-49bc-5040-be85-6999ba7be33b",
-        "vulnerability--8151ebe0-d78a-5a64-8f69-5ad62db4f5ab"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-30-ibm-powervm-cve",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-ibm-powervm-cve/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11885"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7280628"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-30-ibm-powervm-cve",
-      "x_craftedsignal_event_id": "brief-2026-07-30-ibm-powervm-cve",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-ibm-powervm-cve/",
-      "x_craftedsignal_activity_at": "2026-07-30T17:30:02.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.4,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -3252,62 +2918,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ada7689d-8dbd-5b5e-883f-54a3fcc75e76",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:29:38.000Z",
-      "modified": "2026-07-30T17:29:38.000Z",
-      "name": "SolarWinds Web Help Desk SAML Authentication Bypass",
-      "description": "## Overview\n\nSolarWinds has disclosed a critical authentication bypass vulnerability, tracked as CVE-2026-28323, affecting the Web Help Desk (WHD) application. The vulnerability resides in the SAML 2.0 authentication integration. If SAML 2.0 authentication is enabled within the application settings, an unauthenticated remote attacker can bypass the standard login flow to gain unauthorized access to the system. This vulnerability has been assigned a CVSS v3.1 score of 9.8, reflecting its critical impact. The flaw affects Web Help Desk version 2026.1 and all preceding versions. Defenders must verify the current version of their WHD instances and ensure that those utilizing SAML for authentication are patched or secured according to vendor guidance.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify internet-facing SolarWinds Web Help Desk instances.\n2. Attacker probes the application to confirm if SAML 2.0 authentication is enabled.\n3. Attacker crafts a malicious or crafted SAML assertion or bypass request targeting the WHD authentication endpoint.\n4. The application improperly validates the SAML response or authentication state, granting the attacker an authenticated session.\n5. Attacker gains unauthorized access to the Web Help Desk administrative or user interface.\n6. Attacker leverages this access to perform internal actions, potentially including data exfiltration or system modification depending on the privileges of the hijacked session.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to gain unauthorized access to the SolarWinds Web Help Desk instance. This may lead to the exposure of sensitive help desk tickets, internal user information, and potential administrative control over the help desk infrastructure. The vulnerability affects all organizations utilizing WHD with SAML 2.0 enabled, creating a significant risk of data breach and unauthorized system manipulation.\n\n## Recommendation\n\n- Upgrade to SolarWinds Web Help Desk version 2026.2.1 or later to remediate CVE-2026-28323.\n- Audit web server and application access logs for unusual patterns of authentication attempts directed at the SAML callback or login endpoints.\n- Monitor for anomalous administrative activities occurring from unexpected user sessions or source IP addresses within the help desk application.\n- Review the SolarWinds security advisory for CVE-2026-28323 and follow recommended hardening steps for Web Help Desk configurations.\n",
-      "published": "2026-07-30T17:29:38.000Z",
-      "labels": [
-        "authentication-bypass",
-        "cve-2026-28323",
-        "saml",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--d1ed5799-980b-5d2c-bc5a-beb8d47d4d92",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8932984e-346e-57c9-ad22-b5261b502cf3",
-        "vulnerability--2191ecb7-708b-58c2-aff3-46e0ed6fa5fe"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-30-solarwinds-whd-saml-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-solarwinds-whd-saml-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://documentation.solarwinds.com/en/success_center/whd/content/release_notes/whd_2026-2-1_release_notes.htm"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28323"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2026-28323"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-30-solarwinds-whd-saml-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-30-solarwinds-whd-saml-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-solarwinds-whd-saml-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-30T17:29:38.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01026,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b76dac49-d868-523e-9019-15bb71dc36eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:29:49.000Z",
@@ -3389,65 +2999,6 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-langflow-traversal/",
       "x_craftedsignal_activity_at": "2026-07-30T19:30:49.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--bb58bfb3-e1c4-579b-80f9-5876e37f5830",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:29:55.000Z",
-      "modified": "2026-07-30T21:31:47.000Z",
-      "name": "Authentication Bypass Vulnerability in IBM WebSphere Application Server",
-      "description": "## Overview\n\nIBM has disclosed a security vulnerability, CVE-2026-10842, identified as an authentication bypass via alternate name (CWE-289). This vulnerability affects IBM WebSphere Application Server versions 8.5 and 9.0, as well as IBM WebSphere Application Server - Liberty versions 17.0.0.3 through 26.0.0.7. The flaw permits a remote, unauthenticated attacker to bypass established security constraints, potentially leading to unauthorized access to sensitive application resources or administrative functions. Given the base CVSS score of 7.5, this vulnerability represents a significant risk to enterprise environments where WebSphere serves as a critical middleware component. Defenders should prioritize patching affected instances and monitoring for unusual traffic patterns targeting authentication-related endpoints or administrative interfaces.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-10842 allows for complete bypass of security controls enforced by the affected WebSphere instances. This could lead to unauthorized data access, potential compromise of internal business logic, or exposure of administrative interfaces to unauthenticated remote actors. The vulnerability impacts widespread enterprise deployments of WebSphere, posing a risk of data exfiltration and loss of integrity for business-critical applications.\n\n## Recommendation\n\nPrioritize the application of vendor-supplied patches as detailed in the IBM security bulletin.\n\n- Apply the security patches or upgrade to the non-vulnerable versions specified in the IBM support document provided in the references.\n- Review access logs for web applications hosted on affected WebSphere instances to identify spikes in 401 or 403 status codes followed by successful access to sensitive resources.\n- Audit administrative and application-level access controls to identify any bypassed security constraints.\n",
-      "published": "2026-07-30T17:29:55.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3cf97769-03b2-540a-ac70-9b0a9c65e7de",
-        "software--8f6190c1-8f41-5131-b109-f9ff9ac354ca",
-        "software--b8769d4f-fc25-517a-a856-d90a91493f2e",
-        "vulnerability--2f826fed-3247-5f7f-9e06-3195c690b806",
-        "vulnerability--eb38e243-b5fa-51d0-a5aa-116232278a77"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-websphere-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-websphere-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10842"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11536"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9322"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7278576"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7280131"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-websphere-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-websphere-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-websphere-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-30T21:31:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -3839,56 +3390,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d2250161-6583-562f-8bbd-1960f6c433ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T17:30:10.000Z",
-      "modified": "2026-07-30T17:30:10.000Z",
-      "name": "Authorization Bypass Vulnerability in IBM Langflow OSS",
-      "description": "## Overview\n\nIBM Langflow OSS versions 1.0.0 through 1.10.1 are susceptible to an authorization bypass vulnerability identified as CVE-2026-12945. The vulnerability, categorized as CWE-639 (Authorization Bypass Through User-Controlled Key), stems from improper access controls within the application's log retrieval functionality and its build job management endpoints. An attacker with standard authenticated access can manipulate object identifiers to interact with build jobs that they are not authorized to view or modify. This flaw enables unauthorized access to sensitive build logs and potential disruption of build processes, impacting the integrity and confidentiality of the development workflow within environments utilizing the affected versions of Langflow OSS.\n\n## Attack Chain\n\n1. The attacker authenticates to the target IBM Langflow OSS instance with a low-privileged user account.\n2. The attacker identifies the application's API endpoints responsible for log retrieval and build job management.\n3. The attacker observes that requests to these endpoints include identifiers (e.g., job IDs or user IDs) that can be manipulated.\n4. The attacker crafts a malicious HTTP request to the build job endpoint, replacing legitimate identifiers with target identifiers corresponding to other users' jobs.\n5. The server fails to validate whether the current authenticated user has sufficient permissions to access the specified resource.\n6. The application processes the request and returns the sensitive logs or executes unauthorized actions (manipulation) on the target build job.\n7. The attacker repeats this process for multiple job IDs to exfiltrate logs or disrupt build pipelines.\n\n## Impact\n\nSuccessful exploitation of this vulnerability permits unauthorized access to build logs and the ability to manipulate build jobs belonging to other users. In a CI/CD environment, this can lead to the exposure of proprietary code, environment variables, credentials present in build logs, or the intentional corruption of software build pipelines, resulting in potential service disruption or supply chain compromise.\n\n## Recommendation\n\n1. Upgrade IBM Langflow OSS to a patched version beyond 1.10.1 immediately to remediate CVE-2026-12945.\n2. Deploy web application firewall (WAF) or API gateway rules to inspect requests to build endpoints for unauthorized identifier modification (insecure direct object reference patterns).\n3. Review access logs for high-frequency or anomalous requests to build management and log retrieval API endpoints originating from standard user accounts.\n4. Implement strict role-based access control (RBAC) policies and ensure that all server-side endpoints enforce ownership validation for requested resources.\n",
-      "published": "2026-07-30T17:30:10.000Z",
-      "labels": [
-        "authorization-bypass",
-        "cve-2026-12945",
-        "cwe-639"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--fc309ea7-7d7d-517f-90c8-6d1dfc2e3039",
-        "vulnerability--e855b175-7a3f-5112-86c2-4cae7b7ea503"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-langflow-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-langflow-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12945"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.ibm.com/support/pages/node/7279994"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-langflow-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-langflow-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-langflow-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-30T17:30:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d80eec51-8ba9-595c-bbe5-cc4cc6a8bf43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T07:36:25.000Z",
@@ -4119,13 +3620,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3cf97769-03b2-540a-ac70-9b0a9c65e7de",
-      "name": "WebSphere Application Server (9.0, 8.5)",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3ff04923-daaa-548a-81c7-819e4a9b967a",
       "name": "Savon (\u003c 2.17.2)"
     },
@@ -4155,13 +3649,6 @@
       "id": "software--4d4626a8-8986-56a2-9ec0-ed49e8f027e1",
       "name": "@nocobase/plugin-notification-in-app-message",
       "vendor": "NocoBase"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--578d68a0-8db9-5464-91b0-0b9d5505f37c",
-      "name": "Langflow OSS (1.0.0 - 1.10.1)",
-      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -4222,20 +3709,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--8ef4edcc-8901-546b-b8f3-fb8965058003",
-      "name": "PowerVM Hypervisor (FW1110.00-FW1110.20)",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8f6190c1-8f41-5131-b109-f9ff9ac354ca",
-      "name": "WebSphere Application Server - Liberty (17.0.0.3 - 26.0.0.7)",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--8fc19051-d544-5a5c-b380-ca4c1cdc9900",
       "name": "NLTK (\u003c= 3.9.4)"
     },
@@ -4282,13 +3755,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--a4767fe9-fca1-52f1-950a-9d4fdd18f5be",
-      "name": "PowerVM Hypervisor (FW1060.00-FW1060.71)",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ad07df1c-8c1a-54e8-811d-6e6df081ce79",
       "name": "PHP 8.3"
     },
@@ -4329,13 +3795,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--b8769d4f-fc25-517a-a856-d90a91493f2e",
-      "name": "WebSphere Application Server (8.5, 9.0)",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--bb89e8a4-e277-541d-bcae-407ae05b0659",
       "name": "Sylius Mollie Plugin",
       "vendor": "Sylius"
@@ -4360,13 +3819,6 @@
       "id": "software--c868926c-f648-5b92-9495-1fca08a78e82",
       "name": "MeshCentral (1.1.21)",
       "vendor": "MeshCentral"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c92d7037-49bc-5040-be85-6999ba7be33b",
-      "name": "PowerVM Hypervisor (FW950.00-FW950.H1)",
-      "vendor": "IBM"
     },
     {
       "type": "software",
@@ -4447,13 +3899,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--fc309ea7-7d7d-517f-90c8-6d1dfc2e3039",
-      "name": "Langflow OSS (1.10.1)",
-      "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--fdb0b7da-870d-5277-b7b0-24841aca1818",
       "name": "netty-codec-http2 (4.1.x)",
       "vendor": "Netty"
@@ -4519,22 +3964,6 @@
           "source_name": "cve",
           "external_id": "CVE-2018-1320",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-1320"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--16cd9d38-2496-5fd7-b2f5-8daa15099d7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-12940",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-12940",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12940"
         }
       ]
     },
@@ -4615,38 +4044,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-10535",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10535"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2191ecb7-708b-58c2-aff3-46e0ed6fa5fe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-28323",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-28323",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28323"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--2f826fed-3247-5f7f-9e06-3195c690b806",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-10842",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-10842",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10842"
         }
       ]
     },
@@ -4855,22 +4252,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-56819",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56819"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8151ebe0-d78a-5a64-8f69-5ad62db4f5ab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-11885",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-11885",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11885"
         }
       ]
     },
@@ -5111,38 +4492,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18452",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18452"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e855b175-7a3f-5112-86c2-4cae7b7ea503",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-12945",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-12945",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12945"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--eb38e243-b5fa-51d0-a5aa-116232278a77",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-9322",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-9322",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9322"
         }
       ]
     },
