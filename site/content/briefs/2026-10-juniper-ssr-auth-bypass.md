@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-28-juniper-ssr-auth-bypass
 event_id: brief-2026-10-28-juniper-ssr-auth-bypass
-revision: 2
-activity_at: "2026-10-28T19:24:42Z"
+revision: 3
+activity_at: "2026-10-28T22:49:50Z"
 revision_history:
   - revision: 2
     at: "2026-10-28T19:24:42Z"
@@ -17,11 +17,22 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=CVE-2026-103409&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-10-28T22:49:50Z"
+    checksum: sha256:24858ddf3225de5fde94dcd88907674cc17d5bb7f2f8cf5481450d8077ab5a52
+    summary: added CVE-2026-103407
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103407
 title: 'Juniper Networks Session Smart Router: Missing authentication for critical function (CVE-2026-103409)'
 slug: 2026-10-juniper-ssr-auth-bypass
 description: A missing authentication vulnerability in Juniper Networks Session Smart Router allows unauthenticated network-based attackers to escalate privileges via crafted URL parameters on non-onboarded devices.
 date: "2026-10-28T18:36:56Z"
-lastmod: "2026-10-28T19:23:52Z"
+lastmod: "2026-10-28T22:47:54Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -88,6 +99,9 @@ cves:
   - id: CVE-2026-103411
     cvss: 7.1
     kev_status: "false"
+  - id: CVE-2026-103407
+    cvss: 8.8
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103409
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103401
@@ -96,6 +110,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103408
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103411
   - https://sploitus.com/exploit?id=CVE-2026-103409&utm_source=rss&utm_medium=rss
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-103407
 action_plan:
   priority: elevated
   owners:
@@ -134,13 +149,6 @@ action_plan:
       addresses: CVE-2026-103402
       evidence: Vulnerability depends on attacker having write access to the model cache directory
 updates:
-  - at: "2026-10-28T18:37:11Z"
-    level: L2
-    summary: added coverage for Session Smart Router +1 products
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-103402
   - at: "2026-10-28T18:37:16Z"
     level: L2
     summary: added CVE-2026-103403, CVE-2026-103408, CVE-2026-103411
@@ -157,6 +165,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=CVE-2026-103409&utm_source=rss&utm_medium=rss
+  - at: "2026-10-28T22:47:54Z"
+    level: L2
+    summary: added CVE-2026-103407
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-103407
 ---
 
 CVE-2026-103409 is a missing authentication for critical function vulnerability affecting Juniper Networks Session Smart Router. An unauthenticated attacker can exploit this via crafted URL parameters sent to a root-level endpoint. This flaw is only exploitable on devices that have not yet been onboarded to Mist or Conductor management systems. Once a device is successfully onboarded, the vulnerability is no longer exploitable.
