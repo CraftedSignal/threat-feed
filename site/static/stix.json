@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3a0d4bb4-1faf-52b3-ab37-79f6b6895ba9",
+  "id": "bundle--5da5cda3-ea54-5004-81e8-3f55eb7d75d3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25284,6 +25284,17 @@
       "relationship_type": "has",
       "source_ref": "software--df867bb6-eda3-5374-ab33-1306362d5834",
       "target_ref": "vulnerability--475f53d8-8b24-5b67-991f-06fe61d39192"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--598505f0-a3a0-51c1-93f3-73d804a494a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-28T05:35:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -110049,6 +110060,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-28T05:35:31.000Z",
+      "name": "Railway: User secret key compromise",
+      "description": "## Overview\n\nRailway, a cloud developer platform, has confirmed a cyberattack that impacted the security of user secret keys stored within its infrastructure. Due to the nature of the compromise, Railway has formally instructed all users to rotate and revoke all existing secret keys to prevent unauthorized access to environments and third-party services connected via those credentials. No specific technical details regarding the initial access vector or the scope of the exfiltrated data have been disclosed by the vendor.\n\n## Impact\n\nThe compromise potentially exposes any sensitive information, cloud infrastructure, or API-based services managed through Railway secret keys, as these credentials may be actively used by unauthorized parties following the incident.\n\n## Recommendation\n\n* Immediately rotate and revoke all Railway-associated API keys, secret environment variables, and any service tokens managed within the Railway platform.\n* Audit logs associated with any cloud resources or third-party APIs that utilized Railway-managed secrets for unauthorized access patterns starting from the incident discovery period.\n* Monitor Railway status updates for further instructions regarding credential rotation and security remediations.\n",
+      "published": "2026-10-28T05:35:31.000Z",
+      "labels": [
+        "account-compromise",
+        "cloud",
+        "credential-access"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--af6042ca-57fa-52c5-a8bb-d3dc11675982"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-railway-secret-compromise",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-railway-secret-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://techcrunch.com/2026/10/22/developer-platform-railway-urges-all-users-to-revoke-secret-keys-after-cyberattack"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-railway-secret-compromise",
+      "x_craftedsignal_event_id": "brief-2026-10-28-railway-secret-compromise",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-railway-secret-compromise/",
+      "x_craftedsignal_activity_at": "2026-10-28T05:35:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7c145b2c-5daf-5a86-ab7e-d789b8a2dade",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:46:05.000Z",
@@ -171166,6 +171221,13 @@
       "spec_version": "2.1",
       "id": "software--af508fa8-c701-59cb-8122-5da96733e2ee",
       "name": "JP1/Base (11-00 before 12-50-54)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--af6042ca-57fa-52c5-a8bb-d3dc11675982",
+      "name": "Railway",
+      "vendor": "Railway"
     },
     {
       "type": "software",
