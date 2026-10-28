@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--44989e00-17d0-5a71-b875-fad0f19b41b4",
+  "id": "bundle--bbcda164-3106-5291-9772-c6277213fa5b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8723,6 +8723,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0faaff84-615f-5d69-9bdd-7470659e190d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--67afa3a3-13f7-5f0c-9ae0-b49e4d8ec818",
+      "target_ref": "vulnerability--76fd625c-741b-50a0-8b3e-fad977ddda0e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0fad614a-9241-5cde-857e-626c25a8ae9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:06:39.000Z",
@@ -10160,6 +10171,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8c2f208d-55ad-54af-8ee4-adc8726972f4",
       "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--153d7029-4814-594b-aa0b-155e802d1107",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--67afa3a3-13f7-5f0c-9ae0-b49e4d8ec818",
+      "target_ref": "vulnerability--812bf6d0-4a9c-5d91-b767-07c4373c6e78"
     },
     {
       "type": "relationship",
@@ -45243,6 +45265,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ae4cce51-e3ce-5b19-b670-043dfc646d93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--477abc20-f2b8-5797-a224-b43f998a7ae0",
+      "target_ref": "vulnerability--47571b76-1d98-53e8-b362-1c8e8b2d1ef0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ae531145-87ac-58a2-800a-a8c5b2013ed5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53170,6 +53203,17 @@
       "relationship_type": "has",
       "source_ref": "software--36b758fa-2f2b-5c6a-ac5b-392a8b6c6398",
       "target_ref": "vulnerability--69d6bd5a-de5e-56a2-8b25-d639372ca0c4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d009a7e4-e35c-5c65-acb1-df89b93325cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--67afa3a3-13f7-5f0c-9ae0-b49e4d8ec818",
+      "target_ref": "vulnerability--46aca78b-1490-5bc6-9a0a-cf6efbfd038c"
     },
     {
       "type": "relationship",
@@ -69562,6 +69606,54 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f42cda7-996a-52f7-8951-c6a6ab1b67bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:23:50.000Z",
+      "modified": "2026-10-28T20:23:50.000Z",
+      "name": "Ghost CMS: Stored XSS and privilege escalation (CVE-2025-66849)",
+      "description": "A public proof-of-concept (PoC) exploit has been published on Sploitus for CVE-2025-66849. According to the source, the vulnerability exists in the HTML block within the Ghost CMS post draft editor. An authenticated user with Contributor privileges can inject malicious JavaScript into a draft post. When an Owner account views or previews the post in the Ghost admin panel, the script executes with the Owner's privileges.\n",
+      "published": "2026-10-28T20:23:50.000Z",
+      "labels": [
+        "cms",
+        "privilege-escalation",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--477abc20-f2b8-5797-a224-b43f998a7ae0",
+        "vulnerability--47571b76-1d98-53e8-b362-1c8e8b2d1ef0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-ghost-cms-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ghost-cms-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WOJTEKCHWALA-CVE-2025-66849"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WOJTEKCHWALA-CVE-2025-66849\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-ghost-cms-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-28-ghost-cms-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ghost-cms-xss/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:23:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -151191,6 +151283,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f221b817-ccb4-5792-8492-0b994cb416b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:24:09.000Z",
+      "modified": "2026-10-28T20:24:09.000Z",
+      "name": "Perl MIME-tools: Header parsing vulnerabilities (CVE-2026-116264, CVE-2026-116265, CVE-2026-116266)",
+      "description": "## Overview\nThe Perl MIME-tools library (versions prior to 5.521) contains multiple vulnerabilities related to the improper parsing of MIME headers. These issues, identified as CVE-2026-116264, CVE-2026-116265, and CVE-2026-116266, allow attackers to manipulate Content-Type parameters and multipart boundaries. Such manipulation can result in parameter hiding or ambiguous parsing, which may lead to security policy bypasses or desynchronization attacks when downstream components or mail filters process the malformed messages.\n\n## Impact\nThe vulnerabilities allow for the crafting of MIME messages that deceive parsers regarding the structure and content of the message body. This can be exploited to bypass security filters that rely on MIME-tools for identifying multipart boundaries or content types, potentially allowing malicious payloads to reach intended destinations by evading inspection.\n\n## Recommendation\n- Update the Perl MIME-tools library to version 5.521 or later on all systems using this component.\n- Audit applications that process external email or MIME-encoded content for reliance on MIME-tools for security-critical parsing or filtering decisions.\n- Monitor for mail or web traffic logs showing anomalous Content-Type headers or RFC 2231 continuation patterns if high-risk parsing environments are in use.\n",
+      "published": "2026-10-28T20:24:09.000Z",
+      "labels": [
+        "mime",
+        "perl",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--67afa3a3-13f7-5f0c-9ae0-b49e4d8ec818",
+        "vulnerability--46aca78b-1490-5bc6-9a0a-cf6efbfd038c",
+        "vulnerability--76fd625c-741b-50a0-8b3e-fad977ddda0e",
+        "vulnerability--812bf6d0-4a9c-5d91-b767-07c4373c6e78"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-mime-tools-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-mime-tools-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/428"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-mime-tools-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-28-mime-tools-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mime-tools-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:24:09.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f2230672-17dd-5504-960e-5b74240c4c0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T22:21:29.000Z",
@@ -160723,6 +160861,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--477abc20-f2b8-5797-a224-b43f998a7ae0",
+      "name": "Ghost CMS",
+      "vendor": "Ghost Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--47894de0-4d51-5199-ab99-e6c761638692",
       "name": "WP400 (\u003c 4.10.0)",
       "vendor": "WAGO"
@@ -162815,6 +162960,13 @@
       "spec_version": "2.1",
       "id": "software--67a3c297-efd8-573f-8eeb-31ff0d0f2807",
       "name": "git-diff (\u003c 2.0.7)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--67afa3a3-13f7-5f0c-9ae0-b49e4d8ec818",
+      "name": "MIME-tools (\u003c 5.521)",
+      "vendor": "Perl"
     },
     {
       "type": "software",
@@ -180270,6 +180422,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--46aca78b-1490-5bc6-9a0a-cf6efbfd038c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116266",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116266",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116266"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--46eeed8b-b0de-5bdf-ab20-780807217be6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -180360,6 +180528,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-80466",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80466"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--47571b76-1d98-53e8-b362-1c8e8b2d1ef0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-66849",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-66849",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66849"
         }
       ]
     },
@@ -185758,6 +185942,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--76fd625c-741b-50a0-8b3e-fad977ddda0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116265",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116265",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116265"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--774ae1bf-4ac4-50b3-ae35-13b08282ef99",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -186872,6 +187072,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-87920",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87920"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--812bf6d0-4a9c-5d91-b767-07c4373c6e78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116264",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116264",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116264"
         }
       ]
     },
