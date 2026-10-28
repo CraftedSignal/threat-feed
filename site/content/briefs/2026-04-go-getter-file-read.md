@@ -1,18 +1,54 @@
 ---
+brief_id: brief-2026-04-09-go-getter-file-read
+event_id: brief-2026-04-09-go-getter-file-read
+revision: 2
+activity_at: "2026-10-28T04:40:29Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-28T04:40:29Z"
+    checksum: sha256:53ae386c001367558f659ea809bd83f844bfaa16916fbb55e321a7e859e0d56c
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - claim_state
+      - cves
+      - has_poc
+      - iocs
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GOULDNICHOLAS-CVE-2026-4660-POC&utm_source=rss&utm_medium=rss
 title: HashiCorp go-getter Arbitrary File Read Vulnerability (CVE-2026-4660)
 slug: 2026-04-go-getter-file-read
 description: HashiCorp's go-getter library up to v1.8.5 is vulnerable to arbitrary file reads on the file system during certain git operations through a maliciously crafted URL (CVE-2026-4660), potentially allowing attackers to access sensitive information.
 date: "2026-04-09T14:16:32Z"
-severities:
-  - high
+lastmod: "2026-10-28T04:39:14Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
+severities:
+  - high
+exploitation_evidence:
+  status: unknown
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GOULDNICHOLAS-CVE-2026-4660-POC&utm_source=rss&utm_medium=rss
 tags:
   - cve-2026-4660
   - file-read
   - go-getter
   - information-disclosure
+vendors:
+  - HashiCorp
+products:
+  - Terraform
+  - Nomad
+  - Packer
+  - Waypoint
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -21,9 +57,12 @@ mitre_ttps:
 cves:
   - id: CVE-2026-4660
     cvss: 7.5
+    epss: 0.00583
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-4660
   - https://discuss.hashicorp.com/t/hcsec-2026-04-go-getter-may-allow-to-arbitrary-filesystem-reads-through-git-operations/77311
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GOULDNICHOLAS-CVE-2026-4660-POC&utm_source=rss&utm_medium=rss
 iocs:
   - type: url
     value: https://discuss.hashicorp.com/t/hcsec-2026-04-go-getter-may-allow-to-arbitrary-filesystem-reads-through-git-operations/77311
@@ -53,6 +92,14 @@ rules:
       - process_creation
       - windows
 rules_count: 2
+updates:
+  - at: "2026-10-28T04:39:14Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-GOULDNICHOLAS-CVE-2026-4660-POC&utm_source=rss&utm_medium=rss
 ---
 
 HashiCorp's go-getter library, a tool for retrieving files or directories from various sources, is susceptible to an arbitrary file read vulnerability (CVE-2026-4660) in versions up to 1.8.5. The vulnerability stems from insufficient validation of URLs during git operations, potentially allowing a malicious actor to craft a URL that, when processed by go-getter, results in the reading of arbitrary files from the system's file system. This could lead to the exposure of sensitive data, configuration files, or credentials. The vulnerability has been patched in go-getter version 1.8.6, and the go-getter/v2 branch is not affected. This vulnerability allows for information disclosure, with a CVSS v3.1 score of 7.5.
