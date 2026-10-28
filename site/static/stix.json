@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c1080f03-0b7e-5f2b-b346-b77813a641c0",
+  "id": "bundle--2dcbbe1d-51d4-5b21-b13c-8aea89ec1a42",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20109,6 +20109,17 @@
       "relationship_type": "has",
       "source_ref": "software--2420e027-1212-5771-b20e-81b277511f2f",
       "target_ref": "vulnerability--23c42379-c966-5ae0-a352-4503ad1ad84e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--41d09fe1-9a69-5713-933b-bd040dd0e133",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--40c1450f-9e8b-5f66-9bdc-3d921f4914c8",
+      "target_ref": "vulnerability--ea8a1ad3-10b2-52c5-b69e-8d1c7bd3ea61"
     },
     {
       "type": "relationship",
@@ -57652,6 +57663,17 @@
       "relationship_type": "has",
       "source_ref": "software--aab20ec6-e060-5db6-91fc-23283662fd0e",
       "target_ref": "vulnerability--cbaff40e-44fb-56fb-b210-30f59d0be027"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e0443792-cb12-5bad-8f91-c2587c0e5c37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T15:02:54.000Z",
+      "modified": "2026-10-28T15:02:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e6833d31-5753-580e-ac43-ca7e278271e0",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -151498,6 +151520,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e6833d31-5753-580e-ac43-ca7e278271e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T15:02:54.000Z",
+      "modified": "2026-10-28T15:02:54.000Z",
+      "name": "Really Simple Security: Authentication Bypass (CVE-2024-10924)",
+      "description": "## Overview\n\nCVE-2024-10924 is a critical authentication bypass vulnerability in the Really Simple Security WordPress plugin, affecting versions 9.0.0 through 9.1.1.1. The flaw exists in the two-factor authentication (2FA) functionality due to improper error handling in the `check_login_and_get_user` function. An unauthenticated attacker can exploit this by sending a crafted HTTP POST request to the `/wp-json/reallysimplessl/v1/two_fa/skip_onboarding` REST API endpoint. Successful exploitation allows an attacker to impersonate any user, including accounts with administrative privileges, completely bypassing 2FA requirements. Multiple public exploit scripts are available and confirmed to be circulating.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site running the vulnerable Really Simple Security plugin.\n2. Attacker sends a crafted HTTP POST request to the `/wp-json/reallysimplessl/v1/two_fa/skip_onboarding` REST API endpoint.\n3. The vulnerable `check_login_and_get_user` function fails to validate the request properly due to an error handling flaw.\n4. The application returns valid session cookies for the target user (e.g., admin) to the attacker.\n5. Attacker retrieves the session cookies from the API response.\n6. Attacker injects these cookies into their own browser session to access the WordPress dashboard as the targeted user without providing a password or 2FA credentials.\n\n## Impact\n\nSuccessful exploitation results in full administrative access to the affected WordPress installation. This allows for complete site compromise, including arbitrary code execution, data exfiltration, and administrative configuration changes.\n\n## Recommendation\n\n1. Immediately update the Really Simple Security plugin to version 9.1.2 or later on all WordPress instances.\n2. Inventory all WordPress installations within the environment to identify any sites running versions 9.0.0 through 9.1.1.1.\n3. Review web server access logs for anomalous POST requests to the `/wp-json/reallysimplessl/v1/two_fa/skip_onboarding` endpoint.\n",
+      "published": "2026-10-28T15:02:54.000Z",
+      "labels": [
+        "auth-bypass",
+        "cve",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--40c1450f-9e8b-5f66-9bdc-3d921f4914c8",
+        "vulnerability--ea8a1ad3-10b2-52c5-b69e-8d1c7bd3ea61"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-cve-2024-10924-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-10924-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2024-10924-EXPLOIT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2024-10924-EXPLOIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-cve-2024-10924-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-28-cve-2024-10924-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-10924-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-28T15:02:54.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.82218,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e69be573-3f3a-587c-8caa-4da4a84304c4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T14:01:26.000Z",
@@ -165181,6 +165255,13 @@
       "id": "software--40bd4bc2-4045-5486-992e-26879dbd08df",
       "name": "plugin-scaffolder-backend-module-bitbucket-cloud (\u003c 0.3.10)",
       "vendor": "Backstage"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--40c1450f-9e8b-5f66-9bdc-3d921f4914c8",
+      "name": "Really Simple Security (\u003c 9.1.2)",
+      "vendor": "Really-simple-plugins"
     },
     {
       "type": "software",
@@ -204585,6 +204666,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76492",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76492"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ea8a1ad3-10b2-52c5-b69e-8d1c7bd3ea61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-10924",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-10924",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10924"
         }
       ]
     },
