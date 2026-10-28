@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2abfee7d-e6a7-5dab-9fa6-33541c808bba",
+  "id": "bundle--0a89de2b-c376-542f-9ab7-00a25571241f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3657,6 +3657,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--3cab35e7-a175-539e-afb5-a0b7b9983a89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "name": "domain: dv-g3b-aaa-emudhra.we-have-a-problem.com",
+      "description": "Test index URL used to verify if pip clients incorrectly trust problematic CA certificates.",
+      "pattern": "[domain-name:value = 'dv-g3b-aaa-emudhra.we-have-a-problem.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T16:16:37.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--41deb973-45d3-541c-ac81-086743594659",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:44:36.000Z",
@@ -3679,6 +3692,19 @@
       "pattern": "[domain-name:value = 'ccmihr.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T12:02:59.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--426a62a5-e415-5d46-9602-9ceaa41c6962",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "name": "domain: dv-g3b-emudhra.we-have-a-problem.com",
+      "description": "Test index URL used to verify if pip clients incorrectly trust problematic CA certificates.",
+      "pattern": "[domain-name:value = 'dv-g3b-emudhra.we-have-a-problem.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T16:16:37.000Z"
     },
     {
       "type": "indicator",
@@ -13434,6 +13460,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--26c88b35-847e-5d39-9f8f-266483c96dd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--26dc7639-c8cc-572f-ac63-36ef63fcc5ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T19:48:50.000Z",
@@ -14288,6 +14325,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fc8f2e71-7d51-5ebf-9bff-dd5589cb3a87",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a3881f3-0481-5b64-aa09-5c6fae75d077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "target_ref": "indicator--426a62a5-e415-5d46-9602-9ceaa41c6962"
     },
     {
       "type": "relationship",
@@ -35001,6 +35049,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--3c33d30d-057e-5dd7-8dd3-4ed87bafa919",
       "target_ref": "threat-actor--e9b8152d-bc69-5455-814b-f97a9dc69514"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--89d63eb3-cc26-524d-8de5-a81186e94813",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "target_ref": "indicator--3cab35e7-a175-539e-afb5-a0b7b9983a89"
     },
     {
       "type": "relationship",
@@ -115960,6 +116019,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "name": "Python environment risk regarding eMudhra CA certificate trust",
+      "description": "## Overview\n\nReports indicate that certain Python client environments may improperly trust eMudhra/emSign CA certificates. This trust could allow attackers to perform machine-in-the-middle (MitM) attacks or host malicious Python package repositories that bypass standard certificate validation. Users are encouraged to test their pip client trust configuration by attempting connections to provided test index URLs. If a client fails to return an SSL/TLS certificate error during these connection attempts, the environment is susceptible to potential supply chain compromise.\n\n## Recommendation\n\n* Verify Python environment trust settings by executing 'pip download' commands against the identified test domains to ensure the system correctly rejects unauthorized certificates.\n* Audit CA certificate stores on developer workstations and CI/CD runners to identify and remove untrusted or unexpected eMudhra/emSign certificates.\n* Restrict package installation sources to verified, internal, or trusted mirrors using established pip configuration files (pip.conf).\n",
+      "published": "2026-10-28T16:16:37.000Z",
+      "labels": [
+        "certificate-validation",
+        "misconfiguration",
+        "python",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--3cab35e7-a175-539e-afb5-a0b7b9983a89",
+        "indicator--426a62a5-e415-5d46-9602-9ceaa41c6962"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-python-emudhra-cert-trust",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-python-emudhra-cert-trust/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/412"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-python-emudhra-cert-trust",
+      "x_craftedsignal_event_id": "brief-2026-10-28-python-emudhra-cert-trust",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-python-emudhra-cert-trust/",
+      "x_craftedsignal_activity_at": "2026-10-28T16:16:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {

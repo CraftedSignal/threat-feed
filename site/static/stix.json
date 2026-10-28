@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--84c0afc1-f5e1-51d0-b6c6-7f98940f6ab6",
+  "id": "bundle--c2bf169c-e932-5808-8237-a46c6cb66baf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3634,19 +3634,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--28830461-db4a-5b62-b109-f3c9dc521a1f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "name": "hash_sha256: e842dd7642c8e04b5ec20b6393848a9c904e4832930950c16664fe7800ba382e",
-      "description": "NeedyMantis first-stage loader (WinSparkle.dll)",
-      "pattern": "[file:hashes.'SHA-256' = 'e842dd7642c8e04b5ec20b6393848a9c904e4832930950c16664fe7800ba382e']",
-      "pattern_type": "stix",
-      "valid_from": "2026-09-28T16:17:15.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--29579aaf-b98d-5974-8410-418b8d5a2438",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:51:37.000Z",
@@ -3763,6 +3750,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--3cab35e7-a175-539e-afb5-a0b7b9983a89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "name": "domain: dv-g3b-aaa-emudhra.we-have-a-problem.com",
+      "description": "Test index URL used to verify if pip clients incorrectly trust problematic CA certificates.",
+      "pattern": "[domain-name:value = 'dv-g3b-aaa-emudhra.we-have-a-problem.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T16:16:37.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--41deb973-45d3-541c-ac81-086743594659",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:44:36.000Z",
@@ -3785,6 +3785,19 @@
       "pattern": "[domain-name:value = 'ccmihr.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T12:02:59.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--426a62a5-e415-5d46-9602-9ceaa41c6962",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "name": "domain: dv-g3b-emudhra.we-have-a-problem.com",
+      "description": "Test index URL used to verify if pip clients incorrectly trust problematic CA certificates.",
+      "pattern": "[domain-name:value = 'dv-g3b-emudhra.we-have-a-problem.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T16:16:37.000Z"
     },
     {
       "type": "indicator",
@@ -4344,19 +4357,6 @@
       "pattern": "[domain-name:value = 'facebook.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--9f36a1cc-fc55-5dc4-8537-e0af4741bf3c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "name": "hash_sha256: 9cb68f986043a576e19d32184c583b7d8f571c7219d8dc0065dced1c13f077ef",
-      "description": "NeedyMantis file archive (WinSparkle)",
-      "pattern": "[file:hashes.'SHA-256' = '9cb68f986043a576e19d32184c583b7d8f571c7219d8dc0065dced1c13f077ef']",
-      "pattern_type": "stix",
-      "valid_from": "2026-09-28T16:17:15.000Z"
     },
     {
       "type": "indicator",
@@ -7496,17 +7496,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--093e1750-a284-5e07-96c1-316086af57b0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:10:41.000Z",
-      "modified": "2026-09-28T16:10:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d36e2cfd-0d12-55b3-a28b-aa541e5a0e3c",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--09434724-e69c-50d9-a55d-859cb3740494",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:08:58.000Z",
@@ -7811,17 +7800,6 @@
       "relationship_type": "has",
       "source_ref": "software--d91b872f-6f86-5bb4-885d-59f748f19add",
       "target_ref": "vulnerability--848fe073-9e09-5fed-86df-90bc22925cb0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0a97aff1-0bec-5ab8-8a08-fb03fce298bb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c4352f3e-f301-5337-87ec-49e720d8f9cb",
-      "target_ref": "indicator--28830461-db4a-5b62-b109-f3c9dc521a1f"
     },
     {
       "type": "relationship",
@@ -8757,17 +8735,6 @@
       "relationship_type": "uses",
       "source_ref": "report--51e8d5ac-6b45-5d9a-8a1f-d955d908f7bc",
       "target_ref": "attack-pattern--a5740393-cbb7-519d-96a3-ea93fe91d681"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--0e89bf0f-0482-58ea-932d-110b8629c89f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:10:41.000Z",
-      "modified": "2026-09-28T16:10:41.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d36e2cfd-0d12-55b3-a28b-aa541e5a0e3c",
-      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -14162,6 +14129,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--26c88b35-847e-5d39-9f8f-266483c96dd6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--26dc7639-c8cc-572f-ac63-36ef63fcc5ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T19:48:50.000Z",
@@ -15038,6 +15016,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fc8f2e71-7d51-5ebf-9bff-dd5589cb3a87",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a3881f3-0481-5b64-aa09-5c6fae75d077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "target_ref": "indicator--426a62a5-e415-5d46-9602-9ceaa41c6962"
     },
     {
       "type": "relationship",
@@ -21224,17 +21213,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4621b636-8b9e-56a7-9f4f-7c46afa72b28",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c4352f3e-f301-5337-87ec-49e720d8f9cb",
-      "target_ref": "indicator--9f36a1cc-fc55-5dc4-8537-e0af4741bf3c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--462bf330-529d-5c0c-8b27-85f24a7d3c91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27380,17 +27358,6 @@
       "relationship_type": "has",
       "source_ref": "software--17e9510e-b064-5061-b69a-50169906b2ff",
       "target_ref": "vulnerability--c3768ba8-98c0-5d17-90e6-9c9319df9a71"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--60abedfc-7346-5721-b322-fbd89b6e5460",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:24.000Z",
-      "modified": "2026-09-28T16:17:24.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b7e3454b-07be-5e74-bbd6-03a97b23a49d",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -37240,6 +37207,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--89d63eb3-cc26-524d-8de5-a81186e94813",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "target_ref": "indicator--3cab35e7-a175-539e-afb5-a0b7b9983a89"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--89de1711-d3dd-54ed-9523-568b70273c4a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T16:08:24.000Z",
@@ -42443,17 +42421,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9fb9e408-a687-5437-bf65-bb21f90c8831",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c4352f3e-f301-5337-87ec-49e720d8f9cb",
-      "target_ref": "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9fba78c6-23ae-5f99-b131-72ff58efe147",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T18:43:26.000Z",
@@ -47400,17 +47367,6 @@
       "relationship_type": "has",
       "source_ref": "software--f182ffd6-4016-5687-8851-1812a904d8b1",
       "target_ref": "vulnerability--9f2a3a9c-f0e2-5067-bdb0-8c7d9c513227"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b44067b5-98f7-5b4f-9fd5-20d2580bd00a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c4352f3e-f301-5337-87ec-49e720d8f9cb",
-      "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
     },
     {
       "type": "relationship",
@@ -52486,17 +52442,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c9d1ff3b-919a-5c94-a160-eb81a1383619",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--c4352f3e-f301-5337-87ec-49e720d8f9cb",
-      "target_ref": "threat-actor--0c528671-1723-50a0-badc-3924f8f796a6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c9d4817e-42a2-52f7-a445-fcb42b76ab4c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54869,17 +54814,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f1a35f3d-334d-5fcd-a8f1-ec64ad72516b",
       "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d4534702-735f-5c7a-86d0-6f3b117c1cc2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:10:27.000Z",
-      "modified": "2026-09-28T16:10:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--abb9c3e9-99eb-53d2-8197-2312aca2c365",
-      "target_ref": "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874"
     },
     {
       "type": "relationship",
@@ -61480,17 +61414,6 @@
       "relationship_type": "has",
       "source_ref": "software--b49b06c8-c400-52fe-b726-cfe109a3a124",
       "target_ref": "vulnerability--6bfc80c8-b844-5bed-bf47-6bb6cef51dd6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ecc6e24a-bcb3-513a-ace2-8ad6b873a12d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:10:18.000Z",
-      "modified": "2026-09-28T16:10:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5583acdc-f07c-5585-9707-0de42d505a62",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -96574,47 +96497,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5583acdc-f07c-5585-9707-0de42d505a62",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:10:18.000Z",
-      "modified": "2026-09-28T16:10:18.000Z",
-      "name": "Detection of Unauthorized External MQTT Broker Connections",
-      "description": "## Overview\n\nThe MQTT (Message Queuing Telemetry Transport) protocol is increasingly utilized by threat actors for command and control (C2) communication due to its lightweight publish/subscribe architecture. Malware such as BambooToken, IOCONTROL, MQsTTang, and WailingCrab leverage MQTT to receive commands and exfiltrate data while masking traffic within typical IoT or application messaging flows. Attackers commonly target TCP ports 1883, 2883, and 8883 for these connections. Defenders can identify this activity by monitoring network telemetry for first-seen connections to external MQTT brokers. \n\nDetection requires deep packet inspection (DPI) or protocol-aware security sensors to decode MQTT traffic. Without SSL/TLS decryption, encrypted sessions may only be classified generically as SSL/TLS, limiting visibility. Defenders should correlate these network connections with endpoint activity, specifically looking for unsigned binaries or persistence mechanisms such as BambooToken's associated files: OnKeySrv.exe, OnKeyToken_KEB.dll, and OnKeySrv.dat.\n\n## Impact\n\nSuccessful exploitation allows attackers to establish persistent, stealthy C2 channels that bypass traditional direct-connect detection methods. The use of MQTT enables the deployment of modular plugins and the remote execution of commands, potentially leading to unauthorized data exfiltration, system manipulation, or further lateral movement within the network. Sectors relying heavily on IoT infrastructure are particularly vulnerable to this communication pattern.\n\n## Recommendation\n\n- Implement the provided detection logic to surface first-seen connections to external MQTT brokers using Suricata, Zeek, or PAN-OS logs.\n- Review all flagged connections to determine if the originating asset is an authorized MQTT client.\n- Correlate network alerts with endpoint telemetry, specifically investigating unauthorized MQTT-capable processes, shell execution, or suspicious DLL loads (e.g., OnKeySrv.exe).\n- Restrict outbound MQTT traffic to verified broker addresses and ports (e.g., 1883, 2883, 8883) where operational requirements permit.\n- Validate that network sensors are positioned to observe traffic before Source NAT to ensure visibility into the originating internal IP.\n",
-      "published": "2026-09-28T16:10:18.000Z",
-      "labels": [
-        "bamboo-token",
-        "command-and-control",
-        "mqtt",
-        "network-security",
-        "wailing-crab"
-      ],
-      "object_refs": [
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-mqtt-c2",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-mqtt-c2/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-09-mqtt-c2",
-      "x_craftedsignal_event_id": "brief-2026-09-mqtt-c2",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-mqtt-c2/",
-      "x_craftedsignal_activity_at": "2026-09-28T16:10:18.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--558bab0b-88be-5a9a-8201-38c8e2d37982",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T19:22:38.000Z",
@@ -122849,6 +122731,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9acd9c03-8492-509b-9317-685c36d5234b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:16:37.000Z",
+      "modified": "2026-10-28T16:16:37.000Z",
+      "name": "Python environment risk regarding eMudhra CA certificate trust",
+      "description": "## Overview\n\nReports indicate that certain Python client environments may improperly trust eMudhra/emSign CA certificates. This trust could allow attackers to perform machine-in-the-middle (MitM) attacks or host malicious Python package repositories that bypass standard certificate validation. Users are encouraged to test their pip client trust configuration by attempting connections to provided test index URLs. If a client fails to return an SSL/TLS certificate error during these connection attempts, the environment is susceptible to potential supply chain compromise.\n\n## Recommendation\n\n* Verify Python environment trust settings by executing 'pip download' commands against the identified test domains to ensure the system correctly rejects unauthorized certificates.\n* Audit CA certificate stores on developer workstations and CI/CD runners to identify and remove untrusted or unexpected eMudhra/emSign certificates.\n* Restrict package installation sources to verified, internal, or trusted mirrors using established pip configuration files (pip.conf).\n",
+      "published": "2026-10-28T16:16:37.000Z",
+      "labels": [
+        "certificate-validation",
+        "misconfiguration",
+        "python",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--3cab35e7-a175-539e-afb5-a0b7b9983a89",
+        "indicator--426a62a5-e415-5d46-9602-9ceaa41c6962"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-python-emudhra-cert-trust",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-python-emudhra-cert-trust/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/412"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-python-emudhra-cert-trust",
+      "x_craftedsignal_event_id": "brief-2026-10-28-python-emudhra-cert-trust",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-python-emudhra-cert-trust/",
+      "x_craftedsignal_activity_at": "2026-10-28T16:16:37.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9ae2fe25-2a49-5623-b38a-24f0b12671de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:40:17.000Z",
@@ -129438,54 +129366,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--abb9c3e9-99eb-53d2-8197-2312aca2c365",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:10:27.000Z",
-      "modified": "2026-09-28T16:10:27.000Z",
-      "name": "Detection of Linux User Account Creation for Persistence",
-      "description": "## Overview\n\nThe creation of new user accounts on Linux systems is a common technique used by threat actors to maintain unauthorized access to a compromised environment. By leveraging standard system utilities such as `useradd` or `adduser`, an adversary can establish a new local account that provides long-term persistence, bypasses session timeouts, and potentially grants higher-level privileges if added to groups like `sudo` or `wheel`. \n\nWhile account creation is a routine administrative task in enterprise environments, it remains a critical signal in security monitoring. Defenders should correlate these events with the identity performing the action and the context of the host to differentiate between legitimate IT provisioning and unauthorized persistent access attempts.\n\n## Impact\n\nSuccessful account creation allows adversaries to maintain persistence even if initial access credentials are changed or revoked. This can lead to persistent data exfiltration, lateral movement, or the staging of further malicious activity. If unauthorized accounts are not detected and remediated, the attacker maintains a persistent foothold in the environment until the account is explicitly identified and removed.\n\n## Recommendation\n\n- Deploy the provided detection logic to identify `useradd` and `adduser` activity across all Linux hosts.\n- Establish a baseline of authorized administrative accounts and automated service accounts that legitimately perform user creation to reduce alert noise.\n- When an alert triggers, use the provided Osquery queries to verify if the account is active, verify group memberships, and investigate the parent process tree for the process that initiated the user creation.\n- Enable Filebeat System Module logs on all Linux endpoints to ensure the necessary audit telemetry reaches the SIEM.\n",
-      "published": "2026-09-28T16:10:27.000Z",
-      "labels": [
-        "detection",
-        "endpoint",
-        "linux",
-        "persistence"
-      ],
-      "object_refs": [
-        "attack-pattern--9d6de9ca-c127-5a88-a5f8-975f04ba0874",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-linux-user-creation",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-linux-user-creation/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/linux/persistence_linux_user_account_creation.toml"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.elastic.co/security-labs/primer-on-persistence-mechanisms"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-09-linux-user-creation",
-      "x_craftedsignal_event_id": "brief-2026-09-linux-user-creation",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-linux-user-creation/",
-      "x_craftedsignal_activity_at": "2026-09-28T16:10:27.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ac512924-210d-5d34-8a42-ce5f59c3a3d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T16:18:53.000Z",
@@ -133762,50 +133642,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.4,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--b7e3454b-07be-5e74-bbd6-03a97b23a49d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:24.000Z",
-      "modified": "2026-09-28T16:17:24.000Z",
-      "name": "Command Injection in code-ollama grep_search Tool",
-      "description": "## Overview\n\nThe code-ollama utility (version 0.36.0 and earlier) contains a command injection vulnerability in the grep_search tool, documented as CWE-78. The root cause is improper input sanitization when constructing shell commands for the ripgrep (rg) binary. The application only escapes backslashes and double quotes while failing to neutralize shell substitution sequences such as $() and backticks. \n\nWhen code-ollama processes a malicious tool call, it assembles an command string and passes it to child_process.exec(), which interprets the entire string via /bin/sh. Because grep_search is designated as a read-only tool, it executes automatically in Plan mode without requesting user authorization. A malicious or compromised Ollama server can exploit this by delivering a specially crafted pattern argument to the client. This vulnerability effectively permits arbitrary command execution under the security context of the user running the code-ollama CLI, presenting high risks to confidentiality, integrity, and availability.\n\n## Attack Chain\n\n1. The user executes `code-ollama run`, initiating an unencrypted connection to a malicious or compromised Ollama server.\n2. The attacker-controlled server sends a specifically crafted tool call response containing an injection payload in the `pattern` argument (e.g., `$(id \u003e /tmp/poc)`).\n3. The `code-ollama` client receives the response, and `dispatcher.ts` routes the `grep_search` call to the filesystem utility.\n4. The `grep.ts` module performs incomplete sanitization, stripping only `\\` and `\"` characters while leaving the shell substitution sequence `$()` intact.\n5. The application assembles the final command string: `rg --line-number --no-heading --smart-case \"$(id \u003e /tmp/poc)\" \"/tmp\"`.\n6. The `execShell()` function invokes `child_process.exec()`, handing the string to `/bin/sh`.\n7. The shell expands the `$()` substitution, executing the attacker's embedded `id` command before starting the `rg` process.\n8. The attacker achieves arbitrary code execution with the permissions of the local user process.\n\n## Impact\n\nSuccessful exploitation allows for full command execution on the host machine. An attacker can exfiltrate sensitive files (including source code and SSH keys), plant backdoors, or alter the system environment. Because the exploit occurs silently through the auto-execution of read-only tools in Plan mode, victims may not realize their session has been compromised. The risk is significant for developers and CI/CD pipelines running code-ollama in trusted environments.\n\n## Recommendation\n\n1. Upgrade code-ollama to a patched version once available that replaces `execShell()` with `execFile()` to eliminate shell interpretation of arguments.\n2. Until a patch is deployed, avoid using the `--trust` flag or executing code-ollama against untrusted or unverified Ollama server endpoints.\n3. Audit environments where `code-ollama` is utilized, specifically monitoring for unexpected outbound network connections from the CLI or sub-processes initiated by `code-ollama`.\n4. Apply host-based EDR/monitoring to alert on suspicious process lineage where `code-ollama` (or its child processes) spawns shell interpreters like `/bin/sh` or `cmd.exe` with command-line arguments containing `$` or `(` characters.\n",
-      "published": "2026-09-28T16:17:24.000Z",
-      "labels": [
-        "code-execution",
-        "command-injection",
-        "supply-chain"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5a7c32d7-4ce4-58f3-9113-27137453a00e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-code-ollama-command-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-code-ollama-command-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-456v-xq2p-r4cj"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-code-ollama-command-injection",
-      "x_craftedsignal_event_id": "brief-2026-09-code-ollama-command-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-code-ollama-command-injection/",
-      "x_craftedsignal_activity_at": "2026-09-28T16:17:24.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -139134,51 +138970,6 @@
       "x_craftedsignal_activity_at": "2026-10-09T13:50:27.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c4352f3e-f301-5337-87ec-49e720d8f9cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:17:15.000Z",
-      "modified": "2026-09-28T16:17:15.000Z",
-      "name": "NeedyMantis Modular Post-Compromise Framework",
-      "description": "## Overview\n\nNeedyMantis is a modular post-compromise malware framework identified by Microsoft Threat Intelligence, primarily used to maintain long-term access in victim environments. First observed in October 2025, the malware is typically deployed in the post-compromise stage of an intrusion, meaning the initial access vector is variable and independent of the NeedyMantis framework itself. Targeted sectors include telecommunications, universities, medical nonprofits, and government contractors. \n\nThe framework is highly modular, employing a first-stage loader and encrypted file archives, often packaged alongside legitimate software. It leverages DLL sideloading to execute by masquerading as components from software like Poedit, curl, and Vim, or by spoofing system DLLs associated with Microsoft, Broadcom, Intel, and NVIDIA. NeedyMantis utilizes x64 shellcode, dynamic API resolution, and obfuscated stack strings to evade detection. The framework's design supports the deployment of additional modules to extend capabilities, making it a persistent and adaptable tool for targeted operations linked to threat actors operating from China.\n\n## Attack Chain\n\n1. Attacker establishes initial access via an undisclosed vector (e.g., supply chain compromise).\n2. Attacker uses post-exploitation tools (e.g., Impacket) to copy legitimate software, a malicious DLL loader, and a custom file archive to the target device.\n3. Attacker triggers the execution of the legitimate software, which leads to the sideloading of the malicious DLL (e.g., WinSparkle.dll).\n4. The first-stage loader resolves Windows APIs dynamically and deobfuscates stack strings.\n5. The loader decrypts and extracts the second-stage component from the accompanying file archive.\n6. The second-stage loader initializes the modular framework.\n7. The framework connects to C2 infrastructure to receive commands or additional malicious modules.\n8. Attacker performs follow-on operations such as lateral movement or exfiltration.\n\n## Impact\n\nSuccessful deployment of NeedyMantis provides an attacker with persistent, long-term access to sensitive environments. Observed victims include critical infrastructure providers, governmental organizations, and educational institutions. The framework's modularity enables attackers to tailor their activities for espionage or further malicious operations, potentially resulting in data exfiltration or the compromise of additional systems within the targeted network.\n\n## Recommendation\n\n1. Block and hunt for the file hashes of observed NeedyMantis loaders and archives in the IOC list.\n2. Implement detection rules for DLL sideloading behavior involving the specified DLL names (e.g., WinSparkle.dll, libcurl.dll, vim64.dll) when executed from non-standard application paths.\n3. Monitor for the creation of files matching the known malicious DLL and archive naming patterns (e.g., %ProgramData%\\office\\dbghelp.dll) on enterprise endpoints.\n4. Use EDR telemetry to audit process creation events where legitimate software (e.g., Poedit, Vim, curl) spawns suspicious child processes or loads unexpected DLLs from the application directory.\n",
-      "published": "2026-09-28T16:17:15.000Z",
-      "labels": [
-        "defense-evasion",
-        "modular-malware",
-        "persistence",
-        "post-compromise",
-        "storm-3069"
-      ],
-      "object_refs": [
-        "attack-pattern--050d5077-442b-5efa-b26f-551a73b52fb2",
-        "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--28830461-db4a-5b62-b109-f3c9dc521a1f",
-        "indicator--9f36a1cc-fc55-5dc4-8537-e0af4741bf3c",
-        "threat-actor--0c528671-1723-50a0-badc-3924f8f796a6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-needymantis",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-needymantis/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-needymantis",
-      "x_craftedsignal_event_id": "brief-2026-09-needymantis",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-needymantis/",
-      "x_craftedsignal_activity_at": "2026-09-28T16:17:15.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -144858,51 +144649,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--d36e2cfd-0d12-55b3-a28b-aa541e5a0e3c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T16:10:41.000Z",
-      "modified": "2026-09-28T16:10:41.000Z",
-      "name": "TerminalFix Social Engineering Campaign Using Cloudflare Lures",
-      "description": "## Overview\n\nThe TerminalFix campaign is a sophisticated social engineering attack observed as of August 2026. Attackers leverage browser-based overlays that present fake Cloudflare verification prompts to users. These prompts instruct the victim to copy a snippet of text and paste it into Windows Terminal or PowerShell to complete a supposed security check. When executed, the PowerShell script block performs malicious actions, including downloading secondary payloads, extracting archives, and launching follow-on scripts or executables. This campaign demonstrates a reliance on user-assisted execution of malicious commands, bypassing initial browser-based defenses. Defenders must focus on visibility into PowerShell script block execution to detect the specific language patterns associated with these lures.\n\n## Attack Chain\n\n1. User encounters a malicious website posing as a security-gated portal, triggering a fake Cloudflare verification prompt.\n2. The website instructs the user to open Windows Terminal or PowerShell and paste a provided command snippet.\n3. The victim executes the PowerShell script, which is recorded via PowerShell Script Block Logging (Event ID 4104).\n4. The script outputs deceptive text to the console, such as \"Cloudflare ID:\" or \"I am not a robot,\" to maintain the illusion of a legitimate security process.\n5. The PowerShell script initiates background tasks to retrieve remote payloads, typically involving download or web-request commands.\n6. The script extracts downloaded archives to a user-writable or temporary system directory.\n7. The script executes secondary malicious payloads, such as batch files, VBScripts, or unsigned executables, to establish persistence or facilitate further intrusion.\n\n## Impact\n\nSuccessful exploitation leads to unauthorized code execution on the target host. This allows for the deployment of reverse tunnels, persistent backdoors, or additional malware stages, potentially compromising credentials and sensitive information on the affected Windows endpoints.\n\n## Recommendation\n\n1. Enable and collect PowerShell Script Block Logging (Event ID 4104) across all Windows endpoints to capture the full context of executed scripts.\n2. Deploy the provided Sigma rule to monitor for specific lure-related strings in PowerShell execution telemetry.\n3. Proactively hunt for instances where PowerShell processes originate from user-interactive activities following browser navigation events.\n4. Educate users that legitimate Cloudflare or security verification processes never require the manual execution of commands in a terminal.\n5. Implement strict controls on command-line execution and use EDR/EPP solutions to alert on the launch of unexpected executables or scripts in temporary directory paths.\n",
-      "published": "2026-09-28T16:10:41.000Z",
-      "labels": [
-        "execution",
-        "phishing",
-        "powershell",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-terminalfix",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-terminalfix/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-terminalfix",
-      "x_craftedsignal_event_id": "brief-2026-09-terminalfix",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-terminalfix/",
-      "x_craftedsignal_activity_at": "2026-09-28T16:10:41.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -167297,13 +167043,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5a7c32d7-4ce4-58f3-9113-27137453a00e",
-      "name": "code-ollama (\u003c= 0.36.0)",
-      "vendor": "ai-action"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5a84f097-3bb4-56e4-96c1-4cc42e01212d",
       "name": "Nelio Content – Editorial Calendar \u0026 Social Media Auto-Posting (\u003c= 4.5.0)",
       "vendor": "Nelio"
@@ -177777,15 +177516,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Colibri"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--0c528671-1723-50a0-badc-3924f8f796a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Storm-3069"
     },
     {
       "type": "threat-actor",
