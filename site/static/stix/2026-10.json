@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5196d721-c2be-5d98-86d4-c7a8ac11c341",
+  "id": "bundle--fb2c9c37-bc9f-57ce-8d41-0ff99bdb70c8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27514,7 +27514,7 @@
       "id": "relationship--61d1fe19-1340-5a92-b111-80d3102e2e6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-28T20:02:15.000Z",
+      "modified": "2026-10-28T23:06:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "target_ref": "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544"
@@ -44652,7 +44652,7 @@
       "id": "relationship--a9800a1b-bf46-539d-9cb8-07e232e7f1b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-28T20:02:15.000Z",
+      "modified": "2026-10-28T23:06:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -95001,7 +95001,7 @@
       "id": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-28T20:02:15.000Z",
+      "modified": "2026-10-28T23:06:02.000Z",
       "name": "Tailscale: Privilege escalation and security flaws in SSH server",
       "description": "## Overview\n\nTailscale has released version 1.104.4 to address four security bulletins (TS-2026-014, TS-2026-015, TS-2026-016, and TS-2026-017) affecting its built-in SSH server. The primary vulnerability involves a timing-based socket-forwarding flaw where an attacker with existing network access can perform a socket-swap, allowing them to interact with root-privileged Unix sockets such as the Docker control socket or the tailscaled local API. Additional vulnerabilities include a denial-of-service vector via memory exhaustion, unauthorized local API access in tailscale serve, and potential permission header leakage. These flaws do not allow for unauthenticated access, requiring an attacker to already possess a foothold on a device authorized by the network access policy. No CVE identifiers have been assigned at this time.\n\n## Impact\n\nSuccessful exploitation could allow an attacker to gain root-level access to sensitive local services on a target node. The flaws are limited by existing network access policies; attackers can only target machines that their current policy already permits them to reach.\n\n## Recommendation\n\n- Update all Tailscale client installations to version 1.104.4 or later immediately.\n- If immediate patching is not possible, disable SSH forwarding by setting the environment variable 'TS_SSH_DISABLE_FORWARDING=1' in the tailscaled service configuration.\n- Review network access rules to ensure minimal privilege, as compromised devices can move laterally to any node permitted by the policy.\n- For headscale users, acknowledge that SSH forwarding should be treated as root-level access until a fix is available, as the current version does not support disabling this functionality.\n",
       "published": "2026-10-27T16:06:16.000Z",
@@ -95015,6 +95015,7 @@
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--47612743-a240-5039-874a-7cf74461bad6",
         "software--5f2dd904-75b0-5f77-aaa7-b937f62688af",
         "software--882d6204-6988-517c-a771-3aa4355ced2a",
         "software--8db0fd05-d6c8-5dd5-b957-00332985a194",
@@ -95062,9 +95063,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-tailscale-tailworm",
       "x_craftedsignal_event_id": "brief-2026-10-27-tailscale-tailworm",
-      "x_craftedsignal_revision": 6,
+      "x_craftedsignal_revision": 7,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tailscale-tailworm/",
-      "x_craftedsignal_activity_at": "2026-10-28T20:02:15.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T23:06:02.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -162722,6 +162723,13 @@
       "id": "software--47184951-a27d-5339-a914-41e9a3b6f0df",
       "name": "Login plugin (3.6.0 - 3.9.12)",
       "vendor": "Grav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--47612743-a240-5039-874a-7cf74461bad6",
+      "name": "serve (\u003c= 1.104.2)",
+      "vendor": "Tailscale"
     },
     {
       "type": "software",
