@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--74bcb0e3-6fea-544b-9a57-160a3bcd09e9",
+  "id": "bundle--e50c6315-28e4-5628-8899-26a4390b710b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25132,6 +25132,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5e7620f8-98c8-5bec-90fe-3a97410d52a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T08:50:13.000Z",
+      "modified": "2026-10-28T08:50:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--03bac452-bc3c-527e-a291-ed8a32c08787",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5e782fc1-faa2-5ab1-9499-f067f96ac806",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T04:35:17.000Z",
@@ -27427,6 +27438,17 @@
       "relationship_type": "has",
       "source_ref": "software--f1ff3722-402f-5dd5-8cfe-1b0fbd86d856",
       "target_ref": "vulnerability--d339e4c9-4c7a-5a25-b0f3-7ad6d3e58eef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--693c9115-16c4-57a3-be46-797b71ef8da8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T08:50:13.000Z",
+      "modified": "2026-10-28T08:50:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--03bac452-bc3c-527e-a291-ed8a32c08787",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -37118,6 +37140,17 @@
       "relationship_type": "has",
       "source_ref": "software--e0d4b588-b3a8-5d68-8f85-a85e4fa9c132",
       "target_ref": "vulnerability--ff9fe0a4-3a80-5faf-ae76-b950631d366c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--954e14f0-2809-5533-a946-13c8523434ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ba313cd9-a242-5000-be87-4b3939280191",
+      "target_ref": "vulnerability--6e77f64e-7515-58fe-ab71-0ca901f4bf88"
     },
     {
       "type": "relationship",
@@ -62355,6 +62388,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--03bac452-bc3c-527e-a291-ed8a32c08787",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T08:50:13.000Z",
+      "modified": "2026-10-28T08:50:13.000Z",
+      "name": "WPvivid Migration, Backup, Staging arbitrary file upload (CVE-2020-36842)",
+      "description": "## Overview\n\nCVE-2020-36842 is an arbitrary file upload vulnerability affecting the WPvivid Migration, Backup, Staging plugin for WordPress versions 0.9.35 and earlier. The flaw resides in the plugin's AJAX API, which allows authenticated users with subscriber-level privileges or higher to upload and extract arbitrary ZIP archives. By crafting a ZIP archive containing a PHP web shell, an attacker can extract malicious files to the web directory and achieve remote code execution (RCE).\n\n## Attack Chain\n\n1. Attacker authenticates to the target WordPress site using a valid low-privileged account (Subscriber or above).\n2. Attacker interacts with the WPvivid plugin AJAX API to initiate a file upload.\n3. Attacker uploads a crafted ZIP archive containing a malicious PHP script.\n4. Attacker triggers the plugin's import or extraction function via the AJAX API.\n5. The plugin extracts the ZIP content, including the malicious PHP shell, to the server's web-accessible path (typically /wp-content/).\n6. Attacker accesses the uploaded PHP script directly via a browser to execute arbitrary commands.\n\n## Impact\n\nSuccessful exploitation allows authenticated users to achieve full remote code execution on the underlying server, potentially leading to unauthorized data access, site defacement, or further lateral movement within the hosting environment.\n\n## Recommendation\n\n- Upgrade the WPvivid Migration, Backup, Staging plugin to the latest version immediately to remediate the vulnerability.\n- Review WordPress user account permissions and restrict access to the WPvivid plugin functionality to administrative roles only.\n- Implement server-side configurations to prevent direct script execution in the 'wp-content/uploads' directory using .htaccess or Nginx configuration blocks.\n- Audit server access logs for anomalous POST requests to the WPvivid AJAX API followed by GET requests to newly created files in the /wp-content/ directory.\n",
+      "published": "2026-10-28T08:50:13.000Z",
+      "labels": [
+        "cve-2020-36842",
+        "rce",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ba313cd9-a242-5000-be87-4b3939280191",
+        "vulnerability--6e77f64e-7515-58fe-ab71-0ca901f4bf88"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-wpvivid-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wpvivid-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2020-36842"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NXPLOITED-CVE-2020-36842\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-wpvivid-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-28-wpvivid-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wpvivid-rce/",
+      "x_craftedsignal_activity_at": "2026-10-28T08:50:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01159,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -162075,6 +162161,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ba313cd9-a242-5000-be87-4b3939280191",
+      "name": "WPvivid Migration, Backup, Staging (\u003c= 0.9.35)",
+      "vendor": "WPvivid"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ba37b417-e6d8-5363-90c1-edb42b004821",
       "name": "jQuery",
       "vendor": "OpenJS Foundation"
@@ -178555,6 +178648,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108714",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108714"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6e77f64e-7515-58fe-ab71-0ca901f4bf88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2020-36842",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2020-36842",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-36842"
         }
       ]
     },
