@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bb98d671-c34b-5ca2-9cd4-bed30b01b768",
+  "id": "bundle--10dea302-7fe3-5801-97b9-97d214864735",
   "objects": [
     {
       "type": "attack-pattern",
@@ -130162,7 +130162,7 @@
       "id": "report--c33e7cdf-a7d9-5fc7-b34d-e39ce06a06bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:52:56.000Z",
-      "modified": "2026-10-27T17:53:36.000Z",
+      "modified": "2026-10-28T14:52:33.000Z",
       "name": "EmbedThis GoAhead: Multiple TLS and Authentication Vulnerabilities (CVE-2026-115881, CVE-2026-115884)",
       "description": "## Overview\n\nEmbedThis has released GoAhead version 6.1.1 to address multiple security vulnerabilities affecting various TLS backends and authentication mechanisms. The most significant issues include the failure to enforce Certificate Revocation Lists (CRL) when using the OpenSSL backend (CVE-2026-115881), improper validation of certificate chains in legacy LibreSSL configurations (CVE-2026-115884), and a session decryption risk in Mbed TLS builds. Additionally, a login bypass affects form-based authentication using the Blowfish password format.\n\nThese vulnerabilities are design and implementation flaws specific to how firmware developers compile the GoAhead server. Because these choices are locked into device firmware, individual device owners cannot remediate the issues through configuration changes alone and must rely on manufacturer-provided firmware updates.\n\n## Impact\n\nThe vulnerabilities allow for potential unauthorized access via revoked or forged client certificates, session interception for specific builds, and authentication bypasses on administrative interfaces. The affected population includes millions of devices such as routers, printers, and industrial controllers, though no reports of active exploitation have been confirmed as of late October 2026.\n\n## Recommendation\n\n- Identify devices in your environment utilizing the GoAhead web server for management interfaces.\n- Monitor manufacturer advisories for firmware updates that include GoAhead 6.1.1.\n- Prioritize applying updates to internet-facing devices.\n- If a firmware update is unavailable, restrict access to administrative management interfaces to trusted, internal network segments only.\n- Review administrative login logs for anomalous patterns, particularly if the device supports HTTP Basic or form-based authentication, to identify potential exploitation attempts of the login bypass.\n",
       "published": "2026-10-27T17:52:56.000Z",
@@ -130214,6 +130214,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/408"
+        },
+        {
+          "source_name": "reference",
           "url": "https://thehackernews.com/2026/10/goahead-tls-flaws-allow-revoked-client.html"
         },
         {
@@ -130224,9 +130228,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-goahead-tls-flaws",
       "x_craftedsignal_event_id": "brief-2026-10-27-goahead-tls-flaws",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-goahead-tls-flaws/",
-      "x_craftedsignal_activity_at": "2026-10-27T17:53:36.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T14:52:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

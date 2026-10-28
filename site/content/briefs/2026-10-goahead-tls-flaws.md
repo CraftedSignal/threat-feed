@@ -1,13 +1,25 @@
 ---
 brief_id: brief-2026-10-27-goahead-tls-flaws
 event_id: brief-2026-10-27-goahead-tls-flaws
-revision: 1
-activity_at: "2026-10-27T17:52:56Z"
+revision: 2
+activity_at: "2026-10-28T14:52:33Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-28T14:52:33Z"
+    checksum: sha256:d64e0073bc7cfb48d617899b749618c3b76f8e9650f9a558873042bcf7f0dbdf
+    summary: poc_available
+    changed_fields:
+      - has_poc
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/goahead-6-1-1-tls-auth-cgi-flaws-oct-2026
 title: 'EmbedThis GoAhead: Multiple TLS and Authentication Vulnerabilities (CVE-2026-115881, CVE-2026-115884)'
 slug: 2026-10-goahead-tls-flaws
 description: The GoAhead embedded web server contains critical flaws in its TLS backend and authentication logic, including failure to enforce certificate revocation, improper certificate chain validation, session decryption risks, and a login bypass vulnerability.
 date: "2026-10-27T17:52:56Z"
-lastmod: "2026-10-27T17:53:36Z"
+lastmod: "2026-10-28T14:51:54Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -23,6 +35,7 @@ source_assessment:
   likelihood: roughly even chance
 qa_status:
   verdict: pass
+has_poc: true
 tags:
   - vulnerability
   - web-server
@@ -51,6 +64,7 @@ references:
   - https://github.com/embedthis/goahead/security
   - https://foxio.io/blog/choose-your-backend-three-tls-bugs-in-goahead
   - https://www.blazeinfosec.com/labs/goahead-sixteen-fixes-independent-investigation
+  - https://seclists.org/oss-sec/2026/q4/408
 action_plan:
   priority: elevated
   owners:
@@ -81,6 +95,13 @@ updates:
   - at: "2026-10-27T17:53:36Z"
     level: L1
     summary: OS windows
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/goahead-6-1-1-tls-auth-cgi-flaws-oct-2026
+  - at: "2026-10-28T14:51:54Z"
+    level: L2
+    summary: poc_available
     sources:
       - pwn-watch
     source_urls:
