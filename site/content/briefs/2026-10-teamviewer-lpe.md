@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-teamviewer-lpe
 event_id: brief-2026-10-27-teamviewer-lpe
-revision: 2
-activity_at: "2026-10-27T20:02:31Z"
+revision: 3
+activity_at: "2026-10-28T00:14:42Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T20:02:31Z"
@@ -18,12 +18,26 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92375
+  - revision: 3
+    at: "2026-10-28T00:14:42Z"
+    checksum: sha256:0e80db4e38b5845dea4c58fd67db64bb5b4dee62abf9449c3bd1bdab48522339
+    summary: added CVE-2026-111582 +3; OS android
+    changed_fields:
+      - affected_os
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
 title: 'TeamViewer: Local privilege escalation via installer staging (CVE-2026-111583)'
 slug: 2026-10-teamviewer-lpe
 description: An improper access control vulnerability in the TeamViewer installer staging directory allows local low-privileged users to achieve arbitrary code execution as SYSTEM via a crafted installer options file.
 date: "2026-10-27T18:05:02Z"
-lastmod: "2026-10-27T20:01:20Z"
+lastmod: "2026-10-28T00:13:47Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -68,6 +82,7 @@ affected_os:
   - Windows
   - Linux
   - macOS
+  - Android
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -97,12 +112,28 @@ cves:
   - id: CVE-2026-92375
     cvss: 7.8
     kev_status: "false"
+  - id: CVE-2026-92376
+    cvss: 7.8
+    kev_status: "false"
+  - id: CVE-2026-92377
+    cvss: 7.8
+    kev_status: "false"
+  - id: CVE-2026-111582
+    cvss: 7.3
+    kev_status: "false"
+  - id: CVE-2026-111584
+    cvss: 7.3
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111583
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111585
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92372
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92374
   - https://nvd.nist.gov/vuln/detail/CVE-2026-92375
+  - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
+  - https://www.teamviewer.com/en/resources/trust-center/security-bulletins/tv-2026-1011/
+  - https://www.teamviewer.com/en/resources/trust-center/security-bulletins/tv-2026-1012/
+  - https://www.teamviewer.com/en/resources/trust-center/security-bulletins/
 action_plan:
   priority: elevated
   owners:
@@ -221,6 +252,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-92375
+  - at: "2026-10-28T00:13:47Z"
+    level: L2
+    summary: added CVE-2026-111582 +3; OS android
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
 ---
 
 TeamViewer Full Client and Host for Windows versions prior to 15.82 are vulnerable to a local privilege escalation flaw. During the installation of the Advanced Asset Management component, the installer uses an insecurely permissioned staging directory. A local authenticated user with low privileges can place a crafted installer options file in this directory, which is then processed by the installer, resulting in execution of arbitrary commands with SYSTEM privileges during service activation.
