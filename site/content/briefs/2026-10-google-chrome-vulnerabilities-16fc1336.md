@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-10-28-google-chrome-vulnerabilities-16fc1336
 event_id: brief-2026-10-28-google-chrome-vulnerabilities-16fc1336
-revision: 1
-activity_at: "2026-10-28T17:44:01Z"
+revision: 2
+activity_at: "2026-10-28T17:56:03Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-28T17:56:03Z"
+    checksum: sha256:03c17a8b8e37f2ebc8d57c6f92d2e5fed4598f118e3936b7571c58fee000f688
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/chrome-156-security-update-oct-2026
 title: 'Google Chrome: Multiple Vulnerabilities (CVE-2026-118304 through CVE-2026-118359)'
 slug: 2026-10-google-chrome-vulnerabilities-16fc1336
 description: Google has released security updates for Chrome addressing a large number of vulnerabilities affecting Linux, Windows, and macOS installations.
 date: "2026-10-28T17:44:01Z"
+lastmod: "2026-10-28T17:55:18Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -33,9 +49,11 @@ products:
   - Chrome (< 156.0.8078.73 for Linux)
   - Chrome (< 156.0.8078.73 for Windows)
   - Chrome (< 156.0.8078.74 for Mac)
+  - Chrome (< 156.0.8078.73)
 cves:
   - id: CVE-2026-118304
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118305
     kev_status: unknown
   - id: CVE-2026-118306
@@ -63,9 +81,9 @@ cves:
   - id: CVE-2026-118317
     kev_status: unknown
   - id: CVE-2026-118318
-    kev_status: unknown
+    kev_status: "false"
   - id: CVE-2026-118319
-    kev_status: unknown
+    kev_status: "false"
   - id: CVE-2026-118320
     kev_status: unknown
   - id: CVE-2026-118321
@@ -107,7 +125,8 @@ cves:
   - id: CVE-2026-118342
     kev_status: unknown
   - id: CVE-2026-118343
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118344
     kev_status: unknown
   - id: CVE-2026-118345
@@ -198,6 +217,9 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-118357
   - https://www.cve.org/CVERecord?id=CVE-2026-118358
   - https://www.cve.org/CVERecord?id=CVE-2026-118359
+  - https://pwn.watch/i/chrome-156-security-update-oct-2026
+  - https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html
+  - https://www.anthropic.com/research/discovering-vulnerabilities-with-claude
 action_plan:
   priority: elevated
   owners:
@@ -214,6 +236,14 @@ action_plan:
       owner: IT Operations
       addresses: All CVEs listed
       evidence: Chrome security bulletin dated October 27, 2026
+updates:
+  - at: "2026-10-28T17:55:18Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/chrome-156-security-update-oct-2026
 ---
 
 Google has addressed multiple security vulnerabilities in the Chrome browser through a stable channel update released on October 27, 2026. The vulnerabilities cover a wide range of identified CVEs, though Google has not publicly specified the exact nature or exploitability of each flaw. Users are advised to update their browsers immediately to the latest stable versions to prevent exploitation.
