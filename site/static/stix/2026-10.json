@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b158bdc7-118e-5704-81e3-b221274fe878",
+  "id": "bundle--cce77db8-e5d1-5a52-8b5f-9712d90dbb62",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12848,6 +12848,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--21453e23-38cc-5d3f-8419-eae5cb403bad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eb0b9056-4035-5b3f-a789-2e2280bb9f2d",
+      "target_ref": "vulnerability--107fc2ab-fe99-5129-b3da-3537eaca862f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2155e2f8-66f7-5d48-9136-1e66e17a5c20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:44:40.000Z",
@@ -21985,6 +21996,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dc4ac570-b9ae-50fb-8de4-507926e51a45",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4a3554e8-4ae5-5544-82b0-515458cc3f4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--af051dc4-a694-5c5b-9a1b-1d2d2f54257b",
+      "target_ref": "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
     },
     {
       "type": "relationship",
@@ -39284,7 +39306,7 @@
       "id": "relationship--93907e87-c875-5eba-8ffd-7b037b5831e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T09:57:15.000Z",
-      "modified": "2026-10-28T15:53:34.000Z",
+      "modified": "2026-10-28T21:28:46.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -51755,6 +51777,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c7edd384-bb70-5fd9-bed7-62bc091b68c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T21:28:01.000Z",
+      "modified": "2026-10-28T21:28:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c6915558-d2e8-54f5-abb7-84b8b70e789a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c805b36f-eef9-5ede-b5f6-99eb1681845a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:14:31.000Z",
@@ -56298,6 +56331,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--da80fa1a-cfa1-5851-ae3d-4c9434f83149",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--907a1358-bd66-5689-bb9a-2e3ccf163e75",
+      "target_ref": "vulnerability--a6a96cdb-d853-52e0-8419-3ed4887d25d2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--da891852-c25d-51f0-aa17-4b027674f53c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -58971,6 +59015,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e4f83537-ba90-5351-84d0-0daefcd183ea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T21:28:08.000Z",
+      "modified": "2026-10-28T21:28:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e52b5c5c-ac29-5126-9b42-df8ca9376098",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e5012c5d-e151-58cb-9c92-75c8d7fd179f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T14:37:32.000Z",
@@ -61354,6 +61409,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4e7e4c3f-7a40-57c9-999b-1ecddbb213bd",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed3779d6-712e-537b-8736-7476d2d9ee91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T21:28:01.000Z",
+      "modified": "2026-10-28T21:28:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c6915558-d2e8-54f5-abb7-84b8b70e789a",
+      "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
     },
     {
       "type": "relationship",
@@ -83103,13 +83169,15 @@
       "id": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T09:57:15.000Z",
-      "modified": "2026-10-28T15:53:34.000Z",
+      "modified": "2026-10-28T21:28:46.000Z",
       "name": "Oracle E-Business Suite: SQL Injection Remote Code Execution (CVE-2026-101767)",
       "description": "## Overview\n\nCVE-2026-101767 is a critical SQL injection vulnerability (CVSS 9.8) affecting the Application Object Library component within Oracle E-Business Suite. The flaw allows remote, unauthenticated attackers to send specially crafted HTTP requests to achieve remote code execution (RCE). Threat intelligence firm Defused reported that exploratory exploitation attempts began on October 27, 2026, immediately following the inclusion of the patch in the Oracle October 2026 Critical Patch Update (CPU).\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary code within the context of the Application Object Library, potentially leading to full system compromise.\n\n## Recommendation\n\n* Prioritize patching all internet-facing Oracle E-Business Suite instances by applying the October 2026 Oracle Critical Patch Update immediately.\n* Implement restrictive web application firewall (WAF) policies to block unexpected SQL injection patterns targeting Oracle EBS endpoints.\n* Monitor webserver access logs for anomalous HTTP requests directed at the Application Object Library components.\n",
       "published": "2026-10-28T09:57:15.000Z",
       "labels": [
         "active-exploitation",
+        "oracle",
         "rce",
+        "remote-code-execution",
         "sql-injection",
         "vulnerability"
       ],
@@ -83119,6 +83187,7 @@
         "software--3e1bb861-9bc4-5a62-a913-0e40eaee958a",
         "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
         "software--90c593d7-9ae8-5d46-8e93-7f1365c97444",
+        "software--af051dc4-a694-5c5b-9a1b-1d2d2f54257b",
         "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
       ],
       "external_references": [
@@ -83134,6 +83203,14 @@
         {
           "source_name": "reference",
           "url": "https://pwn.watch/i/oracle-ebs-tcf-sqli-rce-cve-2026-101767"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=78DFCFF2-E87F-52BA-B6F3-E6E54E393925"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=78DFCFF2-E87F-52BA-B6F3-E6E54E393925\u0026utm_source=rss\u0026utm_medium=rss"
         },
         {
           "source_name": "reference",
@@ -83155,9 +83232,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-28-oracle-ebs-sql-injection",
       "x_craftedsignal_event_id": "brief-2026-10-28-oracle-ebs-sql-injection",
-      "x_craftedsignal_revision": 3,
+      "x_craftedsignal_revision": 4,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-ebs-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-28T15:53:34.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T21:28:46.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -137036,6 +137113,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c6915558-d2e8-54f5-abb7-84b8b70e789a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T21:28:01.000Z",
+      "modified": "2026-10-28T21:28:01.000Z",
+      "name": "Rocket.Chat: Unauthenticated NoSQL Injection and Remote Code Execution (CVE-2021-22911)",
+      "description": "## Overview\n\nCVE-2021-22911 is a critical vulnerability affecting Rocket.Chat versions prior to 3.12.7. The vulnerability resides in the NoSQL database queries used for password resets. An unauthenticated attacker can exploit this via blind NoSQL injection to extract password reset tokens for any user, including administrators. Successful exploitation leads to administrative account takeover and subsequent remote code execution (RCE) by leveraging the application's webhook feature to run arbitrary JavaScript payloads within the Node.js runtime environment. Public exploit code is now available, significantly increasing exploitation risk.\n\n## Attack Chain\n\n1. Attacker sends a forged password reset request to a target user via the Rocket.Chat API.\n2. Attacker uses a blind NoSQL injection payload targeting the `getPasswordPolicy` method with the `$regex` operator to brute-force the password reset token character-by-character.\n3. Attacker uses the discovered token to reset the target user's password.\n4. Attacker repeats the process to compromise an administrator account.\n5. Attacker authenticates as the administrator.\n6. Attacker creates a new webhook integration and injects a JavaScript payload that utilizes `child_process.exec()` to spawn a reverse shell.\n7. Attacker triggers the webhook, resulting in the execution of the reverse shell and full system compromise.\n\n## Impact\n\nSuccessful exploitation results in full application compromise, including unauthorized access to sensitive user data, administrative control, and the ability to execute arbitrary system commands on the server hosting the Rocket.Chat instance.\n\n## Recommendation\n\n1. Upgrade Rocket.Chat instances immediately to version 3.12.7 or later.\n2. Identify and audit existing webhook integrations for unauthorized or suspicious JavaScript content.\n3. Deploy web application firewall (WAF) rules to detect and block NoSQL injection patterns, specifically targeting requests to the `getPasswordPolicy` method containing `$regex` or other database operator syntax.\n4. Hunt for evidence of unauthorized account password resets and newly created webhook integrations in application logs.\n",
+      "published": "2026-10-28T21:28:01.000Z",
+      "labels": [
+        "authentication-bypass",
+        "nosql-injection",
+        "rce",
+        "rocket-chat"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb0b9056-4035-5b3f-a789-2e2280bb9f2d",
+        "vulnerability--107fc2ab-fe99-5129-b3da-3537eaca862f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-rocketchat-cve-2021-22911",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-rocketchat-cve-2021-22911/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-22911"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ROSHANRAJBANSHI-ROCKETCAT-CVE-2021-22911-EXPLOIT"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ROSHANRAJBANSHI-ROCKETCAT-CVE-2021-22911-EXPLOIT\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-rocketchat-cve-2021-22911",
+      "x_craftedsignal_event_id": "brief-2026-10-28-rocketchat-cve-2021-22911",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rocketchat-cve-2021-22911/",
+      "x_craftedsignal_activity_at": "2026-10-28T21:28:01.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.95242,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c69cdd9d-2158-5eaf-9180-cdd1ea08272b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T12:00:19.000Z",
@@ -147433,6 +147567,52 @@
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.00106,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e52b5c5c-ac29-5126-9b42-df8ca9376098",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T21:28:08.000Z",
+      "modified": "2026-10-28T21:28:08.000Z",
+      "name": "Kyocera Command Center RX: Plaintext password exposure (CVE-2023-49367)",
+      "description": "## Overview\nKyocera Command Center RX, specifically in the EXOSYS M5521cdn model, is vulnerable to sensitive data exposure (CVE-2023-49367). When a user performs an address book connectivity test for SMB or FTP protocols via the web management interface, the device transmits the configured credentials in plaintext. These credentials can be intercepted by an attacker positioned to monitor network traffic between the printer and the target file server.\n\n## Impact\nSuccessful exploitation results in the disclosure of plaintext administrative or service account credentials for SMB/FTP infrastructure, facilitating lateral movement or further unauthorized access to file shares.\n\n## Recommendation\n- Inventory all Kyocera EXOSYS M5521cdn devices accessible via the internal network.\n- Restrict network access to the Command Center RX web management interface to trusted administrative IP addresses only.\n- Disable unnecessary SMB/FTP address book functions if not required for standard operations.\n- Monitor for unauthorized capture of SMB/FTP traffic originating from printer IP addresses.\n",
+      "published": "2026-10-28T21:28:08.000Z",
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--907a1358-bd66-5689-bb9a-2e3ccf163e75",
+        "vulnerability--a6a96cdb-d853-52e0-8419-3ed4887d25d2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-kyocera-cve-2023-49367",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-kyocera-cve-2023-49367/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BARISBAYDUR-CVE-2023-49367"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BARISBAYDUR-CVE-2023-49367\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-kyocera-cve-2023-49367",
+      "x_craftedsignal_event_id": "brief-2026-10-28-kyocera-cve-2023-49367",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kyocera-cve-2023-49367/",
+      "x_craftedsignal_activity_at": "2026-10-28T21:28:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.0031,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -166531,6 +166711,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--907a1358-bd66-5689-bb9a-2e3ccf163e75",
+      "name": "Command Center RX (EXOSYS M5521cdn)",
+      "vendor": "Kyocera"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--90945eb0-ad1c-519d-a2ba-71ba57055ef5",
       "name": "Firefox (\u003c 158.0.1)",
       "vendor": "Mozilla"
@@ -168434,6 +168621,13 @@
       "spec_version": "2.1",
       "id": "software--aefdcbe1-31e0-5fb4-9e6c-03210a90fd9c",
       "name": "Envoy (\u003c 1.40.0, \u003c 1.39.3, \u003c 1.38.6, \u003c 1.37.8)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--af051dc4-a694-5c5b-9a1b-1d2d2f54257b",
+      "name": "Oracle E-Business Suite (12.2.3 – 12.2.15)",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
@@ -171791,6 +171985,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--eb0b9056-4035-5b3f-a789-2e2280bb9f2d",
+      "name": "Rocket.Chat (\u003c 3.12.7)",
+      "vendor": "Rocket.Chat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--eb347404-78dd-5bac-8486-81efc9a68418",
       "name": "AWS Bedrock AgentCore",
       "vendor": "Amazon"
@@ -174865,6 +175066,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101438",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101438"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--107fc2ab-fe99-5129-b3da-3537eaca862f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-22911",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-22911",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-22911"
         }
       ]
     },
@@ -192625,6 +192842,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101528",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101528"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a6a96cdb-d853-52e0-8419-3ed4887d25d2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-49367",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-49367",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-49367"
         }
       ]
     },
