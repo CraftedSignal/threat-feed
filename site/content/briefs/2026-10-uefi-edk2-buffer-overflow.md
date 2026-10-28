@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-uefi-edk2-buffer-overflow
 event_id: brief-2026-10-27-uefi-edk2-buffer-overflow
-revision: 2
-activity_at: "2026-10-28T03:18:17Z"
+revision: 3
+activity_at: "2026-10-28T16:05:31Z"
 revision_history:
   - revision: 2
     at: "2026-10-28T03:18:17Z"
@@ -16,13 +16,26 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/edk2-pxe-icmp-preboot-rce-cve-2026-97631
+  - revision: 3
+    at: "2026-10-28T16:05:31Z"
+    checksum: sha256:18c2ddc78646d8299606d6c0dbec0cef622c0267bcc94c5add6cacb7cb8ebf44
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=81D18FB6-2F82-55C7-8F2E-F4A959DB0D12&utm_source=rss&utm_medium=rss
 title: 'TianoCore EDK II: ICMP-based buffer overflow in PXE Base Code driver (CVE-2026-97631)'
 slug: 2026-10-uefi-edk2-buffer-overflow
 description: A critical 16-year-old memory corruption flaw (CVE-2026-97631) in the EDK II PXE-Base Code driver allows attackers on the local network to execute arbitrary code with Ring 0 privileges during the early boot sequence.
 date: "2026-10-27T20:59:50Z"
-lastmod: "2026-10-28T03:17:38Z"
+lastmod: "2026-10-28T16:04:28Z"
 type: advisory
-claim_state: <nil>
+claim_state: verified
 types:
   - advisory
 severities:
@@ -38,6 +51,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:tianocore:edk_ii:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=81D18FB6-2F82-55C7-8F2E-F4A959DB0D12&utm_source=rss&utm_medium=rss
 tags:
   - vulnerability
   - firmware
@@ -79,6 +95,8 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-97631
   - https://github.com/tianocore/edk2/pull/13302
   - https://security-tracker.debian.org/tracker/CVE-2026-97631
+  - https://access.redhat.com/security/cve/CVE-2026-97631
+  - https://sploitus.com/exploit?id=81D18FB6-2F82-55C7-8F2E-F4A959DB0D12&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -118,6 +136,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/edk2-pxe-icmp-preboot-rce-cve-2026-97631
+  - at: "2026-10-28T16:04:28Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=81D18FB6-2F82-55C7-8F2E-F4A959DB0D12&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-97631 is a memory-corruption vulnerability in the PXE-Base Code driver (NetworkPkg/UefiPxeBcDxe) of the open-source TianoCore EDK II reference implementation. The vulnerability stems from an incorrect bounds check in the ICMP error handling logic, where the driver fails to restrict the copy of ICMP error messages to a fixed 504-byte buffer. An attacker with local network access can send a malicious, oversized ICMP error packet during a PXE network boot sequence to overwrite adjacent memory, allowing execution of code in the UEFI environment (Ring 0). Exploitation can bypass Secure Boot and TPM attestation, as the code runs before these security mechanisms are initialized. 
