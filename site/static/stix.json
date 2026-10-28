@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--df4e80e9-f5f6-5622-8b9d-b1ffdcc9c570",
+  "id": "bundle--45a03777-90fb-5461-87ae-c5f0fa67a8c8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -135108,6 +135108,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bbf506cf-9db8-5ce4-a624-0f38d4599a12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T11:01:33.000Z",
+      "modified": "2026-10-28T11:01:33.000Z",
+      "name": "Redis: Remote code execution via HyperLogLog integer overflow (CVE-2025-32023)",
+      "description": "CVE-2025-32023 is a remote code execution vulnerability in Redis resulting from an integer overflow in sparse HyperLogLog encoding. An authenticated attacker can trigger a stack or heap out-of-bounds write by performing a HyperLogLog merge operation (e.g., `pfcount`) using a malformed payload. Public proof-of-concept exploit code for this vulnerability is available on Sploitus.\n",
+      "published": "2026-10-28T11:01:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--11e6e421-e378-5244-86e6-18d5a73a7c8d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-redis-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-redis-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/redis/redis/security/advisories/GHSA-rp2m-q4j6-gr43"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LORDBHEEM-CVE-2025-32023"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LORDBHEEM-CVE-2025-32023\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-redis-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-28-redis-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-redis-rce/",
+      "x_craftedsignal_activity_at": "2026-10-28T11:01:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed",
+        "confidence": "low"
+      },
+      "x_craftedsignal_cvss_max": 7,
+      "x_craftedsignal_epss_max": 0.06473,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bc19c214-0816-5c4f-bde2-0db8ff918fdb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T16:18:16.000Z",
@@ -155126,6 +155175,52 @@
       },
       "x_craftedsignal_cvss_max": 6.1,
       "x_craftedsignal_epss_max": 0.02003,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--f14696ea-2840-594e-abce-884451f97dfa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T11:01:24.000Z",
+      "modified": "2026-10-28T11:01:24.000Z",
+      "name": "Apache Solr: Proof of Concept Available for CVE-2024-45216",
+      "description": "A Python proof-of-concept (PoC) script for CVE-2024-45216 has been published. The PoC is designed to target Apache Solr instances on port 8983. The vulnerability has a CVSS score of 9.8 and an EPSS score of 92.7%.\n",
+      "published": "2026-10-28T11:01:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--f9651bf8-1d94-56dd-97b5-28f26c2f849d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-apache-solr-cve-2024-45216",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-solr-cve-2024-45216/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CONGDONG007-CVE-2024-45216-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CONGDONG007-CVE-2024-45216-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-apache-solr-cve-2024-45216",
+      "x_craftedsignal_event_id": "brief-2026-10-28-apache-solr-cve-2024-45216",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-solr-cve-2024-45216/",
+      "x_craftedsignal_activity_at": "2026-10-28T11:01:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed",
+        "source_url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-CONGDONG007-CVE-2024-45216-POC",
+        "confidence": "low"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.92747,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -179196,6 +179291,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96299",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96299"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--11e6e421-e378-5244-86e6-18d5a73a7c8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-32023",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-32023",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32023"
         }
       ]
     },
@@ -206332,6 +206443,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-70388",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70388"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f9651bf8-1d94-56dd-97b5-28f26c2f849d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-45216",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-45216",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-45216"
         }
       ]
     },
