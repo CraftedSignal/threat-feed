@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ef242a83-f91d-5c96-895e-3c6b11aedb46",
+  "id": "bundle--a5713454-8f77-55c6-ab50-6f770f3cb01a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19265,6 +19265,17 @@
       "relationship_type": "uses",
       "source_ref": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "target_ref": "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--44dc3bdc-5eb9-52cd-9e60-2b4ac1f333e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--adf0402a-85b3-52d8-81fb-827ee1dadb05",
+      "target_ref": "vulnerability--727be2f3-9f97-54f7-8734-79bafdddd7df"
     },
     {
       "type": "relationship",
@@ -48426,6 +48437,17 @@
       "relationship_type": "has",
       "source_ref": "software--5bc667b1-0a4e-550a-9fd5-afade285e797",
       "target_ref": "vulnerability--07691423-172b-578e-a7cd-22e5763d4c09"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ce5408cd-e830-5ea5-8457-c33e64cbe8df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e4f32fa0-204a-56b1-8749-e31bf0d8b578",
+      "target_ref": "vulnerability--43e2ad15-9d1f-5ab4-8978-ae8edd11681d"
     },
     {
       "type": "relationship",
@@ -89958,6 +89980,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--59f63687-7064-54ca-b108-ff6261fe4f19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T01:35:54.000Z",
+      "modified": "2026-10-28T01:35:54.000Z",
+      "name": "Chitchatter: PostMessage Handler improper authentication (CVE-2026-118129)",
+      "description": "## Overview\n\nA remote improper authentication vulnerability exists in the Chitchatter application, specifically within the isConfigMessageEvent function in src/Bootstrap.tsx. The vulnerability allows an attacker to manipulate the parentDomain argument within the PostMessage Handler. Public proof-of-concept exploit code is available. The vulnerability affects versions of Chitchatter up to commit f82538633813c854a81a8b2112a2f6ba17b39cbc. A fix has been released in commit e3babb5cd83bfe3b99f1d82358ac5c1ea8e8a688.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to bypass authentication mechanisms within the Chitchatter application via the PostMessage interface.\n\n## Recommendation\n\n- Identify all instances of Chitchatter in the environment.\n- Apply the patch provided in commit e3babb5cd83bfe3b99f1d82358ac5c1ea8e8a688 immediately.\n- Monitor for anomalous postMessage activity originating from untrusted domains targeting the Chitchatter interface.\n",
+      "published": "2026-10-28T01:35:54.000Z",
+      "labels": [
+        "authentication-bypass",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e4f32fa0-204a-56b1-8749-e31bf0d8b578",
+        "vulnerability--43e2ad15-9d1f-5ab4-8978-ae8edd11681d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-chitchatter-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-chitchatter-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/0xGenesi/CVE/blob/main/Chitchatter_SDK_postMessage_Identity_Key_Injection.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/jeremyckahn/chitchatter/commit/e3babb5cd83bfe3b99f1d82358ac5c1ea8e8a688"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-118129\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/cve/CVE-2026-118129"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-chitchatter-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-28-chitchatter-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-chitchatter-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-28T01:35:54.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5a068822-1a4b-5d87-ab76-e82e1d13f6f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T02:32:17.000Z",
@@ -96574,6 +96653,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6b377b95-a97e-5056-9819-348db7756ba7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T01:35:47.000Z",
+      "modified": "2026-10-28T01:35:47.000Z",
+      "name": "FasterXML jackson-dataformat-protobuf: Signed integer overflow denial-of-service (CVE-2026-104016)",
+      "description": "## Overview\nA signed integer overflow vulnerability in `jackson-dataformat-protobuf` (CVE-2026-104016) allows attackers to crash services via an `OutOfMemoryError`. The vulnerability exists because `ProtobufParser` utilizes 32-bit signed integer arithmetic for bounds checking when parsing length-prefixed strings. By providing a varint-encoded length near `Integer.MAX_VALUE`, an attacker can cause an overflow during pointer calculation, bypassing bounds checks and triggering an unrestrained memory allocation in `TextBuffer.expandCurrentSegment`.\n\nThis vulnerability is significant because existing configuration-based protections, such as `StreamReadConstraints` (e.g., `maxStringLength`, `maxDocumentLength`), fail to gate this specific code path. Furthermore, the JVM rejects the resulting massive array allocation before application-level heap constraints are evaluated, making `-Xmx` heap tuning ineffective as a mitigation.\n\n## Impact\nSuccessful exploitation results in an immediate service disruption via `OutOfMemoryError`, effectively achieving a denial-of-service (DoS) against any Java service processing untrusted Protobuf data using affected versions of the library.\n\n## Recommendation\n- Identify all Java applications utilizing `jackson-dataformat-protobuf` in the dependency tree.\n- Prioritize updating to the patched version of `jackson-dataformat-protobuf` as identified in the upstream GitHub advisory (GHSA-c2rq-mcfv-jw29).\n- Implement request size limits at the network edge or WAF layer to prevent processing of excessively large, malformed Protobuf messages if patching is delayed.\n- Monitor application logs for frequent `OutOfMemoryError` events associated with deserialization processes.\n",
+      "published": "2026-10-28T01:35:47.000Z",
+      "labels": [
+        "denial-of-service",
+        "deserialization",
+        "java"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--adf0402a-85b3-52d8-81fb-827ee1dadb05",
+        "vulnerability--727be2f3-9f97-54f7-8734-79bafdddd7df"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-jackson-dataformat-protobuf-integer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-jackson-dataformat-protobuf-integer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/FasterXML/jackson-dataformats-binary/security/advisories/GHSA-c2rq-mcfv-jw29"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-104016"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-104016\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-jackson-dataformat-protobuf-integer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-28-jackson-dataformat-protobuf-integer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jackson-dataformat-protobuf-integer-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-28T01:35:47.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -158387,6 +158519,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--adf0402a-85b3-52d8-81fb-827ee1dadb05",
+      "name": "jackson-dataformat-protobuf",
+      "vendor": "FasterXML"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae1019d0-e08c-5274-9928-762a47ea5cd3",
       "name": "SkillHub (\u003c= 0.2.22)",
       "vendor": "iFlytek"
@@ -161334,6 +161473,13 @@
       "id": "software--e4983ed5-d88b-5c23-b951-aee72735fefd",
       "name": "Floci (1.1.0-2.1.9)",
       "vendor": "Floci"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e4f32fa0-204a-56b1-8749-e31bf0d8b578",
+      "name": "Chitchatter (\u003c= f82538633813c854a81a8b2112a2f6ba17b39cbc)",
+      "vendor": "jeremyckahn"
     },
     {
       "type": "software",
@@ -170493,6 +170639,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--43e2ad15-9d1f-5ab4-8978-ae8edd11681d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118129",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118129",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118129"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--43ee55ed-1c56-5bd0-b9eb-50e941692e8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -175463,6 +175625,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115586",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115586"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--727be2f3-9f97-54f7-8734-79bafdddd7df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104016",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104016",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104016"
         }
       ]
     },
