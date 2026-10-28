@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--56696840-3e55-5598-bda5-bb1dc0bded56",
+  "id": "bundle--ed7147b9-1f62-5a41-a81e-8a44dfdf5fc2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12681,6 +12681,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1e2c6f51-13a8-557d-ad42-7365617dad87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--9c0e159a-e170-5334-9988-dc9840c7f071"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1e30952e-96a9-521d-bd29-ceda22b03b11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -15658,6 +15669,17 @@
       "relationship_type": "has",
       "source_ref": "software--fd352a21-4a98-5b95-8935-fe158bb49e74",
       "target_ref": "vulnerability--e9d99906-1574-51d2-b9b8-9d75aefe4cd6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2b9044f9-df8b-57c8-8cd5-bcc840d53479",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--0fa5824b-2d5f-5eb5-acb2-d60f98b24486"
     },
     {
       "type": "relationship",
@@ -22064,6 +22086,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--471b27db-7338-566b-bfe4-bf90a672c9d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--7e3d204f-587f-559a-918e-c667878745c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--471ba837-8aae-5377-97fe-74534c94c995",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25870,6 +25903,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--56bf4adc-0910-5934-a172-c4b426bb89a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--e35e491d-13ee-54e0-a27c-c5cf716e42da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--56c99852-3f76-53e4-8df2-4870cc1727ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:54:55.000Z",
@@ -28546,7 +28590,7 @@
       "id": "relationship--61d1fe19-1340-5a92-b111-80d3102e2e6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-28T16:58:30.000Z",
+      "modified": "2026-10-28T18:59:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "target_ref": "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544"
@@ -33650,7 +33694,7 @@
       "id": "relationship--76b0ed2d-a095-5fd7-9747-47e7752ec0b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T18:05:02.000Z",
-      "modified": "2026-10-28T07:33:18.000Z",
+      "modified": "2026-10-28T18:59:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--160f355e-437e-58a7-8e45-c2a0602a90a7",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -35645,6 +35689,17 @@
       "relationship_type": "uses",
       "source_ref": "report--68b01170-73df-5d68-9275-f148334b64b8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e55351a-9b0b-521a-a20e-39ef36481ee5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--d7e7bb95-5133-58f4-855d-b5a9fde2fb2d"
     },
     {
       "type": "relationship",
@@ -41105,6 +41160,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93a5914a-4364-5fea-8ded-e68fa54e4e20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--d443870a-8877-5334-a922-dfdcd9310dc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--93bb2681-e6b1-52aa-9e67-d4e63eb52bd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T12:24:44.000Z",
@@ -46454,7 +46520,7 @@
       "id": "relationship--a9800a1b-bf46-539d-9cb8-07e232e7f1b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-28T16:58:30.000Z",
+      "modified": "2026-10-28T18:59:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -46645,6 +46711,17 @@
       "relationship_type": "has",
       "source_ref": "software--95813cec-0cfb-51c3-ba38-ab9ac47f9c09",
       "target_ref": "vulnerability--96831d57-358f-5928-bac8-76f8f316b454"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aa4ef6f3-0ade-53d5-88e1-16f0a25aaffb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--787dd137-5f84-5b9b-a13a-b2528006101c"
     },
     {
       "type": "relationship",
@@ -55053,6 +55130,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cbd86ac5-db86-501d-ba13-2f7c66c374e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--ad4c0b56-29c3-5532-8b48-221dc339c4b5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cbd9a3a9-b786-517e-8d3d-daeb1af2f7ae",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T12:24:19.000Z",
@@ -57348,6 +57436,17 @@
       "relationship_type": "has",
       "source_ref": "software--b4c539d4-14db-50b6-af52-14fe8bd33875",
       "target_ref": "vulnerability--526bc196-a98a-54a4-8dfd-9b9f66ab932e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5a88dfd-5a36-5025-8397-41e389e34fac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "target_ref": "vulnerability--5300c4f2-3a77-5472-a79e-b905d5e16b77"
     },
     {
       "type": "relationship",
@@ -67596,7 +67695,7 @@
       "id": "relationship--fcfc30ea-b4c2-5f04-bbc2-3542f238dc37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T18:05:02.000Z",
-      "modified": "2026-10-28T07:33:18.000Z",
+      "modified": "2026-10-28T18:59:25.000Z",
       "relationship_type": "uses",
       "source_ref": "report--160f355e-437e-58a7-8e45-c2a0602a90a7",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -75226,7 +75325,7 @@
       "id": "report--160f355e-437e-58a7-8e45-c2a0602a90a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T18:05:02.000Z",
-      "modified": "2026-10-28T07:33:18.000Z",
+      "modified": "2026-10-28T18:59:25.000Z",
       "name": "TeamViewer: Local privilege escalation via installer staging (CVE-2026-111583)",
       "description": "## Overview\nTeamViewer Full Client and Host for Windows versions prior to 15.82 are vulnerable to a local privilege escalation flaw. During the installation of the Advanced Asset Management component, the installer uses an insecurely permissioned staging directory. A local authenticated user with low privileges can place a crafted installer options file in this directory, which is then processed by the installer, resulting in execution of arbitrary commands with SYSTEM privileges during service activation.\n\n## Impact\nSuccessful exploitation allows a local low-privileged user to gain full SYSTEM access on the affected Windows host.\n\n## Recommendation\n- Update all instances of TeamViewer Full Client and TeamViewer Host to version 15.82 or later immediately.\n- Review and restrict write permissions on installer staging directories if the upgrade cannot be performed immediately.\n- Monitor local file system activity for unexpected file writes to TeamViewer staging directories by non-administrative users.\n",
       "published": "2026-10-27T18:05:02.000Z",
@@ -75249,6 +75348,7 @@
         "software--0423e008-239d-5e0f-8b75-7a2493c05264",
         "software--06c1147a-92d3-59f4-961e-f2d8c5c5fba5",
         "software--10f5d907-01a2-5db7-ab10-ab9f53272d75",
+        "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
         "software--2ee14a39-a0d5-53f5-8280-9d9e55eb80b3",
         "software--4592d3cc-8a3f-5f10-98a4-554a2a70d07a",
         "software--52afe93e-ab86-53c1-a55a-05d561eb987f",
@@ -75316,9 +75416,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-teamviewer-lpe",
       "x_craftedsignal_event_id": "brief-2026-10-27-teamviewer-lpe",
-      "x_craftedsignal_revision": 5,
+      "x_craftedsignal_revision": 6,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-teamviewer-lpe/",
-      "x_craftedsignal_activity_at": "2026-10-28T07:33:18.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T18:59:25.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -98624,7 +98724,7 @@
       "id": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-28T16:58:30.000Z",
+      "modified": "2026-10-28T18:59:25.000Z",
       "name": "Tailscale: Privilege escalation and security flaws in SSH server",
       "description": "## Overview\n\nTailscale has released version 1.104.4 to address four security bulletins (TS-2026-014, TS-2026-015, TS-2026-016, and TS-2026-017) affecting its built-in SSH server. The primary vulnerability involves a timing-based socket-forwarding flaw where an attacker with existing network access can perform a socket-swap, allowing them to interact with root-privileged Unix sockets such as the Docker control socket or the tailscaled local API. Additional vulnerabilities include a denial-of-service vector via memory exhaustion, unauthorized local API access in tailscale serve, and potential permission header leakage. These flaws do not allow for unauthenticated access, requiring an attacker to already possess a foothold on a device authorized by the network access policy. No CVE identifiers have been assigned at this time.\n\n## Impact\n\nSuccessful exploitation could allow an attacker to gain root-level access to sensitive local services on a target node. The flaws are limited by existing network access policies; attackers can only target machines that their current policy already permits them to reach.\n\n## Recommendation\n\n- Update all Tailscale client installations to version 1.104.4 or later immediately.\n- If immediate patching is not possible, disable SSH forwarding by setting the environment variable 'TS_SSH_DISABLE_FORWARDING=1' in the tailscaled service configuration.\n- Review network access rules to ensure minimal privilege, as compromised devices can move laterally to any node permitted by the policy.\n- For headscale users, acknowledge that SSH forwarding should be treated as root-level access until a fix is available, as the current version does not support disabling this functionality.\n",
       "published": "2026-10-27T16:06:16.000Z",
@@ -98639,6 +98739,7 @@
         "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--5f2dd904-75b0-5f77-aaa7-b937f62688af",
+        "software--882d6204-6988-517c-a771-3aa4355ced2a",
         "software--9989c0e8-e807-5c66-8417-2c295e02b824",
         "software--b60fd2fc-29d3-596c-a720-7f5232bbd3d9",
         "software--f9e9b613-4272-5e55-8cfd-392b56dda23d",
@@ -98682,9 +98783,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-tailscale-tailworm",
       "x_craftedsignal_event_id": "brief-2026-10-27-tailscale-tailworm",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tailscale-tailworm/",
-      "x_craftedsignal_activity_at": "2026-10-28T16:58:30.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T18:59:25.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -166045,6 +166146,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--176b7ecd-fc84-5071-adc7-716efd4b4759",
+      "name": "TeamViewer Remote Control Android app (\u003c 15.83)",
+      "vendor": "TeamViewer"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1773893d-44f2-5340-927d-3691449833f6",
       "name": "ILIAS (\u003c 9.24, 10.x \u003c 10.12, 11.x \u003c 11.5)",
       "vendor": "ILIAS"
@@ -173493,6 +173601,13 @@
       "id": "software--87ff0b72-12e9-5cd6-ab0c-358fdfb27301",
       "name": "edoc-doctor-appointment-system (\u003c= cc258425b915d1af9e298777ccd26d160493e68d)",
       "vendor": "HashenUdara"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--882d6204-6988-517c-a771-3aa4355ced2a",
+      "name": "Tailscale (\u003c= 1.104.3)",
+      "vendor": "Tailscale"
     },
     {
       "type": "software",

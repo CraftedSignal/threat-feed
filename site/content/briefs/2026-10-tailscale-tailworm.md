@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-tailscale-tailworm
 event_id: brief-2026-10-27-tailscale-tailworm
-revision: 4
-activity_at: "2026-10-28T16:58:30Z"
+revision: 5
+activity_at: "2026-10-28T18:59:25Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T16:40:44Z"
@@ -44,11 +44,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
+  - revision: 5
+    at: "2026-10-28T18:59:25Z"
+    checksum: sha256:6fa5a253beef4a2898aa391be5be189dfe28c680eaf73b63ceb2400ade08d7a2
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
 title: 'Tailscale: Privilege escalation and security flaws in SSH server'
 slug: 2026-10-tailscale-tailworm
 description: Tailscale versions prior to 1.104.4 contain multiple vulnerabilities in SSH socket forwarding and service handling that could allow authenticated users to escalate privileges to root on targeted nodes.
 date: "2026-10-27T16:06:16Z"
-lastmod: "2026-10-28T16:57:52Z"
+lastmod: "2026-10-28T18:58:47Z"
 type: advisory
 claim_state: verified
 types:
@@ -78,6 +88,7 @@ products:
   - Tailscale (< 1.104.4)
   - headscale
   - Tailscale (<= 1.104.2)
+  - Tailscale (<= 1.104.3)
 affected_os:
   - Linux
   - macOS
@@ -166,6 +177,13 @@ updates:
     source_urls:
       - https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html
   - at: "2026-10-28T16:57:52Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
+  - at: "2026-10-28T18:58:47Z"
     level: L1
     summary: new product
     sources:
