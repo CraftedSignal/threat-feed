@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f5842431-f7a9-5aee-ac86-1deb38d9a523",
+  "id": "bundle--0748a303-4504-5256-8a30-d48cdc4e93ef",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36568,6 +36568,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--811b5e6c-42c3-5670-891e-8df95995b229",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--89498e00-c3c7-571c-bf41-1ca0629b1de6",
+      "target_ref": "vulnerability--84b2597f-3589-53cd-a3da-9458a3843e43"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--812534f7-254a-5a83-9da4-6d20d4a80343",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50857,6 +50868,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b9eb79e8-9b07-5be6-a761-378e189b73b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e1f5061d-393a-5c72-b6ce-f9b9889bd289",
+      "target_ref": "vulnerability--84b2597f-3589-53cd-a3da-9458a3843e43"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b9f6bd42-920c-5856-b87e-693cb1a2b622",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:25:59.000Z",
@@ -55994,6 +56016,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ce7b6082-a94d-593e-9bc6-042396561bd3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T22:36:17.000Z",
+      "modified": "2026-10-28T22:36:17.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--43ccde97-4bae-56c2-8a4f-5996388fe798",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ce7eee52-202e-5c68-9182-f4d39bfe4fcf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:07:28.000Z",
@@ -57354,6 +57387,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ff4974b4-2f4a-55c1-be57-5058c4a5289d",
       "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d39e7955-0598-5121-990d-f715905ce010",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2c507519-eb5a-5cb6-8882-a9ec4b1009e7",
+      "target_ref": "vulnerability--84b2597f-3589-53cd-a3da-9458a3843e43"
     },
     {
       "type": "relationship",
@@ -64482,6 +64526,17 @@
       "relationship_type": "uses",
       "source_ref": "report--588d4378-41d5-5eb5-9c7c-ca13c5879b7b",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ecfc3ec3-e16d-5461-ae83-066ff758ed6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10c137f4-c16b-566f-b6d5-693fdfb544ed",
+      "target_ref": "vulnerability--84b2597f-3589-53cd-a3da-9458a3843e43"
     },
     {
       "type": "relationship",
@@ -94049,6 +94104,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--43ccde97-4bae-56c2-8a4f-5996388fe798",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T22:36:17.000Z",
+      "modified": "2026-10-28T22:36:17.000Z",
+      "name": "Paragon Software: biontdrv.sys local privilege escalation (CVE-2025-0288)",
+      "description": "## Overview\n\nA proof-of-concept exploit has been published for CVE-2025-0288, a local privilege escalation vulnerability residing in the 'biontdrv.sys' driver. This driver is associated with several Paragon Software backup and disk management utilities. The vulnerability allows a low-privileged local user to gain high-level system privileges by exploiting an insecure function within the kernel-mode driver.\n\n## Impact\n\nSuccessful exploitation allows a local user with low privileges to escalate to high-level privileges on the host system. The CVSS 3.1 score of 7.8 (AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H) confirms that exploitation provides complete control over confidentiality, integrity, and availability of the affected system.\n\n## Recommendation\n\n- Inventory all systems running Paragon Software products, specifically checking for the presence of the 'biontdrv.sys' driver.\n- Prioritize patching for systems where Paragon Software products are installed, as a public PoC is now available.\n- Monitor for the execution of the identified PoC or related exploitation tools on workstations where Paragon software is deployed.\n- Ensure that Windows driver integrity and security hardening policies are enforced to mitigate potential kernel-level exploitation attempts.\n",
+      "published": "2026-10-28T22:36:17.000Z",
+      "labels": [
+        "driver",
+        "privilege-escalation",
+        "vulnerability",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10c137f4-c16b-566f-b6d5-693fdfb544ed",
+        "software--2c507519-eb5a-5cb6-8882-a9ec4b1009e7",
+        "software--89498e00-c3c7-571c-bf41-1ca0629b1de6",
+        "software--e1f5061d-393a-5c72-b6ce-f9b9889bd289",
+        "vulnerability--84b2597f-3589-53cd-a3da-9458a3843e43"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-paragon-driver-lpe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-paragon-driver-lpe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://meisameb.github.io/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MEISAMEB-CVE-2025-0288"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MEISAMEB-CVE-2025-0288\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-paragon-driver-lpe",
+      "x_craftedsignal_event_id": "brief-2026-10-28-paragon-driver-lpe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-paragon-driver-lpe/",
+      "x_craftedsignal_activity_at": "2026-10-28T22:36:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.00497,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -166620,6 +166734,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--10c137f4-c16b-566f-b6d5-693fdfb544ed",
+      "name": "Paragon Hard Disk Manager (\u003c= 17.39)",
+      "vendor": "Paragon Software"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
       "name": "n8n (2.x \u003c 2.43.5)"
     },
@@ -168437,6 +168558,13 @@
       "id": "software--2c48c2a3-1de4-5865-90c1-ba33097bb1f6",
       "name": "@sentry/nextjs (\u003e= 11.0.0-alpha.0, \u003c 11.0.0-rc.1)",
       "vendor": "Sentry"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2c507519-eb5a-5cb6-8882-a9ec4b1009e7",
+      "name": "Paragon Backup \u0026 Recovery (\u003c= 17.39)",
+      "vendor": "Paragon Software"
     },
     {
       "type": "software",
@@ -174650,6 +174778,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--89498e00-c3c7-571c-bf41-1ca0629b1de6",
+      "name": "Paragon Disk Wiper (\u003c= 16)",
+      "vendor": "Paragon Software"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--894f4431-116d-5766-9f7f-92f25ed78d64",
       "name": "JSON-SCADA (\u003c 0.65-alpha)"
     },
@@ -180120,6 +180255,13 @@
       "spec_version": "2.1",
       "id": "software--e1bfe4eb-65bf-5803-9378-0edbde1328bd",
       "name": "Visual Studio Code"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e1f5061d-393a-5c72-b6ce-f9b9889bd289",
+      "name": "Paragon Drive Copy (\u003c= 16)",
+      "vendor": "Paragon Software"
     },
     {
       "type": "software",
@@ -198198,6 +198340,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101484",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101484"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--84b2597f-3589-53cd-a3da-9458a3843e43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-0288",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-0288",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0288"
         }
       ]
     },
