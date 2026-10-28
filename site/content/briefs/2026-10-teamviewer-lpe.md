@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-teamviewer-lpe
 event_id: brief-2026-10-27-teamviewer-lpe
-revision: 4
-activity_at: "2026-10-28T03:18:17Z"
+revision: 5
+activity_at: "2026-10-28T07:33:18Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T20:02:31Z"
@@ -41,11 +41,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
+  - revision: 5
+    at: "2026-10-28T07:33:18Z"
+    checksum: sha256:a1e359d18143fb935bee48993f8bfa55ea0770611a73f5115e4c51f2fc3e16fe
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
 title: 'TeamViewer: Local privilege escalation via installer staging (CVE-2026-111583)'
 slug: 2026-10-teamviewer-lpe
 description: An improper access control vulnerability in the TeamViewer installer staging directory allows local low-privileged users to achieve arbitrary code execution as SYSTEM via a crafted installer options file.
 date: "2026-10-27T18:05:02Z"
-lastmod: "2026-10-28T03:17:42Z"
+lastmod: "2026-10-28T07:32:45Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -92,6 +102,9 @@ products:
   - TeamViewer Remote Control Android (< 15.83)
   - TeamViewer Remote Management Monitoring (< 26.10.1)
   - TeamViewer Remote Management Patch Management (< 26.9.1)
+  - TeamViewer Remote Control app for Android (< 15.83)
+  - Remote Management Monitoring add-on (< 26.10.1)
+  - Remote Management Patch Management add-on (< 26.9.1)
 affected_os:
   - Windows
   - Linux
@@ -238,13 +251,6 @@ action_plan:
       addresses: CVE-2026-92375
       evidence: TeamViewer Full Client or Host prior to version 15.83 and the Remote Management Monitoring component prior to version 26.10.1
 updates:
-  - at: "2026-10-27T18:05:29Z"
-    level: L2
-    summary: added coverage for TeamViewer Full Client (< 15.83)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-92372
   - at: "2026-10-27T18:05:32Z"
     level: L2
     summary: added coverage for TeamViewer Full Client (< 15.83) +1 products
@@ -267,6 +273,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
   - at: "2026-10-28T03:17:42Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
+  - at: "2026-10-28T07:32:45Z"
     level: L1
     summary: new product
     sources:
