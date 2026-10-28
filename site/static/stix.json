@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e19a140f-558f-5988-90b0-e80f431526b4",
+  "id": "bundle--a1fdb54b-244d-5a85-b5fe-d5bbb741674b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -79861,7 +79861,7 @@
       "id": "report--28834399-f6a7-5e23-907d-18a5250b81b7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:40:03.000Z",
-      "modified": "2026-10-27T20:02:31.000Z",
+      "modified": "2026-10-28T11:51:18.000Z",
       "name": "EPICS Base: Remote code execution and denial of service (CVE-2026-114595, CVE-2026-114596, CVE-2026-114597, CVE-2026-114598)",
       "description": "## Overview\n\nMultiple vulnerabilities exist in EPICS Base release 7.0.10 and prior, primarily involving integer overflows and improper handling of length parameters during network message parsing. These flaws can lead to out-of-bounds memory access, corruption, and remote code execution (RCE). The EPICS Community has released version 7.0.11 to address these issues.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities allows for process instability, denial-of-service, sensitive information disclosure from process memory, and potential execution of arbitrary code with the privileges of the EPICS Base process.\n\n## Recommendation\n\n* Update all EPICS Base installations to release 7.0.11 immediately.\n* Review the upstream GitHub repository pull requests (PR #934, PR #937, and pvDataCPP PR #109) for technical implementation details of the fixes.\n* Restrict access to EPICS network ports to trusted management subnets to minimize the attack surface until patching is complete.\n",
       "published": "2026-10-27T16:40:03.000Z",
@@ -79914,14 +79914,18 @@
         {
           "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-114598"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/long-hidden-flaws-patched-in-epics-research-facility-control-software/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-27-epics-base-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-27-epics-base-vulnerabilities",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-epics-base-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-27T20:02:31.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T11:51:18.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

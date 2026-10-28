@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-epics-base-vulnerabilities
 event_id: brief-2026-10-27-epics-base-vulnerabilities
-revision: 2
-activity_at: "2026-10-27T20:02:31Z"
+revision: 3
+activity_at: "2026-10-28T11:51:18Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T20:02:31Z"
@@ -16,11 +16,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
+  - revision: 3
+    at: "2026-10-28T11:51:18Z"
+    checksum: sha256:8ec2e47e396106cc03c89f7081e9308006212ee463b21fafe4fad52031ba492d
+    summary: new IOCs
+    changed_fields:
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
 title: 'EPICS Base: Remote code execution and denial of service (CVE-2026-114595, CVE-2026-114596, CVE-2026-114597, CVE-2026-114598)'
 slug: 2026-10-epics-base-vulnerabilities
 description: EPICS Base versions 7.0.10 and earlier contain multiple critical vulnerabilities in network request processing that could allow unauthenticated remote attackers to cause denial-of-service, disclose memory contents, or execute arbitrary code.
 date: "2026-10-27T16:40:03Z"
-lastmod: "2026-10-27T20:00:39Z"
+lastmod: "2026-10-28T11:50:40Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -64,6 +74,7 @@ references:
   - https://www.cve.org/CVERecord?id=CVE-2026-114598
   - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
   - https://github.com/epics-base/epics-base/releases/tag/R7.0.11
+  - https://www.securityweek.com/long-hidden-flaws-patched-in-epics-research-facility-control-software/
 action_plan:
   priority: immediate_escalation
   owners:
@@ -94,6 +105,13 @@ updates:
   - at: "2026-10-27T20:00:39Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
+  - at: "2026-10-28T11:50:40Z"
+    level: L1
+    summary: new IOCs
     sources:
       - pwn-watch
     source_urls:
