@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--18688ac4-55c4-5647-975b-d2cd8c72bd5f",
+  "id": "bundle--1cb17f60-d398-5369-8a4d-abc4b11ea9f9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -175,22 +175,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1110",
           "url": "https://attack.mitre.org/techniques/T1110"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Drive-by Compromise",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1189",
-          "url": "https://attack.mitre.org/techniques/T1189"
         }
       ]
     },
@@ -535,17 +519,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4c0800ce-3b38-5751-9332-69c3c2f6ff89",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f0dccdc1-c475-54ab-a5ea-1884a0ffc878",
-      "target_ref": "vulnerability--1d695e3e-0b26-57b4-bedd-ac2064df6283"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4fce9d63-570a-505b-972e-e1d347d5d0d1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:30:26.000Z",
@@ -641,17 +614,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8200fc01-bfd3-51e6-9d5a-019891fcd255",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--743048e0-5ae3-5cbc-9825-83b2657eab41",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c868926c-f648-5b92-9495-1fca08a78e82",
-      "target_ref": "vulnerability--5c9f09a5-84c6-59a9-ab03-a13832db8374"
     },
     {
       "type": "relationship",
@@ -784,17 +746,6 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--9731568d-cc30-5b84-a14b-bc0cf4ab839e",
       "target_ref": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8d5d2bd4-1d92-5857-925d-133dfc30f0b7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T23:32:25.000Z",
-      "modified": "2026-07-30T23:32:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c7fe51e3-b571-5ba8-825c-15a329dd3fcf",
-      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -2571,52 +2522,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c7fe51e3-b571-5ba8-825c-15a329dd3fcf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T23:32:25.000Z",
-      "modified": "2026-07-30T23:32:25.000Z",
-      "name": "Stored XSS Vulnerability in OpenClaw Dashboard",
-      "description": "## Overview\n\nOpenClaw Dashboard contains a stored cross-site scripting (XSS) vulnerability, tracked as CVE-2026-66421, which allows unauthenticated remote attackers to execute arbitrary JavaScript within the context of an administrator's browser session. The vulnerability originates in the sessions API, where user-supplied agent transcript messages are stored without proper sanitization. \n\nAttackers exploit this by injecting HTML markup containing event handler payloads, such as an `\u0026lt;img\u003e` tag with an `onerror` attribute, into the transcript messages. These payloads are subsequently rendered by the OpenClaw Dashboard's default landing page through the use of `innerHTML`. The injection allows for the theft of administrative session tokens and the execution of unauthorized actions, including the modification of agent instruction files. Given the impact on administrative session integrity and authorization controls, this vulnerability poses a critical risk to organizations relying on OpenClaw Dashboard for infrastructure management.\n\n## Impact\n\nSuccessful exploitation allows for complete compromise of an administrator's session. Potential consequences include the theft of sensitive session identifiers, unauthorized access to administrative dashboard functions, and the ability to modify critical agent instruction files, which could lead to further downstream system compromise or data exfiltration.\n\n## Recommendation\n\n* Prioritize patching OpenClaw Dashboard to the latest version provided by the vendor to remediate CVE-2026-66421.\n* Audit web server logs for HTTP requests to the sessions API that contain suspicious HTML tags or event handlers, such as `onerror`, `onload`, or `script`.\n* Restrict access to the OpenClaw Dashboard administrative interface to trusted management networks to minimize the exposure to unauthenticated external actors.\n",
-      "published": "2026-07-30T23:32:25.000Z",
-      "labels": [
-        "cve-2026-66421",
-        "web-application-security",
-        "xss"
-      ],
-      "object_refs": [
-        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f0dccdc1-c475-54ab-a5ea-1884a0ffc878",
-        "vulnerability--1d695e3e-0b26-57b4-bedd-ac2064df6283"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-30-openclaw-xss",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-openclaw-xss/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66421"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-30-openclaw-xss",
-      "x_craftedsignal_event_id": "brief-2026-07-30-openclaw-xss",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-openclaw-xss/",
-      "x_craftedsignal_activity_at": "2026-07-30T23:32:25.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--cb7c3b09-8696-5e98-b6e3-61c6dbf73dcb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T11:37:32.000Z",
@@ -2789,46 +2694,6 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.012,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--dc756098-6139-5792-8e12-55725c2c16be",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-30T23:32:35.000Z",
-      "modified": "2026-07-30T23:32:35.000Z",
-      "name": "MeshCentral WebSocket Hijacking Vulnerability",
-      "description": "## Overview\n\nMeshCentral version 1.1.21 is vulnerable to a cross-site WebSocket hijacking protection bypass (CVE-2026-66420). The vulnerability is rooted in an unconditional early return within the CheckWebServerOriginName() function located in webserver.js, which is triggered when the instance is configured to use self-signed certificates. Because of this logic error, the application fails to validate the origin of incoming WebSocket connections.\n\nAn unauthenticated remote attacker can leverage this flaw by initiating cross-origin WebSocket requests to any of the twelve available MeshCentral WebSocket endpoints. By sending crafted action commands, an attacker can exfiltrate the server sessionKey. Possession of this key allows the attacker to forge session tokens for arbitrary users, including administrators, effectively granting full remote control over the MeshCentral server and all managed endpoints. This vulnerability is particularly critical for deployments relying on default or self-signed certificate configurations.\n\n## Impact\n\nSuccessful exploitation leads to a complete compromise of the MeshCentral management server. Attackers gain the ability to forge administrator sessions, bypass authentication, and exercise full remote control over every device managed by the affected instance. This represents a significant risk for organizations managing large fleets of remote assets, as it permits lateral movement, data exfiltration, and persistent access to the managed infrastructure.\n\n## Recommendation\n\n- Upgrade all MeshCentral instances to a version where this vulnerability is remediated.\n- If immediate patching is not feasible, transition from self-signed certificates to certificates signed by a trusted Certificate Authority (CA) to prevent the trigger of the flawed code path.\n- Review access logs for unusual cross-origin requests targeting WebSocket endpoints, particularly those originating from external domains.\n- Conduct a full audit of all managed devices and active sessions if the MeshCentral instance is suspected of having been compromised.\n",
-      "published": "2026-07-30T23:32:35.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c868926c-f648-5b92-9495-1fca08a78e82",
-        "vulnerability--5c9f09a5-84c6-59a9-ab03-a13832db8374"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-30-meshcentral-websocket-hijacking",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-meshcentral-websocket-hijacking/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66420"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-30-meshcentral-websocket-hijacking",
-      "x_craftedsignal_event_id": "brief-2026-07-30-meshcentral-websocket-hijacking",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-meshcentral-websocket-hijacking/",
-      "x_craftedsignal_activity_at": "2026-07-30T23:32:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -3121,13 +2986,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c868926c-f648-5b92-9495-1fca08a78e82",
-      "name": "MeshCentral (1.1.21)",
-      "vendor": "MeshCentral"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d02ae953-a8e2-5451-9f64-b736a5abb4de",
       "name": "Cassandra",
       "vendor": "Apache"
@@ -3158,13 +3016,6 @@
       "id": "software--eb4b04d6-234b-5167-9958-607a0107fffd",
       "name": "sentence-transformers",
       "vendor": "Hugging Face"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f0dccdc1-c475-54ab-a5ea-1884a0ffc878",
-      "name": "OpenClaw Dashboard",
-      "vendor": "OpenClaw"
     },
     {
       "type": "software",
@@ -3270,22 +3121,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--1d695e3e-0b26-57b4-bedd-ac2064df6283",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-66421",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-66421",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66421"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--201a0798-ed2c-5039-9adc-d789c90aef26",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3376,22 +3211,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-58263",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58263"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--5c9f09a5-84c6-59a9-ab03-a13832db8374",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-66420",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-66420",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66420"
         }
       ]
     },

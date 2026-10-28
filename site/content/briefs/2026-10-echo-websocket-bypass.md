@@ -1,13 +1,31 @@
 ---
 brief_id: brief-2026-10-23-echo-websocket-bypass
 event_id: brief-2026-10-23-echo-websocket-bypass
-revision: 1
-activity_at: "2026-10-23T21:44:59Z"
+revision: 2
+activity_at: "2026-10-28T23:37:51Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-28T23:37:51Z"
+    checksum: sha256:a77217e16bbf64aaa10774be82d6f21e6b67a8e1147b053535fb696fa73cfd1e
+    summary: poc_available; added CVE-2026-118264
+    changed_fields:
+      - claim_state
+      - cpes
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-118264&utm_source=rss&utm_medium=rss
 title: 'Labstack Echo: Proxy middleware WebSocket upgrade bypass'
 slug: 2026-10-echo-websocket-bypass
 description: The Labstack Echo web framework Proxy middleware incorrectly establishes a raw tunnel for WebSocket upgrades before validating upstream responses, allowing subsequent HTTP requests to bypass route-level authentication and authorization.
 date: "2026-10-23T21:44:59Z"
+lastmod: "2026-10-28T23:36:57Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -22,6 +40,11 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Verified against GHSA advisory and vendor patch commits.
+cpes:
+  - cpe:2.3:a:labstack:echo:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-118264&utm_source=rss&utm_medium=rss
 vendors:
   - Labstack
 products:
@@ -34,12 +57,18 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: This can bypass authentication or authorization enforced only at Echo's routes.
     confidence_band: high
+cves:
+  - id: CVE-2026-118264
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-cxf3-9h37-7rr8
   - https://github.com/labstack/echo/commit/3fb0ba7e17645bb65611e2a08875d0a2f65c421f
   - https://github.com/labstack/echo/commit/1855061e572ae9dab727c811d8382f266bfbaaec
   - https://github.com/labstack/echo/releases/tag/v4.16.1
   - https://github.com/labstack/echo/releases/tag/v5.4.1
+  - https://pwn.watch/i/labstack-echo-proxy-websocket-auth-bypass-ghsa-cxf3-9h37-7rr8
+  - https://github.com/labstack/echo/security/advisories/GHSA-cxf3-9h37-7rr8
+  - https://sploitus.com/exploit?id=CVE-2026-118264&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -66,6 +95,14 @@ action_plan:
       owner: Security Engineering
       addresses: Route-level authentication bypass
       evidence: The advisory notes these as valid workarounds to prevent raw tunnel abuse.
+updates:
+  - at: "2026-10-28T23:36:57Z"
+    level: L2
+    summary: poc_available; added CVE-2026-118264
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-118264&utm_source=rss&utm_medium=rss
 ---
 
 The Proxy middleware in Labstack Echo (v4 and v5) fails to validate if an upstream server successfully upgrades to a WebSocket connection. When an upstream server rejects a WebSocket upgrade request but keeps the underlying TCP connection open, Echo incorrectly maintains a raw tunnel. This state causes subsequent HTTP requests on that same connection to be forwarded directly to the upstream service, bypassing any Echo-level router logic or middleware (e.g., authentication, authorization).
