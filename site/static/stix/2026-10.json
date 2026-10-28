@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bbcda164-3106-5291-9772-c6277213fa5b",
+  "id": "bundle--b158bdc7-118e-5704-81e3-b221274fe878",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5203,6 +5203,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--00a598fe-7869-58e2-8d56-d08938729812",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+      "target_ref": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--00b19814-19a0-5d2b-8220-d021e84a5f9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T20:02:53.000Z",
@@ -7271,6 +7282,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--08f37b13-65bf-51f7-9f55-fbdd59b16eb4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50060cdb-30bd-59a6-a819-350524140dfa",
+      "target_ref": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--090a8bcb-e04c-5512-9607-3c8be3dd68b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:46:27.000Z",
@@ -7388,6 +7410,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bd5e8e4f-c01b-56da-9b20-fef11b5f9164",
       "target_ref": "attack-pattern--c08aa517-a62c-5afd-9c53-b3465a60a42e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--09a77c90-6eec-5050-8898-eb0aa1884ef3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+      "target_ref": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539"
     },
     {
       "type": "relationship",
@@ -8932,6 +8965,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--10778fb9-7da0-563d-82e0-3e4f68aae995",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+      "target_ref": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--108c22a0-0260-5b69-87b1-5b8584da7224",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:41:26.000Z",
@@ -9834,6 +9878,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--13b15b8e-4c26-5f76-b0fb-18705b35a205",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+      "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--13b5e01a-faab-59d5-9dc1-7a79105220fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T05:22:41.000Z",
@@ -10347,6 +10402,28 @@
       "relationship_type": "uses",
       "source_ref": "report--65fc641d-0372-5a1e-8723-76995252dbce",
       "target_ref": "attack-pattern--d1ec9446-7c7c-5d3e-a3f5-88355568dcdf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--15f15ac7-1dbc-5485-96cd-6c86d8592985",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+      "target_ref": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1600b9d1-3c4f-5ed0-befc-328d7f89e058",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+      "target_ref": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9"
     },
     {
       "type": "relationship",
@@ -12221,6 +12298,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1e472626-83b1-59b1-9cc1-1f80592c9431",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+      "target_ref": "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1e4a5f0a-3e09-5240-8c6a-0b5eaddd742c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12859,6 +12947,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--21c66315-9df4-55a8-9c42-a7c4dc21081d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+      "target_ref": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--21dcfcc7-937e-54b8-9852-72539278f050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T11:57:45.000Z",
@@ -13031,6 +13130,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b4704497-9abf-5ba0-a9fc-2f81c88e0a76",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--22bd2aa6-7046-5784-a7e1-8c8f1bac63ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+      "target_ref": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f"
     },
     {
       "type": "relationship",
@@ -14718,6 +14828,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2a05bd27-22db-5189-8b2f-7ab1f844426c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+      "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2a0f51b0-cc9f-5f43-bc94-4c53596d64c2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T21:23:28.000Z",
@@ -15605,6 +15726,17 @@
       "relationship_type": "has",
       "source_ref": "software--e05b3c1b-102e-5fbe-8d80-05d8e91662cc",
       "target_ref": "vulnerability--26da3eea-f868-58aa-937b-56eeb72173d0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e370c8c-3ce6-5181-a9de-4264a5fd9b6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:14.000Z",
+      "modified": "2026-10-28T20:38:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -17985,6 +18117,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3881582a-dc14-5e88-8aa1-41097cb10152",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--852ef8dc-a385-5693-b795-840a86c22078",
+      "target_ref": "vulnerability--79e018bb-b4de-5cf7-a080-409a604ed5ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--389f39b8-99bb-57f7-aa68-a868e13654f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -18201,6 +18344,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b0cccbea-13c7-52d5-8e7d-89d91e7386a6",
       "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--39bf426c-f682-5b1c-bbfd-29115c4dcb76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50060cdb-30bd-59a6-a819-350524140dfa",
+      "target_ref": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539"
     },
     {
       "type": "relationship",
@@ -19756,6 +19910,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--412983b5-060d-5bab-9c69-87f1e7611e48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:59.000Z",
+      "modified": "2026-10-28T20:38:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a5a1b2ac-2cb5-520e-8706-fc95f95a68fb",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--41323420-8e84-57ac-b7e2-fb92a0374dfb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:07:44.000Z",
@@ -20137,6 +20302,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5825b7b8-447b-5bce-8f35-f48a0c75f29d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--430d52a0-74ee-516d-b06c-2db233763d3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+      "target_ref": "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f"
     },
     {
       "type": "relationship",
@@ -22902,6 +23078,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4ef48ce2-ff99-5de1-9dbd-423f60767e70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50060cdb-30bd-59a6-a819-350524140dfa",
+      "target_ref": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4ef490e0-df22-5fc7-8e3b-663e49a06606",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -24464,6 +24651,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--55dfbe57-611a-5671-b9e7-befa718901c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:14.000Z",
+      "modified": "2026-10-28T20:38:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--55f0e037-542f-5ed1-a2cb-1903be9301b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25586,6 +25784,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5aa1178e-ca17-556c-bcc6-33145e8711b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+      "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5aa4de21-339b-53d1-8124-b58e68dd86a7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -26000,6 +26209,17 @@
       "relationship_type": "has",
       "source_ref": "software--1910d7fc-ad02-5e52-b489-fc341a7a657c",
       "target_ref": "vulnerability--911fca0a-2c8b-5487-aa7b-d4b46132bf89"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5c72d9b9-0584-5d00-98bf-cefc6722ed37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f25a9971-e7e7-5427-b05b-4be69f72b722",
+      "target_ref": "vulnerability--ae0c701a-1762-5ce5-8e1c-6da6f9c8d4aa"
     },
     {
       "type": "relationship",
@@ -27430,6 +27650,17 @@
       "relationship_type": "has",
       "source_ref": "software--3742cb5a-1e5b-5ebc-b07c-30e290b3f5c3",
       "target_ref": "vulnerability--910b94e3-bc1f-586c-9a31-beb30e9a0b45"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--629c5c44-e7fc-53e7-98d6-af874a8042fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50060cdb-30bd-59a6-a819-350524140dfa",
+      "target_ref": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9"
     },
     {
       "type": "relationship",
@@ -28886,6 +29117,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--68e25560-fe7c-52f6-beb6-43d1a4b228b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:14.000Z",
+      "modified": "2026-10-28T20:38:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--68f08c73-f0e5-5dea-a013-d6a988320367",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:12:19.000Z",
@@ -28959,6 +29201,17 @@
       "relationship_type": "has",
       "source_ref": "software--f1ff3722-402f-5dd5-8cfe-1b0fbd86d856",
       "target_ref": "vulnerability--d339e4c9-4c7a-5a25-b0f3-7ad6d3e58eef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--693948fa-7b77-51d7-b8ab-9345806388d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--320307dd-c30c-56b8-b72e-89847318954e",
+      "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
     },
     {
       "type": "relationship",
@@ -29557,6 +29810,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6bbe6cb7-42fe-525f-a6db-8173baa94ff4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--320307dd-c30c-56b8-b72e-89847318954e",
+      "target_ref": "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6bd3182c-655d-5355-a2f5-85721173d12d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T04:21:02.000Z",
@@ -29652,6 +29916,17 @@
       "relationship_type": "has",
       "source_ref": "software--7eb705bb-e72d-533c-882d-292ae11df93b",
       "target_ref": "vulnerability--0b44b100-d8bd-55c2-9581-869745690112"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6c2b000b-70ea-540d-9745-d9ec73b6ba96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+      "target_ref": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f"
     },
     {
       "type": "relationship",
@@ -34349,6 +34624,17 @@
       "relationship_type": "has",
       "source_ref": "software--f2d78af6-f61a-57bf-ae82-0b19563e2d90",
       "target_ref": "vulnerability--8d3ce140-70c7-5aed-9808-9f5da0d6d14a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--80108a3c-a050-52f2-85c7-29ab27a11e92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50060cdb-30bd-59a6-a819-350524140dfa",
+      "target_ref": "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f"
     },
     {
       "type": "relationship",
@@ -40755,6 +41041,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9b3dacfa-3212-54e4-9905-7fd3c221962a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+      "target_ref": "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9b40eeb6-3e20-564e-9f08-cdb4f65ace7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42405,6 +42702,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a261e997-8e5e-515f-af3a-52ce2cae2f04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+      "target_ref": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a26a475d-2655-5e42-ac47-de50561e4f1c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T04:06:00.000Z",
@@ -42511,6 +42819,17 @@
       "relationship_type": "has",
       "source_ref": "software--c169acb1-4d75-5ee5-819a-03531b46ffe7",
       "target_ref": "vulnerability--5d81953c-299a-5ad2-ac6f-26adff0b7616"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a2dee5e8-0f17-5382-b3a2-698682a9eb98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--320307dd-c30c-56b8-b72e-89847318954e",
+      "target_ref": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539"
     },
     {
       "type": "relationship",
@@ -44407,6 +44726,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--aab2a03e-dc9c-5e9f-a944-39e2b8cbb7f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--92db928a-9035-5ecc-b709-4f6e915b37a6",
+      "target_ref": "vulnerability--d108bece-5c41-559c-b43a-b858d0a9a107"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--aac23ba1-556b-5a52-9baf-2c9f0a4e6eb9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44700,6 +45030,17 @@
       "relationship_type": "has",
       "source_ref": "software--ade59386-fb27-540e-bdb2-61e48e5e532e",
       "target_ref": "vulnerability--b8688e77-83ea-5400-864f-4740909cbf9e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--abfe84db-235a-5654-a930-8e7cc4bc8623",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b84ba18e-7d31-5810-b993-7509ccdce412",
+      "target_ref": "vulnerability--d108bece-5c41-559c-b43a-b858d0a9a107"
     },
     {
       "type": "relationship",
@@ -49049,6 +49390,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--be6aebb2-798a-55c3-91e4-24efbd004576",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+      "target_ref": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--be7d7429-8852-5623-b00a-c0f211e18e74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50259,6 +50611,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c430ab95-eca7-5a94-8d48-8b48f5cf235e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+      "target_ref": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c43d9286-a4c4-533f-8ad6-2b719fdbf1dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50299,6 +50662,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fd34a60b-36a0-5a79-934f-dd1f9fd3a0e1",
       "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c46db1e5-d5b7-56ca-88f5-196852820c2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:14.000Z",
+      "modified": "2026-10-28T20:38:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
+      "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
     },
     {
       "type": "relationship",
@@ -50875,6 +51249,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c6377263-28c2-5f34-9954-30c258d308f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+      "target_ref": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c6431a6a-a57c-5a49-9fd2-d60c30b24829",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T22:27:33.000Z",
@@ -51135,6 +51520,17 @@
       "relationship_type": "has",
       "source_ref": "software--206fb8cf-514c-54d0-81f0-d62a54ef71c0",
       "target_ref": "vulnerability--2cd873a6-27b3-5fdd-955b-137573626d91"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c71b146f-7f2f-5615-bf1d-b901b70697ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+      "target_ref": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9"
     },
     {
       "type": "relationship",
@@ -51531,6 +51927,17 @@
       "relationship_type": "has",
       "source_ref": "software--fe299325-14cf-502e-b1ca-62e8d20ed082",
       "target_ref": "vulnerability--18c67045-984a-592a-8c60-90a9aff158e6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8831c55-6874-5d4d-b2d8-ec5b74457096",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:14.000Z",
+      "modified": "2026-10-28T20:38:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -53350,6 +53757,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d0996b21-8954-504d-9a96-33a968595af9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:14.000Z",
+      "modified": "2026-10-28T20:38:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f462527-4377-54c1-918d-10b345c76492",
+      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d0a20c1d-1ad5-5221-9cb0-08feea44090b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53588,6 +54006,17 @@
       "relationship_type": "has",
       "source_ref": "software--040fd2ac-f92b-5ed8-9c67-aedd186cd012",
       "target_ref": "vulnerability--53eb7487-af2b-5b4e-bb74-cb5badc3dcbd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d16d921f-a97a-54d7-976c-adb44bcf31ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+      "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
     },
     {
       "type": "relationship",
@@ -55682,6 +56111,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d9abe998-7c3f-520c-9fae-2dc2f25d81bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+      "target_ref": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d9c1a111-d46d-5dd7-bc9c-6fa18a8685c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56221,6 +56661,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dbf12b7d-d1d4-5d95-90ed-6234149e209b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--320307dd-c30c-56b8-b72e-89847318954e",
+      "target_ref": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dc02b408-a52e-5c95-85b5-4ba990093e31",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T21:53:21.000Z",
@@ -56628,6 +57079,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ddcb709a-5af4-542c-911f-8ba0be8c4934",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f671c999-64ae-573f-8cc2-6bc1a73f574e",
+      "target_ref": "vulnerability--e8c1c98a-1300-59fc-b1b3-571085000751"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ddcc8ff5-e0b3-5701-81d2-1cd33b6f4136",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -56646,6 +57108,17 @@
       "relationship_type": "uses",
       "source_ref": "report--68f419ed-028a-54c9-9320-5c67c9967e50",
       "target_ref": "attack-pattern--26ef37e6-18b0-51e5-b888-57037be44a7c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ddd4b109-07ae-5ea0-9bd9-a7ba2a92e3de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--320307dd-c30c-56b8-b72e-89847318954e",
+      "target_ref": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960"
     },
     {
       "type": "relationship",
@@ -58674,6 +59147,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e5d953dd-f2b8-5b6b-b993-4023336547f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--320307dd-c30c-56b8-b72e-89847318954e",
+      "target_ref": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e5df7e2c-d1f0-5a90-9e0e-2246ab38fd7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:53:08.000Z",
@@ -59169,6 +59653,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e74a5783-6019-5313-b56c-0a3d26dceb2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--50060cdb-30bd-59a6-a819-350524140dfa",
+      "target_ref": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e77195d1-4826-5642-9d98-a9a9a0388a37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -59418,6 +59913,17 @@
       "relationship_type": "has",
       "source_ref": "software--66677018-1fd9-5963-aa16-3405b9c09658",
       "target_ref": "vulnerability--094abbd0-e632-5a41-a80c-a2d4928ebb1a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e82ed611-07e8-523d-a056-8f6fa0d60c38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+      "target_ref": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960"
     },
     {
       "type": "relationship",
@@ -60049,6 +60555,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ea926050-99d0-5052-bc11-8f9a8e5129fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+      "target_ref": "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ea99507a-aaf8-5252-a707-84e4ac70d03d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-04T00:59:10.000Z",
@@ -60067,6 +60584,17 @@
       "relationship_type": "has",
       "source_ref": "software--98842111-cdba-55fb-a319-662d34004057",
       "target_ref": "vulnerability--d79cd440-2ef1-501f-b0b6-a42484fc4a23"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eaa89e87-6cc9-535a-9e48-da49bac7c35f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+      "target_ref": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960"
     },
     {
       "type": "relationship",
@@ -60144,6 +60672,17 @@
       "relationship_type": "uses",
       "source_ref": "report--84b8fdbd-f7eb-519d-ab8e-82cb7c01b5ed",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eaf075cf-ce26-5951-a8b3-f813989025eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1ce80123-24b6-59e8-a116-0c250550d038",
+      "target_ref": "vulnerability--a64be781-9c23-5a47-9ed5-48295a004e2d"
     },
     {
       "type": "relationship",
@@ -61046,6 +61585,17 @@
       "relationship_type": "uses",
       "source_ref": "report--be8d1359-16b7-576a-a908-605c2d28af7f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ee483cd3-7cde-510c-8abb-fba403283528",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:39:14.000Z",
+      "modified": "2026-10-28T20:39:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0f5510e4-3a5d-5b91-a096-90aca2b08eea",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -62267,6 +62817,17 @@
       "relationship_type": "has",
       "source_ref": "software--4922b298-9a67-5773-84c5-569abcacad2c",
       "target_ref": "vulnerability--9c1ad73a-a757-504f-9456-ae9021a6e9c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f3a25f0f-efec-5177-aa36-32414980a234",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:39:06.000Z",
+      "modified": "2026-10-28T20:39:06.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--732cd1e5-1cf7-5be9-a750-0878eb612530",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
     },
     {
       "type": "relationship",
@@ -69704,6 +70265,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0f5510e4-3a5d-5b91-a096-90aca2b08eea",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:39:14.000Z",
+      "modified": "2026-10-28T20:39:14.000Z",
+      "name": "Samba: Access control bypass in vfs_ceph_rgw module (CVE-2026-109411)",
+      "description": "## Overview\n\nCVE-2026-109411 is an access control bypass vulnerability located in the `openat()` function of Samba's experimental `vfs_ceph_rgw` module. An authenticated attacker can exploit the module's failure to correctly handle case-insensitive file lookups. By requesting an existing file with mismatched character casing, the module bypasses standard permission checks, treating the request as a new file creation. This allows the attacker to read or overwrite files that would otherwise be restricted.\n\n## Impact\n\nAuthenticated attackers with access to a share configured with the `vfs_ceph_rgw` module can read or overwrite sensitive files owned by other users, leading to potential data exposure or file corruption.\n\n## Recommendation\n\n* Audit Samba configurations to identify if the experimental `vfs_ceph_rgw` module is currently enabled in production environments.\n* Disable the `vfs_ceph_rgw` module if it is not strictly required for operations until a vendor-supplied patch is applied.\n* Monitor Samba access logs for unusual patterns of file access requests involving case-sensitive/insensitive variations for the same file path.\n",
+      "published": "2026-10-28T20:39:14.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f671c999-64ae-573f-8cc2-6bc1a73f574e",
+        "vulnerability--e8c1c98a-1300-59fc-b1b3-571085000751"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-samba-vfs-ceph-rgw-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-samba-vfs-ceph-rgw-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109411"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-samba-vfs-ceph-rgw-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-28-samba-vfs-ceph-rgw-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-samba-vfs-ceph-rgw-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:39:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0f67f5b8-4042-5a2f-8afb-61bcd8d1fbd9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T00:12:05.000Z",
@@ -70999,6 +71600,46 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.02727,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1332c6e0-88a0-5de6-aaae-2e84a5af341f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:29.000Z",
+      "modified": "2026-10-28T20:38:29.000Z",
+      "name": "n8n: Unauthorized credential access via error workflow execution (CVE-2026-118644)",
+      "description": "A vulnerability exists in n8n where a failed workflow's full execution context, including the identity of the user who started the run, is passed to the configured error workflow. A project editor can set a colleague's `settings.errorWorkflow` to an error workflow they own. When the colleague's workflow fails, the attacker can inherit the colleague's identity and resolve the colleague's per-user dynamic credential secrets. This affects n8n before 2.41.5 and 2.42.x before 2.42.2.\n",
+      "published": "2026-10-28T20:38:29.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1ce80123-24b6-59e8-a116-0c250550d038",
+        "vulnerability--a64be781-9c23-5a47-9ed5-48295a004e2d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-n8n-privilege-escalation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-n8n-privilege-escalation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118644"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-n8n-privilege-escalation",
+      "x_craftedsignal_event_id": "brief-2026-10-28-n8n-privilege-escalation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-n8n-privilege-escalation/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:38:29.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -85790,6 +86431,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3d52e675-0c0f-5419-92e8-6404bb36b0f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:39:21.000Z",
+      "modified": "2026-10-28T20:39:21.000Z",
+      "name": "KServe: Server-Side Request Forgery in storage-initializer (CVE-2026-13451)",
+      "description": "## Overview\n\nCVE-2026-13451 is a Server-Side Request Forgery (SSRF) vulnerability in KServe. A namespace-scoped user with create/update permissions on InferenceService custom resources can provide a malicious `storageUri`. This allows the `storage-initializer` init container to issue arbitrary outbound HTTP/HTTPS requests from inside the cluster, which can lead to information disclosure, including credential theft for the node's Identity and Access Management (IAM) role or access to internal cluster services.\n\n## Impact\n\nSuccessful exploitation allows for the potential theft of node-level IAM credentials or unauthorized access to internal services within the Kubernetes cluster.\n",
+      "published": "2026-10-28T20:39:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--faefc318-d6ae-5432-a614-a4e6d4c05dfa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-kserve-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-kserve-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13451"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-kserve-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-10-28-kserve-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kserve-ssrf/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:39:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3d6620d2-402d-58e9-862e-5b065f0a10bc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:47:15.000Z",
@@ -98548,6 +99228,97 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5f462527-4377-54c1-918d-10b345c76492",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:14.000Z",
+      "modified": "2026-10-28T20:38:57.000Z",
+      "name": "n8n: OData $filter injection vulnerability (CVE-2026-118641)",
+      "description": "## Overview\n\nCVE-2026-118641 is an OData $filter injection vulnerability in n8n affecting the Microsoft Outlook contact lookup node and the Microsoft SharePoint v1 item update node. The nodes fail to escape expression-bindable parameters when constructing $filter strings, enabling attackers to inject single quotes. Successful exploitation allows for the unauthorized retrieval of contact lists from a mailbox or the manipulation of write operations to target unintended SharePoint list items within the scope of the configured credentials.\n\n## Impact\n\nAn attacker can perform unauthorized exfiltration of mailbox contacts or manipulate SharePoint item updates. The scope of impact is limited to the permissions of the credentials configured within the n8n workflow.\n\n## Recommendation\n\nUpdate n8n to the patched versions immediately. The fixed versions are 1.123.85, 2.43.5, and 2.44.1. For environments where patching must be deferred, audit active n8n workflows that utilize the Microsoft Outlook contact lookup or Microsoft SharePoint v1 item update nodes to ensure inputs are not derived from untrusted user-controllable sources.\n",
+      "published": "2026-10-28T20:38:14.000Z",
+      "labels": [
+        "authorization-bypass",
+        "cloud",
+        "credential-access",
+        "cve-2026-118641",
+        "cve-2026-118642",
+        "cve-2026-118649",
+        "exfiltration",
+        "injection",
+        "n8n",
+        "privilege-escalation",
+        "ssrf",
+        "vulnerability",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+        "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+        "software--320307dd-c30c-56b8-b72e-89847318954e",
+        "software--50060cdb-30bd-59a6-a819-350524140dfa",
+        "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+        "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+        "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9",
+        "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539",
+        "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f",
+        "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960",
+        "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f",
+        "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-n8n-odata-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-n8n-odata-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118641"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118642"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118643"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118645"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118649"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118679"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-n8n-odata-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-28-n8n-odata-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-n8n-odata-injection/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:38:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.7,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5f492469-d30c-5bcc-9a3d-c991d14ddbb0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T20:00:44.000Z",
@@ -105323,6 +106094,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--732cd1e5-1cf7-5be9-a750-0878eb612530",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:39:06.000Z",
+      "modified": "2026-10-28T20:39:06.000Z",
+      "name": "EspoCRM: Denial of service via ReDoS (CVE-2026-118686)",
+      "description": "## Overview\n\nEspoCRM contains a denial of service vulnerability identified as CVE-2026-118686. The issue resides in the password-redaction regular expression used during API error handling. An unauthenticated remote attacker can exploit this by sending a small number of concurrent, abnormally large API requests. These requests force the application to perform expensive regex operations, leading to high CPU usage, worker exhaustion, and potential service unavailability for legitimate users.\n\n## Impact\n\nSuccessful exploitation results in a denial of service state, where the application becomes slow or completely unresponsive due to exhausted server worker processes.\n\n## Recommendation\n\n- Upgrade EspoCRM to version 9.3.11 or 10.0.8 or later to incorporate the patch for the vulnerable password-redaction logic.\n- Implement request body size limits at the load balancer or web application firewall (WAF) level to prevent the processing of abnormally large API payloads.\n- Audit web server access logs for repeated requests to API endpoints that result in long processing times or HTTP 500/503 errors indicative of worker exhaustion.\n",
+      "published": "2026-10-28T20:39:06.000Z",
+      "labels": [
+        "cve-2026-118686",
+        "denial-of-service",
+        "redos",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--92db928a-9035-5ecc-b709-4f6e915b37a6",
+        "software--b84ba18e-7d31-5810-b993-7509ccdce412",
+        "vulnerability--d108bece-5c41-559c-b43a-b858d0a9a107"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-espocrm-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-espocrm-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118686"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-espocrm-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-28-espocrm-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-espocrm-dos/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:39:06.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -124070,6 +124889,47 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.62666,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a5a1b2ac-2cb5-520e-8706-fc95f95a68fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:38:59.000Z",
+      "modified": "2026-10-28T20:38:59.000Z",
+      "name": "MONAI: Remote Code Execution via logging configuration (CVE-2026-118683)",
+      "description": "## Overview\nMONAI versions 1.2.0 through 1.6.0 are vulnerable to remote code execution (CVE-2026-118683). The vulnerability resides in the `ConfigWorkflow.__init__` method, which utilizes `logging.config.fileConfig` to process a bundle's `configs/logging.conf` file. This function insecurely evaluates the handler class and arguments fields using `eval()`, allowing attackers to execute arbitrary Python code when a bundle is loaded or initialized.\n\n## Impact\nSuccessful exploitation allows for arbitrary Python code execution under the context of the user or service running the MONAI workflow. This may lead to full system compromise depending on the privileges of the MONAI process.\n\n## Recommendation\n- Update all instances of MONAI to version 1.6.1 or later immediately.\n- Implement strict validation of `logging.conf` files within bundles if an upgrade is not immediately possible.\n- Scan existing model bundle repositories for `logging.conf` files that contain unconventional handler class or argument definitions.\n",
+      "published": "2026-10-28T20:38:59.000Z",
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--852ef8dc-a385-5693-b795-840a86c22078",
+        "vulnerability--79e018bb-b4de-5cf7-a080-409a604ed5ae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-monai-rce-c321a0ee",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-monai-rce-c321a0ee/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118683"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-monai-rce-c321a0ee",
+      "x_craftedsignal_event_id": "brief-2026-10-28-monai-rce-c321a0ee",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-monai-rce-c321a0ee/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:38:59.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -143069,6 +143929,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--db87ec73-dcf1-53e9-9578-11aab1b3663d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T20:37:55.000Z",
+      "modified": "2026-10-28T20:37:55.000Z",
+      "name": "ai-gateway-payload-processing: Unauthorized resource access via model identifier (CVE-2026-117574)",
+      "description": "A flaw was found in ai-gateway-payload-processing. An authenticated remote attacker can exploit this vulnerability by submitting a request specifying another tenant's model identifier in the request body or header. The service does not verify authorization before retrieving credentials from the shared store, causing it to inject the target tenant's application programming interface (API) keys into the request. This allows an attacker to perform unauthorized requests and consume another tenant's large language model (LLM) resources and quotas.\n",
+      "published": "2026-10-28T20:37:55.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f25a9971-e7e7-5427-b05b-4be69f72b722",
+        "vulnerability--ae0c701a-1762-5ce5-8e1c-6da6f9c8d4aa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-ai-gateway-payload-processing-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ai-gateway-payload-processing-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117574"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-ai-gateway-payload-processing-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-28-ai-gateway-payload-processing-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ai-gateway-payload-processing-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-28T20:37:55.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dc2d1c55-af8f-5259-b9ce-a083a1e11ea4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T11:57:33.000Z",
@@ -149639,9 +150539,9 @@
       "id": "report--edcbb688-7ee7-5f3c-8f56-35359a4d828f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T17:00:15.000Z",
-      "modified": "2026-10-22T16:15:28.000Z",
+      "modified": "2026-10-28T20:40:08.000Z",
       "name": "Cisco Security Updates - October 2026",
-      "description": "## Overview\n\nThis roundup covers 42 Cisco security vulnerabilities. CVSS base scores range from 4.4 to 9.9. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Cisco Software, Cisco networking, Expressway Core, Expressway Series, Finesse, IOS XR Software, License On-Prem, NX-OS, NX-OS Software, Nexus 3000 Series Switches, Nexus 9000 Series Fabric Switches, Secure Client, Secure Email Gateway, Snort 3, Snort 3 Detection Engine, Unified Communications Manager, networking.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-20032](#cve-2026-20032) | NX-OS Software | Medium | 4.4 | 0.11% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-mppe-dhKZAFgb?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Python%20Sandbox%20Escape%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20362](#cve-2026-20362) | Finesse |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76465](#cve-2026-76465) | Nexus 3000 Series Switches | Critical | 9.8 | 0.45% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-moam-rce-uBTzYV7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20MPLS%20OAM%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76488](#cve-2026-76488) | Application Policy Infrastructure Controller | Medium | 6.5 | 0.29% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20321](#cve-2026-20321) | Application Policy Infrastructure Controller |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20038](#cve-2026-20038) | Nexus 9000 Series Fabric Switches | Medium | 5.8 | 0.30% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76485](#cve-2026-76485) | Nexus 3000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76486](#cve-2026-76486) | Nexus 3000 Series Switches | Critical | 9.8 | 0.51% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76501](#cve-2026-76501) | Nexus 3000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76471](#cve-2026-76471) | NX-OS Software | Critical | 9.8 | 0.52% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-napi-rce-r2shwu2j?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20NX-API%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20173](#cve-2026-20173) | NX-OS Software | Medium | 5.8 | 0.37% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-nscpdos-SnderkC7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Control%20Plane%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20328](#cve-2026-20328) | License On-Prem | Critical | 9.1 | 0.52% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20328) (authoritative) |\n| [CVE-2026-76454](#cve-2026-76454) | License On-Prem | Critical | 9.1 | 0.58% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76454) (authoritative) |\n| [CVE-2026-76455](#cve-2026-76455) | NX-OS | Critical | 9.8 | 0.28% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76455) (authoritative) |\n| [CVE-2026-76464](#cve-2026-76464) | Cisco networking | Critical | 9.6 | 0.19% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76464) (authoritative) |\n| [CVE-2026-76453](#cve-2026-76453) | NX-OS | High | 8.8 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76453) (authoritative) |\n| [CVE-2026-76456](#cve-2026-76456) | NX-OS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76456) (authoritative) |\n| [CVE-2026-76458](#cve-2026-76458) | NX-OS | High | 8.6 | 0.28% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76458) (authoritative) |\n| [CVE-2026-76459](#cve-2026-76459) | NX-OS | Critical | 9.8 | 0.31% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76459) (authoritative) |\n| [CVE-2026-76463](#cve-2026-76463) | networking |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76463) (authoritative) |\n| [CVE-2026-76467](#cve-2026-76467) | networking | High | 7.5 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76467) (authoritative) |\n| [CVE-2026-76468](#cve-2026-76468) | networking | High | 8.2 | 0.23% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76468) (authoritative) |\n| [CVE-2026-76469](#cve-2026-76469) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76469) (authoritative) |\n| [CVE-2026-76470](#cve-2026-76470) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76470) (authoritative) |\n| [CVE-2026-76472](#cve-2026-76472) | Cisco networking |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76472) (authoritative) |\n| [CVE-2026-76519](#cve-2026-76519) | Secure Email Gateway | Critical | 9.8 | 1.57% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76435](#cve-2026-76435) | Expressway Core |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-expressway-inf-disc-vvYqgSTS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76505](#cve-2026-76505) | IOS XR Software | High | 7.5 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asr9k-tUyxcyXN?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XR%20Software%20for%20ASR%209000%20Series%20Routers%20IPv4%20Unicast%20Packets%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20011](#cve-2026-20011) | Snort 3 |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-mime-vulns-bkXjcKkt?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20SMTP%20MIME%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20019](#cve-2026-20019) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-20179](#cve-2026-20179) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-20197](#cve-2026-20197) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76489](#cve-2026-76489) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76487](#cve-2026-76487) | Unified Communications Manager |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cucm-access-PW9e8Jt2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Unified%20Communications%20Manager%20Improper%20Access%20Control%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20218](#cve-2026-20218) | Snort 3 |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-vba-bufdos-jAuFdvn9?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Visual%20Basic%20for%20Applications%20Buffer%20Overflow%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76466](#cve-2026-76466) | Expressway Series | Critical | 9.8 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76524](#cve-2026-76524) | Snort 3 |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-opensrc-snort3-2fXGJPfe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Open%20Source%20Snort%203%20Control%20Channel%20Socket%20Arbitrary%20Command%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20221](#cve-2026-20221) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gre-JNpMHrTv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Generic%20Routing%20Encapsulation%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76462](#cve-2026-76462) | Secure Client | Medium | 5.5 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sec-client-priv-esc-muF8eZdm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Client%20Secure%20Firewall%20Posture%20Module%20Privilege%20Escalation%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76445](#cve-2026-76445) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gtpcodec-dos-Rmecfepz?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76299](#cve-2026-76299) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76299) (authoritative) |\n| [CVE-2026-76302](#cve-2026-76302) | Cisco Software | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76302) (authoritative) |\n\n\n## CVE-2026-20032\n\nA sandbox escape vulnerability exists within the Python interpreter of Cisco NX-OS Software. An authenticated local attacker with low privileges and Python execution rights can exploit insufficient input validation to escape the sandbox and execute arbitrary commands on the underlying operating system with the privileges of the authenticated user.\n\nAffected products:\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-mppe-dhKZAFgb?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Python%20Sandbox%20Escape%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76471](#cve-2026-76471), [CVE-2026-20173](#cve-2026-20173).\n\n## CVE-2026-20362\n\nCisco Finesse contains a server-side request forgery (SSRF) vulnerability in its web-based management interface. An unauthenticated remote attacker can exploit improper input validation of crafted HTTP requests to perform unauthorized requests from the device, potentially allowing the exfiltration of sensitive information from associated internal services.\n\nAffected products:\n- Finesse\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1\n\n## CVE-2026-76465\n\nA critical remote code execution (RCE) vulnerability exists in the MPLS OAM feature of Cisco NX-OS Software on Nexus 3000 and 9000 Series Switches. An unauthenticated remote attacker can exploit the vulnerability by sending a crafted MPLS echo-request packet to the device, potentially resulting in arbitrary code execution with root privileges or a denial-of-service condition due to process crashes.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-moam-rce-uBTzYV7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20MPLS%20OAM%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).\n\n## CVE-2026-76488\n\nCisco Application Policy Infrastructure Controller (APIC) contains a vulnerability in its export policies functionality that allows an authenticated, remote attacker with administrative credentials to access sensitive files on the device. By submitting crafted values in UI fields, an attacker can bypass access controls to read system files, including cryptographic materials that could facilitate privilege escalation to root on the APIC or managed switches.\n\nAffected products:\n- Application Policy Infrastructure Controller\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20321](#cve-2026-20321).\n\n## CVE-2026-20321\n\nA command injection vulnerability exists in the web-based management API of Cisco Application Policy Infrastructure Controller (APIC). An authenticated attacker with administrative credentials can leverage insufficient input validation in command arguments to execute arbitrary commands with root-level privileges on the underlying operating system.\n\nAffected products:\n- Application Policy Infrastructure Controller\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76488](#cve-2026-76488).\n\n## CVE-2026-20038\n\nA vulnerability in the endpoint group (EPG) contract functionality of Cisco Nexus 9000 Series Fabric Switches in ACI Mode allows unauthenticated, remote attackers to bypass EPG security policies. By sending crafted IPv4 or IPv6 packets using UDP source and destination ports associated with DHCP traffic, an attacker can circumvent configured network security contracts, potentially allowing unauthorized communication across segments.\n\nAffected products:\n- Nexus 9000 Series Fabric Switches\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1\n\n## CVE-2026-76485\n\nMultiple critical vulnerabilities in the Next Generation OAM (NGOAM) feature of Cisco NX-OS Software on Nexus 3000 and 9000 series switches allow unauthenticated, remote attackers to achieve arbitrary code execution with root privileges or cause a denial of service. The flaws stem from improper input validation of IP traffic when the NGOAM feature is enabled, which can be triggered by sending crafted packets to an affected device interface.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).\n\n## CVE-2026-76486\n\nMultiple critical vulnerabilities in the Next Generation OAM (NGOAM) feature of Cisco NX-OS Software on Nexus 3000 and 9000 series switches allow unauthenticated, remote attackers to achieve arbitrary code execution with root privileges or cause a denial of service. The flaws stem from improper input validation of IP traffic when the NGOAM feature is enabled, which can be triggered by sending crafted packets to an affected device interface.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76501](#cve-2026-76501).\n\n## CVE-2026-76501\n\nMultiple critical vulnerabilities in the Next Generation OAM (NGOAM) feature of Cisco NX-OS Software on Nexus 3000 and 9000 series switches allow unauthenticated, remote attackers to achieve arbitrary code execution with root privileges or cause a denial of service. The flaws stem from improper input validation of IP traffic when the NGOAM feature is enabled, which can be triggered by sending crafted packets to an affected device interface.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486).\n\n## CVE-2026-76471\n\nCisco NX-OS Software contains a critical vulnerability in its NX-API feature due to insufficient input validation. An unauthenticated remote attacker can exploit this via a crafted HTTP request to execute arbitrary code with root privileges or trigger a denial of service by causing the device process to crash.\n\nAffected products:\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-napi-rce-r2shwu2j?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20NX-API%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20032](#cve-2026-20032), [CVE-2026-20173](#cve-2026-20173).\n\n## CVE-2026-20173\n\nA vulnerability in Cisco NX-OS Software due to improper rate limiting of protocols allows an unauthenticated, remote attacker to trigger a denial of service (DoS) condition by sending high rates of UDP or TCP traffic to a data plane interface, causing routing and control plane instability.\n\nAffected products:\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-nscpdos-SnderkC7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Control%20Plane%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20032](#cve-2026-20032), [CVE-2026-76471](#cve-2026-76471).\n\n## CVE-2026-20328\n\nCVE-2026-20328 is an authentication-bypass vulnerability in the web-based management interface of Cisco License On-Prem (formerly Smart Software Manager On-Prem). An unauthenticated remote attacker can exploit improper password reset checks by sending a malicious request, allowing the attacker to reset the credentials for any account, including administrative users, and gain full unauthorized access to the application.\n\nAffected products:\n- License On-Prem\n- Smart Software Manager On-Prem\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-20328\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76454](#cve-2026-76454).\n\n## CVE-2026-76454\n\nCVE-2026-76454 is a critical vulnerability in the Cisco Smart Licensing Utility API within Cisco License On-Prem (formerly Cisco Smart Software Manager On-Prem). The flaw stems from improper input validation and missing authentication, allowing unauthenticated, remote attackers to perform arbitrary file writes or trigger a denial-of-service (DoS) condition via crafted API requests.\n\nAffected products:\n- License On-Prem\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76454\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20328](#cve-2026-20328).\n\n## CVE-2026-76455\n\nCisco NX-OS contains multiple improper access control vulnerabilities identified during an internal security review. These vulnerabilities are classified under CWE-284 and have a CVSS base score of 9.8, indicating a critical severity level requiring immediate attention through software hardening updates.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76455\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76464\n\nCisco identified multiple internally discovered buffer management vulnerabilities, categorized under CWE-119, affecting Cisco networking products. These vulnerabilities were identified during an internal security review and have a CVSS v3.1 base score of 9.6.\n\nAffected products:\n- Cisco networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76464\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76472](#cve-2026-76472).\n\n## CVE-2026-76453\n\nCVE-2026-76453 refers to vulnerabilities identified within Cisco NX-OS related to improper neutralization of input, classified under CWE-707. These vulnerabilities were identified during an internal security review and addressed through a software hardening release.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76453\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76456\n\nCVE-2026-76456 describes an improper input validation vulnerability within Cisco NX-OS. The flaw involves the incorrect handling of special elements in commands, which can lead to command injection or unauthorized command execution. The issue was identified through an internal security review and is associated with CWE-20.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76456\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76458\n\nCVE-2026-76458 identifies a vulnerability in Cisco NX-OS involving improper handling of exceptional conditions (CWE-703). This issue was discovered internally by Cisco and addressed as part of a proactive software hardening release, carrying a CVSS v3.1 base score of 8.6.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76458\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76459\n\nCVE-2026-76459 refers to an out-of-bounds write vulnerability identified within Cisco NX-OS, classified under CWE-787. This vulnerability was discovered during an internal security review and has a CVSS v3.1 base score of 8.8, indicating a high severity level requiring remediation.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76459\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458).\n\n## CVE-2026-76463\n\nCVE-2026-76463 refers to improper access control vulnerabilities identified within Cisco networking software during an internal security review. These vulnerabilities are classified under CWE-284 and have a CVSS base score of 8.8, indicating a high severity risk associated with unauthorized access or control.\n\nAffected products:\n- networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76463\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76467](#cve-2026-76467), [CVE-2026-76468](#cve-2026-76468).\n\n## CVE-2026-76467\n\nCVE-2026-76467 refers to a vulnerability identified within Cisco networking software involving improper control of a resource through its lifetime, classified under CWE-664. This issue was identified during an internal security review and addressed via a software hardening release.\n\nAffected products:\n- networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76467\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76463](#cve-2026-76463), [CVE-2026-76468](#cve-2026-76468).\n\n## CVE-2026-76468\n\nCisco has released a software hardening update to address multiple internally discovered vulnerabilities, including CVE-2026-76468. This vulnerability is caused by improper input validation (CWE-20) and carries a CVSS base score of 8.2, indicating a significant security risk within Cisco networking products.\n\nAffected products:\n- networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76468\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76463](#cve-2026-76463), [CVE-2026-76467](#cve-2026-76467).\n\n## CVE-2026-76469\n\nCisco identified an insufficient control flow management vulnerability (CWE-691), tracked as CVE-2026-76469, during an internal security review. The vulnerability has a CVSS base score of 7.4 and has been addressed through software hardening releases.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76469\n\n## CVE-2026-76470\n\nCVE-2026-76470 refers to a software hardening release by Cisco addressing multiple internally discovered vulnerabilities related to incorrect calculation issues classified under CWE-682. The vulnerability carries a CVSS v3.1 base score of 8.8, indicating a high-severity issue within Cisco networking software products.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76470\n\n## CVE-2026-76472\n\nCisco identified and patched internal vulnerabilities categorized under CWE-74 (Improper Neutralization of Special Elements Used in an Input), which could potentially lead to injection-style attacks within Cisco networking infrastructure.\n\nAffected products:\n- Cisco networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76472\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76464](#cve-2026-76464).\n\n## CVE-2026-76519\n\nAn arbitrary file write vulnerability exists in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway. An unauthenticated, remote attacker can exploit this by sending a crafted email attachment to an affected device, potentially leading to command execution with root privileges on the underlying operating system.\n\nAffected products:\n- Secure Email Gateway\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1\n\n## CVE-2026-76435\n\nA vulnerability in the Cisco Expressway Series Mobile and Remote Access (MRA) provisioning process allows unauthenticated, remote attackers to access sensitive information. The issue stems from insufficient authorization checks of HTTP requests, enabling attackers to extract data via crafted URL submissions.\n\nAffected products:\n- Expressway Core\n- Expressway Edge\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-expressway-inf-disc-vvYqgSTS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Information%20Disclosure%20Vulnerability%26vs_k=1\n\n## CVE-2026-76505\n\nA vulnerability in the IPv4 packet processing functionality of Cisco IOS XR Software on specific ASR 9000 and 9900 series routers allows an unauthenticated, remote attacker to trigger network processor errors via crafted IPv4 packets. Successful exploitation leads to a line card reset or a persistent shutdown state, resulting in a denial-of-service condition for traffic on the affected interface.\n\nAffected products:\n- IOS XR Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asr9k-tUyxcyXN?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XR%20Software%20for%20ASR%209000%20Series%20Routers%20IPv4%20Unicast%20Packets%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n## CVE-2026-20011\n\nA vulnerability in the Snort 3 SMTP MIME decoder allows an unauthenticated remote attacker to trigger a denial-of-service (DoS) condition. The issue stems from insufficient error checking when parsing MIME fields within SMTP headers, which can cause the Snort 3 detection engine to restart unexpectedly when processing crafted SMTP traffic.\n\nAffected products:\n- Snort 3\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-mime-vulns-bkXjcKkt?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20SMTP%20MIME%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20218](#cve-2026-20218), [CVE-2026-76524](#cve-2026-76524).\n\n## CVE-2026-20019\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-20179\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-20197\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-76489\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-76487\n\nAn improper input validation vulnerability in Cisco Unified Communications Manager and Unified Communications Manager Session Management Edition allows an unauthenticated, remote attacker to bypass access control mechanisms via crafted HTTP requests. This flaw enables unauthorized access to network segments beyond the attacker's intended scope.\n\nAffected products:\n- Unified Communications Manager\n- Unified Communications Manager Session Management Edition\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cucm-access-PW9e8Jt2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Unified%20Communications%20Manager%20Improper%20Access%20Control%20Vulnerability%26vs_k=1\n\n## CVE-2026-20218\n\nA vulnerability in the Snort 3 VBA Decompression Engine in Cisco products allows an unauthenticated, remote attacker to trigger a stack-based buffer overflow by sending crafted VBA data. Successful exploitation causes the Snort 3 Detection Engine to restart unexpectedly, resulting in a denial of service (DoS) condition.\n\nAffected products:\n- Snort 3\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-vba-bufdos-jAuFdvn9?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Visual%20Basic%20for%20Applications%20Buffer%20Overflow%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20011](#cve-2026-20011), [CVE-2026-76524](#cve-2026-76524).\n\n## CVE-2026-76466\n\nA critical remote code execution vulnerability exists in the database service of Cisco Expressway Series devices. The issue arises from the use of persistent cookies and insufficient TLS client certificate validation when clustering is enabled. An unauthenticated remote attacker can exploit this by submitting specific RPC commands, resulting in arbitrary code execution with root privileges on the underlying operating system.\n\nAffected products:\n- Expressway Series\n- Expressway Core\n- Expressway Edge\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1\n\n## CVE-2026-76524\n\nAn arbitrary command execution vulnerability exists in the control channel socket of Open Source Snort 3 due to a lack of authentication for local connections. An authenticated, low-privileged local attacker can connect to the socket to execute commands and perform memory read/write operations with the privileges of the Snort 3 process user.\n\nAffected products:\n- Snort 3\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-opensrc-snort3-2fXGJPfe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Open%20Source%20Snort%203%20Control%20Channel%20Socket%20Arbitrary%20Command%20Execution%20Vulnerability%26vs_k=1\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20011](#cve-2026-20011), [CVE-2026-20218](#cve-2026-20218).\n\n## CVE-2026-20221\n\nA vulnerability in the Snort 3 Detection Engine's GRE tunnel decapsulation feature allows an unauthenticated remote attacker to cause an unexpected restart of the engine by sending crafted nested GRE traffic. This results in a denial of service (DoS) or potential security bypass, depending on the device configuration.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gre-JNpMHrTv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Generic%20Routing%20Encapsulation%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-76462\n\nA vulnerability in the IPC channel of the Cisco Secure Client Secure Firewall Posture module allows an authenticated local attacker to send crafted IPC messages to a local socket. Successful exploitation leads to limited arbitrary file write operations with SYSTEM or root privileges, potentially enabling full root/SYSTEM privilege escalation on the affected system.\n\nAffected products:\n- Secure Client\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sec-client-priv-esc-muF8eZdm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Client%20Secure%20Firewall%20Posture%20Module%20Privilege%20Escalation%20Vulnerability%26vs_k=1\n\n## CVE-2026-76445\n\nA vulnerability in the Snort 3 Detection Engine within multiple Cisco products allows an unauthenticated, remote attacker to trigger a denial of service (DoS) condition. The flaw exists in the processing of GPRS Tunneling Protocol (GTP) extension headers. By sending a crafted, fragmented UDP datagram, an attacker can force the detection engine into an infinite loop, causing an unexpected restart.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gtpcodec-dos-Rmecfepz?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221).\n\n## CVE-2026-76299\n\nCisco identified a vulnerability, CVE-2026-76299, related to improper access control (CWE-284) discovered during an internal security review. The vulnerability has a high CVSS v3.1 base score of 9.9, prompting a software hardening release.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76299\n\n## CVE-2026-76302\n\nCisco has released security hardening updates to address vulnerabilities classified under CWE-707 (Improper Neutralization) tracked as CVE-2026-76302. The vulnerability carries a high CVSS v3.1 base score of 9.9, indicating a critical security risk discovered during an internal product review.\n\nAffected products:\n- Cisco Software\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76302",
+      "description": "## Overview\n\nThis roundup covers 44 Cisco security vulnerabilities. CVSS base scores range from 4.4 to 9.9. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Cisco Software, Cisco networking, Expressway Core, Expressway Series, Finesse, IOS XR Software, License On-Prem, NX-OS, NX-OS Software, Nexus 3000 Series Switches, Nexus 9000 Series Fabric Switches, Secure Client, Secure Email Gateway, Snort 3, Snort 3 Detection Engine, Unified Communications Manager, networking.\n\n## Summary\n\n| CVE | Product | Severity | CVSS | EPSS | KEV | Source |\n|-----|---------|----------|------|------|-----|--------|\n| [CVE-2026-20032](#cve-2026-20032) | NX-OS Software | Medium | 4.4 | 0.11% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-mppe-dhKZAFgb?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Python%20Sandbox%20Escape%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20362](#cve-2026-20362) | Finesse |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76465](#cve-2026-76465) | Nexus 3000 Series Switches | Critical | 9.8 | 0.45% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-moam-rce-uBTzYV7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20MPLS%20OAM%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76488](#cve-2026-76488) | Application Policy Infrastructure Controller | Medium | 6.5 | 0.29% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20321](#cve-2026-20321) | Application Policy Infrastructure Controller |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20038](#cve-2026-20038) | Nexus 9000 Series Fabric Switches | Medium | 5.8 | 0.30% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76485](#cve-2026-76485) | Nexus 3000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76486](#cve-2026-76486) | Nexus 3000 Series Switches | Critical | 9.8 | 0.51% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76501](#cve-2026-76501) | Nexus 3000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76471](#cve-2026-76471) | NX-OS Software | Critical | 9.8 | 0.52% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-napi-rce-r2shwu2j?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20NX-API%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20173](#cve-2026-20173) | NX-OS Software | Medium | 5.8 | 0.37% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-nscpdos-SnderkC7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Control%20Plane%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20328](#cve-2026-20328) | License On-Prem | Critical | 9.1 | 0.52% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-20328) (authoritative) |\n| [CVE-2026-76454](#cve-2026-76454) | License On-Prem | Critical | 9.1 | 0.58% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76454) (authoritative) |\n| [CVE-2026-76455](#cve-2026-76455) | NX-OS | Critical | 9.8 | 0.28% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76455) (authoritative) |\n| [CVE-2026-76464](#cve-2026-76464) | Cisco networking | Critical | 9.6 | 0.19% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76464) (authoritative) |\n| [CVE-2026-76453](#cve-2026-76453) | NX-OS | High | 8.8 | 0.34% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76453) (authoritative) |\n| [CVE-2026-76456](#cve-2026-76456) | NX-OS |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76456) (authoritative) |\n| [CVE-2026-76458](#cve-2026-76458) | NX-OS | High | 8.6 | 0.28% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76458) (authoritative) |\n| [CVE-2026-76459](#cve-2026-76459) | NX-OS | Critical | 9.8 | 0.31% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76459) (authoritative) |\n| [CVE-2026-76463](#cve-2026-76463) | networking |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76463) (authoritative) |\n| [CVE-2026-76467](#cve-2026-76467) | networking | High | 7.5 | 0.25% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76467) (authoritative) |\n| [CVE-2026-76468](#cve-2026-76468) | networking | High | 8.2 | 0.23% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76468) (authoritative) |\n| [CVE-2026-76469](#cve-2026-76469) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76469) (authoritative) |\n| [CVE-2026-76470](#cve-2026-76470) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76470) (authoritative) |\n| [CVE-2026-76472](#cve-2026-76472) | Cisco networking |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76472) (authoritative) |\n| [CVE-2026-76519](#cve-2026-76519) | Secure Email Gateway | Critical | 9.8 | 1.57% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76435](#cve-2026-76435) | Expressway Core |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-expressway-inf-disc-vvYqgSTS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Information%20Disclosure%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76505](#cve-2026-76505) | IOS XR Software | High | 7.5 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asr9k-tUyxcyXN?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XR%20Software%20for%20ASR%209000%20Series%20Routers%20IPv4%20Unicast%20Packets%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20011](#cve-2026-20011) | Snort 3 | Medium | 5.8 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-mime-vulns-bkXjcKkt?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20SMTP%20MIME%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20019](#cve-2026-20019) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-20179](#cve-2026-20179) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-20197](#cve-2026-20197) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76489](#cve-2026-76489) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |\n| [CVE-2026-76487](#cve-2026-76487) | Unified Communications Manager |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cucm-access-PW9e8Jt2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Unified%20Communications%20Manager%20Improper%20Access%20Control%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20218](#cve-2026-20218) | Snort 3 |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-vba-bufdos-jAuFdvn9?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Visual%20Basic%20for%20Applications%20Buffer%20Overflow%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76466](#cve-2026-76466) | Expressway Series | Critical | 9.8 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76524](#cve-2026-76524) | Snort 3 |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-opensrc-snort3-2fXGJPfe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Open%20Source%20Snort%203%20Control%20Channel%20Socket%20Arbitrary%20Command%20Execution%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-20221](#cve-2026-20221) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gre-JNpMHrTv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Generic%20Routing%20Encapsulation%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76462](#cve-2026-76462) | Secure Client | Medium | 5.5 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sec-client-priv-esc-muF8eZdm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Client%20Secure%20Firewall%20Posture%20Module%20Privilege%20Escalation%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76445](#cve-2026-76445) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gtpcodec-dos-Rmecfepz?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |\n| [CVE-2026-76299](#cve-2026-76299) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76299) (authoritative) |\n| [CVE-2026-76302](#cve-2026-76302) | Cisco Software | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76302) (authoritative) |\n| [CVE-2026-76530](#cve-2026-76530) | n/a | High | 8.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76530) (authoritative) |\n| [CVE-2026-76531](#cve-2026-76531) | Cisco Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76531) (authoritative) |\n\n\n## CVE-2026-20032\n\nA sandbox escape vulnerability exists within the Python interpreter of Cisco NX-OS Software. An authenticated local attacker with low privileges and Python execution rights can exploit insufficient input validation to escape the sandbox and execute arbitrary commands on the underlying operating system with the privileges of the authenticated user.\n\nAffected products:\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-mppe-dhKZAFgb?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Python%20Sandbox%20Escape%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76471](#cve-2026-76471), [CVE-2026-20173](#cve-2026-20173).\n\n## CVE-2026-20362\n\nCisco Finesse contains a server-side request forgery (SSRF) vulnerability in its web-based management interface. An unauthenticated remote attacker can exploit improper input validation of crafted HTTP requests to perform unauthorized requests from the device, potentially allowing the exfiltration of sensitive information from associated internal services.\n\nAffected products:\n- Finesse\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1\n\n## CVE-2026-76465\n\nA critical remote code execution (RCE) vulnerability exists in the MPLS OAM feature of Cisco NX-OS Software on Nexus 3000 and 9000 Series Switches. An unauthenticated remote attacker can exploit the vulnerability by sending a crafted MPLS echo-request packet to the device, potentially resulting in arbitrary code execution with root privileges or a denial-of-service condition due to process crashes.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-moam-rce-uBTzYV7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20MPLS%20OAM%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).\n\n## CVE-2026-76488\n\nCisco Application Policy Infrastructure Controller (APIC) contains a vulnerability in its export policies functionality that allows an authenticated, remote attacker with administrative credentials to access sensitive files on the device. By submitting crafted values in UI fields, an attacker can bypass access controls to read system files, including cryptographic materials that could facilitate privilege escalation to root on the APIC or managed switches.\n\nAffected products:\n- Application Policy Infrastructure Controller\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20321](#cve-2026-20321).\n\n## CVE-2026-20321\n\nA command injection vulnerability exists in the web-based management API of Cisco Application Policy Infrastructure Controller (APIC). An authenticated attacker with administrative credentials can leverage insufficient input validation in command arguments to execute arbitrary commands with root-level privileges on the underlying operating system.\n\nAffected products:\n- Application Policy Infrastructure Controller\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76488](#cve-2026-76488).\n\n## CVE-2026-20038\n\nA vulnerability in the endpoint group (EPG) contract functionality of Cisco Nexus 9000 Series Fabric Switches in ACI Mode allows unauthenticated, remote attackers to bypass EPG security policies. By sending crafted IPv4 or IPv6 packets using UDP source and destination ports associated with DHCP traffic, an attacker can circumvent configured network security contracts, potentially allowing unauthorized communication across segments.\n\nAffected products:\n- Nexus 9000 Series Fabric Switches\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1\n\n## CVE-2026-76485\n\nMultiple critical vulnerabilities in the Next Generation OAM (NGOAM) feature of Cisco NX-OS Software on Nexus 3000 and 9000 series switches allow unauthenticated, remote attackers to achieve arbitrary code execution with root privileges or cause a denial of service. The flaws stem from improper input validation of IP traffic when the NGOAM feature is enabled, which can be triggered by sending crafted packets to an affected device interface.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).\n\n## CVE-2026-76486\n\nMultiple critical vulnerabilities in the Next Generation OAM (NGOAM) feature of Cisco NX-OS Software on Nexus 3000 and 9000 series switches allow unauthenticated, remote attackers to achieve arbitrary code execution with root privileges or cause a denial of service. The flaws stem from improper input validation of IP traffic when the NGOAM feature is enabled, which can be triggered by sending crafted packets to an affected device interface.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76501](#cve-2026-76501).\n\n## CVE-2026-76501\n\nMultiple critical vulnerabilities in the Next Generation OAM (NGOAM) feature of Cisco NX-OS Software on Nexus 3000 and 9000 series switches allow unauthenticated, remote attackers to achieve arbitrary code execution with root privileges or cause a denial of service. The flaws stem from improper input validation of IP traffic when the NGOAM feature is enabled, which can be triggered by sending crafted packets to an affected device interface.\n\nAffected products:\n- Nexus 3000 Series Switches\n- Nexus 9000 Series Switches\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486).\n\n## CVE-2026-76471\n\nCisco NX-OS Software contains a critical vulnerability in its NX-API feature due to insufficient input validation. An unauthenticated remote attacker can exploit this via a crafted HTTP request to execute arbitrary code with root privileges or trigger a denial of service by causing the device process to crash.\n\nAffected products:\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-napi-rce-r2shwu2j?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20NX-API%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20032](#cve-2026-20032), [CVE-2026-20173](#cve-2026-20173).\n\n## CVE-2026-20173\n\nA vulnerability in Cisco NX-OS Software due to improper rate limiting of protocols allows an unauthenticated, remote attacker to trigger a denial of service (DoS) condition by sending high rates of UDP or TCP traffic to a data plane interface, causing routing and control plane instability.\n\nAffected products:\n- NX-OS Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-nscpdos-SnderkC7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Control%20Plane%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20032](#cve-2026-20032), [CVE-2026-76471](#cve-2026-76471).\n\n## CVE-2026-20328\n\nCVE-2026-20328 is an authentication-bypass vulnerability in the web-based management interface of Cisco License On-Prem (formerly Smart Software Manager On-Prem). An unauthenticated remote attacker can exploit improper password reset checks by sending a malicious request, allowing the attacker to reset the credentials for any account, including administrative users, and gain full unauthorized access to the application.\n\nAffected products:\n- License On-Prem\n- Smart Software Manager On-Prem\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-20328\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76454](#cve-2026-76454).\n\n## CVE-2026-76454\n\nCVE-2026-76454 is a critical vulnerability in the Cisco Smart Licensing Utility API within Cisco License On-Prem (formerly Cisco Smart Software Manager On-Prem). The flaw stems from improper input validation and missing authentication, allowing unauthenticated, remote attackers to perform arbitrary file writes or trigger a denial-of-service (DoS) condition via crafted API requests.\n\nAffected products:\n- License On-Prem\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76454\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20328](#cve-2026-20328).\n\n## CVE-2026-76455\n\nCisco NX-OS contains multiple improper access control vulnerabilities identified during an internal security review. These vulnerabilities are classified under CWE-284 and have a CVSS base score of 9.8, indicating a critical severity level requiring immediate attention through software hardening updates.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76455\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76464\n\nCisco identified multiple internally discovered buffer management vulnerabilities, categorized under CWE-119, affecting Cisco networking products. These vulnerabilities were identified during an internal security review and have a CVSS v3.1 base score of 9.6.\n\nAffected products:\n- Cisco networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76464\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76472](#cve-2026-76472).\n\n## CVE-2026-76453\n\nCVE-2026-76453 refers to vulnerabilities identified within Cisco NX-OS related to improper neutralization of input, classified under CWE-707. These vulnerabilities were identified during an internal security review and addressed through a software hardening release.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76453\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76456\n\nCVE-2026-76456 describes an improper input validation vulnerability within Cisco NX-OS. The flaw involves the incorrect handling of special elements in commands, which can lead to command injection or unauthorized command execution. The issue was identified through an internal security review and is associated with CWE-20.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76456\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76458\n\nCVE-2026-76458 identifies a vulnerability in Cisco NX-OS involving improper handling of exceptional conditions (CWE-703). This issue was discovered internally by Cisco and addressed as part of a proactive software hardening release, carrying a CVSS v3.1 base score of 8.6.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76458\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76459](#cve-2026-76459).\n\n## CVE-2026-76459\n\nCVE-2026-76459 refers to an out-of-bounds write vulnerability identified within Cisco NX-OS, classified under CWE-787. This vulnerability was discovered during an internal security review and has a CVSS v3.1 base score of 8.8, indicating a high severity level requiring remediation.\n\nAffected products:\n- NX-OS\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76459\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458).\n\n## CVE-2026-76463\n\nCVE-2026-76463 refers to improper access control vulnerabilities identified within Cisco networking software during an internal security review. These vulnerabilities are classified under CWE-284 and have a CVSS base score of 8.8, indicating a high severity risk associated with unauthorized access or control.\n\nAffected products:\n- networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76463\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76467](#cve-2026-76467), [CVE-2026-76468](#cve-2026-76468).\n\n## CVE-2026-76467\n\nCVE-2026-76467 refers to a vulnerability identified within Cisco networking software involving improper control of a resource through its lifetime, classified under CWE-664. This issue was identified during an internal security review and addressed via a software hardening release.\n\nAffected products:\n- networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76467\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76463](#cve-2026-76463), [CVE-2026-76468](#cve-2026-76468).\n\n## CVE-2026-76468\n\nCisco has released a software hardening update to address multiple internally discovered vulnerabilities, including CVE-2026-76468. This vulnerability is caused by improper input validation (CWE-20) and carries a CVSS base score of 8.2, indicating a significant security risk within Cisco networking products.\n\nAffected products:\n- networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76468\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76463](#cve-2026-76463), [CVE-2026-76467](#cve-2026-76467).\n\n## CVE-2026-76469\n\nCisco identified an insufficient control flow management vulnerability (CWE-691), tracked as CVE-2026-76469, during an internal security review. The vulnerability has a CVSS base score of 7.4 and has been addressed through software hardening releases.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76469\n\n## CVE-2026-76470\n\nCVE-2026-76470 refers to a software hardening release by Cisco addressing multiple internally discovered vulnerabilities related to incorrect calculation issues classified under CWE-682. The vulnerability carries a CVSS v3.1 base score of 8.8, indicating a high-severity issue within Cisco networking software products.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76470\n\n## CVE-2026-76472\n\nCisco identified and patched internal vulnerabilities categorized under CWE-74 (Improper Neutralization of Special Elements Used in an Input), which could potentially lead to injection-style attacks within Cisco networking infrastructure.\n\nAffected products:\n- Cisco networking\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76472\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-76464](#cve-2026-76464).\n\n## CVE-2026-76519\n\nAn arbitrary file write vulnerability exists in the Advanced Malware Protection (AMP) feature of Cisco Secure Email Gateway. An unauthenticated, remote attacker can exploit this by sending a crafted email attachment to an affected device, potentially leading to command execution with root privileges on the underlying operating system.\n\nAffected products:\n- Secure Email Gateway\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-afw-zqYJkjxp?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Email%20Gateway%20Arbitrary%20File%20Write%20Vulnerability%26vs_k=1\n\n## CVE-2026-76435\n\nA vulnerability in the Cisco Expressway Series Mobile and Remote Access (MRA) provisioning process allows unauthenticated, remote attackers to access sensitive information. The issue stems from insufficient authorization checks of HTTP requests, enabling attackers to extract data via crafted URL submissions.\n\nAffected products:\n- Expressway Core\n- Expressway Edge\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-expressway-inf-disc-vvYqgSTS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Information%20Disclosure%20Vulnerability%26vs_k=1\n\n## CVE-2026-76505\n\nA vulnerability in the IPv4 packet processing functionality of Cisco IOS XR Software on specific ASR 9000 and 9900 series routers allows an unauthenticated, remote attacker to trigger network processor errors via crafted IPv4 packets. Successful exploitation leads to a line card reset or a persistent shutdown state, resulting in a denial-of-service condition for traffic on the affected interface.\n\nAffected products:\n- IOS XR Software\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asr9k-tUyxcyXN?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20IOS%20XR%20Software%20for%20ASR%209000%20Series%20Routers%20IPv4%20Unicast%20Packets%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n## CVE-2026-20011\n\nA vulnerability in the Snort 3 SMTP MIME decoder allows an unauthenticated remote attacker to trigger a denial-of-service (DoS) condition. The issue stems from insufficient error checking when parsing MIME fields within SMTP headers, which can cause the Snort 3 detection engine to restart unexpectedly when processing crafted SMTP traffic.\n\nAffected products:\n- Snort 3\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-mime-vulns-bkXjcKkt?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20SMTP%20MIME%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20218](#cve-2026-20218), [CVE-2026-76524](#cve-2026-76524).\n\n## CVE-2026-20019\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-20179\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-20197\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-76489\n\nMultiple vulnerabilities in the Cisco Snort 3 Detection Engine allow unauthenticated, remote attackers to trigger an unexpected restart of the engine, resulting in a denial-of-service condition. The vulnerabilities are addressed via software updates provided by Cisco.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1\n\n\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-76487\n\nAn improper input validation vulnerability in Cisco Unified Communications Manager and Unified Communications Manager Session Management Edition allows an unauthenticated, remote attacker to bypass access control mechanisms via crafted HTTP requests. This flaw enables unauthorized access to network segments beyond the attacker's intended scope.\n\nAffected products:\n- Unified Communications Manager\n- Unified Communications Manager Session Management Edition\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cucm-access-PW9e8Jt2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Unified%20Communications%20Manager%20Improper%20Access%20Control%20Vulnerability%26vs_k=1\n\n## CVE-2026-20218\n\nA vulnerability in the Snort 3 VBA Decompression Engine in Cisco products allows an unauthenticated, remote attacker to trigger a stack-based buffer overflow by sending crafted VBA data. Successful exploitation causes the Snort 3 Detection Engine to restart unexpectedly, resulting in a denial of service (DoS) condition.\n\nAffected products:\n- Snort 3\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-vba-bufdos-jAuFdvn9?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Visual%20Basic%20for%20Applications%20Buffer%20Overflow%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20011](#cve-2026-20011), [CVE-2026-76524](#cve-2026-76524).\n\n## CVE-2026-76466\n\nA critical remote code execution vulnerability exists in the database service of Cisco Expressway Series devices. The issue arises from the use of persistent cookies and insufficient TLS client certificate validation when clustering is enabled. An unauthenticated remote attacker can exploit this by submitting specific RPC commands, resulting in arbitrary code execution with root privileges on the underlying operating system.\n\nAffected products:\n- Expressway Series\n- Expressway Core\n- Expressway Edge\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1\n\n## CVE-2026-76524\n\nAn arbitrary command execution vulnerability exists in the control channel socket of Open Source Snort 3 due to a lack of authentication for local connections. An authenticated, low-privileged local attacker can connect to the socket to execute commands and perform memory read/write operations with the privileges of the Snort 3 process user.\n\nAffected products:\n- Snort 3\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-opensrc-snort3-2fXGJPfe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Open%20Source%20Snort%203%20Control%20Channel%20Socket%20Arbitrary%20Command%20Execution%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20011](#cve-2026-20011), [CVE-2026-20218](#cve-2026-20218).\n\n## CVE-2026-20221\n\nA vulnerability in the Snort 3 Detection Engine's GRE tunnel decapsulation feature allows an unauthenticated remote attacker to cause an unexpected restart of the engine by sending crafted nested GRE traffic. This results in a denial of service (DoS) or potential security bypass, depending on the device configuration.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gre-JNpMHrTv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Generic%20Routing%20Encapsulation%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-76445](#cve-2026-76445).\n\n## CVE-2026-76462\n\nA vulnerability in the IPC channel of the Cisco Secure Client Secure Firewall Posture module allows an authenticated local attacker to send crafted IPC messages to a local socket. Successful exploitation leads to limited arbitrary file write operations with SYSTEM or root privileges, potentially enabling full root/SYSTEM privilege escalation on the affected system.\n\nAffected products:\n- Secure Client\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sec-client-priv-esc-muF8eZdm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Client%20Secure%20Firewall%20Posture%20Module%20Privilege%20Escalation%20Vulnerability%26vs_k=1\n\n## CVE-2026-76445\n\nA vulnerability in the Snort 3 Detection Engine within multiple Cisco products allows an unauthenticated, remote attacker to trigger a denial of service (DoS) condition. The flaw exists in the processing of GPRS Tunneling Protocol (GTP) extension headers. By sending a crafted, fragmented UDP datagram, an attacker can force the detection engine into an infinite loop, causing an unexpected restart.\n\nAffected products:\n- Snort 3 Detection Engine\n\nSource: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gtpcodec-dos-Rmecfepz?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerability%26vs_k=1\n\n\n\n\n\nRelated in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221).\n\n## CVE-2026-76299\n\nCisco identified a vulnerability, CVE-2026-76299, related to improper access control (CWE-284) discovered during an internal security review. The vulnerability has a high CVSS v3.1 base score of 9.9, prompting a software hardening release.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76299\n\n## CVE-2026-76302\n\nCisco has released security hardening updates to address vulnerabilities classified under CWE-707 (Improper Neutralization) tracked as CVE-2026-76302. The vulnerability carries a high CVSS v3.1 base score of 9.9, indicating a critical security risk discovered during an internal product review.\n\nAffected products:\n- Cisco Software\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76302\n\nRelated in this roundup: [CVE-2026-76531](#cve-2026-76531).\n\n## CVE-2026-76530\n\nCisco identified a vulnerability (CVE-2026-76530) related to the use of non-canonical URL paths for authorization decisions, categorized as CWE-647. This vulnerability allows for potential authorization bypasses due to improper input validation of URL paths.\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76530\n\n## CVE-2026-76531\n\nCisco has identified and patched multiple vulnerabilities tracked under CVE-2026-76531, which involve improper handling of files or directories accessible to external parties (CWE-552). These vulnerabilities have been assigned a CVSS v3.1 base score of 9.9, indicating a critical security risk related to path traversal or unauthorized file/directory access.\n\nAffected products:\n- Cisco Software\n\nSource: https://nvd.nist.gov/vuln/detail/CVE-2026-76531\n\nRelated in this roundup: [CVE-2026-76302](#cve-2026-76302).",
       "published": "2026-10-07T17:00:15.000Z",
       "labels": [
         "roundup"
@@ -149653,6 +150553,7 @@
         "vulnerability--205ec546-19a2-5159-8f58-6fc95bace569",
         "vulnerability--2c8256f1-702b-51ea-9b4f-4c745aa3b3fb",
         "vulnerability--2edf6953-18d6-5b21-997a-73e65885d145",
+        "vulnerability--3390c49f-390a-5002-9963-120260a73177",
         "vulnerability--56865062-d9b9-5f42-8978-873490d8655d",
         "vulnerability--56c3b5c1-bc97-5c55-9680-c82f44f26bc1",
         "vulnerability--5a731248-66f3-538d-9c81-2914b3a048cd",
@@ -149680,23 +150581,23 @@
         },
         {
           "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76530"
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76418"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-cisco-security-updates",
       "x_craftedsignal_event_id": "brief-2026-10-cisco-security-updates",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-security-updates/",
-      "x_craftedsignal_activity_at": "2026-10-22T16:15:28.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T20:40:08.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.03593,
-      "x_craftedsignal_kev_status": "false"
+      "x_craftedsignal_epss_max": 0.01573,
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -157601,6 +158502,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
+      "name": "n8n (2.x \u003c 2.43.5)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
       "name": "Windows",
       "vendor": "Microsoft"
@@ -158405,6 +159312,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1ce80123-24b6-59e8-a116-0c250550d038",
+      "name": "n8n (\u003c 2.41.5, 2.42.x \u003c 2.42.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1d421ba9-bf2a-5351-b5bd-c330690b3668",
       "name": "Kubio AI Page Builder (\u003c= 2.9.2)",
       "vendor": "Kubio"
@@ -159037,6 +159950,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
+      "name": "n8n (\u003c 1.123.85, 2.43.5, 2.44.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--274cc5a7-f418-5923-822a-c22595d6394a",
       "name": "TinyMCE (7.9.3)",
       "vendor": "Tiny Technologies"
@@ -159620,6 +160539,12 @@
       "id": "software--31ef8366-d7ca-5a38-9401-aa996bce0d48",
       "name": "NR256CN (\u003c= 1.5.140116)",
       "vendor": "Netcore"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--320307dd-c30c-56b8-b72e-89847318954e",
+      "name": "n8n (\u003c 2.43.5, 2.44.x \u003c 2.44.1)"
     },
     {
       "type": "software",
@@ -161361,6 +162286,12 @@
       "id": "software--4febb775-66ac-5f74-aa63-540790027d05",
       "name": "WP File Download (\u003c= 6.3.9)",
       "vendor": "JoomUnited"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--50060cdb-30bd-59a6-a819-350524140dfa",
+      "name": "n8n (\u003c 1.123.83, \u003c 2.41.4, \u003c 2.42.1)"
     },
     {
       "type": "software",
@@ -163751,6 +164682,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--731ef645-619c-5ce1-a92d-4b6e11596e3d",
+      "name": "n8n (\u003c 1.123.85)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--733ebfd9-5861-5c3d-b65c-1e06ba9f2176",
       "name": "Confluence Data Center",
       "vendor": "Atlassian"
@@ -164953,6 +165890,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--852ef8dc-a385-5693-b795-840a86c22078",
+      "name": "MONAI (1.2.0 - 1.6.0)",
+      "vendor": "MONAI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--852f1e50-ea56-5060-8223-afaaed5058c9",
       "name": "Relevanssi – A Better Search (\u003c= 4.28.3)",
       "vendor": "Relevanssi"
@@ -165714,6 +166658,13 @@
       "spec_version": "2.1",
       "id": "software--92d2ffaf-58f8-5821-8128-258a594c1d5b",
       "name": "image_optimizer (1.3.0 - 1.9.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--92db928a-9035-5ecc-b709-4f6e915b37a6",
+      "name": "EspoCRM (10.x \u003c 10.0.8)",
+      "vendor": "EspoCRM"
     },
     {
       "type": "software",
@@ -167900,6 +168851,13 @@
       "spec_version": "2.1",
       "id": "software--b8352174-0fe2-5fcf-9857-38e12cafb8f2",
       "name": "seroval (\u003c= 1.6.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b84ba18e-7d31-5810-b993-7509ccdce412",
+      "name": "EspoCRM (\u003c 9.3.11)",
+      "vendor": "EspoCRM"
     },
     {
       "type": "software",
@@ -171262,6 +172220,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f25a9971-e7e7-5427-b05b-4be69f72b722",
+      "name": "ai-gateway-payload-processing"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f263fec4-4ded-54eb-9fe5-59771751972e",
       "name": "SQL Server",
       "vendor": "Microsoft"
@@ -171387,6 +172351,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f50efcb1-34bc-5d5e-ac91-69fde10fe0ca",
+      "name": "n8n (2.44.x \u003c 2.44.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f55412df-8d46-552e-b05c-e7403b647af9",
       "name": "kin-openapi (\u003c 0.149.0)"
     },
@@ -171465,6 +172435,13 @@
       "id": "software--f644b87d-8686-5a5c-962b-06e4b7320c53",
       "name": "Ansible Operator Plugins",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f671c999-64ae-573f-8cc2-6bc1a73f574e",
+      "name": "Samba (vfs_ceph_rgw module enabled)",
+      "vendor": "Samba"
     },
     {
       "type": "software",
@@ -173440,6 +174417,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111684",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111684"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118649",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118649",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118649"
         }
       ]
     },
@@ -178342,6 +179335,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3390c49f-390a-5002-9963-120260a73177",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-20321",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-20321",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20321"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--339723dc-6e27-5593-affe-887370ed41a8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -181008,6 +182017,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115905",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115905"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4b376ec3-8337-55d1-b71c-f1a61ea0d539",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118645",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118645",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118645"
         }
       ]
     },
@@ -186214,6 +187239,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--79e018bb-b4de-5cf7-a080-409a604ed5ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118683",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118683",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118683"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--79f64c34-9ddc-5012-b25c-e197cf50b4d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -190550,6 +191591,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9e30a19b-98b6-56d4-9a56-005adfffae6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118641",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118641",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118641"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9e53e8a9-cdbb-5a4f-bf7a-e614d4489984",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -191510,6 +192567,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a64be781-9c23-5a47-9ed5-48295a004e2d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118644",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118644",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118644"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a65b56d7-d2fd-5426-8c49-a707711b1ef9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -192336,6 +193409,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109242",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109242"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ae0c701a-1762-5ce5-8e1c-6da6f9c8d4aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-117574",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-117574",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117574"
         }
       ]
     },
@@ -193632,6 +194721,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111441",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111441"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bab82a4c-827c-5934-9ab0-ad7a60963960",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118679",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118679",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118679"
         }
       ]
     },
@@ -196182,6 +197287,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d069447f-2862-51a4-adf3-f5f600690c4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118643",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118643",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118643"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d0981b8c-ed98-5981-ace5-7b9687065a3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -196256,6 +197377,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112304",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112304"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d108bece-5c41-559c-b43a-b858d0a9a107",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118686",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118686",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118686"
         }
       ]
     },
@@ -198790,6 +199927,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e8c1c98a-1300-59fc-b1b3-571085000751",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109411",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109411",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109411"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e8f60762-d01b-5288-893f-149de03849a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -199072,6 +200225,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109325",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109325"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ebf04e9b-2268-5582-a786-833b428c52fc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118642",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118642",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118642"
         }
       ]
     },
@@ -200992,6 +202161,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-52691",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-52691"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--faefc318-d6ae-5432-a614-a4e6d4c05dfa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-13451",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-13451",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13451"
         }
       ]
     },
