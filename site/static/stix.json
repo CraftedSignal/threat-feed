@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--239fc668-87e8-56dd-8499-bc686d7042df",
+  "id": "bundle--3a0d4bb4-1faf-52b3-ab37-79f6b6895ba9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7354,6 +7354,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a06eebdd-c6ec-58f9-947b-8b8d1d7c2690",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08c7ef8a-1fee-5cec-bfe7-f94fc113930d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--62554468-c513-5c8e-ba4c-7f014ef1f518",
+      "target_ref": "vulnerability--34527698-11d8-5fea-9630-5c7137991077"
     },
     {
       "type": "relationship",
@@ -34440,6 +34451,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--80cac6cc-e2a8-5a70-b3ff-1325eaf62838",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--62554468-c513-5c8e-ba4c-7f014ef1f518",
+      "target_ref": "vulnerability--a7c55bb3-edf3-5ced-ae95-8dce19caca00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--80ec83bf-adc6-5aa5-a7fe-fa86ed04bb43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-30T12:18:20.000Z",
@@ -45366,7 +45388,7 @@
       "id": "relationship--afafdee3-3eda-5563-9c45-9602fb3a04b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-27T16:40:44.000Z",
+      "modified": "2026-10-28T05:19:17.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -52656,17 +52678,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cef52c80-d2b6-5e04-b1b5-606d511d6538",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T05:11:57.000Z",
-      "modified": "2026-09-28T05:11:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--be4f38a4-fbb1-541c-ac82-6308b8b7f5c6",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cf0499fc-cae7-51c0-a251-d2e718186600",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T20:14:56.000Z",
@@ -54086,17 +54097,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d4c32d85-a0c2-5eb8-b7bd-c1f1f1267699",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--79bf0bfd-7f48-5b91-81d6-9c8f9ddac89a",
-      "target_ref": "vulnerability--d18875d1-e3a8-5d82-aaf8-8eb04ebf49a3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d4ec4886-9579-5200-9e71-8ed3e76c6c85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54181,17 +54181,6 @@
       "relationship_type": "has",
       "source_ref": "software--073b408c-89ff-51f4-a53e-09ce7eb567a5",
       "target_ref": "vulnerability--1b66471d-8200-5d17-a795-3fa1262b8d53"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d5466456-0b2a-5d51-b228-d1296dee027d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--4a72b99e-ea59-53a6-b1eb-911004c3c462",
-      "target_ref": "vulnerability--e0c4badc-8896-582f-81ca-cb1f4c1965c6"
     },
     {
       "type": "relationship",
@@ -55820,17 +55809,6 @@
       "relationship_type": "uses",
       "source_ref": "report--3d6620d2-402d-58e9-862e-5b065f0a10bc",
       "target_ref": "attack-pattern--5e05d029-d159-5289-9f03-3641066e4011"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--db2713f4-5450-5df8-9938-60ca5c1b96ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T05:12:06.000Z",
-      "modified": "2026-09-28T05:12:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5f783630-c200-5d27-b7b6-2f191bf848f4",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -76100,7 +76078,7 @@
       "id": "report--2057ac4a-fecc-5119-88a6-1c782af255ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T07:58:58.000Z",
-      "modified": "2026-10-27T16:40:44.000Z",
+      "modified": "2026-10-28T05:19:17.000Z",
       "name": "PHP: Two critical vulnerabilities ahead of scheduled security release",
       "description": "The PHP security team announced an upcoming release addressing two critical vulnerabilities, each rated CVSS v4.0 9.2. It scheduled the release for 21 October 2026 at 14:00 UTC and said it will disclose technical details, affected versions, and fixed versions with that release. CERT-EU identifies the issues as CVE-2026-109618 and CVE-2026-109619. CERT-EU describes potential remote code execution based on other reporting; PHP has not yet confirmed that attack path. No active exploitation is established in the cited notices.\n\n## Detection opportunity\n\nHunt for PHP or web-server workers spawning shells, scripting runtimes, discovery commands, or network utilities. The [community Sigma rule for suspicious PHP child processes](https://gist.github.com/hazcod/71712c0bfe5abf191cbc87245c27fcb8) offers a starting point across Linux, macOS, and Windows. It requires process creation telemetry with both parent and child executable paths; use command lines and nearby HTTP requests to investigate matches. Tune known application jobs that intentionally start command-line tools.\n\nThis is generic post-execution behavior. A match does not establish exploitation of CVE-2026-109618 or CVE-2026-109619, and execution that stays inside the PHP worker will not match this rule.\n\n## Recommendation\n\n- Identify deployed PHP runtimes and the public applications that depend on them so owners can patch promptly.\n- Watch the PHP security release for confirmed affected and fixed versions; test and roll out the relevant updates.\n- Treat claims that all PHP versions are affected or that unauthenticated remote code execution is confirmed as provisional until the vendor publishes technical details.",
       "published": "2026-10-21T07:58:58.000Z",
@@ -76123,6 +76101,7 @@
         "software--4d24db10-eed8-5b83-9128-54d9e30bd7d3",
         "software--54437d09-e490-5ba3-a476-e35f02c50154",
         "software--60a07401-bfc5-536b-835a-469d0f94e0d4",
+        "software--62554468-c513-5c8e-ba4c-7f014ef1f518",
         "software--6a49c57d-2326-5ec0-9a2c-f0e837f0527c",
         "software--74ca8a00-0afb-59a2-aef9-3f2524b4b96b",
         "software--860242fe-9325-561a-bee6-453eb97b9095",
@@ -76263,6 +76242,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cyber.gc.ca/en/alerts-advisories/al26-026-critical-vulnerabilities-impacting-php-cve-2026-109618-cve-2026-109619"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cyfirma.com/research/cyfirma-threat-advisory-suspected-dprk-campaign-staging-php2shell-targeting-against-global-php-infrastructure/"
         },
         {
@@ -76337,9 +76320,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-21-php-critical-security-release",
       "x_craftedsignal_event_id": "brief-2026-10-21-php-critical-security-release",
-      "x_craftedsignal_revision": 21,
+      "x_craftedsignal_revision": 22,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-php-critical-security-release/",
-      "x_craftedsignal_activity_at": "2026-10-27T16:40:44.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T05:19:17.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -99818,52 +99801,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5f783630-c200-5d27-b7b6-2f191bf848f4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T05:12:06.000Z",
-      "modified": "2026-09-28T05:12:06.000Z",
-      "name": "Server-Side Request Forgery in youtube-downloader",
-      "description": "## Overview\n\nA server-side request forgery (SSRF) vulnerability has been identified in the athlon1600 youtube-downloader project, affecting versions up to 4.0.1. The flaw exists within the 'stream' function of the 'public/stream.php' file, where user-supplied input via the 'url' argument is not correctly sanitized or validated before being used to initiate outbound requests. \n\nAlthough a patch attempt (commit 6ffe823) was introduced to mitigate potential issues by adding 'CURLOPT_PROTOCOLS' restrictions and a 'MAXREDIRS' cap, the implementation fails to restrict the destination host, leaving the application vulnerable to remote exploitation. The vulnerability allows an attacker to force the server to initiate arbitrary HTTP or HTTPS requests, potentially exposing internal network resources or sensitive metadata services to unauthorized access. The vendor has remained unresponsive to disclosure attempts regarding this flaw.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an unauthenticated remote attacker to perform SSRF attacks. This may result in unauthorized access to internal network services, private APIs, or cloud metadata endpoints that are otherwise inaccessible from the public internet, potentially leading to data exfiltration or internal reconnaissance.\n\n## Recommendation\n\n1. Audit web server access logs for requests directed at 'public/stream.php' containing suspicious 'url' parameter values targeting internal IP addresses (e.g., 169.254.169.254, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).\n2. Implement an allowlist of permitted destination domains or URL patterns for the 'stream' function if the application requirements permit.\n3. Restrict outbound network traffic from web server instances to prevent unauthorized internal scanning, particularly toward sensitive infrastructure segments.\n",
-      "published": "2026-09-28T05:12:06.000Z",
-      "labels": [
-        "ssrf",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--4a72b99e-ea59-53a6-b1eb-911004c3c462",
-        "vulnerability--e0c4badc-8896-582f-81ca-cb1f4c1965c6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-28-cve-2026-100901-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100901"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-28-cve-2026-100901-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-09-28-cve-2026-100901-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-ssrf/",
-      "x_craftedsignal_activity_at": "2026-09-28T05:12:06.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -135073,52 +135010,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--be4f38a4-fbb1-541c-ac82-6308b8b7f5c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T05:11:57.000Z",
-      "modified": "2026-09-28T05:11:57.000Z",
-      "name": "Server-Side Request Forgery in Privoce VoceChat Server",
-      "description": "## Overview\n\nPrivoce VoceChat Server up to version 0.5.36 contains a server-side request forgery (SSRF) vulnerability. The flaw exists within the open_graph::fetch function located in the src/api/resource.rs file, which powers the open_graphic_parse endpoint. An unauthenticated remote attacker can manipulate the url argument processed by this function to force the server to initiate unauthorized HTTP requests to arbitrary internal or external destinations. This vulnerability has been publicly disclosed, and exploitation is possible. As the vendor has not provided a response or a patch for this issue, defenders must assume the risk of exploitation remains for all instances running version 0.5.36 or earlier.\n\n## Impact\n\nSuccessful exploitation allows a remote attacker to bypass network perimeter defenses by leveraging the server as a proxy. This can lead to unauthorized access to internal services not exposed to the internet, exfiltration of cloud metadata (if hosted in AWS/GCP/Azure environments), or reconnaissance of private network architecture. The vulnerability carries a CVSS v3.1 base score of 7.3, reflecting its potential for significant impact on service integrity and network confidentiality.\n\n## Recommendation\n\n- Implement network egress filtering on all servers running VoceChat to prevent unauthorized outbound requests to sensitive internal network ranges or non-essential external endpoints.\n- Monitor web server access logs for anomalous requests to the open_graphic_parse endpoint, specifically looking for unusual URL parameter values or unexpected destination hostnames.\n- Due to the lack of a vendor-provided patch, consider placing the VoceChat instance behind a Web Application Firewall (WAF) and configure rules to inspect and restrict the 'url' parameter passed to the open_graphic_parse endpoint.\n- If the application functionality is not critical, disable the open_graphic_parse endpoint entirely.\n",
-      "published": "2026-09-28T05:11:57.000Z",
-      "labels": [
-        "ssrf",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--79bf0bfd-7f48-5b91-81d6-9c8f9ddac89a",
-        "vulnerability--d18875d1-e3a8-5d82-aaf8-8eb04ebf49a3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-28-vocechat-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-vocechat-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100893"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-28-vocechat-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-09-28-vocechat-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-vocechat-ssrf/",
-      "x_craftedsignal_activity_at": "2026-09-28T05:11:57.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--be4fdc8c-2ea5-54e8-8a45-cddbb917637a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T13:58:49.000Z",
@@ -164557,13 +164448,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4a72b99e-ea59-53a6-b1eb-911004c3c462",
-      "name": "youtube-downloader (\u003c= 4.0.1)",
-      "vendor": "athlon1600"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4a82110d-abbe-5735-b3c3-63438a0a85ff",
       "name": "ZITADEL (\u003c 4.18.0)",
       "vendor": "ZITADEL"
@@ -166270,6 +166154,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--62554468-c513-5c8e-ba4c-7f014ef1f518",
+      "name": "RHEL (8.0.30)",
+      "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--627a294f-9638-5d23-bca8-3220cf9293c7",
       "name": "Eventon Premium (\u003c 4.5.5)",
       "vendor": "Myeventon"
@@ -167857,13 +167748,6 @@
       "spec_version": "2.1",
       "id": "software--79aa033d-ef5d-5e7d-bbb1-a8d7dac70741",
       "name": "Vite (\u003c= 0.1.15)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--79bf0bfd-7f48-5b91-81d6-9c8f9ddac89a",
-      "name": "VoceChat Server (\u003c= 0.5.36)",
-      "vendor": "Privoce"
     },
     {
       "type": "software",
@@ -200487,22 +200371,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--d18875d1-e3a8-5d82-aaf8-8eb04ebf49a3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100893",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100893",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100893"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--d1920eb9-1899-55c4-9dd3-ef91edaa8f2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -202145,22 +202013,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109442",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109442"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e0c4badc-8896-582f-81ca-cb1f4c1965c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-100901",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-100901",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100901"
         }
       ]
     },
