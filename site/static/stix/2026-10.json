@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cce77db8-e5d1-5a52-8b5f-9712d90dbb62",
+  "id": "bundle--5c101607-736d-5d81-bcd5-d90bb123d373",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11612,6 +11612,17 @@
       "relationship_type": "has",
       "source_ref": "software--af2dafae-393c-56ca-a27d-5eb0230c023b",
       "target_ref": "vulnerability--7afa8c9f-bef0-5733-a65a-09f30cf0613b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1b5eaf6d-6e95-5102-8a13-b41813676c44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0d16699d-9a57-5689-abea-46402fecadd4",
+      "target_ref": "vulnerability--f4332a16-4e39-5a7b-a439-b70def0b1163"
     },
     {
       "type": "relationship",
@@ -64324,6 +64335,17 @@
       "relationship_type": "has",
       "source_ref": "software--ee1b8593-2ab5-5d40-a226-42f073f414ff",
       "target_ref": "vulnerability--2bef8ff2-3c0b-5f4f-bf19-36f5b834720b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fa813893-6dff-583e-9aff-bc2e51859730",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0d16699d-9a57-5689-abea-46402fecadd4",
+      "target_ref": "vulnerability--0f596e4a-78a7-599d-bbf1-7a2b578e7a97"
     },
     {
       "type": "relationship",
@@ -147663,6 +147685,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e5469e99-5ed5-5e82-a96d-1f7f0e8bc1cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T22:24:34.000Z",
+      "modified": "2026-10-28T22:24:48.000Z",
+      "name": "Apache Qpid Proton C: Stack buffer overflow read in TLS certificate validation (CVE-2026-115942)",
+      "description": "Apache Qpid Proton C versions through 0.40.0 are affected by a stack buffer overflow read caused by the verification of non-compliant wildcard TLS certificates. The issue does not affect certificates issued to the RFC9525 standard. Version 0.41.1 has been released to fix this issue by only accepting certificates that comply with the RFC9525 standard.\n",
+      "published": "2026-10-28T22:24:34.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0d16699d-9a57-5689-abea-46402fecadd4",
+        "vulnerability--0f596e4a-78a7-599d-bbf1-7a2b578e7a97",
+        "vulnerability--f4332a16-4e39-5a7b-a439-b70def0b1163"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-apache-qpid-proton-c-buffer-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-qpid-proton-c-buffer-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://issues.apache.org/jira/browse/PROTON-2976"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/430"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/432"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-apache-qpid-proton-c-buffer-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-28-apache-qpid-proton-c-buffer-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-qpid-proton-c-buffer-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-28T22:24:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e555c811-6b8d-5155-af4e-ae07d8d9c9dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:33:44.000Z",
@@ -158395,6 +158465,13 @@
       "id": "software--0d016df9-b753-5763-b60c-cb59ecc1df26",
       "name": "HortusFox (\u003c 6.2)",
       "vendor": "HortusFox"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0d16699d-9a57-5689-abea-46402fecadd4",
+      "name": "Qpid Proton C (\u003c= 0.40.0)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -174938,6 +175015,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92766",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92766"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0f596e4a-78a7-599d-bbf1-7a2b578e7a97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105042",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105042",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105042"
         }
       ]
     },
@@ -201578,6 +201671,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116094",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116094"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f4332a16-4e39-5a7b-a439-b70def0b1163",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115942",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115942",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115942"
         }
       ]
     },
