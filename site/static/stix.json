@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--844dd458-9fb1-53ea-92e1-e53429d7ae24",
+  "id": "bundle--4ee315b1-072f-557a-bfcc-44415069feb1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38807,6 +38807,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93194443-d699-521d-92f9-f6d10e1f06f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T06:02:25.000Z",
+      "modified": "2026-10-28T06:02:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8b77b18-576e-53a8-9e6e-5aa040636e70",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--931a2351-1c10-5d90-8396-8cfda626d552",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T11:58:34.000Z",
@@ -50870,6 +50881,17 @@
       "relationship_type": "has",
       "source_ref": "software--8a438daf-6aad-5d6e-a3f4-640992e0f53c",
       "target_ref": "vulnerability--c2790542-06c9-59ce-9106-b6019d2ab4bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c6b06304-9cc9-5159-b0f7-56db1859bb9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7af58a00-ccfe-5066-b514-ec6ca6cd8dda",
+      "target_ref": "vulnerability--448bf252-c7b2-5cb4-85c9-43e8b85a6229"
     },
     {
       "type": "relationship",
@@ -63520,6 +63542,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9c1a428c-6a65-5051-b17f-00a1e0ab340e",
       "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fa45c7bd-e252-5541-9ee7-e67acffccc7f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T06:02:25.000Z",
+      "modified": "2026-10-28T06:02:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a8b77b18-576e-53a8-9e6e-5aa040636e70",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -127304,6 +127337,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a8b77b18-576e-53a8-9e6e-5aa040636e70",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T06:02:25.000Z",
+      "modified": "2026-10-28T06:02:25.000Z",
+      "name": "Wails: Origin validator bypass via wildcard pattern (CVE-2026-34157)",
+      "description": "## Overview\nWails v2 contains a vulnerability in the `wildcardPatternToRegex` function within `originValidator.go`. The implementation incorrectly replaces wildcards (`*`) with unanchored regex matchers (`.*`). Developers using a trailing wildcard pattern (e.g., `myapp.com*`) in `BindingsAllowedOrigins` inadvertently create a bypass, as the regex fails to restrict matches to legitimate domain boundaries. An attacker can craft a malicious origin (e.g., `myapp.com.attacker.com` or `myapp.community`) to invoke bound Go methods, leading to unauthorized actions such as file system access or command execution. The issue is addressed in PR #5074, which restricts wildcard expansion to full domain components.\n\n## Impact\nIf a Wails application exposes sensitive bindings, an attacker-controlled origin can execute those methods. Observed potential impacts include unauthorized file system read/write, credential exfiltration, and execution of OS commands if mapped to the application frontend.\n\n## Recommendation\n* Upgrade Wails to version 2.13.0 or later once released.\n* Audit existing `BindingsAllowedOrigins` configurations in Wails applications. Ensure wildcard patterns are used only for full domain components (e.g., `https://*.myapp.com`) and avoid trailing wildcards on partial labels (e.g., `myapp.com*`).\n* Review exposed Go methods in application bindings to ensure they follow the principle of least privilege.\n",
+      "published": "2026-10-28T06:02:25.000Z",
+      "labels": [
+        "ipc",
+        "origin-bypass",
+        "vulnerability",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7af58a00-ccfe-5066-b514-ec6ca6cd8dda",
+        "vulnerability--448bf252-c7b2-5cb4-85c9-43e8b85a6229"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-wails-origin-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wails-origin-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-47hv-j4px-h3c9"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/wailsapp/wails/pull/5074"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34157"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-wails-origin-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-28-wails-origin-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wails-origin-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-28T06:02:25.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a8ec5b7b-701c-5614-8d3f-f1cb59648e2a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-29T12:27:18.000Z",
@@ -168106,6 +168194,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7af58a00-ccfe-5066-b514-ec6ca6cd8dda",
+      "name": "wails (\u003c 2.13.0)",
+      "vendor": "Wails"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7b22d907-aeed-5397-8394-b1d626242f8a",
       "name": "Network Security Manager On-Prem (\u003c 4.4.0)",
       "vendor": "SonicWall"
@@ -184525,6 +184620,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104905",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104905"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--448bf252-c7b2-5cb4-85c9-43e8b85a6229",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-34157",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-34157",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34157"
         }
       ]
     },
