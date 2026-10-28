@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a5713454-8f77-55c6-ab50-6f770f3cb01a",
+  "id": "bundle--ce8c1765-2a5b-5ffb-bcc0-143642993246",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27002,6 +27002,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--699e8e48-8369-54da-93d2-998a755242a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9d1fa04f-ddc2-5a0d-8670-76fbb9dd0c80",
+      "target_ref": "vulnerability--28bf883a-b56b-5501-a771-5f601e34c47d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--69abba71-fdaa-5422-9d76-b381a74d5e68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -53611,6 +53622,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e4b9146d-2a77-563f-95d2-2c54e14803ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9283aa23-c6fd-5e0d-9445-d59421caa383",
+      "target_ref": "vulnerability--28bf883a-b56b-5501-a771-5f601e34c47d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e4ba2021-b593-590f-aec5-767bf2574136",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54762,6 +54784,17 @@
       "relationship_type": "has",
       "source_ref": "software--39cb2871-7dda-537d-a1e6-1473c0b74ac0",
       "target_ref": "vulnerability--bb600ca6-4c98-594a-80dc-28a7da5b4f67"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e9208d6e-6641-5a5c-b226-aacc1681c7e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T02:16:18.000Z",
+      "modified": "2026-10-28T02:16:18.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e9ec4b3a-6d1f-51f2-9ce5-962de9a24d64",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -140592,6 +140625,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e9ec4b3a-6d1f-51f2-9ce5-962de9a24d64",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T02:16:18.000Z",
+      "modified": "2026-10-28T02:16:18.000Z",
+      "name": "X.Org X Server and X Wayland: Double free vulnerability in XKB SetGeometry (CVE-2026-88812)",
+      "description": "## Overview\n\nCVE-2026-88812 is a memory corruption vulnerability involving a double-free condition in the XKB (X Keyboard Extension) SetGeometry implementation. This flaw affects versions of X.Org X Server prior to 21.1.25 and X Wayland prior to 24.1.14. An attacker with the ability to connect as a client to the X server can exploit this vulnerability to trigger a crash, resulting in a denial of service, or potentially gain arbitrary code execution within the context of the X server process.\n\n## Impact\n\nSuccessful exploitation may lead to a crash of the X server process (Denial of Service) or arbitrary code execution under the privileges of the X server instance.\n\n## Recommendation\n\n- Upgrade X.Org X Server to version 21.1.25 or later.\n- Upgrade X Wayland to version 24.1.14 or later.\n- Review system audit logs for repeated X server process restarts, which may indicate exploit attempts.\n",
+      "published": "2026-10-28T02:16:18.000Z",
+      "labels": [
+        "memory-corruption",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9283aa23-c6fd-5e0d-9445-d59421caa383",
+        "software--9d1fa04f-ddc2-5a0d-8670-76fbb9dd0c80",
+        "vulnerability--28bf883a-b56b-5501-a771-5f601e34c47d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-xorg-xkb-double-free",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-xorg-xkb-double-free/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88812"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-xorg-xkb-double-free",
+      "x_craftedsignal_event_id": "brief-2026-10-28-xorg-xkb-double-free",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-xorg-xkb-double-free/",
+      "x_craftedsignal_activity_at": "2026-10-28T02:16:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e9ed3309-eca8-5f28-aea2-a1bbcf341cd4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T21:47:03.000Z",
@@ -156900,6 +156979,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9283aa23-c6fd-5e0d-9445-d59421caa383",
+      "name": "X Wayland (\u003c 24.1.14)",
+      "vendor": "X.Org"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--92d17d75-588f-55f8-bc22-d94d37960628",
       "name": "HRMS (14.x \u003c 14.38.2, 15.x \u003c 15.64.0, 16.x \u003c 16.18.0, develop \u003c= 2026-09-08)",
       "vendor": "Frappe"
@@ -157499,6 +157585,13 @@
       "id": "software--9d097fce-ddeb-55c2-b6f8-692c411f6e07",
       "name": "Lilishop (\u003c= 4.2.4)",
       "vendor": "PickMall"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--9d1fa04f-ddc2-5a0d-8670-76fbb9dd0c80",
+      "name": "X Server (\u003c 21.1.25)",
+      "vendor": "X.Org"
     },
     {
       "type": "software",
@@ -167481,6 +167574,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94380",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94380"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--28bf883a-b56b-5501-a771-5f601e34c47d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-88812",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-88812",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88812"
         }
       ]
     },
