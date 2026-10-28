@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--15c6b442-e158-540e-a0d9-fd6eb3958289",
+  "id": "bundle--0b4a07ed-d67e-5d11-ba2f-51a8b0b082cd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21403,6 +21403,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4e6b059c-5c3b-5b33-a6d7-d1c3e0d3c395",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T04:19:11.000Z",
+      "modified": "2026-10-28T04:19:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0f3ff196-a101-566a-a2e0-e5eb8b1c7578",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4e71b72e-42a1-5455-a6ff-3df2cb266dea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38255,6 +38266,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9c6992a2-81e3-5284-8101-27d4fce9ddb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T04:19:11.000Z",
+      "modified": "2026-10-28T04:19:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0f3ff196-a101-566a-a2e0-e5eb8b1c7578",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9c71b5b3-e749-53bf-8ea0-a8dfb69646dc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -41969,6 +41991,17 @@
       "relationship_type": "has",
       "source_ref": "software--050113fd-3bc5-5799-8b47-8d9c076168ac",
       "target_ref": "vulnerability--322ad6ca-e78a-5d32-b193-e8248ed8748a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--adb547b2-ec5b-5309-bcc3-a30361b93e0c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bf2e95b7-5366-54b7-b7f7-2f20348479a4",
+      "target_ref": "vulnerability--fc7668d4-4145-5285-a0b2-85ae4422df48"
     },
     {
       "type": "relationship",
@@ -64573,6 +64606,53 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f3ff196-a101-566a-a2e0-e5eb8b1c7578",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T04:19:11.000Z",
+      "modified": "2026-10-28T04:19:11.000Z",
+      "name": "Pie Register Premium: Unrestricted file upload remote code execution (CVE-2026-84999)",
+      "description": "## Overview\n\nPie Register Premium for WordPress, in all versions up to and including 3.8.4.0, contains an unrestricted file upload vulnerability (CVE-2026-84999). The piereg_file_upload function performs file type validation calls using wp_check_filetype and wp_check_filetype_and_ext but fails to verify the return status of these functions before calling move_uploaded_file. Furthermore, the AJAX handler lacks both nonce verification and capability checks, enabling unauthenticated remote code execution. Successful exploitation results in the server returning the full path to the uploaded file, allowing immediate remote execution.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to upload and execute arbitrary scripts, such as PHP backdoors, on the host web server.\n\n## Recommendation\n\n- Update Pie Register Premium to a version later than 3.8.4.0 immediately.\n- Implement the detection rule below to identify exploitation attempts targeting the file upload endpoint.\n- Audit the uploads directory for unexpected PHP or other executable files.\n",
+      "published": "2026-10-28T04:19:11.000Z",
+      "labels": [
+        "remote-code-execution",
+        "web-application-vulnerability",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bf2e95b7-5366-54b7-b7f7-2f20348479a4",
+        "vulnerability--fc7668d4-4145-5285-a0b2-85ae4422df48"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-pie-register-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-pie-register-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84999"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-pie-register-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-28-pie-register-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pie-register-rce/",
+      "x_craftedsignal_activity_at": "2026-10-28T04:19:11.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -160081,6 +160161,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bf2e95b7-5366-54b7-b7f7-2f20348479a4",
+      "name": "Pie Register Premium (\u003c= 3.8.4.0)",
+      "vendor": "Pie Register"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bf6831fa-0130-55df-b6b1-10cfdac8559f",
       "name": "apostrophe (\u003c 4.33.0)",
       "vendor": "ApostropheCMS"
@@ -191144,6 +191231,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-93430",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93430"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fc7668d4-4145-5285-a0b2-85ae4422df48",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-84999",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-84999",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84999"
         }
       ]
     },
