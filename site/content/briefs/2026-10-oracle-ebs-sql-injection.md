@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-28-oracle-ebs-sql-injection
 event_id: brief-2026-10-28-oracle-ebs-sql-injection
-revision: 2
-activity_at: "2026-10-28T12:51:20Z"
+revision: 3
+activity_at: "2026-10-28T15:53:34Z"
 revision_history:
   - revision: 2
     at: "2026-10-28T12:51:20Z"
@@ -16,19 +16,39 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/oracle-ebs-tcf-sqli-rce-cve-2026-101767
+  - revision: 3
+    at: "2026-10-28T15:53:34Z"
+    checksum: sha256:d139a1461c8a6def79c29bb12d2413e1fef1a1f5c2618c2b75a0254c238fcc19
+    summary: exploited:true
+    changed_fields:
+      - affected_products
+      - cpes
+      - exploitation_evidence
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html
 title: 'Oracle E-Business Suite: SQL Injection Remote Code Execution (CVE-2026-101767)'
 slug: 2026-10-oracle-ebs-sql-injection
 description: Threat actors are actively probing for CVE-2026-101767, a critical unauthenticated SQL injection vulnerability in the Oracle E-Business Suite Application Object Library that allows for remote code execution.
 date: "2026-10-28T09:57:15Z"
-lastmod: "2026-10-28T12:50:41Z"
-type: advisory
+lastmod: "2026-10-28T15:52:53Z"
+type: threat
 claim_state: <nil>
 types:
-  - advisory
+  - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html
+  observed_at: "2026-10-27T00:00:00Z"
+  confidence: high
 source_assessment:
   reliability: B
   credibility: "2"
@@ -38,6 +58,7 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:oracle:e-business_suite:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:e_business_suite:*:*:*:*:*:*:*:*
 tags:
   - sql-injection
   - rce
@@ -48,6 +69,7 @@ vendors:
 products:
   - E-Business Suite
   - E-Business Suite (12.2.3 <= 12.2.15)
+  - Oracle E-Business Suite
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -66,6 +88,7 @@ references:
   - https://www.oracle.com/security-alerts/cpuoct2026.html
   - https://www.cve.org/CVERecord?id=CVE-2026-101767
   - https://horizon3.ai/attack-research/vulnerabilities/cve-2026-101767/
+  - https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -99,6 +122,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/oracle-ebs-tcf-sqli-rce-cve-2026-101767
+  - at: "2026-10-28T15:52:53Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html
 ---
 
 CVE-2026-101767 is a critical SQL injection vulnerability (CVSS 9.8) affecting the Application Object Library component within Oracle E-Business Suite. The flaw allows remote, unauthenticated attackers to send specially crafted HTTP requests to achieve remote code execution (RCE). Threat intelligence firm Defused reported that exploratory exploitation attempts began on October 27, 2026, immediately following the inclusion of the patch in the Oracle October 2026 Critical Patch Update (CPU).

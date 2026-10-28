@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2dcbbe1d-51d4-5b21-b13c-8aea89ec1a42",
+  "id": "bundle--12ff8abe-96b3-597d-a446-cd16038f1c26",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39333,7 +39333,7 @@
       "id": "relationship--93907e87-c875-5eba-8ffd-7b037b5831e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T09:57:15.000Z",
-      "modified": "2026-10-28T12:51:20.000Z",
+      "modified": "2026-10-28T15:53:34.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -46564,6 +46564,17 @@
       "relationship_type": "has",
       "source_ref": "software--5bc667b1-0a4e-550a-9fd5-afade285e797",
       "target_ref": "vulnerability--fcc941c2-b224-55d9-8333-c3ef0ecd14f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b1f993e1-a295-5693-acea-5ee39ea27343",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--90c593d7-9ae8-5d46-8e93-7f1365c97444",
+      "target_ref": "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
     },
     {
       "type": "relationship",
@@ -83894,7 +83905,7 @@
       "id": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T09:57:15.000Z",
-      "modified": "2026-10-28T12:51:20.000Z",
+      "modified": "2026-10-28T15:53:34.000Z",
       "name": "Oracle E-Business Suite: SQL Injection Remote Code Execution (CVE-2026-101767)",
       "description": "## Overview\n\nCVE-2026-101767 is a critical SQL injection vulnerability (CVSS 9.8) affecting the Application Object Library component within Oracle E-Business Suite. The flaw allows remote, unauthenticated attackers to send specially crafted HTTP requests to achieve remote code execution (RCE). Threat intelligence firm Defused reported that exploratory exploitation attempts began on October 27, 2026, immediately following the inclusion of the patch in the Oracle October 2026 Critical Patch Update (CPU).\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary code within the context of the Application Object Library, potentially leading to full system compromise.\n\n## Recommendation\n\n* Prioritize patching all internet-facing Oracle E-Business Suite instances by applying the October 2026 Oracle Critical Patch Update immediately.\n* Implement restrictive web application firewall (WAF) policies to block unexpected SQL injection patterns targeting Oracle EBS endpoints.\n* Monitor webserver access logs for anomalous HTTP requests directed at the Application Object Library components.\n",
       "published": "2026-10-28T09:57:15.000Z",
@@ -83909,6 +83920,7 @@
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--3e1bb861-9bc4-5a62-a913-0e40eaee958a",
         "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
+        "software--90c593d7-9ae8-5d46-8e93-7f1365c97444",
         "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
       ],
       "external_references": [
@@ -83927,6 +83939,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.cve.org/CVERecord?id=CVE-2026-101767"
         },
         {
@@ -83941,13 +83957,16 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-28-oracle-ebs-sql-injection",
       "x_craftedsignal_event_id": "brief-2026-10-28-oracle-ebs-sql-injection",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-ebs-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-28T12:51:20.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T15:53:34.000Z",
       "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html",
+        "observed_at": "2026-10-27T00:00:00.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.00549,
@@ -170561,6 +170580,13 @@
       "id": "software--90945eb0-ad1c-519d-a2ba-71ba57055ef5",
       "name": "Firefox (\u003c 158.0.1)",
       "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--90c593d7-9ae8-5d46-8e93-7f1365c97444",
+      "name": "Oracle E-Business Suite",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
