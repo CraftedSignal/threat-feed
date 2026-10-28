@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--60ab55d2-ffcb-5ce9-bae2-abf3ae905ba5",
+  "id": "bundle--6de3b6a4-8932-5189-b1e1-8a0254c0fd9e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -36792,6 +36792,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93907e87-c875-5eba-8ffd-7b037b5831e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:15.000Z",
+      "modified": "2026-10-28T09:57:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9395f24d-f891-537f-8f94-50dda35ca1f4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -44459,6 +44470,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b679f41d-0f9c-53e0-ba5e-067d79a28758",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:28.000Z",
+      "modified": "2026-10-28T09:57:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9995ce32-7873-56b6-bf69-097d4fae00c4",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b6897267-e534-5254-9340-a56be8c025a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T10:23:39.000Z",
@@ -46083,6 +46105,17 @@
       "relationship_type": "has",
       "source_ref": "software--a6f535ed-1f8d-5c00-863f-7b0142ec352b",
       "target_ref": "vulnerability--141cf4c1-7162-520f-9a4f-3fc721bc9989"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bda9cf98-68b8-581d-b1be-66d3999d05cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
+      "target_ref": "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
     },
     {
       "type": "relationship",
@@ -51286,6 +51319,17 @@
       "relationship_type": "uses",
       "source_ref": "report--60f253d7-c302-599e-8119-b7f919dad031",
       "target_ref": "attack-pattern--7a7d3073-08a0-5675-9ad3-ea6b2fbac8d9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5540883-c0ab-577a-a46b-0666a7f53e6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:28.000Z",
+      "modified": "2026-10-28T09:57:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9995ce32-7873-56b6-bf69-097d4fae00c4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -59349,6 +59393,17 @@
       "relationship_type": "has",
       "source_ref": "software--87351857-8d41-5717-a2f3-485019f42f16",
       "target_ref": "vulnerability--13950a0d-4cc9-5ce4-8a80-da90e13d1de4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f799f22d-7717-5062-97f1-8597f7d0e2f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b5899b46-ffd9-5329-ac96-5ed00adf26b4",
+      "target_ref": "vulnerability--8d7335ed-fd28-553b-8755-6841b0a7de0e"
     },
     {
       "type": "relationship",
@@ -78428,6 +78483,54 @@
       },
       "x_craftedsignal_cvss_max": 8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:15.000Z",
+      "modified": "2026-10-28T09:57:15.000Z",
+      "name": "Oracle E-Business Suite: SQL Injection Remote Code Execution (CVE-2026-101767)",
+      "description": "## Overview\n\nCVE-2026-101767 is a critical SQL injection vulnerability (CVSS 9.8) affecting the Application Object Library component within Oracle E-Business Suite. The flaw allows remote, unauthenticated attackers to send specially crafted HTTP requests to achieve remote code execution (RCE). Threat intelligence firm Defused reported that exploratory exploitation attempts began on October 27, 2026, immediately following the inclusion of the patch in the Oracle October 2026 Critical Patch Update (CPU).\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary code within the context of the Application Object Library, potentially leading to full system compromise.\n\n## Recommendation\n\n* Prioritize patching all internet-facing Oracle E-Business Suite instances by applying the October 2026 Oracle Critical Patch Update immediately.\n* Implement restrictive web application firewall (WAF) policies to block unexpected SQL injection patterns targeting Oracle EBS endpoints.\n* Monitor webserver access logs for anomalous HTTP requests directed at the Application Object Library components.\n",
+      "published": "2026-10-28T09:57:15.000Z",
+      "labels": [
+        "active-exploitation",
+        "rce",
+        "sql-injection",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
+        "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-oracle-ebs-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-ebs-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/hackers-start-probing-fresh-oracle-ebs-vulnerability/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-oracle-ebs-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-28-oracle-ebs-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-ebs-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-10-28T09:57:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00549,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -114568,6 +114671,59 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01003,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9995ce32-7873-56b6-bf69-097d4fae00c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:28.000Z",
+      "modified": "2026-10-28T09:57:28.000Z",
+      "name": "Qualitor: Unauthenticated Remote Code Execution (CVE-2023-47253)",
+      "description": "## Overview\nQualitor software (version 8.20 and earlier) contains a critical remote code execution (RCE) vulnerability identified as CVE-2023-47253. The vulnerability exists in the script '/html/ad/adpesquisasql/request/processVariavel.php', which passes user-controlled input from the 'gridValoresPopHidden' HTTP request parameter directly into a PHP eval() function. This allows an unauthenticated remote attacker to execute arbitrary PHP code on the underlying server.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary system commands, leading to full system compromise, data theft, and loss of integrity and availability.\n\n## Recommendation\n- Update all Qualitor instances to a version later than 8.20 immediately.\n- Review web server access logs for requests containing the 'gridValoresPopHidden' parameter targeting the '/html/ad/adpesquisasql/request/processVariavel.php' file.\n- Inspect server filesystem for evidence of webshells or unauthorized modifications, particularly in the directory containing the vulnerable script.\n",
+      "published": "2026-10-28T09:57:28.000Z",
+      "labels": [
+        "cve-2023-47253",
+        "php",
+        "rce",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b5899b46-ffd9-5329-ac96-5ed00adf26b4",
+        "vulnerability--8d7335ed-fd28-553b-8755-6841b0a7de0e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-qualitor-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-qualitor-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPENXP-RESEARCH-CVE-2023-47253"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPENXP-RESEARCH-CVE-2023-47253\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-qualitor-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-28-qualitor-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-qualitor-rce/",
+      "x_craftedsignal_activity_at": "2026-10-28T09:57:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.14308,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -158811,6 +158967,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
+      "name": "E-Business Suite",
+      "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
       "name": "rsyslog",
       "vendor": "Rsyslog"
@@ -161956,6 +162119,13 @@
       "id": "software--b548f992-fd91-5693-978c-3eb87e6ce134",
       "name": "Windows 10 (\u003c 10.0.14393.7876)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b5899b46-ffd9-5329-ac96-5ed00adf26b4",
+      "name": "Qualitor (\u003c= 8.20)",
+      "vendor": "Qualitor"
     },
     {
       "type": "software",
@@ -181878,6 +182048,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-94541",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94541"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8d7335ed-fd28-553b-8755-6841b0a7de0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-47253",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-47253",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-47253"
         }
       ]
     },

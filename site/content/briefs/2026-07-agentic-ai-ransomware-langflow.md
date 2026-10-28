@@ -1,19 +1,28 @@
 ---
+brief_id: brief-2026-07-agentic-ai-ransomware-langflow
+event_id: brief-2026-07-agentic-ai-ransomware-langflow
+revision: 1
+activity_at: "2026-07-03T11:19:16Z"
 title: Agentic AI Used to Conduct Ransomware Attack via Langflow
 slug: 2026-07-agentic-ai-ransomware-langflow
 description: Threat actor JadePuffer exploited CVE-2025-3248 in Langflow instances, leveraging agentic LLM capabilities for advanced reconnaissance, lateral movement, and ultimately encrypting data on production servers with ransomware.
 date: "2026-07-03T11:19:16Z"
+lastmod: "2026-10-28T09:57:40Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
   - high
 actors:
   - JadePuffer
-exploited: true
+exploitation_evidence:
+  status: unknown
 cpes:
   - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
-  - cpe:2.3:a:alibaba:nacos:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XGH057R3C0N-CVE-2025-3248&utm_source=rss&utm_medium=rss
 tags:
   - ransomware
   - ai
@@ -24,10 +33,8 @@ tags:
   - persistence
 vendors:
   - Langflow
-  - Alibaba
 products:
-  - Langflow
-  - Alibaba Nacos
+  - Langflow (< 1.3.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,6 +46,8 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.006
+    subtechnique_name: Python
     evidence: Successful exploitation of the bug allows attackers to execute arbitrary Python code on the host on which Langflow is running.
     confidence_band: high
   - tactic_id: TA0007
@@ -51,18 +60,24 @@ mitre_ttps:
     tactic_name: Credential Access
     technique_id: T1552
     technique_name: Unsecured Credentials
+    subtechnique_id: T1552.001
+    subtechnique_name: Credentials In Files
     evidence: Next, the threat actor dumped Langflow’s Postgres database to harvest the secrets in it.
     confidence_band: high
   - tactic_id: TA0003
     tactic_name: Persistence
     technique_id: T1053
     technique_name: Scheduled Task/Job
+    subtechnique_id: T1053.003
+    subtechnique_name: Cron
     evidence: deployed a cron job for persistent access to the Langflow server.
     confidence_band: high
   - tactic_id: TA0008
     tactic_name: Lateral Movement
     technique_id: T1078
     technique_name: Valid Accounts
+    subtechnique_id: T1078.001
+    subtechnique_name: Default Accounts
     evidence: JadePuffer connected to this server using a payload that contained root credentials for the MySQL port
     confidence_band: high
   - tactic_id: TA0008
@@ -75,6 +90,8 @@ mitre_ttps:
     tactic_name: Privilege Escalation
     technique_id: T1078
     technique_name: Valid Accounts
+    subtechnique_id: T1078.003
+    subtechnique_name: Local Accounts
     evidence: forging a valid JWT using Nacos's well-known default signing key
     confidence_band: high
   - tactic_id: TA0005
@@ -92,12 +109,13 @@ mitre_ttps:
 cves:
   - id: CVE-2025-3248
     cvss: 9.8
-    epss: 0.99968
+    epss: 0.99993
+    kev_status: "false"
   - id: CVE-2021-29441
-    cvss: 8.6
-    epss: 0.74818
+    kev_status: unknown
 references:
   - https://www.securityweek.com/agentic-ai-used-to-conduct-ransomware-attack-via-langflow/
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XGH057R3C0N-CVE-2025-3248&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious Cron Job Creation from Web Application Process
     description: Detects the creation or modification of cron jobs from processes commonly associated with web applications like Langflow, which could indicate persistence establishment after exploitation of CVE-2025-3248.
@@ -124,6 +142,14 @@ rules:
       - process_creation
       - linux
 rules_count: 2
+updates:
+  - at: "2026-10-28T09:57:40Z"
+    level: L2
+    summary: poc_available; langflow version < 1.3.0
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XGH057R3C0N-CVE-2025-3248&utm_source=rss&utm_medium=rss
 ---
 
 The threat actor known as JadePuffer has been observed utilizing agentic AI to execute a sophisticated ransomware attack, starting with the exploitation of internet-exposed Langflow instances. This campaign, reported by cloud security firm Sysdig, highlights a critical development in cyber warfare where LLM agents automate complex, multi-stage intrusions by combining known exploitation techniques with real-time reasoning. The initial access vector was CVE-2025-3248 (CVSS 9.8), a critical missing authentication vulnerability in Langflow that was disclosed in April 2026 and flagged by CISA as actively exploited in early May 2026. After gaining arbitrary Python code execution, the LLM-driven attacker systematically conducted reconnaissance, harvested credentials, achieved persistence, and moved laterally to production environments, demonstrating an adaptive attack methodology with minimal direct human intervention.

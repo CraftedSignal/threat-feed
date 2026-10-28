@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eccb10fc-9869-5a30-8658-86b82c375a66",
+  "id": "bundle--9310a839-e8ef-5aea-a7b2-cf8306587c53",
   "objects": [
     {
       "type": "attack-pattern",
@@ -39313,6 +39313,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--93907e87-c875-5eba-8ffd-7b037b5831e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:15.000Z",
+      "modified": "2026-10-28T09:57:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9395f24d-f891-537f-8f94-50dda35ca1f4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46078,17 +46089,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b0829ee5-8d29-5ba7-8542-563783628195",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T09:53:27.000Z",
-      "modified": "2026-09-28T09:53:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--87ce7e36-e377-5577-a780-372ba195b23b",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b085b21e-a6cb-5aef-924d-b82ecd9d36f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:56.000Z",
@@ -47493,6 +47493,17 @@
       "relationship_type": "has",
       "source_ref": "software--2a70d688-45ac-5504-8878-ff5bea50b81e",
       "target_ref": "vulnerability--cf18022a-703f-5188-8952-cf6164dd6f08"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b679f41d-0f9c-53e0-ba5e-067d79a28758",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:28.000Z",
+      "modified": "2026-10-28T09:57:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9995ce32-7873-56b6-bf69-097d4fae00c4",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -49264,6 +49275,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1eb2b983-50cd-5291-9260-7e48b9e1ab2e",
       "target_ref": "attack-pattern--014a52b3-e1ec-5929-a194-236cf8cc7447"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bda9cf98-68b8-581d-b1be-66d3999d05cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
+      "target_ref": "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
     },
     {
       "type": "relationship",
@@ -51182,17 +51204,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c5fe1424-a57b-54ae-9585-2be83e810a65",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T09:53:27.000Z",
-      "modified": "2026-09-28T09:53:27.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--87ce7e36-e377-5577-a780-372ba195b23b",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c6143091-6173-5d8f-8f99-749f06bef9e6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -51464,17 +51475,6 @@
       "relationship_type": "has",
       "source_ref": "software--4592d3cc-8a3f-5f10-98a4-554a2a70d07a",
       "target_ref": "vulnerability--787dd137-5f84-5b9b-a13a-b2528006101c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c6f34000-edac-584f-82a4-d6fcd0d07dcd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3931e69f-87d3-5fa6-b556-1774d52dad97",
-      "target_ref": "vulnerability--9e71d399-4af9-599a-b167-d26861bb90ad"
     },
     {
       "type": "relationship",
@@ -54852,6 +54852,17 @@
       "relationship_type": "uses",
       "source_ref": "report--60f253d7-c302-599e-8119-b7f919dad031",
       "target_ref": "attack-pattern--7a7d3073-08a0-5675-9ad3-ea6b2fbac8d9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5540883-c0ab-577a-a46b-0666a7f53e6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:28.000Z",
+      "modified": "2026-10-28T09:57:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9995ce32-7873-56b6-bf69-097d4fae00c4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -63498,6 +63509,17 @@
       "relationship_type": "has",
       "source_ref": "software--87351857-8d41-5717-a2f3-485019f42f16",
       "target_ref": "vulnerability--13950a0d-4cc9-5ce4-8a80-da90e13d1de4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f799f22d-7717-5062-97f1-8597f7d0e2f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b5899b46-ffd9-5329-ac96-5ed00adf26b4",
+      "target_ref": "vulnerability--8d7335ed-fd28-553b-8755-6841b0a7de0e"
     },
     {
       "type": "relationship",
@@ -84133,6 +84155,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:15.000Z",
+      "modified": "2026-10-28T09:57:15.000Z",
+      "name": "Oracle E-Business Suite: SQL Injection Remote Code Execution (CVE-2026-101767)",
+      "description": "## Overview\n\nCVE-2026-101767 is a critical SQL injection vulnerability (CVSS 9.8) affecting the Application Object Library component within Oracle E-Business Suite. The flaw allows remote, unauthenticated attackers to send specially crafted HTTP requests to achieve remote code execution (RCE). Threat intelligence firm Defused reported that exploratory exploitation attempts began on October 27, 2026, immediately following the inclusion of the patch in the Oracle October 2026 Critical Patch Update (CPU).\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary code within the context of the Application Object Library, potentially leading to full system compromise.\n\n## Recommendation\n\n* Prioritize patching all internet-facing Oracle E-Business Suite instances by applying the October 2026 Oracle Critical Patch Update immediately.\n* Implement restrictive web application firewall (WAF) policies to block unexpected SQL injection patterns targeting Oracle EBS endpoints.\n* Monitor webserver access logs for anomalous HTTP requests directed at the Application Object Library components.\n",
+      "published": "2026-10-28T09:57:15.000Z",
+      "labels": [
+        "active-exploitation",
+        "rce",
+        "sql-injection",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
+        "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-oracle-ebs-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-ebs-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/hackers-start-probing-fresh-oracle-ebs-vulnerability/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-oracle-ebs-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-28-oracle-ebs-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-ebs-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-10-28T09:57:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00549,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -115488,58 +115558,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--87ce7e36-e377-5577-a780-372ba195b23b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-28T09:53:27.000Z",
-      "modified": "2026-09-28T09:53:27.000Z",
-      "name": "Unauthenticated Remote Code Execution in Apache Roller via XML-RPC Deserialization",
-      "description": "## Overview\n\nApache Roller 6.1.5 contains a critical vulnerability (CVE-2026-82384) allowing unauthenticated remote code execution (RCE) via the application's XML-RPC interface. The vulnerability resides within the `XmlRpcServlet`, which is configured with the `enabledForExtensions=true` parameter. This configuration instructs the underlying Apache ws-xmlrpc library to accept vendor-specific extensions, including `ex:serializable`, which carries base64-encoded Java serialized objects.\n\nCrucially, this deserialization process occurs during the HTTP request handling phase, prior to the enforcement of authentication for Blogger or MetaWeblog APIs. Furthermore, the XML-RPC servlet mapping is active by default in the web.xml configuration, meaning even if an administrator disables XML-RPC via the application's administrative UI, the vulnerable code path remains exposed to unauthenticated exploitation. Attackers can leverage this primitive to achieve full RCE on the host server by providing a crafted gadget chain, typically generated via tools like 'ysoserial'.\n\n## Attack Chain\n\n1. The attacker performs reconnaissance to identify Apache Roller instances by scanning for standard paths such as `/roller-ui/` or `/roller-services/xmlrpc`.\n2. The attacker fingerprints the application version to confirm the target is running the vulnerable 6.1.5 release.\n3. The attacker prepares a serialized Java payload using a gadget chain appropriate for the application's classpath (e.g., Commons Collections).\n4. The attacker crafts an XML-RPC request using the `text/xml` content type, embedding the malicious object within an `ex:serializable` extension tag.\n5. The attacker sends a POST request to `/roller-services/xmlrpc` or `/roller/roller-services/xmlrpc`.\n6. The `XmlRpcServlet` parses the XML body and automatically deserializes the embedded object before reaching the authentication logic.\n7. The deserialization process executes arbitrary code within the context of the JVM process.\n8. The attacker achieves full control over the application's data and potentially gains a pivot point into the underlying OS.\n\n## Impact\n\nSuccessful exploitation results in full unauthenticated remote code execution with the privileges of the Tomcat or Java application user. This impact includes the complete compromise of blog data, the ability to read or modify sensitive configuration files, and the potential for lateral movement within the environment. The vulnerability has been assigned a CVSS 3.1 score of 9.8, reflecting its high severity and ease of exploitation without user interaction or authentication.\n\n## Recommendation\n\nPrioritize the immediate upgrade of all Apache Roller instances to version 6.1.6 or later, which addresses CVE-2026-82384 by disabling extensions and tightening XML-RPC request handling. In environments where immediate patching is not possible, implement WAF or reverse proxy rules to strictly block access to the `/roller-services/xmlrpc` endpoint for all but known, authorized administrative IP addresses. Security teams should also audit their environments to identify all instances of Apache Roller by searching for common footprints such as the `/roller-ui/` directory or specific HTTP response headers.\n",
-      "published": "2026-09-28T09:53:27.000Z",
-      "labels": [
-        "apache-roller",
-        "deserialization",
-        "rce",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--3931e69f-87d3-5fa6-b556-1774d52dad97",
-        "vulnerability--9e71d399-4af9-599a-b167-d26861bb90ad"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-apache-roller-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-apache-roller-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/apache/roller/pull/171"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82384"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-apache-roller-rce",
-      "x_craftedsignal_event_id": "brief-2026-09-apache-roller-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-apache-roller-rce/",
-      "x_craftedsignal_activity_at": "2026-09-28T09:53:27.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--880f8f86-9030-5782-bc84-394645c6f1fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T13:13:07.000Z",
@@ -122186,6 +122204,59 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01003,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9995ce32-7873-56b6-bf69-097d4fae00c4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T09:57:28.000Z",
+      "modified": "2026-10-28T09:57:28.000Z",
+      "name": "Qualitor: Unauthenticated Remote Code Execution (CVE-2023-47253)",
+      "description": "## Overview\nQualitor software (version 8.20 and earlier) contains a critical remote code execution (RCE) vulnerability identified as CVE-2023-47253. The vulnerability exists in the script '/html/ad/adpesquisasql/request/processVariavel.php', which passes user-controlled input from the 'gridValoresPopHidden' HTTP request parameter directly into a PHP eval() function. This allows an unauthenticated remote attacker to execute arbitrary PHP code on the underlying server.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary system commands, leading to full system compromise, data theft, and loss of integrity and availability.\n\n## Recommendation\n- Update all Qualitor instances to a version later than 8.20 immediately.\n- Review web server access logs for requests containing the 'gridValoresPopHidden' parameter targeting the '/html/ad/adpesquisasql/request/processVariavel.php' file.\n- Inspect server filesystem for evidence of webshells or unauthorized modifications, particularly in the directory containing the vulnerable script.\n",
+      "published": "2026-10-28T09:57:28.000Z",
+      "labels": [
+        "cve-2023-47253",
+        "php",
+        "rce",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b5899b46-ffd9-5329-ac96-5ed00adf26b4",
+        "vulnerability--8d7335ed-fd28-553b-8755-6841b0a7de0e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-qualitor-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-qualitor-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPENXP-RESEARCH-CVE-2023-47253"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OPENXP-RESEARCH-CVE-2023-47253\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-qualitor-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-28-qualitor-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-qualitor-rce/",
+      "x_craftedsignal_activity_at": "2026-10-28T09:57:28.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.14308,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -164993,13 +165064,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3931e69f-87d3-5fa6-b556-1774d52dad97",
-      "name": "Apache Roller (6.1.5)",
-      "vendor": "Apache Software Foundation"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--39381d6c-5ce0-596b-9b3e-46409830fe56",
       "name": "Meari IoT Cloud Platform OpenAPI Service (all versions)",
       "vendor": "Meari"
@@ -169707,6 +169771,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
+      "name": "E-Business Suite",
+      "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7f8e2ab5-a025-5890-9cf9-4bc6f4c4ea0a",
       "name": "rsyslog",
       "vendor": "Rsyslog"
@@ -173076,6 +173147,13 @@
       "id": "software--b548f992-fd91-5693-978c-3eb87e6ce134",
       "name": "Windows 10 (\u003c 10.0.14393.7876)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b5899b46-ffd9-5329-ac96-5ed00adf26b4",
+      "name": "Qualitor (\u003c= 8.20)",
+      "vendor": "Qualitor"
     },
     {
       "type": "software",
@@ -194317,6 +194395,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8d7335ed-fd28-553b-8755-6841b0a7de0e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-47253",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-47253",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-47253"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8d947f0d-af5c-5763-9e47-b1dd93ee5881",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -196327,22 +196421,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115924",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115924"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9e71d399-4af9-599a-b167-d26861bb90ad",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-82384",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-82384",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82384"
         }
       ]
     },
