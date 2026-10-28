@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0a89de2b-c376-542f-9ab7-00a25571241f",
+  "id": "bundle--bcc5d6c3-531e-517b-a996-467657870a05",
   "objects": [
     {
       "type": "attack-pattern",
@@ -55084,6 +55084,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e2902b2c-9923-5759-b896-55d52c34df2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ca07f758-931a-5ce5-89d1-a74660141fd6",
+      "target_ref": "vulnerability--3ff794ae-7c47-5fe2-8e82-0964082fa29e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e292aac3-48c9-54ad-944c-3bf9ebbb23fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -83943,6 +83954,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--40b18f67-787b-58fd-acbf-cda792c1ae7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T16:34:02.000Z",
+      "modified": "2026-10-28T16:34:02.000Z",
+      "name": "Ninja Forms: CSV injection via server-side validation bypass (CVE-2026-67187)",
+      "description": "The Ninja Forms plugin for WordPress before version 3.15.4 contains an incomplete server-side validation vulnerability. The NF_Abstracts_List class performs a validate() method that only checks for required-field presence. Unauthenticated attackers can submit crafted formula payloads to Checkbox List, Multi-Select List, Image List, Country, and State fields via the nf_ajax_submit endpoint. Because CSV escaping is only applied to Textbox and Textarea fields, these payloads result in CSV injection when an administrator downloads and opens the exported submissions file.\n",
+      "published": "2026-10-28T16:34:02.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ca07f758-931a-5ce5-89d1-a74660141fd6",
+        "vulnerability--3ff794ae-7c47-5fe2-8e82-0964082fa29e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-ninja-forms-cve-2026-67187",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ninja-forms-cve-2026-67187/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67187"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-ninja-forms-cve-2026-67187",
+      "x_craftedsignal_event_id": "brief-2026-10-28-ninja-forms-cve-2026-67187",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ninja-forms-cve-2026-67187/",
+      "x_craftedsignal_activity_at": "2026-10-28T16:34:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -164535,6 +164586,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ca07f758-931a-5ce5-89d1-a74660141fd6",
+      "name": "Ninja Forms (\u003c 3.15.4)",
+      "vendor": "Ninja Forms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ca1acc8b-fe60-592a-a5c2-9441e2a640b3",
       "name": "@modelcontextprotocol/server (\u003e= 2.0.0, \u003c 2.3.0)",
       "vendor": "Model Context Protocol"
@@ -174975,6 +175033,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-105801",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105801"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3ff794ae-7c47-5fe2-8e82-0964082fa29e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-67187",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-67187",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67187"
         }
       ]
     },
