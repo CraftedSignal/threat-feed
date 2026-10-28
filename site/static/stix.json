@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e7c29107-07d5-51ce-a91b-d0945f5da8a8",
+  "id": "bundle--c80b7a25-fdd8-5921-a9bc-d4c253d50914",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20306,6 +20306,17 @@
       "relationship_type": "has",
       "source_ref": "software--cb7c7947-33fa-5f93-a3bd-691da8222dd1",
       "target_ref": "vulnerability--697ead86-33bd-53d4-8f82-b4a8b992c002"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3ece846d-11cd-57fa-bd5e-ec30ce700abf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T23:48:40.000Z",
+      "modified": "2026-10-28T23:48:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3c7b8b7c-9c92-5197-a371-ded9938ad8dd",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
     },
     {
       "type": "relationship",
@@ -91585,6 +91596,51 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3c7b8b7c-9c92-5197-a371-ded9938ad8dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T23:48:40.000Z",
+      "modified": "2026-10-28T23:48:40.000Z",
+      "name": "Guardrail-based Vulnerability Discovery in Frontier AI Models",
+      "description": "## Overview\nCrowdStrike researchers demonstrated that the safety guardrails integrated into frontier AI models function as an inadvertent, readable signal for vulnerability discovery. By systematically querying an AI model about specific segments of code or system configurations, researchers can identify security flaws based on how the model reacts - or refuses to act - when it recognizes dangerous patterns. This approach, termed Guardrail-based Vulnerability Discovery (GbVD), exploits the model's adversarial safety training, which is often more sensitive than its generative capabilities.\n\n## Attack Chain\n1. Target decomposition: The attacker splits a target codebase or filesystem into granular segments.\n2. Recursive probing: The attacker submits these segments to an AI model with a request for explanation or analysis.\n3. Guardrail observation: The attacker measures the model's response for perturbations indicative of guardrail activation.\n4. Signal identification: The attacker records the specific input that triggered the refusal, latency spike, or reasoning interruption.\n5. Bisection/Refinement: The attacker uses the guardrail engagement as a binary signal to narrow down the exact location of the vulnerability.\n6. Vulnerability confirmation: Once the target area is isolated, the attacker performs manual analysis or targeted exploitation on the identified code or configuration.\n\n## Impact\nThe GbVD methodology allows for automated, high-precision identification of vulnerabilities without requiring the model to explicitly identify the bug. This significantly lowers the barrier for adversaries to find memory-safety flaws or privilege-escalation misconfigurations in complex environments. In controlled tests across five vulnerability classes, the methodology achieved high accuracy in locating flaws.\n\n## Recommendation\n- Inventory the use of LLM-based code analysis or automated security audit tools that interact with third-party frontier AI models.\n- Implement monitoring for anomalous patterns of repeated, high-frequency, or segmented queries to AI models that may indicate an automated bisection or probing attempt.\n- Assume that codebases and configurations exposed to AI models may be subject to vulnerability discovery via side-channel leakage; treat all AI-processed code as potentially disclosed to the model provider.\n- Establish a baseline for normal interaction latency, response length, and error rates (e.g., \"reason: cyber\") for automated AI analysis tools to detect potential probing activity.\n",
+      "published": "2026-10-28T23:48:40.000Z",
+      "labels": [
+        "ai-security",
+        "discovery",
+        "llm-security",
+        "reconnaissance",
+        "vulnerability-research"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-ai-guardrail-vulnerability-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ai-guardrail-vulnerability-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.crowdstrike.com/en-us/blog/when-ai-guardrails-expose-vulnerabilities/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-ai-guardrail-vulnerability-discovery",
+      "x_craftedsignal_event_id": "brief-2026-10-28-ai-guardrail-vulnerability-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ai-guardrail-vulnerability-discovery/",
+      "x_craftedsignal_activity_at": "2026-10-28T23:48:40.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
