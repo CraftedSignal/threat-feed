@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e499138e-5ecb-5a42-a616-4fa7405da9cc",
+  "id": "bundle--46a25476-38b8-52b6-99f3-3cdc9ebc614d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34774,6 +34774,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--89ef2467-0790-5b49-99bb-c5c64e26a54d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3e1bb861-9bc4-5a62-a913-0e40eaee958a",
+      "target_ref": "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--89f2b3af-a675-594d-94f3-23654457897e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36856,7 +36867,7 @@
       "id": "relationship--93907e87-c875-5eba-8ffd-7b037b5831e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T09:57:15.000Z",
-      "modified": "2026-10-28T09:57:15.000Z",
+      "modified": "2026-10-28T12:51:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -78601,7 +78612,7 @@
       "id": "report--3559ea4d-0b10-5913-9d58-623da1c61cc2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T09:57:15.000Z",
-      "modified": "2026-10-28T09:57:15.000Z",
+      "modified": "2026-10-28T12:51:20.000Z",
       "name": "Oracle E-Business Suite: SQL Injection Remote Code Execution (CVE-2026-101767)",
       "description": "## Overview\n\nCVE-2026-101767 is a critical SQL injection vulnerability (CVSS 9.8) affecting the Application Object Library component within Oracle E-Business Suite. The flaw allows remote, unauthenticated attackers to send specially crafted HTTP requests to achieve remote code execution (RCE). Threat intelligence firm Defused reported that exploratory exploitation attempts began on October 27, 2026, immediately following the inclusion of the patch in the Oracle October 2026 Critical Patch Update (CPU).\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated attackers to execute arbitrary code within the context of the Application Object Library, potentially leading to full system compromise.\n\n## Recommendation\n\n* Prioritize patching all internet-facing Oracle E-Business Suite instances by applying the October 2026 Oracle Critical Patch Update immediately.\n* Implement restrictive web application firewall (WAF) policies to block unexpected SQL injection patterns targeting Oracle EBS endpoints.\n* Monitor webserver access logs for anomalous HTTP requests directed at the Application Object Library components.\n",
       "published": "2026-10-28T09:57:15.000Z",
@@ -78614,6 +78625,7 @@
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3e1bb861-9bc4-5a62-a913-0e40eaee958a",
         "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
         "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
       ],
@@ -78625,15 +78637,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-101767/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/oracle-ebs-tcf-sqli-rce-cve-2026-101767"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-101767"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.oracle.com/security-alerts/cpuoct2026.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/hackers-start-probing-fresh-oracle-ebs-vulnerability/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-28-oracle-ebs-sql-injection",
       "x_craftedsignal_event_id": "brief-2026-10-28-oracle-ebs-sql-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-oracle-ebs-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-10-28T09:57:15.000Z",
+      "x_craftedsignal_activity_at": "2026-10-28T12:51:20.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -155177,6 +155205,13 @@
       "spec_version": "2.1",
       "id": "software--3e19f5cf-b08c-5de3-b7d4-3c279faaf95c",
       "name": "org.apache.camel:camel-aws2-s3 (4.19.0 before 4.22.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3e1bb861-9bc4-5a62-a913-0e40eaee958a",
+      "name": "E-Business Suite (12.2.3 \u003c= 12.2.15)",
+      "vendor": "Oracle"
     },
     {
       "type": "software",
