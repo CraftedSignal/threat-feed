@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-tailscale-tailworm
 event_id: brief-2026-10-27-tailscale-tailworm
-revision: 3
-activity_at: "2026-10-28T07:33:18Z"
+revision: 4
+activity_at: "2026-10-28T16:58:30Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T16:40:44Z"
@@ -34,11 +34,21 @@ revision_history:
       - updates
     source_urls:
       - https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html
+  - revision: 4
+    at: "2026-10-28T16:58:30Z"
+    checksum: sha256:69a78b2701712c4c68218c19bf6750b17805da9c1deef5597f2f8a8dea7df134
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
 title: 'Tailscale: Privilege escalation and security flaws in SSH server'
 slug: 2026-10-tailscale-tailworm
 description: Tailscale versions prior to 1.104.4 contain multiple vulnerabilities in SSH socket forwarding and service handling that could allow authenticated users to escalate privileges to root on targeted nodes.
 date: "2026-10-27T16:06:16Z"
-lastmod: "2026-10-28T07:32:38Z"
+lastmod: "2026-10-28T16:57:52Z"
 type: advisory
 claim_state: verified
 types:
@@ -67,6 +77,7 @@ products:
   - headscale (<= 0.29.5)
   - Tailscale (< 1.104.4)
   - headscale
+  - Tailscale (<= 1.104.2)
 affected_os:
   - Linux
   - macOS
@@ -154,6 +165,13 @@ updates:
       - the-hacker-news
     source_urls:
       - https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html
+  - at: "2026-10-28T16:57:52Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
 ---
 
 Tailscale has released version 1.104.4 to address four security bulletins (TS-2026-014, TS-2026-015, TS-2026-016, and TS-2026-017) affecting its built-in SSH server. The primary vulnerability involves a timing-based socket-forwarding flaw where an attacker with existing network access can perform a socket-swap, allowing them to interact with root-privileged Unix sockets such as the Docker control socket or the tailscaled local API. Additional vulnerabilities include a denial-of-service vector via memory exhaustion, unauthorized local API access in tailscale serve, and potential permission header leakage. These flaws do not allow for unauthenticated access, requiring an attacker to already possess a foothold on a device authorized by the network access policy. No CVE identifiers have been assigned at this time.
