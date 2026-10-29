@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-21-php-travel-agency-system-auth-bypass
 event_id: brief-2026-10-21-php-travel-agency-system-auth-bypass
-revision: 2
-activity_at: "2026-10-27T20:02:31Z"
+revision: 3
+activity_at: "2026-10-29T21:25:44Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T20:02:31Z"
@@ -22,11 +22,24 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-117516
+  - revision: 3
+    at: "2026-10-29T21:25:44Z"
+    checksum: sha256:2b1f84c3fd4f7486207b02f8f3e4ec1131fb016ccc916edc0d47e05e5027431b
+    summary: added coverage for php-travel-agency-system
+    changed_fields:
+      - action_plan
+      - cves
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-117514
 title: 'oretnom23 php-travel-agency-system: Authentication bypass via user_id manipulation (CVE-2026-114439)'
 slug: 2026-10-php-travel-agency-system-auth-bypass
 description: An authentication bypass vulnerability in the php-travel-agency-system allows remote attackers to gain unauthorized access by manipulating the user_id argument in admin/session.php.
 date: "2026-10-21T23:48:42Z"
-lastmod: "2026-10-27T20:01:02Z"
+lastmod: "2026-10-29T21:24:20Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -50,6 +63,8 @@ tags:
   - web-application
   - authentication-bypass
   - cve-2026-114439
+  - sql-injection
+  - cve
 vendors:
   - oretnom23
 products:
@@ -78,11 +93,16 @@ cves:
     cvss: 7.3
     epss: 0.00419
     kev_status: "false"
+  - id: CVE-2026-117514
+    cvss: 7.3
+    epss: 0.00412
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-114439
   - https://nvd.nist.gov/vuln/detail/CVE-2026-114441
   - https://nvd.nist.gov/vuln/detail/CVE-2026-117515
   - https://nvd.nist.gov/vuln/detail/CVE-2026-117516
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-117514
 rules:
   - title: Detects CVE-2026-117515 Exploitation - SQL Injection in traceapplication.php
     description: Detects SQL injection attempts by searching for common SQL keywords and metacharacters in the query string of requests directed to traceapplication.php
@@ -100,6 +120,7 @@ action_plan:
   owners:
     - SOC
     - IT Operations
+    - Detection Engineering
   immediate_actions:
     - action: Restrict external access to /admin/ path for php-travel-agency-system
       owner: IT Operations
@@ -126,6 +147,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The manipulation of the argument Search results in sql injection.
+    - lead: Identify suspicious HTTP GET or POST requests directed at admin/customer_detail.php containing SQL syntax characters
+      technique_id: T1190
+      data_needed:
+        - Web server access logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The manipulation of the argument costomer_id/ticket_id/emp_id/salary_id/page_id leads to sql injection.
   mitigation_plan:
     - priority: immediate
       action: Implement WAF rules to block or inspect unauthorized access attempts to the admin session handler
@@ -137,6 +166,11 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-117515
       evidence: Public exploit exists and project has not responded to vulnerability report.
+    - priority: immediate
+      action: Restrict network access to administrative paths and implement WAF rules to block malicious SQL payloads targeting the identified parameters
+      owner: IT Operations
+      addresses: CVE-2026-117514
+      evidence: The exploit is publicly available and might be used.
 updates:
   - at: "2026-10-21T23:48:54Z"
     level: L2
@@ -159,6 +193,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-117516
+  - at: "2026-10-29T21:24:20Z"
+    level: L2
+    summary: added coverage for php-travel-agency-system
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-117514
 ---
 
 CVE-2026-114439 affects the php-travel-agency-system component responsible for session handling. The vulnerability exists in 'admin/session.php', where insufficient validation of the 'user_id' argument allows an attacker to bypass authentication mechanisms. The project follows a rolling release model, and no specific patch or fixed version is currently available. The maintainers have been notified but have not provided a response or a resolution.

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-23-goobi-viewer-traversal
 event_id: brief-2026-10-23-goobi-viewer-traversal
-revision: 3
-activity_at: "2026-10-29T19:58:58Z"
+revision: 4
+activity_at: "2026-10-29T21:25:44Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T16:39:11Z"
@@ -33,11 +33,25 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-55459
+  - revision: 4
+    at: "2026-10-29T21:25:44Z"
+    checksum: sha256:e1e868873cfb1003268113ec6f7186021da27bcab9379ec221f2458f07bc683f
+    summary: added coverage for Goobi viewer (24.03 - 26.04)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-46651
 title: 'Goobi viewer: Arbitrary file write and remote code execution (CVE-2026-46652)'
 slug: 2026-10-goobi-viewer-traversal
 description: Goobi viewer versions 24.03 to 26.04 contain a path traversal vulnerability allowing remote code execution via a malicious Content-Disposition header in external file downloads.
 date: "2026-10-23T15:43:28Z"
-lastmod: "2026-10-29T19:58:26Z"
+lastmod: "2026-10-29T21:23:43Z"
 type: advisory
 types:
   - advisory
@@ -55,6 +69,8 @@ qa_status:
 cpes:
   - cpe:2.3:a:goobi:goobi_viewer:24.03:*:*:*:*:*:*:*
   - cpe:2.3:a:intranda:goobi_viewer:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:goobi:viewer:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:goobi:goobi_viewer:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=CVE-2026-46652&utm_source=rss&utm_medium=rss
@@ -68,6 +84,7 @@ vendors:
 products:
   - Goobi viewer (24.03 - 26.04)
   - Goobi viewer (25.01 - 26.04)
+  - Goobi viewer (>= 25.08, < 26.05)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -91,10 +108,20 @@ cves:
     cvss: 7.4
     epss: 0.00205
     kev_status: "false"
+  - id: CVE-2026-55486
+    cvss: 9.3
+    epss: 0.00257
+    kev_status: "false"
+  - id: CVE-2026-46651
+    cvss: 9.8
+    epss: 0.00378
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-46652
   - https://sploitus.com/exploit?id=CVE-2026-46652&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-55459
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-55486
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-46651
 action_plan:
   priority: immediate_escalation
   owners:
@@ -102,6 +129,10 @@ action_plan:
     - SOC
   immediate_actions:
     - action: Upgrade Goobi viewer to version 26.05
+      owner: IT Operations
+      due: 24h
+      evidence: This issue has been patched in version 26.05.
+    - action: Upgrade Goobi viewer to version 26.05 or later
       owner: IT Operations
       due: 24h
       evidence: This issue has been patched in version 26.05.
@@ -124,6 +155,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: In a multi-RP IdP setup, a token whose single-string aud matches the viewer's client ID but was issued for a different relying party passes the check
+    - lead: Monitor web server access logs for anomalous WebSocket upgrade requests to /tasks/download/monitor.socket
+      technique_id: T1190
+      data_needed:
+        - Web server access logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: The DownloadTaskEndpoint WebSocket endpoint (/tasks/download/monitor.socket) in goobi-viewer-core accepts download requests from unauthenticated users.
   mitigation_plan:
     - priority: immediate
       action: Upgrade Goobi viewer to 26.05
@@ -134,6 +173,11 @@ action_plan:
       action: Upgrade to Goobi viewer 26.05
       owner: IT Operations
       addresses: CVE-2026-55459
+      evidence: This issue has been patched in version 26.05.
+    - priority: immediate
+      action: Apply update to version 26.05
+      owner: IT Operations
+      addresses: CVE-2026-46651
       evidence: This issue has been patched in version 26.05.
 updates:
   - at: "2026-10-23T16:38:36Z"
@@ -150,6 +194,20 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-55459
+  - at: "2026-10-29T21:23:40Z"
+    level: L2
+    summary: added CVE-2026-55486
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-55486
+  - at: "2026-10-29T21:23:43Z"
+    level: L2
+    summary: added coverage for Goobi viewer (24.03 - 26.04)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-46651
 ---
 
 Goobi viewer versions 24.03 through 26.04 are vulnerable to path traversal via the `ExternalFilesDownloader.getFilename()` component. The application fails to sanitize the filename extracted from the `Content-Disposition` header provided by an external HTTP server, passing it directly to `Path.resolve()`. An attacker controlling an external resource can supply absolute paths or directory traversal sequences (e.g., ../) to write files to arbitrary locations writable by the Tomcat process. Exploitation targeting the web application directory results in remote code execution as the Tomcat user. This vulnerability is addressed in version 26.05.
