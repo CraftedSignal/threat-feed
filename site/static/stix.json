@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b956ce01-fb8c-5a8a-9625-e4a3b3759055",
+  "id": "bundle--8197b93a-4e05-587b-8598-996559b88e50",
   "objects": [
     {
       "type": "attack-pattern",
@@ -58209,6 +58209,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bb9e8552-fc5f-5253-9999-9bffde2391d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a8536e9a-37e6-5270-98fb-db85bdf7c4aa",
+      "target_ref": "vulnerability--51f88ce6-7289-5b96-af5e-035c6bcdc4f3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--bba2ff6b-a567-5d06-b60a-772c9c24cf2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T04:23:50.000Z",
@@ -65113,6 +65124,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4730469b-17ff-5d3a-ab63-5615924db38a",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d3cff7ec-c405-51f4-83ad-a425c68a6fb9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e2d18424-de54-539f-b309-e8fa72094689",
+      "target_ref": "vulnerability--51f88ce6-7289-5b96-af5e-035c6bcdc4f3"
     },
     {
       "type": "relationship",
@@ -166039,6 +166061,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--da093d55-5ac2-58dd-9dd8-7ac9c0e47627",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T20:23:21.000Z",
+      "modified": "2026-10-29T20:23:21.000Z",
+      "name": "ESET Endpoint Encryption and Full Disk Encryption Security Bypass (CVE-2026-75882)",
+      "description": "## Overview\n\nA security vulnerability (CVE-2026-75882) has been identified in ESET Endpoint Encryption and ESET Full Disk Encryption. This flaw allows an attacker to bypass security policies, leading to potential compromises of data confidentiality and integrity. The vulnerability affects ESET Endpoint Encryption versions prior to 5.4.29.0 and ESET Full Disk Encryption versions prior to 2.4.8.0 on Windows systems.\n\n## Impact\n\nSuccessful exploitation may result in the unauthorized disclosure of sensitive data, modification of protected data, or the complete circumvention of disk-level security controls enforced by ESET products.\n\n## Recommendation\n\nIdentify and update all instances of ESET Endpoint Encryption and ESET Full Disk Encryption to the latest secure versions as defined in ESET security bulletin ca9033.\n",
+      "published": "2026-10-29T20:23:21.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a8536e9a-37e6-5270-98fb-db85bdf7c4aa",
+        "software--e2d18424-de54-539f-b309-e8fa72094689",
+        "vulnerability--51f88ce6-7289-5b96-af5e-035c6bcdc4f3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-eset-security-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eset-security-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support-feed.eset.com/link/15370/17510515/ca9033"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1416/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-75882"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-eset-security-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-10-29-eset-security-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eset-security-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-10-29T20:23:21.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--da2b417a-3be6-5ea6-b1f9-1ab57c664efd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T09:52:16.000Z",
@@ -194563,6 +194633,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a8536e9a-37e6-5270-98fb-db85bdf7c4aa",
+      "name": "ESET Endpoint Encryption (\u003c 5.4.29.0)",
+      "vendor": "ESET"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a86288a2-5531-5e59-a558-16b40339eaf9",
       "name": "Pillow (\u003e= 5.1.0, \u003c 13.0.0)"
     },
@@ -198472,6 +198549,13 @@
       "id": "software--e2cdd3f7-b896-5cc5-8dca-50c7cfdf441c",
       "name": "Microsoft QUIC",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e2d18424-de54-539f-b309-e8fa72094689",
+      "name": "ESET Full Disk Encryption (\u003c 2.4.8.0)",
+      "vendor": "ESET"
     },
     {
       "type": "software",
@@ -211942,6 +212026,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108799",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108799"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--51f88ce6-7289-5b96-af5e-035c6bcdc4f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-75882",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-75882",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75882"
         }
       ]
     },
