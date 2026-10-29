@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fd1376cb-d03e-5b89-b429-01631a5abddf",
+  "id": "bundle--d643c4b5-2099-57e7-bcb3-a372a3305acf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -199,17 +199,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--03351100-0211-5a94-a3cd-ebc598252223",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--43029398-f7d7-54f6-81e3-08323b2e6220",
-      "target_ref": "vulnerability--382aea9f-542c-5951-b881-84c43a62123b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--05a066cc-382e-5431-ab4f-7b6b0ac654d2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -272,17 +261,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8fc1e6e2-1e65-58f7-9f67-1d3b49679352",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2999a72d-fd2c-58f4-b71a-ab3f4afe83c6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T13:38:31.000Z",
-      "modified": "2026-07-31T13:38:31.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5b2536b1-6697-5eb4-8d04-19b3a0962a47",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -558,17 +536,6 @@
       "relationship_type": "has",
       "source_ref": "software--ad07df1c-8c1a-54e8-811d-6e6df081ce79",
       "target_ref": "vulnerability--1c9937c3-27f6-5b57-ba6f-717927e07e34"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--88c7c33f-1b4c-5f50-b48e-d848e590a14e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f",
-      "target_ref": "vulnerability--9605c7d8-7888-5cfa-8012-bb9c472f5a46"
     },
     {
       "type": "relationship",
@@ -1050,56 +1017,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--30614e77-fa1d-5c6c-b262-51ed2a1c9636",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T13:38:25.000Z",
-      "modified": "2026-07-31T13:38:25.000Z",
-      "name": "Unauthenticated Remote Code Injection in Logsign SIEM",
-      "description": "## Overview\n\nA critical code injection vulnerability (CVE-2026-17561) exists in Logsign SIEM versions earlier than 6.4.108. The vulnerability, classified as CWE-94: Improper Control of Generation of Code, allows an unauthenticated remote attacker to inject and execute arbitrary code on the affected appliance. This flaw stems from a lack of proper validation or sanitization during code generation processes within the SIEM architecture. \n\nGiven the central role of a SIEM in an organization's security infrastructure, the ability for an attacker to gain unauthenticated remote code execution (RCE) represents a significant threat. Successful exploitation could lead to full system compromise, exfiltration of sensitive security logs, or the manipulation of security alerts to hide malicious activity within the target network.\n\n## Impact\n\nThe vulnerability carries a CVSS v3.1 base score of 9.8, reflecting its critical severity. It requires no authentication and utilizes a low-complexity attack vector, making it an attractive target for external threat actors. Organizations using Logsign SIEM are at risk of complete platform takeover, potentially leading to unauthorized data access, lateral movement, or the permanent impairment of security monitoring capabilities.\n\n## Recommendation\n\n1. Upgrade Logsign SIEM to version 6.4.108 or higher immediately to remediate the vulnerability identified by CVE-2026-17561.\n2. Restrict network access to the Logsign SIEM management interface to authorized administrative segments only, ensuring it is not exposed to the public internet.\n3. Review audit logs for anomalous process creation, unexpected outbound network connections from the SIEM appliance, or unauthorized file modifications, which could indicate successful exploitation.\n",
-      "published": "2026-07-31T13:38:25.000Z",
-      "labels": [
-        "code-injection",
-        "rce",
-        "siem",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--43029398-f7d7-54f6-81e3-08323b2e6220",
-        "vulnerability--382aea9f-542c-5951-b881-84c43a62123b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-logsign-code-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-logsign-code-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17561"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://siberguvenlik.gov.tr/guvenlik-bildirimleri/detay/tr-26-0717"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-logsign-code-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-logsign-code-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-logsign-code-injection/",
-      "x_craftedsignal_activity_at": "2026-07-31T13:38:25.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--34836b24-0199-543b-98f1-bd8e398b32ea",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:10:28.000Z",
@@ -1190,53 +1107,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--5b2536b1-6697-5eb4-8d04-19b3a0962a47",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T13:38:31.000Z",
-      "modified": "2026-07-31T13:38:31.000Z",
-      "name": "Denial of Service in gnome-remote-desktop via Connection Throttling Bypass",
-      "description": "## Overview\n\nA vulnerability identified as CVE-2026-18358 exists within the gnome-remote-desktop daemon as implemented in Red Hat Enterprise Linux (RHEL). The flaw specifically impacts systems where the daemon is configured to run in system mode with RDP services enabled. The vulnerability stems from the incoming connection handler failing to enforce proper connection throttling. An unauthenticated attacker can exploit this oversight to initiate a large volume of parallel, pre-authentication RDP connections. By flooding the listener with these connection attempts, the attacker causes the system to accumulate numerous accepted sockets and pending routing-token operations. This sustained resource consumption results in a Denial of Service (DoS) state, preventing authorized users from establishing new RDP sessions. Notably, this flaw is limited to the Red Hat packaging of the software and does not affect upstream versions of gnome-remote-desktop.\n\n## Impact\n\nThe vulnerability poses a significant risk to RHEL environments that rely on gnome-remote-desktop for remote administration or user access. Successful exploitation leads to a complete denial of service for RDP functionality on the affected host. Given that this requires no authentication, remote attackers with network access to the RDP port can persistently interrupt service availability, causing operational disruption for organizations relying on these remote access pathways.\n\n## Recommendation\n\n1. Audit current RHEL deployments to identify hosts running gnome-remote-desktop in system mode with RDP enabled.\n2. Prioritize the application of Red Hat security patches addressing CVE-2026-18358 as they become available.\n3. Implement network-level access control lists (ACLs) or firewall rules to restrict access to the RDP port (default TCP 3389) to known, trusted management segments until the vulnerability is patched.\n4. Monitor system logs for anomalous spikes in incoming connection attempts to the gnome-remote-desktop process to identify active exploitation attempts.\n",
-      "published": "2026-07-31T13:38:31.000Z",
-      "labels": [
-        "cve-2026-18358",
-        "denial-of-service",
-        "linux",
-        "rdp"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f",
-        "vulnerability--9605c7d8-7888-5cfa-8012-bb9c472f5a46"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-31-gnome-remote-desktop-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-gnome-remote-desktop-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18358"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-31-gnome-remote-desktop-dos",
-      "x_craftedsignal_event_id": "brief-2026-07-31-gnome-remote-desktop-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-gnome-remote-desktop-dos/",
-      "x_craftedsignal_activity_at": "2026-07-31T13:38:31.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -2279,13 +2149,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--43029398-f7d7-54f6-81e3-08323b2e6220",
-      "name": "Logsign SIEM",
-      "vendor": "Innotim Software, Telecommunications and Consulting Trade Ltd. Co."
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4648467d-11ba-525e-919a-c848316b9e79",
       "name": "PHP 8.4"
     },
@@ -2438,13 +2301,6 @@
       "vendor": "Netty"
     },
     {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f",
-      "name": "Red Hat Enterprise Linux",
-      "vendor": "Red Hat"
-    },
-    {
       "type": "threat-actor",
       "spec_version": "2.1",
       "id": "threat-actor--8f95f2bd-f796-5d50-96a0-152891a5e92a",
@@ -2514,22 +2370,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-68500",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68500"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--382aea9f-542c-5951-b881-84c43a62123b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-17561",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-17561",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17561"
         }
       ]
     },
@@ -2626,22 +2466,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55100",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55100"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9605c7d8-7888-5cfa-8012-bb9c472f5a46",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18358",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18358",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18358"
         }
       ]
     },

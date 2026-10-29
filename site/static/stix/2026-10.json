@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2e20fc69-d171-5355-af4c-b60cee2b5c3a",
+  "id": "bundle--6bc00d4d-2cdb-5219-bb1b-bc0c03ea131d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13204,6 +13204,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1db7021e-e853-5d99-9f0c-88741382b8d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T13:47:01.000Z",
+      "modified": "2026-10-29T13:47:01.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--95cedd63-3592-5cbd-acff-568be75c687e",
+      "target_ref": "threat-actor--5d67e6b1-bcb5-5ad9-acac-d05686b4e0b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1dca1dea-58d9-501b-86a3-321cab6afe66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:31:18.000Z",
@@ -21934,6 +21945,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c60fbaeb-24dc-5cc0-b1fd-038e6213856f",
       "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--436391d2-1b37-5e20-a514-83e02f6a1fbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T13:47:01.000Z",
+      "modified": "2026-10-29T13:47:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--95cedd63-3592-5cbd-acff-568be75c687e",
+      "target_ref": "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897"
     },
     {
       "type": "relationship",
@@ -125784,6 +125806,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--95cedd63-3592-5cbd-acff-568be75c687e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T13:47:01.000Z",
+      "modified": "2026-10-29T13:47:01.000Z",
+      "name": "Department of Homeland Security: Massive data exfiltration of workforce and internal systems (Icepick)",
+      "description": "## Overview\n\nA threat group calling itself the \"Department of Peace\" has leaked a large archive of Department of Homeland Security (DHS) records, dubbed \"Icepick,\" containing the personal information of 41,000 employees and contractors. The leaked data includes email addresses, phone numbers, office locations, reporting hierarchies, and references to sensitive internal programs, including undercover operations, surveillance initiatives (e.g., CICTO, ISIP), and specialized access groups. The attackers claim the data originated from DHS's Okta environment. Okta has issued a statement denying any compromise of its own systems, suggesting the breach likely occurred via credential compromise or configuration issues within the DHS deployment.\n\n## Impact\n\nThe exposure provides a structural map of DHS operations, identifying individual personnel involved in undercover surveillance (e.g., \"CUC\" and \"Keyhole\" programs) and access to sensitive tools such as Palantir Falcon and PenLink. This data increases the risk of targeted impersonation, reconnaissance of DHS investigative workflows, and potential physical or digital threats to exposed undercover operatives.\n\n## Recommendation\n\n- Perform an immediate audit of all administrative and privileged access roles within the organization's Okta or Identity Provider (IdP) environment.\n- Review and rotate credentials for any service accounts or privileged users observed in external leak monitoring services that correspond to high-risk DHS or similar federal sector roles.\n- Conduct an audit of external-facing system logs for patterns of anomalous authentication or mass data export from centralized identity and access management portals.\n- Identify personnel with elevated access to sensitive investigative platforms and ensure Multi-Factor Authentication (MFA) is strictly enforced and verified against hardware-based security keys where possible.\n",
+      "published": "2026-10-29T13:47:01.000Z",
+      "labels": [
+        "data-leak",
+        "exfiltration",
+        "federal",
+        "identity-compromise"
+      ],
+      "object_refs": [
+        "attack-pattern--3866e24b-251c-5409-b390-26f7184d1897",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6d23350b-683a-5c40-a7f2-f0153e2a71de",
+        "threat-actor--5d67e6b1-bcb5-5ad9-acac-d05686b4e0b0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-dhs-leak",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-dhs-leak/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/security/2026/10/massive-leak-exposes-41000-dhs-workers-and-undercover-ice-agents/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-dhs-leak",
+      "x_craftedsignal_event_id": "brief-2026-10-29-dhs-leak",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dhs-leak/",
+      "x_craftedsignal_activity_at": "2026-10-29T13:47:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--95fefbd0-935e-58f2-ad52-a66f2fe2585a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T18:49:36.000Z",
@@ -173934,6 +174002,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6d23350b-683a-5c40-a7f2-f0153e2a71de",
+      "name": "Okta (DHS instance)",
+      "vendor": "Department of Homeland Security"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6d34ca02-4056-5388-af8f-db9db613cb45",
       "name": "Langflow (\u003c= 1.10.0)",
       "vendor": "Langflow"
@@ -183331,6 +183406,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CLOP"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--5d67e6b1-bcb5-5ad9-acac-d05686b4e0b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Department of Peace"
     },
     {
       "type": "threat-actor",
