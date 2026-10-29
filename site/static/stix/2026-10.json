@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d213a562-a55a-5ff1-9f11-05ed3e3bb1e1",
+  "id": "bundle--289881d5-b643-5130-b523-f0cf7a9077b8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -48593,6 +48593,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b0811d7e-f20a-559f-8783-10b9edc6c1bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3416e9d2-759f-543d-92ee-e85e11269b7b",
+      "target_ref": "vulnerability--4495ab47-136c-5cb9-a598-c33c2d1353e3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b085b21e-a6cb-5aef-924d-b82ecd9d36f7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:56.000Z",
@@ -50250,6 +50261,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dc62623f-8ff5-5332-aa10-f3ff33a7030b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b74c206e-0b2c-525b-951a-969b6191ff97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T09:00:12.000Z",
+      "modified": "2026-10-29T09:00:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--507911ce-838f-5a0b-8233-f1c367b9776a",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -52109,6 +52131,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b19152ca-440e-5f5f-9fd3-1e1337d63e08",
       "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bedf260e-24bd-57da-9069-9209e93e2dd5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8907c52a-9001-55f0-afc5-a21e234300c7",
+      "target_ref": "vulnerability--4495ab47-136c-5cb9-a598-c33c2d1353e3"
     },
     {
       "type": "relationship",
@@ -98296,6 +98329,66 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--507911ce-838f-5a0b-8233-f1c367b9776a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T09:00:12.000Z",
+      "modified": "2026-10-29T09:00:12.000Z",
+      "name": "Cloud Foundry UAA: Privilege leftover vulnerability (CVE-2026-59358)",
+      "description": "## Overview\nCloud Foundry User Account and Authentication (UAA) contains a privilege leftover vulnerability (CVE-2026-59358) that occurs when a single OAuth client ID is configured to support both public user-facing flows (e.g., PKCE) and the `client_credentials` grant type. An attacker can replay their own valid user JWT as a Bearer token during a `client_credentials` grant request to the `/oauth/token` endpoint. The UAA service incorrectly treats this user token as valid client authentication, resulting in the issuance of a client-only token that inherits the configured authorities of that client. If the client holds high-privilege scopes such as `clients.write`, an attacker can create new OAuth clients without a client secret.\n\n## Attack Chain\n1. Target identification: Identify a Cloud Foundry UAA instance where a single `client_id` supports both public user authentication (PKCE) and `client_credentials`.\n2. Token acquisition: Authenticate as a standard user through the public OAuth flow to obtain a valid user access token.\n3. Token replay: Submit a `POST` request to `/oauth/token` with `grant_type=client_credentials`, providing the previously acquired user token in the `Authorization: Bearer` header.\n4. Authentication bypass: The UAA service incorrectly validates the user token as client authentication because the `client_id` matches.\n5. Token minting: UAA issues a new, client-only JWT that carries the authorities assigned to the exploited client ID (e.g., `clients.write`).\n6. Unauthorized action: Use the minted client-only JWT to access restricted endpoints, such as `POST /oauth/clients`, to create new OAuth clients with elevated authorities.\n\n## Impact\nSuccessful exploitation allows an attacker to create new OAuth clients with arbitrary authorities. The scope of impact is limited to the authorities granted to the specific client ID misused in the attack. If `clients.write` is associated with the target client, the attacker can effectively gain administrative control over client management within the UAA instance.\n\n## Recommendation\n- Upgrade Cloud Foundry UAA to version 79.7.0 or newer.\n- Upgrade cf-deployment to version 60.5.0 or newer.\n- Audit existing OAuth client configurations: ensure that public user-facing grants and `client_credentials` grants are never configured for the same `client_id`.\n- Restrict sensitive administrative scopes like `clients.write` to dedicated, non-public client IDs that do not support user-facing authentication flows.\n",
+      "published": "2026-10-29T09:00:12.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cloud-foundry",
+        "oauth",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3416e9d2-759f-543d-92ee-e85e11269b7b",
+        "software--8907c52a-9001-55f0-afc5-a21e234300c7",
+        "vulnerability--4495ab47-136c-5cb9-a598-c33c2d1353e3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-cve-2026-59358",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-59358/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://abraxaslabs.tech/research/cve-2026-59358"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/cloudfoundry/uaa"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59358"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABRAXAS-CVE-2026-59358\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-cve-2026-59358",
+      "x_craftedsignal_event_id": "brief-2026-10-29-cve-2026-59358",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-59358/",
+      "x_craftedsignal_activity_at": "2026-10-29T09:00:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00413,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -167072,6 +167165,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3416e9d2-759f-543d-92ee-e85e11269b7b",
+      "name": "UAA (\u003c v79.7.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--34233d27-1e99-5872-9b86-fdff0d6306c4",
       "name": "Asterisk (\u003c 20.20.1, \u003c 21.12.3, \u003c 22.10.1, \u003c 23.4.1)",
       "vendor": "Asterisk"
@@ -172665,6 +172764,12 @@
       "id": "software--88eabd33-6fa4-596b-b22b-9a41094f0d03",
       "name": "Craft CMS (all versions prior to security patch)",
       "vendor": "Craft CMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8907c52a-9001-55f0-afc5-a21e234300c7",
+      "name": "cf-deployment (\u003c v60.5.0)"
     },
     {
       "type": "software",
@@ -188460,6 +188565,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-34157",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34157"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4495ab47-136c-5cb9-a598-c33c2d1353e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59358",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59358",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59358"
         }
       ]
     },
