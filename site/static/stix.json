@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cd3de54b-f151-57d4-bc40-ff249c5c1143",
+  "id": "bundle--0b07c4f4-10ab-58b7-a92e-548ffab0c532",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8150,6 +8150,17 @@
       "relationship_type": "uses",
       "source_ref": "report--583f1ed5-0d3b-509b-8b71-453ae844c800",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0877d0b1-1f51-5345-b802-43701246529e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T17:53:20.000Z",
+      "modified": "2026-10-29T17:53:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e1c0e072-3c84-5efb-a7bb-72549f2948de",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -36886,6 +36897,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--774ef418-4165-5b89-9848-fa0606eb4750",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b29e6b99-64da-5228-a8e9-cb059e5c1a29",
+      "target_ref": "vulnerability--b7b26af6-66f6-5467-bdb0-ba1aa569a094"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7750260d-ee80-57eb-8b0a-f76a29499232",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61273,6 +61295,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d212da81-9d76-51d8-87cd-7f9ff0b27376",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b29e6b99-64da-5228-a8e9-cb059e5c1a29",
+      "target_ref": "vulnerability--2bdc298d-4e30-5f1f-9911-1e3c3fbc5584"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d2158fdd-6121-58ee-a5db-354a8097647d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61918,6 +61951,17 @@
       "relationship_type": "has",
       "source_ref": "software--23be0f20-6f73-543d-b666-c8b39ca99fc5",
       "target_ref": "vulnerability--fe348db2-b62b-581e-aa38-7aa7c1372ae9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d4ed75d5-6668-5566-9977-72892f85b80f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f3a5e63a-60f7-5b74-8dc6-46d9e5f59ad5",
+      "target_ref": "vulnerability--a9ae81e4-db11-586c-9997-728239e4215c"
     },
     {
       "type": "relationship",
@@ -70586,6 +70630,17 @@
       "relationship_type": "uses",
       "source_ref": "report--7dd588db-45c5-5f2d-8a68-54f269e7d761",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f28be6ff-51e8-5eaa-a980-b7a6cfdd54a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--76c49972-0c2c-5ba2-9cb7-5e98654447f5",
+      "target_ref": "vulnerability--a9ae81e4-db11-586c-9997-728239e4215c"
     },
     {
       "type": "relationship",
@@ -115020,6 +115075,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--680226dd-3dba-59a8-a22e-4f16880d13f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T17:53:37.000Z",
+      "modified": "2026-10-29T17:53:37.000Z",
+      "name": "Centreon: SQL injection in ACL management (CVE-2026-11587)",
+      "description": "## Overview\nCVE-2026-11587 identifies a SQL injection vulnerability within the Centreon ACL management functionality. An authenticated user with access to ACL management can leverage this flaw to read and modify the Centreon database.\n",
+      "published": "2026-10-29T17:53:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--41160be1-0a27-54f6-be42-2f7b2bd5fca6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-centreon-sql-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-centreon-sql-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11587"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-centreon-sql-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-29-centreon-sql-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-centreon-sql-injection/",
+      "x_craftedsignal_activity_at": "2026-10-29T17:53:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--685f5621-cae1-52ed-808d-379aad9598d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T00:37:57.000Z",
@@ -159203,6 +159297,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d84eca18-1f4e-58e6-ae68-516efc73c9cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T17:53:28.000Z",
+      "modified": "2026-10-29T17:53:28.000Z",
+      "name": "Amazon AWS Private CA Connector for Kubernetes: Incorrect authorization in issuer resolution (CVE-2026-119115)",
+      "description": "AWS Private CA Connector for Kubernetes (aws-privateca-issuer) before v1.10.1 contains an incorrect authorization vulnerability in the issuer resolution logic. This may allow an authenticated remote user to obtain certificates, including subordinate CA certificates, signed by a cluster-scoped AWS Private CA issuer that their approval policy does not authorize. \n\nTo remediate, users should upgrade aws-privateca-issuer to v1.10.1 or the AWS Private CA Connector for Kubernetes EKS add-on to v1.10.1-eksbuild.1. Users must also update any certificate requests, Certificate resources, or Ingress annotations whose issuerRef.kind is missing, incorrect, or does not match the referenced issuer, as v1.10.1 requires issuerRef.kind to be exactly AWSPCAIssuer or AWSPCAClusterIssuer.\n",
+      "published": "2026-10-29T17:53:28.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--76c49972-0c2c-5ba2-9cb7-5e98654447f5",
+        "software--f3a5e63a-60f7-5b74-8dc6-46d9e5f59ad5",
+        "vulnerability--a9ae81e4-db11-586c-9997-728239e4215c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-aws-privateca-auth",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-aws-privateca-auth/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119115"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-aws-privateca-auth",
+      "x_craftedsignal_event_id": "brief-2026-10-29-aws-privateca-auth",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aws-privateca-auth/",
+      "x_craftedsignal_activity_at": "2026-10-29T17:53:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d8506d0a-5dc2-520c-9002-7025cfa81bfa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T22:50:47.000Z",
@@ -162893,6 +163028,54 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--e1c0e072-3c84-5efb-a7bb-72549f2948de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T17:53:20.000Z",
+      "modified": "2026-10-29T17:53:20.000Z",
+      "name": "Sigstore-js: Registry credential disclosure (CVE-2026-118763)",
+      "description": "## Overview\n\nThe sigstore-js library, specifically the `RegistryClient.uploadBlob()` method, contains a vulnerability where it fails to constrain the destination of requests to an OCI registry's specified upload location. An attacker who controls or compromises an OCI registry can return a malicious blob-upload URL. When the library attempts to upload an artifact, it sends a PUT request to the attacker's host, including credentials (bearer tokens, Basic auth, or custom headers) originally intended for the legitimate registry. This vulnerability is a residual issue from CVE-2026-59891, where previous fixes were insufficient to scope credentials to the registry origin. Version 0.7.2 addresses this by isolating credentials and enforcing origin matching.\n\n## Impact\n\nSuccessful exploitation allows for the theft of sensitive authentication credentials, including bearer tokens and Basic credentials used for registry access.\n\n## Recommendation\n\n- Upgrade sigstore-js to version 0.7.2 or later immediately.\n- Review registry interaction logs for instances where `attachArtifactToImage()` requests result in redirects or cross-origin POST/PUT operations to non-registry domains.\n- If using sigstore-js within CI/CD pipelines, ensure the registry host configuration follows the principle of least privilege and verify that CI secrets are scoped to specific registry endpoints.\n",
+      "published": "2026-10-29T17:53:20.000Z",
+      "labels": [
+        "credential-theft",
+        "oci",
+        "supply-chain-security"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b29e6b99-64da-5228-a8e9-cb059e5c1a29",
+        "vulnerability--2bdc298d-4e30-5f1f-9911-1e3c3fbc5584",
+        "vulnerability--b7b26af6-66f6-5467-bdb0-ba1aa569a094"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-sigstore-js-credential-leak",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-sigstore-js-credential-leak/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118763"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-sigstore-js-credential-leak",
+      "x_craftedsignal_event_id": "brief-2026-10-29-sigstore-js-credential-leak",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sigstore-js-credential-leak/",
+      "x_craftedsignal_activity_at": "2026-10-29T17:53:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
+      "x_craftedsignal_epss_max": 0.00473,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -184296,6 +184479,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--76c49972-0c2c-5ba2-9cb7-5e98654447f5",
+      "name": "aws-privateca-issuer (before v1.10.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--76cadad9-15f1-588a-a44f-2bb92f0133c2",
       "name": "S/4HANA",
       "vendor": "SAP"
@@ -188459,6 +188648,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b29e6b99-64da-5228-a8e9-cb059e5c1a29",
+      "name": "sigstore-js (\u003c 0.7.2)",
+      "vendor": "Sigstore"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b2e051b6-4f47-50ea-878d-908ad823622b",
       "name": "Wanwu (\u003c 0.6.3)",
       "vendor": "UnicomAI"
@@ -192577,6 +192773,12 @@
       "id": "software--f33c07df-48c0-547a-8ac1-f312c6559321",
       "name": "FusionPBX (\u003c= 5.6.5)",
       "vendor": "FusionPBX"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f3a5e63a-60f7-5b74-8dc6-46d9e5f59ad5",
+      "name": "AWS Private CA Connector for Kubernetes (before v1.10.1)"
     },
     {
       "type": "software",
@@ -199322,6 +199524,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--2bdc298d-4e30-5f1f-9911-1e3c3fbc5584",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-59891",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-59891",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59891"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--2bed77ab-bef3-5618-b0f4-74cc51e0abd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -202180,6 +202398,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108551",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108551"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--41160be1-0a27-54f6-be42-2f7b2bd5fca6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-11587",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-11587",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11587"
         }
       ]
     },
@@ -215770,6 +216004,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--a9ae81e4-db11-586c-9997-728239e4215c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119115",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119115",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119115"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--a9b133b4-3250-598a-ad4e-bbd953e1a09c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -217348,6 +217598,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113875",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113875"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b7b26af6-66f6-5467-bdb0-ba1aa569a094",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118763",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118763",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118763"
         }
       ]
     },
