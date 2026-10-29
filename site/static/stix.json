@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7764f8d5-55c1-52d9-a772-677073c93521",
+  "id": "bundle--01047a7c-536c-50f3-ba87-61aa1093bb0d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3585,6 +3585,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--1db4e8ce-31b7-5d23-b37f-9707b8fe7b4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "name": "ip: 45.59.113.63",
+      "description": "SOCKS proxy observed in evasion testing and ransomware operations",
+      "pattern": "[ipv4-addr:value = '45.59.113.63']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T15:28:54.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--1e8ce76d-703c-5c05-af5f-9239eca5d92d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -4572,6 +4585,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--9c94531d-f6b8-5ffa-af68-109424677589",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "name": "ip: 152.236.4.14",
+      "description": "C2 server used for Cobalt Strike and data exfiltration",
+      "pattern": "[ipv4-addr:value = '152.236.4.14']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T15:28:54.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9cb794f8-3c9a-55bd-8620-01f221ecd654",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -5268,6 +5294,19 @@
       "pattern": "[domain-name:value = '*.fb.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e5d82a96-28dd-5c25-b30e-eb3e3d2dc1eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "name": "ip: 172.86.113.245",
+      "description": "Open directory containing Aur0ra ransomware binaries and attacker toolkits",
+      "pattern": "[ipv4-addr:value = '172.86.113.245']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T15:28:54.000Z"
     },
     {
       "type": "indicator",
@@ -7963,6 +8002,17 @@
       "relationship_type": "uses",
       "source_ref": "report--eb2adb75-699e-54cc-b957-44e516597832",
       "target_ref": "indicator--72c5eabc-8d07-5909-b59b-b828fe59b442"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--07e2a226-a81a-5bc7-9d59-33530b3afcf1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "target_ref": "indicator--1db4e8ce-31b7-5d23-b37f-9707b8fe7b4e"
     },
     {
       "type": "relationship",
@@ -17548,6 +17598,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2e69feb4-2b95-50e1-8881-14a8bd636987",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1c5a1b0d-5fb6-50c9-a50c-5cb409dc8fc0",
+      "target_ref": "vulnerability--af1a3f3f-d676-5c20-b1c1-78a13d2400a7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2e6bc57c-e870-59db-b6f4-e59da9da7c9a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21090,6 +21151,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3ce7e324-8ceb-550c-a991-110960a4be38",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--282e894b-bafa-5839-b9ae-1d22969cb5a7",
+      "target_ref": "vulnerability--af8ce765-de03-551f-a30a-427186bbd634"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3cef7651-066a-5b61-b520-41db7000b56e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22450,6 +22522,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cd4b5938-fd7f-59af-bf1f-610f174e8261",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4262d82f-53b0-59ef-b986-b4408b452348",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "target_ref": "indicator--e5d82a96-28dd-5c25-b30e-eb3e3d2dc1eb"
     },
     {
       "type": "relationship",
@@ -25204,6 +25287,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4cdaa1c0-70e0-5ba0-8de2-c775957282fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4cdb6735-2ed0-5f59-9416-56800f27abab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:17:33.000Z",
@@ -27690,6 +27784,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--56908137-f111-598e-b3f0-34ce1523a2c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:29:07.000Z",
+      "modified": "2026-10-29T15:29:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--daad2589-eeed-5a82-ae6b-01be0f85bc7a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--56acae57-0927-5e97-b0bd-c89445cd1678",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29842,6 +29947,17 @@
       "relationship_type": "uses",
       "source_ref": "report--65fb3357-606b-5ace-b30e-6eb964b6791d",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e8dbf0c-2d9c-539b-8a8d-9d67203cd1ae",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "target_ref": "indicator--9c94531d-f6b8-5ffa-af68-109424677589"
     },
     {
       "type": "relationship",
@@ -38950,6 +39066,17 @@
       "relationship_type": "uses",
       "source_ref": "report--aaf91e96-b380-5301-954a-c387b9f5f95a",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--817df401-ba2a-5ceb-afcf-9f55fb23c7a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:29:15.000Z",
+      "modified": "2026-10-29T15:29:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--446f45d2-c1c1-5558-8e06-27a69e901918",
+      "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
     },
     {
       "type": "relationship",
@@ -59216,6 +59343,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cddc3b7d-9fa6-563b-9a41-84efedc63fa4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "target_ref": "attack-pattern--d0244b2b-f5e2-57ad-b3c6-8822b9d0a3d4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cdea750f-81c9-5858-a047-6c740f3ca3bb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64914,6 +65052,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e2298d88-51fc-5065-804f-64043bd0b1ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e22a0966-5eb2-5e30-8a8a-133be29bc0c8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -68980,6 +69129,17 @@
       "relationship_type": "has",
       "source_ref": "software--f23de6c5-0a91-5488-a7fe-a79a0b16244e",
       "target_ref": "vulnerability--a9f0dbf0-3f84-5574-b5bd-03744658150d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef6461b5-f18b-5386-8679-a4bb16fcdfd7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "target_ref": "threat-actor--bf79eaaa-f5c3-5547-b77f-5c4f5562cca5"
     },
     {
       "type": "relationship",
@@ -76616,7 +76776,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00236,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -78444,7 +78605,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00649,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -84427,6 +84589,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.01405,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -85924,8 +86087,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00438,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.02524,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -99873,6 +100036,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--446f45d2-c1c1-5558-8e06-27a69e901918",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:29:15.000Z",
+      "modified": "2026-10-29T15:29:15.000Z",
+      "name": "OpenStack Ironic: Conductor denial-of-service via gzip bomb (CVE-2026-115638)",
+      "description": "## Overview\nA vulnerability (CVE-2026-115638) exists in the OpenStack Ironic Conductor service where processing a specifically crafted 'gzip bomb' within a configdrive can cause excessive resource consumption. This leads to instability or failure of the conductor service. The vulnerability affects multiple versions of Ironic as specified in the OSSA-2026-049 advisory.\n\n## Impact\nSuccessful exploitation allows an attacker to trigger a denial-of-service condition on the Ironic Conductor, potentially disrupting bare metal provisioning and management operations.\n\n## Recommendation\n- Update OpenStack Ironic to the patched versions as recommended in OSSA-2026-049:\n - Upgrade 16.2.x series to \u003e= 29.1.1\n - Upgrade 30.0.x series to \u003e= 32.1.1\n - Upgrade 33.0.x series to \u003e= 35.1.1\n - Upgrade 36.0.x series to \u003e= 39.0.1\n- Monitor Ironic Conductor logs for unexpected process crashes, memory exhaustion errors, or high CPU utilization during configuration drive submission tasks.\n",
+      "published": "2026-10-29T15:29:15.000Z",
+      "labels": [
+        "cloud",
+        "denial-of-service",
+        "openstack"
+      ],
+      "object_refs": [
+        "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1c5a1b0d-5fb6-50c9-a50c-5cb409dc8fc0",
+        "vulnerability--af1a3f3f-d676-5c20-b1c1-78a13d2400a7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-ironic-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ironic-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/433"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-ironic-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-29-ironic-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ironic-dos/",
+      "x_craftedsignal_activity_at": "2026-10-29T15:29:15.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.00212,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--44703e8c-9bef-5202-8041-0581d5e28dd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:35:59.000Z",
@@ -100997,7 +101207,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.87988,
+      "x_craftedsignal_epss_max": 0.82641,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -117832,7 +118042,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.01024,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -133111,8 +133322,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.01396,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.22478,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -158650,6 +158861,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--daad2589-eeed-5a82-ae6b-01be0f85bc7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:29:07.000Z",
+      "modified": "2026-10-29T15:29:07.000Z",
+      "name": "OpenStack keystonemiddleware: Access control bypass via X-Service-Token (CVE-2026-115642)",
+      "description": "## Overview\nA vulnerability (CVE-2026-115642) exists in the OpenStack keystonemiddleware component. The flaw allows an attacker to bypass established access_rules by manipulating the X-Service-Token header, leading to unauthorized access to restricted resources. Affected versions include those \u003c10.9.2, 10.10.0-10.12.1, 11.0.0-12.0.0, and 13.0.0-13.0.1.\n\n## Impact\nSuccessful exploitation allows for the bypass of access control restrictions, potentially exposing sensitive OpenStack service resources to unauthorized entities.\n\n## Recommendation\n- Upgrade OpenStack keystonemiddleware to a patched version (\u003e=10.9.2, \u003e=10.12.2, \u003e=12.0.1, or \u003e=13.0.2).\n- Review OpenStack logs for requests containing anomalous X-Service-Token headers targeting sensitive endpoints.\n",
+      "published": "2026-10-29T15:29:07.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--282e894b-bafa-5839-b9ae-1d22969cb5a7",
+        "vulnerability--af8ce765-de03-551f-a30a-427186bbd634"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-openstack-keystonemiddleware-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openstack-keystonemiddleware-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/434"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-openstack-keystonemiddleware-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-29-openstack-keystonemiddleware-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openstack-keystonemiddleware-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-29T15:29:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dab0656d-50a8-5786-8510-67f142469f1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T12:09:58.000Z",
@@ -166957,6 +167208,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01182,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -169921,6 +170173,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f6575553-5c5a-5c2b-869d-33901b5e728a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:28:54.000Z",
+      "modified": "2026-10-29T15:28:54.000Z",
+      "name": "GOLD OGRE: AI-Assisted Intrusion and Aur0ra Ransomware Operations",
+      "description": "## Overview\n\nSophos analysts identified the GOLD OGRE threat group using AI-assisted frameworks to orchestrate ransomware operations. The actors utilize Cursor AI, alongside Anthropic, xAI, and Moonshot models, to bypass security controls and automate post-exploitation activities. By framing malicious tasks as authorized \"red team activity\" or \"diagnostics,\" actors use agentic AI to escalate privileges, enumerate Active Directory, and perform lateral movement before deploying Aur0ra ransomware.\n\n## Attack Chain\n\n1. Initial Access: Operators provide VPN credentials and SOCKS access to AI agents.\n2. EDR Evasion Testing: Actors use Cursor AI-assisted frameworks to test detection capabilities against security agents.\n3. Internal Discovery: Agents execute Nmap and NetExec to scan subnets and BloodHound to map Active Directory.\n4. Privilege Escalation: Agents conduct Kerberoasting, NTLM relay attacks (e.g., PetitPotam, Coerce Plus), and credential extraction.\n5. Lateral Movement: Agents enumerate network shares, backup repositories, and virtualization endpoints.\n6. Data Collection: Tools like SharpShares are used to stage data from shares and documents.\n7. Exfiltration: Staged data is exfiltrated to S3-compatible storage buckets via command-line tools.\n8. Impact: Deployment of Aur0ra ransomware and subsequent data leakage on extortion sites.\n\n## Recommendation\n\n- Monitor for anomalous use of AI/IDE tools like Cursor in enterprise environments, especially if used to execute network commands or enumeration tools.\n- Audit and restrict NTLM authentication pathways and enforce SMB signing to mitigate relay attacks (e.g., PetitPotam).\n- Implement stringent egress filtering to prevent unauthorized data exfiltration to non-approved S3-compatible storage endpoints.\n- Review and tighten access to backup repositories and virtualized infrastructure to prevent bulk data staging.\n",
+      "published": "2026-10-29T15:28:54.000Z",
+      "labels": [
+        "ai-assisted",
+        "aur0ra",
+        "cobalt-strike",
+        "exfiltration",
+        "gold-ogre",
+        "ransomware"
+      ],
+      "object_refs": [
+        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "attack-pattern--d0244b2b-f5e2-57ad-b3c6-8822b9d0a3d4",
+        "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--1db4e8ce-31b7-5d23-b37f-9707b8fe7b4e",
+        "indicator--9c94531d-f6b8-5ffa-af68-109424677589",
+        "indicator--e5d82a96-28dd-5c25-b30e-eb3e3d2dc1eb",
+        "software--a32fd015-1b30-5ca6-b872-e6c2d7e2e502",
+        "software--bda1cdc3-a1a4-5e19-9e1e-287222833719",
+        "threat-actor--bf79eaaa-f5c3-5547-b77f-5c4f5562cca5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-aur0ra-ransomware-ai",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-aur0ra-ransomware-ai/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.sophos.com/en-us/blog/ai-used-in-aur0ra-ransomware-testing-and-execution"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-aur0ra-ransomware-ai",
+      "x_craftedsignal_event_id": "brief-2026-10-29-aur0ra-ransomware-ai",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-aur0ra-ransomware-ai/",
+      "x_craftedsignal_activity_at": "2026-10-29T15:28:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f65b4c69-836e-5e5e-9c6d-926cc8607f32",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T12:35:05.000Z",
@@ -170173,7 +170479,7 @@
         "observed_at": "2026-10-24T06:25:57.000Z",
         "confidence": "medium"
       },
-      "x_craftedsignal_epss_max": 0.12328,
+      "x_craftedsignal_epss_max": 0.73307,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -175674,6 +175980,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1c5a1b0d-5fb6-50c9-a50c-5cb409dc8fc0",
+      "name": "Ironic (\u003e=16.2.0 \u003c29.1.1, \u003e=30.0.0 \u003c32.1.1, \u003e=33.0.0 \u003c35.1.1, \u003e=36.0.0 \u003c39.0.1)",
+      "vendor": "OpenStack"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1c9b751b-437f-5395-8e7c-0bc59b72a50e",
       "name": "compression (\u003c 1.8.2)",
       "vendor": "Node.js Foundation"
@@ -176493,6 +176806,13 @@
       "id": "software--2807c2ad-8987-5842-88af-bc1949b2233e",
       "name": "Highcharts (npm/highcharts 12.0.0 - 12.6.2)",
       "vendor": "Highcharts"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--282e894b-bafa-5839-b9ae-1d22969cb5a7",
+      "name": "keystonemiddleware (\u003c10.9.2, \u003e=10.10.0 \u003c10.12.2, \u003e=11.0.0 \u003c12.0.1, \u003e=13.0.0 \u003c13.0.2)",
+      "vendor": "OpenStack"
     },
     {
       "type": "software",
@@ -184940,6 +185260,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a32fd015-1b30-5ca6-b872-e6c2d7e2e502",
+      "name": "Windows Server"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a3363348-e854-5705-b036-0bc250c30a39",
       "name": "Kafka (4.3.0 \u003c= version \u003c 4.3.2)",
       "vendor": "Apache"
@@ -191202,6 +191528,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "FAMOUS CHOLLIMA"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--bf79eaaa-f5c3-5547-b77f-5c4f5562cca5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "GOLD OGRE"
     },
     {
       "type": "threat-actor",
@@ -213646,6 +213981,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--af1a3f3f-d676-5c20-b1c1-78a13d2400a7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115638",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115638",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115638"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--af35fe5e-7194-5562-a315-9b84b6208518",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -213704,6 +214055,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112849",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112849"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--af8ce765-de03-551f-a30a-427186bbd634",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115642",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115642",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115642"
         }
       ]
     },
