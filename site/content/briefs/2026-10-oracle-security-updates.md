@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-oracle-security-updates
 event_id: brief-2026-10-oracle-security-updates
-revision: 43
-activity_at: "2026-10-21T23:50:40Z"
+revision: 44
+activity_at: "2026-10-29T20:03:29Z"
 revision_history:
   - revision: 2
     at: "2026-10-21T00:10:35Z"
@@ -521,18 +521,36 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91403
+  - revision: 44
+    at: "2026-10-29T20:03:29Z"
+    checksum: sha256:8828fa32b55ad1de2abd40ec1fefcebe58e07bcc641bcbf97347dfd6a01b14cf
+    summary: added CVE-2026-101464
+    changed_fields:
+      - claim_state
+      - content
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114820
 title: Oracle Security Updates - October 2026
 slug: 2026-10-oracle-security-updates
 description: Roundup of Oracle security advisories published in October 2026.
 date: "2026-10-21T00:09:53Z"
-lastmod: "2026-10-21T23:48:33Z"
+lastmod: "2026-10-29T20:01:36Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
   - high
 exploitation_evidence:
   status: unknown
+cpes:
+  - cpe:2.3:a:oracle:identity_manager_connector:12.2.1.4.0:*:*:*:*:*:*:*
+  - cpe:2.3:a:oracle:identity_manager_connector:14.1.2.1.0:*:*:*:*:*:*:*
 tags:
   - roundup
 vendors:
@@ -606,7 +624,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-83399
     cvss: 9.8
-    epss: 0.00522
+    epss: 0.00496
     kev_status: "false"
   - id: CVE-2026-87251
     cvss: 9.8
@@ -652,6 +670,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-91234
     cvss: 9.8
+    epss: 0.0045
     kev_status: "false"
   - id: CVE-2026-91235
     cvss: 9.8
@@ -691,6 +710,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-91490
     cvss: 9.1
+    epss: 0.00396
     kev_status: "false"
   - id: CVE-2026-91495
     cvss: 9.8
@@ -743,6 +763,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-101495
     cvss: 8.8
+    epss: 0.00428
     kev_status: "false"
   - id: CVE-2026-101498
     cvss: 8.1
@@ -776,6 +797,10 @@ cves:
     cvss: 7.5
     epss: 0.00118
     kev_status: "false"
+  - id: CVE-2026-101464
+    cvss: 7.1
+    epss: 0.00158
+    kev_status: "false"
   - id: CVE-2026-91236
     kev_status: unknown
   - id: CVE-2026-91622
@@ -798,6 +823,8 @@ cves:
     kev_status: unknown
   - id: CVE-2026-91403
     kev_status: unknown
+  - id: CVE-2026-114820
+    kev_status: unknown
   - id: CVE-2026-91220
     kev_status: unknown
   - id: CVE-2026-91230
@@ -817,8 +844,6 @@ cves:
   - id: CVE-2026-101458
     kev_status: unknown
   - id: CVE-2026-101463
-    kev_status: unknown
-  - id: CVE-2026-101464
     kev_status: unknown
   - id: CVE-2026-101468
     kev_status: unknown
@@ -893,15 +918,8 @@ cves:
   - id: CVE-2026-101598
     kev_status: unknown
 references:
-  - https://nvd.nist.gov/vuln/detail/CVE-2026-91403
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-114820
 updates:
-  - at: "2026-10-21T00:36:17Z"
-    level: L2
-    summary: added CVE-2026-101467 +2
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-101562
   - at: "2026-10-21T00:36:19Z"
     level: L2
     summary: added CVE-2026-101520 +1
@@ -930,9 +948,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-91403
+  - at: "2026-10-29T20:01:36Z"
+    level: L2
+    summary: added CVE-2026-101464
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-114820
 ---
 
-This roundup covers 132 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Agile PLM, Agile Product Lifecycle Management for Process, Application Testing Suite, Autonomous Health Framework, Business Process Management Suite, Communications Billing and Revenue Management, Data Integrator, E-Business Suite, Enterprise Manager for Oracle Database, Essbase, Fusion Middleware, Helidon, Identity Manager Connector, JD Edwards EnterpriseOne Orchestrator, JD Edwards EnterpriseOne Tools, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Business Process Management Suite, Oracle Communications BRM - Elastic Charging Engine, Oracle Data Integrator, Oracle E-Business Suite, Oracle Enterprise Manager Base Platform, Oracle Enterprise Manager for Siebel, Oracle HTTP Server, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle SOA Suite, Oracle VM VirtualBox, Outside In Technology, Product Lifecycle Analytics, REST Data Services, SOA Suite, Secure Backup, Siebel CRM, Siebel CRM Cloud Applications, Siebel CRM Deployment, Siebel CRM Development, Solaris, Trusted Answer Search, VM VirtualBox, WebCenter Content, WebCenter Sites, WebLogic Server.
+This roundup covers 133 Oracle security vulnerabilities. CVSS base scores range from 7.0 to 10.0. None are reported as actively exploited at the time of release. The issues affect APEX, Agile PLM, Agile Product Lifecycle Management for Process, Application Testing Suite, Autonomous Health Framework, Business Process Management Suite, Communications Billing and Revenue Management, Data Integrator, E-Business Suite, Enterprise Manager for Oracle Database, Essbase, Fusion Middleware, Helidon, Identity Manager Connector, JD Edwards EnterpriseOne Orchestrator, JD Edwards EnterpriseOne Tools, Java SE, Oracle Access Manager, Oracle Business Intelligence Enterprise Edition, Oracle Business Process Management Suite, Oracle Communications BRM - Elastic Charging Engine, Oracle Data Integrator, Oracle E-Business Suite, Oracle Enterprise Manager Base Platform, Oracle Enterprise Manager for Siebel, Oracle HTTP Server, Oracle Identity Manager, Oracle Identity Manager Connector, Oracle SOA Suite, Oracle VM VirtualBox, Outside In Technology, Product Lifecycle Analytics, REST Data Services, SOA Suite, Secure Backup, Siebel CRM, Siebel CRM Cloud Applications, Siebel CRM Deployment, Siebel CRM Development, Solaris, Trusted Answer Search, VM VirtualBox, WebCenter Content, WebCenter Sites, WebLogic Server.
 
 ## Summary
 
@@ -952,12 +977,12 @@ This roundup covers 132 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-101763](#cve-2026-101763) | Oracle Communications BRM - Elastic Charging Engine (15.0.0.0.0, 15.0.1.0.0, 15.1.0.0.0, 15.2.0.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101763) (authoritative) |
 | [CVE-2026-101765](#cve-2026-101765) | Communications Billing and Revenue Management (15.0.0.0.0, 15.0.1.0.0, 15.1.0.0.0, 15.2.0.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101765) (authoritative) |
 | [CVE-2026-101767](#cve-2026-101767) | Oracle E-Business Suite (12.2.3-12.2.15) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101767) (authoritative) |
-| [CVE-2026-101808](#cve-2026-101808) | E-Business Suite (12.2.3-12.2.15) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101808) (authoritative) |
+| [CVE-2026-101808](#cve-2026-101808) | E-Business Suite (12.2.3-12.2.15) | Critical | 9.1 | 0.43% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101808) (authoritative) |
 | [CVE-2026-101809](#cve-2026-101809) | E-Business Suite (12.2.3-12.2.15) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101809) (authoritative) |
 | [CVE-2026-60432](#cve-2026-60432) | Solaris (11.3, 11.4) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-60432) (authoritative) |
 | [CVE-2026-83396](#cve-2026-83396) | Oracle Data Integrator (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83396) (authoritative) |
 | [CVE-2026-83397](#cve-2026-83397) | Data Integrator (12.2.1.4.0, 14.1.2.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83397) (authoritative) |
-| [CVE-2026-83399](#cve-2026-83399) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83399) (authoritative) |
+| [CVE-2026-83399](#cve-2026-83399) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.8 | 0.52% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-83399) (authoritative) |
 | [CVE-2026-87251](#cve-2026-87251) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87251) (authoritative) |
 | [CVE-2026-87302](#cve-2026-87302) | WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0) | Critical | 9.1 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87302) (authoritative) |
 | [CVE-2026-87337](#cve-2026-87337) | Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0) | Critical | 10.0 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-87337) (authoritative) |
@@ -998,7 +1023,7 @@ This roundup covers 132 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-91644](#cve-2026-91644) | Essbase (21.8.3.0.0) | Critical | 9.3 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91644) (authoritative) |
 | [CVE-2026-91655](#cve-2026-91655) | Essbase (21.8.3.0.0) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91655) (authoritative) |
 | [CVE-2026-91656](#cve-2026-91656) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91656) (authoritative) |
-| [CVE-2026-91658](#cve-2026-91658) | Essbase (21.8.3.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91658) (authoritative) |
+| [CVE-2026-91658](#cve-2026-91658) | Essbase (21.8.3.0.0) | Critical | 9.9 | 0.29% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91658) (authoritative) |
 | [CVE-2026-91663](#cve-2026-91663) | Essbase (21.8.3.0.0) | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91663) (authoritative) |
 | [CVE-2026-91665](#cve-2026-91665) | Essbase (21.8.3.0.0) | Critical | 9.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91665) (authoritative) |
 | [CVE-2026-101387](#cve-2026-101387) | E-Business Suite (12.2.3-12.2.15) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101387) (authoritative) |
@@ -1011,7 +1036,7 @@ This roundup covers 132 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-101458](#cve-2026-101458) | Siebel CRM (17.0-26.9) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101458) (authoritative) |
 | [CVE-2026-101459](#cve-2026-101459) | Siebel CRM Deployment (17.0-26.9) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101459) (authoritative) |
 | [CVE-2026-101460](#cve-2026-101460) | Siebel CRM (17.0-26.9) | High | 7.5 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101460) (authoritative) |
-| [CVE-2026-101461](#cve-2026-101461) | n/a |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101461) (authoritative) |
+| [CVE-2026-101461](#cve-2026-101461) | n/a | High | 7.5 | 0.40% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101461) (authoritative) |
 | [CVE-2026-101463](#cve-2026-101463) | Siebel CRM (17.0-26.9) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101463) (authoritative) |
 | [CVE-2026-101464](#cve-2026-101464) | Siebel CRM (17.0 - 26.9) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101464) (authoritative) |
 | [CVE-2026-101466](#cve-2026-101466) | Oracle E-Business Suite (12.2.3-12.2.15) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101466) (authoritative) |
@@ -1069,7 +1094,8 @@ This roundup covers 132 Oracle security vulnerabilities. CVSS base scores range 
 | [CVE-2026-101594](#cve-2026-101594) | Agile Product Lifecycle Management for Process (6.2.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101594) (authoritative) |
 | [CVE-2026-101596](#cve-2026-101596) | Agile Product Lifecycle Management for Process (6.2.4) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101596) (authoritative) |
 | [CVE-2026-101598](#cve-2026-101598) | VM VirtualBox (7.2.20) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101598) (authoritative) |
-| [CVE-2026-101599](#cve-2026-101599) | Oracle VM VirtualBox (7.2.20) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101599) (authoritative) |
+| [CVE-2026-101599](#cve-2026-101599) | Oracle VM VirtualBox (7.2.20) | High | 7.5 | 0.12% | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-101599) (authoritative) |
+| [CVE-2026-91403](#cve-2026-91403) | Java SE (8u511, 8u511-perf, 11.0.33, 17.0.21, 21.0.13, 25.0.5, 27.0.1) |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-91403) (authoritative) |
 
 
 ## CVE-2026-101446
@@ -1147,6 +1173,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101446
 
 
 
+
 Related in this roundup: [CVE-2026-101438](#cve-2026-101438).
 
 ## CVE-2026-101484
@@ -1157,6 +1184,7 @@ Affected products:
 - Secure Backup (19.1.0.0.0, 19.1.0.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101484
+
 
 
 
@@ -1353,6 +1381,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101501
 
 
 
+
 Related in this roundup: [CVE-2026-101503](#cve-2026-101503), [CVE-2026-101498](#cve-2026-101498), [CVE-2026-101504](#cve-2026-101504), [CVE-2026-101505](#cve-2026-101505), [CVE-2026-101506](#cve-2026-101506).
 
 ## CVE-2026-101503
@@ -1363,6 +1392,7 @@ Affected products:
 - Trusted Answer Search (26.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101503
+
 
 
 
@@ -1641,6 +1671,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101537
 
 
 
+
 Related in this roundup: [CVE-2026-60432](#cve-2026-60432).
 
 ## CVE-2026-101590
@@ -1651,6 +1682,7 @@ Affected products:
 - Helidon (4.0.0-4.5.5)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101590
+
 
 
 
@@ -1671,6 +1703,7 @@ Affected products:
 - Oracle Mobile Field Service (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101634
+
 
 
 
@@ -1937,6 +1970,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101767
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101398](#cve-2026-101398), [CVE-2026-101466](#cve-2026-101466), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101534](#cve-2026-101534), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101541](#cve-2026-101541), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101543](#cve-2026-101543), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101554](#cve-2026-101554), [CVE-2026-101556](#cve-2026-101556), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101808
@@ -1947,6 +1981,7 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101808
+
 
 
 
@@ -2191,6 +2226,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101809
 
 
 
+
 Related in this roundup: [CVE-2026-101808](#cve-2026-101808), [CVE-2026-101387](#cve-2026-101387), [CVE-2026-101536](#cve-2026-101536), [CVE-2026-101540](#cve-2026-101540), [CVE-2026-101545](#cve-2026-101545), [CVE-2026-101546](#cve-2026-101546), [CVE-2026-101551](#cve-2026-101551), [CVE-2026-101552](#cve-2026-101552), [CVE-2026-101555](#cve-2026-101555), [CVE-2026-101557](#cve-2026-101557), [CVE-2026-101566](#cve-2026-101566).
 
 ## CVE-2026-60432
@@ -2201,6 +2237,7 @@ Affected products:
 - Solaris (11.3, 11.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-60432
+
 
 
 
@@ -2456,6 +2493,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-83399
 
 
 
+
 Related in this roundup: [CVE-2026-87302](#cve-2026-87302), [CVE-2026-91323](#cve-2026-91323).
 
 ## CVE-2026-87251
@@ -2466,6 +2504,7 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87251
+
 
 
 
@@ -2697,6 +2736,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87302
 
 
 
+
 Related in this roundup: [CVE-2026-83399](#cve-2026-83399), [CVE-2026-91323](#cve-2026-91323).
 
 ## CVE-2026-87337
@@ -2707,6 +2747,7 @@ Affected products:
 - Oracle Access Manager (12.2.1.4.0, 14.1.2.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-87337
+
 
 
 
@@ -2943,6 +2984,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91214
 
 
 
+
 Related in this roundup: [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91216
@@ -2953,6 +2995,7 @@ Affected products:
 - SOA Suite (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91216
+
 
 
 
@@ -3174,6 +3217,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91218
 
 
 
+
 Related in this roundup: [CVE-2026-91221](#cve-2026-91221), [CVE-2026-91251](#cve-2026-91251).
 
 ## CVE-2026-91220
@@ -3276,6 +3320,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91220
 
 
 
+
 Related in this roundup: [CVE-2026-91243](#cve-2026-91243).
 
 ## CVE-2026-91221
@@ -3286,6 +3331,7 @@ Affected products:
 - Oracle SOA Suite (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91221
+
 
 
 
@@ -3511,6 +3557,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91224
 
 
 
+
 Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91225
@@ -3521,6 +3568,7 @@ Affected products:
 - SOA Suite (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91225
+
 
 
 
@@ -3732,6 +3780,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91230
 
 
 
+
 Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91231
@@ -3841,6 +3890,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91231
 
 
 
+
 Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91232
@@ -3851,6 +3901,7 @@ Affected products:
 - SOA Suite (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91232
+
 
 
 
@@ -4061,6 +4112,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91234
 
 
 
+
 Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91235
@@ -4071,6 +4123,7 @@ Affected products:
 - SOA Suite (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91235
+
 
 
 
@@ -4270,6 +4323,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91236
 
 
 
+
 Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91250](#cve-2026-91250).
 
 ## CVE-2026-91241
@@ -4313,6 +4367,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91241
 
 
 
+
 Related in this roundup: [CVE-2026-101531](#cve-2026-101531).
 
 ## CVE-2026-91243
@@ -4323,6 +4378,7 @@ Affected products:
 - Oracle Business Process Management Suite (12.2.1.4.0, 14.1.2.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91243
+
 
 
 
@@ -4516,6 +4572,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91250
 
 
 
+
 Related in this roundup: [CVE-2026-91214](#cve-2026-91214), [CVE-2026-91216](#cve-2026-91216), [CVE-2026-91224](#cve-2026-91224), [CVE-2026-91225](#cve-2026-91225), [CVE-2026-91230](#cve-2026-91230), [CVE-2026-91231](#cve-2026-91231), [CVE-2026-91232](#cve-2026-91232), [CVE-2026-91234](#cve-2026-91234), [CVE-2026-91235](#cve-2026-91235), [CVE-2026-91236](#cve-2026-91236).
 
 ## CVE-2026-91251
@@ -4616,6 +4673,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91251
 
 
 
+
 Related in this roundup: [CVE-2026-91218](#cve-2026-91218), [CVE-2026-91221](#cve-2026-91221).
 
 ## CVE-2026-91265
@@ -4626,6 +4684,7 @@ Affected products:
 - JD Edwards EnterpriseOne Tools (9.2.0.0-9.2.26.5)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91265
+
 
 
 
@@ -4819,6 +4878,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91305
 
 
 
+
 Related in this roundup: [CVE-2026-91265](#cve-2026-91265).
 
 ## CVE-2026-91323
@@ -4829,6 +4889,7 @@ Affected products:
 - WebLogic Server (12.2.1.4.0, 14.1.1.0.0, 14.1.2.0.0, 15.1.1.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91323
+
 
 
 
@@ -5009,6 +5070,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91341
 
 
 
+
 Related in this roundup: [CVE-2026-91354](#cve-2026-91354).
 
 ## CVE-2026-91354
@@ -5019,6 +5081,7 @@ Affected products:
 - Outside In Technology (8.5.8)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91354
+
 
 
 
@@ -5227,6 +5290,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91622
 
 
 
+
 Related in this roundup: [CVE-2026-91624](#cve-2026-91624), [CVE-2026-101473](#cve-2026-101473), [CVE-2026-101593](#cve-2026-101593), [CVE-2026-101594](#cve-2026-101594), [CVE-2026-101596](#cve-2026-101596).
 
 ## CVE-2026-91624
@@ -5237,6 +5301,7 @@ Affected products:
 - Agile Product Lifecycle Management for Process (6.2.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91624
+
 
 
 
@@ -5401,6 +5466,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91637
 
 
 
+
 Related in this roundup: [CVE-2026-91638](#cve-2026-91638), [CVE-2026-91644](#cve-2026-91644), [CVE-2026-91655](#cve-2026-91655), [CVE-2026-91658](#cve-2026-91658), [CVE-2026-91663](#cve-2026-91663), [CVE-2026-91665](#cve-2026-91665).
 
 ## CVE-2026-91638
@@ -5411,6 +5477,7 @@ Affected products:
 - Essbase (21.8.3.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91638
+
 
 
 
@@ -5572,6 +5639,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91644
 
 
 
+
 Related in this roundup: [CVE-2026-91637](#cve-2026-91637), [CVE-2026-91638](#cve-2026-91638), [CVE-2026-91655](#cve-2026-91655), [CVE-2026-91658](#cve-2026-91658), [CVE-2026-91663](#cve-2026-91663), [CVE-2026-91665](#cve-2026-91665).
 
 ## CVE-2026-91655
@@ -5582,6 +5650,7 @@ Affected products:
 - Essbase (21.8.3.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91655
+
 
 
 
@@ -5744,6 +5813,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91658
 
 
 
+
 Related in this roundup: [CVE-2026-91637](#cve-2026-91637), [CVE-2026-91638](#cve-2026-91638), [CVE-2026-91644](#cve-2026-91644), [CVE-2026-91655](#cve-2026-91655), [CVE-2026-91663](#cve-2026-91663), [CVE-2026-91665](#cve-2026-91665).
 
 ## CVE-2026-91663
@@ -5754,6 +5824,7 @@ Affected products:
 - Essbase (21.8.3.0.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91663
+
 
 
 
@@ -5905,6 +5976,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91665
 
 
 
+
 Related in this roundup: [CVE-2026-91637](#cve-2026-91637), [CVE-2026-91638](#cve-2026-91638), [CVE-2026-91644](#cve-2026-91644), [CVE-2026-91655](#cve-2026-91655), [CVE-2026-91658](#cve-2026-91658), [CVE-2026-91663](#cve-2026-91663).
 
 ## CVE-2026-101387
@@ -5915,6 +5987,7 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101387
+
 
 
 
@@ -6062,6 +6135,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101398
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101767](#cve-2026-101767), [CVE-2026-101466](#cve-2026-101466), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101534](#cve-2026-101534), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101541](#cve-2026-101541), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101543](#cve-2026-101543), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101554](#cve-2026-101554), [CVE-2026-101556](#cve-2026-101556), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101438
@@ -6072,6 +6146,7 @@ Affected products:
 - Siebel CRM Cloud Applications (22.3-26.9)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101438
+
 
 
 
@@ -6221,6 +6296,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101451
 
 
 
+
 Related in this roundup: [CVE-2026-101457](#cve-2026-101457), [CVE-2026-101458](#cve-2026-101458), [CVE-2026-101460](#cve-2026-101460), [CVE-2026-101463](#cve-2026-101463), [CVE-2026-101464](#cve-2026-101464), [CVE-2026-101467](#cve-2026-101467), [CVE-2026-101495](#cve-2026-101495), [CVE-2026-101508](#cve-2026-101508).
 
 ## CVE-2026-101452
@@ -6231,6 +6307,7 @@ Affected products:
 - Autonomous Health Framework (26.3-26.8)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101452
+
 
 
 
@@ -6355,6 +6432,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101457
 
 
 
+
 Related in this roundup: [CVE-2026-101451](#cve-2026-101451), [CVE-2026-101458](#cve-2026-101458), [CVE-2026-101460](#cve-2026-101460), [CVE-2026-101463](#cve-2026-101463), [CVE-2026-101464](#cve-2026-101464), [CVE-2026-101467](#cve-2026-101467), [CVE-2026-101495](#cve-2026-101495), [CVE-2026-101508](#cve-2026-101508).
 
 ## CVE-2026-101458
@@ -6365,6 +6443,7 @@ Affected products:
 - Siebel CRM (17.0-26.9)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101458
+
 
 
 
@@ -6506,6 +6585,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101460
 
 
 
+
 Related in this roundup: [CVE-2026-101451](#cve-2026-101451), [CVE-2026-101457](#cve-2026-101457), [CVE-2026-101458](#cve-2026-101458), [CVE-2026-101463](#cve-2026-101463), [CVE-2026-101464](#cve-2026-101464), [CVE-2026-101467](#cve-2026-101467), [CVE-2026-101495](#cve-2026-101495), [CVE-2026-101508](#cve-2026-101508).
 
 ## CVE-2026-101461
@@ -6522,6 +6602,7 @@ Affected products:
 - Siebel CRM (17.0-26.9)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101463
+
 
 
 
@@ -6647,6 +6728,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101464
 
 
 
+
 Related in this roundup: [CVE-2026-101451](#cve-2026-101451), [CVE-2026-101457](#cve-2026-101457), [CVE-2026-101458](#cve-2026-101458), [CVE-2026-101460](#cve-2026-101460), [CVE-2026-101463](#cve-2026-101463), [CVE-2026-101467](#cve-2026-101467), [CVE-2026-101495](#cve-2026-101495), [CVE-2026-101508](#cve-2026-101508).
 
 ## CVE-2026-101466
@@ -6714,6 +6796,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101466
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101767](#cve-2026-101767), [CVE-2026-101398](#cve-2026-101398), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101534](#cve-2026-101534), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101541](#cve-2026-101541), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101543](#cve-2026-101543), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101554](#cve-2026-101554), [CVE-2026-101556](#cve-2026-101556), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101467
@@ -6724,6 +6807,7 @@ Affected products:
 - Siebel CRM (17.0-26.9)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101467
+
 
 
 
@@ -6856,6 +6940,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101473
 
 
 
+
 Related in this roundup: [CVE-2026-91622](#cve-2026-91622), [CVE-2026-91624](#cve-2026-91624), [CVE-2026-101593](#cve-2026-101593), [CVE-2026-101594](#cve-2026-101594), [CVE-2026-101596](#cve-2026-101596).
 
 ## CVE-2026-101477
@@ -6866,6 +6951,7 @@ Affected products:
 - Autonomous Health Framework (26.3-26.8)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101477
+
 
 
 
@@ -6977,6 +7063,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101478
 
 
 
+
 Related in this roundup: [CVE-2026-101452](#cve-2026-101452), [CVE-2026-101477](#cve-2026-101477).
 
 ## CVE-2026-101479
@@ -6987,6 +7074,7 @@ Affected products:
 - Secure Backup (19.1.0.0.0, 19.1.0.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101479
+
 
 
 
@@ -7094,6 +7182,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101481
 
 
 
+
 Related in this roundup: [CVE-2026-101484](#cve-2026-101484), [CVE-2026-101479](#cve-2026-101479), [CVE-2026-101482](#cve-2026-101482).
 
 ## CVE-2026-101482
@@ -7104,6 +7193,7 @@ Affected products:
 - Secure Backup (19.1.0.0.0, 19.1.0.1.0)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101482
+
 
 
 
@@ -7215,6 +7305,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101495
 
 
 
+
 Related in this roundup: [CVE-2026-101451](#cve-2026-101451), [CVE-2026-101457](#cve-2026-101457), [CVE-2026-101458](#cve-2026-101458), [CVE-2026-101460](#cve-2026-101460), [CVE-2026-101463](#cve-2026-101463), [CVE-2026-101464](#cve-2026-101464), [CVE-2026-101467](#cve-2026-101467), [CVE-2026-101508](#cve-2026-101508).
 
 ## CVE-2026-101498
@@ -7225,6 +7316,7 @@ Affected products:
 - Trusted Answer Search (26.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101498
+
 
 
 
@@ -7322,6 +7414,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101504
 
 
 
+
 Related in this roundup: [CVE-2026-101501](#cve-2026-101501), [CVE-2026-101503](#cve-2026-101503), [CVE-2026-101498](#cve-2026-101498), [CVE-2026-101505](#cve-2026-101505), [CVE-2026-101506](#cve-2026-101506).
 
 ## CVE-2026-101505
@@ -7332,6 +7425,7 @@ Affected products:
 - Trusted Answer Search (26.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101505
+
 
 
 
@@ -7425,6 +7519,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101506
 
 
 
+
 Related in this roundup: [CVE-2026-101501](#cve-2026-101501), [CVE-2026-101503](#cve-2026-101503), [CVE-2026-101498](#cve-2026-101498), [CVE-2026-101504](#cve-2026-101504), [CVE-2026-101505](#cve-2026-101505).
 
 ## CVE-2026-101508
@@ -7435,6 +7530,7 @@ Affected products:
 - Siebel CRM (17.0-26.9)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101508
+
 
 
 
@@ -7494,6 +7590,7 @@ Affected products:
 - Oracle E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101519
+
 
 
 
@@ -7605,6 +7702,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101531
 
 
 
+
 Related in this roundup: [CVE-2026-91241](#cve-2026-91241).
 
 ## CVE-2026-101532
@@ -7616,6 +7714,7 @@ Affected products:
 - Oracle EDI Gateway
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101532
+
 
 
 
@@ -7689,6 +7788,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101534
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101767](#cve-2026-101767), [CVE-2026-101398](#cve-2026-101398), [CVE-2026-101466](#cve-2026-101466), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101541](#cve-2026-101541), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101543](#cve-2026-101543), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101554](#cve-2026-101554), [CVE-2026-101556](#cve-2026-101556), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101535
@@ -7700,6 +7800,7 @@ Affected products:
 - Oracle Sales Foundation
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101535
+
 
 
 
@@ -7769,6 +7870,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101536
 
 
 
+
 Related in this roundup: [CVE-2026-101808](#cve-2026-101808), [CVE-2026-101809](#cve-2026-101809), [CVE-2026-101387](#cve-2026-101387), [CVE-2026-101540](#cve-2026-101540), [CVE-2026-101545](#cve-2026-101545), [CVE-2026-101546](#cve-2026-101546), [CVE-2026-101551](#cve-2026-101551), [CVE-2026-101552](#cve-2026-101552), [CVE-2026-101555](#cve-2026-101555), [CVE-2026-101557](#cve-2026-101557), [CVE-2026-101566](#cve-2026-101566).
 
 ## CVE-2026-101540
@@ -7779,6 +7881,7 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101540
+
 
 
 
@@ -7844,6 +7947,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101541
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101767](#cve-2026-101767), [CVE-2026-101398](#cve-2026-101398), [CVE-2026-101466](#cve-2026-101466), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101534](#cve-2026-101534), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101543](#cve-2026-101543), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101554](#cve-2026-101554), [CVE-2026-101556](#cve-2026-101556), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101542
@@ -7854,6 +7958,7 @@ Affected products:
 - Oracle E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101542
+
 
 
 
@@ -7915,6 +8020,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101543
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101767](#cve-2026-101767), [CVE-2026-101398](#cve-2026-101398), [CVE-2026-101466](#cve-2026-101466), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101534](#cve-2026-101534), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101541](#cve-2026-101541), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101554](#cve-2026-101554), [CVE-2026-101556](#cve-2026-101556), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101544
@@ -7925,6 +8031,7 @@ Affected products:
 - Oracle E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101544
+
 
 
 
@@ -7982,6 +8089,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101545
 
 
 
+
 Related in this roundup: [CVE-2026-101808](#cve-2026-101808), [CVE-2026-101809](#cve-2026-101809), [CVE-2026-101387](#cve-2026-101387), [CVE-2026-101536](#cve-2026-101536), [CVE-2026-101540](#cve-2026-101540), [CVE-2026-101546](#cve-2026-101546), [CVE-2026-101551](#cve-2026-101551), [CVE-2026-101552](#cve-2026-101552), [CVE-2026-101555](#cve-2026-101555), [CVE-2026-101557](#cve-2026-101557), [CVE-2026-101566](#cve-2026-101566).
 
 ## CVE-2026-101546
@@ -7992,6 +8100,7 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101546
+
 
 
 
@@ -8044,6 +8153,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101548
 
 
 
+
 Related in this roundup: [CVE-2026-101549](#cve-2026-101549).
 
 ## CVE-2026-101549
@@ -8054,6 +8164,7 @@ Affected products:
 - Application Testing Suite (13.3.0.1)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101549
+
 
 
 
@@ -8104,6 +8215,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101551
 
 
 
+
 Related in this roundup: [CVE-2026-101808](#cve-2026-101808), [CVE-2026-101809](#cve-2026-101809), [CVE-2026-101387](#cve-2026-101387), [CVE-2026-101536](#cve-2026-101536), [CVE-2026-101540](#cve-2026-101540), [CVE-2026-101545](#cve-2026-101545), [CVE-2026-101546](#cve-2026-101546), [CVE-2026-101552](#cve-2026-101552), [CVE-2026-101555](#cve-2026-101555), [CVE-2026-101557](#cve-2026-101557), [CVE-2026-101566](#cve-2026-101566).
 
 ## CVE-2026-101552
@@ -8114,6 +8226,7 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101552
+
 
 
 
@@ -8159,6 +8272,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101554
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101767](#cve-2026-101767), [CVE-2026-101398](#cve-2026-101398), [CVE-2026-101466](#cve-2026-101466), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101534](#cve-2026-101534), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101541](#cve-2026-101541), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101543](#cve-2026-101543), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101556](#cve-2026-101556), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101555
@@ -8169,6 +8283,7 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101555
+
 
 
 
@@ -8210,6 +8325,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101556
 
 
 
+
 Related in this roundup: [CVE-2026-101634](#cve-2026-101634), [CVE-2026-101767](#cve-2026-101767), [CVE-2026-101398](#cve-2026-101398), [CVE-2026-101466](#cve-2026-101466), [CVE-2026-101519](#cve-2026-101519), [CVE-2026-101532](#cve-2026-101532), [CVE-2026-101534](#cve-2026-101534), [CVE-2026-101535](#cve-2026-101535), [CVE-2026-101541](#cve-2026-101541), [CVE-2026-101542](#cve-2026-101542), [CVE-2026-101543](#cve-2026-101543), [CVE-2026-101544](#cve-2026-101544), [CVE-2026-101554](#cve-2026-101554), [CVE-2026-101567](#cve-2026-101567).
 
 ## CVE-2026-101557
@@ -8220,6 +8336,7 @@ Affected products:
 - E-Business Suite (12.2.3-12.2.15)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101557
+
 
 
 
@@ -8270,6 +8387,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101566
 
 
 
+
 Related in this roundup: [CVE-2026-101808](#cve-2026-101808), [CVE-2026-101809](#cve-2026-101809), [CVE-2026-101387](#cve-2026-101387), [CVE-2026-101536](#cve-2026-101536), [CVE-2026-101540](#cve-2026-101540), [CVE-2026-101545](#cve-2026-101545), [CVE-2026-101546](#cve-2026-101546), [CVE-2026-101551](#cve-2026-101551), [CVE-2026-101552](#cve-2026-101552), [CVE-2026-101555](#cve-2026-101555), [CVE-2026-101557](#cve-2026-101557).
 
 ## CVE-2026-101567
@@ -8281,6 +8399,7 @@ Affected products:
 - Oracle Cost Management
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101567
+
 
 
 
@@ -8310,6 +8429,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101572
 
 
 
+
 Related in this roundup: [CVE-2026-101590](#cve-2026-101590), [CVE-2026-101579](#cve-2026-101579), [CVE-2026-101583](#cve-2026-101583), [CVE-2026-101585](#cve-2026-101585).
 
 ## CVE-2026-101579
@@ -8320,6 +8440,7 @@ Affected products:
 - Helidon (3.0.0-3.2.21)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101579
+
 
 
 
@@ -8346,6 +8467,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101583
 
 
 
+
 Related in this roundup: [CVE-2026-101590](#cve-2026-101590), [CVE-2026-101572](#cve-2026-101572), [CVE-2026-101579](#cve-2026-101579), [CVE-2026-101585](#cve-2026-101585).
 
 ## CVE-2026-101585
@@ -8356,6 +8478,7 @@ Affected products:
 - Helidon (3.0.0-3.2.21)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101585
+
 
 
 
@@ -8377,6 +8500,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101593
 
 
 
+
 Related in this roundup: [CVE-2026-91622](#cve-2026-91622), [CVE-2026-91624](#cve-2026-91624), [CVE-2026-101473](#cve-2026-101473), [CVE-2026-101594](#cve-2026-101594), [CVE-2026-101596](#cve-2026-101596).
 
 ## CVE-2026-101594
@@ -8391,6 +8515,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101594
 
 
 
+
 Related in this roundup: [CVE-2026-91622](#cve-2026-91622), [CVE-2026-91624](#cve-2026-91624), [CVE-2026-101473](#cve-2026-101473), [CVE-2026-101593](#cve-2026-101593), [CVE-2026-101596](#cve-2026-101596).
 
 ## CVE-2026-101596
@@ -8401,6 +8526,7 @@ Affected products:
 - Agile Product Lifecycle Management for Process (6.2.4)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101596
+
 
 
 
@@ -8423,3 +8549,14 @@ Affected products:
 - Oracle VM VirtualBox (7.2.20)
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-101599
+
+## CVE-2026-91403
+
+A critical vulnerability in the JSSE component of Oracle Java SE, Oracle GraalVM for JDK, and Oracle GraalVM Enterprise Edition allows unauthenticated remote attackers to achieve unauthorized access, modification, or deletion of critical data. The vulnerability is exploitable via network protocols and affects both server-side deployments and client-side sandboxed Java applications, such as Java Web Start or applets, by leveraging specific APIs.
+
+Affected products:
+- Java SE (8u511, 8u511-perf, 11.0.33, 17.0.21, 21.0.13, 25.0.5, 27.0.1)
+- GraalVM for JDK (17.0.21, 21.0.13)
+- GraalVM Enterprise Edition (21.3.20)
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-91403

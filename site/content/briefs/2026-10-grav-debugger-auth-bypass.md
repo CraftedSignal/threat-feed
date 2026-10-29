@@ -1,12 +1,29 @@
 ---
 brief_id: brief-2026-10-27-grav-debugger-auth-bypass
 event_id: brief-2026-10-27-grav-debugger-auth-bypass
-revision: 1
-activity_at: "2026-10-27T15:51:13Z"
+revision: 2
+activity_at: "2026-10-29T20:03:29Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T20:03:29Z"
+    checksum: sha256:c952ff10d0be1c3507f8d13984c27c8a0352928edcab431ec801cc94318c3869
+    summary: added coverage for Grav (>= 2.0.15, < 2.2.13)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-116019
 title: 'Grav: Authorization bypass in Debugger component (CVE-2026-117604)'
 slug: 2026-10-grav-debugger-auth-bypass
 description: An authorization bypass vulnerability in the Grav CMS Debugger component allows unauthenticated remote attackers to access sensitive profiler data when the application is deployed behind a reverse proxy.
 date: "2026-10-27T15:51:13Z"
+lastmod: "2026-10-29T20:01:33Z"
 type: advisory
 types:
   - advisory
@@ -25,10 +42,17 @@ cpes:
   - cpe:2.3:a:getgrav:grav:1.7.53.3:*:*:*:*:*:*:*
   - cpe:2.3:a:getgrav:grav:1.7.53.4:*:*:*:*:*:*:*
   - cpe:2.3:a:getgrav:grav:1.7.53.5:*:*:*:*:*:*:*
+  - cpe:2.3:a:getgrav:grav:*:*:*:*:*:*:*:*
+tags:
+  - web-application
+  - cms
+  - vulnerability
+  - file-system-access
 vendors:
   - Grav
 products:
   - Grav (1.7.53.3 to 1.7.53.5)
+  - Grav (>= 2.0.15, < 2.2.13)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -46,8 +70,13 @@ cves:
   - id: CVE-2026-117604
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-116019
+    cvss: 8.8
+    epss: 0.00349
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-117604
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-116019
 rules:
   - title: Detect CVE-2026-117604 Exploitation Attempt - Access to Clockwork Profiler
     description: Detects unauthorized access attempts to the Clockwork profiler endpoint, which is a indicator of exploitation for CVE-2026-117604
@@ -72,6 +101,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Upgrade Grav to 1.7.53.6 or later
+    - action: Upgrade Grav CMS to 2.2.13 or later
+      owner: IT Operations
+      due: 48h
+      evidence: Grav 2.0.15 before 2.2.13 contains an allowlist bypass
   hunt_leads:
     - lead: Identify GET requests to /__clockwork/ from external IP addresses
       technique_id: T1552.001
@@ -81,12 +114,34 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Unauthenticated visitors can read /__clockwork/ profiler data
+    - lead: Search content files for suspicious data directives
+      technique_id: T1190
+      data_needed:
+        - Application file system content
+        - Web application audit logs
+      priority: high
+      confidence: medium
+      disposition: hunt_now
+      evidence: Attackers with page-edit permission can embed crafted fields in Flex form overrides
   mitigation_plan:
     - priority: immediate
       action: Restrict /__clockwork/ path access at the reverse proxy level
       owner: IT Operations
       addresses: CVE-2026-117604
       evidence: restricting access to the /__clockwork/ path via reverse proxy configuration
+    - priority: immediate
+      action: Patch Grav CMS to 2.2.13
+      owner: IT Operations
+      addresses: CVE-2026-116019
+      evidence: Grav 2.0.15 before 2.2.13 contains an allowlist bypass vulnerability
+updates:
+  - at: "2026-10-29T20:01:33Z"
+    level: L2
+    summary: added coverage for Grav (>= 2.0.15, < 2.2.13)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-116019
 ---
 
 Grav versions 1.7.53.3 through 1.7.53.5 contain an authorization bypass vulnerability within the Debugger::isDebuggerRequestAuthorized() method. The vulnerability arises from an insecure fallback mechanism that trusts the REMOTE_ADDR variable. When the application is deployed behind a reverse proxy, requests may be incorrectly identified as originating from the local loopback, bypassing access controls for the /__clockwork/ endpoint.
