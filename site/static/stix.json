@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--85556159-507a-5eb2-a9f4-a56748200c6d",
+  "id": "bundle--fe142657-baf6-5b0c-b052-3e04bdcc3914",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10482,6 +10482,17 @@
       "relationship_type": "uses",
       "source_ref": "report--dfe17a8b-862e-5fe6-904d-63e6d07db225",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--11de6847-e4c7-584a-9b21-345307ee2f79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--029813d9-b7c4-55e3-8f2f-127cc57b7f55",
+      "target_ref": "vulnerability--4b0474b4-bf62-535f-b154-253decb81b4c"
     },
     {
       "type": "relationship",
@@ -25468,6 +25479,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4df1a1bf-7a23-575e-9f33-9412b2cfd56c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-23T16:38:02.000Z",
+      "modified": "2026-10-29T13:36:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b9378426-ffe2-5320-bc0b-4b7b9ceb306b",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4e43bd67-3646-504b-ba85-d6d8ed4c612e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29321,7 +29343,7 @@
       "id": "relationship--5cec6d6e-7ea1-502a-9d0c-f5e82b34e401",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T16:38:02.000Z",
-      "modified": "2026-10-23T16:38:02.000Z",
+      "modified": "2026-10-29T13:36:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b9378426-ffe2-5320-bc0b-4b7b9ceb306b",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
@@ -34796,6 +34818,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--72047c71-546b-56fc-b576-9a4ff200e01c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3775aa59-3eca-5d33-9b42-7399d2086811",
+      "target_ref": "vulnerability--c475aac1-5a41-56a8-978a-481e629ca0d7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--720a8091-3ee3-580e-8386-c7376a0964f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35272,7 +35305,7 @@
       "id": "relationship--742ca694-c1a3-58ab-a580-809e443f4d2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T16:38:02.000Z",
-      "modified": "2026-10-23T16:38:02.000Z",
+      "modified": "2026-10-29T13:36:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b9378426-ffe2-5320-bc0b-4b7b9ceb306b",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -51006,6 +51039,17 @@
       "relationship_type": "has",
       "source_ref": "software--39cb2871-7dda-537d-a1e6-1473c0b74ac0",
       "target_ref": "vulnerability--da38108a-20b6-53c1-ab00-fefbd530842b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aee0803a-3d58-5085-bc20-1037fc302339",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--029813d9-b7c4-55e3-8f2f-127cc57b7f55",
+      "target_ref": "vulnerability--c475aac1-5a41-56a8-978a-481e629ca0d7"
     },
     {
       "type": "relationship",
@@ -144345,22 +144389,28 @@
       "id": "report--b9378426-ffe2-5320-bc0b-4b7b9ceb306b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T16:38:02.000Z",
-      "modified": "2026-10-23T16:38:02.000Z",
+      "modified": "2026-10-29T13:36:42.000Z",
       "name": "Frangoteam Fuxa: Remote Command Execution via /api/runscript (CVE-2023-33831)",
       "description": "## Overview\n\nFrangoteam Fuxa version 1.1.13 is susceptible to unauthenticated Remote Command Execution (RCE). An attacker can trigger this vulnerability by sending a crafted HTTP POST request to the '/api/runscript' endpoint. The 'code' parameter within the request body is not properly sanitized, allowing for arbitrary command execution on the underlying server. Publicly available exploit code and proof-of-concept (PoC) material have been released, elevating the risk of exploitation.\n\n## Impact\n\nSuccessful exploitation results in full remote command execution with the privileges of the Fuxa application process, allowing an attacker to achieve total system compromise, including data exfiltration, lateral movement, and system disruption.\n\n## Recommendation\n\n- Identify all instances of Frangoteam Fuxa version 1.1.13 within the environment.\n- Implement a web application firewall (WAF) rule to block or inspect HTTP POST requests targeting the '/api/runscript' endpoint containing suspicious payloads in the 'code' parameter.\n- Monitor server-side logs and network traffic for outbound connections from the application server, particularly those directed toward non-standard ports such as 1881, which are commonly utilized in the public PoC.\n- Upgrade to a patched version of Fuxa immediately if one is available.\n",
       "published": "2026-10-23T16:38:02.000Z",
       "labels": [
+        "auth-bypass",
         "cve",
+        "ics",
         "injection",
         "remote-code-execution",
+        "scada",
         "web-application"
       ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--029813d9-b7c4-55e3-8f2f-127cc57b7f55",
         "software--3775aa59-3eca-5d33-9b42-7399d2086811",
-        "vulnerability--4b0474b4-bf62-535f-b154-253decb81b4c"
+        "vulnerability--4b0474b4-bf62-535f-b154-253decb81b4c",
+        "vulnerability--c475aac1-5a41-56a8-978a-481e629ca0d7"
       ],
       "external_references": [
         {
@@ -144375,14 +144425,22 @@
         {
           "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BTAR1GAN-EXPLOIT_CVE-2023-33831\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MBANYAMER-CVE-2026-25939-SCADA-FUXA-UNAUTHENTICATED-REMOTE-ARBITRARY"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MBANYAMER-CVE-2026-25939-SCADA-FUXA-UNAUTHENTICATED-REMOTE-ARBITRARY\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-23-fuxa-rce-cve-2023-33831",
       "x_craftedsignal_event_id": "brief-2026-10-23-fuxa-rce-cve-2023-33831",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-fuxa-rce-cve-2023-33831/",
-      "x_craftedsignal_activity_at": "2026-10-23T16:38:02.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T13:36:42.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -173207,6 +173265,13 @@
       "id": "software--029077f8-42fa-54b3-b39b-366d2d410923",
       "name": "IP cameras (all firmware \u003c fixes for CVE-2021-33044/45)",
       "vendor": "Dahua"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--029813d9-b7c4-55e3-8f2f-127cc57b7f55",
+      "name": "Fuxa (\u003c 1.2.11)",
+      "vendor": "Frangoteam"
     },
     {
       "type": "software",
@@ -215869,6 +215934,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106560",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106560"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c475aac1-5a41-56a8-978a-481e629ca0d7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-25939",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-25939",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25939"
         }
       ]
     },
