@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b4af7ca1-2204-5ed5-84f0-fbe0136e76a8",
+  "id": "bundle--6c11d39b-86ae-547c-91fa-685d3cff42c3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23381,6 +23381,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4aa38595-b49b-57e1-9b39-fc9e30863d6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2b1bc2a7-e60c-5fbb-a5ab-410193f9a20a",
+      "target_ref": "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4ac1f96e-9901-581d-91fa-2d2160d26705",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33028,6 +33039,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--71b597b3-1351-5d1a-9161-ff468ddf5363",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T10:03:00.000Z",
+      "modified": "2026-10-29T11:37:05.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--71be69fd-f25d-5e56-8c90-8e0ceae8e82a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35939,6 +35961,17 @@
       "relationship_type": "has",
       "source_ref": "software--5b3a8a0c-00df-5e69-b734-a04360c53c44",
       "target_ref": "vulnerability--8cc950cf-6e6e-55c1-8c32-c477b79b14bc"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7d164c53-4529-5480-aa3e-429a8320eef7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a147d39e-7e52-5cfa-8b69-b0f3422531a6",
+      "target_ref": "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
     },
     {
       "type": "relationship",
@@ -73146,6 +73179,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.01319,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -82821,14 +82855,23 @@
       "id": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T10:03:00.000Z",
-      "modified": "2026-10-29T10:03:00.000Z",
-      "name": "Cisco Secure Firewall ASA and FTD Vulnerability (CVE-2026-76418)",
-      "description": "Cisco has issued patches for a vulnerability (CVE-2026-76418) affecting the Remote Access SSL VPN service in its Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) software. The vulnerability, which has a CVSS score of 8.6, can be exploited by an unauthenticated, remote attacker to force the device. Cisco has confirmed the vulnerability is being actively exploited.\n",
+      "modified": "2026-10-29T11:37:05.000Z",
+      "name": "Cisco Secure Firewall ASA and FTD: Denial of Service via SSL VPN (CVE-2026-76418)",
+      "description": "## Overview\nCisco has released security patches for a high-severity vulnerability (CVE-2026-76418) affecting the Remote Access SSL VPN service in Cisco Secure Firewall ASA and FTD software. The flaw, which stems from logic errors when secondary authentication is configured on a tunnel group, can be exploited by an unauthenticated, remote attacker sending a crafted request. Successful exploitation causes the affected device to reload unexpectedly, resulting in a denial-of-service (DoS) condition. Cisco confirmed active exploitation of this vulnerability as of October 2026.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to trigger an unexpected device reload, resulting in a complete denial-of-service for the affected network appliance.\n\n## Recommendation\n- Immediately apply the available software patches for your version of Cisco Secure Firewall ASA or FTD.\n- If immediate patching is not feasible, implement the recommended workarounds: disable the tunnel group list if 'DefaultWEBVPNGroup' does not use secondary authentication, or disable secondary authentication on any user-configured or default tunnel groups ('DefaultWEBVPNGroup').\n- Review the deployed remote access VPN policy and current device configuration via Cisco Secure FMC or FDM to identify active secondary authentication configurations.\n",
       "published": "2026-10-29T10:03:00.000Z",
+      "labels": [
+        "cisco",
+        "cve-2026-76418",
+        "denial-of-service",
+        "vpn"
+      ],
       "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--069488c4-d931-5baf-bfa7-9c72c0112452",
+        "software--2b1bc2a7-e60c-5fbb-a5ab-410193f9a20a",
         "software--3f72b440-8adf-51c2-8a87-99d10070cadf",
+        "software--a147d39e-7e52-5cfa-8b69-b0f3422531a6",
         "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
       ],
       "external_references": [
@@ -82839,15 +82882,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-cisco-firewall-dos",
       "x_craftedsignal_event_id": "brief-2026-10-29-cisco-firewall-dos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-firewall-dos/",
-      "x_craftedsignal_activity_at": "2026-10-29T10:03:00.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T11:37:05.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -84876,6 +84923,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_epss_max": 0.01635,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -87996,6 +88044,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02004,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -95581,7 +95630,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_epss_max": 0.55483,
+      "x_craftedsignal_epss_max": 0.87988,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -105977,7 +106026,7 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_epss_max": 0.26166,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -128431,7 +128480,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00274,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -129483,6 +129533,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00175,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -135334,8 +135385,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.6,
-      "x_craftedsignal_epss_max": 0.00415,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00767,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -155046,6 +155097,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.02349,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -157521,8 +157573,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_epss_max": 0.01573,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.03593,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -167372,6 +167424,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2b1bc2a7-e60c-5fbb-a5ab-410193f9a20a",
+      "name": "Secure Firewall Threat Defense (FTD) Software (\u003c 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3, 10.1.1)",
+      "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2b1ca2aa-d9e8-5e53-b944-8f0c70bfbe48",
       "name": "YiShaAdmin (2.2 through 3.1)"
     },
@@ -175046,6 +175105,13 @@
       "id": "software--a1260eed-5053-5c2a-8d70-9ca5289fa95b",
       "name": "GraalVM Enterprise Edition",
       "vendor": "Oracle"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a147d39e-7e52-5cfa-8b69-b0f3422531a6",
+      "name": "Secure Firewall Adaptive Security Appliance (ASA) Software",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
