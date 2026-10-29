@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7aa97531-e03d-578f-8a0c-ca67fd65ea6c",
+  "id": "bundle--6ebf0a41-ba66-5349-98ae-d6f3449cebf3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19815,6 +19815,17 @@
       "relationship_type": "uses",
       "source_ref": "report--fe6d895f-9286-5267-8ca0-757a0ffb2ae5",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3bd8c2de-5730-5a7f-9bbc-5878cc304ae4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2c4b0ad2-8270-5f6f-8027-0d3fcd95be78",
+      "target_ref": "vulnerability--d527ffc7-a1b7-580d-8cb9-f92fe794db91"
     },
     {
       "type": "relationship",
@@ -122856,6 +122867,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8ceb27df-2a3f-5644-a211-3ca122ccf237",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T01:48:01.000Z",
+      "modified": "2026-10-29T01:48:01.000Z",
+      "name": "Eniture LTL Freight Quotes: Unauthenticated SQL Injection (CVE-2024-13489)",
+      "description": "The LTL Freight Quotes - Old Dominion Edition plugin for WordPress is vulnerable to SQL Injection in versions 4.2.10 and below. This is caused by insufficient escaping on user-supplied parameters and a lack of sufficient preparation on the existing SQL query. Unauthenticated attackers can append additional SQL queries to extract sensitive information. Public exploit proof-of-concept code is available.\n",
+      "published": "2026-10-29T01:48:01.000Z",
+      "labels": [
+        "sqli",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2c4b0ad2-8270-5f6f-8027-0d3fcd95be78",
+        "vulnerability--d527ffc7-a1b7-580d-8cb9-f92fe794db91"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-cve-2024-13489-sqli",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-13489-sqli/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-13489"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-RANDOMROBBIEBF-CVE-2024-13489\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-cve-2024-13489-sqli",
+      "x_craftedsignal_event_id": "brief-2026-10-29-cve-2024-13489-sqli",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2024-13489-sqli/",
+      "x_craftedsignal_activity_at": "2026-10-29T01:48:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00791,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8d2d3f56-fe01-5f88-a999-767ed9f4e2b2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T15:42:31.000Z",
@@ -171190,6 +171251,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2c4b0ad2-8270-5f6f-8027-0d3fcd95be78",
+      "name": "LTL Freight Quotes – Old Dominion Edition (\u003c= 4.2.10)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2c507519-eb5a-5cb6-8882-a9ec4b1009e7",
       "name": "Paragon Backup \u0026 Recovery (\u003c= 17.39)",
       "vendor": "Paragon Software"
@@ -211507,6 +211574,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-29826",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29826"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d527ffc7-a1b7-580d-8cb9-f92fe794db91",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-13489",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-13489",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13489"
         }
       ]
     },

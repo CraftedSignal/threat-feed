@@ -1,13 +1,41 @@
 ---
+brief_id: brief-2026-05-07-rmcp-dns-rebinding
+event_id: brief-2026-05-07-rmcp-dns-rebinding
+revision: 2
+activity_at: "2026-10-29T01:48:47Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T01:48:47Z"
+    checksum: sha256:5f008aa26dbb2e7beffa7f0701bd00e9a2f8831025b8c1dfaf972951f7b3e4ca
+    summary: poc_available; rmcp version < 1.4.0
+    changed_fields:
+      - affected_products
+      - affected_vendors
+      - claim_state
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-42559&utm_source=rss&utm_medium=rss
 title: rmcp Streamable HTTP Server Transport DNS Rebinding Vulnerability
 slug: 2026-05-rmcp-dns-rebinding
 description: The `rmcp` crate before v1.4.0 is vulnerable to DNS rebinding attacks via the Streamable HTTP server transport due to missing Host header validation, potentially allowing arbitrary code execution on a victim's machine if they visit a malicious website.
 date: "2026-05-07T00:00:00Z"
+lastmod: "2026-10-29T01:48:07Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-42559&utm_source=rss&utm_medium=rss
 tags:
   - dns-rebinding
   - vulnerability
@@ -16,18 +44,28 @@ tags:
   - attack
 vendors:
   - modelcontextprotocol
+  - nubo-db
 products:
-  - rmcp
+  - rmcp (< 1.4.0)
+  - dynoxide (< 0.9.13)
+  - dynoxide-rs (< 0.9.13)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
     technique_id: T1189
     technique_name: Drive-by Compromise
+cves:
+  - id: CVE-2026-42559
+    cvss: 8.8
+    epss: 0.00269
+    kev_status: "false"
 references:
   - https://github.com/advisories/GHSA-89vp-x53w-74fx
   - https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#security-warning
   - https://github.com/modelcontextprotocol/rust-sdk/pull/764
   - https://github.com/modelcontextprotocol/rust-sdk/issues/822
+  - https://github.com/advisories/GHSA-fvh2-gm75-j4j7
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-42559&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious Host Header
     description: Detects HTTP requests with a Host header pointing to a private IP address, which could indicate a DNS rebinding attack.
@@ -52,6 +90,19 @@ rules:
       - webserver
       - linux
 rules_count: 2
+updates:
+  - at: "2026-05-18T17:00:48Z"
+    level: L2
+    summary: added CVE-2026-42559
+    sources:
+      - ghsa
+  - at: "2026-10-29T01:48:07Z"
+    level: L2
+    summary: poc_available; rmcp version < 1.4.0
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOAOVICDEV-EXPLOIT-CVE-2026-42559&utm_source=rss&utm_medium=rss
 ---
 
 The `rmcp` crate, a Rust SDK for the Model Context Protocol (MCP), contains a DNS rebinding vulnerability in its Streamable HTTP server transport. Prior to version 1.4.0, the server did not validate the `Host` header of incoming HTTP requests. This allows a remote attacker to bypass the Same-Origin Policy by exploiting DNS rebinding techniques. By convincing a victim to visit a malicious website, the attacker can make authenticated requests to an MCP server running on the victim's loopback or private network interface. This can lead to the enumeration and invocation of tools exposed by the MCP server, potentially resulting in arbitrary code execution with the victim's privileges. The vulnerability was patched in version 1.4.0 by introducing `Host` header validation with an allowlist.
