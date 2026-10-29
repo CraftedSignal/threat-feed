@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-teamviewer-lpe
 event_id: brief-2026-10-27-teamviewer-lpe
-revision: 7
-activity_at: "2026-10-29T06:23:46Z"
+revision: 8
+activity_at: "2026-10-29T10:30:04Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T20:02:31Z"
@@ -72,11 +72,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
+  - revision: 8
+    at: "2026-10-29T10:30:04Z"
+    checksum: sha256:8ce56403eb468cfa395442923df07d318092eef5aacf159f8d2cc22c7aeceb3c
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
 title: 'TeamViewer: Local privilege escalation via installer staging (CVE-2026-111583)'
 slug: 2026-10-teamviewer-lpe
 description: An improper access control vulnerability in the TeamViewer installer staging directory allows local low-privileged users to achieve arbitrary code execution as SYSTEM via a crafted installer options file.
 date: "2026-10-27T18:05:02Z"
-lastmod: "2026-10-29T06:23:09Z"
+lastmod: "2026-10-29T10:29:29Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -130,6 +140,7 @@ products:
   - TeamViewer Remote Control (Android) (< 15.83)
   - Remote Management Monitoring (< 26.10.1)
   - Remote Management Patch Management (< 26.9.1)
+  - TeamViewer Remote Control (< 15.83)
 affected_os:
   - Windows
   - Linux
@@ -277,13 +288,6 @@ action_plan:
       addresses: CVE-2026-92375
       evidence: TeamViewer Full Client or Host prior to version 15.83 and the Remote Management Monitoring component prior to version 26.10.1
 updates:
-  - at: "2026-10-28T00:13:47Z"
-    level: L2
-    summary: added CVE-2026-111582 +3; OS android
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
   - at: "2026-10-28T03:17:42Z"
     level: L1
     summary: new product
@@ -306,6 +310,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
   - at: "2026-10-29T06:23:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
+  - at: "2026-10-29T10:29:29Z"
     level: L1
     summary: new product
     sources:
