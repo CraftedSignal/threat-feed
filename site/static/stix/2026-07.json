@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--72f9a388-3c11-5e07-9025-248b99fa8038",
+  "id": "bundle--87879067-9810-50c9-b032-bdb99708f68a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -241,17 +241,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--29aac34c-d20a-5083-bf3e-976b871c9981",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T17:39:42.000Z",
-      "modified": "2026-07-31T17:39:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--7935f1c1-0fd3-5068-bdd1-d043f8394b86",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--35188561-ef62-54a3-9563-316e1d663966",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:10:38.000Z",
@@ -413,17 +402,6 @@
       "relationship_type": "has",
       "source_ref": "software--2ccab42b-855f-5e01-af09-5e79cb08e77d",
       "target_ref": "vulnerability--9c50c3b7-ca66-5488-b4e2-db3a5ddf2a1f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8339af02-5404-59f5-9b68-e5d37cf15605",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--9661a519-5a1e-5aa6-b930-42864ad4229b",
-      "target_ref": "vulnerability--00986e49-ec21-5d2f-b18d-5122dfe6ffe7"
     },
     {
       "type": "relationship",
@@ -962,52 +940,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--7935f1c1-0fd3-5068-bdd1-d043f8394b86",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T17:39:42.000Z",
-      "modified": "2026-07-31T17:39:42.000Z",
-      "name": "CVE-2026-18141: mTLS Bypass in Ansible Automation Platform",
-      "description": "## Overview\n\nA high-severity vulnerability, tracked as CVE-2026-18141, affects the aap-gateway component of Red Hat Ansible Automation Platform's Event-Driven Ansible (EDA). The flaw enables an unauthenticated remote attacker to bypass mutual Transport Layer Security (mTLS) authentication when communicating with event streams. By manipulating the target event stream URL and forging the HTTP Subject header, an attacker can successfully authenticate as a trusted source. \n\nThe exploitation process is further aided by an information disclosure issue within the gateway, which returns the expected certificate subject in error messages during failed connection attempts. This allows attackers to identify the required Subject string for header forgery. Successful exploitation allows for the injection of arbitrary events into the EDA system, which can result in the execution of unauthorized automated workflows. This poses a significant risk to organizations using EDA for automated infrastructure or application management.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to inject arbitrary events into the Event-Driven Ansible system. This can lead to the unauthorized triggering of automated workflows, which may involve system configuration changes, service restarts, or other administrative actions configured within the EDA platform. The impact includes potential loss of integrity for automated processes and unauthorized manipulation of managed infrastructure.\n\n## Recommendation\n\n1. Patch the Ansible Automation Platform environment to the version provided by Red Hat that addresses CVE-2026-18141.\n2. Review webserver logs for the aap-gateway component to identify anomalous requests, specifically looking for high frequencies of 401 or 403 errors that may indicate an attacker probing for the required certificate subject.\n3. Restrict network access to the EDA gateway endpoint to trusted source IP addresses to limit the exposure of the management interface to the public internet.\n",
-      "published": "2026-07-31T17:39:42.000Z",
-      "labels": [
-        "authentication-bypass",
-        "automation",
-        "cve-2026-18141"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9661a519-5a1e-5aa6-b930-42864ad4229b",
-        "vulnerability--00986e49-ec21-5d2f-b18d-5122dfe6ffe7"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-31-ansible-gateway-mtls-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-ansible-gateway-mtls-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18141"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-31-ansible-gateway-mtls-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-31-ansible-gateway-mtls-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-ansible-gateway-mtls-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-31T17:39:42.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -1919,13 +1851,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--9661a519-5a1e-5aa6-b930-42864ad4229b",
-      "name": "Ansible Automation Platform",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--afd428c6-0dfa-55ad-b90a-2c3c58f89ee1",
       "name": "hashi-vault-js (0.5.1)"
     },
@@ -2006,22 +1931,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Unattributed"
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--00986e49-ec21-5d2f-b18d-5122dfe6ffe7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18141",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18141",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18141"
-        }
-      ]
     },
     {
       "type": "vulnerability",
