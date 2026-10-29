@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--476ecf37-886f-5fdd-aeed-b060316a2033",
+  "id": "bundle--d1c6f5be-0351-555e-89dd-e4439307b5d8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12196,6 +12196,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1716b0e4-588f-535b-9e9d-9fa623b93f04",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0006ebae-fdc5-50a5-9957-d3d8450e673f",
+      "target_ref": "vulnerability--c4f554d3-8faa-534a-8caf-feea1f0c23b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--17184391-5355-5621-a01d-5a240f7c9038",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T00:30:47.000Z",
@@ -19562,6 +19573,17 @@
       "relationship_type": "has",
       "source_ref": "software--6c14605b-9b04-59c0-8a8f-d33ac8ec5abd",
       "target_ref": "vulnerability--6b2500fb-4efc-5617-b31b-8118b55afc76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33f8114b-f28f-5f5d-a122-3fcf0ea5edd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T20:23:21.000Z",
+      "modified": "2026-10-29T20:21:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4448bc13-9f21-595c-879f-897c19ca8048",
+      "target_ref": "attack-pattern--2e82cf82-b6ce-54dc-ac5a-e6771db65c01"
     },
     {
       "type": "relationship",
@@ -78723,6 +78745,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--097fac3c-2092-54ef-96b4-29f2ae4c8733",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T20:20:57.000Z",
+      "modified": "2026-10-29T20:20:57.000Z",
+      "name": "Apache Tomcat: Time-of-Check Time-of-Use remote code execution (CVE-2024-50379)",
+      "description": "CVE-2024-50379 is a critical remote code execution vulnerability affecting Apache Tomcat. The vulnerability is identified as a Time-of-Check Time-of-Use (TOCTOU) flaw. The vulnerability has a CVSS 3.1 score of 9.8 and an EPSS score of 31.8%. Multiple proof-of-concept exploits for this CVE have been published.\n",
+      "published": "2026-10-29T20:20:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--eb9b1960-3054-5e8b-bd03-708e044747c8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-apache-tomcat-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-tomcat-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AZILRABABE-CVE-2024-50379"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-AZILRABABE-CVE-2024-50379\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-apache-tomcat-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-29-apache-tomcat-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-tomcat-rce/",
+      "x_craftedsignal_activity_at": "2026-10-29T20:20:57.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.31824,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0988de36-e3b5-557b-b4c0-12f69be5936a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T06:46:45.000Z",
@@ -102168,6 +102234,65 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4448bc13-9f21-595c-879f-897c19ca8048",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-27T20:23:21.000Z",
+      "modified": "2026-10-29T20:21:20.000Z",
+      "name": "WatchGuard Fireware OS: Remote code execution via WireGuard configuration (CVE-2026-103594)",
+      "description": "## Overview\nWatchGuard has identified a critical stack-based buffer overflow vulnerability (CVE-2026-103594) in Fireware OS. The flaw exists within the component responsible for processing WireGuard configurations. An attacker who can perform a man-in-the-middle (MitM) attack to intercept and modify TLS-decrypted traffic between a Firebox device and the WatchGuard Cloud can induce a Denial of Service (DoS) or achieve remote code execution. The vulnerability requires the attacker to tamper with the FireCloud Gateway configuration payload.\n\n## Impact\nSuccessful exploitation allows for a remote Denial of Service condition or the potential for arbitrary code execution on the affected Firebox device.\n\n## Recommendation\n- Review the official advisory at https://psirt.watchguard.com/CVE-2026-103594 for patch availability and specific firmware version requirements.\n- Implement strict TLS inspection and validation policies for traffic between Firebox appliances and WatchGuard Cloud to mitigate the risk of configuration tampering.\n- Monitor logs for unusual configuration change events or service instability on Firebox devices that may indicate attempted exploitation.\n",
+      "published": "2026-10-27T20:23:21.000Z",
+      "labels": [
+        "dos",
+        "network-security",
+        "rce",
+        "vulnerability",
+        "watchguard"
+      ],
+      "object_refs": [
+        "attack-pattern--2e82cf82-b6ce-54dc-ac5a-e6771db65c01",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0006ebae-fdc5-50a5-9957-d3d8450e673f",
+        "vulnerability--c4f554d3-8faa-534a-8caf-feea1f0c23b8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-27-watchguard-cve-2026-103594",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-watchguard-cve-2026-103594/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://psirt.watchguard.com/CVE-2026-103594"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-103594"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-103594\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4209"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-27-watchguard-cve-2026-103594",
+      "x_craftedsignal_event_id": "brief-2026-10-27-watchguard-cve-2026-103594",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-watchguard-cve-2026-103594/",
+      "x_craftedsignal_activity_at": "2026-10-29T20:21:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -127050,6 +127175,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--854af566-743e-5fda-b5a2-0fca1b6cac61",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T20:21:11.000Z",
+      "modified": "2026-10-29T20:21:11.000Z",
+      "name": "systemd: Security bypass and file manipulation vulnerability",
+      "description": "## Overview\n\nThe BSI has reported a vulnerability in systemd that may permit an attacker to bypass security protections and perform unauthorized file manipulation. Specific details regarding the exploit path, affected version ranges, or CVE identifiers have not been disclosed by the vendor or the reporting agency at this time.\n",
+      "published": "2026-10-29T20:21:11.000Z",
+      "labels": [
+        "linux",
+        "systemd",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--980c32cc-8809-5460-ab32-aa454e690563"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-systemd-file-manipulation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-systemd-file-manipulation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4223"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-systemd-file-manipulation",
+      "x_craftedsignal_event_id": "brief-2026-10-29-systemd-file-manipulation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-systemd-file-manipulation/",
+      "x_craftedsignal_activity_at": "2026-10-29T20:21:11.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--855ec8c2-c121-53d4-9e73-2e2f6e5eba54",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T13:07:54.000Z",
@@ -136563,7 +136731,7 @@
       "id": "report--9c860e7f-8276-5e11-b65e-4cea0b67e457",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:40:12.000Z",
-      "modified": "2026-10-29T17:40:12.000Z",
+      "modified": "2026-10-29T20:21:52.000Z",
       "name": "AjaxLoadMore Cache: Unauthenticated remote code execution (CVE-2026-61991)",
       "description": "## Overview\nAjaxLoadMore Cache versions 3.1.1 and earlier are affected by an unauthenticated remote code execution (RCE) vulnerability (CVE-2026-61991). This vulnerability carries a CVSS v3.1 base score of 10.0.\n",
       "published": "2026-10-29T17:40:12.000Z",
@@ -136580,14 +136748,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61991"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-61991\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-29-ajaxloadmore-rce",
       "x_craftedsignal_event_id": "brief-2026-10-29-ajaxloadmore-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ajaxloadmore-rce/",
-      "x_craftedsignal_activity_at": "2026-10-29T17:40:12.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T20:21:52.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -147176,7 +147348,7 @@
       "id": "report--b8ad3a0c-d9c2-5d5a-9ce1-acfa0216c9c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T22:07:17.000Z",
-      "modified": "2026-10-27T22:07:17.000Z",
+      "modified": "2026-10-29T20:21:52.000Z",
       "name": "MLflow: Arbitrary file read via model version path validation (CVE-2026-116690)",
       "description": "## Overview\nMLflow versions 3.10.0 through 3.16.x contain a path traversal vulnerability in the `_create_model_version()` function. The application fails to properly validate source paths that lack a URL scheme, allowing remote users to supply server-local paths. An attacker can leverage the `/api/2.0/mlflow/model-versions/get-artifact` endpoint to access any file readable by the MLflow server process. This vulnerability impacts both unauthenticated instances and deployments utilizing basic authentication where the attacker possesses model registration privileges. This issue is resolved in MLflow version 3.17.0.\n\n## Impact\nSuccessful exploitation allows for unauthorized reading of sensitive files located on the MLflow server's filesystem, potentially exposing credentials, configuration data, or other sensitive system artifacts.\n\n## Recommendation\n- Upgrade MLflow to version 3.17.0 or later immediately.\n- Implement strict network access controls to limit access to the MLflow API to trusted IP addresses only.\n- Review MLflow server process permissions to ensure the service runs with the least privilege necessary, minimizing the impact of potential filesystem traversal.\n",
       "published": "2026-10-27T22:07:17.000Z",
@@ -147194,20 +147366,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116690"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4231"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-mlflow-traversal",
       "x_craftedsignal_event_id": "brief-2026-10-27-mlflow-traversal",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mlflow-traversal/",
-      "x_craftedsignal_activity_at": "2026-10-27T22:07:17.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T20:21:52.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00559,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -176365,6 +176542,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0006ebae-fdc5-50a5-9957-d3d8450e673f",
+      "name": "Fireware OS",
+      "vendor": "WatchGuard"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--001b7c82-dbc9-5c22-8b05-1efd73a1e2d5",
       "name": "black (\u003c 26.10.1)"
     },
@@ -187468,6 +187652,13 @@
       "id": "software--9809ab8d-ca92-5cc8-941a-aecaf000e13a",
       "name": "VikBooking Hotel Booking Engine \u0026 PMS (\u003c= 1.8.15)",
       "vendor": "VikWP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--980c32cc-8809-5460-ab32-aa454e690563",
+      "name": "systemd",
+      "vendor": "freedesktop.org"
     },
     {
       "type": "software",
@@ -220384,6 +220575,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c4f554d3-8faa-534a-8caf-feea1f0c23b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103594",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103594",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103594"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c527e4a2-d5b2-5521-a04a-3e2192959f8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -225066,6 +225273,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-51482",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-51482"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--eb9b1960-3054-5e8b-bd03-708e044747c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-50379",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-50379",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-50379"
         }
       ]
     },

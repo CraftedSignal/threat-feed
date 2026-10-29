@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-27-mlflow-traversal
 event_id: brief-2026-10-27-mlflow-traversal
-revision: 1
-activity_at: "2026-10-27T22:07:17Z"
+revision: 2
+activity_at: "2026-10-29T20:21:52Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T20:21:52Z"
+    checksum: sha256:42b511ef0dac7212c0bcadbb453c0e19119b07c4e7c2a806a9f5b4409a441d86
+    summary: new product
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4231
 title: 'MLflow: Arbitrary file read via model version path validation (CVE-2026-116690)'
 slug: 2026-10-mlflow-traversal
 description: MLflow versions 3.10.0 through 3.16.x contain a path traversal vulnerability allowing remote attackers to read arbitrary files from the server filesystem via the model-versions/get-artifact API.
 date: "2026-10-27T22:07:17Z"
+lastmod: "2026-10-29T20:21:09Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -31,9 +46,11 @@ products:
 cves:
   - id: CVE-2026-116690
     cvss: 7.5
+    epss: 0.00559
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116690
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4231
 action_plan:
   priority: immediate_escalation
   owners:
@@ -59,6 +76,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-116690
       evidence: This issue is fixed in version 3.17.0.
+updates:
+  - at: "2026-10-29T20:21:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4231
 ---
 
 MLflow versions 3.10.0 through 3.16.x contain a path traversal vulnerability in the `_create_model_version()` function. The application fails to properly validate source paths that lack a URL scheme, allowing remote users to supply server-local paths. An attacker can leverage the `/api/2.0/mlflow/model-versions/get-artifact` endpoint to access any file readable by the MLflow server process. This vulnerability impacts both unauthenticated instances and deployments utilizing basic authentication where the attacker possesses model registration privileges. This issue is resolved in MLflow version 3.17.0.
