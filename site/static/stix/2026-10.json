@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--65e83d43-61d8-5323-9d16-e5855659b97a",
+  "id": "bundle--d213a562-a55a-5ff1-9f11-05ed3e3bb1e1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1039,6 +1039,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1578",
           "url": "https://attack.mitre.org/techniques/T1578"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Data Encrypted for Impact",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1486",
+          "url": "https://attack.mitre.org/techniques/T1486"
         }
       ]
     },
@@ -3310,6 +3326,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--016bfc15-981e-5a2b-ae77-16daee6c46fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 271998018494403a9b5d0d4b01eb0c44",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '271998018494403a9b5d0d4b01eb0c44']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--03a511c9-bebf-5634-bf95-73b9b6bad6be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -3384,6 +3413,19 @@
       "pattern": "[email-addr:value = 'help@groundhogg.io']",
       "pattern_type": "stix",
       "valid_from": "2026-10-10T07:51:37.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--12e471f5-cddf-5c9e-9220-60d4bbfe2df4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: f1b5f6edfba8bf1312f65e7f2787c72f",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'f1b5f6edfba8bf1312f65e7f2787c72f']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -3518,6 +3560,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--246dc900-a5a9-5ae7-931e-5c4a23408357",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: a1765503f1405b24b77a16071e6ea6f6",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'a1765503f1405b24b77a16071e6ea6f6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--269a24c9-8a52-57a7-9a85-7428e123c0a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T10:17:33.000Z",
@@ -3570,6 +3625,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2b429a32-9ae8-5e08-8799-920ec9117e64",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: f71d8db7fda7659718330efcbd0776f0",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'f71d8db7fda7659718330efcbd0776f0']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--2bbc8dda-00d4-5d6c-841c-731e0d3f6841",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -3583,6 +3651,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--2ce34891-504a-582c-b358-45fbc67af7a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 241d01f08172a117268eb0f223348e47",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '241d01f08172a117268eb0f223348e47']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--2e1282f3-e584-5d65-af24-385f3d0b519f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -3592,6 +3673,19 @@
       "pattern": "[domain-name:value = 'facebook.net']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--2ef598b3-c4fe-569f-878f-c8520bbf5e3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 8a12e997e672b80319c5b852b237e5a9",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '8a12e997e672b80319c5b852b237e5a9']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -3682,6 +3776,19 @@
       "pattern": "[domain-name:value = 'dv-g3b-aaa-emudhra.we-have-a-problem.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-28T16:16:37.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--3eabef1b-518c-5c22-a8f5-b9bd8e56a53f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 9ef845add689fc71cae33686139efbb0",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '9ef845add689fc71cae33686139efbb0']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -3803,6 +3910,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--4b534420-ba86-534f-832f-15305d32a6c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 994a0c3e3e1390d972b1bdd8e8f2a449",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '994a0c3e3e1390d972b1bdd8e8f2a449']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--4b581650-5ed8-5bad-9856-572227c96bca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "ip: 5.252.177.249",
+      "description": "Anubis malicious infrastructure",
+      "pattern": "[ipv4-addr:value = '5.252.177.249']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--4c5a0be7-346b-5ef5-a5e3-6707d9803411",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-17T06:39:10.000Z",
@@ -3838,6 +3971,32 @@
       "pattern": "[ipv4-addr:value = '169.254.169.254']",
       "pattern_type": "stix",
       "valid_from": "2026-10-24T03:34:49.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--57e516ea-8b3c-58c9-87bb-c1eb6d521603",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 0f1b8aa83e5f9c40ad32561a95ed2c67",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '0f1b8aa83e5f9c40ad32561a95ed2c67']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--58f9eae8-98f4-5c7a-8a83-a51e741dfae5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "ip: 212.224.107.203",
+      "description": "Anubis malicious infrastructure",
+      "pattern": "[ipv4-addr:value = '212.224.107.203']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -4180,6 +4339,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--89409023-6604-5fd5-be46-65ca2be9b277",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "ip: 195.133.67.35",
+      "description": "Anubis malicious infrastructure",
+      "pattern": "[ipv4-addr:value = '195.133.67.35']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--8ab18d39-97ac-5e8d-b3c6-101a1db5fecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:46:44.000Z",
@@ -4284,6 +4456,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--9cb794f8-3c9a-55bd-8620-01f221ecd654",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 1b701df9e6b5252feef3d1d8dcfe12f5",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '1b701df9e6b5252feef3d1d8dcfe12f5']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--9ea861db-d0c3-50a5-b271-6e6ddffa64d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -4293,6 +4478,19 @@
       "pattern": "[domain-name:value = 'facebook.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--9eb53a73-c136-5a28-a884-5a81909fc6e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: f8a242fa6a8df6eafded0a6987a5ac09",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'f8a242fa6a8df6eafded0a6987a5ac09']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -4427,6 +4625,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--b22de1e4-937d-5790-a357-e5dc93deab97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 284d536dab5865150873e927a29cb0ae",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '284d536dab5865150873e927a29cb0ae']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--b25f5d33-2457-5687-8911-732ac377dd50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T11:38:20.000Z",
@@ -4436,6 +4647,19 @@
       "pattern": "[ipv4-addr:value = '144.172.116.37']",
       "pattern_type": "stix",
       "valid_from": "2026-10-28T11:38:20.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b38b1d73-8c42-578a-815c-d3a73907a963",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "ip: 38.134.148.20",
+      "description": "Anubis malicious infrastructure",
+      "pattern": "[ipv4-addr:value = '38.134.148.20']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -4461,6 +4685,45 @@
       "pattern": "[ipv4-addr:value = '172.67.157.109']",
       "pattern_type": "stix",
       "valid_from": "2026-10-27T17:53:26.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b6fc545a-8a2e-5097-a81d-ab9d95e815d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: d9a053e54be4003cc28b41fe30790349",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'd9a053e54be4003cc28b41fe30790349']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b781c295-8c83-5e45-893e-d6edac65b89c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: ed2510198b03435570d72ce274bc245c",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'ed2510198b03435570d72ce274bc245c']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--bc35c77d-709c-5e5f-9d7f-1f1ae53447b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 71ce395e8bb531ec3623b94387de8392",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '71ce395e8bb531ec3623b94387de8392']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -4517,6 +4780,32 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c1fdd156-1968-5caa-b61c-79a02bf97b1c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 4f178cefbf3fc66baed13b3c4fa897d4",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '4f178cefbf3fc66baed13b3c4fa897d4']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c2292870-70d8-5c96-b277-a20c4b578f82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: a4b88bf440613390cd32e045a59fd7b0",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'a4b88bf440613390cd32e045a59fd7b0']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c234951f-0293-5015-a05c-8587777fed0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:51:56.000Z",
@@ -4569,6 +4858,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--c86a0192-e394-5440-b593-f5cbca4f193f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 5334cbddd1128f87308c0725d2cb012e",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '5334cbddd1128f87308c0725d2cb012e']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--c87c0682-ac35-5dee-9196-5c45a4a896be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -4578,6 +4880,19 @@
       "pattern": "[domain-name:value = '*.fbcd.net']",
       "pattern_type": "stix",
       "valid_from": "2026-10-19T02:52:13.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--cb519b19-aaa8-5a1c-a828-e1fd000ce1df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: d2410703e93be61a652b92efcf42789d",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'd2410703e93be61a652b92efcf42789d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -4673,6 +4988,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--d44c1df0-88db-53c0-a0df-db27c805462c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 0a5f3fc92af7aa3e448ac7b84e495fc6",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '0a5f3fc92af7aa3e448ac7b84e495fc6']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--d4d8630d-1872-51d4-b964-db62501f864b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
@@ -4695,6 +5023,19 @@
       "pattern": "[domain-name:value = 'globalfileshareplatform.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-01T10:33:30.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--d73c85f2-fc2e-5296-b1c2-b6207c63ce77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 054d432e231e8ee6e301675ef2bd598d",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '054d432e231e8ee6e301675ef2bd598d']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -4776,6 +5117,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--e44c76cc-964b-52e4-854e-b96f1d39fa10",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: a2d853247d939106231314bc5b233bda",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'a2d853247d939106231314bc5b233bda']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--e53c1b39-ba75-5136-89fb-61fb3b42178d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -4798,6 +5152,19 @@
       "pattern": "[file:hashes.'SHA-256' = '56b74573eed6e4aafe4b50603dbe7853e0345f188c8e44a09f1098caf1f4bcdf']",
       "pattern_type": "stix",
       "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e5fcdabb-65c3-53f1-8734-065a13bb02b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 832feae0378a9b36c4958812735b6d81",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '832feae0378a9b36c4958812735b6d81']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -4893,6 +5260,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--eda20251-1ea9-56a0-a349-8e986ff7969f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: c66022aa8b77a95c9b78a8743657f830",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = 'c66022aa8b77a95c9b78a8743657f830']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--eeead407-1eae-500e-b93c-7730df2234f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T16:05:57.000Z",
@@ -4941,6 +5321,19 @@
       "pattern": "[domain-name:value = 'gpoosl.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-20T23:53:02.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f086b4f0-c625-5fba-8e55-3fcec5350c9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "hash_md5: 24eae2bb569d97018d343fff50112dab",
+      "description": "Anubis ransomware payload",
+      "pattern": "[file:hashes.MD5 = '24eae2bb569d97018d343fff50112dab']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T08:37:22.000Z"
     },
     {
       "type": "indicator",
@@ -6356,6 +6749,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--04e2c26d-b395-586f-9352-f72d524d586e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--f086b4f0-c625-5fba-8e55-3fcec5350c9f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--04eda433-ab91-5c4d-8d63-7e9a11b48997",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T22:57:59.000Z",
@@ -6814,6 +7218,17 @@
       "relationship_type": "has",
       "source_ref": "software--2e2be56a-44a1-52f5-bbc8-61bbccba6578",
       "target_ref": "vulnerability--16672632-d646-59ad-9649-081db867c09c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--066936f1-32f1-580a-8d54-211e904e95e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--2b429a32-9ae8-5e08-8799-920ec9117e64"
     },
     {
       "type": "relationship",
@@ -8556,6 +8971,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0d848896-e16b-549a-85b0-8cc05beac124",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--c1fdd156-1968-5caa-b61c-79a02bf97b1c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0d926a19-edb7-5676-ab3a-af288846d811",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T15:55:34.000Z",
@@ -9927,6 +10353,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ee9caccb-2c61-5514-bfd7-488eaa3749e2",
       "target_ref": "attack-pattern--465a38e0-65ed-5b24-b51b-228c2afdc195"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--130bf7a1-a91f-5102-9372-5db9bdb1f982",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--3eabef1b-518c-5c22-a8f5-b9bd8e56a53f"
     },
     {
       "type": "relationship",
@@ -11379,6 +11816,17 @@
       "relationship_type": "has",
       "source_ref": "software--987be912-07e8-56da-8da3-2e49e2812caf",
       "target_ref": "vulnerability--8abd0740-4db9-5c95-b104-5ac319f62af8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--193138d2-ad94-58aa-9d51-a2c2096b09a1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--b6fc545a-8a2e-5097-a81d-ab9d95e815d6"
     },
     {
       "type": "relationship",
@@ -12846,6 +13294,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1f2c900f-db04-5426-85da-d8e8bce1c12e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--bc35c77d-709c-5e5f-9d7f-1f1ae53447b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1f452b82-a2ff-51d8-8141-52593e06fddf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13502,6 +13961,17 @@
       "relationship_type": "has",
       "source_ref": "software--54ec2337-347b-57d7-94fe-6acdd67e92ce",
       "target_ref": "vulnerability--1fc69f8b-d502-5e08-ba7a-b10addc8ec62"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--226ed9de-506c-5145-9b70-982927f3b4e2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--246dc900-a5a9-5ae7-931e-5c4a23408357"
     },
     {
       "type": "relationship",
@@ -15673,6 +16143,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2b96c6ef-77f1-5553-838b-77f08528069e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--d73c85f2-fc2e-5296-b1c2-b6207c63ce77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2bb50e04-8b1b-50e1-8429-a61257d03eb7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -16714,6 +17195,17 @@
       "relationship_type": "has",
       "source_ref": "software--1ed7117e-5324-5d36-a38e-00d6ec70c881",
       "target_ref": "vulnerability--e543d47f-9079-50f7-9f39-d23613eca972"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2fbb3683-0786-546d-b0c3-4dbe3d09811f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--2ef598b3-c4fe-569f-878f-c8520bbf5e3e"
     },
     {
       "type": "relationship",
@@ -17979,6 +18471,17 @@
       "relationship_type": "has",
       "source_ref": "software--c031e376-b592-5963-b580-8254cb64c68b",
       "target_ref": "vulnerability--0d225717-8559-57ec-b96d-ae7a9c26459f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--35960282-2b81-570b-a4f9-b1825e5ce8cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--57e516ea-8b3c-58c9-87bb-c1eb6d521603"
     },
     {
       "type": "relationship",
@@ -20744,6 +21247,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--420086d6-a2e2-514f-9d6a-5e03ef325590",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "threat-actor--62c00e5b-efb8-51d9-9e3f-04b7ce6543f7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--42063101-30d9-5928-97f8-b81cf3f179c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -21371,6 +21885,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--443f1cf2-3b2f-5cd4-abda-b259dcb90e76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--c86a0192-e394-5440-b593-f5cbca4f193f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4450730f-7db2-5f20-87f5-0aaa42e6a93c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21829,6 +22354,17 @@
       "relationship_type": "has",
       "source_ref": "software--ab138976-257f-59cf-a655-4cf0cbf356a5",
       "target_ref": "vulnerability--7fb8d01d-9200-588c-b6d6-737c852abad9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4652b33a-6bfd-539b-b71a-d769a44f7fb3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--89409023-6604-5fd5-be46-65ca2be9b277"
     },
     {
       "type": "relationship",
@@ -22878,6 +23414,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4b11ebc3-b35c-5dbe-9129-c69b3557f6c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--58f9eae8-98f4-5c7a-8a83-a51e741dfae5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4b2cdbb4-aa12-5201-959d-769eaebe85f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23039,6 +23586,17 @@
       "relationship_type": "has",
       "source_ref": "software--d8a79657-5688-565a-9595-67c17b5a3693",
       "target_ref": "vulnerability--11b8cfa6-45d6-5fb0-9b39-8f7a2927a040"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4b92eeb2-c9cb-55c8-ba75-2fef030cc79c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--e44c76cc-964b-52e4-854e-b96f1d39fa10"
     },
     {
       "type": "relationship",
@@ -25316,6 +25874,17 @@
       "relationship_type": "has",
       "source_ref": "software--1f89fd75-fc9f-5ea5-955e-4f76559b1373",
       "target_ref": "vulnerability--b5cb2235-4c8c-58e7-997e-2aeae4126e06"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--54d78ba2-1f05-5922-b320-79640e8c7a28",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40"
     },
     {
       "type": "relationship",
@@ -28235,6 +28804,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--613408a4-37ff-51cc-b1df-0133c2713bcc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--b38b1d73-8c42-578a-815c-d3a73907a963"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6134f2ea-ae47-5d7e-966d-da33db9d414a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T08:23:46.000Z",
@@ -30006,6 +30586,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6836f406-1743-5f05-9b57-1f26fddbea32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--2ce34891-504a-582c-b358-45fbc67af7a9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--684a5481-1722-5ebc-9ac9-1e03a4ce8246",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31634,6 +32225,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6ec3a341-b5ca-5544-9d00-de88cfba4a7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--016bfc15-981e-5a2b-ae77-16daee6c46fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6ed6df2a-c83f-5d33-80d8-dc4078553809",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32026,6 +32628,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7e0380b-a557-53c5-b2b8-a2543a589ce5",
       "target_ref": "vulnerability--ea9701c5-c88c-537f-ae96-f228048523e1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--70aae55c-2d5a-504d-8c72-bf95894b0fb8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--4b581650-5ed8-5bad-9856-572227c96bca"
     },
     {
       "type": "relationship",
@@ -33148,6 +33761,17 @@
       "relationship_type": "has",
       "source_ref": "software--fcf71767-6fbd-55c6-a653-df56ad6fcda4",
       "target_ref": "vulnerability--f3bbb6e1-dc8d-550b-8b2e-f17582dcda57"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7571a04e-5c4d-5ccc-b3e2-42e77a55159b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--cb519b19-aaa8-5a1c-a828-e1fd000ce1df"
     },
     {
       "type": "relationship",
@@ -35975,6 +36599,17 @@
       "relationship_type": "has",
       "source_ref": "software--36d2d479-64f5-501e-bbba-69c93a764a84",
       "target_ref": "vulnerability--6a39ac96-dfb2-5370-9b3d-4f720635a650"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--806fcdd3-fd10-5528-b694-28934fb1fb20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--e5fcdabb-65c3-53f1-8734-065a13bb02b4"
     },
     {
       "type": "relationship",
@@ -41391,6 +42026,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--96278cb5-3770-5055-a944-dda4aae10aed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--d44c1df0-88db-53c0-a0df-db27c805462c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--96343a77-0ce3-5d8f-87b5-ea33c0af1305",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43261,6 +43907,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9d7e6fc7-22c1-51ed-a6d7-f2f2b84877f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--b781c295-8c83-5e45-893e-d6edac65b89c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9d9482dd-f2a2-5631-97eb-d1ddef76bb7a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:12:19.000Z",
@@ -44335,6 +44992,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2c824b8e-dff7-5d29-859d-240c9cdbe5ee",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a24cf56b-d42f-5c00-8f08-b4b9075edc17",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--c2292870-70d8-5c96-b277-a20c4b578f82"
     },
     {
       "type": "relationship",
@@ -49729,6 +50397,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b7fc22ca-4596-57f8-bf61-ebf50a6f257c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b804661a-3903-5f09-8117-4b61d7e62e6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54712,6 +55391,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cbca18f0-b261-5533-8637-ed7647ea3926",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--12e471f5-cddf-5c9e-9220-60d4bbfe2df4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cbd69fbc-924b-562a-809a-ac6c96d311d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:44:36.000Z",
@@ -56347,6 +57037,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3c69da44-c294-53cd-8e26-4357bc9954b2",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d24f523d-4684-577e-a69c-ea6f09dfef08",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--9eb53a73-c136-5a28-a884-5a81909fc6e5"
     },
     {
       "type": "relationship",
@@ -59548,6 +60249,17 @@
       "relationship_type": "has",
       "source_ref": "software--98a317b7-dd84-5ee7-9c57-7d13ec090cf8",
       "target_ref": "vulnerability--aeaafeff-a855-55ee-9900-d914492e51a4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--de7ad7dc-d3ff-5a00-b73c-c6bf35b4c0b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--b22de1e4-937d-5790-a357-e5dc93deab97"
     },
     {
       "type": "relationship",
@@ -64062,6 +64774,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ee5e7f1e-267b-52f7-92fd-a0b2fe938aa4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--eda20251-1ea9-56a0-a349-8e986ff7969f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ee620c78-57f3-50c1-b9b1-812450f221c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64333,6 +65056,17 @@
       "relationship_type": "has",
       "source_ref": "software--fbbf776f-0c2b-52d6-a77e-fd4eff471394",
       "target_ref": "vulnerability--c8df878f-4804-5406-bebe-dee9c49dce99"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef9bcfa9-af13-51e2-b397-c068babbf438",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--4b534420-ba86-534f-832f-15305d32a6c8"
     },
     {
       "type": "relationship",
@@ -65026,6 +65760,17 @@
       "relationship_type": "has",
       "source_ref": "software--69639c6c-8b89-5dba-a975-bb2ede4856cd",
       "target_ref": "vulnerability--f28d1583-bfc5-5bc6-82a7-ba20fd853b0b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f2c131c1-8588-5b42-85df-f3afa9f09e02",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "target_ref": "indicator--9cb794f8-3c9a-55bd-8620-01f221ecd654"
     },
     {
       "type": "relationship",
@@ -83376,6 +84121,81 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2cfbcf80-e959-5785-8332-84615c279409",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T08:37:22.000Z",
+      "modified": "2026-10-29T08:37:22.000Z",
+      "name": "Anubis Ransomware: Santiam Hospital \u0026 Clinics Data Breach",
+      "description": "## Overview\n\nThe Anubis ransomware group has publicly claimed responsibility for a data breach at Santiam Hospital \u0026 Clinics. The group operates under a Ransomware-as-a-Service (RaaS) model and is known for double extortion, which involves exfiltrating sensitive medical data and encrypting organizational systems. The threat actor also provides affiliates with an optional destructive \"wipe mode\" to permanently delete data.\n\n## Impact\n\nThe breach at Santiam Hospital \u0026 Clinics has resulted in the exposure of sensitive medical data. Anubis has listed the victim on its public-facing onion leak site, indicating intent to extort the organization.\n\n## Recommendation\n\n- Block the listed IP addresses at the perimeter firewall and web proxy to prevent communication with known Anubis infrastructure.\n- Implement file integrity monitoring (FIM) and hunt for the presence of the provided MD5 hashes on endpoints to identify potential remnants of the Anubis ransomware payload.\n- Prioritize monitoring of network traffic to and from healthcare infrastructure for unauthorized data staging or transfer, consistent with the double-extortion TTPs used by this group.\n",
+      "published": "2026-10-29T08:37:22.000Z",
+      "labels": [
+        "data-exfiltration",
+        "healthcare",
+        "ransomware"
+      ],
+      "object_refs": [
+        "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
+        "attack-pattern--6ef3c5ca-94f5-57f2-924a-8c2f91b71d40",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--016bfc15-981e-5a2b-ae77-16daee6c46fa",
+        "indicator--12e471f5-cddf-5c9e-9220-60d4bbfe2df4",
+        "indicator--246dc900-a5a9-5ae7-931e-5c4a23408357",
+        "indicator--2b429a32-9ae8-5e08-8799-920ec9117e64",
+        "indicator--2ce34891-504a-582c-b358-45fbc67af7a9",
+        "indicator--2ef598b3-c4fe-569f-878f-c8520bbf5e3e",
+        "indicator--3eabef1b-518c-5c22-a8f5-b9bd8e56a53f",
+        "indicator--4b534420-ba86-534f-832f-15305d32a6c8",
+        "indicator--4b581650-5ed8-5bad-9856-572227c96bca",
+        "indicator--57e516ea-8b3c-58c9-87bb-c1eb6d521603",
+        "indicator--58f9eae8-98f4-5c7a-8a83-a51e741dfae5",
+        "indicator--89409023-6604-5fd5-be46-65ca2be9b277",
+        "indicator--9cb794f8-3c9a-55bd-8620-01f221ecd654",
+        "indicator--9eb53a73-c136-5a28-a884-5a81909fc6e5",
+        "indicator--b22de1e4-937d-5790-a357-e5dc93deab97",
+        "indicator--b38b1d73-8c42-578a-815c-d3a73907a963",
+        "indicator--b6fc545a-8a2e-5097-a81d-ab9d95e815d6",
+        "indicator--b781c295-8c83-5e45-893e-d6edac65b89c",
+        "indicator--bc35c77d-709c-5e5f-9d7f-1f1ae53447b8",
+        "indicator--c1fdd156-1968-5caa-b61c-79a02bf97b1c",
+        "indicator--c2292870-70d8-5c96-b277-a20c4b578f82",
+        "indicator--c86a0192-e394-5440-b593-f5cbca4f193f",
+        "indicator--cb519b19-aaa8-5a1c-a828-e1fd000ce1df",
+        "indicator--d44c1df0-88db-53c0-a0df-db27c805462c",
+        "indicator--d73c85f2-fc2e-5296-b1c2-b6207c63ce77",
+        "indicator--e44c76cc-964b-52e4-854e-b96f1d39fa10",
+        "indicator--e5fcdabb-65c3-53f1-8734-065a13bb02b4",
+        "indicator--eda20251-1ea9-56a0-a349-8e986ff7969f",
+        "indicator--f086b4f0-c625-5fba-8e55-3fcec5350c9f",
+        "software--2fdc2074-403c-51ad-a528-a3db91aa7f80",
+        "threat-actor--62c00e5b-efb8-51d9-9e3f-04b7ce6543f7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-anubis-santiam",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-anubis-santiam/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ransomware.live/group/anubis"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-anubis-santiam",
+      "x_craftedsignal_event_id": "brief-2026-10-29-anubis-santiam",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-anubis-santiam/",
+      "x_craftedsignal_activity_at": "2026-10-29T08:37:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -165991,6 +166811,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2fdc2074-403c-51ad-a528-a3db91aa7f80",
+      "name": "Santiam Hospital \u0026 Clinics",
+      "vendor": "Santiam Hospital \u0026 Clinics"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2ff6188a-8cab-5cd3-bb8d-45e249abd7fc",
       "name": "SecuShare Pro",
       "vendor": "Openfind"
@@ -179144,6 +179971,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "CLOP"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--62c00e5b-efb8-51d9-9e3f-04b7ce6543f7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Anubis"
     },
     {
       "type": "threat-actor",
