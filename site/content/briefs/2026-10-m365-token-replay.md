@@ -1,17 +1,35 @@
 ---
 brief_id: brief-2026-10-26-m365-token-replay
 event_id: brief-2026-10-26-m365-token-replay
-revision: 1
-activity_at: "2026-10-26T09:54:31Z"
+revision: 2
+activity_at: "2026-10-29T00:00:24Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T00:00:24Z"
+    checksum: sha256:53f9ebcd00ff79030678ae3c0e60288bf309e891017443f560ad7325921c032f
+    summary: new IOCs
+    changed_fields:
+      - claim_state
+      - iocs
+      - lastmod
+      - references
+      - threat_actor
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/al26-028-ongoing-help-desk-voice-phishing-campaign-targeting-canadian-organizations
 title: Microsoft 365 Adversary-in-the-Middle Token Replay Campaign
 slug: 2026-10-m365-token-replay
 description: Threat actors are leveraging Adversary-in-the-Middle relays to capture M365 authentication tokens and bypass MFA, resulting in unauthorized account access, rogue device registration, and malicious inbox rule creation across multiple organizations.
 date: "2026-10-26T09:54:31Z"
-type: advisory
+lastmod: "2026-10-28T23:59:28Z"
+type: threat
+claim_state: <nil>
 types:
-  - advisory
+  - threat
 severities:
   - high
+actors:
+  - UNC6671
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -59,13 +77,18 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://thehackernews.com/2026/10/microsoft-365-token-replay-attacks.html
+  - https://cyber.gc.ca/en/alerts-advisories/al26-028-ongoing-help-desk-voice-phishing-campaign-targeting-canadian-organizations
 iocs:
   - type: ip
     value: 193.26.115.221
   - type: domain
     value: exy.sh
+  - type: domain
+    value: onetimesso.com
+  - type: domain
+    value: registermymfa.com
 ioc_counts:
-  domain: 1
+  domain: 3
   ip: 1
 action_plan:
   priority: immediate_escalation
@@ -96,6 +119,14 @@ action_plan:
       owner: IT Operations
       addresses: Token Replay / AitM
       evidence: Businesses setting up CAPs should require MFA (or block) for All Users, All Cloud Apps, and All Client App types, unconditionally.
+updates:
+  - at: "2026-10-28T23:59:28Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/al26-028-ongoing-help-desk-voice-phishing-campaign-targeting-canadian-organizations
 ---
 
 Between July 14 and September 22, 2026, threat actors conducted a widespread campaign targeting Microsoft 365 users. The attackers utilized Adversary-in-the-Middle (AitM) infrastructure to intercept login credentials and MFA codes, allowing them to capture valid session tokens. These tokens were subsequently replayed to gain access to corporate mailboxes without triggering MFA. The campaign resulted in the compromise of 97 accounts across 79 organizations, with observed persistence mechanisms including the registration of rogue Entra devices and the addition of unauthorized MFA methods.

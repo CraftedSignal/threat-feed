@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c80b7a25-fdd8-5921-a9bc-d4c253d50914",
+  "id": "bundle--d826cb3c-76ce-5166-b758-aa4281a14ce8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3955,6 +3955,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--610d9921-7675-572e-9414-a70065a309e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
+      "name": "domain: onetimesso.com",
+      "description": "Pattern for attacker-controlled infrastructure",
+      "pattern": "[domain-name:value = 'onetimesso.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-26T09:54:31.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--65a2597b-99ba-53d0-ab46-5a120d8e1570",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T11:38:20.000Z",
@@ -4319,6 +4332,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--96a83791-c417-57cb-9d83-fd798d47df89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
+      "name": "domain: registermymfa.com",
+      "description": "Pattern for attacker-controlled infrastructure",
+      "pattern": "[domain-name:value = 'registermymfa.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-26T09:54:31.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--975a1904-9a86-5775-b939-335bdc87ebee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -4335,7 +4361,7 @@
       "id": "indicator--988796a8-dbbd-5663-b745-3447ebe521f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "name": "ip: 193.26.115.221",
       "description": "Source IP observed in the campaign, associated with AsyncRAT activity and German hosting provider 1337 Services GmbH.",
       "pattern": "[ipv4-addr:value = '193.26.115.221']",
@@ -4801,7 +4827,7 @@
       "id": "indicator--e249400a-2d84-5435-ade6-0d0fc35b3e07",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "name": "domain: exy.sh",
       "description": "Infrastructure associated with the hosting provider identified in the campaign.",
       "pattern": "[domain-name:value = 'exy.sh']",
@@ -11799,7 +11825,7 @@
       "id": "relationship--1a5d2747-7b65-55f4-b738-3d1f5571e55c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
       "target_ref": "indicator--988796a8-dbbd-5663-b745-3447ebe521f6"
@@ -12800,7 +12826,7 @@
       "id": "relationship--1e3521ae-383b-5be6-864d-1a43f8f81011",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
       "target_ref": "attack-pattern--2d434757-5a55-5689-b191-a633fea9af9a"
@@ -25883,6 +25909,17 @@
       "relationship_type": "uses",
       "source_ref": "report--bd5e8e4f-c01b-56da-9b20-fef11b5f9164",
       "target_ref": "attack-pattern--80d9a00f-f83e-56c4-ba06-1abdbfa337ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--55af7cad-2d1f-5884-9f64-6daac192aa11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "threat-actor--c617003a-4d0b-5e7f-8728-64eba402b17a"
     },
     {
       "type": "relationship",
@@ -41455,7 +41492,7 @@
       "id": "relationship--9355173e-5304-579d-b6a3-fabbd85ea832",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
       "target_ref": "attack-pattern--296fc6f2-dbef-543a-8261-6c7285c5fff8"
@@ -41602,6 +41639,17 @@
       "relationship_type": "has",
       "source_ref": "software--aa4c0214-fc71-50ab-85a6-2d172ed7c17d",
       "target_ref": "vulnerability--830d81b4-db68-594f-9d3c-9f10e83864dd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--93d3739f-a486-5866-a729-addb9054c1cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "indicator--610d9921-7675-572e-9414-a70065a309e5"
     },
     {
       "type": "relationship",
@@ -42588,7 +42636,7 @@
       "id": "relationship--97a79c4b-54a0-5878-870e-bea7532191a1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
       "target_ref": "indicator--e249400a-2d84-5435-ade6-0d0fc35b3e07"
@@ -43307,6 +43355,17 @@
       "relationship_type": "uses",
       "source_ref": "report--49d29e95-e368-585d-8c52-c8d089f97c43",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9abc32a0-5683-57a0-b99b-39626351b1ac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
+      "target_ref": "indicator--96a83791-c417-57cb-9d83-fd798d47df89"
     },
     {
       "type": "relationship",
@@ -51564,7 +51623,7 @@
       "id": "relationship--bbb2c2fe-55ae-5dfd-96d1-1b5610cde59f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
       "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
@@ -55051,7 +55110,7 @@
       "id": "relationship--c91110b4-861a-5f8e-a7b8-40e7d3fd1b5f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "relationship_type": "uses",
       "source_ref": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
@@ -86328,6 +86387,72 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2fc284b9-cdd9-54dc-ac7c-60223e1b37c5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T23:59:19.000Z",
+      "modified": "2026-10-28T23:59:19.000Z",
+      "name": "Mozilla Firefox, Firefox ESR, and Thunderbird vulnerabilities",
+      "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued an advisory (AV26-1100) regarding security vulnerabilities identified in Mozilla Firefox, Firefox ESR, and Thunderbird. Users and administrators are advised to update their software to the versions specified in the Mozilla Foundation Security Advisories (MFSA2026-118, 119, 120, 121, and 122).\n\n## Recommendation\n\n- Upgrade Firefox to version 159 or later.\n- Upgrade Firefox ESR to version 115.44 or 153.6 or later.\n- Upgrade Thunderbird to version 159 or 153.6 or later.\n- Review the specific Mozilla Foundation Security Advisories linked in the references to understand the scope and impact of the patched vulnerabilities.\n",
+      "published": "2026-10-28T23:59:19.000Z",
+      "labels": [
+        "informational",
+        "product-news"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1bbb79df-87bd-51ed-93c0-9aed8019bd17",
+        "software--287f81ab-9ae0-5f0b-b1b9-7cbbbb5ea973",
+        "software--4d107416-4cb3-5ba8-b39e-6c4ec419faad",
+        "software--c5a8fffb-a104-536c-be29-a50c2d10d7e1",
+        "software--fdb70da2-5f5d-574b-99a6-d224ae53dd60"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-mozilla-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-mozilla-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/mozilla-security-advisory-av26-1100"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-119/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-120/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-121/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-122/"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-mozilla-advisory",
+      "x_craftedsignal_event_id": "brief-2026-10-28-mozilla-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mozilla-advisory/",
+      "x_craftedsignal_activity_at": "2026-10-28T23:59:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--30129a3f-221c-5c1a-a36a-4cf28b473678",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T06:54:20.000Z",
@@ -110552,6 +110677,68 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6decb219-e956-5e23-8016-30808b845876",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T23:59:46.000Z",
+      "modified": "2026-10-28T23:59:46.000Z",
+      "name": "Adobe: Security updates for Substance 3D Painter, Creative Cloud, Campaign Classic, and Connect",
+      "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued advisory AV26-1092 following the release of security updates by Adobe. These updates address multiple vulnerabilities across the Substance 3D Painter, Creative Cloud Desktop Application, Adobe Campaign Classic, and Adobe Connect product lines. The specific technical details of these vulnerabilities remain documented within the vendor-provided security bulletins linked below.\n\n## Recommendation\n\n- Audit the environment to identify installations of the affected Adobe products.\n- Review the specific security bulletins (APSB26-178, APSB26-135, APSB26-162, APSB26-182) for versioning requirements.\n- Apply the latest security updates provided by Adobe for the identified product versions as a matter of priority to remediate known vulnerabilities.\n",
+      "published": "2026-10-28T23:59:46.000Z",
+      "labels": [
+        "software-update",
+        "vulnerability-management"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--30705d65-3979-55cb-ba15-79fe863a426a",
+        "software--3163233d-bd7a-5871-a702-2269984adf94",
+        "software--9da0915f-609f-54a0-8c28-e7579e5099c7",
+        "software--b7ec4dc8-2823-5146-8f3e-ca06e8f9d406",
+        "software--bc7585ae-9e10-5e0b-9b88-f2cda03ce010"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-adobe-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-adobe-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/adobe-security-advisory-av26-1092"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.adobe.com/trust/security/products/campaign/apsb26-162.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.adobe.com/trust/security/products/connect/apsb26-182.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.adobe.com/trust/security/products/creative-cloud/apsb26-135.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.adobe.com/trust/security/products/substance3d-painter/apsb26-178.html"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-adobe-advisory",
+      "x_craftedsignal_event_id": "brief-2026-10-28-adobe-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-adobe-advisory/",
+      "x_craftedsignal_activity_at": "2026-10-28T23:59:46.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6dfd1fbd-afed-55e5-b14c-d72f3f60d958",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-30T15:12:59.000Z",
@@ -131157,7 +131344,7 @@
       "id": "report--a3f9a773-8995-5bb8-a25a-1092d82d729d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T09:54:31.000Z",
-      "modified": "2026-10-26T09:54:31.000Z",
+      "modified": "2026-10-29T00:00:24.000Z",
       "name": "Microsoft 365 Adversary-in-the-Middle Token Replay Campaign",
       "description": "## Overview\nBetween July 14 and September 22, 2026, threat actors conducted a widespread campaign targeting Microsoft 365 users. The attackers utilized Adversary-in-the-Middle (AitM) infrastructure to intercept login credentials and MFA codes, allowing them to capture valid session tokens. These tokens were subsequently replayed to gain access to corporate mailboxes without triggering MFA. The campaign resulted in the compromise of 97 accounts across 79 organizations, with observed persistence mechanisms including the registration of rogue Entra devices and the addition of unauthorized MFA methods.\n\n## Attack Chain\n1. Victims are directed to a malicious AitM login page that proxies communication with legitimate Microsoft services.\n2. The AitM proxy captures the victim's credentials, MFA inputs, and the resulting valid session access token.\n3. Attackers replay the captured access token from their own infrastructure within minutes to hijack active sessions.\n4. Attackers gain unauthorized access to Microsoft 365 services and proceed to establish long-term persistence.\n5. Attackers register rogue Entra devices and add unauthorized authenticator apps to maintain access even after session expiration.\n6. Attackers configure hidden inbox rules to delete or hide sensitive communications (e.g., payroll, bonus) and distribute outbound spam.\n\n## Impact\nThe campaign successfully compromised 97 accounts across 79 organizations. Attackers registered at least 48 fake devices in victim directories and leveraged compromised mailboxes for outbound spam campaigns. Specific inbox rules were used to obfuscate activity and hide incoming financial communications.\n\n## Recommendation\n- Restrict the device-code authentication workflow using Microsoft Entra Conditional Access policies to prevent unauthorized device registration.\n- Audit Microsoft Entra directories for unauthorized or suspicious registered devices.\n- Review and enforce MFA requirements using Conditional Access policies for all users, all cloud apps, and all client app types unconditionally.\n- Implement periodic audits of inbox rules across the environment, specifically searching for rules with minimal naming or obscured characters.\n- Immediately revoke active sessions and reset credentials for any accounts identified with suspicious MFA registration activity.\n",
       "published": "2026-10-26T09:54:31.000Z",
@@ -131174,10 +131361,13 @@
         "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
         "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--610d9921-7675-572e-9414-a70065a309e5",
+        "indicator--96a83791-c417-57cb-9d83-fd798d47df89",
         "indicator--988796a8-dbbd-5663-b745-3447ebe521f6",
         "indicator--e249400a-2d84-5435-ade6-0d0fc35b3e07",
         "software--28ee369c-acac-5afb-81cf-e25224434b7d",
-        "software--d93c17d5-7ee7-5ebf-88c3-3a3e36bc31fd"
+        "software--d93c17d5-7ee7-5ebf-88c3-3a3e36bc31fd",
+        "threat-actor--c617003a-4d0b-5e7f-8728-64eba402b17a"
       ],
       "external_references": [
         {
@@ -131187,17 +131377,21 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/al26-028-ongoing-help-desk-voice-phishing-campaign-targeting-canadian-organizations"
+        },
+        {
+          "source_name": "reference",
           "url": "https://thehackernews.com/2026/10/microsoft-365-token-replay-attacks.html"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-26-m365-token-replay",
       "x_craftedsignal_event_id": "brief-2026-10-26-m365-token-replay",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-m365-token-replay/",
-      "x_craftedsignal_activity_at": "2026-10-26T09:54:31.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T00:00:24.000Z",
       "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -131878,6 +132072,64 @@
       },
       "x_craftedsignal_cvss_max": 7.7,
       "x_craftedsignal_epss_max": 0.1456,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a578cbc8-1671-5ade-8d60-684186f8e708",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T23:59:37.000Z",
+      "modified": "2026-10-28T23:59:37.000Z",
+      "name": "Veeam: Security updates for multiple backup and management products",
+      "description": "## Overview\n\nOn October 27, 2026, the Cyber Centre published an advisory regarding security vulnerabilities affecting several Veeam products. While specific vulnerability details are undisclosed, the manufacturer has released updates to mitigate these security risks. Administrators are encouraged to verify current versions and apply the patches listed in the official Veeam knowledge base articles.\n\n## Recommendation\n\n* Inventory all environments for the affected Veeam products listed below.\n* Upgrade Veeam Agent for Linux to version 13.1.2 or later.\n* Upgrade Veeam Backup and Replication to version 13.1.2 or later (ensuring all versions prior to 13.0.3 and 13.1.2 are addressed).\n* Upgrade Veeam Backup for Microsoft 365 to the latest version, ensuring migration past build 8.6.0.1102.\n* Upgrade Veeam ONE to the version specified in KB4951 (post-13.1.0.7233).\n* Monitor the Veeam Support Knowledge Base for further details as they are released.\n",
+      "published": "2026-10-28T23:59:37.000Z",
+      "labels": [
+        "patch-management",
+        "product-news",
+        "security-advisory"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--09bea23d-5e37-5403-95eb-4216ab295ccc",
+        "software--2e8d3964-fb36-57d4-a88a-2981f2a2b223",
+        "software--3a4a4114-2974-5ca4-8fb9-b06a1b3d927f",
+        "software--f23de6c5-0a91-5488-a7fe-a79a0b16244e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-28-veeam-security-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-veeam-security-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/veeam-security-advisory-av26-1096"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.veeam.com/kb4948"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.veeam.com/kb4951"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.veeam.com/kb4957"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-28-veeam-security-advisory",
+      "x_craftedsignal_event_id": "brief-2026-10-28-veeam-security-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-veeam-security-advisory/",
+      "x_craftedsignal_activity_at": "2026-10-28T23:59:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -166990,6 +167242,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--09bea23d-5e37-5403-95eb-4216ab295ccc",
+      "name": "Veeam Backup for Microsoft 365 (\u003c= 8.5.0.1014, \u003c= 8.6.0.1102)",
+      "vendor": "Veeam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--09cb162f-b9df-5bf1-8308-942ccb9784f2",
       "name": "W (\u003c= 3.18.0)",
       "vendor": "Vincent Peugnet"
@@ -168364,6 +168623,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1bbb79df-87bd-51ed-93c0-9aed8019bd17",
+      "name": "Thunderbird (\u003c 153.6)",
+      "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--1bd6fdee-fc15-55b6-8fea-43586ced0d69",
       "name": "PHP (5.4 through 8.5.11)",
       "vendor": "PHP Group"
@@ -169202,6 +169468,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--287f81ab-9ae0-5f0b-b1b9-7cbbbb5ea973",
+      "name": "Firefox ESR (\u003c 153.6)",
+      "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--289a2aac-eb99-552f-ac5d-c0a04f2e2e65",
       "name": "REBUILD (\u003c= 4.4.11)",
       "vendor": "Rebuild"
@@ -169582,6 +169855,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2e8d3964-fb36-57d4-a88a-2981f2a2b223",
+      "name": "Veeam ONE (\u003c= 13.1.0.7233)",
+      "vendor": "Veeam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2e9b7397-7c1a-54ee-a7f2-78e855ebbfe4",
       "name": "file-management-system-php (up to 2e3c1ebe60f121e8df4fb3f544f0e9591d9a01e4)",
       "vendor": "oretnom23"
@@ -169713,6 +169993,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--30705d65-3979-55cb-ba15-79fe863a426a",
+      "name": "Adobe Campaign Classic (\u003c= 7.4.4 build 9402)",
+      "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--309b36fb-e127-50a4-8023-414759ea6f6e",
       "name": "Xen",
       "vendor": "Citrix"
@@ -169778,6 +170065,13 @@
       "id": "software--31531e1e-f6b9-52a4-aef1-86ce42193219",
       "name": "iperf3 (\u003c 3.22)",
       "vendor": "ESnet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3163233d-bd7a-5871-a702-2269984adf94",
+      "name": "Adobe Connect Desktop App (\u003c= 2026.8.51 Win, 2026.08.45 Mac Silicon, 2026.01.39 Mac Intel)",
+      "vendor": "Adobe"
     },
     {
       "type": "software",
@@ -170272,6 +170566,13 @@
       "id": "software--3a2bc4d8-3393-57eb-b30e-4578c22b3ba0",
       "name": "Kirki (\u003c= 6.3.2)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3a4a4114-2974-5ca4-8fb9-b06a1b3d927f",
+      "name": "Veeam Agent for Linux (\u003c 13.1.2)",
+      "vendor": "Veeam"
     },
     {
       "type": "software",
@@ -171444,6 +171745,13 @@
       "id": "software--4ceed688-eb80-50e6-810f-94595ef19dcd",
       "name": "Enterprise Linux",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4d107416-4cb3-5ba8-b39e-6c4ec419faad",
+      "name": "Firefox (\u003c 159)",
+      "vendor": "Mozilla"
     },
     {
       "type": "software",
@@ -176925,6 +177233,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9da0915f-609f-54a0-8c28-e7579e5099c7",
+      "name": "Creative Cloud Desktop Application (\u003c= 6.10)",
+      "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9dc30915-31a9-51c1-ace6-9cc03436111f",
       "name": "camel-mllp (4.0.0 - 4.18.4, 4.19.0 - 4.22.0)",
       "vendor": "Apache"
@@ -178546,6 +178861,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b7ec4dc8-2823-5146-8f3e-ca06e8f9d406",
+      "name": "Substance 3D Painter (\u003c= 12.1.5)",
+      "vendor": "Adobe"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b8086796-a9c3-5ac1-9a09-716a3373c597",
       "name": "GM8135S Camera (21.00.01.36)",
       "vendor": "Yoosee"
@@ -178851,6 +179173,13 @@
       "id": "software--bc58393a-0e09-5dc4-95b9-7d2ed1fefb38",
       "name": "TUTK SDK (v.3.1.10.0 through v.4.3.8.1)",
       "vendor": "ThroughTek"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bc7585ae-9e10-5e0b-9b88-f2cda03ce010",
+      "name": "Adobe Connect Android Mobile App (\u003c= 4.4)",
+      "vendor": "Adobe"
     },
     {
       "type": "software",
@@ -179408,6 +179737,13 @@
       "id": "software--c59bb2dc-fc7a-5200-8526-e9933f50aca5",
       "name": "Answer (\u003c= 2.0.2)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c5a8fffb-a104-536c-be29-a50c2d10d7e1",
+      "name": "Thunderbird (\u003c 159)",
+      "vendor": "Mozilla"
     },
     {
       "type": "software",
@@ -182181,6 +182517,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f23de6c5-0a91-5488-a7fe-a79a0b16244e",
+      "name": "Veeam Backup and Replication (\u003c 13.0.3, \u003c 13.1.2)",
+      "vendor": "Veeam"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f25a9971-e7e7-5427-b05b-4be69f72b722",
       "name": "ai-gateway-payload-processing"
     },
@@ -182873,6 +183216,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--fdb70da2-5f5d-574b-99a6-d224ae53dd60",
+      "name": "Firefox ESR (\u003c 115.44)",
+      "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--fdce6c99-6693-545a-8417-6f51246edc46",
       "name": "Spotweb (\u003c= 1.5.8)",
       "vendor": "Spotweb"
@@ -183232,6 +183582,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "FAMOUS CHOLLIMA"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--c617003a-4d0b-5e7f-8728-64eba402b17a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "UNC6671"
     },
     {
       "type": "threat-actor",
