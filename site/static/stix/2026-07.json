@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b6c55dd4-09b6-51ae-9b2e-0737132bdb40",
+  "id": "bundle--c41f216a-4d3d-5953-8c18-6ab15ad6532f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -219,19 +219,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--cd420654-82f0-51d2-adb0-c9af851c3239",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:11.000Z",
-      "modified": "2026-08-04T13:42:42.000Z",
-      "name": "url: https://sploitus.com/exploit?id=FF51B164-5684-5C69-BE3E-5B777005D22B",
-      "description": "Source of public exploit code",
-      "pattern": "[url:value = 'https://sploitus.com/exploit?id=FF51B164-5684-5C69-BE3E-5B777005D22B']",
-      "pattern_type": "stix",
-      "valid_from": "2026-07-31T07:36:11.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--fa35556a-5d60-555d-97fd-e13a2bf7c36b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:20:49.000Z",
@@ -310,17 +297,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0fb4b88b-8d8e-5b90-bbee-a92e8fd1a3e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:18.000Z",
-      "modified": "2026-07-31T07:36:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--aa7b8c37-b93e-5d0f-a0fc-cb6e28920015",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--157f358d-6f86-5a86-9d6e-6f9ee3467faf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -339,17 +315,6 @@
       "relationship_type": "has",
       "source_ref": "software--775fd442-360d-51b4-a66a-4d22a5be8c5d",
       "target_ref": "vulnerability--3e061fbf-07c4-53b8-8f11-fdbe71f618f2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--28b07ada-6cfe-5a30-ba82-2def9f195e04",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:25.000Z",
-      "modified": "2026-07-31T07:36:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d80eec51-8ba9-595c-bbe5-cc4cc6a8bf43",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -420,17 +385,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--35e3a84f-3963-58bb-b340-981c93623d4f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:11.000Z",
-      "modified": "2026-08-04T13:42:42.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--1653a64d-ca7a-56cb-bdfb-5f2fe11fde24",
-      "target_ref": "indicator--cd420654-82f0-51d2-adb0-c9af851c3239"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--37319fee-3898-5012-a7fb-3ef495ddc77f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -453,17 +407,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3bb780dc-f544-59f4-859f-ad5b535a88d4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bd2e3281-28fb-5a57-acb6-7c5a4a6c5347",
-      "target_ref": "vulnerability--6ceeb8c3-c740-5aa3-9c3d-2e071eeedf7b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--45abd9d9-eef6-5661-8fc1-deef80d4c359",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -482,17 +425,6 @@
       "relationship_type": "uses",
       "source_ref": "report--9731568d-cc30-5b84-a14b-bc0cf4ab839e",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--49da7ed9-944f-54f6-9be7-83a76020410b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5cfabadc-2214-53d2-a9f8-4b089923a4af",
-      "target_ref": "vulnerability--6ceeb8c3-c740-5aa3-9c3d-2e071eeedf7b"
     },
     {
       "type": "relationship",
@@ -548,17 +480,6 @@
       "relationship_type": "has",
       "source_ref": "software--bb89e8a4-e277-541d-bcae-407ae05b0659",
       "target_ref": "vulnerability--201a0798-ed2c-5039-9adc-d789c90aef26"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--672b16ee-5313-5a36-a86c-9fd2ea16524c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a0a3ab1f-d192-5c33-b626-6e58628f0c12",
-      "target_ref": "vulnerability--6ceeb8c3-c740-5aa3-9c3d-2e071eeedf7b"
     },
     {
       "type": "relationship",
@@ -827,17 +748,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b54d049f-b90e-5242-ad4a-4ef75da504df",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:25.000Z",
-      "modified": "2026-07-31T07:36:25.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--d80eec51-8ba9-595c-bbe5-cc4cc6a8bf43",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--bb94d5f3-31b4-52bc-a149-30b3455fd450",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:41.000Z",
@@ -922,17 +832,6 @@
       "relationship_type": "has",
       "source_ref": "software--98301ecd-5221-5653-a708-bdd481feedad",
       "target_ref": "vulnerability--3b7b8f7e-4cca-598c-baef-bd71948605bb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--cb8485d7-fdcb-57d9-b7c5-464ae8a25d68",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--90263246-37aa-5733-aff9-ecf341111834",
-      "target_ref": "vulnerability--cb749ace-f585-542f-9f84-3079e8469839"
     },
     {
       "type": "relationship",
@@ -1043,17 +942,6 @@
       "relationship_type": "uses",
       "source_ref": "report--55aabb18-29b0-5e0d-ae5e-d00b84accd5a",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f62396f1-17ae-54bc-8fce-6554050fac19",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e2558f22-6e29-5455-854f-28e8972955be",
-      "target_ref": "vulnerability--9a644d00-87e4-5cc9-a338-29886d79e085"
     },
     {
       "type": "relationship",
@@ -1171,60 +1059,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1653a64d-ca7a-56cb-bdfb-5f2fe11fde24",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:11.000Z",
-      "modified": "2026-08-04T13:42:42.000Z",
-      "name": "Unauthenticated Remote Code Execution in Realtyna Organic IDX and WPL Real Estate WordPress Plugins",
-      "description": "## Overview\n\nThe Realtyna Organic IDX and WPL Real Estate plugins for WordPress (versions 5.2.0 and below) contain a critical security vulnerability, tracked as CVE-2026-14483, which allows for unauthenticated remote code execution (RCE). The vulnerability stems from an insecure implementation of the plugin's I/O service endpoint. This endpoint is exposed to the public WordPress init hook without requiring standard WordPress user capability checks. \n\nAuthentication for this endpoint relies on static API credentials (api_key and api_secret) that are hardcoded into the plugin's SQL migration files and are identical across every installation. Because these credentials are publicly known, an unauthenticated attacker can successfully authenticate to the I/O service. Once authenticated, the attacker can leverage an insufficiently validated file upload function to drop arbitrary files - including web shells - onto the server. Given the nature of WordPress environments, this permits the attacker to achieve full remote code execution on the underlying host, posing a severe risk to site integrity and data confidentiality.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify WordPress sites running vulnerable versions of the Organic IDX or WPL Real Estate plugins.\n2. Attacker probes the web application for the publicly known Realtyna I/O service endpoint.\n3. Attacker crafts an HTTP POST request to the I/O endpoint, embedding the default static api_key and api_secret in the request parameters.\n4. The plugin's authentication logic validates the hardcoded credentials and grants the attacker an authorized session context.\n5. Attacker executes a file upload action via the authorized endpoint, bypassing file type validation controls.\n6. Attacker writes a malicious executable script (e.g., a PHP web shell) into a publicly accessible directory on the WordPress web server.\n7. Attacker sends a secondary HTTP request to the uploaded file to trigger execution.\n8. Attacker gains persistent remote code execution on the WordPress server for further exploitation or exfiltration.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to take full control of the affected WordPress instance. This includes the ability to modify or delete site content, intercept user data, access the underlying database, and pivot into the internal network environment. This vulnerability affects all installations of the Organic IDX and WPL Real Estate plugins using version 5.2.0 or earlier.\n\n## Recommendation\n\n- Update the Organic IDX and WPL Real Estate plugins to the latest version immediately to patch CVE-2026-14483.\n- Implement the provided Sigma rule to detect suspicious POST requests targeting the I/O service endpoint with known default credential parameters.\n- Audit the web server filesystem for unauthorized PHP or executable files uploaded within the last 30 days, specifically targeting plugin-related upload directories.\n- If immediate patching is not possible, restrict access to the I/O endpoint via Web Application Firewall (WAF) rules that block requests containing the known static API keys.\n",
-      "published": "2026-07-31T07:36:11.000Z",
-      "labels": [
-        "cve-2026-14483",
-        "file-upload",
-        "rce",
-        "wordpress"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--cd420654-82f0-51d2-adb0-c9af851c3239",
-        "software--5cfabadc-2214-53d2-a9f8-4b089923a4af",
-        "software--a0a3ab1f-d192-5c33-b626-6e58628f0c12",
-        "software--bd2e3281-28fb-5a57-acb6-7c5a4a6c5347",
-        "vulnerability--6ceeb8c3-c740-5aa3-9c3d-2e071eeedf7b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-31-realtyna-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-realtyna-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14483"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=FF51B164-5684-5C69-BE3E-5B777005D22B\u0026utm_source=rss\u0026utm_medium=rss"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-31-realtyna-rce",
-      "x_craftedsignal_event_id": "brief-2026-07-31-realtyna-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-realtyna-rce/",
-      "x_craftedsignal_activity_at": "2026-08-04T13:42:42.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.03639,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -2161,51 +1995,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--aa7b8c37-b93e-5d0f-a0fc-cb6e28920015",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:18.000Z",
-      "modified": "2026-07-31T07:36:18.000Z",
-      "name": "Critical Hard-coded Credential Vulnerability in Rich Source DMS+ (Non-Mobile)",
-      "description": "## Overview\n\nRich Source DMS+ (Non-Mobile), a device management solution, contains a critical Use of Hard-coded Credentials vulnerability (CWE-798) tracked as CVE-2026-18452. The vulnerability resides in the application's API implementation, where a fixed, hard-coded API key is utilized for authentication purposes. This flaw allows an unauthenticated, remote attacker to bypass all authentication controls by supplying the hard-coded key in API requests. Successful exploitation grants the attacker full administrative access to the DMS+ device. Given the nature of a device management platform, this could lead to widespread system compromise, data exfiltration, and full control over connected infrastructure. This vulnerability affects all versions of DMS+ (Non-Mobile) up to and including version 5.63. Defenders should prioritize patching or restricting network access to these devices immediately.\n\n## Impact\n\nThe vulnerability carries a CVSS base score of 10.0, indicating a critical severity level. Exploitation provides an unauthenticated remote attacker with full administrative control over the affected DMS+ devices, potentially enabling the compromise of all managed infrastructure, unauthorized data access, and the execution of arbitrary commands. Organizations utilizing DMS+ (Non-Mobile) versions 5.63 or earlier face significant risk of total device takeover.\n\n## Recommendation\n\n1. Upgrade to the latest version of DMS+ (Non-Mobile) as provided by the vendor, Rich Source, to remediate the vulnerability associated with CVE-2026-18452.\n2. Implement strict network segmentation and firewall rules to limit exposure of DMS+ management interfaces to the public internet.\n3. Monitor web server logs and API gateway traffic for anomalous, repetitive, or unauthorized API key usage patterns that deviate from baseline client behavior.\n4. Perform an inventory audit of all assets to identify and isolate instances of DMS+ (Non-Mobile) version 5.63 or earlier that remain unpatched.\n",
-      "published": "2026-07-31T07:36:18.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--90263246-37aa-5733-aff9-ecf341111834",
-        "vulnerability--cb749ace-f585-542f-9f84-3079e8469839"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-dms-plus-hardcoded-creds",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-dms-plus-hardcoded-creds/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18452"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.twcert.org.tw/en/cp-139-11073-de184-2.html"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-07-dms-plus-hardcoded-creds",
-      "x_craftedsignal_event_id": "brief-2026-07-dms-plus-hardcoded-creds",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-dms-plus-hardcoded-creds/",
-      "x_craftedsignal_activity_at": "2026-07-31T07:36:18.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b76dac49-d868-523e-9019-15bb71dc36eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:29:49.000Z",
@@ -2588,49 +2377,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--d80eec51-8ba9-595c-bbe5-cc4cc6a8bf43",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T07:36:25.000Z",
-      "modified": "2026-07-31T07:36:25.000Z",
-      "name": "Arbitrary File Upload Vulnerability in Realtyna Organic IDX Plugin",
-      "description": "## Overview\n\nThe Realtyna Organic IDX plugin for WordPress, in versions up to and including 5.3.0, is susceptible to an arbitrary file upload vulnerability. This vulnerability originates from the saveLiveImages() function, which fails to implement necessary file extension and content validation. Additionally, the plugin exhibits insufficient authorization checks within the get_keys() AJAX handler and a complete lack of authentication checks on the REST API import endpoint. \n\nThese security flaws permit an authenticated attacker, holding at least subscriber-level privileges, to upload malicious files to the server. By bypassing these checks, an attacker can upload web shells or other malicious scripts, which can then be executed to gain remote code execution (RCE) on the underlying WordPress server. This poses a significant risk to the integrity and confidentiality of the host environment, as it effectively provides a pathway for unauthorized code execution within the web context.\n\n## Attack Chain\n\n1. Attacker registers or gains access to a subscriber-level account on a WordPress site utilizing Organic IDX \u003c= 5.3.0.\n2. Attacker targets the insecure REST API import endpoint or the get_keys() AJAX handler to initiate an interaction.\n3. Attacker crafts a malicious payload, such as a PHP web shell, encapsulated within a file upload request.\n4. Attacker sends an HTTP POST request to the vulnerable endpoint, bypassing the insufficient authentication controls.\n5. The saveLiveImages() function fails to validate the file extension or content, allowing the server to save the malicious file to the web root.\n6. Attacker navigates to the uploaded file path via a browser or script to trigger the execution of the embedded code.\n7. The server executes the malicious script under the context of the web server user.\n8. Attacker gains persistence or performs further post-exploitation activities such as data exfiltration.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an authenticated attacker to upload arbitrary files, leading to potential remote code execution. This can result in a full site compromise, sensitive data theft, and the ability to pivot into the underlying server network. All WordPress sites running the Organic IDX plugin version 5.3.0 or earlier are currently at risk.\n\n## Recommendation\n\n* Immediately update the Realtyna Organic IDX plugin to the latest version that patches CVE-2026-16236.\n* Disable the Realtyna Organic IDX plugin until a security update is applied if patching cannot be performed immediately.\n* Audit web server logs for suspicious POST requests targeting /wp-json/ or specific AJAX handler endpoints that result in file creation in public directories.\n* Restrict access to the WordPress dashboard and administrative REST API endpoints to known, trusted IP addresses to prevent unauthorized access by potential attackers.\n",
-      "published": "2026-07-31T07:36:25.000Z",
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e2558f22-6e29-5455-854f-28e8972955be",
-        "vulnerability--9a644d00-87e4-5cc9-a338-29886d79e085"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-realtyna-idx-upload",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-realtyna-idx-upload/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16236"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-realtyna-idx-upload",
-      "x_craftedsignal_event_id": "brief-2026-07-realtyna-idx-upload",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-realtyna-idx-upload/",
-      "x_craftedsignal_activity_at": "2026-07-31T07:36:25.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_epss_max": 0.012,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--ef74875f-903e-5703-90ca-e5b6a544f800",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T23:46:59.000Z",
@@ -2776,13 +2522,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5cfabadc-2214-53d2-a9f8-4b089923a4af",
-      "name": "Real Estate Listing - WPL (\u003c= 5.2.0)",
-      "vendor": "Realtyna"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5e1e5375-3f2c-5b4d-8d16-d3aa9cda8167",
       "name": "dynatrace-mcp-server (v1.8.5)",
       "vendor": "Dynatrace"
@@ -2831,13 +2570,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--90263246-37aa-5733-aff9-ecf341111834",
-      "name": "DMS+ (Non-Mobile) (5.63)",
-      "vendor": "Rich Source"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--90341397-a2bf-536b-9fe5-f9cad5f03ffa",
       "name": "PHP 8.5"
     },
@@ -2860,13 +2592,6 @@
       "spec_version": "2.1",
       "id": "software--98301ecd-5221-5653-a708-bdd481feedad",
       "name": "PHP (8.2.x \u003c 8.2.33, 8.3.x \u003c 8.3.30, 8.4.x \u003c 8.4.24)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a0a3ab1f-d192-5c33-b626-6e58628f0c12",
-      "name": "WPL Real Estate plugin (\u003c= 5.2.0)",
-      "vendor": "Realtyna"
     },
     {
       "type": "software",
@@ -2904,13 +2629,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--bd2e3281-28fb-5a57-acb6-7c5a4a6c5347",
-      "name": "Organic IDX plugin (\u003c= 5.2.0)",
-      "vendor": "Realtyna"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d02ae953-a8e2-5451-9f64-b736a5abb4de",
       "name": "Cassandra",
       "vendor": "Apache"
@@ -2920,13 +2638,6 @@
       "spec_version": "2.1",
       "id": "software--e1780463-2262-50de-bfa5-7b3b5bbdac01",
       "name": "SBC"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e2558f22-6e29-5455-854f-28e8972955be",
-      "name": "Organic IDX (\u003c= 5.3.0)",
-      "vendor": "Realtyna"
     },
     {
       "type": "software",
@@ -3126,22 +2837,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--6ceeb8c3-c740-5aa3-9c3d-2e071eeedf7b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-14483",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-14483",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14483"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--6e2517ae-7775-5186-87f3-84e9aa59d021",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3200,22 +2895,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18358",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18358"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9a644d00-87e4-5cc9-a338-29886d79e085",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-16236",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-16236",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16236"
         }
       ]
     },
@@ -3344,22 +3023,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-10079",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10079"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--cb749ace-f585-542f-9f84-3079e8469839",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18452",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18452",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18452"
         }
       ]
     },

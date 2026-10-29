@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e85860f9-8da3-59cf-b3d2-e096d5b1764e",
+  "id": "bundle--b1265807-adfe-557c-bca2-244ed56c0efc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34190,6 +34190,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--73d1dd76-3048-5951-b07d-21e9198a96fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T07:59:32.000Z",
+      "modified": "2026-10-29T07:59:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--11713737-6b6b-50b5-8f12-5146bf21d317",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7400a3b1-2fa0-5537-91f7-04c650a0763f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64154,6 +64165,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e5ae7dca-e1aa-5ffc-974f-281edfd1c4f0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b6dc15e2-865c-57c7-b972-642590df03e3",
+      "target_ref": "vulnerability--6fc8cfae-a729-5840-abe1-999f4c0a1f62"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e5b4278f-9f96-52f2-a158-283e4792417c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -77180,6 +77202,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--11713737-6b6b-50b5-8f12-5146bf21d317",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T07:59:32.000Z",
+      "modified": "2026-10-29T07:59:32.000Z",
+      "name": "Codeastro Internet Banking System: Stored Cross-Site Scripting (CVE-2025-29018)",
+      "description": "## Overview\nCodeastro Internet Banking System 2.0.0 is vulnerable to a stored cross-site scripting (XSS) attack via the 'name' parameter in 'pages_add_acc_type.php'. The vulnerability allows an authenticated attacker with high-level privileges to inject arbitrary JavaScript, which executes when an administrator or user views the 'Manage Acc Types' administrative page. \n\n## Attack Chain\n1. Attacker authenticates to the application with privileges sufficient to add account types.\n2. Attacker navigates to the \"Add Acc Type\" functionality.\n3. Attacker submits a malicious payload containing JavaScript within the 'name' parameter field.\n4. The application saves the unsanitized payload into the backend database.\n5. An administrator or user accesses the \"Manage Acc Types\" administrative menu.\n6. The application renders the stored payload within the admin interface, triggering JavaScript execution in the victim's browser session.\n\n## Impact\nSuccessful exploitation allows for the execution of arbitrary JavaScript in the context of the victim's browser session. Documented potential impacts include session hijacking, credential theft, and unauthorized account takeover.\n\n## Recommendation\n- Identify and inventory all instances of Codeastro Internet Banking System 2.0.0 within the environment.\n- Implement strict HTML entity encoding for all user-supplied input fields, specifically the 'name' parameter in 'pages_add_acc_type.php'.\n- Deploy a robust Content Security Policy (CSP) to restrict the execution of unauthorized inline scripts.\n- Until a patch is provided, restrict access to administrative functions and audit logs for anomalous changes to account type definitions.\n",
+      "published": "2026-10-29T07:59:32.000Z",
+      "labels": [
+        "injection",
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b6dc15e2-865c-57c7-b972-642590df03e3",
+        "vulnerability--6fc8cfae-a729-5840-abe1-999f4c0a1f62"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-codeastro-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-codeastro-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-B1TM4R-CVE-2025-29018"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-B1TM4R-CVE-2025-29018\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-codeastro-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-29-codeastro-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-codeastro-xss/",
+      "x_craftedsignal_activity_at": "2026-10-29T07:59:32.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.8,
+      "x_craftedsignal_epss_max": 0.00272,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -92636,6 +92709,55 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3a44707a-a415-53f0-9322-870174abbf92",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T07:59:39.000Z",
+      "modified": "2026-10-29T07:59:39.000Z",
+      "name": "Keycloak: Unauthorized organization registration via CVE-2026-1529",
+      "description": "Keycloak is affected by CVE-2026-1529, a high-severity vulnerability (CVSS 8.1) involving improper validation of invitation tokens. The vulnerability allows low-privileged actors to register for unauthorized organizations by manipulating the JWT payload (specifically the org_id and email fields) within the /register endpoint. Multiple proof-of-concept exploits for this vulnerability are publicly accessible.\n",
+      "published": "2026-10-29T07:59:39.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-1529",
+        "keycloak"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--b61d8971-00d3-5c3f-a1db-bfb0c54ff601"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-keycloak-registration-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-keycloak-registration-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XLYVIO-CVE-2026-1529-KEYCLOAK-EXPLOIT-TOOL"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XLYVIO-CVE-2026-1529-KEYCLOAK-EXPLOIT-TOOL\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-keycloak-registration-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-29-keycloak-registration-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-keycloak-registration-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-29T07:59:39.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00494,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -182233,6 +182355,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b6dc15e2-865c-57c7-b972-642590df03e3",
+      "name": "Internet Banking System (2.0.0)",
+      "vendor": "Codeastro"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b6ee97a6-cbae-55dc-9600-c5d6a66700cf",
       "name": "CMS (\u003c 4.18.9)",
       "vendor": "Craft CMS"
@@ -201424,6 +201553,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6fc8cfae-a729-5840-abe1-999f4c0a1f62",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-29018",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-29018",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-29018"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--701abae4-fca3-5699-be63-8e2897d5b278",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -209802,6 +209947,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111663",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111663"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b61d8971-00d3-5c3f-a1db-bfb0c54ff601",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-1529",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-1529",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1529"
         }
       ]
     },
