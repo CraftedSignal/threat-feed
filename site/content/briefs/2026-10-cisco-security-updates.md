@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-cisco-security-updates
 event_id: brief-2026-10-cisco-security-updates
-revision: 3
-activity_at: "2026-10-28T20:40:08Z"
+revision: 4
+activity_at: "2026-10-29T19:36:19Z"
 revision_history:
   - revision: 2
     at: "2026-10-22T16:15:28Z"
@@ -33,11 +33,25 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76418
+  - revision: 4
+    at: "2026-10-29T19:36:19Z"
+    checksum: sha256:45bd14729b4266a519f4753693a152d3c3b9916c1f92eafbcf7ab3f294f55cd5
+    summary: added CVE-2026-20019
+    changed_fields:
+      - content
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - updates
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-76418
 title: Cisco Security Updates - October 2026
 slug: 2026-10-cisco-security-updates
 description: Roundup of Cisco security advisories published in October 2026.
 date: "2026-10-07T17:00:15Z"
-lastmod: "2026-10-28T20:39:32Z"
+lastmod: "2026-10-29T19:35:39Z"
 type: threat
 claim_state: <nil>
 types:
@@ -145,6 +159,10 @@ cves:
     cvss: 6.5
     epss: 0.00435
     kev_status: "false"
+  - id: CVE-2026-20019
+    cvss: 5.8
+    epss: 0.00528
+    kev_status: "false"
   - id: CVE-2026-76418
     kev_status: unknown
   - id: CVE-2026-76299
@@ -167,8 +185,6 @@ cves:
     kev_status: unknown
   - id: CVE-2026-76435
     kev_status: unknown
-  - id: CVE-2026-20019
-    kev_status: unknown
   - id: CVE-2026-20179
     kev_status: unknown
   - id: CVE-2026-20197
@@ -190,13 +206,6 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76418
 updates:
-  - at: "2026-10-21T17:08:19Z"
-    level: L2
-    summary: added CVE-2026-20032 +1
-    sources:
-      - cisco-psirt
-    source_urls:
-      - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
   - at: "2026-10-22T16:14:33Z"
     level: L2
     summary: added CVE-2026-76462 +2
@@ -225,9 +234,16 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76418
+  - at: "2026-10-29T19:35:39Z"
+    level: L2
+    summary: added CVE-2026-20019
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-76418
 ---
 
-This roundup covers 44 Cisco security vulnerabilities. CVSS base scores range from 4.4 to 9.9. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Cisco Software, Cisco networking, Expressway Core, Expressway Series, Finesse, IOS XR Software, License On-Prem, NX-OS, NX-OS Software, Nexus 3000 Series Switches, Nexus 9000 Series Fabric Switches, Secure Client, Secure Email Gateway, Snort 3, Snort 3 Detection Engine, Unified Communications Manager, networking.
+This roundup covers 45 Cisco security vulnerabilities. CVSS base scores range from 4.4 to 9.9. None are reported as actively exploited at the time of release. The issues affect Application Policy Infrastructure Controller, Cisco Software, Cisco networking, Expressway Core, Expressway Series, Finesse, IOS XR Software, License On-Prem, NX-OS, NX-OS Software, Nexus 3000 Series Switches, Nexus 9000 Series Fabric Switches, Secure Client, Secure Email Gateway, Secure Firewall Adaptive Security Appliance Software, Snort 3, Snort 3 Detection Engine, Unified Communications Manager, networking.
 
 ## Summary
 
@@ -237,7 +253,7 @@ This roundup covers 44 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-20362](#cve-2026-20362) | Finesse |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-finesse-ssrf-mmSuyugS?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Finesse%20Server-Side%20Request%20Forgery%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-76465](#cve-2026-76465) | Nexus 3000 Series Switches | Critical | 9.8 | 0.45% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-moam-rce-uBTzYV7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20MPLS%20OAM%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-76488](#cve-2026-76488) | Application Policy Infrastructure Controller | Medium | 6.5 | 0.29% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-info-priv-enAdB5vD?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20Unauthorized%20File%20Access%20Vulnerability%26vs_k=1) (authoritative) |
-| [CVE-2026-20321](#cve-2026-20321) | Application Policy Infrastructure Controller |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-20321](#cve-2026-20321) | Application Policy Infrastructure Controller | Medium | 6.5 | 0.43% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20038](#cve-2026-20038) | Nexus 9000 Series Fabric Switches | Medium | 5.8 | 0.30% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-aci-epgcbp-SfDU7NLf?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%209000%20Series%20Fabric%20Switches%20in%20ACI%20Mode%20Endpoint%20Group%20Contract%20Bypass%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-76485](#cve-2026-76485) | Nexus 3000 Series Switches |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |
 | [CVE-2026-76486](#cve-2026-76486) | Nexus 3000 Series Switches | Critical | 9.8 | 0.51% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1) (authoritative) |
@@ -268,7 +284,7 @@ This roundup covers 44 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-76489](#cve-2026-76489) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1) (authoritative) |
 | [CVE-2026-76487](#cve-2026-76487) | Unified Communications Manager |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cucm-access-PW9e8Jt2?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Unified%20Communications%20Manager%20Improper%20Access%20Control%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20218](#cve-2026-20218) | Snort 3 |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-vba-bufdos-jAuFdvn9?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Visual%20Basic%20for%20Applications%20Buffer%20Overflow%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
-| [CVE-2026-76466](#cve-2026-76466) | Expressway Series | Critical | 9.8 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
+| [CVE-2026-76466](#cve-2026-76466) | Expressway Series | Critical | 9.8 | 0.42% | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-vcs-static-cred-hr7EWZ8t?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Expressway%20Series%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-76524](#cve-2026-76524) | Snort 3 |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-opensrc-snort3-2fXGJPfe?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Open%20Source%20Snort%203%20Control%20Channel%20Socket%20Arbitrary%20Command%20Execution%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-20221](#cve-2026-20221) | Snort 3 Detection Engine |  |  |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gre-JNpMHrTv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Generic%20Routing%20Encapsulation%20Denial%20of%20Service%20Vulnerability%26vs_k=1) (authoritative) |
 | [CVE-2026-76462](#cve-2026-76462) | Secure Client | Medium | 5.5 |  | no | [source](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sec-client-priv-esc-muF8eZdm?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Secure%20Client%20Secure%20Firewall%20Posture%20Module%20Privilege%20Escalation%20Vulnerability%26vs_k=1) (authoritative) |
@@ -277,6 +293,7 @@ This roundup covers 44 Cisco security vulnerabilities. CVSS base scores range fr
 | [CVE-2026-76302](#cve-2026-76302) | Cisco Software | Critical | 9.9 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76302) (authoritative) |
 | [CVE-2026-76530](#cve-2026-76530) | n/a | High | 8.8 |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76530) (authoritative) |
 | [CVE-2026-76531](#cve-2026-76531) | Cisco Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76531) (authoritative) |
+| [CVE-2026-76418](#cve-2026-76418) | Secure Firewall Adaptive Security Appliance Software |  |  |  | no | [NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-76418) (authoritative) |
 
 
 ## CVE-2026-20032
@@ -287,6 +304,7 @@ Affected products:
 - NX-OS Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-mppe-dhKZAFgb?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20Python%20Sandbox%20Escape%20Vulnerability%26vs_k=1
+
 
 
 
@@ -373,6 +391,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).
 
 ## CVE-2026-76488
@@ -418,6 +437,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20321](#cve-2026-20321).
 
 ## CVE-2026-20321
@@ -428,6 +448,7 @@ Affected products:
 - Application Policy Infrastructure Controller
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apic-cmdinj-L6VR4E7?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Application%20Policy%20Infrastructure%20Controller%20API%20Command%20Injection%20Vulnerability%26vs_k=1
+
 
 
 
@@ -517,6 +538,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76486](#cve-2026-76486), [CVE-2026-76501](#cve-2026-76501).
 
 ## CVE-2026-76486
@@ -529,6 +551,7 @@ Affected products:
 - NX-OS Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ngoam-rce-LWKQ4BU?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20Nexus%203000%20and%209000%20Series%20Switches%20NGOAM%20Remote%20Code%20Execution%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -607,6 +630,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-76465](#cve-2026-76465), [CVE-2026-76485](#cve-2026-76485), [CVE-2026-76486](#cve-2026-76486).
 
 ## CVE-2026-76471
@@ -617,6 +641,7 @@ Affected products:
 - NX-OS Software
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-napi-rce-r2shwu2j?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Cisco%20NX-OS%20Software%20NX-API%20Remote%20Code%20Execution%20Vulnerability%26vs_k=1
+
 
 
 
@@ -690,6 +715,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20032](#cve-2026-20032), [CVE-2026-76471](#cve-2026-76471).
 
 ## CVE-2026-20328
@@ -701,6 +727,7 @@ Affected products:
 - Smart Software Manager On-Prem
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-20328
+
 
 
 
@@ -769,6 +796,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76454
 
 
 
+
 Related in this roundup: [CVE-2026-20328](#cve-2026-20328).
 
 ## CVE-2026-76455
@@ -779,6 +807,7 @@ Affected products:
 - NX-OS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76455
+
 
 
 
@@ -832,6 +861,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76464
 
 
 
+
 Related in this roundup: [CVE-2026-76472](#cve-2026-76472).
 
 ## CVE-2026-76453
@@ -842,6 +872,7 @@ Affected products:
 - NX-OS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76453
+
 
 
 
@@ -903,6 +934,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76456
 
 
 
+
 Related in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76458](#cve-2026-76458), [CVE-2026-76459](#cve-2026-76459).
 
 ## CVE-2026-76458
@@ -913,6 +945,7 @@ Affected products:
 - NX-OS
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76458
+
 
 
 
@@ -970,6 +1003,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76459
 
 
 
+
 Related in this roundup: [CVE-2026-76455](#cve-2026-76455), [CVE-2026-76453](#cve-2026-76453), [CVE-2026-76456](#cve-2026-76456), [CVE-2026-76458](#cve-2026-76458).
 
 ## CVE-2026-76463
@@ -980,6 +1014,7 @@ Affected products:
 - networking
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76463
+
 
 
 
@@ -1032,6 +1067,7 @@ Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76467
 
 
 
+
 Related in this roundup: [CVE-2026-76463](#cve-2026-76463), [CVE-2026-76468](#cve-2026-76468).
 
 ## CVE-2026-76468
@@ -1042,6 +1078,7 @@ Affected products:
 - networking
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76468
+
 
 
 
@@ -1084,6 +1121,7 @@ Affected products:
 - Cisco networking
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76472
+
 
 
 
@@ -1149,6 +1187,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20218](#cve-2026-20218), [CVE-2026-76524](#cve-2026-76524).
 
 ## CVE-2026-20019
@@ -1159,6 +1198,7 @@ Affected products:
 - Snort 3 Detection Engine
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -1193,6 +1233,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).
 
 ## CVE-2026-20197
@@ -1215,6 +1256,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221), [CVE-2026-76445](#cve-2026-76445).
 
 ## CVE-2026-76489
@@ -1225,6 +1267,7 @@ Affected products:
 - Snort 3 Detection Engine
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-misc-dos-6mB22qAK?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Denial%20of%20Service%20Vulnerabilities%26vs_k=1
+
 
 
 
@@ -1267,6 +1310,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20011](#cve-2026-20011), [CVE-2026-76524](#cve-2026-76524).
 
 ## CVE-2026-76466
@@ -1296,6 +1340,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20011](#cve-2026-20011), [CVE-2026-20218](#cve-2026-20218).
 
 ## CVE-2026-20221
@@ -1306,6 +1351,7 @@ Affected products:
 - Snort 3 Detection Engine
 
 Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snort3-gre-JNpMHrTv?vs_f=Cisco%20Security%20Advisory%26vs_cat=Security%20Intelligence%26vs_type=RSS%26vs_p=Multiple%20Cisco%20Products%20Snort%203%20Generic%20Routing%20Encapsulation%20Denial%20of%20Service%20Vulnerability%26vs_k=1
+
 
 
 
@@ -1337,6 +1383,7 @@ Source: https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdv
 
 
 
+
 Related in this roundup: [CVE-2026-20019](#cve-2026-20019), [CVE-2026-20179](#cve-2026-20179), [CVE-2026-20197](#cve-2026-20197), [CVE-2026-76489](#cve-2026-76489), [CVE-2026-20221](#cve-2026-20221).
 
 ## CVE-2026-76299
@@ -1353,6 +1400,7 @@ Affected products:
 - Cisco Software
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76302
+
 
 Related in this roundup: [CVE-2026-76531](#cve-2026-76531).
 
@@ -1371,4 +1419,15 @@ Affected products:
 
 Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76531
 
+
 Related in this roundup: [CVE-2026-76302](#cve-2026-76302).
+
+## CVE-2026-76418
+
+A vulnerability in the Remote Access SSL VPN service of Cisco Secure Firewall ASA and FTD software, caused by logic errors during secondary authentication on a tunnel group, allows an unauthenticated remote attacker to trigger a device reload, resulting in a denial-of-service (DoS) condition.
+
+Affected products:
+- Secure Firewall Adaptive Security Appliance Software
+- Secure Firewall Threat Defense Software
+
+Source: https://nvd.nist.gov/vuln/detail/CVE-2026-76418

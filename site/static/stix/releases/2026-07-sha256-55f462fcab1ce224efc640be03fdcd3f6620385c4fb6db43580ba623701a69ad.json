@@ -1,0 +1,531 @@
+{
+  "type": "bundle",
+  "id": "bundle--830ddc8e-03fb-5712-9e81-6f110a1472f2",
+  "objects": [
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exploitation for Client Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1203",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exploit Public-Facing Application",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1190",
+          "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Windows Command Shell",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.003",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Command and Scripting Interpreter",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059",
+          "url": "https://attack.mitre.org/techniques/T1059"
+        }
+      ]
+    },
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CraftedSignal",
+      "identity_class": "organization"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--075f5e30-f033-5135-9003-beddaf2beea7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:24.000Z",
+      "modified": "2026-07-31T19:45:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c236fc85-d0e3-504a-b56e-90b86f7f137a",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1b59ad85-4c77-5c0e-84ef-ccb29468dcee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--775fd442-360d-51b4-a66a-4d22a5be8c5d",
+      "target_ref": "vulnerability--3e061fbf-07c4-53b8-8f11-fdbe71f618f2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--375bd491-4987-5f9c-8949-f1c71e41431f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T21:46:26.000Z",
+      "modified": "2026-07-31T21:46:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--995a5a9f-efa3-595a-9955-77dcf3effa47",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--779461a1-a6c9-50b6-b749-7b2eeed9499d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:35.000Z",
+      "modified": "2026-07-31T19:45:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--55aabb18-29b0-5e0d-ae5e-d00b84accd5a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98ec3665-5575-5822-9b70-a3bb23771c27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eb4b04d6-234b-5167-9958-607a0107fffd",
+      "target_ref": "vulnerability--b4c9363f-28ae-5448-ab3f-d8643202be33"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d808870-2b1f-55ce-af77-88b5afea0b33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f4f685e1-3e11-5097-82c3-d6af5a09ae72",
+      "target_ref": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb94d5f3-31b4-52bc-a149-30b3455fd450",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:41.000Z",
+      "modified": "2026-07-31T19:45:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0d774616-cdbc-5a0c-8e74-c09c65aabc9b",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c6fbd888-7490-5249-a691-ebfd90fd6ca9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
+      "target_ref": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dbbe1dae-d0a8-559a-a09d-1fb8b6f1637f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4d4626a8-8986-56a2-9ec0-ed49e8f027e1",
+      "target_ref": "vulnerability--3e061fbf-07c4-53b8-8f11-fdbe71f618f2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e4df1965-cc0c-5a53-8cd8-567a6dc5591e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:24.000Z",
+      "modified": "2026-07-31T19:45:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c236fc85-d0e3-504a-b56e-90b86f7f137a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef80d067-c438-57d6-aa4a-3f855e5595ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T23:46:59.000Z",
+      "modified": "2026-09-21T09:17:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ef74875f-903e-5703-90ca-e5b6a544f800",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f5dbb017-9d48-5008-b880-21e7aab48622",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:35.000Z",
+      "modified": "2026-07-31T19:45:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--55aabb18-29b0-5e0d-ae5e-d00b84accd5a",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0d774616-cdbc-5a0c-8e74-c09c65aabc9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:41.000Z",
+      "modified": "2026-07-31T19:45:41.000Z",
+      "name": "Remote Code Execution in Savon::Model via WSDL Injection",
+      "description": "## Overview\n\nSavon, a popular Ruby client for SOAP web services, contains a critical vulnerability (CVE-2026-53510) in its `Savon::Model` component. The flaw exists in the `.all_operations` class method, which is designed to automatically register SOAP operations by parsing a WSDL document. During this process, the library interpolates operation names directly into a string that is passed to Ruby's `module_eval` function. An attacker capable of influencing the WSDL source (e.g., providing a URL to a malicious WSDL file or intercepting a legitimate service response) can inject arbitrary Ruby code. This code executes with the privileges of the application process. The vulnerability affects all versions of the `savon` gem from 0.9.8 up to 2.17.2. Applications that manually define operations via the `.operations` method are not affected, as this approach avoids the insecure string evaluation of untrusted metadata.\n\n## Impact\n\nSuccessful exploitation allows for full remote code execution within the context of the Ruby application process. Depending on the environment, this could lead to sensitive data exfiltration, unauthorized modification of application logic, or complete system compromise. Organizations relying on automated service discovery via `Savon::Model` using user-supplied or network-reachable WSDL files are at high risk.\n\n## Recommendation\n\n* Upgrade the `savon` gem to version 2.17.2 or later immediately to patch CVE-2026-53510.\n* For applications that cannot immediately upgrade, transition away from the `all_operations` method in `Savon::Model` and explicitly define service operations using the `.operations` method with trusted input.\n* Audit applications utilizing `Savon::Model` to identify instances where the WSDL source is fetched from external or untrusted origins.\n",
+      "published": "2026-07-31T19:45:41.000Z",
+      "labels": [
+        "cve-2026-53510",
+        "remote-code-execution",
+        "ruby",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3ff04923-daaa-548a-81c7-819e4a9b967a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-07-31-savon-model-eval",
+          "url": "https://feed.craftedsignal.io/briefs/2026-07-savon-model-eval/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-mx5j-mp4f-g8jg"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-07-31-savon-model-eval",
+      "x_craftedsignal_event_id": "brief-2026-07-31-savon-model-eval",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-savon-model-eval/",
+      "x_craftedsignal_activity_at": "2026-07-31T19:45:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--55aabb18-29b0-5e0d-ae5e-d00b84accd5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:35.000Z",
+      "modified": "2026-07-31T19:45:35.000Z",
+      "name": "Redaxo Mediapool File Extension Validation Bypass and RCE",
+      "description": "## Overview\n\nA security regression in the `rex_mediapool::isAllowedExtension` function, introduced in commit `9d008697d`, allows authenticated backend users to bypass filename extension filters within the REDAXO CMS (versions 5.18.2 through 5.21.0). The validator previously utilized a robust `str_contains` check to block forbidden extensions (like .php) anywhere in the filename, but was refactored to use `str_ends_with` logic. This new implementation only checks the final extension and the immediate preceding segment, failing to account for multi-segment extensions like `shell.php.any.jpg`. \n\nAuthenticated users with media upload privileges can upload polyglot files containing malicious PHP code. If the underlying web server (typically Apache) is configured with non-anchored PHP handlers (using `AddHandler` or overly broad `FilesMatch` regex), the server will execute the embedded PHP code when the uploaded file is requested, resulting in arbitrary code execution as the web-server user. This vulnerability is tracked as CVE-2026-53599.\n\n## Attack Chain\n\n1. Attacker gains access to a REDAXO backend account with the `media[upload]` permission.\n2. Attacker crafts a polyglot file (e.g., `shell.php.any.jpg`) that contains a valid JPEG header followed by arbitrary PHP code.\n3. Attacker navigates to the Media Pool upload interface and uploads the crafted `shell.php.any.jpg`.\n4. The `isAllowedExtension` validator processes the filename, evaluates the final `.jpg` extension, and fails to identify the nested `.php` segment, allowing the upload.\n5. The file is saved to the public `media/` directory.\n6. Attacker sends an HTTP GET request to `https://\u0026lt;victim\u003e/media/shell.php.any.jpg`.\n7. The Apache web server, due to loose handler configuration, interprets the `.php` segment as a valid PHP execution directive.\n8. The PHP engine executes the embedded payload, granting the attacker RCE.\n\n## Impact\n\nSuccessful exploitation allows an authenticated backend user to gain arbitrary PHP code execution on the target server. This enables full compromise of the web application, potential lateral movement within the hosting environment, and unauthorized access to data stored in the database and file system. The scope includes any deployment running vulnerable REDAXO versions configured with loose Apache PHP handler mappings.\n\n## Recommendation\n\nPrioritized actions for detection and remediation:\n\n- Update REDAXO to version 5.21.1 or later to apply the security patch for CVE-2026-53599.\n- Audit Apache configuration files for `AddHandler` directives or `FilesMatch` regex patterns that lack an end-of-line anchor (`$`), which can cause multi-extension files to be incorrectly parsed as PHP.\n- Use the provided Sigma rule to detect attempts to upload files with suspicious double or multi-extension naming patterns in web server logs or CMS audit logs.\n- Implement strict upload validation on web application firewalls (WAF) to inspect filenames for nested forbidden extensions, specifically targeting the pattern `.*\\.php\\..*`.\n",
+      "published": "2026-07-31T19:45:35.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--764f43ba-ce2c-5653-9f1d-c7aca34b5653"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-07-redaxo-mediapool-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-07-redaxo-mediapool-bypass/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-07-redaxo-mediapool-bypass",
+      "x_craftedsignal_event_id": "brief-2026-07-redaxo-mediapool-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-redaxo-mediapool-bypass/",
+      "x_craftedsignal_activity_at": "2026-07-31T19:45:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--995a5a9f-efa3-595a-9955-77dcf3effa47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T21:46:26.000Z",
+      "modified": "2026-07-31T21:46:26.000Z",
+      "name": "Arbitrary Code Execution in sentence-transformers via Logic Flaw",
+      "description": "## Overview\n\nThe sentence-transformers library contains a security control bypass vulnerability (CVE-2026-68770) that allows attackers to achieve arbitrary code execution. The vulnerability resides in the `import_module_class` helper function within `sentence_transformers/util/misc.py`. A flawed guard condition includes an `or os.path.exists(model_name_or_path)` clause, which forces the trust gate to pass whenever the provided path exists on the local filesystem, effectively ignoring the `trust_remote_code=False` argument.\n\nAn attacker who can influence the local filesystem or place files in a directory that a target application subsequently loads can trigger this vulnerability. By placing malicious Python files, such as `modeling_*.py`, and referencing them via a `modules.json` file within the model directory, the attacker ensures that the malicious code executes automatically during the model initialization process. This bypasses the intended security contract, leading to code execution within the context of the process loading the SentenceTransformer model.\n\n## Impact\n\nSuccessful exploitation results in arbitrary code execution within the process space of any application utilizing the vulnerable sentence-transformers library to load models from untrusted or attacker-influenced local directories. This poses a significant risk to machine learning pipelines, inference servers, and any system that processes externally sourced model data.\n\n## Recommendation\n\n1. Audit applications using `sentence-transformers` to identify locations where models are loaded from directories potentially accessible to unauthorized users.\n2. Implement strict filesystem permissions to ensure that model directories cannot be modified by non-privileged accounts.\n3. Patch the `sentence-transformers` library to a version where the `import_module_class` logic flaw is remediated.\n4. Monitor application logs for unexpected subprocess execution or file system access originating from model-loading service accounts.\n",
+      "published": "2026-07-31T21:46:26.000Z",
+      "object_refs": [
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb4b04d6-234b-5167-9958-607a0107fffd",
+        "vulnerability--b4c9363f-28ae-5448-ab3f-d8643202be33"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-07-31-sentence-transformers-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-07-sentence-transformers-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68770"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-07-31-sentence-transformers-rce",
+      "x_craftedsignal_event_id": "brief-2026-07-31-sentence-transformers-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-sentence-transformers-rce/",
+      "x_craftedsignal_activity_at": "2026-07-31T21:46:26.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c236fc85-d0e3-504a-b56e-90b86f7f137a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T19:45:24.000Z",
+      "modified": "2026-07-31T19:45:24.000Z",
+      "name": "NocoBase Authenticated SQL Injection to RCE",
+      "description": "## Overview\n\nNocoBase versions 2.0.60 and earlier contain a critical SQL injection vulnerability in the `/api/myInAppChannels:list` endpoint. The vulnerability arises because the `latestMsgReceiveTimestamp` filter parameter is unsafely interpolated into a `Sequelize.literal()` template string without proper escaping or parameter binding. Because NocoBase defaults to allowing anonymous account registration (`allowSignUp: true`), any unauthenticated attacker can create an account and access this endpoint. \n\nThe application utilizes the `pg` driver, which supports stacked SQL statements. Coupled with the default PostgreSQL container configuration where the `nocobase` database user is granted superuser privileges (`rolsuper=true`), an attacker can execute arbitrary system commands using the `COPY ... TO PROGRAM` syntax. This vulnerability leads to full database compromise, including sensitive data exfiltration (such as administrator password hashes) and remote code execution within the database container.\n\n## Attack Chain\n\n1. Attacker interacts with the `/api/auth:signUp` endpoint to create a new user account, exploiting the default `allowSignUp: true` configuration.\n2. Attacker performs an authentication request to `/api/auth:signIn` to obtain a valid `member` role JSON Web Token (JWT).\n3. Attacker identifies the vulnerable `filter[latestMsgReceiveTimestamp][$lt]` parameter on the `/api/myInAppChannels:list` endpoint.\n4. Attacker validates the injection point using a time-based oracle payload (e.g., `PG_SLEEP(5)`).\n5. Attacker crafts a malicious HTTP GET request containing a stacked-statement SQL payload using `COPY ... TO PROGRAM`.\n6. The backend database executes the injected command with the privileges of the `postgres` system user (uid 999).\n7. Attacker achieves command execution and can exfiltrate sensitive collections or system data from the host container.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain full access to the NocoBase database. The impact includes the exfiltration of sensitive information, such as administrator credentials (stored as PBKDF2 hashes), and remote code execution within the database container, which may facilitate lateral movement or further environment compromise.\n\n## Recommendation\n\n- Upgrade NocoBase to version 2.0.61 or later immediately.\n- Disable anonymous sign-ups by modifying the `auth-basic` configuration if registration is not required.\n- Review database role privileges and ensure the PostgreSQL user configured for NocoBase follows the principle of least privilege rather than running as a superuser.\n- Deploy the provided Sigma rule to detect anomalous requests to the `/api/myInAppChannels:list` endpoint.\n",
+      "published": "2026-07-31T19:45:24.000Z",
+      "labels": [
+        "authentication-bypass",
+        "rce",
+        "sql-injection",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4d4626a8-8986-56a2-9ec0-ed49e8f027e1",
+        "software--775fd442-360d-51b4-a66a-4d22a5be8c5d",
+        "vulnerability--3e061fbf-07c4-53b8-8f11-fdbe71f618f2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-07-nocobase-sql-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-07-nocobase-sql-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-p849-8hwh-84j9"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-07-nocobase-sql-rce",
+      "x_craftedsignal_event_id": "brief-2026-07-nocobase-sql-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-nocobase-sql-rce/",
+      "x_craftedsignal_activity_at": "2026-07-31T19:45:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00593,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ef74875f-903e-5703-90ca-e5b6a544f800",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T23:46:59.000Z",
+      "modified": "2026-09-21T09:17:15.000Z",
+      "name": "Unauthenticated Remote Code Execution in ComfyUI via Unsafe Deserialization",
+      "description": "## Overview\n\nComfyUI version 0.23.0 contains a critical vulnerability (CVE-2026-68771) within the LoadTrainingDataset node, stemming from the unsafe deserialization of pickle files. This flaw allows an unauthenticated remote attacker to execute arbitrary Python code on the host system. The attack vector involves uploading a crafted, malicious pickle file (typically named in the shard_*.pkl format) via the application's file upload interface. Once the file is hosted, the attacker triggers its deserialization by queuing a workflow graph that references the malicious file. Because the application utilizes the torch.load function to process these files, an attacker can leverage the pickle protocol's __reduce__ method to execute arbitrary system commands under the security context of the ComfyUI process. This vulnerability poses a significant risk to any publicly accessible ComfyUI instance, as it requires no prior authentication to achieve full system compromise.\n\n## Attack Chain\n\n1. Attacker identifies a publicly accessible ComfyUI instance running version 0.23.0.\n2. Attacker crafts a malicious Python pickle file containing a __reduce__ method designed to execute arbitrary OS commands.\n3. Attacker sends an unauthenticated HTTP POST request to the /upload/image endpoint to store the malicious pickle file on the server.\n4. Attacker constructs a JSON workflow graph referencing the path of the newly uploaded malicious file.\n5. Attacker sends an unauthenticated HTTP POST request to the /prompt endpoint to submit the workflow graph for processing.\n6. The LoadTrainingDataset node within the ComfyUI backend processes the workflow and calls torch.load on the malicious file.\n7. The pickle deserialization occurs, triggering the execution of the attacker's payload.\n8. The attacker achieves remote code execution, enabling further activity such as data exfiltration or persistence.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the underlying server. This enables attackers to steal sensitive data, gain persistent access to the host, or leverage the compromised system to perform further attacks on the internal network. Given the typical deployment of ComfyUI in AI and research environments, this may lead to the exposure of proprietary model data or credentials.\n\n## Recommendation\n\n1. Immediately update ComfyUI to a patched version that sanitizes or restricts the loading of untrusted pickle files.\n2. If an immediate update is not possible, restrict network access to the ComfyUI web interface, ensuring it is not accessible from the public internet.\n3. Implement network-level blocking for unauthorized POST requests directed at the /upload/image and /prompt endpoints.\n4. Monitor web server logs for suspicious POST requests to /upload/image followed by calls to /prompt containing references to .pkl files.\n5. Deploy the Sigma rules provided in this brief to detect the exploitation of CVE-2026-68771.\n",
+      "published": "2026-07-31T23:46:59.000Z",
+      "labels": [
+        "cve-2026-68771",
+        "deserialization",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
+        "software--f4f685e1-3e11-5097-82c3-d6af5a09ae72",
+        "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-07-31-comfyui-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-07-comfyui-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E3EA906F-6404-5DA8-A270-D14E7A001E29\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-07-31-comfyui-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-07-31-comfyui-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-comfyui-deserialization/",
+      "x_craftedsignal_activity_at": "2026-09-21T09:17:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00781,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3ff04923-daaa-548a-81c7-819e4a9b967a",
+      "name": "Savon (\u003c 2.17.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4d4626a8-8986-56a2-9ec0-ed49e8f027e1",
+      "name": "@nocobase/plugin-notification-in-app-message",
+      "vendor": "NocoBase"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--764f43ba-ce2c-5653-9f1d-c7aca34b5653",
+      "name": "redaxo/core",
+      "vendor": "Redaxo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--775fd442-360d-51b4-a66a-4d22a5be8c5d",
+      "name": "NocoBase server",
+      "vendor": "NocoBase"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
+      "name": "ComfyUI (v0.23.0 and earlier)",
+      "vendor": "ComfyUI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eb4b04d6-234b-5167-9958-607a0107fffd",
+      "name": "sentence-transformers",
+      "vendor": "Hugging Face"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f4f685e1-3e11-5097-82c3-d6af5a09ae72",
+      "name": "ComfyUI (0.23.0)",
+      "vendor": "ComfyUI"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3e061fbf-07c4-53b8-8f11-fdbe71f618f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-52887",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-52887",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52887"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b4c9363f-28ae-5448-ab3f-d8643202be33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68770",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68770",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68770"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68771",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68771",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771"
+        }
+      ]
+    }
+  ]
+}
