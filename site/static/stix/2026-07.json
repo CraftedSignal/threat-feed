@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0c06967e-7659-5175-badf-c597e4107901",
+  "id": "bundle--fd1376cb-d03e-5b89-b429-01631a5abddf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -111,22 +111,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1498",
           "url": "https://attack.mitre.org/techniques/T1498"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Impair Defenses",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1562",
-          "url": "https://attack.mitre.org/techniques/T1562"
         }
       ]
     },
@@ -490,17 +474,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--77c9843c-2c88-5627-ae79-5d5f49af5c5d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T11:37:32.000Z",
-      "modified": "2026-07-31T11:37:32.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--cb7c3b09-8696-5e98-b6e3-61c6dbf73dcb",
-      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--78f33760-dad5-564d-969b-a40158e3ae84",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -640,17 +613,6 @@
       "relationship_type": "has",
       "source_ref": "software--200f9499-5eec-56e2-8d8a-0e066bd4e2fb",
       "target_ref": "vulnerability--f2b81471-8acb-5127-b5b8-14914d46ab58"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--96f753ba-b4ac-5d96-995a-db67623e83c7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--958bd2a8-8626-5c36-a72f-09116a41b117",
-      "target_ref": "vulnerability--bd46862e-72a5-5c1b-9807-7ba420ae6397"
     },
     {
       "type": "relationship",
@@ -2119,53 +2081,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--cb7c3b09-8696-5e98-b6e3-61c6dbf73dcb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T11:37:32.000Z",
-      "modified": "2026-07-31T11:37:32.000Z",
-      "name": "Red Hat Advanced Cluster Security Policy Bypass via Deployment Label Manipulation",
-      "description": "## Overview\n\nA vulnerability identified as CVE-2026-10079 affects Red Hat Advanced Cluster Security for Kubernetes (RHACS). The issue resides in how the platform processes Kubernetes Deployment objects. Specifically, RHACS uses the label 'openshift.io/encoded-deployment-config' to determine deployment identity metadata. \n\nAn attacker with sufficient permissions to create Deployments in the cluster can explicitly set this label to \"null\". This action forces the RHACS Central component to misinterpret the workload's identity, effectively assigning it an empty UID, name, and labels while defaulting the namespace to \"default\". This misidentification causes a complete bypass of deploy-time policy detection and enforcement mechanisms. Furthermore, it results in a lack of visibility into the workload, prevents correct persistence within the security database, and breaks compliance correlation and violation reporting for the affected deployment. This vulnerability is critical for organizations relying on RHACS for automated security governance in multi-tenant or managed Kubernetes environments, as it allows for the deployment of non-compliant or malicious workloads without triggering platform-based alerting or blocking controls.\n\n## Impact\n\nThe impact of this vulnerability is significant as it undermines the core security enforcement capabilities of the RHACS platform. By evading policy checks, attackers can deploy workloads that violate corporate security standards or contain malicious configurations without detection. This results in reduced visibility for security teams, broken compliance reporting, and the potential for persistent, unauthorized access within the container environment. The severity is reflected in the CVSS v3.1 base score of 8.5.\n\n## Recommendation\n\n1. Audit current Kubernetes Deployment manifests for the presence of the 'openshift.io/encoded-deployment-config' label set to \"null\" or other obfuscated values.\n2. Implement Kubernetes Admission Controllers to prevent users from injecting arbitrary metadata labels, specifically targeting the 'openshift.io/' prefix.\n3. Review audit logs for unexpected Deployment creation events in non-standard namespaces, particularly those where metadata appears inconsistent with organizational naming conventions.\n4. Ensure that RHACS Central is updated to the latest version as provided by Red Hat to remediate the metadata processing logic associated with CVE-2026-10079.\n",
-      "published": "2026-07-31T11:37:32.000Z",
-      "labels": [
-        "cloud-security",
-        "cve-2026-10079",
-        "defense-evasion",
-        "kubernetes"
-      ],
-      "object_refs": [
-        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--958bd2a8-8626-5c36-a72f-09116a41b117",
-        "vulnerability--bd46862e-72a5-5c1b-9807-7ba420ae6397"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-31-rhacs-policy-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-rhacs-policy-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10079"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-31-rhacs-policy-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-31-rhacs-policy-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-rhacs-policy-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-31T11:37:32.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--d0e1d116-b4bd-5369-967f-865a8a815630",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:20:49.000Z",
@@ -2427,13 +2342,6 @@
       "spec_version": "2.1",
       "id": "software--90341397-a2bf-536b-9fe5-f9cad5f03ffa",
       "name": "PHP 8.5"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--958bd2a8-8626-5c36-a72f-09116a41b117",
-      "name": "Advanced Cluster Security for Kubernetes",
-      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -2846,22 +2754,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-68771",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--bd46862e-72a5-5c1b-9807-7ba420ae6397",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-10079",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-10079",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10079"
         }
       ]
     },

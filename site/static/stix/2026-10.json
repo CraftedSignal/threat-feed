@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6c11d39b-86ae-547c-91fa-685d3cff42c3",
+  "id": "bundle--e3d75dd2-f8fc-553e-9aae-d061e6dde5eb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3521,6 +3521,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--20d4d068-7d69-5942-a6a5-23509c1c3fdf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "name": "ip: 87.120.196.120",
+      "description": "NIK C2 server address observed in the wild",
+      "pattern": "[ipv4-addr:value = '87.120.196.120']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T12:09:58.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--218cc06a-71f6-5ebd-a812-1be4a9417c20",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T18:08:20.000Z",
@@ -5087,6 +5100,19 @@
       "pattern": "[domain-name:value = 'exy.sh']",
       "pattern_type": "stix",
       "valid_from": "2026-10-26T09:54:31.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--e2b9493d-2b57-59e7-9ce6-6c29dad8bc00",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "name": "domain: total-sitevv.lol",
+      "description": "Domain associated with NIK C2 infrastructure",
+      "pattern": "[domain-name:value = 'total-sitevv.lol']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-29T12:09:58.000Z"
     },
     {
       "type": "indicator",
@@ -6683,6 +6709,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0482ac5c-2d03-559f-88b0-e037840daee5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dab0656d-50a8-5786-8510-67f142469f1b",
+      "target_ref": "indicator--e2b9493d-2b57-59e7-9ce6-6c29dad8bc00"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--048a4290-5a4d-5623-9986-46956f53d3fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -6701,6 +6738,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2dfd20be-b32b-585e-b398-501696002b0d",
       "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--049e9fa9-3805-50fc-a3fb-5dec19a335c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dab0656d-50a8-5786-8510-67f142469f1b",
+      "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
     },
     {
       "type": "relationship",
@@ -22875,6 +22923,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4878c58d-e379-50cb-b628-a9add2001416",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dab0656d-50a8-5786-8510-67f142469f1b",
+      "target_ref": "indicator--20d4d068-7d69-5942-a6a5-23509c1c3fdf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--48832e00-6882-5f48-8002-dbc9110725da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -26039,6 +26098,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8f54bd5b-a69f-5d07-9dea-e5e2ce14411e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--555898c2-6060-52f9-8f4f-74b9d8e81f90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dab0656d-50a8-5786-8510-67f142469f1b",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -30197,6 +30267,17 @@
       "relationship_type": "has",
       "source_ref": "software--3eb11dbe-56fa-585f-b04a-8ec91e31fd13",
       "target_ref": "vulnerability--9b54ba77-7cd6-5720-96b8-83d6c625aeeb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--66574e7e-fbe3-50b8-890e-865f7aed8521",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--dab0656d-50a8-5786-8510-67f142469f1b",
+      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -150293,6 +150374,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--dab0656d-50a8-5786-8510-67f142469f1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:09:58.000Z",
+      "modified": "2026-10-29T12:09:58.000Z",
+      "name": "NIK C2: AI-enabled remote access framework",
+      "description": "## Overview\nNIK C2 is a cross-compiled Go-based remote access tool for Windows that enables persistent control, surveillance, and ransomware deployment. The framework uniquely integrates with the OpenAI Chat Completions API, allowing operators to send harvested victim data directly to LLMs for analysis. A notable feature is the abuse of victim-side environment variables (`OPENAI_API_KEY`) to facilitate AI requests, effectively offloading billing and logging to the victim's account.\n\n## Attack Chain\n1. Initial infection via unknown vector.\n2. Execution of the 64-bit Go-based implant on the Windows host.\n3. Establishment of a dual-channel C2 connection using TLS WebSockets (port 443) and HTTP polling fallback.\n4. Harvesting of credentials and keystroke data via internal implant modules.\n5. Routing of harvested data to the OpenAI Chat Completions API using the victim’s environment-configured API key.\n6. Deployment of desktop screen-locking ransomware to facilitate extortion.\n\n## Impact\nThe framework facilitates automated data analysis, credential theft, and ransomware operations. The AI-integration module specifically allows attackers to offload costs and obfuscate malicious API usage by abusing the credentials of the compromised host.\n\n## Recommendation\n- Block identified C2 infrastructure (87.120.196.120 and total-sitevv.lol) at the perimeter.\n- Implement process-creation monitoring to identify unauthorized Go-compiled binaries running from non-standard directories.\n- Audit environment variables on critical Windows systems for the presence of `OPENAI_API_KEY` to prevent unauthorized API abuse by malware.\n- Review network egress logs for frequent HTTPS requests to `api.openai.com` originating from service accounts or non-development workstations.\n",
+      "published": "2026-10-29T12:09:58.000Z",
+      "labels": [
+        "C2",
+        "ai-enabled",
+        "malware",
+        "ransomware"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
+        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--20d4d068-7d69-5942-a6a5-23509c1c3fdf",
+        "indicator--e2b9493d-2b57-59e7-9ce6-6c29dad8bc00",
+        "software--12ef1770-6224-5e64-a0a1-2f39ed2bdfea"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-nik-c2",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-nik-c2/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.talosintelligence.com/nik-c2-new-ai-enabled-framework/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-nik-c2",
+      "x_craftedsignal_event_id": "brief-2026-10-29-nik-c2",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nik-c2/",
+      "x_craftedsignal_activity_at": "2026-10-29T12:09:58.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--daff39ff-942d-5f32-a972-e7ba243258d6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T03:41:05.000Z",
@@ -165861,6 +165991,12 @@
       "id": "software--12e06c30-3437-53bd-8ff5-01dfb12035a6",
       "name": "LibreNMS (\u003c 26.9.0)",
       "vendor": "LibreNMS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--12ef1770-6224-5e64-a0a1-2f39ed2bdfea",
+      "name": "Chat Completions API"
     },
     {
       "type": "software",
