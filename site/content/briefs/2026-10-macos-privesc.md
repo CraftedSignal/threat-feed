@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-macos-privesc
 event_id: brief-2026-10-macos-privesc
-revision: 2
-activity_at: "2026-10-23T09:36:43Z"
+revision: 3
+activity_at: "2026-10-29T06:00:35Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T09:36:43Z"
@@ -20,11 +20,24 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-10-29T06:00:35Z"
+    checksum: sha256:689d25bce3633c708108f9644ee4ca836ebd4a3ca009b356ce05a567eb4c956a
+    summary: added coverage for macOS (< 27.2)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=A4F6EAF7-FEB2-5B76-AF3F-CC75AE42D60A&utm_source=rss&utm_medium=rss
 title: CVE-2023-42931 Privilege Escalation in macOS diskutil
 slug: 2026-10-macos-privesc
 description: A local privilege escalation vulnerability in the macOS diskutil utility allows unprivileged users to gain root access via manipulated filesystem mounting.
 date: "2026-10-16T10:33:12Z"
-lastmod: "2026-10-23T09:34:35Z"
+lastmod: "2026-10-29T05:59:33Z"
 type: threat
 types:
   - threat
@@ -54,6 +67,7 @@ vendors:
 products:
   - macOS (< 12.7.2, 13.6.3, 14.2)
   - macOS (< 26.6)
+  - macOS (< 27.2)
 affected_os:
   - macOS Monterey
   - macOS Ventura
@@ -75,12 +89,17 @@ cves:
     cvss: 7.8
     epss: 0.00129
     kev_status: "false"
+  - id: CVE-2026-112445
+    kev_status: unknown
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-D0RB-CVE-2023-42931
   - https://www.alter-solutions.fr/blog/local-privilege-escalating-my-way-to-root-throught-apple-macos-filesystems
   - https://andrd3v.github.io/cve-2026-43783/index.html
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=A4F6EAF7-FEB2-5B76-AF3F-CC75AE42D60A
+  - https://github.com/thepigeonoftime/clean-osx/issues/1
+  - https://sploitus.com/exploit?id=A4F6EAF7-FEB2-5B76-AF3F-CC75AE42D60A&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious diskutil Execution for Mounting
     description: Detects the use of the diskutil utility to mount filesystems, which may be a precursor to CVE-2023-42931 exploitation by unprivileged users.
@@ -99,6 +118,7 @@ action_plan:
   owners:
     - SOC
     - IT Operations
+    - Detection Engineering
   immediate_actions:
     - action: Patch macOS systems to versions 12.7.2, 13.6.3, or 14.2
       owner: IT Operations
@@ -108,6 +128,10 @@ action_plan:
       owner: IT Operations
       due: 72h
       evidence: Source identifies vulnerability in versions < 26.6
+    - action: Inventory all macOS systems running versions prior to 27.2.
+      owner: IT Operations
+      due: 24h
+      evidence: Apple fixed CVE-2026-112445 in macOS 27.2.
   hunt_leads:
     - lead: Search for unauthorized setuid binary creation following diskutil execution
       technique_id: T1068
@@ -125,6 +149,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Daemon registers a mach service under com.apple.DesktopServicesHelper and listens for incoming XPC connections.
+    - lead: Search for processes attempting to perform TIOCSTI ioctl operations on /dev/console.
+      technique_id: T1068
+      data_needed:
+        - Audit logs for ioctl system calls (via DTrace or EDR)
+      priority: high
+      confidence: medium
+      disposition: hunt_now
+      evidence: Attacker uses TIOCSTI to inject characters into the input queue of the root-privileged Bash process.
   mitigation_plan:
     - priority: immediate
       action: Upgrade Apple macOS to 12.7.2, 13.6.3, 14.2
@@ -136,6 +168,11 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-43783
       evidence: Vulnerability fixed in 26.6
+    - priority: immediate
+      action: Upgrade vulnerable macOS systems to 27.2.
+      owner: IT Operations
+      addresses: CVE-2026-112445
+      evidence: macOS 27.2 removes the com.apple.xpc.uscwoap configuration.
 updates:
   - at: "2026-10-23T09:34:35Z"
     level: L2
@@ -144,6 +181,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ANDRD3V-CVE-2026-43783&utm_source=rss&utm_medium=rss
+  - at: "2026-10-29T05:59:33Z"
+    level: L2
+    summary: added coverage for macOS (< 27.2)
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A4F6EAF7-FEB2-5B76-AF3F-CC75AE42D60A&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2023-42931 is a local privilege escalation vulnerability affecting multiple versions of macOS, including Monterey, Ventura, and Sonoma. The vulnerability resides in the 'diskutil' command-line utility, which fails to properly restrict filesystem mounting options when invoked by unprivileged users. An attacker can leverage this flaw to gain full root control of the host system. The vulnerability was publicly disclosed alongside a functional proof-of-concept exploit that automates the exploitation process. The exploit targets how 'diskutil' manages filesystem permissions, allowing for the deployment and execution of setuid binaries. Given the availability of this exploit code, unpatched systems are at significant risk of unauthorized administrative access.
