@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3513b222-016e-5e9b-807e-6d760e23434c",
+  "id": "bundle--c53dfa58-afd6-59a8-8463-66ac183b6641",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3854,6 +3854,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--56a241fd-5aa0-53e9-95c8-1221600c8ebe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
+      "name": "domain: krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion",
+      "description": "Krybit ransomware data leak site",
+      "pattern": "[domain-name:value = 'krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion']",
+      "pattern_type": "stix",
+      "valid_from": "2026-09-13T21:17:50.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--56ceefd6-a630-59d0-bedf-d61376224b01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-22T20:01:41.000Z",
@@ -4143,7 +4156,7 @@
       "id": "indicator--74c302d5-61d2-5a55-bba0-90f6766d63e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "name": "hash_md5: cf77f86c0724629f2bbc86c489fe42de",
       "description": "Krybit malware payload",
       "pattern": "[file:hashes.MD5 = 'cf77f86c0724629f2bbc86c489fe42de']",
@@ -5196,7 +5209,7 @@
       "id": "indicator--e328b4ec-83c5-52a5-ad32-073581a48b15",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "name": "hash_md5: 93f8cb3b8b2e4e4ec8d06263f68c953e",
       "description": "Krybit malware payload",
       "pattern": "[file:hashes.MD5 = '93f8cb3b8b2e4e4ec8d06263f68c953e']",
@@ -5300,7 +5313,7 @@
       "id": "indicator--efaedd9d-bd43-51ef-95d5-6a2f24da826c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "name": "hash_md5: 860fae3fc7db1c1ceb12eb42ce59aee4",
       "description": "Krybit malware payload",
       "pattern": "[file:hashes.MD5 = '860fae3fc7db1c1ceb12eb42ce59aee4']",
@@ -5352,7 +5365,7 @@
       "id": "indicator--f384d3d3-a61b-57fb-853b-a51ddce7ba7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "name": "url: http://krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion/blog/f80863cff7bd3f7607c6486f3615c67a133e57a0cd5f4b6d749c3f1f3c3a1a9e/",
       "description": "Krybit data leak site",
       "pattern": "[url:value = 'http://krybitqsdzwmhnitvwuhvsntfgf2wrhxveyxroxpc44c6gkft2cqldyd.onion/blog/f80863cff7bd3f7607c6486f3615c67a133e57a0cd5f4b6d749c3f1f3c3a1a9e/']",
@@ -5469,7 +5482,7 @@
       "id": "indicator--ff40b829-d739-5872-8edc-d54ee3316b1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "name": "hash_md5: 030085f202d1ccb73a0dc0b7eb6e1787",
       "description": "Krybit malware payload",
       "pattern": "[file:hashes.MD5 = '030085f202d1ccb73a0dc0b7eb6e1787']",
@@ -27154,7 +27167,7 @@
       "id": "relationship--76722e4f-5a64-5f04-9703-cf33491d03d8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "target_ref": "indicator--ff40b829-d739-5872-8edc-d54ee3316b1b"
@@ -28826,7 +28839,7 @@
       "id": "relationship--7f942338-e5ac-5c44-b401-b921cdf1016d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "target_ref": "indicator--e328b4ec-83c5-52a5-ad32-073581a48b15"
@@ -29453,7 +29466,7 @@
       "id": "relationship--82881ed3-7b97-51ca-a3d2-7b8870897edb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "target_ref": "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6"
@@ -31785,7 +31798,7 @@
       "id": "relationship--8f71f2be-38e5-5520-930f-4f8983d1189e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "target_ref": "threat-actor--dccf18d9-93f2-54d4-98ea-6609afc75c26"
@@ -32808,7 +32821,7 @@
       "id": "relationship--95cdf1e0-0c3f-562a-9474-f748d3dcbf4b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "target_ref": "indicator--efaedd9d-bd43-51ef-95d5-6a2f24da826c"
@@ -34733,7 +34746,7 @@
       "id": "relationship--9ff797c8-fcf3-5ce3-9cf6-678a8d5af770",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "target_ref": "indicator--f384d3d3-a61b-57fb-853b-a51ddce7ba7c"
@@ -35672,6 +35685,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8d9c9818-0301-5037-80c5-2c4a53147d6b",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a5aa54c4-f4a0-5258-9ce4-a5d093509bf2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
+      "target_ref": "indicator--56a241fd-5aa0-53e9-95c8-1221600c8ebe"
     },
     {
       "type": "relationship",
@@ -36878,7 +36902,7 @@
       "id": "relationship--ac2a604d-5b13-55a1-b0fc-42959ebb63fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "target_ref": "indicator--74c302d5-61d2-5a55-bba0-90f6766d63e2"
@@ -105422,13 +105446,14 @@
       "id": "report--b3100f6a-7833-5b23-9c06-7dc02269d090",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-13T21:17:50.000Z",
-      "modified": "2026-09-13T21:17:50.000Z",
+      "modified": "2026-10-29T23:09:11.000Z",
       "name": "Krybit Ransomware-as-a-Service Operations",
       "description": "## Overview\n\nKrybit is an active Ransomware-as-a-Service (RaaS) group that launched in late March 2026. The group provides affiliates with encryption tooling that supports Windows, Linux, ESXi, and NAS environments, operating on an 80/20 revenue split model. Since their inception, they have been prolific, claiming at least 147 victims across 51 countries, with heavy targeting observed in sectors including professional services, technology, retail, and healthcare. The group is notable for its competitive posturing, having engaged in a public feud with a rival threat group, 0APT, which resulted in reciprocal leaks of operator data. Defenders should prioritize monitoring for the deployment of their custom ransomware payloads and communication with their Tor-based infrastructure, which is hosted primarily on Apache and Python/Werkzeug servers.\n\n## Impact\n\nKrybit operations have caused significant disruption across a broad victim base, including healthcare institutions, logistics firms, and educational entities. With 147 confirmed victims as of September 2026, the group demonstrates high operational tempo and broad geographical reach. Successful compromise typically results in the encryption of critical enterprise assets and the exfiltration of sensitive data, which is subsequently leveraged on their dedicated leak site to coerce ransom payments.\n\n## Recommendation\n\nPrioritize detection and mitigation efforts by focusing on behavioral indicators associated with the group's encryption and C2 activity.\n\n* Monitor for the MD5 file hashes provided in this brief using EDR/AV solutions to identify and block known ransomware payloads.\n* Monitor network traffic for connections to known Krybit leak sites and infrastructure to identify potential data exfiltration or communication with C2 nodes.\n* Implement endpoint controls to alert on unauthorized batch file creation or modifications, particularly those involving 'README-RECOVER.txt' files.\n",
       "published": "2026-09-13T21:17:50.000Z",
       "object_refs": [
         "attack-pattern--4c3e7380-a536-599a-8a1e-e402b95df8d6",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--56a241fd-5aa0-53e9-95c8-1221600c8ebe",
         "indicator--74c302d5-61d2-5a55-bba0-90f6766d63e2",
         "indicator--e328b4ec-83c5-52a5-ad32-073581a48b15",
         "indicator--efaedd9d-bd43-51ef-95d5-6a2f24da826c",
@@ -105441,14 +105466,18 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-09-krybit-ransomware",
           "url": "https://feed.craftedsignal.io/briefs/2026-09-krybit-ransomware/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.ransomware.live/group/krybit"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-09-krybit-ransomware",
       "x_craftedsignal_event_id": "brief-2026-09-krybit-ransomware",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-krybit-ransomware/",
-      "x_craftedsignal_activity_at": "2026-09-13T21:17:50.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T23:09:11.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {

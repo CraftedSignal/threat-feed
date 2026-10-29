@@ -1,14 +1,28 @@
 ---
 brief_id: brief-2026-10-29-pyasn1-dos
 event_id: brief-2026-10-29-pyasn1-dos
-revision: 1
-activity_at: "2026-10-29T21:10:48Z"
+revision: 2
+activity_at: "2026-10-29T23:09:11Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T23:09:11Z"
+    checksum: sha256:5d28df264236ad076772fbd06d908b3ecdaa016b63c57a8bbd36688688d401f5
+    summary: added CVE-2026-119195 +1
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-119195
 title: 'pyasn1: Denial of service via tag ID collision (CVE-2026-119194)'
 slug: 2026-10-pyasn1-dos
 description: The pyasn1 library is vulnerable to a denial-of-service attack due to inefficient handling of tag ID collisions during schemaless container decoding, allowing attackers to force quadratic CPU exhaustion.
 date: "2026-10-29T21:10:48Z"
-lastmod: "2026-10-29T21:11:00Z"
+lastmod: "2026-10-29T23:08:41Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -42,10 +56,19 @@ cves:
     cvss: 7.5
     kev_status: "false"
   - id: CVE-2026-119196
-    kev_status: unknown
+    cvss: 7.5
+    kev_status: "false"
+  - id: CVE-2026-119195
+    cvss: 7.5
+    kev_status: "false"
+  - id: CVE-2026-119197
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119194
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119196
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-119197
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-119195
 action_plan:
   priority: elevated
   owners:
@@ -93,6 +116,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-119196
+  - at: "2026-10-29T23:08:41Z"
+    level: L2
+    summary: added CVE-2026-119195 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-119195
 ---
 
 pyasn1 versions 0.3.3 through 0.6.4 contain a vulnerability in the `ConstructedPayloadDecoderBase._decodeComponentsSchemaless` method. When processing schemaless container decoding for BER, CER, or DER encoded inputs, the library incorrectly stores TagSet information in a growing set. By supplying crafted inputs containing many distinct long tag IDs that cause hash collisions, an attacker can force the library into quadratic CPU work, resulting in denial of service. This issue is resolved in pyasn1 version 0.6.5.
