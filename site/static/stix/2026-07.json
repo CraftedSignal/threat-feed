@@ -1,23 +1,7 @@
 {
   "type": "bundle",
-  "id": "bundle--c41f216a-4d3d-5953-8c18-6ab15ad6532f",
+  "id": "bundle--0c06967e-7659-5175-badf-c597e4107901",
   "objects": [
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Exploitation for Privilege Escalation",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1068",
-          "url": "https://attack.mitre.org/techniques/T1068"
-        }
-      ]
-    },
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
@@ -238,28 +222,6 @@
       "relationship_type": "has",
       "source_ref": "software--43029398-f7d7-54f6-81e3-08323b2e6220",
       "target_ref": "vulnerability--382aea9f-542c-5951-b881-84c43a62123b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--040e0b88-8278-5702-b567-08848ad1f879",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T09:28:18.000Z",
-      "modified": "2026-07-31T09:28:18.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--130ad2ff-07ae-50cb-95b6-ba759924e4f7",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--055b9553-0e08-552b-bd94-42a253a4a6f1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--8932984e-346e-57c9-ad22-b5261b502cf3",
-      "target_ref": "vulnerability--3fec830f-8fa1-515e-8c07-7c30a414769e"
     },
     {
       "type": "relationship",
@@ -1024,46 +986,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--130ad2ff-07ae-50cb-95b6-ba759924e4f7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T09:28:18.000Z",
-      "modified": "2026-07-31T09:28:18.000Z",
-      "name": "Multiple Vulnerabilities in Red Hat Enterprise Linux ABRT",
-      "description": "## Overview\n\nThe Automatic Bug Reporting Tool (abrt) in Red Hat Enterprise Linux contains multiple vulnerabilities that enable local attackers to exploit the system's error reporting mechanisms. These flaws allow unprivileged users to bypass existing security controls, manipulate sensitive crash data, or intentionally cause a denial-of-service (DoS) condition by destabilizing the abrt daemon. Because abrt runs with elevated privileges to collect system-wide crash information, successfully exploiting these flaws can lead to unauthorized access or system instability. Organizations running Red Hat Enterprise Linux environments should prioritize updating the abrt packages to the latest vendor-provided versions to mitigate these local privilege escalation and integrity risks.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities allows local users to gain elevated privileges, corrupt crash reporting logs, or crash system services. This impacts the integrity and availability of the affected Red Hat Enterprise Linux systems. While these vulnerabilities require local access, they pose a significant threat in multi-user environments, shared hosting, or environments where non-privileged users have access to the local console or terminal.\n\n## Recommendation\n\nPrioritize the deployment of security patches released by Red Hat for the abrt component. Use configuration management tools to audit the version of abrt installed across the enterprise fleet and ensure that all nodes are updated to the vendor-specified patched version to remediate the identified local security risks.\n",
-      "published": "2026-07-31T09:28:18.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--10912339-b533-5808-bc68-091589292e82",
-        "software--4ceed688-eb80-50e6-810f-94595ef19dcd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-31-red-hat-abrt-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-red-hat-abrt-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2595"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-07-31-red-hat-abrt-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-07-31-red-hat-abrt-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-red-hat-abrt-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-07-31T09:28:18.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--18305c8f-7a74-58d3-8dc2-b69452e854b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:29:29.000Z",
@@ -1727,52 +1649,6 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00382,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--9590f8d5-7450-5b25-9e23-24d04fabfaac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T09:28:23.000Z",
-      "modified": "2026-07-31T09:28:23.000Z",
-      "name": "SolarWinds Web Help Desk Security Bypass Vulnerability",
-      "description": "## Overview\n\nSolarWinds has disclosed a security vulnerability affecting Web Help Desk, which permits a remote, unauthenticated attacker to bypass established security controls. The flaw, tracked as CVE-2024-28986, impacts versions prior to 12.8.3. Successful exploitation of this vulnerability could allow unauthorized parties to access sensitive data or perform actions within the Web Help Desk application without legitimate credentials. This represents a significant risk for organizations that rely on the software for internal ticket management and IT service desk operations. Defenders should prioritize patching affected instances to version 12.8.3 or later to remediate the exposure.\n\n## Impact\n\nThe vulnerability poses a substantial risk to organizations utilizing SolarWinds Web Help Desk for IT service management. If exploited, an unauthorized actor could gain access to the application, potentially leading to the exposure of internal incident reports, user credentials, or administrative configuration settings. Given the administrative nature of help desk software, successful exploitation could facilitate lateral movement into other internal systems by leveraging credentials or information harvested from the help desk platform.\n\n## Recommendation\n\n- Update all SolarWinds Web Help Desk instances to version 12.8.3 or later immediately to resolve CVE-2024-28986.\n- Review web server access logs for anomalous requests directed at Web Help Desk, particularly those originating from untrusted or external IP addresses that attempt to access internal-only endpoints.\n- Implement restrictive access controls for the Web Help Desk administrative portal, ensuring it is not directly exposed to the public internet.\n",
-      "published": "2026-07-31T09:28:23.000Z",
-      "labels": [
-        "security-bypass",
-        "vulnerability-management",
-        "web-application"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--8932984e-346e-57c9-ad22-b5261b502cf3",
-        "vulnerability--3fec830f-8fa1-515e-8c07-7c30a414769e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-31-solarwinds-whd-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-solarwinds-whd-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2594"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-31-solarwinds-whd-bypass",
-      "x_craftedsignal_event_id": "brief-2026-07-31-solarwinds-whd-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-solarwinds-whd-bypass/",
-      "x_craftedsignal_activity_at": "2026-07-31T09:28:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.84628,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -2442,13 +2318,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--10912339-b533-5808-bc68-091589292e82",
-      "name": "abrt",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1b764e03-631a-51d5-9e7f-522553b0c4fd",
       "name": "PHP 8.2"
     },
@@ -2508,13 +2377,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4ceed688-eb80-50e6-810f-94595ef19dcd",
-      "name": "Enterprise Linux",
-      "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4d4626a8-8986-56a2-9ec0-ed49e8f027e1",
       "name": "@nocobase/plugin-notification-in-app-message",
       "vendor": "NocoBase"
@@ -2546,13 +2408,6 @@
       "id": "software--775fd442-360d-51b4-a66a-4d22a5be8c5d",
       "name": "NocoBase server",
       "vendor": "NocoBase"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--8932984e-346e-57c9-ad22-b5261b502cf3",
-      "name": "Web Help Desk",
-      "vendor": "SolarWinds"
     },
     {
       "type": "software",
@@ -2799,22 +2654,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-52887",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52887"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--3fec830f-8fa1-515e-8c07-7c30a414769e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2024-28986",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2024-28986",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-28986"
         }
       ]
     },

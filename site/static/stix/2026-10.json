@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fff8efbc-ace7-5a17-a81c-e1e2f0a39299",
+  "id": "bundle--089664fc-96ee-583b-b8b8-3d9d14ddf689",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32049,6 +32049,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6e46a703-bd79-5bcd-8472-d3d1319f1bb6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--069488c4-d931-5baf-bfa7-9c72c0112452",
+      "target_ref": "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6e477e49-ac22-5be9-8da4-9564aaf1eeed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -59901,6 +59912,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dd12d719-0f09-59ca-9711-ed3c964beb9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3f72b440-8adf-51c2-8a87-99d10070cadf",
+      "target_ref": "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dd1d093a-2b6b-5c05-ba53-e31c5cf23870",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:30:42.000Z",
@@ -66530,6 +66552,17 @@
       "relationship_type": "uses",
       "source_ref": "report--b19f0143-84a3-5e41-bdd7-2c74f6b9cf13",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f5c26f06-abce-5808-a67f-abc0be7597df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ce8eaf48-3a6a-5d20-ad20-9eb4555f3124",
+      "target_ref": "vulnerability--7c19268f-60ab-5bb3-bf9d-63cb0a2b6b89"
     },
     {
       "type": "relationship",
@@ -82520,6 +82553,50 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T10:03:00.000Z",
+      "modified": "2026-10-29T10:03:00.000Z",
+      "name": "Cisco Secure Firewall ASA and FTD Vulnerability (CVE-2026-76418)",
+      "description": "Cisco has issued patches for a vulnerability (CVE-2026-76418) affecting the Remote Access SSL VPN service in its Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) software. The vulnerability, which has a CVSS score of 8.6, can be exploited by an unauthenticated, remote attacker to force the device. Cisco has confirmed the vulnerability is being actively exploited.\n",
+      "published": "2026-10-29T10:03:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--069488c4-d931-5baf-bfa7-9c72c0112452",
+        "software--3f72b440-8adf-51c2-8a87-99d10070cadf",
+        "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-cisco-firewall-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-firewall-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-cisco-firewall-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-29-cisco-firewall-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-firewall-dos/",
+      "x_craftedsignal_activity_at": "2026-10-29T10:03:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/",
+        "observed_at": "2026-10-29T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -119921,6 +119998,48 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-malicious-powershell-detection/",
       "x_craftedsignal_activity_at": "2026-10-05T12:25:59.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8c89f767-fd39-54bb-9ba4-f202bce4ab94",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T10:02:31.000Z",
+      "modified": "2026-10-29T10:02:31.000Z",
+      "name": "EITS Admin Dashboard: Remote code execution (CVE-2026-31367)",
+      "published": "2026-10-29T10:02:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ce8eaf48-3a6a-5d20-ad20-9eb4555f3124",
+        "vulnerability--7c19268f-60ab-5bb3-bf9d-63cb0a2b6b89"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-eits-admin-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-eits-admin-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HERETICL1NK-EITS-PORTAL-EXPLOIT-CVE-2026-31367-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HERETICL1NK-EITS-PORTAL-EXPLOIT-CVE-2026-31367-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-eits-admin-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-29-eits-admin-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-eits-admin-rce/",
+      "x_craftedsignal_activity_at": "2026-10-29T10:02:31.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -164069,6 +164188,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--069488c4-d931-5baf-bfa7-9c72c0112452",
+      "name": "Secure Firewall Threat Defense (FTD)",
+      "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--06b1aa19-a439-5681-a857-340f79b5a039",
       "name": "camel-quarkus (3.29.0)",
       "vendor": "Apache"
@@ -168019,6 +168145,13 @@
       "id": "software--3f496068-9c24-563e-8dde-55714e9ad127",
       "name": "zebrad (4.5.0)",
       "vendor": "Zebra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3f72b440-8adf-51c2-8a87-99d10070cadf",
+      "name": "Secure Firewall Adaptive Security Appliance (ASA)",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
@@ -177192,6 +177325,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ce8eaf48-3a6a-5d20-ad20-9eb4555f3124",
+      "name": "Admin Dashboard v2.4.0",
+      "vendor": "EITS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ce920a99-2190-509b-b9ae-8eb2e6143423",
       "name": "Grav (\u003c 2.1.7)",
       "vendor": "Grav"
@@ -184628,6 +184768,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115372",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115372"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-76418",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-76418",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76418"
         }
       ]
     },
@@ -195252,6 +195408,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-82947",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82947"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7c19268f-60ab-5bb3-bf9d-63cb0a2b6b89",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-31367",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-31367",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31367"
         }
       ]
     },
