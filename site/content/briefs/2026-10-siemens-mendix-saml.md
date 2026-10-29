@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-10-26-siemens-mendix-saml
 event_id: brief-2026-10-26-siemens-mendix-saml
-revision: 1
-activity_at: "2026-10-26T15:52:09Z"
+revision: 2
+activity_at: "2026-10-29T15:38:20Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T15:38:20Z"
+    checksum: sha256:c8febaf3558d70cbcb3091d8c26d9958f1a8ee58a18ce18af78ed81cccc6543f
+    summary: added CVE-2026-89209
+    changed_fields:
+      - claim_state
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01
 title: 'Siemens Mendix SAML: Authentication bypass'
 slug: 2026-10-siemens-mendix-saml
 description: Siemens has identified an authentication bypass vulnerability in its Mendix SAML module, which could allow unauthenticated attackers to circumvent authentication controls.
 date: "2026-10-26T15:52:09Z"
+lastmod: "2026-10-29T15:36:47Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -22,6 +38,8 @@ source_assessment:
 qa_status:
   verdict: pass
   validation_status: Source verified against Siemens security portal
+cpes:
+  - cpe:2.3:a:siemens:mendix_saml:*:*:*:*:*:*:*:*
 tags:
   - authentication-bypass
   - vulnerability
@@ -39,9 +57,15 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: The authentication bypass vulnerability in the Mendix SAML module allows unauthenticated attackers to potentially leverage this flaw to bypass authentication controls.
     confidence_band: high
+cves:
+  - id: CVE-2026-89209
+    cvss: 6.8
+    epss: 0.00259
+    kev_status: "false"
 references:
   - https://cyber.gc.ca/en/alerts-advisories/control-systems-siemens-security-advisory-av26-1083
   - https://cert-portal.siemens.com/productcert/html/ssa-137528.html
+  - https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01
 action_plan:
   priority: elevated
   owners:
@@ -68,6 +92,14 @@ action_plan:
       owner: IT Operations
       addresses: Authentication bypass vulnerability
       evidence: Siemens SSA-137528
+updates:
+  - at: "2026-10-29T15:36:47Z"
+    level: L2
+    summary: added CVE-2026-89209
+    sources:
+      - cisa
+    source_urls:
+      - https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01
 ---
 
 Siemens has released security advisory SSA-137528 regarding an authentication bypass vulnerability affecting specific versions of the Mendix SAML module. The vulnerability impacts modules compatible with Mendix 9, 10, and 11. Siemens advises users and administrators to update to the patched versions to mitigate the potential for unauthorized access.
