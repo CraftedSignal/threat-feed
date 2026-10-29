@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-teamviewer-lpe
 event_id: brief-2026-10-27-teamviewer-lpe
-revision: 8
-activity_at: "2026-10-29T10:30:04Z"
+revision: 9
+activity_at: "2026-10-29T12:16:03Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T20:02:31Z"
@@ -82,11 +82,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
+  - revision: 9
+    at: "2026-10-29T12:16:03Z"
+    checksum: sha256:c4478e4926c090fc48b461fec5c128d5cb5fb459eaca5405ddd9913125318828
+    summary: new product
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4193
 title: 'TeamViewer: Local privilege escalation via installer staging (CVE-2026-111583)'
 slug: 2026-10-teamviewer-lpe
 description: An improper access control vulnerability in the TeamViewer installer staging directory allows local low-privileged users to achieve arbitrary code execution as SYSTEM via a crafted installer options file.
 date: "2026-10-27T18:05:02Z"
-lastmod: "2026-10-29T10:29:29Z"
+lastmod: "2026-10-29T12:14:53Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -141,6 +153,7 @@ products:
   - Remote Management Monitoring (< 26.10.1)
   - Remote Management Patch Management (< 26.9.1)
   - TeamViewer Remote Control (< 15.83)
+  - TeamViewer (< 15.82)
 affected_os:
   - Windows
   - Linux
@@ -183,6 +196,7 @@ cves:
     kev_status: "false"
   - id: CVE-2026-111582
     cvss: 7.3
+    epss: 0.00099
     kev_status: "false"
   - id: CVE-2026-111584
     cvss: 7.3
@@ -198,6 +212,7 @@ references:
   - https://www.teamviewer.com/en/resources/trust-center/security-bulletins/tv-2026-1012/
   - https://www.teamviewer.com/en/resources/trust-center/security-bulletins/
   - https://cyber.gc.ca/en/alerts-advisories/teamviewer-security-advisory-av26-1093
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4193
 action_plan:
   priority: elevated
   owners:
@@ -288,13 +303,6 @@ action_plan:
       addresses: CVE-2026-92375
       evidence: TeamViewer Full Client or Host prior to version 15.83 and the Remote Management Monitoring component prior to version 26.10.1
 updates:
-  - at: "2026-10-28T03:17:42Z"
-    level: L1
-    summary: new product
-    sources:
-      - pwn-watch
-    source_urls:
-      - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
   - at: "2026-10-28T07:32:45Z"
     level: L1
     summary: new product
@@ -323,6 +331,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/teamviewer-15-83-security-update-oct-2026
+  - at: "2026-10-29T12:14:53Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4193
 ---
 
 TeamViewer Full Client and Host for Windows versions prior to 15.82 are vulnerable to a local privilege escalation flaw. During the installation of the Advanced Asset Management component, the installer uses an insecurely permissioned staging directory. A local authenticated user with low privileges can place a crafted installer options file in this directory, which is then processed by the installer, resulting in execution of arbitrary commands with SYSTEM privileges during service activation.
