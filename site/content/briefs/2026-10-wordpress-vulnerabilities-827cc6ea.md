@@ -1,0 +1,64 @@
+---
+brief_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
+event_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
+revision: 1
+activity_at: "2026-10-29T18:36:52Z"
+title: 'WordPress: Multiple vulnerabilities in versions prior to 7.1.4'
+slug: 2026-10-wordpress-vulnerabilities-827cc6ea
+description: Multiple vulnerabilities in WordPress versions prior to 7.1.4 allow remote attackers to execute arbitrary code, conduct denial-of-service, perform unauthorized data access, and bypass security policies.
+date: "2026-10-29T18:36:52Z"
+type: advisory
+types:
+  - advisory
+severities:
+  - high
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: likely
+qa_status:
+  verdict: pass
+  validation_status: Needs environment validation
+tags:
+  - wordpress
+  - vulnerability
+  - webserver
+  - informational
+vendors:
+  - WordPress
+products:
+  - WordPress (< 7.1.4)
+references:
+  - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1420/
+  - https://wordpress.org/news/2026/10/wordpress-7-1-4/
+action_plan:
+  priority: elevated
+  owners:
+    - IT Operations
+  immediate_actions:
+    - action: Identify and upgrade WordPress instances to 7.1.4 or later.
+      owner: IT Operations
+      due: 48h
+      evidence: Source recommends referencing vendor bulletin for patches.
+  mitigation_plan:
+    - priority: immediate
+      action: Upgrade WordPress core to 7.1.4.
+      owner: IT Operations
+      addresses: WordPress versions < 7.1.4
+      evidence: Official security bulletin (wordpress-7-1-4).
+---
+
+The French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.
+
+## Impact
+
+Successful exploitation may result in full system compromise via arbitrary code execution, service disruption, or unauthorized access to sensitive application data.
+
+## Recommendation
+
+- Inventory all WordPress deployments across the organization to identify instances running versions older than 7.1.4.
+- Upgrade all vulnerable WordPress installations to version 7.1.4 or later immediately.
+- Review the official WordPress security bulletin for any specific post-patch configuration requirements.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--cb0f47c6-aca1-5be3-bafc-cf253f220d4c",
+  "id": "bundle--6058f908-9ab7-5037-b462-8d1f3878caf5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26331,6 +26331,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4f71f1e6-c713-501a-a867-e8f40889757a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--128ac5c9-a0db-5132-9d6f-2df90214bd86",
+      "target_ref": "vulnerability--85a6183f-3e48-527a-a719-f157d8961d77"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--4f7a4b33-64f6-5b2a-a177-b7fe309f50e8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34951,6 +34962,17 @@
       "relationship_type": "has",
       "source_ref": "software--72f915c1-2207-521d-9856-9e4c3815bb0e",
       "target_ref": "vulnerability--1e3eccd3-f7d4-5fcf-ac43-e45c3b5c1a9d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7067152d-f24f-5622-ad70-c9bc853b07db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2c49b774-e76e-56ac-87a3-aad67618c095",
+      "target_ref": "vulnerability--7ed26d22-5d8b-553d-98e6-e9c9abf496e3"
     },
     {
       "type": "relationship",
@@ -45389,6 +45411,17 @@
       "modified": "2026-10-13T18:37:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1c75f49e-5200-50b1-86cd-6acd80603527",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--96a78ec5-4844-5e84-a591-7af55e2ea340",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:37:37.000Z",
+      "modified": "2026-10-29T18:37:37.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0ab3b61e-dd57-5ab9-9065-229855889fca",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -56405,6 +56438,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bfecd35f-3bca-50f7-b9e5-3de59b1cdb96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:37:50.000Z",
+      "modified": "2026-10-29T18:37:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--12df054d-8125-551d-8f87-9c593f49037e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c0046b75-8d67-51f7-a2db-aa90f2ddfd3c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66756,6 +66800,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e5076ae6-6851-518a-8506-82aace02c076",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:38:00.000Z",
+      "modified": "2026-10-29T18:38:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76f0cdd0-e56f-5c87-92be-88c4a4b9495e",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e5191b83-e9bd-50b9-ad71-b777241ab6a2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71156,6 +71211,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f3d2c0dc-a2e3-51a2-880e-b94a0a399190",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:38:00.000Z",
+      "modified": "2026-10-29T18:38:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76f0cdd0-e56f-5c87-92be-88c4a4b9495e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f3ebee2a-1943-5005-ba95-67d6c0729c43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -73374,6 +73440,17 @@
       "relationship_type": "uses",
       "source_ref": "report--31419351-13fe-5311-b88f-f343910644af",
       "target_ref": "attack-pattern--4a85b974-863c-5535-a9a9-5d02d5634ae4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fcf365e5-ef9d-5de2-a2a8-28a95158e44e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f7c7acf2-5855-531a-b4f4-142cb04b7f5b",
+      "target_ref": "vulnerability--0d8c92d5-11a2-58df-a0bc-874b65461f16"
     },
     {
       "type": "relationship",
@@ -77779,6 +77856,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--0ab3b61e-dd57-5ab9-9065-229855889fca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:37:37.000Z",
+      "modified": "2026-10-29T18:37:37.000Z",
+      "name": "Shopify App: Cross-shop authorization bypass (CVE-2026-63414)",
+      "description": "## Overview\nThe `shopify_app` gem (versions 22.1.0 through 23.0.2) is vulnerable to a context confusion flaw in token-exchange authenticated controllers. The helper `current_shopify_domain` inconsistently resolves to a sanitized `shop` query parameter rather than the shop identity derived from a verified Shopify ID token or active session. This allows an authenticated user to perform actions or access data belonging to a different shop by manipulating the `shop` request parameter. \n\n## Impact\nApplications relying on `current_shopify_domain` or `params[:shop]` for authorization, tenant lookup, or access-token selection may suffer from unauthorized access to cross-shop application data or execution of shop-scoped actions. This impact is contingent on the application's internal authorization model and whether it consumes these specific, vulnerable helper methods.\n\n## Recommendation\n- Upgrade the `shopify_app` gem to version 23.0.3 or later immediately.\n- If immediate patching is not possible, modify controllers to avoid using `params[:shop]` for security-sensitive logic.\n- In legacy versions, implement a validation check in token-exchange controllers to ensure the `shop` parameter matches the domain verified in the session or JWT (e.g., `current_shopify_session.shop`), returning a `401 Unauthorized` response on any mismatch.\n",
+      "published": "2026-10-29T18:37:37.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-63414",
+        "rubygems",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2c49b774-e76e-56ac-87a3-aad67618c095",
+        "vulnerability--7ed26d22-5d8b-553d-98e6-e9c9abf496e3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-shopify-app-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-shopify-app-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-6j52-38f8-qhxr"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63414"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-shopify-app-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-29-shopify-app-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-shopify-app-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:37:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--0ac7e580-91c6-5f68-a3a7-17fab232dd53",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T16:02:43.000Z",
@@ -80811,6 +80938,50 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-windows-forfiles-abuse/",
       "x_craftedsignal_activity_at": "2026-10-12T18:08:17.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--12df054d-8125-551d-8f87-9c593f49037e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:37:50.000Z",
+      "modified": "2026-10-29T18:37:50.000Z",
+      "name": "@eeacms/volto-chatbot: Unauthenticated Danswer API Confused Deputy Proxy",
+      "description": "## Overview\n\nThe `@eeacms/volto-chatbot` package contains a configuration issue in its Express middleware that exposes an unauthenticated proxy to the Danswer API. The vulnerability (CWE-862) resides in the `/_v1_da/` route, which forwards requests to the configured `DANSWER_URL` without performing authorization checks or path validation. When the add-on is configured with `DANSWER_API_KEY` or session cookies, the middleware silently attaches these credentials to requests. An unauthenticated attacker can control the destination path and HTTP method, effectively acting as the service account to perform unauthorized actions against the Danswer backend.\n\n## Attack Chain\n\n1. The attacker identifies an instance of `@eeacms/volto-chatbot` accessible over the network.\n2. The attacker sends a crafted, unauthenticated HTTP request to the `/_v1_da/` endpoint on the Volto server.\n3. The `proxyMiddleware` intercepts the request without requiring authentication or session validation.\n4. The middleware extracts the attacker-supplied path from the request URL.\n5. The middleware constructs an upstream URL by appending the attacker's path to the configured `DANSWER_URL`.\n6. The middleware silently attaches the server-side `DANSWER_API_KEY` or session cookie to the outbound request headers.\n7. The middleware forwards the request to the Danswer API, which processes the action as a privileged command from the service account.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to perform actions as the Danswer service account. Depending on the service account's permissions, this may lead to the unauthorized disclosure of sensitive documents and conversation history, or the mutation of system state, such as deleting users or creating chat sessions.\n\n## Recommendation\n\n- Upgrade `@eeacms/volto-chatbot` to a patched version once released by the maintainers.\n- If a patch is unavailable, immediately restrict network access to the Volto server to trusted internal segments.\n- Implement a Web Application Firewall (WAF) rule to block all requests to the `/_v1_da/` path.\n- Audit Danswer API access logs for requests originating from the Volto server IP address with suspicious or administrative paths (e.g., `/admin/`).\n",
+      "published": "2026-10-29T18:37:50.000Z",
+      "labels": [
+        "api-security",
+        "proxy",
+        "web-application"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--06b64d7c-dd3a-5275-8ba3-ffd975cd8428"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-volto-chatbot-danswer-proxy",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-volto-chatbot-danswer-proxy/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-w9x9-j56r-h98r"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-volto-chatbot-danswer-proxy",
+      "x_craftedsignal_event_id": "brief-2026-10-29-volto-chatbot-danswer-proxy",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-volto-chatbot-danswer-proxy/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:37:50.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -88957,6 +89128,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2781bc99-cf99-56eb-ac92-27f2b3e46c69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:36:35.000Z",
+      "modified": "2026-10-29T18:36:35.000Z",
+      "name": "Mattermost Server: Security policy bypass (CVE-2026-93851)",
+      "description": "## Overview\n\nA security policy bypass vulnerability has been identified in Mattermost Server. The vulnerability is tracked as CVE-2026-93851 and impacts specific versions of the 11.7.x, 11.8.x, and 11.9.x branches. The vulnerability allows an attacker to circumvent security policies configured on the server instance.\n\n## Impact\n\nThe vulnerability allows for the bypass of security policies enforced on the Mattermost Server, which may lead to unauthorized access or the circumvention of intended access controls.\n\n## Recommendation\n\n- Upgrade Mattermost Server installations to the patched versions as specified by the vendor in MMSA-2026-00742.\n- Patch affected versions: \n - 11.7.x to 11.7.11 or later\n - 11.8.x to 11.8.6 or later\n - 11.9.x to 11.9.2 or later\n- Monitor audit logs for anomalous administrative or access control modification events that do not correlate with known administrator activity.\n",
+      "published": "2026-10-29T18:36:35.000Z",
+      "labels": [
+        "security-policy-bypass",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--128ac5c9-a0db-5132-9d6f-2df90214bd86",
+        "vulnerability--85a6183f-3e48-527a-a719-f157d8961d77"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-mattermost-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-mattermost-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://mattermost.com/security-updates/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1409/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-93851"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-mattermost-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-29-mattermost-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mattermost-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:36:35.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -120160,6 +120382,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--76f0cdd0-e56f-5c87-92be-88c4a4b9495e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:38:00.000Z",
+      "modified": "2026-10-29T18:38:00.000Z",
+      "name": "sylphx pdf-reader-mcp: HTTP transport authentication bypass (CVE-2026-62264)",
+      "description": "## Overview\n\nThe @sylphx/pdf-reader-mcp package (v2.2.0 through 3.0.0) fails to enforce the `X-API-Key` header when the HTTP transport is enabled. Despite configuring an `MCP_API_KEY`, the application fails to validate the key, resulting in the `/mcp` endpoint accepting unauthenticated requests. Because the default bind address is `0.0.0.0`, any actor with network access to the server can execute PDF parsing tools and access arbitrary files accessible to the application process.\n\n## Impact\n\nSuccessful exploitation allows unauthorized actors to read any PDF file accessible to the server process and leverage PDF parsing tools. The vulnerability also supports limited Server-Side Request Forgery (SSRF) capabilities. The issue is exacerbated by misleading startup logs that incorrectly confirm authentication as enabled.\n\n## Recommendation\n\n* Upgrade to `@sylphx/pdf-reader-mcp@3.0.1` or later, which enforces API key validation and defaults to loopback-only binding.\n* If immediate patching is not possible, restrict network exposure by setting `MCP_HTTP_HOST` to `127.0.0.1`.\n* Implement a reverse proxy with authentication enforcement in front of any instances exposed to non-local networks.\n* Restrict filesystem access by explicitly defining `MCP_PDF_ALLOWED_DIRS` for the server process.\n",
+      "published": "2026-10-29T18:38:00.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve-2026-62264",
+        "mcp",
+        "nodejs"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f7c7acf2-5855-531a-b4f4-142cb04b7f5b",
+        "vulnerability--0d8c92d5-11a2-58df-a0bc-874b65461f16"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-sylphx-pdf-reader-mcp-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-sylphx-pdf-reader-mcp-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-q344-5v34-gm84"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-sylphx-pdf-reader-mcp-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-29-sylphx-pdf-reader-mcp-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sylphx-pdf-reader-mcp-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:38:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--76f1d4e3-3175-5f9c-ad95-77161d1e3a88",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T19:22:58.000Z",
@@ -141360,6 +141629,54 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-schtasks-execution/",
       "x_craftedsignal_activity_at": "2026-10-02T11:13:06.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:36:52.000Z",
+      "modified": "2026-10-29T18:36:52.000Z",
+      "name": "WordPress: Multiple vulnerabilities in versions prior to 7.1.4",
+      "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.\n\n## Impact\n\nSuccessful exploitation may result in full system compromise via arbitrary code execution, service disruption, or unauthorized access to sensitive application data.\n\n## Recommendation\n\n- Inventory all WordPress deployments across the organization to identify instances running versions older than 7.1.4.\n- Upgrade all vulnerable WordPress installations to version 7.1.4 or later immediately.\n- Review the official WordPress security bulletin for any specific post-patch configuration requirements.\n",
+      "published": "2026-10-29T18:36:52.000Z",
+      "labels": [
+        "informational",
+        "vulnerability",
+        "webserver",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3859b408-dd23-559a-a2ef-4ae75bcbd2f9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wordpress.org/news/2026/10/wordpress-7-1-4/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1420/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
+      "x_craftedsignal_event_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:36:52.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -176359,6 +176676,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--06b64d7c-dd3a-5275-8ba3-ffd975cd8428",
+      "name": "@eeacms/volto-chatbot (2.0.3)",
+      "vendor": "EEA"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--06c1147a-92d3-59f4-961e-f2d8c5c5fba5",
       "name": "Remote Management Monitoring component (\u003c 26.10.1)",
       "vendor": "TeamViewer"
@@ -177469,6 +177793,13 @@
       "id": "software--126ee77d-fbd3-5c38-a488-772788378c2b",
       "name": "Streams for Apache Kafka 2 (all versions)",
       "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--128ac5c9-a0db-5132-9d6f-2df90214bd86",
+      "name": "Mattermost Server (11.7.x \u003c 11.7.11, 11.8.x \u003c 11.8.6, 11.9.x \u003c 11.9.2)",
+      "vendor": "Mattermost"
     },
     {
       "type": "software",
@@ -179312,6 +179643,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2c49b774-e76e-56ac-87a3-aad67618c095",
+      "name": "shopify_app (\u003e= 22.1.0, \u003c 23.0.3)",
+      "vendor": "Shopify"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2c4b0ad2-8270-5f6f-8027-0d3fcd95be78",
       "name": "LTL Freight Quotes – Old Dominion Edition (\u003c= 4.2.10)"
     },
@@ -180147,6 +180485,13 @@
       "id": "software--382ed3dc-aab6-5dde-8238-df48750fc65a",
       "name": "vLLM (0.8.5 \u003c= version \u003c 0.31.0)",
       "vendor": "vLLM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3859b408-dd23-559a-a2ef-4ae75bcbd2f9",
+      "name": "WordPress (\u003c 7.1.4)",
+      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -193208,6 +193553,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f7c7acf2-5855-531a-b4f4-142cb04b7f5b",
+      "name": "pdf-reader-mcp (\u003c 3.0.1)",
+      "vendor": "sylphx"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f7deb657-d72f-5f94-a01b-42fff73fff7a",
       "name": "WorkCentre 6655",
       "vendor": "Xerox"
@@ -195494,6 +195846,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92982",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92982"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0d8c92d5-11a2-58df-a0bc-874b65461f16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62264",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62264",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62264"
         }
       ]
     },
@@ -210444,6 +210812,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--7ed26d22-5d8b-553d-98e6-e9c9abf496e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63414",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63414",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63414"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7ee1c6c7-e12d-53d0-aa13-33510fbbde8d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -211302,6 +211686,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96741",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96741"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--85a6183f-3e48-527a-a719-f157d8961d77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-93851",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-93851",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93851"
         }
       ]
     },
