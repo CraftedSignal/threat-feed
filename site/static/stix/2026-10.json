@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b116564a-d578-535d-ab3d-3de032710754",
+  "id": "bundle--13e4a473-9ac2-5fbd-9af7-1033932d16d7",
   "objects": [
     {
       "type": "attack-pattern",
@@ -48375,6 +48375,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a76264c3-2df8-5f7e-9d01-bd85bda2c216",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--632159fb-bef2-5fb3-957d-449c868e94e6",
+      "target_ref": "vulnerability--0964dd27-5d57-5348-ba46-e619cdc7f0d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a76d3b8c-8147-5c61-b2ef-185af4fc7b45",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T12:41:14.000Z",
@@ -65480,6 +65491,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e788f539-50ce-5746-8b18-11976ef1891f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:57:28.000Z",
+      "modified": "2026-10-29T18:57:28.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--987ac825-f78f-5134-9fb7-d6d55837abf1",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e79311e8-e9e5-52e7-8361-dd16bc330aed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -82157,6 +82179,50 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1d000f7c-5b99-5e45-be71-7899ea27787c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:57:40.000Z",
+      "modified": "2026-10-29T18:57:40.000Z",
+      "name": "Apache Spark: Shell command injection in doAs parameter (CVE-2022-33891)",
+      "description": "CVE-2022-33891 is a command injection vulnerability in Apache Spark. The vulnerability occurs because Spark uses a raw Bash command to check group membership for a user passed in the 'doAs' parameter. An attacker can inject shell commands by manipulating this parameter if 'spark.acls.enable' is enabled.\n",
+      "published": "2026-10-29T18:57:40.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--6f05dc6d-de92-54d8-a15f-2ecf43ce6364"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-apache-spark-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-spark-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-33891"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-HUSKYHACKS-CVE-2022-33891\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-apache-spark-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-29-apache-spark-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-spark-rce/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:57:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.93244,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -129924,6 +129990,58 @@
       },
       "x_craftedsignal_cvss_max": 7.6,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--987ac825-f78f-5134-9fb7-d6d55837abf1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:57:28.000Z",
+      "modified": "2026-10-29T18:57:28.000Z",
+      "name": "Sonatype Nexus Repository Manager Remote Code Execution (CVE-2024-5082)",
+      "description": "## Overview\n\nCVE-2024-5082 is a remote code execution vulnerability affecting Sonatype Nexus Repository Manager 2 versions 2.15.1 and earlier. The vulnerability exists due to improper processing of Maven artifacts containing Velocity templates. An authenticated user with sufficient permissions to modify repository content can upload a crafted artifact and trigger the Velocity template engine, resulting in code execution within the security context of the Nexus JVM on the host server. Sonatype reports that this product reached end of life on June 30, 2025, and recommends migration to Nexus Repository 3.\n\n## Attack Chain\n\n1. Attacker authenticates to the Nexus Repository Manager using valid credentials.\n2. Attacker selects a hosted repository for which they have content update permissions.\n3. Attacker uploads a malicious Maven-style artifact containing an embedded Velocity template.\n4. Attacker modifies the artifact attributes via the Nexus API to force the content generator to process the template as `velocity`.\n5. Attacker triggers the template evaluation by requesting or accessing the uploaded artifact.\n6. The Nexus Repository Manager evaluates the Velocity template, leading to command execution on the host server.\n7. The process creates an outbound network connection (e.g., a reverse shell) from the Nexus host to the attacker-controlled listener.\n\n## Impact\n\nSuccessful exploitation results in arbitrary command execution on the Nexus Repository host with the privileges of the Nexus JVM. While the vulnerability requires authentication, a compromised repository manager can lead to broader supply-chain contamination by allowing attackers to modify trusted artifacts or credentials stored within the repository.\n\n## Recommendation\n\n* Migrate from Nexus Repository Manager 2 to Nexus Repository 3 immediately, as version 2 is end-of-life and unsupported.\n* For organizations unable to migrate immediately, upgrade to Nexus Repository Manager 2.15.2, which contains the fix for CVE-2024-5082.\n* Audit access logs for authenticated users performing anomalous API interactions, particularly those involving `maven-metadata.xml` or attribute updates related to Velocity processing.\n* Restrict repository write permissions to only those accounts and CI/CD service principals strictly requiring them.\n* Monitor for unexpected outbound network traffic (egress) originating from the Nexus Repository host server.\n",
+      "published": "2026-10-29T18:57:28.000Z",
+      "labels": [
+        "cve-2024-5082",
+        "maven",
+        "remote-code-execution",
+        "sonatype",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--632159fb-bef2-5fb3-957d-449c868e94e6",
+        "vulnerability--0964dd27-5d57-5348-ba46-e619cdc7f0d1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-nexus-rce-cve-2024-5082",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-nexus-rce-cve-2024-5082/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-H4MR3R-CVE-2024-5082"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-H4MR3R-CVE-2024-5082\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-nexus-rce-cve-2024-5082",
+      "x_craftedsignal_event_id": "brief-2026-10-29-nexus-rce-cve-2024-5082",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nexus-rce-cve-2024-5082/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:57:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.02806,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -178230,6 +178348,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--632159fb-bef2-5fb3-957d-449c868e94e6",
+      "name": "Nexus Repository Manager (\u003c= 2.15.1)",
+      "vendor": "Sonatype"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6355f9c5-9b58-54bb-b3a2-7abcf9a5512d",
       "name": "IBM i",
       "vendor": "IBM"
@@ -189701,6 +189826,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96627",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96627"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0964dd27-5d57-5348-ba46-e619cdc7f0d1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-5082",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-5082",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-5082"
         }
       ]
     },
@@ -202997,6 +203138,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111808",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111808"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--6f05dc6d-de92-54d8-a15f-2ecf43ce6364",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-33891",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-33891",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-33891"
         }
       ]
     },
