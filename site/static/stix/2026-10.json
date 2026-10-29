@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--53e4049a-7412-5e33-a984-57cbff41a06a",
+  "id": "bundle--2fc6e66f-4d6f-5efa-a344-732ae05feb6f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8173,6 +8173,17 @@
       "relationship_type": "has",
       "source_ref": "software--0d1763a2-aa59-5e8c-b61e-efb816225081",
       "target_ref": "vulnerability--8195cccb-6230-541a-8f3b-31e67e04bd70"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0c84a44b-1b30-5ec6-90fe-beb51bb8ec2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T04:52:13.000Z",
+      "modified": "2026-10-29T04:52:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--0ef8a4ce-828a-5377-8e3c-f3aa51fe60f4",
+      "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
     },
     {
       "type": "relationship",
@@ -34870,6 +34881,17 @@
       "relationship_type": "uses",
       "source_ref": "report--ee9caccb-2c61-5514-bfd7-488eaa3749e2",
       "target_ref": "indicator--221bdcc0-9b8c-58c6-a5bd-1b3595660147"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7e3673b4-9191-5ac4-b795-8b9084434155",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7c3179b4-6305-52d5-9171-c968518a8318",
+      "target_ref": "vulnerability--389926a3-edf5-5e8c-a40e-d3b9e960016c"
     },
     {
       "type": "relationship",
@@ -71543,6 +71565,56 @@
       },
       "x_craftedsignal_cvss_max": 6.5,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0ef8a4ce-828a-5377-8e3c-f3aa51fe60f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T04:52:13.000Z",
+      "modified": "2026-10-29T04:52:13.000Z",
+      "name": "Palo Alto Networks PAN-OS: Reflected Cross-Site Scripting (CVE-2025-0133)",
+      "description": "## Overview\nCVE-2025-0133 is a reflected Cross-Site Scripting (XSS) vulnerability affecting the GlobalProtect portal and gateway login pages in Palo Alto Networks' PAN-OS. The vulnerability stems from the improper sanitization of the 'user' query parameter when reflected in the Captive Portal page. An unauthenticated attacker can leverage this flaw to execute arbitrary JavaScript in the context of a victim's session. Publicly available proof-of-concept scripts have been released on Sploitus, increasing the risk of reconnaissance or targeted exploitation.\n\n## Impact\nSuccessful exploitation allows for the execution of arbitrary JavaScript within the victim's browser session. This can lead to session hijacking, credential theft, or the execution of malicious actions on behalf of an authenticated user interacting with the compromised login page.\n\n## Recommendation\n- Inventory all internet-facing Palo Alto Networks GlobalProtect portal and gateway instances.\n- Review vendor advisories for specific patch or mitigation guidance related to CVE-2025-0133.\n- Prioritize the implementation of security patches on all exposed GlobalProtect gateways.\n- Deploy Web Application Firewall (WAF) rules to inspect and sanitize the 'user' query parameter on the '/ssl-vpn/getconfig.esp' path.\n",
+      "published": "2026-10-29T04:52:13.000Z",
+      "labels": [
+        "pan-os",
+        "web-vulnerability",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7c3179b4-6305-52d5-9171-c968518a8318",
+        "vulnerability--389926a3-edf5-5e8c-a40e-d3b9e960016c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-cve-2025-0133",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-0133/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DODIORNE-CVE-2025-0133"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DODIORNE-CVE-2025-0133\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-cve-2025-0133",
+      "x_craftedsignal_event_id": "brief-2026-10-29-cve-2025-0133",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2025-0133/",
+      "x_craftedsignal_activity_at": "2026-10-29T04:52:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.46297,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -155049,6 +155121,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f15ef94d-030a-59ec-b5e2-d298bace9c9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T04:52:01.000Z",
+      "modified": "2026-10-29T04:52:01.000Z",
+      "name": "Public PoC Available: Use-after-free in SpiderMonkey (CVE-2026-109722)",
+      "description": "A proof-of-concept exploit for CVE-2026-109722 is available via Sploitus. The vulnerability, identified as a use-after-free in the SpiderMonkey JIT compiler, occurs when a boxing operation for BigInt values triggers a global object slot array reallocation. The JIT compiler's incorrect handling of the slot pointer allows for a write operation to occur through a stale reference after the memory has been freed. The reported CVSS score for this vulnerability is 6.6, and the EPSS score is 0.3%.\n",
+      "published": "2026-10-29T04:52:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--dcad1097-fbe4-5860-91bb-727b809cc2be"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-cve-2026-109722",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-109722/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9FAA69CE-E21A-52AE-8CE0-97489A03CF9C"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9FAA69CE-E21A-52AE-8CE0-97489A03CF9C\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-cve-2026-109722",
+      "x_craftedsignal_event_id": "brief-2026-10-29-cve-2026-109722",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2026-109722/",
+      "x_craftedsignal_activity_at": "2026-10-29T04:52:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed",
+        "confidence": "low"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00314,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f165397b-dea6-5c56-88cb-00bf8e79b526",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T14:31:50.000Z",
@@ -168842,6 +168959,13 @@
       "id": "software--7c2fb53e-a98a-5ce1-aa1c-4a1b6e4d5ae4",
       "name": "FV Player 8 (\u003c= 8.1.7)",
       "vendor": "Folio Vision"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7c3179b4-6305-52d5-9171-c968518a8318",
+      "name": "PAN-OS (GlobalProtect)",
+      "vendor": "Palo Alto Networks"
     },
     {
       "type": "software",
@@ -183845,6 +183969,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112221",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112221"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--389926a3-edf5-5e8c-a40e-d3b9e960016c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-0133",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-0133",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0133"
         }
       ]
     },
@@ -202901,6 +203041,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-101501",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101501"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dcad1097-fbe4-5860-91bb-727b809cc2be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109722",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109722",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109722"
         }
       ]
     },

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--513b8362-4be4-5d87-8c5d-44401ccec9ba",
+  "id": "bundle--25137e1a-9398-54c6-9b7a-e24742e2a57f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -719,6 +719,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1566",
           "url": "https://attack.mitre.org/techniques/T1566"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Bypass User Account Control",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1548.002",
+          "url": "https://attack.mitre.org/techniques/T1548/002"
         }
       ]
     },
@@ -9445,6 +9461,17 @@
       "relationship_type": "uses",
       "source_ref": "report--99313860-e6ab-5f11-a791-10ac23dc2155",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1feeb94a-3c23-5fcc-b0b2-17d80b872a29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
+      "target_ref": "vulnerability--0b1b2a7f-643e-5b46-a1f0-b61435633bf7"
     },
     {
       "type": "relationship",
@@ -25234,6 +25261,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7ae27bc9-91b6-547c-94f5-333628157031",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-08-07T15:15:10.000Z",
+      "modified": "2026-10-29T04:52:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8fcea949-a88e-55a8-bab4-10e9a41c054c",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7af11cd8-5414-5429-9dd5-3f74b6126ecc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T20:27:12.000Z",
@@ -28996,6 +29034,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9115e7a9-5408-573a-98fc-f27ffda5c792",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-08-07T15:15:10.000Z",
+      "modified": "2026-10-29T04:52:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8fcea949-a88e-55a8-bab4-10e9a41c054c",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9127093f-db7f-5872-a5bd-f8c267ddbde9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31269,6 +31318,17 @@
       "relationship_type": "has",
       "source_ref": "software--7e57f23f-d855-51a5-bcf4-59a575814af0",
       "target_ref": "vulnerability--e820d6bc-e6d7-521b-a410-0088e5b1a476"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d8604f8-062c-5c71-99e4-cbafe084ebc7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-08-07T15:15:10.000Z",
+      "modified": "2026-10-29T04:52:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8fcea949-a88e-55a8-bab4-10e9a41c054c",
+      "target_ref": "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b"
     },
     {
       "type": "relationship",
@@ -83681,6 +83741,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8fcea949-a88e-55a8-bab4-10e9a41c054c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-08-07T15:15:10.000Z",
+      "modified": "2026-10-29T04:52:08.000Z",
+      "name": "Suspicious Child Processes of consent.exe",
+      "description": "## Overview\n\nThe Windows binary consent.exe is responsible for rendering the User Account Control (UAC) elevation dialog. Under normal operating conditions, this process should not spawn any child processes, with the exception of WerFault.exe during rare system crash scenarios. Security researchers and incident responders have identified that the spawning of arbitrary child processes by consent.exe is a reliable indicator of UAC bypass exploits and privilege escalation. Attackers utilize these techniques to achieve elevated privileges without triggering a visible user prompt, effectively bypassing standard Windows security boundaries. This behavior is frequently associated with post-exploitation frameworks targeting Windows environments, particularly in the context of CVE-2024-30051. Detection of this activity is critical for identifying local privilege escalation attempts where attackers attempt to maintain stealth during the elevation phase.\n\n## Impact\n\nSuccessful exploitation of UAC bypass techniques allows unauthorized users to gain elevated system privileges. This provides an attacker with the ability to execute malicious payloads with administrative rights, potentially leading to full system compromise, exfiltration of sensitive data, or the deployment of secondary malware. These techniques are often utilized during the post-exploitation phase to gain persistence and deeper access within target networks.\n\n## Recommendation\n\n* Enable Sysmon Event ID 1 (Process Creation) or Windows Event ID 4688 to capture parent-child process relationships.\n* Deploy the provided Sigma rule to identify and alert on non-WerFault.exe processes spawned by consent.exe.\n* Investigate all alerts originating from consent.exe immediately, as legitimate software rarely triggers this behavior.\n* Cross-reference identified processes with known administrative tools to rule out authorized maintenance activity.\n",
+      "published": "2026-08-07T15:15:10.000Z",
+      "labels": [
+        "privilege-escalation",
+        "uac-bypass",
+        "windows"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--3f9163d1-482c-5aeb-b396-d70a5cf9d27b",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--10d92f73-8f68-5d0c-81db-df1f19e85e2d",
+        "vulnerability--0b1b2a7f-643e-5b46-a1f0-b61435633bf7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-08-suspicious-consent-exe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-08-suspicious-consent-exe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_suspicious_child_process_of_consent_exe.yml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/cve-2024-30051/112618/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVIANNTSEC-CVE-2024-30051\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-08-suspicious-consent-exe",
+      "x_craftedsignal_event_id": "brief-2026-08-suspicious-consent-exe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-suspicious-consent-exe/",
+      "x_craftedsignal_activity_at": "2026-10-29T04:52:08.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_epss_max": 0.05687,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8ff129a6-0198-5985-a093-c58b4dd5e052",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-07T03:19:39.000Z",
@@ -124113,6 +124230,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18649",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18649"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0b1b2a7f-643e-5b46-a1f0-b61435633bf7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-30051",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-30051",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-30051"
         }
       ]
     },

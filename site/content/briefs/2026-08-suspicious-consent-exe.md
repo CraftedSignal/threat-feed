@@ -1,18 +1,32 @@
 ---
+brief_id: brief-2026-08-suspicious-consent-exe
+event_id: brief-2026-08-suspicious-consent-exe
+revision: 1
+activity_at: "2026-08-07T15:15:10Z"
 title: Suspicious Child Processes of consent.exe
 slug: 2026-08-suspicious-consent-exe
 description: Detection of unauthorized child process creation by the Windows UAC consent.exe binary, a common indicator of UAC bypass and privilege escalation activity.
 date: "2026-08-07T15:15:10Z"
+lastmod: "2026-10-29T04:52:08Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - medium
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "5"
+  rating: A5
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Needs environment validation for false positive tuning.
 cpes:
-  - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:x86:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x64:*
-  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:x86:*
+  - cpe:2.3:o:microsoft:windows_10_1507:*:*:*:*:*:*:*:*
+  - cpe:2.3:o:microsoft:windows_10_1607:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_1809:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_21h2:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_10_22h2:*:*:*:*:*:*:*:*
@@ -22,6 +36,9 @@ cpes:
   - cpe:2.3:o:microsoft:windows_server_2016:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2019:*:*:*:*:*:*:*:*
   - cpe:2.3:o:microsoft:windows_server_2022:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVIANNTSEC-CVE-2024-30051&utm_source=rss&utm_medium=rss
 tags:
   - privilege-escalation
   - windows
@@ -34,7 +51,7 @@ mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
     technique_id: T1548.002
-    technique_name: 'Abuse Elevation Control Mechanism: UAC Bypass'
+    technique_name: Bypass User Account Control
     evidence: Child process creation from this parent is a known indicator of UAC bypass and privilege escalation techniques.
     confidence_band: high
   - tactic_id: TA0004
@@ -53,9 +70,11 @@ cves:
   - id: CVE-2024-30051
     cvss: 7.8
     epss: 0.05687
+    kev_status: "false"
 references:
   - https://securelist.com/cve-2024-30051/112618/
   - https://github.com/splunk/security_content/blob/main/detections/endpoint/windows_suspicious_child_process_of_consent_exe.yml
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVIANNTSEC-CVE-2024-30051&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Suspicious Child Process of consent.exe
     description: Detects unauthorized child processes spawned by consent.exe, which is a known indicator of UAC bypass and privilege escalation.
@@ -88,6 +107,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Indicator of past UAC bypass attempts.
+updates:
+  - at: "2026-10-29T04:52:08Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-DEVIANNTSEC-CVE-2024-30051&utm_source=rss&utm_medium=rss
 ---
 
 The Windows binary consent.exe is responsible for rendering the User Account Control (UAC) elevation dialog. Under normal operating conditions, this process should not spawn any child processes, with the exception of WerFault.exe during rare system crash scenarios. Security researchers and incident responders have identified that the spawning of arbitrary child processes by consent.exe is a reliable indicator of UAC bypass exploits and privilege escalation. Attackers utilize these techniques to achieve elevated privileges without triggering a visible user prompt, effectively bypassing standard Windows security boundaries. This behavior is frequently associated with post-exploitation frameworks targeting Windows environments, particularly in the context of CVE-2024-30051. Detection of this activity is critical for identifying local privilege escalation attempts where attackers attempt to maintain stealth during the elevation phase.
