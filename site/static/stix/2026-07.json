@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1cb17f60-d398-5369-8a4d-abc4b11ea9f9",
+  "id": "bundle--b6c55dd4-09b6-51ae-9b2e-0737132bdb40",
   "objects": [
     {
       "type": "attack-pattern",
@@ -288,17 +288,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--0622daec-7bbf-51da-b98b-d7d0aea35b35",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6183f34b-b0d7-5967-816a-1f628c73e721",
-      "target_ref": "vulnerability--00275d1f-42f7-56b9-8cb6-57aa01c120e2"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--075f5e30-f033-5135-9003-beddaf2beea7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-07-31T19:45:24.000Z",
@@ -559,17 +548,6 @@
       "relationship_type": "has",
       "source_ref": "software--bb89e8a4-e277-541d-bcae-407ae05b0659",
       "target_ref": "vulnerability--201a0798-ed2c-5039-9adc-d789c90aef26"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--65d93ac5-c294-5736-aba4-5a4cb892c4ca",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T03:33:40.000Z",
-      "modified": "2026-07-31T03:33:40.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0e1ed70e-7244-5eb5-9fb9-ee9e64cbc0cb",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -1153,52 +1131,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0e1ed70e-7244-5eb5-9fb9-ee9e64cbc0cb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-07-31T03:33:40.000Z",
-      "modified": "2026-07-31T03:33:40.000Z",
-      "name": "Argument Injection Vulnerability in yggdrasil-worker-package-manager",
-      "description": "## Overview\n\nCVE-2026-18157 identifies a critical argument injection vulnerability within the yggdrasil-worker-package-manager's APT backend. The vulnerability stems from improper validation of package names passed to the underlying apt-get utility. A local attacker who has already gained low-privileged access to the system can provide a maliciously crafted package name - specifically one beginning with a hyphen - which the application fails to distinguish from legitimate command-line flags.\n\nWhen processed, these injected strings are interpreted by apt-get as command-line options rather than arguments. By leveraging specific apt-get options that permit the execution of arbitrary scripts or custom configurations (such as pre- or post-installation hooks), an attacker can achieve code execution with root privileges. This vulnerability is significant as it provides a direct path from low-privileged system access to a full root-level compromise of the host's integrity, confidentiality, and availability.\n\n## Attack Chain\n\n1. Attacker gains initial low-privileged access to the target host environment.\n2. Attacker identifies that the system utilizes yggdrasil-worker-package-manager for automated package operations.\n3. Attacker crafts a package name starting with a hyphen (e.g., \"-oDir::Etc::SourceList=/tmp/malicious_list\").\n4. Attacker triggers a package installation or update request via the vulnerable worker interface.\n5. yggdrasil-worker-package-manager constructs an apt-get command string incorporating the malicious input without proper sanitization.\n6. apt-get executes the command, interpreting the injected hyphenated string as a valid operational option.\n7. apt-get hooks or configuration directives are manipulated to execute arbitrary commands.\n8. Attacker achieves remote code execution or privilege escalation to the root user.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in full system compromise. As the affected worker process interacts with the system's package manager, the resulting code execution occurs with root-level privileges. This enables an attacker to install persistent backdoors, exfiltrate sensitive data, manipulate system binaries, or disable security auditing mechanisms. The impact is categorized as high, with a CVSS v3.1 base score of 7.8, reflecting the potential for total system takeover by an authenticated local actor.\n\n## Recommendation\n\nPrioritized actions for detection and mitigation:\n* Patch or update yggdrasil-worker-package-manager to the version that includes sanitization for input passed to apt-get.\n* Audit logs for execution of apt-get processes with anomalous command-line flags that suggest option injection (e.g., usage of \"-o\" or \"--option\" flags that reference temp or user-controlled directories).\n* Enforce strict least-privilege policies for accounts authorized to trigger package manager operations via the yggdrasil worker.\n* Monitor for unexpected parent-child process relationships where the worker service spawns apt-get with non-standard command-line arguments.\n",
-      "published": "2026-07-31T03:33:40.000Z",
-      "labels": [
-        "cve-2026-18157",
-        "linux",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6183f34b-b0d7-5967-816a-1f628c73e721",
-        "vulnerability--00275d1f-42f7-56b9-8cb6-57aa01c120e2"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-07-31-yggdrasil-apt-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-07-yggdrasil-apt-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18157"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-07-31-yggdrasil-apt-injection",
-      "x_craftedsignal_event_id": "brief-2026-07-31-yggdrasil-apt-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-yggdrasil-apt-injection/",
-      "x_craftedsignal_activity_at": "2026-07-31T03:33:40.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -2865,13 +2797,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6183f34b-b0d7-5967-816a-1f628c73e721",
-      "name": "yggdrasil-worker-package-manager",
-      "vendor": "yggdrasil"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--764f43ba-ce2c-5653-9f1d-c7aca34b5653",
       "name": "redaxo/core",
       "vendor": "Redaxo"
@@ -3053,22 +2978,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Unattributed"
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--00275d1f-42f7-56b9-8cb6-57aa01c120e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18157",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18157",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18157"
-        }
-      ]
     },
     {
       "type": "vulnerability",
