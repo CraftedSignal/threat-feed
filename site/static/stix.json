@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--67153d7c-bb7c-5200-a7fd-ca6cd548faeb",
+  "id": "bundle--e7d053f8-d6e0-569a-ae77-2b2e3a204732",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21958,17 +21958,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--437937f2-7496-535e-9074-7eed0d9bd468",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--59b5c034-16c5-56d0-8ab9-73aaf2c30910",
-      "target_ref": "vulnerability--cecd32ab-3921-5143-9d9a-1eb748c8caa1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--437940bd-dd27-5117-ad0c-483dbd8178d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27927,17 +27916,6 @@
       "relationship_type": "has",
       "source_ref": "software--06b1aa19-a439-5681-a857-340f79b5a039",
       "target_ref": "vulnerability--671fcfd3-3fa1-5ceb-98d5-9ebe2b70b66c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5b2ee120-0f28-5e80-85bc-5fb562fa2c1d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b91598f7-f8a3-5bd0-a4e3-6db5a529f6d6",
-      "target_ref": "vulnerability--da9a5ec4-0ea6-5247-a667-27abe6df20b8"
     },
     {
       "type": "relationship",
@@ -37534,17 +37512,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--80633ef9-9427-5adb-a3bb-9d8cc3421f33",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-29T06:25:28.000Z",
-      "modified": "2026-09-29T06:25:28.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--91e9e095-252a-5f69-bb88-5f9ef0a003c8",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--806f34d1-d9b0-563c-a296-43cb81130d5c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43403,17 +43370,6 @@
       "modified": "2026-10-13T18:37:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--1c75f49e-5200-50b1-86cd-6acd80603527",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--96a64234-59b7-558e-a8bd-d61c19b48045",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-29T06:25:35.000Z",
-      "modified": "2026-09-29T06:25:35.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--80cacbba-6246-5012-8361-15b7dd394cc8",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -119492,52 +119448,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--80cacbba-6246-5012-8361-15b7dd394cc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-29T06:25:35.000Z",
-      "modified": "2026-09-29T06:25:35.000Z",
-      "name": "Improper Authorization in Tacomall via OrgStaffServiceImpl",
-      "description": "## Overview\n\nA security vulnerability has been identified in the 'tacomall' application version 1.0.0, developed by 'realjerrytang'. The flaw resides in the 'OrgStaffServiceImpl.add' function within the 'ApiMaApplication.java' file of the 'api-admin' backend component. An attacker can exploit this vulnerability by manipulating the 'isAdmin' or 'jobId' arguments during an organizational staff addition request. This improper authorization defect allows remote, unauthenticated, or low-privileged attackers to gain elevated privileges or perform actions intended for administrators. The vulnerability is currently being tracked as CVE-2026-102293, and proof-of-concept exploit code is publicly available, increasing the likelihood of in-the-wild exploitation. Defenders should monitor for unexpected API requests targeting the 'OrgStaffServiceImpl' endpoint.\n\n## Impact\n\nSuccessful exploitation of this vulnerability leads to broken access control, enabling unauthorized administrative actions within the Tacomall environment. Depending on the environment, this could allow an attacker to create new administrative accounts, modify existing user permissions, or extract sensitive organizational staff data. The exposure of administrative functions via an insecure API endpoint poses a high risk to the confidentiality and integrity of the application data.\n\n## Recommendation\n\n1. Inventory all instances of Tacomall version 1.0.0 and assess the exposure of the 'api-admin' backend.\n2. Implement strict input validation and server-side authorization checks on the 'OrgStaffServiceImpl.add' API endpoint to verify user identity before processing 'isAdmin' or 'jobId' parameter modifications.\n3. If patching is not immediately feasible, restrict network access to the management backend using an IP allowlist or VPN, ensuring only authorized administrators can reach the vulnerable API.\n4. Monitor application server logs for abnormal request patterns targeting 'OrgStaffServiceImpl.add', specifically looking for suspicious modifications to user role parameters.\n",
-      "published": "2026-09-29T06:25:35.000Z",
-      "labels": [
-        "api-security",
-        "authorization-bypass",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--59b5c034-16c5-56d0-8ab9-73aaf2c30910",
-        "vulnerability--cecd32ab-3921-5143-9d9a-1eb748c8caa1"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-29-tacomall-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-tacomall-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102293"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-29-tacomall-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-09-29-tacomall-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-tacomall-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-09-29T06:25:35.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--80cb4684-51ce-5a08-a575-e9f161a15c12",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T17:06:34.000Z",
@@ -126119,47 +126029,6 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--91e9e095-252a-5f69-bb88-5f9ef0a003c8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-29T06:25:28.000Z",
-      "modified": "2026-09-29T06:25:28.000Z",
-      "name": "Path Traversal Vulnerability in Flatpak App Deployment",
-      "description": "## Overview\n\nCVE-2026-97024 is a path traversal vulnerability residing within the Flatpak packaging subsystem. During the deployment phase of application installation or updates, Flatpak fails to properly sanitize the handling of the files/etc directory. A malicious application, crafted to exploit this flaw, can navigate outside of its intended sandbox constraints and target sensitive files on the host filesystem. Observed targets include critical system configuration files such as /etc/passwd, /etc/group, /etc/machine-id, and /etc/resolv.conf.\n\nWhen these operations occur during a system-wide Flatpak installation, the malicious actions are performed with root privileges, effectively allowing an attacker to clear the contents of sensitive files or replace them with malicious symlinks. This behavior leads to significant system instability, potential privilege escalation, or modification of security-critical system state. Defenders should prioritize auditing Flatpak installation sources and monitoring for anomalous file modifications originating from the flatpak system daemon.\n\n## Impact\n\nSuccessful exploitation allows for the compromise of system-wide integrity. By manipulating files like /etc/passwd or /etc/resolv.conf, an attacker can disrupt system authentication or redirect network traffic. As these operations occur with root privileges, this represents a severe vulnerability for Linux systems utilizing system-wide Flatpak installations, particularly in multi-user or shared environments.\n\n## Recommendation\n\nPrioritize patching all Flatpak installations to the latest version provided by your distribution as soon as the security update is available. Monitor host filesystem activity for unauthorized changes to critical configuration files in the /etc directory, specifically focusing on modifications where the initiating process is the flatpak-system-helper or related daemon.\n",
-      "published": "2026-09-29T06:25:28.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b91598f7-f8a3-5bd0-a4e3-6db5a529f6d6",
-        "vulnerability--da9a5ec4-0ea6-5247-a667-27abe6df20b8"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-29-flatpak-path-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-flatpak-path-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97024"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-29-flatpak-path-traversal",
-      "x_craftedsignal_event_id": "brief-2026-09-29-flatpak-path-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-flatpak-path-traversal/",
-      "x_craftedsignal_activity_at": "2026-09-29T06:25:28.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -175758,13 +175627,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--59b5c034-16c5-56d0-8ab9-73aaf2c30910",
-      "name": "tacomall (1.0.0)",
-      "vendor": "realjerrytang"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--59b92f87-c1f6-5abc-8003-a4cc88c067b1",
       "name": "Azure CLI",
       "vendor": "Microsoft"
@@ -182280,13 +182142,6 @@
       "id": "software--b90a17f7-9aaa-558b-97fc-cb5bdc69fea0",
       "name": "Visio",
       "vendor": "Microsoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--b91598f7-f8a3-5bd0-a4e3-6db5a529f6d6",
-      "name": "Flatpak (all versions prior to fix)",
-      "vendor": "Flatpak"
     },
     {
       "type": "software",
@@ -212656,22 +212511,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--cecd32ab-3921-5143-9d9a-1eb748c8caa1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-102293",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-102293",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102293"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--ceff0a2f-ff4c-5952-ba5d-7436386681ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -214074,22 +213913,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-117561",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117561"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--da9a5ec4-0ea6-5247-a667-27abe6df20b8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-97024",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-97024",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97024"
         }
       ]
     },
