@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-22-wasmtime-stack-overflow
 event_id: brief-2026-10-22-wasmtime-stack-overflow
-revision: 2
-activity_at: "2026-10-24T00:04:36Z"
+revision: 3
+activity_at: "2026-10-29T20:15:56Z"
 revision_history:
   - revision: 2
     at: "2026-10-24T00:04:36Z"
@@ -17,11 +17,26 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115893
+  - revision: 3
+    at: "2026-10-29T20:15:56Z"
+    checksum: sha256:c335ded72c8327541371797b1710e676fa89afa16ffbd06167416e229ad5ebd7
+    summary: added coverage for Wasmtime (< 36.0.18, >= 37.0.0 < 48.0.6, >= 49.0.0 < 49.0.3)
+    changed_fields:
+      - action_plan
+      - affected_os
+      - affected_products
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-118688
 title: 'Wasmtime: Stack buffer overflow in async callback handling (CVE-2026-115384)'
 slug: 2026-10-wasmtime-stack-overflow
 description: Wasmtime versions prior to 48.0.4 and 49.0.2 are vulnerable to a stack buffer overflow allowing sandbox escape or host crashes via unvalidated async callback result types.
 date: "2026-10-22T20:27:34Z"
-lastmod: "2026-10-24T00:03:21Z"
+lastmod: "2026-10-29T20:15:09Z"
 type: advisory
 types:
   - advisory
@@ -45,9 +60,11 @@ products:
   - Wasmtime (39.0.0 - 48.0.3, 49.0.0 - 49.0.1)
   - Wasmtime (< 24.0.13, >= 25.0.0 < 36.0.14, >= 37.0.0 < 46.0.3, >= 47.0.0 < 47.0.4)
   - Wasmtime (< 36.0.19, 48.0.7, 49.0.4)
+  - Wasmtime (< 36.0.18, >= 37.0.0 < 48.0.6, >= 49.0.0 < 49.0.3)
 affected_os:
   - Linux
   - macOS
+  - FreeBSD
 mitre_ttps:
   - tactic_id: TA0002
     tactic_name: Execution
@@ -68,12 +85,17 @@ cves:
   - id: CVE-2026-115893
     cvss: 9.9
     kev_status: "false"
+  - id: CVE-2026-118688
+    cvss: 7.9
+    epss: 0.00242
+    kev_status: "false"
   - id: CVE-2026-115392
     kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115384
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115392
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115893
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-118688
 action_plan:
   priority: immediate_escalation
   owners:
@@ -89,6 +111,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: This issue is fixed in versions 36.0.19, 48.0.7, and 49.0.4.
+    - action: Update Wasmtime to 36.0.18 or later
+      owner: IT Operations
+      due: 48h
+      evidence: CVE-2026-118688 requires patching to address the renameat symlink traversal flaw
   hunt_leads:
     - lead: Identify and audit Wasm modules executing on aarch64 hosts that contain an excessively high number of br_table targets.
       technique_id: T1059
@@ -99,6 +125,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: The Cranelift compiler backend on aarch64 can compile a Wasm br_table instruction with more than approximately 256,000 targets.
+    - lead: Monitor for unusual filesystem rename operations originating from Wasmtime processes on macOS and FreeBSD hosts
+      technique_id: T1068
+      data_needed:
+        - System-level syscall monitoring (e.g., auditd, dtrace) focusing on renameat calls
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: The exploit leverages the renameat syscall to follow directory symlinks
   mitigation_plan:
     - priority: immediate
       action: Identify and inventory all services running vulnerable versions of Wasmtime
@@ -110,6 +144,11 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-115893
       evidence: This issue is fixed in versions 36.0.19, 48.0.7, and 49.0.4.
+    - priority: immediate
+      action: Upgrade Wasmtime to 36.0.18, 48.0.6, or 49.0.3 depending on the current baseline
+      owner: IT Operations
+      addresses: CVE-2026-118688
+      evidence: NVD advisory specifies these as the fixed versions
 updates:
   - at: "2026-10-22T20:28:46Z"
     level: L2
@@ -125,6 +164,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115893
+  - at: "2026-10-29T20:15:09Z"
+    level: L2
+    summary: added coverage for Wasmtime (< 36.0.18, >= 37.0.0 < 48.0.6, >= 49.0.0 < 49.0.3)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-118688
 ---
 
 Wasmtime contains a stack buffer overflow vulnerability (CVE-2026-115384) in its component model implementation. Malicious guests can exploit improper validation of async callback result types to write approximately 16KB of data to the native stack. This allows for the overwriting of return addresses, which can lead to host process crashes or a full sandbox escape. The vulnerability affects Wasmtime versions 39.0.0 through 48.0.3 and 49.0.0 through 49.0.1.

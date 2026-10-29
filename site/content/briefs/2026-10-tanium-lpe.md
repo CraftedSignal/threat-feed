@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-27-tanium-lpe
 event_id: brief-2026-10-27-tanium-lpe
-revision: 1
-activity_at: "2026-10-27T20:01:46Z"
+revision: 2
+activity_at: "2026-10-29T20:15:56Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T20:15:56Z"
+    checksum: sha256:d5b1d4adf954ac0eb986eba292fd2a51d4b336964ba6f197cd1756b87ee08717
+    summary: added coverage for End-User Notifications
+    changed_fields:
+      - action_plan
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108305
 title: 'Tanium End-User Notifications: Local privilege escalation (CVE-2026-108304)'
 slug: 2026-10-tanium-lpe
 description: Tanium addressed a local privilege escalation vulnerability in the End-User Notifications component that allows low-privileged users to elevate privileges on affected hosts.
 date: "2026-10-27T20:01:46Z"
+lastmod: "2026-10-29T20:14:30Z"
 type: advisory
 types:
   - advisory
@@ -39,8 +53,13 @@ cves:
   - id: CVE-2026-108304
     cvss: 7.8
     kev_status: "false"
+  - id: CVE-2026-108305
+    cvss: 7.8
+    epss: 0.00139
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-108304
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-108305
 action_plan:
   priority: elevated
   owners:
@@ -66,6 +85,19 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-108304
       evidence: NVD security bulletin.
+    - priority: immediate
+      action: Update Tanium End-User Notifications to the remediated version specified in vendor security advisories
+      owner: IT Operations
+      addresses: CVE-2026-108305
+      evidence: Tanium addressed a local privilege escalation vulnerability in End-User Notifications.
+updates:
+  - at: "2026-10-29T20:14:30Z"
+    level: L2
+    summary: added coverage for End-User Notifications
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-108305
 ---
 
 Tanium has released a patch for a local privilege escalation vulnerability (CVE-2026-108304) affecting the End-User Notifications component. This vulnerability allows an attacker who already possesses low-privileged access to a system to gain elevated privileges. Details regarding the specific exploit path or the vulnerable version range are currently limited.
