@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d059f10f-b0fb-5f18-b415-38cb94572982",
+  "id": "bundle--7aa97531-e03d-578f-8a0c-ca67fd65ea6c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -60640,6 +60640,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dbb68e7c-6263-5f37-888d-6a0eddf60764",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3b9701d9-5f17-5ac3-a87c-f33fcfda3842",
+      "target_ref": "vulnerability--4a95d4fb-5cf2-54dc-acf4-23abf9a82b18"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dbc3f6dd-af10-57b0-af78-54a2d3280bb6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T14:39:08.000Z",
@@ -60988,6 +60999,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9132e691-0f02-5b4e-a971-2fc7cc90746b",
       "target_ref": "attack-pattern--fef861e9-3ac4-50b1-aa1a-3ff772ca094e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd5d624e-a316-558e-a46a-ba7a909a75ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--6542c1a1-bb86-5a28-a85a-c4a50ea7849b",
+      "target_ref": "vulnerability--03d6e3e3-8bd1-5ea9-8d99-443ea8c20d20"
     },
     {
       "type": "relationship",
@@ -83187,6 +83209,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--23bd832a-4e20-5d95-b26e-a9479765f75c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T01:00:00.000Z",
+      "modified": "2026-10-29T01:00:00.000Z",
+      "name": "python-markdown2: Denial of Service via unclosed inline links (CVE-2026-118694)",
+      "description": "python-markdown2 through 2.5.5 contains a denial of service vulnerability. Attackers can submit repeated '[a](' or '![a](' sequences, causing the _find_balanced function to rescan the remaining document for each link and consume quadratic CPU time.\n",
+      "published": "2026-10-29T01:00:00.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3b9701d9-5f17-5ac3-a87c-f33fcfda3842",
+        "vulnerability--4a95d4fb-5cf2-54dc-acf4-23abf9a82b18"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-python-markdown2-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-python-markdown2-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118694"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-python-markdown2-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-29-python-markdown2-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-python-markdown2-dos/",
+      "x_craftedsignal_activity_at": "2026-10-29T01:00:00.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--23ea985a-e314-523d-9196-1a0a487cf1dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T04:21:35.000Z",
@@ -87402,6 +87464,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3089e099-25f5-55de-82c2-e7a66916db24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T00:59:47.000Z",
+      "modified": "2026-10-29T00:59:47.000Z",
+      "name": "D-Link DIR-505: Web management backdoor vulnerability (CVE-2026-118579)",
+      "description": "A vulnerability has been identified in the main function of /secmark1524.cgi within the Web Management CGI component of D-Link DIR-505 firmware version 1.10B02. Manipulating the accu, pass, code, hash, or cmds arguments results in a backdoor. The attack can be performed remotely, and public exploit code is available.\n",
+      "published": "2026-10-29T00:59:47.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--6542c1a1-bb86-5a28-a85a-c4a50ea7849b",
+        "vulnerability--03d6e3e3-8bd1-5ea9-8d99-443ea8c20d20"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-dlink-dir505-backdoor",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-dlink-dir505-backdoor/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118579"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-dlink-dir505-backdoor",
+      "x_craftedsignal_event_id": "brief-2026-10-29-dlink-dir505-backdoor",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dlink-dir505-backdoor/",
+      "x_craftedsignal_activity_at": "2026-10-29T00:59:47.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -172038,6 +172140,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3b9701d9-5f17-5ac3-a87c-f33fcfda3842",
+      "name": "python-markdown2 (\u003c= 2.5.5)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3bd21776-e367-5f36-a8c9-ff21b617e2de",
       "name": "HivePress – Business Directory, Listings \u0026 Classified Ads Plugin (\u003c= 1.7.32)",
       "vendor": "HivePress"
@@ -174865,6 +174973,13 @@
       "id": "software--65032e72-f9cd-5464-b878-e921e55c3223",
       "name": "Zebra (\u003c 6.0.0)",
       "vendor": "Zebra"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6542c1a1-bb86-5a28-a85a-c4a50ea7849b",
+      "name": "DIR-505 (1.10B02)",
+      "vendor": "D-Link"
     },
     {
       "type": "software",
@@ -185526,6 +185641,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--03d6e3e3-8bd1-5ea9-8d99-443ea8c20d20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118579",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118579",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118579"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--03e4a623-9d87-571b-b292-e946133e776b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -194448,6 +194579,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-86134",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86134"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4a95d4fb-5cf2-54dc-acf4-23abf9a82b18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118694",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118694",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118694"
         }
       ]
     },
