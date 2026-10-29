@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bdee3486-8337-52f9-bb06-7e0a6d4e844a",
+  "id": "bundle--dbefa821-4768-5265-b6b9-b89a9d4ca708",
   "objects": [
     {
       "type": "attack-pattern",
@@ -55341,6 +55341,17 @@
       "relationship_type": "has",
       "source_ref": "software--d1dc3e3a-9f27-5f2b-afb5-8ae0bed50ea6",
       "target_ref": "vulnerability--51a1d2ce-983d-51f4-b378-20f317bbf99b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c82c3c07-354f-5921-be3d-ac10d37df9b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d38b21c9-f91f-5e85-afb1-ca5ad887343a",
+      "target_ref": "vulnerability--f395ee60-f0e0-5e07-91ba-491247285360"
     },
     {
       "type": "relationship",
@@ -157323,6 +157334,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e7d75199-3e50-5077-8f24-a5afa571be3a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T13:23:30.000Z",
+      "modified": "2026-10-29T13:23:30.000Z",
+      "name": "Yamaha NWR100: OS command injection (CVE-2026-97854)",
+      "description": "## Overview\nThe Yamaha wireless LAN router NWR100 contains an OS command injection vulnerability (CVE-2026-97854). Arbitrary OS commands may be executed by sending a specially crafted request to the affected product.\n",
+      "published": "2026-10-29T13:23:30.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d38b21c9-f91f-5e85-afb1-ca5ad887343a",
+        "vulnerability--f395ee60-f0e0-5e07-91ba-491247285360"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-yamaha-nwr100-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-yamaha-nwr100-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97854"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-yamaha-nwr100-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-29-yamaha-nwr100-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-yamaha-nwr100-rce/",
+      "x_craftedsignal_activity_at": "2026-10-29T13:23:30.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e7e46389-f60a-59db-98e3-99cf90034503",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T12:15:21.000Z",
@@ -180483,6 +180534,13 @@
       "id": "software--d37f9324-4c08-5e21-a1bc-c1307b76e252",
       "name": "Kafka Connect (\u003c 4.2.2)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d38b21c9-f91f-5e85-afb1-ca5ad887343a",
+      "name": "NWR100",
+      "vendor": "Yamaha"
     },
     {
       "type": "software",
@@ -212833,6 +212891,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112836",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112836"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f395ee60-f0e0-5e07-91ba-491247285360",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97854",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97854",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97854"
         }
       ]
     },
