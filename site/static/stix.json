@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e0ad5574-6f9e-56af-b32a-eaf8c7c4b04c",
+  "id": "bundle--ad5ce5cd-189a-5cf4-9519-4d9dc2143c0e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -52183,6 +52183,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b5e96eac-c1ef-5924-a2fa-e3e02d0c8a8f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T09:12:34.000Z",
+      "modified": "2026-10-29T09:12:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bf224f84-f6cb-57b7-8265-d329d6dc166a",
+      "target_ref": "attack-pattern--139e63b4-7520-5370-b408-c1bff3a4d51f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b5ed629a-8773-5c32-b91d-3caabd4245e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61940,6 +61951,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dae73a36-347d-5687-8713-86b17dbb3f1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T09:12:34.000Z",
+      "modified": "2026-10-29T09:12:34.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bf224f84-f6cb-57b7-8265-d329d6dc166a",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--daee1aeb-b54f-54de-8f2f-e059b834a1ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T18:37:37.000Z",
@@ -64873,6 +64895,17 @@
       "relationship_type": "has",
       "source_ref": "software--fedb2677-fd32-5aad-9fea-291486152ecd",
       "target_ref": "vulnerability--60cec01e-7275-58da-aca3-c63558cbc3ae"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e57dd1d3-ef15-57dc-83aa-8625501cb46e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5241e866-1a7e-54a2-81f3-9f1b962a5341",
+      "target_ref": "vulnerability--9fafb53b-8052-5c5e-97a7-0ede27765fd2"
     },
     {
       "type": "relationship",
@@ -77338,6 +77371,45 @@
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.24629,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f96099d-4be9-5776-8079-e71568bd4b1a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T09:12:26.000Z",
+      "modified": "2026-10-29T09:12:26.000Z",
+      "name": "WildFly: IIOP listener insecure deserialization (CVE-2026-15564)",
+      "description": "WildFly's IIOP (Internet Inter-ORB Protocol) listener may permit deserialization of input streams before authentication is performed. An attacker who can gain access to the IIOP port may be able to construct and send malicious objects and achieve deserialization, if the target EJB (Enterprise JavaBean) allows untyped method parameters and depending on the potential gadget chains available in the running classpath.\n",
+      "published": "2026-10-29T09:12:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--8b96f492-d746-5e78-bf0f-eb2165a77800"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-wildfly-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wildfly-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15564"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-wildfly-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-10-29-wildfly-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wildfly-deserialization/",
+      "x_craftedsignal_activity_at": "2026-10-29T09:12:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -145126,6 +145198,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--bf224f84-f6cb-57b7-8265-d329d6dc166a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T09:12:34.000Z",
+      "modified": "2026-10-29T09:12:34.000Z",
+      "name": "Ortto WordPress Plugin: Configuration overwrite via authentication bypass (CVE-2026-113387)",
+      "description": "## Overview\n\nThe Ortto plugin for WordPress is vulnerable to an authentication bypass (CVE-2026-113387) due to inadequate protection of configuration update requests. The plugin improperly relies on a secret that is publicly exposed in the HTML source code of the site. An unauthenticated attacker can leverage this exposed secret to authenticate unauthorized configuration update requests, allowing them to modify the plugin settings and inject arbitrary scripts into the site.\n\n## Impact\n\nAn attacker can overwrite the plugin configuration to serve arbitrary scripts, potentially resulting in Cross-Site Scripting (XSS), site defacement, or unauthorized client-side code execution for visitors to the WordPress site.\n\n## Recommendation\n\n* Update the Ortto plugin for WordPress to version 1.0.25 or later immediately.\n* Audit the site's public HTML source code for any references to plugin-specific secrets or configuration tokens.\n* Monitor web server logs for unexpected POST requests to the Ortto plugin endpoints, specifically those originating from unauthenticated sessions or suspicious IP addresses.\n",
+      "published": "2026-10-29T09:12:34.000Z",
+      "labels": [
+        "authentication-bypass",
+        "cve",
+        "web-application",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--139e63b4-7520-5370-b408-c1bff3a4d51f",
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5241e866-1a7e-54a2-81f3-9f1b962a5341",
+        "vulnerability--9fafb53b-8052-5c5e-97a7-0ede27765fd2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-ortto-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ortto-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113387"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-ortto-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-29-ortto-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ortto-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-29T09:12:34.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.6,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--bf458d00-819f-594f-8e80-219216433bd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T20:04:47.000Z",
@@ -176366,6 +176486,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5241e866-1a7e-54a2-81f3-9f1b962a5341",
+      "name": "Ortto plugin for WordPress (\u003c 1.0.25)",
+      "vendor": "Ortto"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5266a315-b6e8-56c9-ac1d-a1b8f1917cd6",
       "name": "Endpoint Security (\u003c 8.00.26.0012)",
       "vendor": "WatchGuard"
@@ -205614,6 +205741,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8b96f492-d746-5e78-bf0f-eb2165a77800",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-15564",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-15564",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15564"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8bb14946-8789-55f7-940c-1f7a79d48115",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -208168,6 +208311,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-23334",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-23334"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--9fafb53b-8052-5c5e-97a7-0ede27765fd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113387",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113387",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113387"
         }
       ]
     },
