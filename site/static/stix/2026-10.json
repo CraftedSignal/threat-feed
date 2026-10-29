@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--25c5a1d2-0520-52b1-baf0-10311320f618",
+  "id": "bundle--602d1906-566f-5c94-9539-1cce54b5daaa",
   "objects": [
     {
       "type": "attack-pattern",
@@ -54270,6 +54270,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b05e7d69-34ca-574d-84b2-4d9b3eaa583f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--290cd652-7cd2-5d5c-bdbb-72ffd6a5a40c",
+      "target_ref": "vulnerability--b703c434-7b27-5f1e-afe7-f066c2f8cede"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b06055ad-69e7-5825-8b71-15b7b59e8867",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T15:48:46.000Z",
@@ -62208,6 +62219,17 @@
       "relationship_type": "has",
       "source_ref": "software--f0cee0cb-9e0c-5ba3-a686-f679cec07b19",
       "target_ref": "vulnerability--e039a188-73f5-5090-a10c-7738477a553e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cd063958-9c1b-59fc-9c7d-27bb38de4d95",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T23:25:26.000Z",
+      "modified": "2026-10-29T23:25:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--55b2e43c-7e18-5408-af1b-ef0f9d0a56b5",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -110541,6 +110563,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--55b2e43c-7e18-5408-af1b-ef0f9d0a56b5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T23:25:26.000Z",
+      "modified": "2026-10-29T23:25:26.000Z",
+      "name": "GitPython: Remote.pull() arbitrary command execution via refspec injection",
+      "description": "## Overview\n\nGitPython's `Remote.pull()` method contains a vulnerability in its security guard intended to prevent command injection. While the library attempts to block dangerous options like `--upload-pack`, the guard only inspects keyword arguments and fails to validate the positional `refspec` argument. An attacker can supply a refspec starting with `--upload-pack=`, which is forwarded to the underlying `git pull` process. Because `git pull` does not properly terminate positional arguments before passing them to internal `git fetch` operations, the injected command is executed as the `upload-pack` program. Exploitation is possible when using local filesystem or SSH transports. No fix is currently available.\n\n## Attack Chain\n\n1. Exposure: An application calls `Remote.pull(refspec=\u0026lt;value\u003e)` where `\u0026lt;value\u003e` is derived from attacker-influenced input.\n2. Control: The attacker provides a string such as `--upload-pack=\u0026lt;command\u003e; git-upload-pack`.\n3. Path: The input passes through `Git._unpack_args` and `Git.check_unsafe_protocols` without being flagged as malicious.\n4. Guard: The unsafe-option guard incorrectly assumes positionals are safe, failing to check the `refspec` against `unsafe_git_pull_options`.\n5. Primitive: The `refspec` is passed to `git pull -v -- \u0026lt;remote\u003e \u0026lt;refspec\u003e`.\n6. Execution: The `git pull` command forwards the positional to an internal `git fetch` without a `--` separator, causing the system to execute the injected command as the `upload-pack` program.\n7. Result: Arbitrary command execution occurs on the system with the privileges of the calling process.\n\n## Impact\n\nSuccessful exploitation allows arbitrary command execution as the user running the GitPython process. This requires the use of SSH or local filesystem transports; HTTPS transports are not affected as the server ignores the client-supplied upload-pack program.\n\n## Recommendation\n\n- Validate that all `refspec` strings passed to `Remote.pull()` do not start with a hyphen (`-`).\n- Prefer HTTPS remotes over local-path or SSH transports where possible.\n- Avoid passing untrusted user input directly into GitPython method arguments.\n- Monitor for GitPython processes spawning child processes that are not standard git utilities or that originate from unexpected command-line arguments.\n",
+      "published": "2026-10-29T23:25:26.000Z",
+      "labels": [
+        "gitpython",
+        "library-vulnerability",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--48a866eb-0244-5543-a969-ff0e7aefedd0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-gitpython-rce-8a12154e",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gitpython-rce-8a12154e/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-f9j4-qggq-h239"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-gitpython-rce-8a12154e",
+      "x_craftedsignal_event_id": "brief-2026-10-29-gitpython-rce-8a12154e",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gitpython-rce-8a12154e/",
+      "x_craftedsignal_activity_at": "2026-10-29T23:25:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--55ddbdab-9cfe-5b3c-8913-89c12c44228a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T18:50:38.000Z",
@@ -132597,6 +132663,51 @@
       },
       "x_craftedsignal_cvss_max": 8.1,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8e4ce041-8d3a-51a5-b4d2-c80bfc548b4a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T23:25:49.000Z",
+      "modified": "2026-10-29T23:25:49.000Z",
+      "name": "Pillow: Heap over-read in WMF/EMF rendering (CVE-2026-96644)",
+      "description": "## Overview\n\nPillow versions prior to 13.0.0 contain a heap over-read vulnerability in its Windows-specific `drawwmf` native handler. The vulnerability arises when processing WMF or EMF files where image dimensions (stored in 32-bit header fields) are truncated to 16-bit values during the memory allocation phase of rendering, while the subsequent memory copy operation uses the original 32-bit dimensions. An attacker can provide a crafted file that bypasses standard pixel-count decompression-bomb checks by setting a large width and small height, leading to a heap over-read which can result in process crashes or information disclosure. This issue only affects Windows builds where the native handler is compiled.\n\n## Impact\n\nSuccessful exploitation allows for reading out-of-bounds heap memory, which can lead to application termination (DoS) or the potential leakage of sensitive data stored in memory adjacent to the heap buffer.\n\n## Recommendation\n\nUpdate the Pillow library to version 13.0.0 or later across all Windows-based environments where it is utilized.\n",
+      "published": "2026-10-29T23:25:49.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--290cd652-7cd2-5d5c-bdbb-72ffd6a5a40c",
+        "vulnerability--b703c434-7b27-5f1e-afe7-f066c2f8cede"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-pillow-heap-over-read",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-heap-over-read/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-9v9v-9qvf-h2hj"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96644"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-pillow-heap-over-read",
+      "x_craftedsignal_event_id": "brief-2026-10-29-pillow-heap-over-read",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pillow-heap-over-read/",
+      "x_craftedsignal_activity_at": "2026-10-29T23:25:49.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.00384,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -182791,6 +182902,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--290cd652-7cd2-5d5c-bdbb-72ffd6a5a40c",
+      "name": "Pillow (\u003c 13.0.0)",
+      "vendor": "Python Software Foundation"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--290f6332-82e5-548c-a211-194a35ade5dc",
       "name": "Library Management System (1.0)",
       "vendor": "SourceCodester"
@@ -184896,6 +185014,13 @@
       "id": "software--48953e36-3b56-5280-bec6-00ea51ccc32e",
       "name": "Zabbix (\u003c 7.2.15)",
       "vendor": "Zabbix"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--48a866eb-0244-5543-a969-ff0e7aefedd0",
+      "name": "GitPython (\u003e= 3.1.30, \u003c 3.2.0)",
+      "vendor": "GitPython"
     },
     {
       "type": "software",
@@ -222486,6 +222611,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110002",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110002"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b703c434-7b27-5f1e-afe7-f066c2f8cede",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-96644",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-96644",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96644"
         }
       ]
     },
