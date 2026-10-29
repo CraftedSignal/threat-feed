@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-13-ivanti-connect-secure-rce
 event_id: brief-2026-10-13-ivanti-connect-secure-rce
-revision: 3
-activity_at: "2026-10-23T20:49:01Z"
+revision: 4
+activity_at: "2026-10-29T21:04:24Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T19:51:54Z"
@@ -29,12 +29,29 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - revision: 4
+    at: "2026-10-29T21:04:24Z"
+    checksum: sha256:8dbd24b5cc20f7157384a4691aff79b880fa9eae201e03b63bc902cd2d79e854
+    summary: added CVE-2026-111357
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
 title: Remote Code Execution Vulnerability in Ivanti Connect Secure
 slug: 2026-10-ivanti-connect-secure-rce
 description: An unauthenticated remote code execution vulnerability (CVE-2026-104935) in Ivanti Connect Secure is being actively exploited in the wild, enabling attackers to gain control over affected systems.
 date: "2026-10-13T16:47:01Z"
-lastmod: "2026-10-23T20:48:28Z"
+lastmod: "2026-10-29T21:01:46Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -61,7 +78,7 @@ products:
   - Connect Secure (22.8R2.4 and older)
   - Connect Secure (25.1.1.1 and older)
   - Connect Secure (25.1.2.2 and older)
-  - Connect Secure
+  - Connect Secure (< 25.1.3.0)
   - Connect Secure (<= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4)
   - Connect Secure (<= 25.1.1.1)
   - Connect Secure (<= 25.1.2.2)
@@ -76,7 +93,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-104935
     cvss: 8.6
-    epss: 0.25982
+    epss: 0.86766
+    kev_status: "false"
+  - id: CVE-2026-111357
+    cvss: 7
+    epss: 0.00247
     kev_status: "false"
 references:
   - https://www.ncsc.nl/alerts/zero-day-kwetsbaarheid-in-ivanti-connect-secure-update-direct
@@ -87,6 +108,7 @@ references:
   - https://www.ivanti.com/blog/october-2026-security-update
   - https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/
   - https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/
+  - https://www.cisa.gov/news-events/alerts/2026/10/29/cisa-adds-two-known-exploited-vulnerabilities-catalog
 action_plan:
   priority: immediate_escalation
   owners:
@@ -135,6 +157,13 @@ updates:
   - at: "2026-10-23T20:48:28Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - at: "2026-10-29T21:01:46Z"
+    level: L2
+    summary: added CVE-2026-111357
     sources:
       - pwn-watch
     source_urls:
