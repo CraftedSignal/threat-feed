@@ -1,0 +1,146 @@
+{
+  "type": "bundle",
+  "id": "bundle--b901f10a-ffab-5710-b75f-f4b1b23b39ae",
+  "objects": [
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exploitation for Client Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1203",
+          "url": "https://attack.mitre.org/techniques/T1203"
+        }
+      ]
+    },
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CraftedSignal",
+      "identity_class": "organization"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9d808870-2b1f-55ce-af77-88b5afea0b33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f4f685e1-3e11-5097-82c3-d6af5a09ae72",
+      "target_ref": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c6fbd888-7490-5249-a691-ebfd90fd6ca9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
+      "target_ref": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ef80d067-c438-57d6-aa4a-3f855e5595ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T23:46:59.000Z",
+      "modified": "2026-09-21T09:17:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ef74875f-903e-5703-90ca-e5b6a544f800",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ef74875f-903e-5703-90ca-e5b6a544f800",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-07-31T23:46:59.000Z",
+      "modified": "2026-09-21T09:17:15.000Z",
+      "name": "Unauthenticated Remote Code Execution in ComfyUI via Unsafe Deserialization",
+      "description": "## Overview\n\nComfyUI version 0.23.0 contains a critical vulnerability (CVE-2026-68771) within the LoadTrainingDataset node, stemming from the unsafe deserialization of pickle files. This flaw allows an unauthenticated remote attacker to execute arbitrary Python code on the host system. The attack vector involves uploading a crafted, malicious pickle file (typically named in the shard_*.pkl format) via the application's file upload interface. Once the file is hosted, the attacker triggers its deserialization by queuing a workflow graph that references the malicious file. Because the application utilizes the torch.load function to process these files, an attacker can leverage the pickle protocol's __reduce__ method to execute arbitrary system commands under the security context of the ComfyUI process. This vulnerability poses a significant risk to any publicly accessible ComfyUI instance, as it requires no prior authentication to achieve full system compromise.\n\n## Attack Chain\n\n1. Attacker identifies a publicly accessible ComfyUI instance running version 0.23.0.\n2. Attacker crafts a malicious Python pickle file containing a __reduce__ method designed to execute arbitrary OS commands.\n3. Attacker sends an unauthenticated HTTP POST request to the /upload/image endpoint to store the malicious pickle file on the server.\n4. Attacker constructs a JSON workflow graph referencing the path of the newly uploaded malicious file.\n5. Attacker sends an unauthenticated HTTP POST request to the /prompt endpoint to submit the workflow graph for processing.\n6. The LoadTrainingDataset node within the ComfyUI backend processes the workflow and calls torch.load on the malicious file.\n7. The pickle deserialization occurs, triggering the execution of the attacker's payload.\n8. The attacker achieves remote code execution, enabling further activity such as data exfiltration or persistence.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the underlying server. This enables attackers to steal sensitive data, gain persistent access to the host, or leverage the compromised system to perform further attacks on the internal network. Given the typical deployment of ComfyUI in AI and research environments, this may lead to the exposure of proprietary model data or credentials.\n\n## Recommendation\n\n1. Immediately update ComfyUI to a patched version that sanitizes or restricts the loading of untrusted pickle files.\n2. If an immediate update is not possible, restrict network access to the ComfyUI web interface, ensuring it is not accessible from the public internet.\n3. Implement network-level blocking for unauthorized POST requests directed at the /upload/image and /prompt endpoints.\n4. Monitor web server logs for suspicious POST requests to /upload/image followed by calls to /prompt containing references to .pkl files.\n5. Deploy the Sigma rules provided in this brief to detect the exploitation of CVE-2026-68771.\n",
+      "published": "2026-07-31T23:46:59.000Z",
+      "labels": [
+        "cve-2026-68771",
+        "deserialization",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
+        "software--f4f685e1-3e11-5097-82c3-d6af5a09ae72",
+        "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-07-31-comfyui-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-07-comfyui-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=E3EA906F-6404-5DA8-A270-D14E7A001E29\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-07-31-comfyui-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-07-31-comfyui-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-07-comfyui-deserialization/",
+      "x_craftedsignal_activity_at": "2026-09-21T09:17:15.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00781,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b856d6b4-e99f-508e-9de6-57fe3525c0f6",
+      "name": "ComfyUI (v0.23.0 and earlier)",
+      "vendor": "ComfyUI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f4f685e1-3e11-5097-82c3-d6af5a09ae72",
+      "name": "ComfyUI (0.23.0)",
+      "vendor": "ComfyUI"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b62ead8d-8a4f-5e98-b9ea-3bc529e60acd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-68771",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-68771",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771"
+        }
+      ]
+    }
+  ]
+}

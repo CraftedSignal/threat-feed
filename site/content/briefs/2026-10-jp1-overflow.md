@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-jp1-overflow
 event_id: brief-2026-10-27-jp1-overflow
-revision: 2
-activity_at: "2026-10-29T20:03:29Z"
+revision: 3
+activity_at: "2026-10-29T22:24:10Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T20:03:29Z"
@@ -21,12 +21,25 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76936
+  - revision: 3
+    at: "2026-10-29T22:24:10Z"
+    checksum: sha256:7ffad643bcbd8150c105ade33236cf1a87aaf79bb110c0c3070864ff2ecec7c8
+    summary: added CVE-2026-76936 +1
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76937
 title: 'JP1/Automatic Job Management System 3: Stack-based buffer overflow (CVE-2026-76932)'
 slug: 2026-10-jp1-overflow
 description: A stack-based buffer overflow vulnerability has been identified in JP1/Automatic Job Management System 3.
 date: "2026-10-27T10:56:07Z"
-lastmod: "2026-10-29T20:02:58Z"
+lastmod: "2026-10-29T22:22:57Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -62,12 +75,19 @@ cves:
     cvss: 9.4
     epss: 0.00328
     kev_status: "false"
+  - id: CVE-2026-76937
+    cvss: 9.4
+    epss: 0.00454
+    kev_status: "false"
   - id: CVE-2026-76936
-    kev_status: unknown
+    cvss: 9.4
+    epss: 0.00454
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76932
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76935
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76936
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-76937
 action_plan:
   priority: elevated
   owners:
@@ -99,6 +119,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-76936
+  - at: "2026-10-29T22:22:57Z"
+    level: L2
+    summary: added CVE-2026-76936 +1
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-76937
 ---
 
 CVE-2026-76932 identifies a stack-based buffer overflow vulnerability in JP1/Automatic Job Management System 3. 
