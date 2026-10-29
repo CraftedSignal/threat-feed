@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1477047e-d639-5b07-912a-fa7ecf52b98b",
+  "id": "bundle--1068e9cf-cd5c-5512-93b3-ef034046877c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42404,6 +42404,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--95a44a53-a721-5ba5-b460-3cbd86418196",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--31ef47c6-d56c-5891-9865-28f550c644a5",
+      "target_ref": "vulnerability--7e76c903-8f4d-53d9-a813-73ea83c0a333"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--95b2e78c-ec33-5205-a633-7f7846a37fb7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:01:01.000Z",
@@ -64587,6 +64598,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30ecae62-7e04-5e52-bf7d-4d3f34204f2c",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eb22072b-814c-5cdb-a1d9-5f1c752eee5d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:31:24.000Z",
+      "modified": "2026-10-29T12:31:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8f2d1df1-be0c-569a-8b61-40a112e2d4c1",
+      "target_ref": "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397"
     },
     {
       "type": "relationship",
@@ -122487,6 +122509,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8f2d1df1-be0c-569a-8b61-40a112e2d4c1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T12:31:24.000Z",
+      "modified": "2026-10-29T12:31:24.000Z",
+      "name": "BinaryMuse toml-node: Quadratic-complexity denial-of-service (CVE-2026-114143)",
+      "description": "## Overview\n\nThe `toml-node` library (npm package `toml`) is vulnerable to a quadratic-complexity (O(n²)) denial-of-service (DoS) via long dotted keys, table headers, or inline-table keys. The library repeatedly recomputes the full path-prefix string during parsing, with no limits on segment count or total input length. This vulnerability is not mitigated by the existing `maxDepth` option and affects `assign()`, `deepRef()`, and `setNestedKey()` functions.\n\n## Impact\n\n- **Event Loop Blocking:** A ~100KB payload induces a multi-second synchronous hang, stalling the entire Node.js event loop.\n- **Process Crash:** A ~200KB payload causes a fatal `JavaScript heap out of memory` error, terminating the Node.js process.\n- **Unauthenticated Access:** Exploitation requires only that the target application parses a user-controlled TOML input (e.g., config uploads or API request bodies).\n\n## Recommendation\n\n- Upgrade or apply patches to `toml-node` as they become available.\n- If a patch is unavailable, implement a pre-parsing input size limit (e.g., rejecting TOML documents exceeding a reasonable size such as 10KB) to prevent the O(n²) trigger.\n- Implement length validation on key segments for any TOML data processed by the library.\n- Migrate away from `toml-node` if the library is not actively maintained to address these structural vulnerabilities.\n",
+      "published": "2026-10-29T12:31:24.000Z",
+      "labels": [
+        "denial-of-service",
+        "javascript",
+        "nodejs",
+        "supply-chain",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--c3fae9c5-3a60-5c38-bcca-0af495891397",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--31ef47c6-d56c-5891-9865-28f550c644a5",
+        "vulnerability--7e76c903-8f4d-53d9-a813-73ea83c0a333"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-toml-node-dos-218678a9",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-toml-node-dos-218678a9/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-9j65-hcg3-gc64"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114143"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-toml-node-dos-218678a9",
+      "x_craftedsignal_event_id": "brief-2026-10-29-toml-node-dos-218678a9",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-toml-node-dos-218678a9/",
+      "x_craftedsignal_activity_at": "2026-10-29T12:31:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00473,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8f4876b0-5c3f-5e6f-9841-f0d7dcba8036",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T18:37:45.000Z",
@@ -168793,6 +168867,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--31ef47c6-d56c-5891-9865-28f550c644a5",
+      "name": "toml-node (\u003c= 5.0.0)",
+      "vendor": "BinaryMuse"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--31ef8366-d7ca-5a38-9401-aa996bce0d48",
       "name": "NR256CN (\u003c= 1.5.140116)",
       "vendor": "Netcore"
@@ -197488,6 +197569,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112895",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7e76c903-8f4d-53d9-a813-73ea83c0a333",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-114143",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-114143",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114143"
         }
       ]
     },
