@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4248c834-e824-5686-b832-5e95fd96c3c1",
+  "id": "bundle--7cdb1e75-be15-5383-a6d5-b5e275c90ca4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -10982,6 +10982,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--18525477-504c-5a1e-b1c5-b1b631d1078d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0f014443-7689-52fa-9a10-7195abe25132",
+      "target_ref": "vulnerability--603319df-0619-5f01-b34f-aa58f62171da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--185fad02-23bc-5db0-ac9e-dfa308edfd0c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20838,6 +20849,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--43c7e48e-ff5d-5a75-8034-e1a1bb249dd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T00:16:40.000Z",
+      "modified": "2026-10-29T00:16:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--63bbd0ff-1a2a-5df7-96e4-fb81b82dc8c0",
+      "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--43cbc145-644b-5cf4-926f-4716d5f2fced",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T17:43:32.000Z",
@@ -23892,6 +23914,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5d7e5d54-baeb-5222-921e-3fe5d95ddc30",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--50c3092b-d4ea-58ce-beb6-22e4a53f4674",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T00:17:51.000Z",
+      "modified": "2026-10-29T00:17:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--97b3a0f2-7e29-537f-9540-77ae8488230c",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -34203,6 +34236,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7b8b197d-ebb0-5994-9d1e-249ba2c5ab78",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b57a1ec-9989-50f2-87dd-474293265f76",
+      "target_ref": "vulnerability--603319df-0619-5f01-b34f-aa58f62171da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7b8b614a-a64d-5be1-8e61-abd7af59a08d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T06:54:11.000Z",
@@ -35046,6 +35090,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7fa0678-7ae7-5e6f-9465-a6ad2d769d28",
       "target_ref": "vulnerability--6893216c-77a5-550f-9675-191a8fffd028"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f72c09e-0e38-5085-9dd3-31cdf6326319",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--673d7929-c32c-56b2-af4f-e24892c1be16",
+      "target_ref": "vulnerability--3a95e1b0-2313-5057-9723-94e56846fdfc"
     },
     {
       "type": "relationship",
@@ -47553,6 +47608,17 @@
       "relationship_type": "uses",
       "source_ref": "report--6948cef8-7838-527b-a103-c2d7c2b1005d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2bcb887-734d-581b-a35a-3873c1ce32fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ffd00e31-5a18-5019-832b-74b17798ae8d",
+      "target_ref": "vulnerability--3a95e1b0-2313-5057-9723-94e56846fdfc"
     },
     {
       "type": "relationship",
@@ -63320,6 +63386,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f13fd5a8-9b38-5486-803f-85b217ac6c39",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T00:17:51.000Z",
+      "modified": "2026-10-29T00:17:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--97b3a0f2-7e29-537f-9540-77ae8488230c",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f154637f-9608-5699-9dd6-3cfc243b161c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -65047,6 +65124,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f911026e-e240-5bf4-be1b-4c4ea9e5e488",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7ab54a44-db1e-52e4-9c89-2483c509ea88",
+      "target_ref": "vulnerability--603319df-0619-5f01-b34f-aa58f62171da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f9156b49-e96b-56b2-a184-9857d8f05a81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -66253,6 +66341,17 @@
       "relationship_type": "has",
       "source_ref": "software--14b4b49c-5a53-5776-b9a9-691efae529a6",
       "target_ref": "vulnerability--2008b40e-3c64-51c7-82e7-0f25d1d1c288"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fe327b81-f812-573f-9339-7f7815dca669",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5d75c170-32b5-5154-aa6d-dbf7123ae28c",
+      "target_ref": "vulnerability--3a95e1b0-2313-5057-9723-94e56846fdfc"
     },
     {
       "type": "relationship",
@@ -102942,6 +103041,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--63bbd0ff-1a2a-5df7-96e4-fb81b82dc8c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T00:16:40.000Z",
+      "modified": "2026-10-29T00:16:40.000Z",
+      "name": "Highcharts Core: Breadcrumbs style attribute cross-site scripting (CVE-2026-118246)",
+      "description": "## Overview\nHighcharts Core versions 10.0.0 through 13.0.2 are affected by a cross-site scripting (XSS) vulnerability identified as CVE-2026-118246. The `breadcrumbs.style` configuration option fails to sanitize keys before applying them as SVG attributes. An attacker capable of influencing the chart configuration can inject event-handler attributes, such as `onmouseover`, which the browser will execute in the context of the origin hosting the chart when the breadcrumb component is rendered and interacted with by a user. This flaw affects Highcharts Core, Highcharts Stock, Highcharts Maps, and Highcharts Gantt. Charts utilizing \"styled mode\" are not affected.\n\n## Impact\nSuccessful exploitation leads to arbitrary JavaScript execution in the user's browser session. This can be used to hijack user sessions, steal sensitive data, or perform unauthorized actions on behalf of the user within the vulnerable application origin.\n\n## Recommendation\n- Upgrade Highcharts to the patched versions: 11.4.9, 12.6.1, or 13.1.0 or later.\n- If upgrading is not immediately feasible, apply the provided JavaScript workaround by injecting the following snippet after loading the Highcharts library but before any chart initialization:\n `((H)=\u003e{const S=H.SVGElement.prototype,D=S._defaultSetter;S._defaultSetter=function _defaultSetter(v,k,e){/^on/i.test(k)||D.call(this,v,k,e)};})(Highcharts);`\n- Audit applications that pass user-supplied or external JSON configuration objects to Highcharts to ensure the `breadcrumbs` configuration object is strictly validated against a known-safe schema.\n",
+      "published": "2026-10-29T00:16:40.000Z",
+      "labels": [
+        "client-side-injection",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0f014443-7689-52fa-9a10-7195abe25132",
+        "software--7ab54a44-db1e-52e4-9c89-2483c509ea88",
+        "software--8b57a1ec-9989-50f2-87dd-474293265f76",
+        "vulnerability--603319df-0619-5f01-b34f-aa58f62171da"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-highcharts-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-highcharts-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://code.highcharts.com"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-35rr-xwfh-x789"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-highcharts-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-29-highcharts-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-highcharts-xss/",
+      "x_craftedsignal_activity_at": "2026-10-29T00:16:40.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--63cc69ca-c911-5dd5-95c1-8d973546b16a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T22:24:23.000Z",
@@ -121017,6 +121167,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--97b3a0f2-7e29-537f-9540-77ae8488230c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T00:17:51.000Z",
+      "modified": "2026-10-29T00:17:51.000Z",
+      "name": "mcp-sanitizer: Path Traversal via Improper Home Directory Validation",
+      "description": "## Overview\nThe mcp-sanitizer library v1.3.3 contains a critical path traversal vulnerability (CWE-22) in its `validateFilePath` function within `src/utils/validation-utils.js`. The library implementation includes an overly permissive allowlist for absolute file paths, explicitly permitting any path starting with `/home/` or `/Users/`. Consequently, security validation fails to block access to highly sensitive files such as SSH keys, AWS credentials, and Kubernetes configurations.\n\n## Attack Chain\n1. Attacker sends a POST request to an MCP-enabled application using the `mcp-sanitizer` middleware.\n2. The application passes an attacker-supplied `file_path` to `sanitizer.sanitize()`.\n3. The `validateFilePath` function normalizes the input and performs an allowlist check.\n4. Because the malicious path (e.g., `/home/victim/.ssh/id_rsa`) matches the hardcoded `/home/` prefix, the validator returns `blocked=false`.\n5. The library returns the path to the consumer application as a \"trusted\" sanitized value.\n6. The consumer application, trusting the sanitizer's output, performs a filesystem read operation (e.g., `fs.readFile`) on the attacker-controlled path.\n7. The application returns the contents of the sensitive file to the attacker in the HTTP response.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to exfiltrate sensitive user-home directory files, including SSH private keys, cloud provider credentials, and application tokens. This results in complete confidentiality loss for the affected user's data and potential lateral movement into cloud infrastructure or remote systems.\n\n## Recommendation\n- Update any application utilizing `mcp-sanitizer` to implement strict path validation that excludes sensitive home directory sub-paths, even if the library is not updated.\n- Implement a secondary layer of path validation in the application logic that explicitly denies access to `.ssh`, `.aws`, `.gnupg`, `.kube`, `.config`, and `.env` files regardless of the sanitizer output.\n- Audit all MCP server implementations for dependencies on `mcp-sanitizer` and restrict access to the `/tool` endpoint to authenticated and authorized users only.\n",
+      "published": "2026-10-29T00:17:51.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c3cf9251-41a2-5ed7-b5bc-5a1a4ffc2d8f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-mcp-sanitizer-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-mcp-sanitizer-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-7w82-6f9j-v9jp"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-mcp-sanitizer-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-29-mcp-sanitizer-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mcp-sanitizer-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-29T00:17:51.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--97c33b32-dfec-51b9-8cbc-0f8a368a184f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T06:50:25.000Z",
@@ -129889,6 +130079,47 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b0496b6c-2ac8-5b61-9e74-ef5da7dcdbf4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T00:17:20.000Z",
+      "modified": "2026-10-29T00:17:20.000Z",
+      "name": "Highcharts: Cross-site scripting in exported SVG files (CVE-2026-116796)",
+      "description": "Highcharts contains an XSS vulnerability (CVE-2026-116796) where the SVG exporting module fails to sanitize 'xlink:href' attributes in text options. The attribute is preserved in the serialized output of exported charts. If a user activates a link within an exported SVG opened in a browser or re-parsed in a downstream application, an attacker who controls the chart configuration can execute script in the origin of that document.\n",
+      "published": "2026-10-29T00:17:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5d75c170-32b5-5154-aa6d-dbf7123ae28c",
+        "software--673d7929-c32c-56b2-af4f-e24892c1be16",
+        "software--ffd00e31-5a18-5019-832b-74b17798ae8d",
+        "vulnerability--3a95e1b0-2313-5057-9723-94e56846fdfc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-highcharts-xss-25b4a881",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-highcharts-xss-25b4a881/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-mw4f-gj5x-6xr4"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-highcharts-xss-25b4a881",
+      "x_craftedsignal_event_id": "brief-2026-10-29-highcharts-xss-25b4a881",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-highcharts-xss-25b4a881/",
+      "x_craftedsignal_activity_at": "2026-10-29T00:17:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -160753,6 +160984,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0f014443-7689-52fa-9a10-7195abe25132",
+      "name": "Highcharts Core (\u003e= 13.0.0, \u003c= 13.0.2)",
+      "vendor": "Highcharts"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0f0a1a8c-084c-5050-a7e9-06fe0958aa0a",
       "name": "CAS (CVM)",
       "vendor": "H3C"
@@ -165685,6 +165923,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5d75c170-32b5-5154-aa6d-dbf7123ae28c",
+      "name": "Highcharts (npm/highcharts 12.0.0 - 12.6.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5d7e58f8-2d6f-5f97-8660-e095e07cb406",
       "name": "Platform Services for VMware Tanzu Platform (10.x \u003c 10.4.6)",
       "vendor": "VMware"
@@ -166335,6 +166579,12 @@
       "id": "software--6729c745-363f-5545-b68e-0b4695db0aef",
       "name": "Integrity Labs Spyware",
       "vendor": "Candiru"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--673d7929-c32c-56b2-af4f-e24892c1be16",
+      "name": "Highcharts (npm/highcharts 13.0.0 - 13.1.0)"
     },
     {
       "type": "software",
@@ -167725,6 +167975,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7ab54a44-db1e-52e4-9c89-2483c509ea88",
+      "name": "Highcharts Core (\u003e= 10.0.0, \u003c 11.4.9)",
+      "vendor": "Highcharts"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7ac03351-3a81-5005-8fff-6364610fa45a",
       "name": "CMS (\u003c 5.11.2)",
       "vendor": "Craft CMS"
@@ -168772,6 +169029,13 @@
       "id": "software--8b52639c-9f0d-5e6e-9919-29f735d57357",
       "name": "Redis Stack (7.2.0-v10)",
       "vendor": "Redis"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8b57a1ec-9989-50f2-87dd-474293265f76",
+      "name": "Highcharts Core (\u003e= 12.0.0, \u003c 12.6.1)",
+      "vendor": "Highcharts"
     },
     {
       "type": "software",
@@ -172145,6 +172409,12 @@
       "id": "software--c3cbaff9-973d-5698-8599-361eb9090f3f",
       "name": "Joomla! CMS (1.5.0 - 5.4.8)",
       "vendor": "Joomla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c3cf9251-41a2-5ed7-b5bc-5a1a4ffc2d8f",
+      "name": "mcp-sanitizer (v1.3.3)"
     },
     {
       "type": "software",
@@ -175720,6 +175990,12 @@
       "id": "software--ffb19595-b54d-5815-a3cb-d26138f4148e",
       "name": "CP Multi View Events Calendar (\u003c= 1.4.42)",
       "vendor": "CodePeople"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ffd00e31-5a18-5019-832b-74b17798ae8d",
+      "name": "Highcharts (npm/highcharts 10.3.2 - 11.4.9)"
     },
     {
       "type": "software",
@@ -182970,6 +183246,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--3a95e1b0-2313-5057-9723-94e56846fdfc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116796",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116796",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116796"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3aaf8957-5172-55e9-b1f5-c699959f7e68",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -187332,6 +187624,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109956",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109956"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--603319df-0619-5f01-b34f-aa58f62171da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118246",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118246",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118246"
         }
       ]
     },
