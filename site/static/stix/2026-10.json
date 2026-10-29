@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--60bdb7dd-b42e-56cd-bd00-e721f173d2e9",
+  "id": "bundle--dc78215c-c4c6-594f-9849-e37e8cc966e2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32442,6 +32442,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6b15d66d-30c5-55de-b225-83071faeab6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--20d9cfd0-6094-5e90-b4b7-2dfbee86e1f7",
+      "target_ref": "vulnerability--104382f5-dbc3-58ff-911a-bcf07dedbf7f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6b20e52f-9209-5f4d-8759-38ea9f956299",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T08:22:54.000Z",
@@ -39456,6 +39467,17 @@
       "relationship_type": "has",
       "source_ref": "software--da5fcec2-630a-5212-86ff-dbcd57206bf8",
       "target_ref": "vulnerability--9073a010-3481-5c51-bc73-8ab61cc12651"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--85fff8b5-6ab0-5a28-88ed-374cca98e89b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:04:07.000Z",
+      "modified": "2026-10-29T18:04:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f668f0bd-638f-53f1-a414-13190a701a9a",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -55604,6 +55626,17 @@
       "relationship_type": "has",
       "source_ref": "software--df60a9e8-2f92-5325-a895-f33a73bdb765",
       "target_ref": "vulnerability--98984487-5cef-5d38-9ad1-4c1f40166125"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c54ec704-cef5-5655-8ea8-412601fb7062",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:04:07.000Z",
+      "modified": "2026-10-29T18:04:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f668f0bd-638f-53f1-a414-13190a701a9a",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -166581,6 +166614,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f668f0bd-638f-53f1-a414-13190a701a9a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:04:07.000Z",
+      "modified": "2026-10-29T18:04:07.000Z",
+      "name": "MeiG Smart FORGE_SLT711: Unauthenticated OS command injection (CVE-2026-36356)",
+      "description": "## Overview\nCVE-2026-36356 is a critical vulnerability in the MeiG Smart FORGE_SLT711 4G LTE CPE router. The custom action handler for the GoAhead web server, specifically the '/action/SetRemoteAccessCfg' endpoint, fails to perform authentication and does not sanitize the 'password' parameter provided in JSON POST requests. This allows an unauthenticated attacker to inject shell commands into a 'system()' call executed with root privileges. Public exploit code is available.\n\n## Impact\nSuccessful exploitation allows remote, unauthenticated attackers to gain a full root shell on affected CPE devices. The vulnerability facilitates persistent access, such as the deployment of a telnet backdoor, and full system control.\n\n## Recommendation\n- Identify all internet-facing MeiG Smart FORGE_SLT711 devices.\n- Restrict access to the router's web management interface to trusted internal IP ranges or VPN-only access.\n- Coordinate with the vendor or service provider to verify if a firmware patch is available to address the unsafe 'sprintf' and 'system' implementation in the GoAhead handler.\n- Deploy detection rules to monitor for suspicious HTTP POST requests directed at the '/action/SetRemoteAccessCfg' endpoint.\n",
+      "published": "2026-10-29T18:04:07.000Z",
+      "labels": [
+        "command-injection",
+        "cve-2026-36356",
+        "network-device",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--20d9cfd0-6094-5e90-b4b7-2dfbee86e1f7",
+        "vulnerability--104382f5-dbc3-58ff-911a-bcf07dedbf7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-meig-forge-slt711-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-meig-forge-slt711-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TOTEKUH-CVE-2026-36356"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TOTEKUH-CVE-2026-36356\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-meig-forge-slt711-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-29-meig-forge-slt711-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-meig-forge-slt711-rce/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:04:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.20348,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f674aa69-3ed8-5522-a981-43e0ca4acc51",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:16:09.000Z",
@@ -172472,6 +172558,13 @@
       "id": "software--20bc1170-d26a-5a9b-94df-025e32c3e614",
       "name": "Session Smart Router",
       "vendor": "Juniper Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--20d9cfd0-6094-5e90-b4b7-2dfbee86e1f7",
+      "name": "FORGE_SLT711 (firmware MDM9607.LE.1.0-00110-STD.PROD-1)",
+      "vendor": "MeiG Smart Technology"
     },
     {
       "type": "software",
@@ -189099,6 +189192,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-40895",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40895"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--104382f5-dbc3-58ff-911a-bcf07dedbf7f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-36356",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-36356",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36356"
         }
       ]
     },
