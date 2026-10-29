@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--01047a7c-536c-50f3-ba87-61aa1093bb0d",
+  "id": "bundle--f041df9d-2653-5e39-828e-58f97348d988",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17312,6 +17312,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2d4fd376-9727-51a7-9ec6-32e830f01522",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--91430193-cca2-5ff3-b18d-9dc077502eef",
+      "target_ref": "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2d58af10-74f5-5bb6-9cba-2880b8e2cbd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -21191,6 +21202,17 @@
       "relationship_type": "has",
       "source_ref": "software--4e3d49cb-71eb-5e7b-a695-7d303d0cd796",
       "target_ref": "vulnerability--1f837a1f-b6b7-5ffd-ba79-37781471838b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3d293da0-1c0b-5d83-a3a1-4b52cb3c5b2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--781faea4-481e-5b23-b661-c361c506df51",
+      "target_ref": "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
     },
     {
       "type": "relationship",
@@ -34871,7 +34893,7 @@
       "id": "relationship--71b597b3-1351-5d1a-9161-ff468ddf5363",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T10:03:00.000Z",
-      "modified": "2026-10-29T11:37:05.000Z",
+      "modified": "2026-10-29T15:33:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
@@ -59970,6 +59992,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d027a0c8-5d1b-5d49-8f08-0bbbc97f1e21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:31:42.000Z",
+      "modified": "2026-10-29T15:31:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--50ad493d-34c3-52ad-8148-8a3b0f86ee03",
+      "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d02a5a50-e3eb-585e-83b3-663e5b4b0bdf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T15:13:02.000Z",
@@ -82549,6 +82582,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--19f2bde2-8733-52b4-8d42-e5dfe9c98944",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:33:07.000Z",
+      "modified": "2026-10-29T15:33:07.000Z",
+      "name": "Belden ICX35: Security Policy Bypass Vulnerability",
+      "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding a security vulnerability in Belden ICX35 industrial communication gateway products (models ICX35-HWC-A and ICX35-HWC-E). The vulnerability is identified in the vendor security bulletin \"PSIRT-9-Login-Lockout-Resets-in-ICX35\". It allows an unauthorized actor to bypass established security policies by resetting login lockout mechanisms. This could facilitate brute-force or credential-stuffing attacks against the device interface. No CVE identifier has been provided by the vendor at this time.\n\n## Impact\n\nThe vulnerability results in a bypass of the security policy governing authentication attempts. This potentially allows an attacker to maintain persistent brute-force attempts against the device, as the lockout mechanism intended to mitigate such activity can be reset.\n\n## Recommendation\n\n- Identify all instances of Belden ICX35-HWC-A and ICX35-HWC-E gateways within the OT environment.\n- Upgrade affected firmware to version 1.14.158 or later, as specified in the Belden PSIRT-9-Login-Lockout-Resets-in-ICX35 security bulletin.\n- Monitor authentication logs on industrial gateway management interfaces for repeated login failures followed by successful access or anomalous resets of lockout counters.\n",
+      "published": "2026-10-29T15:33:07.000Z",
+      "labels": [
+        "authentication-bypass",
+        "industrial-control-systems",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--286c5b35-41c9-5444-ae6d-d0ae11581739",
+        "software--5ec4324e-4bd8-5c50-8ffd-3ac28abe2e8d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-belden-icx35-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-belden-icx35-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://assets.belden.com/asset/3be80067-b211-423d-9be4-4e31bd43fbc9/PSIRT-9-Login-Lockout-Resets-in-ICX35.pdf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1407/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-belden-icx35-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-29-belden-icx35-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-belden-icx35-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-29T15:33:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--19f3207f-8503-5f69-8ffa-e553f88115d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T06:54:26.000Z",
@@ -87777,7 +87858,7 @@
       "id": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T10:03:00.000Z",
-      "modified": "2026-10-29T11:37:05.000Z",
+      "modified": "2026-10-29T15:33:45.000Z",
       "name": "Cisco Secure Firewall ASA and FTD: Denial of Service via SSL VPN (CVE-2026-76418)",
       "description": "## Overview\nCisco has released security patches for a high-severity vulnerability (CVE-2026-76418) affecting the Remote Access SSL VPN service in Cisco Secure Firewall ASA and FTD software. The flaw, which stems from logic errors when secondary authentication is configured on a tunnel group, can be exploited by an unauthenticated, remote attacker sending a crafted request. Successful exploitation causes the affected device to reload unexpectedly, resulting in a denial-of-service (DoS) condition. Cisco confirmed active exploitation of this vulnerability as of October 2026.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to trigger an unexpected device reload, resulting in a complete denial-of-service for the affected network appliance.\n\n## Recommendation\n- Immediately apply the available software patches for your version of Cisco Secure Firewall ASA or FTD.\n- If immediate patching is not feasible, implement the recommended workarounds: disable the tunnel group list if 'DefaultWEBVPNGroup' does not use secondary authentication, or disable secondary authentication on any user-configured or default tunnel groups ('DefaultWEBVPNGroup').\n- Review the deployed remote access VPN policy and current device configuration via Cisco Secure FMC or FDM to identify active secondary authentication configurations.\n",
       "published": "2026-10-29T10:03:00.000Z",
@@ -87785,6 +87866,8 @@
         "cisco",
         "cve-2026-76418",
         "denial-of-service",
+        "high-confidence-source",
+        "network-security",
         "vpn"
       ],
       "object_refs": [
@@ -87793,6 +87876,8 @@
         "software--069488c4-d931-5baf-bfa7-9c72c0112452",
         "software--2b1bc2a7-e60c-5fbb-a5ab-410193f9a20a",
         "software--3f72b440-8adf-51c2-8a87-99d10070cadf",
+        "software--781faea4-481e-5b23-b661-c361c506df51",
+        "software--91430193-cca2-5ff3-b18d-9dc077502eef",
         "software--a147d39e-7e52-5cfa-8b69-b0f3422531a6",
         "vulnerability--2572971c-4217-5f54-9447-956dd0e3e1d8"
       ],
@@ -87808,15 +87893,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4238"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-cisco-firewall-dos",
       "x_craftedsignal_event_id": "brief-2026-10-29-cisco-firewall-dos",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-firewall-dos/",
-      "x_craftedsignal_activity_at": "2026-10-29T11:37:05.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T15:33:45.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -104711,6 +104800,50 @@
       },
       "x_craftedsignal_epss_max": 0.00413,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--50ad493d-34c3-52ad-8148-8a3b0f86ee03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T15:31:42.000Z",
+      "modified": "2026-10-29T15:31:42.000Z",
+      "name": "Octopus Deploy: Security bypass and information disclosure",
+      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) reports a vulnerability in Octopus Deploy. An authenticated remote attacker can exploit this flaw to bypass established security controls and gain unauthorized access to sensitive information. No CVE identifier is provided in the current advisory.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to access information that should be protected by security controls within the Octopus Deploy environment.\n\n## Recommendation\n\nInventory all instances of Octopus Deploy within the network and monitor official channels for patch releases or remediation guidance from the vendor.\n",
+      "published": "2026-10-29T15:31:42.000Z",
+      "labels": [
+        "cloud",
+        "information-disclosure",
+        "security-bypass"
+      ],
+      "object_refs": [
+        "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--62b24ad1-b209-550f-9e43-b04c00da90b7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-octopus-deploy-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-octopus-deploy-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4239"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-octopus-deploy-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-10-29-octopus-deploy-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-octopus-deploy-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-10-29T15:31:42.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -176831,6 +176964,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--286c5b35-41c9-5444-ae6d-d0ae11581739",
+      "name": "ICX35-HWC-A (\u003c 1.14.158)",
+      "vendor": "Belden"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--286e6ff1-63a3-5b60-bb02-f099a6d3a13d",
       "name": "smart-lock firmware",
       "vendor": "TTLock"
@@ -180539,6 +180679,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5ec4324e-4bd8-5c50-8ffd-3ac28abe2e8d",
+      "name": "ICX35-HWC-E (\u003c 1.14.158)",
+      "vendor": "Belden"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5ed0bcba-67ff-58ff-9e49-32ef621d1eff",
       "name": "Dragonfly (\u003c= 2.0.2)",
       "vendor": "DragonflyDB"
@@ -182399,6 +182546,13 @@
       "id": "software--7811b7fb-68fb-5ef8-b474-5f26dc28fd21",
       "name": "Support Genix (\u003c= 1.4.54)",
       "vendor": "DevItems"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--781faea4-481e-5b23-b661-c361c506df51",
+      "name": "ASA",
+      "vendor": "Cisco"
     },
     {
       "type": "software",
