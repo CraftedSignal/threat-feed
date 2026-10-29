@@ -1,17 +1,34 @@
 ---
 brief_id: brief-2026-10-29-crawl4ai-dos
 event_id: brief-2026-10-29-crawl4ai-dos
-revision: 1
-activity_at: "2026-10-29T17:33:11Z"
+revision: 2
+activity_at: "2026-10-29T18:44:03Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T18:44:03Z"
+    checksum: sha256:23266ce6ab221794a12d84b8ebf9dd3cabbc687a6e09639e0c45a77579fd8383
+    summary: severity → high; added CVE-2026-119120
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - priority
+      - priority_score
+      - references
+      - severity
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-119120
 title: 'Crawl4AI: Denial of service in Docker API server (CVE-2026-119119)'
 slug: 2026-10-crawl4ai-dos
 description: Crawl4AI versions prior to 0.9.5 are vulnerable to a denial-of-service attack due to improper validation of delay parameters in untrusted CrawlerRunConfig requests, allowing unauthenticated attackers to exhaust browser page resources.
 date: "2026-10-29T17:33:11Z"
+lastmod: "2026-10-29T18:42:50Z"
 type: advisory
 types:
   - advisory
 severities:
-  - low
+  - high
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -31,6 +48,7 @@ vendors:
   - Crawl4AI
 products:
   - Crawl4AI (< 0.9.5)
+  - Crawl4AI (0.9.0 <= version < 0.9.5)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -42,8 +60,12 @@ cves:
   - id: CVE-2026-119119
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-119120
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119119
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-119120
 action_plan:
   priority: elevated
   owners:
@@ -69,6 +91,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-119119
       evidence: Vulnerability in Docker API server where _clamp_untrusted() fails to cap delay fields.
+updates:
+  - at: "2026-10-29T18:42:50Z"
+    level: L2
+    summary: severity → high; added CVE-2026-119120
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-119120
 ---
 
 Crawl4AI versions before 0.9.5 contain a denial of service vulnerability in the Docker API server component. The function `_clamp_untrusted()` fails to cap the `delay_before_return_html`, `mean_delay`, and `max_range` fields within untrusted `CrawlerRunConfig` request bodies. By submitting specially crafted HTTP requests to the `/crawl` or `/crawl/stream` endpoints, an unauthenticated attacker can supply excessively large values for these parameters. This forces the application to hold browser pages or stall the rate limiter indefinitely, leading to resource exhaustion of the browser page pool and preventing legitimate crawling operations.
