@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-tailscale-tailworm
 event_id: brief-2026-10-27-tailscale-tailworm
-revision: 7
-activity_at: "2026-10-28T23:06:02Z"
+revision: 8
+activity_at: "2026-10-29T07:28:05Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T16:40:44Z"
@@ -74,11 +74,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
+  - revision: 8
+    at: "2026-10-29T07:28:05Z"
+    checksum: sha256:5968910e9b9bc2ae009cf433cac37846eb1167d2fa9dcfec12743174e629ff49
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
 title: 'Tailscale: Privilege escalation and security flaws in SSH server'
 slug: 2026-10-tailscale-tailworm
 description: Tailscale versions prior to 1.104.4 contain multiple vulnerabilities in SSH socket forwarding and service handling that could allow authenticated users to escalate privileges to root on targeted nodes.
 date: "2026-10-27T16:06:16Z"
-lastmod: "2026-10-28T23:05:29Z"
+lastmod: "2026-10-29T07:27:31Z"
 type: advisory
 claim_state: verified
 types:
@@ -112,6 +122,8 @@ products:
   - Tailscale SSH (<= 1.104.2)
   - Tailscale serve (<= 1.104.2)
   - serve (<= 1.104.2)
+  - Tailscale SSH
+  - Tailscale serve
 affected_os:
   - Linux
   - macOS
@@ -185,13 +197,6 @@ action_plan:
       addresses: Lateral movement risk
       evidence: Tailscale also recommends reviewing SSH access rules so that only the users and devices that need access have it.
 updates:
-  - at: "2026-10-28T07:32:38Z"
-    level: L1
-    summary: added coverage for Tailscale (< 1.104.4) +1 products
-    sources:
-      - the-hacker-news
-    source_urls:
-      - https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html
   - at: "2026-10-28T16:57:52Z"
     level: L1
     summary: new product
@@ -214,6 +219,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
   - at: "2026-10-28T23:05:29Z"
+    level: L1
+    summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc
+  - at: "2026-10-29T07:27:31Z"
     level: L1
     summary: new product
     sources:
