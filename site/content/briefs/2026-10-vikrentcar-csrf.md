@@ -1,13 +1,28 @@
 ---
 brief_id: brief-2026-10-112836-csrf
 event_id: brief-2026-10-112836-csrf
-revision: 1
-activity_at: "2026-10-20T16:37:02Z"
+revision: 2
+activity_at: "2026-10-29T19:58:58Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T19:58:58Z"
+    checksum: sha256:f699d082d3609254ae0306d7807ffd81a5de47a95ea8e609548f452f8b30a411
+    summary: added coverage for VikRentCar (n/a through 1.4.8)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-112835
 title: 'VikRentCar: Cross-Site Request Forgery (CVE-2026-112836)'
 slug: 2026-10-vikrentcar-csrf
 description: A Cross-Site Request Forgery (CSRF) vulnerability in the VikRentCar WordPress plugin (versions 1.4.8 and earlier) allows unauthenticated attackers to perform unauthorized administrative actions.
 date: "2026-10-20T16:37:02Z"
-lastmod: "2026-10-23T09:35:39Z"
+lastmod: "2026-10-29T19:57:05Z"
 type: advisory
 types:
   - advisory
@@ -35,6 +50,14 @@ vendors:
   - e4jvikwp
 products:
   - VikRentCar (<= 1.4.8)
+  - VikRentCar (n/a through 1.4.8)
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in e4jvikwp VikRentCar vikrentcar allows Reflected XSS.
+    confidence_band: high
 cves:
   - id: CVE-2026-112836
     cvss: 8.8
@@ -42,9 +65,14 @@ cves:
   - id: CVE-2026-112838
     cvss: 7.1
     kev_status: "false"
+  - id: CVE-2026-112835
+    cvss: 7.1
+    epss: 0.0019
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112836
   - https://nvd.nist.gov/vuln/detail/CVE-2026-112838
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-112835
 action_plan:
   priority: elevated
   owners:
@@ -59,6 +87,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: 'This issue affects VikRentCar: from n/a through 1.4.8.'
+    - action: Upgrade VikRentCar to a version beyond 1.4.8 to remediate CVE-2026-112835
+      owner: IT Operations
+      due: 48h
+      evidence: CVE-2026-112835 advisory affecting versions through 1.4.8
   hunt_leads:
     - lead: Hunt for suspicious script injection patterns in web server logs targeting plugin-specific URI paths
       technique_id: T1059.007
@@ -68,6 +100,14 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Improper Neutralization of Input During Web Page Generation (Cross-site Scripting)
+    - lead: Identify requests with suspicious URL parameters in web server logs
+      technique_id: T1059.007
+      data_needed:
+        - Web server access logs containing request URIs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Reflected XSS occurs via malicious input supplied in the URL
   mitigation_plan:
     - priority: immediate
       action: Upgrade VikRentCar to the latest version beyond 1.4.8
@@ -79,6 +119,11 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-112838
       evidence: Stored Cross-site Scripting (XSS) vulnerability
+    - priority: immediate
+      action: Deploy or update Content Security Policy (CSP) headers to block unauthorized script execution
+      owner: IT Operations
+      addresses: CVE-2026-112835
+      evidence: Reflected XSS vulnerability remediation
 updates:
   - at: "2026-10-23T09:35:39Z"
     level: L2
@@ -87,6 +132,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-112838
+  - at: "2026-10-29T19:57:05Z"
+    level: L2
+    summary: added coverage for VikRentCar (n/a through 1.4.8)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-112835
 ---
 
 A Cross-Site Request Forgery (CSRF) vulnerability exists in the VikRentCar plugin for WordPress, developed by e4jvikwp. The flaw, tracked as CVE-2026-112836, affects all versions from the inception of the plugin through 1.4.8. This vulnerability allows an unauthenticated, remote attacker to perform unauthorized actions by tricking an authenticated administrator into executing a malicious request via a crafted URL or web page. Successful exploitation of this flaw can lead to unauthorized configuration changes, potential loss of administrative control, or data modification within the WordPress environment, depending on the specific administrative actions the plugin permits through its CSRF-prone endpoints. Because this vulnerability targets the trust relationship between the user browser and the WordPress application, it poses a significant risk to the integrity of the site management panel.

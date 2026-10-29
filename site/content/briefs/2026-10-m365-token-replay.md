@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-26-m365-token-replay
 event_id: brief-2026-10-26-m365-token-replay
-revision: 2
-activity_at: "2026-10-29T00:00:24Z"
+revision: 3
+activity_at: "2026-10-29T19:58:58Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T00:00:24Z"
@@ -17,11 +17,23 @@ revision_history:
       - updates
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/al26-028-ongoing-help-desk-voice-phishing-campaign-targeting-canadian-organizations
+  - revision: 3
+    at: "2026-10-29T19:58:58Z"
+    checksum: sha256:17c9d61866d6ec663b730e7248bbfa2d7d413f1c513d9985c7bbc699254bee4a
+    summary: exploited:true
+    changed_fields:
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://any.run/cybersecurity-blog/skyw4lker-phishing-kit-analysis/
 title: Microsoft 365 Adversary-in-the-Middle Token Replay Campaign
 slug: 2026-10-m365-token-replay
 description: Threat actors are leveraging Adversary-in-the-Middle relays to capture M365 authentication tokens and bypass MFA, resulting in unauthorized account access, rogue device registration, and malicious inbox rule creation across multiple organizations.
 date: "2026-10-26T09:54:31Z"
-lastmod: "2026-10-28T23:59:28Z"
+lastmod: "2026-10-29T19:56:47Z"
 type: threat
 claim_state: <nil>
 types:
@@ -30,8 +42,12 @@ severities:
   - high
 actors:
   - UNC6671
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://any.run/cybersecurity-blog/skyw4lker-phishing-kit-analysis/
+  observed_at: "2026-10-27T14:02:18Z"
+  confidence: medium
 source_assessment:
   reliability: B
   credibility: "2"
@@ -78,6 +94,7 @@ mitre_ttps:
 references:
   - https://thehackernews.com/2026/10/microsoft-365-token-replay-attacks.html
   - https://cyber.gc.ca/en/alerts-advisories/al26-028-ongoing-help-desk-voice-phishing-campaign-targeting-canadian-organizations
+  - https://any.run/cybersecurity-blog/skyw4lker-phishing-kit-analysis/
 iocs:
   - type: ip
     value: 193.26.115.221
@@ -127,6 +144,13 @@ updates:
       - cccs
     source_urls:
       - https://cyber.gc.ca/en/alerts-advisories/al26-028-ongoing-help-desk-voice-phishing-campaign-targeting-canadian-organizations
+  - at: "2026-10-29T19:56:47Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - any-run
+    source_urls:
+      - https://any.run/cybersecurity-blog/skyw4lker-phishing-kit-analysis/
 ---
 
 Between July 14 and September 22, 2026, threat actors conducted a widespread campaign targeting Microsoft 365 users. The attackers utilized Adversary-in-the-Middle (AitM) infrastructure to intercept login credentials and MFA codes, allowing them to capture valid session tokens. These tokens were subsequently replayed to gain access to corporate mailboxes without triggering MFA. The campaign resulted in the compromise of 97 accounts across 79 organizations, with observed persistence mechanisms including the registration of rogue Entra devices and the addition of unauthorized MFA methods.

@@ -1,12 +1,29 @@
 ---
 brief_id: brief-2026-10-23-basercms-sqli
 event_id: brief-2026-10-23-basercms-sqli
-revision: 1
-activity_at: "2026-10-23T15:07:45Z"
+revision: 2
+activity_at: "2026-10-29T19:58:58Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T19:58:58Z"
+    checksum: sha256:217d9f97a6434807a352073674dd128342ec18cfac731f800489dbc6c91adc92
+    summary: added coverage for baserCMS (5.0.0 - 5.3.1, 5.4.0 - 5.4.1)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115457
 title: 'baserCMS: SQL injection in administrative prefixes (CVE-2026-114621)'
 slug: 2026-10-basercms-sqli
 description: baserCMS versions 5.0.0 through 5.3.1 and 5.4.0 through 5.4.1 contain an SQL injection vulnerability in the Admin and Api/Admin interfaces allowing authenticated users to execute arbitrary SQL queries.
 date: "2026-10-23T15:07:45Z"
+lastmod: "2026-10-29T19:58:11Z"
 type: advisory
 types:
   - advisory
@@ -28,10 +45,13 @@ tags:
   - web-application
   - sqli
   - authentication
+  - xss
+  - cms
 vendors:
   - baserCMS
 products:
   - baserCMS (5.0.0 through 5.3.1, 5.4.0 through 5.4.1)
+  - baserCMS (5.0.0 - 5.3.1, 5.4.0 - 5.4.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -39,12 +59,23 @@ mitre_ttps:
     technique_name: Exploit Public-Facing Application
     evidence: An attacker with access to the admin panel can embed SQL fragments in those options to execute arbitrary SQL against the application database.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: This allows the execution of arbitrary JavaScript in the context of other users or administrators viewing the content.
+    confidence_band: high
 cves:
   - id: CVE-2026-114621
     cvss: 8.8
     kev_status: "false"
+  - id: CVE-2026-115457
+    cvss: 7.1
+    epss: 0.00295
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-114621
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-115457
 action_plan:
   priority: elevated
   owners:
@@ -55,6 +86,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: This issue has been patched in versions 5.3.2 and 5.4.2.
+    - action: Upgrade all baserCMS instances to 5.3.2 or 5.4.2.
+      owner: IT Operations
+      due: 48h
+      evidence: This issue has been patched in versions 5.3.2 and 5.4.2.
   hunt_leads:
     - lead: Inspect web server logs for requests to /admin/ or /api/admin/ endpoints containing suspicious query parameters
       technique_id: T1190
@@ -64,12 +99,33 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: The vulnerability allows injection via query parameters including contain, conditions, fields, finder, and order.
+    - lead: Search for blog comment content containing shortcode patterns
+      technique_id: T1059.007
+      data_needed:
+        - Web application database or CMS comment logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: A comment containing the BcBaser.getGoogleMaps shortcode can set apiBaseUrl to an attacker-controlled script URL.
   mitigation_plan:
     - priority: immediate
       action: Upgrade baserCMS to versions 5.3.2 or 5.4.2
       owner: IT Operations
       addresses: CVE-2026-114621
       evidence: This issue has been patched in versions 5.3.2 and 5.4.2.
+    - priority: immediate
+      action: Patch baserCMS to version 5.3.2 or 5.4.2
+      owner: IT Operations
+      addresses: CVE-2026-115457
+      evidence: This issue has been patched in versions 5.3.2 and 5.4.2.
+updates:
+  - at: "2026-10-29T19:58:11Z"
+    level: L2
+    summary: added coverage for baserCMS (5.0.0 - 5.3.1, 5.4.0 - 5.4.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115457
 ---
 
 baserCMS versions 5.0.0 through 5.3.1 and 5.4.0 through 5.4.1 are susceptible to SQL injection via the Admin and Api/Admin prefixes. The vulnerability stems from the framework passing request query parameters (specifically contain, conditions, fields, finder, and order) directly to the ORM without sufficient validation. An authenticated attacker can embed SQL fragments within these parameters to manipulate database queries, potentially leading to unauthorized data extraction, such as password hashes. Disabling the core admin API does not mitigate this risk for users with active admin sessions. This issue is resolved in versions 5.3.2 and 5.4.2.

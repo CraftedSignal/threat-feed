@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-22-incus-path-traversal
 event_id: brief-2026-10-22-incus-path-traversal
-revision: 2
-activity_at: "2026-10-22T22:32:13Z"
+revision: 3
+activity_at: "2026-10-29T19:58:58Z"
 revision_history:
   - revision: 2
     at: "2026-10-22T22:32:13Z"
@@ -16,11 +16,26 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115371
+  - revision: 3
+    at: "2026-10-29T19:58:58Z"
+    checksum: sha256:52465b3e5fcc8584cadf9cbd1fefc7a1457980c560c7032762fd5d9a0b2b0790
+    summary: added coverage for Incus (7.0.1 before 7.0.2, 7.2.0 before 7.5.0)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115376
 title: 'Incus: Path traversal vulnerability (CVE-2026-115375)'
 slug: 2026-10-incus-path-traversal
 description: Incus versions 7.0.0 through 7.0.1 and 7.1.0 through 7.4.0 contain a path traversal vulnerability in instance backup processing that allows authenticated attackers to write files to the host filesystem, resulting in full host compromise.
 date: "2026-10-22T20:27:23Z"
-lastmod: "2026-10-22T22:30:47Z"
+lastmod: "2026-10-29T19:56:51Z"
 type: advisory
 types:
   - advisory
@@ -38,6 +53,8 @@ qa_status:
   validation_status: Source-verified
 cpes:
   - cpe:2.3:a:incus:incus:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:incus:incus:7.0.1:*:*:*:*:*:*:*
+  - cpe:2.3:a:incus:incus:7.2.0:*:*:*:*:*:*:*
 tags:
   - vulnerability
   - privilege-escalation
@@ -50,6 +67,7 @@ products:
   - Incus (>= 6.1.0, < 7.0.2)
   - Incus (>= 7.1.0, < 7.5.0)
   - Incus (6.0.3-6.0.6, 6.6.0-7.0.1, 7.1.0-7.4.x)
+  - Incus (7.0.1 before 7.0.2, 7.2.0 before 7.5.0)
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -69,6 +87,10 @@ cves:
   - id: CVE-2026-115375
     cvss: 9.9
     kev_status: "false"
+  - id: CVE-2026-115376
+    cvss: 7.7
+    epss: 0.00273
+    kev_status: "false"
   - id: CVE-2026-115371
     kev_status: unknown
   - id: CVE-2026-115377
@@ -77,17 +99,37 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115375
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115377
   - https://nvd.nist.gov/vuln/detail/CVE-2026-115371
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-115376
 action_plan:
   priority: immediate_escalation
   owners:
     - IT Operations
     - SOC
+  immediate_actions:
+    - action: Patch Incus instances to version 7.0.2 or 7.5.0
+      owner: IT Operations
+      due: 48h
+      evidence: Vulnerability addressed in Incus 7.0.2 and 7.5.0
+  hunt_leads:
+    - lead: Identify POST requests to /1.0/instances/*/volumes or /1.0/storage-pools/*/volumes/custom that contain a source.project field but omit source.type
+      technique_id: T1068
+      data_needed:
+        - Incus daemon access logs (API request body inspection)
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Attackers can send crafted POST requests to the custom volumes endpoint with a chosen source.project to copy and read other projects volumes
   mitigation_plan:
     - priority: immediate
       action: Upgrade Incus to 7.0.2 or 7.5.0 or later
       owner: IT Operations
       addresses: CVE-2026-115375
       evidence: Vulnerability in Incus 7.0.0-7.0.1 and 7.1.0-7.4.0
+    - priority: immediate
+      action: Upgrade to 7.0.2 or 7.5.0
+      owner: IT Operations
+      addresses: CVE-2026-115376
+      evidence: CVE-2026-115376 patch release notes
 updates:
   - at: "2026-10-22T20:27:31Z"
     level: L2
@@ -103,6 +145,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-115371
+  - at: "2026-10-29T19:56:51Z"
+    level: L2
+    summary: added coverage for Incus (7.0.1 before 7.0.2, 7.2.0 before 7.5.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-115376
 ---
 
 Incus versions 7.0.0 before 7.0.2 and 7.1.0 before 7.5.0 are affected by a path traversal vulnerability (CVE-2026-115375) in the processing of instance backup files. The vulnerability exists due to improper validation of dependent custom volume names within the index.yaml file of an instance backup. An attacker with authorization to create instances can provide a crafted backup file containing directory traversal sequences (../) in these volume names to write files to arbitrary locations on the host filesystem. Successful exploitation allows an attacker to create root-owned directories and write arbitrary content, leading to full host compromise.
