@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-microsoft-edge-vulnerabilities
 event_id: brief-2026-10-27-microsoft-edge-vulnerabilities
-revision: 4
-activity_at: "2026-10-29T20:15:56Z"
+revision: 5
+activity_at: "2026-10-29T20:19:26Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T17:34:25Z"
@@ -42,11 +42,22 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62765
+  - revision: 5
+    at: "2026-10-29T20:19:26Z"
+    checksum: sha256:5745dad30c89d6c275d67c90f374a3cfe267fb89904df500f80c871fb539ce8d
+    summary: new product
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-96199
 title: 'Microsoft Edge: Multiple Vulnerabilities'
 slug: 2026-10-microsoft-edge-vulnerabilities
 description: Multiple vulnerabilities in Microsoft Edge allow for remote code execution, privilege escalation, and unauthorized data access, requiring immediate updates to patched versions.
 date: "2026-10-27T17:38:47Z"
-lastmod: "2026-10-29T20:14:34Z"
+lastmod: "2026-10-29T20:18:31Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -131,10 +142,14 @@ cves:
     epss: 0.00767
     kev_status: "false"
   - id: CVE-2026-85898
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00767
+    kev_status: "false"
   - id: CVE-2026-85897
     kev_status: unknown
   - id: CVE-2026-62765
+    kev_status: unknown
+  - id: CVE-2026-96199
     kev_status: unknown
   - id: CVE-2026-102299
     kev_status: unknown
@@ -145,6 +160,8 @@ cves:
   - id: CVE-2026-88078
     kev_status: unknown
   - id: CVE-2026-20942
+    kev_status: unknown
+  - id: CVE-2026-85890
     kev_status: unknown
 references:
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1395/
@@ -175,6 +192,8 @@ references:
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-20942
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62765
   - https://nvd.nist.gov/vuln/detail/CVE-2026-62765
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-85890
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-96199
 action_plan:
   priority: elevated
   owners:
@@ -187,20 +206,6 @@ action_plan:
       addresses: All CVEs listed in the advisory
       evidence: Source indicates updating to these versions resolves the identified vulnerabilities
 updates:
-  - at: "2026-10-29T17:33:47Z"
-    level: L1
-    summary: new product
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-85897
-  - at: "2026-10-29T19:53:13Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-88078
   - at: "2026-10-29T19:53:16Z"
     level: L1
     summary: new product
@@ -222,6 +227,20 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-62765
+  - at: "2026-10-29T20:17:53Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-85890
+  - at: "2026-10-29T20:18:31Z"
+    level: L1
+    summary: new product
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-96199
 ---
 
 The French cybersecurity agency (ANSSI/CERT-FR) has published an advisory detailing multiple security vulnerabilities affecting Microsoft Edge. These vulnerabilities include remote code execution (RCE), privilege escalation, and information disclosure. The affected versions are Microsoft Edge versions 155.x prior to 155.0.4283.62 and versions prior to 154.0.4258.62.
