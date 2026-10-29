@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-epics-base-vulnerabilities
 event_id: brief-2026-10-27-epics-base-vulnerabilities
-revision: 3
-activity_at: "2026-10-28T11:51:18Z"
+revision: 4
+activity_at: "2026-10-29T05:12:15Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T20:02:31Z"
@@ -26,11 +26,22 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
+  - revision: 4
+    at: "2026-10-29T05:12:15Z"
+    checksum: sha256:d6c11a7da815313df410a07ec43068a12ee36ba6f00cc47e4690ebc0d66a70f1
+    summary: new IOCs
+    changed_fields:
+      - cpes
+      - cves
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
 title: 'EPICS Base: Remote code execution and denial of service (CVE-2026-114595, CVE-2026-114596, CVE-2026-114597, CVE-2026-114598)'
 slug: 2026-10-epics-base-vulnerabilities
 description: EPICS Base versions 7.0.10 and earlier contain multiple critical vulnerabilities in network request processing that could allow unauthenticated remote attackers to cause denial-of-service, disclose memory contents, or execute arbitrary code.
 date: "2026-10-27T16:40:03Z"
-lastmod: "2026-10-28T11:50:40Z"
+lastmod: "2026-10-29T05:11:39Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -46,6 +57,8 @@ source_assessment:
   likelihood: likely
 qa_status:
   verdict: pass
+cpes:
+  - cpe:2.3:a:the_epics_community:epics_base:*:*:*:*:*:*:*:*
 tags:
   - critical-infrastructure
   - memory-corruption
@@ -59,13 +72,17 @@ products:
   - EPICS Base (<= 7.0.10)
 cves:
   - id: CVE-2026-114595
-    kev_status: unknown
+    cvss: 9.8
+    kev_status: "false"
   - id: CVE-2026-114596
-    kev_status: unknown
+    cvss: 8.2
+    kev_status: "false"
   - id: CVE-2026-114597
-    kev_status: unknown
+    cvss: 7.5
+    kev_status: "false"
   - id: CVE-2026-114598
-    kev_status: unknown
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://www.cisa.gov/news-events/ics-advisories/icsa-26-300-01
   - https://www.cve.org/CVERecord?id=CVE-2026-114595
@@ -110,6 +127,13 @@ updates:
     source_urls:
       - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
   - at: "2026-10-28T11:50:40Z"
+    level: L1
+    summary: new IOCs
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/epics-base-7-0-11-critical-memory-bugs-oct-2026
+  - at: "2026-10-29T05:11:39Z"
     level: L1
     summary: new IOCs
     sources:
