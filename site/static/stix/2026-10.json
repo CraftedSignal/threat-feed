@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4f6eac50-a140-56fe-acaf-c2858d9323ee",
+  "id": "bundle--a9cb4832-7c75-5356-91ef-080a46f678ca",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9114,6 +9114,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0df7db1a-6b56-599d-88b2-f92198f154ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--61bf7b66-cc0b-55c9-88ce-3a3fd452396c",
+      "target_ref": "vulnerability--a60eb973-9aa0-542b-97cc-ae521581549a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e14ca8d-58d1-5d53-b25d-0b8cc0ed15d0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -14335,6 +14346,17 @@
       "relationship_type": "has",
       "source_ref": "software--823c804c-f203-5f13-9851-e02614420b4a",
       "target_ref": "vulnerability--094abbd0-e632-5a41-a80c-a2d4928ebb1a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--243139e4-8fac-5eb9-b6d2-a822437cda98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T11:01:54.000Z",
+      "modified": "2026-10-29T11:01:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4db1eb30-49ed-5556-b6cb-aa4a286c2156",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -35239,6 +35261,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7a2a615b-ea67-59b2-85d6-cd3b4c86f163",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c17e0683-c8d8-50d4-80f2-ccb84d69e6ae",
+      "target_ref": "vulnerability--15104c4b-de5d-5bd7-b0cd-69023f66b8c6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7a2e4301-762e-54da-9770-a46afbc8a3d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39624,6 +39657,17 @@
       "relationship_type": "has",
       "source_ref": "software--8894f018-a73a-591c-b182-7fb2b82ce6b6",
       "target_ref": "vulnerability--2008b40e-3c64-51c7-82e7-0f25d1d1c288"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8c50f2b9-adc4-58de-8c12-f0d47ec841c0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T11:01:35.000Z",
+      "modified": "2026-10-29T11:01:35.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5c47618f-c216-5198-8f41-4a6d38fdbdc1",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -50045,6 +50089,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b5fd57ff-a42a-5301-805d-b914c7c57826",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T11:01:54.000Z",
+      "modified": "2026-10-29T11:01:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4db1eb30-49ed-5556-b6cb-aa4a286c2156",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b6190463-7bb2-5fc1-80fa-369d2a3e3578",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T12:21:39.000Z",
@@ -54738,6 +54793,17 @@
       "relationship_type": "has",
       "source_ref": "software--6aa2e0ae-2737-5b3c-b264-551fad45d2d4",
       "target_ref": "vulnerability--3977c8c5-2575-5653-ab86-d0812e9d325a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c8a69c8a-2702-5965-bc64-b8b5faf0a6e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7d1ff45e-ac8c-56db-bbf9-c23ca3303906",
+      "target_ref": "vulnerability--17766690-8921-5ac5-b660-a86f9eef1400"
     },
     {
       "type": "relationship",
@@ -81658,7 +81724,7 @@
       "id": "report--240a7d5f-cbad-50f3-aaed-d69044d225ac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:03:23.000Z",
-      "modified": "2026-10-23T15:03:23.000Z",
+      "modified": "2026-10-29T11:02:33.000Z",
       "name": "OpenProject: Information disclosure vulnerability",
       "description": "## Overview\nA vulnerability in OpenProject allows a remote, authenticated attacker to disclose sensitive information. The specific nature of the vulnerability and affected versions were not disclosed in the initial advisory. Users are encouraged to monitor for vendor updates regarding this information disclosure flaw.\n\n## Recommendation\n- Inventory all instances of OpenProject across the organization.\n- Monitor the official OpenProject security advisories for patch releases and version-specific impact details.\n- Restrict access to OpenProject instances to trusted users, as the vulnerability requires authentication.\n",
       "published": "2026-10-23T15:03:23.000Z",
@@ -81668,7 +81734,8 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c9ab29d6-febd-5b6f-b890-c3e0ac61d35c"
+        "software--7d1ff45e-ac8c-56db-bbf9-c23ca3303906",
+        "vulnerability--17766690-8921-5ac5-b660-a86f9eef1400"
       ],
       "external_references": [
         {
@@ -81678,21 +81745,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABRAXAS-CVE-2026-52782\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4135"
         }
       ],
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-10-23-openproject-infoleak",
       "x_craftedsignal_event_id": "brief-2026-10-23-openproject-infoleak",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openproject-infoleak/",
-      "x_craftedsignal_activity_at": "2026-10-23T15:03:23.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T11:02:33.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_epss_max": 0.00454,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -97806,6 +97879,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4db1eb30-49ed-5556-b6cb-aa4a286c2156",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T11:01:54.000Z",
+      "modified": "2026-10-29T11:01:54.000Z",
+      "name": "Ziahamza webui-aria2: Local file inclusion (CVE-2023-39141)",
+      "description": "## Overview\n\nCVE-2023-39141 is a high-severity local file inclusion (LFI) vulnerability affecting Ziahamza webui-aria2. An attacker can exploit this vulnerability without authentication or user interaction to read files from the host filesystem. A proof-of-concept tool has been published, enabling automated file enumeration. All versions of webui-aria2 are currently identified as affected.\n\n## Impact\n\nSuccessful exploitation results in unauthorized disclosure of sensitive files residing on the host system. This may include configuration files, credentials, or system information, depending on the service account privileges under which the webui-aria2 process is running.\n\n## Recommendation\n\n* Identify and inventory all instances of Ziahamza webui-aria2 within the environment.\n* Restrict network access to webui-aria2 instances, ensuring they are not exposed to the public internet.\n* Monitor web server logs for requests containing directory traversal patterns (e.g., ../) or suspicious file path enumeration attempts targeting webui-aria2 endpoints.\n* Review the referenced GitHub Gist to understand the exploitation path and validate if internal WAF or IDS signatures can detect the documented exploit patterns.\n",
+      "published": "2026-10-29T11:01:54.000Z",
+      "labels": [
+        "lfi",
+        "vulnerability",
+        "webui-aria2"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--61bf7b66-cc0b-55c9-88ce-3a3fd452396c",
+        "vulnerability--a60eb973-9aa0-542b-97cc-ae521581549a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-webui-aria2-lfi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-webui-aria2-lfi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://gist.github.com/JafarAkhondali/528fe6c548b78f454911fb866b23f66e"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MARTISABATE-CVE-2023-39141-LFI-ENUMERATOR"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-MARTISABATE-CVE-2023-39141-LFI-ENUMERATOR\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-webui-aria2-lfi",
+      "x_craftedsignal_event_id": "brief-2026-10-29-webui-aria2-lfi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-webui-aria2-lfi/",
+      "x_craftedsignal_activity_at": "2026-10-29T11:01:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.03367,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4df454cc-89bc-5f16-9b7f-b814b78bac9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-05T18:02:02.000Z",
@@ -102759,6 +102888,64 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_epss_max": 0.00432,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5c47618f-c216-5198-8f41-4a6d38fdbdc1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T11:01:35.000Z",
+      "modified": "2026-10-29T11:01:35.000Z",
+      "name": "Android Framework: Activity token leak and arbitrary startActivity() (CVE-2025-0098)",
+      "description": "## Overview\n\nCVE-2025-0098 is a security vulnerability in the Android framework involving an activity token leak. The flaw stems from an insufficient check based solely on the process identifier (PID). This allows an attacker to manipulate activity tokens and execute arbitrary `startActivity()` calls, which could be leveraged to bypass navigation constraints or launch activities with elevated privileges. The vulnerability was officially documented in the February 2025 Android Security Bulletin. A Proof of Concept (PoC) exploit has been published on Sploitus, enabling testing against unpatched versions of the Android framework.\n\n## Impact\n\nThe vulnerability allows for arbitrary `startActivity()` calls. This could potentially allow an unprivileged application to launch activities that should be restricted, bypass UI security protections, or facilitate further exploitation of the activity management system.\n\n## Recommendation\n\n* Identify and audit applications within the environment that target affected Android framework versions.\n* Ensure that all managed Android devices are updated to the patch level corresponding to the February 2025 security bulletin (commit 61ab2b65caf855c48fdb4166f94e02bf79c90e7b).\n* Use mobile device management (MDM) solutions to verify patch levels and restrict the installation of apps on vulnerable or outdated OS versions.\n",
+      "published": "2026-10-29T11:01:35.000Z",
+      "labels": [
+        "android",
+        "mobile",
+        "privilege-escalation",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c17e0683-c8d8-50d4-80f2-ccb84d69e6ae",
+        "vulnerability--15104c4b-de5d-5bd7-b0cd-69023f66b8c6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-android-cve-2025-0098",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-android-cve-2025-0098/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://android.googlesource.com/platform/frameworks/base/+/61ab2b65caf855c48fdb4166f94e02bf79c90e7b"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://source.android.com/docs/security/bulletin/2025-02-01#framework"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3C4CC07E-9ABB-570D-A03A-90A37F4DF7FC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3C4CC07E-9ABB-570D-A03A-90A37F4DF7FC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-android-cve-2025-0098",
+      "x_craftedsignal_event_id": "brief-2026-10-29-android-cve-2025-0098",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-android-cve-2025-0098/",
+      "x_craftedsignal_activity_at": "2026-10-29T11:01:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -170524,6 +170711,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--61bf7b66-cc0b-55c9-88ce-3a3fd452396c",
+      "name": "webui-aria2 (All versions)",
+      "vendor": "Ziahamza"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--61cddaf6-20e0-52c8-ad76-c35048a878d7",
       "name": "WildFly",
       "vendor": "JBoss"
@@ -172341,6 +172535,13 @@
       "id": "software--7d1d671a-630a-5c96-a7a4-e48190eaeecb",
       "name": "Camel Spring Boot (4.22.0)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7d1ff45e-ac8c-56db-bbf9-c23ca3303906",
+      "name": "OpenProject (\u003c 17.3.3)",
+      "vendor": "OpenProject"
     },
     {
       "type": "software",
@@ -176583,6 +176784,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c17e0683-c8d8-50d4-80f2-ccb84d69e6ae",
+      "name": "Android (framework)",
+      "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c19b6aab-e4d5-5911-8cbf-27f8e6220401",
       "name": "nano NXT (3.05.1193, 3.04.1108, 3.03.944, 3.01.646)",
       "vendor": "EyeLock"
@@ -177102,13 +177310,6 @@
       "id": "software--c98b4881-3aec-54df-958a-0632b7d6c810",
       "name": "RouterOS",
       "vendor": "MikroTik"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c9ab29d6-febd-5b6f-b890-c3e0ac61d35c",
-      "name": "OpenProject",
-      "vendor": "OpenProject"
     },
     {
       "type": "software",
@@ -182865,6 +183066,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--15104c4b-de5d-5bd7-b0cd-69023f66b8c6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-0098",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-0098",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-0098"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--1521c7da-0704-54b8-bb11-129d4fc44f8e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -183179,6 +183396,22 @@
           "source_name": "cve",
           "external_id": "CVE-2015-20123",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-20123"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--17766690-8921-5ac5-b660-a86f9eef1400",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-52782",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-52782",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52782"
         }
       ]
     },
@@ -200635,6 +200868,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96840",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96840"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a60eb973-9aa0-542b-97cc-ae521581549a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-39141",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-39141",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-39141"
         }
       ]
     },
