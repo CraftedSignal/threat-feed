@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-29-foxit-ssrf
 event_id: brief-2026-10-29-foxit-ssrf
-revision: 1
-activity_at: "2026-10-29T11:14:07Z"
+revision: 2
+activity_at: "2026-10-29T13:21:48Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T13:21:48Z"
+    checksum: sha256:cbeeae80fbc0f14ce539e975949323f0807b1bf88261cddf18d334a11f796382
+    summary: added CVE-2026-111417
+    changed_fields:
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111417
 title: 'Foxit HTML-to-PDF Conversion Service: Server-Side Request Forgery (CVE-2026-111418)'
 slug: 2026-10-foxit-ssrf
 description: A server-side request forgery (SSRF) vulnerability in the Foxit HTML-to-PDF conversion service allows bypass of internal network restrictions via crafted ZIP-formatted input.
 date: "2026-10-29T11:14:07Z"
+lastmod: "2026-10-29T13:19:52Z"
 type: advisory
 types:
   - advisory
@@ -24,6 +38,7 @@ qa_status:
   validation_status: Source corroborated by NVD
 cpes:
   - cpe:2.3:a:foxit:html-to-pdf_conversion_service:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:foxit:html_to_pdf_conversion_service:*:*:*:*:*:*:*:*
 tags:
   - ssrf
   - web-vulnerability
@@ -49,8 +64,12 @@ cves:
   - id: CVE-2026-111418
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-111417
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-111418
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-111417
 action_plan:
   priority: elevated
   owners:
@@ -76,6 +95,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-111418
       evidence: Vulnerability allows bypass of restrictions on requests to internal IP addresses
+updates:
+  - at: "2026-10-29T13:19:52Z"
+    level: L2
+    summary: added CVE-2026-111417
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-111417
 ---
 
 A server-side request forgery (SSRF) vulnerability, assigned CVE-2026-111418, exists in the Foxit official website's HTML-to-PDF conversion service. By submitting a ZIP-formatted input file, an attacker can bypass existing restrictions on requests, enabling the service to perform internal network requests. This vulnerability poses a risk of internal resource discovery and potentially unauthorized interaction with services located within the internal network perimeter.
