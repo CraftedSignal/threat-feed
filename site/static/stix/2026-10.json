@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9a265ea2-f7d0-5610-900d-3df0a1bd56b8",
+  "id": "bundle--b116564a-d578-535d-ab3d-3de032710754",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11000,7 +11000,7 @@
       "id": "relationship--13dd0032-2c82-5806-af12-adb33eb44b1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:51:14.000Z",
-      "modified": "2026-10-29T17:51:14.000Z",
+      "modified": "2026-10-29T18:47:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--495163a6-1731-5bc7-a971-9cd54d7a6382",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
@@ -26206,6 +26206,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4e5c3a1a-bcc1-5840-929e-65efbc81c890",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--51d2baac-7967-51f1-a408-b53702b1eb8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a4735013-5a89-541a-a58d-81b9ef2d5e91",
+      "target_ref": "vulnerability--df35d43e-d48d-5bdd-9d69-99d2cb8cd079"
     },
     {
       "type": "relationship",
@@ -54854,6 +54865,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c12aa35f-81bc-5b9d-bdf5-ee3fe671d4bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--df012805-46c1-5b72-bd2a-468d3b0bc839",
+      "target_ref": "vulnerability--b15c5548-acb5-54c7-aa2a-6e81f08c6dc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c12b86a0-5bcb-5dcd-a30e-40f76ea319ad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T11:38:20.000Z",
@@ -78770,6 +78792,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--154fa3db-1fcf-52b2-9be6-39ebda43dd9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:45:35.000Z",
+      "modified": "2026-10-29T18:45:35.000Z",
+      "name": "Frappe Framework: Path traversal vulnerability (CVE-2026-119145)",
+      "description": "Frappe before 15.121.0 and 16.x before 16.34.0 contains a path traversal vulnerability because file-upload handling does not validate the destination path before writing to disk. Authenticated attackers can upload crafted files to locations outside the intended storage directory to achieve remote code execution on the server.\n",
+      "published": "2026-10-29T18:45:35.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--df012805-46c1-5b72-bd2a-468d3b0bc839",
+        "vulnerability--b15c5548-acb5-54c7-aa2a-6e81f08c6dc6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-frappe-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-frappe-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119145"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-frappe-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-29-frappe-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-frappe-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:45:35.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1561bb68-d855-5f16-b1e1-dff98d610875",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T18:37:12.000Z",
@@ -99725,20 +99787,23 @@
       "id": "report--495163a6-1731-5bc7-a971-9cd54d7a6382",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:51:14.000Z",
-      "modified": "2026-10-29T17:51:14.000Z",
+      "modified": "2026-10-29T18:47:15.000Z",
       "name": "Kubeflow Pipelines: API authorization bypass for log access (CVE-2026-118759)",
       "description": "## Overview\nKubeflow Pipelines prior to version 2.18.0 contains a vulnerability in the API server log handler. The handler does not perform authorization checks against the requested run ID, allowing any caller with network access to the API server to retrieve logs. For live logs, the vulnerability allows an attacker to specify a node ID as a pod name, which enables cross-namespace log access for pods not associated with the requested run. This can lead to the exposure of sensitive workload data or hardcoded credentials.\n\n## Impact\nUnauthorized access to logs across the Kubeflow environment. Observed potential impact includes unauthorized reading of sensitive workload data and exposure of credentials stored within pipeline logs.\n\n## Recommendation\n- Upgrade Kubeflow Pipelines to version 2.18.0 or later immediately.\n- Evaluate current network policies and authentication gates surrounding the Kubeflow API server to ensure requests are limited to trusted clients, as the API handler does not perform independent authentication.\n",
       "published": "2026-10-29T17:51:14.000Z",
       "labels": [
         "api-security",
         "data-exposure",
-        "kubernetes"
+        "kubernetes",
+        "path-traversal",
+        "web-application"
       ],
       "object_refs": [
         "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--a4735013-5a89-541a-a58d-81b9ef2d5e91",
-        "vulnerability--6887adcb-7b67-5fab-a530-5fcf2e601775"
+        "vulnerability--6887adcb-7b67-5fab-a530-5fcf2e601775",
+        "vulnerability--df35d43e-d48d-5bdd-9d69-99d2cb8cd079"
       ],
       "external_references": [
         {
@@ -99748,15 +99813,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118758"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118759"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-kubeflow-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-29-kubeflow-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-kubeflow-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-29T17:51:14.000Z",
+      "x_craftedsignal_activity_at": "2026-10-29T18:47:15.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -147681,6 +147750,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c4ff24d9-b4f1-570b-9cbf-cb5fe85aa6bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:45:26.000Z",
+      "modified": "2026-10-29T18:45:26.000Z",
+      "name": "ZITADEL: Missing authorization in Login V2 (CVE-2026-119129)",
+      "description": "ZITADEL 3.0.0 through 3.4.15 and 4.0.0 before 4.19.5 contains a missing authorization vulnerability in Login V2. This allows attackers to approve OAuth 2.0 device authorizations using a victim's existing session without consent. Attackers can send a signed-in user a link carrying the attacker's user code to obtain the victim's tokens, and can bypass project access settings via the OIDC device authorization API.\n",
+      "published": "2026-10-29T18:45:26.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0cf3c66e-2065-58d3-9d76-4384cf6cb632"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-zitadel-auth-bypass-dd83accc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-zitadel-auth-bypass-dd83accc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119129"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-zitadel-auth-bypass-dd83accc",
+      "x_craftedsignal_event_id": "brief-2026-10-29-zitadel-auth-bypass-dd83accc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-zitadel-auth-bypass-dd83accc/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:45:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c502640d-8cea-5417-91dd-7a465219fc7d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T14:11:59.000Z",
@@ -151531,6 +151639,45 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.33345,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cee5f216-3143-5413-8b78-7e2fb3117e42",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T18:45:57.000Z",
+      "modified": "2026-10-29T18:45:57.000Z",
+      "name": "Progress Software WS_FTP Server: SSH Service Denial of Service (CVE-2026-90869)",
+      "description": "A remote attacker who knows a valid account's enrolled SSH public key can terminate the shared SSH service in Progress Software WS_FTP Server versions prior to 2024.0.7 and 2025.0.4 on Windows.\n",
+      "published": "2026-10-29T18:45:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--626332eb-0cda-527b-9a57-3c5da7392d83"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-29-ws-ftp-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ws-ftp-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90869"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-29-ws-ftp-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-29-ws-ftp-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ws-ftp-dos/",
+      "x_craftedsignal_activity_at": "2026-10-29T18:45:57.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -186268,6 +186415,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--df012805-46c1-5b72-bd2a-468d3b0bc839",
+      "name": "Frappe Framework (\u003c 15.121.0, 16.x \u003c 16.34.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--df1a59fa-aa6e-5ad0-8599-3eed78f6ca55",
       "name": "Windows 10 (\u003c 10.0.17763.7009)",
       "vendor": "Microsoft"
@@ -189980,6 +190133,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104120",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104120"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0cf3c66e-2065-58d3-9d76-4384cf6cb632",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119129",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119129",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119129"
         }
       ]
     },
@@ -201058,6 +201227,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--626332eb-0cda-527b-9a57-3c5da7392d83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-90869",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-90869",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90869"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--627b6990-b987-5690-b37c-7359de653f8d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -211074,6 +211259,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b15c5548-acb5-54c7-aa2a-6e81f08c6dc6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119145",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119145",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119145"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b1847651-ef23-5eae-b6d3-60726af7e403",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -216572,6 +216773,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-39902",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39902"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--df35d43e-d48d-5bdd-9d69-99d2cb8cd079",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118758",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118758",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118758"
         }
       ]
     },

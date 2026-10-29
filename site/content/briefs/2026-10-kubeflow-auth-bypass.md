@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-10-29-kubeflow-auth-bypass
 event_id: brief-2026-10-29-kubeflow-auth-bypass
-revision: 1
-activity_at: "2026-10-29T17:51:14Z"
+revision: 2
+activity_at: "2026-10-29T18:47:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-29T18:47:15Z"
+    checksum: sha256:a914028614d5a4908ed6f0e650d9812514c03a3301336f7b56c91985b4c48ab1
+    summary: added CVE-2026-118758
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-118758
 title: 'Kubeflow Pipelines: API authorization bypass for log access (CVE-2026-118759)'
 slug: 2026-10-kubeflow-auth-bypass
 description: An authorization bypass in the Kubeflow Pipelines API server allows unauthenticated or unauthorized users to read sensitive logs by manipulating the GET /apis/v1alpha1/runs/{run_id}/nodes/{node_id}/log handler.
 date: "2026-10-29T17:51:14Z"
+lastmod: "2026-10-29T18:46:16Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +41,8 @@ tags:
   - api-security
   - kubernetes
   - data-exposure
+  - path-traversal
+  - web-application
 vendors:
   - Kubeflow
 products:
@@ -42,8 +58,12 @@ cves:
   - id: CVE-2026-118759
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-118758
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-118759
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-118758
 action_plan:
   priority: elevated
   owners:
@@ -69,6 +89,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-118759
       evidence: The handler does not authenticate requests itself, although an external authentication gate or network policy can limit reachability.
+updates:
+  - at: "2026-10-29T18:46:16Z"
+    level: L2
+    summary: added CVE-2026-118758
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-118758
 ---
 
 Kubeflow Pipelines prior to version 2.18.0 contains a vulnerability in the API server log handler. The handler does not perform authorization checks against the requested run ID, allowing any caller with network access to the API server to retrieve logs. For live logs, the vulnerability allows an attacker to specify a node ID as a pod name, which enables cross-namespace log access for pods not associated with the requested run. This can lead to the exposure of sensitive workload data or hardcoded credentials.
