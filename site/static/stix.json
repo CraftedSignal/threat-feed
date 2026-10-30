@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f89ca475-eb12-5e65-a231-5d98d90f947a",
+  "id": "bundle--8f0df8bb-b835-5185-a06a-53055bc0327e",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12856,6 +12856,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--186b13f3-a382-5a22-a274-682e430d137e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--769d84fa-c2ce-5d1e-939e-a0958eba1a27",
+      "target_ref": "vulnerability--359ae0e5-80ba-5985-a0a4-d3d22ab7a43c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1878e2b5-b53e-5bbe-83ca-bff6a31550de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T06:54:20.000Z",
@@ -20717,6 +20728,17 @@
       "relationship_type": "has",
       "source_ref": "software--8db386f5-4fa1-56ca-a1cb-7ac27d7a4195",
       "target_ref": "vulnerability--870607fd-ed27-5409-bdf6-d6ef77874fe2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--34b9977f-85ad-5ea6-8511-fd12df6b6412",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8a71e156-a9ea-564e-ad11-2870ba8c6253",
+      "target_ref": "vulnerability--c4943626-e886-5dbb-a63e-4f682c8d20bd"
     },
     {
       "type": "relationship",
@@ -60717,6 +60739,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c0edada5-e5a7-5d37-9d3e-bb5871a547bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--769d84fa-c2ce-5d1e-939e-a0958eba1a27",
+      "target_ref": "vulnerability--503fe570-1f1d-5524-9fe7-a62f06f75e5b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c0efe3b5-08db-5e65-9a01-6b097375e32d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -70646,6 +70679,17 @@
       "relationship_type": "has",
       "source_ref": "software--8d5f1817-9b9c-5ba8-a6d4-da49c8172a59",
       "target_ref": "vulnerability--d7080e2c-753b-5a23-9b1f-f7bdec1478a1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e1a7094c-0016-5aeb-9565-d05167018500",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--769d84fa-c2ce-5d1e-939e-a0958eba1a27",
+      "target_ref": "vulnerability--f0f0111a-264a-5b6b-8af9-dc2cdad1319c"
     },
     {
       "type": "relationship",
@@ -82413,6 +82457,45 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-defendnot-security-center/",
       "x_craftedsignal_activity_at": "2026-10-19T09:50:11.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0852fe48-e578-589b-a496-dcf058358176",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T17:22:17.000Z",
+      "modified": "2026-10-30T17:22:17.000Z",
+      "name": "Apache Pinot: Incorrect authorization in single-stage query engine (CVE-2026-73322)",
+      "description": "## Overview\n\nApache Pinot versions 0.7.0 through 1.5.0 contain an authorization vulnerability in the single-stage query engine. When broker access control is enabled, the query engine validates access only for tables explicitly defined in the FROM clause. The lookup() transform function, which retrieves data from dimension tables via a string literal argument, fails to undergo the same authorization checks, allowing authenticated users to access dimension tables for which they lack permissions.\n\n## Impact\n\nSuccessful exploitation allows an authenticated user to perform unauthorized read operations on sensitive dimension tables that are not explicitly protected by the FROM clause authorization logic.\n\n## Recommendation\n\nUpgrade Apache Pinot instances to version 1.6.0 or later to ensure the lookup() function correctly honors broker access control policies. If an immediate upgrade is not possible, review query logs for unauthorized attempts to access dimension tables via the lookup() function.\n",
+      "published": "2026-10-30T17:22:17.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8a71e156-a9ea-564e-ad11-2870ba8c6253",
+        "vulnerability--c4943626-e886-5dbb-a63e-4f682c8d20bd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-apache-pinot-cve-2026-73322",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-pinot-cve-2026-73322/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/452"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-apache-pinot-cve-2026-73322",
+      "x_craftedsignal_event_id": "brief-2026-10-30-apache-pinot-cve-2026-73322",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-pinot-cve-2026-73322/",
+      "x_craftedsignal_activity_at": "2026-10-30T17:22:17.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -147435,6 +147518,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a51a8129-cdab-5f3c-8ba3-4b65b7c78dce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T17:22:32.000Z",
+      "modified": "2026-10-30T17:22:32.000Z",
+      "name": "Business::GoCardless for Perl: Multiple vulnerabilities (CVE-2026-119036, CVE-2026-119037, CVE-2026-119038)",
+      "description": "## Overview\nBusiness::GoCardless versions before 1.01 for Perl contain three distinct security vulnerabilities. CVE-2026-119036 allows for memory exhaustion by processing and flattening large webhook payloads before the signature validation is performed. CVE-2026-119037 permits the acceptance of forged webhooks if the webhook secret is not explicitly configured (i.e., is undef or empty). CVE-2026-119038 involves a failure to properly validate redirect flows, which may lead to unauthorized flow completion.\n\n## Impact\nSystems using Business::GoCardless \u003c 1.01 to process webhooks or redirect flows are susceptible to Denial of Service (via memory exhaustion) and authentication bypass or impersonation (via forged webhooks).\n\n## Recommendation\n- Upgrade the Business::GoCardless Perl module to version 1.01 or later immediately.\n- Review application configurations to ensure a non-empty, robust webhook secret is defined for all Business::GoCardless instances to mitigate CVE-2026-119037.\n- Audit logs for unexpected webhook delivery patterns or incomplete/failed signature validation attempts that may indicate attempts to exploit CVE-2026-119036 or CVE-2026-119037.\n",
+      "published": "2026-10-30T17:22:32.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--769d84fa-c2ce-5d1e-939e-a0958eba1a27",
+        "vulnerability--359ae0e5-80ba-5985-a0a4-d3d22ab7a43c",
+        "vulnerability--503fe570-1f1d-5524-9fe7-a62f06f75e5b",
+        "vulnerability--f0f0111a-264a-5b6b-8af9-dc2cdad1319c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-gocardless-perl-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gocardless-perl-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/450"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-gocardless-perl-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-30-gocardless-perl-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gocardless-perl-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-30T17:22:32.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a51dd0a2-ddf3-5725-abdb-b3cf2a30ed3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:45:02.000Z",
@@ -194455,6 +194579,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--769d84fa-c2ce-5d1e-939e-a0958eba1a27",
+      "name": "Business::GoCardless (\u003c 1.01)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--769ed18a-0705-531c-98c1-dcbf5397623c",
       "name": "API Gateway for VMware Tanzu Platform (\u003c 2.4.10)",
       "vendor": "VMware"
@@ -195915,6 +196045,13 @@
       "id": "software--8a438daf-6aad-5d6e-a3f4-640992e0f53c",
       "name": "Firefox ESR (\u003c 115.43.1)",
       "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8a71e156-a9ea-564e-ad11-2870ba8c6253",
+      "name": "Pinot (0.7.0 \u003c= v \u003c 1.6.0)",
+      "vendor": "Apache Software Foundation"
     },
     {
       "type": "software",
@@ -212047,6 +212184,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--359ae0e5-80ba-5985-a0a4-d3d22ab7a43c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119037",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119037",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119037"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--36007442-e23e-5605-9050-d5ebd86b077c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -215513,6 +215666,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109360",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109360"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--503fe570-1f1d-5524-9fe7-a62f06f75e5b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119036",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119036",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119036"
         }
       ]
     },
@@ -231487,6 +231656,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--c4943626-e886-5dbb-a63e-4f682c8d20bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-73322",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-73322",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73322"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--c4af8b76-6355-5981-ae40-4306c44b8c2b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -237321,6 +237506,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116723",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116723"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f0f0111a-264a-5b6b-8af9-dc2cdad1319c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119038",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119038",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119038"
         }
       ]
     },
