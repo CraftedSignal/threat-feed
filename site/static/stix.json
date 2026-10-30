@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--04bd58bb-6b46-5592-8262-886ad3606e55",
+  "id": "bundle--014138e4-674d-51f1-b589-33a88291fd59",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15151,6 +15151,17 @@
       "relationship_type": "has",
       "source_ref": "software--9c7e6ecb-4792-543e-b87b-5923e53d2423",
       "target_ref": "vulnerability--0a41ab72-9206-5a46-819e-c714799af77d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1e6aa7e9-cc3a-5101-8afa-1add5caeba87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--99e48aa7-fc38-5fb9-a18e-bf6665c049bc",
+      "target_ref": "vulnerability--5912ea3d-f8d2-5ef6-b376-ae7c60722ba1"
     },
     {
       "type": "relationship",
@@ -57875,6 +57886,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4c0373d1-8803-57d1-a29e-dd23feda0e75",
       "target_ref": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ac9c9789-af7e-58ae-a452-484bf9a07aa7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d7a49a32-1f56-5e1a-91cc-b1d434d8b0c2",
+      "target_ref": "vulnerability--0a5bfb5a-a04a-550d-a8d5-60dc145497ad"
     },
     {
       "type": "relationship",
@@ -115963,6 +115985,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4c725700-aeec-58b7-863d-93c306ff7398",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:43:22.000Z",
+      "modified": "2026-10-30T21:43:22.000Z",
+      "name": "MONAI: Remote Code Execution in Auto3DSeg (CVE-2026-119578)",
+      "description": "MONAI from 1.6.0 before 1.6.1 contains a remote code execution vulnerability in Auto3DSeg `algo_from_json()` that allows attackers to run Python code via a crafted work directory's `algo_object.json`. Attackers can ship a malicious `algorithm_templates` module plus a `_target_` name that is imported and instantiated when victims call `AutoRunner` or `import_bundle_algo_history`, executing code under default configuration.\n",
+      "published": "2026-10-30T21:43:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d7a49a32-1f56-5e1a-91cc-b1d434d8b0c2",
+        "vulnerability--0a5bfb5a-a04a-550d-a8d5-60dc145497ad"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-monai-rce-1f679264",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-monai-rce-1f679264/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119578"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-monai-rce-1f679264",
+      "x_craftedsignal_event_id": "brief-2026-10-30-monai-rce-1f679264",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-monai-rce-1f679264/",
+      "x_craftedsignal_activity_at": "2026-10-30T21:43:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4caef5b5-8184-53a1-88a3-2cd298544c2d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:38:27.000Z",
@@ -119443,6 +119505,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--56b27877-7b05-5e6d-93a4-43bdc37245bf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:43:49.000Z",
+      "modified": "2026-10-30T21:43:49.000Z",
+      "name": "NetGuard: Insecure permissions in ActivityMain component (CVE-2026-107039)",
+      "description": "CVE-2026-107039 identifies an insecure permission vulnerability in the ActivityMain component of M66B/Marcel Bokhorst NetGuard no-root firewall (versionCode 2026080101/versionName 2.337). This vulnerability allows unauthorized attackers to arbitrarily force a device reset or Denial of Service (DoS). The CVSS v3.1 base score for this vulnerability is 7.5.\n",
+      "published": "2026-10-30T21:43:49.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--270e4e1f-5273-5ed8-bc50-e2e8ebe4781b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-netguard-insecure-permissions",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-netguard-insecure-permissions/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107039"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-netguard-insecure-permissions",
+      "x_craftedsignal_event_id": "brief-2026-10-30-netguard-insecure-permissions",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-netguard-insecure-permissions/",
+      "x_craftedsignal_activity_at": "2026-10-30T21:43:49.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00198,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -147202,6 +147304,46 @@
       },
       "x_craftedsignal_cvss_max": 5.3,
       "x_craftedsignal_epss_max": 0.00443,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--993b9176-6a9b-5699-9756-299812da9f9f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:43:41.000Z",
+      "modified": "2026-10-30T21:43:41.000Z",
+      "name": "Leaf Note: Insecure permissions arbitrary data access (CVE-2026-107034)",
+      "description": "LeafPad / Leaf Note version 1.21 (versionCode 21) is affected by an insecure permissions vulnerability. This flaw allows unauthorized attackers to arbitrarily read another user's note data. The vulnerability is assigned CVE-2026-107034 and a CVSS v3.1 base score of 9.1.\n",
+      "published": "2026-10-30T21:43:41.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--99e48aa7-fc38-5fb9-a18e-bf6665c049bc",
+        "vulnerability--5912ea3d-f8d2-5ef6-b376-ae7c60722ba1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-leaf-note-insecure-permissions",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-leaf-note-insecure-permissions/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107034"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-leaf-note-insecure-permissions",
+      "x_craftedsignal_event_id": "brief-2026-10-30-leaf-note-insecure-permissions",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-leaf-note-insecure-permissions/",
+      "x_craftedsignal_activity_at": "2026-10-30T21:43:41.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -203070,6 +203212,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--99e48aa7-fc38-5fb9-a18e-bf6665c049bc",
+      "name": "Leaf Note (v1.21, versionCode 21)",
+      "vendor": "LeafPad"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9a42749d-60df-5205-8538-ef9969fbf548",
       "name": "Qualcomm aqt1000 Firmware (All versions)"
     },
@@ -207394,6 +207543,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d7a49a32-1f56-5e1a-91cc-b1d434d8b0c2",
+      "name": "MONAI 1.6.0 (\u003c 1.6.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d7a6ec61-7eb6-579a-94ae-4f3a69e7dffd",
       "name": "Vim",
       "vendor": "Vim"
@@ -211586,6 +211741,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114196",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114196"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0a5bfb5a-a04a-550d-a8d5-60dc145497ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119578",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119578",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119578"
         }
       ]
     },
@@ -215938,6 +216109,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106173",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106173"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--270e4e1f-5273-5ed8-bc50-e2e8ebe4781b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107039",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107039",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107039"
         }
       ]
     },
@@ -223218,6 +223405,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-45065",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-45065"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5912ea3d-f8d2-5ef6-b376-ae7c60722ba1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107034",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107034",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107034"
         }
       ]
     },
