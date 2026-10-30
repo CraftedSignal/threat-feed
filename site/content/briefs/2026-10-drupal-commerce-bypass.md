@@ -1,19 +1,38 @@
 ---
 brief_id: brief-2026-10-30-drupal-commerce-bypass
 event_id: brief-2026-10-30-drupal-commerce-bypass
-revision: 1
-activity_at: "2026-10-30T11:41:41Z"
+revision: 2
+activity_at: "2026-10-30T21:33:35Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-30T21:33:35Z"
+    checksum: sha256:388ee12cebeb6ce8aa2b595f503169886fbeb291117fc2d9629cb5e2a7256d4b
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1105
 title: 'Drupal Commerce Core: Access Bypass Vulnerability (CVE-2026-118539)'
 slug: 2026-10-drupal-commerce-bypass
 description: An unauthenticated access bypass vulnerability in the Drupal Commerce Core module is being actively exploited in the wild, leading to potential financial impact on affected e-commerce platforms.
 date: "2026-10-30T11:41:41Z"
+lastmod: "2026-10-30T21:33:03Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
   - critical
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1105
+  observed_at: "2026-10-30T15:43:17Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -46,6 +65,7 @@ cves:
     kev_status: "false"
 references:
   - https://www.securityweek.com/drupal-commerce-core-vulnerability-exploited-against-online-stores/
+  - https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1105
 action_plan:
   priority: immediate_escalation
   owners:
@@ -73,6 +93,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-118539
       evidence: Drupal security advisory
+updates:
+  - at: "2026-10-30T21:33:03Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1105
 ---
 
 Drupal has identified a highly critical access bypass vulnerability, tracked as CVE-2026-118539, affecting the Commerce Core module. The vulnerability allows unauthenticated attackers to exploit insufficient protection on specific routes and entity fields. The Drupal security team has assigned this issue a risk score of 21/25, noting that it is being actively exploited in the wild.

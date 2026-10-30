@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae01b425-f651-557d-8e16-4883d9208c54",
+  "id": "bundle--04bd58bb-6b46-5592-8262-886ad3606e55",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25465,7 +25465,7 @@
       "id": "relationship--42ba29b0-b852-5cd0-bc30-01dfc1da7416",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T11:41:41.000Z",
-      "modified": "2026-10-30T11:41:41.000Z",
+      "modified": "2026-10-30T21:33:35.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2e1c2fdd-b2a5-5514-a54c-c892e78526a9",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -93788,13 +93788,17 @@
       "id": "report--198f8d95-6146-5f0a-9d82-13d9bb756602",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T21:19:42.000Z",
-      "modified": "2026-10-30T21:19:42.000Z",
+      "modified": "2026-10-30T21:33:35.000Z",
       "name": "MongoDB: Multiple vulnerabilities (CVE-2026-116641, CVE-2026-118510, CVE-2026-118581)",
       "description": "## Overview\n\nMultiple vulnerabilities have been identified across several MongoDB components. These flaws may allow an attacker to compromise data integrity, perform SQL injection (SQLi), and bypass established security policies. The affected products include MongoDB Database Tools, Java Driver, and Laravel MongoDB. Users and administrators are advised to apply the patches provided in the referenced vendor security bulletins.\n\n## Impact\n\nSuccessful exploitation may result in unauthorized data modification, injection of malicious SQL commands, or bypassing intended security controls within the affected MongoDB environments.\n\n## Recommendation\n\n- Inventory all systems running MongoDB Database Tools, MongoDB Java Driver, or the Laravel MongoDB integration.\n- Upgrade MongoDB Database Tools to version 100.20.0 or later.\n- Upgrade MongoDB Java Driver to version r5.14.0 or later.\n- Upgrade Laravel MongoDB to version 5.12.0 or later.\n- Review application logs for anomalous SQL queries or unauthorized access patterns following the upgrade.\n",
       "published": "2026-10-30T21:19:42.000Z",
       "labels": [
         "database",
+        "informational",
+        "laravel",
         "mongodb",
+        "php",
+        "supply-chain",
         "vulnerability"
       ],
       "object_refs": [
@@ -93814,11 +93818,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/mongodb-security-advisory-av26-1107"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/mongodb/laravel-mongodb/releases/tag/5.12.0"
         },
         {
           "source_name": "reference",
           "url": "https://github.com/mongodb/mongo-java-driver/releases/tag/r5.14.0"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://jira.mongodb.org/browse/PHPLARA-148"
         },
         {
           "source_name": "reference",
@@ -93839,14 +93851,18 @@
         {
           "source_name": "reference",
           "url": "https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.20.0-changelog/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.mongodb.com/resources/products/alerts"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-mongodb-vulns",
       "x_craftedsignal_event_id": "brief-2026-10-30-mongodb-vulns",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mongodb-vulns/",
-      "x_craftedsignal_activity_at": "2026-10-30T21:19:42.000Z",
+      "x_craftedsignal_activity_at": "2026-10-30T21:33:35.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -102070,7 +102086,7 @@
       "id": "report--2e1c2fdd-b2a5-5514-a54c-c892e78526a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T11:41:41.000Z",
-      "modified": "2026-10-30T11:41:41.000Z",
+      "modified": "2026-10-30T21:33:35.000Z",
       "name": "Drupal Commerce Core: Access Bypass Vulnerability (CVE-2026-118539)",
       "description": "## Overview\n\nDrupal has identified a highly critical access bypass vulnerability, tracked as CVE-2026-118539, affecting the Commerce Core module. The vulnerability allows unauthenticated attackers to exploit insufficient protection on specific routes and entity fields. The Drupal security team has assigned this issue a risk score of 21/25, noting that it is being actively exploited in the wild.\n\n## Impact\n\nThe vulnerability poses a direct financial risk to vendors using the affected module. Exploitation may allow attackers to manipulate commerce-related data, including the checkout process and order states. Drupal specifically urges administrators to audit store orders for inconsistencies.\n\n## Recommendation\n\n- Upgrade the Drupal Commerce Core module to version 3.3.13 or 8.x-2.41 immediately.\n- Review all commerce transactions and order logs for unauthorized changes, inconsistencies, or anomalies that occurred prior to patching.\n- Audit Drupal instances for the presence of the vulnerable Commerce Core module versions if not already managed via centralized inventory.\n",
       "published": "2026-10-30T11:41:41.000Z",
@@ -102095,19 +102111,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1105"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/drupal-commerce-core-vulnerability-exploited-against-online-stores/"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-30-drupal-commerce-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-30-drupal-commerce-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-drupal-commerce-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-30T11:41:41.000Z",
+      "x_craftedsignal_activity_at": "2026-10-30T21:33:35.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://cyber.gc.ca/en/alerts-advisories/drupal-security-advisory-av26-1105",
+        "observed_at": "2026-10-30T15:43:17.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_kev_status": "false"
     },
