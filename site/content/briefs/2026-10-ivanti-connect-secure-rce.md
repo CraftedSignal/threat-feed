@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-13-ivanti-connect-secure-rce
 event_id: brief-2026-10-13-ivanti-connect-secure-rce
-revision: 4
-activity_at: "2026-10-29T21:04:24Z"
+revision: 5
+activity_at: "2026-10-30T14:42:36Z"
 revision_history:
   - revision: 2
     at: "2026-10-23T19:51:54Z"
@@ -45,11 +45,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - revision: 5
+    at: "2026-10-30T14:42:36Z"
+    checksum: sha256:26a12b11380e76ba9741c910fbc9ed26f9e3110f48214b22885929dc67e01de7
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
 title: Remote Code Execution Vulnerability in Ivanti Connect Secure
 slug: 2026-10-ivanti-connect-secure-rce
 description: An unauthenticated remote code execution vulnerability (CVE-2026-104935) in Ivanti Connect Secure is being actively exploited in the wild, enabling attackers to gain control over affected systems.
 date: "2026-10-13T16:47:01Z"
-lastmod: "2026-10-29T21:01:46Z"
+lastmod: "2026-10-30T14:42:03Z"
 type: threat
 claim_state: <nil>
 types:
@@ -83,6 +93,7 @@ products:
   - Connect Secure (<= 25.1.1.1)
   - Connect Secure (<= 25.1.2.2)
   - Connect Secure (<= 22.8R2.4)
+  - Ivanti Connect Secure (<= 25.1.1.1, <= 25.1.2.2, <= 22.8R2.4)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -164,6 +175,13 @@ updates:
   - at: "2026-10-29T21:01:46Z"
     level: L2
     summary: added CVE-2026-111357
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/ivanti-connect-secure-cve-2026-104935
+  - at: "2026-10-30T14:42:03Z"
+    level: L1
+    summary: new product
     sources:
       - pwn-watch
     source_urls:
