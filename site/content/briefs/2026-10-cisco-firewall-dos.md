@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-cisco-firewall-dos
 event_id: brief-2026-10-29-cisco-firewall-dos
-revision: 4
-activity_at: "2026-10-29T18:44:03Z"
+revision: 5
+activity_at: "2026-10-30T09:28:03Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T11:37:05Z"
@@ -49,11 +49,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/cisco-asa-ftd-ssl-vpn-dos-zero-day-cve-2026-76418
+  - revision: 5
+    at: "2026-10-30T09:28:03Z"
+    checksum: sha256:2faf39e743d7853384b1a5045d2947ae130a84691d0cd23a188037d6596d1791
+    summary: added coverage for Secure Firewall Adaptive Security Appliance (ASA) Software +1 products
+    changed_fields:
+      - action_plan
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-secure-firewall-asa-and-ftd-could-allow-for-denial-of-service_2026-124
 title: 'Cisco Secure Firewall ASA and FTD: Denial of Service via SSL VPN (CVE-2026-76418)'
 slug: 2026-10-cisco-firewall-dos
 description: Cisco patched an actively exploited logic vulnerability (CVE-2026-76418) in the SSL VPN service of ASA and FTD software that allows unauthenticated attackers to trigger a device reload and denial-of-service condition.
 date: "2026-10-29T10:03:00Z"
-lastmod: "2026-10-29T18:42:02Z"
+lastmod: "2026-10-30T09:26:37Z"
 type: threat
 claim_state: <nil>
 types:
@@ -99,6 +111,18 @@ mitre_ttps:
     technique_name: Network Denial of Service
     evidence: Successful exploit could allow the attacker to cause the affected device to reload, resulting in a DoS condition.
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1190
+    technique_name: Exploit Public-Facing Application
+    evidence: An unauthenticated remote attacker could send a crafted request when connecting to the SSL renote access VPN service on a device where secondary authentication is configured on a tunnel group (CVE-2026-76418).
+    confidence_band: high
+  - tactic_id: TA0040
+    tactic_name: Impact
+    technique_id: T1499.004
+    technique_name: Application or System Exploitation
+    evidence: Successful exploitation could cause the affected device to reload unexpectedly, resulting in a DoS condition (CVE-2026-76418).
+    confidence_band: high
 cves:
   - id: CVE-2026-76418
     cvss: 8.6
@@ -111,11 +135,13 @@ references:
   - https://pwn.watch/i/cisco-asa-ftd-ssl-vpn-dos-zero-day-cve-2026-76418
   - https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-tunnel-dos-s6mgkb75
   - https://nvd.nist.gov/vuln/detail/CVE-2026-76418
+  - https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-secure-firewall-asa-and-ftd-could-allow-for-denial-of-service_2026-124
 action_plan:
   priority: immediate_escalation
   owners:
     - IT Operations
     - SOC
+    - Security Operations
   immediate_actions:
     - action: Patch ASA/FTD software to versions containing the fix for CVE-2026-76418
       owner: IT Operations
@@ -125,6 +151,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: Source advisory indicates vulnerability affects Cisco Secure Firewall and ASA.
+    - action: Inventory all Cisco ASA and FTD appliances and identify devices with SSL VPN secondary authentication enabled.
+      owner: IT Operations
+      due: 24h
+      evidence: Source states vulnerability affects devices with secondary authentication configured on a tunnel group.
   hunt_leads:
     - lead: Identify devices with SSL VPN enabled and secondary authentication configured in tunnel groups
       technique_id: T1190
@@ -134,6 +164,15 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Cisco states vulnerability occurs when secondary-authentication-server-group is configured in tunnel group scope
+    - lead: Monitor device logs and SNMP traps for unexpected system reloads or crash dumps associated with VPN connection attempts.
+      technique_id: T1499.004
+      data_needed:
+        - Cisco ASA/FTD Syslog
+        - SNMP Traps
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Successful exploitation could cause the affected device to reload unexpectedly.
   mitigation_plan:
     - priority: immediate
       action: Disable secondary authentication on tunnel groups or DefaultWEBVPNGroup if currently exposed
@@ -145,6 +184,11 @@ action_plan:
       owner: IT Operations
       addresses: Cisco Secure Firewall Threat Defense and ASA vulnerability
       evidence: BSI Security Advisory WID-SEC-2026-4238
+    - priority: immediate
+      action: Upgrade to the latest patched software release as recommended by Cisco.
+      owner: IT Operations
+      addresses: CVE-2026-76418
+      evidence: Cisco states that no workarounds address this vulnerability.
 updates:
   - at: "2026-10-29T11:36:24Z"
     level: L1
@@ -167,6 +211,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/cisco-asa-ftd-ssl-vpn-dos-zero-day-cve-2026-76418
+  - at: "2026-10-30T09:26:37Z"
+    level: L1
+    summary: added coverage for Secure Firewall Adaptive Security Appliance (ASA) Software +1 products
+    sources:
+      - ms-isac
+    source_urls:
+      - https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-secure-firewall-asa-and-ftd-could-allow-for-denial-of-service_2026-124
 ---
 
 Cisco has released security patches for a high-severity vulnerability (CVE-2026-76418) affecting the Remote Access SSL VPN service in Cisco Secure Firewall ASA and FTD software. The flaw, which stems from logic errors when secondary authentication is configured on a tunnel group, can be exploited by an unauthenticated, remote attacker sending a crafted request. Successful exploitation causes the affected device to reload unexpectedly, resulting in a denial-of-service (DoS) condition. Cisco confirmed active exploitation of this vulnerability as of October 2026.

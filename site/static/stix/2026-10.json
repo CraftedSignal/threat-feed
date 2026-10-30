@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--527e441f-213a-5ca8-90b6-1cad95c1f626",
+  "id": "bundle--289d3c3b-0b71-57db-810c-55c7ad08fa7c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7099,6 +7099,17 @@
       "relationship_type": "has",
       "source_ref": "software--acc8eba1-cf00-58b9-8805-774d114631ae",
       "target_ref": "vulnerability--53f41e92-b7f8-586a-ae83-6be23c59326d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--04201709-51b9-5c44-8a63-3b91de90b636",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T10:03:00.000Z",
+      "modified": "2026-10-30T09:28:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
+      "target_ref": "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89"
     },
     {
       "type": "relationship",
@@ -22855,6 +22866,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3e7b624f-2f48-5fc8-b37d-d311337567f1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2a4b0a5f-f46d-5a1e-9e81-9046df116cd2",
+      "target_ref": "vulnerability--3b912406-c940-51e3-a461-e3bb43cf1d8a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3e7ee174-aa80-513f-9ed1-3d7def96e991",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T03:52:47.000Z",
@@ -33008,6 +33030,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6262c3d9-d7f9-5ef5-af09-f4d64f899c83",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:26:40.000Z",
+      "modified": "2026-10-30T09:26:40.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--006f87d2-f1b0-5ede-bbaa-98a289bcb2ef",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6276a880-114c-5f65-95d1-89353f64a976",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T12:02:59.000Z",
@@ -37455,7 +37488,7 @@
       "id": "relationship--71b597b3-1351-5d1a-9161-ff468ddf5363",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T10:03:00.000Z",
-      "modified": "2026-10-29T18:44:03.000Z",
+      "modified": "2026-10-30T09:28:03.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
       "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
@@ -66954,6 +66987,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8ef464b-4044-59de-a898-0548bd3a7141",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8535e4c7-2015-51c1-a3dd-ad0643fd08c7",
+      "target_ref": "vulnerability--ab50d76f-5a67-568e-b24a-4510b9103a4f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d907fcd4-0f55-5a3d-aa61-ab1159f090b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T01:10:01.000Z",
@@ -68182,6 +68226,17 @@
       "relationship_type": "has",
       "source_ref": "software--5e71e4fe-af08-5f85-90c8-82517bda58bb",
       "target_ref": "vulnerability--94959a40-fede-54e9-8440-2ced258dac0c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dd0f8f0b-21c9-5844-b513-80f02621021d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-29T10:03:00.000Z",
+      "modified": "2026-10-30T09:28:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -69876,6 +69931,17 @@
       "relationship_type": "has",
       "source_ref": "software--3cd97d40-bbb4-542b-b568-c5047d58d3ad",
       "target_ref": "vulnerability--b76b6d38-3f8b-5549-9897-46d83d343f88"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e29ebd76-6fed-52a2-a7cb-0216bdeafd56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--4c60869b-d334-5ec4-8f4a-aa90dd2b28f8",
+      "target_ref": "vulnerability--02d0f3c8-b508-5b05-a44c-662fcd3f6a1d"
     },
     {
       "type": "relationship",
@@ -78413,6 +78479,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--006f87d2-f1b0-5ede-bbaa-98a289bcb2ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:26:40.000Z",
+      "modified": "2026-10-30T09:26:40.000Z",
+      "name": "Gravity Forms: PHP object injection in Post Custom Fields (CVE-2026-103039)",
+      "description": "## Overview\nGravity Forms versions 3.1.2 and earlier contain a PHP object injection vulnerability within the List input type of Post Custom Fields. The plugin incorrectly uses the native WordPress global `maybe_unserialize()` function instead of the secure `GFCommon::maybe_unserialize()` method. This allows unauthenticated attackers to supply serialized PHP objects. While the plugin contains no native gadget chains, exploitation is possible if other installed plugins, themes, or the WordPress core itself contain compatible gadgets. Notably, targeting the `_wp_page_template` meta key allows for RCE on environments where `register_argc_argv` is enabled and a PEAR installation is accessible.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to perform remote code execution if a suitable gadget chain exists in the WordPress environment.\n\n## Recommendation\n- Update the Gravity Forms plugin to the latest version (patch released by Rocketgenius).\n- Audit the WordPress site for plugins or themes that may contain dangerous deserialization gadget chains.\n- Disable the `register_argc_argv` PHP configuration if not strictly required to mitigate the core-based gadget chain.\n- Review custom field configurations to identify if they are mapped to sensitive meta keys like `_wp_page_template`.\n",
+      "published": "2026-10-30T09:26:40.000Z",
+      "labels": [
+        "deserialization",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8535e4c7-2015-51c1-a3dd-ad0643fd08c7",
+        "vulnerability--ab50d76f-5a67-568e-b24a-4510b9103a4f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-gravity-forms-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gravity-forms-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103039"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-gravity-forms-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-30-gravity-forms-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gravity-forms-injection/",
+      "x_craftedsignal_activity_at": "2026-10-30T09:26:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -92993,7 +93105,7 @@
       "id": "report--2707c7c7-da4b-58f4-bd02-abe6f3aa59fe",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T10:03:00.000Z",
-      "modified": "2026-10-29T18:44:03.000Z",
+      "modified": "2026-10-30T09:28:03.000Z",
       "name": "Cisco Secure Firewall ASA and FTD: Denial of Service via SSL VPN (CVE-2026-76418)",
       "description": "## Overview\nCisco has released security patches for a high-severity vulnerability (CVE-2026-76418) affecting the Remote Access SSL VPN service in Cisco Secure Firewall ASA and FTD software. The flaw, which stems from logic errors when secondary authentication is configured on a tunnel group, can be exploited by an unauthenticated, remote attacker sending a crafted request. Successful exploitation causes the affected device to reload unexpectedly, resulting in a denial-of-service (DoS) condition. Cisco confirmed active exploitation of this vulnerability as of October 2026.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to trigger an unexpected device reload, resulting in a complete denial-of-service for the affected network appliance.\n\n## Recommendation\n- Immediately apply the available software patches for your version of Cisco Secure Firewall ASA or FTD.\n- If immediate patching is not feasible, implement the recommended workarounds: disable the tunnel group list if 'DefaultWEBVPNGroup' does not use secondary authentication, or disable secondary authentication on any user-configured or default tunnel groups ('DefaultWEBVPNGroup').\n- Review the deployed remote access VPN policy and current device configuration via Cisco Secure FMC or FDM to identify active secondary authentication configurations.\n",
       "published": "2026-10-29T10:03:00.000Z",
@@ -93006,6 +93118,8 @@
         "vpn"
       ],
       "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--7fbd6d58-7528-54d9-a63e-ba73ac098f89",
         "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--069488c4-d931-5baf-bfa7-9c72c0112452",
@@ -93046,15 +93160,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cisecurity.org/advisory/a-vulnerability-in-cisco-secure-firewall-asa-and-ftd-could-allow-for-denial-of-service_2026-124"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-cisco-firewall-dos",
       "x_craftedsignal_event_id": "brief-2026-10-29-cisco-firewall-dos",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cisco-firewall-dos/",
-      "x_craftedsignal_activity_at": "2026-10-29T18:44:03.000Z",
+      "x_craftedsignal_activity_at": "2026-10-30T09:28:03.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -117124,6 +117242,46 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--602435d6-2c79-5c6b-a973-69856eaac2b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:27:24.000Z",
+      "modified": "2026-10-30T09:27:24.000Z",
+      "name": "Gravity Forms: Stored Cross-Site Scripting (CVE-2026-97645)",
+      "description": "The Gravity Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the List Field in all versions up to, and including, 3.1.2. This vulnerability stems from insufficient input sanitization and output escaping, allowing unauthenticated attackers to inject arbitrary web scripts. The injected scripts execute when an administrator accesses an injected page, clicks the injected link in the entry detail view, and confirms a dialog. This action triggers the admin JavaScript bundle's delegated data-dialog-callback handler to invoke the attacker-supplied function reference.\n",
+      "published": "2026-10-30T09:27:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2a4b0a5f-f46d-5a1e-9e81-9046df116cd2",
+        "vulnerability--3b912406-c940-51e3-a461-e3bb43cf1d8a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-gravity-forms-xss-d96f0cfe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gravity-forms-xss-d96f0cfe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97645"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-gravity-forms-xss-d96f0cfe",
+      "x_craftedsignal_event_id": "brief-2026-10-30-gravity-forms-xss-d96f0cfe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gravity-forms-xss-d96f0cfe/",
+      "x_craftedsignal_activity_at": "2026-10-30T09:27:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -145289,6 +145447,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a5dfaada-3493-503a-9d8d-5470ad04fa4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:27:14.000Z",
+      "modified": "2026-10-30T09:27:14.000Z",
+      "name": "Gravity Forms: Stored Cross-Site Scripting via Post Excerpt (CVE-2026-90437)",
+      "description": "The Gravity Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Post Excerpt, Post Custom Field, and Rich-Text Paragraph field values in versions up to and including 3.1.1. Unauthenticated attackers can inject arbitrary web scripts that execute when a user accesses an injected page. This occurs because the plugin allows raw HTML submissions and improperly handles entity-encoded payloads in `data-dialog-confirm` attributes, which are subsequently decoded and executed by the plugin's admin JavaScript via `insertAdjacentHTML()`.\n",
+      "published": "2026-10-30T09:27:14.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--8fd610c1-e529-59c1-a0c5-88fcac5c6262"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-gravity-forms-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-gravity-forms-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90437"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-gravity-forms-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-30-gravity-forms-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gravity-forms-xss/",
+      "x_craftedsignal_activity_at": "2026-10-30T09:27:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -180959,6 +181156,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe034a14-b885-5560-95bf-692f731040cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:26:57.000Z",
+      "modified": "2026-10-30T09:26:57.000Z",
+      "name": "The Food Store WordPress plugin: Stored Cross-Site Scripting (CVE-2026-116622)",
+      "description": "## Overview\n\nThe Food Store - Online Food Delivery \u0026 Pickup plugin for WordPress is vulnerable to Stored Cross-Site Scripting (XSS) via the 'service_time' parameter. The vulnerability stems from insufficient input sanitization and output escaping. An unauthenticated attacker can exploit this to inject arbitrary JavaScript that executes in the context of a user's browser session.\n\nThe vulnerability is exploitable only under a specific non-default configuration: the 'Enable Checkout Service Fields' option must be disabled, while the 'Enable Pickup/Delivery Service' option must be enabled.\n\n## Impact\n\nSuccessful exploitation allows for the execution of arbitrary web scripts in the browser of a victim, such as an administrator, which could lead to session hijacking, unauthorized actions performed on behalf of the user, or redirection to malicious content.\n\n## Recommendation\n\n- Upgrade \"The Food Store - Online Food Delivery \u0026 Pickup\" plugin to the latest version beyond 1.5.5 immediately.\n- If an update is unavailable, temporarily disable the 'Enable Pickup/Delivery Service' setting until a patch is applied.\n- Review WordPress audit logs for unusual POST requests targeting 'service_time' parameters.\n",
+      "published": "2026-10-30T09:26:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4c60869b-d334-5ec4-8f4a-aa90dd2b28f8",
+        "vulnerability--02d0f3c8-b508-5b05-a44c-662fcd3f6a1d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-food-store-xss-0425c09a",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-food-store-xss-0425c09a/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116622"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-food-store-xss-0425c09a",
+      "x_craftedsignal_event_id": "brief-2026-10-30-food-store-xss-0425c09a",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-food-store-xss-0425c09a/",
+      "x_craftedsignal_activity_at": "2026-10-30T09:26:57.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe3a6df4-4dbd-5319-b9f6-f16bad366361",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T15:12:14.000Z",
@@ -185392,6 +185629,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2a4b0a5f-f46d-5a1e-9e81-9046df116cd2",
+      "name": "Gravity Forms (\u003c= 3.1.2)",
+      "vendor": "Gravity Forms"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2a5a3615-767f-5c42-b6be-04c98ed97268",
       "name": "Discover-Tech (ad brokering services)",
       "vendor": "Candiru"
@@ -187728,6 +187972,13 @@
       "spec_version": "2.1",
       "id": "software--4c5d9fd7-29d7-5a65-b036-95e0f92480a3",
       "name": "SQL Server (\u003c 1.14.1.1128)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4c60869b-d334-5ec4-8f4a-aa90dd2b28f8",
+      "name": "The Food Store – Online Food Delivery \u0026 Pickup (\u003c= 1.5.5)",
+      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -192014,6 +192265,13 @@
       "id": "software--852f1e50-ea56-5060-8223-afaaed5058c9",
       "name": "Relevanssi – A Better Search (\u003c= 4.28.3)",
       "vendor": "Relevanssi"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8535e4c7-2015-51c1-a3dd-ad0643fd08c7",
+      "name": "Gravity Forms (\u003c= 3.1.2)",
+      "vendor": "Rocketgenius"
     },
     {
       "type": "software",
@@ -200834,6 +201092,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--02d0f3c8-b508-5b05-a44c-662fcd3f6a1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116622",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116622",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116622"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--0316bbdd-449a-577f-8fd0-8a783c121a18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -208828,6 +209102,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106634",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106634"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3b912406-c940-51e3-a461-e3bb43cf1d8a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-97645",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-97645",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97645"
         }
       ]
     },
@@ -220194,6 +220484,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--8fd610c1-e529-59c1-a0c5-88fcac5c6262",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-90437",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-90437",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90437"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--8fefcaba-eeaa-5fa5-b94d-937455770380",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -224028,6 +224334,22 @@
           "source_name": "cve",
           "external_id": "CVE-2020-16152",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-16152"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ab50d76f-5a67-568e-b24a-4510b9103a4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103039",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103039",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103039"
         }
       ]
     },
