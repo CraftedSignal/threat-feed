@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f5dadc45-bfc6-5fa4-b3d3-3f22b9e0203d",
+  "id": "bundle--53348b5b-b228-5c7e-b2b6-f4199de36093",
   "objects": [
     {
       "type": "attack-pattern",
@@ -139100,6 +139100,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--93d354d9-dd90-5fc8-ab82-5c1c6970d461",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T03:15:06.000Z",
+      "modified": "2026-10-30T03:15:06.000Z",
+      "name": "Suricata: Multiple denial-of-service vulnerabilities",
+      "description": "## Overview\nSuricata version 8.0.8 addresses several high-severity vulnerabilities affecting protocol inspection. These flaws, identified in internal issues #9085, #9101, #9104, and #9133, allow for denial-of-service conditions through resource exhaustion or application crashes.\n\n## Impact\nThe identified vulnerabilities can cause Suricata to cease inspection or crash when processing specifically crafted network traffic, potentially creating a blind spot in network monitoring. Observed impacts include CPU exhaustion, memory exhaustion, and service termination.\n\n## Recommendation\n- Upgrade all Suricata deployments to version 8.0.8 or later immediately.\n- Review network infrastructure logs for evidence of anomalous spikes in resource usage on Suricata sensors corresponding to the protocol parsing activities (TFTP, SIP, HTTP/2, DoH/2).\n",
+      "published": "2026-10-30T03:15:06.000Z",
+      "labels": [
+        "denial-of-service",
+        "network-security",
+        "patch-management"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--157f56d2-7ddb-5880-8c86-aa9a032a219e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-suricata-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-suricata-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/438"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-suricata-vulns",
+      "x_craftedsignal_event_id": "brief-2026-10-30-suricata-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-suricata-vulns/",
+      "x_craftedsignal_activity_at": "2026-10-30T03:15:06.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9407122e-6c33-5d47-b4a7-a431710e3fca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T23:35:02.000Z",
@@ -186736,6 +186779,13 @@
       "spec_version": "2.1",
       "id": "software--155dec2c-8e0a-5941-b976-ab4653ef16c4",
       "name": "ppt2png (\u003c= 0.0.6)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--157f56d2-7ddb-5880-8c86-aa9a032a219e",
+      "name": "Suricata (\u003c 8.0.8)",
+      "vendor": "Suricata"
     },
     {
       "type": "software",
