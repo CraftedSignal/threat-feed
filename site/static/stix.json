@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--10405162-b401-5343-a4b4-556fc5ad1925",
+  "id": "bundle--71caa41d-4582-539d-a67f-c51620112b57",
   "objects": [
     {
       "type": "attack-pattern",
@@ -27799,6 +27799,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--49e41df7-94b5-594e-9a3d-d657257bcdba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--13991476-48f0-5f21-a289-ab5a3e5e493c",
+      "target_ref": "vulnerability--f9e5c285-8068-5f46-bca1-ca65f5449949"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--49f35e7c-687a-5da9-894d-b5d7c535f448",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T09:07:33.000Z",
@@ -48475,6 +48486,17 @@
       "relationship_type": "has",
       "source_ref": "software--24698d83-0d42-5ab7-8c6d-1545010d4b73",
       "target_ref": "vulnerability--99602ab1-98f7-5883-9c2d-872ec5065a76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ca2e090-ae2e-5440-afa0-1fea3c1599a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b9ff3e95-bdf8-55df-8c75-a39a2c0e293b",
+      "target_ref": "vulnerability--d3738e5d-06a5-56dc-b314-ebbed2ac2196"
     },
     {
       "type": "relationship",
@@ -160217,6 +160239,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b6ec454d-86d1-5a93-b532-5e60803c1bd0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:46:22.000Z",
+      "modified": "2026-10-30T23:46:22.000Z",
+      "name": "sniproxy: NULL pointer dereference in resolv_cancel (CVE-2026-119760)",
+      "description": "sniproxy through 0.7.0 contains a NULL pointer dereference vulnerability in `resolv_cancel()` that allows remote unauthenticated attackers to crash the daemon. Attackers can send a 254 or 255 character TLS SNI name or HTTP Host header matching a wildcard backend, then close the connection to terminate the proxy.\n",
+      "published": "2026-10-30T23:46:22.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b9ff3e95-bdf8-55df-8c75-a39a2c0e293b",
+        "vulnerability--d3738e5d-06a5-56dc-b314-ebbed2ac2196"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-sniproxy-null-pointer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-sniproxy-null-pointer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119760"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-sniproxy-null-pointer",
+      "x_craftedsignal_event_id": "brief-2026-10-30-sniproxy-null-pointer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sniproxy-null-pointer/",
+      "x_craftedsignal_activity_at": "2026-10-30T23:46:22.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b701d4e1-5188-56c0-b405-eb6bf76af652",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T15:04:12.000Z",
@@ -177176,6 +177238,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--df9cc0f5-e71d-5015-bcd5-984a0a4a91bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:46:36.000Z",
+      "modified": "2026-10-30T23:46:36.000Z",
+      "name": "Forkyz: Storage settings modification vulnerability (CVE-2026-107049)",
+      "description": "## Overview\nForkyz versionCode 8500000 contains a vulnerability (CVE-2026-107049) that allows attackers to arbitrarily change another user's storage settings by supplying a crafted URI string.\n\n## References\n- https://nvd.nist.gov/vuln/detail/CVE-2026-107049\n",
+      "published": "2026-10-30T23:46:36.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--13991476-48f0-5f21-a289-ab5a3e5e493c",
+        "vulnerability--f9e5c285-8068-5f46-bca1-ca65f5449949"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-forkyz-storage-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-forkyz-storage-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107049"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-forkyz-storage-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-30-forkyz-storage-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-forkyz-storage-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-30T23:46:36.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00166,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--dfe17a8b-862e-5fe6-904d-63e6d07db225",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T09:45:57.000Z",
@@ -193314,6 +193417,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--13991476-48f0-5f21-a289-ab5a3e5e493c",
+      "name": "Forkyz (versionCode 8500000)",
+      "vendor": "Forkyz"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--13a7a2b4-9e79-5916-bf0c-8f74550fa2d0",
       "name": "Zephyr RTOS (\u003c current patched versions)"
     },
@@ -205744,6 +205854,13 @@
       "id": "software--b9c0b530-928d-581a-a9f9-2d77c0fd4665",
       "name": "libmongocrypt (\u003c 1.21.1)",
       "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b9ff3e95-bdf8-55df-8c75-a39a2c0e293b",
+      "name": "sniproxy (through 0.7.0)",
+      "vendor": "sniproxy"
     },
     {
       "type": "software",
@@ -240927,6 +241044,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--d3738e5d-06a5-56dc-b314-ebbed2ac2196",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119760",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119760",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119760"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--d373c129-af36-5a35-afe1-49c1c65f1b85",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -246313,6 +246446,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76302",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76302"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--f9e5c285-8068-5f46-bca1-ca65f5449949",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107049",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107049",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107049"
         }
       ]
     },
