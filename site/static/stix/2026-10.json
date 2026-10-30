@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8847b451-1ee2-5461-8264-be10c8e9e175",
+  "id": "bundle--d38e7f8e-b5b3-5036-955f-87b17d298a19",
   "objects": [
     {
       "type": "attack-pattern",
@@ -21095,6 +21095,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--363129a7-e9d3-5036-ab57-0e8d16e069d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:17:08.000Z",
+      "modified": "2026-10-30T21:17:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73826e24-dde1-5baf-91fb-f08c2837878e",
+      "target_ref": "attack-pattern--f198ff96-24d2-5e63-a16c-7bd8ef92750c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--363521a6-d78b-56ad-bc24-23c03a2e081d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34482,6 +34493,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--659c0d5e-fc4a-545e-bd80-2c3cfe2c6841",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:17:08.000Z",
+      "modified": "2026-10-30T21:17:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73826e24-dde1-5baf-91fb-f08c2837878e",
+      "target_ref": "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--659c8522-2a71-5ce3-a4c7-2479f4d6f590",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -36737,6 +36759,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6d294d5a-aba3-56c4-ab6a-4cf4b07590d6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:17:08.000Z",
+      "modified": "2026-10-30T21:17:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73826e24-dde1-5baf-91fb-f08c2837878e",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6d3455a3-d343-5931-b202-8f2e23ab08be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37470,6 +37503,17 @@
       "relationship_type": "has",
       "source_ref": "software--f28015ea-3094-5bb3-bf4a-3e90ddc90c2c",
       "target_ref": "vulnerability--5ce4679e-6aef-580d-8fd2-790389857839"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6f926f6c-26f2-5ff6-adc7-cb52dd11dfca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:17:08.000Z",
+      "modified": "2026-10-30T21:17:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73826e24-dde1-5baf-91fb-f08c2837878e",
+      "target_ref": "attack-pattern--9febe61e-7170-505d-b11c-0180a3aabe93"
     },
     {
       "type": "relationship",
@@ -127527,6 +127571,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--73826e24-dde1-5baf-91fb-f08c2837878e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T21:17:08.000Z",
+      "modified": "2026-10-30T21:17:08.000Z",
+      "name": "Microsoft Teams help desk impersonation and AD CS abuse",
+      "description": "## Overview\nMicrosoft observed intrusions where actors used Microsoft Teams to impersonate IT support, gaining interactive access via tools like Quick Assist. Following initial access, actors staged portable runtimes (Python, Bun, Java) in user-writable directories to facilitate host discovery and Active Directory Certificate Services (AD CS) exploitation. Confirmed abuse paths include ESC1 (certificate template misconfiguration) and ESC8 (NTLM relay to AD CS Web Enrollment), the latter involving PetitPotam to coerce authentication.\n\n## Attack Chain\n1. Initial Access: Threat actors use Microsoft Teams to impersonate IT support via messages and calls.\n2. Execution: The user is socially engineered into initiating a remote support session via Quick Assist.\n3. Staging: Attackers place a compressed archive into the user's Downloads folder and extract payloads into a 'KB-' prefixed directory under the user profile.\n4. Runtime Execution: Payloads are executed using portable runtimes (Python, Bun, Java) launched from user-writable locations.\n5. Discovery: The actor performs internal host and network discovery and evaluates AD CS environments.\n6. Escalation: Actors perform certificate abuse via ESC1 (template manipulation) or ESC8 (NTLM relay via PetitPotam) to obtain privileged identity certificates.\n7. Persistence/Exfiltration: Obtained certificates are used for PKINIT or DCSync attacks to further compromise the environment.\n\n## Impact\nSuccessful exploitation allows attackers to obtain authentication certificates for privileged identities. These certificates provide durable access independent of user passwords and bypass traditional password reset or workstation re-imaging remediation efforts.\n\n## Recommendation\n- Audit AD CS certificate templates for ESC1-vulnerable settings (requester-supplied SAN, broad enrollment).\n- Implement NTLM relay protections on AD CS Web Enrollment endpoints (e.g., Extended Protection for Authentication).\n- Monitor for unusual processes executing from user profile directories (e.g., Python, Java, Bun).\n- Configure alerts for atypical AD CS certificate enrollment activity and the use of PetitPotam-related techniques.\n- Disable or restrict the use of Quick Assist for users who do not require it for their roles.\n- Ensure all service identities and devices are included in automated incident containment policies to prevent exclusion-based persistence.\n",
+      "published": "2026-10-30T21:17:08.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--9febe61e-7170-505d-b11c-0180a3aabe93",
+        "attack-pattern--b904ac24-2b91-5953-b88c-2b09a819c39b",
+        "attack-pattern--f198ff96-24d2-5e63-a16c-7bd8ef92750c",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3455b948-c027-5ea5-addd-98490aabb2bf",
+        "software--80036964-1b69-5c23-a1c3-85adb2a294d9",
+        "software--944fced0-61b2-584e-86b0-d2e261d2777e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-ad-cs-teams-impersonation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-ad-cs-teams-impersonation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-ad-cs-teams-impersonation",
+      "x_craftedsignal_event_id": "brief-2026-10-30-ad-cs-teams-impersonation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ad-cs-teams-impersonation/",
+      "x_craftedsignal_activity_at": "2026-10-30T21:17:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--73a75f53-2182-5d93-931a-b832f1f088c6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:58:34.000Z",
@@ -190859,6 +190947,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3455b948-c027-5ea5-addd-98490aabb2bf",
+      "name": "Quick Assist",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3484186d-68e7-5b18-b6d1-52d1c9dae8ee",
       "name": "MxChat – AI Chatbot \u0026 Content Generation for WordPress (\u003c= 3.2.25)",
       "vendor": "MxChat"
@@ -196449,6 +196544,13 @@
       "id": "software--7ffa65e8-0c15-5e9d-b40c-db8429e7d442",
       "name": "ThinkCMF (\u003c= 8.0.1)",
       "vendor": "ThinkCMF"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--80036964-1b69-5c23-a1c3-85adb2a294d9",
+      "name": "Microsoft Teams",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
