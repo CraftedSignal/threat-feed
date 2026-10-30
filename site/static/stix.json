@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eee7425c-f54b-52ef-a11d-c43b8086f80a",
+  "id": "bundle--be3adc3a-c5ad-587d-a22d-3b0e91f93018",
   "objects": [
     {
       "type": "attack-pattern",
@@ -13692,6 +13692,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a40335d5-b224-580d-bbdf-de747096b278",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--1b07f4f5-065b-5d31-beb1-d48f85b8e03f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:40:03.000Z",
+      "modified": "2026-10-30T09:40:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6f0c62bd-f7ea-5623-a231-50d7c5fc8f82",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -44243,6 +44254,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--863ba363-368f-5543-bd09-9d29855c9328",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:39:42.000Z",
+      "modified": "2026-10-30T09:39:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f8454c0f-07c0-5246-985a-f4d6addadcab",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--86680d1f-1aac-5089-a0e4-dbea48cf5922",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61722,6 +61744,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c3f1d48d-2209-5308-86a1-3db2e459c849",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:40:03.000Z",
+      "modified": "2026-10-30T09:40:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6f0c62bd-f7ea-5623-a231-50d7c5fc8f82",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c3f4b17c-5ef0-5499-a398-027364402764",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -63911,6 +63944,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ca576b13-52ae-5612-a2af-eb4e6015ac19",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9f8be18e-b4b1-507c-8e2c-fb76a59f599b",
+      "target_ref": "vulnerability--e0d32464-c117-5c72-b82d-f6059fd3e258"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ca5d8a19-2609-5146-ad18-03ec5c405c9e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64490,6 +64534,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cb227444-d94c-5175-82a5-f0104e5b6af6",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ccbdd649-1bb2-546d-a2ad-71d4ad0c9dcc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d07a155c-d2c3-5fe2-8317-b8a39b15eaf2",
+      "target_ref": "vulnerability--0827cddb-7149-54db-bf13-ffbaec9dd8fd"
     },
     {
       "type": "relationship",
@@ -124540,6 +124595,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6f0c62bd-f7ea-5623-a231-50d7c5fc8f82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:40:03.000Z",
+      "modified": "2026-10-30T09:40:03.000Z",
+      "name": "VMware Spring Cloud Gateway Remote Code Execution (CVE-2022-22947)",
+      "description": "## Overview\nCVE-2022-22947 is a remote code execution (RCE) vulnerability in Spring Cloud Gateway. The vulnerability allows unauthenticated attackers to inject malicious Spring Expression Language (SpEL) expressions via the Actuator endpoint when creating dynamic routes. When the application refreshes its configuration, the injected expression is evaluated, resulting in arbitrary code execution on the underlying server.\n\n## Attack Chain\n1. Attacker identifies an exposed and unprotected Actuator endpoint on the target Spring Cloud Gateway instance.\n2. Attacker sends a POST request to `/actuator/gateway/routes/{route_name}` containing a JSON payload with a malicious SpEL expression in the filter arguments.\n3. Attacker sends a POST request to `/actuator/gateway/refresh` to trigger the application to load the new route configuration.\n4. Attacker sends an HTTP request matching the path defined in the newly created malicious route.\n5. The Gateway evaluates the injected SpEL expression during route processing.\n6. Arbitrary commands are executed by the application process with the privileges of the service user.\n\n## Impact\nThe vulnerability has a CVSS 3.1 score of 10.0 (Critical). Successful exploitation leads to full system compromise, allowing for remote code execution, unauthorized data access, and disruption of service.\n\n## Recommendation\n- Upgrade VMware Spring Cloud Gateway to version 3.1.1 or 3.0.7 or later.\n- Disable the Actuator endpoint if it is not required for operational monitoring.\n- If the Actuator endpoint is required, restrict network access using firewall rules or implement mandatory authentication via Spring Security to prevent unauthorized access.\n- Audit existing gateway route configurations for unexpected or malicious entries.\n",
+      "published": "2026-10-30T09:40:03.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d07a155c-d2c3-5fe2-8317-b8a39b15eaf2",
+        "vulnerability--0827cddb-7149-54db-bf13-ffbaec9dd8fd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-spring-cloud-gateway-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-spring-cloud-gateway-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SKYSLIENTLY-CVE-2022-22947-PB-AI"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SKYSLIENTLY-CVE-2022-22947-PB-AI\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-spring-cloud-gateway-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-30-spring-cloud-gateway-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-spring-cloud-gateway-rce/",
+      "x_craftedsignal_activity_at": "2026-10-30T09:40:03.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.98253,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--6f29b2b4-a3ac-54a7-94c9-94f1f9fb8ebc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-18T12:21:39.000Z",
@@ -182084,6 +182186,62 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f8454c0f-07c0-5246-985a-f4d6addadcab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T09:39:42.000Z",
+      "modified": "2026-10-30T09:39:42.000Z",
+      "name": "Apple AVEVideoEncoder: Out-of-bounds write (CVE-2026-112705)",
+      "description": "## Overview\nCVE-2026-112705 is an out-of-bounds write vulnerability within the AVEVideoEncoder component, which handles hardware-accelerated video compression on Apple devices. The vulnerability is triggered by specific H.264 `VTCompressionSession` configurations, specifically when using a 32768 x 16384 resolution with a BGRA pixel buffer. This action causes a kernel panic and subsequent device reboot. Apple has confirmed the issue and provided a fix via improved bounds checking in updated versions.\n\n## Impact\nThe vulnerability results in an immediate denial-of-service condition, manifested as a kernel panic and device reboot. While the current public proof-of-concept is limited to a crash-only reproducer, out-of-bounds write vulnerabilities in kernel-mode components pose risks for memory corruption and potential privilege escalation in more sophisticated attack chains.\n\n## Recommendation\n- Update all affected Apple devices to the latest available software version to apply the security fix provided by Apple.\n- Implement internal device management policies to enforce timely updates, particularly for mobile hardware (iPhone, iPad).\n- Use mobile device management (MDM) telemetry to identify devices running outdated iOS versions.\n",
+      "published": "2026-10-30T09:39:42.000Z",
+      "labels": [
+        "apple",
+        "cve-2026-112705",
+        "denial-of-service",
+        "kernel",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9f8be18e-b4b1-507c-8e2c-fb76a59f599b",
+        "vulnerability--e0d32464-c117-5c72-b82d-f6059fd3e258"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-avevideoencoder-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-avevideoencoder-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8CC19184-A18A-5449-847B-F34679AF068F"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8CC19184-A18A-5449-847B-F34679AF068F\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://support.apple.com/en-us/149230"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-avevideoencoder-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-10-30-avevideoencoder-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-avevideoencoder-oob-write/",
+      "x_craftedsignal_activity_at": "2026-10-30T09:39:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00237,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f8472878-0286-55cc-a756-b51dfa704dd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T13:50:26.000Z",
@@ -197061,6 +197219,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9f8be18e-b4b1-507c-8e2c-fb76a59f599b",
+      "name": "AVEVideoEncoder",
+      "vendor": "Apple"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9fb1be5f-1524-547c-b4f3-1a81759000e3",
       "name": "WL-WN530BE2-A (\u003c 2026-09-24-841a51c6d5_tclinux.bin)",
       "vendor": "Wavlink"
@@ -200487,6 +200652,13 @@
       "id": "software--d0705d29-5dcf-53a5-9d5e-0eceda244e32",
       "name": "Angular (@angular/router \u003e= 22.0.0 \u003c 22.2.1)",
       "vendor": "Google"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d07a155c-d2c3-5fe2-8317-b8a39b15eaf2",
+      "name": "Spring Cloud Gateway (\u003c 3.0.7, 3.1.0)",
+      "vendor": "VMware"
     },
     {
       "type": "software",
@@ -204914,6 +205086,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-21096",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-21096"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0827cddb-7149-54db-bf13-ffbaec9dd8fd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-22947",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-22947",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22947"
         }
       ]
     },
@@ -234850,6 +235038,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109442",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109442"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e0d32464-c117-5c72-b82d-f6059fd3e258",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112705",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112705",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112705"
         }
       ]
     },
