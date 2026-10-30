@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--edf95bfd-672a-5b25-9855-b45a0fc371e1",
+  "id": "bundle--6f9f95cb-1f24-5bf4-a12e-220d9b744dbd",
   "objects": [
     {
       "type": "attack-pattern",
@@ -41268,6 +41268,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7dc07086-aa41-56a6-8377-d38c1ecfd62c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--f6db144c-824d-5a20-97ed-4c9dd14f6e85",
+      "target_ref": "vulnerability--851534f6-3d9e-50c1-bec5-8d6db5324eb9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7dcc3da7-a8f2-57c0-973e-4e7c6a31341d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T04:38:28.000Z",
@@ -50955,6 +50966,17 @@
       "relationship_type": "has",
       "source_ref": "software--ecd0ee28-6aa1-5147-b274-3baea14e1dd3",
       "target_ref": "vulnerability--4e0a2d7f-9b9f-5367-a8ae-8cd7e3a9008a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9fe0f997-dd4f-5321-a92f-579bd76e35cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T01:10:12.000Z",
+      "modified": "2026-10-30T01:10:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5bbfff82-7bf3-5e80-819b-1f7c5a13b29b",
+      "target_ref": "attack-pattern--903c407f-69d2-574a-8a5d-526826a282d3"
     },
     {
       "type": "relationship",
@@ -67884,6 +67906,17 @@
       "relationship_type": "uses",
       "source_ref": "report--12d77f56-114a-5611-81ba-30d0118e9abe",
       "target_ref": "attack-pattern--7a7d3073-08a0-5675-9ad3-ea6b2fbac8d9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--da72494d-08d6-56ea-8585-6e7dc9459ac7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--da71a258-086b-5ee1-82a2-5e3fc020ba0a",
+      "target_ref": "vulnerability--b0e4939c-154c-51f4-94ec-0f1128f5bab2"
     },
     {
       "type": "relationship",
@@ -115801,6 +115834,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5bbfff82-7bf3-5e80-819b-1f7c5a13b29b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T01:10:12.000Z",
+      "modified": "2026-10-30T01:10:12.000Z",
+      "name": "Share to Clipboard: Insecure permissions clipboard overwrite (CVE-2026-107026)",
+      "description": "## Overview\n\nCVE-2026-107026 describes an insecure permission vulnerability in the Android application \"Share to Clipboard\" version 1.14.1 (versionCode 32). This flaw permits an unauthorized actor to perform unauthorized writes to the system clipboard, effectively allowing them to overwrite data stored by other users on the same device. The impact is primarily a compromise of the clipboard's integrity and potential information manipulation or injection. \n\n## Impact\n\nSuccessful exploitation allows an unauthorized party to overwrite clipboard data, which could be leveraged to replace legitimate content with malicious links, credentials, or other payloads intended for the victim to paste inadvertently.\n\n## Recommendation\n\n- Identify all devices within the environment that have \"Share to Clipboard\" version 1.14.1 (versionCode 32) installed.\n- Remove or restrict the usage of the affected application until a vendor-provided update is confirmed.\n- Implement mobile device management (MDM) policies to audit or block applications with insecure local IPC (Inter-Process Communication) permissions.\n",
+      "published": "2026-10-30T01:10:12.000Z",
+      "object_refs": [
+        "attack-pattern--903c407f-69d2-574a-8a5d-526826a282d3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--da71a258-086b-5ee1-82a2-5e3fc020ba0a",
+        "vulnerability--b0e4939c-154c-51f4-94ec-0f1128f5bab2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-share-to-clipboard-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-share-to-clipboard-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107026"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-share-to-clipboard-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-10-30-share-to-clipboard-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-share-to-clipboard-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-10-30T01:10:12.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5bc75049-51b7-52e3-bef2-c49134c379fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:47:07.000Z",
@@ -157844,6 +157918,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.11388,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c278a6ae-e22d-597a-ae34-ebef9a5d30ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T01:09:54.000Z",
+      "modified": "2026-10-30T01:09:54.000Z",
+      "name": "Red Hat openshift-ansible: Arbitrary code execution via unverified remote scripts (CVE-2026-92092)",
+      "description": "## Overview\n\nA security flaw exists in the `run` script of the `openshift-ansible` installer container. The script downloads and executes remote inventory and dynamic scripts without integrity verification. A remote attacker, by performing a Man-in-the-Middle (MITM) attack or compromising the HTTP server providing these scripts, could substitute an arbitrary executable. This executable would run with the installer's user ID and full cluster-provisioning privileges, leading to arbitrary code execution.\n",
+      "published": "2026-10-30T01:09:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f6db144c-824d-5a20-97ed-4c9dd14f6e85",
+        "vulnerability--851534f6-3d9e-50c1-bec5-8d6db5324eb9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-openshift-ansible-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-openshift-ansible-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92092"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-openshift-ansible-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-30-openshift-ansible-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openshift-ansible-rce/",
+      "x_craftedsignal_activity_at": "2026-10-30T01:09:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -199962,6 +200076,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--da71a258-086b-5ee1-82a2-5e3fc020ba0a",
+      "name": "Share to Clipboard (1.14.1)",
+      "vendor": "Share to Clipboard"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--da96c7a2-c3cd-5077-9290-11329b74b9ce",
       "name": "Brotli (1.2.0 \u003c= v \u003c 1.2.1)"
     },
@@ -201833,6 +201954,13 @@
       "id": "software--f67b5040-ee91-5971-bf10-edfb5e7721aa",
       "name": "WPC Shop as a Customer for WooCommerce (\u003c= 2.0.0)",
       "vendor": "WPClever"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f6db144c-824d-5a20-97ed-4c9dd14f6e85",
+      "name": "openshift-ansible",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -221077,6 +221205,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--851534f6-3d9e-50c1-bec5-8d6db5324eb9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92092",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92092",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92092"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--851f66f6-a2d8-5f4a-8fb9-45cc0735a65a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -227151,6 +227295,22 @@
           "source_name": "cve",
           "external_id": "CVE-2021-48016",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-48016"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b0e4939c-154c-51f4-94ec-0f1128f5bab2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107026",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107026",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107026"
         }
       ]
     },
