@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-24-crushftp-auth-bypass
 event_id: brief-2026-10-24-crushftp-auth-bypass
-revision: 2
-activity_at: "2026-10-29T19:50:13Z"
+revision: 3
+activity_at: "2026-10-30T00:26:56Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T19:50:13Z"
@@ -17,11 +17,26 @@ revision_history:
       - updates
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4211
+  - revision: 3
+    at: "2026-10-30T00:26:56Z"
+    checksum: sha256:2b612ab4fc4f072174cf2961159ee0dec4699ea3e7354e82e4bf8d902b0df995
+    summary: added coverage for CrushFTP (< 7.3.0)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2015-20129
 title: 'CrushFTP: Authentication bypass and administrative account creation (CVE-2025-54309)'
 slug: 2026-10-crushftp-auth-bypass
 description: CVE-2025-54309 is an authentication bypass vulnerability in CrushFTP allowing unauthenticated administrative account creation via manipulation of the AS2-To header.
 date: "2026-10-24T00:02:44Z"
-lastmod: "2026-10-29T19:48:24Z"
+lastmod: "2026-10-30T00:26:10Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -49,6 +64,7 @@ vendors:
 products:
   - CrushFTP (10.x < 10.8.5, 11.x < 11.3.4_23)
   - CrushFTP (< 10.8.5)
+  - CrushFTP (< 7.3.0)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -62,15 +78,32 @@ mitre_ttps:
     technique_name: Domain Account
     evidence: Attackers can send a crafted POST request... enabling the creation of unauthorized administrative accounts
     confidence_band: high
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1566
+    technique_name: Phishing
+    evidence: Attackers can lure an authenticated administrator to a malicious page
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: creating root-access users or changing server configuration
+    confidence_band: high
 cves:
   - id: CVE-2025-54309
     cvss: 9
     epss: 0.93473
     kev_status: "false"
+  - id: CVE-2015-20129
+    cvss: 8.8
+    epss: 0.00152
+    kev_status: "false"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BLUEISBEAUTIFUL-CVE-2025-54309
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BLUEISBEAUTIFUL-CVE-2025-54309&utm_source=rss&utm_medium=rss
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4211
+  - https://nvd.nist.gov/vuln/detail/CVE-2015-20129
 rules:
   - title: Detect CVE-2025-54309 Exploitation - Unauthorized Admin User Creation via AS2 Header
     description: Detects exploitation attempts against CVE-2025-54309 by monitoring for POST requests to the WebInterface function endpoint with the setUserItem command, which is used to create administrative users.
@@ -104,12 +137,25 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Exploitation involves invoking the 'setUserItem' command
+    - lead: Identify administrative account creation or configuration changes from unauthorized IP addresses or suspicious browser referrers
+      data_needed:
+        - Web server access logs
+        - Application audit logs
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Attackers can lure an authenticated administrator to a malicious page that submits POST requests to commands like setUserItem
   mitigation_plan:
     - priority: immediate
       action: Upgrade CrushFTP to 10.8.5 or 11.3.4_23
       owner: IT Operations
       addresses: CVE-2025-54309
       evidence: Source provides these versions as the fix
+    - priority: immediate
+      action: Upgrade CrushFTP to version 7.3.0 or later
+      owner: IT Operations
+      addresses: CVE-2015-20129
+      evidence: CrushFTP before 7.3.0 contains a cross-site request forgery vulnerability
 updates:
   - at: "2026-10-29T19:48:24Z"
     level: L1
@@ -118,6 +164,13 @@ updates:
       - bsi
     source_urls:
       - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4211
+  - at: "2026-10-30T00:26:10Z"
+    level: L2
+    summary: added coverage for CrushFTP (< 7.3.0)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2015-20129
 ---
 
 CVE-2025-54309 is an authentication bypass vulnerability in CrushFTP, specifically within the `loginCheckHeaderAuth()` method of `crushftp/server/ServerSessionHTTP.java`. The vulnerability arises from improper validation logic when processing the 'AS2-To' header. Attackers can bypass authentication by sending a crafted request to the `/WebInterface/function/` endpoint, enabling them to execute administrative actions, such as creating new unauthorized administrative accounts.
