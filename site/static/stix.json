@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--be3adc3a-c5ad-587d-a22d-3b0e91f93018",
+  "id": "bundle--5470010b-c03a-57fb-ab15-3b060cc51823",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4263,19 +4263,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--6ded54b3-62b5-5beb-8281-592e244410a0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "name": "domain: rsproxy.cn",
-      "description": "Cargo registry path observed in Antino build outputs",
-      "pattern": "[domain-name:value = 'rsproxy.cn']",
-      "pattern_type": "stix",
-      "valid_from": "2026-09-30T10:18:45.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--6e9982a6-10c1-581b-bbc1-214294557cb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T17:43:32.000Z",
@@ -4584,19 +4571,6 @@
       "pattern": "[domain-name:value = 'y10in4ofvosyskgb5c9a7e55mwssgkf86bu3hu5j.oastify.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-01T14:11:59.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--94881a51-d826-5dac-907a-1996c5fbc8a2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "name": "domain: d32tpl7xt7175h.cloudfront.net",
-      "description": "Malicious infrastructure used for downloader delivery.",
-      "pattern": "[domain-name:value = 'd32tpl7xt7175h.cloudfront.net']",
-      "pattern_type": "stix",
-      "valid_from": "2026-09-30T10:18:45.000Z"
     },
     {
       "type": "indicator",
@@ -10539,17 +10513,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--104fa30f-3cb6-5278-9603-3f389f9e4ee5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--105ae4a6-b062-55e9-bd4c-b98306c210b4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T20:39:45.000Z",
@@ -15386,17 +15349,6 @@
       "relationship_type": "has",
       "source_ref": "software--57441119-ca91-5fcd-aca8-9e85e7b10912",
       "target_ref": "vulnerability--064f627a-b5fd-526d-b597-7439742a9372"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--21179696-6f00-5820-8e16-43f77dca5879",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "target_ref": "threat-actor--b477ce7e-c197-50f0-8c44-f56d983ac012"
     },
     {
       "type": "relationship",
@@ -21836,17 +21788,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--394e4e83-e56c-5eb8-8ba3-34e3888cd0cf",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "target_ref": "indicator--6ded54b3-62b5-5beb-8281-592e244410a0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--396554a6-cd9d-5322-98ff-94e59b31df2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -25037,17 +24978,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--44809784-813a-5713-96a0-d005d6c9b5e6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:33:58.000Z",
-      "modified": "2026-09-30T10:34:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a1bdd658-35b4-5f32-b64f-ff4bc5a2f94b",
-      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--449da1e2-e1cc-5463-97f6-29e69cd4c266",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -27270,17 +27200,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4c6aa280-0447-5db2-a1e1-73aeed96e531",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--4c6f4e2f-ab28-5390-a2f8-e235ecf8e5b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T15:42:57.000Z",
@@ -28421,17 +28340,6 @@
       "relationship_type": "uses",
       "source_ref": "report--b99d7f6c-a419-5d43-a9a4-bea63e63f249",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--506d7713-57bf-5166-9db5-57582ea29daa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:34:19.000Z",
-      "modified": "2026-09-30T10:34:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--809e8ecd-2aca-5771-9e78-e3d5c63ba499",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -31633,17 +31541,6 @@
       "relationship_type": "uses",
       "source_ref": "report--86d2eef2-f372-5e42-9a0e-86d441c34554",
       "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--5b8ea464-2543-527b-91e9-68bb0e0762ef",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "target_ref": "indicator--94881a51-d826-5dac-907a-1996c5fbc8a2"
     },
     {
       "type": "relationship",
@@ -35296,17 +35193,6 @@
       "relationship_type": "has",
       "source_ref": "software--6c79437d-8a47-5af2-8e60-4d7053e58f17",
       "target_ref": "vulnerability--f3e43fbf-cff9-5135-b60d-5b25e0e2c4e9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--685a9552-e007-568a-92a9-1f2965634394",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--5be5888f-b85f-527e-bd46-5044330ed7b2",
-      "target_ref": "vulnerability--53279600-eae2-5adf-a18e-4e7eee0d0048"
     },
     {
       "type": "relationship",
@@ -45904,17 +45790,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8b9032f4-0957-5654-b577-2ebfd6ad99a1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8bab74ef-0073-529b-880d-e3bce3fc193d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -46461,17 +46336,6 @@
       "relationship_type": "has",
       "source_ref": "software--6665e221-dee6-5175-bf8d-5cb3e656a689",
       "target_ref": "vulnerability--dc01be9e-8d85-5807-8c2b-c67757e0608c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--8d7d17a3-3249-5599-86a7-b5427e63ba3a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:34:19.000Z",
-      "modified": "2026-09-30T10:34:19.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--809e8ecd-2aca-5771-9e78-e3d5c63ba499",
-      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -49772,17 +49636,6 @@
       "relationship_type": "has",
       "source_ref": "software--3492a89b-251a-5c85-a7bc-ffd16b4d3afb",
       "target_ref": "vulnerability--4b229b10-6f8d-5ab3-baf0-aadd7782248c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--99992536-0a73-5138-9799-990c813e660e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "target_ref": "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6"
     },
     {
       "type": "relationship",
@@ -56453,17 +56306,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b09211fa-6788-54e3-9dbf-717be6fda1ae",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:33:58.000Z",
-      "modified": "2026-09-30T10:34:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a1bdd658-35b4-5f32-b64f-ff4bc5a2f94b",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b09556ec-9fca-5a19-8a52-4a31e2584b97",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-03T06:54:48.000Z",
@@ -60222,17 +60064,6 @@
       "relationship_type": "uses",
       "source_ref": "report--4f48d998-37c4-55a1-a5f0-11076365d5f3",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bdf08eac-5b2e-5dfa-bb54-aaf2072bea37",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7a3830c6-786c-59a6-85eb-5af06319bf8c",
-      "target_ref": "vulnerability--a3df92e4-adad-537d-8159-3cee88726732"
     },
     {
       "type": "relationship",
@@ -70331,17 +70162,6 @@
       "relationship_type": "has",
       "source_ref": "software--36ccd5bf-1850-50f7-9209-ee86081d4d44",
       "target_ref": "vulnerability--831f375f-cf0d-5005-831f-def3bb9d9ef6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dfad0cc2-846e-5660-a48d-464c94510805",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:33:58.000Z",
-      "modified": "2026-09-30T10:34:11.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a1bdd658-35b4-5f32-b64f-ff4bc5a2f94b",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -102482,63 +102302,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--3ab20bba-97ae-53e6-83b2-f2e9d9b39f92",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:18:45.000Z",
-      "modified": "2026-10-02T18:31:58.000Z",
-      "name": "China-nexus UAT-11587 Targets Asian Government Entities with Antino Backdoor",
-      "description": "## Overview\n\nSince September 2025, the China-nexus threat actor UAT-11587 has engaged in sustained espionage targeting government, defense, and policy research organizations across Asia, including Taiwan, India, the Philippines, and Cambodia. The campaign is characterized by high-effort spear-phishing lures and a multi-stage infection chain that culminates in the deployment of \"Antino,\" a custom, Rust-compiled Windows backdoor. Antino is notable for its use of legitimate Microsoft 365 services, specifically Outlook and OneDrive, as an obfuscated command-and-control (C2) channel, effectively bypassing traditional network-perimeter-based detection by masquerading as standard cloud traffic. With over 350 compromised endpoints identified across eight countries, the actor demonstrates significant operational capacity for long-term intelligence gathering, leveraging Cloudflare infrastructure for payload staging and execution tracking.\n\n## Attack Chain\n\n1. Initial Access: The actor sends spear-phishing emails containing tailored decoy documents or links to cloud-hosted malicious content.\n2. Execution: The target is lured into executing a malicious downloader or HTA file, often hosted on Cloudflare infrastructure, which initiates the infection sequence.\n3. Staging: The initial downloader fetches secondary-stage payloads from cloud-hosted staging environments.\n4. Payload Delivery: The custom Antino backdoor is dropped and executed on the victim host.\n5. Persistence: Antino establishes persistence mechanisms on the Windows endpoint to maintain access across reboots.\n6. Reconnaissance: The malware performs host reconnaissance, collecting system information and user data.\n7. C2 Communication: Antino communicates with Microsoft 365 (Outlook/OneDrive) to receive instructions and exfiltrate collected intelligence.\n8. Exfiltration: Data is uploaded to the actor-controlled OneDrive storage or sent via Outlook, completing the espionage cycle.\n\n## Impact\n\nThe campaign has resulted in the compromise of approximately 350 endpoints across national security, diplomatic, legislative, and civil society sectors. Successful attacks allow the adversary to conduct deep reconnaissance, maintain persistent access, and exfiltrate sensitive policy and diplomatic intelligence. Given the focus on high-value public-sector targets, the breach of these systems represents a significant threat to regional stability and national security for the affected nations.\n\n## Recommendation\n\n1. Monitor network traffic for unusual usage of Microsoft Graph APIs or excessive interaction with Microsoft 365 endpoints (Outlook/OneDrive) originating from servers or workstations that do not typically perform high volumes of office automation.\n2. Implement strict controls on the execution of HTA files (HTML Applications) and block macros in untrusted documents via Group Policy.\n3. Deploy EDR rules to monitor for Rust-compiled binaries executing from temporary directories or atypical user paths.\n4. Block connections to the identified CloudFront infrastructure domain `d32tpl7xt7175h.cloudfront.net` if detected in proxy or DNS logs.\n5. Conduct a hunt for the existence of unknown or unsigned Rust-compiled executables residing in common persistence locations like the Windows Startup folder or Run registry keys.\n",
-      "published": "2026-09-30T10:18:45.000Z",
-      "labels": [
-        "cloud-native-c2",
-        "espionage",
-        "rust",
-        "spear-phishing",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c",
-        "attack-pattern--5c7b2996-04b0-587c-b2de-8b20afcc2de6",
-        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--6ded54b3-62b5-5beb-8281-592e244410a0",
-        "indicator--94881a51-d826-5dac-907a-1996c5fbc8a2",
-        "software--87480680-40c7-5ff0-8498-dd3866eca95d",
-        "software--a4d1435a-fdda-5e7a-a474-2e155bb6cf81",
-        "threat-actor--b477ce7e-c197-50f0-8c44-f56d983ac012"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-china-uat11587",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-china-uat11587/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://blog.talosintelligence.com/china-nexus-uat-11587-targets-government-and-policy-organizations-across-asia-with-antino-backdoor/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://thehackernews.com/2026/10/antino-backdoor-uses-outlook-and.html"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-china-uat11587",
-      "x_craftedsignal_event_id": "brief-2026-09-china-uat11587",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-china-uat11587/",
-      "x_craftedsignal_activity_at": "2026-10-02T18:31:58.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--3ab8acb2-7991-58de-b61a-438296903af3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T14:14:46.000Z",
@@ -131327,55 +131090,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--809e8ecd-2aca-5771-9e78-e3d5c63ba499",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:34:19.000Z",
-      "modified": "2026-09-30T10:34:19.000Z",
-      "name": "Unauthenticated Directory Traversal in WordPress Product Designer App Plugin",
-      "description": "## Overview\n\nThe Product Designer App plugin for WordPress, in all versions up to and including 1.1.3, contains a critical directory traversal vulnerability. Attackers can leverage this flaw to read arbitrary files from the underlying server filesystem. The plugin attempts to gate access to the vulnerable endpoint using a nonce and token mechanism; however, these values are rendered as global JavaScript variables on any page that utilizes the [pdapp-studio-page] shortcode. Because these credentials are publicly accessible to any anonymous visitor, the security control is effectively bypassed. This allows unauthenticated remote attackers to perform unauthorized file reads, potentially accessing sensitive configuration files, credentials, or system data. Defenders should prioritize updating the plugin to the latest patched version or removing the plugin if it cannot be immediately updated.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress site running the Product Designer App plugin.\n2. Attacker visits any page on the target site that renders the [pdapp-studio-page] shortcode.\n3. Attacker parses the page source to extract the nonce and token values exposed as JavaScript global variables.\n4. Attacker crafts a malicious HTTP request targeting the plugin endpoint, incorporating the harvested nonce and token for authentication.\n5. Attacker injects directory traversal sequences (e.g., ../) into the 'svg' parameter of the request.\n6. The plugin processes the input, failing to validate the path traversal, and returns the requested system file content in the HTTP response.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to read arbitrary files on the web server. This can lead to the exposure of database credentials in wp-config.php, sensitive application environment variables, or private source code, facilitating full site compromise or lateral movement within the hosting environment.\n\n## Recommendation\n\n* Immediately update the Product Designer App plugin to a version later than 1.1.3 once a vendor patch is released.\n* If no patch is available, disable or uninstall the plugin to eliminate the exposure of the vulnerable [pdapp-studio-page] shortcode.\n* Implement web application firewall (WAF) rules to detect and block requests to the vulnerable plugin endpoint containing directory traversal sequences (e.g., ../, ..\\/) in the 'svg' parameter.\n* Audit access logs for high-frequency requests originating from single IPs targeting plugin-specific paths to identify potential automated scanning or exploitation attempts.\n",
-      "published": "2026-09-30T10:34:19.000Z",
-      "labels": [
-        "directory-traversal",
-        "file-read",
-        "vulnerability",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--5be5888f-b85f-527e-bd46-5044330ed7b2",
-        "vulnerability--53279600-eae2-5adf-a18e-4e7eee0d0048"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-30-product-designer-app-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-product-designer-app-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75098"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-09-30-product-designer-app-traversal",
-      "x_craftedsignal_event_id": "brief-2026-09-30-product-designer-app-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-product-designer-app-traversal/",
-      "x_craftedsignal_activity_at": "2026-09-30T10:34:19.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--80c6e8ed-7a23-54bf-ba37-4375df80ae2a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T02:52:13.000Z",
@@ -145754,60 +145468,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_epss_max": 0.00422,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a1bdd658-35b4-5f32-b64f-ff4bc5a2f94b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-09-30T10:33:58.000Z",
-      "modified": "2026-09-30T10:34:11.000Z",
-      "name": "Remote Code Execution in Digiwin EasyFlow .NET via Insecure Deserialization",
-      "description": "## Overview\n\nDigiwin EasyFlow .NET contains a critical security vulnerability (CVE-2026-102455) arising from improper deserialization of untrusted data. An unauthenticated, remote attacker can exploit this flaw by sending a specially crafted serialized payload to the affected application. Successful exploitation results in remote code execution (RCE) with the privileges of the web service account. Given the nature of deserialization vulnerabilities in .NET applications, this typically occurs when the application uses insecure formatter settings or fails to validate object types during the deserialization process. This threat is particularly significant for enterprise environments using EasyFlow .NET for workflow management, as it provides a direct path for attackers to gain full control over the application server without prior authentication.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to execute arbitrary code on the underlying host server. This can lead to full system compromise, exfiltration of sensitive organizational data, lateral movement within the network, or the deployment of additional malicious payloads such as ransomware. The high CVSS score of 9.8 reflects the ease of access and the severity of the potential impact on affected enterprise deployments.\n\n## Recommendation\n\n* Immediately isolate internet-facing EasyFlow .NET servers until patches are applied.\n* Monitor web server logs for HTTP requests containing large or obfuscated base64-encoded blobs, which are often indicative of serialized .NET object delivery.\n* Audit web server service accounts to ensure they operate with the principle of least privilege, limiting the potential impact of successful RCE.\n* Engage with the Digiwin vendor support channel to obtain and apply the specific security update addressing CVE-2026-102455.\n",
-      "published": "2026-09-30T10:33:58.000Z",
-      "labels": [
-        "deserialization",
-        "rce",
-        "remote-code-execution",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7a3830c6-786c-59a6-85eb-5af06319bf8c",
-        "vulnerability--a3df92e4-adad-537d-8159-3cee88726732"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-09-26-easyflow-deserialization",
-          "url": "https://feed.craftedsignal.io/briefs/2026-09-easyflow-deserialization/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102454"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102455"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-09-26-easyflow-deserialization",
-      "x_craftedsignal_event_id": "brief-2026-09-26-easyflow-deserialization",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-easyflow-deserialization/",
-      "x_craftedsignal_activity_at": "2026-09-30T10:34:11.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -192143,13 +191803,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--5be5888f-b85f-527e-bd46-5044330ed7b2",
-      "name": "Product Designer App (\u003c= 1.1.3)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--5c2e53ab-5ed8-58db-a7e2-48805289a4b7",
       "name": "Windows File Explorer",
       "vendor": "Microsoft"
@@ -194571,13 +194224,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7a3830c6-786c-59a6-85eb-5af06319bf8c",
-      "name": "EasyFlow .NET",
-      "vendor": "Digiwin"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7a4e48f3-eacb-5b82-bd6e-2912f0074262",
       "name": "Collabora Online - Built-in CODE Server (\u003c 26.4.303)",
       "vendor": "Collabora"
@@ -195594,12 +195240,6 @@
       "id": "software--87351857-8d41-5717-a2f3-485019f42f16",
       "name": "GitPython (\u003c= 3.1.59)",
       "vendor": "GitPython"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--87480680-40c7-5ff0-8498-dd3866eca95d",
-      "name": "Microsoft 365 (Outlook, OneDrive)"
     },
     {
       "type": "software",
@@ -197630,12 +197270,6 @@
       "id": "software--a4cdb238-360e-514e-acdc-3132a6aac6e3",
       "name": "Windows Defender Antivirus",
       "vendor": "Microsoft"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a4d1435a-fdda-5e7a-a474-2e155bb6cf81",
-      "name": "Windows (all versions)"
     },
     {
       "type": "software",
@@ -204061,15 +203695,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "LockBit"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--b477ce7e-c197-50f0-8c44-f56d983ac012",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "UAT-11587"
     },
     {
       "type": "threat-actor",
@@ -215828,22 +215453,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--53279600-eae2-5adf-a18e-4e7eee0d0048",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-75098",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-75098",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75098"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--535c2d32-eebe-547a-8d08-7bc20871d3fb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -226814,22 +226423,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107720",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107720"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--a3df92e4-adad-537d-8159-3cee88726732",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-102455",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-102455",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102455"
         }
       ]
     },
