@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e3e0098e-8671-5b00-9416-9c4453797ae9",
+  "id": "bundle--7c46c796-2431-5121-a290-0e367ab3ea2f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11807,6 +11807,17 @@
       "relationship_type": "uses",
       "source_ref": "report--3cbae9c4-632e-53d0-98e2-87af1ce09daa",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--14185d3a-9b5b-5d1c-b307-2f059baeee58",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b2af10ff-e206-5c84-b7b0-40562bb4745a",
+      "target_ref": "vulnerability--17a74c45-4371-5da1-b11f-c3e50806cc96"
     },
     {
       "type": "relationship",
@@ -34955,6 +34966,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--66efd23e-fad1-5632-b455-0894c1daabd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T15:10:15.000Z",
+      "modified": "2026-10-30T15:10:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f19d5632-c5d8-546e-b5ac-25762893cdf0",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--66f56b43-65b1-5d79-853f-beeced9c8021",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54520,6 +54542,17 @@
       "relationship_type": "has",
       "source_ref": "software--24a387d6-ce46-5dda-bc98-14ae185ad9de",
       "target_ref": "vulnerability--bc52acda-7946-5648-89ec-bc9a859b48fd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a9bab512-0ac2-5468-a895-f2c1e0207306",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9d189600-130b-57b6-b651-c1518de9814c",
+      "target_ref": "vulnerability--17a74c45-4371-5da1-b11f-c3e50806cc96"
     },
     {
       "type": "relationship",
@@ -179723,6 +179756,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f19d5632-c5d8-546e-b5ac-25762893cdf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T15:10:15.000Z",
+      "modified": "2026-10-30T15:10:15.000Z",
+      "name": "Nx Maven and Gradle plugins: OS command injection (CVE-2026-119282)",
+      "description": "## Overview\n\nThe Nx plugins `@nx/maven` and `@nx/gradle` are susceptible to OS command injection due to insecure interpolation of plugin options from `nx.json` into shell commands. This vulnerability is triggered whenever an `nx` command initiates project-graph analysis in a workspace containing a maliciously crafted `nx.json`.\n\nFor `@nx/maven`, the injectable option is `targetNamePrefix`. For `@nx/gradle`, the vulnerability is more extensive, as arbitrary plugin option names and values are interpolated into command-line arguments. This flaw poses a risk to CI environments and local developers working within untrusted repositories. There is no evidence of active exploitation in the wild.\n\n## Impact\n\nSuccessful exploitation allows arbitrary command execution under the privileges of the user running the `nx` command. This represents a significant risk in automated CI pipelines that process pull requests or external repositories, as an attacker with write access to the `nx.json` file can execute code without requiring access to build files themselves.\n\n## Recommendation\n\n* Upgrade `@nx/maven` and `@nx/gradle` to version **22.7.9** (for the 22.x line) or **23.1.2** (for the 23.x line) or later.\n* Upgrading the plugin alone is insufficient; users must ensure the core `nx` package is also upgraded to a compatible version as the fix depends on updated core code.\n* Use `nx migrate 23.1.2` to update the project dependencies.\n* Until updates are applied, restrict the execution of `nx` commands to repositories from trusted sources only.\n",
+      "published": "2026-10-30T15:10:15.000Z",
+      "labels": [
+        "command-injection",
+        "nodejs",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--9d189600-130b-57b6-b651-c1518de9814c",
+        "software--b2af10ff-e206-5c84-b7b0-40562bb4745a",
+        "vulnerability--17a74c45-4371-5da1-b11f-c3e50806cc96"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-nx-maven-gradle-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-nx-maven-gradle-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-qm8w-vx34-5j9j"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119282"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-nx-maven-gradle-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-30-nx-maven-gradle-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nx-maven-gradle-rce/",
+      "x_craftedsignal_activity_at": "2026-10-30T15:10:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f1a35f3d-334d-5fcd-a8f1-ec64ad72516b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-09T21:23:53.000Z",
@@ -197786,6 +197869,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9d189600-130b-57b6-b651-c1518de9814c",
+      "name": "@nx/gradle (\u003e= 21.0.0, \u003c 22.7.9; \u003e= 23.0.0, \u003c 23.1.2)",
+      "vendor": "Nx"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9d1fa04f-ddc2-5a0d-8670-76fbb9dd0c80",
       "name": "X Server (\u003c 21.1.25)",
       "vendor": "X.Org"
@@ -199385,6 +199475,13 @@
       "id": "software--b29e6b99-64da-5228-a8e9-cb059e5c1a29",
       "name": "sigstore-js (\u003c 0.7.2)",
       "vendor": "Sigstore"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b2af10ff-e206-5c84-b7b0-40562bb4745a",
+      "name": "@nx/maven (\u003e= 22.0.2, \u003c 22.7.9; \u003e= 23.0.0, \u003c 23.1.2)",
+      "vendor": "Nx"
     },
     {
       "type": "software",
@@ -207973,6 +208070,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104899",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104899"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--17a74c45-4371-5da1-b11f-c3e50806cc96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119282",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119282",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119282"
         }
       ]
     },
