@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--865ce44f-74ee-5609-9ee3-0a4ded25f1cf",
+  "id": "bundle--27c3c0b8-d4bd-5196-a36d-ce5b60c902e1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -64655,6 +64655,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ce1d22c9-546a-5884-b610-4639407c67c3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:48:44.000Z",
+      "modified": "2026-10-30T18:48:44.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--0f9bdf8d-f30d-55bb-a94a-47948e54370c",
+      "target_ref": "threat-actor--c089d7e7-b8a2-5d89-be6e-4f33503a8011"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ce2c7208-75d5-5217-8c58-8ecb8525d00b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -85448,6 +85459,54 @@
       },
       "x_craftedsignal_cvss_max": 7.4,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--0f9bdf8d-f30d-55bb-a94a-47948e54370c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:48:44.000Z",
+      "modified": "2026-10-30T18:48:44.000Z",
+      "name": "Vapor Panda: Automated Cyber Espionage via ARTEX Framework",
+      "description": "CrowdStrike has observed the threat actor Vapor Panda using a Go-based, AI-powered penetration testing framework called ARTEX to automate reconnaissance, vulnerability identification, and exploitation. The framework coordinates planner and worker agents to execute attack paths in parallel across web applications, cloud services, and Active Directory. Post-exploitation activities involve the deployment of BLOODALCHEMY, a ShadowPad derivative, followed by credential spraying and reconnaissance. Separately, the threat actor Titan Panda has been observed exploiting hard-coded machine keys in Intapp Time Server.\n",
+      "published": "2026-10-30T18:48:44.000Z",
+      "labels": [
+        "artex",
+        "artificial-intelligence",
+        "cyber-espionage",
+        "vapor-panda"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5b06e1d7-7208-5fe6-9ce9-3ff796b07b78",
+        "threat-actor--c089d7e7-b8a2-5d89-be6e-4f33503a8011"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-vapor-panda-artex-247ffc7f",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-vapor-panda-artex-247ffc7f/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-vapor-panda-artex-247ffc7f",
+      "x_craftedsignal_event_id": "brief-2026-10-30-vapor-panda-artex-247ffc7f",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vapor-panda-artex-247ffc7f/",
+      "x_craftedsignal_activity_at": "2026-10-30T18:48:44.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html",
+        "observed_at": "2026-10-17T00:00:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -173597,6 +173656,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e52b034a-5c4f-5e9a-9d8f-6776e8975abe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:48:33.000Z",
+      "modified": "2026-10-30T18:48:33.000Z",
+      "name": "virtualenv: Xonsh activation script command injection (CVE-2026-113718)",
+      "description": "## Mechanism\nThe generator for the xonsh activation script (`activate.xsh`) uses `repr()` to quote prompt and destination strings. When generated prompts contain specific non-ASCII bytes (e.g., UTF-8 sequences such as those ending in `0xad`), they can be misinterpreted by xonsh when sourced under legacy multibyte encodings like GBK or Big5. In these encodings, the byte `0xad` may pair with a subsequent backslash (`0x5c`) to form a single decoded character, causing the backslash to no longer escape the adjacent quote. This allows an attacker to terminate the string literal and execute arbitrary commands within the activation script.\n\n## Affected Areas\n- `virtualenv` POSIX activation scripts.\n- Specifically, `xonsh` activation via `activate.xsh`.\n- Exposure is dependent on the environment being sourced in a shell using legacy multibyte encodings (e.g., GBK or Big5).\n",
+      "published": "2026-10-30T18:48:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a2d5aa57-5a78-5410-a2bc-0de5b40433e7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-virtualenv-command-injection-08b06e4e",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-virtualenv-command-injection-08b06e4e/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-394h-qwmc-48pf"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/pypa/virtualenv/blob/a795ab116356afde11039cf2763d77e8a06da738/src/virtualenv/activation/xonsh/__init__.py"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/pypa/virtualenv/pull/3432"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-virtualenv-command-injection-08b06e4e",
+      "x_craftedsignal_event_id": "brief-2026-10-30-virtualenv-command-injection-08b06e4e",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-virtualenv-command-injection-08b06e4e/",
+      "x_craftedsignal_activity_at": "2026-10-30T18:48:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_epss_max": 0.00242,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e52b5c5c-ac29-5126-9b42-df8ca9376098",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T21:28:08.000Z",
@@ -192305,6 +192411,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5b06e1d7-7208-5fe6-9ce9-3ff796b07b78",
+      "name": "Intapp Time Server",
+      "vendor": "Intapp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5b0cc75d-37c3-5fcf-877b-360f0b644638",
       "name": "MongoDB Server (versions \u003c 8.0.34)",
       "vendor": "MongoDB"
@@ -204318,6 +204431,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "GOLD OGRE"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--c089d7e7-b8a2-5d89-be6e-4f33503a8011",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Vapor Panda"
     },
     {
       "type": "threat-actor",
@@ -226971,6 +227093,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112343",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112343"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a2d5aa57-5a78-5410-a2bc-0de5b40433e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-113718",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-113718",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113718"
         }
       ]
     },
