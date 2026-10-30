@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-langflow-rce
 event_id: brief-2026-10-29-langflow-rce
-revision: 4
-activity_at: "2026-10-29T20:19:26Z"
+revision: 5
+activity_at: "2026-10-30T15:32:26Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T18:44:03Z"
@@ -43,11 +43,23 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-110244
+  - revision: 5
+    at: "2026-10-30T15:32:26Z"
+    checksum: sha256:37bb640d9219ff95c440f69ac0e26e708e2f571a8d985e3814c6ffc8abf8e688
+    summary: added CVE-2026-102590
+    changed_fields:
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-102590
 title: 'IBM Langflow OSS: Arbitrary code execution via eval/exec (CVE-2026-107328)'
 slug: 2026-10-langflow-rce
 description: IBM Langflow OSS versions 1.0.0 through 1.12.4 are vulnerable to remote code execution due to improper neutralization of code in eval/exec functions by a remote authenticated attacker.
 date: "2026-10-29T17:30:37Z"
-lastmod: "2026-10-29T20:17:37Z"
+lastmod: "2026-10-30T15:30:22Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -66,6 +78,7 @@ qa_status:
 cpes:
   - cpe:2.3:a:ibm:langflow_oss:*:*:*:*:*:*:*:*
   - cpe:2.3:a:ibm:langflow:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
 vendors:
   - IBM
 products:
@@ -108,8 +121,16 @@ cves:
     cvss: 8.8
     kev_status: "false"
   - id: CVE-2026-110244
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
+  - id: CVE-2026-102590
+    cvss: 5
+    kev_status: "false"
   - id: CVE-2026-110193
+    kev_status: unknown
+  - id: CVE-2026-110245
+    kev_status: unknown
+  - id: CVE-2026-110309
     kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-107328
@@ -125,6 +146,9 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110193
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110196
   - https://nvd.nist.gov/vuln/detail/CVE-2026-110244
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-110245
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-110309
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-102590
 action_plan:
   priority: elevated
   owners:
@@ -151,13 +175,12 @@ action_plan:
       addresses: CVE-2026-110244
       evidence: Vulnerability affects versions 1.0.0 through 1.12.4
 updates:
-  - at: "2026-10-29T20:17:28Z"
+  - at: "2026-10-29T20:17:29Z"
     level: L2
-    summary: added CVE-2026-104324 +3
+    summary: added CVE-2026-104328, CVE-2026-107326, CVE-2026-110196
     sources:
       - nvd
     source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-104324
       - https://nvd.nist.gov/vuln/detail/CVE-2026-104328
       - https://nvd.nist.gov/vuln/detail/CVE-2026-110193
       - https://nvd.nist.gov/vuln/detail/CVE-2026-110196
@@ -168,6 +191,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-110244
+  - at: "2026-10-30T15:30:22Z"
+    level: L2
+    summary: added CVE-2026-102590
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-102590
 ---
 
 IBM Langflow OSS versions 1.0.0 through 1.12.4 allow a remote authenticated attacker to execute arbitrary code. This vulnerability is caused by improper neutralization of code in eval/exec.
