@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--27c3c0b8-d4bd-5196-a36d-ce5b60c902e1",
+  "id": "bundle--043ce155-98fa-5946-8b17-815478dba368",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20321,6 +20321,17 @@
       "relationship_type": "has",
       "source_ref": "software--102e1106-6327-553e-ad44-0677b1e1973e",
       "target_ref": "vulnerability--322ad6ca-e78a-5d32-b193-e8248ed8748a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3332f45f-16dc-5755-9b55-f19f15dc522e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:59:31.000Z",
+      "modified": "2026-10-30T18:59:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b4982fe2-8485-5324-b995-0448b85661df",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -47249,6 +47260,17 @@
       "relationship_type": "uses",
       "source_ref": "report--855ec8c2-c121-53d4-9e73-2e2f6e5eba54",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--917cb9af-acac-55c5-a186-b7611ae141aa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--220f4a40-74fe-56f5-a161-1021fed71a99",
+      "target_ref": "vulnerability--3db1877e-4bea-50a5-b223-f22d95307d18"
     },
     {
       "type": "relationship",
@@ -153667,6 +153689,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b4982fe2-8485-5324-b995-0448b85661df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:59:31.000Z",
+      "modified": "2026-10-30T18:59:31.000Z",
+      "name": "jsPDF: Path traversal and local file inclusion (CVE-2025-68428)",
+      "description": "## Overview\n\nCVE-2025-68428 is a critical vulnerability in the jsPDF library (versions \u003c 4.0.0) affecting Node.js implementations. The vulnerability arises when user-controlled input is passed to server-side file-loading functions, enabling path traversal and unauthorized local file inclusion (LFI). Attackers can leverage this to read sensitive files from the server's filesystem.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to read arbitrary files on the server hosting the affected Node.js application, potentially leading to the disclosure of sensitive configuration files, source code, or credentials.\n\n## Recommendation\n\n- Upgrade jsPDF to version 4.0.0 or later immediately.\n- Audit server-side code to identify instances where user-supplied input is passed to jsPDF functions like 'loadFile', 'addImage', 'addFont', or 'html()'.\n- Implement strict allowlisting for file paths and parameters used in PDF generation endpoints.\n- Review Node.js filesystem access permissions and ensure the process runs with the principle of least privilege.\n- Use the asset discovery phase to identify where the library is in use across the environment to prioritize patching.\n",
+      "published": "2026-10-30T18:59:31.000Z",
+      "labels": [
+        "cve-2025-68428",
+        "local-file-inclusion",
+        "nodejs",
+        "path-traversal",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--220f4a40-74fe-56f5-a161-1021fed71a99",
+        "vulnerability--3db1877e-4bea-50a5-b223-f22d95307d18"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-jspdf-lfi",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-jspdf-lfi/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/Nurjaman2004/jsPDF-Bulk-Detector-CVE-2025-68428-"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NURJAMAN2004-JSPDF-BULK-DETECTOR-CVE-2025-68428-"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-NURJAMAN2004-JSPDF-BULK-DETECTOR-CVE-2025-68428-\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-jspdf-lfi",
+      "x_craftedsignal_event_id": "brief-2026-10-30-jspdf-lfi",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jspdf-lfi/",
+      "x_craftedsignal_activity_at": "2026-10-30T18:59:31.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.02177,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b4995f18-ecf5-524c-a803-478a0ef66152",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:07:37.000Z",
@@ -188332,6 +188411,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--220f4a40-74fe-56f5-a161-1021fed71a99",
+      "name": "jsPDF (\u003c 4.0.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2215829e-c8cd-5bde-bd74-5749243e7075",
       "name": "EKS",
       "vendor": "Amazon"
@@ -213301,6 +213386,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-113867",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113867"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3db1877e-4bea-50a5-b223-f22d95307d18",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-68428",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-68428",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-68428"
         }
       ]
     },
