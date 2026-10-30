@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c8305048-beb1-5f55-a6d9-98a37dfe5e4c",
+  "id": "bundle--34352303-3658-57a8-b419-6f5a22f80a89",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23658,6 +23658,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--4150b26d-ffe9-579d-b59f-67226cab1caf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--11d50a42-12af-5ef1-9264-3b184bd372fc",
+      "target_ref": "vulnerability--0bd07205-4bad-5f6f-9285-c6fe6f03ef03"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--415796bd-ea3e-5eb9-9dd9-66a402553f57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30639,6 +30650,17 @@
       "relationship_type": "uses",
       "source_ref": "report--74032b78-2843-5e85-8de8-3c2127350c40",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5a33beb0-83f4-56bf-857b-547d897e0558",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T08:32:29.000Z",
+      "modified": "2026-10-30T08:32:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8a71d5b6-394f-5458-adf6-ab5dfe9fd92d",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -78159,6 +78181,17 @@
       "relationship_type": "has",
       "source_ref": "software--4dcd3da9-8b9b-5138-9a0d-32a46cc837fd",
       "target_ref": "vulnerability--54b7ec8d-4e04-5742-9056-42370e5db012"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ff99d2e4-a51b-5906-b9f7-0ca616fba53b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T08:32:29.000Z",
+      "modified": "2026-10-30T08:32:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8a71d5b6-394f-5458-adf6-ab5dfe9fd92d",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -132772,6 +132805,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8a71d5b6-394f-5458-adf6-ab5dfe9fd92d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T08:32:29.000Z",
+      "modified": "2026-10-30T08:32:29.000Z",
+      "name": "Wing FTP Server: Unauthenticated Lua injection remote code execution (CVE-2025-47812)",
+      "description": "## Overview\n\nWing FTP Server versions 7.4.3 and earlier are vulnerable to a critical unauthenticated remote code execution (RCE) flaw. The vulnerability exists within the `c_CheckUser()` function, where the username is truncated at the first NULL byte for authentication checks. However, the session creation process writes the full, unsanitized username into a Lua-based session file. By injecting a specially crafted payload containing Lua syntax, an attacker can cause the server to write malicious code into this session file. Accessing any authenticated endpoint subsequently triggers `loadfile()` on the session file, executing the injected Lua code with the privileges of the Wing FTP process (typically SYSTEM on Windows or root on Linux).\n\n## Attack Chain\n\n1. Attacker sends a crafted request to the server containing a NULL byte injected into the username parameter (e.g., `anonymous%00]]\u0026lt;lua\u003e--`).\n2. The `c_CheckUser()` authentication function truncates the input at the NULL byte, allowing the request to proceed.\n3. The server writes the full, unsanitized username string into a persistent session file.\n4. The malicious Lua payload is successfully stored within the session file.\n5. The attacker requests an authenticated endpoint, such as `dir.html`.\n6. The server loads the session file via `loadfile()`, inadvertently executing the attacker-supplied Lua code.\n\n## Impact\n\nSuccessful exploitation allows for full system compromise, granting the attacker the same privileges as the Wing FTP Server process, which is often running as root or SYSTEM.\n\n## Recommendation\n\n1. Upgrade Wing FTP Server to version 7.4.4 or later immediately.\n2. Inventory all instances of Wing FTP Server in the environment to identify systems running version 7.4.3 or earlier.\n3. Monitor web server logs for requests containing NULL bytes or suspicious Lua syntax in the username field.\n4. Restrict access to the Wing FTP administrative and web interface ports (defaulting to 5466/5467) to authorized networks only.\n",
+      "published": "2026-10-30T08:32:29.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--11d50a42-12af-5ef1-9264-3b184bd372fc",
+        "vulnerability--0bd07205-4bad-5f6f-9285-c6fe6f03ef03"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-wing-ftp-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-wing-ftp-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/4m3rr0r/CVE-2025-47812-poc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XS4N4TG-CVE-2025-47812"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XS4N4TG-CVE-2025-47812\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-wing-ftp-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-30-wing-ftp-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wing-ftp-rce/",
+      "x_craftedsignal_activity_at": "2026-10-30T08:32:29.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.93884,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--8a7b7bf3-71f4-5af8-a0b4-b0ac4c156c64",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T08:41:49.000Z",
@@ -183396,6 +183480,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--11d50a42-12af-5ef1-9264-3b184bd372fc",
+      "name": "Wing FTP Server (\u003c= 7.4.3)",
+      "vendor": "Wftpserver"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--11d89fe0-b028-5872-a50c-3b129cc2c6f7",
       "name": "virtualenv (\u003c 21.14.9)",
       "vendor": "Python Packaging Authority"
@@ -201740,6 +201831,22 @@
           "source_name": "cve",
           "external_id": "CVE-2020-37282",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-37282"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0bd07205-4bad-5f6f-9285-c6fe6f03ef03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-47812",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-47812",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-47812"
         }
       ]
     },

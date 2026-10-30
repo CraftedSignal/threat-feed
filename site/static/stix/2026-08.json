@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--01447a37-8aa2-5bbf-85a2-6d371298dae8",
+  "id": "bundle--5601330d-4bd8-54f0-ae5a-9c809a29de40",
   "objects": [
     {
       "type": "attack-pattern",
@@ -7686,17 +7686,6 @@
       "relationship_type": "has",
       "source_ref": "software--6ecec23a-1845-5ca3-a8ac-b54f9d1f57e0",
       "target_ref": "vulnerability--644d0577-a5a9-572e-b680-dbb788c7de52"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1559658b-aef2-561a-9999-e2b01177e93a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7b40c3f7-8b06-5cb0-9327-23b00bd4c28a",
-      "target_ref": "vulnerability--b5d8f022-cb65-500e-a3ac-fd422c3fb166"
     },
     {
       "type": "relationship",
@@ -53720,46 +53709,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--1aac9f18-8cbb-5a1d-aabf-a1bdc64b2b98",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-01T07:49:18.000Z",
-      "modified": "2026-08-01T07:49:18.000Z",
-      "name": "Unauthenticated Arbitrary File Deletion in FormGent WordPress Plugin",
-      "description": "## Overview\n\nThe FormGent WordPress plugin (versions 1.9.2 and earlier) contains a critical security vulnerability (CVE-2026-3141) stemming from a missing capability check on the /wp-json/formgent/responses/attachments REST API endpoint. The registration of this endpoint in routes/rest/api.php lacks necessary authentication middleware, allowing unauthenticated remote attackers to trigger file deletion processes. The vulnerability is compounded by insufficient path traversal validation, particularly in default installations where the expected target directory does not yet exist. Attackers can exploit this to delete sensitive files, including the WordPress configuration file wp-config.php. Once wp-config.php is removed, the target site effectively reverts to an uninitialized state, permitting an attacker to perform a fresh WordPress installation and gain complete administrative control over the application and underlying data.\n\n## Impact\n\nSuccessful exploitation allows for the permanent deletion of arbitrary files on the web server, leading to potential denial of service or full site takeover. Organizations running vulnerable versions of FormGent are at risk of data loss and administrative compromise. While the specific number of affected installations is not provided, the plugin's presence across the WordPress ecosystem presents a significant risk to affected web servers.\n\n## Recommendation\n\n- Immediately update the FormGent plugin to the latest patched version to remediate CVE-2026-3141.\n- Review web server access logs for anomalous POST requests targeting the /wp-json/formgent/responses/attachments endpoint.\n- Audit file system integrity for the presence of the wp-config.php file in the WordPress root directory to ensure it has not been removed.\n- Implement strict file system permissions for the web server user, preventing the deletion of critical WordPress configuration files.\n",
-      "published": "2026-08-01T07:49:18.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7b40c3f7-8b06-5cb0-9327-23b00bd4c28a",
-        "vulnerability--b5d8f022-cb65-500e-a3ac-fd422c3fb166"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-01-formgent-vulnerability",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-formgent-vulnerability/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3141"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-01-formgent-vulnerability",
-      "x_craftedsignal_event_id": "brief-2026-08-01-formgent-vulnerability",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-formgent-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-08-01T07:49:18.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -115341,13 +115290,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7b40c3f7-8b06-5cb0-9327-23b00bd4c28a",
-      "name": "FormGent (\u003c= 1.9.2)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7b620cda-3460-58df-8caf-8041620c206c",
       "name": "Network-AI",
       "vendor": "Network-AI"
@@ -136060,22 +136002,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-60672",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60672"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--b5d8f022-cb65-500e-a3ac-fd422c3fb166",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-3141",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-3141",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3141"
         }
       ]
     },
