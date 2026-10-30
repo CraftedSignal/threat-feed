@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3e6a98e7-edc4-5bb8-90c6-14917fa9974d",
+  "id": "bundle--382e98f4-c343-50cd-aa8c-875097e1290a",
   "objects": [
     {
       "type": "attack-pattern",
@@ -85142,6 +85142,50 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--109f05dd-5d0b-54ae-8272-4502b9b6dea4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T15:44:08.000Z",
+      "modified": "2026-10-30T15:44:08.000Z",
+      "name": "Apollotheme Ap Pagebuilder: Absolute Path Traversal (CVE-2024-6648)",
+      "description": "CVE-2024-6648 is an absolute path traversal vulnerability affecting the Ap Pagebuilder plugin for PrestaShop. The vulnerability has a CVSS score of 8.7 and an EPSS score of 0.7%. Public exploit code, including a Nuclei template, is available via Sploitus.\n",
+      "published": "2026-10-30T15:44:08.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--24e1f9f1-8bcf-5f90-9b71-189e043a1830"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-apollotheme-ap-pagebuilder-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apollotheme-ap-pagebuilder-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-N0D0N-CVE-2024-6648"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-N0D0N-CVE-2024-6648\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-apollotheme-ap-pagebuilder-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-30-apollotheme-ap-pagebuilder-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apollotheme-ap-pagebuilder-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-30T15:44:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00684,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -207971,6 +208015,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-29001",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29001"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--24e1f9f1-8bcf-5f90-9b71-189e043a1830",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-6648",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-6648",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-6648"
         }
       ]
     },
