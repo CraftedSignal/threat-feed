@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-28-n8n-odata-injection
 event_id: brief-2026-10-28-n8n-odata-injection
-revision: 4
-activity_at: "2026-10-29T20:15:56Z"
+revision: 5
+activity_at: "2026-10-30T13:30:40Z"
 revision_history:
   - revision: 2
     at: "2026-10-28T22:49:50Z"
@@ -46,11 +46,26 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-118678
+  - revision: 5
+    at: "2026-10-30T13:30:40Z"
+    checksum: sha256:4b9c51ffdf63387e0de7fcb2170ccc3df2b4ad1e43377c8dafcf6f4718803170
+    summary: added coverage for n8n (< 2.42.6, 2.43.x < 2.43.3, 3.x < 3.0.1)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-119408
 title: 'n8n: OData $filter injection vulnerability (CVE-2026-118641)'
 slug: 2026-10-n8n-odata-injection
 description: n8n workflow nodes for Microsoft Outlook and SharePoint contain an OData $filter injection vulnerability allowing unauthorized data access and modification.
 date: "2026-10-28T20:38:14Z"
-lastmod: "2026-10-29T20:15:03Z"
+lastmod: "2026-10-30T13:29:10Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -87,6 +102,8 @@ tags:
   - authorization
   - prototype-pollution
   - denial-of-service
+  - rce
+  - cve-2026-119408
 vendors:
   - n8n GmbH
   - n8n
@@ -102,6 +119,7 @@ products:
   - n8n (< 2.43.5)
   - n8n (< 1.123.85, < 2.43.5, < 2.44.1)
   - n8n (< 2.41.4, 2.42.x < 2.42.1)
+  - n8n (< 2.42.6, 2.43.x < 2.43.3, 3.x < 3.0.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -141,6 +159,12 @@ mitre_ttps:
     technique_name: Data from Cloud Storage
     evidence: Attackers who know the webhook URL can name a file to download, causing the node to send the workspace access token to an attacker host and return the response.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059.007
+    technique_name: JavaScript
+    evidence: Authenticated users who can create, modify, or import workflows naming these hidden node types can execute JavaScript in the n8n main process.
+    confidence_band: high
 cves:
   - id: CVE-2026-118641
     cvss: 7.5
@@ -167,6 +191,9 @@ cves:
     cvss: 7.1
     epss: 0.00293
     kev_status: "false"
+  - id: CVE-2026-119408
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118675
     kev_status: unknown
   - id: CVE-2026-118676
@@ -185,6 +212,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-118675
   - https://nvd.nist.gov/vuln/detail/CVE-2026-118676
   - https://nvd.nist.gov/vuln/detail/CVE-2026-118678
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-119408
 action_plan:
   priority: elevated
   owners:
@@ -219,6 +247,10 @@ action_plan:
       owner: IT Operations
       due: 24h
       evidence: n8n security advisory regarding authorization bypass
+    - action: Upgrade all n8n instances to versions >= 2.42.6, >= 2.43.3, or >= 3.0.1.
+      owner: IT Operations
+      due: 24h
+      evidence: CVE-2026-119408 official advisory
   hunt_leads:
     - lead: Identify n8n workflows utilizing Microsoft Outlook contact lookup or SharePoint v1 item update nodes that accept external user input.
       technique_id: T1190
@@ -288,6 +320,15 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Attackers can add keys such as __proto__ to workflow connections
+    - lead: Identify workflows using deprecated Function, Function Item, or LangChain Code nodes.
+      technique_id: T1059.007
+      data_needed:
+        - n8n workflow JSON definition files
+        - n8n audit logs for workflow import/modification events
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Vulnerability involves specific deprecated node types running outside of isolation.
   mitigation_plan:
     - priority: immediate
       action: Upgrade n8n to 1.123.85 or later
@@ -329,14 +370,12 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-118678
       evidence: n8n before 2.41.4 and 2.42.x before 2.42.1 contains a prototype pollution vulnerability
+    - priority: immediate
+      action: Upgrade n8n to 2.42.6 or later
+      owner: IT Operations
+      addresses: CVE-2026-119408
+      evidence: Vendor patch requirement
 updates:
-  - at: "2026-10-28T20:38:57Z"
-    level: L2
-    summary: added coverage for n8n (< 1.123.83, < 2.41.4, < 2.42.1)
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-118679
   - at: "2026-10-28T22:48:03Z"
     level: L2
     summary: added coverage for n8n (< 1.123.85, 2.x < 2.43.5, 2.44.x < 2.44.1)
@@ -365,6 +404,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-118678
+  - at: "2026-10-30T13:29:10Z"
+    level: L2
+    summary: added coverage for n8n (< 2.42.6, 2.43.x < 2.43.3, 3.x < 3.0.1)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-119408
 ---
 
 CVE-2026-118641 is an OData $filter injection vulnerability in n8n affecting the Microsoft Outlook contact lookup node and the Microsoft SharePoint v1 item update node. The nodes fail to escape expression-bindable parameters when constructing $filter strings, enabling attackers to inject single quotes. Successful exploitation allows for the unauthorized retrieval of contact lists from a mailbox or the manipulation of write operations to target unintended SharePoint list items within the scope of the configured credentials.
