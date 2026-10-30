@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-28-google-chrome-vulnerabilities-16fc1336
 event_id: brief-2026-10-28-google-chrome-vulnerabilities-16fc1336
-revision: 2
-activity_at: "2026-10-28T17:56:03Z"
+revision: 3
+activity_at: "2026-10-30T02:17:48Z"
 revision_history:
   - revision: 2
     at: "2026-10-28T17:56:03Z"
@@ -17,11 +17,25 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/chrome-156-security-update-oct-2026
+  - revision: 3
+    at: "2026-10-30T02:17:48Z"
+    checksum: sha256:9cb4f83e6591e447308f97ec6011d9396fa1a09769737427e34e50669bb31996
+    summary: OS android; OS windows; OS macos; OS linux
+    changed_fields:
+      - affected_os
+      - affected_products
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/chrome-156-security-update-oct-2026
 title: 'Google Chrome: Multiple Vulnerabilities (CVE-2026-118304 through CVE-2026-118359)'
 slug: 2026-10-google-chrome-vulnerabilities-16fc1336
 description: Google has released security updates for Chrome addressing a large number of vulnerabilities affecting Linux, Windows, and macOS installations.
 date: "2026-10-28T17:44:01Z"
-lastmod: "2026-10-28T17:55:18Z"
+lastmod: "2026-10-30T02:17:15Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -50,6 +64,12 @@ products:
   - Chrome (< 156.0.8078.73 for Windows)
   - Chrome (< 156.0.8078.74 for Mac)
   - Chrome (< 156.0.8078.73)
+  - Chrome (< 156.0.8078.79)
+affected_os:
+  - Windows
+  - macOS
+  - Linux
+  - Android
 cves:
   - id: CVE-2026-118304
     cvss: 8.8
@@ -57,25 +77,36 @@ cves:
   - id: CVE-2026-118305
     kev_status: unknown
   - id: CVE-2026-118306
-    kev_status: unknown
+    cvss: 9.6
+    epss: 0.00326
+    kev_status: "false"
   - id: CVE-2026-118307
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00292
+    kev_status: "false"
   - id: CVE-2026-118308
     kev_status: unknown
   - id: CVE-2026-118309
     kev_status: unknown
   - id: CVE-2026-118310
-    kev_status: unknown
+    cvss: 9.6
+    epss: 0.00272
+    kev_status: "false"
   - id: CVE-2026-118311
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00243
+    kev_status: "false"
   - id: CVE-2026-118312
     kev_status: unknown
   - id: CVE-2026-118313
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118314
     kev_status: unknown
   - id: CVE-2026-118315
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00207
+    kev_status: "false"
   - id: CVE-2026-118316
     kev_status: unknown
   - id: CVE-2026-118317
@@ -96,18 +127,23 @@ cves:
   - id: CVE-2026-118328
     kev_status: unknown
   - id: CVE-2026-118329
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118330
     kev_status: unknown
   - id: CVE-2026-118331
     cvss: 8.8
     kev_status: "false"
   - id: CVE-2026-118332
-    kev_status: unknown
+    cvss: 9.6
+    epss: 0.00272
+    kev_status: "false"
   - id: CVE-2026-118333
     kev_status: unknown
   - id: CVE-2026-118334
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00264
+    kev_status: "false"
   - id: CVE-2026-118335
     kev_status: unknown
   - id: CVE-2026-118336
@@ -117,11 +153,14 @@ cves:
   - id: CVE-2026-118338
     kev_status: unknown
   - id: CVE-2026-118339
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00317
+    kev_status: "false"
   - id: CVE-2026-118340
     kev_status: unknown
   - id: CVE-2026-118341
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118342
     kev_status: unknown
   - id: CVE-2026-118343
@@ -133,35 +172,47 @@ cves:
     cvss: 8.8
     kev_status: "false"
   - id: CVE-2026-118346
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118347
     cvss: 8.8
     kev_status: "false"
   - id: CVE-2026-118348
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118349
     kev_status: unknown
   - id: CVE-2026-118350
     kev_status: unknown
   - id: CVE-2026-118351
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118352
     cvss: 8.8
     kev_status: "false"
   - id: CVE-2026-118353
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118354
-    kev_status: unknown
+    cvss: 8.8
+    kev_status: "false"
   - id: CVE-2026-118355
-    kev_status: unknown
+    cvss: 9.6
+    kev_status: "false"
   - id: CVE-2026-118356
     kev_status: unknown
   - id: CVE-2026-118357
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00283
+    kev_status: "false"
   - id: CVE-2026-118358
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00358
+    kev_status: "false"
   - id: CVE-2026-118359
-    kev_status: unknown
+    cvss: 8.8
+    epss: 0.00283
+    kev_status: "false"
 references:
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1398/
   - https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_0562499947.html
@@ -220,6 +271,10 @@ references:
   - https://pwn.watch/i/chrome-156-security-update-oct-2026
   - https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02018666648.html
   - https://www.anthropic.com/research/discovering-vulnerabilities-with-claude
+  - https://cyber.gc.ca/en/alerts-advisories/google-chrome-security-advisory-av26-1095
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4210
+  - https://www.cisecurity.org/advisory/multiple-vulnerabilities-in-google-chrome-could-allow-for-arbitrary-code-execution_2026-122
+  - https://chromereleases.googleblog.com/2026/10/stable-channel-update-for-desktop_02107719452.html
 action_plan:
   priority: elevated
   owners:
@@ -240,6 +295,13 @@ updates:
   - at: "2026-10-28T17:55:18Z"
     level: L1
     summary: new product
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/chrome-156-security-update-oct-2026
+  - at: "2026-10-30T02:17:15Z"
+    level: L1
+    summary: OS android; OS windows; OS macos; OS linux
     sources:
       - pwn-watch
     source_urls:
