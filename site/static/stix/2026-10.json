@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--653e0687-f2db-51f2-8084-d03a24749069",
+  "id": "bundle--10405162-b401-5343-a4b4-556fc5ad1925",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25632,6 +25632,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--430f40f3-556c-5016-875b-eff5a049c784",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:04:32.000Z",
+      "modified": "2026-10-30T23:04:32.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--012c7369-8534-521e-abea-5b4af3e39e84",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--430fe172-d4be-5c0d-b33b-4ac7ef5f9aa8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37226,6 +37237,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--68ff064d-1af0-5a63-a2fc-7e92668549b6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d2e83007-a4fd-5b2e-af09-733a27b9ec85",
+      "target_ref": "vulnerability--2a97ef8a-2fb3-5929-bed6-d2152299dc37"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6904aea5-27e4-50cb-98e5-44608b2ecb75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -39037,6 +39059,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2cfbcf80-e959-5785-8332-84615c279409",
       "target_ref": "indicator--016bfc15-981e-5a2b-ae77-16daee6c46fa"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6ed0bcb3-5a72-5a7c-97d3-dcd46c9e212d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:04:51.000Z",
+      "modified": "2026-10-30T23:04:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ad107e86-0011-57af-8c88-f577784ad341",
+      "target_ref": "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694"
     },
     {
       "type": "relationship",
@@ -46807,6 +46840,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8743063b-a0e6-52f5-80c5-88621359b84d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0025f465-4a7d-55f1-9232-b80e4ef4a7a9",
+      "target_ref": "vulnerability--9f3108c3-a87d-5664-afb2-65a418c07683"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8748a2a5-fe7d-5b62-8995-e8ff87b849f8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52039,6 +52083,17 @@
       "relationship_type": "has",
       "source_ref": "software--efdced95-bbf0-542e-b1ce-43ee8a67472f",
       "target_ref": "vulnerability--0fa5824b-2d5f-5eb5-acb2-d60f98b24486"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98b97b49-200c-54f8-a107-44be99a5b239",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b594fe15-488f-5c8b-a0b5-74ba27686714",
+      "target_ref": "vulnerability--cb2432b5-db66-5b67-a14b-3f416b52e784"
     },
     {
       "type": "relationship",
@@ -70248,6 +70303,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d4eec6c6-40e9-55e0-9da9-388e542db5fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cf4c32b8-9ae1-5b7d-9d7f-90e93ce826f3",
+      "target_ref": "vulnerability--2a97ef8a-2fb3-5929-bed6-d2152299dc37"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d503856b-e8dd-5a8e-a5bb-1e40c20f9945",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79389,6 +79455,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--efddc977-ebe9-5951-9898-cb2378403c8b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:04:51.000Z",
+      "modified": "2026-10-30T23:04:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ad107e86-0011-57af-8c88-f577784ad341",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--effa42b1-7c74-5a3f-a580-13db4ba89b5a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T17:06:24.000Z",
@@ -84403,6 +84480,63 @@
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.00978,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--012c7369-8534-521e-abea-5b4af3e39e84",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:04:32.000Z",
+      "modified": "2026-10-30T23:04:32.000Z",
+      "name": "MikroTik RouterOS: Persistent Privilege Escalation via mtget Stack Overflow (CVE-2026-89020)",
+      "description": "## Overview\nA stack-based buffer overflow vulnerability (CVE-2026-89020) exists in the 'mtget' binary of MikroTik RouterOS within the TFTP request (RRQ) builder. Authenticated, low-privileged users can exploit this by issuing a maliciously crafted '/tool fetch' command with an excessively long tftp:// URL path. This allows for the overwriting of registers and the modification of the system's group policy configuration file ('/rw/store/group.dat'). Consequently, accounts with read-only access can be promoted to full-privileged status, with the configuration changes persisting across device reboots.\n\n## Attack Chain\n1. Authenticated user identifies an unpatched RouterOS instance.\n2. User initiates a loopback TFTP fetch command using '/tool fetch'.\n3. User provides a crafted, over-long (4094 B) tftp:// URL path as the source-path parameter.\n4. The mtget binary performs an unbounded memory copy, triggering a stack overflow.\n5. The overflow overwrites saved registers, allowing the attacker to redirect execution.\n6. The process modifies '/rw/store/group.dat', altering policy definitions to grant full privileges to the 'read' group.\n7. The device reboot process loads the corrupted group file, establishing persistent administrative access for the attacker.\n\n## Impact\nSuccessful exploitation results in full administrative control over the affected network appliance. The change to the group policy file is persistent and survives device reboots, potentially leading to long-term unauthorized access and control of the network infrastructure.\n\n## Recommendation\n- Upgrade RouterOS to version 6.49.21 or later, or 7.23.4 or later, to receive the fix for CVE-2026-89020.\n- Audit existing RouterOS instances for unauthorized modifications to group policies using 'group print detail'.\n- Restrict access to the '/tool fetch' command and TFTP functionality to authorized administrative users only.\n- Implement network-level segmentation to prevent low-privileged users from reaching sensitive device management interfaces.\n",
+      "published": "2026-10-30T23:04:32.000Z",
+      "labels": [
+        "network-device",
+        "privilege-escalation",
+        "routeros",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cf4c32b8-9ae1-5b7d-9d7f-90e93ce826f3",
+        "software--d2e83007-a4fd-5b2e-af09-733a27b9ec85",
+        "vulnerability--2a97ef8a-2fb3-5929-bed6-d2152299dc37"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-mikrotik-routeros-mtget-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-mikrotik-routeros-mtget-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://mikrotik.com/supportsec/cve-2026-89020/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=9083E69A-424A-5498-8391-D9DACEABD2FD\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.vulncheck.com/advisories/mikrotik-routeros-stack-buffer-overflow-via-tftp-url-path"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-mikrotik-routeros-mtget-overflow",
+      "x_craftedsignal_event_id": "brief-2026-10-30-mikrotik-routeros-mtget-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mikrotik-routeros-mtget-overflow/",
+      "x_craftedsignal_activity_at": "2026-10-30T23:04:32.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 4.3,
+      "x_craftedsignal_epss_max": 0.00488,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -153847,7 +153981,7 @@
       "id": "report--a721ed89-1268-5463-a91c-ef5742ada8b3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T08:27:14.000Z",
-      "modified": "2026-10-28T08:27:14.000Z",
+      "modified": "2026-10-30T23:05:53.000Z",
       "name": "IvyForms Plugin: Arbitrary file upload vulnerability (CVE-2026-109384)",
       "description": "The Innovative Form Builder - IvyForms plugin for WordPress is vulnerable to arbitrary file upload in all versions up to, and including, 1.5.1. The vulnerability is caused by insufficient file type validation in the filterFiletypeAndExt function, which overrides native WordPress defenses. An authenticated attacker with 'add_edit_forms' capability or above can configure a form to accept dangerous file extensions, allowing unauthenticated visitors to upload executable files via the /wp-json/ivyforms/v1/form/submission/ REST route, potentially leading to remote code execution.\n",
       "published": "2026-10-28T08:27:14.000Z",
@@ -153871,20 +154005,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109384"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0E088B39-334A-5856-81AD-68E4971B7EA2\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-28-ivyforms-rce",
       "x_craftedsignal_event_id": "brief-2026-10-28-ivyforms-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ivyforms-rce/",
-      "x_craftedsignal_activity_at": "2026-10-28T08:27:14.000Z",
+      "x_craftedsignal_activity_at": "2026-10-30T23:05:53.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.00725,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -155757,6 +155896,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ad107e86-0011-57af-8c88-f577784ad341",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:04:51.000Z",
+      "modified": "2026-10-30T23:04:51.000Z",
+      "name": "Thales Sentinel Keys Server Remote Code Execution (CVE-2026-78403)",
+      "description": "## Overview\nThales Sentinel Keys Server is affected by a stack-based buffer overflow vulnerability (CVE-2026-78403) due to improper length validation of the first field in incoming HTTP requests. An unauthenticated attacker can exploit this via the network to execute arbitrary code as NT AUTHORITY\\SYSTEM. This vulnerability affects Sentinel Keys Server versions prior to 1.3.8.0.\n\n## Impact\nSuccessful exploitation grants an attacker full remote code execution on the underlying Windows system with SYSTEM-level privileges.\n\n## Recommendation\n- Update Thales Sentinel Keys Server to version 1.3.8.0 or later immediately.\n- Until patching, restrict network access to the Sentinel Keys Server service to authorized administrative IP addresses only.\n- Review web server access logs for anomalous, high-length HTTP request headers or unusually long request lines directed at the service.\n",
+      "published": "2026-10-30T23:04:51.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--a22493f4-a6a9-597f-b1fe-78e2c4e61694",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b594fe15-488f-5c8b-a0b5-74ba27686714",
+        "vulnerability--cb2432b5-db66-5b67-a14b-3f416b52e784"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-sentinel-keys-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-sentinel-keys-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-78403"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-78403\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://supportportal.thalesgroup.com/csm?id=kb_article_view\u0026sys_kb_id=50fc9f3b3b005f10bba8b41864e45a61\u0026sysparm_article=KB0031216"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-sentinel-keys-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-30-sentinel-keys-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-sentinel-keys-rce/",
+      "x_craftedsignal_activity_at": "2026-10-30T23:04:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -159644,6 +159833,54 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b641c2e9-ec44-5a80-9233-613835500e25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T23:05:08.000Z",
+      "modified": "2026-10-30T23:05:08.000Z",
+      "name": "SUSE Rancher Manager authorization bypass (CVE-2026-104623)",
+      "description": "CVE-2026-104623 is an authorization bypass vulnerability affecting the `local-cluster-shell` feature in SUSE Rancher Manager. Authenticated Rancher users, including those with minimal global roles and no cluster-level privileges, can bypass authorization checks by using non-standard URL request shapes. This allows the creation of an interactive shell pod (`dashboard-shell-*`) in the `cattle-system` namespace. The issue was addressed in version 2.15.3 by enforcing a `SubjectAccessReview` within the handler.\n",
+      "published": "2026-10-30T23:05:08.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0025f465-4a7d-55f1-9232-b80e4ef4a7a9",
+        "vulnerability--9f3108c3-a87d-5664-afb2-65a418c07683"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-rancher-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-rancher-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/rancher/rancher/security/advisories/GHSA-8x6f-2v58-x6p7"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=FE9C2F0B-BAA4-509A-8238-5BB7DF6270D8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=FE9C2F0B-BAA4-509A-8238-5BB7DF6270D8\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-rancher-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-30-rancher-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-rancher-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-30T23:05:08.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 6.3,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -191260,6 +191497,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0025f465-4a7d-55f1-9232-b80e4ef4a7a9",
+      "name": "SUSE Rancher Manager (\u003c 2.15.3)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--005c9d50-43d4-556b-b6ad-498f7846f269",
       "name": "TeamViewer Remote Control (Android) (\u003c 15.83)",
       "vendor": "TeamViewer"
@@ -205210,6 +205454,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b594fe15-488f-5c8b-a0b5-74ba27686714",
+      "name": "Sentinel Keys Server (\u003c 1.3.8.0)",
+      "vendor": "Thales"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b598fe23-2580-50d1-bdbf-fd12303e7d80",
       "name": "ZITADEL (4.x \u003c 4.19.2)",
       "vendor": "ZITADEL"
@@ -206948,6 +207199,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cf4c32b8-9ae1-5b7d-9d7f-90e93ce826f3",
+      "name": "RouterOS (7.23.0 - 7.23.3)",
+      "vendor": "MikroTik"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cf9222a4-96a2-56f3-adf7-838dda43c002",
       "name": "Cyrus SASL",
       "vendor": "Cyrus SASL"
@@ -207263,6 +207521,13 @@
       "id": "software--d2d8e197-4e1d-520a-8b96-126f853b52a8",
       "name": "Unla (\u003c= 0.10.0)",
       "vendor": "AmoyLab"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d2e83007-a4fd-5b2e-af09-733a27b9ec85",
+      "name": "RouterOS (\u003c 6.49.21)",
+      "vendor": "MikroTik"
     },
     {
       "type": "software",
@@ -216736,6 +217001,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114694",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114694"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2a97ef8a-2fb3-5929-bed6-d2152299dc37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-89020",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-89020",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89020"
         }
       ]
     },
@@ -233286,6 +233567,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9f3108c3-a87d-5664-afb2-65a418c07683",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-104623",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-104623",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104623"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9f6eb8d1-703a-53ae-8297-047bb5623cc7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -239456,6 +239753,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108718",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108718"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cb2432b5-db66-5b67-a14b-3f416b52e784",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-78403",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-78403",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78403"
         }
       ]
     },
