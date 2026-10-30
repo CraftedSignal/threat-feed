@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eca50554-0a48-510b-adf1-15f33c104427",
+  "id": "bundle--981a6762-67be-5f7b-8a70-e0cc13127d51",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35688,6 +35688,17 @@
       "relationship_type": "has",
       "source_ref": "software--b78e2e6d-6e0a-501c-8fea-a51c1fc4b1eb",
       "target_ref": "vulnerability--7bcd616f-fc55-514c-adea-b9e9df4e42a6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6c14466e-4b90-5feb-9054-1e94e92f6808",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c35c4724-3772-551f-9624-04714661d11b",
+      "target_ref": "vulnerability--99ed8fbb-70f4-53e4-a0ce-62ced4d7c6ec"
     },
     {
       "type": "relationship",
@@ -125838,6 +125849,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--78c867ed-13bf-5eea-965b-ff518eb8ad1b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T05:20:12.000Z",
+      "modified": "2026-10-30T05:20:12.000Z",
+      "name": "Python-Markdown: Algorithmic complexity vulnerability (CVE-2019-25781)",
+      "description": "Python-Markdown versions 3.0 through 3.11.2 contain an algorithmic complexity vulnerability in inline link parsing. Remote attackers can submit short Markdown containing repeated `[` or `![` characters, forcing `LinkInlineProcessor.getText()` and `getLink()` into quadratic scans that keep workers busy for minutes.\n",
+      "published": "2026-10-30T05:20:12.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c35c4724-3772-551f-9624-04714661d11b",
+        "vulnerability--99ed8fbb-70f4-53e4-a0ce-62ced4d7c6ec"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-python-markdown-cve-2019-25781",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-python-markdown-cve-2019-25781/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25781"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-python-markdown-cve-2019-25781",
+      "x_craftedsignal_event_id": "brief-2026-10-30-python-markdown-cve-2019-25781",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-python-markdown-cve-2019-25781/",
+      "x_craftedsignal_activity_at": "2026-10-30T05:20:12.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--78c89058-ac0c-5024-834b-0ffe9bea89cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-15T13:00:33.000Z",
@@ -195793,6 +195844,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c35c4724-3772-551f-9624-04714661d11b",
+      "name": "Python-Markdown 3.0 through 3.11.2 (3.0-3.11.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c3932529-5c10-57a0-8a75-2f490863803f",
       "name": "cool-admin-midway (\u003c= 8.0.0)",
       "vendor": "cool-admin"
@@ -220903,6 +220960,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-102984",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102984"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--99ed8fbb-70f4-53e4-a0ce-62ced4d7c6ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2019-25781",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2019-25781",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25781"
         }
       ]
     },
