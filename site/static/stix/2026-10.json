@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0bfbb8b2-cb3b-530d-b8e4-27df5bf57f43",
+  "id": "bundle--408fc475-7352-5617-9b76-687bb5eb7dcf",
   "objects": [
     {
       "type": "attack-pattern",
@@ -147471,7 +147471,7 @@
       "id": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-29T18:36:52.000Z",
+      "modified": "2026-10-30T12:41:05.000Z",
       "name": "WordPress: Multiple vulnerabilities in versions prior to 7.1.4",
       "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.\n\n## Impact\n\nSuccessful exploitation may result in full system compromise via arbitrary code execution, service disruption, or unauthorized access to sensitive application data.\n\n## Recommendation\n\n- Inventory all WordPress deployments across the organization to identify instances running versions older than 7.1.4.\n- Upgrade all vulnerable WordPress installations to version 7.1.4 or later immediately.\n- Review the official WordPress security bulletin for any specific post-patch configuration requirements.\n",
       "published": "2026-10-29T18:36:52.000Z",
@@ -147498,18 +147498,25 @@
         {
           "source_name": "reference",
           "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1420/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
       "x_craftedsignal_event_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/",
-      "x_craftedsignal_activity_at": "2026-10-29T18:36:52.000Z",
+      "x_craftedsignal_activity_at": "2026-10-30T12:41:05.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/",
+        "observed_at": "2026-10-30T12:04:13.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
