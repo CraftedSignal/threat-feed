@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9fc708e8-68e9-55b4-80b9-89ed2c785cd3",
+  "id": "bundle--4ee67cb1-e74e-503b-9f01-a1a17f46b662",
   "objects": [
     {
       "type": "attack-pattern",
@@ -98348,7 +98348,7 @@
       "id": "report--335b3125-eb7f-5d75-b13c-a23cd88143f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T13:29:53.000Z",
-      "modified": "2026-10-30T13:29:53.000Z",
+      "modified": "2026-10-30T13:42:47.000Z",
       "name": "vsftpd: Authentication bypass in ssl_data_accept (CVE-2026-119568)",
       "description": "vsftpd through 3.0.5 contains an authentication bypass vulnerability in ssl_data_accept() that allows unauthenticated attackers to hijack FTPS data connections by resuming their own TLS session ticket. Attackers sharing the victim's source IP can obtain a ticket via AUTH TLS, then connect to the victim's PASV port to steal downloads or inject upload data.\n",
       "published": "2026-10-30T13:29:53.000Z",
@@ -98366,14 +98366,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119568"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-119568\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-vsftpd-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-30-vsftpd-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vsftpd-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-30T13:29:53.000Z",
+      "x_craftedsignal_activity_at": "2026-10-30T13:42:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -100333,6 +100337,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--37a2a96f-3142-5eaf-86ff-6a3d4b31836a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T13:42:01.000Z",
+      "modified": "2026-10-30T13:42:01.000Z",
+      "name": "ClickHouse Server: Unauthenticated remote code execution (CVE-2026-116366)",
+      "description": "An issue has been discovered in ClickHouse Server that, under certain conditions, could allow an unauthenticated user with network access to execute arbitrary code on the server. The vulnerability is reported with a CVSS 4.0 score of 9.5 and a high-severity rating.\n",
+      "published": "2026-10-30T13:42:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--23b2eea7-2c25-5c83-aef0-c430983b0d12"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-clickhouse-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-clickhouse-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://clickhouse.com/docs/resources/changelogs/security-changelog"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/ClickHouse/ClickHouse/blob/master/SECURITY.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-116366"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-116366\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-clickhouse-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-30-clickhouse-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-clickhouse-rce/",
+      "x_craftedsignal_activity_at": "2026-10-30T13:42:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "confirmed_active",
+        "source_url": "https://sploitus.com/exploit?id=CVE-2026-116366",
+        "observed_at": "2026-10-30T11:24:00.000Z",
+        "confidence": "high"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -206949,6 +207006,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-96561",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96561"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--23b2eea7-2c25-5c83-aef0-c430983b0d12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116366",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116366",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116366"
         }
       ]
     },
