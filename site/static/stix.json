@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--62f2bbc6-57ea-5767-9aba-720bb3f6aff0",
+  "id": "bundle--ec644472-c28c-59d2-b4dd-fefc91aea4e1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -20343,6 +20343,17 @@
       "relationship_type": "uses",
       "source_ref": "report--584e1af6-a8c0-5d58-8674-ba3f8421ac53",
       "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--33309981-5748-5f5b-bcd0-8dfcccc98669",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--35ab32e1-e7e7-5957-9e5e-f8ec4536bbb7",
+      "target_ref": "vulnerability--d373c129-af36-5a35-afe1-49c1c65f1b85"
     },
     {
       "type": "relationship",
@@ -62565,6 +62576,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c618e3ca-af70-5b48-9a87-290cf2e00863",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:01:03.000Z",
+      "modified": "2026-10-30T18:01:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54f9a46d-c7fd-58fb-b345-76a6d860797a",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c619e040-4371-5db6-b2df-03bea936eed9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:28:40.000Z",
@@ -74154,6 +74176,17 @@
       "modified": "2026-10-03T06:54:11.000Z",
       "relationship_type": "uses",
       "source_ref": "report--3e4d5496-383d-5a05-b101-4578f21474bc",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eb64b1b8-8ffb-578b-b8ea-d3303a3e9b11",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:01:03.000Z",
+      "modified": "2026-10-30T18:01:03.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--54f9a46d-c7fd-58fb-b345-76a6d860797a",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -114368,6 +114401,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--54f9a46d-c7fd-58fb-b345-76a6d860797a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T18:01:03.000Z",
+      "modified": "2026-10-30T18:01:03.000Z",
+      "name": "Zammad: Server-Side Template Injection remote code execution (CVE-2026-34724)",
+      "description": "## Overview\n\nCVE-2026-34724 is a Server-Side Template Injection (SSTI) vulnerability identified in the Zammad helpdesk software's AI Agent feature. The vulnerability allows an authenticated administrator to inject arbitrary templates into the 'type_enrichment_data' configuration, which are subsequently rendered, leading to full Remote Code Execution (RCE) on the server. The vulnerability is confirmed in Zammad version 7.0.0 and is remediated in version 7.0.1.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker with administrative privileges to execute arbitrary commands on the underlying server as the process user (typically 'zammad' or 'www-data').\n\n## Recommendation\n\n* Upgrade Zammad installations to version 7.0.1 or 6.5.4 immediately.\n* If patching is not feasible, disable the AI Agent feature in the Zammad configuration.\n* Review administrative access controls and restrict access to the 'type_enrichment_data' configuration to highly trusted personnel only.\n* Monitor Zammad system logs for unauthorized changes to administrative configuration parameters, specifically 'type_enrichment_data'.\n",
+      "published": "2026-10-30T18:01:03.000Z",
+      "labels": [
+        "rce",
+        "ssti",
+        "vulnerability",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--35ab32e1-e7e7-5957-9e5e-f8ec4536bbb7",
+        "vulnerability--d373c129-af36-5a35-afe1-49c1c65f1b85"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-zammad-ssti",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-zammad-ssti/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/zammad/zammad/security/advisories/GHSA-fg9w-jg8f-4j94"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-34724"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-0XBLACKASH-CVE-2026-34724\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-zammad-ssti",
+      "x_craftedsignal_event_id": "brief-2026-10-30-zammad-ssti",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-zammad-ssti/",
+      "x_craftedsignal_activity_at": "2026-10-30T18:01:03.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.00314,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5501fd6d-7be8-5ceb-8f18-83519a0fbe98",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T16:32:37.000Z",
@@ -150298,7 +150388,7 @@
       "id": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-30T12:41:05.000Z",
+      "modified": "2026-10-30T18:02:22.000Z",
       "name": "WordPress: Multiple vulnerabilities in versions prior to 7.1.4",
       "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.\n\n## Impact\n\nSuccessful exploitation may result in full system compromise via arbitrary code execution, service disruption, or unauthorized access to sensitive application data.\n\n## Recommendation\n\n- Inventory all WordPress deployments across the organization to identify instances running versions older than 7.1.4.\n- Upgrade all vulnerable WordPress installations to version 7.1.4 or later immediately.\n- Review the official WordPress security bulletin for any specific post-patch configuration requirements.\n",
       "published": "2026-10-29T18:36:52.000Z",
@@ -150310,6 +150400,7 @@
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--29939328-0610-5f81-b462-876b056a1c3d",
         "software--3859b408-dd23-559a-a2ef-4ae75bcbd2f9"
       ],
       "external_references": [
@@ -150317,6 +150408,14 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://pwn.watch/i/wordpress-7-1-4-security-release-oct-2026"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wordpress.org/documentation/wordpress-version/version-7-1-4/"
         },
         {
           "source_name": "reference",
@@ -150329,14 +150428,18 @@
         {
           "source_name": "reference",
           "url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wordfence.com/blog/2026/10/wordpress-7-1-4-security-release-rce/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
       "x_craftedsignal_event_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/",
-      "x_craftedsignal_activity_at": "2026-10-30T12:41:05.000Z",
+      "x_craftedsignal_activity_at": "2026-10-30T18:02:22.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -189559,6 +189662,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--29939328-0610-5f81-b462-876b056a1c3d",
+      "name": "WordPress core (\u003c 7.1.4)",
+      "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2a070796-ab55-5c02-bfef-a6652364cb1e",
       "name": "N-Tron 700 Series (\u003c=Bootloader_2.0.6.1)",
       "vendor": "Red Lion Controls"
@@ -190419,6 +190529,13 @@
       "id": "software--3599a35d-c908-5fae-89ce-fdbaf8656e98",
       "name": "Apache Camel (org.apache.camel:camel-saxon) 4.0.0 before 4.18.5",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--35ab32e1-e7e7-5957-9e5e-f8ec4536bbb7",
+      "name": "Zammad (\u003c 7.0.1)",
+      "vendor": "Zammad"
     },
     {
       "type": "software",
@@ -234571,6 +234688,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-5556",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-5556"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d373c129-af36-5a35-afe1-49c1c65f1b85",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-34724",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-34724",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34724"
         }
       ]
     },
