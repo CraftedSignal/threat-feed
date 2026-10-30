@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--8b3ef5f3-f6ab-5fe2-bc01-48aaafef99f5",
+  "id": "bundle--653e0687-f2db-51f2-8084-d03a24749069",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2671,6 +2671,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1036.005",
           "url": "https://attack.mitre.org/techniques/T1036/005"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Launch Agent",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1543.001",
+          "url": "https://attack.mitre.org/techniques/T1543/001"
         }
       ]
     },
@@ -7301,6 +7317,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--04b56ba4-d345-51d2-a16e-c4a827a3a219",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:22.000Z",
+      "modified": "2026-10-30T22:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
+      "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--04c96661-45d2-51c0-9903-404f38c338ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9915,6 +9942,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c1f3d456-a54c-590f-9d56-dd8e563b483f",
       "target_ref": "attack-pattern--abc33c38-86c8-5fbc-8644-480ee3045f9b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0d1d9843-023f-53a1-bfae-eddc55337047",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:13.000Z",
+      "modified": "2026-10-30T22:04:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7cc52c6f-7fb0-529a-a0f3-dd8ec2151cfe",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -21722,6 +21760,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--35843154-95e2-5311-83f7-491959607305",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:22.000Z",
+      "modified": "2026-10-30T22:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
+      "target_ref": "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--35960282-2b81-570b-a4f9-b1825e5ce8cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -22312,6 +22361,17 @@
       "relationship_type": "has",
       "source_ref": "software--e7c25b9e-991f-565c-a541-7740d750f156",
       "target_ref": "vulnerability--fbdfc930-b25d-5370-ab5d-9c82ed776583"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--37c6a167-f2f0-588c-b86f-807d8a3c9338",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:22.000Z",
+      "modified": "2026-10-30T22:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
+      "target_ref": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1"
     },
     {
       "type": "relationship",
@@ -35626,6 +35686,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--645e1382-ab9b-5f4e-a4b8-c1eb2fd6cb7b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:22.000Z",
+      "modified": "2026-10-30T22:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--646632e8-592f-54fd-a55a-e7de2459dc0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T14:14:49.000Z",
@@ -38911,6 +38982,17 @@
       "relationship_type": "uses",
       "source_ref": "report--99606941-8ca3-51a8-8d95-733a5269c4ff",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6eb819af-498d-5226-8191-3a35729f2d77",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:22.000Z",
+      "modified": "2026-10-30T22:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -46567,6 +46649,17 @@
       "relationship_type": "has",
       "source_ref": "software--e05b3c1b-102e-5fbe-8d80-05d8e91662cc",
       "target_ref": "vulnerability--4abdd3e9-6b13-5690-9615-54d9c9784aa8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--86ce951b-3f3c-56af-827c-e0b72a7f1f50",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--402543b0-7c3d-5314-ac1b-92ea90cacbfc",
+      "target_ref": "vulnerability--a2197dac-77bd-508a-8ea4-6e4b72c436c2"
     },
     {
       "type": "relationship",
@@ -135224,6 +135317,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7cc52c6f-7fb0-529a-a0f3-dd8ec2151cfe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:13.000Z",
+      "modified": "2026-10-30T22:04:13.000Z",
+      "name": "XenForo: Broken access control in ForceAgreementController (CVE-2026-73318)",
+      "description": "## Overview\n\nCVE-2026-73318 is an authorization bypass vulnerability affecting the `ForceAgreementController` in XenForo versions before 2.3.13. The vulnerability allows an administrator with limited ACP access - who lacks the specific 'option' permission - to access and execute site-wide policy and terms re-agreement workflows. This action resets global policy acceptance timestamps, forcing all board users to re-agree to terms. The vulnerability does not permit the modification of policy text.\n\n## Impact\n\nSuccessful exploitation allows a low-privileged administrator to disrupt user activity by forcing site-wide re-agreement gates. This does not provide full system compromise or unauthorized access to user data beyond triggering the UI agreement prompt.\n\n## Recommendation\n\n* Patch XenForo immediately by upgrading to version 2.3.13 or later.\n* Audit ACP administrator permissions to ensure only authorized personnel hold the 'option' capability.\n* Monitor ACP administrative access logs for unauthorized attempts to access `ForceAgreementController` endpoints.\n",
+      "published": "2026-10-30T22:04:13.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--402543b0-7c3d-5314-ac1b-92ea90cacbfc",
+        "vulnerability--a2197dac-77bd-508a-8ea4-6e4b72c436c2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-xenforo-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-xenforo-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOMBOBOMBONE-CVE-2026-73318"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BOMBOBOMBONE-CVE-2026-73318\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-xenforo-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-30-xenforo-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-xenforo-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-30T22:04:13.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 3.8,
+      "x_craftedsignal_epss_max": 0.0049,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7cca5da1-7858-546f-8928-2d8093a16297",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T19:57:53.000Z",
@@ -182164,6 +182303,73 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T22:04:22.000Z",
+      "modified": "2026-10-30T22:04:38.000Z",
+      "name": "Anthropic Claude VS Code extension malicious update distribution",
+      "description": "## Overview\n\nBetween approximately 05:27 and 16:35 ET on October 29, 2026, a malicious version (2.1.313) of the Anthropic Claude VS Code extension was distributed via the official Cursor marketplace. The compromise was a supply-chain attack resulting from unauthorized access to Anthropic's distribution account. The malicious extension executed host reconnaissance, attempted to establish persistent SSH access, and exfiltrated environment variables and configuration files. Anthropic has since released version 2.1.314, though this update does not remove persistence mechanisms installed by the malicious 2.1.313 version.\n\n## Attack Chain\n\n1. Unauthorized access to the Anthropic official account on the Cursor extension marketplace.\n2. Publication of malicious extension version 2.1.313, superseding the legitimate 2.1.312 version.\n3. Automatic distribution to developer workstations configured for auto-updates.\n4. Execution of reconnaissance commands to collect host/user data and environment variable inventory.\n5. Attempted modification of SSH configurations (`authorized_keys`) and initialization of a reverse SSH tunnel.\n6. Persistence established via platform-specific mechanisms (LaunchAgents on macOS; scheduled tasks on Windows).\n7. Exfiltration of configuration and credential data via HTTP POST beacons on port 8099.\n\n## Impact\n\nUp to 5,000 developers' workstations were potentially exposed. Confirmed impact includes local host information gathering, potential theft of cloud credentials and API tokens stored in environment variables, and unauthorized persistence via SSH and system-level scheduled tasks.\n\n## Recommendation\n\n1. Audit all developer workstations for the presence of the malicious extension version 2.1.313.\n2. If version 2.1.313 was present, perform a full forensic sweep; updating to version 2.1.314 does not remediate established persistence.\n3. Rotate all API keys, cloud credentials, and SSH keys present on affected developer machines.\n4. Check for unauthorized entries in `~/.ssh/authorized_keys` (Linux/macOS) or Windows-equivalent SSH configurations.\n5. Inspect system-level persistence mechanisms, specifically checking for newly created LaunchAgents on macOS or suspicious scheduled tasks running as SYSTEM on Windows.\n6. Monitor network egress for HTTP POST traffic on port 8099.\n",
+      "published": "2026-10-30T22:04:22.000Z",
+      "labels": [
+        "backdoor",
+        "credential-theft",
+        "developer-tools",
+        "exfiltration",
+        "ide",
+        "persistence",
+        "supply-chain",
+        "trojan"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
+        "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1",
+        "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077",
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2301c753-4963-5a2d-a818-d6a1d958dcf6",
+        "software--5d83b402-67d8-5630-9d77-63665733b122",
+        "software--d214c37c-874f-53df-9209-908e27c421d2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-cursor-extension-hijack",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cursor-extension-hijack/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cursor.com/blog/claude-code-extension-security-notice"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/devs-trojanized-claude-code-extension-cursor"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-cursor-extension-hijack",
+      "x_craftedsignal_event_id": "brief-2026-10-30-cursor-extension-hijack",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cursor-extension-hijack/",
+      "x_craftedsignal_activity_at": "2026-10-30T22:04:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--eb6bfa5b-8b4f-581c-95ae-1254fb82e2a0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T21:49:02.000Z",
@@ -194001,6 +194207,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2301c753-4963-5a2d-a818-d6a1d958dcf6",
+      "name": "Claude VS Code Extension (2.1.313)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--23076e47-96ec-533d-82f8-31c2560c7093",
       "name": "SmarterMail (\u003c 100.0.9511)",
       "vendor": "SmarterTools"
@@ -196245,6 +196457,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--402543b0-7c3d-5314-ac1b-92ea90cacbfc",
+      "name": "XenForo (\u003c 2.3.13)",
+      "vendor": "XenForo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4044c02a-cd1e-56ae-a899-b1098a675c16",
       "name": "plugin-techdocs-node (\u003c 1.15.4)",
       "vendor": "Backstage"
@@ -198284,6 +198503,12 @@
       "id": "software--5d808bb6-4d18-5f51-a9da-a9a002343a47",
       "name": "Unomi (\u003c 1.5.2)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--5d83b402-67d8-5630-9d77-63665733b122",
+      "name": "Cursor IDE"
     },
     {
       "type": "software",
@@ -206948,6 +207173,12 @@
       "id": "software--d1df6abb-5263-5703-9447-7fb92f712e08",
       "name": "BlueSpice (5.2.3 \u003c= version \u003c 5.2.7)",
       "vendor": "Hallo Welt! GmbH"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d214c37c-874f-53df-9209-908e27c421d2",
+      "name": "Claude Code Extension (v2.1.313)"
     },
     {
       "type": "software",
@@ -233353,6 +233584,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103693",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103693"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a2197dac-77bd-508a-8ea4-6e4b72c436c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-73318",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-73318",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73318"
         }
       ]
     },
