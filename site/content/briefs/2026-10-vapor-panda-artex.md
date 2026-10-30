@@ -1,21 +1,40 @@
 ---
 brief_id: brief-2026-10-30-vapor-panda-artex
 event_id: brief-2026-10-30-vapor-panda-artex
-revision: 1
-activity_at: "2026-10-30T03:01:32Z"
+revision: 2
+activity_at: "2026-10-30T09:05:36Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-30T09:05:36Z"
+    checksum: sha256:a72bb94f8a7782b9a8c30b738ec74fb597d0fc2dcd18dfaf296a96f3ea4429b5
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - iocs
+      - lastmod
+      - updates
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/
 title: 'VAPOR PANDA: AI-Driven ARTEX Global Espionage Campaign'
 slug: 2026-10-vapor-panda-artex
 description: VAPOR PANDA is conducting a large-scale global espionage campaign using the AI agent framework ARTEX to automate parallel intrusions against government, defense, and technology sectors.
 date: "2026-10-30T03:01:32Z"
+lastmod: "2026-10-30T09:03:51Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
   - critical
 actors:
   - VAPOR PANDA
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/
+  observed_at: "2026-10-30T08:54:01Z"
+  confidence: high
 source_assessment:
   reliability: A
   credibility: "1"
@@ -94,6 +113,14 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Queried the metadata service via XXE
+updates:
+  - at: "2026-10-30T09:03:51Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - crowdstrike
+    source_urls:
+      - https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/
 ---
 
 VAPOR PANDA has launched a global espionage campaign utilizing the AI agent framework ARTEX to manage parallel, automated intrusions against over 200 organizations worldwide. By integrating commercial LLMs and the Chinese-developed DeepSeek LLM, the adversary orchestrates complex attack chains directed by human operators. The campaign specifically targets government foreign ministries, defense, pharmaceutical, nuclear, and telecommunications sectors. A notable advancement is the inclusion of specific instructions within the AI-agent workflow to conduct environmental discovery and identify hosts lacking specific security sensors for evasion.
