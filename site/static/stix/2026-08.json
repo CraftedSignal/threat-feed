@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--02029c03-4340-5c91-8e3c-3a32afebc548",
+  "id": "bundle--01447a37-8aa2-5bbf-85a2-6d371298dae8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -22023,17 +22023,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--6b172acb-b67e-5e6d-898a-5c152b0fc0d1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-01T03:48:30.000Z",
-      "modified": "2026-08-01T03:48:30.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--ea88364a-1bee-50f1-9652-7698ea3a7803",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--6b1bf792-9950-5c9e-8fda-892b7a27e705",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22947,17 +22936,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--70e156c5-4814-593f-87c4-7718caab50a1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--19072cf7-3e85-5b01-8ed1-3624ac4a4110",
-      "target_ref": "vulnerability--8b8d4bb6-d3e5-59cb-9ea4-52826f7cfda4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--70e283cb-b2e2-5de9-92c4-ba08402c43b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23548,17 +23526,6 @@
       "relationship_type": "uses",
       "source_ref": "report--62fd6b6c-8e3e-56a1-bc75-20e7abe91582",
       "target_ref": "indicator--eb18aa43-c3e7-53e1-aa88-cea702a30035"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--74587fcc-fb18-5e19-bd1a-11c0a2ffc415",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--512099ae-8e11-5c83-923b-c9b7c7db688b",
-      "target_ref": "vulnerability--09245e52-7310-57de-833e-b34e2ce532af"
     },
     {
       "type": "relationship",
@@ -37111,17 +37078,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a53f58a9-4138-5225-9fad-c2a9a4fedaf6",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c315116b-e940-5fa3-8ae6-208bc5308d9e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-01T03:48:23.000Z",
-      "modified": "2026-08-01T03:48:23.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--232b5d5a-edfc-5ab2-be26-bf1161e9de25",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -55325,52 +55281,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--232b5d5a-edfc-5ab2-be26-bf1161e9de25",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-01T03:48:23.000Z",
-      "modified": "2026-08-01T03:48:23.000Z",
-      "name": "Directory Traversal Vulnerability in Bit Integrations Plugin",
-      "description": "## Overview\n\nThe Bit Integrations - Form Integration, Webhook, Spreadsheets, CRM, LMS \u0026 Email Automation plugin for WordPress is affected by a directory traversal vulnerability identified as CVE-2026-15006. The flaw exists within the 'processAttachment' function, which fails to properly validate user-supplied input. This vulnerability allows an unauthenticated remote attacker to traverse the directory structure and access arbitrary files stored on the host server. Successfully exploiting this vulnerability could lead to the exposure of sensitive configuration files, including 'wp-config.php', which may contain database credentials, API keys, or other authentication tokens. The vulnerability impacts all plugin versions up to and including 2.9.0. Defenders should prioritize updating to a patched version once available or restricting access to the plugin functionality.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance on the target WordPress installation to confirm the presence of the vulnerable Bit Integrations plugin.\n2. Attacker identifies the endpoint invoking the 'processAttachment' function within the plugin's Mail or CF7 controller logic.\n3. Attacker crafts a malicious HTTP GET or POST request containing path traversal sequences (e.g., ../../../) directed at the vulnerable parameter.\n4. The web server processes the input without sufficient sanitization, resolving the path outside the intended directory.\n5. The application returns the contents of the requested file in the HTTP response body.\n6. Attacker exfiltrates sensitive server-side files such as 'wp-config.php' or system configuration files.\n\n## Impact\n\nThe vulnerability allows unauthorized access to sensitive files residing on the web server. Depending on the target environment, this can result in the full compromise of the WordPress site through the acquisition of database credentials or administrative session tokens, potentially leading to total server takeover and further lateral movement within the network.\n\n## Recommendation\n\n- Update the Bit Integrations plugin to the latest version to mitigate the vulnerability described in CVE-2026-15006.\n- Deploy the provided Sigma rule to web server access logs to detect and alert on traversal patterns targeting the plugin's endpoints.\n- Implement Web Application Firewall (WAF) rules to block HTTP requests containing directory traversal sequences directed at paths associated with the Bit Integrations plugin.\n- Audit server access logs for anomalous file read requests or recurring 404/403 errors associated with sensitive system files.\n",
-      "published": "2026-08-01T03:48:23.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--512099ae-8e11-5c83-923b-c9b7c7db688b",
-        "vulnerability--09245e52-7310-57de-833e-b34e2ce532af"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-bit-integrations-traversal",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-bit-integrations-traversal/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15006"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/9b00da60-7d2d-467e-ab58-0bb4af0cbda5?source=cve"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-bit-integrations-traversal",
-      "x_craftedsignal_event_id": "brief-2026-08-bit-integrations-traversal",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-bit-integrations-traversal/",
-      "x_craftedsignal_activity_at": "2026-08-01T03:48:23.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_epss_max": 0.0124,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -105382,53 +105292,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--ea88364a-1bee-50f1-9652-7698ea3a7803",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-01T03:48:30.000Z",
-      "modified": "2026-08-01T03:48:30.000Z",
-      "name": "Privilege Escalation in Subscriptions for WooCommerce Plugin",
-      "description": "## Overview\n\nThe Subscriptions for WooCommerce plugin for WordPress (versions 2.0.0 and earlier) contains a critical privilege escalation vulnerability (CVE-2026-15414). The flaw resides in the `save_meta_boxes()` function, which incorrectly handles the `_wps_plan_user_role` meta field during membership plan creation. The plugin relies on client-side `disabled` attributes in the UI to prevent the selection of privileged roles, a control that is trivially bypassed. Furthermore, the backend validation uses `sanitize_key()` and `wp_roles()-\u003eis_role()`, both of which permit the 'administrator' role. Because the `wps_membership_plan` post type uses standard post capabilities, any user with permission to edit posts (Contributor or higher) can trigger the `save_meta_boxes()` function. If the Pro companion plugin is active, it processes the injected 'administrator' value in `_wps_plan_user_role` and promotes the attacker via `add_role()`.\n\n## Attack Chain\n\n1. Attacker authenticates as a user with Contributor-level access or higher.\n2. Attacker initiates an HTTP POST request to modify or create a `wps_membership_plan` post.\n3. Attacker bypasses the UI's `disabled` attribute by intercepting the request or using browser DevTools.\n4. Attacker injects the `administrator` value into the `_wps_plan_user_role` meta field within the POST body.\n5. The plugin's `save_meta_boxes()` function executes, validating the input with insufficient checks that allow the 'administrator' string.\n6. The `_wps_plan_user_role` meta is persisted to the database for the membership plan.\n7. The Pro companion plugin monitors membership lifecycle events and reads the malicious meta via `get_post_meta()`.\n8. The Pro plugin executes `add_role()` using the attacker-supplied value, promoting the user to Administrator.\n\n## Impact\n\nSuccessful exploitation results in full administrative control over the WordPress instance. This vulnerability affects all installations using Subscriptions for WooCommerce 2.0.0 or lower where the Pro companion plugin is also installed. An attacker gaining administrative access can execute arbitrary code, modify site content, exfiltrate user data, or deploy persistent backdoors within the WordPress environment.\n\n## Recommendation\n\nPrioritized actions for detection and mitigation:\n* Update the Subscriptions for WooCommerce plugin to the latest version once a patch is available.\n* Audit existing membership plans for any `_wps_plan_user_role` meta values set to 'administrator' or other unauthorized roles.\n* Monitor web server logs for suspicious POST requests targeting `wps_membership_plan` post updates that contain unexpected role parameters.\n* Review all user accounts with Administrator privileges for suspicious recent activity or unauthorized creation.\n",
-      "published": "2026-08-01T03:48:30.000Z",
-      "labels": [
-        "cve-2026-15414",
-        "privilege-escalation",
-        "web-application",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--19072cf7-3e85-5b01-8ed1-3624ac4a4110",
-        "vulnerability--8b8d4bb6-d3e5-59cb-9ea4-52826f7cfda4"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-01-woocommerce-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-woocommerce-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15414"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-01-woocommerce-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-08-01-woocommerce-priv-esc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-woocommerce-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-08-01T03:48:30.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--eaaaaba0-2c75-5c7e-95eb-a933c1095fca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-05T15:20:32.000Z",
@@ -110822,13 +110685,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--19072cf7-3e85-5b01-8ed1-3624ac4a4110",
-      "name": "Subscriptions for WooCommerce (2.0.0)",
-      "vendor": "WordPress"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--1930d6f4-2e46-5d01-8bcf-7d7e6d36ab4b",
       "name": "Ech0 (\u003c= 4.5.6)",
       "vendor": "Ech0"
@@ -113442,13 +113298,6 @@
       "id": "software--511e18af-af34-5d66-97a8-274deceef7a7",
       "name": "Artifactory",
       "vendor": "JFrog"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--512099ae-8e11-5c83-923b-c9b7c7db688b",
-      "name": "Bit Integrations – Form Integration, Webhook, Spreadsheets, CRM, LMS \u0026 Email Automation",
-      "vendor": "BitPress"
     },
     {
       "type": "software",
@@ -122499,22 +122348,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-72970",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72970"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--09245e52-7310-57de-833e-b34e2ce532af",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15006",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15006",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15006"
         }
       ]
     },
@@ -132691,22 +132524,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-19685",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19685"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--8b8d4bb6-d3e5-59cb-9ea4-52826f7cfda4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-15414",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-15414",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15414"
         }
       ]
     },
