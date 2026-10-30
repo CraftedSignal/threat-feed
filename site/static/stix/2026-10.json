@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--025dc89e-9312-5f57-9ba4-eb82c8bf6beb",
+  "id": "bundle--0bfbb8b2-cb3b-530d-b8e4-27df5bf57f43",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15012,6 +15012,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--20859021-0a8e-5d82-a822-de4f72c796b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T11:42:01.000Z",
+      "modified": "2026-10-30T11:42:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--661cc930-d87e-5208-9e2d-c982e7a60b8d",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2086b073-f4d6-50ed-8c4c-c4b5d1d4f651",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T08:16:24.000Z",
@@ -24050,6 +24061,17 @@
       "relationship_type": "has",
       "source_ref": "software--9c22ad11-e9d9-5c40-a8de-a2c88e9d3dbf",
       "target_ref": "vulnerability--09534cbd-b9f0-522e-a1f2-3bb74eb97ef9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--42ba29b0-b852-5cd0-bc30-01dfc1da7416",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T11:41:41.000Z",
+      "modified": "2026-10-30T11:41:41.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2e1c2fdd-b2a5-5514-a54c-c892e78526a9",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -38376,6 +38398,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7539a6c7-92cf-52ca-84ab-1498baa8953e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c01c85dd-7f80-54f6-9944-ef9437b3e528",
+      "target_ref": "vulnerability--15909f29-91b8-5d0e-b9ef-f98b10f66798"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--753a3d25-359c-51b3-aecc-7660d4831c56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -40231,6 +40264,17 @@
       "relationship_type": "has",
       "source_ref": "software--0bfc06b6-cad7-54d8-8c2f-e9c56976606f",
       "target_ref": "vulnerability--2d0279eb-a9bf-5d82-b3e5-4a64335a3c2b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7ac47c55-7ae1-53ff-bbf7-b9f5fb9b69d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--3119756f-1063-5865-a00d-3562018d79fb",
+      "target_ref": "vulnerability--d3c7addc-4e1f-56c8-8236-db6cd4e71e6a"
     },
     {
       "type": "relationship",
@@ -77162,6 +77206,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--fb116c9e-3580-5572-be7e-c99870a554f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d24d63de-7495-5a82-b2a0-9654c5a4b6c8",
+      "target_ref": "vulnerability--15909f29-91b8-5d0e-b9ef-f98b10f66798"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--fb130ef3-3ca0-511b-89ce-49d11f02da7e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95781,6 +95836,53 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2e1c2fdd-b2a5-5514-a54c-c892e78526a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T11:41:41.000Z",
+      "modified": "2026-10-30T11:41:41.000Z",
+      "name": "Drupal Commerce Core: Access Bypass Vulnerability (CVE-2026-118539)",
+      "description": "## Overview\n\nDrupal has identified a highly critical access bypass vulnerability, tracked as CVE-2026-118539, affecting the Commerce Core module. The vulnerability allows unauthenticated attackers to exploit insufficient protection on specific routes and entity fields. The Drupal security team has assigned this issue a risk score of 21/25, noting that it is being actively exploited in the wild.\n\n## Impact\n\nThe vulnerability poses a direct financial risk to vendors using the affected module. Exploitation may allow attackers to manipulate commerce-related data, including the checkout process and order states. Drupal specifically urges administrators to audit store orders for inconsistencies.\n\n## Recommendation\n\n- Upgrade the Drupal Commerce Core module to version 3.3.13 or 8.x-2.41 immediately.\n- Review all commerce transactions and order logs for unauthorized changes, inconsistencies, or anomalies that occurred prior to patching.\n- Audit Drupal instances for the presence of the vulnerable Commerce Core module versions if not already managed via centralized inventory.\n",
+      "published": "2026-10-30T11:41:41.000Z",
+      "labels": [
+        "access-bypass",
+        "active-exploitation",
+        "e-commerce",
+        "web-application-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c01c85dd-7f80-54f6-9944-ef9437b3e528",
+        "software--d24d63de-7495-5a82-b2a0-9654c5a4b6c8",
+        "vulnerability--15909f29-91b8-5d0e-b9ef-f98b10f66798"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-drupal-commerce-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-drupal-commerce-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/drupal-commerce-core-vulnerability-exploited-against-online-stores/"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-drupal-commerce-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-30-drupal-commerce-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-drupal-commerce-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-30T11:41:41.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -119770,6 +119872,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--661cc930-d87e-5208-9e2d-c982e7a60b8d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-30T11:42:01.000Z",
+      "modified": "2026-10-30T11:42:01.000Z",
+      "name": "Traggo Server: Unauthenticated Denial of Service via GraphQL Alias Overloading (CVE-2026-117184)",
+      "description": "## Overview\n\nTraggo server version 0.8.3 is vulnerable to an unauthenticated Denial of Service (CVE-2026-117184). The application lacks input size validation on the `/graphql` endpoint and fails to enforce complexity limits for GraphQL queries. An attacker can submit a crafted request containing a large number of aliased fields, forcing the server to perform excessive resolver operations, leading to CPU exhaustion and high memory usage (OOM). The vulnerability is currently reserved and the project is awaiting a fix.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to induce high CPU usage and significant memory pressure. A single payload of approximately 2 MB with 100,000 aliases was observed to consume nearly 1 GB of RAM and pin a CPU core for over 100 seconds, potentially rendering the service unresponsive.\n\n## Recommendation\n\n* Implement `http.MaxBytesReader` on the `/graphql` handler to restrict request body size to a reasonable threshold (e.g., 1 MB).\n* Configure the GraphQL handler to enforce a `ComplexityLimit` to prevent resource-intensive queries.\n* Restrict access to the `version` field by applying an authentication directive such as `@hasRole(role: USER)` in `schema.graphql`.\n* Monitor Traggo server repository for the release of version 0.8.4 or subsequent patches.\n",
+      "published": "2026-10-30T11:42:01.000Z",
+      "labels": [
+        "denial-of-service",
+        "graphql",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3119756f-1063-5865-a00d-3562018d79fb",
+        "vulnerability--d3c7addc-4e1f-56c8-8236-db6cd4e71e6a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-30-traggo-graphql-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-traggo-graphql-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/traggo/server/issues/253"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=033DC789-DD73-5F12-8843-333C271C994A"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=033DC789-DD73-5F12-8843-333C271C994A\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-30-traggo-graphql-dos",
+      "x_craftedsignal_event_id": "brief-2026-10-30-traggo-graphql-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-traggo-graphql-dos/",
+      "x_craftedsignal_activity_at": "2026-10-30T11:42:01.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -186294,6 +186449,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3119756f-1063-5865-a00d-3562018d79fb",
+      "name": "Traggo server (0.8.3)",
+      "vendor": "Traggo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--312ea7de-15ec-510a-822a-918cd036eb6e",
       "name": "Edge (\u003c 155.0.4283.62)",
       "vendor": "Microsoft"
@@ -196477,6 +196639,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c01c85dd-7f80-54f6-9944-ef9437b3e528",
+      "name": "Commerce Core (versions before 3.3.13)",
+      "vendor": "Drupal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c031e376-b592-5963-b580-8254cb64c68b",
       "name": "Cisco Unified Communications Manager (Unified CM)"
     },
@@ -197759,6 +197928,13 @@
       "id": "software--d2321d20-a0b1-5977-9e46-6cbcc91899b0",
       "name": "Azure AI Services",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d24d63de-7495-5a82-b2a0-9654c5a4b6c8",
+      "name": "Commerce Core (versions before 8.x-2.41)",
+      "vendor": "Drupal"
     },
     {
       "type": "software",
@@ -203754,6 +203930,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116011",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116011"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--15909f29-91b8-5d0e-b9ef-f98b10f66798",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118539",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118539",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118539"
         }
       ]
     },
@@ -229754,6 +229946,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116576",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116576"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d3c7addc-4e1f-56c8-8236-db6cd4e71e6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-117184",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-117184",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117184"
         }
       ]
     },
