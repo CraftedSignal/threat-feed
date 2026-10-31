@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f11aebc1-32c2-536f-8186-362dcbfa0de1",
+  "id": "bundle--06e4926c-5255-5f41-ab02-7f062bc7f6c3",
   "objects": [
     {
       "type": "attack-pattern",
@@ -61338,6 +61338,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b28d13b2-98bc-57fc-a652-b2dfa00fdf56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e74cf218-fff0-5e63-b8e6-e0eaca70cb68",
+      "target_ref": "vulnerability--b6544fb0-08d8-521a-93ca-2fa1f1fb0063"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b28ed09a-b876-5923-836c-4a948d1adcac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -88809,7 +88820,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00177,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -89751,7 +89763,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00549,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -95878,8 +95891,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 6.8,
-      "x_craftedsignal_epss_max": 0.00144,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00282,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -104129,7 +104142,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00386,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -105213,7 +105227,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00156,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -108238,6 +108253,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0103,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -114602,7 +114618,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00239,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -121776,13 +121793,14 @@
       "id": "report--560dacb5-e00c-5280-876c-c0f988d45d4d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T09:15:19.000Z",
-      "modified": "2026-10-31T09:15:19.000Z",
+      "modified": "2026-10-31T21:22:42.000Z",
       "name": "pypdf: Potential large memory usage when parsing cross-reference streams (CVE-2026-119209)",
       "description": "An attacker can craft a PDF that leads to large memory usage when parsed by pypdf. This requires opening a file with cross-reference streams. This issue has been addressed in pypdf version 6.21.3.\n",
       "published": "2026-10-31T09:15:19.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--e74cf218-fff0-5e63-b8e6-e0eaca70cb68",
+        "vulnerability--b6544fb0-08d8-521a-93ca-2fa1f1fb0063",
         "vulnerability--e9ee974b-d7e9-541d-817a-a10bd84bde9c"
       ],
       "external_references": [
@@ -121793,7 +121811,15 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-42gh-23hr-vphw"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/advisories/GHSA-x3rh-gjgm-fmqc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/py-pdf/pypdf/pull/4251"
         },
         {
           "source_name": "reference",
@@ -121805,16 +121831,20 @@
         },
         {
           "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119206"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119209"
         }
       ],
-      "confidence": 40,
+      "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-31-pypdf-memory-exhaustion-1402e87f",
       "x_craftedsignal_event_id": "brief-2026-10-31-pypdf-memory-exhaustion-1402e87f",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pypdf-memory-exhaustion-1402e87f/",
-      "x_craftedsignal_activity_at": "2026-10-31T09:15:19.000Z",
-      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_activity_at": "2026-10-31T21:22:42.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -129384,7 +129414,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00244,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -133379,7 +133410,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00648,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -135820,7 +135852,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00452,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -145196,6 +145229,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02477,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -154059,7 +154093,7 @@
       },
       "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_epss_max": 0.00401,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -159609,7 +159643,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "not_observed"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00266,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -162019,6 +162054,7 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00312,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -162296,7 +162332,7 @@
       },
       "x_craftedsignal_cvss_max": 9.6,
       "x_craftedsignal_epss_max": 0.00767,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -171864,6 +171900,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.01128,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -173909,7 +173946,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 10,
-      "x_craftedsignal_epss_max": 0.00539,
+      "x_craftedsignal_epss_max": 0.01588,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -174942,7 +174979,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.7,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00188,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -179094,7 +179132,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.00097,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -179701,7 +179740,8 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.0051,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -186496,8 +186536,8 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.01512,
-      "x_craftedsignal_kev_status": "unknown"
+      "x_craftedsignal_epss_max": 0.09813,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -242805,6 +242845,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-112353",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112353"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--b6544fb0-08d8-521a-93ca-2fa1f1fb0063",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119206",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119206",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119206"
         }
       ]
     },
