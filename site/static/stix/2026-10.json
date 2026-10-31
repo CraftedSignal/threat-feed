@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2aa5a084-062e-577a-8508-c34d3d0f8af5",
+  "id": "bundle--c8b961cd-2062-5448-90bf-433d345de9b6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -77439,6 +77439,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e7b1239d-ee8f-561b-b8dc-a23e378a2c2f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e74cf218-fff0-5e63-b8e6-e0eaca70cb68",
+      "target_ref": "vulnerability--e9ee974b-d7e9-541d-817a-a10bd84bde9c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e7b93adb-791c-51e1-a3bc-8884ac3a1541",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -120569,6 +120580,59 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--560dacb5-e00c-5280-876c-c0f988d45d4d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T09:15:19.000Z",
+      "modified": "2026-10-31T09:15:19.000Z",
+      "name": "pypdf: Potential large memory usage when parsing cross-reference streams (CVE-2026-119209)",
+      "description": "An attacker can craft a PDF that leads to large memory usage when parsed by pypdf. This requires opening a file with cross-reference streams. This issue has been addressed in pypdf version 6.21.3.\n",
+      "published": "2026-10-31T09:15:19.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e74cf218-fff0-5e63-b8e6-e0eaca70cb68",
+        "vulnerability--e9ee974b-d7e9-541d-817a-a10bd84bde9c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-pypdf-memory-exhaustion-1402e87f",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-pypdf-memory-exhaustion-1402e87f/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-x3rh-gjgm-fmqc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/py-pdf/pypdf/pull/4269"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/py-pdf/pypdf/releases/tag/6.21.3"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119209"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-pypdf-memory-exhaustion-1402e87f",
+      "x_craftedsignal_event_id": "brief-2026-10-31-pypdf-memory-exhaustion-1402e87f",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pypdf-memory-exhaustion-1402e87f/",
+      "x_craftedsignal_activity_at": "2026-10-31T09:15:19.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 5.5,
+      "x_craftedsignal_epss_max": 0.00319,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -211694,6 +211758,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e74cf218-fff0-5e63-b8e6-e0eaca70cb68",
+      "name": "pypdf (\u003c 6.21.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e76e6445-f949-5c87-b8ae-49598452456b",
       "name": "99AI (\u003c= 4.3.0)",
       "vendor": "99AI"
@@ -247196,6 +247266,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-86326",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86326"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e9ee974b-d7e9-541d-817a-a10bd84bde9c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119209",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119209",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119209"
         }
       ]
     },
