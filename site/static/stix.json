@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--898698e4-4493-5abb-98ab-14584c90d899",
+  "id": "bundle--effa20fd-22d6-575a-94d2-a78b2b75cbc6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1695,6 +1695,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1134",
           "url": "https://attack.mitre.org/techniques/T1134"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--79625155-3386-5550-af1b-213c7daa4012",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exfiltration Over Unencrypted Non-C2 Protocol",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1048.003",
+          "url": "https://attack.mitre.org/techniques/T1048/003"
         }
       ]
     },
@@ -3652,6 +3668,19 @@
       "pattern": "[ipv4-addr:value = '38.244.50.120']",
       "pattern_type": "stix",
       "valid_from": "2026-10-07T16:46:44.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--209af34b-3c3a-558b-8863-7b64fff3ba51",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T10:15:50.000Z",
+      "modified": "2026-10-31T10:15:50.000Z",
+      "name": "url: http://collector:9001/exfil",
+      "description": "Attacker-controlled webhook endpoint used for credential and alert payload exfiltration in the research PoC.",
+      "pattern": "[url:value = 'http://collector:9001/exfil']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-31T10:15:50.000Z"
     },
     {
       "type": "indicator",
@@ -15564,6 +15593,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1f475480-b145-5dcd-bbf6-00ff8c089449",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b4576b8b-cc2c-5dca-ba72-21899832fb91",
+      "target_ref": "vulnerability--78ca8e68-9702-5086-b1f9-8a4a7b058979"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1f6febca-d7ee-5f73-9b17-781601342a2f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23286,6 +23326,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3a33dc46-c29e-5246-9a3f-ed540bf2653e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cae8e952-5f32-5af6-9a1b-46ba02d8f0f9",
+      "target_ref": "vulnerability--78ca8e68-9702-5086-b1f9-8a4a7b058979"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3a35fae8-4393-5e42-9c78-521991295c91",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -29798,6 +29849,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5002e533-7b80-5af5-b183-f093f48d25bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T10:15:50.000Z",
+      "modified": "2026-10-31T10:15:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ea4dbf88-9484-53c5-959c-b665f679fea4",
+      "target_ref": "indicator--209af34b-3c3a-558b-8863-7b64fff3ba51"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--50067ff5-7e2a-50ed-832b-2514d3a571b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32819,6 +32881,17 @@
       "relationship_type": "has",
       "source_ref": "software--b22f9c3c-dafa-591b-b3dc-4e707fd4d7d1",
       "target_ref": "vulnerability--f97507ad-a7c6-5794-9522-f48c84555267"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--59fc7069-0f0f-5b4f-abe7-fc954d36960e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T10:15:50.000Z",
+      "modified": "2026-10-31T10:15:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ea4dbf88-9484-53c5-959c-b665f679fea4",
+      "target_ref": "attack-pattern--79625155-3386-5550-af1b-213c7daa4012"
     },
     {
       "type": "relationship",
@@ -116657,6 +116730,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--4bf462ae-daf5-5ecd-a727-2be31832e928",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T10:16:09.000Z",
+      "modified": "2026-10-31T10:16:09.000Z",
+      "name": "GenieACS: OS Command Injection (CVE-2021-46704)",
+      "published": "2026-10-31T10:16:09.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--de8fde1f-525a-5e5d-8a81-2a252381152b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-genieacs-cve-2021-46704",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-genieacs-cve-2021-46704/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-2877-693q-pj33"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ERENLANCASTER-CVE-2021-46704\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-genieacs-cve-2021-46704",
+      "x_craftedsignal_event_id": "brief-2026-10-31-genieacs-cve-2021-46704",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-genieacs-cve-2021-46704/",
+      "x_craftedsignal_activity_at": "2026-10-31T10:16:09.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.21901,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4c0373d1-8803-57d1-a29e-dd23feda0e75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-25T16:45:19.000Z",
@@ -184266,6 +184382,58 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ea4dbf88-9484-53c5-959c-b665f679fea4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T10:15:50.000Z",
+      "modified": "2026-10-31T10:15:50.000Z",
+      "name": "Grafana Alerting: Authorization bypass via schema downgrade (CVE-2026-100105)",
+      "description": "## Overview\n\nCVE-2026-100105 (GHSA-92gx-p2qg-82fw) is a high-severity authorization bypass vulnerability in Grafana OSS and Enterprise versions 12.4.x, 13.0.x, 13.1.x, and 13.2.0 - 13.2.4. The vulnerability arises because sensitive fields in alert notification integrations (such as the webhook destination URL) are protected by RBAC logic that validates configuration changes against a schema. By switching an integration to a legacy schema version (`v0mimir1`), the protection logic is bypassed because the URL field is not marked as protected in the legacy schema definition.\n\nA researcher also identified two additional authorization weaknesses (Zero-day findings A and B) that remain reproducible on the fully patched version 13.2.5. These affect the `ReceiverTestingService` subresource, allowing attackers to exfiltrate stored credentials (e.g., Basic Auth headers) and dispatch notifications to unauthorized URLs without requiring persistent modification to stored receivers.\n\n## Attack Chain\n\n1. Attacker (with Editor role) enumerates existing alert receivers via GET /apis/notifications.alerting.grafana.app/v1beta1/namespaces/default/receivers.\n2. Attacker selects a target receiver and prepares a PUT request to update its configuration.\n3. Attacker embeds a schema downgrade in the request by setting the integration version to a legacy identifier (e.g., v0mimir1).\n4. Attacker includes an arbitrary attacker-controlled destination URL in the settings object.\n5. The Grafana backend evaluates the protected-field diff against the legacy schema version, which fails to trigger the authorization check.\n6. The system updates the stored receiver configuration with the attacker's malicious destination URL.\n7. Attacker triggers a notification (via the test subresource or actual alert firing) to exfiltrate alert payloads or stored credentials to their infrastructure.\n\n## Impact\n\nSuccessful exploitation allows for the silent exfiltration of alert payloads and sensitive notification credentials (e.g., tokens, API keys, Basic Auth credentials) to attacker-controlled infrastructure. This risk persists after patching for receivers that were already downgraded while the instance was unpatched.\n\n## Recommendation\n\n- Upgrade to Grafana OSS or Enterprise versions 12.4.14, 13.0.12, 13.1.9, or 13.2.5 immediately.\n- After upgrading, audit all existing alert receivers for legacy or non-standard schema versions (`version != \"v1\"` for webhooks) and verify that their destination URLs are legitimate.\n- Monitor logs for unusual sequences of `PUT` requests to receiver configuration endpoints followed by `POST` requests to receiver-test subresources from non-administrative users.\n",
+      "published": "2026-10-31T10:15:50.000Z",
+      "object_refs": [
+        "attack-pattern--79625155-3386-5550-af1b-213c7daa4012",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--209af34b-3c3a-558b-8863-7b64fff3ba51",
+        "software--b4576b8b-cc2c-5dca-ba72-21899832fb91",
+        "software--cae8e952-5f32-5af6-9a1b-46ba02d8f0f9",
+        "vulnerability--78ca8e68-9702-5086-b1f9-8a4a7b058979"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-grafana-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-grafana-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/grafana/alerting/security/advisories/GHSA-92gx-p2qg-82fw"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8BCA6340-2BFB-5B6C-9060-C4A1612B858C"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=8BCA6340-2BFB-5B6C-9060-C4A1612B858C\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-grafana-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-31-grafana-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-grafana-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-31T10:15:50.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.7,
+      "x_craftedsignal_epss_max": 0.0029,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ea52306f-34a4-50a9-b3c6-38504c89d336",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T20:28:15.000Z",
@@ -207388,6 +207556,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b4576b8b-cc2c-5dca-ba72-21899832fb91",
+      "name": "Grafana Enterprise (\u003c 12.4.14, 13.0.12, 13.1.9, 13.2.5)",
+      "vendor": "Grafana"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b48351bd-90cc-5c82-9752-eff7832568c9",
       "name": "Payload (\u003c 3.90.0, \u003e= 4.0.0-canary.0, \u003c 4.0.0-canary.34)",
       "vendor": "Payload"
@@ -208938,6 +209113,13 @@
       "spec_version": "2.1",
       "id": "software--cadfaecd-65b1-594b-b5ea-191bb432f89c",
       "name": "NetSupport Manager"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--cae8e952-5f32-5af6-9a1b-46ba02d8f0f9",
+      "name": "Grafana OSS (\u003c 12.4.14, 13.0.12, 13.1.9, 13.2.5)",
+      "vendor": "Grafana"
     },
     {
       "type": "software",
@@ -230382,6 +230564,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--78ca8e68-9702-5086-b1f9-8a4a7b058979",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-100105",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-100105",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100105"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--7924c06d-67df-55b0-97fe-721f65256ccc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -244904,6 +245102,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111711",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111711"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--de8fde1f-525a-5e5d-8a81-2a252381152b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-46704",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-46704",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-46704"
         }
       ]
     },
