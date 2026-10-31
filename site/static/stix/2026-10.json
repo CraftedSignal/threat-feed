@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6af0e1c9-88cd-520c-b758-365891d483ea",
+  "id": "bundle--1258a536-a047-5d2c-bbde-19b4479bd0c1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -35040,7 +35040,7 @@
       "id": "relationship--61d1fe19-1340-5a92-b111-80d3102e2e6d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-29T07:28:05.000Z",
+      "modified": "2026-10-31T02:05:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "target_ref": "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544"
@@ -57260,7 +57260,7 @@
       "id": "relationship--a9800a1b-bf46-539d-9cb8-07e232e7f1b9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-29T07:28:05.000Z",
+      "modified": "2026-10-31T02:05:51.000Z",
       "relationship_type": "uses",
       "source_ref": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -63512,6 +63512,17 @@
       "relationship_type": "has",
       "source_ref": "software--7f7f02ff-760a-57c4-b192-ae4a0cb83804",
       "target_ref": "vulnerability--77de36fa-c26a-52b5-ab02-b99fd01b004b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bdb54321-9fb4-5d92-83ee-85c4ec464fa6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2ddfe97c-d465-5385-b025-ca17133c376e",
+      "target_ref": "vulnerability--d803900a-38d4-5d7b-a94b-8934059d83e3"
     },
     {
       "type": "relationship",
@@ -76338,6 +76349,17 @@
       "relationship_type": "has",
       "source_ref": "software--2b101cfb-0011-5a75-ac27-63ecd832b64c",
       "target_ref": "vulnerability--55eb6305-8b75-5bba-bff7-94a7d27bb461"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6772f83-513b-56d5-a04c-39f0d8efdc5c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T02:05:07.000Z",
+      "modified": "2026-10-31T02:05:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--775258a4-c84d-51a6-97cc-3e2feba4b687",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -118404,7 +118426,7 @@
       "id": "report--52930f64-ed88-5109-9cf5-29c883d911d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T16:06:16.000Z",
-      "modified": "2026-10-29T07:28:05.000Z",
+      "modified": "2026-10-31T02:05:51.000Z",
       "name": "Tailscale: Privilege escalation and security flaws in SSH server",
       "description": "## Overview\n\nTailscale has released version 1.104.4 to address four security bulletins (TS-2026-014, TS-2026-015, TS-2026-016, and TS-2026-017) affecting its built-in SSH server. The primary vulnerability involves a timing-based socket-forwarding flaw where an attacker with existing network access can perform a socket-swap, allowing them to interact with root-privileged Unix sockets such as the Docker control socket or the tailscaled local API. Additional vulnerabilities include a denial-of-service vector via memory exhaustion, unauthorized local API access in tailscale serve, and potential permission header leakage. These flaws do not allow for unauthenticated access, requiring an attacker to already possess a foothold on a device authorized by the network access policy. No CVE identifiers have been assigned at this time.\n\n## Impact\n\nSuccessful exploitation could allow an attacker to gain root-level access to sensitive local services on a target node. The flaws are limited by existing network access policies; attackers can only target machines that their current policy already permits them to reach.\n\n## Recommendation\n\n- Update all Tailscale client installations to version 1.104.4 or later immediately.\n- If immediate patching is not possible, disable SSH forwarding by setting the environment variable 'TS_SSH_DISABLE_FORWARDING=1' in the tailscaled service configuration.\n- Review network access rules to ensure minimal privilege, as compromised devices can move laterally to any node permitted by the policy.\n- For headscale users, acknowledge that SSH forwarding should be treated as root-level access until a fix is available, as the current version does not support disabling this functionality.\n",
       "published": "2026-10-27T16:06:16.000Z",
@@ -118418,6 +118440,7 @@
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "attack-pattern--e360b9bb-1254-5f92-96a5-b8ed960ca544",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0d849882-c286-541a-9d93-70d2ed7f1d95",
         "software--47612743-a240-5039-874a-7cf74461bad6",
         "software--5f2dd904-75b0-5f77-aaa7-b937f62688af",
         "software--882d6204-6988-517c-a771-3aa4355ced2a",
@@ -118426,6 +118449,7 @@
         "software--9989c0e8-e807-5c66-8417-2c295e02b824",
         "software--b60fd2fc-29d3-596c-a720-7f5232bbd3d9",
         "software--d8960e1a-2afe-547d-9ac2-5209db6110f5",
+        "software--dc9b6497-e121-5c23-9e59-a44237c9a58e",
         "software--f9e10938-83d7-5255-8200-883ad881fdf4",
         "software--f9e9b613-4272-5e55-8cfd-392b56dda23d",
         "software--fc4bfcb0-56ad-5c6c-88af-b82d11775e3f"
@@ -118438,11 +118462,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/juanfont/headscale/releases/tag/v0.29.7"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/tailscale/tailscale/releases/tag/v1.104.4"
         },
         {
           "source_name": "reference",
           "url": "https://pwn.watch/i/tailscale-tailworm-ssh-forwarding-privesc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://tailscale.com/blog/tailscale-ssh-findings-fixes"
         },
         {
           "source_name": "reference",
@@ -118462,15 +118494,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4220"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/tailscale-rushes-patches-after-uncoordinated-disclosure-of-tailworm-flaws/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-27-tailscale-tailworm",
       "x_craftedsignal_event_id": "brief-2026-10-27-tailscale-tailworm",
-      "x_craftedsignal_revision": 8,
+      "x_craftedsignal_revision": 9,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-tailscale-tailworm/",
-      "x_craftedsignal_activity_at": "2026-10-29T07:28:05.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T02:05:51.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -133586,6 +133622,66 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--775258a4-c84d-51a6-97cc-3e2feba4b687",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T02:05:07.000Z",
+      "modified": "2026-10-31T02:05:07.000Z",
+      "name": "Mail Mint: Unauthenticated PHP Object Injection (CVE-2026-84753)",
+      "description": "## Overview\n\nMail Mint versions 1.31.0 and lower contain a critical vulnerability (CVE-2026-84753) involving unauthenticated PHP object injection. The vulnerability exists within the REST API endpoint '/mint-form-submit', where user-supplied contact meta data is passed to the 'maybe_unserialize()' function without proper validation. Attackers can exploit this by submitting crafted serialized PHP objects via POST requests, potentially leading to remote code execution if compatible gadget chains are available in the target environment.\n\n## Attack Chain\n\n1. Attacker identifies a WordPress instance with Mail Mint \u003c= 1.31.0 enabled.\n2. Attacker performs a GET request to '/?rest_route=/wp/v2/pages' to retrieve the page slug or nonce required for form submission.\n3. Attacker sends an initial POST request to '/mint-mail/v1/mint-form-submit' containing malicious serialized data in the contact meta fields.\n4. The plugin's 'FormAction::handle_form_submission' function stores this data as contact meta verbatim.\n5. Attacker sends a second POST request targeting the same contact context.\n6. The plugin retrieves the meta data via 'ContactModel::get'.\n7. The application invokes 'safe_unserialize_meta', which calls 'maybe_unserialize' on the stored malicious payload.\n8. PHP instantiates the attacker-provided objects, triggering execution through magic methods (e.g., __wakeup or __destruct).\n\n## Impact\n\nSuccessful exploitation allows for arbitrary PHP object instantiation. Depending on the available class definitions and gadget chains within the WordPress environment, this can result in remote code execution, unauthorized data modification, or service disruption.\n\n## Recommendation\n\n1. Update the Mail Mint plugin to version 1.31.1 or later immediately.\n2. Verify the patch by inspecting the application code to ensure that 'is_serialized()' inputs are rejected and 'allowed_classes' is set to 'false' during unserialization operations.\n3. Scan application debug logs (e.g., 'debug.log') for unexpected PHP class name errors indicating failed injection attempts, such as the proof-of-concept witness 'POCWitness84753'.\n4. Do not rely solely on WAF signatures; prioritization should be placed on patching the underlying software component.\n",
+      "published": "2026-10-31T02:05:07.000Z",
+      "labels": [
+        "php",
+        "rce",
+        "vulnerability",
+        "wordpress"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2ddfe97c-d465-5385-b025-ca17133c376e",
+        "vulnerability--d803900a-38d4-5d7b-a94b-8934059d83e3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-mail-mint-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-mail-mint-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-28vg-wv39-3g8h"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84753"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://patchstack.com/database/wordpress/plugin/mail-mint/vulnerability/wordpress-mail-mint-plugin-1-31-0-php-object-injection-vulnerability?_s_id=cve"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABRAXAS-CVE-2026-84753\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-mail-mint-rce",
+      "x_craftedsignal_event_id": "brief-2026-10-31-mail-mint-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-mail-mint-rce/",
+      "x_craftedsignal_activity_at": "2026-10-31T02:05:07.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00564,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -151986,6 +152082,60 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a21d1c71-bb04-518a-b4f7-44f9f90dbfa7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T02:04:28.000Z",
+      "modified": "2026-10-31T02:04:28.000Z",
+      "name": "Apache Camel: Path traversal in mina-sftp consumer (CVE-2026-79984)",
+      "description": "The Apache Camel `mina-sftp` component, which derives from the `RemoteFileConsumer` base class, does not perform lexical normalization or containment checks when building absolute remote paths from SFTP server directory listings. This allows a malicious or compromised SFTP server to provide path strings that resolve to locations outside the intended starting directory. Depending on the component's configuration, this vulnerability can facilitate unauthorized file reads, deletions, or renames using the application's credentials. A proof-of-concept exploit for this vulnerability has been published.\n",
+      "published": "2026-10-31T02:04:28.000Z",
+      "labels": [
+        "camel-mina-sftp",
+        "cve-2026-79984",
+        "path-traversal"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--1b901612-fc27-577d-8110-7e9c79f7d121"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-camel-mina-sftp-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-camel-mina-sftp-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://camel.apache.org/security/CVE-2026-79984.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OSCERD-CVE-2026-79984"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-OSCERD-CVE-2026-79984\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-camel-mina-sftp-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-31-camel-mina-sftp-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-camel-mina-sftp-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-31T02:04:28.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed",
+        "confidence": "low"
+      },
+      "x_craftedsignal_cvss_max": 7.4,
+      "x_craftedsignal_epss_max": 0.00659,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -193468,6 +193618,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0d849882-c286-541a-9d93-70d2ed7f1d95",
+      "name": "headscale (\u003c 0.29.7)",
+      "vendor": "Tailscale"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0d891bfd-b1ae-5e15-8209-256206042bd4",
       "name": "Tanzu for Postgres on Tanzu Platform (\u003c 11.0.0)",
       "vendor": "VMware"
@@ -196024,6 +196181,13 @@
       "spec_version": "2.1",
       "id": "software--2d9318f5-9554-51cd-8465-4575f3ad173b",
       "name": "OctoPrint 1.1.0"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--2ddfe97c-d465-5385-b025-ca17133c376e",
+      "name": "Mail Mint (\u003c= 1.31.0)",
+      "vendor": "WPFunnels"
     },
     {
       "type": "software",
@@ -208938,6 +209102,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--dc9b6497-e121-5c23-9e59-a44237c9a58e",
+      "name": "Tailscale client (\u003c 1.104.4)",
+      "vendor": "Tailscale"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--dcb3c5de-4b7b-55db-9f71-99f66fb7ae22",
       "name": "BlogEngine.NET (\u003c= 3.3.8.0)",
       "vendor": "BlogEngine.NET"
@@ -215419,6 +215590,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-106057",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106057"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1b901612-fc27-577d-8110-7e9c79f7d121",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-79984",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-79984",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79984"
         }
       ]
     },
@@ -242363,6 +242550,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92374",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92374"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d803900a-38d4-5d7b-a94b-8934059d83e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-84753",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-84753",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84753"
         }
       ]
     },
