@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5ebcb9d5-23a4-57dd-95a2-ca9e57bd54e7",
+  "id": "bundle--8ca71d24-b673-5dc5-be5a-9ab269e13cd1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -8509,6 +8509,17 @@
       "relationship_type": "has",
       "source_ref": "software--f0b74c22-4cc2-5adb-b395-a92fa01cb5dd",
       "target_ref": "vulnerability--6e6db977-26c6-52d7-938b-84b819a2f6bf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--07a8e3f8-a755-510d-8eb5-cb33897bc922",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T06:06:38.000Z",
+      "modified": "2026-10-31T06:06:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--836b57d9-df6f-59b9-be70-ab8b7e5ed572",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
     },
     {
       "type": "relationship",
@@ -62061,6 +62072,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b82b7764-9844-5ee1-ac39-4564deee7ad8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a06ba018-e39d-51fd-adf6-8ffb690c6e3f",
+      "target_ref": "vulnerability--d8a4abe6-69e7-539e-9f40-c2a22596d5c7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b8335a33-db79-5714-b93d-4bfd085a5cdd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -63564,6 +63586,17 @@
       "relationship_type": "has",
       "source_ref": "software--25385b4a-f06a-545b-aad4-e8e73971eccc",
       "target_ref": "vulnerability--6cb930a6-c5ba-5495-a3df-570194776e80"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bca7ffbd-4375-5de0-93b9-ea15fb4454cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T06:06:38.000Z",
+      "modified": "2026-10-31T06:06:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--836b57d9-df6f-59b9-be70-ab8b7e5ed572",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -138871,6 +138904,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--836b57d9-df6f-59b9-be70-ab8b7e5ed572",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T06:06:38.000Z",
+      "modified": "2026-10-31T06:06:38.000Z",
+      "name": "Mooveagency Import Xml And Rss Feeds: Arbitrary file upload remote code execution (CVE-2023-4300)",
+      "description": "## Overview\n\nCVE-2023-4300 is an arbitrary file upload vulnerability in the Import Xml And Rss Feeds WordPress plugin versions prior to 2.1.4. The vulnerability exists within the 'moove_save_import_template' action, accessible via 'admin-ajax.php'. Successful exploitation requires high-level administrative privileges and allows an attacker to upload arbitrary PHP files due to insufficient file extension validation, leading to remote code execution.\n\n## Impact\n\nSuccessful exploitation results in full remote code execution on the underlying web server, allowing for complete system compromise within the context of the web application user.\n\n## Recommendation\n\nUpdate the Import Xml And Rss Feeds plugin to version 2.1.4 or later immediately. Ensure that administrative access to WordPress is strictly controlled to mitigate the impact of this authenticated-only vulnerability.\n",
+      "published": "2026-10-31T06:06:38.000Z",
+      "object_refs": [
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a06ba018-e39d-51fd-adf6-8ffb690c6e3f",
+        "vulnerability--d8a4abe6-69e7-539e-9f40-c2a22596d5c7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-cve-2023-4300",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2023-4300/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BDE574786-CVE-2023-4300"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-BDE574786-CVE-2023-4300\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-cve-2023-4300",
+      "x_craftedsignal_event_id": "brief-2026-10-31-cve-2023-4300",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cve-2023-4300/",
+      "x_craftedsignal_activity_at": "2026-10-31T06:06:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_epss_max": 0.02042,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--83805dec-1888-571b-b317-c428e7620c75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T03:04:14.000Z",
@@ -205571,6 +205651,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a06ba018-e39d-51fd-adf6-8ffb690c6e3f",
+      "name": "Import Xml And Rss Feeds (\u003c 2.1.4)",
+      "vendor": "Mooveagency"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a06ef835-2a35-53c5-92d5-422cd66aa742",
       "name": "X6000R (9.4.0cu.652_B20230116)",
       "vendor": "TOTOLINK"
@@ -243504,6 +243591,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-84294",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84294"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d8a4abe6-69e7-539e-9f40-c2a22596d5c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2023-4300",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-4300",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4300"
         }
       ]
     },
