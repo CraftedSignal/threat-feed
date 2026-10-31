@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6c5da9d8-565f-56c9-8b3e-eb140eee5b86",
+  "id": "bundle--e559dfb0-ec93-5c06-a6d5-56f25d17bfa2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2453,22 +2453,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Network Service Discovery",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1046",
-          "url": "https://attack.mitre.org/techniques/T1046"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--e45ab8fc-efb0-5498-ad7e-0b8b432b8de2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3323,19 +3307,6 @@
       "pattern": "[url:value = 'https://github.com/coconut652-7/IOT_Vul_Public/tree/main/Glinet/MT3000/nas-web/ADD_USER_ADD_SHARE']",
       "pattern_type": "stix",
       "valid_from": "2026-08-04T01:42:26.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--9de98c24-3ebd-5442-b303-365519e9c2f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-02T19:59:10.000Z",
-      "modified": "2026-08-02T19:59:10.000Z",
-      "name": "url: https://sploitus.com/exploit?id=1274EBDA-404A-5970-B0D4-87A57CAA4FC3",
-      "description": "Source of public exploit proof-of-concept",
-      "pattern": "[url:value = 'https://sploitus.com/exploit?id=1274EBDA-404A-5970-B0D4-87A57CAA4FC3']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-02T19:59:10.000Z"
     },
     {
       "type": "indicator",
@@ -9869,17 +9840,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--246f9791-f6c2-5da6-81c9-7b29fb83d02c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-02T19:59:10.000Z",
-      "modified": "2026-08-02T19:59:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8e10cca8-04ea-5168-a711-de7bac11bcc8",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--24a4f8a3-21da-534c-b2af-01e6f6c0ab29",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9942,17 +9902,6 @@
       "relationship_type": "has",
       "source_ref": "software--bfdab548-eaf2-5d9b-9261-4c12cc4dbea0",
       "target_ref": "vulnerability--fd8b1321-353a-5c62-befd-c9c78889988a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--24e57093-3475-50d6-9b25-1d36f49c5deb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-02T19:59:10.000Z",
-      "modified": "2026-08-02T19:59:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8e10cca8-04ea-5168-a711-de7bac11bcc8",
-      "target_ref": "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837"
     },
     {
       "type": "relationship",
@@ -33827,17 +33776,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b4e97c48-5de7-5691-a398-1e1779820329",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-02T19:59:10.000Z",
-      "modified": "2026-08-02T19:59:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8e10cca8-04ea-5168-a711-de7bac11bcc8",
-      "target_ref": "indicator--9de98c24-3ebd-5442-b303-365519e9c2f5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b5330acf-3884-54c0-8692-4a9d3f7b580a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T21:59:47.000Z",
@@ -40295,17 +40233,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dcbfffdb-401f-59ba-b781-10940ea24659",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--a93bd83b-0814-539d-b190-53ddbe2580e1",
-      "target_ref": "vulnerability--4d79f1ee-1920-5e4d-bf56-f79ad3d4b026"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--dcc565bd-8e4f-5c7b-bac8-380b2df73801",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-15T18:20:12.000Z",
@@ -40379,17 +40306,6 @@
       "relationship_type": "has",
       "source_ref": "software--4a038768-c6d0-535c-bdb3-5a7b3c0a04f6",
       "target_ref": "vulnerability--56d4074a-8505-5e19-9820-2010eda513e8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--dd9117e8-9762-5d7c-8ddf-ba498c56f230",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--98f8ca44-1b33-5a40-b189-01e288dda139",
-      "target_ref": "vulnerability--4d79f1ee-1920-5e4d-bf56-f79ad3d4b026"
     },
     {
       "type": "relationship",
@@ -79675,56 +79591,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--8e10cca8-04ea-5168-a711-de7bac11bcc8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-02T19:59:10.000Z",
-      "modified": "2026-08-02T19:59:10.000Z",
-      "name": "Critical Unauthenticated RCE in Realtyna WPL Real Estate Plugin",
-      "description": "## Overview\n\nCVE-2026-13714 is a critical vulnerability (CVSS 9.8) affecting Realtyna's Organic IDX and WPL Real Estate plugins for WordPress versions prior to 5.3.0. The vulnerability resides in the plugin's I/O API, which fails to perform server-side file type validation. This flaw allows unauthenticated attackers to upload arbitrary files, including PHP shells, to the server. Publicly available exploit code demonstrates that attackers can leverage default API keys to bypass authentication and execute code. The exploit supports automated fingerprinting of WordPress installations, brute-force identification of the upload path, and multipart form-data requests to upload malicious files. Defenders should prioritize patching and monitoring for unauthorized file uploads in the plugin's upload directory.\n\n## Attack Chain\n\n1. Attacker sends a probe request to `?get_realtyna_platform=1` to fingerprint the target and confirm the presence of the vulnerable WPL Real Estate plugin.\n2. Attacker uses default, hardcoded I/O API keys to authenticate against the plugin's endpoint.\n3. Attacker constructs a multipart/form-data POST request targeting the `set_property` command.\n4. Attacker embeds a PHP web shell (e.g., `image_Nx_abc.php`) within the `file[]` parameter.\n5. The plugin saves the file to the `wp-content/uploads/WPL/{pid}/` directory without validating the file extension or content.\n6. Attacker brute-forces the PID (Property ID) directory structure to locate the exact path of the uploaded file.\n7. Attacker sends a GET request to the discovered file path in `wp-content/uploads/WPL/{pid}/Nx_*` to trigger PHP execution.\n8. Attacker gains persistent remote code execution on the WordPress host.\n\n## Impact\n\nSuccessful exploitation results in full site compromise, allowing attackers to exfiltrate sensitive database information, modify site content, or use the server for further lateral movement within the hosting environment. Given the widespread use of the WPL Real Estate plugin for property management, the risk of data exposure for real estate firms and their clients is significant.\n\n## Recommendation\n\n- Update WPL Real Estate and Organic IDX plugins to version 5.3.0 or later immediately.\n- Deploy the Sigma rule below to detect web requests attempting to access or write to the vulnerable plugin's upload directory.\n- Rotate the I/O API keys in the `wpl_settings` table to invalidate currently known default keys.\n- Implement a rewrite rule or server configuration to block direct access to `wp-content/uploads/WPL/` files ending in `.php`.\n- Disable the I/O API via plugin settings if it is not required for daily business operations.\n",
-      "published": "2026-08-02T19:59:10.000Z",
-      "labels": [
-        "rce",
-        "vulnerability",
-        "wordpress"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--e36dde55-a247-51ae-915b-0aac12302837",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--9de98c24-3ebd-5442-b303-365519e9c2f5",
-        "software--98f8ca44-1b33-5a40-b189-01e288dda139",
-        "software--a93bd83b-0814-539d-b190-53ddbe2580e1",
-        "vulnerability--4d79f1ee-1920-5e4d-bf56-f79ad3d4b026"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-cve-2026-13714",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-13714/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=1274EBDA-404A-5970-B0D4-87A57CAA4FC3"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-cve-2026-13714",
-      "x_craftedsignal_event_id": "brief-2026-08-cve-2026-13714",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-13714/",
-      "x_craftedsignal_activity_at": "2026-08-02T19:59:10.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.00462,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8e139956-35d0-59eb-89de-a8e05b07b5ca",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-04T15:44:01.000Z",
@@ -113532,13 +113398,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--98f8ca44-1b33-5a40-b189-01e288dda139",
-      "name": "WPL Real Estate",
-      "vendor": "Realtyna"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--9943caa2-def9-5f56-b2b1-84578cd4b3e7",
       "name": "JoomGallery (\u003c= 4.3.0)",
       "vendor": "JoomGallery"
@@ -114296,13 +114155,6 @@
       "id": "software--a93694e4-7b5d-572b-bac5-faa4788f803c",
       "name": "CUPS",
       "vendor": "OpenPrinting"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a93bd83b-0814-539d-b190-53ddbe2580e1",
-      "name": "Organic IDX",
-      "vendor": "Realtyna"
     },
     {
       "type": "software",
@@ -124437,22 +124289,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-63188",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63188"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--4d79f1ee-1920-5e4d-bf56-f79ad3d4b026",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-13714",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-13714",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13714"
         }
       ]
     },
