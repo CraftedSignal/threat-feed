@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--06e4926c-5255-5f41-ab02-7f062bc7f6c3",
+  "id": "bundle--624f8278-3184-5459-aaaa-2cf501d77ac1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -18214,6 +18214,17 @@
       "relationship_type": "has",
       "source_ref": "software--f6e249ee-500a-5be3-91dd-613bd2080a58",
       "target_ref": "vulnerability--af35fe5e-7194-5562-a315-9b84b6208518"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2852f93b-f384-5535-b377-e331ca68d0cf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e70ce7a6-4bdb-5b5e-a1a7-01ad379e41bd",
+      "target_ref": "vulnerability--e2e4adcc-86f2-5560-aba2-09f378c6d50f"
     },
     {
       "type": "relationship",
@@ -55739,6 +55750,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a15b4284-b742-5b55-95f4-6c2dcd7ee2bb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae135e50-01c4-5e3a-8672-0aeaa0db14b8",
+      "target_ref": "vulnerability--3c25720d-42f4-5086-a97e-1249714a3277"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a16698a8-6b3e-5c3f-8678-72ce3c6a48aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -71597,6 +71619,17 @@
       "relationship_type": "has",
       "source_ref": "software--41e7a418-bd3d-53a4-b7d0-5bb7a9281d62",
       "target_ref": "vulnerability--dae565f4-6355-57e8-983d-e0d2ded9ef0a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d404ddee-6227-5a75-beae-b0c0e4b9153a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T22:05:36.000Z",
+      "modified": "2026-10-31T22:05:36.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--146cc117-d73d-540d-bbe6-51967ad4ef75",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -93562,6 +93595,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--146cc117-d73d-540d-bbe6-51967ad4ef75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T22:05:36.000Z",
+      "modified": "2026-10-31T22:05:36.000Z",
+      "name": "ShowDoc: Remote code execution in Mock feature (CVE-2026-120203)",
+      "description": "## Overview\nShowDoc 2.8.14 through 3.9.5 contains a code injection vulnerability in its Mock feature, tracked as CVE-2026-120203. Authenticated users can inject malicious shell commands into mockjs templates via the MockController::add endpoint. When these templates are subsequently processed via MockController::infoByKey, the application uses eval() to execute the embedded code, leading to command execution with root privileges in default Docker deployments.\n\n## Attack Chain\n1. Attacker authenticates to the ShowDoc application.\n2. Attacker crafts a malicious mockjs template containing shell commands.\n3. Attacker submits the payload via the MockController::add endpoint.\n4. The malicious template is stored in the application database.\n5. Attacker triggers execution by accessing the MockController::infoByKey endpoint.\n6. The application processes the template using eval(), executing the payload as root.\n\n## Impact\nSuccessful exploitation allows for arbitrary command execution with root privileges when the application is running in the official Docker environment.\n\n## Recommendation\nUpgrade ShowDoc to version 3.9.6 or later to address the vulnerable Mock feature.\n",
+      "published": "2026-10-31T22:05:36.000Z",
+      "labels": [
+        "injection",
+        "rce",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e70ce7a6-4bdb-5b5e-a1a7-01ad379e41bd",
+        "vulnerability--e2e4adcc-86f2-5560-aba2-09f378c6d50f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-showdoc-code-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-showdoc-code-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120203"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-showdoc-code-injection",
+      "x_craftedsignal_event_id": "brief-2026-10-31-showdoc-code-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-showdoc-code-injection/",
+      "x_craftedsignal_activity_at": "2026-10-31T22:05:36.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--14ddabbf-fc10-54f4-af9a-d374319d05fd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T13:49:49.000Z",
@@ -113536,6 +113615,46 @@
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_epss_max": 0.5981,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--420231a5-1916-5c74-be38-5881ff0b661a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T22:05:24.000Z",
+      "modified": "2026-10-31T22:05:24.000Z",
+      "name": "Jpom: Authentication bypass and command execution (CVE-2026-120201)",
+      "description": "Jpom versions 2.10.0 through 2.11.12 are vulnerable to an authentication bypass. Unauthenticated attackers can gain super-administrator access by injecting query conditions into the JPOM-USER-TOKEN header. By providing a value such as 'is not null', the underlying Hutool Condition parser processes the input as an operator. Once access is gained, attackers can execute commands using Jpom's script features.\n",
+      "published": "2026-10-31T22:05:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ae135e50-01c4-5e3a-8672-0aeaa0db14b8",
+        "vulnerability--3c25720d-42f4-5086-a97e-1249714a3277"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-jpom-auth-bypass-0b421525",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-jpom-auth-bypass-0b421525/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120201"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-jpom-auth-bypass-0b421525",
+      "x_craftedsignal_event_id": "brief-2026-10-31-jpom-auth-bypass-0b421525",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jpom-auth-bypass-0b421525/",
+      "x_craftedsignal_activity_at": "2026-10-31T22:05:24.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -210119,6 +210238,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ae135e50-01c4-5e3a-8672-0aeaa0db14b8",
+      "name": "Jpom (2.10.0 through 2.11.12)",
+      "vendor": "Jpom"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--ae195453-4176-5eaf-b0d4-6a959395496c",
       "name": "CherryTree (through 1.7.2)"
     },
@@ -214099,6 +214225,13 @@
       "id": "software--e6b0a4cc-d405-5629-a513-e1b41cde62bb",
       "name": "Onyx Craft (\u003c= 5.0.0)",
       "vendor": "Onyx"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e70ce7a6-4bdb-5b5e-a1a7-01ad379e41bd",
+      "name": "ShowDoc (2.8.14 \u003c= version \u003c 3.9.6)",
+      "vendor": "ShowDoc"
     },
     {
       "type": "software",
@@ -225181,6 +225314,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-35001",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35001"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3c25720d-42f4-5086-a97e-1249714a3277",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120201",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120201",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120201"
         }
       ]
     },
@@ -249389,6 +249538,22 @@
           "source_name": "cve",
           "external_id": "CVE-2014-125135",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-125135"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e2e4adcc-86f2-5560-aba2-09f378c6d50f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120203",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120203",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120203"
         }
       ]
     },
