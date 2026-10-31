@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--189b4632-1275-553a-83f5-3b153122d0a1",
+  "id": "bundle--337f0d0e-77b7-5f92-83dc-0e07b4dccf41",
   "objects": [
     {
       "type": "attack-pattern",
@@ -19142,6 +19142,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2ce1b06b-dc2c-5eba-97f0-69acb6583ac8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0d2f16f7-19c5-5b41-8653-dc3c751e67d6",
+      "target_ref": "vulnerability--5177a3fb-17a7-5ad3-9425-59c2a0ac6ad5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--2ce6e8a3-f3c0-5efb-8387-e47f76e88265",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T21:41:30.000Z",
@@ -19181,17 +19192,6 @@
       "modified": "2026-10-06T12:45:50.000Z",
       "relationship_type": "uses",
       "source_ref": "report--b87f1112-d1ff-57f8-8fe4-f1b60ca4281c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2d1f8a76-56ec-59ca-ac58-75e0a28d80c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-01T00:37:29.000Z",
-      "modified": "2026-10-01T00:37:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f09f0327-4c66-52b8-983f-36d7ca841efe",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -25368,17 +25368,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--4225ad20-c10e-5a15-9663-3ef6d8306726",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--861d3828-d5bd-57c5-8400-ebaad62c19b0",
-      "target_ref": "vulnerability--870b5205-5f8e-51be-bff4-6d847f431d35"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--422fe6ac-fcbc-563b-8631-01d5f554a050",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -30974,6 +30963,17 @@
       "relationship_type": "uses",
       "source_ref": "report--62cfe7c4-3ee5-528d-90e7-c7311655516e",
       "target_ref": "indicator--0b261030-9a57-5b61-a16b-8eb61f350f87"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5424d413-0876-59ef-9445-9c382946f34d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T01:03:26.000Z",
+      "modified": "2026-10-31T01:03:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--732036f1-8a59-5e83-9688-334730f78471",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -46576,17 +46576,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8615fb4f-34c6-54f2-902f-30ed9dfdd8a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c6088b6f-2650-5f0d-9df4-9ba3ca9b131e",
-      "target_ref": "vulnerability--f476ca28-dd83-5f9a-acb4-0c8322aee46f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--861b662e-df15-57b6-bf07-b6a86950edc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60722,6 +60711,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b452599d-9bf4-50e3-9ab9-be64c249fe07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T01:03:26.000Z",
+      "modified": "2026-10-31T01:03:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--732036f1-8a59-5e83-9688-334730f78471",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b45b4e69-2bd8-5b12-bcb4-91de657fc432",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T20:27:23.000Z",
@@ -66306,17 +66306,6 @@
       "relationship_type": "has",
       "source_ref": "software--271ab80e-f5af-5ee5-950d-d823fbf3c4da",
       "target_ref": "vulnerability--0c45dc39-a1cf-534b-8ad1-93e03ed19aa9"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c7235a80-ff7d-5c09-ba47-b4eba4245ad0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-01T00:37:22.000Z",
-      "modified": "2026-10-01T00:37:22.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c484b441-320c-5f99-ab89-91ca1c85451a",
-      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -131883,6 +131872,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--732036f1-8a59-5e83-9688-334730f78471",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T01:03:26.000Z",
+      "modified": "2026-10-31T01:03:26.000Z",
+      "name": "MarkUs: Zip Slip remote code execution (CVE-2026-25057)",
+      "description": "## Overview\nMarkUs, a web-based assignment grading application, is vulnerable to a Zip Slip path traversal vulnerability (CVE-2026-25057). The vulnerability exists in the assignment configuration ZIP upload functionality, where archive entry names are used to build filesystem paths without proper validation. An authenticated user with instructor privileges can upload a crafted ZIP file containing traversal sequences to overwrite files on the underlying host, potentially leading to remote code execution (RCE).\n\n## Attack Chain\n1. Actor authenticates to the MarkUs web interface with instructor-level privileges.\n2. Actor navigates to the 'Assignments' section of a course.\n3. Actor selects the 'Upload the configuration zip file' option.\n4. Actor submits a specially crafted ZIP archive containing malicious file paths with traversal sequences.\n5. The application extracts the archive, writing files outside the intended destination directory.\n6. The application overwrites a critical executable or configuration file, enabling subsequent remote command execution.\n\n## Impact\nSuccessful exploitation allows for arbitrary file writes with the privileges of the web application process. This may lead to total compromise of the server if the attacker can overwrite executable application files or startup scripts.\n\n## Recommendation\n- Inventory all instances of MarkUs in the environment.\n- Apply security patches provided by the MarkUsProject as soon as they are available.\n- Audit logs for 'Assignments' configuration file upload activity, particularly by instructor-level accounts.\n- Implement restrictive filesystem permissions for the web application user to limit the impact of potential file overwrite attacks.\n",
+      "published": "2026-10-31T01:03:26.000Z",
+      "labels": [
+        "path-traversal",
+        "rce",
+        "web-vulnerability",
+        "zip-slip"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0d2f16f7-19c5-5b41-8653-dc3c751e67d6",
+        "vulnerability--5177a3fb-17a7-5ad3-9425-59c2a0ac6ad5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-markus-zip-slip",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-markus-zip-slip/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/ustr/cve-2026-25057/blob/main/poc.py"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-USTR-CVE-2026-25057"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-USTR-CVE-2026-25057\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-markus-zip-slip",
+      "x_craftedsignal_event_id": "brief-2026-10-31-markus-zip-slip",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-markus-zip-slip/",
+      "x_craftedsignal_activity_at": "2026-10-31T01:03:26.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.00533,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--732b8bf5-bc02-5e9f-ac32-4ae7f7eae3da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T01:43:03.000Z",
@@ -166475,52 +166521,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c484b441-320c-5f99-ab89-91ca1c85451a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-01T00:37:22.000Z",
-      "modified": "2026-10-01T00:37:22.000Z",
-      "name": "Unauthenticated Arbitrary File Read in DeepWiki-Open",
-      "description": "## Overview\n\nDeepWiki-Open through commit d92819a contains an unauthenticated arbitrary file read vulnerability. The issue resides in the GET /codemap/file endpoint, which improperly validates the repo_url parameter. By supplying a non-URL value, an attacker can bypass intended path containment checks. This allows for the traversal of the filesystem and the retrieval of sensitive files accessible to the API process. This vulnerability poses a significant risk as it requires no authentication to exploit and provides a mechanism for attackers to exfiltrate configuration files, source code, or system credentials. Defenders should prioritize patching or restricting access to the affected endpoint.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to read arbitrary files from the host system with the privileges of the web application process. This can lead to the exposure of sensitive credentials, environment variables, and internal configuration details, potentially facilitating further system compromise or data exfiltration.\n\n## Recommendation\n\n* Apply the official patch or upgrade DeepWiki-Open to a commit post-d92819a.\n* Restrict network access to the /codemap/file endpoint using a Web Application Firewall or proxy server until the vulnerability is remediated.\n* Monitor web server logs for GET requests to /codemap/file that contain filesystem path patterns or absolute paths in the repo_url query parameter.\n",
-      "published": "2026-10-01T00:37:22.000Z",
-      "labels": [
-        "file-read",
-        "path-traversal",
-        "web-vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--861d3828-d5bd-57c5-8400-ebaad62c19b0",
-        "vulnerability--870b5205-5f8e-51be-bff4-6d847f431d35"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-deepwiki-file-read",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-deepwiki-file-read/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103591"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-deepwiki-file-read",
-      "x_craftedsignal_event_id": "brief-2026-10-deepwiki-file-read",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-deepwiki-file-read/",
-      "x_craftedsignal_activity_at": "2026-10-01T00:37:22.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.5,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c4896d8f-058c-5d13-9592-2866769a9e81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T22:53:43.000Z",
@@ -185260,52 +185260,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f09f0327-4c66-52b8-983f-36d7ca841efe",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-01T00:37:29.000Z",
-      "modified": "2026-10-01T00:37:29.000Z",
-      "name": "SSRF Vulnerability in decolua 9Router",
-      "description": "## Overview\n\nCVE-2026-103530 identifies a server-side request forgery (SSRF) vulnerability affecting decolua 9Router in all versions up to and including 0.5.55. The vulnerability resides within the fetch function of the file src/shared/utils/ssrfGuard.js, which is part of the application's Search Endpoint component. \n\nAn attacker can exploit this flaw by remotely sending a crafted request that manipulates the provider_options.baseUrl argument. This manipulation forces the application to perform unauthorized requests to arbitrary internal or external resources, potentially leading to unauthorized data access, internal service discovery, or interaction with internal APIs that expect requests only from the trusted server environment. Impact is significant given the ability to bypass network segmentation by leveraging the server's context.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to perform SSRF attacks, potentially leading to unauthorized interaction with internal infrastructure, sensitive service exposure, or exfiltration of metadata from cloud instances or internal systems.\n\n## Recommendation\n\nUpgrade 9Router to version 0.5.56 or later to apply the necessary security patch for the ssrfGuard.js component. Implement network egress filtering on the host running the 9Router service to restrict unauthorized outbound connections to internal segments.\n",
-      "published": "2026-10-01T00:37:29.000Z",
-      "labels": [
-        "ssrf",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c6088b6f-2650-5f0d-9df4-9ba3ca9b131e",
-        "vulnerability--f476ca28-dd83-5f9a-acb4-0c8322aee46f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-01-cve-2026-103530-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-ssrf-decolua-9router/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103530"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-01-cve-2026-103530-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-10-01-cve-2026-103530-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-ssrf-decolua-9router/",
-      "x_craftedsignal_activity_at": "2026-10-01T00:37:29.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f0a44e98-1e8b-53cd-b869-43838bc8a32f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-11T16:02:59.000Z",
@@ -193272,6 +193226,13 @@
       "id": "software--0d1763a2-aa59-5e8c-b61e-efb816225081",
       "name": "WL-WN530BE1-A (\u003c= M30BE1_V251117)",
       "vendor": "Wavlink"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0d2f16f7-19c5-5b41-8653-dc3c751e67d6",
+      "name": "MarkUs (\u003c 2.9.1)",
+      "vendor": "MarkUsProject"
     },
     {
       "type": "software",
@@ -202621,13 +202582,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--861d3828-d5bd-57c5-8400-ebaad62c19b0",
-      "name": "DeepWiki-Open (\u003c= d92819a)",
-      "vendor": "DeepWiki-Open"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--86434e53-e707-5b03-b18f-ded5011604ca",
       "name": "Fidelis Sensor (\u003c 9.4.5)",
       "vendor": "Fidelissecurity"
@@ -207176,13 +207130,6 @@
       "id": "software--c5f644b2-cc91-5fd1-9bd1-a962e189e6a6",
       "name": "petite-vue-i18n (\u003e= 11.1.10, \u003c 11.4.14)",
       "vendor": "Intlify"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--c6088b6f-2650-5f0d-9df4-9ba3ca9b131e",
-      "name": "9Router (\u003c 0.5.56)",
-      "vendor": "decolua"
     },
     {
       "type": "software",
@@ -223255,6 +223202,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5177a3fb-17a7-5ad3-9425-59c2a0ac6ad5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-25057",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-25057",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25057"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5182abc6-5310-5aa3-8030-fc54a091a895",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -230689,22 +230652,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-114382",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114382"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--870b5205-5f8e-51be-bff4-6d847f431d35",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-103591",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-103591",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103591"
         }
       ]
     },
@@ -246193,22 +246140,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-110636",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110636"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f476ca28-dd83-5f9a-acb4-0c8322aee46f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-103530",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-103530",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103530"
         }
       ]
     },
