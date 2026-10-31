@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--82b08272-6f74-5310-8d6f-ed6e2114ecad",
+  "id": "bundle--6af0e1c9-88cd-520c-b758-365891d483ea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -16179,6 +16179,17 @@
       "relationship_type": "has",
       "source_ref": "software--14b4b49c-5a53-5776-b9a9-691efae529a6",
       "target_ref": "vulnerability--44621ee0-5042-593f-8e94-e62a89da772b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--221ac384-f3c0-505c-b563-292127e55def",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T01:32:01.000Z",
+      "modified": "2026-10-31T01:32:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4400b8d6-ca07-5f69-bcdf-f913e5806f0f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -79015,6 +79026,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--edcaf84c-a244-5fab-93bf-edeeb651b7f4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e5d4555a-0cb8-5399-bb02-bf2d73b0bbc2",
+      "target_ref": "vulnerability--4795b3bc-9792-5804-9340-8bb0ce4da3a5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--edd6604a-cf9b-5de4-be1d-9d6dc451e106",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-02T20:26:38.000Z",
@@ -112564,6 +112586,51 @@
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-roundcube-security-updates/",
       "x_craftedsignal_activity_at": "2026-10-29T19:48:45.000Z",
       "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4400b8d6-ca07-5f69-bcdf-f913e5806f0f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T01:32:01.000Z",
+      "modified": "2026-10-31T01:32:01.000Z",
+      "name": "CallBackery: Path traversal vulnerability (CVE-2026-118988)",
+      "description": "## Overview\nA path traversal vulnerability exists in the CallBackery Perl distribution that allows unauthenticated clients to access documentation files outside of the intended directory. This issue affects versions before 0.60.1.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to read the Plain Old Documentation (POD) of arbitrary files on the system, which may disclose sensitive information contained within the source code or documentation files.\n\n## Recommendation\n- Update the CallBackery Perl distribution to version 0.60.1 or later immediately.\n- Review web server access logs for anomalous requests to the '/doc' URI path containing directory traversal sequences (e.g., '../').\n",
+      "published": "2026-10-31T01:32:01.000Z",
+      "labels": [
+        "cve-2026-118988",
+        "path-traversal",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e5d4555a-0cb8-5399-bb02-bf2d73b0bbc2",
+        "vulnerability--4795b3bc-9792-5804-9340-8bb0ce4da3a5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-callbackery-path-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-callbackery-path-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/447"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-callbackery-path-traversal",
+      "x_craftedsignal_event_id": "brief-2026-10-31-callbackery-path-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-callbackery-path-traversal/",
+      "x_craftedsignal_activity_at": "2026-10-31T01:32:01.000Z",
+      "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -209481,6 +209548,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e5d4555a-0cb8-5399-bb02-bf2d73b0bbc2",
+      "name": "CallBackery (\u003c 0.60.1)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e5de0f7e-13dc-5fc9-91e3-e65d4f6abb23",
       "name": "NGINX Plus",
       "vendor": "F5"
@@ -221970,6 +222043,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-76740",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76740"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4795b3bc-9792-5804-9340-8bb0ce4da3a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118988",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118988",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118988"
         }
       ]
     },
