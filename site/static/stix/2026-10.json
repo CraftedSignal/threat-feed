@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--35d9fe43-c2c0-561b-b7fc-8d74b71db88d",
+  "id": "bundle--268b2331-2077-529d-8a93-1b00627f7fd4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -17052,6 +17052,17 @@
       "relationship_type": "uses",
       "source_ref": "report--184ef6d4-9f96-504e-8287-0f300ac7045f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--248a255e-91bf-50ec-af89-7572aa621f69",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5c5f71f5-7b51-57a8-b530-f3e4465aea92",
+      "target_ref": "vulnerability--2f1f6e31-f956-5bd1-b95a-f1cdcea4676a"
     },
     {
       "type": "relationship",
@@ -171366,6 +171377,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c844f835-35bd-52a2-b7d5-373d61bf03f2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T13:55:24.000Z",
+      "modified": "2026-10-31T13:55:24.000Z",
+      "name": "Debug Log Manager: Stored Cross-Site Scripting via message parameter (CVE-2026-120114)",
+      "description": "The Debug Log Manager - Conveniently Monitor and Inspect Errors plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'message' and 'pageUrl' parameters in all versions up to, and including, 2.5.2. \n\nUnauthenticated attackers can inject arbitrary web scripts that execute when a user accesses an injected page. Successful exploitation requires that the site administrator has debug logging enabled with JS error logging active, and that the attacker obtains the publicly emitted 'dlmVars.jsErrorLogging' nonce to pass the nonce check on the unauthenticated endpoint.\n",
+      "published": "2026-10-31T13:55:24.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--ddb7c941-2d15-57e9-9537-b6db59e8cd2c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-debug-log-manager-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-debug-log-manager-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120114"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-debug-log-manager-xss",
+      "x_craftedsignal_event_id": "brief-2026-10-31-debug-log-manager-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-debug-log-manager-xss/",
+      "x_craftedsignal_activity_at": "2026-10-31T13:55:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c865710a-9e99-5e88-8e78-a2f20dcce70d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-01T15:13:02.000Z",
@@ -173594,6 +173644,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ce458b04-3b8d-5ed7-8762-47a10b0591b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T13:55:16.000Z",
+      "modified": "2026-10-31T13:55:16.000Z",
+      "name": "Acadlix LMS: Arbitrary file deletion (CVE-2026-103882)",
+      "description": "## Overview\nThe Acadlix LMS - AI Quiz Maker, Online Exam \u0026 Course Plugin for WordPress (all versions up to and including 1.1.9) contains an arbitrary file deletion vulnerability in the post_delete_assessment_file_by_id function. The plugin's REST API permission callback only verifies a generic wp_rest nonce emitted in the public acadlixOptions JavaScript object, which effectively allows unauthenticated access. This vulnerability may lead to remote code execution by deleting critical files such as wp-config.php.\n",
+      "published": "2026-10-31T13:55:16.000Z",
+      "labels": [
+        "arbitrary-file-deletion",
+        "rce",
+        "wordpress"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--5c5f71f5-7b51-57a8-b530-f3e4465aea92",
+        "vulnerability--2f1f6e31-f956-5bd1-b95a-f1cdcea4676a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-acadlix-lms-file-deletion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-acadlix-lms-file-deletion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103882"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-acadlix-lms-file-deletion",
+      "x_craftedsignal_event_id": "brief-2026-10-31-acadlix-lms-file-deletion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-acadlix-lms-file-deletion/",
+      "x_craftedsignal_activity_at": "2026-10-31T13:55:16.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -202844,6 +202939,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5c5f71f5-7b51-57a8-b530-f3e4465aea92",
+      "name": "Acadlix LMS – AI Quiz Maker, Online Exam \u0026 Course Plugin (\u003c= 1.1.9)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5c6a17c2-19c6-51ee-947e-8c00f7b22491",
       "name": "Cruise Control",
       "vendor": "Cruise Control"
@@ -222390,6 +222491,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115191",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115191"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2f1f6e31-f956-5bd1-b95a-f1cdcea4676a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-103882",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-103882",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103882"
         }
       ]
     },
@@ -247462,6 +247579,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-115807",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115807"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ddb7c941-2d15-57e9-9537-b6db59e8cd2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120114",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120114",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120114"
         }
       ]
     },
