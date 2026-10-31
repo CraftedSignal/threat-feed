@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a8777d8b-d3b0-5552-a1e5-1d3536309983",
+  "id": "bundle--20c1cf35-3c73-5907-ba87-340c75987b15",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3513,6 +3513,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--0eb7201a-c8ad-5702-bbcf-7102d5ad2d56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "name": "ip: 23.106.46.239",
+      "description": "Reported by Zeabur and used for credential checking/LLM resale site infrastructure",
+      "pattern": "[ipv4-addr:value = '23.106.46.239']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T05:35:31.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--103416a0-0e0c-56df-9405-77f02994ec71",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T07:51:37.000Z",
@@ -4149,6 +4162,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--57fe96b9-6237-5a4f-bb58-dbef7429aed5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "name": "domain: llm-routing.com",
+      "description": "Overt LLM resale site accepting USDT",
+      "pattern": "[domain-name:value = 'llm-routing.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T05:35:31.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--58f9eae8-98f4-5c7a-8a83-a51e741dfae5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -4392,6 +4418,19 @@
       "pattern": "[ipv4-addr:value = '203.160.133.172']",
       "pattern_type": "stix",
       "valid_from": "2026-10-07T16:46:44.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--774a8579-1d5c-591a-aed3-7c8cbccdb91f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "name": "domain: xingjiabiapi.org",
+      "description": "Resale hub offering frontier models",
+      "pattern": "[domain-name:value = 'xingjiabiapi.org']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T05:35:31.000Z"
     },
     {
       "type": "indicator",
@@ -4937,6 +4976,19 @@
       "pattern": "[file:hashes.MD5 = 'ed2510198b03435570d72ce274bc245c']",
       "pattern_type": "stix",
       "valid_from": "2026-10-29T08:37:22.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--b9884740-430c-56ff-819c-be73d4d39ceb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "name": "ip: 38.246.114.118",
+      "description": "Checked permissions on stolen keys; tied to xingjiabiapi.org",
+      "pattern": "[ipv4-addr:value = '38.246.114.118']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-28T05:35:31.000Z"
     },
     {
       "type": "indicator",
@@ -7320,7 +7372,7 @@
       "id": "relationship--04b56ba4-d345-51d2-a16e-c4a827a3a219",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-10-30T22:04:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
@@ -13590,7 +13642,7 @@
       "id": "relationship--1960f805-9c0a-5648-a496-d303a5d5e3fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:40:38.000Z",
-      "modified": "2026-10-29T20:40:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--6b461ef0-25d6-5e32-a095-432d6372296c",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -21785,7 +21837,7 @@
       "id": "relationship--35843154-95e2-5311-83f7-491959607305",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-10-30T22:04:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--cb67b622-7ef3-5058-b4b3-a90f5a7a9077"
@@ -22390,7 +22442,7 @@
       "id": "relationship--37c6a167-f2f0-588c-b86f-807d8a3c9338",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-10-30T22:04:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1"
@@ -24550,6 +24602,17 @@
       "relationship_type": "has",
       "source_ref": "software--52afe93e-ab86-53c1-a55a-05d561eb987f",
       "target_ref": "vulnerability--e35e491d-13ee-54e0-a27c-c5cf716e42da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3f4428f1-e8b8-5d4f-8125-c94250c11577",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "target_ref": "indicator--57fe96b9-6237-5a4f-bb58-dbef7429aed5"
     },
     {
       "type": "relationship",
@@ -31297,6 +31360,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--558ef256-ee2e-54a9-b1a9-40919cb6fe3e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--55902a64-6681-5445-b7f6-194e48c5d958",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T08:53:57.000Z",
@@ -32532,7 +32606,7 @@
       "id": "relationship--598505f0-a3a0-51c1-93f3-73d804a494a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T05:35:31.000Z",
-      "modified": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -35799,7 +35873,7 @@
       "id": "relationship--645e1382-ab9b-5f4e-a4b8-c1eb2fd6cb7b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-10-30T22:04:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -39121,7 +39195,7 @@
       "id": "relationship--6eb819af-498d-5226-8191-3a35729f2d77",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-10-30T22:04:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "relationship_type": "uses",
       "source_ref": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
@@ -61316,6 +61390,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b6ce4bcc-7948-5c6b-a763-006544753367",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "target_ref": "indicator--0eb7201a-c8ad-5702-bbcf-7102d5ad2d56"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b6d373ce-4084-5cae-805e-69fabae295cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T18:43:14.000Z",
@@ -61730,6 +61815,17 @@
       "relationship_type": "uses",
       "source_ref": "report--151d3b13-22dc-5394-bcc9-16bd6f390760",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b81ef40e-e62f-569b-8170-4e452f4bf735",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "target_ref": "indicator--774a8579-1d5c-591a-aed3-7c8cbccdb91f"
     },
     {
       "type": "relationship",
@@ -75616,6 +75712,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e45d263a-0047-537d-b411-280437f8c8c2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e462c191-e535-5a73-bdec-db5cd2febb89",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T19:59:06.000Z",
@@ -83345,6 +83452,17 @@
       "relationship_type": "has",
       "source_ref": "software--c25f327d-c584-513e-accc-b8b0d75aca5c",
       "target_ref": "vulnerability--6b2500fb-4efc-5617-b31b-8118b55afc76"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fc56bcbc-3a67-5b4f-9daa-45685d24caaf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-28T05:35:31.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
+      "target_ref": "indicator--b9884740-430c-56ff-819c-be73d4d39ceb"
     },
     {
       "type": "relationship",
@@ -129053,7 +129171,7 @@
       "id": "report--6b461ef0-25d6-5e32-a095-432d6372296c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:40:38.000Z",
-      "modified": "2026-10-29T20:40:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "name": "joi: Regular expression denial of service in email validation (CVE-2026-118772)",
       "description": "## Overview\nA Regular Expression Denial of Service (ReDoS) vulnerability exists in the joi library when using the 'Joi.string().email({ multiple: true })' validation rule. The flaw stems from a regular expression used for separator handling, which exhibits quadratic time complexity when processing strings containing long sequences of whitespace without valid separators. This can lead to event loop blocking in Node.js applications, resulting in a denial of service. The vulnerability is present in versions 17.1.1 through 17.13.8, and 18.0.0 through 18.3.0.\n\n## Impact\nSuccessful exploitation allows an attacker to block the Node.js event loop for several seconds per request. Because the vulnerability can bypass existing string length limitations (such as .max() when abortEarly is set to false), it enables resource exhaustion via a single, specially crafted HTTP request.\n\n## Recommendation\n- Update the joi package to version 17.13.9 or 18.3.1 immediately to remediate the vulnerable regular expression logic.\n- Audit application code using 'Joi.string().email({ multiple: true })' to ensure input length is constrained prior to validation.\n- Monitor Node.js event loop lag and request processing times as indicators of potential exploitation attempts.\n",
       "published": "2026-10-29T20:40:38.000Z",
@@ -129072,21 +129190,26 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-4528-x5fx-h6hg"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118772"
         }
       ],
       "confidence": 40,
       "x_craftedsignal_brief_id": "brief-2026-10-29-joi-redos",
       "x_craftedsignal_event_id": "brief-2026-10-29-joi-redos",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-joi-redos/",
-      "x_craftedsignal_activity_at": "2026-10-29T20:40:38.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T03:18:47.000Z",
       "x_craftedsignal_severity": "low",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.00467,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -135721,19 +135844,38 @@
       "id": "report--7bfe5182-59e9-5600-9ff0-39183f10e8aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-28T05:35:31.000Z",
-      "modified": "2026-10-28T05:35:31.000Z",
-      "name": "Railway: User secret key compromise",
-      "description": "## Overview\n\nRailway, a cloud developer platform, has confirmed a cyberattack that impacted the security of user secret keys stored within its infrastructure. Due to the nature of the compromise, Railway has formally instructed all users to rotate and revoke all existing secret keys to prevent unauthorized access to environments and third-party services connected via those credentials. No specific technical details regarding the initial access vector or the scope of the exfiltrated data have been disclosed by the vendor.\n\n## Impact\n\nThe compromise potentially exposes any sensitive information, cloud infrastructure, or API-based services managed through Railway secret keys, as these credentials may be actively used by unauthorized parties following the incident.\n\n## Recommendation\n\n* Immediately rotate and revoke all Railway-associated API keys, secret environment variables, and any service tokens managed within the Railway platform.\n* Audit logs associated with any cloud resources or third-party APIs that utilized Railway-managed secrets for unauthorized access patterns starting from the incident discovery period.\n* Monitor Railway status updates for further instructions regarding credential rotation and security remediations.\n",
+      "modified": "2026-10-31T03:18:47.000Z",
+      "name": "Black October: Agentic Attacks and LLMJacking on AI Developer Platforms",
+      "description": "## Overview\nThroughout October 2026, at least nine AI developer platforms - Fireworks AI, Andromeda, Zeabur, Lightning AI, OpenCode, Railway, Warp, CommandCode, and Northflank - disclosed security incidents. Attackers are actively targeting stored environment variables and API keys to perform \"LLMJacking,\" a technique involving the unauthorized use of high-cost AI inference services. Observed activities include key validation, quota enumeration via Boto3 scripts, and high-volume inference calls routed through multiple regions to evade throttling. Illicit resellers, notably identified as \"momo\" and \"Xingjiabi,\" have been observed leveraging infrastructure associated with the stolen credentials.\n\n## Attack Chain\n1. Initial Access: Attackers gain access to developer platforms through credential theft, third-party vendor dependencies, or legacy system vulnerabilities.\n2. Credential Harvesting: Attackers hunt for stored environment variables, specifically those granting access to AI services like Amazon Bedrock.\n3. Key Validation: Stolen keys are tested using automated, low-volume \"InvokeModel\" calls from residential proxy IPs.\n4. Quota Enumeration: Attackers use Boto3-based scripts from hosting infrastructure to enumerate Bedrock and EC2 quotas, identifying account limits.\n5. Traffic Flooding: Automated scripts initiate large-scale inference requests (reaching millions of calls) using stolen keys.\n6. Evasion: Traffic is distributed across multiple cross-region inference profiles to bypass service throttling.\n7. Monetization: Stolen access is integrated into public LLM resale platforms for commercial exploitation.\n\n## Impact\nObserved impacts include the theft of cryptocurrency keys, unauthorized consumer billing ranging from hundreds to thousands of dollars per incident, and the exhaustion of cloud service quotas. Two specific cases analyzed by Wiz documented ~2.5 million combined inference calls, resulting in an estimated $100k+ in unauthorized service costs.\n\n## Recommendation\n- Rotate all API keys and environment variables stored in developer platforms that disclosed incidents during October 2026.\n- Implement strict IAM policies for AI services (e.g., AWS Bedrock) that restrict cross-region inference profiles and enforce regional limitations to reduce the blast radius of stolen keys.\n- Establish monitoring for anomalous spikes in API calls, particularly for high-cost models like Claude Opus.\n- Audit existing infrastructure for \"shadow AI\" and ensure no hardcoded credentials exist within build infrastructure or configuration files.\n",
       "published": "2026-10-28T05:35:31.000Z",
       "labels": [
         "account-compromise",
+        "ai-security",
         "cloud",
-        "credential-access"
+        "cloud-security",
+        "credential-access",
+        "llmjacking",
+        "supply-chain-attack"
       ],
       "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
         "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--af6042ca-57fa-52c5-a8bb-d3dc11675982"
+        "indicator--0eb7201a-c8ad-5702-bbcf-7102d5ad2d56",
+        "indicator--57fe96b9-6237-5a4f-bb58-dbef7429aed5",
+        "indicator--774a8579-1d5c-591a-aed3-7c8cbccdb91f",
+        "indicator--b9884740-430c-56ff-819c-be73d4d39ceb",
+        "software--030debcc-2d58-5bfb-8a8a-7b8ffb8a152f",
+        "software--3b58e5d1-169c-5ee1-a3ef-4dbd1f8ecde1",
+        "software--4bbfc32a-148a-5480-9934-04f51d4b053d",
+        "software--9463df44-0f3e-5680-9e3f-dfbc0a251995",
+        "software--b93d2103-357d-5dbe-afcc-c54850c84fbf",
+        "software--ba72c66a-cbee-5e2a-bcfb-9a72a3751575",
+        "software--d32468dd-01f7-5d93-90e9-11ff4e76ff89",
+        "software--dbc16d79-60c4-53a9-8f7a-be77fdb09dcc",
+        "software--e719ea3b-3119-5835-a889-22201b4945d8",
+        "software--eae97e85-db21-5b6d-9642-f88471e6e181"
       ],
       "external_references": [
         {
@@ -135744,14 +135886,18 @@
         {
           "source_name": "reference",
           "url": "https://techcrunch.com/2026/10/22/developer-platform-railway-urges-all-users-to-revoke-secret-keys-after-cyberattack"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/black-october-for-ai-developer-platforms"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-28-railway-secret-compromise",
       "x_craftedsignal_event_id": "brief-2026-10-28-railway-secret-compromise",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-railway-secret-compromise/",
-      "x_craftedsignal_activity_at": "2026-10-28T05:35:31.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T03:18:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -183398,7 +183544,7 @@
       "id": "report--eb3a8003-03ff-5b0e-ad6b-d5d36c9cbf9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T22:04:22.000Z",
-      "modified": "2026-10-30T22:04:38.000Z",
+      "modified": "2026-10-31T03:18:47.000Z",
       "name": "Anthropic Claude VS Code extension malicious update distribution",
       "description": "## Overview\n\nBetween approximately 05:27 and 16:35 ET on October 29, 2026, a malicious version (2.1.313) of the Anthropic Claude VS Code extension was distributed via the official Cursor marketplace. The compromise was a supply-chain attack resulting from unauthorized access to Anthropic's distribution account. The malicious extension executed host reconnaissance, attempted to establish persistent SSH access, and exfiltrated environment variables and configuration files. Anthropic has since released version 2.1.314, though this update does not remove persistence mechanisms installed by the malicious 2.1.313 version.\n\n## Attack Chain\n\n1. Unauthorized access to the Anthropic official account on the Cursor extension marketplace.\n2. Publication of malicious extension version 2.1.313, superseding the legitimate 2.1.312 version.\n3. Automatic distribution to developer workstations configured for auto-updates.\n4. Execution of reconnaissance commands to collect host/user data and environment variable inventory.\n5. Attempted modification of SSH configurations (`authorized_keys`) and initialization of a reverse SSH tunnel.\n6. Persistence established via platform-specific mechanisms (LaunchAgents on macOS; scheduled tasks on Windows).\n7. Exfiltration of configuration and credential data via HTTP POST beacons on port 8099.\n\n## Impact\n\nUp to 5,000 developers' workstations were potentially exposed. Confirmed impact includes local host information gathering, potential theft of cloud credentials and API tokens stored in environment variables, and unauthorized persistence via SSH and system-level scheduled tasks.\n\n## Recommendation\n\n1. Audit all developer workstations for the presence of the malicious extension version 2.1.313.\n2. If version 2.1.313 was present, perform a full forensic sweep; updating to version 2.1.314 does not remediate established persistence.\n3. Rotate all API keys, cloud credentials, and SSH keys present on affected developer machines.\n4. Check for unauthorized entries in `~/.ssh/authorized_keys` (Linux/macOS) or Windows-equivalent SSH configurations.\n5. Inspect system-level persistence mechanisms, specifically checking for newly created LaunchAgents on macOS or suspicious scheduled tasks running as SYSTEM on Windows.\n6. Monitor network egress for HTTP POST traffic on port 8099.\n",
       "published": "2026-10-30T22:04:22.000Z",
@@ -183444,18 +183590,25 @@
         {
           "source_name": "reference",
           "url": "https://www.darkreading.com/cyberattacks-data-breaches/devs-trojanized-claude-code-extension-cursor"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-cursor-extension-hijack",
       "x_craftedsignal_event_id": "brief-2026-10-30-cursor-extension-hijack",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cursor-extension-hijack/",
-      "x_craftedsignal_activity_at": "2026-10-30T22:04:38.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T03:18:47.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+        "observed_at": "2026-10-31T01:02:57.000Z",
+        "confidence": "high"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
@@ -192533,6 +192686,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--030debcc-2d58-5bfb-8a8a-7b8ffb8a152f",
+      "name": "OpenCode (platform)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--03424dad-f363-53e5-b757-89f4ae2d5935",
       "name": "vue-i18n (= 12.0.0-alpha.4)",
       "vendor": "Intlify"
@@ -197143,6 +197302,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3b58e5d1-169c-5ee1-a3ef-4dbd1f8ecde1",
+      "name": "Northflank (platform)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3b61d2c3-7c1d-50bc-bb48-be6a70ff9226",
       "name": "Legion Zone",
       "vendor": "Lenovo"
@@ -198328,6 +198493,12 @@
       "spec_version": "2.1",
       "id": "software--4bbb286c-ff52-59aa-b2e3-8c3900fcf2f2",
       "name": "devalue (5.1.0 - 5.9.2)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4bbfc32a-148a-5480-9934-04f51d4b053d",
+      "name": "Lightning AI (platform)"
     },
     {
       "type": "software",
@@ -203899,6 +204070,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9463df44-0f3e-5680-9e3f-dfbc0a251995",
+      "name": "Fireworks AI (platform)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--94764467-1d77-55d4-9f40-0d6f9fcd3a97",
       "name": "Linux Kernel (\u003c 6.3.2)",
       "vendor": "Linux Foundation"
@@ -205976,13 +206153,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--af6042ca-57fa-52c5-a8bb-d3dc11675982",
-      "name": "Railway",
-      "vendor": "Railway"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--af7633a7-ee11-578b-bbb6-082b63386144",
       "name": "Zimbra Collaboration Suite 10.1.20"
     },
@@ -206587,6 +206757,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b93d2103-357d-5dbe-afcc-c54850c84fbf",
+      "name": "Zeabur (platform)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b95c234d-5f02-5da2-a7ef-63957e9218a0",
       "name": "Microsoft SharePoint Server (2016, 2019, Subscription Edition)",
       "vendor": "Microsoft"
@@ -206658,6 +206834,12 @@
       "id": "software--ba5bc8c4-c85b-5a43-9374-33fa15be65fc",
       "name": "PhpSpreadsheet (\u003c 1.29.8, 2.0.0 - 2.3.6, 3.0.0 - 3.8.0)",
       "vendor": "PHPOffice"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ba72c66a-cbee-5e2a-bcfb-9a72a3751575",
+      "name": "Andromeda (platform)"
     },
     {
       "type": "software",
@@ -208437,6 +208619,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d32468dd-01f7-5d93-90e9-11ff4e76ff89",
+      "name": "Railway"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d334914a-335c-5aba-adbe-49383a5986ac",
       "name": "CC100 (\u003c 4.10.0)",
       "vendor": "WAGO"
@@ -208991,6 +209179,12 @@
       "id": "software--dbb1be4f-28f1-50a8-aec5-97ed4b494ac0",
       "name": ".NET 9.x (\u003c 9.0.22)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--dbc16d79-60c4-53a9-8f7a-be77fdb09dcc",
+      "name": "Railway (platform)"
     },
     {
       "type": "software",
@@ -209726,6 +209920,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e719ea3b-3119-5835-a889-22201b4945d8",
+      "name": "Warp (platform)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e72f52d6-18e9-53d0-a976-1674bfd1fa9d",
       "name": "Grafana",
       "vendor": "Grafana Labs"
@@ -209998,6 +210198,12 @@
       "id": "software--eaaf694f-431a-5f79-8ea2-01e8bbcd532f",
       "name": "Authenticator (\u003c 6.2606.4246)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--eae97e85-db21-5b6d-9642-f88471e6e181",
+      "name": "CommandCode (platform)"
     },
     {
       "type": "software",

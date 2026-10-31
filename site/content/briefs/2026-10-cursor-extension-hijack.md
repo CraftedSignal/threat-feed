@@ -1,20 +1,38 @@
 ---
 brief_id: brief-2026-10-30-cursor-extension-hijack
 event_id: brief-2026-10-30-cursor-extension-hijack
-revision: 1
-activity_at: "2026-10-30T22:04:22Z"
+revision: 2
+activity_at: "2026-10-31T03:18:47Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-31T03:18:47Z"
+    checksum: sha256:4e3da345b704838bc24435b337370ca8e122de75bb28430ad343286a87bbc41e
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
 title: Anthropic Claude VS Code extension malicious update distribution
 slug: 2026-10-cursor-extension-hijack
 description: An unknown actor compromised an official Anthropic distribution channel to push a malicious version of the Claude VS Code extension, enabling persistent SSH backdoors and credential theft on developer workstations.
 date: "2026-10-30T22:04:22Z"
-lastmod: "2026-10-30T22:04:38Z"
+lastmod: "2026-10-31T03:17:12Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
+  observed_at: "2026-10-31T01:02:57Z"
+  confidence: high
 source_assessment:
   reliability: D
   credibility: "3"
@@ -90,6 +108,7 @@ references:
   - https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/
   - https://cursor.com/blog/claude-code-extension-security-notice
   - https://phorion.io/blog/offical-claude-code-vsx-compromise/
+  - https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
 action_plan:
   priority: elevated
   owners:
@@ -164,6 +183,13 @@ updates:
       - ars-security
     source_urls:
       - https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/
+  - at: "2026-10-31T03:17:12Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - microsoft-threat-intel
+    source_urls:
+      - https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
 ---
 
 Between approximately 05:27 and 16:35 ET on October 29, 2026, a malicious version (2.1.313) of the Anthropic Claude VS Code extension was distributed via the official Cursor marketplace. The compromise was a supply-chain attack resulting from unauthorized access to Anthropic's distribution account. The malicious extension executed host reconnaissance, attempted to establish persistent SSH access, and exfiltrated environment variables and configuration files. Anthropic has since released version 2.1.314, though this update does not remove persistence mechanisms installed by the malicious 2.1.313 version.

@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-10-29-joi-redos
 event_id: brief-2026-10-29-joi-redos
-revision: 1
-activity_at: "2026-10-29T20:40:38Z"
+revision: 2
+activity_at: "2026-10-31T03:18:47Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-31T03:18:47Z"
+    checksum: sha256:f64df6f083da159281114dfcedb83053000abbaefcb657143e1d7ebd413d45b0
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - cves
+      - has_poc
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-4528-x5fx-h6hg
 title: 'joi: Regular expression denial of service in email validation (CVE-2026-118772)'
 slug: 2026-10-joi-redos
 description: The joi JavaScript validation library is vulnerable to a Regular Expression Denial of Service (ReDoS) attack when processing inputs via the email() rule with the multiple option enabled.
 date: "2026-10-29T20:40:38Z"
+lastmod: "2026-10-31T03:18:06Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -23,6 +39,7 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:hapi:joi:*:*:*:*:*:node.js:*:*
+has_poc: true
 vendors:
   - Hapi
 products:
@@ -38,9 +55,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-118772
     cvss: 7.5
+    epss: 0.00467
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-118772
+  - https://github.com/advisories/GHSA-4528-x5fx-h6hg
 action_plan:
   priority: elevated
   owners:
@@ -67,6 +86,14 @@ action_plan:
       owner: Application Security
       addresses: CVE-2026-118772
       evidence: This vulnerability is fixed in versions 17.13.9 and 18.3.1.
+updates:
+  - at: "2026-10-31T03:18:06Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-4528-x5fx-h6hg
 ---
 
 A Regular Expression Denial of Service (ReDoS) vulnerability exists in the joi library when using the 'Joi.string().email({ multiple: true })' validation rule. The flaw stems from a regular expression used for separator handling, which exhibits quadratic time complexity when processing strings containing long sequences of whitespace without valid separators. This can lead to event loop blocking in Node.js applications, resulting in a denial of service. The vulnerability is present in versions 17.1.1 through 17.13.8, and 18.0.0 through 18.3.0.
