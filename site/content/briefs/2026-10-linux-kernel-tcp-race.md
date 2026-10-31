@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 1
-activity_at: "2026-10-29T17:30:03Z"
+revision: 2
+activity_at: "2026-10-31T00:05:24Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-31T00:05:24Z"
+    checksum: sha256:690a10034fc434e0175c49d030c3b7833b6cb5dec19bfe83a31c356ad1441968
+    summary: ubuntu version 22.04, 24.04, 26.04, 26.10
+    changed_fields:
+      - affected_products
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
+lastmod: "2026-10-31T00:04:52Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
@@ -42,6 +58,8 @@ products:
   - Oracle Linux
   - SUSE Linux Enterprise Server
   - Debian
+  - Linux kernel
+  - Ubuntu (22.04, 24.04, 26.04, 26.10)
 affected_os:
   - Linux
 mitre_ttps:
@@ -60,10 +78,21 @@ mitre_ttps:
 cves:
   - id: CVE-2026-98432
     cvss: 9.8
-    epss: 0.00388
+    epss: 0.00445
     kev_status: "false"
 references:
   - https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html
+  - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - https://github.com/H1z3-br0/CVE-2026-98432
+  - https://www.openwall.com/lists/oss-security/2026/10/30/1
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-98432
+  - https://osv.dev/vulnerability/CVE-2026-98432
+  - https://git.kernel.org/stable/c/11a03ce3c4a62d84c10ccdfe47f8075006498568
+  - https://www.anthropic.com/research/discovering-vulnerabilities-with-claude
+  - https://status.linode.com/incidents/nt58zhx3pmgm
+  - https://access.redhat.com/security/vulnerabilities/RHSB-2026-016
+  - https://almalinux.org/blog/2026-10-30-cve-2026-98432/
+  - https://github.com/lightningnetwork/lnd/releases/tag/v0.20.7-beta
 action_plan:
   priority: elevated
   owners:
@@ -91,6 +120,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-98432
       evidence: A lost race could result in a system crash.
+updates:
+  - at: "2026-10-31T00:04:52Z"
+    level: L2
+    summary: ubuntu version 22.04, 24.04, 26.04, 26.10
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 ---
 
 CVE-2026-98432 is a use-after-free vulnerability in the Linux kernel's IPv4 TCP connection handling code, introduced in kernel version 4.4. A race condition occurs during the handshake process when IP options are processed; if a socket is destroyed while another CPU is processing IP options for a resent connection request, the kernel accesses freed memory. Anthropic demonstrated a proof-of-concept exploit path that uses this race condition to leak kernel memory (bypassing KASLR) and eventually achieve arbitrary code execution as root. As of October 29, 2026, no in-the-wild exploitation has been observed. Fixes are available for some distributions, while others (notably Ubuntu and RHEL) are still developing or testing patches.
