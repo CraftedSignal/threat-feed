@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--624f8278-3184-5459-aaaa-2cf501d77ac1",
+  "id": "bundle--03f699cd-ba92-5e25-97e0-2157e4c64028",
   "objects": [
     {
       "type": "attack-pattern",
@@ -37581,7 +37581,7 @@
       "id": "relationship--67a79eba-6439-5b15-a54b-5c2d344fecc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T19:41:48.000Z",
-      "modified": "2026-10-31T19:41:48.000Z",
+      "modified": "2026-10-31T22:44:42.000Z",
       "relationship_type": "uses",
       "source_ref": "report--82ecc443-7dd4-5050-85c3-c3b3ae9a4877",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -49667,6 +49667,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8cc8d633-cc8e-5661-8b92-e7c8680473cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5f59d9db-52f3-5e1a-8376-fe6435d40aad",
+      "target_ref": "vulnerability--863a50d8-79d7-5270-82b6-01ac27db869a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8cca4354-8291-5aa2-9dba-386682e35c3a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T17:53:49.000Z",
@@ -50697,6 +50708,17 @@
       "relationship_type": "has",
       "source_ref": "software--005c9d50-43d4-556b-b6ad-498f7846f269",
       "target_ref": "vulnerability--d443870a-8877-5334-a922-dfdcd9310dc6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--905371de-764d-5497-b806-f293a7fd3e6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T19:41:48.000Z",
+      "modified": "2026-10-31T22:44:42.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--82ecc443-7dd4-5050-85c3-c3b3ae9a4877",
+      "target_ref": "attack-pattern--2e82cf82-b6ce-54dc-ac5a-e6771db65c01"
     },
     {
       "type": "relationship",
@@ -56597,6 +56619,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a3c25f0c-2df7-5a64-8511-19fc4dad267a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--599394f1-c8a5-5ead-a19d-8dcda4a58224",
+      "target_ref": "vulnerability--863a50d8-79d7-5270-82b6-01ac27db869a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a3c5bf85-b6c8-5b5e-96b0-4c3fa58516d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61268,6 +61301,17 @@
       "relationship_type": "has",
       "source_ref": "software--6d34ca02-4056-5388-af8f-db9db613cb45",
       "target_ref": "vulnerability--f425fc70-a99f-5ae8-ab66-2918b4c6b96a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b2243217-92d0-517c-a791-84dc848c3a53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--5f59d9db-52f3-5e1a-8376-fe6435d40aad",
+      "target_ref": "vulnerability--54a25f87-af06-5c46-bbf2-ed961ebaa514"
     },
     {
       "type": "relationship",
@@ -140893,7 +140937,7 @@
       "id": "report--82ecc443-7dd4-5050-85c3-c3b3ae9a4877",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T19:41:48.000Z",
-      "modified": "2026-10-31T19:41:48.000Z",
+      "modified": "2026-10-31T22:44:42.000Z",
       "name": "Linux Kernel cifs.ko: Heap Out-of-Bounds Write (CVE-2026-89633)",
       "description": "## Overview\nCVE-2026-89633 is a heap out-of-bounds write vulnerability (CWE-787) in the Linux kernel `cifs.ko` module. The flaw exists in the `coalesce_t2()` function, which handles SMB1 `SMB_COM_TRANSACTION2_SECONDARY` responses. A malicious SMB1 server can send responses that trigger a write of 8-byte increments outside the bounds of the `server-\u003ebigbuf` buffer. An attacker can use this primitive to corrupt memory and perform a privilege escalation attack.\n\n## Attack Chain\n1. The victim client establishes an SMB1 mount to an attacker-controlled server or a machine susceptible to a Man-in-the-Middle (MitM) attack.\n2. The client sends a TRANS2 request (e.g., `QUERY_FS_INFORMATION`).\n3. The attacker-controlled server sends a primary response that triggers the large buffer path.\n4. The attacker sends multiple `SMB_COM_TRANSACTION2_SECONDARY` responses.\n5. The `coalesce_t2()` function copies secondary payload data to a destination calculated using an attacker-supplied `DataOffset` value.\n6. The lack of bounds checking on `data_area_of_tgt` enables an out-of-bounds write relative to the response buffer.\n7. The attacker uses the primitive to overwrite the `struct cred` of a target process on a page-aligned physical memory address.\n8. Successful overwrite of the target's UID, GID, and SUIDs to zero results in root-level privilege escalation.\n\n## Impact\nSuccessful exploitation allows for arbitrary code execution and privilege escalation to the root user on systems mounting a malicious SMB1 share. The exploit requires an existing SMB1 session and is currently demonstrated as a build-specific research harness.\n\n## Recommendation\n- Patch the Linux kernel to version 6.12.113 or later, which incorporates the upstream fix `36d01415d881`.\n- Disable support for the SMB1 protocol (`vers=1.0`) across all infrastructure to eliminate the attack vector.\n- Audit mount configurations on Android and Linux endpoints to ensure that untrusted SMB shares are not automatically mounted.\n- Restrict `CAP_SYS_ADMIN` privileges to prevent unauthorized creation of SMB mounts.\n",
       "published": "2026-10-31T19:41:48.000Z",
@@ -140906,9 +140950,12 @@
       ],
       "object_refs": [
         "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e82cf82-b6ce-54dc-ac5a-e6771db65c01",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--599394f1-c8a5-5ead-a19d-8dcda4a58224",
-        "vulnerability--54a25f87-af06-5c46-bbf2-ed961ebaa514"
+        "software--5f59d9db-52f3-5e1a-8376-fe6435d40aad",
+        "vulnerability--54a25f87-af06-5c46-bbf2-ed961ebaa514",
+        "vulnerability--863a50d8-79d7-5270-82b6-01ac27db869a"
       ],
       "external_references": [
         {
@@ -140922,6 +140969,14 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A985CA9A-24B7-5E1E-89ED-7B53E83D7692"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=A985CA9A-24B7-5E1E-89ED-7B53E83D7692\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://sploitus.com/exploit?id=BA42BDB4-C033-593B-9748-4E23020A615A"
         },
         {
@@ -140932,9 +140987,9 @@
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-31-cifs-heap-oob",
       "x_craftedsignal_event_id": "brief-2026-10-31-cifs-heap-oob",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-cifs-heap-oob/",
-      "x_craftedsignal_activity_at": "2026-10-31T19:41:48.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T22:44:42.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -204107,6 +204162,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5f59d9db-52f3-5e1a-8376-fe6435d40aad",
+      "name": "Linux Kernel (\u003c 6.12.113, \u003c 6.18.56, \u003c 7.2.10)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5f7ac214-16e8-59f7-9c89-846d853725a1",
       "name": "@graphql-tools/executor-legacy-ws (\u003c= 1.1.34)",
       "vendor": "GraphQL Tools"
@@ -235954,6 +236015,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-79848",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79848"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--863a50d8-79d7-5270-82b6-01ac27db869a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-98937",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-98937",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98937"
         }
       ]
     },

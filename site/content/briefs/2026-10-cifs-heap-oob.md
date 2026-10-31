@@ -1,12 +1,29 @@
 ---
 brief_id: brief-2026-10-31-cifs-heap-oob
 event_id: brief-2026-10-31-cifs-heap-oob
-revision: 1
-activity_at: "2026-10-31T19:41:48Z"
+revision: 2
+activity_at: "2026-10-31T22:44:42Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-31T22:44:42Z"
+    checksum: sha256:bbb9bcbd5f05d477d3aa0ffad6039c467f308004290edc92eb6648ea6f5dd628
+    summary: added coverage for Linux Kernel (< 6.12.113, < 6.18.56, < 7.2.10)
+    changed_fields:
+      - action_plan
+      - affected_os
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=A985CA9A-24B7-5E1E-89ED-7B53E83D7692&utm_source=rss&utm_medium=rss
 title: 'Linux Kernel cifs.ko: Heap Out-of-Bounds Write (CVE-2026-89633)'
 slug: 2026-10-cifs-heap-oob
 description: A heap out-of-bounds write vulnerability in the Linux kernel SMB1 client allows an attacker-controlled server to overwrite process credentials and escalate privileges to root.
 date: "2026-10-31T19:41:48Z"
+lastmod: "2026-10-31T22:44:12Z"
 type: advisory
 types:
   - advisory
@@ -31,8 +48,11 @@ tags:
   - cwe-787
 products:
   - Linux Kernel (< 6.12.113)
+  - Linux Kernel (< 6.12.113, < 6.18.56, < 7.2.10)
 affected_os:
   - Android 16
+  - Android
+  - Linux
 mitre_ttps:
   - tactic_id: TA0004
     tactic_name: Privilege Escalation
@@ -40,25 +60,41 @@ mitre_ttps:
     technique_name: Exploitation for Privilege Escalation
     evidence: The reference escalation chain turns the write into a real credential overwrite... making the process uid 0.
     confidence_band: high
+  - tactic_id: TA0005
+    tactic_name: Defense Evasion
+    technique_id: T1211
+    technique_name: Exploitation for Defense Evasion
+    evidence: The bug gives an information leak, not a direct privilege-escalation primitive; the leak is a per-boot slide oracle.
+    confidence_band: high
 cves:
   - id: CVE-2026-89633
     cvss: 9.8
     epss: 0.00491
     kev_status: "false"
+  - id: CVE-2026-98937
+    epss: 0.00168
+    kev_status: "false"
 references:
   - https://sploitus.com/exploit?id=BA42BDB4-C033-593B-9748-4E23020A615A
   - https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=36d01415d881
   - https://sploitus.com/exploit?id=BA42BDB4-C033-593B-9748-4E23020A615A&utm_source=rss&utm_medium=rss
+  - https://sploitus.com/exploit?id=A985CA9A-24B7-5E1E-89ED-7B53E83D7692
+  - https://sploitus.com/exploit?id=A985CA9A-24B7-5E1E-89ED-7B53E83D7692&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
     - IT Operations
     - Detection Engineering
+    - SOC
   immediate_actions:
     - action: Identify and disable SMB1 (vers=1.0) mounts across the fleet.
       owner: IT Operations
       due: 24h
       evidence: The vulnerable code path exists only after the kernel cifs client has a session, i.e. after a cifs mount.
+    - action: Patch Linux kernels to the fixed stable releases
+      owner: IT Operations
+      due: 72h
+      evidence: Fixed by commit a4b016d0a29038a5b7c96bf62c054bf7832451d9
   hunt_leads:
     - lead: Monitor for CIFS/SMB mounts utilizing protocol version 1.0 (vers=1.0).
       technique_id: T1068
@@ -68,12 +104,33 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: The mount is the privileged gate.
+    - lead: Monitor for excessive or anomalous perf_event_open syscall activity originating from unprivileged processes
+      technique_id: T1211
+      data_needed:
+        - Auditd or eBPF syscall monitoring
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Verified PoC triggers perf_event_open in an unprivileged shell
   mitigation_plan:
     - priority: immediate
       action: Upgrade Linux kernel to 6.12.113 or higher.
       owner: IT Operations
       addresses: CVE-2026-89633
       evidence: Upstream fix 36d01415d881
+    - priority: immediate
+      action: Upgrade kernels to 6.12.113, 6.18.56, 7.2.10 or newer
+      owner: IT Operations
+      addresses: CVE-2026-98937
+      evidence: Upstream fix merged on 2026-06-30
+updates:
+  - at: "2026-10-31T22:44:12Z"
+    level: L2
+    summary: added coverage for Linux Kernel (< 6.12.113, < 6.18.56, < 7.2.10)
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=A985CA9A-24B7-5E1E-89ED-7B53E83D7692&utm_source=rss&utm_medium=rss
 ---
 
 CVE-2026-89633 is a heap out-of-bounds write vulnerability (CWE-787) in the Linux kernel `cifs.ko` module. The flaw exists in the `coalesce_t2()` function, which handles SMB1 `SMB_COM_TRANSACTION2_SECONDARY` responses. A malicious SMB1 server can send responses that trigger a write of 8-byte increments outside the bounds of the `server->bigbuf` buffer. An attacker can use this primitive to corrupt memory and perform a privilege escalation attack.
