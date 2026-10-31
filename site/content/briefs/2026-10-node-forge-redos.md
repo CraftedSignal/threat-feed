@@ -1,14 +1,29 @@
 ---
 brief_id: brief-2026-10-29-node-forge-redos
 event_id: brief-2026-10-29-node-forge-redos
-revision: 1
-activity_at: "2026-10-29T20:40:45Z"
+revision: 2
+activity_at: "2026-10-31T03:22:28Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-31T03:22:28Z"
+    checksum: sha256:fa37f6f3fb8bf0297cb85ce0a0aaae6688badc5605bc0ede7ad1d559508842ae
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - cves
+      - has_poc
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-7wch-p9px-956x
 title: 'Digital Bazaar node-forge: ReDoS in pem.decode() (CVE-2026-118779)'
 slug: 2026-10-node-forge-redos
 description: Digital Bazaar node-forge versions prior to 1.4.1 are vulnerable to a Regular Expression Denial of Service (ReDoS) in the pem.decode() function, allowing unauthenticated attackers to cause high CPU usage via malformed PEM input.
 date: "2026-10-29T20:40:45Z"
-lastmod: "2026-10-29T20:40:53Z"
+lastmod: "2026-10-31T03:20:18Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -25,6 +40,7 @@ qa_status:
   validation_status: Checked against NVD details; node-forge version constraint verified.
 cpes:
   - cpe:2.3:a:digitalbazaar:node-forge:*:*:*:*:*:node.js:*:*
+has_poc: true
 vendors:
   - Digital Bazaar
 products:
@@ -39,13 +55,16 @@ mitre_ttps:
 cves:
   - id: CVE-2026-118779
     cvss: 7.5
+    epss: 0.00556
     kev_status: "false"
   - id: CVE-2026-118782
     cvss: 7.5
+    epss: 0.00125
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-118779
   - https://nvd.nist.gov/vuln/detail/CVE-2026-118782
+  - https://github.com/advisories/GHSA-7wch-p9px-956x
 action_plan:
   priority: elevated
   owners:
@@ -91,6 +110,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-118782
+  - at: "2026-10-31T03:20:18Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-7wch-p9px-956x
 ---
 
 The node-forge library, a native JavaScript implementation of TLS, contains a vulnerability in its `pem.decode()` function within `lib/pem.js`. The library uses polynomial-time regular expressions to process PEM input, including the search for matching END lines and the parsing of encapsulated headers. An unauthenticated attacker can supply crafted, malformed PEM input to any high-level parser relying on this function, triggering catastrophic backtracking that leads to excessive CPU consumption and denial of service. This vulnerability is identified as CVE-2026-118779.

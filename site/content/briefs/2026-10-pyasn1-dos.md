@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-pyasn1-dos
 event_id: brief-2026-10-29-pyasn1-dos
-revision: 2
-activity_at: "2026-10-29T23:09:11Z"
+revision: 3
+activity_at: "2026-10-31T03:22:28Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T23:09:11Z"
@@ -16,11 +16,24 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-119195
+  - revision: 3
+    at: "2026-10-31T03:22:28Z"
+    checksum: sha256:c3b9a18d7204a185501cc853b257fdd3c83e13599c0aa05a041a0f6a2e1fbb65
+    summary: poc_available
+    changed_fields:
+      - affected_products
+      - cves
+      - has_poc
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://github.com/advisories/GHSA-fm9c-5rcf-2q5p
 title: 'pyasn1: Denial of service via tag ID collision (CVE-2026-119194)'
 slug: 2026-10-pyasn1-dos
 description: The pyasn1 library is vulnerable to a denial-of-service attack due to inefficient handling of tag ID collisions during schemaless container decoding, allowing attackers to force quadratic CPU exhaustion.
 date: "2026-10-29T21:10:48Z"
-lastmod: "2026-10-29T23:08:41Z"
+lastmod: "2026-10-31T03:20:17Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -39,11 +52,14 @@ qa_status:
   validation_status: Source verified
 cpes:
   - cpe:2.3:a:pyasn1_project:pyasn1:*:*:*:*:*:python:*:*
+has_poc: true
 vendors:
   - pyasn1
 products:
   - pyasn1 (0.3.3 - 0.6.4)
   - pyasn1 (< 0.6.5)
+  - pyasn1 (<= 0.6.4)
+  - pyasn1 (>= 0.3.3, < 0.6.5)
 mitre_ttps:
   - tactic_id: TA0040
     tactic_name: Impact
@@ -54,21 +70,28 @@ mitre_ttps:
 cves:
   - id: CVE-2026-119194
     cvss: 7.5
+    epss: 0.00425
     kev_status: "false"
   - id: CVE-2026-119196
     cvss: 7.5
+    epss: 0.00425
     kev_status: "false"
   - id: CVE-2026-119195
     cvss: 7.5
+    epss: 0.00527
     kev_status: "false"
   - id: CVE-2026-119197
     cvss: 7.5
+    epss: 0.00425
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119194
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119196
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119197
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119195
+  - https://github.com/advisories/GHSA-2qm8-x737-gmw5
+  - https://github.com/advisories/GHSA-9m75-vc3g-4x39
+  - https://github.com/advisories/GHSA-fm9c-5rcf-2q5p
 action_plan:
   priority: elevated
   owners:
@@ -123,6 +146,20 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-119195
+  - at: "2026-10-31T03:20:09Z"
+    level: L1
+    summary: new product
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-2qm8-x737-gmw5
+  - at: "2026-10-31T03:20:17Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - ghsa
+    source_urls:
+      - https://github.com/advisories/GHSA-fm9c-5rcf-2q5p
 ---
 
 pyasn1 versions 0.3.3 through 0.6.4 contain a vulnerability in the `ConstructedPayloadDecoderBase._decodeComponentsSchemaless` method. When processing schemaless container decoding for BER, CER, or DER encoded inputs, the library incorrectly stores TagSet information in a growing set. By supplying crafted inputs containing many distinct long tag IDs that cause hash collisions, an attacker can force the library into quadratic CPU work, resulting in denial of service. This issue is resolved in pyasn1 version 0.6.5.
