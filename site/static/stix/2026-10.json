@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--268b2331-2077-529d-8a93-1b00627f7fd4",
+  "id": "bundle--43e151b7-fecb-5c4c-abdc-9c0cd3030d72",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2997,6 +2997,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Archive Collected Data",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1560",
+          "url": "https://attack.mitre.org/techniques/T1560"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5148,6 +5164,19 @@
       "pattern": "[domain-name:value = 'nginxmysql.com']",
       "pattern_type": "stix",
       "valid_from": "2026-10-30T03:01:32.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--c5157779-4e33-59ee-b65f-18d96015f8e0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T15:18:15.000Z",
+      "modified": "2026-10-31T15:18:15.000Z",
+      "name": "domain: openrouter.ai",
+      "description": "Endpoint used for exfiltrating victim data to LLM models for victim profiling.",
+      "pattern": "[domain-name:value = 'openrouter.ai']",
+      "pattern_type": "stix",
+      "valid_from": "2026-10-31T15:18:15.000Z"
     },
     {
       "type": "indicator",
@@ -14309,7 +14338,7 @@
       "id": "relationship--1aef6c0d-9244-5d98-88f1-d8ddb7a94fd3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:40:45.000Z",
-      "modified": "2026-10-31T03:22:28.000Z",
+      "modified": "2026-10-31T15:21:19.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7bb982a0-9e4a-5112-961b-ea107b01e4e2",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
@@ -21518,6 +21547,17 @@
       "relationship_type": "has",
       "source_ref": "software--39cb2871-7dda-537d-a1e6-1473c0b74ac0",
       "target_ref": "vulnerability--96831d57-358f-5928-bac8-76f8f316b454"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--335d0967-e559-5157-94dd-dd59a71080b0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--067c2702-d722-579d-8651-f0bfb3115aee",
+      "target_ref": "vulnerability--7de04610-4505-57f5-afcb-4787f5ba0215"
     },
     {
       "type": "relationship",
@@ -37549,6 +37589,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--67f13c96-6471-50b9-ba01-a9a88c2c2022",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b2cb5cbe-2749-54b7-84b0-37db1ac94297",
+      "target_ref": "vulnerability--d65e871f-4555-5fb3-b778-5a12d443c9cf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--67f4df1e-b879-5806-a993-4ec9c0573e5a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -47515,6 +47566,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--86a96ae1-43c6-5472-969c-170fc9e25c97",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T15:18:15.000Z",
+      "modified": "2026-10-31T15:18:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fe812281-626c-57e0-8565-bd70e3f11a2e",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--86acf499-5f12-5ae8-96d7-c931a34497bd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -50991,6 +51053,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--92359387-b556-535f-8667-26c18e6c2007",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b2cb5cbe-2749-54b7-84b0-37db1ac94297",
+      "target_ref": "vulnerability--574c0889-23fa-56fe-a347-fbcc3f6025c2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--923959aa-8a19-57c2-8a87-a2be12b640a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -52934,6 +53007,17 @@
       "relationship_type": "has",
       "source_ref": "software--e393aab9-2382-57fb-bbc2-7c8bf4809025",
       "target_ref": "vulnerability--f61138ac-a168-52cb-bcb5-75394b1f0cde"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--98294bee-2ed2-5450-9bd2-24d44c2bd8d5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T15:18:15.000Z",
+      "modified": "2026-10-31T15:18:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fe812281-626c-57e0-8565-bd70e3f11a2e",
+      "target_ref": "indicator--c5157779-4e33-59ee-b65f-18d96015f8e0"
     },
     {
       "type": "relationship",
@@ -78744,6 +78828,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e9fa785f-e838-5488-8109-85146f304c2b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T15:18:15.000Z",
+      "modified": "2026-10-31T15:18:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--fe812281-626c-57e0-8565-bd70e3f11a2e",
+      "target_ref": "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e9fb5993-ed01-5e77-9a13-b1016c0f9563",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T23:53:02.000Z",
@@ -85043,6 +85138,17 @@
       "relationship_type": "has",
       "source_ref": "software--6ffac651-c6e9-5974-853f-77df8aa0d99f",
       "target_ref": "vulnerability--7e3d204f-587f-559a-918e-c667878745c0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fe95e80a-d3b6-592f-8ecc-009fccf6860b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b2cb5cbe-2749-54b7-84b0-37db1ac94297",
+      "target_ref": "vulnerability--7de04610-4505-57f5-afcb-4787f5ba0215"
     },
     {
       "type": "relationship",
@@ -137738,7 +137844,7 @@
       "id": "report--7bb982a0-9e4a-5112-961b-ea107b01e4e2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T20:40:45.000Z",
-      "modified": "2026-10-31T03:22:28.000Z",
+      "modified": "2026-10-31T15:21:19.000Z",
       "name": "Digital Bazaar node-forge: ReDoS in pem.decode() (CVE-2026-118779)",
       "description": "## Overview\n\nThe node-forge library, a native JavaScript implementation of TLS, contains a vulnerability in its `pem.decode()` function within `lib/pem.js`. The library uses polynomial-time regular expressions to process PEM input, including the search for matching END lines and the parsing of encapsulated headers. An unauthenticated attacker can supply crafted, malformed PEM input to any high-level parser relying on this function, triggering catastrophic backtracking that leads to excessive CPU consumption and denial of service. This vulnerability is identified as CVE-2026-118779.\n\n## Impact\n\nSuccessful exploitation results in high CPU utilization, potentially leading to a denial-of-service condition for applications relying on the node-forge library to process user-supplied PEM files or certificates.\n\n## Recommendation\n\n- Upgrade the node-forge library to version 1.4.1 or later immediately.\n- Inventory applications within the environment that utilize the node-forge library for certificate or PEM parsing.\n- Review input validation controls for services that ingest PEM-encoded data to ensure length and complexity constraints are enforced before processing by the library.\n",
       "published": "2026-10-29T20:40:45.000Z",
@@ -137746,7 +137852,9 @@
         "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--067c2702-d722-579d-8651-f0bfb3115aee",
+        "software--b2cb5cbe-2749-54b7-84b0-37db1ac94297",
         "vulnerability--574c0889-23fa-56fe-a347-fbcc3f6025c2",
+        "vulnerability--7de04610-4505-57f5-afcb-4787f5ba0215",
         "vulnerability--d65e871f-4555-5fb3-b778-5a12d443c9cf"
       ],
       "external_references": [
@@ -137761,19 +137869,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-hqq3-7jhf-c5jx"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-jc66-7q78-782g"
+        },
+        {
+          "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118779"
         },
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118782"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119187"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-node-forge-redos",
       "x_craftedsignal_event_id": "brief-2026-10-29-node-forge-redos",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-node-forge-redos/",
-      "x_craftedsignal_activity_at": "2026-10-31T03:22:28.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T15:21:19.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -195027,6 +195147,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe812281-626c-57e0-8565-bd70e3f11a2e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T15:18:15.000Z",
+      "modified": "2026-10-31T15:18:15.000Z",
+      "name": "VOLTA Infostealer: AI-Driven Victim Prioritization",
+      "description": "## Overview\n\nVOLTA-AUTODOXER is a Windows-based infostealer that automates victim prioritization using LLMs. After harvesting browser passwords, session tokens, cryptocurrency wallets, and cloud provider keys, the malware serializes the data into a structured evidence bundle. This bundle is exfiltrated to OpenRouter, where an LLM is prompted to analyze the victim's worth and security posture. The malware is self-deleting and incorporates a multi-model fallback mechanism to bypass potential model refusal guardrails.\n\n## Attack Chain\n\n1. Initial infection and execution of the self-deleting Windows infostealer.\n2. Harvesting of sensitive data including browser credentials, cookies, and session tokens.\n3. Collection of cryptocurrency wallet seed phrases and cloud provider keys.\n4. Enrichment of the data bundle using stolen session access (e.g., searching Gmail and order history).\n5. Serialization of the collected data into a structured evidence bundle.\n6. Exfiltration of the bundle to OpenRouter via HTTPS POST.\n7. Automated analysis by an LLM providing monetization rankings and security posture assessment.\n8. Deletion of the binary from the infected system to prevent forensic recovery.\n\n## Impact\n\nSuccessful infection results in the exposure of high-value credentials, financial information, cryptocurrency assets, and session tokens, which are actively prioritized by LLMs for maximum monetization.\n\n## Recommendation\n\n- Block egress traffic to `openrouter.ai` at the corporate network perimeter to prevent LLM-based victim profiling by this specific malware strain.\n- Implement EDR policies to detect and alert on the execution of unknown binaries from suspicious directories or temporary paths before they self-delete.\n- Audit and restrict access to saved browser credentials and session tokens via enterprise browser management policies.\n- Monitor for anomalous API calls or high-volume HTTPS POST requests to AI service providers from endpoints.\n",
+      "published": "2026-10-31T15:18:15.000Z",
+      "labels": [
+        "ai-integrated-malware",
+        "data-exfiltration",
+        "infostealer"
+      ],
+      "object_refs": [
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "attack-pattern--dd4c673f-8b7d-5c2f-a73c-2d5af6931568",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--c5157779-4e33-59ee-b65f-18d96015f8e0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-volta-infostealer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-volta-infostealer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blog.talosintelligence.com/introducing-cairn-frontier-tracking-for-ai-integrated-malware/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-volta-infostealer",
+      "x_craftedsignal_event_id": "brief-2026-10-31-volta-infostealer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-volta-infostealer/",
+      "x_craftedsignal_activity_at": "2026-10-31T15:18:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe8eb1b6-0fbc-5fa3-ae7f-95dce83b6b82",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-19T14:09:24.000Z",
@@ -209683,6 +209852,13 @@
       "id": "software--b2af10ff-e206-5c84-b7b0-40562bb4745a",
       "name": "@nx/maven (\u003e= 22.0.2, \u003c 22.7.9; \u003e= 23.0.0, \u003c 23.1.2)",
       "vendor": "Nx"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--b2cb5cbe-2749-54b7-84b0-37db1ac94297",
+      "name": "node-forge (\u003c= 1.4.0)",
+      "vendor": "Digital Bazaar"
     },
     {
       "type": "software",
@@ -233675,6 +233851,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-103672",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103672"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7de04610-4505-57f5-afcb-4787f5ba0215",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119187",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119187",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119187"
         }
       ]
     },
