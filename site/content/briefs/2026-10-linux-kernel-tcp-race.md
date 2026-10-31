@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 2
-activity_at: "2026-10-31T00:05:24Z"
+revision: 3
+activity_at: "2026-10-31T03:05:09Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T00:05:24Z"
@@ -17,11 +17,21 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - revision: 3
+    at: "2026-10-31T03:05:09Z"
+    checksum: sha256:46457265ff14daf6ff319714fa7f488fbd36d845b689ed7246ccc49c8e196293
+    summary: debian version 12, 13; linux kernel version 4.4 and later stable branches
+    changed_fields:
+      - affected_products
+      - lastmod
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
-lastmod: "2026-10-31T00:04:52Z"
+lastmod: "2026-10-31T03:04:37Z"
 type: threat
 claim_state: <nil>
 types:
@@ -60,6 +70,8 @@ products:
   - Debian
   - Linux kernel
   - Ubuntu (22.04, 24.04, 26.04, 26.10)
+  - Linux kernel (4.4 and later stable branches)
+  - Debian (12, 13)
 affected_os:
   - Linux
 mitre_ttps:
@@ -124,6 +136,13 @@ updates:
   - at: "2026-10-31T00:04:52Z"
     level: L2
     summary: ubuntu version 22.04, 24.04, 26.04, 26.10
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - at: "2026-10-31T03:04:37Z"
+    level: L2
+    summary: debian version 12, 13; linux kernel version 4.4 and later stable branches
     sources:
       - pwn-watch
     source_urls:

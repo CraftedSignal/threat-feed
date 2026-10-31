@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--1258a536-a047-5d2c-bbde-19b4479bd0c1",
+  "id": "bundle--6bb63a58-f6ce-51f1-b356-1a0485598c41",
   "objects": [
     {
       "type": "attack-pattern",
@@ -29012,7 +29012,7 @@
       "id": "relationship--4db0cbd0-ef4b-5183-ad99-7cf290eae698",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-10-31T00:05:24.000Z",
+      "modified": "2026-10-31T03:05:09.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
@@ -39576,6 +39576,17 @@
       "relationship_type": "has",
       "source_ref": "software--e393aab9-2382-57fb-bbc2-7c8bf4809025",
       "target_ref": "vulnerability--125fd110-f474-5dc9-8697-3f5aca2cef2d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6fe1263e-1430-5158-be46-a0193b994f15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d7510b58-b8da-5e49-afe4-d65c90358dac",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
     },
     {
       "type": "relationship",
@@ -54309,6 +54320,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ffbbb12-cbb3-5a2a-8cbe-69f46b419ba4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--40ec4d6d-c185-5b9c-a3ce-1541092d8525",
+      "target_ref": "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ffee897-7959-5228-b6f4-e06b078b29ec",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64025,7 +64047,7 @@
       "id": "relationship--bf922563-f5c5-54eb-b660-1992c0e71f04",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-10-31T00:05:24.000Z",
+      "modified": "2026-10-31T03:05:09.000Z",
       "relationship_type": "uses",
       "source_ref": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -138287,6 +138309,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--83805dec-1888-571b-b317-c428e7620c75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T03:04:14.000Z",
+      "modified": "2026-10-31T03:04:14.000Z",
+      "name": "Grafana: Arbitrary file read via directory traversal (CVE-2021-43798)",
+      "published": "2026-10-31T03:04:14.000Z",
+      "labels": [
+        "arbitrary-file-read",
+        "directory-traversal",
+        "grafana"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e2ae24e4-2654-5aa2-91d3-2b1ff16fcba7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-grafana-file-read",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-grafana-file-read/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LFZ97-CVE-2021-43798-GRAFANA-FILE-READ"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LFZ97-CVE-2021-43798-GRAFANA-FILE-READ\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-grafana-file-read",
+      "x_craftedsignal_event_id": "brief-2026-10-31-grafana-file-read",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-grafana-file-read/",
+      "x_craftedsignal_activity_at": "2026-10-31T03:04:14.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_epss_max": 0.88503,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--83cc56cd-b48f-55cb-b801-8366a7daba7c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T01:52:30.000Z",
@@ -146097,7 +146167,7 @@
       "id": "report--95145912-8451-5b6a-b3d9-cd93b78ec0d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T17:30:03.000Z",
-      "modified": "2026-10-31T00:05:24.000Z",
+      "modified": "2026-10-31T03:05:09.000Z",
       "name": "Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)",
       "description": "## Overview\nCVE-2026-98432 is a use-after-free vulnerability in the Linux kernel's IPv4 TCP connection handling code, introduced in kernel version 4.4. A race condition occurs during the handshake process when IP options are processed; if a socket is destroyed while another CPU is processing IP options for a resent connection request, the kernel accesses freed memory. Anthropic demonstrated a proof-of-concept exploit path that uses this race condition to leak kernel memory (bypassing KASLR) and eventually achieve arbitrary code execution as root. As of October 29, 2026, no in-the-wild exploitation has been observed. Fixes are available for some distributions, while others (notably Ubuntu and RHEL) are still developing or testing patches.\n\n## Attack Chain\n1. Attacker sends a TCP connection request with specific IP options (Record Route or Timestamp).\n2. Attacker resends the request to trigger the race condition during the TCP handshake.\n3. Kernel prematurely frees memory associated with pending IP options while a second CPU attempts to read them.\n4. Attacker forces the kernel to return the freed memory to the attacker, leaking kernel addresses.\n5. Attacker utilizes leaked addresses to bypass KASLR.\n6. Attacker triggers the race condition again to overwrite a callback pointer in kernel memory.\n7. Kernel executes the attacker-controlled payload during pointer invocation.\n8. Attacker gains root command execution.\n\n## Impact\nThe vulnerability allows for potential remote unauthenticated kernel memory corruption, system crashes, or arbitrary code execution with root privileges. Success depends on the attacker winning a race condition, which may require multiple connection attempts.\n\n## Recommendation\n- Inventory all Linux-based servers to identify kernels running versions affected by CVE-2026-98432.\n- Apply vendor-specific kernel updates as soon as they become available for your distribution.\n- For custom kernel builds, update to patched versions: 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10, or 7.3.\n- Monitor for unusual kernel crashes (dmesg, /var/log/kern.log) that may indicate failed exploitation attempts.\n",
       "published": "2026-10-29T17:30:03.000Z",
@@ -146116,9 +146186,11 @@
         "software--1ce64783-e2f8-55fd-929e-2ef69c20fcb6",
         "software--2a20a23a-122d-55a2-b00e-b367bea9091a",
         "software--3f631967-491c-5abd-91cb-62f170995cb9",
+        "software--40ec4d6d-c185-5b9c-a3ce-1541092d8525",
         "software--6ae25dfe-6274-5163-8095-d52b92505b2b",
         "software--917f267a-6ec9-5178-8d6c-43ffba2c993b",
         "software--c01d7d73-fb2e-5f61-9d02-708224c28680",
+        "software--d7510b58-b8da-5e49-afe4-d65c90358dac",
         "vulnerability--aa7896af-074b-5ce7-b6c7-8c019d3c941d"
       ],
       "external_references": [
@@ -146179,9 +146251,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-linux-kernel-tcp-race",
       "x_craftedsignal_event_id": "brief-2026-10-29-linux-kernel-tcp-race",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-linux-kernel-tcp-race/",
-      "x_craftedsignal_activity_at": "2026-10-31T00:05:24.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T03:05:09.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -197671,6 +197743,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--40ec4d6d-c185-5b9c-a3ce-1541092d8525",
+      "name": "Debian (12, 13)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--41206147-22f4-52c6-b8ee-de0f13b2cf34",
       "name": "WP Booking System – Booking Calendar (\u003c= 2.1.0.3)",
       "vendor": "WP Booking System"
@@ -208719,6 +208797,12 @@
       "spec_version": "2.1",
       "id": "software--d74870ad-87a5-5b37-b2ad-c69dc17793cb",
       "name": "Car Rental Management System (1.0-1.3)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d7510b58-b8da-5e49-afe4-d65c90358dac",
+      "name": "Linux kernel (4.4 and later stable branches)"
     },
     {
       "type": "software",
@@ -244182,6 +244266,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119119",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119119"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e2ae24e4-2654-5aa2-91d3-2b1ff16fcba7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2021-43798",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-43798",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-43798"
         }
       ]
     },
