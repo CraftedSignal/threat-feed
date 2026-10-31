@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--50383fcd-22c0-5440-b58e-e8064cbf84d6",
+  "id": "bundle--f19dfac9-94d6-5c8f-85c9-de97f043cd02",
   "objects": [
     {
       "type": "attack-pattern",
@@ -44285,6 +44285,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7e57bf38-882c-500d-a35c-037a31ac24b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T04:07:07.000Z",
+      "modified": "2026-10-31T04:07:07.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--794309b5-fa09-5956-931c-1fbe2de929bc",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7e5d9d89-b045-56de-b9b0-39f7ee3d66f4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -58262,6 +58273,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4472f777-ad08-52d8-bcc0-c1bcf721ab94",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ac490eff-d2c0-5287-8387-9bb5267bccc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--02212830-ffbc-5fff-9a07-e9d6d0a0f227",
+      "target_ref": "vulnerability--e1c5e6ff-32db-58fc-ab86-2bef6eec9b23"
     },
     {
       "type": "relationship",
@@ -97170,7 +97192,7 @@
       "id": "report--1fa885a3-5bc0-567e-b75e-fec393c39aa8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T17:37:02.000Z",
-      "modified": "2026-10-30T17:37:02.000Z",
+      "modified": "2026-10-31T04:07:48.000Z",
       "name": "PipesHub: Unauthorized connector deletion via event type injection (CVE-2026-119710)",
       "description": "PipesHub versions 0.3.0 through 0.9.x are vulnerable to event type injection in the schedule route. Authenticated users with the 'crawl:write' scope can inject values into the :connector path segment (e.g., 'web.delete') to bypass 'connector:delete' and lock checks, resulting in the removal of connector instances and the purging of record embeddings.\n",
       "published": "2026-10-30T17:37:02.000Z",
@@ -97187,14 +97209,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119710"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CB0F1B7C-0CF8-5E19-A609-9FDD499C4DF5\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-30-pipeshub-injection",
       "x_craftedsignal_event_id": "brief-2026-10-30-pipeshub-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pipeshub-injection/",
-      "x_craftedsignal_activity_at": "2026-10-30T17:37:02.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T04:07:48.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -134806,6 +134832,66 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--794309b5-fa09-5956-931c-1fbe2de929bc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T04:07:07.000Z",
+      "modified": "2026-10-31T04:07:07.000Z",
+      "name": "Vercel Next.js HTTP Request Smuggling (CVE-2026-29057)",
+      "description": "## Overview\nCVE-2026-29057 describes an HTTP request smuggling vulnerability in Vercel Next.js versions prior to 15.5.13 and 16.1.7. The issue arises from the desynchronization of shared HTTP connections when processing chunked `Transfer-Encoding` headers. An attacker can use a crafted request to cause the application's internal frontend/proxy component to misinterpret request boundaries, leading it to forward a smuggled request to an internal backend service.\n\n## Attack Chain\n1. Attacker sends a primary request to a public endpoint using `Transfer-Encoding: chunked`.\n2. The primary request body contains the serialized bytes of a secondary, unauthorized request (e.g., `GET /secret`).\n3. The vulnerable frontend component fails to properly calculate or reconcile the length of the chunked message.\n4. The frontend component strips or modifies headers but leaves the smuggled payload in the buffered stream.\n5. The internal intermediary interprets the remaining bytes as a second, distinct HTTP request.\n6. The internal backend processes both the initial and the smuggled requests sequentially.\n\n## Impact\nThe vulnerability allows for unauthorized access to internal backend routes or administrative endpoints that are not intended to be exposed to public traffic.\n\n## Recommendation\n- Upgrade Vercel Next.js to version 15.5.13, 16.1.7, or later immediately.\n- Review web access logs for anomalous `Transfer-Encoding: chunked` requests that contain embedded HTTP methods or internal path patterns.\n- Apply strict request validation at the edge/WAF to normalize or reject malformed `Transfer-Encoding` headers before they reach the Next.js application.\n",
+      "published": "2026-10-31T04:07:07.000Z",
+      "labels": [
+        "cve-2026-29057",
+        "request-smuggling",
+        "vercel",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--02212830-ffbc-5fff-9a07-e9d6d0a0f227",
+        "vulnerability--e1c5e6ff-32db-58fc-ab86-2bef6eec9b23"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-nextjs-smuggling",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-nextjs-smuggling/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-ggv3-7p47-pfv8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/vercel/next.js/commit/dc98c04f376c6a1df76ec3e0a2d07edf4abdabd6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29057"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LEARNERXUAN-CVE-2026-29057-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-nextjs-smuggling",
+      "x_craftedsignal_event_id": "brief-2026-10-31-nextjs-smuggling",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-nextjs-smuggling/",
+      "x_craftedsignal_activity_at": "2026-10-31T04:07:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00453,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -192895,6 +192981,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--02212830-ffbc-5fff-9a07-e9d6d0a0f227",
+      "name": "Next.js (\u003c 15.5.13, 16.1.7)",
+      "vendor": "Vercel"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0223c1b3-5b19-5d3e-904e-75d86e234c4c",
       "name": "Appointment Booking Plugin – LatePoint | Calendar \u0026 Scheduling (\u003c= 5.7.3)",
       "vendor": "LatePoint"
@@ -244499,6 +244592,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-30940",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30940"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--e1c5e6ff-32db-58fc-ab86-2bef6eec9b23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-29057",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-29057",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29057"
         }
       ]
     },
