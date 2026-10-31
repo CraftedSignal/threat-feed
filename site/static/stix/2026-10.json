@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5f1f1df9-379a-5f6c-97dd-cade1c03b695",
+  "id": "bundle--92169078-bb3d-52e1-8138-beb4e18e8170",
   "objects": [
     {
       "type": "attack-pattern",
@@ -25420,6 +25420,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--41dd59f1-c698-5e47-8d97-89781ef10933",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--eb1de497-c538-5a39-8de0-dc1f66d1bc80",
+      "target_ref": "vulnerability--eeca82cc-21b3-5bd2-ac46-aea3b19e7154"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--41e207c0-6f2a-5739-81f2-310b657249cf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:54:55.000Z",
@@ -47812,6 +47823,17 @@
       "relationship_type": "has",
       "source_ref": "software--de3396d2-3001-52ac-908c-d2ebd005bed5",
       "target_ref": "vulnerability--8bf157fe-bbb5-5706-bbd2-651fe3f6dec7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--893739bd-4be5-5f63-a7c5-ced022702b81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T03:46:45.000Z",
+      "modified": "2026-10-31T03:46:45.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--7b1af45b-faaa-51f1-91a0-f96bcd0c2d65",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -135682,6 +135704,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7b1af45b-faaa-51f1-91a0-f96bcd0c2d65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T03:46:45.000Z",
+      "modified": "2026-10-31T03:46:45.000Z",
+      "name": "Crypttech Vatos DLP: Plaintext credential storage (CVE-2026-86715)",
+      "description": "## Overview\nCrypttech Vatos DLP (versions 1.1.176 through 1.1.242) contains a vulnerability where application passwords are stored in plaintext. This exposure allows unauthorized actors with access to the file system or application data to recover and reuse domain credentials.\n\n## Impact\nExposure of stored domain credentials within the Vatos DLP environment may lead to unauthorized access to enterprise systems and escalation of privileges.\n\n## Recommendation\n- Update Vatos DLP to version 1.1.243 or later to remediate the plaintext storage vulnerability.\n- Audit access logs for the Vatos DLP application directory to identify potential unauthorized file access during the window of vulnerability.\n- Review and rotate domain service accounts that may have been configured within the affected Vatos DLP versions.\n",
+      "published": "2026-10-31T03:46:45.000Z",
+      "labels": [
+        "credential-theft",
+        "dlp",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--eb1de497-c538-5a39-8de0-dc1f66d1bc80",
+        "vulnerability--eeca82cc-21b3-5bd2-ac46-aea3b19e7154"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-vatos-dlp-plaintext-password",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-vatos-dlp-plaintext-password/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86715"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-vatos-dlp-plaintext-password",
+      "x_craftedsignal_event_id": "brief-2026-10-31-vatos-dlp-plaintext-password",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-vatos-dlp-plaintext-password/",
+      "x_craftedsignal_activity_at": "2026-10-31T03:46:45.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7b1bfc4c-2855-5112-883e-d8e3aed36b39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T14:16:08.000Z",
@@ -210717,6 +210785,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--eb1de497-c538-5a39-8de0-dc1f66d1bc80",
+      "name": "Vatos DLP (1.1.176 - 1.1.242)",
+      "vendor": "Crypttech Crypto and Informatics Technologies Industry and Trade Inc."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--eb347404-78dd-5bac-8486-81efc9a68418",
       "name": "AWS Bedrock AgentCore",
       "vendor": "Amazon"
@@ -246392,6 +246467,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111838",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111838"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--eeca82cc-21b3-5bd2-ac46-aea3b19e7154",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86715",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86715",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86715"
         }
       ]
     },
