@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--acb82b76-9bb9-55b7-8c1c-c8b84a447fdc",
+  "id": "bundle--42fd18e8-956e-5820-a7a5-ab70b6b092b2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -42074,6 +42074,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--77636f9c-ed54-5af1-ad10-1abed084ab52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--134fe3ca-6c7b-548f-8ba9-ff17e1132156",
+      "target_ref": "vulnerability--922fb97f-a4c0-54cd-8001-31650506abe6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--777d858a-d7c2-5518-a7c6-5849b768b0bf",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -49451,6 +49462,17 @@
       "relationship_type": "has",
       "source_ref": "software--36b758fa-2f2b-5c6a-ac5b-392a8b6c6398",
       "target_ref": "vulnerability--9b701122-09c3-5da1-8c81-a98dd899fa61"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ee2577f-0a60-5de3-a890-33bca01b49a2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--005426cb-875d-502f-af76-864d5e5ede25",
+      "target_ref": "vulnerability--ceea215d-2b79-55ee-8307-2b2901487e53"
     },
     {
       "type": "relationship",
@@ -67902,6 +67924,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--cbae7771-c4ed-5498-85e0-1d627e30782f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--005426cb-875d-502f-af76-864d5e5ede25",
+      "target_ref": "vulnerability--4feb8117-3e13-53b1-9ba6-32e9c61623a4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--cbba64bd-d9aa-5190-a72f-054ab4dcbb1a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T02:15:15.000Z",
@@ -74421,6 +74454,17 @@
       "relationship_type": "has",
       "source_ref": "software--01d6f6a0-68a1-57d9-aeb0-eaa1dbf948b1",
       "target_ref": "vulnerability--e06bbb40-6e99-537d-b048-22157b2cceea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e02b685b-a872-5975-9625-fcc43b90c2ed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--005426cb-875d-502f-af76-864d5e5ede25",
+      "target_ref": "vulnerability--fc1b5a4a-b3e7-503f-a6a8-a649ec5d1452"
     },
     {
       "type": "relationship",
@@ -152071,6 +152115,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--a18b17bf-ec32-5b76-9717-5fc78ae3180d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T09:42:57.000Z",
+      "modified": "2026-10-31T09:42:57.000Z",
+      "name": "Starlet: Multiple vulnerabilities leading to denial of service (CVE-2026-115865, CVE-2026-115866, CVE-2026-116127)",
+      "description": "## Overview\n\nStarlet versions before 0.33 are affected by multiple vulnerabilities that can result in service disruption. CVE-2026-115865 allows for worker process memory exhaustion via specially crafted Content-Length headers. CVE-2026-115866 permits CPU exhaustion through regular expression backtracking during the decoding of chunked request bodies. Additionally, CVE-2026-116127 causes protocol corruption by incorrectly including bodies in responses to HEAD requests, which may affect subsequent request processing on persistent connections.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities can lead to a denial of service (DoS) for the application hosting Starlet. Improper response handling for HEAD requests may lead to data corruption or desynchronization issues in proxy or load balancing environments.\n\n## Recommendation\n\n- Upgrade Starlet to version 0.33 or later immediately.\n- Audit existing infrastructure to identify instances of Starlet used in Perl-based web services.\n- Implement request header size limits and body processing timeouts at the web server or load balancer layer as a temporary mitigation until services can be patched.\n",
+      "published": "2026-10-31T09:42:57.000Z",
+      "labels": [
+        "cve-2026-115865",
+        "cve-2026-115866",
+        "cve-2026-116127",
+        "denial-of-service",
+        "perl",
+        "web-server"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--005426cb-875d-502f-af76-864d5e5ede25",
+        "vulnerability--4feb8117-3e13-53b1-9ba6-32e9c61623a4",
+        "vulnerability--ceea215d-2b79-55ee-8307-2b2901487e53",
+        "vulnerability--fc1b5a4a-b3e7-503f-a6a8-a649ec5d1452"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-starlet-perl-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-starlet-perl-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/449"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-starlet-perl-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-31-starlet-perl-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-starlet-perl-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-31T09:42:57.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--a1cb286f-f9ef-5c96-a3fb-9ab303c9df61",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T00:41:16.000Z",
@@ -181241,6 +181334,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e6126734-7dfa-58fe-89ca-7e010cd73b82",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T09:42:43.000Z",
+      "modified": "2026-10-31T09:42:43.000Z",
+      "name": "Apache MINA: Unsafe Deserialization in JavaNativeMessageDecoder (CVE-2026-118636)",
+      "description": "Apache MINA versions 3.0.0 through 3.0.0-M2 contain a critical deserialization vulnerability (CVE-2026-118636) in the `JavaNativeMessageDecoder` component. The vulnerability exists because `JavaNativeMessageDecoder` calls `ObjectInputStream.readObject()` on frame bytes without a class filter. Applications using this decoder to process data from untrusted peers are susceptible to gadget-chain remote code execution.\n",
+      "published": "2026-10-31T09:42:43.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--134fe3ca-6c7b-548f-8ba9-ff17e1132156",
+        "vulnerability--922fb97f-a4c0-54cd-8001-31650506abe6"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-apache-mina-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-apache-mina-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/457"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-apache-mina-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-10-31-apache-mina-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-apache-mina-deserialization/",
+      "x_craftedsignal_activity_at": "2026-10-31T09:42:43.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e6376a64-776e-562d-80a3-8e2d9db193b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T17:09:47.000Z",
@@ -192655,6 +192787,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--005426cb-875d-502f-af76-864d5e5ede25",
+      "name": "Starlet (\u003c 0.33)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--005c9d50-43d4-556b-b6ad-498f7846f269",
       "name": "TeamViewer Remote Control (Android) (\u003c 15.83)",
       "vendor": "TeamViewer"
@@ -194460,6 +194598,12 @@
       "id": "software--1338358c-3b97-540d-89ce-402f01727ae4",
       "name": "Product Designer for WooCommerce WordPress (\u003c= 2.1.2)",
       "vendor": "Lumise"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--134fe3ca-6c7b-548f-8ba9-ff17e1132156",
+      "name": "Apache MINA (3.0.0 through 3.0.0-M2)"
     },
     {
       "type": "software",
@@ -223711,6 +223855,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4feb8117-3e13-53b1-9ba6-32e9c61623a4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115865",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115865",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115865"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4ff09adc-2751-5637-9123-2528cbc64cb8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -233167,6 +233327,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--922fb97f-a4c0-54cd-8001-31650506abe6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-118636",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-118636",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118636"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9254da4f-0c74-5618-9373-204b0dc77694",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -241647,6 +241823,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--ceea215d-2b79-55ee-8307-2b2901487e53",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115866",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115866",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115866"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--ceff0a2f-ff4c-5952-ba5d-7436386681ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -248265,6 +248457,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-93430",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93430"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fc1b5a4a-b3e7-503f-a6a8-a649ec5d1452",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116127",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116127",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116127"
         }
       ]
     },
