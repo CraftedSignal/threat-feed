@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2396f713-c5e3-508a-9b10-b6cf36c4628a",
+  "id": "bundle--49d42d13-f115-5660-aeac-f0dc36ec0407",
   "objects": [
     {
       "type": "attack-pattern",
@@ -32378,6 +32378,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--59550324-cbec-5d8a-a2eb-4d8a9b680ad4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a6368eae-a218-5fb9-9cb0-3886e1c2f6f5",
+      "target_ref": "vulnerability--689dca4c-a176-5edc-9158-c84f30958f0b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--59572601-1437-5c08-928e-5a30593ce9fc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -43015,6 +43026,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7af9773b-8e7c-5af1-bf2d-845d2b24f935",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a6368eae-a218-5fb9-9cb0-3886e1c2f6f5",
+      "target_ref": "vulnerability--8a033243-fb8d-5977-98f8-29ffc1446422"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7afc7ce9-88d7-5733-ab78-477dd446b740",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-10T05:34:38.000Z",
@@ -44375,6 +44397,17 @@
       "relationship_type": "has",
       "source_ref": "software--96a3796a-2061-5873-b0e0-b8422b824d69",
       "target_ref": "vulnerability--d0677fe3-0a8f-556a-a422-091f8654c0b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7fa4c4da-d296-5f1f-a9cd-423483a81d65",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0eddd0af-507e-5ad9-8dc4-4c138755b2af",
+      "target_ref": "vulnerability--b166e22c-3563-5e87-81eb-0a08e5f31ee0"
     },
     {
       "type": "relationship",
@@ -73756,6 +73789,17 @@
       "relationship_type": "has",
       "source_ref": "software--e39b8f9a-3988-5cb9-9f44-887c282d8c3d",
       "target_ref": "vulnerability--ca9ac0d5-9c14-5d36-a0e6-9fc6ab426de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--dfd8d406-52ab-5638-ad00-577f2d15df03",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--a6368eae-a218-5fb9-9cb0-3886e1c2f6f5",
+      "target_ref": "vulnerability--c1b99664-1f1a-53c2-9cc8-a1b45d5fec24"
     },
     {
       "type": "relationship",
@@ -134136,6 +134180,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7abc54db-2531-5412-b340-f5c6b723be6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T19:51:56.000Z",
+      "modified": "2026-10-31T19:51:56.000Z",
+      "name": "HTTP::Parser::XS: PATH_INFO truncation via encoded NUL byte (CVE-2026-116130)",
+      "description": "## Overview\nThe Perl module HTTP::Parser::XS contains a vulnerability (CVE-2026-116130) where the `parse_http_request` function improperly handles encoded NUL bytes. This flaw causes the `PATH_INFO` variable to truncate at the NUL byte. Web applications that use this module for routing or path-based access control may misinterpret the request path, potentially leading to unauthorized access if security checks are bypassed.\n\n## Impact\nApplications relying on HTTP::Parser::XS for path-based authorization may be susceptible to security bypasses. An attacker could craft a request containing an encoded NUL byte (e.g., `%00`) to manipulate how the application perceives the requested resource, potentially accessing restricted paths that would otherwise be blocked by validation logic.\n\n## Recommendation\n- Inventory all Perl applications utilizing the `HTTP-Parser-XS` module.\n- Upgrade `HTTP::Parser::XS` to version 0.18 or later across all environments.\n- Review application logic that performs path-based access control to ensure it does not rely solely on input parsed by vulnerable versions of HTTP::Parser::XS.\n",
+      "published": "2026-10-31T19:51:56.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0eddd0af-507e-5ad9-8dc4-4c138755b2af",
+        "vulnerability--b166e22c-3563-5e87-81eb-0a08e5f31ee0"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-http-parser-xs-path-truncation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-http-parser-xs-path-truncation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://metacpan.org/dist/HTTP-Parser-XS"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/448"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-http-parser-xs-path-truncation",
+      "x_craftedsignal_event_id": "brief-2026-10-31-http-parser-xs-path-truncation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-http-parser-xs-path-truncation/",
+      "x_craftedsignal_activity_at": "2026-10-31T19:51:56.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--7ac81711-13d8-5da9-a4f6-41465f9be0b6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T18:38:00.000Z",
@@ -186304,6 +186391,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f3d33679-d576-5e97-9a7c-b7f4660c3609",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T19:51:40.000Z",
+      "modified": "2026-10-31T19:51:40.000Z",
+      "name": "WebDyne for Perl: Multiple Vulnerabilities (CVE-2026-78188, CVE-2026-78189, CVE-2026-78190)",
+      "description": "Robert Rothenberg reported three vulnerabilities in WebDyne for Perl:\n- CVE-2026-78188: Versions 2.014 through 3.021 issue session cookies without Secure, HttpOnly, and SameSite attributes.\n- CVE-2026-78189: Versions 3.007 through 3.021 allow the execution of .psp files outside the document root via path traversal in the PSGI API route fallback.\n- CVE-2026-78190: Versions 2.014 through 3.021 reflect request parameters unescaped into form fields.\n",
+      "published": "2026-10-31T19:51:40.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a6368eae-a218-5fb9-9cb0-3886e1c2f6f5",
+        "vulnerability--689dca4c-a176-5edc-9158-c84f30958f0b",
+        "vulnerability--8a033243-fb8d-5977-98f8-29ffc1446422",
+        "vulnerability--c1b99664-1f1a-53c2-9cc8-a1b45d5fec24"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-webdyne-perl-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-webdyne-perl-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/458"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-webdyne-perl-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-10-31-webdyne-perl-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-webdyne-perl-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-10-31T19:51:40.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f3e1a3ad-3ed0-5098-b7bd-bb1e257422b1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T00:31:30.000Z",
@@ -192664,6 +192792,12 @@
       "id": "software--0edb4375-5999-5e86-86a1-e71b8d29f8c6",
       "name": "IOS XR",
       "vendor": "Cisco"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0eddd0af-507e-5ad9-8dc4-4c138755b2af",
+      "name": "HTTP::Parser::XS (\u003c 0.18)"
     },
     {
       "type": "software",
@@ -204053,6 +204187,13 @@
       "id": "software--a5bbb113-35d1-5df4-a45f-8ae2f8ec07c4",
       "name": "Firefox ESR (\u003c 153.5.1)",
       "vendor": "Mozilla"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a6368eae-a218-5fb9-9cb0-3886e1c2f6f5",
+      "name": "WebDyne for Perl (2.014-3.021)",
+      "vendor": "WebDyne"
     },
     {
       "type": "software",
@@ -225843,6 +225984,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--689dca4c-a176-5edc-9158-c84f30958f0b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-78188",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-78188",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78188"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--68bf39dd-90c6-5112-81ed-c3119dc47cb6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -230333,6 +230490,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-108522",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108522"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8a033243-fb8d-5977-98f8-29ffc1446422",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-78189",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-78189",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78189"
         }
       ]
     },
@@ -236083,6 +236256,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--b166e22c-3563-5e87-81eb-0a08e5f31ee0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116130",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116130",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116130"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--b1847651-ef23-5eae-b6d3-60726af7e403",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -238221,6 +238410,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-27180",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27180"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c1b99664-1f1a-53c2-9cc8-a1b45d5fec24",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-78190",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-78190",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78190"
         }
       ]
     },
