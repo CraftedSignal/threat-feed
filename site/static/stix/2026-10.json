@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--43e151b7-fecb-5c4c-abdc-9c0cd3030d72",
+  "id": "bundle--3e9db421-f471-572c-8be9-46628584c20b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12197,6 +12197,17 @@
       "relationship_type": "uses",
       "source_ref": "report--10a2f6ad-e7a0-5172-897c-ae0930534b7e",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--13b5ed4d-3933-5ae7-a2df-018ab02ce50f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-10-31T18:40:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -27975,6 +27986,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--48eed62c-a957-5065-aee8-ffb60de32807",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--87075c58-637d-549f-b6e7-2f5997240c1b",
+      "target_ref": "vulnerability--ee91c060-1ab3-5ee0-ac9a-6205ec317ddb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--490865a7-d7a7-5f03-a2c7-394532b10714",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-16T22:28:14.000Z",
@@ -35766,7 +35788,7 @@
       "id": "relationship--6262c3d9-d7f9-5ef5-af09-f4d64f899c83",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T09:26:40.000Z",
-      "modified": "2026-10-30T09:26:40.000Z",
+      "modified": "2026-10-31T18:40:45.000Z",
       "relationship_type": "uses",
       "source_ref": "report--006f87d2-f1b0-5ede-bbaa-98a289bcb2ef",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -45098,6 +45120,17 @@
       "relationship_type": "uses",
       "source_ref": "report--19650a96-8790-5c8b-93d4-0d04ccb65f77",
       "target_ref": "attack-pattern--55190cce-3978-5d43-b6a3-64cdd80a5d56"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--7f16cbcd-0a5c-538e-bd08-a8c02f25d8e3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-10-31T18:40:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
+      "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
     },
     {
       "type": "relationship",
@@ -57451,6 +57484,17 @@
       "relationship_type": "has",
       "source_ref": "software--db3b04cd-5597-5a2c-83ce-17c19b3b166b",
       "target_ref": "vulnerability--11c6810c-29fa-5c74-8fb2-af4565320d48"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a6aa8fc0-de35-5eea-92c1-3d4b1a34dd49",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--d125d485-4af9-5105-83ba-37fff02408c3",
+      "target_ref": "vulnerability--ee91c060-1ab3-5ee0-ac9a-6205ec317ddb"
     },
     {
       "type": "relationship",
@@ -85697,7 +85741,7 @@
       "id": "report--006f87d2-f1b0-5ede-bbaa-98a289bcb2ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T09:26:40.000Z",
-      "modified": "2026-10-30T09:26:40.000Z",
+      "modified": "2026-10-31T18:40:45.000Z",
       "name": "Gravity Forms: PHP object injection in Post Custom Fields (CVE-2026-103039)",
       "description": "## Overview\nGravity Forms versions 3.1.2 and earlier contain a PHP object injection vulnerability within the List input type of Post Custom Fields. The plugin incorrectly uses the native WordPress global `maybe_unserialize()` function instead of the secure `GFCommon::maybe_unserialize()` method. This allows unauthenticated attackers to supply serialized PHP objects. While the plugin contains no native gadget chains, exploitation is possible if other installed plugins, themes, or the WordPress core itself contain compatible gadgets. Notably, targeting the `_wp_page_template` meta key allows for RCE on environments where `register_argc_argv` is enabled and a PEAR installation is accessible.\n\n## Impact\nSuccessful exploitation allows unauthenticated attackers to perform remote code execution if a suitable gadget chain exists in the WordPress environment.\n\n## Recommendation\n- Update the Gravity Forms plugin to the latest version (patch released by Rocketgenius).\n- Audit the WordPress site for plugins or themes that may contain dangerous deserialization gadget chains.\n- Disable the `register_argc_argv` PHP configuration if not strictly required to mitigate the core-based gadget chain.\n- Review custom field configurations to identify if they are mapped to sensitive meta keys like `_wp_page_template`.\n",
       "published": "2026-10-30T09:26:40.000Z",
@@ -85721,20 +85765,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103039"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=EF3BFD7B-F5FF-508B-A3DE-21AEC8A7FA82\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-30-gravity-forms-injection",
       "x_craftedsignal_event_id": "brief-2026-10-30-gravity-forms-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-gravity-forms-injection/",
-      "x_craftedsignal_activity_at": "2026-10-30T09:26:40.000Z",
+      "x_craftedsignal_activity_at": "2026-10-31T18:40:45.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00508,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -191588,6 +191637,63 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-10-31T18:40:10.000Z",
+      "name": "Canonical LXD and MicroCloud: Authentication bypass (CVE-2026-112816)",
+      "description": "## Overview\n\nCVE-2026-112816 is a critical vulnerability in the Canonical LXD HTTPS interface caused by improper validation of client TLS certificate chains. An attacker with network access to the LXD API can craft a certificate chain that mimics a trusted client, effectively bypassing authentication. This vulnerability impacts both LXD and MicroCloud environments. Canonical has released patches for multiple stable release tracks as of October 29, 2026.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to gain control over the LXD/MicroCloud cluster, managed containers, virtual machines, and the underlying host system.\n\n## Recommendation\n\n1. Audit all systems running Canonical LXD or MicroCloud to identify versions currently below the minimum safe thresholds: LXD (4.0.15, 5.0.11, 5.21.9, 6.10.1) and MicroCloud (2.1.5, 3.4.1).\n2. Plan a maintenance window for patching, as `snap refresh` operations may restart services and cause temporary disruption to container or VM workloads.\n3. Restrict network access to the LXD HTTPS API to only authorized management subnets and trusted administrative clients using firewall or network security group policies.\n4. Perform post-patching validation by verifying package versions and ensuring cluster service health.\n5. Prior to patching, perform an investigation of LXD audit logs for signs of unauthorized API access or anomalous client certificate usage.\n",
+      "published": "2026-10-31T18:40:10.000Z",
+      "labels": [
+        "authentication-bypass",
+        "lxd",
+        "microcloud",
+        "v4-10.0-cvss",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--87075c58-637d-549f-b6e7-2f5997240c1b",
+        "software--d125d485-4af9-5105-83ba-37fff02408c3",
+        "vulnerability--ee91c060-1ab3-5ee0-ac9a-6205ec317ddb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-10-31-lxd-authentication-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-10-lxd-authentication-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3306F82C-C708-5D34-9D91-84D815CF7BB6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=3306F82C-C708-5D34-9D91-84D815CF7BB6\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://ubuntu.com/security/CVE-2026-112816"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-10-31-lxd-authentication-bypass",
+      "x_craftedsignal_event_id": "brief-2026-10-31-lxd-authentication-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lxd-authentication-bypass/",
+      "x_craftedsignal_activity_at": "2026-10-31T18:40:10.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5d897a7-e6a4-5bb6-9066-23c81bc88c2a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-26T19:45:10.000Z",
@@ -206614,6 +206720,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--87075c58-637d-549f-b6e7-2f5997240c1b",
+      "name": "LXD (\u003c 4.0.15/5.0.11/5.21.9/6.10.1)",
+      "vendor": "Canonical"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--870e3d5f-3d75-5ab5-855f-e9152de66810",
       "name": "plugin-scaffolder-backend (\u003c 3.3.1, \u003e= 3.4.0 \u003c 3.4.1, \u003e= 4.0.0 \u003c 4.0.3, \u003e= 4.0.4 \u003c 4.1.0)",
       "vendor": "Backstage"
@@ -211993,6 +212106,13 @@
       "id": "software--d110b352-bc8c-54da-9e07-aa3a770eb58f",
       "name": "OpenRefine (\u003c= 3.10.1)",
       "vendor": "OpenRefine"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d125d485-4af9-5105-83ba-37fff02408c3",
+      "name": "MicroCloud (\u003c 2.1.5/3.4.1)",
+      "vendor": "Canonical"
     },
     {
       "type": "software",
@@ -250107,6 +250227,22 @@
           "source_name": "cve",
           "external_id": "CVE-2014-125130",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-125130"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--ee91c060-1ab3-5ee0-ac9a-6205ec317ddb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-112816",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-112816",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112816"
         }
       ]
     },

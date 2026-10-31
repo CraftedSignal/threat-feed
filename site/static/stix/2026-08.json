@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae99aa43-a6be-5042-8228-218671f136e1",
+  "id": "bundle--6c5da9d8-565f-56c9-8b3e-eb140eee5b86",
   "objects": [
     {
       "type": "attack-pattern",
@@ -26677,17 +26677,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8b4390eb-329f-5378-988a-666b25dff9b5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-02T15:36:20.000Z",
-      "modified": "2026-08-02T15:36:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--88f5c4fa-1e05-5abf-808b-9a937a812e75",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8b4bbf13-9650-5aa4-9780-b99ad9769613",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T15:38:06.000Z",
@@ -45197,17 +45186,6 @@
       "relationship_type": "has",
       "source_ref": "software--76e5ad46-20ff-542d-bec8-e0f6bbf0e82b",
       "target_ref": "vulnerability--93c0d5ba-1422-5fef-aa5c-6ee83b8cfb5d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fb4c0d74-6895-5c6e-8b71-434431914e87",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f6bc0cff-4285-5f65-8e53-f8064dd1f9e8",
-      "target_ref": "vulnerability--fb5949d8-b89b-594f-bbc7-723053054e5d"
     },
     {
       "type": "relationship",
@@ -78462,47 +78440,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.9,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--88f5c4fa-1e05-5abf-808b-9a937a812e75",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-02T15:36:20.000Z",
-      "modified": "2026-08-02T15:36:20.000Z",
-      "name": "SQL Injection in PyAthena DefaultParameterFormatter",
-      "description": "## Overview\n\nPyAthena versions prior to 3.35.4 contain a critical SQL injection vulnerability originating from the DefaultParameterFormatter.format() method. The issue resides in the _escape_hive function, which incorrectly attempts to escape single quotes using backslashes. Because the underlying Athena and Trino SQL engines do not recognize backslashes as valid escape characters for string literals, the use of a single quote in user-supplied input allows an attacker to prematurely terminate a string literal. This flaw enables the injection of arbitrary SQL commands, potentially leading to unauthorized data exfiltration via UNION SELECT queries, execution of destructive administrative commands, or modification of CTAS (Create Table As Select) operations to point to attacker-controlled destinations. This vulnerability impacts all applications utilizing PyAthena as a connector for Athena or Trino.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to bypass application-level input validation to interact directly with the database. Consequences include the loss of sensitive data via unauthorized queries, database modification or deletion, and potential privilege escalation within the context of the database service. The scope includes any environment utilizing PyAthena versions earlier than 3.35.4.\n\n## Recommendation\n\n1. Upgrade the PyAthena library to version 3.35.4 or later immediately to patch the vulnerable DefaultParameterFormatter.format() implementation.\n2. Implement strict input validation at the application layer to sanitize all parameters passed to PyAthena, rejecting inputs containing single quotes, semicolons, or SQL comment syntax.\n3. Enforce the principle of least privilege for the database credentials used by the application, ensuring the service user lacks permissions to execute destructive commands (e.g., DROP, DELETE) or access unauthorized tables.\n4. Review application code for direct concatenation of user-supplied variables into SQL queries, transitioning instead to parameterized queries wherever supported by the underlying connector logic.\n",
-      "published": "2026-08-02T15:36:20.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f6bc0cff-4285-5f65-8e53-f8064dd1f9e8",
-        "vulnerability--fb5949d8-b89b-594f-bbc7-723053054e5d"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-02-pyathena-sql-injection",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-pyathena-sql-injection/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65321"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-02-pyathena-sql-injection",
-      "x_craftedsignal_event_id": "brief-2026-08-02-pyathena-sql-injection",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-pyathena-sql-injection/",
-      "x_craftedsignal_activity_at": "2026-08-02T15:36:20.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -117802,12 +117739,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f6bc0cff-4285-5f65-8e53-f8064dd1f9e8",
-      "name": "PyAthena (\u003c 3.35.4)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f6c99948-9d0b-5938-ba3e-92eb6c18c721",
       "name": "nltk",
       "vendor": "NLTK"
@@ -137386,22 +137317,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-55621",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55621"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--fb5949d8-b89b-594f-bbc7-723053054e5d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-65321",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-65321",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65321"
         }
       ]
     },

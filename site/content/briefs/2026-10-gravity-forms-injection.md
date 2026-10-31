@@ -1,13 +1,30 @@
 ---
 brief_id: brief-2026-10-30-gravity-forms-injection
 event_id: brief-2026-10-30-gravity-forms-injection
-revision: 1
-activity_at: "2026-10-30T09:26:40Z"
+revision: 2
+activity_at: "2026-10-31T18:40:45Z"
+revision_history:
+  - revision: 2
+    at: "2026-10-31T18:40:45Z"
+    checksum: sha256:bad8fcf0a118c3e70e905a37e2a675af537a501c6ee991994eff687210e2fe33
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - cves
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=EF3BFD7B-F5FF-508B-A3DE-21AEC8A7FA82&utm_source=rss&utm_medium=rss
 title: 'Gravity Forms: PHP object injection in Post Custom Fields (CVE-2026-103039)'
 slug: 2026-10-gravity-forms-injection
 description: Gravity Forms for WordPress versions up to and including 3.1.2 is vulnerable to unauthenticated PHP object injection via Post Custom Fields, which can lead to remote code execution when combined with specific gadget chains.
 date: "2026-10-30T09:26:40Z"
+lastmod: "2026-10-31T18:40:15Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -23,6 +40,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:rocketgenius:gravity_forms:*:*:*:*:*:wordpress:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=EF3BFD7B-F5FF-508B-A3DE-21AEC8A7FA82&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - deserialization
@@ -41,9 +61,11 @@ mitre_ttps:
 cves:
   - id: CVE-2026-103039
     cvss: 9.8
+    epss: 0.00508
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-103039
+  - https://sploitus.com/exploit?id=EF3BFD7B-F5FF-508B-A3DE-21AEC8A7FA82&utm_source=rss&utm_medium=rss
 action_plan:
   priority: immediate_escalation
   owners:
@@ -69,6 +91,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-103039
       evidence: Plugin version 3.1.2 and earlier are vulnerable
+updates:
+  - at: "2026-10-31T18:40:15Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=EF3BFD7B-F5FF-508B-A3DE-21AEC8A7FA82&utm_source=rss&utm_medium=rss
 ---
 
 Gravity Forms versions 3.1.2 and earlier contain a PHP object injection vulnerability within the List input type of Post Custom Fields. The plugin incorrectly uses the native WordPress global `maybe_unserialize()` function instead of the secure `GFCommon::maybe_unserialize()` method. This allows unauthenticated attackers to supply serialized PHP objects. While the plugin contains no native gadget chains, exploitation is possible if other installed plugins, themes, or the WordPress core itself contain compatible gadgets. Notably, targeting the `_wp_page_template` meta key allows for RCE on environments where `register_argc_argv` is enabled and a PEAR installation is accessible.
