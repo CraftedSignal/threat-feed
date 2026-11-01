@@ -1,14 +1,49 @@
 ---
+brief_id: brief-2026-03-24-langflow-rce
+event_id: brief-2026-03-24-langflow-rce
+revision: 2
+activity_at: "2026-11-01T10:58:48Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-01T10:58:48Z"
+    checksum: sha256:394b70e2dea9f4ed7111b61793a335ee9542051ae2aa11879b5abaab51c19d43
+    summary: exploited:true; poc_available; added CVE-2026-33017
+    changed_fields:
+      - claim_state
+      - cpes
+      - cves
+      - exploitation_evidence
+      - has_poc
+      - iocs
+      - lastmod
+      - poc_references
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
 title: Critical RCE Vulnerability in Langflow AI Pipelines (CVE-2026-33017)
 slug: 2026-03-langflow-rce
 description: A critical remote code execution vulnerability, CVE-2026-33017, exists in Langflow AI pipelines prior to version 1.9.0 that allows an unauthenticated remote attacker to execute code with full server process privileges, impacting availability, integrity, and confidentiality.
 date: "2026-03-24T12:00:00Z"
-lastmod: "2026-07-30T13:37:43Z"
+lastmod: "2026-11-01T10:57:59Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
   - critical
+exploited: true
+exploitation_evidence:
+  status: confirmed_active
+  source_url: https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
+  observed_at: "2026-11-01T08:09:12Z"
+  confidence: medium
+cpes:
+  - cpe:2.3:a:langflow:langflow:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
 tags:
   - langflow
   - rce
@@ -34,10 +69,17 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
   - tactic_id: TA0007
     tactic_name: Discovery
     technique_id: T1046
-    technique_name: Network Service Scanning
+    technique_name: Network Service Discovery
+cves:
+  - id: CVE-2026-33017
+    cvss: 9.8
+    epss: 0.96177
+    kev_status: "false"
 references:
   - https://ccb.belgium.be/advisories/warning-critical-vulnerability-langflow-ai-pipelines-patch-immediately
   - https://github.com/langflow-ai/langflow/security/advisories/GHSA-vwmf-pq79-vjvx
@@ -45,6 +87,7 @@ references:
   - https://www.sysdig.com/blog/cve-2026-33017-how-attackers-compromised-langflow-ai-pipelines-in-20-hours
   - https://sploitus.com/exploit?id=8A390AA6-FCBA-5C9C-901C-5D94D4A03A15&utm_source=rss&utm_medium=rss
   - https://unit42.paloaltonetworks.com/autonomous-ai-cyber-attack-campaign/
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
 iocs:
   - type: domain
     value: code.newcli.com
@@ -87,6 +130,13 @@ updates:
       - unit42
     source_urls:
       - https://unit42.paloaltonetworks.com/autonomous-ai-cyber-attack-campaign/
+  - at: "2026-11-01T10:57:59Z"
+    level: L3
+    summary: exploited:true; poc_available; added CVE-2026-33017
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-TATOSEC-CVE-2026-33017-LANGFLOP&utm_source=rss&utm_medium=rss
 ---
 
 A critical remote code execution vulnerability, CVE-2026-33017, affects Langflow AI pipelines prior to version 1.9.0. Langflow is a tool used for building and deploying AI-powered agents and workflows. The vulnerability resides in the `build_public_tmp` endpoint, which is intended to be unauthenticated for public flows. However, it incorrectly accepts attacker-supplied flow data, leading to remote code execution with full server process privileges. The vulnerability can be exploited by an unauthenticated remote attacker if the Langflow instance has at least one public flow, a common setup for demos and chatbots. Security researchers have reported that this vulnerability is actively exploited and targeted by scanning activity, making immediate patching or mitigation essential.

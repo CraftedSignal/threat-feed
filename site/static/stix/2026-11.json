@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--82d44ef0-546f-59e0-be57-f5f407699861",
+  "id": "bundle--18583b8a-c7ee-5dde-b615-a9c1011ae7c4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -15,6 +15,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1068",
           "url": "https://attack.mitre.org/techniques/T1068"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Exploitation for Client Execution",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1203",
+          "url": "https://attack.mitre.org/techniques/T1203"
         }
       ]
     },
@@ -292,6 +308,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--0c09650b-0d95-5c82-970d-c67d46c5ff37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--474aa6e0-d1ab-5d56-bba1-8b6b01649314",
+      "target_ref": "vulnerability--d6ceea77-8841-551e-9c9a-e4ecfa668bb7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--0e8cec42-5c55-5b57-b22b-3f5f50d7a8ff",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:46:38.000Z",
@@ -457,6 +484,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7193a436-1df4-5705-b57e-4b625a1b224b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e1ee4ca0-fb98-5104-8648-fc6da3fd131f",
+      "target_ref": "vulnerability--d6ceea77-8841-551e-9c9a-e4ecfa668bb7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--77b389b3-3990-5b1f-9ccf-67b68008b2a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -464,6 +502,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
       "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--78c11e5a-cd75-5f37-a8dd-6c3069295b90",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T10:58:14.000Z",
+      "modified": "2026-11-01T10:58:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d72f943-a7c1-541e-99b4-094c34345281",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -607,6 +656,17 @@
       "relationship_type": "has",
       "source_ref": "software--1baac6fe-dea0-51dd-9087-05fd6b862663",
       "target_ref": "vulnerability--c6c4e173-271f-5e6d-af77-7a5249e29460"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e6541c63-d9b5-5b4e-8814-8fc1264b5ca9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T10:58:14.000Z",
+      "modified": "2026-11-01T10:58:14.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5d72f943-a7c1-541e-99b4-094c34345281",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
     },
     {
       "type": "relationship",
@@ -1227,6 +1287,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5d72f943-a7c1-541e-99b4-094c34345281",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T10:58:14.000Z",
+      "modified": "2026-11-01T10:58:14.000Z",
+      "name": "Citrix NetScaler: AAA Service pre-authentication heap overflow (CVE-2026-8452)",
+      "description": "## Overview\nCVE-2026-8452 is a memory corruption vulnerability in the Citrix NetScaler AAA service. The flaw is a heap overflow that allows for unauthenticated remote code execution. The vulnerability is specifically reachable when the NetScaler appliance is configured to use SAML as either a Service Provider (SP) or an Identity Provider (IdP). A working exploit has been publicly disclosed, including a tool that deploys a webshell to the appliance.\n\n## Attack Chain\n1. Attacker identifies an internet-facing Citrix NetScaler appliance configured with SAML.\n2. Attacker sends a crafted request to the AAA service endpoint to trigger a heap overflow.\n3. Memory corruption allows for controlled execution flow redirection.\n4. Attacker leverages the heap overflow to execute arbitrary shellcode.\n5. Shellcode writes a PHP webshell to a predictable location (e.g., /vpn/theme/x.php).\n6. Attacker interacts with the webshell to execute arbitrary system commands with root privileges.\n\n## Impact\nSuccessful exploitation allows an unauthenticated attacker to execute arbitrary code with root privileges on the affected NetScaler appliance, potentially leading to full compromise of the device and persistent access.\n\n## Recommendation\n- Immediately patch all Citrix NetScaler ADC and Gateway instances to the versions identified by the vendor as non-vulnerable: NetScaler ADC/Gateway 13.1 (\u003e= 13.1-63.18) and 14.1 (\u003e= 14.1-72.61).\n- Review network access controls to ensure the AAA service is not unnecessarily exposed to untrusted networks.\n- Audit the web directory paths mentioned in the exploit (e.g., /vpn/theme/) for the presence of unauthorized files or scripts.\n",
+      "published": "2026-11-01T10:58:14.000Z",
+      "labels": [
+        "citrix",
+        "cve-2026-8452",
+        "heap-overflow",
+        "network",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--474aa6e0-d1ab-5d56-bba1-8b6b01649314",
+        "software--e1ee4ca0-fb98-5104-8648-fc6da3fd131f",
+        "vulnerability--d6ceea77-8841-551e-9c9a-e4ecfa668bb7"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-citrix-netscaler-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-citrix-netscaler-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-CITRIX-NETSCALER-PREAUTH-RCE-CVE-2026-8452"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-CITRIX-NETSCALER-PREAUTH-RCE-CVE-2026-8452\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-citrix-netscaler-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-01-citrix-netscaler-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-citrix-netscaler-rce/",
+      "x_craftedsignal_activity_at": "2026-11-01T10:58:14.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01011,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
@@ -1686,6 +1801,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--474aa6e0-d1ab-5d56-bba1-8b6b01649314",
+      "name": "NetScaler Gateway (\u003c 13.1-63.18, 14.1-72.61)",
+      "vendor": "Citrix"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4b405d81-0a2e-5838-b9fb-21006d03229b",
       "name": "SUSE Linux Enterprise Desktop (15 SP7)",
       "vendor": "SUSE"
@@ -1793,6 +1915,13 @@
       "id": "software--bc24f899-0a89-5ddf-9f03-cff548236344",
       "name": "FortiWeb (\u003c 7.6.4)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e1ee4ca0-fb98-5104-8648-fc6da3fd131f",
+      "name": "NetScaler ADC (\u003c 13.1-37.272, 13.1-63.18, 14.1-72.61, 14.1-66.68)",
+      "vendor": "Citrix"
     },
     {
       "type": "software",
@@ -2035,6 +2164,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-23048",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-23048"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d6ceea77-8841-551e-9c9a-e4ecfa668bb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-8452",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-8452",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8452"
         }
       ]
     },
