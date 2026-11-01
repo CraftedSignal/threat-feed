@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	cloud.google.com/go/compute/metadata v0.9.1
 	cloud.google.com/go/firestore v1.25.0
-	golang.org/x/net v0.61.0
+	golang.org/x/net v0.62.0
 	golang.org/x/sync v0.24.0
 	golang.org/x/text v0.43.0
 	google.golang.org/api v0.294.0
