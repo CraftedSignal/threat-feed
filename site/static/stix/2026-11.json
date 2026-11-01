@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ba6eee60-4d62-5998-a767-38f902161efb",
+  "id": "bundle--47f520d4-f5a9-59d4-9a37-425a760f7f08",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69,6 +69,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Unsecured Credentials",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1552",
+          "url": "https://attack.mitre.org/techniques/T1552"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -107,6 +123,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--00558f1e-e84c-5a9d-bfd0-6dcad6b0cb4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:46:38.000Z",
+      "modified": "2026-11-01T08:46:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cd646ade-7529-5caf-a595-d4ce06fadb4f",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--06fcbd37-ba66-5a5e-a709-149a2f3794de",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:45:30.000Z",
@@ -125,6 +152,17 @@
       "relationship_type": "has",
       "source_ref": "software--27b3daa3-4a5e-5b49-911e-2ddc1dbc97f7",
       "target_ref": "vulnerability--4b14660e-6f5e-5c8f-b66c-bb46713620e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0e8cec42-5c55-5b57-b22b-3f5f50d7a8ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:46:38.000Z",
+      "modified": "2026-11-01T08:46:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--cd646ade-7529-5caf-a595-d4ce06fadb4f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -202,6 +240,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1ccf0eba-2855-533e-b785-371bc5efef1f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5e5c4024-f119-5693-8014-2d939b2c8cf0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2a6b0a00-f6c8-5bb3-91d8-0124b4324bcf",
+      "target_ref": "vulnerability--02a37e8e-82c3-57cb-a4ca-81b77d3fdf6b"
     },
     {
       "type": "relationship",
@@ -941,6 +990,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--cd646ade-7529-5caf-a595-d4ce06fadb4f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:46:38.000Z",
+      "modified": "2026-11-01T08:46:38.000Z",
+      "name": "AdminNeo: Cookie attribute injection via X-Forwarded-Prefix (CVE-2026-96631)",
+      "description": "## Overview\n\nAdminNeo versions 4.6.0 through 5.5.0 are vulnerable to cookie attribute injection via the `X-Forwarded-Prefix` HTTP header. The application fails to sanitize this user-supplied header before concatenating it into the `REQUEST_URI` and subsequently using it to construct `Set-Cookie` response headers. An attacker can inject arbitrary cookie attributes, such as `Domain`, `Path`, and `SameSite`, which are then parsed and executed by the victim's browser. This flaw impacts the `neo_sid` (session ID) and `neo_key` (database password encryption key) cookies. \n\nThis issue is tracked as CVE-2026-96631.\n\n## Impact\n\nSuccessful exploitation allows for session hijacking of the `neo_sid` cookie and potential theft of the `neo_key` cookie, which is used to encrypt database credentials. An attacker can force the browser to send these cookies to an attacker-controlled domain by injecting a `Domain` attribute (e.g., `Domain=.evil.com`).\n\n## Recommendation\n\n- Upgrade to AdminNeo version 5.5.1 or later immediately.\n- If immediate patching is not possible, modify the reverse proxy configuration to strip the `X-Forwarded-Prefix` header from client requests or force it to a static, trusted value.\n- Implement a WAF rule to block HTTP requests containing semicolons or other metacharacters in the `X-Forwarded-Prefix` header.\n",
+      "published": "2026-11-01T08:46:38.000Z",
+      "labels": [
+        "cookie-injection",
+        "cve",
+        "web-vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2a6b0a00-f6c8-5bb3-91d8-0124b4324bcf",
+        "vulnerability--02a37e8e-82c3-57cb-a4ca-81b77d3fdf6b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-adminneo-cookie-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-adminneo-cookie-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-79wv-8rh2-9vp2"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/vrana/adminer/security/advisories/GHSA-c533-9qwm-8w5h"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-adminneo-cookie-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-01-adminneo-cookie-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-adminneo-cookie-injection/",
+      "x_craftedsignal_activity_at": "2026-11-01T08:46:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T04:55:53.000Z",
@@ -1154,6 +1253,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2a6b0a00-f6c8-5bb3-91d8-0124b4324bcf",
+      "name": "AdminNeo (\u003e= 4.6.0, \u003c 5.5.1)",
+      "vendor": "AdminNeo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
       "name": "Nessus Plugin (\u003c #202610282338)",
       "vendor": "Tenable"
@@ -1296,6 +1402,22 @@
       "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
       "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--02a37e8e-82c3-57cb-a4ca-81b77d3fdf6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-96631",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-96631",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96631"
+        }
+      ]
     },
     {
       "type": "vulnerability",
