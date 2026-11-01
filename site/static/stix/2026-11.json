@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c91fa622-0b1d-509b-b340-19b512beffe7",
+  "id": "bundle--524b8d16-d8a3-5587-ad93-22ffd9e0f647",
   "objects": [
     {
       "type": "attack-pattern",
@@ -260,6 +260,17 @@
       "pattern": "[file:hashes.'SHA-256' = '075f3b5e97242573d32a1b7612672a438b3b24c8fa718e3967305bd65e6151e1']",
       "pattern_type": "stix",
       "valid_from": "2026-11-01T02:45:30.000Z"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--0021ea23-e684-5e09-9434-fdae44826e79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0c0e72d4-6099-59e0-a789-5cadb500f4bc",
+      "target_ref": "vulnerability--114868b6-d40d-591d-b091-569fb4feff5a"
     },
     {
       "type": "relationship",
@@ -689,6 +700,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ef0cae5-66d1-55be-89ee-d3a80845eca5",
       "target_ref": "vulnerability--9df949ea-2305-5504-8391-3094921b321c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b07fa8f2-3e97-5524-b6d8-7581000dcf96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:09:55.000Z",
+      "modified": "2026-11-01T20:09:55.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--be3a94b4-dcd9-56e3-984a-67b58b963372",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -1977,6 +1999,59 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--be3a94b4-dcd9-56e3-984a-67b58b963372",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:09:55.000Z",
+      "modified": "2026-11-01T20:09:55.000Z",
+      "name": "Gitea: Archived repository metadata authorization bypass (CVE-2026-116296)",
+      "description": "## Overview\nGitea repositories configured as \"archived\" are intended to be permanently read-only. However, due to a missing authorization check (CWE-862) in the API middleware, users with write-collaborator access can bypass these restrictions. While previous security patches (PR #39839) secured Issues and Wikis, the API routes for Milestones, Releases, and Labels remained unprotected. This vulnerability is fixed in Gitea v28.2.1.\n\n## Impact\nUsers with write-collaborator privileges can tamper with historical project data, including deleting or modifying milestones and releases, which compromises the integrity of repositories intended to serve as audit-grade snapshots.\n\n## Recommendation\n- Upgrade all Gitea instances running versions \u003c= v28.2.0 to v28.2.1 or later.\n- Audit logs for API write activity on repositories marked as archived to identify potential unauthorized modifications.\n",
+      "published": "2026-11-01T20:09:55.000Z",
+      "labels": [
+        "authorization-bypass",
+        "cve-2026-116296",
+        "webserver"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0c0e72d4-6099-59e0-a789-5cadb500f4bc",
+        "vulnerability--114868b6-d40d-591d-b091-569fb4feff5a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-gitea-archived-repo-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-gitea-archived-repo-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/go-gitea/gitea/security/advisories/GHSA-6h2f-c8jm-84hc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=30B5F992-F9A7-5310-8FA7-953D5ACF6CE8"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=30B5F992-F9A7-5310-8FA7-953D5ACF6CE8\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-gitea-archived-repo-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-01-gitea-archived-repo-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-gitea-archived-repo-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-01T20:09:55.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -2385,6 +2460,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0c0e72d4-6099-59e0-a789-5cadb500f4bc",
+      "name": "Gitea (\u003c= v28.2.0)",
+      "vendor": "Gitea"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--13b2c977-aaac-58a8-b99a-ddd1c3560b3c",
       "name": "FortiWeb (\u003c 7.4.8)",
       "vendor": "Fortinet"
@@ -2752,6 +2834,22 @@
           "source_name": "cve",
           "external_id": "CVE-2022-36532",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36532"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--114868b6-d40d-591d-b091-569fb4feff5a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-116296",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-116296",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116296"
         }
       ]
     },
