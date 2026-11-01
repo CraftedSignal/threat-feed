@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-10-31-lxd-authentication-bypass
 event_id: brief-2026-10-31-lxd-authentication-bypass
-revision: 1
-activity_at: "2026-10-31T18:40:10Z"
+revision: 2
+activity_at: "2026-11-01T09:59:15Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-01T09:59:15Z"
+    checksum: sha256:03d244647aa44605c7b782ce802d34959b82938ac9bc9318de68da355b07cc80
+    summary: OS linux
+    changed_fields:
+      - affected_os
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html
 title: 'Canonical LXD and MicroCloud: Authentication bypass (CVE-2026-112816)'
 slug: 2026-10-lxd-authentication-bypass
 description: An authentication bypass vulnerability (CVE-2026-112816) in the Canonical LXD HTTPS interface allows attackers to impersonate trusted clients via crafted TLS certificate chains, granting unauthorized control over clusters, containers, and host systems.
 date: "2026-10-31T18:40:10Z"
+lastmod: "2026-11-01T09:58:41Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -35,6 +51,7 @@ products:
   - MicroCloud (< 2.1.5/3.4.1)
 affected_os:
   - Ubuntu
+  - Linux
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -50,11 +67,13 @@ mitre_ttps:
     confidence_band: high
 cves:
   - id: CVE-2026-112816
+    epss: 0.00303
     kev_status: "false"
 references:
   - https://ubuntu.com/security/CVE-2026-112816
   - https://sploitus.com/exploit?id=3306F82C-C708-5D34-9D91-84D815CF7BB6
   - https://sploitus.com/exploit?id=3306F82C-C708-5D34-9D91-84D815CF7BB6&utm_source=rss&utm_medium=rss
+  - https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html
 action_plan:
   priority: immediate_escalation
   owners:
@@ -83,6 +102,14 @@ action_plan:
       evidence: Canonical minimum safe version thresholds
   gaps:
     - Lack of specific SIEM correlation rule for this authentication bypass pattern
+updates:
+  - at: "2026-11-01T09:58:41Z"
+    level: L1
+    summary: OS linux
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html
 ---
 
 CVE-2026-112816 is a critical vulnerability in the Canonical LXD HTTPS interface caused by improper validation of client TLS certificate chains. An attacker with network access to the LXD API can craft a certificate chain that mimics a trusted client, effectively bypassing authentication. This vulnerability impacts both LXD and MicroCloud environments. Canonical has released patches for multiple stable release tracks as of October 29, 2026.

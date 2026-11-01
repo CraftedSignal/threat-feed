@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f676ab60-a3f3-528b-8a52-0c5efd8efa7c",
+  "id": "bundle--814bf56a-eb5b-511d-8ab7-d035e529aaea",
   "objects": [
     {
       "type": "attack-pattern",
@@ -12215,7 +12215,7 @@
       "id": "relationship--13b5ed4d-3933-5ae7-a2df-018ab02ce50f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T18:40:10.000Z",
-      "modified": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-11-01T09:59:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -45325,7 +45325,7 @@
       "id": "relationship--7f16cbcd-0a5c-538e-bd08-a8c02f25d8e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T18:40:10.000Z",
-      "modified": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-11-01T09:59:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
@@ -192506,7 +192506,7 @@
       "id": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T18:40:10.000Z",
-      "modified": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-11-01T09:59:15.000Z",
       "name": "Canonical LXD and MicroCloud: Authentication bypass (CVE-2026-112816)",
       "description": "## Overview\n\nCVE-2026-112816 is a critical vulnerability in the Canonical LXD HTTPS interface caused by improper validation of client TLS certificate chains. An attacker with network access to the LXD API can craft a certificate chain that mimics a trusted client, effectively bypassing authentication. This vulnerability impacts both LXD and MicroCloud environments. Canonical has released patches for multiple stable release tracks as of October 29, 2026.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to gain control over the LXD/MicroCloud cluster, managed containers, virtual machines, and the underlying host system.\n\n## Recommendation\n\n1. Audit all systems running Canonical LXD or MicroCloud to identify versions currently below the minimum safe thresholds: LXD (4.0.15, 5.0.11, 5.21.9, 6.10.1) and MicroCloud (2.1.5, 3.4.1).\n2. Plan a maintenance window for patching, as `snap refresh` operations may restart services and cause temporary disruption to container or VM workloads.\n3. Restrict network access to the LXD HTTPS API to only authorized management subnets and trusted administrative clients using firewall or network security group policies.\n4. Perform post-patching validation by verifying package versions and ensuring cluster service health.\n5. Prior to patching, perform an investigation of LXD audit logs for signs of unauthorized API access or anomalous client certificate usage.\n",
       "published": "2026-10-31T18:40:10.000Z",
@@ -192541,20 +192541,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://ubuntu.com/security/CVE-2026-112816"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-31-lxd-authentication-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-31-lxd-authentication-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lxd-authentication-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-31T18:40:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-01T09:59:15.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00303,
       "x_craftedsignal_kev_status": "false"
     },
     {

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c2a5d4ee-60c9-5b2f-8003-7dc1d6d5cef2",
+  "id": "bundle--e27e4b78-c7ce-5188-be4f-f13177cfc6b8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11944,7 +11944,7 @@
       "id": "relationship--13b5ed4d-3933-5ae7-a2df-018ab02ce50f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T18:40:10.000Z",
-      "modified": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-11-01T09:59:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -23014,6 +23014,17 @@
       "relationship_type": "uses",
       "source_ref": "report--1ece9fbe-195a-5d2a-9b0c-1874615e6210",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3afdb744-f6d3-5103-b844-f8a029c6f99d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
+      "target_ref": "vulnerability--cd4f7263-d577-5b40-9f89-76dcc240e75a"
     },
     {
       "type": "relationship",
@@ -43888,7 +43899,7 @@
       "id": "relationship--7f16cbcd-0a5c-538e-bd08-a8c02f25d8e3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T18:40:10.000Z",
-      "modified": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-11-01T09:59:15.000Z",
       "relationship_type": "uses",
       "source_ref": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
@@ -46466,6 +46477,17 @@
       "relationship_type": "uses",
       "source_ref": "report--aff3b2c4-866f-5f85-887f-d5e57dd0833d",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--871cde6e-0551-57bc-a507-e5d35af9edd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T09:58:38.000Z",
+      "modified": "2026-11-01T09:58:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4b6cb576-d2c1-5892-935b-a4e0c4b911df",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -113739,6 +113761,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4b6cb576-d2c1-5892-935b-a4e0c4b911df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T09:58:38.000Z",
+      "modified": "2026-11-01T09:58:38.000Z",
+      "name": "Apache HTTP Server: TLS 1.3 Session Resumption Authentication Bypass (CVE-2025-23048)",
+      "description": "## Overview\nApache HTTP Server versions 2.4.35 through 2.4.62 are vulnerable to a client certificate authentication bypass (CVE-2025-23048) when TLS 1.3 session resumption is enabled. The vulnerability occurs because the server may incorrectly reuse a session established on one virtual host (vhost1) for a different virtual host (vhost2) that requires a distinct client CA certificate. This allows an attacker possessing a valid certificate for vhost1 to access protected resources on vhost2 without providing a certificate trusted by vhost2.\n\n## Attack Chain\n1. Attacker identifies two virtual hosts on a target Apache server configured with differing `SSLCACertificateFile` directives.\n2. Attacker performs a full TLS 1.3 handshake with the first virtual host using a valid client certificate trusted by that specific host.\n3. The Apache server accepts the handshake and issues a session ticket.\n4. Attacker captures the session ticket or maintains the session state.\n5. Attacker initiates a connection to the second virtual host (vhost2) requesting a restricted path.\n6. Attacker uses the session ticket from vhost1 to resume the TLS session on vhost2.\n7. Apache incorrectly validates the resumed session, bypassing the client certificate check required for vhost2.\n8. Attacker gains unauthorized access to protected resources on vhost2.\n\n## Recommendation\n- Upgrade Apache HTTP Server to version 2.4.64 or later to address the vulnerability.\n- If upgrading is not immediately possible, set `SSLStrictSNIVHostCheck on` within the virtual host configuration for all TLS 1.3 enabled hosts that rely on distinct client certificate authorities. This setting prevents cross-SNI session resumption and mitigates the bypass.\n",
+      "published": "2026-11-01T09:58:38.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
+        "vulnerability--cd4f7263-d577-5b40-9f89-76dcc240e75a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-cve-2025-23048",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-23048/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABSHOLI7LY-CVE-2025-23048-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABSHOLI7LY-CVE-2025-23048-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-cve-2025-23048",
+      "x_craftedsignal_event_id": "brief-2026-11-01-cve-2025-23048",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-23048/",
+      "x_craftedsignal_activity_at": "2026-11-01T09:58:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.0104,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -185089,7 +185157,7 @@
       "id": "report--f5c8a868-b751-5c29-8ecd-0cddac6ab3d4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T18:40:10.000Z",
-      "modified": "2026-10-31T18:40:10.000Z",
+      "modified": "2026-11-01T09:59:15.000Z",
       "name": "Canonical LXD and MicroCloud: Authentication bypass (CVE-2026-112816)",
       "description": "## Overview\n\nCVE-2026-112816 is a critical vulnerability in the Canonical LXD HTTPS interface caused by improper validation of client TLS certificate chains. An attacker with network access to the LXD API can craft a certificate chain that mimics a trusted client, effectively bypassing authentication. This vulnerability impacts both LXD and MicroCloud environments. Canonical has released patches for multiple stable release tracks as of October 29, 2026.\n\n## Impact\n\nSuccessful exploitation allows an unauthenticated attacker to gain control over the LXD/MicroCloud cluster, managed containers, virtual machines, and the underlying host system.\n\n## Recommendation\n\n1. Audit all systems running Canonical LXD or MicroCloud to identify versions currently below the minimum safe thresholds: LXD (4.0.15, 5.0.11, 5.21.9, 6.10.1) and MicroCloud (2.1.5, 3.4.1).\n2. Plan a maintenance window for patching, as `snap refresh` operations may restart services and cause temporary disruption to container or VM workloads.\n3. Restrict network access to the LXD HTTPS API to only authorized management subnets and trusted administrative clients using firewall or network security group policies.\n4. Perform post-patching validation by verifying package versions and ensuring cluster service health.\n5. Prior to patching, perform an investigation of LXD audit logs for signs of unauthorized API access or anomalous client certificate usage.\n",
       "published": "2026-10-31T18:40:10.000Z",
@@ -185124,20 +185192,25 @@
         },
         {
           "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html"
+        },
+        {
+          "source_name": "reference",
           "url": "https://ubuntu.com/security/CVE-2026-112816"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-31-lxd-authentication-bypass",
       "x_craftedsignal_event_id": "brief-2026-10-31-lxd-authentication-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-lxd-authentication-bypass/",
-      "x_craftedsignal_activity_at": "2026-10-31T18:40:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-01T09:59:15.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
+      "x_craftedsignal_epss_max": 0.00303,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -206664,6 +206737,13 @@
       "id": "software--e9df1280-dbdd-5ea5-89aa-06c06d2a3954",
       "name": "loopx (\u003e= 0.0.1, \u003c 0.4.5)",
       "vendor": "LoopX"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
+      "name": "Apache HTTP Server (2.4.35-2.4.62)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -237526,6 +237606,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-89282",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89282"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cd4f7263-d577-5b40-9f89-76dcc240e75a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-23048",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-23048",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-23048"
         }
       ]
     },

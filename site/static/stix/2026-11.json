@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c86187ad-1308-5e3f-8f4d-6da9f1b35a0f",
+  "id": "bundle--82d44ef0-546f-59e0-be57-f5f407699861",
   "objects": [
     {
       "type": "attack-pattern",
@@ -358,6 +358,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3afdb744-f6d3-5103-b844-f8a029c6f99d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
+      "target_ref": "vulnerability--cd4f7263-d577-5b40-9f89-76dcc240e75a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d35aed1-b7c6-504a-9ac2-9437e3716ae5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T07:59:11.000Z",
@@ -463,6 +474,17 @@
       "modified": "2026-11-01T07:59:20.000Z",
       "relationship_type": "uses",
       "source_ref": "report--2cbb5353-8510-5511-b4cb-0072faff7f52",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--871cde6e-0551-57bc-a507-e5d35af9edd2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T09:58:38.000Z",
+      "modified": "2026-11-01T09:58:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--4b6cb576-d2c1-5892-935b-a4e0c4b911df",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -1068,6 +1090,52 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--4b6cb576-d2c1-5892-935b-a4e0c4b911df",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T09:58:38.000Z",
+      "modified": "2026-11-01T09:58:38.000Z",
+      "name": "Apache HTTP Server: TLS 1.3 Session Resumption Authentication Bypass (CVE-2025-23048)",
+      "description": "## Overview\nApache HTTP Server versions 2.4.35 through 2.4.62 are vulnerable to a client certificate authentication bypass (CVE-2025-23048) when TLS 1.3 session resumption is enabled. The vulnerability occurs because the server may incorrectly reuse a session established on one virtual host (vhost1) for a different virtual host (vhost2) that requires a distinct client CA certificate. This allows an attacker possessing a valid certificate for vhost1 to access protected resources on vhost2 without providing a certificate trusted by vhost2.\n\n## Attack Chain\n1. Attacker identifies two virtual hosts on a target Apache server configured with differing `SSLCACertificateFile` directives.\n2. Attacker performs a full TLS 1.3 handshake with the first virtual host using a valid client certificate trusted by that specific host.\n3. The Apache server accepts the handshake and issues a session ticket.\n4. Attacker captures the session ticket or maintains the session state.\n5. Attacker initiates a connection to the second virtual host (vhost2) requesting a restricted path.\n6. Attacker uses the session ticket from vhost1 to resume the TLS session on vhost2.\n7. Apache incorrectly validates the resumed session, bypassing the client certificate check required for vhost2.\n8. Attacker gains unauthorized access to protected resources on vhost2.\n\n## Recommendation\n- Upgrade Apache HTTP Server to version 2.4.64 or later to address the vulnerability.\n- If upgrading is not immediately possible, set `SSLStrictSNIVHostCheck on` within the virtual host configuration for all TLS 1.3 enabled hosts that rely on distinct client certificate authorities. This setting prevents cross-SNI session resumption and mitigates the bypass.\n",
+      "published": "2026-11-01T09:58:38.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
+        "vulnerability--cd4f7263-d577-5b40-9f89-76dcc240e75a"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-cve-2025-23048",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-23048/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABSHOLI7LY-CVE-2025-23048-POC"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-ABSHOLI7LY-CVE-2025-23048-POC\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-cve-2025-23048",
+      "x_craftedsignal_event_id": "brief-2026-11-01-cve-2025-23048",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-23048/",
+      "x_craftedsignal_activity_at": "2026-11-01T09:58:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_epss_max": 0.0104,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -1743,6 +1811,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
+      "name": "Apache HTTP Server (2.4.35-2.4.62)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f3d02ec6-a63e-50d9-981f-24bb7f3615b3",
       "name": "Terraform"
     },
@@ -1944,6 +2019,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-32945",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32945"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--cd4f7263-d577-5b40-9f89-76dcc240e75a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-23048",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-23048",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-23048"
         }
       ]
     },
