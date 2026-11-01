@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--aebe5f82-46df-5b1a-96e1-abdf4fb43260",
+  "id": "bundle--b4f24a2c-95c8-510b-a357-00632895be33",
   "objects": [
     {
       "type": "attack-pattern",
@@ -70878,6 +70878,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--dae0a2f4-5598-5c04-80ee-8e85067f130b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--be9a3735-3ca4-51ad-85f3-9da753ab46d4",
+      "target_ref": "vulnerability--0bcbbec2-d1c4-577d-902e-3a3ce14e4f44"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--dae1dab0-7be9-5ba9-9593-67bb24b2a28a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -95589,6 +95600,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--21901532-4574-5159-9614-aedbe623f923",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T17:06:41.000Z",
+      "modified": "2026-11-01T17:06:41.000Z",
+      "name": "Bolt CMS: Authenticated Remote Code Execution via File Manager (CVE-2022-36532)",
+      "description": "A proof-of-concept exploit is available for CVE-2022-36532, which affects Bolt CMS versions 5.1.12 and earlier. The vulnerability allows an authenticated user with access to the file manager to achieve remote code execution. The attack involves uploading a malicious file through the asynchronous upload endpoint - where file extension restrictions are not properly enforced - and subsequently using parameter confusion during a rename operation to convert the file into an executable PHP script.\n",
+      "published": "2026-11-01T17:06:41.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--be9a3735-3ca4-51ad-85f3-9da753ab46d4",
+        "vulnerability--0bcbbec2-d1c4-577d-902e-3a3ce14e4f44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-bolt-cms-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bolt-cms-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=36A48758-9360-5C79-B7F3-FFB060F50077"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=36A48758-9360-5C79-B7F3-FFB060F50077\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-bolt-cms-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-01-bolt-cms-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bolt-cms-rce/",
+      "x_craftedsignal_activity_at": "2026-11-01T17:06:41.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_epss_max": 0.24314,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -201256,6 +201312,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--be9a3735-3ca4-51ad-85f3-9da753ab46d4",
+      "name": "Bolt CMS (\u003c= 5.1.12)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bed0c807-648a-5208-a658-69e8d928cfa8",
       "name": "Argo CD (= 3.6.0-rc1)",
       "vendor": "Argo Project"
@@ -207400,6 +207462,22 @@
           "source_name": "cve",
           "external_id": "CVE-2020-37282",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-37282"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0bcbbec2-d1c4-577d-902e-3a3ce14e4f44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2022-36532",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2022-36532",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36532"
         }
       ]
     },
