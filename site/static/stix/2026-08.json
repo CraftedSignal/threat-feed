@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f8a971bf-b98b-591b-a918-738b0296bc91",
+  "id": "bundle--66457ab6-bdcb-5253-b028-ac8d78c91582",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1301,22 +1301,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Hide Artifacts",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1564",
-          "url": "https://attack.mitre.org/techniques/T1564"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--78e9680c-6237-58ae-9fbc-cc54d6a2ebad",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2501,22 +2485,6 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
-      "id": "attack-pattern--f198ff96-24d2-5e63-a16c-7bd8ef92750c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "System Network Configuration Discovery",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1016",
-          "url": "https://attack.mitre.org/techniques/T1016"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
       "id": "attack-pattern--f9bf9f66-f30f-5b4c-bc19-519de8cec1f6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2690,19 +2658,6 @@
       "pattern": "[ipv4-addr:value = '87.249.138.34']",
       "pattern_type": "stix",
       "valid_from": "2026-08-03T13:04:50.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--2203d158-1dab-53c4-a5cd-694d3b0c5d02",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:16.000Z",
-      "modified": "2026-08-03T11:53:16.000Z",
-      "name": "domain: ipinfo.io",
-      "description": "Public IP discovery service",
-      "pattern": "[domain-name:value = 'ipinfo.io']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-03T11:53:16.000Z"
     },
     {
       "type": "indicator",
@@ -12063,17 +12018,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--3222edf7-c469-52b2-afbe-f1167f6deebd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:26.000Z",
-      "modified": "2026-08-03T11:53:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bc0d1130-cdba-5387-a905-d23c7111b288",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--3226426e-3507-5164-b6a1-937d3ea35b1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -13126,17 +13070,6 @@
       "relationship_type": "has",
       "source_ref": "software--a646b82d-24a2-5842-ac50-754d586b4d32",
       "target_ref": "vulnerability--86b653bc-8a28-5acb-a603-3812fb806fdc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--38ecd4ff-b7c5-5c9f-83c7-3dbaf97876de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:59:30.000Z",
-      "modified": "2026-08-05T11:15:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f9abfc6e-59e8-50c7-8999-5031dfd7be83",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -15029,17 +14962,6 @@
       "relationship_type": "has",
       "source_ref": "software--bebcedb2-363e-5702-83f7-8f9bb6582185",
       "target_ref": "vulnerability--cab2f720-746e-521e-89e4-feb9da3c62a0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--43865d33-d5ee-5694-ac23-e492fb2ee0f3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:43.000Z",
-      "modified": "2026-08-03T11:58:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6927d931-0535-590b-a815-c900b065e649",
-      "target_ref": "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473"
     },
     {
       "type": "relationship",
@@ -20764,17 +20686,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--675aaf88-9972-51ce-9860-963074619ae1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:59:16.000Z",
-      "modified": "2026-08-03T11:59:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--090ef131-1770-5180-b6d1-6ab2ff2bbf6c",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--675ef7d0-cc13-5c15-95ef-6e78b70dbf82",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T18:55:53.000Z",
@@ -22366,17 +22277,6 @@
       "relationship_type": "uses",
       "source_ref": "report--74490ac3-e9f6-5790-81b0-3d7296062afe",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--720ea264-028a-514c-947a-8ff3b4bef62b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:59:30.000Z",
-      "modified": "2026-08-05T11:15:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f9abfc6e-59e8-50c7-8999-5031dfd7be83",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -27298,17 +27198,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8f3d344a-7fa2-5787-9fab-701f821079b0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:57.000Z",
-      "modified": "2026-08-03T11:58:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--82d9aaa0-cdf7-5dca-967e-36a4ecaeeb30",
-      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--8f5244c2-0bd8-5c02-b3f5-493f5548f9a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-12T18:23:48.000Z",
@@ -29520,17 +29409,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9c640f6e-beb9-569d-9a84-bd65069d0b3a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:16.000Z",
-      "modified": "2026-08-03T11:53:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e1014da4-d0c8-5482-9b56-1cc9bd31ec55",
-      "target_ref": "indicator--2203d158-1dab-53c4-a5cd-694d3b0c5d02"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9c6e0fca-25b0-525e-9e57-1a4d39205196",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-10T21:35:57.000Z",
@@ -29912,17 +29790,6 @@
       "relationship_type": "has",
       "source_ref": "software--e2cdd3f7-b896-5cc5-8dca-50c7cfdf441c",
       "target_ref": "vulnerability--1dd46f99-ce32-5963-bc1f-9ee3990c3d6a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--9e0b5427-4616-58c0-80ec-c1d677df675e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:43.000Z",
-      "modified": "2026-08-03T11:58:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6927d931-0535-590b-a815-c900b065e649",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -33315,17 +33182,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b347a88a-bdc4-559b-85b1-c0db30864ca4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:50.000Z",
-      "modified": "2026-08-03T11:58:50.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--86ded518-e807-5850-9bd8-dbbe315995fd",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b34a8b9e-341e-5ddf-8760-eb5f6b7b08ee",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:16:47.000Z",
@@ -33729,17 +33585,6 @@
       "relationship_type": "has",
       "source_ref": "software--a91f7d2e-2a0a-5289-9e6f-e7124caa005e",
       "target_ref": "vulnerability--742ac280-b954-5758-8607-bb3bd4c3d3bd"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--b6076c83-8012-52b2-a0e7-5506d38dbb5a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:16.000Z",
-      "modified": "2026-08-03T11:53:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--e1014da4-d0c8-5482-9b56-1cc9bd31ec55",
-      "target_ref": "attack-pattern--f198ff96-24d2-5e63-a16c-7bd8ef92750c"
     },
     {
       "type": "relationship",
@@ -34708,17 +34553,6 @@
       "relationship_type": "has",
       "source_ref": "software--c58376de-3ffc-5018-87e8-4e45293362c7",
       "target_ref": "vulnerability--a6c9a31f-4f9b-5a20-91f8-2058060270dc"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bcb46fbf-5603-564b-90f1-a03455471602",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:59:16.000Z",
-      "modified": "2026-08-03T11:59:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--090ef131-1770-5180-b6d1-6ab2ff2bbf6c",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -40102,17 +39936,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ddda7680-13b1-5e7b-b75c-5ef774fc6efc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:26.000Z",
-      "modified": "2026-08-03T11:53:26.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--bc0d1130-cdba-5387-a905-d23c7111b288",
-      "target_ref": "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--dddde520-4db4-51cf-a560-213df284f7a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T11:39:31.000Z",
@@ -44150,17 +43973,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--f72586ea-8477-5aa9-a7fd-a4ab98f49f1a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:57.000Z",
-      "modified": "2026-08-03T11:58:57.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--82d9aaa0-cdf7-5dca-967e-36a4ecaeeb30",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--f738c5e8-b56c-5d61-8a66-bce634d64637",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-17T12:46:09.000Z",
@@ -44201,17 +44013,6 @@
       "relationship_type": "has",
       "source_ref": "software--703d730b-8301-5fc8-aeb2-ec39c410cfc4",
       "target_ref": "vulnerability--fb52ec2a-f21b-5679-b20b-1f7585bc8973"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f7814439-9775-540e-9aca-df2f16993c0e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T12:01:08.000Z",
-      "modified": "2026-08-03T12:01:08.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5a009360-6419-53a4-b89b-168851962b57",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -47754,51 +47555,6 @@
       },
       "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_epss_max": 0.00382,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--090ef131-1770-5180-b6d1-6ab2ff2bbf6c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:59:16.000Z",
-      "modified": "2026-08-03T11:59:16.000Z",
-      "name": "Multiple Vulnerabilities in Red Hat Ansible Automation Platform",
-      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities identified in the Red Hat Ansible Automation Platform. These security flaws permit a remote, unauthenticated attacker to perform unauthorized actions, including the execution of arbitrary code on the affected system or the manipulation of information displayed to platform users. The platform is widely used for enterprise-grade IT automation and orchestration, making the potential for remote code execution a high-risk scenario for infrastructure management. As the source material describes these as security vulnerabilities requiring remediation rather than detailing specific exploitation incidents, organizations should prioritize updating to the latest secure versions provided by Red Hat to mitigate these risks.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities could grant an attacker complete control over the automation platform, leading to potential unauthorized access to managed infrastructure, credential theft, and operational disruption. The number of affected deployments and current exploitation status remain undefined in the advisory, but the nature of the vulnerabilities poses a significant risk to organizations relying on Ansible for administrative tasks.\n\n## Recommendation\n\n- Monitor the Red Hat Customer Portal for specific version release notes and security patches associated with this advisory.\n- Review the official Red Hat security guidance to determine if specific Ansible components within your environment are exposed.\n- Audit access logs for the Ansible Automation Platform web interface and API for suspicious, unauthorized, or malformed requests that could indicate exploitation attempts.\n",
-      "published": "2026-08-03T11:59:16.000Z",
-      "labels": [
-        "enterprise-automation",
-        "remote-code-execution",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--9661a519-5a1e-5aa6-b930-42864ad4229b"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-ansible-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-ansible-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2023-2266"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-ansible-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-03-ansible-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-ansible-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-08-03T11:59:16.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -65776,45 +65532,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5a009360-6419-53a4-b89b-168851962b57",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T12:01:08.000Z",
-      "modified": "2026-08-03T12:01:08.000Z",
-      "name": "Apache HttpComponents Denial of Service Vulnerability",
-      "description": "## Overview\n\nThe BSI (Bundesamt für Sicherheit in der Informationstechnik) has released an advisory regarding a security vulnerability in Apache HttpComponents. This vulnerability allows an unauthenticated, remote attacker to perform a Denial of Service (DoS) attack against applications utilizing the library. By sending specially crafted requests, an attacker can impact the availability of the target service. The scope includes all applications integrated with the affected Apache HttpComponents versions. Given the library's widespread use in Java-based enterprise infrastructure, organizations should audit their software supply chain to identify and update dependencies to the latest patched version to prevent service disruption.\n\n## Impact\n\nSuccessful exploitation results in a Denial of Service, causing application instability or complete service outage. This impacts any sector relying on Java-based services that use Apache HttpComponents for network communication, potentially leading to significant operational downtime for enterprise applications and internal services.\n\n## Recommendation\n\nPrioritized, concrete actions for detection engineering and security teams:\n* Audit software bill of materials (SBOM) and application dependencies to identify the use of vulnerable versions of Apache HttpComponents.\n* Apply vendor-provided patches or security updates to all identified instances of Apache HttpComponents immediately.\n* Monitor web server logs and application gateways for abnormal spikes in resource consumption or specific error codes indicative of DoS attempts until patching is complete.\n",
-      "published": "2026-08-03T12:01:08.000Z",
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--d90e72de-dcd4-57ae-8bfc-30e6c30b20f9"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-apache-httpcomponents-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-apache-httpcomponents-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1039"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-apache-httpcomponents-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-03-apache-httpcomponents-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-apache-httpcomponents-dos/",
-      "x_craftedsignal_activity_at": "2026-08-03T12:01:08.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--5a291dae-c984-5688-9b2d-395af88b8093",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-29T16:46:34.000Z",
@@ -70670,46 +70387,6 @@
       },
       "x_craftedsignal_cvss_max": 2.8,
       "x_craftedsignal_epss_max": 0.00135,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--6927d931-0535-590b-a815-c900b065e649",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:43.000Z",
-      "modified": "2026-08-03T11:58:43.000Z",
-      "name": "Multiple Vulnerabilities in pgAdmin",
-      "description": "## Overview\n\nThe BSI has released an advisory regarding multiple critical vulnerabilities in pgAdmin, the popular open-source management tool for PostgreSQL. The identified flaws enable a wide range of malicious activities, including Remote Code Execution (RCE), SQL injection, security control bypass, sensitive information disclosure, and unauthorized data manipulation. These vulnerabilities are significant as pgAdmin is commonly deployed in administrative environments where compromise can lead to full database takeover. Security teams should prioritize patching or upgrading to the latest version of pgAdmin to mitigate these risks. While the advisory notes the potential for code execution and data manipulation, specific CVE identifiers were not provided in the source report, necessitating close monitoring of the vendor's release notes for specific version updates and remediation steps.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities can result in total compromise of the database management interface, potential lateral movement into the underlying host system via RCE, and the exposure or permanent loss of sensitive business data stored within managed PostgreSQL instances. Given the administrative nature of the target software, these vulnerabilities present a high risk for organizations relying on pgAdmin for infrastructure management.\n\n## Recommendation\n\n* Monitor official vendor channels for the release of security patches or updated versions of pgAdmin to address these vulnerabilities.\n* Audit current pgAdmin deployments to ensure they are restricted to trusted network segments and are not exposed to the public internet.\n* Review administrative access logs for unusual queries or unauthorized connections to the pgAdmin interface.\n* Implement egress filtering to limit the impact of a potential RCE event where the pgAdmin server might attempt to reach out to attacker-controlled infrastructure.\n",
-      "published": "2026-08-03T11:58:43.000Z",
-      "object_refs": [
-        "attack-pattern--bea84da1-fe85-5fa2-a60d-90c3c86b9473",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--645ac78d-fed9-5692-8ed3-b83d3006ac08"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-pgadmin-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-pgadmin-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2613"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-pgadmin-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-03-pgadmin-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-pgadmin-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-08-03T11:58:43.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -76750,51 +76427,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--82d9aaa0-cdf7-5dca-967e-36a4ecaeeb30",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:57.000Z",
-      "modified": "2026-08-03T11:58:57.000Z",
-      "name": "Multiple Vulnerabilities in cPanel/WHM",
-      "description": "## Overview\n\nThe German Federal Office for Information Security (BSI) has reported multiple security vulnerabilities affecting cPanel/WHM installations. These flaws enable an unauthenticated or low-privileged attacker to perform arbitrary file manipulation and gain elevated privileges on the underlying host. Successful exploitation of these vulnerabilities may allow the execution of arbitrary code with administrative privileges. Given the nature of cPanel as a web hosting control panel, which typically runs with root-level access to manage system services and user accounts, these vulnerabilities represent a significant risk to the integrity and confidentiality of the host environment. Defenders should prioritize patching and monitoring for unauthorized file system modifications within the cPanel/WHM directories.\n\n## Impact\n\nSuccessful exploitation allows attackers to gain full administrative control over the cPanel/WHM server. This results in complete compromise of all hosted websites, databases, email services, and server configuration settings. Impacted sectors include web hosting providers and organizations managing their own web infrastructure.\n\n## Recommendation\n\n- Monitor file integrity for critical cPanel configuration and binary paths.\n- Review all system access logs for signs of privilege escalation or unusual administrative commands executed via the cPanel web interface.\n- Apply the latest security updates provided by cPanel LLC immediately to remediate the identified vulnerabilities.\n",
-      "published": "2026-08-03T11:58:57.000Z",
-      "labels": [
-        "cpanel",
-        "vulnerability",
-        "web-hosting"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c0ef78d4-1cdf-5306-9120-220f2e704a43"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-cpanel-vulnerabilities",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cpanel-vulnerabilities/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2611"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-cpanel-vulnerabilities",
-      "x_craftedsignal_event_id": "brief-2026-08-03-cpanel-vulnerabilities",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cpanel-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-08-03T11:58:57.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--8325bd8f-d067-594f-b6f9-92dfdb00afc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-24T16:02:26.000Z",
@@ -77718,50 +77350,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--86ded518-e807-5850-9bd8-dbbe315995fd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:58:50.000Z",
-      "modified": "2026-08-03T11:58:50.000Z",
-      "name": "Critical RCE and Information Disclosure Vulnerability in Gitea",
-      "description": "## Overview\n\nGitea has been identified with a critical security vulnerability that exposes affected instances to remote, unauthenticated exploitation. An attacker can leverage this flaw to execute arbitrary code with the privileges of the Gitea application service and perform unauthorized information disclosure. Given the nature of Gitea as a self-hosted Git service, successful exploitation grants an attacker full access to proprietary source code repositories, user credentials, and internal configuration data. This vulnerability poses a significant risk to organizations managing private codebases, as it facilitates secondary attacks, intellectual property theft, and potential lateral movement into build pipelines and development environments. Security teams are advised to review the official Gitea advisory and apply necessary patches or mitigations to prevent unauthenticated access.\n\n## Impact\n\nSuccessful exploitation allows for full system compromise, resulting in complete unauthorized access to source code, credentials, and API keys stored within the Gitea instance. This impacts all organizations hosting Gitea on internet-facing infrastructure. The potential for arbitrary code execution creates a high risk of long-term persistence within the environment and the compromise of downstream CI/CD pipelines connected to the affected Gitea server.\n\n## Recommendation\n\n- Immediately audit internet-facing Gitea instances for unauthorized access patterns or unexpected configuration changes.\n- Review web server access logs for anomalous POST or GET requests to unusual endpoints that deviate from baseline usage patterns.\n- Patch Gitea to the latest version recommended by the vendor to remediate the underlying vulnerability.\n- Restrict access to the Gitea web interface to trusted IP ranges or behind a VPN/Zero Trust network access solution until patching is complete.\n",
-      "published": "2026-08-03T11:58:50.000Z",
-      "labels": [
-        "remote-code-execution",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--f081e3f5-6420-5db2-95b3-2bc07fc76cbe"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-gitea-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gitea-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-2612"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-gitea-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-03-gitea-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gitea-rce/",
-      "x_craftedsignal_activity_at": "2026-08-03T11:58:50.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -91023,51 +90611,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--bc0d1130-cdba-5387-a905-d23c7111b288",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:26.000Z",
-      "modified": "2026-08-03T11:53:26.000Z",
-      "name": "Detection of Background Utility Usage for Process Execution on Linux",
-      "description": "## Overview\n\nAttackers operating in Linux environments frequently utilize background execution utilities to facilitate persistence and defense evasion. By invoking binaries such as setsid, nohup, or disown, threat actors can spawn processes that exist independently of the original terminal session. This behavior, often associated with advanced espionage campaigns like GridTide, allows malicious payloads to continue execution even if the initial parent process is terminated or the user logs out. These tools effectively decouple the malicious process tree from the interactive session, masking the true origin of the execution and complicating incident response and forensic analysis. Defenders should monitor for the introduction of these utilities in process execution telemetry, particularly when observed in environments where they are not part of standard administrative workflows.\n\n## Attack Chain\n\n1. Attacker gains initial access to the Linux host via a compromised service or shell access.\n2. Attacker prepares a malicious binary or script intended for long-term execution.\n3. Attacker identifies the use of standard terminal-based session management tools to persist the execution.\n4. Attacker executes the payload using setsid or nohup to detach the process from the current terminal control.\n5. The target process begins execution in a new session, ignoring SIGHUP or other termination signals sent to the parent shell.\n6. The initial parent process is closed, leaving the malicious process running silently in the background.\n7. Attacker maintains persistence as the background process continues to operate outside the standard process tree structure.\n\n## Impact\n\nSuccessful abuse of these utilities enables adversaries to maintain long-running backdoors, collectors, or other malicious tools without leaving clear artifacts in the active session logs. This technique increases the difficulty of identifying malicious actors during live incident response, as the orphaned processes may not appear as descendants of expected parent processes, potentially impacting the visibility of malicious activity across affected Linux infrastructure.\n\n## Recommendation\n\nDeploy the detection rule below to monitor for the first-time execution of process-decoupling utilities. Establish an allowlist for known administrative or operational scripts that legitimately utilize nohup or setsid to prevent alert fatigue. Ensure that endpoint telemetry (e.g., via Auditd or Elastic Defend) is configured to capture full command-line arguments to allow for the differentiation between standard administrative tasks and potential adversary activity.\n",
-      "published": "2026-08-03T11:53:26.000Z",
-      "labels": [
-        "defense-evasion",
-        "execution",
-        "linux",
-        "process-decoupling"
-      ],
-      "object_refs": [
-        "attack-pattern--78ac3757-7782-5464-9fac-0e8faa621d9c",
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-linux-background-execution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-linux-background-execution/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/disrupting-gridtide-global-espionage-campaign?hl=en"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-linux-background-execution",
-      "x_craftedsignal_event_id": "brief-2026-08-linux-background-execution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-linux-background-execution/",
-      "x_craftedsignal_activity_at": "2026-08-03T11:53:26.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--bca344d9-c6b7-58fe-868d-66bc2ea700f0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-25T16:02:16.000Z",
@@ -99197,50 +98740,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--e1014da4-d0c8-5482-9b56-1cc9bd31ec55",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:16.000Z",
-      "modified": "2026-08-03T11:53:16.000Z",
-      "name": "Detection of External IP Discovery via Curl on macOS",
-      "description": "## Overview\n\nAdversaries targeting macOS endpoints frequently engage in reconnaissance to identify the victim's external-facing IP address and network environment. This process is commonly automated by scripts or dropped binaries that invoke the built-in curl or nscurl utilities to query various public \"what is my IP\" and geolocation services. By understanding the host's external network context, attackers can tailor subsequent C2 communications, routing, or staging decisions based on the target's geography or ISP. This behavior is often observed originating from unsigned processes, temporary file locations (e.g., /private/var/folders), or suspicious parent shell processes (bash/zsh) containing network-related command line arguments. Identifying this activity early can help defenders block unauthorized reconnaissance before deeper persistence or data exfiltration occurs.\n\n## Impact\n\nSuccessful reconnaissance allows attackers to map the network infrastructure of the target, increasing the likelihood of successful C2 establishment and targeted exploitation. While the discovery action itself is low-impact, it is a precursor to more severe activities such as credential theft, lateral movement, and unauthorized exfiltration, potentially affecting any enterprise environment where macOS endpoints are present.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor for suspicious curl executions; tune for administrative diagnostic scripts and known legitimate telemetry tools used in the environment.\n- Monitor process-creation events for curl or nscurl spawned by untrusted or unsigned parent applications.\n- Block egress access to known public IP lookup domains (e.g., ipify.org, ipinfo.io) from unauthorized or suspicious processes at the network edge or DNS resolver.\n- Review endpoints for indicators of persistence (e.g., LaunchAgents, cron jobs) if suspicious IP discovery is confirmed, as this often indicates an active infection stage.\n",
-      "published": "2026-08-03T11:53:16.000Z",
-      "labels": [
-        "discovery",
-        "macos",
-        "reconnaissance"
-      ],
-      "object_refs": [
-        "attack-pattern--f198ff96-24d2-5e63-a16c-7bd8ef92750c",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--2203d158-1dab-53c4-a5cd-694d3b0c5d02"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-macos-curl-discovery",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-macos-curl-discovery/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/discovery_external_ip_address_discovery_via_curl.toml"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-08-macos-curl-discovery",
-      "x_craftedsignal_event_id": "brief-2026-08-macos-curl-discovery",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-macos-curl-discovery/",
-      "x_craftedsignal_activity_at": "2026-08-03T11:53:16.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--e105d389-d906-5c9c-a0dd-a07b7fcaaefa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-14T02:06:15.000Z",
@@ -103028,47 +102527,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f0511ee5-f12f-504b-a13d-a75b2afa21f0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:53:03.000Z",
-      "modified": "2026-08-03T11:53:05.000Z",
-      "name": "Apple Security Updates — August 2026",
-      "description": "## Overview\n\nAggregated Apple security advisories for August 2026. CVEs from this cycle are folded\ninto the list below as they are published.\n\n## Recommendation\n\nReview affected products and apply Apple's August 2026 security updates.\n",
-      "published": "2026-08-03T11:53:03.000Z",
-      "labels": [
-        "roundup"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--59c49836-00fd-56f2-9c15-b89b0bd33920"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-apple-security-updates",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-apple-security-updates/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_emond_rules_file_creation.toml"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-apple-security-updates",
-      "x_craftedsignal_event_id": "brief-2026-08-apple-security-updates",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-apple-security-updates/",
-      "x_craftedsignal_activity_at": "2026-08-03T11:53:05.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f05b2200-1205-5f9b-95ed-cf79a1012885",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T15:38:42.000Z",
@@ -104789,59 +104247,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--f9abfc6e-59e8-50c7-8999-5031dfd7be83",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T11:59:30.000Z",
-      "modified": "2026-08-05T11:15:26.000Z",
-      "name": "Denial of Service Vulnerability in Red Hat Multicluster Engine for Kubernetes",
-      "description": "## Overview\n\nRed Hat has issued a security advisory regarding a vulnerability in the Red Hat Multicluster Engine (MCE) for Kubernetes. This flaw allows a remote, unauthenticated attacker to cause a denial of service (DoS) condition on the affected service. The vulnerability stems from how the engine processes incoming requests, potentially leading to service instability or resource exhaustion when targeted by a malicious actor. This impact is significant for organizations relying on the MCE for centralized management of multiple Kubernetes clusters, as service unavailability can disrupt administrative operations across the hybrid cloud environment. Organizations should prioritize updating their MCE deployments to the patched versions provided by Red Hat to remediate this risk.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in a denial of service for the multicluster engine, effectively preventing administrators from managing remote Kubernetes clusters through the centralized console. This poses a high operational impact for large-scale Kubernetes environments where automation and cross-cluster orchestration are centralized. There are currently no reports of widespread active exploitation, but the accessibility of the service over the network makes it a potential target for disruption.\n\n## Recommendation\n\n- Monitor Red Hat release notes for the specific patch version remediating this vulnerability within your Kubernetes management environment.\n- Apply the security updates provided by Red Hat to all impacted multicluster engine instances immediately upon release.\n- Review network access controls (NACLs) and Kubernetes NetworkPolicies to ensure the Multicluster Engine management interface is not exposed to the public internet.\n- Audit logs for repeated service crashes or high error rates associated with management traffic to identify potential exploitation attempts.\n",
-      "published": "2026-08-03T11:59:30.000Z",
-      "labels": [
-        "cloud-native",
-        "cloud-security",
-        "cve",
-        "denial-of-service",
-        "kubernetes",
-        "privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--c1d58c81-af7c-5f2c-baeb-9a2aa3b2f616"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-redhat-mce-dos",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-redhat-mce-dos/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10059"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2024-1944"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-redhat-mce-dos",
-      "x_craftedsignal_event_id": "brief-2026-08-03-redhat-mce-dos",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-redhat-mce-dos/",
-      "x_craftedsignal_activity_at": "2026-08-05T11:15:26.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -110304,13 +109709,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--645ac78d-fed9-5692-8ed3-b83d3006ac08",
-      "name": "pgAdmin",
-      "vendor": "pgAdmin"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--64631817-ea08-527d-809f-5b0a2532fe9c",
       "name": "UniFi Network Application",
       "vendor": "Ubiquiti"
@@ -114743,7 +114141,7 @@
       "type": "software",
       "spec_version": "2.1",
       "id": "software--c1d58c81-af7c-5f2c-baeb-9a2aa3b2f616",
-      "name": "multicluster engine for Kubernetes",
+      "name": "Multicluster Engine for Kubernetes",
       "vendor": "Red Hat"
     },
     {
@@ -115764,13 +115162,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d90e72de-dcd4-57ae-8bfc-30e6c30b20f9",
-      "name": "HttpComponents",
-      "vendor": "Apache"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d95bb604-fba9-558a-92ec-5d53674b436c",
       "name": "FDS 102 (2.1.0 to 2.13.3)",
       "vendor": "Frauscher Sensortechnik"
@@ -116781,13 +116172,6 @@
       "id": "software--f0291e59-9239-55b3-a846-203e34c49689",
       "name": "justhtml (1.15.0)",
       "vendor": "justhtml"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f081e3f5-6420-5db2-95b3-2bc07fc76cbe",
-      "name": "Gitea",
-      "vendor": "Gitea"
     },
     {
       "type": "software",

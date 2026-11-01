@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--bd353d81-b207-5f8e-9c79-6a6d79aa96db",
+  "id": "bundle--a01d4934-f755-584d-a9b6-8abc51bced3d",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1887,22 +1887,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1070.001",
           "url": "https://attack.mitre.org/techniques/T1070/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--8ee6bfbf-466b-596e-8833-eb11f50e3836",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Rename System Utilities",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1036.003",
-          "url": "https://attack.mitre.org/techniques/T1036/003"
         }
       ]
     },
@@ -14489,17 +14473,6 @@
       "relationship_type": "uses",
       "source_ref": "report--e1b57448-94fb-5e22-8323-b2b2bf24c78b",
       "target_ref": "attack-pattern--6b03145b-7498-5541-90f0-417695744f7a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--1c8fa2f8-44f8-5e43-8c04-d2d080247ce6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-02T11:13:06.000Z",
-      "modified": "2026-10-02T11:13:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--aa5fe533-81c8-51e7-9ec7-16b729604117",
-      "target_ref": "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1"
     },
     {
       "type": "relationship",
@@ -36126,17 +36099,6 @@
       "relationship_type": "has",
       "source_ref": "software--a7874cf3-c46c-5a34-9a46-c063fce17e53",
       "target_ref": "vulnerability--31eb4441-5cfe-5b46-b96a-d64e7769d457"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--667cbcf1-2bad-5b26-8adb-603260cc9a42",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-02T11:13:06.000Z",
-      "modified": "2026-10-02T11:13:06.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--aa5fe533-81c8-51e7-9ec7-16b729604117",
-      "target_ref": "attack-pattern--8ee6bfbf-466b-596e-8833-eb11f50e3836"
     },
     {
       "type": "relationship",
@@ -76683,17 +76645,6 @@
       "relationship_type": "has",
       "source_ref": "software--2393be31-730d-5f58-89fb-0f22968b925e",
       "target_ref": "vulnerability--26a975f0-2af0-52f0-a8e9-34a3b2866ff1"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ea67ffa3-db83-5307-b19e-84e1e6256e5f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--bb17bc36-b976-527a-a41f-339c7df10e8e",
-      "target_ref": "vulnerability--f8a820c8-e16d-548b-8e14-eafc91f9ba11"
     },
     {
       "type": "relationship",
@@ -152779,48 +152730,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--aa5fe533-81c8-51e7-9ec7-16b729604117",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-02T11:13:06.000Z",
-      "modified": "2026-10-02T11:13:06.000Z",
-      "name": "Detection of Renamed Schtasks Execution",
-      "description": "## Overview\n\nThreat actors frequently leverage the legitimate Windows 'schtasks.exe' utility to establish persistence, execute malicious payloads, or achieve privilege escalation by scheduling tasks. Because this binary is heavily monitored by EDR and SIEM solutions, adversaries often employ evasion techniques, such as renaming the binary to a different filename to bypass basic file-path or process-name detection rules. Defenders must monitor for processes that exhibit command-line arguments consistent with schtasks.exe (such as '/create', '/delete', or '/run') while utilizing an image path that does not reflect the standard 'schtasks.exe' filename, or by checking the original file metadata when available in logs.\n\n## Impact\n\nSuccessful abuse of scheduled tasks allows an attacker to maintain long-term persistence within a compromised environment, execute malicious code with system or user-level privileges, and automate post-exploitation tasks. If undetected, this can lead to broad system compromise and successful exfiltration or ransomware deployment.\n\n## Recommendation\n\nDeploy the provided Sigma rule to monitor for suspicious process execution patterns that deviate from expected schtasks.exe behavior. Focus tuning on identifying non-standard filenames that invoke task-scheduling flags. Ensure that Sysmon or equivalent EDR telemetry includes both the image path and original file metadata (from the PE header) to detect renamed binaries reliably.\n",
-      "published": "2026-10-02T11:13:06.000Z",
-      "labels": [
-        "execution",
-        "persistence",
-        "process-creation",
-        "stealth",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--8ee6bfbf-466b-596e-8833-eb11f50e3836",
-        "attack-pattern--a2f453e0-8216-50b7-a1a2-5a6d2469e9e1",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-renamed-schtasks-execution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-schtasks-execution/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-renamed-schtasks-execution",
-      "x_craftedsignal_event_id": "brief-2026-10-renamed-schtasks-execution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-renamed-schtasks-execution/",
-      "x_craftedsignal_activity_at": "2026-10-02T11:13:06.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
@@ -165355,6 +165264,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c85c5504-262e-55e9-b52e-05b4e256fec5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T12:01:05.000Z",
+      "modified": "2026-11-01T12:01:05.000Z",
+      "name": "Citrix NetScaler ADC and Gateway SAML Memory Overflow (CVE-2026-107406)",
+      "description": "A public exploit is available for CVE-2026-107406, a critical (CVSS 9.5) unauthenticated memory overflow vulnerability (CWE-119) affecting Citrix NetScaler ADC and NetScaler Gateway. The vulnerability resides in the SAML message parser. Successful exploitation can lead to a denial of service (via service crash) or remote code execution.\n",
+      "published": "2026-11-01T12:01:05.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--0434a7dc-a277-5f33-adb2-a48d95c59360"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-citrix-netscaler-saml-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-citrix-netscaler-saml-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=316B077C-C099-5E0B-AEAC-B7FEC7A3872D"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=316B077C-C099-5E0B-AEAC-B7FEC7A3872D\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-citrix-netscaler-saml-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-01-citrix-netscaler-saml-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-citrix-netscaler-saml-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-01T12:01:05.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_epss_max": 0.01874,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--c885acb7-ece9-53dd-9719-e063adb12436",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:41:26.000Z",
@@ -171513,55 +171465,6 @@
       "x_craftedsignal_cvss_max": 6.3,
       "x_craftedsignal_epss_max": 0.00244,
       "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--d8f8a836-bbfd-5723-8f44-edb2ad1799e8",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-02T11:34:25.000Z",
-      "modified": "2026-10-02T11:34:25.000Z",
-      "name": "Unauthorized File Deletion in PictShare via Predictable Delete Codes",
-      "description": "## Overview\n\nPictShare, a self-hosted image and media hosting platform, is vulnerable to an unauthorized file deletion issue identified as CVE-2026-104356. The vulnerability stems from the use of PHP's non-cryptographic `rand()` function within the `getRandomString()` method to generate the `delete_code` authorization token. Because the generator state is linked to the publicly accessible file hash found in each shared URL, the sequence of generated codes is predictable. An attacker can determine the deletion token for any hosted image without needing to access the administrative information endpoint. This allows remote attackers to delete images from the server without authorization. The issue was disclosed on October 1, 2026, and addressed in version 3.7.1. Notably, files uploaded prior to the patch remain vulnerable until they are re-uploaded, as existing delete codes were not automatically rotated.\n\n## Attack Chain\n\n1. Attacker identifies a target instance of PictShare running a version prior to 3.7.1.\n2. Attacker visits a public image URL to obtain the associated public file hash, which serves as a seed for the non-cryptographic PRNG.\n3. Attacker uses the PRNG state derived from the public hash to calculate the corresponding `delete_code` token generated by the vulnerable `getRandomString()` function.\n4. Attacker constructs a HTTP request targeted at the PictShare deletion endpoint, embedding the calculated `delete_code`.\n5. The application receives the request, treats the forged token as valid, and initiates the file deletion process.\n6. The targeted file is removed from the server, resulting in unauthorized data destruction.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to delete any file hosted on a vulnerable PictShare instance. This facilitates unauthorized data loss and potential disruption of service for users of the self-hosted media platform. Because existing delete codes are not rotated after patching, legacy data remains at risk until administrators take manual action or files are re-uploaded.\n\n## Recommendation\n\nPrioritize the upgrade of all PictShare instances to version 3.7.1 or later to remediate CVE-2026-104356. Organizations should scan their storage for assets uploaded prior to the patch and consider manual re-uploads or code rotation to invalidate the legacy predictable tokens. Monitor web server logs for high-frequency POST requests to deletion-related endpoints originating from single IP addresses, which may indicate automated token brute-forcing or mass-deletion attempts.\n",
-      "published": "2026-10-02T11:34:25.000Z",
-      "labels": [
-        "cve-2026-104356",
-        "pictshare",
-        "web-application-vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--bb17bc36-b976-527a-a41f-339c7df10e8e",
-        "vulnerability--f8a820c8-e16d-548b-8e14-eafc91f9ba11"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-pictshare-predictable-delete-code",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-pictshare-predictable-delete-code/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=3323B774-4C15-50D8-B66A-7F3536F0B9F5"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vulners.com/cve/CVE-2026-104356"
-        }
-      ],
-      "confidence": 40,
-      "x_craftedsignal_brief_id": "brief-2026-10-pictshare-predictable-delete-code",
-      "x_craftedsignal_event_id": "brief-2026-10-pictshare-predictable-delete-code",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-pictshare-predictable-delete-code/",
-      "x_craftedsignal_activity_at": "2026-10-02T11:34:25.000Z",
-      "x_craftedsignal_severity": "low",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 5.9,
-      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -202748,13 +202651,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--bb17bc36-b976-527a-a41f-339c7df10e8e",
-      "name": "PictShare (\u003e= 2.0.0 \u003c 3.7.1)",
-      "vendor": "HaschekSolutions"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--bbf0ff20-bd6a-5792-9837-c9c97777a28e",
       "name": "WordPress Team Members – GS Plugins (n/a through 2.8.2)",
       "vendor": "GS Plugins"
@@ -208094,6 +207990,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-116339",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116339"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--0434a7dc-a277-5f33-adb2-a48d95c59360",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107406",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107406",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107406"
         }
       ]
     },
@@ -242990,22 +242902,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-56834",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56834"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--f8a820c8-e16d-548b-8e14-eafc91f9ba11",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-104356",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-104356",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104356"
         }
       ]
     },
