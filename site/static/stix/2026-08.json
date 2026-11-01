@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3d41c12d-75d4-5ac9-82ac-e40cda551c1b",
+  "id": "bundle--f8a971bf-b98b-591b-a918-738b0296bc91",
   "objects": [
     {
       "type": "attack-pattern",
@@ -479,22 +479,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1595",
           "url": "https://attack.mitre.org/techniques/T1595"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "System Binary Proxy Execution",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1218",
-          "url": "https://attack.mitre.org/techniques/T1218"
         }
       ]
     },
@@ -1839,22 +1823,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1505.002",
           "url": "https://attack.mitre.org/techniques/T1505/002"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Windows Management Instrumentation",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1047",
-          "url": "https://attack.mitre.org/techniques/T1047"
         }
       ]
     },
@@ -5253,17 +5221,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--08066b91-7e71-5401-8b16-4617a78ac0fa",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:21.000Z",
-      "modified": "2026-08-03T08:54:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f82de9d5-1513-59ae-8412-d1a06c0c338d",
-      "target_ref": "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--08150bd7-52eb-5f9e-b26e-302e01a6b3e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -7185,17 +7142,6 @@
       "relationship_type": "has",
       "source_ref": "software--ef647f2c-2820-5bcd-bbaf-e99890945e53",
       "target_ref": "vulnerability--8f781a7d-1c0a-5a31-9741-e261aea7107c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--135d2113-8e9d-5b02-9d93-08fe59f30de3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:43.000Z",
-      "modified": "2026-08-03T08:54:43.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--fe7bc524-e50c-5f75-8a98-2ef8513a9820",
-      "target_ref": "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd"
     },
     {
       "type": "relationship",
@@ -10683,17 +10629,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a257e904-56fb-5de0-b678-366e0e21f213",
       "target_ref": "attack-pattern--3dd3accc-f54c-5fb7-acd3-17fd9651741c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--2975bf44-7c45-5aed-9ba4-6c4391e09179",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:21.000Z",
-      "modified": "2026-08-03T08:54:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f82de9d5-1513-59ae-8412-d1a06c0c338d",
-      "target_ref": "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f"
     },
     {
       "type": "relationship",
@@ -14610,17 +14545,6 @@
       "relationship_type": "uses",
       "source_ref": "report--8bf5aa28-52a8-5b35-813e-fb6877ac484f",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--40f8cb44-dfc3-5297-a08e-021ec1e12709",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e6b5d3ae-c344-5e6d-be68-3c1c72db6b6a",
-      "target_ref": "vulnerability--6afdee77-bd5b-5fda-ae31-6b9844264599"
     },
     {
       "type": "relationship",
@@ -19670,17 +19594,6 @@
       "relationship_type": "uses",
       "source_ref": "report--40b168ee-c734-5f5d-ba42-5947c0cf8e4a",
       "target_ref": "attack-pattern--fc019f54-19d6-522e-badf-e97531e4978f"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--61743c97-54d2-5955-b7ba-a058821349a1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:51.000Z",
-      "modified": "2026-08-03T08:54:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--884912fc-dfe3-5e99-9e8f-c3be2d6b772f",
-      "target_ref": "attack-pattern--795e0dc0-384c-5fff-a1a3-4ec9857c249d"
     },
     {
       "type": "relationship",
@@ -29827,17 +29740,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--9d2d2bea-59db-50b1-be68-1bc24bcb7ef7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:21.000Z",
-      "modified": "2026-08-03T08:54:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f82de9d5-1513-59ae-8412-d1a06c0c338d",
-      "target_ref": "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9d48d96b-ff60-53ef-810b-e1729f99da28",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-16T14:25:30.000Z",
@@ -30384,17 +30286,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6f7fc2c8-1fc7-5185-b0d3-051db440aab4",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a08d61ee-d72e-554b-a6d1-80536ef384c0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:29.000Z",
-      "modified": "2026-08-03T08:54:29.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--c29f2f48-4645-5644-8d23-26e94f6404a6",
-      "target_ref": "attack-pattern--795e0dc0-384c-5fff-a1a3-4ec9857c249d"
     },
     {
       "type": "relationship",
@@ -32027,17 +31918,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--aa595918-ad51-506a-9c28-4e26710520e2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:36.000Z",
-      "modified": "2026-08-03T08:54:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--14630219-bdde-54ac-ba28-561112a73662",
-      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--aa62c2b2-2fa3-504f-a0c7-d32ac0c88447",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T20:57:29.000Z",
@@ -32067,17 +31947,6 @@
       "relationship_type": "has",
       "source_ref": "software--a8b4d7cb-371e-55ec-a952-3d8787d8c35e",
       "target_ref": "vulnerability--7a13cb85-bb63-5414-bde1-34b2c9d0adbb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--aa735537-c936-595b-99de-ae21d12fb823",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:51.000Z",
-      "modified": "2026-08-03T08:54:51.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--884912fc-dfe3-5e99-9e8f-c3be2d6b772f",
-      "target_ref": "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7"
     },
     {
       "type": "relationship",
@@ -39217,17 +39086,6 @@
       "relationship_type": "has",
       "source_ref": "software--b48a042c-3b31-57d2-9c5d-a3a5f3d09749",
       "target_ref": "vulnerability--4875dca1-1817-5abc-8c9e-f8e203d3c969"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--d84f4498-64dc-5785-8a18-b0c1f91b2f56",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:36.000Z",
-      "modified": "2026-08-03T08:54:36.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--14630219-bdde-54ac-ba28-561112a73662",
-      "target_ref": "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846"
     },
     {
       "type": "relationship",
@@ -50574,46 +50432,6 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.08567,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--14630219-bdde-54ac-ba28-561112a73662",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:36.000Z",
-      "modified": "2026-08-03T08:54:36.000Z",
-      "name": "Suspicious Staging of Windows Registry Hive Files",
-      "description": "## Overview\n\nThis threat brief addresses the unauthorized movement or creation of Windows registry hive files (specifically 'NTUSER.DAT' and 'UsrClass.dat') in non-standard locations. Under normal operating conditions, these files reside within the user's profile path (e.g., 'C:\\Users\\\u0026lt;username\u003e\\'). When an adversary attempts to perform offline registry analysis, credential harvesting via hive dumping, or persistence mechanism injection, they must first stage these sensitive database files. Detecting the creation of these files outside of protected system or profile paths allows defenders to identify tools used for exfiltration or manipulation before an adversary can effectively leverage the data for privilege escalation or lateral movement. This detection is particularly relevant for environments where automated backup tools or forensic software do not already have established patterns of activity.\n\n## Impact\n\nSuccessful staging of these files indicates an adversary has already achieved local file system access. This can lead to the compromise of user-specific registry settings, the recovery of sensitive cached credentials, or the modification of 'Run' keys for long-term persistence within the environment.\n\n## Recommendation\n\n- Deploy the provided Sigma rule to monitor 'file_event' logs for 'NTUSER.DAT' or 'UsrClass.dat' creation events.\n- Baseline existing environment activity to identify legitimate backup or forensic software that may trigger this rule; whitelist these processes or service accounts as needed.\n- If a detection triggers, inspect the parent process associated with the file creation event to determine the tool or user identity responsible for the staging.\n",
-      "published": "2026-08-03T08:54:36.000Z",
-      "labels": [
-        "credential-access",
-        "persistence",
-        "privilege-escalation"
-      ],
-      "object_refs": [
-        "attack-pattern--2b9dc711-e202-51c6-9b7d-de4286c4d846",
-        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-registry-hive-staging",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-registry-hive-staging/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-registry-hive-staging",
-      "x_craftedsignal_event_id": "brief-2026-08-03-registry-hive-staging",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-registry-hive-staging/",
-      "x_craftedsignal_activity_at": "2026-08-03T08:54:36.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -78101,47 +77919,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--884912fc-dfe3-5e99-9e8f-c3be2d6b772f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:51.000Z",
-      "modified": "2026-08-03T08:54:51.000Z",
-      "name": "Suspicious Cross-User Process Spawning Behavior",
-      "description": "## Overview\n\nThis brief details the detection of suspicious process spawning behavior where applications typically associated with a standard user session - such as notepad.exe, calc.exe, or mspaint.exe - are launched under a different user context than their parent process. Attackers often utilize these binaries as sacrificial or decoy processes to verify the success of privilege escalation attempts or to host injected code. Because these applications are inherently designed for interactive user tasks, a disparity between the parent process user and the spawned child process user is a high-fidelity indicator of potential post-exploitation activity or lateral movement within a Windows environment.\n\n## Impact\n\nSuccessful execution of such techniques allows attackers to validate elevated privileges, bypass user-mode access controls, and hide malicious code within seemingly benign, commonly running processes. If left undetected, this activity provides a mechanism for persistence and privilege escalation, potentially leading to unauthorized access to sensitive data or elevated control over the affected system.\n\n## Recommendation\n\nDeploy the provided Sigma rule to detect unexpected user context switching for common Windows desktop applications. Monitor and tune the alerts to account for legitimate administrative tasks utilizing 'RunAs' or similar service account management tools. Ensure that process creation logging with full command line arguments and user context metadata is enabled via Sysmon (Event ID 1) or Windows Security Event Logs (Event ID 4688).\n",
-      "published": "2026-08-03T08:54:51.000Z",
-      "labels": [
-        "privilege-escalation",
-        "process-creation",
-        "stealth",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--5ef49edb-94d7-5032-9ce1-22d917ae63a7",
-        "attack-pattern--795e0dc0-384c-5fff-a1a3-4ec9857c249d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-cross-user-spawn",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cross-user-spawn/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-cross-user-spawn",
-      "x_craftedsignal_event_id": "brief-2026-08-03-cross-user-spawn",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cross-user-spawn/",
-      "x_craftedsignal_activity_at": "2026-08-03T08:54:51.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--88ae7639-232b-5c2e-834d-168e05b51bd3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T00:40:09.000Z",
@@ -93021,45 +92798,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--c29f2f48-4645-5644-8d23-26e94f6404a6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:29.000Z",
-      "modified": "2026-08-03T08:54:29.000Z",
-      "name": "Detection of Suspicious Explicit Credential Local Logon",
-      "description": "## Overview\n\nThis brief details a detection engineering approach for identifying suspicious use of explicit credentials within a Windows environment. Windows Event ID 4648 is generated when a process attempts to log on to a local or remote resource using explicit credentials, such as when using the 'runas' command. While this is a legitimate administrative function, attackers frequently leverage this technique to escalate privileges or move laterally after harvesting credentials from memory or local configuration files. This rule specifically targets local logon attempts where the process executing the request originates from non-standard directories and does not match the current user context, effectively filtering out common system-managed or administrative activity to highlight potential abuse.\n\n## Impact\n\nSuccessful abuse of explicit credentials allows an attacker to bypass standard access controls, impersonate other users (including high-privilege service accounts or domain administrators), and maintain persistence within the target system. This technique is often a critical stage in the progression from initial access to full domain compromise.\n\n## Recommendation\n\nDeploy the provided Sigma rule to your SIEM environment to detect deviations from established administrative patterns.\n- Enable Windows Security Auditing (specifically \"Audit Logon\" subcategory) to ensure Event ID 4648 is generated.\n- Baseline common administrative tools used in the environment to tune the 'filter_main_*' selections and minimize false positives.\n- Alert on occurrences that bypass current filters, as these represent high-interest activity for manual threat hunting.\n",
-      "published": "2026-08-03T08:54:29.000Z",
-      "labels": [
-        "privilege-escalation",
-        "security-auditing",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--795e0dc0-384c-5fff-a1a3-4ec9857c249d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-explicit-credential-logon",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-explicit-credential-logon/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-explicit-credential-logon",
-      "x_craftedsignal_event_id": "brief-2026-08-03-explicit-credential-logon",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-explicit-credential-logon/",
-      "x_craftedsignal_activity_at": "2026-08-03T08:54:29.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--c2bf5fba-f2b4-55a2-8a0b-1cef106fa00c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-03T17:59:24.000Z",
@@ -104755,46 +104493,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f82de9d5-1513-59ae-8412-d1a06c0c338d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:21.000Z",
-      "modified": "2026-08-03T08:54:21.000Z",
-      "name": "Suspicious Microsoft Office Child Process Activity",
-      "description": "## Overview\n\nMicrosoft Office suite applications (Word, Excel, PowerPoint, etc.) are common vectors for initial access and execution. Attackers exploit these applications via malicious documents containing macros, DDE, or embedded vulnerabilities (such as Follina, CVE-2022-30190) to force the host application to spawn child processes. These spawned processes are frequently used to execute secondary stages of an attack, such as downloading further malware, establishing persistence, or executing administrative commands. Because legitimate Office activity rarely involves launching system binaries like PowerShell, cmd, or rundll32, monitoring these parent-child relationships is a critical control for detection engineering teams. Defenders should focus on identifying atypical process lineage where Office applications act as the parent for system tools or binaries located in suspicious writeable directories.\n\n## Attack Chain\n\n1. Victim opens a weaponized Microsoft Office document via email or download.\n2. The document executes embedded malicious code (Macro, OLE object, or exploit).\n3. The Office application invokes a system utility (e.g., cmd.exe or powershell.exe) to bypass security controls.\n4. The spawned child process executes encoded scripts or downloads external payloads.\n5. The attacker gains initial execution and proceeds to execute secondary modules.\n6. Persistence mechanisms are established via scheduled tasks or registry modifications.\n7. Final objective (e.g., ransomware deployment or credential theft) is achieved.\n\n## Impact\n\nSuccessful exploitation of this vector allows adversaries to gain initial access, execute code under the context of the user, move laterally, and deploy ransomware or information-stealing malware within an enterprise environment.\n\n## Recommendation\n\n* Deploy the provided Sigma rule to alert on suspicious process spawning from Microsoft Office applications.\n* Monitor for process creation events (Event ID 1) where the ParentImage matches the Microsoft Office suite.\n* Investigate instances where Office processes spawn tools like PowerShell, CMD, WScript, or MSHTA, particularly if they are originating from non-standard paths like \\AppData\\ or \\Windows\\Temp\\.\n",
-      "published": "2026-08-03T08:54:21.000Z",
-      "object_refs": [
-        "attack-pattern--2738ae9d-0b9b-504f-83cc-489247954b8f",
-        "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee",
-        "attack-pattern--d8100894-0062-563c-a81b-7f4820e4cb88",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--e6b5d3ae-c344-5e6d-be68-3c1c72db6b6a",
-        "vulnerability--6afdee77-bd5b-5fda-ae31-6b9844264599"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-office-child-processes",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-office-child-processes/"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-office-child-processes",
-      "x_craftedsignal_event_id": "brief-2026-08-office-child-processes",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-office-child-processes/",
-      "x_craftedsignal_activity_at": "2026-08-03T08:54:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_epss_max": 0.99374,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f8abf7c8-f6c1-550e-854c-4b70266478e1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-03T17:58:53.000Z",
@@ -105924,46 +105622,6 @@
       },
       "x_craftedsignal_cvss_max": 8.3,
       "x_craftedsignal_epss_max": 0.00401,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--fe7bc524-e50c-5f75-8a98-2ef8513a9820",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T08:54:43.000Z",
-      "modified": "2026-08-03T08:54:43.000Z",
-      "name": "Detection of Suspicious Offline Registry Library Usage",
-      "description": "## Overview\n\nThe Offline Registry Library (offreg.dll) is a component designed to provide low-level access to Windows registry hives without requiring an active registry API connection. While intended for legitimate administrative and diagnostic tasks, this library is susceptible to abuse by attackers attempting to modify system configurations, persistence mechanisms, or security settings while bypassing standard Windows Registry monitoring telemetry. By loading offreg.dll into a process, an adversary can manipulate registry hives directly on disk, effectively evading audit logs that trigger on standard RegOpenKeyEx or RegSetValueEx calls. Defenders should monitor for unexpected processes loading this DLL from non-system and non-standard application paths.\n\n## Impact\n\nSuccessful abuse of offreg.dll allows attackers to achieve stealthy persistence, disable security features, or modify system policies without generating traditional process-based registry modification alerts. This creates a significant blind spot for security operations teams relying strictly on standard registry event logging.\n\n## Recommendation\n\nDeploy the Sigma detection rule below to identify non-standard processes loading offreg.dll in your environment. Prioritize investigation of processes executing from user-writable directories or temporary folders. Validate alerts against known administrative and backup tooling to minimize noise.\n",
-      "published": "2026-08-03T08:54:43.000Z",
-      "labels": [
-        "defense-impairment",
-        "persistence",
-        "telemetry-bypass",
-        "windows"
-      ],
-      "object_refs": [
-        "attack-pattern--7ae20902-9541-5391-8598-d72c1b1ffdfd",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-suspicious-offreg-load",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-suspicious-offreg-load/"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-suspicious-offreg-load",
-      "x_craftedsignal_event_id": "brief-2026-08-03-suspicious-offreg-load",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-suspicious-offreg-load/",
-      "x_craftedsignal_activity_at": "2026-08-03T08:54:43.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -126143,22 +125801,6 @@
           "source_name": "cve",
           "external_id": "CVE-2024-27253",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27253"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--6afdee77-bd5b-5fda-ae31-6b9844264599",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2022-30190",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2022-30190",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-30190"
         }
       ]
     },

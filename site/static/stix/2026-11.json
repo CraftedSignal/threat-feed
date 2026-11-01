@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--47f520d4-f5a9-59d4-9a37-425a760f7f08",
+  "id": "bundle--c86187ad-1308-5e3f-8f4d-6da9f1b35a0f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -53,6 +53,70 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Web Protocols",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1071.001",
+          "url": "https://attack.mitre.org/techniques/T1071/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "DLL Side-Loading",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1574.002",
+          "url": "https://attack.mitre.org/techniques/T1574/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Disable or Modify Tools",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1562.001",
+          "url": "https://attack.mitre.org/techniques/T1562/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Unix Shell",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.004",
+          "url": "https://attack.mitre.org/techniques/T1059/004"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -63,6 +127,54 @@
           "source_name": "mitre-attack",
           "external_id": "T1498",
           "url": "https://attack.mitre.org/techniques/T1498"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Spearphishing Attachment",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566.001",
+          "url": "https://attack.mitre.org/techniques/T1566/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Supply Chain Compromise",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1195",
+          "url": "https://attack.mitre.org/techniques/T1195"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Compromise Software Supply Chain",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1195.002",
+          "url": "https://attack.mitre.org/techniques/T1195/002"
         }
       ]
     },
@@ -110,6 +222,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--4e619e77-ca53-5831-aa37-78aba6622e43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:47.000Z",
+      "modified": "2026-11-01T08:57:47.000Z",
+      "name": "domain: openaigpt4v.com",
+      "description": "C2 server used for payload polling and configuration.",
+      "pattern": "[domain-name:value = 'openaigpt4v.com']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-01T08:57:47.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--716e8020-2d6c-5ed3-a01a-6b353390d911",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:45:30.000Z",
@@ -130,6 +255,17 @@
       "relationship_type": "uses",
       "source_ref": "report--cd646ade-7529-5caf-a595-d4ce06fadb4f",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--04f9e4fe-7072-55b1-8fe3-4b36e0f5850a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-01T08:57:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -167,6 +303,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--22e615c4-7dae-545d-aa25-0eeb1e8bdc75",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:47.000Z",
+      "modified": "2026-11-01T08:57:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--23dd769e-ed8d-59cb-ba4c-989cb9124033",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -189,6 +336,28 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2ce078c3-9b91-5f8a-8c3a-f916ab58da72",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-01T08:57:56.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "target_ref": "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--32314edb-ed68-52d6-9285-b849e8f80371",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-01T08:57:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d35aed1-b7c6-504a-9ac2-9437e3716ae5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T07:59:11.000Z",
@@ -207,6 +376,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
       "target_ref": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--440b18ea-2d6d-5ec7-ad5c-ebe22ea1bf9d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:47.000Z",
+      "modified": "2026-11-01T08:57:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
+      "target_ref": "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb"
     },
     {
       "type": "relationship",
@@ -251,6 +431,28 @@
       "relationship_type": "has",
       "source_ref": "software--2a6b0a00-f6c8-5bb3-91d8-0124b4324bcf",
       "target_ref": "vulnerability--02a37e8e-82c3-57cb-a4ca-81b77d3fdf6b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--60421712-9096-582d-b6ae-c2f991607580",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:47.000Z",
+      "modified": "2026-11-01T08:57:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
+      "target_ref": "indicator--4e619e77-ca53-5831-aa37-78aba6622e43"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--77b389b3-3990-5b1f-9ccf-67b68008b2a5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:47.000Z",
+      "modified": "2026-11-01T08:57:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
+      "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
     },
     {
       "type": "relationship",
@@ -405,6 +607,28 @@
       "relationship_type": "has",
       "source_ref": "software--252dcda8-d11e-5db6-a693-52f13cd614f8",
       "target_ref": "vulnerability--3354ef5a-4fd5-5d59-8d04-6964ab753dc4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f0203cac-d567-5e6e-bcba-48f346bd0d81",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-01T08:57:56.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f8ee3076-969d-57d0-b617-ccdfd0168351",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:47.000Z",
+      "modified": "2026-11-01T08:57:47.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -935,6 +1159,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-01T08:57:56.000Z",
+      "name": "TraderTraitor: Large-scale cryptocurrency theft targeting Binance",
+      "description": "## Overview\n\nThe U.S. Federal Bureau of Investigation (FBI) has attributed a record $6.43 billion cryptocurrency theft from Binance to the North Korea-aligned threat actor TraderTraitor (also known as Jade Sleet, Pressure Chollima, PUKCHONG, Slow Pisces, and UNC4899). The threat actor is known to target individuals in the cybersecurity, AI, and blockchain industries using AI-generated personas and job-themed lures. The group leverages trojanized Terraform providers to deliver a Bash loader, which subsequently installs the FLATROOF cross-platform implant and the ROOFDECK backdoor.\n\n## Attack Chain\n\n1. **Reconnaissance:** The actor identifies targets in the cybersecurity, AI, and blockchain sectors.\n2. **Social Engineering:** The actor poses as recruiters using AI-generated personas and industry-specific knowledge to schedule interviews via spoofed front companies.\n3. **Delivery:** The target is convinced to download or interact with malicious resources, including trojanized Terraform providers.\n4. **Execution:** The Terraform provider executes a Bash loader script.\n5. **Staging:** The loader identifies the victim's OS and downloads the appropriate implant (FLATROOF).\n6. **Persistence \u0026 Control:** The FLATROOF implant exfiltrates data and drops the ROOFDECK backdoor to establish remote command and control.\n7. **Exploitation:** The actor utilizes the compromised environment to facilitate the theft and subsequent laundering of virtual assets.\n\n## Impact\n\n- Over $6.43 billion in virtual assets stolen from Binance, the largest cryptocurrency theft in history.\n- Approximately $2.85 billion in stolen assets has been frozen on-chain by various entities including Tether, Circle, Ripple, Arbitrum, and Optimism.\n\n## Recommendation\n\n- Implement strict code review processes for any third-party infrastructure-as-code (IaC) modules, specifically Terraform providers.\n- Audit outbound network connections from build servers and developer workstations to prevent unexpected downloads of loaders from untrusted external sources.\n- Implement endpoint security monitoring to detect the execution of suspicious Bash scripts, Python information stealers, and the specific artifacts associated with FLATROOF and ROOFDECK implants.\n- Review recruitment and hiring practices to verify the identity of external recruiters and the legitimacy of job opportunities offered via social media or professional networks.\n",
+      "published": "2026-11-01T08:57:56.000Z",
+      "labels": [
+        "cryptocurrency",
+        "financial-crime",
+        "nation-state",
+        "social-engineering",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937",
+        "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--91b89ebe-efda-520b-868b-30589c2f960f",
+        "software--f3d02ec6-a63e-50d9-981f-24bb7f3615b3",
+        "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-tradertraitor-binance",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-tradertraitor-binance/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-tradertraitor-binance",
+      "x_craftedsignal_event_id": "brief-2026-11-01-tradertraitor-binance",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tradertraitor-binance/",
+      "x_craftedsignal_activity_at": "2026-11-01T08:57:56.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b6eebb52-07f5-5ea8-8e60-18021d8e4948",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T05:56:31.000Z",
@@ -986,6 +1260,56 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99921,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T08:57:47.000Z",
+      "modified": "2026-11-01T08:57:47.000Z",
+      "name": "NetamLoader: Multi-stage .NET injection malware targeting Windows 10",
+      "description": "## Overview\nNetamLoader is a sophisticated, previously undocumented .NET assembly-loading framework identified by Kaspersky. The malware targets custom Windows 10 builds (likely Windows 10 China Government Edition) used by government entities in Asia. It achieves code execution through AppDomainManager injection, hijacking the initialization process of legitimate applications. The malware was observed packaged within Windows cabinet (CAB) archives placed in system update directories, suggesting a potential supply chain compromise of trusted third-party software.\n\n## Attack Chain\n1. Delivery of a malicious CAB archive to the victim machine, specifically within 'C:\\Windows\\SoftwareDistribution\\Download\\' paths.\n2. Extraction of contents into 'C:\\Windows\\SoftwareDistribution\\Download\\Install\\'.\n3. Execution of the legitimate process 'PatchMyPC-ScriptRunner.exe', which parses a malicious 'PatchMyPC-ScriptRunner.exe.config' file.\n4. Initiation of AppDomainManager injection to load 'Microsoft.HostIntegration.Connectors.dll'.\n5. Parsing of 'fabric.config' by the DLL to load the 'Resources.resx' file containing encoded and encrypted payloads.\n6. Multi-stage decryption and loading of XAML and .NET modules, including XAML-2-1 for AMSI bypass.\n7. Execution of XAML-3 within 'dllhost.exe' and final loading of the .NET 2 Plugin.\n8. Deployment of a periodic C2 polling loop to 'openaigpt4v.com' for further payload retrieval and execution in isolated AppDomains.\n\n## Recommendation\n- Inventory systems containing Windows 10 China Government Edition or specialized government Windows builds.\n- Monitor directory paths 'C:\\Windows\\SoftwareDistribution\\Download\\' for the presence of unexpected CAB archives or unauthorized file extractions into 'Install' subdirectories.\n- Implement strict process execution policies for 'PatchMyPC-ScriptRunner.exe' and ensure hashes match known legitimate versions from the vendor.\n- Block communication with 'openaigpt4v.com' at the network perimeter.\n- Audit .NET configuration files (.config) in sensitive directories for unexpected 'AppDomainManager' settings.\n",
+      "published": "2026-11-01T08:57:47.000Z",
+      "labels": [
+        ".net-injection",
+        "malware",
+        "netamloader",
+        "supply-chain",
+        "windows-security"
+      ],
+      "object_refs": [
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--4e619e77-ca53-5831-aa37-78aba6622e43",
+        "software--46b17ee8-c5e3-5fb4-aa3c-8f2e1b8ebb91"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-netamloader-windows",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-netamloader-windows/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/netamloader-malware-targets-government.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-netamloader-windows",
+      "x_craftedsignal_event_id": "brief-2026-11-01-netamloader-windows",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-netamloader-windows/",
+      "x_craftedsignal_activity_at": "2026-11-01T08:57:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -1287,6 +1611,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--46b17ee8-c5e3-5fb4-aa3c-8f2e1b8ebb91",
+      "name": "Windows 10 China Government Edition",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4b405d81-0a2e-5838-b9fb-21006d03229b",
       "name": "SUSE Linux Enterprise Desktop (15 SP7)",
       "vendor": "SUSE"
@@ -1364,6 +1695,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--91b89ebe-efda-520b-868b-30589c2f960f",
+      "name": "Binance"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9fc65aec-5a5e-5df9-b536-f081504ef970",
       "name": "Legacy Module (15-SP7)",
       "vendor": "SUSE"
@@ -1402,6 +1739,21 @@
       "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
       "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f3d02ec6-a63e-50d9-981f-24bb7f3615b3",
+      "name": "Terraform"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "TraderTraitor"
     },
     {
       "type": "vulnerability",
