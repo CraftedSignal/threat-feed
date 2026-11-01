@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ee9985d4-20e2-5c6f-bd46-c6e47cb6eb0f",
+  "id": "bundle--634c7bb4-e989-5f31-9c60-8209154c1039",
   "objects": [
     {
       "type": "attack-pattern",
@@ -385,6 +385,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3a10049b-de26-50bd-b007-d8c42dd5742b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T14:53:59.000Z",
+      "modified": "2026-11-01T14:53:59.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e5f1895b-738e-593e-9b76-4e08c93ec120",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3afdb744-f6d3-5103-b844-f8a029c6f99d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -561,6 +572,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8c663bc6-0769-5e6c-8130-e6bccbd916b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--489e2eef-7eb3-57bd-9dcb-0706c8552f6c",
+      "target_ref": "vulnerability--45d9f8af-576c-598a-ad2f-587d6df804fe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--928cefec-3e48-5871-90d4-2adfba15181b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T07:59:20.000Z",
@@ -601,6 +623,39 @@
       "relationship_type": "has",
       "source_ref": "software--52e9cc65-bd18-5ba2-b23e-985b5091511c",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b7cf648c-9c96-5fa4-bcf0-fa0746a90fa9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T14:53:54.000Z",
+      "modified": "2026-11-01T14:53:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--347a9da5-294a-505e-b4a4-05d96d10d3bd",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bd1f680e-e4de-5b46-b771-1b184b9093f6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2beae11f-6a95-5e98-a07b-ca3e831a9810",
+      "target_ref": "vulnerability--36fd87f3-121d-5fed-ab4b-1ca81b006607"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bd4b4151-d037-5aff-a789-e9bbfc8ee9e8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--94c8f785-186a-5cd4-9c30-d717f1672360",
+      "target_ref": "vulnerability--737c6a33-10b6-513c-b033-8285829391ba"
     },
     {
       "type": "relationship",
@@ -711,6 +766,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c78e96b1-a9fc-558d-a95c-a5ff81268f37",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f956f1c8-76c3-5cfe-b9b8-e610629859fb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2beae11f-6a95-5e98-a07b-ca3e831a9810",
+      "target_ref": "vulnerability--45d9f8af-576c-598a-ad2f-587d6df804fe"
     },
     {
       "type": "relationship",
@@ -1155,6 +1221,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--347a9da5-294a-505e-b4a4-05d96d10d3bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T14:53:54.000Z",
+      "modified": "2026-11-01T14:53:54.000Z",
+      "name": "Beta9 Worker: Sandbox path traversal (CVE-2026-120307)",
+      "description": "## Overview\n\nBeta9 worker versions prior to 0.1.756 are vulnerable to a path traversal flaw in the sandbox file API due to improper sanitization in the getHostPathFromContainerPath function. Attackers with a valid workspace token and an active sandbox can perform unauthorized file operations on the host worker filesystem. This access can be used to read or modify data belonging to other tenants and, in cases where the worker pod is assigned cluster-admin permissions, can lead to full cluster compromise. The vulnerability is confirmed to allow reading the Kubernetes service account token.\n\n## Attack Chain\n\n1. Attacker gains access to a valid tenant workspace token.\n2. Attacker initiates or uses an active sandbox session.\n3. Attacker crafts a file path containing sequences that bypass the mount destination prefix check.\n4. The getHostPathFromContainerPath function resolves the malicious path to an absolute path on the host worker filesystem.\n5. The file API calls (Upload, download, stat, list, find-in-files, replace-in-files, or delete-file) interact with the resolved host path.\n6. The attacker reads or modifies sensitive host files, such as the Kubernetes service account token.\n7. If applicable, the attacker uses the stolen service account token to achieve cluster-admin access.\n\n## Impact\n\nAn attacker can achieve full read, write, and delete access to the host worker filesystem as root. This allows for the exfiltration of data from other tenants on the same worker and potential cluster-wide privilege escalation if the worker pod is configured with elevated Kubernetes permissions.\n\n## Recommendation\n\n- Upgrade the Beta9 worker to version 0.1.756 or later immediately to implement os.OpenRoot for sandbox file operations.\n- Audit Kubernetes RBAC configurations for worker pods to ensure the principle of least privilege is applied, specifically restricting cluster-admin access for worker pods.\n- Review access logs for the sandbox file API for anomalous path requests involving multiple parent-directory segments.\n",
+      "published": "2026-11-01T14:53:54.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2beae11f-6a95-5e98-a07b-ca3e831a9810",
+        "vulnerability--36fd87f3-121d-5fed-ab4b-1ca81b006607"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-beta9-worker-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-beta9-worker-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120307"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-beta9-worker-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-01-beta9-worker-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-beta9-worker-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-01T14:53:54.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4b6cb576-d2c1-5892-935b-a4e0c4b911df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T09:58:38.000Z",
@@ -1282,6 +1389,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5c67d043-1206-5833-a7ad-876c1818be7a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T14:53:46.000Z",
+      "modified": "2026-11-01T14:53:46.000Z",
+      "name": "Beta9: Build worker isolation deficiency (CVE-2026-120306)",
+      "description": "Beta9 worker pods perform image builds using Buildah with insufficient isolation. Tenant-provided shell commands are executed as RUN instructions within the worker, which shares PID, network, IPC, and user namespaces with the build worker container. The worker runs as UID 0 with CAP_DAC_OVERRIDE. Access to /proc/1/root allows the build process to interact with the worker's filesystem, which contains runc, buildah, and runsc binaries, Kubernetes service account tokens, and mounted host directories.\n",
+      "published": "2026-11-01T14:53:46.000Z",
+      "labels": [
+        "container-security",
+        "privilege-escalation",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--94c8f785-186a-5cd4-9c30-d717f1672360",
+        "vulnerability--737c6a33-10b6-513c-b033-8285829391ba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-beta9-worker-breakout",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-beta9-worker-breakout/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120306"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-beta9-worker-breakout",
+      "x_craftedsignal_event_id": "brief-2026-11-01-beta9-worker-breakout",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-beta9-worker-breakout/",
+      "x_craftedsignal_activity_at": "2026-11-01T14:53:46.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -1590,6 +1742,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e5f1895b-738e-593e-9b76-4e08c93ec120",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T14:53:59.000Z",
+      "modified": "2026-11-01T14:53:59.000Z",
+      "name": "Beta9: Sandbox escape via volume mount path traversal (CVE-2026-120308)",
+      "description": "## Overview\nA path traversal vulnerability exists in Beta9 gateway and worker components where volume identifiers are not validated for ownership or path constraints. By providing a volume identifier containing parent-directory traversal sequences, an authenticated tenant can cause the worker to bind-mount directories from the host filesystem into their sandbox. This grants read/write access to worker files and data belonging to other tenants. This vulnerability is confirmed in gateway version 0.1.769 and worker version 0.1.745.\n\n## Impact\nA tenant with a workspace token can perform unauthorized read and write operations on the underlying worker filesystem, potentially resulting in cross-tenant data exposure and host system compromise.\n\n## Recommendation\nPatch all Beta9 deployments by upgrading the gateway component to version 0.1.776 or later and the worker component to version 0.1.756 or later. These versions implement strict validation of volume identifiers and ownership checks.\n",
+      "published": "2026-11-01T14:53:59.000Z",
+      "labels": [
+        "cloud",
+        "path-traversal",
+        "sandbox-escape"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2beae11f-6a95-5e98-a07b-ca3e831a9810",
+        "software--489e2eef-7eb3-57bd-9dcb-0706c8552f6c",
+        "vulnerability--45d9f8af-576c-598a-ad2f-587d6df804fe"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-beta9-volume-traversal",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-beta9-volume-traversal/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120308"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-beta9-volume-traversal",
+      "x_craftedsignal_event_id": "brief-2026-11-01-beta9-volume-traversal",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-beta9-volume-traversal/",
+      "x_craftedsignal_activity_at": "2026-11-01T14:53:59.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T04:55:53.000Z",
@@ -1810,6 +2009,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2beae11f-6a95-5e98-a07b-ca3e831a9810",
+      "name": "Worker (\u003c 0.1.756)",
+      "vendor": "Beta9"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
       "name": "Nessus Plugin (\u003c #202610282338)",
       "vendor": "Tenable"
@@ -1847,6 +2053,13 @@
       "id": "software--474aa6e0-d1ab-5d56-bba1-8b6b01649314",
       "name": "NetScaler Gateway (\u003c 13.1-63.18, 14.1-72.61)",
       "vendor": "Citrix"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--489e2eef-7eb3-57bd-9dcb-0706c8552f6c",
+      "name": "Gateway (\u003c 0.1.776)",
+      "vendor": "Beta9"
     },
     {
       "type": "software",
@@ -1930,6 +2143,12 @@
       "spec_version": "2.1",
       "id": "software--91b89ebe-efda-520b-868b-30589c2f960f",
       "name": "Binance"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--94c8f785-186a-5cd4-9c30-d717f1672360",
+      "name": "Beta9 worker (prior to 0.1.756)"
     },
     {
       "type": "software",
@@ -2117,6 +2336,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--36fd87f3-121d-5fed-ab4b-1ca81b006607",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120307",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120307",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120307"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2133,6 +2368,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--45d9f8af-576c-598a-ad2f-587d6df804fe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120308",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120308",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120308"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--4b14660e-6f5e-5c8f-b66c-bb46713620e0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2143,6 +2394,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-23113",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-23113"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--737c6a33-10b6-513c-b033-8285829391ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120306",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120306",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120306"
         }
       ]
     },
