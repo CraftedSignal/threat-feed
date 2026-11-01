@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f46b4771-9af2-502d-8277-f510fc3f4972",
+  "id": "bundle--dd2f4a1d-3a99-5663-a345-a617ef5db240",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4334,6 +4334,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--716e8020-2d6c-5ed3-a01a-6b353390d911",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T02:45:30.000Z",
+      "modified": "2026-11-01T02:45:30.000Z",
+      "name": "hash_sha256: 075f3b5e97242573d32a1b7612672a438b3b24c8fa718e3967305bd65e6151e1",
+      "description": "PoC payload file (ico-oob.ico) used to trigger the OOB heap write and worker crash",
+      "pattern": "[file:hashes.'SHA-256' = '075f3b5e97242573d32a1b7612672a438b3b24c8fa718e3967305bd65e6151e1']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-01T02:45:30.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--71d006aa-b7ba-50c9-a864-77547bef2b5b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-08T19:12:19.000Z",
@@ -8123,6 +8136,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--06fcbd37-ba66-5a5e-a709-149a2f3794de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T02:45:30.000Z",
+      "modified": "2026-11-01T02:45:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--250258ff-a137-526d-932b-1278386a2c4c",
+      "target_ref": "indicator--716e8020-2d6c-5ed3-a01a-6b353390d911"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--06fd795c-1eb4-5ef3-8658-90ff29c51674",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -8456,7 +8480,7 @@
       "id": "relationship--07bd750a-3e3c-5827-aed1-143d8951aee2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-28T03:18:17.000Z",
+      "modified": "2026-11-01T02:47:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -8680,6 +8704,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a06eebdd-c6ec-58f9-947b-8b8d1d7c2690",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--08c0e2fc-993c-526c-a94e-b150550065ca",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--82e7b80c-f27e-5bab-b8ea-40166ba98815",
+      "target_ref": "vulnerability--322ad6ca-e78a-5d32-b193-e8248ed8748a"
     },
     {
       "type": "relationship",
@@ -24003,6 +24038,17 @@
       "relationship_type": "has",
       "source_ref": "software--0649470f-884d-58e7-9499-57ffa4433cd3",
       "target_ref": "vulnerability--24691b00-a4ef-52c2-bb8c-c1521c4553a2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3e554e89-1a2b-54df-9f63-8fbbc6d89c21",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
+      "target_ref": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f"
     },
     {
       "type": "relationship",
@@ -48031,6 +48077,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8ba61918-92d2-56a5-ba9d-8f4014ec1240",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T02:45:30.000Z",
+      "modified": "2026-11-01T02:45:30.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--250258ff-a137-526d-932b-1278386a2c4c",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8bab74ef-0073-529b-880d-e3bce3fc193d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -69517,7 +69574,7 @@
       "id": "relationship--d3d1d233-8060-504c-8162-741f422abb56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-28T03:18:17.000Z",
+      "modified": "2026-11-01T02:47:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "target_ref": "attack-pattern--c29bff81-a408-5684-8e30-56be5debd839"
@@ -80503,6 +80560,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--f5c983e1-9e02-554f-8f0d-8eac9bd672cd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--82e7b80c-f27e-5bab-b8ea-40166ba98815",
+      "target_ref": "vulnerability--3702b2c9-c6ed-540a-a398-9085dd56a14e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--f5cfc3e0-60b3-5fcd-bc35-549bcdd5a48f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-22T20:27:23.000Z",
@@ -81089,7 +81157,7 @@
       "id": "relationship--f81a08b9-9838-59b9-b7f8-6235fec7ced5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-28T03:18:17.000Z",
+      "modified": "2026-11-01T02:47:04.000Z",
       "relationship_type": "uses",
       "source_ref": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "target_ref": "attack-pattern--de70c912-f2cd-5897-a69b-bd02a5e9fb39"
@@ -89484,16 +89552,18 @@
       "id": "report--10ea284e-1ed6-5749-8c5e-eb95d935c824",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T08:32:13.000Z",
-      "modified": "2026-10-28T03:18:17.000Z",
+      "modified": "2026-11-01T02:47:04.000Z",
       "name": "Dahua IP cameras and recorders: P2P cloud access hijacking",
       "description": "## Overview\nCERT-UA has identified an ongoing campaign where attackers exploit Dahua surveillance devices via the Easy4IP P2P cloud access service. Attackers leverage predictable serial number patterns to reach devices through the manufacturer’s cloud relay, bypassing NAT and firewall protections. Once access to the device management interface is obtained, attackers attempt to compromise the device using weak or default passwords, or by exploiting authentication bypass vulnerabilities CVE-2021-33044 and CVE-2021-33045 on unpatched firmware. Confirmed indicators of compromise include the presence of unknown user accounts, unauthorized changes to device configuration, and suspicious DVRIP login events originating from 127.0.0.1.\n\n## Attack Chain\n1. Serial Number Discovery: Attackers probe the Easy4IP P2P service by guessing or iterating through predictable device serial numbers.\n2. Cloud Relay Traversal: Attackers utilize the P2P connection to communicate with the target device, effectively bypassing local network perimeter controls.\n3. Authentication Attempt: Attackers attempt to authenticate to the device management service using common/default credentials or by chaining CVE-2021-33044 and CVE-2021-33045.\n4. Device Compromise: Upon successful authentication, attackers gain administrative access to the device.\n5. Persistence: Attackers create unauthorized backdoor accounts (e.g., \"p2pwn\") to maintain future access.\n6. Impact: Attackers modify device settings, view video streams, and apply visual overlays to the video feed.\n\n## Impact\nUnauthorized access to surveillance video, loss of device configuration control, and potential use of cameras as entry points into internal network segments. CERT-UA has confirmed active hijacking and exploitation campaigns.\n\n## Recommendation\n- Disable P2P/Cloud Access immediately on all Dahua devices unless explicitly required for business operations.\n- Patch all affected Dahua IP cameras, NVRs, and DVRs to the latest firmware to remediate CVE-2021-33044 and CVE-2021-33045.\n- Audit existing device accounts and remove any unknown or unauthorized user entries.\n- Isolate surveillance devices into a dedicated VLAN with restricted access to the internet and internal production networks.\n",
       "published": "2026-10-27T08:32:13.000Z",
       "labels": [
         "auth-bypass",
+        "authentication-bypass",
         "cisa-kev",
         "dahua",
         "iot",
-        "ukraine"
+        "ukraine",
+        "vulnerability"
       ],
       "object_refs": [
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
@@ -89505,6 +89575,7 @@
         "software--102e1106-6327-553e-ad44-0677b1e1973e",
         "software--49e54039-0e28-5372-bfed-b6cd755d2350",
         "software--6cabd31d-6e74-5d1a-8703-95e86ec2ede1",
+        "software--82e7b80c-f27e-5bab-b8ea-40166ba98815",
         "software--d17b3e6d-6ec6-5bb8-94dd-547a71b431cb",
         "vulnerability--322ad6ca-e78a-5d32-b193-e8248ed8748a",
         "vulnerability--3702b2c9-c6ed-540a-a398-9085dd56a14e"
@@ -89514,6 +89585,10 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-27-dahua-p2p-hijacking",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-dahua-p2p-hijacking/"
+        },
+        {
+          "source_name": "reference",
+          "url": "http://seclists.org/fulldisclosure/2021/Oct/13"
         },
         {
           "source_name": "reference",
@@ -89537,6 +89612,14 @@
         },
         {
           "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
           "url": "https://therecord.media/ukraine-cert-ua-warning-chinese-dahua-cameras-hacked"
         },
         {
@@ -89544,13 +89627,13 @@
           "url": "https://www.dahuasecurity.com/aboutUs/trustedCenter/details/582"
         }
       ],
-      "confidence": 80,
+      "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-27-dahua-p2p-hijacking",
       "x_craftedsignal_event_id": "brief-2026-10-27-dahua-p2p-hijacking",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-dahua-p2p-hijacking/",
-      "x_craftedsignal_activity_at": "2026-10-28T03:18:17.000Z",
-      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_activity_at": "2026-11-01T02:47:04.000Z",
+      "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
@@ -90833,6 +90916,68 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--14a698d5-e1e0-56dc-9111-4048c1b90ab5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T02:44:48.000Z",
+      "modified": "2026-11-01T02:44:48.000Z",
+      "name": "SUSE Linux Kernel Multiple Vulnerabilities",
+      "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in the SUSE Linux kernel. These security flaws impact a wide range of SUSE products and modules, including SUSE Linux Enterprise Server (SLES), openSUSE Leap, and SUSE Linux Micro. Confirmed impacts include potential data confidentiality breaches, security policy bypasses, and denial-of-service conditions. SUSE has released a series of security bulletins (SUSE-SU-2026:XXXX) to address these issues.\n\n## Impact\n\nSuccessful exploitation of these kernel vulnerabilities may lead to:\n- Unauthorized access to sensitive data (confidentiality breach).\n- Circumvention of established system security policies.\n- System instability or crash (denial-of-service).\n\n## Recommendation\n\n1. Inventory all assets running SUSE Linux distributions, specifically checking for the versions listed in the affected products section.\n2. Review the specific security bulletins referenced in the source documentation to identify required patch levels.\n3. Prioritize patching internet-facing systems and high-availability clusters to prevent potential remote exploitation.\n4. Coordinate with IT operations to perform testing and deployment of the SUSE kernel updates provided in the bulletins.\n",
+      "published": "2026-11-01T02:44:48.000Z",
+      "labels": [
+        "kernel",
+        "linux",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--005955aa-391b-5c97-b167-22d87f27d4c5",
+        "software--0854d8ac-1911-5136-b742-344fa8f8ba42",
+        "software--0bfa0b19-0293-55d3-810d-93ccd9759635",
+        "software--323df738-1bb5-560c-88a9-0a3ade6a5224",
+        "software--36fb1553-5a11-5c0d-81a1-95bd734a5cb3",
+        "software--4b405d81-0a2e-5838-b9fb-21006d03229b",
+        "software--4ceb4234-25c7-557b-bdc7-7172dd3c2610",
+        "software--51cb2021-009c-581e-b728-8210e2188677",
+        "software--62d0ac8e-3502-5ff4-b854-20393d55ad7f",
+        "software--64f43521-cea8-5abc-93c2-377766465590",
+        "software--66cb8b38-8606-57ad-b0e5-c174a1757d6c",
+        "software--7b31ba15-61c8-5a4a-ad73-cd5e7cb5d706",
+        "software--8537bf9f-eee4-569f-84f0-bd7189e413c3",
+        "software--9fc65aec-5a5e-5df9-b536-f081504ef970",
+        "software--a677d853-c2e2-5848-9b63-3fedc42a77cd",
+        "software--e8d9e233-5ab1-5349-9834-1dba65bf8630"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-suse-kernel-vulns",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-suse-kernel-vulns/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1432/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.suse.com/support/update/announcement/2026/suse-su-202624312-1"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-suse-kernel-vulns",
+      "x_craftedsignal_event_id": "brief-2026-11-01-suse-kernel-vulns",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-suse-kernel-vulns/",
+      "x_craftedsignal_activity_at": "2026-11-01T02:44:48.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -97677,6 +97822,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.6,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--250258ff-a137-526d-932b-1278386a2c4c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T02:45:30.000Z",
+      "modified": "2026-11-01T02:45:30.000Z",
+      "name": "imgproxy: Out-of-bounds heap write in ICO loader",
+      "description": "## Overview\n\nimgproxy versions 3.3.0 through 4.0.15 contain an out-of-bounds heap write vulnerability in the ICO loader (`vips/icoload.c`). When processing an ICO file with a small declared image data size, the loader performs OOB reads and writes while reconstructing the BMP header. This causes memory corruption in the heap, specifically overwriting the size field of adjacent heap chunks. This corruption leads to a glibc `munmap_chunk()` error, causing the Go worker to abort (SIGABRT) and exit (exit code 2).\n\n## Attack Chain\n\n1. Attacker crafts a malicious ICO file containing a small `data_size` and specific header parameters.\n2. Attacker sends an HTTP request to an exposed imgproxy endpoint to process the malicious ICO.\n3. imgproxy passes the request to the underlying `vips` library.\n4. The `vips_foreign_load_ico_header` function allocates a small heap buffer based on the malicious `data_size`.\n5. The loader performs OOB reads from the malformed header and performs OOB writes during BMP reconstruction.\n6. The size field of the following heap chunk is corrupted during the OOB write.\n7. The application invokes `free()` on the corrupted chunk.\n8. The glibc allocator detects the corruption and triggers `munmap_chunk(): invalid pointer`, leading to worker termination.\n\n## Impact\n\nSuccessful exploitation results in a persistent denial of service (DoS) for the specific worker process. Since a single request can trigger the abort, an attacker can crash workers at a rate proportional to the volume of requests sent to the vulnerable endpoint.\n\n## Recommendation\n\n1. Upgrade to imgproxy version 4.0.17 or later to incorporate the patch for the ICO loader heap memory corruption.\n2. Implement request size limits and file validation filters to block unknown or suspicious ICO files before they reach the processing layer.\n3. Deploy monitoring for worker process exit codes; alert on high frequencies of exit code 2 in imgproxy worker pods.\n",
+      "published": "2026-11-01T02:45:30.000Z",
+      "labels": [
+        "denial-of-service",
+        "heap-overflow",
+        "memory-corruption"
+      ],
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--716e8020-2d6c-5ed3-a01a-6b353390d911",
+        "software--65ce8a33-aad0-5136-b26b-a6e7850cfcae"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-imgproxy-ico-crash",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-imgproxy-ico-crash/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-494m-4556-wf5p"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-imgproxy-ico-crash",
+      "x_craftedsignal_event_id": "brief-2026-11-01-imgproxy-ico-crash",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-imgproxy-ico-crash/",
+      "x_craftedsignal_activity_at": "2026-11-01T02:45:30.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -188600,6 +188790,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--fe29f7fc-5c5b-571f-821f-2645db6f9c33",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T02:44:54.000Z",
+      "modified": "2026-11-01T02:44:54.000Z",
+      "name": "Tenable Nessus Plugin: Data Confidentiality Vulnerability (CVE-2026-119317)",
+      "description": "## Overview\n\nTenable has released a security update to address a vulnerability in the Nessus Plugin. The flaw, tracked as CVE-2026-119317, allows an attacker to compromise the confidentiality of data processed or accessed by the plugin. Organizations using Tenable Nessus are advised to update their plugin sets to version #202610282338 or later.\n\n## Impact\n\nSuccessful exploitation of this vulnerability results in an unauthorized disclosure of information (compromise of data confidentiality). The specific nature of the exposed data depends on the configuration and environment in which the Nessus scanner is deployed.\n\n## Recommendation\n\nUpdate the Tenable Nessus Plugin set to version #202610282338 or higher immediately to mitigate the risk posed by CVE-2026-119317. Verify the plugin set version via the Nessus administration console or the Tenable vulnerability management platform.\n",
+      "published": "2026-11-01T02:44:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
+        "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-nessus-plugin-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-nessus-plugin-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1425/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-119317"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.tenable.com/security/tns-2026-33"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-nessus-plugin-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-11-01-nessus-plugin-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-nessus-plugin-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-11-01T02:44:54.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 6.5,
+      "x_craftedsignal_epss_max": 0.00201,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe5a10e6-46af-59b6-bccf-dfd2ad7e3536",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-24T03:03:41.000Z",
@@ -189543,6 +189782,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--005955aa-391b-5c97-b167-22d87f27d4c5",
+      "name": "SUSE Manager Server (4.3)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--005c9d50-43d4-556b-b6ad-498f7846f269",
       "name": "TeamViewer Remote Control (Android) (\u003c 15.83)",
       "vendor": "TeamViewer"
@@ -190253,6 +190499,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0854d8ac-1911-5136-b742-344fa8f8ba42",
+      "name": "Development Tools Module (15-SP7)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0881d43d-1c5c-520d-a8b8-4fb5f749713b",
       "name": "iOS (\u003c 27.2)",
       "vendor": "Apple"
@@ -190599,6 +190852,13 @@
       "id": "software--0bf60b13-f99f-51c8-9104-6b0dabfd9300",
       "name": "Avocent ACS8000",
       "vendor": "Vertiv"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0bfa0b19-0293-55d3-810d-93ccd9759635",
+      "name": "SUSE Linux Micro (6.0, 6.1, 6.2)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -193381,6 +193641,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
+      "name": "Nessus Plugin (\u003c #202610282338)",
+      "vendor": "Tenable"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2ed9055f-1133-540d-99c6-8e4f44f268e0",
       "name": "file-management-system (commit dc9ce1bf27f94b23d906cb1e86ce374dc94ca5df)"
     },
@@ -193657,6 +193924,13 @@
       "spec_version": "2.1",
       "id": "software--3239f407-49c2-5c3f-86ea-68d2c2600066",
       "name": "mem0 (0.1.117 before 1.0.8)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--323df738-1bb5-560c-88a9-0a3ade6a5224",
+      "name": "SUSE Linux Enterprise Server (11 SP4, 12 SP5, 15 SP4, 15 SP5, 15 SP6, 15 SP7, 16.0)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -194001,6 +194275,13 @@
       "id": "software--36e800d9-187d-5600-9305-c03693071960",
       "name": "eStore (n/a - 1.6.13)",
       "vendor": "ThemeGrill"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--36fb1553-5a11-5c0d-81a1-95bd734a5cb3",
+      "name": "SUSE Linux Enterprise Server for SAP Applications (12 SP5, 15 SP4, 15 SP5, 15 SP6, 15 SP7, 16.0)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -195427,6 +195708,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4b405d81-0a2e-5838-b9fb-21006d03229b",
+      "name": "SUSE Linux Enterprise Desktop (15 SP7)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4b792a9d-1b2d-5828-9209-5c0e4ddb569b",
       "name": "office-converter (\u003c= 1.0.2)"
     },
@@ -195559,6 +195847,13 @@
       "id": "software--4cdbe714-07d6-5995-b123-b22752cba59c",
       "name": "PowerShell",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4ceb4234-25c7-557b-bdc7-7172dd3c2610",
+      "name": "SUSE Linux Enterprise Live Patching (12-SP5, 15-SP4, 15-SP5, 15-SP6, 15-SP7)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -195867,6 +196162,13 @@
       "id": "software--51a9e3f1-748c-5f3d-b05c-e8453f243afe",
       "name": "PowerProtect Data Domain Virtual Edition (7.7.1.0-8.7)",
       "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--51cb2021-009c-581e-b728-8210e2188677",
+      "name": "SUSE Linux Enterprise Real Time (15 SP4, 15 SP5, 15 SP6, 15 SP7)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -197215,6 +197517,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--62d0ac8e-3502-5ff4-b854-20393d55ad7f",
+      "name": "Public Cloud Module (15-SP7)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--62e58d61-e039-513c-8acf-840d6c8d5d63",
       "name": "SureCart (n/a through 4.9.5)",
       "vendor": "Brainstorm Force"
@@ -197339,6 +197648,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--64f43521-cea8-5abc-93c2-377766465590",
+      "name": "Basesystem Module (15-SP7)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--65032e72-f9cd-5464-b878-e921e55c3223",
       "name": "Zebra (\u003c 6.0.0)",
       "vendor": "Zebra"
@@ -197349,6 +197665,13 @@
       "id": "software--6542c1a1-bb86-5a28-a85a-c4a50ea7849b",
       "name": "DIR-505 (1.10B02)",
       "vendor": "D-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--65ce8a33-aad0-5136-b26b-a6e7850cfcae",
+      "name": "imgproxy (\u003e= 3.3.0, \u003c 4.0.17)",
+      "vendor": "imgproxy"
     },
     {
       "type": "software",
@@ -197432,6 +197755,13 @@
       "id": "software--66bfccde-a8d0-59cc-9a98-b95290d1b52b",
       "name": "@payloadcms/db-postgres (\u003c 3.73.0)",
       "vendor": "Payload"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--66cb8b38-8606-57ad-b0e5-c174a1757d6c",
+      "name": "SUSE Linux Enterprise Micro (5.3, 5.4, 5.5)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -199123,6 +199453,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7b31ba15-61c8-5a4a-ad73-cd5e7cb5d706",
+      "name": "openSUSE Leap (15.4, 15.5, 15.6)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7b3dd9f8-b9bf-5261-9cb8-a3f3ff278f41",
       "name": "JP1/Automatic Job Management System 3 - Agent",
       "vendor": "Hitachi"
@@ -199686,6 +200023,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--82e7b80c-f27e-5bab-b8ea-40166ba98815",
+      "name": "ipc-hum7xxx Firmware (\u003c 2.820.0000000.5.r.210705)",
+      "vendor": "Dahua"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--82ee8084-5aaf-57c0-8838-2e7cff2fcaae",
       "name": "Ghost (6.22.1-6.63.9)",
       "vendor": "Ghost Foundation"
@@ -199890,6 +200234,13 @@
       "id": "software--8535e4c7-2015-51c1-a3dd-ad0643fd08c7",
       "name": "Gravity Forms (\u003c= 3.1.2)",
       "vendor": "Rocketgenius"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--8537bf9f-eee4-569f-84f0-bd7189e413c3",
+      "name": "SUSE Linux Enterprise High Availability Extension (15 SP4, 15 SP6, 15 SP7)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -201734,6 +202085,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9fc65aec-5a5e-5df9-b536-f081504ef970",
+      "name": "Legacy Module (15-SP7)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9fd18ff9-1150-519a-93af-331f7e88a646",
       "name": "Remote Management Monitoring (\u003c 26.10.1)",
       "vendor": "TeamViewer"
@@ -202208,6 +202566,13 @@
       "id": "software--a664585a-d30e-5cea-aaa3-2da3f056e84a",
       "name": "TastyIgniter (through 4.4.5)",
       "vendor": "TastyIgniter"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a677d853-c2e2-5848-9b63-3fedc42a77cd",
+      "name": "SUSE Manager Proxy (4.3)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -206770,6 +207135,13 @@
       "id": "software--e8b8579c-5225-5db2-b7f9-6dbed7f592ac",
       "name": "WP Meteor Website Speed Optimization Addon (\u003c= 3.4.18)",
       "vendor": "WP Meteor"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
+      "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -216853,6 +217225,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-104759",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104759"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119317",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119317",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119317"
         }
       ]
     },

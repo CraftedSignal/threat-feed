@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-dahua-p2p-hijacking
 event_id: brief-2026-10-27-dahua-p2p-hijacking
-revision: 4
-activity_at: "2026-10-28T03:18:17Z"
+revision: 5
+activity_at: "2026-11-01T02:47:04Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T10:08:26Z"
@@ -34,17 +34,34 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
+  - revision: 5
+    at: "2026-11-01T02:47:04Z"
+    checksum: sha256:ec5dead77f8315c0711ac16e691a46889537125539e268dfe25174ff5a53884c
+    summary: severity → critical
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - priority_score
+      - priority_signals
+      - references
+      - rules
+      - severity
+      - tags
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044&utm_source=rss&utm_medium=rss
 title: 'Dahua IP cameras and recorders: P2P cloud access hijacking'
 slug: 2026-10-dahua-p2p-hijacking
 description: Attackers are hijacking Dahua IP cameras and recorders via the Easy4IP P2P cloud access feature by using brute-force attacks or exploiting CVE-2021-33044 and CVE-2021-33045 to gain unauthorized device control.
 date: "2026-10-27T08:32:13Z"
-lastmod: "2026-10-28T03:17:37Z"
+lastmod: "2026-11-01T02:44:22Z"
 type: advisory
 claim_state: <nil>
 types:
   - advisory
 severities:
-  - high
+  - critical
 exploitation_evidence:
   status: unknown
 source_assessment:
@@ -94,6 +111,8 @@ tags:
   - auth-bypass
   - cisa-kev
   - ukraine
+  - authentication-bypass
+  - vulnerability
 vendors:
   - Dahua
 products:
@@ -103,6 +122,7 @@ products:
   - IP cameras
   - NVRs
   - DVRs
+  - ipc-hum7xxx Firmware (< 2.820.0000000.5.r.210705)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -139,6 +159,21 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2021-33045
   - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
   - https://www.dahuasecurity.com/aboutUs/trustedCenter/details/582
+  - http://seclists.org/fulldisclosure/2021/Oct/13
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044
+  - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044&utm_source=rss&utm_medium=rss
+rules:
+  - title: Detect CVE-2021-33044 Exploitation Attempt - Unauthorized Access to Config Endpoints
+    description: Detects HTTP requests to known Dahua configuration endpoints containing suspicious cookie parameters used in CVE-2021-33044 exploitation.
+    platform: sigma
+    severity: critical
+    tactics:
+      - initial_access
+    techniques:
+      - T1190
+    data_sources:
+      - webserver
+rules_count: 1
 action_plan:
   priority: immediate_escalation
   owners:
@@ -153,6 +188,14 @@ action_plan:
       owner: SOC
       due: 48h
       evidence: Hunt.io observed backdoor accounts left on compromised cameras.
+    - action: Inventory Dahua devices and identify those running firmware versions prior to 2.820.0000000.5.r.210705
+      owner: IT Operations
+      due: 24h
+      evidence: CVE-2021-33044 advisory
+    - action: Deploy the Sigma detection rule to monitor web server access logs for CVE-2021-33044 exploitation patterns
+      owner: SOC
+      due: 48h
+      evidence: Authentication bypass exploitation tool patterns
   hunt_leads:
     - lead: Inspect device audit logs for login events originating from 127.0.0.1.
       technique_id: T1078
@@ -162,12 +205,25 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: 'Signs of compromise: unknown accounts, unexpected config changes or text overlays on video, and DVRIP logins from 127.0.0.1 in the audit log.'
+    - lead: Search web server logs for HTTP 200 responses to /current_config/* endpoints from non-administrative IP addresses
+      technique_id: T1190
+      data_needed:
+        - Web server access logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Authentication bypass mechanism relies on access to these internal config endpoints
   mitigation_plan:
     - priority: immediate
       action: Apply the latest firmware updates provided by Dahua to remediate CVE-2021-33044 and CVE-2021-33045.
       owner: IT Operations
       addresses: CVE-2021-33044, CVE-2021-33045
       evidence: Dahua advisory confirms patches exist for these vulnerabilities.
+    - priority: immediate
+      action: Upgrade Dahua ipc-hum7xxx Firmware to 2.820.0000000.5.r.210705 or later
+      owner: IT Operations
+      addresses: CVE-2021-33044
+      evidence: Affected firmware versions list
 updates:
   - at: "2026-10-27T10:07:50Z"
     level: L1
@@ -190,6 +246,13 @@ updates:
       - pwn-watch
     source_urls:
       - https://pwn.watch/i/dahua-cameras-easy4ip-p2p-hijacking-ukraine-oct-2026
+  - at: "2026-11-01T02:44:22Z"
+    level: L3
+    summary: severity → critical
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-LITNDAT-CAMERA-DAHUA-RESEARCH-L-H-NG-CVE-2021-33044&utm_source=rss&utm_medium=rss
 ---
 
 CERT-UA has identified an ongoing campaign where attackers exploit Dahua surveillance devices via the Easy4IP P2P cloud access service. Attackers leverage predictable serial number patterns to reach devices through the manufacturer’s cloud relay, bypassing NAT and firewall protections. Once access to the device management interface is obtained, attackers attempt to compromise the device using weak or default passwords, or by exploiting authentication bypass vulnerabilities CVE-2021-33044 and CVE-2021-33045 on unpatched firmware. Confirmed indicators of compromise include the presence of unknown user accounts, unauthorized changes to device configuration, and suspicious DVRIP login events originating from 127.0.0.1.
