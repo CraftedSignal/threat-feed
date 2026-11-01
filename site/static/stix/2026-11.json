@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2febc1c8-394e-5706-bca1-7975f9772159",
+  "id": "bundle--5f81835c-f1ab-5983-a342-905900f0d003",
   "objects": [
     {
       "type": "attack-pattern",
@@ -529,6 +529,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--31453903-332e-5987-9664-53414d8ce601",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T06:43:38.000Z",
+      "modified": "2026-11-01T06:43:38.000Z",
+      "name": "WAVLINK WN579X3-D: Remote OS command injection (CVE-2026-120196)",
+      "description": "A vulnerability was detected in WAVLINK WN579X3-D V250402. The vulnerability affects the `port_forward` function within the file `/cgi-bin/wapi.cgi`. Manipulation of the `Name` argument results in OS command injection. The attack can be performed from a remote location, and the exploit is currently public. The vendor was contacted early regarding this disclosure.\n",
+      "published": "2026-11-01T06:43:38.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--1bc04c7f-9849-5d64-8c31-6698fccae2db"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-wavlink-rce-3b76da01",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wavlink-rce-3b76da01/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120196"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-wavlink-rce-3b76da01",
+      "x_craftedsignal_event_id": "brief-2026-11-01-wavlink-rce-3b76da01",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wavlink-rce-3b76da01/",
+      "x_craftedsignal_activity_at": "2026-11-01T06:43:38.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--516f2776-c2b9-5148-930b-1dfe01280d74",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T03:43:53.000Z",
@@ -1011,6 +1050,22 @@
       "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
       "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1bc04c7f-9849-5d64-8c31-6698fccae2db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120196",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120196",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120196"
+        }
+      ]
     },
     {
       "type": "vulnerability",
