@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-26-oray-x5-pro-crlf
 event_id: brief-2026-10-26-oray-x5-pro-crlf
-revision: 3
-activity_at: "2026-10-29T20:03:29Z"
+revision: 4
+activity_at: "2026-11-01T18:57:53Z"
 revision_history:
   - revision: 2
     at: "2026-10-26T11:42:37Z"
@@ -29,11 +29,25 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-116237
+  - revision: 4
+    at: "2026-11-01T18:57:53Z"
+    checksum: sha256:7c479dc01650dde57bb4f5621da4db0e014e5b8483afa449508ce0f12ef1f2c1
+    summary: added CVE-2026-120224
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - priority_score
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120224
 title: 'Oray Pugongying X5 Pro: CRLF injection in Ser2net (CVE-2026-116231)'
 slug: 2026-10-oray-x5-pro-crlf
 description: A security flaw in the Ser2net component of Oray Pugongying X5 Pro 7.6.1 allows for remote CRLF injection via manipulation of the regmsg argument.
 date: "2026-10-26T09:40:17Z"
-lastmod: "2026-10-29T20:02:00Z"
+lastmod: "2026-11-01T18:56:39Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -55,6 +69,7 @@ vendors:
 products:
   - Oray Pugongying X5 Pro 7.6.1
   - Pugongying X5 Pro (7.6.1)
+  - Pugongying X5 Pro (<= 7.6.1)
 cves:
   - id: CVE-2026-116231
     cvss: 9.9
@@ -71,6 +86,9 @@ cves:
   - id: CVE-2026-116237
     cvss: 8.4
     kev_status: unknown
+  - id: CVE-2026-120224
+    cvss: 9.9
+    kev_status: "false"
   - id: CVE-2026-116235
     kev_status: unknown
 references:
@@ -80,6 +98,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116232
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116235
   - https://nvd.nist.gov/vuln/detail/CVE-2026-116237
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-120224
 updates:
   - at: "2026-10-26T09:40:34Z"
     level: L2
@@ -103,6 +122,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-116237
+  - at: "2026-11-01T18:56:39Z"
+    level: L2
+    summary: added CVE-2026-120224
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120224
 ---
 
 A security flaw has been identified in the Ser2net component of Oray Pugongying X5 Pro 7.6.1. Manipulation of the 'regmsg' argument results in CRLF injection. The attack can be initiated remotely. Public exploit code is available for this vulnerability. The vendor was contacted but did not respond.
