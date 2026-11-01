@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--05d376fd-f675-5ba4-80c9-e79feb225ca4",
+  "id": "bundle--4e500d2b-c907-5b1d-87e8-6a314a084606",
   "objects": [
     {
       "type": "attack-pattern",
@@ -99,6 +99,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
       "target_ref": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--52a537e0-64d7-5789-8c85-41bb202e32b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e69e5337-1766-5e97-a6c0-7cffa2024d2d",
+      "target_ref": "vulnerability--dc371371-daaf-5e23-923c-22bc68b1b353"
     },
     {
       "type": "relationship",
@@ -484,6 +495,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ec23f842-f975-58a8-a7f3-6b48c8f1c1ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T04:44:47.000Z",
+      "modified": "2026-11-01T04:44:47.000Z",
+      "name": "WAVLINK WL-WN579A3-A: Remote OS command injection (CVE-2026-120195)",
+      "description": "## Overview\nA security vulnerability has been detected in WAVLINK WL-WN579A3-A firmware version 2026-03-10-94f93d4. The vulnerability is located in the `set_wzdgwMesh` function within `/cgi-bin/adm.cgi` of the Initial Setup Wizard. Manipulation of the `wlan_ssid` argument leads to OS command injection. This vulnerability can be exploited remotely. Public disclosure of the exploit has occurred. The vendor was contacted early regarding this disclosure.\n\n## Severity\nCVSS v3.1 Base Score: 10.0\n",
+      "published": "2026-11-01T04:44:47.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e69e5337-1766-5e97-a6c0-7cffa2024d2d",
+        "vulnerability--dc371371-daaf-5e23-923c-22bc68b1b353"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-wavlink-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wavlink-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120195"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-wavlink-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-01-wavlink-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wavlink-rce/",
+      "x_craftedsignal_activity_at": "2026-11-01T04:44:47.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--fe29f7fc-5c5b-571f-821f-2645db6f9c33",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:44:54.000Z",
@@ -686,6 +737,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e69e5337-1766-5e97-a6c0-7cffa2024d2d",
+      "name": "WL-WN579A3-A (2026-03-10-94f93d4)",
+      "vendor": "WAVLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
       "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
       "vendor": "SUSE"
@@ -783,6 +841,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120191",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120191"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--dc371371-daaf-5e23-923c-22bc68b1b353",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120195",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120195",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120195"
         }
       ]
     }
