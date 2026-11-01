@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4e500d2b-c907-5b1d-87e8-6a314a084606",
+  "id": "bundle--ddefae25-b85f-5129-8ff5-3749d711a172",
   "objects": [
     {
       "type": "attack-pattern",
@@ -31,6 +31,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1190",
           "url": "https://attack.mitre.org/techniques/T1190"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Network Denial of Service",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1498",
+          "url": "https://attack.mitre.org/techniques/T1498"
         }
       ]
     },
@@ -158,6 +174,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d8368136-d92f-5b00-8381-ad14a1a98851",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1baac6fe-dea0-51dd-9087-05fd6b862663",
+      "target_ref": "vulnerability--c6c4e173-271f-5e6d-af77-7a5249e29460"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ecd57f6c-16f9-5f66-974e-d02cd3564cba",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -165,6 +192,17 @@
       "relationship_type": "has",
       "source_ref": "software--0a43b7ec-4786-55e4-b78c-985246d10800",
       "target_ref": "vulnerability--4b14660e-6f5e-5c8f-b66c-bb46713620e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--fae1f31f-4977-5853-9ea5-3a87be5fac8c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T04:55:53.000Z",
+      "modified": "2026-11-01T04:55:53.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
+      "target_ref": "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52"
     },
     {
       "type": "report",
@@ -495,6 +533,60 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T04:55:53.000Z",
+      "modified": "2026-11-01T04:55:53.000Z",
+      "name": "Pjsip: Heap out-of-bounds read in DNS parser (CVE-2026-32945)",
+      "description": "## Overview\nCVE-2026-32945 is a heap-based out-of-bounds (OOB) read vulnerability affecting Pjsip (pjproject) versions 2.16 and earlier. The flaw resides in the DNS compression pointer parsing logic within `get_name_len()` and `get_name()` in `dns.c`. An attacker can trigger a crash in any application utilizing this library (including Asterisk and FreeSWITCH) by responding to a DNS query with a crafted 20-byte packet where the compression pointer marker (0xC0) is the final byte, causing an out-of-bounds memory read.\n\n## Impact\nThe vulnerability results in a remote denial-of-service (DoS) condition, crashing the Pjsip-based application. No remote code execution has been documented, but public proof-of-concept code is available to trigger the crash.\n\n## Recommendation\n- Upgrade all deployments utilizing the Pjsip library to version 2.17 or later immediately.\n- Patching requires an update to the core library; ensure applications linked against `libpjproject` are recompiled or updated with the fixed library version (commit 5311aee).\n- Review network configurations for VOIP infrastructure; ensure DNS resolution is restricted to trusted, internal, or hardened recursive resolvers to mitigate the risk of rogue DNS response delivery.\n",
+      "published": "2026-11-01T04:55:53.000Z",
+      "object_refs": [
+        "attack-pattern--866311ba-d235-5965-b398-3f6a5135ee52",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1baac6fe-dea0-51dd-9087-05fd6b862663",
+        "vulnerability--c6c4e173-271f-5e6d-af77-7a5249e29460"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-pjsip-dns-oob",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-pjsip-dns-oob/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/pjsip/pjproject/commit/5311aee398ae9d623829a6bad7b679a193c9e199"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/pjsip/pjproject/security/advisories/GHSA-jr2p-p2w4-rr9q"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOHANNESLKS-CVE-2026-32945"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-JOHANNESLKS-CVE-2026-32945\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-pjsip-dns-oob",
+      "x_craftedsignal_event_id": "brief-2026-11-01-pjsip-dns-oob",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-pjsip-dns-oob/",
+      "x_craftedsignal_activity_at": "2026-11-01T04:55:53.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.0032,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ec23f842-f975-58a8-a7f3-6b48c8f1c1ab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T04:44:47.000Z",
@@ -615,6 +707,13 @@
       "id": "software--18959bb2-2a97-5a91-b07f-9a9c7c2044f2",
       "name": "Fortiproxy (\u003c= 7.4.2)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--1baac6fe-dea0-51dd-9087-05fd6b862663",
+      "name": "pjproject (\u003c= 2.16)",
+      "vendor": "Pjsip"
     },
     {
       "type": "software",
@@ -841,6 +940,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120191",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120191"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c6c4e173-271f-5e6d-af77-7a5249e29460",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-32945",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-32945",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32945"
         }
       ]
     },
