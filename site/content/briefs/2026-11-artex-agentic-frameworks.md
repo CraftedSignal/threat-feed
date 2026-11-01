@@ -1,0 +1,110 @@
+---
+brief_id: brief-2026-11-01-artex-agentic-frameworks
+event_id: brief-2026-11-01-artex-agentic-frameworks
+revision: 1
+activity_at: "2026-11-01T20:35:48Z"
+title: Adoption of Autonomous Agentic Frameworks for Offensive Operations
+slug: 2026-11-artex-agentic-frameworks
+description: Multiple threat actors, including STORM-0940, are utilizing autonomous, LLM-driven offensive frameworks like ARTEX to conduct highly automated, high-velocity intrusions.
+date: "2026-11-01T20:35:48Z"
+type: threat
+types:
+  - threat
+severities:
+  - high
+actors:
+  - STORM-0940
+exploitation_evidence:
+  status: unknown
+source_assessment:
+  reliability: A
+  credibility: "1"
+  rating: A1
+  likelihood: very likely
+qa_status:
+  verdict: pass
+  validation_status: Source-supported, requires environment-specific behavioral baselining.
+tags:
+  - ai-enabled-threats
+  - offensive-frameworks
+  - automated-attacks
+vendors:
+  - Microsoft
+  - Amazon
+products:
+  - Azure
+  - AWS
+  - MySQL
+  - Next.js
+mitre_ttps:
+  - tactic_id: TA0001
+    tactic_name: Initial Access
+    technique_id: T1078
+    technique_name: Valid Accounts
+    evidence: In several cases, adversaries provided ARTEX with compromised credentials for the targeted organization, and instructed the framework to execute subsequent stages of the attack lifecycle.
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1505.003
+    technique_name: Web Shell
+    evidence: The SQL-commands executed were likely intended to poison MySQL logs into writing web-accessible JSP webshells.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1087
+    technique_name: Account Discovery
+    evidence: GTIG has observed capabilities including automated Active Directory reconnaissance.
+    confidence_band: high
+references:
+  - https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-frameworks/
+  - https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
+  - https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors
+  - https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks/
+action_plan:
+  priority: elevated
+  owners:
+    - SOC
+    - Detection Engineering
+  immediate_actions:
+    - action: Audit database service accounts for global configuration change privileges (e.g., SET GLOBAL general_log_file).
+      owner: SOC
+      due: 48h
+      evidence: ARTEX used application-specific SQL APIs to modify MySQL log files.
+  hunt_leads:
+    - lead: Identify rapid bursts of administrative/API activity from a single service account.
+      data_needed:
+        - Database query logs (MySQL general logs)
+        - Cloud platform audit logs (AWS CloudTrail, Azure Activity Log)
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: ARTEX execution sequences ran in compressed bursts of roughly 2 to 25 seconds.
+  mitigation_plan:
+    - priority: immediate
+      action: Apply strict least-privilege to database service accounts and implement network segmentation between web and database tiers.
+      owner: IT Operations
+      addresses: Web-shell injection via SQL poisoning.
+      evidence: ARTEX modified MySQL instance to write log files with a .jsp extension.
+---
+
+Threat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.
+
+## Attack Chain
+
+1. Initial Access: Adversaries utilize compromised credentials to gain entry.
+2. Reconnaissance: Agentic frameworks profile target environments (e.g., Active Directory, cloud infrastructure/AWS security groups).
+3. Exploitation: Frameworks target specific services, such as Linux web servers, using exposed application-specific APIs.
+4. Execution/Persistence: Automated injection of malicious files; specifically, poisoning MySQL general logs via `SET GLOBAL general_log_file` to write webshells to public directories.
+5. Lateral Movement: Autonomous exploration and pivot execution between services.
+6. Exfiltration: Automated staging and preparation of stolen data.
+
+## Impact
+
+Automated attack frameworks enable adversaries to move from initial access to deep system access in significantly reduced timeframes, with observed incidents occurring in as little as 15 minutes. The high-volume, iterative nature of agentic activity increases the speed and scale of data theft and infrastructure exploitation.
+
+## Recommendation
+
+- Implement control-plane isolation to prevent automated tools from harvesting cloud service credentials.
+- Enforce short-lived credentials and strict least-privilege policies to limit the scope of autonomous tool activity.
+- Implement network segmentation to disrupt the lateral movement paths frequently probed by automated agents.
+- Deploy behavioral analytics to detect rapid, burst-like execution patterns that deviate from human-paced administrative activity.

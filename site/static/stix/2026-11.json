@@ -1,7 +1,23 @@
 {
   "type": "bundle",
-  "id": "bundle--524b8d16-d8a3-5587-ad93-22ffd9e0f647",
+  "id": "bundle--e7eeacc7-14c9-5fcc-af5e-ecef5f291a4d",
   "objects": [
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Account Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1087",
+          "url": "https://attack.mitre.org/techniques/T1087"
+        }
+      ]
+    },
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
@@ -53,6 +69,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Web Shell",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1505.003",
+          "url": "https://attack.mitre.org/techniques/T1505/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -79,6 +111,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1071.001",
           "url": "https://attack.mitre.org/techniques/T1071/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Valid Accounts",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078",
+          "url": "https://attack.mitre.org/techniques/T1078"
         }
       ]
     },
@@ -594,6 +642,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--84fc27f5-63b0-582d-985d-c9b189677df1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-01T20:35:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--871cde6e-0551-57bc-a507-e5d35af9edd2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T09:58:38.000Z",
@@ -656,6 +715,17 @@
       "relationship_type": "uses",
       "source_ref": "report--2cbb5353-8510-5511-b4cb-0072faff7f52",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9c442398-b0f2-5982-b32c-e0b64e13b259",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-01T20:35:48.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
     },
     {
       "type": "relationship",
@@ -836,6 +906,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e2315755-41de-5b4c-9da8-cae3d2bafd44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-01T20:35:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e6541c63-d9b5-5b4e-8814-8fc1264b5ca9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T10:58:14.000Z",
@@ -843,6 +924,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5d72f943-a7c1-541e-99b4-094c34345281",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--eca48c98-d317-5c3f-9eb7-f7a5b1577add",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-01T20:35:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -1894,6 +1986,68 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-01T20:35:48.000Z",
+      "name": "Adoption of Autonomous Agentic Frameworks for Offensive Operations",
+      "description": "## Overview\n\nThreat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.\n\n## Attack Chain\n\n1. Initial Access: Adversaries utilize compromised credentials to gain entry.\n2. Reconnaissance: Agentic frameworks profile target environments (e.g., Active Directory, cloud infrastructure/AWS security groups).\n3. Exploitation: Frameworks target specific services, such as Linux web servers, using exposed application-specific APIs.\n4. Execution/Persistence: Automated injection of malicious files; specifically, poisoning MySQL general logs via `SET GLOBAL general_log_file` to write webshells to public directories.\n5. Lateral Movement: Autonomous exploration and pivot execution between services.\n6. Exfiltration: Automated staging and preparation of stolen data.\n\n## Impact\n\nAutomated attack frameworks enable adversaries to move from initial access to deep system access in significantly reduced timeframes, with observed incidents occurring in as little as 15 minutes. The high-volume, iterative nature of agentic activity increases the speed and scale of data theft and infrastructure exploitation.\n\n## Recommendation\n\n- Implement control-plane isolation to prevent automated tools from harvesting cloud service credentials.\n- Enforce short-lived credentials and strict least-privilege policies to limit the scope of autonomous tool activity.\n- Implement network segmentation to disrupt the lateral movement paths frequently probed by automated agents.\n- Deploy behavioral analytics to detect rapid, burst-like execution patterns that deviate from human-paced administrative activity.\n",
+      "published": "2026-11-01T20:35:48.000Z",
+      "labels": [
+        "ai-enabled-threats",
+        "automated-attacks",
+        "offensive-frameworks"
+      ],
+      "object_refs": [
+        "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
+        "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
+        "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
+        "software--84807e8d-33ca-5d50-9cdd-fabcacd68c6c",
+        "software--d68808ce-1f39-50da-913c-50a81807535a",
+        "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-artex-agentic-frameworks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-artex-agentic-frameworks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-frameworks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-artex-agentic-frameworks",
+      "x_craftedsignal_event_id": "brief-2026-11-01-artex-agentic-frameworks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-agentic-frameworks/",
+      "x_craftedsignal_activity_at": "2026-11-01T20:35:48.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
@@ -2523,6 +2677,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
+      "name": "AWS"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2d4d3a27-427d-532b-a66a-72e8cc57068a",
       "name": "Google::Auth (0.11-0.12)"
     },
@@ -2632,6 +2792,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
+      "name": "Azure"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--62d0ac8e-3502-5ff4-b854-20393d55ad7f",
       "name": "Public Cloud Module (15-SP7)",
       "vendor": "SUSE"
@@ -2670,6 +2836,12 @@
       "id": "software--8003e401-12fb-547c-924a-1266e68e5542",
       "name": "WN553X1-B (V260403_2.0.0)",
       "vendor": "WAVLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--84807e8d-33ca-5d50-9cdd-fabcacd68c6c",
+      "name": "MySQL"
     },
     {
       "type": "software",
@@ -2733,6 +2905,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d68808ce-1f39-50da-913c-50a81807535a",
+      "name": "Next.js"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e1ee4ca0-fb98-5104-8648-fc6da3fd131f",
       "name": "NetScaler ADC (\u003c 13.1-37.272, 13.1-63.18, 14.1-72.61, 14.1-66.68)",
       "vendor": "Citrix"
@@ -2763,6 +2941,15 @@
       "spec_version": "2.1",
       "id": "software--f3d02ec6-a63e-50d9-981f-24bb7f3615b3",
       "name": "Terraform"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "STORM-0940"
     },
     {
       "type": "threat-actor",
