@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-linux-kernel-tcp-race
 event_id: brief-2026-10-29-linux-kernel-tcp-race
-revision: 3
-activity_at: "2026-10-31T03:05:09Z"
+revision: 4
+activity_at: "2026-11-01T02:33:11Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T00:05:24Z"
@@ -27,11 +27,23 @@ revision_history:
       - updates
     source_urls:
       - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - revision: 4
+    at: "2026-11-01T02:33:11Z"
+    checksum: sha256:2986c0ab8c317f20247b57c3c9e4e8fd50de3b87b1401fa0dab0263f0b8e34fb
+    summary: new product
+    changed_fields:
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
 title: 'Linux Kernel: TCP IPv4 race condition memory corruption (CVE-2026-98432)'
 slug: 2026-10-linux-kernel-tcp-race
 description: A race condition in the Linux kernel IPv4 TCP handshake allows remote unauthenticated attackers to trigger a use-after-free, potentially leading to kernel memory corruption or root code execution.
 date: "2026-10-29T17:30:03Z"
-lastmod: "2026-10-31T03:04:37Z"
+lastmod: "2026-11-01T02:32:38Z"
 type: threat
 claim_state: <nil>
 types:
@@ -72,6 +84,7 @@ products:
   - Ubuntu (22.04, 24.04, 26.04, 26.10)
   - Linux kernel (4.4 and later stable branches)
   - Debian (12, 13)
+  - Linux kernel (>= 4.4, < 7.3)
 affected_os:
   - Linux
 mitre_ttps:
@@ -90,7 +103,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-98432
     cvss: 9.8
-    epss: 0.00445
+    epss: 0.00457
     kev_status: "false"
 references:
   - https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html
@@ -105,6 +118,7 @@ references:
   - https://access.redhat.com/security/vulnerabilities/RHSB-2026-016
   - https://almalinux.org/blog/2026-10-30-cve-2026-98432/
   - https://github.com/lightningnetwork/lnd/releases/tag/v0.20.7-beta
+  - https://aws.amazon.com/security/security-bulletins/2026-160-aws/
 action_plan:
   priority: elevated
   owners:
@@ -143,6 +157,13 @@ updates:
   - at: "2026-10-31T03:04:37Z"
     level: L2
     summary: debian version 12, 13; linux kernel version 4.4 and later stable branches
+    sources:
+      - pwn-watch
+    source_urls:
+      - https://pwn.watch/i/linux-kernel-ipv4-tcp-uaf-cve-2026-98432
+  - at: "2026-11-01T02:32:38Z"
+    level: L1
+    summary: new product
     sources:
       - pwn-watch
     source_urls:
