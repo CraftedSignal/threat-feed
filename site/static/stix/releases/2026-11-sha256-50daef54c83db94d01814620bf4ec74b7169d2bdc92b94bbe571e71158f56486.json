@@ -1,0 +1,70 @@
+{
+  "type": "bundle",
+  "id": "bundle--81cdb5db-2e88-5912-a910-174986cb10f8",
+  "objects": [
+    {
+      "type": "identity",
+      "spec_version": "2.1",
+      "id": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CraftedSignal",
+      "identity_class": "organization"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1b86db2b-5a61-564a-bdd8-7fdf24d840fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T00:06:42.000Z",
+      "modified": "2026-11-01T00:06:42.000Z",
+      "name": "Thelia: Stored cross-site scripting vulnerability (CVE-2026-120205)",
+      "description": "Thelia before 3.1.0 contains a stored cross-site scripting (XSS) vulnerability in the ForSomeCustomers::getSummary() method. Unauthenticated attackers can register with a script payload as their name. This script executes when administrators view related coupons, allowing the theft of CSRF tokens to create administrator accounts.\n",
+      "published": "2026-11-01T00:06:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--25192b48-910a-5b91-bc6d-126bbcb0fa7d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-thelia-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-thelia-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120205"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-thelia-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-01-thelia-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-thelia-xss/",
+      "x_craftedsignal_activity_at": "2026-11-01T00:06:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--25192b48-910a-5b91-bc6d-126bbcb0fa7d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120205",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120205",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120205"
+        }
+      ]
+    }
+  ]
+}
