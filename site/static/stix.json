@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e1630ba3-c888-5cf8-8098-f54f95f46a48",
+  "id": "bundle--d1973170-0cbb-566b-a38e-8ad00fc46dce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23522,6 +23522,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3d35aed1-b7c6-504a-9ac2-9437e3716ae5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T07:59:11.000Z",
+      "modified": "2026-11-01T07:59:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2a5f423c-4425-5da5-b22b-7a172f6b7dbf",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3d418408-e654-5606-974f-ec9acbad857e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T13:19:01.000Z",
@@ -44334,6 +44345,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--807f8b84-7a99-5f20-810a-45b80b343709",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T07:59:20.000Z",
+      "modified": "2026-11-01T07:59:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cbb5353-8510-5511-b4cb-0072faff7f52",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8090008d-901e-593e-978d-0363599bab2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -48041,6 +48063,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8bfae4ae-f7f6-5ce7-bb0a-94191a74a2e5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T07:59:11.000Z",
+      "modified": "2026-11-01T07:59:11.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2a5f423c-4425-5da5-b22b-7a172f6b7dbf",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8c068ae5-36dc-5983-a072-2414dc390ffd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T22:42:12.000Z",
@@ -49885,6 +49918,17 @@
       "relationship_type": "has",
       "source_ref": "software--8cedda0a-e061-5f5a-9419-d498aa3f05d1",
       "target_ref": "vulnerability--ebfbc21c-73f9-5217-a6da-0efc6b676a20"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--928cefec-3e48-5871-90d4-2adfba15181b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T07:59:20.000Z",
+      "modified": "2026-11-01T07:59:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2cbb5353-8510-5511-b4cb-0072faff7f52",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -68446,6 +68490,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d09c43e4-07e3-5966-b447-73a4d26b2f2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0679fdf7-d89b-562d-b74e-6d65f4ffbf59",
+      "target_ref": "vulnerability--209e4851-f667-53c9-867c-23de129e6bff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d0a20c1d-1ad5-5221-9cb0-08feea44090b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -78023,6 +78078,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c6915558-d2e8-54f5-abb7-84b8b70e789a",
       "target_ref": "attack-pattern--a5bc0f33-ef58-5323-a61c-2016fbebf975"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed47e8aa-6386-584d-bdd9-982baf83bf3d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--252dcda8-d11e-5db6-a693-52f13cd614f8",
+      "target_ref": "vulnerability--3354ef5a-4fd5-5d59-8d04-6964ab753dc4"
     },
     {
       "type": "relationship",
@@ -99714,6 +99780,57 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2a5f423c-4425-5da5-b22b-7a172f6b7dbf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T07:59:11.000Z",
+      "modified": "2026-11-01T07:59:11.000Z",
+      "name": "Tychesoftwares Order Delivery Date Pro for WooCommerce: Privilege Escalation (CVE-2025-2907)",
+      "description": "## Overview\n\nTychesoftwares Order Delivery Date Pro for WooCommerce versions prior to 12.3.1 are vulnerable to a missing authorization flaw (CVE-2025-2907). The vulnerability exists in the 'orddd-import-file' action, which fails to perform proper capability checks. An unauthenticated attacker can exploit this to update arbitrary WordPress site options. By modifying the site's default user registration role to 'administrator' and enabling user registrations, an attacker can create an administrative account, resulting in full site compromise.\n\n## Impact\n\nSuccessful exploitation allows unauthenticated attackers to gain administrative privileges on affected WordPress sites by modifying site options to enable arbitrary user registration and elevated account roles.\n\n## Recommendation\n\n* Update Tychesoftwares Order Delivery Date Pro for WooCommerce to version 12.3.1 or later immediately.\n* Audit WordPress site options for unauthorized changes to registration settings, specifically 'users_can_register' and 'default_role'.\n* Monitor server access logs for anomalous POST requests targeting the 'orddd-import-file' action.\n",
+      "published": "2026-11-01T07:59:11.000Z",
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--252dcda8-d11e-5db6-a693-52f13cd614f8",
+        "vulnerability--3354ef5a-4fd5-5d59-8d04-6964ab753dc4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-cve-2025-2907",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-2907/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YUCAERIN-CVE-2025-2907"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-YUCAERIN-CVE-2025-2907\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/researchers/mike-gozdiskowski"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-cve-2025-2907",
+      "x_craftedsignal_event_id": "brief-2026-11-01-cve-2025-2907",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2025-2907/",
+      "x_craftedsignal_activity_at": "2026-11-01T07:59:11.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.01412,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2aa2479c-58ef-5270-b63e-b63110cf6b0d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T00:30:56.000Z",
@@ -100401,6 +100518,59 @@
       },
       "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2cbb5353-8510-5511-b4cb-0072faff7f52",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T07:59:20.000Z",
+      "modified": "2026-11-01T07:59:20.000Z",
+      "name": "Apache HugeGraph-Server: Remote Code Execution via Gremlin Query Injection (CVE-2024-27348)",
+      "description": "## Overview\nCVE-2024-27348 is a critical Remote Code Execution vulnerability in Apache HugeGraph-Server. An attacker can submit a malicious Gremlin query to the `/gremlin` endpoint, leveraging Java reflection to achieve arbitrary code execution on the underlying host. Proof-of-concept toolkits are publicly available that demonstrate deploying a PHP web shell to `/tmp/shell.php` and initiating a PHP development server on port 4444 to provide persistent command-line access.\n\n## Attack Chain\n1. Reconnaissance: Identify target Apache HugeGraph-Server instance (typically port 8182).\n2. Initial Access: Send a crafted Gremlin query containing malicious Java reflection payloads to the `/gremlin` endpoint.\n3. Execution: Leverage Java reflection to execute system commands on the server.\n4. Persistence/Payload Deployment: Write a PHP web shell to the local filesystem (e.g., `/tmp/shell.php`).\n5. Payload Activation: Start a PHP development server on an arbitrary port (e.g., 4444) to host the web shell.\n6. Command and Control: Connect via a remote bind shell client to the hosted web shell for interactive command execution.\n\n## Recommendation\n- Upgrade Apache HugeGraph-Server to version 3.7.2 or later immediately.\n- Inspect the `/tmp` directory and web-accessible application directories for unauthorized PHP files or unexpected script execution.\n- Monitor network traffic for unexpected connections originating from the HugeGraph server, specifically looking for outbound connections to port 4444 or abnormal traffic patterns on the Gremlin API port.\n- Audit logs for the `/gremlin` endpoint to identify suspicious or highly anomalous query strings.\n",
+      "published": "2026-11-01T07:59:20.000Z",
+      "labels": [
+        "apache",
+        "gremlin",
+        "hugegraph",
+        "remote-code-execution"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0679fdf7-d89b-562d-b74e-6d65f4ffbf59",
+        "vulnerability--209e4851-f667-53c9-867c-23de129e6bff"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-cve-2024-27348-hugegraph",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-27348-hugegraph/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WQFH-CVE-2024-27348"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WQFH-CVE-2024-27348\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-cve-2024-27348-hugegraph",
+      "x_craftedsignal_event_id": "brief-2026-11-01-cve-2024-27348-hugegraph",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2024-27348-hugegraph/",
+      "x_craftedsignal_activity_at": "2026-11-01T07:59:20.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.9921,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -190180,6 +190350,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0679fdf7-d89b-562d-b74e-6d65f4ffbf59",
+      "name": "HugeGraph-Server (\u003c= 3.7.1)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--067c2702-d722-579d-8651-f0bfb3115aee",
       "name": "node-forge (\u003c 1.4.1)",
       "vendor": "Digital Bazaar"
@@ -192777,6 +192954,13 @@
       "id": "software--251c878e-7f55-5d55-819a-2e0afe32f2ed",
       "name": "Simple Machines Forum (3.0)",
       "vendor": "Simple Machines"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--252dcda8-d11e-5db6-a693-52f13cd614f8",
+      "name": "Order Delivery Date Pro For Woocommerce (\u003c 12.3.1)",
+      "vendor": "Tychesoftwares"
     },
     {
       "type": "software",
@@ -213510,6 +213694,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--209e4851-f667-53c9-867c-23de129e6bff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2024-27348",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2024-27348",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27348"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--20b20120-2fef-5fb6-b74f-dc47cd994cd1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -216528,6 +216728,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-74040",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74040"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--3354ef5a-4fd5-5d59-8d04-6964ab753dc4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-2907",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-2907",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-2907"
         }
       ]
     },
