@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ddefae25-b85f-5129-8ff5-3749d711a172",
+  "id": "bundle--2febc1c8-394e-5706-bca1-7975f9772159",
   "objects": [
     {
       "type": "attack-pattern",
@@ -47,6 +47,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1498",
           "url": "https://attack.mitre.org/techniques/T1498"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Command and Scripting Interpreter",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059",
+          "url": "https://attack.mitre.org/techniques/T1059"
         }
       ]
     },
@@ -108,6 +124,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2a96c8ea-8c11-5876-9861-0381d5820329",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T05:56:31.000Z",
+      "modified": "2026-11-01T05:56:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6eebb52-07f5-5ea8-8e60-18021d8e4948",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3e554e89-1a2b-54df-9f63-8fbbc6d89c21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -115,6 +142,17 @@
       "relationship_type": "has",
       "source_ref": "software--2ed18cc7-5413-5d48-ba6a-458684da5ccb",
       "target_ref": "vulnerability--3806e666-2a1c-5a00-87de-fd4c9d4fc20f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4929f1aa-499c-54f3-9ba8-cdd442e369a6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--13b2c977-aaac-58a8-b99a-ddd1c3560b3c",
+      "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
     },
     {
       "type": "relationship",
@@ -152,6 +190,39 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a885b7b2-927c-5367-8c82-7c67671a4545",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T05:56:31.000Z",
+      "modified": "2026-11-01T05:56:31.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b6eebb52-07f5-5ea8-8e60-18021d8e4948",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aaedeee8-f295-5d63-8a61-ac12d54abf4b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--508b3e1a-5166-5bf0-9d40-c0d816faa13a",
+      "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3b25248-d71c-5753-bed8-dc9f3e18c45e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--52e9cc65-bd18-5ba2-b23e-985b5091511c",
+      "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c6a84e7e-d246-5339-ba38-a193e01ce4a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -170,6 +241,17 @@
       "relationship_type": "has",
       "source_ref": "software--18959bb2-2a97-5a91-b07f-9a9c7c2044f2",
       "target_ref": "vulnerability--4b14660e-6f5e-5c8f-b66c-bb46713620e0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cae3ff65-a613-51c3-8a2f-1a53f75301a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bc24f899-0a89-5ddf-9f03-cff548236344",
+      "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
     },
     {
       "type": "relationship",
@@ -533,6 +615,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b6eebb52-07f5-5ea8-8e60-18021d8e4948",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T05:56:31.000Z",
+      "modified": "2026-11-01T05:56:31.000Z",
+      "name": "Fortinet FortiWeb: Unauthenticated SQL injection leading to remote code execution (CVE-2025-25257)",
+      "description": "## Overview\nFortinet FortiWeb is affected by a critical vulnerability (CVE-2025-25257) that enables unauthenticated SQL injection, which can be leveraged to achieve remote code execution. Proof-of-concept exploitation code is publicly available, allowing for identification and potential compromise of unpatched systems. Patches are available in FortiWeb versions 7.0.11, 7.2.11, 7.4.8, and 7.6.4.\n\n## Impact\nSuccessful exploitation allows an unauthenticated, remote attacker to execute arbitrary code on the target appliance with full system impact (CVSS 9.8).\n\n## Recommendation\n- Upgrade all FortiWeb instances to the patched versions immediately: 7.0.11, 7.2.11, 7.4.8, or 7.6.4.\n- Review network logs for requests to the FortiWeb appliance containing unusual SQL patterns or shell command sequences.\n- Restrict access to the management interface of FortiWeb to known, trusted administrative IP addresses.\n",
+      "published": "2026-11-01T05:56:31.000Z",
+      "labels": [
+        "network-appliance",
+        "rce",
+        "sqli"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--13b2c977-aaac-58a8-b99a-ddd1c3560b3c",
+        "software--508b3e1a-5166-5bf0-9d40-c0d816faa13a",
+        "software--52e9cc65-bd18-5ba2-b23e-985b5091511c",
+        "software--bc24f899-0a89-5ddf-9f03-cff548236344",
+        "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-fortiweb-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-fortiweb-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-FORTIWEB-CVE-2025-25257"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-WATCHTOWRLABS-WATCHTOWR-VS-FORTIWEB-CVE-2025-25257\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-fortiweb-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-01-fortiweb-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-fortiweb-rce/",
+      "x_craftedsignal_activity_at": "2026-11-01T05:56:31.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.99921,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--e784aac7-1780-5424-9b71-9a57c0ff446c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T04:55:53.000Z",
@@ -704,6 +841,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--13b2c977-aaac-58a8-b99a-ddd1c3560b3c",
+      "name": "FortiWeb (\u003c 7.4.8)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--18959bb2-2a97-5a91-b07f-9a9c7c2044f2",
       "name": "Fortiproxy (\u003c= 7.4.2)",
       "vendor": "Fortinet"
@@ -766,9 +910,23 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--508b3e1a-5166-5bf0-9d40-c0d816faa13a",
+      "name": "FortiWeb (\u003c 7.0.11)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--51cb2021-009c-581e-b728-8210e2188677",
       "name": "SUSE Linux Enterprise Real Time (15 SP4, 15 SP5, 15 SP6, 15 SP7)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--52e9cc65-bd18-5ba2-b23e-985b5091511c",
+      "name": "FortiWeb (\u003c 7.2.11)",
+      "vendor": "Fortinet"
     },
     {
       "type": "software",
@@ -836,6 +994,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bc24f899-0a89-5ddf-9f03-cff548236344",
+      "name": "FortiWeb (\u003c 7.6.4)",
+      "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e69e5337-1766-5e97-a6c0-7cffa2024d2d",
       "name": "WL-WN579A3-A (2026-03-10-94f93d4)",
       "vendor": "WAVLINK"
@@ -846,6 +1011,22 @@
       "id": "software--e8d9e233-5ab1-5349-9834-1dba65bf8630",
       "name": "SUSE Linux Enterprise High Performance Computing (12 SP5, 15 SP4, 15 SP5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2025-25257",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2025-25257",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-25257"
+        }
+      ]
     },
     {
       "type": "vulnerability",
