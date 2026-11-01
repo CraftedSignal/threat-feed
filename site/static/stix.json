@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--eed48e96-684b-516e-90e7-4e3862aac1d6",
+  "id": "bundle--4ed8b22e-dc73-53c1-967d-b67012713282",
   "objects": [
     {
       "type": "attack-pattern",
@@ -69874,6 +69874,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d75f453b-1572-5623-a313-1e3733b3fb67",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bd01659f-2722-5381-8281-43379619ba15",
+      "target_ref": "vulnerability--fb9674d5-2092-5c26-98a2-6b1601969fc5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d7604bf6-57a2-5a9e-a08b-ade922d83b55",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T12:43:04.000Z",
@@ -77262,6 +77273,17 @@
       "relationship_type": "uses",
       "source_ref": "report--da2b417a-3be6-5ea6-b1f9-1ab57c664efd",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ed9b94d2-ec5a-5ed3-91a0-558a47b2299f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T23:10:24.000Z",
+      "modified": "2026-11-01T23:10:24.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--62c0ea9e-79dd-5b32-aeb5-6482f3a0bcb7",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -122191,6 +122213,56 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--62c0ea9e-79dd-5b32-aeb5-6482f3a0bcb7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T23:10:24.000Z",
+      "modified": "2026-11-01T23:10:24.000Z",
+      "name": "TP-Link Archer AX17: Authenticated OS command injection (CVE-2026-9151)",
+      "description": "## Overview\nCVE-2026-9151 is an authenticated OS command injection vulnerability in the Archer AX17 v1 VPN client import functionality. The issue arises because the profile description field is insufficiently sanitized and later processed by system commands (`grep` and `sed`) running with root privileges. An authenticated administrative session from the LAN is required to exploit this.\n\n## Attack Chain\n1. Attacker establishes an authenticated administrative session on the LAN.\n2. Attacker triggers the VPN client import functionality on the router.\n3. Attacker submits a crafted OpenVPN profile description containing a payload using backticks and `${IFS}` to bypass input filtering (e.g., `` `sleep${IFS}1` ``).\n4. The router stores the malicious string as a filename in `/etc/openvpn/.ovpn`.\n5. The application writes the path to `/tmp/ovpn_curr_edit`.\n6. The web server executes `grep` and `sed` commands using the unquoted path from `/tmp/ovpn_curr_edit`.\n7. The system shell interprets the injected backticks as commands, executing the payload with root privileges.\n\n## Impact\nSuccessful exploitation allows for full command execution on the router as the root user, potentially leading to a complete compromise of the network device.\n\n## Recommendation\n- Update Archer AX17 v1 firmware to version 1.5.0 Build 20260605 or later.\n- Limit administrative access to the router web interface to trusted management subnets or hardened endpoints to mitigate the risk of an attacker gaining the required administrative session.\n- Audit logs for unexpected administrative logins or configuration changes on network devices.\n",
+      "published": "2026-11-01T23:10:24.000Z",
+      "labels": [
+        "network-device",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bd01659f-2722-5381-8281-43379619ba15",
+        "vulnerability--fb9674d5-2092-5c26-98a2-6b1601969fc5"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-archer-ax17-command-injection",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-archer-ax17-command-injection/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=83FC3E00-5EE7-522E-AF8C-CE2B7BCFF186"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=83FC3E00-5EE7-522E-AF8C-CE2B7BCFF186\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-archer-ax17-command-injection",
+      "x_craftedsignal_event_id": "brief-2026-11-01-archer-ax17-command-injection",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-archer-ax17-command-injection/",
+      "x_craftedsignal_activity_at": "2026-11-01T23:10:24.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.01069,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -200972,6 +201044,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--bd01659f-2722-5381-8281-43379619ba15",
+      "name": "Archer AX17 v1 (\u003c 1.5.0 Build 20260605)",
+      "vendor": "TP-Link"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--bd1756eb-5c82-5ef6-9a58-ec053bd02b2c",
       "name": "Kaspersky Next Pro View Network Agent (\u003c 15.1.0.22268)",
       "vendor": "Kaspersky"
@@ -240947,6 +241026,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-37554",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-37554"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fb9674d5-2092-5c26-98a2-6b1601969fc5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-9151",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-9151",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9151"
         }
       ]
     },
