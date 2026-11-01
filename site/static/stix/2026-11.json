@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e7eeacc7-14c9-5fcc-af5e-ecef5f291a4d",
+  "id": "bundle--4a68b5a5-542e-5c36-9283-5228915193ce",
   "objects": [
     {
       "type": "attack-pattern",
@@ -543,6 +543,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--58445548-7790-5680-8580-1368796a38b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:48:33.000Z",
+      "modified": "2026-11-01T20:48:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2e65b3a4-323c-5d59-9397-40ca761e165f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5966956b-c707-5493-9df2-2b4eb3bf3c13",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T03:44:10.000Z",
@@ -873,6 +884,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ce41365d-211d-5e69-af48-5b3de7597019",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--dba0aada-b3b0-5cc6-a42d-c06174b0e513",
+      "target_ref": "vulnerability--2b735269-afb9-5d9e-b55e-4ad24cac1c73"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d09c43e4-07e3-5966-b447-73a4d26b2f2c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -880,6 +902,17 @@
       "relationship_type": "has",
       "source_ref": "software--0679fdf7-d89b-562d-b74e-6d65f4ffbf59",
       "target_ref": "vulnerability--209e4851-f667-53c9-867c-23de129e6bff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d5f9992c-f505-5f1f-9307-7c39bef6c499",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--355c53b0-936d-5a00-9bc2-3f86f8fa552d",
+      "target_ref": "vulnerability--2b735269-afb9-5d9e-b55e-4ad24cac1c73"
     },
     {
       "type": "relationship",
@@ -1583,6 +1616,52 @@
       },
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.9921,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2e65b3a4-323c-5d59-9397-40ca761e165f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:48:33.000Z",
+      "modified": "2026-11-01T20:48:33.000Z",
+      "name": "PhpSpreadsheet: XmlScanner TOCTOU bypass leading to XXE and DoS (CVE-2026-108357)",
+      "description": "## Overview\n\nPhpSpreadsheet contains a Time-of-Check Time-of-Use (TOCTOU) vulnerability (CVE-2026-108357) in its `XmlScanner::scan()` method. The scanner performs two sequential passes over input data, but the `unentity()` callback - which decodes HTML entities - executes *after* the security pattern check in both passes. By using double-encoded numeric entities (e.g., `\u0026#38;#60;`), an attacker can hide `\u0026lt;!DOCTYPE` declarations from the security filter. The first pass decodes the entity into a single-encoded format, and the second pass completes the decoding, resulting in a malicious `\u0026lt;!DOCTYPE` payload that the XML parser then executes.\n\n## Attack Chain\n\n1. Attacker crafts a malicious SpreadsheetML XML file containing double-encoded entities (e.g., `\u0026#38;#60;` for `\u003c`).\n2. The `Reader\\Xml` component passes the raw file content to `XmlScanner::scan()`.\n3. `XmlScanner::scan()` performs a pattern match on the raw input; the malicious `\u0026lt;!DOCTYPE` remains hidden.\n4. The `unentity()` callback executes `html_entity_decode()`, converting the double-encoded entity to a single-encoded entity.\n5. The partially decoded XML is stored in `Xml::$fileContents`.\n6. The `Xml` reader initiates a second scan pass, which also fails to match the pattern because the entity is only partially decoded.\n7. The `unentity()` callback executes again, converting the single-encoded entity into the raw `\u003c` character.\n8. `simplexml_load_string()` processes the final, now-malicious XML, triggering entity expansion (DoS) or XXE.\n\n## Impact\n\n- **Denial of Service:** Exploitation causes quadratic memory blowup via entity expansion.\n- **Information Disclosure:** XXE/SSRF allows unauthorized reading of local files or internal network resources, specifically on PHP versions \u003c 8.0 or when `LIBXML_NOENT` is enabled.\n\n## Recommendation\n\n- Upgrade PhpSpreadsheet to a patched version once available from PHPOffice.\n- Audit applications that use `PhpOffice\\PhpSpreadsheet\\Reader\\Xml` to identify intake points for user-supplied SpreadsheetML files.\n- Implement file-type validation and strictly forbid `LIBXML_NOENT` if using older PHP environments.\n",
+      "published": "2026-11-01T20:48:33.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--355c53b0-936d-5a00-9bc2-3f86f8fa552d",
+        "software--dba0aada-b3b0-5cc6-a42d-c06174b0e513",
+        "vulnerability--2b735269-afb9-5d9e-b55e-4ad24cac1c73"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-01-phpspreadsheet-xxe-dos",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-phpspreadsheet-xxe-dos/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-rxj4-h86g-25gc"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108357"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-01-phpspreadsheet-xxe-dos",
+      "x_craftedsignal_event_id": "brief-2026-11-01-phpspreadsheet-xxe-dos",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-phpspreadsheet-xxe-dos/",
+      "x_craftedsignal_activity_at": "2026-11-01T20:48:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_epss_max": 0.00463,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -2710,6 +2789,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--355c53b0-936d-5a00-9bc2-3f86f8fa552d",
+      "name": "PhpSpreadsheet (\u003e= 4.0.0, \u003c= 5.9.0)",
+      "vendor": "PHPOffice"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--36fb1553-5a11-5c0d-81a1-95bd734a5cb3",
       "name": "SUSE Linux Enterprise Server for SAP Applications (12 SP5, 15 SP4, 15 SP5, 15 SP6, 15 SP7, 16.0)",
       "vendor": "SUSE"
@@ -2907,6 +2993,13 @@
       "spec_version": "2.1",
       "id": "software--d68808ce-1f39-50da-913c-50a81807535a",
       "name": "Next.js"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--dba0aada-b3b0-5cc6-a42d-c06174b0e513",
+      "name": "PhpSpreadsheet (\u003e= 3.3.0, \u003c= 3.10.7)",
+      "vendor": "PHPOffice"
     },
     {
       "type": "software",
@@ -3133,6 +3226,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120205",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120205"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--2b735269-afb9-5d9e-b55e-4ad24cac1c73",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-108357",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-108357",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108357"
         }
       ]
     },
