@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--00a4dcf0-a509-5883-a737-3321925c5182",
+  "id": "bundle--0ed686cd-2936-5100-afc1-d0d7b118786b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -463,22 +463,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1565.001",
           "url": "https://attack.mitre.org/techniques/T1565/001"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "DLL Search Order Hijacking",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1574.001",
-          "url": "https://attack.mitre.org/techniques/T1574/001"
         }
       ]
     },
@@ -16857,17 +16841,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--54857ffe-022d-579e-8643-b41c29f058e0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T22:49:10.000Z",
-      "modified": "2026-08-03T22:49:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f612a40c-fd4f-5dc3-b34e-24acb047a388",
-      "target_ref": "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--54d0cd4f-cfb7-54b1-9087-33a73cd07fde",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-07T19:48:49.000Z",
@@ -30101,17 +30074,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a71e96ff-4fa1-566f-9b7a-ac00b106105a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--655f7fb6-60ae-50ce-bf77-b2979bd6c3e1",
-      "target_ref": "vulnerability--2928a398-412b-5c2f-8732-844cefb0fb9e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a75c24e9-00a8-5e8c-b9f3-fac8f503175f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -32334,17 +32296,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b5d43d31-b22a-56ea-b51d-f056bcd826a2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T22:49:10.000Z",
-      "modified": "2026-08-03T22:49:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--f612a40c-fd4f-5dc3-b34e-24acb047a388",
-      "target_ref": "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b5d78cd4-1c3d-5a24-b5b1-7dc2e712083a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T15:30:44.000Z",
@@ -33023,17 +32974,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a049f53e-4f6f-5505-a08d-2b681c7d0851",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--bade323c-d5da-5e92-b40f-5bdc39963e6e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--1c55aea2-ccce-5fea-92f3-cd92f2663036",
-      "target_ref": "vulnerability--41db23c8-f316-572d-9662-94004abd5efd"
     },
     {
       "type": "relationship",
@@ -86310,46 +86250,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b7354a76-90a2-5d97-8a4d-035941223942",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T22:48:59.000Z",
-      "modified": "2026-08-03T22:48:59.000Z",
-      "name": "SSRF Vulnerability in Jina AI Reader Crawler",
-      "description": "## Overview\n\nA server-side request forgery (SSRF) vulnerability (CVE-2026-18647) has been identified in the Jina AI Reader component, specifically within the 'isValidTLD' function located in '/backend/functions/src/cloud-functions/crawler.ts'. The flaw exists in the Crawler/Puppeteer module and allows a remote attacker to manipulate the crawler's input, resulting in the ability to force the server to make arbitrary requests to internal or external resources. The vulnerability affects all versions of Jina AI Reader up to commit 1574bfd380d249c86c82db4dace0d9c8fe17e2b1. Because Jina AI Reader utilizes a rolling release model, users are encouraged to update their deployment to the latest available build to mitigate the risk. Public exploit code for this vulnerability has been disclosed, increasing the likelihood of opportunistic exploitation in the wild.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-18647 allows an attacker to bypass network perimeter controls by leveraging the server as a proxy. This can lead to the exfiltration of internal service metadata, unauthorized interaction with internal APIs, or port scanning of internal network segments that are not otherwise accessible from the internet. The vulnerability poses a high risk to organizations hosting Jina AI Reader in cloud environments where the service may have elevated network privileges.\n\n## Recommendation\n\n- Update Jina AI Reader to the latest version to include the patch for the 'isValidTLD' function.\n- Review cloud environment egress policies for the server hosting the Jina AI Reader component to restrict connectivity to internal-only endpoints (e.g., 169.254.169.254, internal RFC1918 subnets).\n- Inspect web server access logs for anomalous requests directed at the crawler endpoint that contain unexpected or internal IP addresses in query parameters.\n",
-      "published": "2026-08-03T22:48:59.000Z",
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--1c55aea2-ccce-5fea-92f3-cd92f2663036",
-        "vulnerability--41db23c8-f316-572d-9662-94004abd5efd"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-03-cve-2026-18647",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-18647/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18647"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-03-cve-2026-18647",
-      "x_craftedsignal_event_id": "brief-2026-08-03-cve-2026-18647",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-cve-2026-18647/",
-      "x_craftedsignal_activity_at": "2026-08-03T22:48:59.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b73deb5d-cb3b-575b-8ba7-9de5e4a18b82",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-20T15:15:43.000Z",
@@ -100305,57 +100205,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--f612a40c-fd4f-5dc3-b34e-24acb047a388",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-03T22:49:10.000Z",
-      "modified": "2026-08-03T22:49:10.000Z",
-      "name": "DLL Hijacking in FirmaCheck for Windows via Unvalidated OpenSSL Configuration",
-      "description": "## Overview\n\nFirmaCheck for Windows, a document signing utility by Zucchetti, contains a DLL hijacking vulnerability (CVE-2026-41447) affecting all versions prior to 1.3.16. The vulnerability stems from the application's failure to properly validate the directory path when loading the OpenSSL configuration file (openssl.cnf). An attacker with local access to the system can place a maliciously crafted openssl.cnf file into the C:\\Program Files (x86)\\Common Files\\SSL\\ directory. When the FirmaCheck.exe process initializes, it inadvertently loads a DLL specified within the attacker-controlled configuration file. Because FirmaCheck.exe is configured to execute automatically upon system startup, this flaw allows a local attacker to achieve arbitrary code execution with the privileges of the startup process, facilitating persistence and privilege escalation.\n\n## Attack Chain\n\n1. Attacker gains local access to the target Windows system.\n2. Attacker identifies the path C:\\Program Files (x86)\\Common Files\\SSL\\ as a writable location or utilizes elevated privileges to create the directory structure if it does not exist.\n3. Attacker crafts a malicious openssl.cnf file configured to load an attacker-supplied DLL.\n4. Attacker places the malicious openssl.cnf file into the target directory.\n5. Attacker places the payload DLL on the system in a location referenced by the crafted configuration file.\n6. The target system reboots or the user logs in, triggering the automatic execution of FirmaCheck.exe.\n7. FirmaCheck.exe reads the malicious openssl.cnf file during its initialization sequence.\n8. FirmaCheck.exe executes the malicious DLL, granting the attacker code execution at the process privilege level.\n\n## Impact\n\nSuccessful exploitation allows a local attacker to execute arbitrary code on the affected Windows host. This facilitates persistence, potential privilege escalation, and full compromise of the local machine. The vulnerability affects all users of FirmaCheck prior to version 1.3.16, primarily impacting organizations using this software for document management and digital signatures.\n\n## Recommendation\n\nPrioritized actions for detection and remediation:\n- Upgrade FirmaCheck to version 1.3.16 or later immediately to patch CVE-2026-41447.\n- Deploy the Sigma rule provided in this brief to monitor for unauthorized creation of openssl.cnf files in standard paths.\n- Audit the C:\\Program Files (x86)\\Common Files\\SSL\\ directory for suspicious configuration files or unexpected DLL files if patching cannot be performed immediately.\n",
-      "published": "2026-08-03T22:49:10.000Z",
-      "labels": [
-        "dll-hijacking",
-        "local-privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--2a0eb82d-9673-5f53-b588-4a05cef9a7de",
-        "attack-pattern--a03365ac-fb7d-5f47-ba26-05523ae6a75a",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--655f7fb6-60ae-50ce-bf77-b2979bd6c3e1",
-        "vulnerability--2928a398-412b-5c2f-8732-844cefb0fb9e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-firmacheck-dll-hijacking",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-firmacheck-dll-hijacking/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41447"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/firmacheck-dll-hijacking-via-unvalidated-openssl-configuration-path"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-firmacheck-dll-hijacking",
-      "x_craftedsignal_event_id": "brief-2026-08-firmacheck-dll-hijacking",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-firmacheck-dll-hijacking/",
-      "x_craftedsignal_activity_at": "2026-08-03T22:49:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--f6d5aef6-6a6d-53f9-b29f-be1d1b77fbc3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-14T22:14:39.000Z",
@@ -102919,13 +102768,6 @@
       "id": "software--1c500301-00c3-5fd4-9ef6-a03668fe5b25",
       "name": "@nx/powerpack-s3-cache",
       "vendor": "Nx"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--1c55aea2-ccce-5fea-92f3-cd92f2663036",
-      "name": "Reader",
-      "vendor": "Jina AI"
     },
     {
       "type": "software",
@@ -106116,13 +105958,6 @@
       "id": "software--650bb143-ad78-57cb-8bfc-03be450f4c93",
       "name": "EaseProbe (\u003c= 2.3.0)",
       "vendor": "MegaEase"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--655f7fb6-60ae-50ce-bf77-b2979bd6c3e1",
-      "name": "FirmaCheck",
-      "vendor": "Zucchetti"
     },
     {
       "type": "software",
@@ -116427,22 +116262,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--2928a398-412b-5c2f-8732-844cefb0fb9e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-41447",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-41447",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41447"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--29591643-3038-55de-bd73-eb67afb40c3b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -118213,22 +118032,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-69244",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69244"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--41db23c8-f316-572d-9662-94004abd5efd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18647",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18647",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18647"
         }
       ]
     },
