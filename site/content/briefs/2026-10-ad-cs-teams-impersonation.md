@@ -1,19 +1,38 @@
 ---
 brief_id: brief-2026-10-30-ad-cs-teams-impersonation
 event_id: brief-2026-10-30-ad-cs-teams-impersonation
-revision: 1
-activity_at: "2026-10-30T21:17:08Z"
+revision: 2
+activity_at: "2026-11-02T12:24:25Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-02T12:24:25Z"
+    checksum: sha256:66a3b7fe750052fc8175428d59a384a9f1944f1c38e2a09868552e51b7227d74
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://thehackernews.com/2026/11/attackers-pose-as-it-support-on.html
 title: Microsoft Teams help desk impersonation and AD CS abuse
 slug: 2026-10-ad-cs-teams-impersonation
 description: Threat actors are leveraging Microsoft Teams to impersonate support personnel, socially engineering users into granting remote access via Quick Assist to deploy portable runtimes and conduct AD CS abuse (ESC1 and ESC8).
 date: "2026-10-30T21:17:08Z"
+lastmod: "2026-11-02T12:23:42Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://thehackernews.com/2026/11/attackers-pose-as-it-support-on.html
+  observed_at: "2026-11-02T11:08:45Z"
+  confidence: medium
 source_assessment:
   reliability: A
   credibility: "1"
@@ -56,6 +75,8 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/
+  - https://www.reddit.com/r/blueteamsec/comments/1xk380n/from_help_desk_impersonation_to_ad_cs_abuse/
+  - https://thehackernews.com/2026/11/attackers-pose-as-it-support-on.html
 action_plan:
   priority: elevated
   owners:
@@ -81,6 +102,14 @@ action_plan:
       owner: IT Operations
       addresses: ESC8 NTLM relay
       evidence: An attacker relays a user or machine account NTLM authentication to an AD CS web enrollment endpoint that lacks relay protections.
+updates:
+  - at: "2026-11-02T12:23:42Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - the-hacker-news
+    source_urls:
+      - https://thehackernews.com/2026/11/attackers-pose-as-it-support-on.html
 ---
 
 Microsoft observed intrusions where actors used Microsoft Teams to impersonate IT support, gaining interactive access via tools like Quick Assist. Following initial access, actors staged portable runtimes (Python, Bun, Java) in user-writable directories to facilitate host discovery and Active Directory Certificate Services (AD CS) exploitation. Confirmed abuse paths include ESC1 (certificate template misconfiguration) and ESC8 (NTLM relay to AD CS Web Enrollment), the latter involving PetitPotam to coerce authentication.

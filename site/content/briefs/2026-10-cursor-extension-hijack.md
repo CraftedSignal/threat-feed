@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-30-cursor-extension-hijack
 event_id: brief-2026-10-30-cursor-extension-hijack
-revision: 2
-activity_at: "2026-10-31T03:18:47Z"
+revision: 3
+activity_at: "2026-11-02T12:24:25Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T03:18:47Z"
@@ -16,11 +16,25 @@ revision_history:
       - updates
     source_urls:
       - https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
+  - revision: 3
+    at: "2026-11-02T12:24:25Z"
+    checksum: sha256:860755ea99a37cd0264d787cc3feb28d94806ca972bc29e19b93079d3f990851
+    summary: added coverage for claude-code extension (2.1.312, 2.1.313)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/
 title: Anthropic Claude VS Code extension malicious update distribution
 slug: 2026-10-cursor-extension-hijack
 description: An unknown actor compromised an official Anthropic distribution channel to push a malicious version of the Claude VS Code extension, enabling persistent SSH backdoors and credential theft on developer workstations.
 date: "2026-10-30T22:04:22Z"
-lastmod: "2026-10-31T03:17:12Z"
+lastmod: "2026-11-02T12:23:41Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -49,6 +63,8 @@ tags:
   - backdoor
   - credential-theft
   - developer-tools
+  - remote-access
+  - cursor
 vendors:
   - Cursor
   - Anthropic
@@ -56,6 +72,7 @@ products:
   - Claude Code Extension (v2.1.313)
   - Cursor IDE
   - Claude VS Code Extension (2.1.313)
+  - claude-code extension (2.1.312, 2.1.313)
 affected_os:
   - Windows
   - macOS
@@ -103,12 +120,38 @@ mitre_ttps:
     subtechnique_name: Web Protocols
     evidence: Reporting host details and backdoor status via HTTP POST to /beacon on port 8099.
     confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1059
+    technique_name: Command and Scripting Interpreter
+    evidence: The modified extension versions contained a JavaScript function that was executed during module loading to collect host information, modify files, and run OS commands.
+    confidence_band: high
+  - tactic_id: TA0007
+    tactic_name: Discovery
+    technique_id: T1083
+    technique_name: File and Directory Discovery
+    evidence: The code was observed collecting information such as hostname, username, OS, system architecture, working directory, and global Git email.
+    confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1543
+    technique_name: Create or Modify System Process
+    evidence: The loader first collects host reconnaissance. It then attempts to install an SSH key, enable SSH, create a reverse tunnel, and configure persistence.
+    confidence_band: high
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1071
+    technique_name: Application Layer Protocol
+    evidence: It then attempts to install an SSH key, enable SSH, create a reverse tunnel, and configure persistence.
+    confidence_band: high
 references:
   - https://www.darkreading.com/cyberattacks-data-breaches/devs-trojanized-claude-code-extension-cursor
   - https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/
   - https://cursor.com/blog/claude-code-extension-security-notice
   - https://phorion.io/blog/offical-claude-code-vsx-compromise/
   - https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
+  - https://www.reddit.com/r/cybersecurity/comments/1xkdwm8/inside_a_malicious_claude_codebranded_extension/
+  - https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/
 action_plan:
   priority: elevated
   owners:
@@ -129,6 +172,10 @@ action_plan:
       owner: Development Team
       due: 24h
       evidence: theft of variable names allowed the operator to quickly take inventory of cloud credentials
+    - action: Identify and isolate systems where the affected Claude Code extension versions (2.1.312, 2.1.313) were installed.
+      owner: SOC
+      due: 24h
+      evidence: Cursor users have been targeted with malicious versions of Anthropic’s Claude Code extension.
   hunt_leads:
     - lead: Search for unauthorized modifications to SSH configuration files (~/.ssh/config) on developer endpoints
       technique_id: T1546.001
@@ -164,6 +211,16 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Attempting to make the reverse SSH tunnel persistent via a LaunchAgent (macOS)
+    - lead: Hunt for unauthorized SSH key additions and new persistence scripts (e.g., launch agents or startup items) created around the time of the extension installation.
+      technique_id: T1543
+      data_needed:
+        - Host filesystem audit logs
+        - SSH authorized_keys file monitoring
+        - Startup item configuration logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Uninstalling the extension may not be sufficient - the payload drops standalone persistence scripts that keep running.
   mitigation_plan:
     - priority: immediate
       action: Upgrade Cursor IDE to the latest version to patch browser-based arbitrary code execution
@@ -175,6 +232,11 @@ action_plan:
       owner: IT Operations
       addresses: Persistence mechanisms
       evidence: The new version published by Anthropic doesn’t clear the infection if your device was compromised
+    - priority: immediate
+      action: Remove malicious extension versions and audit hosts for persistent scripts, unauthorized SSH keys, and tunnel processes.
+      owner: IT Operations
+      addresses: Claude Code extension (2.1.312, 2.1.313)
+      evidence: Users should remove the malicious extension versions as soon as possible.
 updates:
   - at: "2026-10-30T22:04:38Z"
     level: L1
@@ -190,6 +252,13 @@ updates:
       - microsoft-threat-intel
     source_urls:
       - https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/
+  - at: "2026-11-02T12:23:41Z"
+    level: L1
+    summary: added coverage for claude-code extension (2.1.312, 2.1.313)
+    sources:
+      - securityweek
+    source_urls:
+      - https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/
 ---
 
 Between approximately 05:27 and 16:35 ET on October 29, 2026, a malicious version (2.1.313) of the Anthropic Claude VS Code extension was distributed via the official Cursor marketplace. The compromise was a supply-chain attack resulting from unauthorized access to Anthropic's distribution account. The malicious extension executed host reconnaissance, attempted to establish persistent SSH access, and exfiltrated environment variables and configuration files. Anthropic has since released version 2.1.314, though this update does not remove persistence mechanisms installed by the malicious 2.1.313 version.
