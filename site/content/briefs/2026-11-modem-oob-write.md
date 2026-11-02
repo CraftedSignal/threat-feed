@@ -1,13 +1,25 @@
 ---
 brief_id: brief-2026-11-02-modem-oob-write
 event_id: brief-2026-11-02-modem-oob-write
-revision: 1
-activity_at: "2026-11-02T17:50:14Z"
+revision: 2
+activity_at: "2026-11-02T17:55:48Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-02T17:55:48Z"
+    checksum: sha256:561ccdc0d4632ea4bd16f05b1b56f34984324d0ce22efbd0998db65e0261a107
+    summary: added CVE-2026-20585
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20585
 title: 'Modem: Out-of-bounds write vulnerability (CVE-2026-20499)'
 slug: 2026-11-modem-oob-write
 description: A missing bounds check in Modem firmware allows an attacker operating a rogue base station to execute an out-of-bounds write, leading to remote privilege escalation without user interaction.
 date: "2026-11-02T17:50:14Z"
-lastmod: "2026-11-02T17:50:58Z"
+lastmod: "2026-11-02T17:53:19Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -47,10 +59,14 @@ cves:
   - id: CVE-2026-20557
     cvss: 7.5
     kev_status: "false"
+  - id: CVE-2026-20585
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20499
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20556
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20557
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20585
 action_plan:
   priority: elevated
   owners:
@@ -106,6 +122,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20557
+  - at: "2026-11-02T17:53:19Z"
+    level: L2
+    summary: added CVE-2026-20585
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20585
 ---
 
 CVE-2026-20499 is a memory corruption vulnerability in Modem firmware identified by the lack of bounds checking. The vulnerability allows for remote privilege escalation when a User Equipment (UE) device connects to a rogue base station controlled by an attacker. The vulnerability (MSV-8247) is addressed by Patch ID MOLY01857954.

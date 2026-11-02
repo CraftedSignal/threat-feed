@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-23-linux-kernel-lpe
 event_id: brief-2026-10-23-linux-kernel-lpe
-revision: 3
-activity_at: "2026-11-02T08:30:46Z"
+revision: 4
+activity_at: "2026-11-02T17:55:48Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T15:53:38Z"
@@ -38,18 +38,34 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=C3DF6930-14F1-5C24-98BA-CE5CC970EC12&utm_source=rss&utm_medium=rss
+  - revision: 4
+    at: "2026-11-02T17:55:48Z"
+    checksum: sha256:570f417c138266311302f26036f63fe752914f4cd1119e7b85a3e48002e5dadb
+    summary: added CVE-2026-99224
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - priority_signals
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-99224
 title: 'Linux Kernel: io_uring privilege escalation (CVE-2024-0582)'
 slug: 2026-10-linux-kernel-lpe
 description: CVE-2024-0582 is a privilege escalation vulnerability in the Linux kernel io_uring subsystem that enables unauthorized write access to /etc/passwd via a Dirty Cred technique.
 date: "2026-10-23T19:48:50Z"
-lastmod: "2026-11-02T08:30:02Z"
+lastmod: "2026-11-02T17:54:06Z"
 type: advisory
 types:
   - advisory
 severities:
   - critical
 exploitation_evidence:
-  status: unknown
+  status: not_observed
 source_assessment:
   reliability: B
   credibility: "3"
@@ -60,6 +76,7 @@ qa_status:
 cpes:
   - cpe:2.3:o:linux:linux_kernel:*:*:*:*:*:*:*:*
   - cpe:2.3:o:linux:linux_kernel:6.7:*:*:*:*:*:*:*
+  - cpe:2.3:a:linux:kernel:*:*:*:*:*:*:*:*
 tags:
   - privilege-escalation
   - linux
@@ -75,6 +92,7 @@ products:
   - Linux Kernel (< 6.6.5, 6.7)
   - Linux Kernel (>= 4.4)
   - Linux Kernel (< 7.2)
+  - Linux kernel
 affected_os:
   - Linux
 mitre_ttps:
@@ -103,6 +121,12 @@ cves:
     cvss: 7.8
     epss: 0.00117
     kev_status: "false"
+  - id: CVE-2026-99218
+    cvss: 7
+    kev_status: "false"
+  - id: CVE-2026-99224
+    cvss: 7
+    kev_status: "false"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KUZEYARDABULUT-CVE-2024-0582
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KUZEYARDABULUT-CVE-2024-0582&utm_source=rss&utm_medium=rss
@@ -112,6 +136,8 @@ references:
   - https://vulners.com/cve/CVE-2026-74583
   - https://sploitus.com/exploit?id=C3DF6930-14F1-5C24-98BA-CE5CC970EC12
   - https://sploitus.com/exploit?id=C3DF6930-14F1-5C24-98BA-CE5CC970EC12&utm_source=rss&utm_medium=rss
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-99218
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-99224
 action_plan:
   priority: elevated
   owners:
@@ -158,6 +184,15 @@ action_plan:
       confidence: medium
       disposition: monitor_or_close
       evidence: The exploit uses unprivileged user namespaces to trigger the race condition.
+    - lead: Monitor system logs for recurring kernel panics or oops messages involving try_to_wake_up or pi_lock.
+      data_needed:
+        - dmesg
+        - /var/log/messages
+        - /var/log/kern.log
+      priority: low
+      confidence: low
+      disposition: monitor_or_close
+      evidence: The thread can exit and be freed in the meantime and try_to_wake_up() takes pi_lock in freed memory.
   mitigation_plan:
     - priority: short_term
       action: Disable io_uring for unprivileged users via sysctl where applicable (kernel.unprivileged_userns_clone or similar if supported)
@@ -169,6 +204,11 @@ action_plan:
       owner: Security Operations
       addresses: CVE-2026-98432
       evidence: The attack starts with a SYN from the attacker, so a packet dropped before the listener never reaches it.
+    - priority: medium
+      action: Upgrade the Linux kernel to the version containing the fix for CVE-2026-99218.
+      owner: IT Operations
+      addresses: CVE-2026-99218
+      evidence: Hold rcu across the loop.
 updates:
   - at: "2026-10-29T15:52:00Z"
     level: L3
@@ -184,6 +224,20 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=C3DF6930-14F1-5C24-98BA-CE5CC970EC12&utm_source=rss&utm_medium=rss
+  - at: "2026-11-02T17:53:59Z"
+    level: L2
+    summary: added coverage for Linux kernel
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-99218
+  - at: "2026-11-02T17:54:06Z"
+    level: L2
+    summary: added CVE-2026-99224
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-99224
 ---
 
 A proof-of-concept exploit for CVE-2024-0582 has been published, targeting a use-after-free vulnerability within the Linux kernel io_uring subsystem during buffer ring unregistration. The exploit utilizes a "Dirty Cred" approach to corrupt kernel structures, specifically modifying the f_mode flags of file descriptors to grant write access to protected files, including /etc/passwd. Successful exploitation allows a local attacker to escalate privileges to root by injecting a backdoor entry into /etc/passwd.

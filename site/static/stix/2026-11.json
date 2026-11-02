@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5c3d948f-4d36-5bfd-bd42-0a9462b6d697",
+  "id": "bundle--1e6a61bb-6004-585a-92a2-dec3edb81309",
   "objects": [
     {
       "type": "attack-pattern",
@@ -848,7 +848,7 @@
       "id": "relationship--145fe101-c634-5073-9a3e-2df1b6182e92",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:50:14.000Z",
-      "modified": "2026-11-02T17:50:58.000Z",
+      "modified": "2026-11-02T17:55:48.000Z",
       "relationship_type": "uses",
       "source_ref": "report--809aafbd-382c-5b4b-b22a-0e221c9684b0",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -1230,6 +1230,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--43971db0-3582-553d-bb84-52fa8b95f783",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8b725246-d412-59df-b30b-8563fb644222",
+      "target_ref": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--440b18ea-2d6d-5ec7-ad5c-ebe22ea1bf9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -1417,6 +1428,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--54afe142-ce90-5627-bdf6-305473754af2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--08214a66-970f-5e09-a981-a1534a66acc9",
+      "target_ref": "vulnerability--246627fb-95a4-5012-b175-8b72bb5ab1b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--54b06a74-3469-5575-b7dc-bc731ff3df11",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:49:21.000Z",
@@ -1435,6 +1457,17 @@
       "relationship_type": "has",
       "source_ref": "software--31fc8df9-4ace-589e-9da6-30d22cdb9347",
       "target_ref": "vulnerability--4f7b497c-3c03-5619-b37b-7bb815106a45"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5832b50e-3c17-5e42-8453-4998a85ab3d3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ff3e6231-0ba4-53a1-a52b-ed24b0d6d913",
+      "target_ref": "vulnerability--246627fb-95a4-5012-b175-8b72bb5ab1b8"
     },
     {
       "type": "relationship",
@@ -1615,6 +1648,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--67c15ddf-9b01-5f81-9170-40c5489666b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:53:51.000Z",
+      "modified": "2026-11-02T17:53:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c87258c7-8a4a-5629-b777-1abf7685fb29",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6828401e-b42d-58ec-a7ef-3fa302e0529f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1721,6 +1765,17 @@
       "relationship_type": "has",
       "source_ref": "software--d48bdbf3-acd2-5f0e-a8a5-3d3589e18adf",
       "target_ref": "vulnerability--01007701-198b-57a1-a7ee-67cd98bd320a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--753f9946-2ca9-5e16-b1c4-27919c02f6e1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ff57d8ca-c938-5326-ab2b-be3de2b5cfbd",
+      "target_ref": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
     },
     {
       "type": "relationship",
@@ -2249,6 +2304,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30af45a1-f4d8-53d8-b068-79a330117023",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--aaaa3f92-a353-5eed-aa6d-b2bbe4dd92dc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cca4d689-8ff3-5dc5-a4f9-0c533675c11b",
+      "target_ref": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
     },
     {
       "type": "relationship",
@@ -2847,6 +2913,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e3f3a02a-0b55-5318-9b66-5ba3e1f3144c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--34560feb-0990-5c5b-93b5-967251cb529f",
+      "target_ref": "vulnerability--246627fb-95a4-5012-b175-8b72bb5ab1b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e4d0ad9e-54be-5651-9623-a785a1e04024",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:17:32.000Z",
@@ -3019,6 +3096,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f02a81b8-f69a-5249-96b9-cb53927c9bbe",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--02c331f8-de7a-5545-8153-f7efe41a1e55",
+      "target_ref": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
     },
     {
       "type": "relationship",
@@ -4581,6 +4669,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3c583c78-08b1-5b78-ac46-df3c4ad52975",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:54:42.000Z",
+      "modified": "2026-11-02T17:54:42.000Z",
+      "name": "Linux Kernel: Tracing subsystem race condition (CVE-2026-99237)",
+      "description": "## Overview\n\nA vulnerability exists in the Linux kernel tracing subsystem within the `update_last_data_if_empty()` function. The `trace_types_lock` is not held during calls from `tracing_open()` (with O_TRUNC), `tracing_read_pipe()`, and `tracing_buffers_read()`. This allows multiple concurrent readers to pass the `LAST_BOOT` test and trigger a double-free of `module_delta`, or allow a module notifier to update `module_delta` while it is being freed.\n\n## Technical Details\n\nThe resolution involves taking the `trace_types_lock` in the identified paths while maintaining an unlocked variant for callers that already hold the lock.\n",
+      "published": "2026-11-02T17:54:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--55806121-c853-5c3c-bbf0-135ad3792ca1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-linux-kernel-tracing-race",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-tracing-race/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99237"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-linux-kernel-tracing-race",
+      "x_craftedsignal_event_id": "brief-2026-11-02-linux-kernel-tracing-race",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-tracing-race/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:54:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4272f750-e8f9-5a28-a28a-c4fd69f8ef36",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:48:14.000Z",
@@ -5629,6 +5756,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--711f94e6-d377-5215-a8b3-bd493c122387",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:55:01.000Z",
+      "modified": "2026-11-02T17:55:01.000Z",
+      "name": "AWS SDK for pandas: SQL identifier quoting vulnerability (CVE-2026-119301)",
+      "description": "CVE-2026-119301 describes a vulnerability in the Apache Iceberg write component of the AWS SDK for pandas (versions 3.5.2 through 3.17.0). Improper neutralization of quoting syntax in SQL identifier construction may allow an authenticated remote user with AWS Glue Data Catalog metadata modification permissions to read tables accessible by a more privileged principal and write to tables being updated by that principal via a crafted column name.\n",
+      "published": "2026-11-02T17:55:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--4d661f4a-26fc-5d89-a19a-d8d8641c5e44"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-cve-2026-119301",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-119301/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119301"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-cve-2026-119301",
+      "x_craftedsignal_event_id": "brief-2026-11-02-cve-2026-119301",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-119301/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:55:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.9,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--719b49a0-0573-55a3-8fe7-4ff7c8aea58d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T11:28:47.000Z",
@@ -5786,6 +5952,51 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7598f4e6-39ab-501e-9e7a-51c6cbdf261d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:54:23.000Z",
+      "modified": "2026-11-02T17:54:23.000Z",
+      "name": "Linux Kernel: Use-after-free in synthetic event reference counting (CVE-2026-99233)",
+      "description": "## Overview\nThe Linux kernel tracing subsystem contains a vulnerability in `event_hist_trigger_parse()` and `hist_unreg_all()` where synthetic events are identified by basename rather than by `event_call` identity. \n\nBecause `find_synth_event()` only compares the event basename, registering or removing a histogram on a non-synthetic trace event whose basename matches a synthetic event erroneously modifies the synthetic event's reference count. If a histogram is registered on the non-synthetic event and subsequently removed, the synthetic event's reference count may be decremented without a matching increment. This allows the synthetic event to be freed while an active histogram action still holds a pointer to it, resulting in a use-after-free condition.\n",
+      "published": "2026-11-02T17:54:23.000Z",
+      "labels": [
+        "cve-2026-99233",
+        "kernel",
+        "linux",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--04a1d874-2498-530a-bf6c-e991538b5948"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-linux-kernel-tracing-uaf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-tracing-uaf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99233"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-linux-kernel-tracing-uaf",
+      "x_craftedsignal_event_id": "brief-2026-11-02-linux-kernel-tracing-uaf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-tracing-uaf/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:54:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -6000,7 +6211,7 @@
       "id": "report--809aafbd-382c-5b4b-b22a-0e221c9684b0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:50:14.000Z",
-      "modified": "2026-11-02T17:50:58.000Z",
+      "modified": "2026-11-02T17:55:48.000Z",
       "name": "Modem: Out-of-bounds write vulnerability (CVE-2026-20499)",
       "description": "## Overview\n\nCVE-2026-20499 is a memory corruption vulnerability in Modem firmware identified by the lack of bounds checking. The vulnerability allows for remote privilege escalation when a User Equipment (UE) device connects to a rogue base station controlled by an attacker. The vulnerability (MSV-8247) is addressed by Patch ID MOLY01857954.\n\n## Impact\n\nAn attacker can achieve remote privilege escalation on a target device without user interaction or prior elevated execution privileges by forcing the device to connect to a malicious base station.\n\n## Recommendation\n\n* Verify the current firmware version of all cellular-connected UEs in the environment.\n* Apply patch MOLY01857954 (Issue MSV-8247) to all affected Modem hardware.\n* Implement cellular network monitoring to identify anomalies in base station parameters or signal strength characteristics that may indicate rogue base station activity.\n",
       "published": "2026-11-02T17:50:14.000Z",
@@ -6010,6 +6221,7 @@
         "software--08214a66-970f-5e09-a981-a1534a66acc9",
         "software--34560feb-0990-5c5b-93b5-967251cb529f",
         "software--ff3e6231-0ba4-53a1-a52b-ed24b0d6d913",
+        "vulnerability--246627fb-95a4-5012-b175-8b72bb5ab1b8",
         "vulnerability--55401f66-d580-5593-8350-81afb1a42595",
         "vulnerability--cd2530d2-a5a8-5c95-bf1c-c12f85920c32",
         "vulnerability--d483550f-7d20-5338-bed1-9b87125b7613"
@@ -6031,14 +6243,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20557"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20585"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-modem-oob-write",
       "x_craftedsignal_event_id": "brief-2026-11-02-modem-oob-write",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-modem-oob-write/",
-      "x_craftedsignal_activity_at": "2026-11-02T17:50:58.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T17:55:48.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -6091,6 +6307,84 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--88fa758a-7a5f-5feb-9164-54785201ab35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:53:42.000Z",
+      "modified": "2026-11-02T17:53:42.000Z",
+      "name": "Krill: Authentication bypass in RPKI provisioning (CVE-2026-109142)",
+      "description": "CVE-2026-109142 is an authentication bypass vulnerability in Krill. When a CA's parent lives on the same Krill server, the system fails to verify that the child identity (child_handle) belongs to the CA making the request. Instead, it runs the RFC 6492 provisioning exchange in-process and trusts the child identity provided by the caller in the parent contact.\n",
+      "published": "2026-11-02T17:53:42.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--d08a4bbb-fadb-5e33-8327-42e932d72afa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-krill-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-krill-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109142"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-krill-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-02-krill-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-krill-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:53:42.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--8b47d777-00bd-5148-906a-9ccc94858309",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:54:10.000Z",
+      "modified": "2026-11-02T17:54:10.000Z",
+      "name": "Linux Kernel: io_uring waitid reference counter wrap (CVE-2026-99227)",
+      "description": "The Linux kernel io_uring/waitid implementation packs cancellation state into bit 31 of a reference counter, using the remaining bits as a 31-bit reference counter. Repeated failed cancellation attempts incorrectly increment the reference counter, which can lead to a wrap-around to zero. This state allows a subsequent cancellation attempt to claim ownership and complete the request a second time.\n",
+      "published": "2026-11-02T17:54:10.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--56f2c653-de76-5ec7-84e2-d10cbaae3ff8"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-linux-kernel-io-uring-cve-2026-99227",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-io-uring-cve-2026-99227/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99227"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-linux-kernel-io-uring-cve-2026-99227",
+      "x_craftedsignal_event_id": "brief-2026-11-02-linux-kernel-io-uring-cve-2026-99227",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-io-uring-cve-2026-99227/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:54:10.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -6344,6 +6638,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a0d0e1c1-9bd7-54df-a15a-18d3a3232326",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:54:54.000Z",
+      "modified": "2026-11-02T17:54:54.000Z",
+      "name": "Linux Kernel: Bluetooth L2CAP Race Condition (CVE-2026-99239)",
+      "description": "A vulnerability exists in the Linux kernel Bluetooth stack where a TOCTOU race condition allows an l2cap_chan to be linked to an l2cap_conn multiple times. This violates an invariant assumed by cleanup functions such as l2cap_chan_del. The vulnerability occurs because l2cap_sock_connect does not check sk-\u003esk_state, potentially triggering a second __l2cap_chan_add call. The fix includes an invariant check in __l2cap_chan_add and introduces locking in l2cap_sock_bind to protect the channel state.\n",
+      "published": "2026-11-02T17:54:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--bb328b38-3b11-5cb3-b9a2-18135c486283"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-linux-kernel-bluetooth-race",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-bluetooth-race/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99239"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-linux-kernel-bluetooth-race",
+      "x_craftedsignal_event_id": "brief-2026-11-02-linux-kernel-bluetooth-race",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-kernel-bluetooth-race/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:54:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -6986,6 +7319,94 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c87258c7-8a4a-5629-b777-1abf7685fb29",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:53:51.000Z",
+      "modified": "2026-11-02T17:53:51.000Z",
+      "name": "SUSE Rancher Fleet: Privilege Escalation via Unauthorized Kubeconfig Reference (CVE-2026-94290)",
+      "description": "## Overview\n\nSUSE Rancher Fleet clusters reference kubeconfig secrets for the deployment and management of agents on target clusters. A vulnerability exists where the controller does not properly validate or restrict which kubeconfig secrets a Fleet Cluster object may reference. An attacker with control over a namespace can configure a Fleet Cluster object to reference administrative kubeconfig secrets belonging to the management cluster. This results in the Fleet controller interacting with the management cluster using these administrative credentials, enabling the attacker to execute arbitrary Fleet content within the management cluster with elevated privileges.\n\n## Impact\n\nSuccessful exploitation allows for privilege escalation from a namespace-restricted user to administrative control over the management cluster, potentially leading to full cluster compromise.\n\n## Recommendation\n\n- Upgrade Rancher Fleet to a patched version once available from SUSE.\n- Audit existing Fleet Cluster objects for suspicious kubeconfig secret references, particularly those pointing to secrets outside of the object's namespace.\n- Restrict RBAC permissions for creating or modifying Fleet Cluster objects in non-administrative namespaces.\n",
+      "published": "2026-11-02T17:53:51.000Z",
+      "labels": [
+        "cloud",
+        "kubernetes",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--02c331f8-de7a-5545-8153-f7efe41a1e55",
+        "software--8b725246-d412-59df-b30b-8563fb644222",
+        "software--cca4d689-8ff3-5dc5-a4f9-0c533675c11b",
+        "software--ff57d8ca-c938-5326-ab2b-be3de2b5cfbd",
+        "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-suse-rancher-fleet-privesc",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-suse-rancher-fleet-privesc/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94290"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-suse-rancher-fleet-privesc",
+      "x_craftedsignal_event_id": "brief-2026-11-02-suse-rancher-fleet-privesc",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-suse-rancher-fleet-privesc/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:53:51.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--cb5f9136-73cf-5cb0-b901-a73d267250ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T17:53:33.000Z",
+      "modified": "2026-11-02T17:53:33.000Z",
+      "name": "Krill: Cryptographic session token vulnerability (CVE-2026-109140)",
+      "description": "Krill contains a vulnerability where login-session tokens are encrypted with a nonce built from a counter. This counter resets to 0 on every Krill restart, leading to the reuse of the same (key, nonce) pair after each restart.\n",
+      "published": "2026-11-02T17:53:33.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--4884586d-934a-5919-8703-c67074c21eec"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-krill-crypto-flaw",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-krill-crypto-flaw/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109140"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-krill-crypto-flaw",
+      "x_craftedsignal_event_id": "brief-2026-11-02-krill-crypto-flaw",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-krill-crypto-flaw/",
+      "x_craftedsignal_activity_at": "2026-11-02T17:53:33.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8.4,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T06:29:08.000Z",
@@ -7596,6 +8017,13 @@
       "spec_version": "2.1",
       "id": "software--005955aa-391b-5c97-b167-22d87f27d4c5",
       "name": "SUSE Manager Server (4.3)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--02c331f8-de7a-5545-8153-f7efe41a1e55",
+      "name": "Rancher Fleet (0.15.0-0.15.8)",
       "vendor": "SUSE"
     },
     {
@@ -8234,6 +8662,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8b725246-d412-59df-b30b-8563fb644222",
+      "name": "Rancher Fleet (0.14.0-0.14.12)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--91b89ebe-efda-520b-868b-30589c2f960f",
       "name": "Binance"
     },
@@ -8409,6 +8844,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cca4d689-8ff3-5dc5-a4f9-0c533675c11b",
+      "name": "Rancher Fleet (0.16.0-0.16.3)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
       "name": "WN551X3-A (M51X3_V251020-WO-182e965)",
       "vendor": "Wavlink"
@@ -8493,6 +8935,13 @@
       "spec_version": "2.1",
       "id": "software--ff3e6231-0ba4-53a1-a52b-ed24b0d6d913",
       "name": "Modem (Patch ID: MOLY01876662)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ff57d8ca-c938-5326-ab2b-be3de2b5cfbd",
+      "name": "Rancher Fleet (0.13.0-0.13.17)",
+      "vendor": "SUSE"
     },
     {
       "type": "threat-actor",
@@ -8616,6 +9065,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-107406",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107406"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--04a1d874-2498-530a-bf6c-e991538b5948",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99233",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99233",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99233"
         }
       ]
     },
@@ -8808,6 +9273,22 @@
           "source_name": "cve",
           "external_id": "CVE-2024-27348",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27348"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--246627fb-95a4-5012-b175-8b72bb5ab1b8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-20585",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-20585",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20585"
         }
       ]
     },
@@ -9086,6 +9567,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--4884586d-934a-5919-8703-c67074c21eec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109140",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109140",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109140"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--49418355-e05a-50ab-9c78-6ab5d31009e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9128,6 +9625,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120314",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120314"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--4d661f4a-26fc-5d89-a19a-d8d8641c5e44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-119301",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-119301",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119301"
         }
       ]
     },
@@ -9198,6 +9711,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--55806121-c853-5c3c-bbf0-135ad3792ca1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99237",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99237",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99237"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--563e8e2a-125b-511b-847d-7be3afb4c5aa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9208,6 +9737,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120315",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120315"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--56f2c653-de76-5ec7-84e2-d10cbaae3ff8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99227",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99227",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99227"
         }
       ]
     },
@@ -9518,6 +10063,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--9d1cbd7b-9c50-51fe-94c1-bccf0f1fa1ef",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-94290",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-94290",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94290"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--9dcc1d4b-8eca-558f-b8a6-9f7c3b7a9078",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -9592,6 +10153,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120281",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120281"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--bb328b38-3b11-5cb3-b9a2-18135c486283",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-99239",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-99239",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99239"
         }
       ]
     },
@@ -9736,6 +10313,22 @@
           "source_name": "cve",
           "external_id": "CVE-2025-23048",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-23048"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d08a4bbb-fadb-5e33-8327-42e932d72afa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109142",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109142",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109142"
         }
       ]
     },
