@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a71fc1ca-562d-5acc-be47-571ad5ce0823",
+  "id": "bundle--38058aaf-6543-5871-a51e-46a94830a34b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63034,6 +63034,17 @@
       "relationship_type": "has",
       "source_ref": "software--4c912f0b-d076-5c6c-b12e-448561367073",
       "target_ref": "vulnerability--d06544b0-062e-5c55-8c62-8d84b188df1e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c06e0745-41ea-5317-95c7-86f3d0a9c807",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--422a7661-5a25-5c4f-8860-74e7a90d96a9",
+      "target_ref": "vulnerability--5f7ce696-6637-5e0d-ab05-9afa26718eed"
     },
     {
       "type": "relationship",
@@ -127166,6 +127177,51 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.00627,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6f09ae1c-1782-5c14-9bb0-366157ea2b07",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T13:38:07.000Z",
+      "modified": "2026-11-02T13:38:07.000Z",
+      "name": "Dell OpenManage Enterprise: OS Command Injection (CVE-2026-94349)",
+      "description": "Dell OpenManage Enterprise versions prior to 4.8.0 contain an Improper Neutralization of Special Elements used in an OS Command vulnerability (CVE-2026-94349). A low-privileged attacker with adjacent network access could potentially exploit this to achieve command execution.\n",
+      "published": "2026-11-02T13:38:07.000Z",
+      "labels": [
+        "network",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--422a7661-5a25-5c4f-8860-74e7a90d96a9",
+        "vulnerability--5f7ce696-6637-5e0d-ab05-9afa26718eed"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-dell-openmanage-cve-2026-94349",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-dell-openmanage-cve-2026-94349/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94349"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-dell-openmanage-cve-2026-94349",
+      "x_craftedsignal_event_id": "brief-2026-11-02-dell-openmanage-cve-2026-94349",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-dell-openmanage-cve-2026-94349/",
+      "x_craftedsignal_activity_at": "2026-11-02T13:38:07.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -192533,6 +192589,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--422a7661-5a25-5c4f-8860-74e7a90d96a9",
+      "name": "OpenManage Enterprise (\u003c 4.8.0)",
+      "vendor": "Dell"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4275f354-44a0-50d4-9766-e8c977b799a8",
       "name": "@fastify/middie (9.0.0-9.3.5)",
       "vendor": "Fastify"
@@ -219942,6 +220005,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-109956",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109956"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5f7ce696-6637-5e0d-ab05-9afa26718eed",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-94349",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-94349",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94349"
         }
       ]
     },
