@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--2969ffbe-64b5-5025-9df3-47f4ad7d93f0",
+  "id": "bundle--99e4cf3c-cf6f-5699-8965-8958da3eaba4",
   "objects": [
     {
       "type": "attack-pattern",
@@ -11878,6 +11878,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eac9f10-2d99-5da6-b4e3-aff52f4657e7",
       "target_ref": "attack-pattern--d926d47d-35a0-52a4-a1d8-4137c8ec385a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--13e8ce0c-9efc-59df-80f0-cce7fa14eaa2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T06:29:08.000Z",
+      "modified": "2026-11-02T06:29:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
+      "target_ref": "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a"
     },
     {
       "type": "relationship",
@@ -23850,6 +23861,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3f07f7ab-9e4f-5123-a396-ec725996f8f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T06:29:08.000Z",
+      "modified": "2026-11-02T06:29:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
+      "target_ref": "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3f0c9ba7-1f5c-529e-9c38-ada49acffc52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -23912,6 +23934,17 @@
       "relationship_type": "has",
       "source_ref": "software--8894f018-a73a-591c-b182-7fb2b82ce6b6",
       "target_ref": "vulnerability--54738753-1fd0-5b8a-8e95-5f74d2645333"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--3f1f6a5b-3aa1-5cfa-8874-e25051164714",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T06:29:08.000Z",
+      "modified": "2026-11-02T06:29:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
+      "target_ref": "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d"
     },
     {
       "type": "relationship",
@@ -29302,6 +29335,17 @@
       "relationship_type": "has",
       "source_ref": "software--bf1c7c6c-2bff-5b77-a4ef-17ced569fd96",
       "target_ref": "vulnerability--ca9ac0d5-9c14-5d36-a0e6-9fc6ab426de2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--50f9fba7-d2ab-5e4b-9582-237068ed0a4e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T06:29:08.000Z",
+      "modified": "2026-11-02T06:29:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
+      "target_ref": "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04"
     },
     {
       "type": "relationship",
@@ -80089,6 +80133,17 @@
       "relationship_type": "has",
       "source_ref": "software--10d1e4cb-dd36-5d60-83dd-4b753b85c5cd",
       "target_ref": "vulnerability--27840f7b-dc0e-5f5c-abdc-aa5170e0f7f0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f7230089-7cdb-54a4-a6e0-9acba7619d05",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T06:29:08.000Z",
+      "modified": "2026-11-02T06:29:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -165838,6 +165893,54 @@
       },
       "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--ccce3f30-5400-5495-ac16-ed48ba37b933",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T06:29:08.000Z",
+      "modified": "2026-11-02T06:29:08.000Z",
+      "name": "VOLTA-AUTODOXER Infostealer Leverages LLMs for Victim Data Prioritization",
+      "description": "## Overview\n\nVOLTA-AUTODOXER (aka VOLTA) is a Windows-based infostealer designed to offload data triage tasks to Large Language Models (LLMs). The malware harvests a wide array of sensitive data, including browser credentials, cookies, payment information, cryptocurrency wallet seeds, and session tokens for platforms like Discord, Telegram, and Steam. After collection, it serializes this data into an \"evidence bundle\" and routes it through the OpenRouter API to AI models - specifically Anthropic’s Claude, Moonshot AI’s Kimi, or Google’s Gemini - to generate a prioritized dossier on the victim, including a \"WHAT THEY'RE WORTH\" monetization assessment. Data exfiltration occurs in three stages via the Telegram messaging platform.\n\n## Attack Chain\n\n1. Initial infection and execution of the VOLTA-AUTODOXER binary on the Windows host.\n2. Harvesting of local credentials, session tokens, and configuration files from web browsers, Outlook, Slack, and cloud-provider keys.\n3. Enrichment of the stolen dataset by searching local Gmail caches for purchase receipts (e.g., Amazon, DoorDash, Uber Eats).\n4. Serialization of the collected artifacts into a structured evidence bundle.\n5. Transmission of the evidence bundle to an AI-model API (OpenRouter) using a system prompt designed to force the model into the role of a forensic intelligence analyst.\n6. Exfiltration of the raw data, LLM-generated assessment, and enrichment evidence to the operator via Telegram.\n\n## Impact\n\nVOLTA enables operators to move beyond raw data collection to actionable, prioritized targeting. The use of AI for dossier generation provides immediate assessment of a victim's financial worth and security posture, which can significantly accelerate the effectiveness of subsequent phases like ransomware deployment or identity theft.\n\n## Recommendation\n\n- Monitor for unauthorized or suspicious outbound traffic to the OpenRouter API domain and Telegram API endpoints.\n- Audit and restrict the use of unauthorized AI API keys or environment variables (e.g., OPENAI_API_KEY, though VOLTA uses OpenRouter, similar LLMjacking patterns apply) within enterprise environments.\n- Implement endpoint detection and response (EDR) rules to monitor for common stealer behaviors: bulk file access in browser/application profiles, unusual process spawning, and connections to messaging-based C2 services.\n- Enforce policies to prevent the storage of plaintext credentials or long-lived session tokens on local disk.\n",
+      "published": "2026-11-02T06:29:08.000Z",
+      "labels": [
+        "ai-enabled-malware",
+        "credential-theft",
+        "infostealer",
+        "telegram-c2"
+      ],
+      "object_refs": [
+        "attack-pattern--119922bc-1709-5c39-a91d-5cfccacef48a",
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--5d4f3482-da19-5c2a-9f5c-b4aebcbb7c04",
+        "attack-pattern--dba05e09-3e54-51b6-af3e-58644b62ad7d",
+        "attack-pattern--f01db0f8-2292-53f2-9bdc-d0cfc660a37a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-volta-infostealer",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-volta-infostealer/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-volta-infostealer",
+      "x_craftedsignal_event_id": "brief-2026-11-02-volta-infostealer",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-volta-infostealer/",
+      "x_craftedsignal_activity_at": "2026-11-02T06:29:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
