@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--67945324-3dd5-5aa8-b471-6f938a658e4a",
+  "id": "bundle--0b0a4032-d384-5210-818a-c0e93093f6b5",
   "objects": [
     {
       "type": "attack-pattern",
@@ -34839,6 +34839,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5ddffccf-2624-550a-ab78-e27c8bf56b15",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1416ed33-d570-5ac9-bc1f-c9dc78ab0cd4",
+      "target_ref": "vulnerability--c96ef36d-5d87-57a0-a4a8-c8222a9c7091"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5e067137-2c5d-5331-a04e-13bdeb4fa397",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-27T09:20:19.000Z",
@@ -39686,6 +39697,17 @@
       "relationship_type": "has",
       "source_ref": "software--2e4a07d8-eef9-553c-8b5a-dd06fa3d7d34",
       "target_ref": "vulnerability--f8f520cb-51a9-526a-8537-890708f847d9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--6d64ab90-eb05-540c-b475-17a836836f32",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ae135e50-01c4-5e3a-8672-0aeaa0db14b8",
+      "target_ref": "vulnerability--c96ef36d-5d87-57a0-a4a8-c8222a9c7091"
     },
     {
       "type": "relationship",
@@ -46341,6 +46363,17 @@
       "relationship_type": "has",
       "source_ref": "software--8a969a5d-2695-585c-bb16-cc650dc70843",
       "target_ref": "vulnerability--77e5e396-5fc4-585b-8e94-6f662a7d3031"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--81e35d01-a1ea-5a23-9c33-42d2dc682a13",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--1416ed33-d570-5ac9-bc1f-c9dc78ab0cd4",
+      "target_ref": "vulnerability--3c25720d-42f4-5086-a97e-1249714a3277"
     },
     {
       "type": "relationship",
@@ -61213,6 +61246,17 @@
       "relationship_type": "has",
       "source_ref": "software--811c4d0d-10af-5f7f-ac7f-e480245f96ea",
       "target_ref": "vulnerability--052a92b7-fd31-51a5-a8af-8bb1d6aeedd5"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b0c0f6d2-07e2-5edd-ac9b-9ba12086b6de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-10-31T22:05:24.000Z",
+      "modified": "2026-11-02T15:52:01.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--420231a5-1916-5c74-be38-5881ff0b661a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -114429,14 +114473,17 @@
       "id": "report--420231a5-1916-5c74-be38-5881ff0b661a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T22:05:24.000Z",
-      "modified": "2026-10-31T22:05:24.000Z",
+      "modified": "2026-11-02T15:52:01.000Z",
       "name": "Jpom: Authentication bypass and command execution (CVE-2026-120201)",
       "description": "Jpom versions 2.10.0 through 2.11.12 are vulnerable to an authentication bypass. Unauthenticated attackers can gain super-administrator access by injecting query conditions into the JPOM-USER-TOKEN header. By providing a value such as 'is not null', the underlying Hutool Condition parser processes the input as an operator. Once access is gained, attackers can execute commands using Jpom's script features.\n",
       "published": "2026-10-31T22:05:24.000Z",
       "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1416ed33-d570-5ac9-bc1f-c9dc78ab0cd4",
         "software--ae135e50-01c4-5e3a-8672-0aeaa0db14b8",
-        "vulnerability--3c25720d-42f4-5086-a97e-1249714a3277"
+        "vulnerability--3c25720d-42f4-5086-a97e-1249714a3277",
+        "vulnerability--c96ef36d-5d87-57a0-a4a8-c8222a9c7091"
       ],
       "external_references": [
         {
@@ -114447,14 +114494,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120201"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120461"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-31-jpom-auth-bypass-0b421525",
       "x_craftedsignal_event_id": "brief-2026-10-31-jpom-auth-bypass-0b421525",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-jpom-auth-bypass-0b421525/",
-      "x_craftedsignal_activity_at": "2026-10-31T22:05:24.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T15:52:01.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -199322,6 +199373,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1416ed33-d570-5ac9-bc1f-c9dc78ab0cd4",
+      "name": "Jpom (\u003c= 2.11.12)",
+      "vendor": "Jpom"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--141a5527-ff11-506a-8df9-ec5b32bd19eb",
       "name": "IoTSuite Growth Linux docker (\u003c 2.0.2)",
       "vendor": "Advantech"
@@ -246930,6 +246988,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119269",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119269"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--c96ef36d-5d87-57a0-a4a8-c8222a9c7091",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120461",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120461",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120461"
         }
       ]
     },

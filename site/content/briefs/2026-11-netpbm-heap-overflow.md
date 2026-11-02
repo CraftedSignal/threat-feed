@@ -1,14 +1,28 @@
 ---
 brief_id: brief-2026-11-02-netpbm-heap-overflow
 event_id: brief-2026-11-02-netpbm-heap-overflow
-revision: 1
-activity_at: "2026-11-02T15:48:38Z"
+revision: 2
+activity_at: "2026-11-02T15:52:01Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-02T15:52:01Z"
+    checksum: sha256:1d208c02a3bd5a686dedc3d73f981df276ff199dc9ff3145964089b0f22f2219
+    summary: added CVE-2026-120435
+    changed_fields:
+      - claim_state
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120435
 title: 'Netpbm: Heap-based buffer overflow in sgitopnm (CVE-2026-120431)'
 slug: 2026-11-netpbm-heap-overflow
 description: Netpbm is vulnerable to a heap-based buffer overflow in the sgitopnm utility via crafted SGI image files, potentially allowing for arbitrary code execution.
 date: "2026-11-02T15:48:38Z"
-lastmod: "2026-11-02T15:48:54Z"
+lastmod: "2026-11-02T15:50:35Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -56,11 +70,15 @@ cves:
   - id: CVE-2026-120434
     cvss: 7.8
     kev_status: "false"
+  - id: CVE-2026-120435
+    cvss: 7.8
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120431
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120432
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120433
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120434
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-120435
 action_plan:
   priority: elevated
   owners:
@@ -142,6 +160,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-120434
+  - at: "2026-11-02T15:50:35Z"
+    level: L2
+    summary: added CVE-2026-120435
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120435
 ---
 
 Netpbm versions before 10.86.51, 11.x before 11.02.29, and 11.03 before 11.15.07 are affected by a heap-based buffer overflow vulnerability in the `sgitopnm` utility. The flaw exists within the `readChannels()` function and is triggered when processing RLE-compressed SGI images containing an oversized offset table. Successful exploitation can result in application crashes or arbitrary code execution.

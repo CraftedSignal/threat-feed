@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-09-07-lara-dashboard-rce
 event_id: brief-2026-09-07-lara-dashboard-rce
-revision: 2
-activity_at: "2026-10-27T01:10:17Z"
+revision: 3
+activity_at: "2026-11-02T15:52:01Z"
 revision_history:
   - revision: 2
     at: "2026-10-27T01:10:17Z"
@@ -19,11 +19,27 @@ revision_history:
       - updates
     source_urls:
       - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
+  - revision: 3
+    at: "2026-11-02T15:52:01Z"
+    checksum: sha256:84b5fe3d2349a3e0ddbc927b9d0c51b5ba08341cb651a824af90dff238124525
+    summary: added coverage for LaraDashboard (< 1.4.5)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cpes
+      - cves
+      - exploitation_evidence
+      - lastmod
+      - references
+      - ttps
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120487
 title: Arbitrary File Upload and RCE in Lara Dashboard
 slug: 2026-09-lara-dashboard-rce
 description: Lara Dashboard versions prior to 1.3.2 are vulnerable to arbitrary file upload via the core-upgrades endpoint, allowing unauthorized administrators to achieve remote code execution.
 date: "2026-09-07T23:37:52Z"
-lastmod: "2026-10-27T01:09:15Z"
+lastmod: "2026-11-02T15:51:29Z"
 type: advisory
 types:
   - advisory
@@ -38,6 +54,8 @@ source_assessment:
   likelihood: likely
 qa_status:
   verdict: pass
+cpes:
+  - cpe:2.3:a:laradashboard:laradashboard:*:*:*:*:*:*:*:*
 has_poc: true
 poc_references:
   - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
@@ -54,6 +72,7 @@ products:
   - LaraDashboard (0.9.2 - 1.2.2)
   - Laradashboard (<= 1.2.2)
   - LaraDashboard (>= 0.9.2, <= 1.2.2)
+  - LaraDashboard (< 1.4.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -66,6 +85,12 @@ mitre_ttps:
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
     evidence: Attackers can upload a malicious archive containing modified application files such as routes/web.php with embedded system commands.
+    confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: LaraDashboard before 1.4.5 contains an incorrect authorization vulnerability in SettingPolicy::manageCoreUpgrades() that allows non-Superadmin administrators with settings.edit to access Superadmin-only core-upgrade operations.
     confidence_band: high
 cves:
   - id: CVE-2026-86437
@@ -80,27 +105,51 @@ cves:
     cvss: 7.1
     epss: 0.00301
     kev_status: "false"
+  - id: CVE-2026-120487
+    cvss: 7.2
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-86437
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90932
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90933
   - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-120487
 action_plan:
   priority: elevated
   owners:
     - IT Operations
     - Detection Engineering
+    - SOC
   immediate_actions:
     - action: Upgrade Lara Dashboard to version 1.3.2 or later.
       owner: IT Operations
       due: 24h
       evidence: Lara Dashboard before 1.3.2 authorizes the POST /admin/settings/core-upgrades/upload endpoint incorrectly.
+    - action: Patch LaraDashboard to version 1.4.5 or later
+      owner: IT Operations
+      due: 48h
+      evidence: LaraDashboard before 1.4.5 contains an incorrect authorization vulnerability
+  hunt_leads:
+    - lead: Identify unauthorized access to the core-upgrade endpoint by non-Superadmin users
+      technique_id: T1068
+      data_needed:
+        - Web server access logs
+        - Application audit logs
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Attackers can use the /admin/settings/core-upgrades backup, download, restore and upgrade actions to obtain database dumps
   mitigation_plan:
     - priority: immediate
       action: Upgrade Lara Dashboard to version 1.3.2.
       owner: IT Operations
       addresses: CVE-2026-86437
       evidence: NVD vulnerability report
+    - priority: immediate
+      action: Upgrade LaraDashboard to 1.4.5
+      owner: IT Operations
+      addresses: CVE-2026-120487
+      evidence: LaraDashboard before 1.4.5 contains an incorrect authorization vulnerability
 updates:
   - at: "2026-09-14T13:34:15Z"
     level: L2
@@ -123,6 +172,13 @@ updates:
       - sploitus
     source_urls:
       - https://sploitus.com/exploit?id=11B69861-9369-53FF-ACD7-40634D64700A&utm_source=rss&utm_medium=rss
+  - at: "2026-11-02T15:51:29Z"
+    level: L2
+    summary: added coverage for LaraDashboard (< 1.4.5)
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120487
 ---
 
 Lara Dashboard versions before 1.3.2 contain an authorization flaw in the /admin/settings/core-upgrades/upload endpoint. The application incorrectly restricts access to this endpoint to the 'settings.edit' permission rather than enforcing 'Superadmin' status. This vulnerability allows an authenticated administrator with limited permissions to upload and extract arbitrary ZIP archives. By crafting a malicious archive, an attacker can overwrite critical application files, such as 'routes/web.php', with payloads containing system commands. These commands execute in the context of the web server user, providing the attacker with full control over the application environment, including access to database credentials and environment secrets. This attack allows for persistence and full system compromise, impacting the confidentiality, integrity, and availability of the host application.
