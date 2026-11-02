@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--4ee010f1-e4d4-52e7-bf33-1ece1a2e09fc",
+  "id": "bundle--6c44d750-1b25-52c7-a82c-92a42b36e916",
   "objects": [
     {
       "type": "attack-pattern",
@@ -309,6 +309,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--9d85f8f1-4fb2-5559-b6ac-ccb12620368e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Plist File Modification",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1647",
+          "url": "https://attack.mitre.org/techniques/T1647"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--a2bbc1a7-f032-500e-86d9-c38716e236cb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -335,6 +351,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1047",
           "url": "https://attack.mitre.org/techniques/T1047"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--c447fbda-1257-530e-ac1d-870ee2a10943",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Login Hook",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1037.002",
+          "url": "https://attack.mitre.org/techniques/T1037/002"
         }
       ]
     },
@@ -399,6 +431,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1059",
           "url": "https://attack.mitre.org/techniques/T1059"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ef980860-aadc-5ec2-8069-fdbcef869da6",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Screensaver",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1546.002",
+          "url": "https://attack.mitre.org/techniques/T1546/002"
         }
       ]
     },
@@ -1321,6 +1369,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ab428529-fc97-5e72-aba9-f657e903e20f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:09:12.000Z",
+      "modified": "2026-11-02T09:09:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5f12b581-c539-5b6c-b7ba-93284b9420be",
+      "target_ref": "attack-pattern--ef980860-aadc-5ec2-8069-fdbcef869da6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--ab6ffa19-b374-5f5c-b5dc-d6ee6bedfd22",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1464,6 +1523,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--bed6708b-cd64-54f8-8fd6-e00dd2f64da0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:08:54.000Z",
+      "modified": "2026-11-02T09:08:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a8ee8a2-667f-53e9-b805-140f001e01b9",
+      "target_ref": "attack-pattern--c447fbda-1257-530e-ac1d-870ee2a10943"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c02121e8-57f3-5c44-a7b0-6c83401123f1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T07:16:58.000Z",
@@ -1592,6 +1662,17 @@
       "relationship_type": "has",
       "source_ref": "software--0679fdf7-d89b-562d-b74e-6d65f4ffbf59",
       "target_ref": "vulnerability--209e4851-f667-53c9-867c-23de129e6bff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d37a8a23-5a72-52f2-9ee4-1f4e84bf4b6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:08:54.000Z",
+      "modified": "2026-11-02T09:08:54.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--5a8ee8a2-667f-53e9-b805-140f001e01b9",
+      "target_ref": "attack-pattern--9d85f8f1-4fb2-5559-b6ac-ccb12620368e"
     },
     {
       "type": "relationship",
@@ -3102,6 +3183,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5a8ee8a2-667f-53e9-b805-140f001e01b9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:08:54.000Z",
+      "modified": "2026-11-02T09:08:54.000Z",
+      "name": "macOS Persistence via Login Hook plist Modification",
+      "description": "## Overview\n\nThe `com.apple.loginwindow` preferences domain supports the deprecated `LoginHook` and `LogoutHook` keys, which allow for the execution of arbitrary scripts or binaries with root privileges every time a user logs in or out. Adversaries leverage these keys by writing to the `com.apple.loginwindow.plist` file, typically located in `/var/root/Library/Preferences/`, `/Library/Preferences/`, or `~/Library/Preferences/`. This technique provides a mechanism for automatic execution during system boot or user login.\n\n## Impact\n\nSuccessful exploitation allows for persistent execution of arbitrary code with root privileges upon every login or logout event on the affected macOS host.\n\n## Recommendation\n\n- Deploy file integrity monitoring to alert on any modification to `com.apple.loginwindow.plist` files across the environment.\n- Review all existing `LoginHook` and `LogoutHook` configurations on high-value macOS hosts using `sudo plutil -p /var/root/Library/Preferences/com.apple.loginwindow.plist`.\n- Validate modifications against expected configuration management, backup, and system migration activity.\n- Remove unauthorized hooks using `sudo defaults delete com.apple.loginwindow LoginHook`.\n",
+      "published": "2026-11-02T09:08:54.000Z",
+      "labels": [
+        "defense-evasion",
+        "macos",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--9d85f8f1-4fb2-5559-b6ac-ccb12620368e",
+        "attack-pattern--c447fbda-1257-530e-ac1d-870ee2a10943",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--59c49836-00fd-56f2-9c15-b89b0bd33920"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-macos-loginhook-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-loginhook-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://attack.mitre.org/techniques/T1037/002/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_loginwindow_plist_modification.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-macos-loginhook-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-02-macos-loginhook-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-loginhook-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-02T09:08:54.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5ad55f7b-51f4-58eb-8e7c-ce704c597c70",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:07:29.000Z",
@@ -3238,6 +3368,58 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.01011,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5f12b581-c539-5b6c-b7ba-93284b9420be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T09:09:12.000Z",
+      "modified": "2026-11-02T09:09:12.000Z",
+      "name": "macOS: Unauthorized screensaver configuration modification",
+      "description": "## Overview\n\nAdversaries can establish persistence on macOS by deploying a malicious screensaver (.saver) bundle and modifying the associated screensaver preference (plist) files. This forces the system to execute the malicious bundle whenever the screensaver activates. Detection focuses on identifying modifications to `com.apple.screensaver.*.plist` files performed by unsigned, untrusted, or common script-based processes.\n\n## Attack Chain\n\n1. Attacker gains initial access to the macOS host.\n2. Attacker writes a malicious screensaver (.saver) bundle to a directory such as `~/Library/Screen Savers/`.\n3. Attacker uses an untrusted process or script interpreter (e.g., `python`, `osascript`, `perl`) to modify the screensaver preference plist.\n4. The system, upon user inactivity or manual activation, triggers the `ScreenSaverEngine`.\n5. The screensaver engine loads the malicious .saver bundle.\n6. The malicious bundle executes arbitrary code under the context of the active user session.\n\n## Recommendation\n\n- Deploy the provided detection logic to identify unauthorized modifications to screensaver preferences.\n- Investigate any process modifying `com.apple.screensaver.*.plist` files that lacks a valid code signature or is a known script interpreter.\n- Review the contents of `~/Library/Screen Savers/` and `/Library/Screen Savers/` for unexpected or unsigned .saver bundles.\n- Verify that legitimate device management solutions or administrative scripts interacting with plist files are properly signed and identified as authorized.\n",
+      "published": "2026-11-02T09:09:12.000Z",
+      "labels": [
+        "endpoint-detection",
+        "macos",
+        "persistence"
+      ],
+      "object_refs": [
+        "attack-pattern--ef980860-aadc-5ec2-8069-fdbcef869da6",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--59c49836-00fd-56f2-9c15-b89b0bd33920"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-macos-screensaver-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-macos-screensaver-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/D00MFist/PersistentJXA"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/macos/persistence_screensaver_plist_file_modification.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://posts.specterops.io/saving-your-access-d562bf5bf90b"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-macos-screensaver-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-02-macos-screensaver-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-macos-screensaver-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-02T09:09:12.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -4622,6 +4804,13 @@
       "spec_version": "2.1",
       "id": "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
       "name": "Azure"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--59c49836-00fd-56f2-9c15-b89b0bd33920",
+      "name": "macOS",
+      "vendor": "Apple"
     },
     {
       "type": "software",
