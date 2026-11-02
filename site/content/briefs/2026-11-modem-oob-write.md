@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-02-modem-oob-write
 event_id: brief-2026-11-02-modem-oob-write
-revision: 3
-activity_at: "2026-11-02T19:50:24Z"
+revision: 4
+activity_at: "2026-11-02T21:52:50Z"
 revision_history:
   - revision: 2
     at: "2026-11-02T17:55:48Z"
@@ -27,11 +27,22 @@ revision_history:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20547
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20565
+  - revision: 4
+    at: "2026-11-02T21:52:50Z"
+    checksum: sha256:eb0c467c1405bc148848bd2f4f306106137248a252f8f2f3c7acbed44fa3c4c9
+    summary: added CVE-2026-20549
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20549
 title: 'Modem: Out-of-bounds write vulnerability (CVE-2026-20499)'
 slug: 2026-11-modem-oob-write
 description: A missing bounds check in Modem firmware allows an attacker operating a rogue base station to execute an out-of-bounds write, leading to remote privilege escalation without user interaction.
 date: "2026-11-02T17:50:14Z"
-lastmod: "2026-11-02T19:48:43Z"
+lastmod: "2026-11-02T21:51:28Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -80,6 +91,9 @@ cves:
   - id: CVE-2026-20565
     cvss: 8.4
     kev_status: "false"
+  - id: CVE-2026-20549
+    cvss: 7.5
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20499
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20556
@@ -87,6 +101,7 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20585
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20547
   - https://nvd.nist.gov/vuln/detail/CVE-2026-20565
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-20549
 action_plan:
   priority: elevated
   owners:
@@ -128,13 +143,6 @@ action_plan:
       addresses: CVE-2026-20556
       evidence: Patch ID provided in source for MSV-9833
 updates:
-  - at: "2026-11-02T17:50:57Z"
-    level: L2
-    summary: 'added coverage for Modem (Patch ID: MOLY01876662)'
-    sources:
-      - nvd
-    source_urls:
-      - https://nvd.nist.gov/vuln/detail/CVE-2026-20556
   - at: "2026-11-02T17:50:58Z"
     level: L2
     summary: added CVE-2026-20557
@@ -157,6 +165,13 @@ updates:
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20547
       - https://nvd.nist.gov/vuln/detail/CVE-2026-20565
+  - at: "2026-11-02T21:51:28Z"
+    level: L2
+    summary: added CVE-2026-20549
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-20549
 ---
 
 CVE-2026-20499 is a memory corruption vulnerability in Modem firmware identified by the lack of bounds checking. The vulnerability allows for remote privilege escalation when a User Equipment (UE) device connects to a rogue base station controlled by an attacker. The vulnerability (MSV-8247) is addressed by Patch ID MOLY01857954.
