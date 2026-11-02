@@ -1,21 +1,40 @@
 ---
 brief_id: brief-2026-11-01-tradertraitor-binance
 event_id: brief-2026-11-01-tradertraitor-binance
-revision: 1
-activity_at: "2026-11-01T08:57:56Z"
+revision: 2
+activity_at: "2026-11-02T09:24:19Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-02T09:24:19Z"
+    checksum: sha256:a59ce1e20e0797dd80fa7b4b1b5b58f6857a4641f8dad352eb29788131fd1b4d
+    summary: exploited:true
+    changed_fields:
+      - claim_state
+      - exploitation_evidence
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://therecord.media/fbi-blames-tradertraitor-for-binance-hack
 title: 'TraderTraitor: Large-scale cryptocurrency theft targeting Binance'
 slug: 2026-11-tradertraitor-binance
 description: The North Korean-aligned actor TraderTraitor (UNC4899) stole $6.43 billion from Binance using recruitment-themed social engineering and trojanized Terraform providers to deploy multi-stage cross-platform malware.
 date: "2026-11-01T08:57:56Z"
+lastmod: "2026-11-02T09:22:22Z"
 type: threat
+claim_state: <nil>
 types:
   - threat
 severities:
   - critical
 actors:
   - TraderTraitor
+exploited: true
 exploitation_evidence:
-  status: unknown
+  status: confirmed_active
+  source_url: https://therecord.media/fbi-blames-tradertraitor-for-binance-hack
+  observed_at: "2026-11-02T00:00:00Z"
+  confidence: medium
 source_assessment:
   reliability: A
   credibility: "1"
@@ -60,6 +79,7 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html
+  - https://therecord.media/fbi-blames-tradertraitor-for-binance-hack
 action_plan:
   priority: elevated
   owners:
@@ -86,6 +106,14 @@ action_plan:
       owner: IT Operations
       addresses: Terraform supply chain compromise
       evidence: The activity once again demonstrates how North Korean threat actors continue to abuse trusted developer workflows through trojanized Terraform providers.
+updates:
+  - at: "2026-11-02T09:22:22Z"
+    level: L3
+    summary: exploited:true
+    sources:
+      - therecord
+    source_urls:
+      - https://therecord.media/fbi-blames-tradertraitor-for-binance-hack
 ---
 
 The U.S. Federal Bureau of Investigation (FBI) has attributed a record $6.43 billion cryptocurrency theft from Binance to the North Korea-aligned threat actor TraderTraitor (also known as Jade Sleet, Pressure Chollima, PUKCHONG, Slow Pisces, and UNC4899). The threat actor is known to target individuals in the cybersecurity, AI, and blockchain industries using AI-generated personas and job-themed lures. The group leverages trojanized Terraform providers to deliver a Bash loader, which subsequently installs the FLATROOF cross-platform implant and the ROOFDECK backdoor.

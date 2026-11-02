@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6c44d750-1b25-52c7-a82c-92a42b36e916",
+  "id": "bundle--001f96d3-7c09-50a3-a15d-ff696437caec",
   "objects": [
     {
       "type": "attack-pattern",
@@ -569,7 +569,7 @@
       "id": "relationship--04f9e4fe-7072-55b1-8fe3-4b36e0f5850a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-02T09:24:19.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -734,7 +734,7 @@
       "id": "relationship--2ce078c3-9b91-5f8a-8c3a-f916ab58da72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-02T09:24:19.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "threat-actor--ae168567-79ff-5811-a561-a96e68c1bd3b"
@@ -767,7 +767,7 @@
       "id": "relationship--32314edb-ed68-52d6-9285-b849e8f80371",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-02T09:24:19.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--9745c399-5419-5ac8-bc8b-7626b3c97937"
@@ -1889,7 +1889,7 @@
       "id": "relationship--f0203cac-d567-5e6e-bcba-48f346bd0d81",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-02T09:24:19.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -3792,7 +3792,7 @@
       "id": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:56.000Z",
-      "modified": "2026-11-01T08:57:56.000Z",
+      "modified": "2026-11-02T09:24:19.000Z",
       "name": "TraderTraitor: Large-scale cryptocurrency theft targeting Binance",
       "description": "## Overview\n\nThe U.S. Federal Bureau of Investigation (FBI) has attributed a record $6.43 billion cryptocurrency theft from Binance to the North Korea-aligned threat actor TraderTraitor (also known as Jade Sleet, Pressure Chollima, PUKCHONG, Slow Pisces, and UNC4899). The threat actor is known to target individuals in the cybersecurity, AI, and blockchain industries using AI-generated personas and job-themed lures. The group leverages trojanized Terraform providers to deliver a Bash loader, which subsequently installs the FLATROOF cross-platform implant and the ROOFDECK backdoor.\n\n## Attack Chain\n\n1. **Reconnaissance:** The actor identifies targets in the cybersecurity, AI, and blockchain sectors.\n2. **Social Engineering:** The actor poses as recruiters using AI-generated personas and industry-specific knowledge to schedule interviews via spoofed front companies.\n3. **Delivery:** The target is convinced to download or interact with malicious resources, including trojanized Terraform providers.\n4. **Execution:** The Terraform provider executes a Bash loader script.\n5. **Staging:** The loader identifies the victim's OS and downloads the appropriate implant (FLATROOF).\n6. **Persistence \u0026 Control:** The FLATROOF implant exfiltrates data and drops the ROOFDECK backdoor to establish remote command and control.\n7. **Exploitation:** The actor utilizes the compromised environment to facilitate the theft and subsequent laundering of virtual assets.\n\n## Impact\n\n- Over $6.43 billion in virtual assets stolen from Binance, the largest cryptocurrency theft in history.\n- Approximately $2.85 billion in stolen assets has been frozen on-chain by various entities including Tether, Circle, Ripple, Arbitrum, and Optimism.\n\n## Recommendation\n\n- Implement strict code review processes for any third-party infrastructure-as-code (IaC) modules, specifically Terraform providers.\n- Audit outbound network connections from build servers and developer workstations to prevent unexpected downloads of loaders from untrusted external sources.\n- Implement endpoint security monitoring to detect the execution of suspicious Bash scripts, Python information stealers, and the specific artifacts associated with FLATROOF and ROOFDECK implants.\n- Review recruitment and hiring practices to verify the identity of external recruiters and the legitimacy of job opportunities offered via social media or professional networks.\n",
       "published": "2026-11-01T08:57:56.000Z",
@@ -3821,18 +3821,25 @@
         {
           "source_name": "reference",
           "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://therecord.media/fbi-blames-tradertraitor-for-binance-hack"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-01-tradertraitor-binance",
       "x_craftedsignal_event_id": "brief-2026-11-01-tradertraitor-binance",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tradertraitor-binance/",
-      "x_craftedsignal_activity_at": "2026-11-01T08:57:56.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T09:24:19.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
+        "status": "confirmed_active",
+        "source_url": "https://therecord.media/fbi-blames-tradertraitor-for-binance-hack",
+        "observed_at": "2026-11-02T00:00:00.000Z",
+        "confidence": "medium"
       },
       "x_craftedsignal_kev_status": "unknown"
     },
