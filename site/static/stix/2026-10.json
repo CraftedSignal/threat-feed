@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6d387fd-d35d-5a26-9de8-b6505c263506",
+  "id": "bundle--42256b0c-a7b1-54b6-8ccf-78454970b4af",
   "objects": [
     {
       "type": "attack-pattern",
@@ -119553,25 +119553,43 @@
       "id": "report--4bb36193-22d8-54e4-a7ff-b61c502bcb80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T12:15:11.000Z",
-      "modified": "2026-10-30T21:22:22.000Z",
-      "name": "Red Hat: Multiple vulnerabilities in RHEL components and Apache Camel for Quarkus",
-      "description": "## Overview\nMultiple security vulnerabilities have been identified in Red Hat Enterprise Linux (RHEL) components including libXi, libXrender, and ansible-collection-redhat-leapp, as well as in the Red Hat Build of Apache Camel for Quarkus. These flaws present risks of denial of service, security bypass, arbitrary code execution, and data compromise. At this time, specific CVE identifiers were not disclosed in the primary advisory. Administrators are advised to monitor the Red Hat security portal for upcoming patch releases and CVE assignments.\n\n## Impact\nSuccessful exploitation may lead to denial of service, unauthorized bypass of security controls, remote or local arbitrary code execution, and unauthorized access, modification, or disclosure of sensitive information.\n\n## Recommendation\n- Inventory systems running Red Hat Enterprise Linux and Red Hat Build of Apache Camel for Quarkus to assess exposure.\n- Prioritize the installation of security errata and patches as they are released by Red Hat for the specified packages.\n- Monitor the official Red Hat Security Advisory (RHSA) feed for the specific CVE identifiers associated with these components to determine immediate remediation steps.\n",
+      "modified": "2026-11-02T21:22:46.000Z",
+      "name": "Red Hat Security Advisories: Vulnerabilities in Enterprise Products",
+      "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued advisory AV26-1111, identifying that multiple Red Hat products are affected by security vulnerabilities. The source notice does not provide specific CVE IDs, vulnerability classes, or exploitation details at this time. Administrators are directed to the Red Hat Security Advisory portal to monitor for specific vulnerability disclosures and patch availability for the listed products.\n\n## Recommendation\n\n* Inventory internal infrastructure against the list of affected products provided below.\n* Subscribe to the Red Hat Security Advisory RSS feed or mailing list to receive notification when specific CVEs and patches are published for these products.\n* Prioritize patching on internet-facing systems once specific remediation guidance is released by Red Hat.\n",
       "published": "2026-10-29T12:15:11.000Z",
       "labels": [
+        "informational",
         "kernel",
         "linux",
         "openshift",
+        "product-news",
         "rhel",
-        "vulnerability"
+        "vulnerability",
+        "vulnerability-management"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0bde4255-52fc-5b84-a6ab-60eefb3739b1",
+        "software--110e544c-7f56-5c21-94d5-fd366b3251cc",
+        "software--3e077859-9317-52ca-8eac-739b29589edb",
         "software--5a2d533f-4fcf-5b2d-87c7-380a4b7657c3",
+        "software--5b7d8068-9e4d-552c-b86f-15e8a3f8450f",
+        "software--6d83d42b-9aaa-58b0-862e-6f2b18263d40",
+        "software--79a36256-ad8d-5838-b908-a06c981eed12",
+        "software--7a4c34d2-00d4-5989-a992-36a00df7950e",
         "software--817cba12-a250-5408-8fac-52002027b38a",
+        "software--84d530c4-a781-5af4-8e52-126c4ed0f329",
         "software--a9d8f95d-4410-5d04-beed-230ad8f7d473",
+        "software--a9de64f1-0477-5765-8745-451cdfdc5793",
+        "software--b8e5475d-9583-58b5-98b5-84ad3898cc05",
+        "software--c0d1761e-108a-580d-bb21-835070b8fc93",
         "software--cb83d36c-9e7d-55ec-8cc9-a697fe082c61",
+        "software--ceb80ef7-4356-5b41-bde6-156236313387",
+        "software--d79d361a-b8f5-50ec-b98e-ac08ab8e6253",
+        "software--e655211d-f620-58c2-a61c-aa203b569b05",
         "software--f106beeb-5172-56ef-a63f-6dec658d07fe",
         "software--fc8adf49-f455-5aec-85db-3c685c427e0a",
+        "software--fd1266aa-0209-52de-9892-280ae527df8c",
         "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f"
       ],
       "external_references": [
@@ -119579,6 +119597,14 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-29-redhat-vulnerabilities",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-redhat-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://access.redhat.com/security/security-updates/security-advisories"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/red-hat-security-advisory-av26-1111"
         },
         {
           "source_name": "reference",
@@ -119592,9 +119618,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-redhat-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-29-redhat-vulnerabilities",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-redhat-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-30T21:22:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T21:22:46.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -199161,6 +199187,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0bde4255-52fc-5b84-a6ab-60eefb3739b1",
+      "name": "Red Hat OpenShift Container Platform 5 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0bf5f00f-7ffc-53a3-87c0-cde04cbc6422",
       "name": "Zabbix (\u003c 7.0.22)",
       "vendor": "Zabbix"
@@ -199734,6 +199767,13 @@
       "id": "software--110d7cd3-28cf-5b49-8a01-e0734bb9e6fc",
       "name": "MindSearch (0.1.0)",
       "vendor": "InternLM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--110e544c-7f56-5c21-94d5-fd366b3251cc",
+      "name": "Red Hat Enterprise Linux 7 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -203204,6 +203244,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3e077859-9317-52ca-8eac-739b29589edb",
+      "name": "Red Hat JBoss Enterprise Application Platform 8 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3e07a7ec-9179-5eaa-9dec-7dbcd3e60f16",
       "name": "open (\u003e= 7.2.0, \u003c 11.0.0)"
     },
@@ -205398,6 +205445,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5b7d8068-9e4d-552c-b86f-15e8a3f8450f",
+      "name": "Red Hat Build of Keycloak (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5b92beeb-0537-57a1-a8fc-cc05acf03984",
       "name": "Camel Quarkus (\u003c 3.40.0)",
       "vendor": "Apache"
@@ -206861,6 +206915,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6d83d42b-9aaa-58b0-862e-6f2b18263d40",
+      "name": "Red Hat JBoss Enterprise Application Platform 7 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6daf12a1-9fe1-5559-ba2e-0839d0f0d2d1",
       "name": "FreeFloat FTP Server (1.0)",
       "vendor": "FreeFloat"
@@ -207884,6 +207945,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--79a36256-ad8d-5838-b908-a06c981eed12",
+      "name": "Red Hat build of Apache Camel for Spring Boot 4 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--79aa033d-ef5d-5e7d-bbb1-a8d7dac70741",
       "name": "Vite (\u003c= 0.1.15)"
     },
@@ -207912,6 +207980,13 @@
       "spec_version": "2.1",
       "id": "software--7a1b9baf-8eff-5a2e-afff-e93ed67ff395",
       "name": "Enterprise Linux (pki, Libreswan)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7a4c34d2-00d4-5989-a992-36a00df7950e",
+      "name": "Red Hat Enterprise Linux 6 (All versions)",
       "vendor": "Red Hat"
     },
     {
@@ -208793,6 +208868,13 @@
       "id": "software--84c8e85e-121d-535e-a874-91c8526ba818",
       "name": "Camel Quarkus (4.15.0)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--84d530c4-a781-5af4-8e52-126c4ed0f329",
+      "name": "Red Hat Enterprise Linux 8 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -211612,6 +211694,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a9de64f1-0477-5765-8745-451cdfdc5793",
+      "name": "Red Hat Single Sign-On 7 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--aa0e4569-06c5-5c47-8499-ed4c0abdb753",
       "name": "PraisonAI (\u003e= 4.5.115, \u003c 4.6.61)",
       "vendor": "PraisonAI"
@@ -212674,6 +212763,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b8e5475d-9583-58b5-98b5-84ad3898cc05",
+      "name": "Red Hat Hardened Images (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b901dde4-0e4a-5de4-be4a-8da2439d52ce",
       "name": "sqlparse (\u003c= 0.6.0)"
     },
@@ -213197,6 +213293,13 @@
       "id": "software--c0a03f10-3884-520d-82bc-3b5257e449b2",
       "name": "Security Verify Access (10.0-10.0.9.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c0d1761e-108a-580d-bb21-835070b8fc93",
+      "name": "Red Hat JBoss Enterprise Application Platform Expansion Pack (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -214239,6 +214342,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--ceb80ef7-4356-5b41-bde6-156236313387",
+      "name": "Red Hat OpenShift Container Platform 4 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cebdc438-de4a-5064-a48a-75e52372418d",
       "name": "KShell",
       "vendor": "KDE"
@@ -214897,6 +215007,13 @@
       "id": "software--d79b0dad-d9ee-5f26-be60-55db17f60780",
       "name": "Purchase Order Management System (1.0)",
       "vendor": "oretnom23"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d79d361a-b8f5-50ec-b98e-ac08ab8e6253",
+      "name": "Red Hat Fuse 7 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -215918,6 +216035,13 @@
       "id": "software--e628d025-8de1-5d2f-9b9b-88ae4ebacd67",
       "name": "Foreman",
       "vendor": "Foreman"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e655211d-f620-58c2-a61c-aa203b569b05",
+      "name": "Red Hat Enterprise Linux 9 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -217515,6 +217639,13 @@
       "id": "software--fcfd626f-c59d-528f-9ee4-0cf72cea1cb2",
       "name": "Guardium Data Protection (12.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fd1266aa-0209-52de-9892-280ae527df8c",
+      "name": "Red Hat Enterprise Linux 10 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",

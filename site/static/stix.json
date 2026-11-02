@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--dba41057-8af3-5740-9699-b64aedbb081f",
+  "id": "bundle--a574008f-ebeb-5e37-a4a8-a8ae6c6d024c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -38990,6 +38990,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6da1f344-6f8b-5c40-9eb3-2a09cca046e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:22:00.000Z",
+      "modified": "2026-11-02T21:22:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6da3bb1f-6c49-53b6-a8ed-3adb0bc83780",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-14T04:35:50.000Z",
@@ -62911,6 +62922,17 @@
       "relationship_type": "uses",
       "source_ref": "report--836b4a7d-bf10-5b91-866c-6aa795b73279",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ba795630-5e61-5ff5-9536-a6600a506be0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:22:00.000Z",
+      "modified": "2026-11-02T21:22:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -115736,25 +115758,43 @@
       "id": "report--4bb36193-22d8-54e4-a7ff-b61c502bcb80",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T12:15:11.000Z",
-      "modified": "2026-10-30T21:22:22.000Z",
-      "name": "Red Hat: Multiple vulnerabilities in RHEL components and Apache Camel for Quarkus",
-      "description": "## Overview\nMultiple security vulnerabilities have been identified in Red Hat Enterprise Linux (RHEL) components including libXi, libXrender, and ansible-collection-redhat-leapp, as well as in the Red Hat Build of Apache Camel for Quarkus. These flaws present risks of denial of service, security bypass, arbitrary code execution, and data compromise. At this time, specific CVE identifiers were not disclosed in the primary advisory. Administrators are advised to monitor the Red Hat security portal for upcoming patch releases and CVE assignments.\n\n## Impact\nSuccessful exploitation may lead to denial of service, unauthorized bypass of security controls, remote or local arbitrary code execution, and unauthorized access, modification, or disclosure of sensitive information.\n\n## Recommendation\n- Inventory systems running Red Hat Enterprise Linux and Red Hat Build of Apache Camel for Quarkus to assess exposure.\n- Prioritize the installation of security errata and patches as they are released by Red Hat for the specified packages.\n- Monitor the official Red Hat Security Advisory (RHSA) feed for the specific CVE identifiers associated with these components to determine immediate remediation steps.\n",
+      "modified": "2026-11-02T21:22:46.000Z",
+      "name": "Red Hat Security Advisories: Vulnerabilities in Enterprise Products",
+      "description": "## Overview\n\nThe Canadian Centre for Cyber Security (CCCS) has issued advisory AV26-1111, identifying that multiple Red Hat products are affected by security vulnerabilities. The source notice does not provide specific CVE IDs, vulnerability classes, or exploitation details at this time. Administrators are directed to the Red Hat Security Advisory portal to monitor for specific vulnerability disclosures and patch availability for the listed products.\n\n## Recommendation\n\n* Inventory internal infrastructure against the list of affected products provided below.\n* Subscribe to the Red Hat Security Advisory RSS feed or mailing list to receive notification when specific CVEs and patches are published for these products.\n* Prioritize patching on internet-facing systems once specific remediation guidance is released by Red Hat.\n",
       "published": "2026-10-29T12:15:11.000Z",
       "labels": [
+        "informational",
         "kernel",
         "linux",
         "openshift",
+        "product-news",
         "rhel",
-        "vulnerability"
+        "vulnerability",
+        "vulnerability-management"
       ],
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0bde4255-52fc-5b84-a6ab-60eefb3739b1",
+        "software--110e544c-7f56-5c21-94d5-fd366b3251cc",
+        "software--3e077859-9317-52ca-8eac-739b29589edb",
         "software--5a2d533f-4fcf-5b2d-87c7-380a4b7657c3",
+        "software--5b7d8068-9e4d-552c-b86f-15e8a3f8450f",
+        "software--6d83d42b-9aaa-58b0-862e-6f2b18263d40",
+        "software--79a36256-ad8d-5838-b908-a06c981eed12",
+        "software--7a4c34d2-00d4-5989-a992-36a00df7950e",
         "software--817cba12-a250-5408-8fac-52002027b38a",
+        "software--84d530c4-a781-5af4-8e52-126c4ed0f329",
         "software--a9d8f95d-4410-5d04-beed-230ad8f7d473",
+        "software--a9de64f1-0477-5765-8745-451cdfdc5793",
+        "software--b8e5475d-9583-58b5-98b5-84ad3898cc05",
+        "software--c0d1761e-108a-580d-bb21-835070b8fc93",
         "software--cb83d36c-9e7d-55ec-8cc9-a697fe082c61",
+        "software--ceb80ef7-4356-5b41-bde6-156236313387",
+        "software--d79d361a-b8f5-50ec-b98e-ac08ab8e6253",
+        "software--e655211d-f620-58c2-a61c-aa203b569b05",
         "software--f106beeb-5172-56ef-a63f-6dec658d07fe",
         "software--fc8adf49-f455-5aec-85db-3c685c427e0a",
+        "software--fd1266aa-0209-52de-9892-280ae527df8c",
         "software--ff969cac-e979-55c1-8362-dbb91ba4cd7f"
       ],
       "external_references": [
@@ -115762,6 +115802,14 @@
           "source_name": "craftedsignal",
           "external_id": "brief-2026-10-29-redhat-vulnerabilities",
           "url": "https://feed.craftedsignal.io/briefs/2026-10-redhat-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://access.redhat.com/security/security-updates/security-advisories"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/red-hat-security-advisory-av26-1111"
         },
         {
           "source_name": "reference",
@@ -115775,9 +115823,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-redhat-vulnerabilities",
       "x_craftedsignal_event_id": "brief-2026-10-29-redhat-vulnerabilities",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-redhat-vulnerabilities/",
-      "x_craftedsignal_activity_at": "2026-10-30T21:22:22.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T21:22:46.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -140218,6 +140266,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:22:00.000Z",
+      "modified": "2026-11-02T21:22:00.000Z",
+      "name": "Barracuda Networks: Pre-authentication Authorization Bypass and Command Injection",
+      "description": "## Overview\n\nBarracuda Networks has disclosed multiple security vulnerabilities affecting a wide range of its appliance products. The vulnerabilities are identified as pre-authentication authorization bypass and command injection. Unauthenticated remote attackers may be able to bypass security controls or execute arbitrary system commands on the affected devices. \n\n## Recommendation\n\nPrioritize patching of all internet-facing Barracuda appliances to the following minimum versions:\n\n* Barracuda Email Security Gateway (ESG): Update to 9.4.0.030 or later.\n* Barracuda Load Balancer ADC: Update to 6.4.0 or later.\n* Barracuda Web Application Firewall (WAF): Update to 11.0.1 or later.\n* Barracuda Web Security Gateway (WSG): Update to 16.1.100.100 or later.\n* Barracuda Message Archiver (BMA): Update to 5.5.4.0 or later.\n* Barracuda WAF Control Center (WCC): Update to 2.2.1 or later.\n\nAdministrators should monitor appliance audit logs for unusual management interface access attempts or unexpected process execution spawned by web service accounts.\n",
+      "published": "2026-11-02T21:22:00.000Z",
+      "labels": [
+        "high-confidence-source",
+        "network-security",
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0ba12119-22c7-5e02-84a7-442e3ac778c5",
+        "software--27f975f4-3c2f-52cb-aa88-bc045f10ad49",
+        "software--4759c797-213e-5050-8a87-52343086a27c",
+        "software--4d487a2b-2eae-5ce7-959c-3fb17bedb082",
+        "software--c5e9f52b-a4eb-53bb-b751-35c660fdef8d",
+        "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-barracuda-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-barracuda-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/barracuda-networks-security-advisory-av26-1112"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://trust.barracuda.com/security/pre-authentication-authorization-bypass-command-injection"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-barracuda-advisory",
+      "x_craftedsignal_event_id": "brief-2026-11-02-barracuda-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-barracuda-advisory/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:22:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--879710b6-e694-52d2-b788-62691f9ff7d9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-23T13:38:47.000Z",
@@ -159170,6 +159273,57 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b2bfba00-b20e-5066-b49b-878dd89e03b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:21:52.000Z",
+      "modified": "2026-11-02T21:21:52.000Z",
+      "name": "SUSE Rancher Meta Proxy Allowlist Bypass SSRF",
+      "description": "## Overview\nA security vulnerability exists in SUSE Rancher, specifically within its meta proxy component, which allows for an allowlist bypass. This vulnerability can lead to server-side request forgery (SSRF), potentially enabling attackers to make unauthorized requests to internal resources that should be restricted. Administrators should apply the provided updates immediately.\n\n## Recommendation\n- Update Rancher instances to the following patched versions to address the meta proxy allowlist bypass:\n - 2.11.19\n - 2.12.15\n - 2.13.11\n - 2.14.7\n - 2.15.3\n- Review Rancher logs for anomalous outbound HTTP requests originating from the cluster management API or proxy components.\n",
+      "published": "2026-11-02T21:21:52.000Z",
+      "labels": [
+        "cloud",
+        "ssrf",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0cf7d4b8-bc57-560a-925c-1bc39704d436",
+        "software--62337c05-176c-5b02-81e8-30669c12e0bd",
+        "software--6ea46a0f-34f1-5371-85ce-8482866c8a01",
+        "software--85842ad8-fdc0-51b0-8193-38f7ffa3ce41",
+        "software--a5cb4b69-f9bf-55ba-8145-820ec4958dd3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-suse-rancher-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-suse-rancher-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/suse-linux-security-advisory-av26-1113"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/rancher/rancher/security/advisories/GHSA-f9gf-wh3x-jx3v"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-suse-rancher-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-11-02-suse-rancher-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-suse-rancher-ssrf/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:21:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -192847,6 +193001,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0ba12119-22c7-5e02-84a7-442e3ac778c5",
+      "name": "Load Balancer Application Delivery Controller (\u003c 6.4.0)",
+      "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0bbbcc8d-4d2c-59ae-92d2-2cfb90d497b5",
       "name": "Quay",
       "vendor": "Red Hat"
@@ -192871,6 +193032,13 @@
       "id": "software--0bda244d-48f9-569c-b0cb-a8c3f371b6ed",
       "name": "Connect Secure (\u003c 25.1.3.0)",
       "vendor": "Ivanti"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0bde4255-52fc-5b84-a6ab-60eefb3739b1",
+      "name": "Red Hat OpenShift Container Platform 5 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -193002,6 +193170,13 @@
       "id": "software--0ce9e2bb-617c-5e48-a427-977a16d52060",
       "name": "Hostme v2 (n/a through 7.0)",
       "vendor": "AivahThemes"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0cf7d4b8-bc57-560a-925c-1bc39704d436",
+      "name": "Rancher (\u003c 2.11.19)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -193407,6 +193582,13 @@
       "id": "software--110d7cd3-28cf-5b49-8a01-e0734bb9e6fc",
       "name": "MindSearch (0.1.0)",
       "vendor": "InternLM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--110e544c-7f56-5c21-94d5-fd366b3251cc",
+      "name": "Red Hat Enterprise Linux 7 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -195107,6 +195289,13 @@
       "id": "software--27f8c9d6-1522-5d58-b49c-ff7da790007e",
       "name": "Stemcells for Ubuntu Jammy Azure Light (\u003c 1.9041.x)",
       "vendor": "VMware"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--27f975f4-3c2f-52cb-aa88-bc045f10ad49",
+      "name": "WAF Control Center (\u003c 2.2.1)",
+      "vendor": "Barracuda Networks"
     },
     {
       "type": "software",
@@ -196848,6 +197037,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3e077859-9317-52ca-8eac-739b29589edb",
+      "name": "Red Hat JBoss Enterprise Application Platform 8 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3e07a7ec-9179-5eaa-9dec-7dbcd3e60f16",
       "name": "open (\u003e= 7.2.0, \u003c 11.0.0)"
     },
@@ -197541,6 +197737,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4759c797-213e-5050-8a87-52343086a27c",
+      "name": "Web Application Firewall (\u003c 11.0.1)",
+      "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--47612743-a240-5039-874a-7cf74461bad6",
       "name": "serve (\u003c= 1.104.2)",
       "vendor": "Tailscale"
@@ -198042,6 +198245,13 @@
       "id": "software--4d24db10-eed8-5b83-9128-54d9e30bd7d3",
       "name": "PHP (\u003c 8.4.27)",
       "vendor": "PHP Group"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4d487a2b-2eae-5ce7-959c-3fb17bedb082",
+      "name": "Message Archiver (\u003c 5.5.4.0)",
+      "vendor": "Barracuda Networks"
     },
     {
       "type": "software",
@@ -199102,6 +199312,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--5b7d8068-9e4d-552c-b86f-15e8a3f8450f",
+      "name": "Red Hat Build of Keycloak (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--5b92beeb-0537-57a1-a8fc-cc05acf03984",
       "name": "Camel Quarkus (\u003c 3.40.0)",
       "vendor": "Apache"
@@ -199686,6 +199903,13 @@
       "id": "software--621219ae-e263-548e-98f1-70945b7e393e",
       "name": "FortiOS (\u003c 8.0.2, \u003c 7.6.8, \u003c 7.4.13, \u003c 7.2.14)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--62337c05-176c-5b02-81e8-30669c12e0bd",
+      "name": "Rancher (2.12.0 - 2.12.14)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -200550,6 +200774,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--6d83d42b-9aaa-58b0-862e-6f2b18263d40",
+      "name": "Red Hat JBoss Enterprise Application Platform 7 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--6daf12a1-9fe1-5559-ba2e-0839d0f0d2d1",
       "name": "FreeFloat FTP Server (1.0)",
       "vendor": "FreeFloat"
@@ -200636,6 +200867,13 @@
       "id": "software--6e767b74-30fa-59e3-93ee-7af8c3bc1885",
       "name": "glib-networking",
       "vendor": "GNOME"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6ea46a0f-34f1-5371-85ce-8482866c8a01",
+      "name": "Rancher (2.13.0 - 2.13.10)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -201585,6 +201823,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--79a36256-ad8d-5838-b908-a06c981eed12",
+      "name": "Red Hat build of Apache Camel for Spring Boot 4 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--79aa033d-ef5d-5e7d-bbb1-a8d7dac70741",
       "name": "Vite (\u003c= 0.1.15)"
     },
@@ -201607,6 +201852,13 @@
       "spec_version": "2.1",
       "id": "software--7a1b9baf-8eff-5a2e-afff-e93ed67ff395",
       "name": "Enterprise Linux (pki, Libreswan)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--7a4c34d2-00d4-5989-a992-36a00df7950e",
+      "name": "Red Hat Enterprise Linux 6 (All versions)",
       "vendor": "Red Hat"
     },
     {
@@ -202456,6 +202708,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--84d530c4-a781-5af4-8e52-126c4ed0f329",
+      "name": "Red Hat Enterprise Linux 8 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--84e73e68-9fcc-51a7-8ae3-849a6e23486b",
       "name": "X300 (\u003c= 6.01.3)",
       "vendor": "TOZED"
@@ -202508,6 +202767,13 @@
       "id": "software--856ba7e9-20ab-5a76-a99b-47468b8df3b8",
       "name": "Drug Recommendation System (1.0)",
       "vendor": "SourceCodester"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--85842ad8-fdc0-51b0-8193-38f7ffa3ce41",
+      "name": "Rancher (2.15.0 - 2.15.2)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -204772,6 +205038,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a5cb4b69-f9bf-55ba-8145-820ec4958dd3",
+      "name": "Rancher (2.14.0 - 2.14.6)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a6368eae-a218-5fb9-9cb0-3886e1c2f6f5",
       "name": "WebDyne for Perl (2.014-3.021)",
       "vendor": "WebDyne"
@@ -205098,6 +205371,13 @@
       "spec_version": "2.1",
       "id": "software--a9d8f95d-4410-5d04-beed-230ad8f7d473",
       "name": "Red Hat OpenShift Container Platform",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a9de64f1-0477-5765-8745-451cdfdc5793",
+      "name": "Red Hat Single Sign-On 7 (All versions)",
       "vendor": "Red Hat"
     },
     {
@@ -206136,6 +206416,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b8e5475d-9583-58b5-98b5-84ad3898cc05",
+      "name": "Red Hat Hardened Images (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b901dde4-0e4a-5de4-be4a-8da2439d52ce",
       "name": "sqlparse (\u003c= 0.6.0)"
     },
@@ -206647,6 +206934,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c0d1761e-108a-580d-bb21-835070b8fc93",
+      "name": "Red Hat JBoss Enterprise Application Platform Expansion Pack (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c0d448e9-bd7d-544a-a1cc-9a1e0607e2bb",
       "name": "ConnectWise Cloud Management"
     },
@@ -207011,6 +207305,13 @@
       "id": "software--c5ce2747-331c-5994-8f08-bcba92c039bb",
       "name": "SiYuan kernel (\u003c 0.0.0-20260731131820-67bc300b6ea6)",
       "vendor": "SiYuan"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c5e9f52b-a4eb-53bb-b751-35c660fdef8d",
+      "name": "Web Security Gateway (\u003c 16.1.100.100)",
+      "vendor": "Barracuda Networks"
     },
     {
       "type": "software",
@@ -207625,6 +207926,13 @@
       "id": "software--ce920a99-2190-509b-b9ae-8eb2e6143423",
       "name": "Grav (\u003c 2.1.7)",
       "vendor": "Grav"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ceb80ef7-4356-5b41-bde6-156236313387",
+      "name": "Red Hat OpenShift Container Platform 4 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -208266,6 +208574,13 @@
       "id": "software--d7967f08-2c23-5e6e-b811-910937968273",
       "name": "Bitbucket Data Center",
       "vendor": "Atlassian"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--d79d361a-b8f5-50ec-b98e-ac08ab8e6253",
+      "name": "Red Hat Fuse 7 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",
@@ -209264,6 +209579,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e655211d-f620-58c2-a61c-aa203b569b05",
+      "name": "Red Hat Enterprise Linux 9 (All versions)",
+      "vendor": "Red Hat"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e6721f2a-c2c6-573e-8893-7fbe512ab58f",
       "name": "fsspec (\u003e= 0.9.0, \u003c 2026.6.0)"
     },
@@ -210224,6 +210546,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e",
+      "name": "Email Security Gateway (\u003c 9.4.0.030)",
+      "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--f4a18d9e-6040-5afb-b484-a93b5e418910",
       "name": "hagent (\u003c= 761eec6)"
     },
@@ -210794,6 +211123,13 @@
       "id": "software--fcfd626f-c59d-528f-9ee4-0cf72cea1cb2",
       "name": "Guardium Data Protection (12.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fd1266aa-0209-52de-9892-280ae527df8c",
+      "name": "Red Hat Enterprise Linux 10 (All versions)",
+      "vendor": "Red Hat"
     },
     {
       "type": "software",

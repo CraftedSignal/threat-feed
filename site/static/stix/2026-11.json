@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9e30b7f3-299b-5e85-bdee-9e0113470a59",
+  "id": "bundle--a688172b-941c-5fcb-ac69-fd6bbe3ab4a1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1904,6 +1904,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6da1f344-6f8b-5c40-9eb3-2a09cca046e9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:22:00.000Z",
+      "modified": "2026-11-02T21:22:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--714b5419-e296-5459-b80d-6950ce390379",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2714,6 +2725,17 @@
       "relationship_type": "has",
       "source_ref": "software--43e62215-ed47-55b8-86c1-4134dcad6d88",
       "target_ref": "vulnerability--96c57496-5ff0-54fd-b146-c70e4c952723"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ba795630-5e61-5ff5-9536-a6600a506be0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:22:00.000Z",
+      "modified": "2026-11-02T21:22:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -7034,6 +7056,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8758ee77-03d1-59c1-95be-9568bfa0a88e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:22:00.000Z",
+      "modified": "2026-11-02T21:22:00.000Z",
+      "name": "Barracuda Networks: Pre-authentication Authorization Bypass and Command Injection",
+      "description": "## Overview\n\nBarracuda Networks has disclosed multiple security vulnerabilities affecting a wide range of its appliance products. The vulnerabilities are identified as pre-authentication authorization bypass and command injection. Unauthenticated remote attackers may be able to bypass security controls or execute arbitrary system commands on the affected devices. \n\n## Recommendation\n\nPrioritize patching of all internet-facing Barracuda appliances to the following minimum versions:\n\n* Barracuda Email Security Gateway (ESG): Update to 9.4.0.030 or later.\n* Barracuda Load Balancer ADC: Update to 6.4.0 or later.\n* Barracuda Web Application Firewall (WAF): Update to 11.0.1 or later.\n* Barracuda Web Security Gateway (WSG): Update to 16.1.100.100 or later.\n* Barracuda Message Archiver (BMA): Update to 5.5.4.0 or later.\n* Barracuda WAF Control Center (WCC): Update to 2.2.1 or later.\n\nAdministrators should monitor appliance audit logs for unusual management interface access attempts or unexpected process execution spawned by web service accounts.\n",
+      "published": "2026-11-02T21:22:00.000Z",
+      "labels": [
+        "high-confidence-source",
+        "network-security",
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0ba12119-22c7-5e02-84a7-442e3ac778c5",
+        "software--27f975f4-3c2f-52cb-aa88-bc045f10ad49",
+        "software--4759c797-213e-5050-8a87-52343086a27c",
+        "software--4d487a2b-2eae-5ce7-959c-3fb17bedb082",
+        "software--c5e9f52b-a4eb-53bb-b751-35c660fdef8d",
+        "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-barracuda-advisory",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-barracuda-advisory/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/barracuda-networks-security-advisory-av26-1112"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://trust.barracuda.com/security/pre-authentication-authorization-bypass-command-injection"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-barracuda-advisory",
+      "x_craftedsignal_event_id": "brief-2026-11-02-barracuda-advisory",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-barracuda-advisory/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:22:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--88fa758a-7a5f-5feb-9164-54785201ab35",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T17:53:42.000Z",
@@ -7845,6 +7922,57 @@
       "x_craftedsignal_revision": 1,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-tenable-identity-exposure/",
       "x_craftedsignal_activity_at": "2026-11-02T15:34:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--b2bfba00-b20e-5066-b49b-878dd89e03b1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:21:52.000Z",
+      "modified": "2026-11-02T21:21:52.000Z",
+      "name": "SUSE Rancher Meta Proxy Allowlist Bypass SSRF",
+      "description": "## Overview\nA security vulnerability exists in SUSE Rancher, specifically within its meta proxy component, which allows for an allowlist bypass. This vulnerability can lead to server-side request forgery (SSRF), potentially enabling attackers to make unauthorized requests to internal resources that should be restricted. Administrators should apply the provided updates immediately.\n\n## Recommendation\n- Update Rancher instances to the following patched versions to address the meta proxy allowlist bypass:\n - 2.11.19\n - 2.12.15\n - 2.13.11\n - 2.14.7\n - 2.15.3\n- Review Rancher logs for anomalous outbound HTTP requests originating from the cluster management API or proxy components.\n",
+      "published": "2026-11-02T21:21:52.000Z",
+      "labels": [
+        "cloud",
+        "ssrf",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--0cf7d4b8-bc57-560a-925c-1bc39704d436",
+        "software--62337c05-176c-5b02-81e8-30669c12e0bd",
+        "software--6ea46a0f-34f1-5371-85ce-8482866c8a01",
+        "software--85842ad8-fdc0-51b0-8193-38f7ffa3ce41",
+        "software--a5cb4b69-f9bf-55ba-8145-820ec4958dd3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-suse-rancher-ssrf",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-suse-rancher-ssrf/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://cyber.gc.ca/en/alerts-advisories/suse-linux-security-advisory-av26-1113"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/rancher/rancher/security/advisories/GHSA-f9gf-wh3x-jx3v"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-suse-rancher-ssrf",
+      "x_craftedsignal_event_id": "brief-2026-11-02-suse-rancher-ssrf",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-suse-rancher-ssrf/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:21:52.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -9037,6 +9165,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--0ba12119-22c7-5e02-84a7-442e3ac778c5",
+      "name": "Load Balancer Application Delivery Controller (\u003c 6.4.0)",
+      "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--0bfa0b19-0293-55d3-810d-93ccd9759635",
       "name": "SUSE Linux Micro (6.0, 6.1, 6.2)",
       "vendor": "SUSE"
@@ -9047,6 +9182,13 @@
       "id": "software--0c0e72d4-6099-59e0-a789-5cadb500f4bc",
       "name": "Gitea (\u003c= v28.2.0)",
       "vendor": "Gitea"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0cf7d4b8-bc57-560a-925c-1bc39704d436",
+      "name": "Rancher (\u003c 2.11.19)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -9131,6 +9273,13 @@
       "id": "software--27b3daa3-4a5e-5b49-911e-2ddc1dbc97f7",
       "name": "Fortipam (\u003c= 1.2.0)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--27f975f4-3c2f-52cb-aa88-bc045f10ad49",
+      "name": "WAF Control Center (\u003c 2.2.1)",
+      "vendor": "Barracuda Networks"
     },
     {
       "type": "software",
@@ -9340,6 +9489,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4759c797-213e-5050-8a87-52343086a27c",
+      "name": "Web Application Firewall (\u003c 11.0.1)",
+      "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--476cd13a-3daf-5770-9a5f-0fa4f65c80af",
       "name": "QuickJS-NG (\u003c 0.16.0)",
       "vendor": "QuickJS-NG"
@@ -9398,6 +9554,13 @@
       "id": "software--4ceb4234-25c7-557b-bdc7-7172dd3c2610",
       "name": "SUSE Linux Enterprise Live Patching (12-SP5, 15-SP4, 15-SP5, 15-SP6, 15-SP7)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4d487a2b-2eae-5ce7-959c-3fb17bedb082",
+      "name": "Message Archiver (\u003c 5.5.4.0)",
+      "vendor": "Barracuda Networks"
     },
     {
       "type": "software",
@@ -9513,6 +9676,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--62337c05-176c-5b02-81e8-30669c12e0bd",
+      "name": "Rancher (2.12.0 - 2.12.14)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--628b42ad-59be-5c8b-b998-e39cf5945da0",
       "name": "psqlODBC (versions before 18.00.0006)"
     },
@@ -9564,6 +9734,13 @@
       "id": "software--6ad1822f-e66f-55ae-9952-e9a394b0fbc3",
       "name": "PAM360 (\u003c 8601)",
       "vendor": "Zohocorp"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--6ea46a0f-34f1-5371-85ce-8482866c8a01",
+      "name": "Rancher (2.13.0 - 2.13.10)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -9637,6 +9814,13 @@
       "spec_version": "2.1",
       "id": "software--8537bf9f-eee4-569f-84f0-bd7189e413c3",
       "name": "SUSE Linux Enterprise High Availability Extension (15 SP4, 15 SP6, 15 SP7)",
+      "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--85842ad8-fdc0-51b0-8193-38f7ffa3ce41",
+      "name": "Rancher (2.15.0 - 2.15.2)",
       "vendor": "SUSE"
     },
     {
@@ -9733,6 +9917,13 @@
       "spec_version": "2.1",
       "id": "software--a4f1366e-76a1-548d-acad-fb54e289f7d7",
       "name": "AmplifAI (GoDaddy instance)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a5cb4b69-f9bf-55ba-8145-820ec4958dd3",
+      "name": "Rancher (2.14.0 - 2.14.6)",
+      "vendor": "SUSE"
     },
     {
       "type": "software",
@@ -9845,6 +10036,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c5e9f52b-a4eb-53bb-b751-35c660fdef8d",
+      "name": "Web Security Gateway (\u003c 16.1.100.100)",
+      "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cca4d689-8ff3-5dc5-a4f9-0c533675c11b",
       "name": "Rancher Fleet (0.16.0-0.16.3)",
       "vendor": "SUSE"
@@ -9937,6 +10135,13 @@
       "spec_version": "2.1",
       "id": "software--f3d02ec6-a63e-50d9-981f-24bb7f3615b3",
       "name": "Terraform"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e",
+      "name": "Email Security Gateway (\u003c 9.4.0.030)",
+      "vendor": "Barracuda Networks"
     },
     {
       "type": "software",

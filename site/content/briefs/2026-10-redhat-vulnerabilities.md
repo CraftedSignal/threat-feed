@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-redhat-vulnerabilities
 event_id: brief-2026-10-29-redhat-vulnerabilities
-revision: 2
-activity_at: "2026-10-30T21:22:22Z"
+revision: 3
+activity_at: "2026-11-02T21:22:46Z"
 revision_history:
   - revision: 2
     at: "2026-10-30T21:22:22Z"
@@ -17,11 +17,28 @@ revision_history:
       - updates
     source_urls:
       - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1431/
-title: 'Red Hat: Multiple vulnerabilities in RHEL components and Apache Camel for Quarkus'
+  - revision: 3
+    at: "2026-11-02T21:22:46Z"
+    checksum: sha256:b2464008976fe0f989338341721b061c723bfeacf68527ee9a8dac91fc896da3
+    summary: added coverage for Red Hat Build of Keycloak (All versions) +14 products
+    changed_fields:
+      - action_plan
+      - affected_os
+      - affected_products
+      - content
+      - lastmod
+      - references
+      - summary
+      - tags
+      - title
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/red-hat-security-advisory-av26-1111
+title: 'Red Hat Security Advisories: Vulnerabilities in Enterprise Products'
 slug: 2026-10-redhat-vulnerabilities
-description: Multiple vulnerabilities in Red Hat Enterprise Linux components and Red Hat Build of Apache Camel for Quarkus could allow an attacker to cause a denial of service, bypass security, execute arbitrary code, or manipulate data.
+description: The Canadian Centre for Cyber Security has released an advisory regarding multiple unidentified vulnerabilities impacting a wide range of Red Hat enterprise software products.
 date: "2026-10-29T12:15:11Z"
-lastmod: "2026-10-30T21:19:38Z"
+lastmod: "2026-11-02T21:22:10Z"
 type: advisory
 types:
   - advisory
@@ -42,6 +59,9 @@ tags:
   - rhel
   - kernel
   - openshift
+  - informational
+  - vulnerability-management
+  - product-news
 vendors:
   - Red Hat
 products:
@@ -52,11 +72,33 @@ products:
   - Red Hat Build of Apache Camel for Quarkus
   - Red Hat OpenShift Container Platform
   - Red Hat CodeReady Linux Builder
+  - Red Hat Build of Keycloak (All versions)
+  - Red Hat Enterprise Linux 10 (All versions)
+  - Red Hat Enterprise Linux 6 (All versions)
+  - Red Hat Enterprise Linux 7 (All versions)
+  - Red Hat Enterprise Linux 8 (All versions)
+  - Red Hat Enterprise Linux 9 (All versions)
+  - Red Hat Fuse 7 (All versions)
+  - Red Hat Hardened Images (All versions)
+  - Red Hat JBoss Enterprise Application Platform 7 (All versions)
+  - Red Hat JBoss Enterprise Application Platform 8 (All versions)
+  - Red Hat JBoss Enterprise Application Platform Expansion Pack (All versions)
+  - Red Hat OpenShift Container Platform 4 (All versions)
+  - Red Hat OpenShift Container Platform 5 (All versions)
+  - Red Hat Single Sign-On 7 (All versions)
+  - Red Hat build of Apache Camel for Spring Boot 4 (All versions)
 affected_os:
   - Red Hat Enterprise Linux
+  - Red Hat Enterprise Linux 10
+  - Red Hat Enterprise Linux 6
+  - Red Hat Enterprise Linux 7
+  - Red Hat Enterprise Linux 8
+  - Red Hat Enterprise Linux 9
 references:
   - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4187
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1431/
+  - https://cyber.gc.ca/en/alerts-advisories/red-hat-security-advisory-av26-1111
+  - https://access.redhat.com/security/security-updates/security-advisories
 action_plan:
   priority: elevated
   owners:
@@ -72,6 +114,15 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Source advises that multiple vulnerabilities require remediation via Red Hat security updates.
+    - action: Inventory affected Red Hat product versions in the environment.
+      owner: IT Operations
+      due: 48h
+      evidence: Source lists multiple enterprise Red Hat products as affected.
+  enrichment_needed:
+    - item: Specific CVE IDs and patches
+      owner: CTI
+      reason: Vulnerability details are currently unavailable; need to link specific threats to identified systems.
+      evidence: Source directs users to Red Hat portal for details.
   hunt_leads:
     - lead: Monitor system audit logs for abnormal kernel-space activity or unexpected privilege escalation events
       data_needed:
@@ -92,6 +143,11 @@ action_plan:
       owner: IT Operations
       addresses: Linux kernel vulnerabilities across RHEL and OpenShift platforms
       evidence: The advisory links to 24 specific RHSAs released by Red Hat in October 2026.
+    - priority: medium
+      action: Apply security patches as they are released via Red Hat advisories.
+      owner: IT Operations
+      addresses: All listed Red Hat products
+      evidence: Source advises administrators to apply necessary updates as they become available.
 updates:
   - at: "2026-10-30T21:19:38Z"
     level: L1
@@ -100,14 +156,19 @@ updates:
       - anssi
     source_urls:
       - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1431/
+  - at: "2026-11-02T21:22:10Z"
+    level: L1
+    summary: added coverage for Red Hat Build of Keycloak (All versions) +14 products
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/red-hat-security-advisory-av26-1111
 ---
 
-Multiple security vulnerabilities have been identified in Red Hat Enterprise Linux (RHEL) components including libXi, libXrender, and ansible-collection-redhat-leapp, as well as in the Red Hat Build of Apache Camel for Quarkus. These flaws present risks of denial of service, security bypass, arbitrary code execution, and data compromise. At this time, specific CVE identifiers were not disclosed in the primary advisory. Administrators are advised to monitor the Red Hat security portal for upcoming patch releases and CVE assignments.
-
-## Impact
-Successful exploitation may lead to denial of service, unauthorized bypass of security controls, remote or local arbitrary code execution, and unauthorized access, modification, or disclosure of sensitive information.
+The Canadian Centre for Cyber Security (CCCS) has issued advisory AV26-1111, identifying that multiple Red Hat products are affected by security vulnerabilities. The source notice does not provide specific CVE IDs, vulnerability classes, or exploitation details at this time. Administrators are directed to the Red Hat Security Advisory portal to monitor for specific vulnerability disclosures and patch availability for the listed products.
 
 ## Recommendation
-- Inventory systems running Red Hat Enterprise Linux and Red Hat Build of Apache Camel for Quarkus to assess exposure.
-- Prioritize the installation of security errata and patches as they are released by Red Hat for the specified packages.
-- Monitor the official Red Hat Security Advisory (RHSA) feed for the specific CVE identifiers associated with these components to determine immediate remediation steps.
+
+* Inventory internal infrastructure against the list of affected products provided below.
+* Subscribe to the Red Hat Security Advisory RSS feed or mailing list to receive notification when specific CVEs and patches are published for these products.
+* Prioritize patching on internet-facing systems once specific remediation guidance is released by Red Hat.
