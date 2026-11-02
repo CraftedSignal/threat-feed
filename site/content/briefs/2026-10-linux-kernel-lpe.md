@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-23-linux-kernel-lpe
 event_id: brief-2026-10-23-linux-kernel-lpe
-revision: 4
-activity_at: "2026-11-02T17:55:48Z"
+revision: 5
+activity_at: "2026-11-02T21:55:15Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T15:53:38Z"
@@ -54,11 +54,23 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-99224
+  - revision: 5
+    at: "2026-11-02T21:55:15Z"
+    checksum: sha256:1f00422c6ba35499aa5c8fc5177833b20d196c182efa676d7fea3082e2e2997e
+    summary: added coverage for Linux Kernel
+    changed_fields:
+      - action_plan
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58826
 title: 'Linux Kernel: io_uring privilege escalation (CVE-2024-0582)'
 slug: 2026-10-linux-kernel-lpe
 description: CVE-2024-0582 is a privilege escalation vulnerability in the Linux kernel io_uring subsystem that enables unauthorized write access to /etc/passwd via a Dirty Cred technique.
 date: "2026-10-23T19:48:50Z"
-lastmod: "2026-11-02T17:54:06Z"
+lastmod: "2026-11-02T21:54:02Z"
 type: advisory
 types:
   - advisory
@@ -127,6 +139,9 @@ cves:
   - id: CVE-2026-99224
     cvss: 7
     kev_status: "false"
+  - id: CVE-2026-58826
+    cvss: 8.4
+    kev_status: "false"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KUZEYARDABULUT-CVE-2024-0582
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-KUZEYARDABULUT-CVE-2024-0582&utm_source=rss&utm_medium=rss
@@ -138,6 +153,7 @@ references:
   - https://sploitus.com/exploit?id=C3DF6930-14F1-5C24-98BA-CE5CC970EC12&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-99218
   - https://nvd.nist.gov/vuln/detail/CVE-2026-99224
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58826
 action_plan:
   priority: elevated
   owners:
@@ -209,6 +225,13 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-99218
       evidence: Hold rcu across the loop.
+    - priority: immediate
+      action: Monitor distribution-specific security advisories and apply kernel patches for CVE-2026-58826 as soon as they become available.
+      owner: IT Operations
+      addresses: CVE-2026-58826
+      evidence: This could lead to local escalation of privilege.
+  gaps:
+    - Lack of specific exploit payloads or PoC code to develop a high-confidence signature.
 updates:
   - at: "2026-10-29T15:52:00Z"
     level: L3
@@ -238,6 +261,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-99224
+  - at: "2026-11-02T21:54:02Z"
+    level: L2
+    summary: added coverage for Linux Kernel
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58826
 ---
 
 A proof-of-concept exploit for CVE-2024-0582 has been published, targeting a use-after-free vulnerability within the Linux kernel io_uring subsystem during buffer ring unregistration. The exploit utilizes a "Dirty Cred" approach to corrupt kernel structures, specifically modifying the f_mode flags of file descriptors to grant write access to protected files, including /etc/passwd. Successful exploitation allows a local attacker to escalate privileges to root by injecting a backdoor entry into /etc/passwd.

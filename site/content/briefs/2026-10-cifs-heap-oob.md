@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-31-cifs-heap-oob
 event_id: brief-2026-10-31-cifs-heap-oob
-revision: 4
-activity_at: "2026-11-02T19:50:24Z"
+revision: 5
+activity_at: "2026-11-02T21:55:15Z"
 revision_history:
   - revision: 2
     at: "2026-10-31T22:44:42Z"
@@ -45,11 +45,23 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-99236
+  - revision: 5
+    at: "2026-11-02T21:55:15Z"
+    checksum: sha256:f1fac749f5a93b73be682c3526743337ba9dbb6bad2b42f318673aaaa6f3ecd7
+    summary: added coverage for Linux kernel
+    changed_fields:
+      - action_plan
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58829
 title: 'Linux Kernel cifs.ko: Heap Out-of-Bounds Write (CVE-2026-89633)'
 slug: 2026-10-cifs-heap-oob
 description: A heap out-of-bounds write vulnerability in the Linux kernel SMB1 client allows an attacker-controlled server to overwrite process credentials and escalate privileges to root.
 date: "2026-10-31T19:41:48Z"
-lastmod: "2026-11-02T19:49:06Z"
+lastmod: "2026-11-02T21:54:13Z"
 type: advisory
 types:
   - advisory
@@ -110,6 +122,12 @@ cves:
   - id: CVE-2026-99236
     cvss: 7.8
     kev_status: "false"
+  - id: CVE-2026-58825
+    cvss: 8.4
+    kev_status: "false"
+  - id: CVE-2026-58829
+    cvss: 8.4
+    kev_status: "false"
 references:
   - https://sploitus.com/exploit?id=BA42BDB4-C033-593B-9748-4E23020A615A
   - https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=36d01415d881
@@ -118,6 +136,8 @@ references:
   - https://sploitus.com/exploit?id=A985CA9A-24B7-5E1E-89ED-7B53E83D7692&utm_source=rss&utm_medium=rss
   - https://nvd.nist.gov/vuln/detail/CVE-2026-99231
   - https://nvd.nist.gov/vuln/detail/CVE-2026-99236
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58825
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-58829
 action_plan:
   priority: elevated
   owners:
@@ -133,6 +153,10 @@ action_plan:
       owner: IT Operations
       due: 72h
       evidence: Fixed by commit a4b016d0a29038a5b7c96bf62c054bf7832451d9
+    - action: Track Linux distribution security bulletins for kernel updates containing a fix for CVE-2026-58825.
+      owner: IT Operations
+      due: 72h
+      evidence: NVD advisory for CVE-2026-58825
   hunt_leads:
     - lead: Monitor for CIFS/SMB mounts utilizing protocol version 1.0 (vers=1.0).
       technique_id: T1068
@@ -150,6 +174,16 @@ action_plan:
       confidence: medium
       disposition: hunt_now
       evidence: Verified PoC triggers perf_event_open in an unprivileged shell
+    - lead: Monitor for kernel-level instability or unexpected crashes related to fork system calls in kernel logs.
+      technique_id: T1068
+      data_needed:
+        - dmesg
+        - syslog
+        - auditd
+      priority: medium
+      confidence: medium
+      disposition: hunt_now
+      evidence: Vulnerability located in fork.c logic.
   mitigation_plan:
     - priority: immediate
       action: Upgrade Linux kernel to 6.12.113 or higher.
@@ -161,6 +195,16 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-98937
       evidence: Upstream fix merged on 2026-06-30
+    - priority: immediate
+      action: Apply kernel security patches as soon as they are released by the distribution maintainer.
+      owner: IT Operations
+      addresses: CVE-2026-58825
+      evidence: NVD advisory for CVE-2026-58825
+    - priority: immediate
+      action: Update Linux kernel to the patched version once released by the distribution maintainer.
+      owner: IT Operations
+      addresses: CVE-2026-58829
+      evidence: Memory corruption due to a use after free.
 updates:
   - at: "2026-10-31T22:44:12Z"
     level: L2
@@ -183,6 +227,20 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-99236
+  - at: "2026-11-02T21:53:58Z"
+    level: L2
+    summary: added coverage for Linux Kernel
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58825
+  - at: "2026-11-02T21:54:13Z"
+    level: L2
+    summary: added coverage for Linux kernel
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-58829
 ---
 
 CVE-2026-89633 is a heap out-of-bounds write vulnerability (CWE-787) in the Linux kernel `cifs.ko` module. The flaw exists in the `coalesce_t2()` function, which handles SMB1 `SMB_COM_TRANSACTION2_SECONDARY` responses. A malicious SMB1 server can send responses that trigger a write of 8-byte increments outside the bounds of the `server->bigbuf` buffer. An attacker can use this primitive to corrupt memory and perform a privilege escalation attack.
