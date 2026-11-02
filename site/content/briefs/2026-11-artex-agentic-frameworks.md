@@ -1,12 +1,28 @@
 ---
 brief_id: brief-2026-11-01-artex-agentic-frameworks
 event_id: brief-2026-11-01-artex-agentic-frameworks
-revision: 1
-activity_at: "2026-11-01T20:35:48Z"
+revision: 2
+activity_at: "2026-11-02T15:30:33Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-02T15:30:33Z"
+    checksum: sha256:09df400148135c60131c2abf6c1e167c599805ac87fce9fe328d5a9d976af410
+    summary: new product
+    changed_fields:
+      - affected_products
+      - lastmod
+      - priority_signals
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4286
 title: Adoption of Autonomous Agentic Frameworks for Offensive Operations
 slug: 2026-11-artex-agentic-frameworks
 description: Multiple threat actors, including STORM-0940, are utilizing autonomous, LLM-driven offensive frameworks like ARTEX to conduct highly automated, high-velocity intrusions.
 date: "2026-11-01T20:35:48Z"
+lastmod: "2026-11-02T15:28:22Z"
 type: threat
 types:
   - threat
@@ -28,6 +44,10 @@ tags:
   - ai-enabled-threats
   - offensive-frameworks
   - automated-attacks
+  - vulnerability
+  - cloud-security
+  - rce
+  - privilege-escalation
 vendors:
   - Microsoft
   - Amazon
@@ -36,6 +56,8 @@ products:
   - AWS
   - MySQL
   - Next.js
+  - Entra
+  - Exchange
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -55,11 +77,24 @@ mitre_ttps:
     technique_name: Account Discovery
     evidence: GTIG has observed capabilities including automated Active Directory reconnaissance.
     confidence_band: high
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Ein Angreifer kann mehrere Schwachstellen in Microsoft Azure, Microsoft Entra und Microsoft Exchange ausnutzen, um seine Privilegien zu erhöhen
+    confidence_band: high
+  - tactic_id: TA0002
+    tactic_name: Execution
+    technique_id: T1203
+    technique_name: Exploitation for Client Execution
+    evidence: Ein Angreifer kann mehrere Schwachstellen in Microsoft Azure, Microsoft Entra und Microsoft Exchange ausnutzen, um [...] beliebigen Code auszuführen.
+    confidence_band: high
 references:
   - https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-frameworks/
   - https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
   - https://www.wiz.io/blog/artex-in-the-wild-storm-0940-expands-targeting-of-it-and-software-vendors
   - https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks/
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4286
 action_plan:
   priority: elevated
   owners:
@@ -85,6 +120,14 @@ action_plan:
       owner: IT Operations
       addresses: Web-shell injection via SQL poisoning.
       evidence: ARTEX modified MySQL instance to write log files with a .jsp extension.
+updates:
+  - at: "2026-11-02T15:28:22Z"
+    level: L1
+    summary: new product
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4286
 ---
 
 Threat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--65fd329b-593d-5da4-a211-c060b631a745",
+  "id": "bundle--8cb10310-ab82-53df-b38a-ccc04d691a71",
   "objects": [
     {
       "type": "attack-pattern",
@@ -902,6 +902,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--36fcd63b-5da9-521c-8f68-21ed0e2f196d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T15:30:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3a10049b-de26-50bd-b007-d8c42dd5742b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T14:53:59.000Z",
@@ -1400,10 +1411,21 @@
       "id": "relationship--84fc27f5-63b0-582d-985d-c9b189677df1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T15:30:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--85e21cb5-3db6-5c9b-9d36-a16215c1c432",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:29:10.000Z",
+      "modified": "2026-11-02T15:29:10.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c2bd6979-cd11-5fd4-bc6c-2c2c6e4d49d8",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -1415,6 +1437,17 @@
       "relationship_type": "uses",
       "source_ref": "report--4b6cb576-d2c1-5892-935b-a4e0c4b911df",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8780ef8b-9ca4-5f8e-87ce-49c53350065d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T15:30:33.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -1532,7 +1565,7 @@
       "id": "relationship--9c442398-b0f2-5982-b32c-e0b64e13b259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T15:30:33.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
@@ -2027,7 +2060,7 @@
       "id": "relationship--e2315755-41de-5b4c-9da8-cae3d2bafd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T15:30:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
@@ -2104,7 +2137,7 @@
       "id": "relationship--eca48c98-d317-5c3f-9eb7-f7a5b1577add",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T15:30:33.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -2994,6 +3027,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--2ab7792e-ab1d-50cd-b770-3fd883b55a71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:28:52.000Z",
+      "modified": "2026-11-02T15:28:52.000Z",
+      "name": "JetBrains IDEs: Security feature bypass",
+      "description": "## Overview\n\nJetBrains has announced a security vulnerability affecting multiple integrated development environments (IDEs) including IntelliJ IDEA, PyCharm, PhpStorm, WebStorm, CLion, DataGrip, and DataSpell. The flaw allows a remote, unauthenticated attacker to bypass security controls within the affected applications. No further technical details, specific CVE identifiers, or fixed version release information are currently available from the BSI advisory.\n\n## Recommendation\n\n- Inventory all installations of IntelliJ IDEA, PyCharm, PhpStorm, WebStorm, CLion, DataGrip, and DataSpell across the organization.\n- Monitor the official JetBrains security blog and release notes for upcoming patch announcements addressing this vulnerability.\n- Restrict access to IDE instances from untrusted or public networks until vendors provide patch guidance.\n",
+      "published": "2026-11-02T15:28:52.000Z",
+      "labels": [
+        "software-security",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--20277b1f-c9d9-5f20-80b7-c6f7a8bafb16",
+        "software--23cf2877-baab-53ef-ac6e-cd233a19101e",
+        "software--3a5a67c2-75dc-55c8-8643-e24be854d3ea",
+        "software--3acaa38b-fa80-5e5b-a56e-16f84de20369",
+        "software--60182451-5491-5227-9d3c-d667dc7d169c",
+        "software--60de5c87-299b-5503-8c4e-8f8797dd7a76",
+        "software--a429af6e-3059-559f-8fd0-6bf2d74fa8f1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-jetbrains-security-bypass-29c56dcd",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-security-bypass-29c56dcd/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4279"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-jetbrains-security-bypass-29c56dcd",
+      "x_craftedsignal_event_id": "brief-2026-11-02-jetbrains-security-bypass-29c56dcd",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-security-bypass-29c56dcd/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:28:52.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--2cbb5353-8510-5511-b4cb-0072faff7f52",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T07:59:20.000Z",
@@ -3297,6 +3378,49 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--33897969-27db-504e-aa07-7bc789b8f147",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:29:26.000Z",
+      "modified": "2026-11-02T15:29:26.000Z",
+      "name": "Collabora Online: Multiple Security Vulnerabilities",
+      "description": "## Overview\n\nCollabora has disclosed multiple vulnerabilities affecting Collabora Online. A remote, authenticated attacker can leverage these flaws to bypass established security controls, execute Cross-Site Scripting (XSS) attacks, or access sensitive information. Further technical details regarding specific CVEs or exploit mechanisms have not been provided in the current advisory.\n\n## Recommendation\n\n- Identify all instances of Collabora Online within the environment.\n- Monitor vendor security channels for official patch releases and update documentation to include the latest version.\n- Review authentication logs and session activity for suspicious behavior originating from authenticated users until patching is complete.\n",
+      "published": "2026-11-02T15:29:26.000Z",
+      "labels": [
+        "vulnerability",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c1ff06a0-9d94-5fe4-b0e9-c02e49586770"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-collabora-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-collabora-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4272"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-collabora-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-02-collabora-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-collabora-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:29:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -4213,22 +4337,30 @@
       "id": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T15:30:33.000Z",
       "name": "Adoption of Autonomous Agentic Frameworks for Offensive Operations",
       "description": "## Overview\n\nThreat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.\n\n## Attack Chain\n\n1. Initial Access: Adversaries utilize compromised credentials to gain entry.\n2. Reconnaissance: Agentic frameworks profile target environments (e.g., Active Directory, cloud infrastructure/AWS security groups).\n3. Exploitation: Frameworks target specific services, such as Linux web servers, using exposed application-specific APIs.\n4. Execution/Persistence: Automated injection of malicious files; specifically, poisoning MySQL general logs via `SET GLOBAL general_log_file` to write webshells to public directories.\n5. Lateral Movement: Autonomous exploration and pivot execution between services.\n6. Exfiltration: Automated staging and preparation of stolen data.\n\n## Impact\n\nAutomated attack frameworks enable adversaries to move from initial access to deep system access in significantly reduced timeframes, with observed incidents occurring in as little as 15 minutes. The high-volume, iterative nature of agentic activity increases the speed and scale of data theft and infrastructure exploitation.\n\n## Recommendation\n\n- Implement control-plane isolation to prevent automated tools from harvesting cloud service credentials.\n- Enforce short-lived credentials and strict least-privilege policies to limit the scope of autonomous tool activity.\n- Implement network segmentation to disrupt the lateral movement paths frequently probed by automated agents.\n- Deploy behavioral analytics to detect rapid, burst-like execution patterns that deviate from human-paced administrative activity.\n",
       "published": "2026-11-01T20:35:48.000Z",
       "labels": [
         "ai-enabled-threats",
         "automated-attacks",
-        "offensive-frameworks"
+        "cloud-security",
+        "offensive-frameworks",
+        "privilege-escalation",
+        "rce",
+        "vulnerability"
       ],
       "object_refs": [
         "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154",
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
+        "software--4acc9506-a5e8-5c4e-89e6-655bd8fa8f8e",
         "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
+        "software--70a81370-8370-5759-8028-78b687cec985",
         "software--84807e8d-33ca-5d50-9cdd-fabcacd68c6c",
         "software--d68808ce-1f39-50da-913c-50a81807535a",
         "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
@@ -4249,6 +4381,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4286"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/"
         },
         {
@@ -4259,9 +4395,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-01-artex-agentic-frameworks",
       "x_craftedsignal_event_id": "brief-2026-11-01-artex-agentic-frameworks",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-agentic-frameworks/",
-      "x_craftedsignal_activity_at": "2026-11-01T20:35:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T15:30:33.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -4359,6 +4495,44 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--7e0ad4b8-95c8-54d9-bceb-25353c5dd811",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:29:31.000Z",
+      "modified": "2026-11-02T15:29:31.000Z",
+      "name": "Traefik: Multiple security control bypass vulnerabilities",
+      "description": "## Overview\nThe German Federal Office for Information Security (BSI) has released an advisory regarding multiple vulnerabilities in Traefik that allow for the bypass of security mechanisms. No specific CVE IDs or technical exploit details have been disclosed in this initial advisory. Organizations using Traefik are advised to monitor for official vendor patches and technical updates from Traefik Labs.\n\n## Recommendation\n- Inventory all internet-facing and internal Traefik proxy deployments.\n- Monitor the Traefik Labs security advisory portal for pending release information and patch availability.\n- Implement strict ingress filtering and review access logs for anomalous traffic patterns directed at the proxy infrastructure.\n",
+      "published": "2026-11-02T15:29:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--1f31cccd-d3ae-5930-a9a5-bc57b8706831"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-traefik-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4271"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-traefik-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-02-traefik-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traefik-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:29:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--807ab68c-259f-531a-a621-3747257b1fd8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:17:10.000Z",
@@ -4395,6 +4569,49 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--9068ad04-098f-5f29-ae64-dbb246d057ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:28:47.000Z",
+      "modified": "2026-11-02T15:28:47.000Z",
+      "name": "JetBrains Toolbox App and IntelliJ IDEA: Security bypass vulnerability",
+      "description": "## Overview\n\nThe BSI has released an advisory regarding a security vulnerability in JetBrains Toolbox App and IntelliJ IDEA. A remote, unauthenticated attacker can exploit this flaw to bypass security controls within the affected applications. No specific CVE identifier or exploitation details have been disclosed at this time. \n\n## Recommendation\n\n- Inventory all installations of JetBrains Toolbox App and IntelliJ IDEA across the organization.\n- Monitor vendor advisory channels for patch availability and specific update instructions from JetBrains.\n- Prioritize applying security updates immediately upon release by the vendor to address this bypass vulnerability.\n",
+      "published": "2026-11-02T15:28:47.000Z",
+      "labels": [
+        "software-security",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--53c8e729-1de9-56a4-8cae-4ab13ea99c19",
+        "software--60de5c87-299b-5503-8c4e-8f8797dd7a76"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-jetbrains-security-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-security-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4280"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-jetbrains-security-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-02-jetbrains-security-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-jetbrains-security-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:28:47.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -4739,6 +4956,49 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--c2bd6979-cd11-5fd4-bc6c-2c2c6e4d49d8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:29:10.000Z",
+      "modified": "2026-11-02T15:29:10.000Z",
+      "name": "Linksys Routers: Remote administrative privilege escalation",
+      "description": "## Overview\n\nA critical, unpatched vulnerability has been identified in Linksys routers. The flaw allows a remote, unauthenticated attacker to gain administrator-level privileges. Successful exploitation enables the attacker to perform unauthorized file manipulation, disclose sensitive information, or induce a denial-of-service condition on the affected hardware. No patch or vendor workaround is currently available.\n\n## Impact\n\nThe vulnerability provides unauthenticated attackers with administrative access, potentially leading to full compromise of the network gateway, sensitive data exfiltration, service disruption, and persistent unauthorized access to the network infrastructure.\n\n## Recommendation\n\n* Identify all Linksys router devices within the network inventory.\n* Restrict management interfaces of these routers to trusted local subnets to prevent remote exploitation.\n* Monitor for any unauthorized configuration changes or anomalous traffic originating from or targeting these router management interfaces.\n* Subscribe to vendor security advisories and prioritize firmware updates once a patch becomes available.\n",
+      "published": "2026-11-02T15:29:10.000Z",
+      "labels": [
+        "network-security",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bb2c766e-f2f0-53f2-90e1-7925323ae1c3"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-linksys-router-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linksys-router-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4276"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-linksys-router-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-02-linksys-router-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linksys-router-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:29:10.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -5394,6 +5654,27 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--1f31cccd-d3ae-5930-a9a5-bc57b8706831",
+      "name": "Traefik",
+      "vendor": "Traefik Labs"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--20277b1f-c9d9-5f20-80b7-c6f7a8bafb16",
+      "name": "PyCharm",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--23cf2877-baab-53ef-ac6e-cd233a19101e",
+      "name": "WebStorm",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--252dcda8-d11e-5db6-a693-52f13cd614f8",
       "name": "Order Delivery Date Pro For Woocommerce (\u003c 12.3.1)",
       "vendor": "Tychesoftwares"
@@ -5490,6 +5771,20 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3a5a67c2-75dc-55c8-8643-e24be854d3ea",
+      "name": "DataGrip",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--3acaa38b-fa80-5e5b-a56e-16f84de20369",
+      "name": "PhpStorm",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3fe61bd4-b529-5aed-afaf-46d39ce061ed",
       "name": "BookIt (n/a through 2.6.0.6)"
     },
@@ -5551,6 +5846,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--4acc9506-a5e8-5c4e-89e6-655bd8fa8f8e",
+      "name": "Exchange"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--4b309db2-8499-5e74-842c-f9178695469c",
       "name": "C-Kermit",
       "vendor": "OpenKermit"
@@ -5607,6 +5908,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--53c8e729-1de9-56a4-8cae-4ab13ea99c19",
+      "name": "Toolbox App",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--55a130b4-2631-5b5b-a455-022becbda23c",
       "name": "E8450 (1.2.00.360516)",
       "vendor": "Linksys"
@@ -5655,6 +5963,20 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--60182451-5491-5227-9d3c-d667dc7d169c",
+      "name": "DataSpell",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--60de5c87-299b-5503-8c4e-8f8797dd7a76",
+      "name": "IntelliJ IDEA",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--62d0ac8e-3502-5ff4-b854-20393d55ad7f",
       "name": "Public Cloud Module (15-SP7)",
       "vendor": "SUSE"
@@ -5693,6 +6015,12 @@
       "id": "software--701d3052-bd3d-5083-b43f-c0cb5d65251f",
       "name": "SQL Server (16.0.1000)",
       "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--70a81370-8370-5759-8028-78b687cec985",
+      "name": "Entra"
     },
     {
       "type": "software",
@@ -5805,6 +6133,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--a429af6e-3059-559f-8fd0-6bf2d74fa8f1",
+      "name": "CLion",
+      "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--a4f1366e-76a1-548d-acad-fb54e289f7d7",
       "name": "AmplifAI (GoDaddy instance)"
     },
@@ -5827,6 +6162,13 @@
       "id": "software--bb1bbfd3-846a-5b86-b4f5-60c220b55339",
       "name": "Network-AI (5.14.0 \u003c= version \u003c 5.15.5)",
       "vendor": "Network-AI"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bb2c766e-f2f0-53f2-90e1-7925323ae1c3",
+      "name": "Linksys Router (unspecified version)",
+      "vendor": "Linksys"
     },
     {
       "type": "software",
@@ -5854,6 +6196,13 @@
       "id": "software--beec8f63-37f8-5e60-aa22-7834528ed051",
       "name": "CloudClassroom-PHP-Project",
       "vendor": "mathurvishal"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c1ff06a0-9d94-5fe4-b0e9-c02e49586770",
+      "name": "Collabora Online",
+      "vendor": "Collabora"
     },
     {
       "type": "software",

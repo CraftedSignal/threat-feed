@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-27-microsoft-edge-vulnerabilities
 event_id: brief-2026-10-27-microsoft-edge-vulnerabilities
-revision: 6
-activity_at: "2026-10-30T21:22:22Z"
+revision: 7
+activity_at: "2026-11-02T15:30:33Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T17:34:25Z"
@@ -65,11 +65,27 @@ revision_history:
       - updates
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69446
+  - revision: 7
+    at: "2026-11-02T15:30:33Z"
+    checksum: sha256:e12bd76d670bf53f9baba3b98bd8e7326adbfa7ed4e3b52f3ed4d08e20be017e
+    summary: added coverage for Edge
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4268
 title: 'Microsoft Edge: Multiple Vulnerabilities'
 slug: 2026-10-microsoft-edge-vulnerabilities
 description: Multiple vulnerabilities in Microsoft Edge allow for remote code execution, privilege escalation, and unauthorized data access, requiring immediate updates to patched versions.
 date: "2026-10-27T17:38:47Z"
-lastmod: "2026-10-30T21:20:46Z"
+lastmod: "2026-11-02T15:29:49Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -90,12 +106,22 @@ cpes:
 tags:
   - vulnerability
   - browser
+  - privilege-escalation
+  - microsoft-edge
 vendors:
   - Microsoft
 products:
   - Edge (< 155.0.4283.62)
   - Edge (< 154.0.4258.62)
   - Edge (< 154.0.8037.92)
+  - Edge
+mitre_ttps:
+  - tactic_id: TA0004
+    tactic_name: Privilege Escalation
+    technique_id: T1068
+    technique_name: Exploitation for Privilege Escalation
+    evidence: Ein lokaler Angreifer kann eine Schwachstelle in Microsoft Edge ausnutzen, um seine Privilegien zu erhöhen.
+    confidence_band: high
 cves:
   - id: CVE-2026-102300
     kev_status: unknown
@@ -213,25 +239,44 @@ references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-85890
   - https://nvd.nist.gov/vuln/detail/CVE-2026-96199
   - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69446
+  - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4268
 action_plan:
   priority: elevated
   owners:
     - IT Operations
     - SOC
+    - CTI
+  immediate_actions:
+    - action: Monitor Microsoft Edge update channel for security patches referencing local privilege escalation.
+      owner: IT Operations
+      due: 7d
+      evidence: BSI advisory indicates vulnerability requires patching.
+  enrichment_needed:
+    - item: CVE identifier
+      owner: CTI
+      reason: Necessary to track vulnerability lifecycle and vendor remediation status.
+      evidence: Source is currently a general advisory.
+  hunt_leads:
+    - lead: Identify systems with outdated Edge installations that may be subject to future exploit disclosure.
+      technique_id: T1068
+      data_needed:
+        - Endpoint software inventory
+      priority: medium
+      confidence: medium
+      disposition: monitor_or_close
+      evidence: Local privilege escalation requires the vulnerable software to be present on the host.
   mitigation_plan:
     - priority: immediate
       action: Upgrade Microsoft Edge to 155.0.4283.62 or 154.0.4258.62
       owner: IT Operations
       addresses: All CVEs listed in the advisory
       evidence: Source indicates updating to these versions resolves the identified vulnerabilities
+    - priority: medium
+      action: Apply future Microsoft Edge security updates once released.
+      owner: IT Operations
+      addresses: Local privilege escalation vulnerability
+      evidence: BSI security advisory
 updates:
-  - at: "2026-10-29T19:54:00Z"
-    level: L1
-    summary: new product
-    sources:
-      - msrc
-    source_urls:
-      - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-62765
   - at: "2026-10-29T20:14:34Z"
     level: L1
     summary: new product
@@ -260,6 +305,13 @@ updates:
       - msrc
     source_urls:
       - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-69446
+  - at: "2026-11-02T15:29:49Z"
+    level: L1
+    summary: added coverage for Edge
+    sources:
+      - bsi
+    source_urls:
+      - https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4268
 ---
 
 The French cybersecurity agency (ANSSI/CERT-FR) has published an advisory detailing multiple security vulnerabilities affecting Microsoft Edge. These vulnerabilities include remote code execution (RCE), privilege escalation, and information disclosure. The affected versions are Microsoft Edge versions 155.x prior to 155.0.4283.62 and versions prior to 154.0.4258.62.
