@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a688172b-941c-5fcb-ac69-fd6bbe3ab4a1",
+  "id": "bundle--652fc911-6b32-5d4f-9a47-b4ac3ead1cad",
   "objects": [
     {
       "type": "attack-pattern",
@@ -903,6 +903,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--11c74cf0-5554-5490-bd81-ac8205ffbdac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:33:57.000Z",
+      "modified": "2026-11-02T21:33:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d384fc6f-833f-5b93-9be6-0bb965566989",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--139e4cfa-d737-5a7e-b0b1-44fcb3868c56",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1178,6 +1189,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--32a9ccf2-dea8-5cb7-88d5-9d3a4666edd1",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--fa7b76f7-dd40-5b28-a6a2-a5ab35b5d6df",
+      "target_ref": "vulnerability--8b36d4c6-2091-55de-a14c-dd8f670b1ec9"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--35270035-ee27-520e-9b0f-ba2483ca3c18",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1185,6 +1207,17 @@
       "relationship_type": "has",
       "source_ref": "software--5ac7add2-5a32-584d-bb57-05143537d1a1",
       "target_ref": "vulnerability--06819903-767f-56bd-9280-cacaa5a426b0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--35a225ae-7d5c-51ff-943b-ed00046f8a09",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:33:57.000Z",
+      "modified": "2026-11-02T21:33:57.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--d384fc6f-833f-5b93-9be6-0bb965566989",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -2615,6 +2648,17 @@
       "relationship_type": "has",
       "source_ref": "software--433631a3-5e22-555d-8855-4b566d52f081",
       "target_ref": "vulnerability--11e69e15-cc89-5ba4-9286-bb702483c4cd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ad7c3dd6-632d-5503-93a1-038f98e5581d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--2c6f38ad-b246-59a2-b975-5d20ec86d8bc",
+      "target_ref": "vulnerability--8b36d4c6-2091-55de-a14c-dd8f670b1ec9"
     },
     {
       "type": "relationship",
@@ -7336,6 +7380,51 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9e165d66-8405-529e-b3d3-971f8668b3a9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:34:13.000Z",
+      "modified": "2026-11-02T21:34:13.000Z",
+      "name": "SD-JWT JS: Disclosure omission and validation bypass (CVE-2026-62374)",
+      "description": "The `@sd-jwt/decode` and `@sd-jwt/core` libraries (version 0.19.0) contain a validation flaw in the disclosure processing layer that deviates from RFC 9901 requirements. The libraries perform a lossy decoding process that silently drops tampered or non-decodable disclosures instead of rejecting the presentation.\n\nWhen a disclosure is tampered with (e.g., via byte manipulation or invalid UTF-8 sequences), the library fails to identify the mismatch against the Issuer-signed `_sd` array. Consequently, the library returns a successful verification result containing a reduced claim set. This behavior acts as an omission primitive, potentially allowing holders or on-path attackers to bypass authorization logic that assumes the presence of specific credentials.\n\nThe issue specifically violates:\n- RFC 9901 §7.1 step 5: Mandatory rejection if any disclosure is not referenced by digest in the signed JWT.\n- RFC 9901 §7.1 step 3 / §4.2.1: Mandatory rejection of non-base64url-JSON disclosures.\n",
+      "published": "2026-11-02T21:34:13.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2c6f38ad-b246-59a2-b975-5d20ec86d8bc",
+        "software--fa7b76f7-dd40-5b28-a6a2-a5ab35b5d6df",
+        "vulnerability--8b36d4c6-2091-55de-a14c-dd8f670b1ec9"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-sd-jwt-disclosure-downgrade",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sd-jwt-disclosure-downgrade/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-f9j6-8p6x-r9j6"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.rfc-editor.org/rfc/rfc9901.html"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-sd-jwt-disclosure-downgrade",
+      "x_craftedsignal_event_id": "brief-2026-11-02-sd-jwt-disclosure-downgrade",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sd-jwt-disclosure-downgrade/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:34:13.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_epss_max": 0.00226,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9e2ecba0-fa56-5f15-9db7-7431139d6b57",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T19:48:17.000Z",
@@ -8631,6 +8720,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--d384fc6f-833f-5b93-9be6-0bb965566989",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:33:57.000Z",
+      "modified": "2026-11-02T21:33:57.000Z",
+      "name": "Flowise: Authenticated remote code execution",
+      "description": "## Overview\n\nA critical vulnerability has been identified in Flowise that enables an authenticated remote attacker to execute arbitrary code within the context of the service. The vulnerability stems from an insecure implementation that permits the bypass of existing security controls. As of this report, the vulnerability remains unpatched.\n\n## Impact\n\nAn attacker successfully exploiting this vulnerability gains the ability to execute arbitrary code with the same privileges as the underlying Flowise service, potentially leading to full application compromise, data exfiltration, or further lateral movement within the environment.\n\n## Recommendation\n\n- Inventory all internet-facing or internal instances of Flowise within the infrastructure.\n- Implement strict network segmentation to limit access to the Flowise management interface to trusted administrative subnets only.\n- Monitor logs for unusual authentication activity followed by service-level process execution.\n- Follow the vendor communication channels and prioritize the application of security updates once a patch is released.\n",
+      "published": "2026-11-02T21:33:57.000Z",
+      "object_refs": [
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--35f03b9e-0a22-5d8a-9d92-9130654105f4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-flowise-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-flowise-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4270"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-flowise-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-02-flowise-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-flowise-rce/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:33:57.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--d8058acd-8ceb-5f12-aa33-843eca39ccc4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:48:22.000Z",
@@ -9319,6 +9448,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2c6f38ad-b246-59a2-b975-5d20ec86d8bc",
+      "name": "@sd-jwt/decode (\u003c= 0.19.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
       "name": "AWS"
     },
@@ -9375,6 +9510,13 @@
       "id": "software--355c53b0-936d-5a00-9bc2-3f86f8fa552d",
       "name": "PhpSpreadsheet (\u003e= 4.0.0, \u003c= 5.9.0)",
       "vendor": "PHPOffice"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--35f03b9e-0a22-5d8a-9d92-9130654105f4",
+      "name": "Flowise",
+      "vendor": "Flowise"
     },
     {
       "type": "software",
@@ -10142,6 +10284,12 @@
       "id": "software--f49ac6d4-0449-5a99-9fc8-28f96a11f46e",
       "name": "Email Security Gateway (\u003c 9.4.0.030)",
       "vendor": "Barracuda Networks"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fa7b76f7-dd40-5b28-a6a2-a5ab35b5d6df",
+      "name": "@sd-jwt/core (\u003c= 0.19.0)"
     },
     {
       "type": "software",
@@ -11293,6 +11441,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18199",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18199"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--8b36d4c6-2091-55de-a14c-dd8f670b1ec9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-62374",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-62374",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62374"
         }
       ]
     },
