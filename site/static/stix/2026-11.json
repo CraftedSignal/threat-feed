@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--db77c24e-88a7-5446-8842-9315ae4d6e98",
+  "id": "bundle--1f208987-fec7-5d66-8312-7c24aa7773f0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2273,6 +2273,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--49185db1-b929-5e2b-a215-fc5688e235fa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T05:05:00.000Z",
+      "modified": "2026-11-02T05:05:00.000Z",
+      "name": "C-Kermit: Multiple vulnerabilities including RCE",
+      "description": "## Overview\n\nA code quality sweep of C-Kermit has identified three distinct security vulnerabilities. The most critical issue allows for remote code execution when a user interacts with a malicious peer. Additional vulnerabilities include an authentication bypass and TLS certificate spoofing. These issues are currently documented under GitHub Security Advisories; CVE identifiers are pending allocation. Users are advised to monitor the upstream repository for patch releases.\n\n## Impact\n\nSuccessful exploitation of the RCE vulnerability could allow an attacker to achieve remote code execution on the system running C-Kermit by simulating a malicious peer connection. The authentication bypass and TLS spoofing flaws compromise the integrity and confidentiality of communication sessions.\n\n## Recommendation\n\n* Monitor the C-Kermit GitHub repository and security advisories for the release of patched versions.\n* Audit systems running C-Kermit to identify and restrict exposure to untrusted or public peer connections.\n* Until patches are available, avoid connecting C-Kermit to untrusted remote peers, as these interactions facilitate the observed RCE and authentication bypass vectors.\n",
+      "published": "2026-11-02T05:05:00.000Z",
+      "labels": [
+        "authentication-bypass",
+        "rce",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--4b309db2-8499-5e74-842c-f9178695469c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-c-kermit-vulnerabilities",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-c-kermit-vulnerabilities/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/OpenKermit/ckermit/security/advisories/GHSA-c5px-7h4c-gj8p"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/464"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-c-kermit-vulnerabilities",
+      "x_craftedsignal_event_id": "brief-2026-11-02-c-kermit-vulnerabilities",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-c-kermit-vulnerabilities/",
+      "x_craftedsignal_activity_at": "2026-11-02T05:05:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--4b6cb576-d2c1-5892-935b-a4e0c4b911df",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T09:58:38.000Z",
@@ -3434,6 +3481,13 @@
       "id": "software--489e2eef-7eb3-57bd-9dcb-0706c8552f6c",
       "name": "Gateway (\u003c 0.1.776)",
       "vendor": "Beta9"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--4b309db2-8499-5e74-842c-f9178695469c",
+      "name": "C-Kermit",
+      "vendor": "OpenKermit"
     },
     {
       "type": "software",

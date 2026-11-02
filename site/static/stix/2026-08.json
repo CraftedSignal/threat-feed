@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--29364bbc-4c94-5d4a-bf5e-9c2f035012c1",
+  "id": "bundle--541d35cb-0c61-5999-bb77-4bc76ea9e7f6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -6097,17 +6097,6 @@
       "relationship_type": "has",
       "source_ref": "software--4a56668f-89d2-5866-987a-3dd027c6e67e",
       "target_ref": "vulnerability--85fc17e7-70b4-5ddd-a7c5-52a25edb031e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--100bf966-e3cf-53d0-9148-9cde6e9f28ab",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f1b56e54-d282-52e4-acd1-a43aeaf80e3b",
-      "target_ref": "vulnerability--77d4c3a4-8722-5ab8-9e07-657221bac58e"
     },
     {
       "type": "relationship",
@@ -35570,17 +35559,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--cc5edbef-d3d9-58d7-be29-957d962cd458",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--eb9f5fe7-a03a-5a92-a6ba-2ee2ed47998f",
-      "target_ref": "vulnerability--77d4c3a4-8722-5ab8-9e07-657221bac58e"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--cc744d08-7842-5198-aed0-ba9d2e63c6a4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-12T08:38:56.000Z",
@@ -42793,17 +42771,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c1d5d748-993b-58f9-b14e-30b15bb92d61",
       "target_ref": "attack-pattern--df700e48-7d2c-59e3-b11f-85d870ac4a51"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--fb643ff3-f07f-51b6-8dde-1984c157e7cc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T03:43:32.000Z",
-      "modified": "2026-08-16T18:43:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--b9b476b8-2e23-5c09-8795-de13bdc63e38",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -86439,63 +86406,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--b9b476b8-2e23-5c09-8795-de13bdc63e38",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T03:43:32.000Z",
-      "modified": "2026-08-16T18:43:37.000Z",
-      "name": "Command Injection in Zyxel WAX650S export-cgi",
-      "description": "## Overview\n\nCVE-2026-6837 describes a post-authentication command injection vulnerability affecting the 'export-cgi' CGI program within Zyxel WAX650S access point firmware. The vulnerability exists in all firmware versions up to and including 7.10(ABRM.4)C0. An attacker who has already obtained legitimate administrative credentials for the web management interface can leverage this flaw to inject and execute arbitrary commands at the operating system level. Because this vulnerability requires existing administrative access, the primary risk involves privilege escalation or persistence for an attacker who has successfully performed initial credential compromise. Organizations utilizing these devices should prioritize upgrading to patched firmware versions and auditing active administrative sessions.\n\n## Attack Chain\n\n1. Attacker performs credential theft or brute-force to obtain administrator-level access to the web management interface.\n2. Attacker logs into the device management console via HTTP or HTTPS.\n3. Attacker navigates to or directly crafts a request to the 'export-cgi' endpoint.\n4. Attacker injects malicious OS command sequences into the request parameters processed by 'export-cgi'.\n5. The CGI program fails to neutralize shell metacharacters, passing the input directly to the system shell.\n6. The system executes the injected commands with the privileges of the web service process.\n7. Attacker establishes persistent access or exfiltrates configuration data from the device.\n\n## Impact\n\nSuccessful exploitation allows for full control of the affected Zyxel WAX650S access point. This can lead to total loss of device confidentiality, integrity, and availability, as well as the potential for the device to be used as a pivot point for further lateral movement within the network.\n\n## Recommendation\n\n* Apply the vendor-provided firmware update that addresses CVE-2026-6837 on all Zyxel WAX650S units immediately.\n* Audit web server access logs for anomalous POST or GET requests directed at 'export-cgi' by known administrative accounts.\n* Limit access to the device management interface to specific internal management VLANs or dedicated jump hosts to minimize the exposure of administrative endpoints.\n* Monitor for unexpected system processes or network connections originating from the WAX650S device.\n",
-      "published": "2026-08-04T03:43:32.000Z",
-      "labels": [
-        "command-injection",
-        "cve",
-        "network-infrastructure",
-        "zyxel"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--eb9f5fe7-a03a-5a92-a6ba-2ee2ed47998f",
-        "software--f1b56e54-d282-52e4-acd1-a43aeaf80e3b",
-        "vulnerability--77d4c3a4-8722-5ab8-9e07-657221bac58e"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-zyxel-export-cgi-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-zyxel-export-cgi-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6837"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=D8F7FACB-F5F9-558A-A08D-F0A42337381F\u0026utm_source=rss\u0026utm_medium=rss"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-command-injection-and-improper-authentication-vulnerabilities-in-certain-aps-fwa7-and-security-routers-08-04-2026"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-zyxel-export-cgi-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-zyxel-export-cgi-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-zyxel-export-cgi-rce/",
-      "x_craftedsignal_activity_at": "2026-08-16T18:43:37.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
-      "x_craftedsignal_epss_max": 0.0095,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--b9df5d27-4fad-5812-aa00-76578f0726dd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-09T09:35:53.000Z",
@@ -111560,13 +111470,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--f1b56e54-d282-52e4-acd1-a43aeaf80e3b",
-      "name": "WAX650S firmware",
-      "vendor": "Zyxel"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--f1d39dee-bbca-5da3-bf32-9064b69d9d8f",
       "name": "DNS-345 (\u003c= 20260717)",
       "vendor": "D-Link"
@@ -120993,22 +120896,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-77815",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77815"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--77d4c3a4-8722-5ab8-9e07-657221bac58e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-6837",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-6837",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6837"
         }
       ]
     },
