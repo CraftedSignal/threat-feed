@@ -1,13 +1,27 @@
 ---
 brief_id: brief-2026-11-02-network-ai-path-traversal-9c1f04f0
 event_id: brief-2026-11-02-network-ai-path-traversal-9c1f04f0
-revision: 1
-activity_at: "2026-11-02T05:17:32Z"
+revision: 2
+activity_at: "2026-11-02T07:18:18Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-02T07:18:18Z"
+    checksum: sha256:df4fd9fea0ee6aac8258bdbb0fc170ab9d12fed2adb65feb0a571132698212db
+    summary: added CVE-2026-120311
+    changed_fields:
+      - affected_products
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120311
 title: 'Network-AI: Path traversal in InputSanitizer (CVE-2026-120313)'
 slug: 2026-11-network-ai-path-traversal-9c1f04f0
 description: Network-AI versions prior to 5.15.5 contain a path traversal vulnerability in InputSanitizer.sanitizePath() that allows attackers to escape the base directory via sibling-directory paths.
 date: "2026-11-02T05:17:32Z"
-lastmod: "2026-11-02T05:17:42Z"
+lastmod: "2026-11-02T07:16:55Z"
 type: advisory
 types:
   - advisory
@@ -25,6 +39,7 @@ qa_status:
   validation_status: needs_environment_validation
 cpes:
   - cpe:2.3:a:network-ai:network-ai:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:network_ai:network_ai:*:*:*:*:*:*:*:*
 tags:
   - path-traversal
   - vulnerability
@@ -36,6 +51,7 @@ vendors:
 products:
   - Network-AI (< 5.15.5)
   - Network-AI (5.14.0 <= version < 5.15.5)
+  - Network-AI (5.13.4 before 5.15.5)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -56,9 +72,13 @@ cves:
   - id: CVE-2026-120314
     cvss: 7.3
     kev_status: "false"
+  - id: CVE-2026-120311
+    cvss: 8.8
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120313
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120314
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-120311
 rules:
   - title: Detects CVE-2026-120314 Exploitation - Unauthorized Task Management Requests
     description: Detects potential exploitation of CVE-2026-120314 where JSON-RPC requests are made to task management endpoints without expected authorization headers.
@@ -119,6 +139,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-120314
+  - at: "2026-11-02T07:16:55Z"
+    level: L2
+    summary: added CVE-2026-120311
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120311
 ---
 
 Network-AI versions prior to 5.15.5 are susceptible to a path traversal vulnerability located in the InputSanitizer.sanitizePath() function. The vulnerability arises from an unanchored "startsWith" check used during input validation. By providing a sibling-directory path that shares a string prefix with the intended base directory, an attacker can bypass these checks to access, list, or write files outside of the configured sandbox.
