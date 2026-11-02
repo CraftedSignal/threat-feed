@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--6daf05fe-26af-5ed6-a16a-2e59066057eb",
+  "id": "bundle--29364bbc-4c94-5d4a-bf5e-9c2f035012c1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2644,19 +2644,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--3ef924dc-9255-58e3-a63d-6a90440ab7d3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:16.000Z",
-      "modified": "2026-08-04T01:42:16.000Z",
-      "name": "url: https://github.com/StrTzz123/iot_vul/tree/main/GL-iNet/MT3000/4.4.5/modem_set_upgrade_glc_rce",
-      "description": "Publicly available exploit repository containing proof-of-concept code",
-      "pattern": "[url:value = 'https://github.com/StrTzz123/iot_vul/tree/main/GL-iNet/MT3000/4.4.5/modem_set_upgrade_glc_rce']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-04T01:42:16.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--42eb4278-cb7a-5e51-9b64-be85a860133d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-04T22:02:27.000Z",
@@ -3043,19 +3030,6 @@
       "pattern": "[ipv4-addr:value = '169.254.169.254']",
       "pattern_type": "stix",
       "valid_from": "2026-08-24T15:47:03.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--9dd1d3e3-0ff3-5b46-8d52-44834ba6f4e4",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:26.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "name": "url: https://github.com/coconut652-7/IOT_Vul_Public/tree/main/Glinet/MT3000/nas-web/ADD_USER_ADD_SHARE",
-      "description": "Publicly available proof of concept exploit code for CVE-2026-18686.",
-      "pattern": "[url:value = 'https://github.com/coconut652-7/IOT_Vul_Public/tree/main/Glinet/MT3000/nas-web/ADD_USER_ADD_SHARE']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-04T01:42:26.000Z"
     },
     {
       "type": "indicator",
@@ -14135,17 +14109,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--42b8e897-4dde-54ba-9360-b81cef096733",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--e4c087e0-cef0-51f0-836b-c746286462ac",
-      "target_ref": "vulnerability--dc4eb60e-f9a5-5b41-90ef-e58db360baa3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--42c18710-27d9-5520-94e7-6b87a9975697",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T11:54:52.000Z",
@@ -19448,17 +19411,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--65cef00c-957b-5aea-83a9-f73c0035fe6c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:26.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4cfadd6d-6266-54aa-977f-2146f1111fd2",
-      "target_ref": "indicator--9dd1d3e3-0ff3-5b46-8d52-44834ba6f4e4"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--65d8817e-2f40-5114-b6f7-cc3f59ceb472",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-22T01:16:22.000Z",
@@ -21721,17 +21673,6 @@
       "relationship_type": "has",
       "source_ref": "software--a891fca7-f5ce-5238-8e29-cd5c6f4a7d80",
       "target_ref": "vulnerability--6a5c798f-fd29-5825-9d7c-83d0963a8907"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--741bf2c8-0d30-52b4-b204-9b24c6c1ef2e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:26.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4cfadd6d-6266-54aa-977f-2146f1111fd2",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -27830,17 +27771,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--995e2737-427e-5a86-bf60-aee3e8b242ea",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:16.000Z",
-      "modified": "2026-08-04T01:42:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a53f58a9-4138-5225-9fad-c2a9a4fedaf6",
-      "target_ref": "indicator--3ef924dc-9255-58e3-a63d-6a90440ab7d3"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--9969f3fb-cc1e-52ae-8d1f-c4e4e2433c10",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -33913,17 +33843,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--c0ceac98-1617-5a25-93a6-b4992cc52750",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:26.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--4cfadd6d-6266-54aa-977f-2146f1111fd2",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--c0d6a320-407f-53fa-9b59-f26ac179b5ef",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -34250,17 +34169,6 @@
       "relationship_type": "has",
       "source_ref": "software--c1d58c81-af7c-5f2c-baeb-9a2aa3b2f616",
       "target_ref": "vulnerability--f0cec59a-4a6e-515b-b981-3e6fd13ceb8d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c2f321c4-02ac-5b26-a106-1db3a894d391",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:16.000Z",
-      "modified": "2026-08-04T01:42:16.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--a53f58a9-4138-5225-9fad-c2a9a4fedaf6",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -35713,17 +35621,6 @@
       "relationship_type": "uses",
       "source_ref": "report--f3aa5dde-4380-5f7d-970e-844c2b4b7bca",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ccb837ec-064e-57a2-ab07-42ba3c03f7c9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--c507f27e-c30b-5804-ac5d-7a0db78201b6",
-      "target_ref": "vulnerability--8e59b608-03fa-58de-a76b-44fd3a001751"
     },
     {
       "type": "relationship",
@@ -59966,64 +59863,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--4cfadd6d-6266-54aa-977f-2146f1111fd2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:26.000Z",
-      "modified": "2026-10-20T13:19:21.000Z",
-      "name": "Remote Command Injection Vulnerability in GL.iNet GL-MT3000",
-      "description": "## Overview\n\nA critical command injection vulnerability, identified as CVE-2026-18686, affects the GL.iNet GL-MT3000 router running firmware versions up to and including 4.4.5. The vulnerability resides within the 'nas-web.add_user' function of the 'nas-web' RPC wrapper, which is accessible via the '/cgi-bin/glc' endpoint. \n\nThe flaw allows an unauthenticated, remote attacker to trigger command injection by manipulating inputs sent to this specific RPC handler. Because this interface is reachable over the network, it presents a significant risk to affected devices. Proof-of-concept (PoC) exploit code is publicly available, increasing the likelihood of exploitation. This vulnerability is categorized under CWE-77 (Improper Neutralization of Special Elements used in a Command). Given the high base CVSS score, owners of these devices are advised to update firmware immediately upon the availability of security patches.\n\n## Attack Chain\n\n1. Attacker performs network reconnaissance to identify GL.iNet GL-MT3000 devices exposing the web administration interface.\n2. Attacker crafts a malicious HTTP request directed at the '/cgi-bin/glc' endpoint.\n3. The request targets the 'nas-web.add_user' function within the nas-web RPC wrapper.\n4. The attacker injects shell metacharacters into the input parameters expected by the function.\n5. The application fails to sanitize the input, passing the attacker-supplied string directly to a system-level command execution routine.\n6. The router executes the injected commands with the privileges of the web service process.\n7. Final objective: The attacker gains remote code execution on the device, potentially leading to full system compromise or persistence.\n\n## Impact\n\nSuccessful exploitation results in arbitrary command execution on the router with high-level privileges. This enables attackers to reconfigure the network device, exfiltrate sensitive configuration data, pivot into internal networks protected by the router, or deploy persistent malware. The vulnerability affects all users of GL-MT3000 running firmware version 4.4.5 or earlier, significantly increasing the attack surface for remote compromise.\n\n## Recommendation\n\n- Upgrade GL-MT3000 firmware to the latest available version provided by GL.iNet to patch CVE-2026-18686.\n- Restrict access to the device web administration interface (/cgi-bin/glc) to trusted management IP addresses via internal firewall rules.\n- Enable ingress monitoring on the network perimeter to identify HTTP POST requests directed at '/cgi-bin/glc' containing unexpected characters or command sequences (e.g., semicolons, pipe symbols, backticks).\n- Review network logs for unusual outbound connections originating from GL-MT3000 routers, which may indicate post-exploitation activity.\n",
-      "published": "2026-08-04T01:42:26.000Z",
-      "labels": [
-        "command-injection",
-        "cve-2026-18686",
-        "iot",
-        "rce"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--9dd1d3e3-0ff3-5b46-8d52-44834ba6f4e4",
-        "software--c507f27e-c30b-5804-ac5d-7a0db78201b6",
-        "vulnerability--8e59b608-03fa-58de-a76b-44fd3a001751"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-glinet-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-glinet-rce-b8c0786b/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/coconut652-7/IOT_Vul_Public/tree/main/Glinet/MT3000/nas-web/ADD_USER_ADD_SHARE"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18686"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://vuldb.com/cve/CVE-2026-18686"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-glinet-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-glinet-rce",
-      "x_craftedsignal_revision": 2,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-glinet-rce-b8c0786b/",
-      "x_craftedsignal_activity_at": "2026-10-20T13:19:21.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.04731,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--4d57c441-6f93-5ab0-a89f-cf01d9f0e2b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-26T00:51:23.000Z",
@@ -71592,7 +71431,7 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.17634,
+      "x_craftedsignal_epss_max": 0.20377,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -81703,59 +81542,6 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_epss_max": 0.01336,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--a53f58a9-4138-5225-9fad-c2a9a4fedaf6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T01:42:16.000Z",
-      "modified": "2026-08-04T01:42:16.000Z",
-      "name": "Remote Command Injection in GL.iNet GL-MT3000",
-      "description": "## Overview\n\nA critical security vulnerability (CVE-2026-18685) has been identified in the GL.iNet GL-MT3000 router, specifically within the `set_upgrade` function located in the `modem.so` component, invoked via `/cgi-bin/glc`. This flaw enables unauthenticated, remote attackers to perform command injection, leading to full system compromise. The vulnerability affects firmware versions up to 4.4.5. Publicly available exploit code has been disclosed, significantly lowering the barrier for exploitation by malicious actors. Given the remote accessibility of the target interface and the availability of proof-of-concept material, organizations deploying this hardware should prioritize applying firmware updates or restricting access to the management interface.\n\n## Attack Chain\n\n1. An attacker identifies an internet-facing GL.iNet GL-MT3000 router.\n2. The attacker sends a crafted HTTP request to the target device.\n3. The request targets the `/cgi-bin/glc` binary.\n4. The input is passed to the vulnerable `set_upgrade` function within `modem.so` without proper sanitization.\n5. The `set_upgrade` function processes the malicious input, leading to command injection.\n6. The injected commands are executed by the underlying operating system.\n7. The attacker achieves arbitrary code execution with elevated privileges on the router.\n\n## Impact\n\nSuccessful exploitation results in full remote control of the affected router. Attackers can leverage the compromised device to intercept network traffic, gain a foothold in the local network, or use the device as part of a botnet. Given the nature of these routers, this compromise presents a significant risk to the privacy and security of all connected clients.\n\n## Recommendation\n\n- Identify all GL.iNet GL-MT3000 devices in the environment and verify the currently installed firmware version.\n- Patch affected devices to the latest firmware version released by GL.iNet immediately to mitigate CVE-2026-18685.\n- Restrict access to the router's web management interface to trusted internal management subnets.\n- Monitor edge device traffic for unusual HTTP requests targeting `/cgi-bin/glc` originating from external sources.\n",
-      "published": "2026-08-04T01:42:16.000Z",
-      "labels": [
-        "cve",
-        "iot",
-        "rce",
-        "router"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--3ef924dc-9255-58e3-a63d-6a90440ab7d3",
-        "software--e4c087e0-cef0-51f0-836b-c746286462ac",
-        "vulnerability--dc4eb60e-f9a5-5b41-90ef-e58db360baa3"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-gl-inet-rce",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-gl-inet-rce/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/StrTzz123/iot_vul/tree/main/GL-iNet/MT3000/4.4.5/modem_set_upgrade_glc_rce"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18685"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-gl-inet-rce",
-      "x_craftedsignal_event_id": "brief-2026-08-gl-inet-rce",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-gl-inet-rce/",
-      "x_craftedsignal_activity_at": "2026-08-04T01:42:16.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_epss_max": 0.03616,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -109982,13 +109768,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c507f27e-c30b-5804-ac5d-7a0db78201b6",
-      "name": "GL-MT3000",
-      "vendor": "GL.iNet"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c5151d0e-d450-582c-b26d-13ff226a16b8",
       "name": "Winter CMS (\u003c 1.2.13)",
       "vendor": "Winter CMS"
@@ -111216,13 +110995,6 @@
       "spec_version": "2.1",
       "id": "software--e408de0c-c9dd-57fb-be48-0a7979191b53",
       "name": "better-npm-audit (3.11.0)"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--e4c087e0-cef0-51f0-836b-c746286462ac",
-      "name": "GL-MT3000 (Firmware \u003c= 4.4.5)",
-      "vendor": "GL.iNet"
     },
     {
       "type": "software",
@@ -122747,22 +122519,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--8e59b608-03fa-58de-a76b-44fd3a001751",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18686",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18686",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18686"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--8e65f0aa-65b9-52c1-97fe-b7a00e4fe3c3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -128405,22 +128161,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-66916",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66916"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--dc4eb60e-f9a5-5b41-90ef-e58db360baa3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18685",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18685",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18685"
         }
       ]
     },
