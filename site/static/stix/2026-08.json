@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--741b8587-0d48-5c38-90ee-587116fb8ccf",
+  "id": "bundle--7f39aba3-cf65-5294-8c3d-5fe401e8a566",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3005,19 +3005,6 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
-      "id": "indicator--9efcc0cd-21ba-579b-9334-2057bffceef0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:43:37.000Z",
-      "modified": "2026-08-04T19:43:37.000Z",
-      "name": "url: https://github.com/MISP/cti-transmute/commit/4f0d051ec5f1d45894c26987d409411728b2d82c",
-      "description": "Patch for unauthorized user deletion vulnerability",
-      "pattern": "[url:value = 'https://github.com/MISP/cti-transmute/commit/4f0d051ec5f1d45894c26987d409411728b2d82c']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-04T19:43:37.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
       "id": "indicator--a1f71c86-0334-5344-814f-a9d879b38db5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-17T11:46:20.000Z",
@@ -3222,19 +3209,6 @@
       "pattern": "[domain-name:value = 'InternalSystemsDaily.onmicrosoft.com']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T11:54:52.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--c2aa24ef-addb-5451-ae49-976329ea8c66",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:43:37.000Z",
-      "modified": "2026-08-04T19:43:37.000Z",
-      "name": "url: https://github.com/MISP/cti-transmute/commit/321892d26b82c8a5af1e210ee30735abb109fac2",
-      "description": "Patch for activity-timeline day range limitation",
-      "pattern": "[url:value = 'https://github.com/MISP/cti-transmute/commit/321892d26b82c8a5af1e210ee30735abb109fac2']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-04T19:43:37.000Z"
     },
     {
       "type": "indicator",
@@ -3482,19 +3456,6 @@
       "pattern": "[domain-name:value = 'adminapi.tippusoni.in']",
       "pattern_type": "stix",
       "valid_from": "2026-08-20T13:08:07.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--f4a28624-fef5-5005-b1ee-2b5dd50ce58a",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:43:37.000Z",
-      "modified": "2026-08-04T19:43:37.000Z",
-      "name": "url: https://github.com/MISP/cti-transmute/commit/20f35307bcb706c8dd8ca3884a88fb36b05b5244",
-      "description": "Patch for file and network fetch vulnerability",
-      "pattern": "[url:value = 'https://github.com/MISP/cti-transmute/commit/20f35307bcb706c8dd8ca3884a88fb36b05b5244']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-04T19:43:37.000Z"
     },
     {
       "type": "indicator",
@@ -6407,17 +6368,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--12316708-daa6-5b91-8339-6ccf98b2f7f1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:43:37.000Z",
-      "modified": "2026-08-04T19:43:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6da0e674-819c-54d0-908d-492ef690805d",
-      "target_ref": "indicator--9efcc0cd-21ba-579b-9334-2057bffceef0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--1244459e-f79a-546a-8656-55b28cf06c75",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T14:04:31.000Z",
@@ -6480,17 +6430,6 @@
       "relationship_type": "uses",
       "source_ref": "report--aeefce54-6303-58df-8bf7-fc6fc06be666",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--12d613aa-143f-50a0-a890-064844f530f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:43:37.000Z",
-      "modified": "2026-08-04T19:43:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6da0e674-819c-54d0-908d-492ef690805d",
-      "target_ref": "indicator--c2aa24ef-addb-5451-ae49-976329ea8c66"
     },
     {
       "type": "relationship",
@@ -14217,17 +14156,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--45420a8e-b07c-551d-9c89-0b0f918b07f1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:43:37.000Z",
-      "modified": "2026-08-04T19:43:37.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--6da0e674-819c-54d0-908d-492ef690805d",
-      "target_ref": "indicator--f4a28624-fef5-5005-b1ee-2b5dd50ce58a"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--454add65-aa08-58da-b98b-bbaf3eff16b8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20487,17 +20415,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--713f1fc1-5ac4-5edc-a5d8-85a69c10f26f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:24:53.000Z",
-      "modified": "2026-08-04T19:24:53.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--8ed99354-339f-53ca-9fe1-3152b39ce848",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--715330f2-6f4a-5056-a7a2-19f6cb771320",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-31T20:06:17.000Z",
@@ -20658,17 +20575,6 @@
       "modified": "2026-08-10T03:50:12.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7b503577-f1cf-5066-97a4-d4dbcf466fe5",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--723f3f86-97f5-5637-9fa6-e2d4ed30e94c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:24:45.000Z",
-      "modified": "2026-08-04T19:24:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5404c0f4-dd73-5aa9-a3ff-e0b2cf04cfac",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
@@ -29276,17 +29182,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a97bf242-8079-541f-8920-45a3b3c3849c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:24:45.000Z",
-      "modified": "2026-08-04T19:24:45.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--5404c0f4-dd73-5aa9-a3ff-e0b2cf04cfac",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a97d6e28-244d-546c-bbfc-8c2714018ec3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -35601,17 +35496,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--d6771e73-5fba-5ad5-a090-15fcfbd133e7",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--6ada7b72-8c54-51b0-a93a-304c6f66f26a",
-      "target_ref": "vulnerability--e5ec3b79-bdd3-58f6-953b-2aa401d62005"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--d67be56c-6c4c-5bff-ae3f-fac3894dcefd",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-13T16:56:09.000Z",
@@ -38567,17 +38451,6 @@
       "relationship_type": "has",
       "source_ref": "software--7a81ea14-b5f9-5049-bbfc-52ac0f22cd57",
       "target_ref": "vulnerability--1370cc67-5c06-5931-91ac-af88082acf68"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--e9fd76f1-16af-51ef-8c85-06db2e3f9e7f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--b3923a71-8557-52d0-a01c-8085d38023dc",
-      "target_ref": "vulnerability--b27d249d-74ac-552c-90e1-e01570db22ce"
     },
     {
       "type": "relationship",
@@ -59205,53 +59078,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--5404c0f4-dd73-5aa9-a3ff-e0b2cf04cfac",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:24:45.000Z",
-      "modified": "2026-08-04T19:24:45.000Z",
-      "name": "Improper Access Control in Atlas-Livre Admin Controllers",
-      "description": "## Overview\n\nAtlas-Livre contains a critical improper access control vulnerability (CVE-2026-69703) located within the admin controller components situated in the 'Espace_admin/controleur/' directory. The flaw stems from a fundamental logic error in the application's authentication guard implementation. When the application verifies a session, if the authentication check fails, the controller issues a PHP header() redirect to a login page. However, the developer failed to append an 'exit' or 'die' statement immediately following the redirect header. As a result, the PHP interpreter continues to parse and execute the remainder of the script regardless of the session state.\n\nUnauthenticated attackers can exploit this by sending raw HTTP GET requests to administrative endpoints, appending parameters such as 'supp' to trigger destructive database operations like record deletion. Because the server-side script continues execution after sending the redirect, the authentication bypass is trivial to achieve. This vulnerability poses a high risk as it permits unauthorized administrative actions without requiring valid credentials.\n\n## Impact\n\nThe vulnerability allows unauthenticated attackers to perform privileged administrative actions, specifically the deletion of records within the Atlas-Livre database. If exploited, an attacker could potentially wipe system data, disrupt service availability, or manipulate core administrative configurations. Given the broad nature of the admin controllers involved, the impact includes total loss of administrative integrity for the affected application instance.\n\n## Recommendation\n\n* Immediately apply the patch or update provided by the vendor for CVE-2026-69703.\n* Implement an emergency fix by appending 'exit;' or 'die();' calls immediately after all 'header(\"Location: ...\")' redirects in 'Espace_admin/controleur/' files.\n* Review web server logs for HTTP requests directed at the 'Espace_admin/controleur/' path containing the 'supp' parameter to identify potential historical exploitation attempts.\n* Restrict network access to the 'Espace_admin' directory to trusted management IP addresses at the web application firewall or reverse proxy layer until the source code is patched.\n",
-      "published": "2026-08-04T19:24:45.000Z",
-      "labels": [
-        "cve-2026-69703",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--6ada7b72-8c54-51b0-a93a-304c6f66f26a",
-        "vulnerability--e5ec3b79-bdd3-58f6-953b-2aa401d62005"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-04-atlas-livre-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-atlas-livre-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69703"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-08-04-atlas-livre-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-04-atlas-livre-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-atlas-livre-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-04T19:24:45.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--541f4c5f-ea20-58ab-aa79-3b9280e830d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-18T21:00:12.000Z",
@@ -66502,65 +66328,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--6da0e674-819c-54d0-908d-492ef690805d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:43:37.000Z",
-      "modified": "2026-08-04T19:43:37.000Z",
-      "name": "Vulnerabilities in MISP cti-transmute",
-      "description": "## Overview\n\nThe MISP project has issued a security advisory for the cti-transmute utility affecting all versions up to and including 1.4.0. The updates address several security weaknesses identified in the tool's handling of web requests and administrative actions. Specifically, the patches block unauthorized file and network fetches triggered during PDF evaluation, enforce stricter limits on activity-timeline day ranges to mitigate resource exhaustion, and mandate HTTP POST methods for user deletion to prevent unauthorized administrative actions via cross-site request forgery (CSRF) or simple GET requests. Users are advised to upgrade to the latest version to prevent potential exploitation of these flaws.\n\n## Impact\n\nSuccessful exploitation of these vulnerabilities could lead to unauthorized access to sensitive files, unintended network connections originating from the application server, and unauthorized administrative actions such as the deletion of application users. Organizations utilizing cti-transmute for threat intelligence processing or reporting workflows are potentially at risk if the application is accessible to untrusted users or processes malicious input.\n\n## Recommendation\n\n* Update cti-transmute to the latest available version beyond 1.4.0 to ensure all security patches are applied.\n* Audit web server and application logs for unusual GET requests to endpoints associated with user management, as these may indicate attempts to leverage the user deletion flaw.\n* Review network egress logs for unexpected connections originating from the host running cti-transmute, which may indicate exploited file or network fetch vulnerabilities.\n* Implement strict access controls for the cti-transmute interface to ensure only authorized personnel can trigger evaluation functions.\n",
-      "published": "2026-08-04T19:43:37.000Z",
-      "labels": [
-        "cti-transmute",
-        "misp",
-        "patch-management",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--9efcc0cd-21ba-579b-9334-2057bffceef0",
-        "indicator--c2aa24ef-addb-5451-ae49-976329ea8c66",
-        "indicator--f4a28624-fef5-5005-b1ee-2b5dd50ce58a",
-        "software--209de6d1-3fe9-590d-8fe9-e4032cb94ac5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-04-misp-cti-transmute-vulns",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-misp-cti-transmute-vulns/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/misp-security-advisory-av26-775"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/MISP/cti-transmute/commit/20f35307bcb706c8dd8ca3884a88fb36b05b5244"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/MISP/cti-transmute/commit/321892d26b82c8a5af1e210ee30735abb109fac2"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/MISP/cti-transmute/commit/4f0d051ec5f1d45894c26987d409411728b2d82c"
-        }
-      ],
-      "confidence": 60,
-      "x_craftedsignal_brief_id": "brief-2026-08-04-misp-cti-transmute-vulns",
-      "x_craftedsignal_event_id": "brief-2026-08-04-misp-cti-transmute-vulns",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-misp-cti-transmute-vulns/",
-      "x_craftedsignal_activity_at": "2026-08-04T19:43:37.000Z",
-      "x_craftedsignal_severity": "medium",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--6e646b26-8103-5161-b279-9e1038e42601",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-09T11:45:05.000Z",
@@ -73624,47 +73391,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--8ed99354-339f-53ca-9fe1-3152b39ce848",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T19:24:53.000Z",
-      "modified": "2026-08-04T19:24:53.000Z",
-      "name": "Unrestricted File Upload Vulnerability in ResponsiveFilemanager",
-      "description": "## Overview\n\nA critical security vulnerability (CVE-2026-18788) exists in Trippo ResponsiveFilemanager versions up to 9.14.0. The vulnerability resides within the `filemanager/dialog.php` script and permits an unauthenticated, remote attacker to perform unrestricted file uploads. Because the vendor has provided no response and the software is no longer supported, this flaw will remain unpatched, exposing environments that continue to run this legacy component. Publicly available exploit code exists, increasing the risk of exploitation. Defenders should prioritize identifying instances of ResponsiveFilemanager in their environments and replacing the legacy file management component, as no security updates will be issued for this software.\n\n## Attack Chain\n\n1. Attacker performs reconnaissance to identify web servers running Trippo ResponsiveFilemanager.\n2. Attacker interacts with the publicly accessible `filemanager/dialog.php` endpoint.\n3. Attacker crafts a malicious HTTP POST request targeting the file upload functionality.\n4. Attacker bypasses missing or inadequate file type validation mechanisms within the script.\n5. Attacker uploads a malicious script (e.g., a web shell) to a web-accessible directory.\n6. Attacker confirms the location of the uploaded file via server responses or directory traversal.\n7. Attacker executes the uploaded script by requesting the file directly via the web server.\n8. Attacker gains persistent remote code execution (RCE) on the underlying host.\n\n## Impact\n\nSuccessful exploitation allows remote attackers to gain full control over the web server by uploading and executing arbitrary web shells. This leads to complete compromise of the web application, potential lateral movement within the network, and exfiltration of sensitive configuration or user data. Given the product's age and lack of support, affected organizations are likely to remain permanently vulnerable unless the software is removed or replaced.\n\n## Recommendation\n\n* Identify and audit all web applications using ResponsiveFilemanager versions 9.14.0 or older.\n* Restrict network access to the `filemanager/` directory via web server configuration (e.g., Nginx, Apache) to authorized internal IP ranges only.\n* Remove the ResponsiveFilemanager component entirely if it is not business-critical, as no patch for CVE-2026-18788 will be released.\n* Monitor web server logs for HTTP POST requests to `dialog.php` originating from suspicious or external IP addresses.\n",
-      "published": "2026-08-04T19:24:53.000Z",
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--b3923a71-8557-52d0-a01c-8085d38023dc",
-        "vulnerability--b27d249d-74ac-552c-90e1-e01570db22ce"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-04-responsivefilemanager-unrestricted-upload",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-responsivefilemanager-unrestricted-upload/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18788"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-04-responsivefilemanager-unrestricted-upload",
-      "x_craftedsignal_event_id": "brief-2026-08-04-responsivefilemanager-unrestricted-upload",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-responsivefilemanager-unrestricted-upload/",
-      "x_craftedsignal_activity_at": "2026-08-04T19:24:53.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -99464,13 +99190,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--209de6d1-3fe9-590d-8fe9-e4032cb94ac5",
-      "name": "cti-transmute (1.4.0)",
-      "vendor": "MISP"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--20e58041-1249-5398-811d-12d433e0b78d",
       "name": "godot-kit (1.0.1786316795)"
     },
@@ -102683,13 +102402,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--6ada7b72-8c54-51b0-a93a-304c6f66f26a",
-      "name": "Atlas-Livre",
-      "vendor": "Atlas-Livre"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--6b04bfc3-0caa-5a7b-ba7e-a23ac3e03954",
       "name": "Flarum (\u003c 1.8.16)",
       "vendor": "Flarum"
@@ -105802,13 +105514,6 @@
       "spec_version": "2.1",
       "id": "software--b359eaed-ff66-5319-8904-115554166b0d",
       "name": "Dokan"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--b3923a71-8557-52d0-a01c-8085d38023dc",
-      "name": "ResponsiveFilemanager (9.14.0)",
-      "vendor": "Trippo"
     },
     {
       "type": "software",
@@ -121922,22 +121627,6 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
-      "id": "vulnerability--b27d249d-74ac-552c-90e1-e01570db22ce",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-18788",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-18788",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18788"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
       "id": "vulnerability--b303d585-3c4a-58e2-9923-fa059e8d3750",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -125260,22 +124949,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-65642",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65642"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--e5ec3b79-bdd3-58f6-953b-2aa401d62005",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-69703",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-69703",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69703"
         }
       ]
     },

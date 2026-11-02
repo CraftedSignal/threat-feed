@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-11-02-cwp-auth-bypass
 event_id: brief-2026-11-02-cwp-auth-bypass
-revision: 2
-activity_at: "2026-11-02T17:51:47Z"
+revision: 3
+activity_at: "2026-11-02T19:50:24Z"
 revision_history:
   - revision: 2
     at: "2026-11-02T17:51:47Z"
@@ -22,11 +22,22 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-77877
+  - revision: 3
+    at: "2026-11-02T19:50:24Z"
+    checksum: sha256:ed46f00d34b00315e444b952795aa64cf89fd06b2077e1be6ebae8078c18bd46
+    summary: added CVE-2026-77878
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-77878
 title: 'Control Web Panel: Authentication bypass via execution after redirect (CVE-2026-73696)'
 slug: 2026-11-cwp-auth-bypass
 description: Control Web Panel versions prior to 1.12 contain an execution after redirect vulnerability in the user panel authentication flow that allows attackers with a valid username to bypass authentication and achieve unauthorized code execution.
 date: "2026-11-02T15:47:47Z"
-lastmod: "2026-11-02T17:49:43Z"
+lastmod: "2026-11-02T19:48:12Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -85,10 +96,14 @@ cves:
   - id: CVE-2026-77877
     cvss: 8.4
     kev_status: "false"
+  - id: CVE-2026-77878
+    cvss: 8.4
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-73696
   - https://nvd.nist.gov/vuln/detail/CVE-2026-104080
   - https://nvd.nist.gov/vuln/detail/CVE-2026-77877
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-77878
 rules:
   - title: Detects CVE-2026-104080 Exploitation - Unauthenticated OS Command Injection
     description: Detects exploitation attempts against the CWP /valid_token/ route by looking for shell metacharacters in the user parameter
@@ -159,6 +174,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-77877
+  - at: "2026-11-02T19:48:12Z"
+    level: L2
+    summary: added CVE-2026-77878
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-77878
 ---
 
 Control Web Panel (CWP) versions before 1.12 are vulnerable to an execution after redirect flaw within the user panel authentication process. The unauthenticatedFlow() function in CWPUserIndex initiates a redirect to the login page via toLoginWithIntendedUri() but fails to call exit(), which allows the PHP script execution to proceed. This flaw permits an attacker with a valid hosting username to reach module code paths that should be restricted, potentially leading to unauthorized access and privilege escalation.

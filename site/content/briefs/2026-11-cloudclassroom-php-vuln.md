@@ -1,12 +1,26 @@
 ---
 brief_id: brief-2026-11-02-cloudclassroom-php-vuln
 event_id: brief-2026-11-02-cloudclassroom-php-vuln
-revision: 1
-activity_at: "2026-11-02T07:17:12Z"
+revision: 2
+activity_at: "2026-11-02T19:50:24Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-02T19:50:24Z"
+    checksum: sha256:f5f958753596c882f4160736c70f13710b6a5f2ba7664e8bef888041d8e14af7
+    summary: added CVE-2026-120342
+    changed_fields:
+      - cpes
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120342
 title: 'mathurvishal CloudClassroom-PHP-Project: Execution After Redirect (CVE-2026-120341)'
 slug: 2026-11-cloudclassroom-php-vuln
 description: A remote execution after redirect vulnerability in the studentdetails.php file of the CloudClassroom-PHP-Project application allows for remote exploitation via publicly available exploit code.
 date: "2026-11-02T07:17:12Z"
+lastmod: "2026-11-02T19:48:03Z"
 type: advisory
 types:
   - advisory
@@ -21,6 +35,7 @@ source_assessment:
   likelihood: roughly even chance
 cpes:
   - cpe:2.3:a:mathurvishal:cloudclassroom_php_project:*:*:*:*:*:*:*:*
+  - cpe:2.3:a:mathurvishal:cloudclassroom-php-project:*:*:*:*:*:*:*:*
 vendors:
   - mathurvishal
 products:
@@ -36,8 +51,12 @@ cves:
   - id: CVE-2026-120341
     cvss: 7.3
     kev_status: "false"
+  - id: CVE-2026-120342
+    cvss: 7.3
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-120341
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-120342
 action_plan:
   priority: elevated
   owners:
@@ -63,6 +82,14 @@ action_plan:
       owner: IT Operations
       addresses: CVE-2026-120341
       evidence: Remote exploitation of the attack is possible.
+updates:
+  - at: "2026-11-02T19:48:03Z"
+    level: L2
+    summary: added CVE-2026-120342
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-120342
 ---
 
 A security vulnerability exists in the studentdetails.php file of the CloudClassroom-PHP-Project application. The flaw enables remote execution after redirect. Public exploit code is available for this vulnerability. As the project follows a rolling release model, no specific affected or fixed version information is currently available. The vendor has not responded to disclosure attempts.
