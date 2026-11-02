@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--16df4996-7ce4-5e87-b0f2-a72bab8254c4",
+  "id": "bundle--5dd57e97-d284-59be-bed6-6af676b57afb",
   "objects": [
     {
       "type": "attack-pattern",
@@ -445,6 +445,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--05c11dce-1396-5743-a31f-4338f374c759",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:30:06.000Z",
+      "modified": "2026-11-02T08:30:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b48fcbc-aa25-5dc7-a470-247558c11f27",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -966,6 +977,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--72bf2e6d-6a81-5dbd-9553-d37512ed4d47",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
+      "target_ref": "vulnerability--93535739-a43f-5171-b3a4-d2b5a82e5cf7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--77b389b3-3990-5b1f-9ccf-67b68008b2a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -1017,6 +1039,17 @@
       "relationship_type": "has",
       "source_ref": "software--78bed589-c3cb-56f9-8127-33ed3d10cb2e",
       "target_ref": "vulnerability--740e59ad-9dce-58bb-8dcc-ee11942201bf"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--829c9cca-4eed-5609-8909-6ff4e265dafa",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:30:06.000Z",
+      "modified": "2026-11-02T08:30:13.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--6b48fcbc-aa25-5dc7-a470-247558c11f27",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
     },
     {
       "type": "relationship",
@@ -1105,6 +1138,17 @@
       "relationship_type": "has",
       "source_ref": "software--bb1bbfd3-846a-5b86-b4f5-60c220b55339",
       "target_ref": "vulnerability--371d4657-747d-5c4b-bc73-7f8f5efbfda3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9817de10-b64c-545f-bdcd-39e80a054d17",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
+      "target_ref": "vulnerability--95a952d7-f527-5b67-a02e-92da93e1a97e"
     },
     {
       "type": "relationship",
@@ -3102,6 +3146,83 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--6b48fcbc-aa25-5dc7-a470-247558c11f27",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:30:06.000Z",
+      "modified": "2026-11-02T08:30:13.000Z",
+      "name": "Wavlink WN551X3-A: Remote OS Command Injection (CVE-2026-120345)",
+      "description": "## Overview\nCVE-2026-120345 is a remote OS command injection vulnerability in the DNS Resolution Handler (function sub_41a430 in /bin/ioos) of the Wavlink WN551X3-A router (specifically firmware version M51X3_V251020-WO-182e965). The vulnerability can be triggered by sending a maliciously crafted 'data' argument to the DNS resolution function. As the vulnerability is unauthenticated and a proof-of-concept exploit is publicly available, the risk to exposed devices is high.\n\n## Impact\nSuccessful exploitation allows unauthenticated remote attackers to execute arbitrary OS commands with the privileges of the DNS resolution service on the affected router. This can lead to full device compromise, persistence, and potential pivot points into internal networks.\n\n## Recommendation\n- Immediately inventory and restrict internet access to Wavlink WN551X3-A routers.\n- Implement network segmentation to isolate these devices from critical infrastructure.\n- Monitor logs for unusual traffic targeting router administrative or DNS management interfaces.\n- Contact the vendor regarding availability of firmware updates for the affected model and version.\n",
+      "published": "2026-11-02T08:30:06.000Z",
+      "labels": [
+        "cve-2026-120344",
+        "rce",
+        "router",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
+        "vulnerability--93535739-a43f-5171-b3a4-d2b5a82e5cf7",
+        "vulnerability--95a952d7-f527-5b67-a02e-92da93e1a97e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-cve-2026-120345",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120345/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/WAVLINK_WN551X3-A%20Router/WAVLINK_WN551X3-A_dns_resolution_command_injection.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/senxitoyshuyi-ui/HACKALL/blob/main/WAVLINK_WN551X3-A%20Router/WAVLINK_WN551X3-A_wireguard_cli_group_command_injection.md"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120344"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120344\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-120345\u0026utm_source=rss\u0026utm_medium=rss"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/cve/CVE-2026-120344"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/cve/CVE-2026-120345"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://vuldb.com/vuln/429670"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-cve-2026-120345",
+      "x_craftedsignal_event_id": "brief-2026-11-02-cve-2026-120345",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-120345/",
+      "x_craftedsignal_activity_at": "2026-11-02T08:30:13.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--72027b85-aef1-5c01-bba0-3e30231f59a5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T18:56:21.000Z",
@@ -4485,6 +4606,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--cf9b8f0b-a4ec-5cfe-85de-3af7933490e5",
+      "name": "WN551X3-A (M51X3_V251020-WO-182e965)",
+      "vendor": "Wavlink"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d68808ce-1f39-50da-913c-50a81807535a",
       "name": "Next.js"
     },
@@ -5081,6 +5209,38 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120313",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120313"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--93535739-a43f-5171-b3a4-d2b5a82e5cf7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120345",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120345",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120345"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--95a952d7-f527-5b67-a02e-92da93e1a97e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120344",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120344",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120344"
         }
       ]
     },

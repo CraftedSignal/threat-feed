@@ -1,13 +1,24 @@
 ---
+brief_id: brief-2026-07-cost-calculator-rce
+event_id: brief-2026-07-cost-calculator-rce
+revision: 1
+activity_at: "2026-07-29T11:19:28Z"
 title: Remote Code Execution in Cost Calculator Builder PRO WordPress Plugin
 slug: 2026-07-cost-calculator-rce
 description: The Cost Calculator Builder PRO plugin for WordPress, versions up to and including 4.0.3, is vulnerable to unauthenticated Remote Code Execution (RCE) via CVE-2026-14900 due to insufficient sanitization of the `orderDetails[*].originalValue` field, allowing arbitrary code injection into a `PHP eval()` call that can be exploited by unauthenticated attackers.
 date: "2026-07-29T11:19:28Z"
+lastmod: "2026-11-02T08:29:56Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - critical
+exploitation_evidence:
+  status: unknown
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=6E27B0C8-8E78-56CD-AA79-D953123112CF&utm_source=rss&utm_medium=rss
 tags:
   - wordpress
   - plugin
@@ -30,13 +41,18 @@ mitre_ttps:
     tactic_name: Execution
     technique_id: T1059
     technique_name: Command and Scripting Interpreter
+    subtechnique_id: T1059.004
+    subtechnique_name: Unix Shell
     evidence: which is injected verbatim into a calculator formula string passed to PHP eval() inside js_to_php()
     confidence_band: high
 cves:
   - id: CVE-2026-14900
     cvss: 9.8
+    epss: 0.01282
+    kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-14900
+  - https://sploitus.com/exploit?id=6E27B0C8-8E78-56CD-AA79-D953123112CF&utm_source=rss&utm_medium=rss
 rules:
   - title: Detects CVE-2026-14900 Exploitation - Cost Calculator Builder PRO RCE Attempt
     description: Detects CVE-2026-14900 exploitation - Unauthenticated RCE in Cost Calculator Builder PRO WordPress plugin via `orderDetails[*].originalValue` leading to `PHP eval()`.
@@ -51,6 +67,14 @@ rules:
     data_sources:
       - webserver
 rules_count: 1
+updates:
+  - at: "2026-11-02T08:29:56Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=6E27B0C8-8E78-56CD-AA79-D953123112CF&utm_source=rss&utm_medium=rss
 ---
 
 A critical remote code execution (RCE) vulnerability, tracked as CVE-2026-14900, affects all versions up to and including 4.0.3 of the Cost Calculator Builder PRO plugin for WordPress. This flaw stems from inadequate sanitization of the `orderDetails[*].originalValue` field, which is directly injected into a calculator formula string passed to `PHP eval()` within the plugin's `js_to_php` function. The plugin's `evaluateFormula()` function's regex allow-list only filters alphanumeric tokens, leaving non-word punctuation characters intact, thus enabling arbitrary code injection. While a nonce check is present, the required nonce is publicly exposed on every front-end page via the `wp_head` hook, making it easily obtainable by unauthenticated attackers. Successful exploitation allows an attacker to execute code on the server, potentially leading to full system compromise, data exfiltration, or website defacement. Organizations using this plugin are urged to patch immediately.
