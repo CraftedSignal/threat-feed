@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--42625492-b76f-5f36-b481-95df629556b5",
+  "id": "bundle--20481470-e48c-571a-9d35-2a0ba2d6ca5c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -64115,6 +64115,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--c377b90b-2900-56a5-a0ec-e631e2ece2c9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:32:35.000Z",
+      "modified": "2026-11-02T15:32:35.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--6dfd2878-f00b-5685-adbb-296689e83d93",
+      "target_ref": "threat-actor--6d477e7c-cf27-5da3-bde4-807e06c1050e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--c379474d-5696-58fb-a518-5d1789755b8a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -110767,6 +110778,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--45e3d33d-590f-5aae-94d8-155c89563152",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:32:13.000Z",
+      "modified": "2026-11-02T15:32:13.000Z",
+      "name": "Microsoft Visual Studio: Information Disclosure and Data Manipulation Vulnerability",
+      "description": "## Overview\nThe BSI (Bundesamt für Sicherheit in der Informationstechnik) has reported a vulnerability in Microsoft Visual Studio that allows remote, unauthenticated attackers to access sensitive information or manipulate data. Technical details regarding the specific vulnerability class or exploitation vector remain undisclosed at this time. \n\n## Recommendation\n- Inventory all instances of Microsoft Visual Studio within the environment.\n- Monitor Microsoft Security Response Center (MSRC) for official patch releases and updated advisory information.\n- Apply security updates for Visual Studio as soon as they are published by Microsoft.\n",
+      "published": "2026-11-02T15:32:13.000Z",
+      "labels": [
+        "information-disclosure",
+        "vulnerability",
+        "windows"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--2c5d1021-d0dc-5e12-93a1-70f6c5f7dfba"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-microsoft-visual-studio-info-disclosure",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-visual-studio-info-disclosure/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4262"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-microsoft-visual-studio-info-disclosure",
+      "x_craftedsignal_event_id": "brief-2026-11-02-microsoft-visual-studio-info-disclosure",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-microsoft-visual-studio-info-disclosure/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:32:13.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--45f92d68-b037-55e2-987e-87e6ee4db7a9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T17:47:22.000Z",
@@ -127384,6 +127438,54 @@
       "x_craftedsignal_activity_at": "2026-10-28T23:59:46.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--6dfd2878-f00b-5685-adbb-296689e83d93",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:32:35.000Z",
+      "modified": "2026-11-02T15:32:35.000Z",
+      "name": "BITTER cyberespionage campaign utilizing PapRAT",
+      "description": "FortiGuard Labs has identified a cyberespionage campaign attributed to the threat actor BITTER. The campaign targets organizations in South Asia and utilizes three distinct attack chains to deliver the PapRAT remote access trojan.\n",
+      "published": "2026-11-02T15:32:35.000Z",
+      "labels": [
+        "bitter",
+        "cyberespionage",
+        "rat",
+        "south-asia"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--6d477e7c-cf27-5da3-bde4-807e06c1050e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-bitter-paprat",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-bitter-paprat/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://feeds.fortinet.com/_/20/972208619/fortinet/blog/threat-research"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://feeds.fortinet.com/~/972208619/0/fortinet/blog/threat-research~BITTER-Expands-Its-Arsenal-with-PapRAT"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-bitter-paprat",
+      "x_craftedsignal_event_id": "brief-2026-11-02-bitter-paprat",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-bitter-paprat/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:32:35.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
@@ -191616,6 +191718,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--2c5d1021-d0dc-5e12-93a1-70f6c5f7dfba",
+      "name": "Visual Studio",
+      "vendor": "Microsoft"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--2c8594cf-8069-5ff4-98a9-92a9ab0a0902",
       "name": "MCP TypeScript SDK (1.24.0-1.31.x)",
       "vendor": "Model Context Protocol"
@@ -206979,6 +207088,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "Anubis"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--6d477e7c-cf27-5da3-bde4-807e06c1050e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "BITTER"
     },
     {
       "type": "threat-actor",
