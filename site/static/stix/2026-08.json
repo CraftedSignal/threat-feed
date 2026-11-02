@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--7f39aba3-cf65-5294-8c3d-5fe401e8a566",
+  "id": "bundle--7ec1d545-93e4-592e-a170-f6572d9a6ca9",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1407,22 +1407,6 @@
           "source_name": "mitre-attack",
           "external_id": "T1505.004",
           "url": "https://attack.mitre.org/techniques/T1505/004"
-        }
-      ]
-    },
-    {
-      "type": "attack-pattern",
-      "spec_version": "2.1",
-      "id": "attack-pattern--8df7c6e5-4469-57e1-a545-a77f834909e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "Domain Generation Algorithms",
-      "external_references": [
-        {
-          "source_name": "mitre-attack",
-          "external_id": "T1568.002",
-          "url": "https://attack.mitre.org/techniques/T1568/002"
         }
       ]
     },
@@ -6232,17 +6216,6 @@
       "relationship_type": "has",
       "source_ref": "software--fdc4a535-453f-5e57-9ae4-60a172699ac1",
       "target_ref": "vulnerability--ac2323dd-1239-53e5-a00f-f908a5145db8"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--11b27710-d179-52d1-9781-8cd09becf355",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T20:00:53.000Z",
-      "modified": "2026-08-04T20:01:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0cc11924-a525-58d2-85d5-33c7e2087960",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -11142,17 +11115,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--32b065c0-72f6-54b8-8564-3eceae52eaf5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--20e59cc8-334c-5209-bc12-9f50ddb82cf3",
-      "target_ref": "vulnerability--7112ac81-8717-5b27-8ab0-e21ffd92ee12"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--32e0b09d-6707-5573-9d02-682a46a30a77",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -11446,17 +11408,6 @@
       "relationship_type": "has",
       "source_ref": "software--8ffb6516-dd10-5641-a7bf-6123951954fd",
       "target_ref": "vulnerability--14efb8dc-650b-52d9-a271-259dc99adc60"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--34f923b4-d2fd-5b3a-aec7-307de46907a0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--897606c8-4aff-52b0-bb67-7b905446cf4c",
-      "target_ref": "vulnerability--7112ac81-8717-5b27-8ab0-e21ffd92ee12"
     },
     {
       "type": "relationship",
@@ -15681,17 +15632,6 @@
       "relationship_type": "has",
       "source_ref": "software--17c1f426-ee40-5ec1-b1fe-0617ed322bb1",
       "target_ref": "vulnerability--b7ef5956-000a-537c-a891-04e53e31155c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--51204802-67b7-55a5-8d75-cf6e879e41e3",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T20:00:53.000Z",
-      "modified": "2026-08-04T20:01:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--0cc11924-a525-58d2-85d5-33c7e2087960",
-      "target_ref": "attack-pattern--8df7c6e5-4469-57e1-a545-a77f834909e3"
     },
     {
       "type": "relationship",
@@ -28056,17 +27996,6 @@
       "relationship_type": "has",
       "source_ref": "software--cde3b1c2-e748-5ed5-91ca-5796521a6d8a",
       "target_ref": "vulnerability--1170df7a-704c-5e5b-9eb4-39c577cb7246"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--a1eb5e37-0b63-52ec-82bd-1fcf554feace",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--f350cb53-f240-5049-a9e6-600353a3037f",
-      "target_ref": "vulnerability--7112ac81-8717-5b27-8ab0-e21ffd92ee12"
     },
     {
       "type": "relationship",
@@ -44642,64 +44571,6 @@
       },
       "x_craftedsignal_cvss_max": 10,
       "x_craftedsignal_epss_max": 0.01415,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--0cc11924-a525-58d2-85d5-33c7e2087960",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-04T20:00:53.000Z",
-      "modified": "2026-08-04T20:01:07.000Z",
-      "name": "SSRF Vulnerability in Open WebUI via NAT64-encoded URLs",
-      "description": "## Overview\n\nOpen WebUI (v0.9.0 through v0.10.x) contains an SSRF vulnerability (CVE-2026-70485) stemming from insecure URL validation logic. When processing user-supplied URLs for RAG or web-search features, the application performs connectivity checks to ensure the destination is globally routable. However, this validation uses the `ipaddress.ip_address(ip).is_global` check on the literal IPv6 address, failing to account for embedded IPv4 addresses within NAT64 transition prefixes (specifically `64:ff9b::/96`). \n\nOn cloud environments or Kubernetes clusters configured with NAT64 gateways, an attacker can mask internal IPv4 addresses (such as `169.254.169.254` or `127.0.0.1`) using these prefixes. Because the literal IPv6 representation is technically globally routable, the filter is bypassed. The server subsequently fetches the internal content and returns the raw response body to the attacker via the API. This vulnerability allows low-privilege users to exfiltrate sensitive data, including IAM credentials from cloud instance metadata services or interface with admin endpoints bound to localhost.\n\n## Attack Chain\n\n1. Attacker authenticates to an Open WebUI instance as a standard user.\n2. Attacker selects a feature utilizing URL ingestion or web retrieval (e.g., `/api/v1/retrieval/process/web`).\n3. Attacker identifies a target internal resource (e.g., Cloud Metadata service at 169.254.169.254).\n4. Attacker encodes the target IPv4 address into the NAT64 well-known prefix (`64:ff9b::/96`) to create a literal IPv6 string.\n5. Attacker submits the crafted URL (e.g., `http://[64:ff9b::a9fe:a9fe]/latest/meta-data/`) to the vulnerable API endpoint.\n6. The application's `validate_url()` and `_ssrf_safe_new_conn()` logic incorrectly flag the NAT64-encoded literal as a valid global IPv6 address.\n7. The backend performs an HTTP GET request to the internal destination via the NAT64 gateway.\n8. The sensitive response body is returned to the attacker in the `content` field of the API response.\n\n## Impact\n\nSuccessful exploitation leads to unauthorized read access to internal network services, private APIs, and cloud instance metadata. Attackers can retrieve IAM role credentials, allowing for potential lateral movement from the container to the broader cloud environment. The impact is restricted to deployments utilizing NAT64 gateways, which are standard in modern IPv6-only or dual-stack cloud/Kubernetes network architectures.\n\n## Recommendation\n\n- Upgrade Open WebUI to version 0.11.0 or later to apply the patch for CVE-2026-70485, which correctly unwraps embedded IPv4 addresses before validation.\n- Implement network-level egress filtering (Security Groups or Network Policies) to restrict the Open WebUI container from reaching internal cloud metadata IPs (e.g., 169.254.169.254) and private IP ranges.\n- Monitor logs for requests to web-retrieval endpoints that contain literal IPv6 addresses starting with `64:ff9b`.\n",
-      "published": "2026-08-04T20:00:53.000Z",
-      "labels": [
-        "cloud-security",
-        "cve-2026-70479",
-        "ssrf",
-        "vulnerability",
-        "web-application"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--8df7c6e5-4469-57e1-a545-a77f834909e3",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--20e59cc8-334c-5209-bc12-9f50ddb82cf3",
-        "software--897606c8-4aff-52b0-bb67-7b905446cf4c",
-        "software--f350cb53-f240-5049-a9e6-600353a3037f",
-        "vulnerability--7112ac81-8717-5b27-8ab0-e21ffd92ee12"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-open-webui-ssrf",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-open-webui-ssrf/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-8x5v-cpv7-8jjp"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-rq84-p6rr-vf89"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-w2rx-84hp-gg95"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-open-webui-ssrf",
-      "x_craftedsignal_event_id": "brief-2026-08-open-webui-ssrf",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-open-webui-ssrf/",
-      "x_craftedsignal_activity_at": "2026-08-04T20:01:07.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -99196,13 +99067,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--20e59cc8-334c-5209-bc12-9f50ddb82cf3",
-      "name": "Open WebUI",
-      "vendor": "Open WebUI"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--20ef504c-8abb-5ced-9808-ba090e907124",
       "name": "A1300",
       "vendor": "GL.iNet"
@@ -103619,13 +103483,6 @@
       "id": "software--894d92be-847e-51e5-89a8-99581abe6ff8",
       "name": "CodeIgniter Framework",
       "vendor": "CodeIgniter"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--897606c8-4aff-52b0-bb67-7b905446cf4c",
-      "name": "Open WebUI (\u003c 0.11.0)",
-      "vendor": "Open WebUI"
     },
     {
       "type": "software",
@@ -108071,13 +107928,6 @@
       "id": "software--f327cfaa-6c50-5ac2-a358-844ac47650bb",
       "name": "SiYuan (\u003c= 3.7.3)",
       "vendor": "SiYuan"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--f350cb53-f240-5049-a9e6-600353a3037f",
-      "name": "Open WebUI (0.9.6 to 0.10.x)",
-      "vendor": "Open WebUI"
     },
     {
       "type": "software",
@@ -116789,22 +116639,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-18611",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18611"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--7112ac81-8717-5b27-8ab0-e21ffd92ee12",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-70482",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-70482",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70482"
         }
       ]
     },

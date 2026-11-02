@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--0254e421-041f-5be5-8968-dfd35ed4d05c",
+  "id": "bundle--dba41057-8af3-5740-9699-b64aedbb081f",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1471,6 +1471,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1595.002",
           "url": "https://attack.mitre.org/techniques/T1595/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--6b7b86a9-346d-5b18-8c55-2d4bd08889f8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Infrastructure Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1580",
+          "url": "https://attack.mitre.org/techniques/T1580"
         }
       ]
     },
@@ -13773,6 +13789,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--19e01c79-c5f1-5e9f-9fe2-54d6e6ecd6e7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:10:22.000Z",
+      "modified": "2026-11-02T21:10:22.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
+      "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1a068e5f-5d9b-5321-bd62-c858bc180724",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -22004,7 +22031,7 @@
       "id": "relationship--36fcd63b-5da9-521c-8f68-21ed0e2f196d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T15:30:33.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669"
@@ -25502,7 +25529,7 @@
       "id": "relationship--42bdaaae-88de-5ad4-bf4e-ce765ed94e76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -29224,6 +29251,17 @@
       "relationship_type": "uses",
       "source_ref": "report--70efbf9f-fdb7-5630-b289-d8b111bf5880",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--4e88f2b1-4673-5667-9e54-d6e76dcf5619",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218"
     },
     {
       "type": "relationship",
@@ -41405,6 +41443,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--75e0086b-09b8-58ab-b423-e45a8b464783",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-01T20:35:48.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--75e29d93-d3ad-5134-9fae-ded533674da7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -42743,6 +42792,17 @@
       "relationship_type": "uses",
       "source_ref": "report--469ed8db-304c-5369-b410-a59dfe4c8a92",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--790ad78e-2f3c-5cfa-a5c5-93cbe6b74794",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:10:02.000Z",
+      "modified": "2026-11-02T21:10:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a76706d0-fbda-52c2-a4c9-bb5afd5fa29c",
+      "target_ref": "attack-pattern--ec0c1b82-cb0b-5af1-8405-949863271ac2"
     },
     {
       "type": "relationship",
@@ -46479,7 +46539,7 @@
       "id": "relationship--84fc27f5-63b0-582d-985d-c9b189677df1",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T15:30:33.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--01b0e09b-1506-5d2d-8ffa-f7854bbc1154"
@@ -47436,7 +47496,7 @@
       "id": "relationship--8780ef8b-9ca4-5f8e-87ce-49c53350065d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T15:30:33.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -49119,7 +49179,7 @@
       "id": "relationship--8ccfaa7b-d1a7-52a9-8e64-bd20e730aa9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -50586,6 +50646,17 @@
       "relationship_type": "uses",
       "source_ref": "report--e5d7eab3-6c20-516c-a9ee-0f4601ce308a",
       "target_ref": "attack-pattern--8fc1d6d6-b1da-5334-98f0-dcf1ea8100d6"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--922e2c06-1c8e-5b53-80e9-2f4d8dd3a3dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:10:02.000Z",
+      "modified": "2026-11-02T21:10:02.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a76706d0-fbda-52c2-a4c9-bb5afd5fa29c",
+      "target_ref": "attack-pattern--6b7b86a9-346d-5b18-8c55-2d4bd08889f8"
     },
     {
       "type": "relationship",
@@ -53640,7 +53711,7 @@
       "id": "relationship--9c442398-b0f2-5982-b32c-e0b64e13b259",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T15:30:33.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
@@ -74548,6 +74619,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--e01b3f5a-f075-5624-9cea-7fdc6489e7a3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--e01cefcc-353d-529a-b354-2230f9fa666e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -75255,7 +75337,7 @@
       "id": "relationship--e2315755-41de-5b4c-9da8-cae3d2bafd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T15:30:33.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150"
@@ -79083,7 +79165,7 @@
       "id": "relationship--eca48c98-d317-5c3f-9eb7-f7a5b1577add",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T15:30:33.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
@@ -104026,6 +104108,55 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--324161f1-4134-5d97-afbc-37b593bdb43d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:10:22.000Z",
+      "modified": "2026-11-02T21:10:22.000Z",
+      "name": "GitHub Enterprise: Audit log streaming modification or destruction",
+      "description": "## Overview\nGitHub Enterprise audit log streaming provides a durable record of enterprise events. Unauthorized modification or deletion of these streams allows attackers to evade detection by preventing audit logs from reaching the configured SIEM destination or by hijacking the data stream. This activity is considered a significant defense evasion technique.\n\n## Impact\nUnauthorized modification of audit log streams results in a loss of security visibility. If the production SIEM destination is deleted or reconfigured to an untrusted endpoint, security operations teams will lose the ability to detect subsequent malicious activity within the GitHub environment.\n\n## Recommendation\n- Implement monitoring for `audit_log_streaming.update` and `audit_log_streaming.destroy` events in GitHub Enterprise audit logs.\n- Establish a process to audit current GitHub Enterprise streaming configurations against known-good baselines.\n- Review credentials of all enterprise owners to ensure minimal privilege and verify that MFA is enforced for all administrative access.\n- If a production stream is destroyed, immediately verify the integrity of the remaining logs and initiate an incident response procedure to rotate credentials and investigate for further unauthorized access.\n",
+      "published": "2026-11-02T21:10:22.000Z",
+      "labels": [
+        "cloud",
+        "defense-evasion",
+        "github",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--485df5f9-5c6e-5af9-bf3e-4d3077532995"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-github-audit-log-evasion",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-audit-log-evasion/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_audit_log_streaming_modified.toml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-github-audit-log-evasion",
+      "x_craftedsignal_event_id": "brief-2026-11-02-github-audit-log-evasion",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-audit-log-evasion/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:10:22.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--32826f1c-b39c-536b-a07c-42c9b67c2f9c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T07:17:12.000Z",
@@ -117826,20 +117957,23 @@
       "id": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "name": "GitHub Enterprise and Organization SSO Recovery Code Activity",
       "description": "## Overview\nGitHub provides recovery codes for enterprise and organization SSO as a contingency for IdP access loss. Because these codes bypass external identity providers and MFA, they represent high-value targets for adversaries seeking to establish persistence or perform account takeover. Organizations should audit all actions related to these credentials, including generation, downloading, viewing, and usage, to identify anomalous administrative behavior.\n\n## Impact\nUnauthorized access to recovery codes allows an attacker to bypass federated authentication and MFA, enabling persistent, unauthenticated access to the GitHub enterprise or organization environment.\n\n## Recommendation\n- Implement monitoring for GitHub audit logs specifically filtering for recovery code lifecycle events (download, generate, print, view, use, and failure).\n- Enforce dual-control procedures for the management of recovery codes, ensuring that any lifecycle event is tied to an authorized disaster recovery process.\n- Rotate recovery codes immediately if an unauthorized generation or viewing event is identified.\n- Review SSO configuration and force re-authentication of enterprise owners following any confirmed compromise of recovery credentials.\n",
       "published": "2026-11-02T15:09:08.000Z",
       "labels": [
         "cloud",
         "credential-access",
+        "github",
         "persistence",
         "saas"
       ],
       "object_refs": [
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--15df1873-cdf1-509b-857f-c49e87114828",
         "software--f1568896-32bf-5767-8674-cbd53433f316"
       ],
       "external_references": [
@@ -117850,19 +117984,27 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning"
+        },
+        {
+          "source_name": "reference",
           "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
         },
         {
           "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/credential_access_github_recovery_codes_activity.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/credential_access_github_secret_scanning_alert_created.toml"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
       "x_craftedsignal_event_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/",
-      "x_craftedsignal_activity_at": "2026-11-02T15:09:08.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T21:10:58.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -132532,14 +132674,17 @@
       "id": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
-      "modified": "2026-11-02T15:30:33.000Z",
+      "modified": "2026-11-02T21:10:58.000Z",
       "name": "Adoption of Autonomous Agentic Frameworks for Offensive Operations",
       "description": "## Overview\n\nThreat actors are increasingly weaponizing agentic, LLM-driven offensive frameworks - specifically ARTEX, Hexstrike, and CAIRN - to automate multiple stages of the attack lifecycle. These tools translate high-level tactical goals into machine commands, enabling rapid execution of reconnaissance, privilege escalation, and lateral movement. Unlike human operators, these frameworks exhibit distinct forensic characteristics, such as executing complex tasks in compressed bursts (2-25 seconds) and relying on iterative trial-and-error that generates high log volumes.\n\n## Attack Chain\n\n1. Initial Access: Adversaries utilize compromised credentials to gain entry.\n2. Reconnaissance: Agentic frameworks profile target environments (e.g., Active Directory, cloud infrastructure/AWS security groups).\n3. Exploitation: Frameworks target specific services, such as Linux web servers, using exposed application-specific APIs.\n4. Execution/Persistence: Automated injection of malicious files; specifically, poisoning MySQL general logs via `SET GLOBAL general_log_file` to write webshells to public directories.\n5. Lateral Movement: Autonomous exploration and pivot execution between services.\n6. Exfiltration: Automated staging and preparation of stolen data.\n\n## Impact\n\nAutomated attack frameworks enable adversaries to move from initial access to deep system access in significantly reduced timeframes, with observed incidents occurring in as little as 15 minutes. The high-volume, iterative nature of agentic activity increases the speed and scale of data theft and infrastructure exploitation.\n\n## Recommendation\n\n- Implement control-plane isolation to prevent automated tools from harvesting cloud service credentials.\n- Enforce short-lived credentials and strict least-privilege policies to limit the scope of autonomous tool activity.\n- Implement network segmentation to disrupt the lateral movement paths frequently probed by automated agents.\n- Deploy behavioral analytics to detect rapid, burst-like execution patterns that deviate from human-paced administrative activity.\n",
       "published": "2026-11-01T20:35:48.000Z",
       "labels": [
         "ai-enabled-threats",
         "automated-attacks",
+        "azure",
+        "cloud",
         "cloud-security",
+        "defense-evasion",
         "offensive-frameworks",
         "privilege-escalation",
         "rce",
@@ -132551,6 +132696,8 @@
         "attack-pattern--0430c6d1-8cfb-5747-9d15-4549f2ef9669",
         "attack-pattern--237dc190-baec-5f58-ba15-3a2faf4e9150",
         "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "attack-pattern--80ecaa80-47dc-56ec-ad93-d8423043f218",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
         "software--2cd58b41-66b2-5245-8ac1-c7148220bca8",
         "software--4acc9506-a5e8-5c4e-89e6-655bd8fa8f8e",
@@ -132576,7 +132723,19 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/azure/defense_evasion_insights_diagnostic_settings_deletion.toml"
+        },
+        {
+          "source_name": "reference",
           "url": "https://wid.cert-bund.de/portal/wid/securityadvisory?name=WID-SEC-2026-4286"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.microsoft.com/en-us/security/blog/2025/10/20/inside-the-attack-chain-threat-activity-targeting-azure-blob-storage/"
         },
         {
           "source_name": "reference",
@@ -132590,9 +132749,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-01-artex-agentic-frameworks",
       "x_craftedsignal_event_id": "brief-2026-11-01-artex-agentic-frameworks",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-artex-agentic-frameworks/",
-      "x_craftedsignal_activity_at": "2026-11-02T15:30:33.000Z",
+      "x_craftedsignal_activity_at": "2026-11-02T21:10:58.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -154753,6 +154912,65 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.34904,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a76706d0-fbda-52c2-a4c9-bb5afd5fa29c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T21:10:02.000Z",
+      "modified": "2026-11-02T21:10:02.000Z",
+      "name": "AWS EC2 Bulk User Data Enumeration",
+      "description": "## Overview\nThe Elastic detection rule monitors AWS CloudTrail logs for the 'DescribeInstanceAttribute' API action when the 'userData' attribute is requested. Bulk enumeration of this attribute is a high-risk activity, as instance user data often contains sensitive bootstrap scripts, hardcoded credentials, or API tokens. The rule triggers when a single principal, identified by ARN and source IP, accesses this attribute for more than 20 distinct EC2 instances in a 10-minute lookback period.\n\n## Impact\nUnauthorized access to EC2 user data can lead to the exposure of plain-text secrets, environment-specific configuration tokens, and infrastructure-level credentials, facilitating further privilege escalation or lateral movement within the cloud environment.\n\n## Recommendation\n- Deploy the provided Elastic detection logic to monitor CloudTrail for bulk 'DescribeInstanceAttribute' calls.\n- Review alerts triggered by this rule for unauthorized principals, particularly those originating from unexpected ASNs or non-standard user agents.\n- Investigate the retrieved 'instanceId' values to determine if sensitive production workloads are targeted.\n- Implement a policy of least privilege, restricting 'ec2:DescribeInstanceAttribute' access to only those roles that require it for operational health or inventory management.\n- Audit existing instance user data and migrate sensitive secrets to dedicated solutions such as AWS Secrets Manager or Systems Manager Parameter Store.\n",
+      "published": "2026-11-02T21:10:02.000Z",
+      "labels": [
+        "aws",
+        "cloud",
+        "cloud-security",
+        "credential-access",
+        "discovery"
+      ],
+      "object_refs": [
+        "attack-pattern--6b7b86a9-346d-5b18-8c55-2d4bd08889f8",
+        "attack-pattern--ec0c1b82-cb0b-5af1-8405-949863271ac2",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--fd3e3605-0343-5ba9-bfb6-910fabb33460"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-aws-ec2-bulk-user-data-enumeration",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-aws-ec2-bulk-user-data-enumeration/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceAttribute.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/aws/discovery_ec2_bulk_user_data_enumeration.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://hackingthe.cloud/aws/exploitation/local_ec2_priv_esc_through_user_data"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-aws-ec2-bulk-user-data-enumeration",
+      "x_craftedsignal_event_id": "brief-2026-11-02-aws-ec2-bulk-user-data-enumeration",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-aws-ec2-bulk-user-data-enumeration/",
+      "x_craftedsignal_activity_at": "2026-11-02T21:10:02.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -193593,6 +193811,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--15df1873-cdf1-509b-857f-c49e87114828",
+      "name": "github.com",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--15f02ef2-1c43-51bf-82de-93cafbf578ce",
       "name": "Exchange Online",
       "vendor": "Microsoft"
@@ -197354,6 +197579,13 @@
       "id": "software--4804e587-74bf-5a7b-8d1d-9dcb7800d52a",
       "name": "Elastic Container Registry (ECR)",
       "vendor": "Amazon"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--485df5f9-5c6e-5af9-bf3e-4d3077532995",
+      "name": "GitHub Enterprise",
+      "vendor": "GitHub"
     },
     {
       "type": "software",
@@ -210562,6 +210794,13 @@
       "id": "software--fcfd626f-c59d-528f-9ee4-0cf72cea1cb2",
       "name": "Guardium Data Protection (12.2)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--fd3e3605-0343-5ba9-bfb6-910fabb33460",
+      "name": "AWS EC2",
+      "vendor": "Amazon"
     },
     {
       "type": "software",
