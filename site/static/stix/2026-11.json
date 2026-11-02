@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--ae8e09ac-13f3-51dd-85e8-5ad3a805a2d1",
+  "id": "bundle--65fd329b-593d-5da4-a211-c060b631a745",
   "objects": [
     {
       "type": "attack-pattern",
@@ -63,6 +63,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1203",
           "url": "https://attack.mitre.org/techniques/T1203"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Domain or Tenant Policy Modification",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1484",
+          "url": "https://attack.mitre.org/techniques/T1484"
         }
       ]
     },
@@ -149,6 +165,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Code Repositories",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1213.003",
+          "url": "https://attack.mitre.org/techniques/T1213/003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -159,6 +191,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1071.001",
           "url": "https://attack.mitre.org/techniques/T1071/001"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Cloud Accounts",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078.004",
+          "url": "https://attack.mitre.org/techniques/T1078/004"
         }
       ]
     },
@@ -579,6 +627,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--041ea649-1152-54a1-ac15-2a777b9c2325",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:50.000Z",
+      "modified": "2026-11-02T15:08:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a92bc3b1-2d42-51ea-9f53-954ca873f853",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--04727887-f2a7-5efb-b4fa-dd6c8d961cf3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -942,6 +1001,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--42bdaaae-88de-5ad4-bf4e-ce765ed94e76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T15:09:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--440b18ea-2d6d-5ec7-ad5c-ebe22ea1bf9d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T08:57:47.000Z",
@@ -1228,6 +1298,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6add9e4f-d434-5ba3-9bdc-8a8bfced8776",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:15.000Z",
+      "modified": "2026-11-02T15:09:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
+      "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7193a436-1df4-5705-b57e-4b625a1b224b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -1378,6 +1459,17 @@
       "relationship_type": "has",
       "source_ref": "software--489e2eef-7eb3-57bd-9dcb-0706c8552f6c",
       "target_ref": "vulnerability--45d9f8af-576c-598a-ad2f-587d6df804fe"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--8ccfaa7b-d1a7-52a9-8e64-bd20e730aa9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T15:09:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
     },
     {
       "type": "relationship",
@@ -1994,6 +2086,17 @@
       "relationship_type": "uses",
       "source_ref": "report--30c401c2-2d25-588f-9166-e9c1fe445c54",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec130cd2-6eee-529f-98fb-69e0e6a046ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:15.000Z",
+      "modified": "2026-11-02T15:09:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
+      "target_ref": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac"
     },
     {
       "type": "relationship",
@@ -3279,6 +3382,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:15.000Z",
+      "modified": "2026-11-02T15:09:15.000Z",
+      "name": "GitHub: Unauthorized modification of private repository forking policy",
+      "description": "## Overview\n\nThis alert monitors for the enabling of private repository forking within a GitHub organization. Allowing forks of private repositories permits code to be copied out of the organization into personal forks, representing a high-risk collection path following an organization-owner compromise. This setting change is an indicator of potential data exfiltration.\n\n## Impact\n\nEnabling private repository forking increases the risk of unauthorized source code exfiltration by allowing users with access to private repositories to fork them into personal accounts outside the organization's control.\n\n## Recommendation\n\n* Review organization settings to ensure private repository forking is disabled unless explicitly required for inner-source development programs.\n* Investigate the `user.name` and `github.actor_ip` associated with the policy change event `private_repository_forking.enable`.\n* Audit for repository fork activity (`repo.fork` events) immediately following any detected policy change to identify if unauthorized copies were created.\n* Transfer or delete any unauthorized forks identified during the investigation window.\n",
+      "published": "2026-11-02T15:09:15.000Z",
+      "labels": [
+        "cloud-security",
+        "collection",
+        "configuration-monitoring",
+        "saas-security"
+      ],
+      "object_refs": [
+        "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac",
+        "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-github-repo-forking-policy",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-forking-policy/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/collection_github_private_repo_forking_enabled.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-github-repo-forking-policy",
+      "x_craftedsignal_event_id": "brief-2026-11-02-github-repo-forking-policy",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-forking-policy/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:09:15.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--49185db1-b929-5e2b-a215-fc5688e235fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:05:00.000Z",
@@ -3453,6 +3606,56 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.0194,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T15:09:08.000Z",
+      "name": "GitHub Enterprise and Organization SSO Recovery Code Activity",
+      "description": "## Overview\nGitHub provides recovery codes for enterprise and organization SSO as a contingency for IdP access loss. Because these codes bypass external identity providers and MFA, they represent high-value targets for adversaries seeking to establish persistence or perform account takeover. Organizations should audit all actions related to these credentials, including generation, downloading, viewing, and usage, to identify anomalous administrative behavior.\n\n## Impact\nUnauthorized access to recovery codes allows an attacker to bypass federated authentication and MFA, enabling persistent, unauthenticated access to the GitHub enterprise or organization environment.\n\n## Recommendation\n- Implement monitoring for GitHub audit logs specifically filtering for recovery code lifecycle events (download, generate, print, view, use, and failure).\n- Enforce dual-control procedures for the management of recovery codes, ensuring that any lifecycle event is tied to an authorized disaster recovery process.\n- Rotate recovery codes immediately if an unauthorized generation or viewing event is identified.\n- Review SSO configuration and force re-authentication of enterprise owners following any confirmed compromise of recovery credentials.\n",
+      "published": "2026-11-02T15:09:08.000Z",
+      "labels": [
+        "cloud",
+        "credential-access",
+        "persistence",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f1568896-32bf-5767-8674-cbd53433f316"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/credential_access_github_recovery_codes_activity.toml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
+      "x_craftedsignal_event_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:09:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -4294,6 +4497,55 @@
       },
       "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a92bc3b1-2d42-51ea-9f53-954ca873f853",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:50.000Z",
+      "modified": "2026-11-02T15:08:50.000Z",
+      "name": "GitHub: Disabling Dependabot alerts and security updates",
+      "description": "## Overview\nGitHub audit logs capture events where Dependabot alerts or automated security updates are disabled. This activity is a potential indicator of defense evasion, as it prevents GitHub from flagging malicious or vulnerable packages. Depending on the scope of the configuration change, an actor can remove automated security coverage from a single repository, an entire organization, or an enterprise environment. This often precedes the injection of malicious code or dependency tampering.\n\n## Impact\nDisabling Dependabot removes automated visibility into vulnerable and malicious packages, increasing the likelihood that supply-chain compromises go undetected by security tooling.\n\n## Recommendation\n- Monitor GitHub audit logs for the specific `disable` actions listed in the detection guidance below.\n- Audit administrative access and programmatic tokens that have permissions to modify organization or enterprise security settings.\n- Review repository commits and dependency manifest changes (e.g., package.json, go.mod, requirements.txt) occurring immediately before or after these disable events.\n- Re-enable Dependabot features unless a documented and approved exception exists.\n",
+      "published": "2026-11-02T15:08:50.000Z",
+      "labels": [
+        "cloud",
+        "defense-evasion",
+        "github",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42990825-22de-5466-8fc9-7122e7ea32aa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-github-dependabot-disable",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-dependabot-disable/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_dependabot_disabled.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-github-dependabot-disable",
+      "x_craftedsignal_event_id": "brief-2026-11-02-github-dependabot-disable",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-dependabot-disable/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:08:50.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -5258,6 +5510,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--42990825-22de-5466-8fc9-7122e7ea32aa",
+      "name": "GitHub (Repository, Organization, and Enterprise levels)",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--433631a3-5e22-555d-8855-4b566d52f081",
       "name": "WN553X1-B (260403_2.0.0)",
       "vendor": "WAVLINK"
@@ -5606,6 +5865,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb",
+      "name": "GitHub",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d68808ce-1f39-50da-913c-50a81807535a",
       "name": "Next.js"
     },
@@ -5650,6 +5916,13 @@
       "id": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
       "name": "Apache HTTP Server (2.4.35-2.4.62)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f1568896-32bf-5767-8674-cbd53433f316",
+      "name": "GitHub (Enterprise/Organization)",
+      "vendor": "GitHub"
     },
     {
       "type": "software",

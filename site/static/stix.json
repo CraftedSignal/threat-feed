@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--38058aaf-6543-5871-a51e-46a94830a34b",
+  "id": "bundle--453ab5e1-5b64-52f3-8d70-9aca6158ab03",
   "objects": [
     {
       "type": "attack-pattern",
@@ -319,6 +319,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1554",
           "url": "https://attack.mitre.org/techniques/T1554"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Domain or Tenant Policy Modification",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1484",
+          "url": "https://attack.mitre.org/techniques/T1484"
         }
       ]
     },
@@ -767,6 +783,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1565.002",
           "url": "https://attack.mitre.org/techniques/T1565/002"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Code Repositories",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1213.003",
+          "url": "https://attack.mitre.org/techniques/T1213/003"
         }
       ]
     },
@@ -7110,6 +7142,17 @@
       "relationship_type": "uses",
       "source_ref": "report--70b05265-2a8f-5dd0-822d-873f95ab62a8",
       "target_ref": "attack-pattern--fe1e140b-0e35-5f0d-a990-f0c9146cacb3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--041ea649-1152-54a1-ac15-2a777b9c2325",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:50.000Z",
+      "modified": "2026-11-02T15:08:50.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a92bc3b1-2d42-51ea-9f53-954ca873f853",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
     },
     {
       "type": "relationship",
@@ -25066,6 +25109,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--42bdaaae-88de-5ad4-bf4e-ce765ed94e76",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T15:09:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--42bded05-16c3-597a-a66a-b321d00ae7b5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -37265,6 +37319,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--6add9e4f-d434-5ba3-9bdc-8a8bfced8776",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:15.000Z",
+      "modified": "2026-11-02T15:09:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
+      "target_ref": "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--6af2729e-55f2-5f4d-a3ce-24bd747276d7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-06T14:56:34.000Z",
@@ -47990,6 +48055,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--8ccfaa7b-d1a7-52a9-8e64-bd20e730aa9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T15:09:08.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--8cdca3a2-8d22-506b-8248-225f5e1b08e7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-12T18:07:37.000Z",
@@ -51374,17 +51450,6 @@
       "relationship_type": "has",
       "source_ref": "software--bffc2cbe-e6d5-5174-b908-1724d195e3b9",
       "target_ref": "vulnerability--67b06906-10a8-5a5d-be5b-8910db63dee0"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--985d36ac-0872-5098-accc-81a4cd9e2ed1",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--53542bf8-be89-52be-ac60-2e1238b5aad0",
-      "target_ref": "vulnerability--d746ae56-b3d4-5d51-8d93-7084baef1a0f"
     },
     {
       "type": "relationship",
@@ -73499,17 +73564,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--e23124a4-22b5-515b-9fef-4be0191ad786",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-03T14:56:21.000Z",
-      "modified": "2026-10-03T14:56:21.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--32f05102-1840-5b0f-9e13-6aa8c646867e",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--e2315755-41de-5b4c-9da8-cae3d2bafd44",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T20:35:48.000Z",
@@ -77004,6 +77058,17 @@
       "relationship_type": "has",
       "source_ref": "software--7407fab8-197b-51ec-9871-b8b2fbd0df60",
       "target_ref": "vulnerability--a42720b8-8284-5ba0-8b94-92f50cb33fc8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--ec130cd2-6eee-529f-98fb-69e0e6a046ec",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:15.000Z",
+      "modified": "2026-11-02T15:09:15.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
+      "target_ref": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac"
     },
     {
       "type": "relationship",
@@ -101871,52 +101936,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--32f05102-1840-5b0f-9e13-6aa8c646867e",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-03T14:56:21.000Z",
-      "modified": "2026-10-03T14:56:21.000Z",
-      "name": "Unauthenticated Arbitrary Class Instantiation in OpenAM",
-      "description": "## Overview\n\nForgeRock OpenAM versions prior to 16.1.3 contain a critical vulnerability in the legacy JAX-RPC SOAP interface that allows for unauthenticated arbitrary class instantiation. The vulnerability exists within the application's processing of SOAP requests, specifically when interacting with the /jaxrpc/* endpoint. An unauthenticated attacker can supply a specially crafted SOAP request containing an unverified session identifier and a targeted class name to trigger class instantiation within the JVM. This behavior can be weaponized to enumerate the application classpath, cause a denial-of-service through server crashes, or achieve remote code execution (RCE) by leveraging gadget chains available in the server's environment. Defenders should prioritize patching OpenAM instances and restricting access to legacy interfaces.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows unauthenticated remote attackers to achieve remote code execution, perform classpath discovery, or crash the OpenAM service. This poses a significant risk to identity and access management infrastructure, potentially compromising all integrated services protected by the affected OpenAM deployment.\n\n## Recommendation\n\n* Patch all ForgeRock OpenAM instances to version 16.1.3 or later immediately to remediate CVE-2026-105115.\n* Monitor web server and application logs for POST requests directed at the /jaxrpc/* URI path from untrusted or external IP addresses.\n* Restrict network access to the /jaxrpc/* endpoint at the edge firewall or web application firewall (WAF) to only authorized internal management segments.\n",
-      "published": "2026-10-03T14:56:21.000Z",
-      "labels": [
-        "rce",
-        "vulnerability",
-        "webserver"
-      ],
-      "object_refs": [
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--53542bf8-be89-52be-ac60-2e1238b5aad0",
-        "vulnerability--d746ae56-b3d4-5d51-8d93-7084baef1a0f"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-openam-cve-2026-105115",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-openam-cve-2026-105115/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105115"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-openam-cve-2026-105115",
-      "x_craftedsignal_event_id": "brief-2026-10-openam-cve-2026-105115",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-openam-cve-2026-105115/",
-      "x_craftedsignal_activity_at": "2026-10-03T14:56:21.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.6,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--33204648-e22b-545e-b414-52f3b4832d3f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T11:39:59.000Z",
@@ -109256,6 +109275,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--43a4635f-1b42-5649-ba52-d1b243a4d520",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:15.000Z",
+      "modified": "2026-11-02T15:09:15.000Z",
+      "name": "GitHub: Unauthorized modification of private repository forking policy",
+      "description": "## Overview\n\nThis alert monitors for the enabling of private repository forking within a GitHub organization. Allowing forks of private repositories permits code to be copied out of the organization into personal forks, representing a high-risk collection path following an organization-owner compromise. This setting change is an indicator of potential data exfiltration.\n\n## Impact\n\nEnabling private repository forking increases the risk of unauthorized source code exfiltration by allowing users with access to private repositories to fork them into personal accounts outside the organization's control.\n\n## Recommendation\n\n* Review organization settings to ensure private repository forking is disabled unless explicitly required for inner-source development programs.\n* Investigate the `user.name` and `github.actor_ip` associated with the policy change event `private_repository_forking.enable`.\n* Audit for repository fork activity (`repo.fork` events) immediately following any detected policy change to identify if unauthorized copies were created.\n* Transfer or delete any unauthorized forks identified during the investigation window.\n",
+      "published": "2026-11-02T15:09:15.000Z",
+      "labels": [
+        "cloud-security",
+        "collection",
+        "configuration-monitoring",
+        "saas-security"
+      ],
+      "object_refs": [
+        "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac",
+        "attack-pattern--3d68445d-540f-51c3-b6d4-10fb30d8d08e",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-github-repo-forking-policy",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-forking-policy/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/collection_github_private_repo_forking_enabled.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-github-repo-forking-policy",
+      "x_craftedsignal_event_id": "brief-2026-11-02-github-repo-forking-policy",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-repo-forking-policy/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:09:15.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--43bae06e-b1ab-5de8-b4ac-4e3440ba80f3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T14:46:24.000Z",
@@ -115078,6 +115147,56 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-02T15:09:08.000Z",
+      "name": "GitHub Enterprise and Organization SSO Recovery Code Activity",
+      "description": "## Overview\nGitHub provides recovery codes for enterprise and organization SSO as a contingency for IdP access loss. Because these codes bypass external identity providers and MFA, they represent high-value targets for adversaries seeking to establish persistence or perform account takeover. Organizations should audit all actions related to these credentials, including generation, downloading, viewing, and usage, to identify anomalous administrative behavior.\n\n## Impact\nUnauthorized access to recovery codes allows an attacker to bypass federated authentication and MFA, enabling persistent, unauthenticated access to the GitHub enterprise or organization environment.\n\n## Recommendation\n- Implement monitoring for GitHub audit logs specifically filtering for recovery code lifecycle events (download, generate, print, view, use, and failure).\n- Enforce dual-control procedures for the management of recovery codes, ensuring that any lifecycle event is tied to an authorized disaster recovery process.\n- Rotate recovery codes immediately if an unauthorized generation or viewing event is identified.\n- Review SSO configuration and force re-authentication of enterprise owners following any confirmed compromise of recovery credentials.\n",
+      "published": "2026-11-02T15:09:08.000Z",
+      "labels": [
+        "cloud",
+        "credential-access",
+        "persistence",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--f1568896-32bf-5767-8674-cbd53433f316"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/credential_access_github_recovery_codes_activity.toml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
+      "x_craftedsignal_event_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:09:08.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -151831,6 +151950,55 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a92bc3b1-2d42-51ea-9f53-954ca873f853",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:08:50.000Z",
+      "modified": "2026-11-02T15:08:50.000Z",
+      "name": "GitHub: Disabling Dependabot alerts and security updates",
+      "description": "## Overview\nGitHub audit logs capture events where Dependabot alerts or automated security updates are disabled. This activity is a potential indicator of defense evasion, as it prevents GitHub from flagging malicious or vulnerable packages. Depending on the scope of the configuration change, an actor can remove automated security coverage from a single repository, an entire organization, or an enterprise environment. This often precedes the injection of malicious code or dependency tampering.\n\n## Impact\nDisabling Dependabot removes automated visibility into vulnerable and malicious packages, increasing the likelihood that supply-chain compromises go undetected by security tooling.\n\n## Recommendation\n- Monitor GitHub audit logs for the specific `disable` actions listed in the detection guidance below.\n- Audit administrative access and programmatic tokens that have permissions to modify organization or enterprise security settings.\n- Review repository commits and dependency manifest changes (e.g., package.json, go.mod, requirements.txt) occurring immediately before or after these disable events.\n- Re-enable Dependabot features unless a documented and approved exception exists.\n",
+      "published": "2026-11-02T15:08:50.000Z",
+      "labels": [
+        "cloud",
+        "defense-evasion",
+        "github",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--42990825-22de-5466-8fc9-7122e7ea32aa"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-github-dependabot-disable",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-dependabot-disable/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_dependabot_disabled.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-github-dependabot-disable",
+      "x_craftedsignal_event_id": "brief-2026-11-02-github-dependabot-disable",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-dependabot-disable/",
+      "x_craftedsignal_activity_at": "2026-11-02T15:08:50.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -192603,6 +192771,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--42990825-22de-5466-8fc9-7122e7ea32aa",
+      "name": "GitHub (Repository, Organization, and Enterprise levels)",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--42f0bd58-5f60-5fb9-8cee-6a859aa6682f",
       "name": "Fleet",
       "vendor": "Fleet"
@@ -193769,13 +193944,6 @@
       "id": "software--53434278-a175-5a35-8f5c-b1c457f34464",
       "name": "Secure FTD",
       "vendor": "Cisco"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--53542bf8-be89-52be-ac60-2e1238b5aad0",
-      "name": "OpenAM (\u003c 16.1.3)",
-      "vendor": "ForgeRock"
     },
     {
       "type": "software",
@@ -203279,6 +203447,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb",
+      "name": "GitHub",
+      "vendor": "GitHub"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--d4d52e44-a1e7-5f41-ad67-91a8b9a7ac0d",
       "name": "Contrast (\u003c 1.24.1)",
       "vendor": "Edgeless Systems"
@@ -205147,6 +205322,13 @@
       "id": "software--f1282a24-c806-50ca-a978-e39bbbc8eb8c",
       "name": "OctoCloud (1.12.06)",
       "vendor": "AKIN Software Computer Import-Export Industry and Trade Co. Ltd."
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f1568896-32bf-5767-8674-cbd53433f316",
+      "name": "GitHub (Enterprise/Organization)",
+      "vendor": "GitHub"
     },
     {
       "type": "software",
@@ -236357,22 +236539,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-111998",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111998"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--d746ae56-b3d4-5d51-8d93-7084baef1a0f",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105115",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105115",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105115"
         }
       ]
     },
