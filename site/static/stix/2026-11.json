@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5dd57e97-d284-59be-bed6-6af676b57afb",
+  "id": "bundle--4ee010f1-e4d4-52e7-bf33-1ece1a2e09fc",
   "objects": [
     {
       "type": "attack-pattern",
@@ -95,6 +95,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1499",
           "url": "https://attack.mitre.org/techniques/T1499"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "System Information Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1082",
+          "url": "https://attack.mitre.org/techniques/T1082"
         }
       ]
     },
@@ -197,6 +213,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "OS Credential Dumping",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003",
+          "url": "https://attack.mitre.org/techniques/T1003"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -223,6 +255,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1059.004",
           "url": "https://attack.mitre.org/techniques/T1059/004"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Windows Command Shell",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.003",
+          "url": "https://attack.mitre.org/techniques/T1059/003"
         }
       ]
     },
@@ -271,6 +319,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1195",
           "url": "https://attack.mitre.org/techniques/T1195"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Windows Management Instrumentation",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1047",
+          "url": "https://attack.mitre.org/techniques/T1047"
         }
       ]
     },
@@ -351,6 +415,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1539",
           "url": "https://attack.mitre.org/techniques/T1539"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "SMB/Windows Admin Shares",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021.002",
+          "url": "https://attack.mitre.org/techniques/T1021/002"
         }
       ]
     },
@@ -614,6 +694,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--2ee81af0-da7d-5927-9c16-c7bb4cbc2a25",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:53:27.000Z",
+      "modified": "2026-11-02T08:53:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
+      "target_ref": "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3182755f-5a38-59ce-b03d-298e0a1a2ec6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -856,6 +947,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--5313fcb3-d109-5702-b8c9-6e3d8c4bad1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:53:27.000Z",
+      "modified": "2026-11-02T08:53:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
+      "target_ref": "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5643e99c-6e59-535e-917d-9493a27bdfb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -962,6 +1064,17 @@
       "relationship_type": "has",
       "source_ref": "software--93bb5725-0566-5f4b-99fa-fa9b1acfbcbd",
       "target_ref": "vulnerability--f2380553-2a9c-5b2e-b8d4-54a67ccea7ea"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--684c36f9-8df8-5dfa-9d22-6d3688398d22",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:53:27.000Z",
+      "modified": "2026-11-02T08:53:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
+      "target_ref": "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee"
     },
     {
       "type": "relationship",
@@ -1160,6 +1273,17 @@
       "relationship_type": "attributed-to",
       "source_ref": "report--73da31d6-aef8-5b5e-9f9b-796f8f5df68a",
       "target_ref": "threat-actor--49a58259-e320-5333-9a45-ad035ebb038f"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9cf54db6-b8ba-5be7-bf49-4001ba633b6c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:53:27.000Z",
+      "modified": "2026-11-02T08:53:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
+      "target_ref": "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337"
     },
     {
       "type": "relationship",
@@ -1402,6 +1526,17 @@
       "relationship_type": "has",
       "source_ref": "software--bc24f899-0a89-5ddf-9f03-cff548236344",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cca58070-2b42-5b1d-9344-ed0b81119d35",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:53:27.000Z",
+      "modified": "2026-11-02T08:53:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -1699,6 +1834,17 @@
       "relationship_type": "has",
       "source_ref": "software--33b58796-0155-54f3-a279-3fa42bf31ae1",
       "target_ref": "vulnerability--7dd923ab-ca57-5f4e-b40a-4c10c89d5779"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--f56ac71a-9a2c-5f8a-87d1-2bf2457af3b7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:53:27.000Z",
+      "modified": "2026-11-02T08:53:27.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
+      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
       "type": "relationship",
@@ -3096,6 +3242,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T08:53:27.000Z",
+      "modified": "2026-11-02T08:53:27.000Z",
+      "name": "CyberStrikeAI: AI-orchestrated post-exploitation attacks",
+      "description": "## Overview\nThe CyberStrikeAI framework is an open-source, Go-based penetration testing platform that integrates an LLM-driven orchestrator with a C2 server. Unlike traditional manual penetration testing tools, the LLM-orchestrator automatically determines the sequence of commands and technical steps required to fulfill high-level operator tasks. Victims identified include educational institutions in Africa and Latin America. The post-exploitation phase is highly automated, progressing from initial access via compromised SQL Server instances to full domain compromise with minimal human intervention.\n\n## Attack Chain\n1. Initial access via compromised SQL Server (version 16.0.1000).\n2. Deployment of CyberStrikeAI C2 implant via webshell or existing access.\n3. Establishment of persistence and local host reconnaissance (completed within 2 minutes).\n4. Conduct of broad domain reconnaissance over approximately 5 hours.\n5. Pause in activity for several days.\n6. Final offensive stage including lateral movement via SMB and WMI, mass credential dumping, and database exfiltration (completed within 1 hour).\n\n## Impact\nConfirmed impact includes full domain compromise of educational institutions. The integration of LLMs into core attack operations enables rapid execution of technical tasks that traditionally required significant manual effort, drastically reducing the time required for lateral movement and data exfiltration.\n\n## Recommendation\n- Hunt for the presence of the 'X-Implant-Token' custom HTTP header in network traffic, as this is a consistent indicator of CyberStrikeAI C2 communication.\n- Audit SQL Server environments (version 16.0.1000 and others) for unauthorized process execution, specifically looking for 'sqlservr.exe' spawning suspicious child processes (e.g., cmd.exe, powershell.exe).\n- Monitor for unexpected WMI and SMB traffic patterns originating from database servers, which may indicate lateral movement.\n- Implement memory scanning for Go-based implants that exhibit the specific build metadata patterns described by the framework.\n",
+      "published": "2026-11-02T08:53:27.000Z",
+      "labels": [
+        "ai-threat",
+        "cyberstrikeai",
+        "lateral-movement",
+        "post-exploitation"
+      ],
+      "object_refs": [
+        "attack-pattern--19dfae38-8eb6-5945-a348-04b8ce043122",
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--633c0a79-a71b-5eb7-9eca-504796091337",
+        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
+        "attack-pattern--a9b90aa1-84ae-5946-856c-c4806f4065ee",
+        "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--701d3052-bd3d-5083-b43f-c0cb5d65251f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-cyberstrikeai-automation",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cyberstrikeai-automation/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://securelist.com/tr/cyberstrikeai-attacks/121715/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-cyberstrikeai-automation",
+      "x_craftedsignal_event_id": "brief-2026-11-02-cyberstrikeai-automation",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cyberstrikeai-automation/",
+      "x_craftedsignal_activity_at": "2026-11-02T08:53:27.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--62c0ea9e-79dd-5b32-aeb5-6482f3a0bcb7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T23:10:24.000Z",
@@ -4468,6 +4664,13 @@
       "id": "software--66cb8b38-8606-57ad-b0e5-c174a1757d6c",
       "name": "SUSE Linux Enterprise Micro (5.3, 5.4, 5.5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--701d3052-bd3d-5083-b43f-c0cb5d65251f",
+      "name": "SQL Server (16.0.1000)",
+      "vendor": "Microsoft"
     },
     {
       "type": "software",
