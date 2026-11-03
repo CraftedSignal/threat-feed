@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f714d36b-0e97-5833-bb8a-6e82d1a66ff2",
+  "id": "bundle--afe0e45a-726d-5956-98b4-97136afa30e1",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1249,6 +1249,17 @@
       "relationship_type": "uses",
       "source_ref": "report--9eedf859-d547-50b8-8573-eed7dcea6509",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--051f1984-fdfb-5ae7-9d13-abf5fbc84569",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:04:43.000Z",
+      "modified": "2026-11-03T20:04:43.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f5cf5ce5-a925-550f-87dd-1fd198d401de",
+      "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
     },
     {
       "type": "relationship",
@@ -4102,6 +4113,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9d1e6156-9e6f-5c0f-a4bf-2712c1f99578",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--ba205689-aded-529d-8ba8-d99df1cb828a",
+      "target_ref": "vulnerability--31bc382f-b7ed-5dcf-bcc0-aff9358944ff"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9ea701b1-eb02-517e-b885-83161057e985",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T23:48:11.000Z",
@@ -4174,6 +4196,17 @@
       "modified": "2026-11-03T12:08:58.000Z",
       "relationship_type": "uses",
       "source_ref": "report--315a3bf6-e455-534f-ac78-8f3cbfb71c27",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--a22ebf5e-d09c-5554-8ec3-bb4b5967c3a8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:04:38.000Z",
+      "modified": "2026-11-03T20:04:38.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--9ce0ceef-0a26-59ce-b561-9da683b59a6d",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
@@ -5165,6 +5198,17 @@
       "relationship_type": "uses",
       "source_ref": "report--75f11c77-e9c6-53ec-acaf-6ea9a85b9e71",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--cd982c1e-85e8-59ec-babb-6bac737aeb68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
+      "target_ref": "vulnerability--584b350c-d90f-5cea-ad89-2486bcd4296c"
     },
     {
       "type": "relationship",
@@ -12535,6 +12579,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--9ce0ceef-0a26-59ce-b561-9da683b59a6d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:04:38.000Z",
+      "modified": "2026-11-03T20:04:38.000Z",
+      "name": "traQ: Stored cross-site scripting via file upload (CVE-2026-63197)",
+      "description": "## Overview\ntraQ messenger application versions prior to 3.28.3 contain a vulnerability when configured with `TRAQ_STORAGE_TYPE=local`. The `/files/{fileId}` retrieval endpoint returns user-uploaded SVG or HTML content without adequate security headers or sanitization, causing browsers to render the files directly. An attacker with file-upload privileges can upload malicious files containing JavaScript to trigger XSS in the context of other users who view the file.\n\n## Impact\nSuccessful exploitation allows an attacker to execute arbitrary JavaScript in the victim's browser session. This can lead to session hijacking, unauthorized actions performed on behalf of the user, or theft of sensitive information stored within the traQ application session.\n\n## Recommendation\n- Upgrade traQ to version 3.28.3 or later immediately.\n- For instances where immediate patching is not possible, disable local file storage by modifying the `TRAQ_STORAGE_TYPE` configuration if feasible, or implement strict Content Security Policy (CSP) headers on the web server hosting the traQ application to restrict the execution of inline scripts and unauthorized sources.\n- Audit logs for the `/files/{fileId}` endpoint to identify unusual access patterns or requests for files with SVG/HTML extensions from suspicious user agents.\n",
+      "published": "2026-11-03T20:04:38.000Z",
+      "labels": [
+        "cve-2026-63197",
+        "web-application",
+        "xss"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--ba205689-aded-529d-8ba8-d99df1cb828a",
+        "vulnerability--31bc382f-b7ed-5dcf-bcc0-aff9358944ff"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-traq-xss",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-traq-xss/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63197"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-traq-xss",
+      "x_craftedsignal_event_id": "brief-2026-11-03-traq-xss",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traq-xss/",
+      "x_craftedsignal_activity_at": "2026-11-03T20:04:38.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--9d6fc133-619d-5332-96a3-634df8a9ca5e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:51:59.000Z",
@@ -15835,6 +15925,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f5cf5ce5-a925-550f-87dd-1fd198d401de",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:04:43.000Z",
+      "modified": "2026-11-03T20:04:43.000Z",
+      "name": "traQ: OAuth2 silent authorization bypass (CVE-2026-63198)",
+      "description": "## Overview\n\nThe traQ messenger application (versions prior to 3.28.3) contains an authentication flaw in its OAuth2 implementation. When a silent authorization request (prompt=none) is made with an empty or omitted scope parameter, the application erroneously checks consent against an empty set, effectively bypassing existing restrictions. An attacker controlling an OAuth client can obtain an access token with broader registered scopes than what the user previously approved, provided the user had at least one prior consent entry for that client.\n\n## Impact\n\nSuccessful exploitation allows an attacker to escalate privileges within the application by obtaining access tokens with excessive permissions without further user interaction.\n\n## Recommendation\n\n- Upgrade the traQ messenger application to version 3.28.3 or later immediately.\n- Review OAuth client registrations and audit application access tokens for unexpected scope assignments for users who have interacted with third-party or untrusted OAuth clients.\n",
+      "published": "2026-11-03T20:04:43.000Z",
+      "labels": [
+        "authentication-bypass",
+        "oauth2",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
+        "vulnerability--584b350c-d90f-5cea-ad89-2486bcd4296c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-traq-oauth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-traq-oauth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63198"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-traq-oauth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-03-traq-oauth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-traq-oauth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-03T20:04:43.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.3,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5d4a22d-431a-576e-ad33-9e63d0bdb1cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:24.000Z",
@@ -17073,6 +17209,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7f9281f5-3561-55b4-98ae-0b03926cb885",
+      "name": "traQ (\u003c 3.28.3)",
+      "vendor": "Digital Creators Club traP"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7fe0b31f-346c-5720-97f3-d3f7418bd61e",
       "name": "Control Web Panel (\u003c 1.16)"
     },
@@ -17427,6 +17570,13 @@
       "id": "software--b98171c5-1b65-5083-8800-1688b778fb6f",
       "name": "smart-sso (\u003c= 2.0.1)",
       "vendor": "smart-sso"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--ba205689-aded-529d-8ba8-d99df1cb828a",
+      "name": "traQ (\u003c 3.28.3)",
+      "vendor": "traP"
     },
     {
       "type": "software",
@@ -18584,6 +18734,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--31bc382f-b7ed-5dcf-bcc0-aff9358944ff",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63197",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63197",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63197"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--32723394-89f2-5059-b013-92e5c686ede9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -19202,6 +19368,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-99227",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99227"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--584b350c-d90f-5cea-ad89-2486bcd4296c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-63198",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-63198",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63198"
         }
       ]
     },
