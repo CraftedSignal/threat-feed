@@ -1,18 +1,42 @@
 ---
+brief_id: brief-2026-07-deletion-of-shell-cmdline-history-in-containers
+event_id: brief-2026-07-deletion-of-shell-cmdline-history-in-containers
+revision: 2
+activity_at: "2026-11-03T21:47:08Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-03T21:47:08Z"
+    checksum: sha256:154fd3dec4f9a508812748970f280da622c793d8737bc0dabc2b1a069eab344c
+    summary: new product
+    changed_fields:
+      - affected_products
+      - claim_state
+      - lastmod
+      - rules
+      - ttps
+      - updates
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/defense_evasion_deletion_of_shell_cmdline_history.toml
 title: Deletion of Shell Command-Line History in Containers
 slug: 2026-07-deletion-of-shell-cmdline-history-in-containers
 description: An unidentified adversary is leveraging common shell commands to delete or disable command-line history files within Linux containers, aiming to evade detection by obscuring their activities during reconnaissance or credential access.
 date: "2026-07-29T12:34:50Z"
+lastmod: "2026-11-03T21:45:51Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
   - high
+exploitation_evidence:
+  status: unknown
 tags:
   - defense-evasion
   - container
   - linux
   - threat-detection
+products:
+  - Kubernetes
 affected_os:
   - Linux
 mitre_ttps:
@@ -20,6 +44,8 @@ mitre_ttps:
     tactic_name: Defense Evasion
     technique_id: T1070
     technique_name: Indicator Removal
+    subtechnique_id: T1070.003
+    subtechnique_name: Clear Command History
     evidence: This rule detects the deletion of shell command-line history files inside a container. Adversaries may delete these files to cover their tracks or evade detection. An attacker uses kubectl exec to open an interactive bash shell in a running pod, then symlinks /root/.bash_history to /dev/null to prevent future commands from being recorded.
     confidence_band: high
 references:
@@ -37,19 +63,15 @@ rules:
     data_sources:
       - file_event
       - linux
-  - title: Detect Container Shell History Disabling or Clearing Commands
-    description: Detects process execution patterns used to clear or disable shell command-line history in Linux containers, indicative of defense evasion.
-    platform: sigma
-    severity: high
-    tactics:
-      - defense_evasion
-    techniques:
-      - T1070
-      - T1070.003
-    data_sources:
-      - process_creation
-      - linux
-rules_count: 2
+rules_count: 1
+updates:
+  - at: "2026-11-03T21:45:51Z"
+    level: L1
+    summary: new product
+    sources:
+      - elastic
+    source_urls:
+      - https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/defense_evasion_deletion_of_shell_cmdline_history.toml
 ---
 
 Unidentified adversaries are actively targeting Linux containers by deleting or disabling shell command-line history files. This tactic, often observed after initial access has been established (e.g., via `kubectl exec`), aims to erase forensic evidence and impede incident investigations. Attackers typically modify or remove files like `.bash_history`, `.sh_history`, or `.zsh_history`, or manipulate shell environment variables and functions (e.g., `HISTFILE=/dev/null`, `unset HISTFILE`, `history -c`) to prevent recording subsequent malicious commands. This technique is a crucial defense evasion mechanism that allows threat actors to conduct reconnaissance, elevate privileges, or exfiltrate data without leaving a clear trail of their actions within the compromised container, making post-compromise analysis significantly more challenging for defenders.
