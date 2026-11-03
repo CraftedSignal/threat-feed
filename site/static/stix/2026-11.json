@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--477ab62b-69f8-51bc-a6b9-b1f040ddb39c",
+  "id": "bundle--8f440500-6059-567a-952a-79482b7a2d40",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5257,6 +5257,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--304ce466-986b-5e78-b5c2-77ee1b5ebbe5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T01:52:20.000Z",
+      "modified": "2026-11-03T01:52:20.000Z",
+      "name": "labbench: Arbitrary code execution via insecure deserialization (CVE-2026-120833)",
+      "description": "A deserialization of untrusted data vulnerability exists in labbench before 0.46.1 within the `read()` and `read_relational()` functions. These functions pass any file with a .p or .pickle extension to `pandas.read_pickle` based on the file extension alone. Attackers who supply a crafted data file or relational data archive can execute arbitrary code when a user loads it with these functions.\n",
+      "published": "2026-11-03T01:52:20.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--a003e8e7-0deb-5534-af4a-82577c7e67cc"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-labbench-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-labbench-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120833"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-labbench-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-11-03-labbench-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-labbench-deserialization/",
+      "x_craftedsignal_activity_at": "2026-11-03T01:52:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--30af45a1-f4d8-53d8-b068-79a330117023",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T03:10:44.000Z",
@@ -7315,6 +7354,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--7d984cf1-a17e-5cee-a3f3-4da41e98da6a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T01:52:31.000Z",
+      "modified": "2026-11-03T01:52:31.000Z",
+      "name": "PostgreSQL: psqlODBC memory corruption vulnerability (CVE-2026-120064)",
+      "description": "Several psqlODBC entry points use application-supplied column numbers or row indexes as array indexes without validation. \n- `SQLBindCol` with a column number above 32767 can cause the binding count to wrap negative, leading to out-of-bounds array access.\n- Negative `SQL_DESC_COUNT` on an application row descriptor results in unbinding columns at negative indexes.\n- `SQLColAttribute` with a large column number can use a negative index.\n- `SQLSetPos(SQL_ADD)` fails to validate the row number against the rowset size.\nAn application that forwards untrusted column or row numbers exposes its process to out-of-bounds reads and writes. Versions before psqlODBC 18.00.0006 are affected.\n",
+      "published": "2026-11-03T01:52:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--5f6da7cd-cc7a-5cce-80d5-2e72506be17e"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-psqlodbc-oob-vulnerability",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-psqlodbc-oob-vulnerability/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120064"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-psqlodbc-oob-vulnerability",
+      "x_craftedsignal_event_id": "brief-2026-11-03-psqlodbc-oob-vulnerability",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-psqlodbc-oob-vulnerability/",
+      "x_craftedsignal_activity_at": "2026-11-03T01:52:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -11907,6 +11985,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--5f6da7cd-cc7a-5cce-80d5-2e72506be17e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120064",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120064",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120064"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--5f7ce696-6637-5e0d-ab05-9afa26718eed",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -12413,6 +12507,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-119737",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119737"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a003e8e7-0deb-5534-af4a-82577c7e67cc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-120833",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-120833",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120833"
         }
       ]
     },
