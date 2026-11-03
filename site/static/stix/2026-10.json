@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--b6a41260-db3a-5576-a0ab-b1da730d38f7",
+  "id": "bundle--442f1f0c-82c8-5bbf-985a-29619c1991da",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23509,6 +23509,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--38c76588-5d7b-5861-9947-b57fcdca1c96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--219cb23d-9661-5fd8-a698-73aaf5c97da6",
+      "target_ref": "vulnerability--3fdff8ec-caa4-591d-b952-6562e3e1d172"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--38ceb563-cabe-5c6f-b9f2-4cb9ff52efd9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T23:45:04.000Z",
@@ -37207,7 +37218,7 @@
       "id": "relationship--649d43cf-f22f-5003-9ed6-03c12fb57103",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-31T11:58:31.000Z",
+      "modified": "2026-11-03T21:17:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -45622,7 +45633,7 @@
       "id": "relationship--7da3f515-049f-5c4f-88e8-d7f87f54250f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-31T11:58:31.000Z",
+      "modified": "2026-11-03T21:17:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -161119,7 +161130,7 @@
       "id": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-31T11:58:31.000Z",
+      "modified": "2026-11-03T21:17:07.000Z",
       "name": "WordPress: Multiple vulnerabilities in versions prior to 7.1.4",
       "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.\n\n## Impact\n\nSuccessful exploitation may result in full system compromise via arbitrary code execution, service disruption, or unauthorized access to sensitive application data.\n\n## Recommendation\n\n- Inventory all WordPress deployments across the organization to identify instances running versions older than 7.1.4.\n- Upgrade all vulnerable WordPress installations to version 7.1.4 or later immediately.\n- Review the official WordPress security bulletin for any specific post-patch configuration requirements.\n",
       "published": "2026-10-29T18:36:52.000Z",
@@ -161134,6 +161145,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--219cb23d-9661-5fd8-a698-73aaf5c97da6",
         "software--29939328-0610-5f81-b462-876b056a1c3d",
         "software--3859b408-dd23-559a-a2ef-4ae75bcbd2f9",
         "software--607a4eb7-6eda-51a6-8f83-1581a059d474",
@@ -161167,6 +161179,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-119977"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/"
         },
         {
@@ -161177,9 +161193,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
       "x_craftedsignal_event_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/",
-      "x_craftedsignal_activity_at": "2026-10-31T11:58:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T21:17:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -161189,6 +161205,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.006,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -201665,6 +201682,13 @@
       "id": "software--218927ce-3743-5a50-8fe4-c9b2cbefc327",
       "name": "Cloud Pak System (2.3.6.0, 2.3.6.1)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--219cb23d-9661-5fd8-a698-73aaf5c97da6",
+      "name": "WordPress Core",
+      "vendor": "WordPress"
     },
     {
       "type": "software",

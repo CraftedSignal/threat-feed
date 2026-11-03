@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--80f4ac6c-4e43-5d84-8381-f464619afe08",
+  "id": "bundle--b1198ca8-3c95-58f1-891c-dfd70d511619",
   "objects": [
     {
       "type": "attack-pattern",
@@ -23321,6 +23321,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--38c76588-5d7b-5861-9947-b57fcdca1c96",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--219cb23d-9661-5fd8-a698-73aaf5c97da6",
+      "target_ref": "vulnerability--3fdff8ec-caa4-591d-b952-6562e3e1d172"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--38ceb563-cabe-5c6f-b9f2-4cb9ff52efd9",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-13T23:45:04.000Z",
@@ -37074,7 +37085,7 @@
       "id": "relationship--649d43cf-f22f-5003-9ed6-03c12fb57103",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-31T11:58:31.000Z",
+      "modified": "2026-11-03T21:17:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
@@ -45412,7 +45423,7 @@
       "id": "relationship--7da3f515-049f-5c4f-88e8-d7f87f54250f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-31T11:58:31.000Z",
+      "modified": "2026-11-03T21:17:07.000Z",
       "relationship_type": "uses",
       "source_ref": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
@@ -64670,17 +64681,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ba2e930e-594c-5ed4-8339-81ab1e5a9392",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--0c8c6269-4b80-5ca9-b6f4-7305570c3d72",
-      "target_ref": "vulnerability--318d9f75-d5ad-5246-b654-9be51fd57794"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ba369237-b35b-512d-9562-6881358d3578",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -75395,17 +75395,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--dbed7936-43d7-5b5e-9483-025b419263f2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--813ca440-2453-5688-9c42-30ff733cce9a",
-      "target_ref": "vulnerability--318d9f75-d5ad-5246-b654-9be51fd57794"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--dbedbdfa-86c3-5be3-b61a-ac183857455e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -81848,17 +81837,6 @@
       "relationship_type": "uses",
       "source_ref": "report--c0c4e01e-fd87-5157-b87a-e8c5ca34d970",
       "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--ee14b845-95c3-5909-a0ad-b59ffbc16ca2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--3b179c24-0dc0-5049-8138-df528d1dc22b",
-      "target_ref": "vulnerability--318d9f75-d5ad-5246-b654-9be51fd57794"
     },
     {
       "type": "relationship",
@@ -161458,7 +161436,7 @@
       "id": "report--aa69e5a0-98d3-5f39-a18e-fc526591ed2e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T18:36:52.000Z",
-      "modified": "2026-10-31T11:58:31.000Z",
+      "modified": "2026-11-03T21:17:07.000Z",
       "name": "WordPress: Multiple vulnerabilities in versions prior to 7.1.4",
       "description": "## Overview\n\nThe French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.\n\n## Impact\n\nSuccessful exploitation may result in full system compromise via arbitrary code execution, service disruption, or unauthorized access to sensitive application data.\n\n## Recommendation\n\n- Inventory all WordPress deployments across the organization to identify instances running versions older than 7.1.4.\n- Upgrade all vulnerable WordPress installations to version 7.1.4 or later immediately.\n- Review the official WordPress security bulletin for any specific post-patch configuration requirements.\n",
       "published": "2026-10-29T18:36:52.000Z",
@@ -161473,6 +161451,7 @@
         "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
         "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--219cb23d-9661-5fd8-a698-73aaf5c97da6",
         "software--29939328-0610-5f81-b462-876b056a1c3d",
         "software--3859b408-dd23-559a-a2ef-4ae75bcbd2f9",
         "software--607a4eb7-6eda-51a6-8f83-1581a059d474",
@@ -161506,6 +161485,10 @@
         },
         {
           "source_name": "reference",
+          "url": "https://www.cve.org/CVERecord?id=CVE-2026-119977"
+        },
+        {
+          "source_name": "reference",
           "url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/"
         },
         {
@@ -161516,9 +161499,9 @@
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
       "x_craftedsignal_event_id": "brief-2026-10-29-wordpress-vulnerabilities-827cc6ea",
-      "x_craftedsignal_revision": 4,
+      "x_craftedsignal_revision": 5,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-wordpress-vulnerabilities-827cc6ea/",
-      "x_craftedsignal_activity_at": "2026-10-31T11:58:31.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T21:17:07.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -161528,6 +161511,7 @@
         "confidence": "medium"
       },
       "x_craftedsignal_cvss_max": 8.1,
+      "x_craftedsignal_epss_max": 0.006,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -171711,59 +171695,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.9,
-      "x_craftedsignal_kev_status": "false"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--c274b9a8-22ea-555c-8c5b-782d315ed0da",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-04T20:49:54.000Z",
-      "modified": "2026-10-05T00:48:27.000Z",
-      "name": "Active Exploitation of Citrix NetScaler Buffer Vulnerability (CVE-2026-88779)",
-      "description": "## Overview\n\nCISA has officially added CVE-2026-88779, a vulnerability categorized as an Improper Restriction of Operations within the Bounds of a Memory Buffer in Citrix NetScaler, to its Known Exploited Vulnerabilities (KEV) Catalog. This addition is based on validated evidence of active exploitation by malicious cyber actors. Vulnerabilities of this class frequently lead to unauthorized remote code execution or system instability by corrupting memory within the application process space. The inclusion in the KEV Catalog triggers requirements under Binding Operational Directive (BOD) 26-04 for federal agencies to prioritize remediation on internet-facing assets. Organizations utilizing Citrix NetScaler must assess their exposure and apply available vendor patches as a priority, given the confirmed active threat environment.\n\n## Impact\n\nSuccessful exploitation of CVE-2026-88779 allows attackers to manipulate memory buffers within Citrix NetScaler, potentially resulting in unauthorized access, service disruption, or remote code execution. Given the nature of Citrix NetScaler as an edge appliance, compromised systems provide attackers with a significant foothold into enterprise networks, enabling lateral movement and further data exfiltration.\n\n## Recommendation\n\n* Prioritize the immediate patching of all internet-facing Citrix NetScaler instances against CVE-2026-88779 as required by BOD 26-04.\n* Audit perimeter logs for anomalous traffic patterns directed at NetScaler appliances, specifically looking for abnormally large payloads or malformed requests that could trigger buffer memory issues.\n* Following remediation, perform a forensic review of logs to determine if the system was compromised prior to the patch application, as mandated by the risk-based vulnerability management requirements outlined in BOD 26-04.\n",
-      "published": "2026-10-04T20:49:54.000Z",
-      "labels": [
-        "cisa-kev",
-        "citrix",
-        "netscaler",
-        "remote-code-execution",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0c8c6269-4b80-5ca9-b6f4-7305570c3d72",
-        "software--3b179c24-0dc0-5049-8138-df528d1dc22b",
-        "software--813ca440-2453-5688-9c42-30ff733cce9a",
-        "vulnerability--318d9f75-d5ad-5246-b654-9be51fd57794"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-04-citrix-netscaler-kev",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-citrix-netscaler-kev/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/10/04/cisa-adds-one-known-exploited-vulnerability-catalog"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.cve.org/CVERecord?id=CVE-2026-88779"
-        }
-      ],
-      "confidence": 95,
-      "x_craftedsignal_brief_id": "brief-2026-10-04-citrix-netscaler-kev",
-      "x_craftedsignal_event_id": "brief-2026-10-04-citrix-netscaler-kev",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-citrix-netscaler-kev/",
-      "x_craftedsignal_activity_at": "2026-10-05T00:48:27.000Z",
-      "x_craftedsignal_severity": "critical",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_epss_max": 0.11388,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -199656,13 +199587,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0c8c6269-4b80-5ca9-b6f4-7305570c3d72",
-      "name": "NetScaler ADC (\u003c 14.1-73.41)",
-      "vendor": "Citrix"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0c9f61d9-e30c-57ec-b37c-cd14b1168f4b",
       "name": "Premium Packages – Sell Digital Products Securely (\u003c= 7.0.5)",
       "vendor": "WordPress"
@@ -201407,6 +201331,13 @@
       "id": "software--218927ce-3743-5a50-8fe4-c9b2cbefc327",
       "name": "Cloud Pak System (2.3.6.0, 2.3.6.1)",
       "vendor": "IBM"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--219cb23d-9661-5fd8-a698-73aaf5c97da6",
+      "name": "WordPress Core",
+      "vendor": "WordPress"
     },
     {
       "type": "software",
@@ -203467,13 +203398,6 @@
       "id": "software--3ae629c7-acd6-5e0d-82f1-0291c38bd35f",
       "name": "macOS Agents",
       "vendor": "ManageEngine"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--3b179c24-0dc0-5049-8138-df528d1dc22b",
-      "name": "NetScaler Gateway (\u003c 14.1-73.41)",
-      "vendor": "Citrix"
     },
     {
       "type": "software",
@@ -209115,13 +209039,6 @@
       "id": "software--812c23e0-18cf-5ead-b4b6-34bf690db6b5",
       "name": "TEW-751DR (1.03B01/1.03B03)",
       "vendor": "TRENDnet"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--813ca440-2453-5688-9c42-30ff733cce9a",
-      "name": "NetScaler (\u003c 14.1-73.41)",
-      "vendor": "Citrix"
     },
     {
       "type": "software",
@@ -226477,22 +226394,6 @@
           "source_name": "cve",
           "external_id": "CVE-2017-20289",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-20289"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--318d9f75-d5ad-5246-b654-9be51fd57794",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-88779",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-88779",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88779"
         }
       ]
     },

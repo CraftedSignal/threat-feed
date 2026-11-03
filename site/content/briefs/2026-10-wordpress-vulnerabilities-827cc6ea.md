@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
 event_id: brief-2026-10-29-wordpress-vulnerabilities-827cc6ea
-revision: 4
-activity_at: "2026-10-31T11:58:31Z"
+revision: 5
+activity_at: "2026-11-03T21:17:07Z"
 revision_history:
   - revision: 2
     at: "2026-10-30T12:41:05Z"
@@ -46,11 +46,24 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-119977
+  - revision: 5
+    at: "2026-11-03T21:17:07Z"
+    checksum: sha256:16a391bf2bbc7c570371ec01132ca098f029efa31d70e5ca3cdd6b415b37470f
+    summary: new product
+    changed_fields:
+      - action_plan
+      - affected_products
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-119977
 title: 'WordPress: Multiple vulnerabilities in versions prior to 7.1.4'
 slug: 2026-10-wordpress-vulnerabilities-827cc6ea
 description: Multiple vulnerabilities in WordPress versions prior to 7.1.4 allow remote attackers to execute arbitrary code, conduct denial-of-service, perform unauthorized data access, and bypass security policies.
 date: "2026-10-29T18:36:52Z"
-lastmod: "2026-10-31T11:57:08Z"
+lastmod: "2026-11-03T21:16:24Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -85,6 +98,7 @@ products:
   - WordPress (< 7.1.4)
   - WordPress core (< 7.1.4)
   - WordPress Core (4.7-7.1.3)
+  - WordPress Core
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -101,6 +115,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-119977
     cvss: 8.1
+    epss: 0.006
     kev_status: "false"
 references:
   - https://www.cert.cyber.gouv.fr/avis/CERTFR-2026-AVI-1420/
@@ -110,6 +125,7 @@ references:
   - https://www.wordfence.com/blog/2026/10/wordpress-7-1-4-security-release-rce/
   - https://wordpress.org/documentation/wordpress-version/version-7-1-4/
   - https://nvd.nist.gov/vuln/detail/CVE-2026-119977
+  - https://www.cve.org/CVERecord?id=CVE-2026-119977
 action_plan:
   priority: elevated
   owners:
@@ -140,7 +156,7 @@ action_plan:
       addresses: WordPress versions < 7.1.4
       evidence: Official security bulletin (wordpress-7-1-4).
     - priority: immediate
-      action: Upgrade WordPress Core to a patched version
+      action: Upgrade WordPress to 7.1.4 or later
       owner: IT Operations
       addresses: CVE-2026-119977
       evidence: WordPress Core is vulnerable to Remote Code Execution in versions 4.7 through 7.1.3.
@@ -166,6 +182,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-119977
+  - at: "2026-11-03T21:16:24Z"
+    level: L1
+    summary: new product
+    sources:
+      - cisa-kev
+    source_urls:
+      - https://www.cve.org/CVERecord?id=CVE-2026-119977
 ---
 
 The French National Cybersecurity Agency (ANSSI) has published an advisory regarding multiple vulnerabilities identified in WordPress versions prior to 7.1.4. According to the vendor security bulletin, these flaws enable remote attackers to perform arbitrary code execution, denial-of-service, information disclosure, security policy bypass, and cross-site scripting (XSS) attacks. Users must refer to the vendor documentation for specific mitigation steps and apply the necessary updates.
