@@ -1,13 +1,29 @@
 ---
 brief_id: brief-2026-11-03-smart-sso-auth
 event_id: brief-2026-11-03-smart-sso-auth
-revision: 1
-activity_at: "2026-11-03T18:01:06Z"
+revision: 2
+activity_at: "2026-11-03T21:28:45Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-03T21:28:45Z"
+    checksum: sha256:f3f295767cc03d4b5ec67f962579254e7ef4388e1efb70e2c5e2c19f814c6d0c
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121543&utm_source=rss&utm_medium=rss
 title: 'smart-sso: Incorrect authorization in PermissionFilter (CVE-2026-121543)'
 slug: 2026-11-smart-sso-auth
 description: An incorrect authorization vulnerability in smart-sso versions 2.0.1 and earlier allows authenticated users to access administrative APIs due to a permissive default configuration in PermissionFilter.
 date: "2026-11-03T18:01:06Z"
+lastmod: "2026-11-03T21:27:54Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -23,6 +39,9 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:smart-sso:smart-sso:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-121543&utm_source=rss&utm_medium=rss
 tags:
   - privilege-escalation
   - authentication-bypass
@@ -44,6 +63,7 @@ cves:
     kev_status: "false"
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-121543
+  - https://sploitus.com/exploit?id=CVE-2026-121543&utm_source=rss&utm_medium=rss
 rules:
   - title: Detect Potential Unauthorized Access to smart-sso Admin APIs
     description: Detects unauthorized access attempts to smart-sso administrative API endpoints by monitoring requests to the /admin/ path hierarchy
@@ -81,6 +101,14 @@ action_plan:
       owner: SOC
       addresses: CVE-2026-121543
       evidence: Incorrect authorization in PermissionFilter
+updates:
+  - at: "2026-11-03T21:27:54Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121543&utm_source=rss&utm_medium=rss
 ---
 
 The PermissionFilter component in smart-sso up to version 2.0.1 fails to properly restrict access to administrative console APIs. Because the filter permits unlisted paths by default, any authenticated user can invoke sensitive administrative functions. An attacker can exploit this to perform actions such as calling '/admin/user-role/save' to assign themselves administrative privileges, reset passwords, or manage applications across integrated systems.

@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d54eb0d0-54e0-540b-81c0-892f7dc17d75",
+  "id": "bundle--5aaa0ac9-139f-5d36-bd1d-da3993be3460",
   "objects": [
     {
       "type": "attack-pattern",
@@ -9014,17 +9014,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--295e8c77-5c7a-5b93-912b-2c4f46da20bd",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:23:04.000Z",
-      "modified": "2026-08-05T21:23:04.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--501520e3-d2a2-530a-9e52-2e1bc7ede1f0",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--2962aadd-a72c-513c-aed9-11f980413825",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17798,17 +17787,6 @@
       "modified": "2026-08-29T12:44:16.000Z",
       "relationship_type": "uses",
       "source_ref": "report--68ca1d6d-8016-5c7c-8ceb-7ee4cb7470e1",
-      "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--67054fc5-0e9a-50b4-9db6-82dbb5cbc678",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:25:24.000Z",
-      "modified": "2026-08-06T03:26:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--25114fe1-ee99-5961-a488-8fccd7d6d9b9",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
     },
     {
@@ -36910,17 +36888,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ee33ad4d-1559-5d8d-905e-9d00d65e9dcc",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:25:24.000Z",
-      "modified": "2026-08-06T03:26:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--25114fe1-ee99-5961-a488-8fccd7d6d9b9",
-      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ee358fc6-f240-5af2-bb28-2634642b96af",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -38314,17 +38281,6 @@
       "relationship_type": "uses",
       "source_ref": "report--6740340d-330d-5e73-8067-5a3a1c502cb8",
       "target_ref": "indicator--deb1d69a-1ee8-580f-bb02-2b80faca2d1c"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--f860f835-11ed-5083-ac79-3ebd4790158d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:25:24.000Z",
-      "modified": "2026-08-06T03:26:07.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--25114fe1-ee99-5961-a488-8fccd7d6d9b9",
-      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -46666,73 +46622,6 @@
     {
       "type": "report",
       "spec_version": "2.1",
-      "id": "report--25114fe1-ee99-5961-a488-8fccd7d6d9b9",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:25:24.000Z",
-      "modified": "2026-08-06T03:26:07.000Z",
-      "name": "Nuxt 4.x Runtime Payload Cache Disclosure",
-      "description": "## Overview\n\nNuxt versions 4.4.0 through 4.5.0 contain a vulnerability (CVE-2026-71316) where the runtime payload cache incorrectly stores and retrieves data. The vulnerability resides in the `cache:nuxt:payload` storage, which utilizes a path-only cache key, ignoring session-specific context such as cookies, authorization headers, or cache variations. This allows an attacker to access sensitive SSR data by requesting the `/_payload.json` endpoint for routes that have been previously 'warmed' by an authenticated user. The SSR data typically includes results from `useFetch` or `useAsyncData`, which may contain private information like profile details, tenant identifiers, or billing data. The issue is specific to the 4.x release line and was caused by a regression where runtime payload-cache reads and writes were no longer restricted to the prerendering phase.\n\n## Attack Chain\n\n1. The target application is configured with `routeRules` using `cache`, `swr`, or `isr` on protected pages that display user-specific data.\n2. An authenticated user accesses a protected, cached route, triggering the server to generate and store the SSR payload in the `cache:nuxt:payload` store.\n3. The cached payload is stored using only the URL path as the key, lacking any session or authorization awareness.\n4. An attacker or an unauthorized user identifies a target path that utilizes Nuxt payload extraction.\n5. The attacker issues a `GET` request to `/\u0026lt;target-path\u003e/_payload.json`.\n6. The Nuxt renderer retrieves the stored payload from the shared cache before any route middleware, page guards, or authorization checks are executed.\n7. The sensitive payload, intended only for the original authenticated user, is returned to the unauthorized requester in the response body.\n\n## Impact\n\nSuccessful exploitation leads to unauthorized access to sensitive application data rendered during SSR. This exposure impacts users across different sessions, including the disclosure of profile information, billing details, and internal application data to unauthenticated clients. Any application relying on Nuxt 4.4.0-4.5.0 with caching enabled on authenticated routes is at risk.\n\n## Recommendation\n\n* Upgrade to `nuxt@4.5.1` immediately to restore proper prerendering gates on payload caching.\n* If upgrading is not immediately feasible, set `experimental.payloadExtraction: false` in the Nuxt configuration to disable the vulnerable endpoint.\n* Audit `routeRules` to remove `cache`, `swr`, or `isr` configurations from pages that display user-specific data.\n* Implement authentication requirements at the edge, such as CDN or proxy-level, specifically for `/**/_payload.json` paths as a temporary defense-in-depth measure.\n* Purge CDN and platform caches after applying security updates to ensure potentially leaked payloads are removed from intermediate storage.\n",
-      "published": "2026-08-05T21:25:24.000Z",
-      "labels": [
-        "cve-2026-71320",
-        "nuxt",
-        "remote-code-execution",
-        "template-injection"
-      ],
-      "object_refs": [
-        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
-        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
-        "attack-pattern--745c9492-77e4-5572-9132-308959464536",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--079b3ad3-21b6-5a16-8a6a-d613069bb940",
-        "software--51862c60-a8c3-536a-827a-6d3e96573a49",
-        "software--69999621-d378-55e0-a300-aae7e19fd1d7",
-        "software--7cdf2331-8c87-5a07-adce-09fe335cf1cd",
-        "software--959900e4-8b7c-5d40-a427-a88346e1082c"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-05-nuxt-payload-leak",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-nuxt-payload-leak/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-71321"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-9473-5f9j-94wq"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-9pgf-384g-p7mv"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://github.com/advisories/GHSA-wm8w-6qjm-cv43"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71316"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-05-nuxt-payload-leak",
-      "x_craftedsignal_event_id": "brief-2026-08-05-nuxt-payload-leak",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-nuxt-payload-leak/",
-      "x_craftedsignal_activity_at": "2026-08-06T03:26:07.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
       "id": "report--25d0424f-ab29-52c8-92a7-8119423f9abb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-19T02:58:11.000Z",
@@ -55002,79 +54891,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--501520e3-d2a2-530a-9e52-2e1bc7ede1f0",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:23:04.000Z",
-      "modified": "2026-08-05T21:23:04.000Z",
-      "name": "ENDLESSDOORS Vulnerability Affecting Zbtlink Routers",
-      "description": "## Overview\n\nResearchers have identified a significant security vulnerability in a wide range of Zbtlink wireless router firmware, collectively referred to as the ENDLESSDOORS threat. Attackers are exploiting this vulnerability to deploy a root-level implant, identified as 'rctl' or 'kworker'. The 'rctl' utility is a remote Linux control tool that provides attackers with persistent, unauthorized administrative access to the underlying operating system of the networking hardware. By establishing a phone-home communication mechanism, the implant enables remote command execution and exfiltration of sensitive network traffic. Given the wide array of affected firmware versions and models, this vulnerability represents a severe risk of long-term network compromise for organizations utilizing Zbtlink hardware. Defenders should review device configurations and monitor for unauthorized binary execution within the router's management interfaces or internal shell.\n\n## Impact\n\nSuccessful exploitation of the ENDLESSDOORS vulnerability allows for complete system compromise of the affected Zbtlink routers. This grants attackers the ability to intercept internal network traffic, manipulate DNS settings, gain persistent access to private segments of the network, and utilize the devices as part of a botnet. The wide scope of affected legacy and modern firmware versions impacts various small office and industrial networking deployments.\n\n## Recommendation\n\n- Identify all Zbtlink router models listed in this brief and isolate them from public-facing internet segments immediately.\n- Audit all administrative logs on networking equipment for the execution of unexpected binaries, specifically processes labeled 'rctl' or 'kworker'.\n- Verify firmware versions against the manufacturer's security download page and update to the latest provided images.\n- Restrict administrative access to router interfaces to known, trusted internal management IP ranges.\n- Implement outbound traffic filtering at the network perimeter to block unauthorized 'phone-home' or C2 traffic originating from infrastructure networking devices.\n",
-      "published": "2026-08-05T21:23:04.000Z",
-      "labels": [
-        "firmware-vulnerability",
-        "implant",
-        "informational",
-        "network-security",
-        "router"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--0933a97f-e2fc-5c63-849b-e86877514238",
-        "software--0a3a461b-beb1-5d89-8c9b-4295cb70ab7e",
-        "software--0b816b83-8819-51a1-94d1-0c2692a275c0",
-        "software--2324330f-b273-583d-baba-5ad4f4d44b51",
-        "software--2bc745c5-409c-517d-b14c-2c721581b445",
-        "software--2f7e0034-bb1e-58c0-9439-4cba2b61f73b",
-        "software--3ae2caec-c15d-5e3d-b683-e9a34a488315",
-        "software--41394335-0ee7-5095-977f-f0a74b00d660",
-        "software--4a3319e7-000a-59ef-9dd4-bc0f2372d207",
-        "software--4dcb0425-8294-5172-96a9-d2d5eb1032d8",
-        "software--62591768-3444-5ea7-ba2d-b634683e1aca",
-        "software--68a50fad-0f6a-5d53-b5e7-1e8bd43e7eed",
-        "software--738ff55d-7aae-5d0e-9f84-a24e79651be2",
-        "software--920be264-42d9-5c75-9c8e-33926674f02c",
-        "software--94f2a0c7-cbe7-5e5c-ab8f-78865e78a9f3",
-        "software--a3fb5efa-6e9f-5437-bc71-33c2493e9e5a",
-        "software--c0a8bb69-9af4-592b-a1c8-40147f43bb9a",
-        "software--d97035a8-7968-5969-b4a6-6ac463beb047",
-        "software--dbe5057a-e7db-5b9d-9a97-8b358a299f00",
-        "software--ede6baaa-02d4-5d14-b1a0-e2d3c1cb9bab"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-zbtlink-rctl-implant",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-zbtlink-rctl-implant/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cyber.gc.ca/en/alerts-advisories/zbtlink-security-advisory-av26-779"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.vulncheck.com/advisories/zbt-endlessdoors"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://www.zbtlink.com/pages/zbt-router-firmware-download"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-zbtlink-rctl-implant",
-      "x_craftedsignal_event_id": "brief-2026-08-zbtlink-rctl-implant",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-zbtlink-rctl-implant/",
-      "x_craftedsignal_activity_at": "2026-08-05T21:23:04.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -93762,13 +93578,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--079b3ad3-21b6-5a16-8a6a-d613069bb940",
-      "name": "nuxt (4.x)",
-      "vendor": "Nuxt"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--07af9320-e125-5b11-987c-d0cae5c6910f",
       "name": "Ubuntu",
       "vendor": "Canonical"
@@ -93832,13 +93641,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--0933a97f-e2fc-5c63-849b-e86877514238",
-      "name": "WE2008-DSIM Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--0946a35b-5033-5c06-a43c-1a209824eed3",
       "name": "earthdata-search (1.0.0)",
       "vendor": "NASA"
@@ -93877,13 +93679,6 @@
       "id": "software--0a329305-50c6-57cb-a6d6-85680ac99df2",
       "name": "cFE Software Bus (\u003c= 7.0.1)",
       "vendor": "NASA"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0a3a461b-beb1-5d89-8c9b-4295cb70ab7e",
-      "name": "WE5931 Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",
@@ -93938,13 +93733,6 @@
       "id": "software--0b5407a2-d018-5814-98cd-938de55142d6",
       "name": "Informix Dynamic Server (14.10)",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--0b816b83-8819-51a1-94d1-0c2692a275c0",
-      "name": "CPE2801 Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",
@@ -94818,13 +94606,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2324330f-b273-583d-baba-5ad4f4d44b51",
-      "name": "WE3326 Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2326fcb2-5022-5e11-bb1a-8fab538df6e5",
       "name": "HeyForm (\u003c 3.0.0-rc.8)",
       "vendor": "HeyForm"
@@ -95197,13 +94978,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--2bc745c5-409c-517d-b14c-2c721581b445",
-      "name": "WE1326 Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--2bd0c04b-50d6-588f-b935-8be41b83be10",
       "name": "arcadedb-gremlin",
       "vendor": "ArcadeDB"
@@ -95323,13 +95097,6 @@
       "id": "software--2f56af4a-296a-5498-bd71-ea57249607e4",
       "name": "Simple Email Service (SES)",
       "vendor": "Amazon"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--2f7e0034-bb1e-58c0-9439-4cba2b61f73b",
-      "name": "WG3526 Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",
@@ -95846,13 +95613,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--3ae2caec-c15d-5e3d-b683-e9a34a488315",
-      "name": "WG1602 Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--3b4caeca-2f37-55e5-b9d1-3084f66e7317",
       "name": "http4s-ember-core",
       "vendor": "http4s"
@@ -96077,13 +95837,6 @@
       "id": "software--412aa867-2dfd-5cdc-9bf1-567fe2046700",
       "name": "Jira Server (\u003c 7.6.14, 7.13.5, 8.0.3, 8.1.2, 8.2.3)",
       "vendor": "Atlassian"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--41394335-0ee7-5095-977f-f0a74b00d660",
-      "name": "WE5927 Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",
@@ -96429,13 +96182,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4a3319e7-000a-59ef-9dd4-bc0f2372d207",
-      "name": "WG2107 Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4a56668f-89d2-5866-987a-3dd027c6e67e",
       "name": "DWR-M961",
       "vendor": "D-Link"
@@ -96614,13 +96360,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--4dcb0425-8294-5172-96a9-d2d5eb1032d8",
-      "name": "ZBT-Z8102AX-2SIM Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--4deb0a8b-5f6d-5c12-91a3-d586e5d25cfb",
       "name": "print-servlet (3.0.0-3.28.29, 3.29.0-3.30.31, 3.31.0-3.31.23, 3.32.0-3.33.15, 3.34.0-4.0.4)",
       "vendor": "MapFish"
@@ -96734,13 +96473,6 @@
       "id": "software--5185fa81-7fa3-5f1d-b863-6ff083a0d3e5",
       "name": "Red Hat build of Apache Camel 4 for Quarkus 3",
       "vendor": "Red Hat"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--51862c60-a8c3-536a-827a-6d3e96573a49",
-      "name": "Nuxt (3.4.0-3.21.9)",
-      "vendor": "Nuxt"
     },
     {
       "type": "software",
@@ -97340,13 +97072,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--62591768-3444-5ea7-ba2d-b634683e1aca",
-      "name": "WG2105 Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--62610237-0c0b-5557-9f60-679d66c91c4f",
       "name": "Shopify Checkout"
     },
@@ -97679,13 +97404,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--68a50fad-0f6a-5d53-b5e7-1e8bd43e7eed",
-      "name": "WE2007 Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--68a9a6ef-073e-5a7b-85ef-fa2899643811",
       "name": "elFinder (\u003c 2.1.70)",
       "vendor": "Studio-42"
@@ -97737,13 +97455,6 @@
       "spec_version": "2.1",
       "id": "software--699161ef-4d35-52d8-93cc-b0c9fcb37782",
       "name": "Sonic 3 A.I.R."
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--69999621-d378-55e0-a300-aae7e19fd1d7",
-      "name": "nuxt (3.x)",
-      "vendor": "Nuxt"
     },
     {
       "type": "software",
@@ -98129,13 +97840,6 @@
       "id": "software--7366a334-6087-51ae-85f5-a907f3634be2",
       "name": "darknet",
       "vendor": "hank-ai"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--738ff55d-7aae-5d0e-9f84-a24e79651be2",
-      "name": "WE2416 Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",
@@ -98550,13 +98254,6 @@
       "id": "software--7c8533d8-6abd-5573-99a3-74e4d4611cda",
       "name": "sakai-conversations-impl (23.0-23.3)",
       "vendor": "Sakai"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--7cdf2331-8c87-5a07-adce-09fe335cf1cd",
-      "name": "Nuxt (4.4.0, 4.5.0)",
-      "vendor": "Nuxt"
     },
     {
       "type": "software",
@@ -99329,13 +99026,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--920be264-42d9-5c75-9c8e-33926674f02c",
-      "name": "WG1608-DSIM Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--924d83a9-8488-5397-86ad-54da9e8877fc",
       "name": "Renovate (19.180.0-23.25.0)"
     },
@@ -99480,13 +99170,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--94f2a0c7-cbe7-5e5c-ab8f-78865e78a9f3",
-      "name": "WE5931AC Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--951bf8b8-5987-5690-9a1a-b0bbb6c4cfd5",
       "name": "praisonaiagents",
       "vendor": "PraisonAI"
@@ -99518,13 +99201,6 @@
       "id": "software--95846b91-31f3-50b4-9893-5c04a881bc8c",
       "name": "QRadar SIEM",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--959900e4-8b7c-5d40-a427-a88346e1082c",
-      "name": "Nuxt (4.0.0-4.5.0)",
-      "vendor": "Nuxt"
     },
     {
       "type": "software",
@@ -100135,13 +99811,6 @@
       "id": "software--a3f77979-65da-5179-b2e2-73a9392db201",
       "name": "Power Firmware",
       "vendor": "IBM"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--a3fb5efa-6e9f-5437-bc71-33c2493e9e5a",
-      "name": "WE826-T3-DSIM Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",
@@ -101304,13 +100973,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--c0a8bb69-9af4-592b-a1c8-40147f43bb9a",
-      "name": "WG209 Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--c0e83115-6682-5f74-9c60-02c735dcbbc6",
       "name": "User Session Synchronizer (1.4.0)"
     },
@@ -102267,13 +101929,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--d97035a8-7968-5969-b4a6-6ac463beb047",
-      "name": "WE1026-5G-WD Firmware",
-      "vendor": "Zbtlink"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--d9c122ec-6fde-57b3-866e-03901fc64c2d",
       "name": "justhtml",
       "vendor": "justhtml"
@@ -102352,13 +102007,6 @@
       "id": "software--dbd2c8a1-4c6b-572e-a37d-1219aad713ab",
       "name": "PHP_CodeSniffer (3.x)",
       "vendor": "PHPCSStandards"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--dbe5057a-e7db-5b9d-9a97-8b358a299f00",
-      "name": "WG259 Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",
@@ -103054,13 +102702,6 @@
       "id": "software--eda25b36-a5ec-5b8d-ac4b-4b4363a315c1",
       "name": "SeaweedFS (\u003c 4.24)",
       "vendor": "SeaweedFS"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
-      "id": "software--ede6baaa-02d4-5d14-b1a0-e2d3c1cb9bab",
-      "name": "WG108 Firmware",
-      "vendor": "Zbtlink"
     },
     {
       "type": "software",

@@ -1,8 +1,8 @@
 ---
 brief_id: brief-2026-10-29-progress-ws-ftp-traversal
 event_id: brief-2026-10-29-progress-ws-ftp-traversal
-revision: 3
-activity_at: "2026-10-29T20:19:26Z"
+revision: 4
+activity_at: "2026-11-03T21:28:45Z"
 revision_history:
   - revision: 2
     at: "2026-10-29T18:44:03Z"
@@ -28,11 +28,22 @@ revision_history:
       - updates
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-90864
+  - revision: 4
+    at: "2026-11-03T21:28:45Z"
+    checksum: sha256:e7b0c6193955390a3518f518d7b674a6388b102346523fb87d85c58742b611e0
+    summary: added CVE-2026-90872
+    changed_fields:
+      - cves
+      - lastmod
+      - references
+      - updates
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/progress-software-security-advisory-av26-1116
 title: 'Progress Software WS_FTP Server: Path Traversal in Ad Hoc Transfer (CVE-2026-84294)'
 slug: 2026-10-progress-ws-ftp-traversal
 description: An authenticated path traversal vulnerability in the Ad Hoc Transfer component of Progress Software WS_FTP Server allows unauthorized access to files outside of intended directories.
 date: "2026-10-29T17:50:25Z"
-lastmod: "2026-10-29T20:18:39Z"
+lastmod: "2026-11-03T21:28:02Z"
 type: advisory
 claim_state: <nil>
 types:
@@ -76,6 +87,7 @@ mitre_ttps:
 cves:
   - id: CVE-2026-84294
     cvss: 7.7
+    epss: 0.00352
     kev_status: "false"
   - id: CVE-2026-84295
     cvss: 10
@@ -83,13 +95,17 @@ cves:
   - id: CVE-2026-90862
     cvss: 4.3
     kev_status: "false"
+  - id: CVE-2026-90872
+    cvss: 6.6
+    epss: 0.00288
+    kev_status: "false"
   - id: CVE-2026-90864
     kev_status: unknown
   - id: CVE-2026-90868
     kev_status: unknown
   - id: CVE-2026-90865
     kev_status: unknown
-  - id: CVE-2026-90872
+  - id: CVE-2026-90866
     kev_status: unknown
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-84294
@@ -102,6 +118,8 @@ references:
   - https://docs.progress.com/bundle/wsftp-server-release-notes-2025/page/Whats-New-in-WS_FTP-Server-2025.html
   - https://docs.progress.com/bundle/wsftp-server-release-notes-2024/page/Whats-New-in-WS_FTP-Server-2024.html
   - https://nvd.nist.gov/vuln/detail/CVE-2026-90864
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-90866
+  - https://cyber.gc.ca/en/alerts-advisories/progress-software-security-advisory-av26-1116
 action_plan:
   priority: elevated
   owners:
@@ -149,6 +167,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-90864
+  - at: "2026-11-03T21:28:02Z"
+    level: L2
+    summary: added CVE-2026-90872
+    sources:
+      - cccs
+    source_urls:
+      - https://cyber.gc.ca/en/alerts-advisories/progress-software-security-advisory-av26-1116
 ---
 
 Progress Software WS_FTP Server versions prior to 2024.0.6 and 2025.0.3 are vulnerable to a path traversal issue (CVE-2026-84294) located in the Ad Hoc Transfer component. An authenticated attacker can manipulate pathnames to access files residing outside the intended directory structure on the underlying Windows host.
