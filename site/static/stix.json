@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--3f80a84a-98a3-5d08-ba6b-cc1b5d32aedf",
+  "id": "bundle--8858c76b-88b2-5323-a31e-3eb937654393",
   "objects": [
     {
       "type": "attack-pattern",
@@ -43005,17 +43005,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--79161f75-bb9c-5796-9bb4-3ee70fbf6175",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--097981c2-83a2-5e24-a1d3-1db93557e38d",
-      "target_ref": "vulnerability--97ac605a-e189-55b5-9b19-569e96ead966"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--79167bdd-4af2-5d5a-a32b-632d11531d59",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T22:53:02.000Z",
@@ -78755,17 +78744,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--ea99507a-aaf8-5252-a707-84e4ac70d03d",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-04T00:59:10.000Z",
-      "modified": "2026-10-04T00:59:10.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--84ed1c7c-c516-56b2-bc32-79c1d6e82e4b",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--ea9f4811-d99b-57c7-b793-48acb87232c7",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -110119,6 +110097,49 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--3e8aed8d-6149-5b91-9728-92681ec87502",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T00:59:18.000Z",
+      "modified": "2026-11-03T00:59:18.000Z",
+      "name": "s2Member: Vulnerability in PayPal IPN/proxy verification (CVE-2026-86596)",
+      "description": "CVE-2026-86596 is a remote code execution vulnerability in the s2Member WordPress plugin. The vulnerability is triggered via forged PayPal IPN or proxy verification. A functional Python-based proof-of-concept (PoC) is available on Sploitus, which is designed to verify the vulnerability in laboratory environments. The vulnerability has a CVSS 3.1 base score of 9.8.\n",
+      "published": "2026-11-03T00:59:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--35cc37c8-c3b7-5abc-a0e3-7d0c15779d43"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-cve-2026-86596-s2member",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-86596-s2member/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=542904C7-8719-518E-A322-2277C57CA148"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=542904C7-8719-518E-A322-2277C57CA148\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-cve-2026-86596-s2member",
+      "x_craftedsignal_event_id": "brief-2026-11-03-cve-2026-86596-s2member",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-86596-s2member/",
+      "x_craftedsignal_activity_at": "2026-11-03T00:59:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--3e905fcd-b0a9-508f-a2da-a5c6f34b0d00",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T11:57:12.000Z",
@@ -140049,47 +140070,6 @@
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--84ed1c7c-c516-56b2-bc32-79c1d6e82e4b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-10-04T00:59:10.000Z",
-      "modified": "2026-10-04T00:59:10.000Z",
-      "name": "LaraDashboard Privilege Escalation Vulnerability",
-      "description": "## Overview\n\nLaraDashboard versions before 1.4.8 are susceptible to an improper privilege management vulnerability, identified as CVE-2026-105126. This vulnerability permits an authenticated user who already possesses 'role.edit' permissions to elevate their privileges to 'Superadmin'. By either renaming their current role to 'Superadmin' or modifying existing role permissions to include 'user.login_as', the attacker can assume the identity of other users. Once escalated, the attacker gains access to critical system functions, such as module installation and core configuration updates, which can be leveraged to achieve remote code execution. The vulnerability stems from insufficient server-side validation of role modification requests. Given the potential for full system compromise, upgrading to version 1.4.8 or later is critical.\n\n## Impact\n\nSuccessful exploitation of this vulnerability allows an authenticated user to achieve full administrative control over the LaraDashboard instance. This leads to unauthorized account takeover, potential data exfiltration, and remote code execution by installing malicious modules, effectively compromising the integrity and confidentiality of the entire application environment.\n\n## Recommendation\n\nPrioritized actions for the security team:\n\n* Upgrade all instances of LaraDashboard to version 1.4.8 or later to remediate CVE-2026-105126.\n* Audit existing role assignments and permission configurations to identify unauthorized 'Superadmin' roles created by standard 'Admin' accounts.\n* Review access logs for 'role.edit' or 'user.login_as' actions performed by non-Superadmin accounts to detect potential exploitation attempts.\n",
-      "published": "2026-10-04T00:59:10.000Z",
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--097981c2-83a2-5e24-a1d3-1db93557e38d",
-        "vulnerability--97ac605a-e189-55b5-9b19-569e96ead966"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-10-laradashboard-priv-esc",
-          "url": "https://feed.craftedsignal.io/briefs/2026-10-laradashboard-priv-esc/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105126"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-10-laradashboard-priv-esc",
-      "x_craftedsignal_event_id": "brief-2026-10-laradashboard-priv-esc",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-laradashboard-priv-esc/",
-      "x_craftedsignal_activity_at": "2026-10-04T00:59:10.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -193628,13 +193608,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--097981c2-83a2-5e24-a1d3-1db93557e38d",
-      "name": "LaraDashboard (\u003c 1.4.8)",
-      "vendor": "LaraDashboard"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--09a32a3d-6842-5570-882a-8b9d304f33c4",
       "name": "VxWorks (6.x, 5.x and earlier)"
     },
@@ -220686,6 +220659,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--35cc37c8-c3b7-5abc-a0e3-7d0c15779d43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86596",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86596",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86596"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--36007442-e23e-5605-9050-d5ebd86b077c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -234664,22 +234653,6 @@
           "source_name": "cve",
           "external_id": "CVE-2026-65220",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65220"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--97ac605a-e189-55b5-9b19-569e96ead966",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-105126",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-105126",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105126"
         }
       ]
     },

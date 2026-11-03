@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c2e26017-0692-5d2b-ae49-46fd3907b671",
+  "id": "bundle--aed7ba27-e503-5a7d-bb69-ae068c452524",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3819,17 +3819,6 @@
       "relationship_type": "has",
       "source_ref": "software--3efe0552-8bf7-5bdb-bf38-a4822aaa7ce5",
       "target_ref": "vulnerability--14523263-9a38-5672-a6c1-63383e0aeb7b"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--02861311-a5ac-5999-b036-f29c9061fc71",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T00:03:00.000Z",
-      "modified": "2026-08-05T00:03:00.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--04d25bca-aba2-54f9-acb1-f632365baf2b",
-      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
     },
     {
       "type": "relationship",
@@ -28441,17 +28430,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--a76ac846-3933-5194-8f35-65ae536e2257",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "relationship_type": "has",
-      "source_ref": "software--7fca4879-5230-585e-81a0-01145bc6882a",
-      "target_ref": "vulnerability--9200626e-dc21-5b1d-bb7a-676a773db0b6"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--a76aca3f-29ec-5851-bc02-5a21f0e89e66",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-23T05:35:21.000Z",
@@ -42207,52 +42185,6 @@
       },
       "x_craftedsignal_cvss_max": 5.4,
       "x_craftedsignal_epss_max": 0.17485,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--04d25bca-aba2-54f9-acb1-f632365baf2b",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T00:03:00.000Z",
-      "modified": "2026-08-05T00:03:00.000Z",
-      "name": "Authorization Bypass Vulnerability in Odysseus Embedding Configuration",
-      "description": "## Overview\n\nOdysseus versions prior to commit bf325f6 contain a critical missing authorization vulnerability (CVE-2026-70619). The issue exists within the application's endpoint management routes, which verify that a user has an active session but fail to enforce administrative privileges. By targeting these specific routes, an authenticated non-admin user can manipulate the server-wide embedding backend configuration.\n\nAn attacker can overwrite the configuration file and the process environment with a malicious URL. This allows the redirection of all subsequent embedding-related traffic, including chat messages, RAG (Retrieval-Augmented Generation) queries, memory entries, and vault text, to an attacker-controlled destination. Alternatively, an attacker can delete the configuration entirely, resulting in a denial-of-service condition for the embedding functionality. This vulnerability poses a significant risk to data confidentiality and integrity, as it facilitates unauthorized access to sensitive user data and enterprise RAG context.\n\n## Impact\n\nSuccessful exploitation allows for the exfiltration of sensitive RAG data and chat content, potentially exposing intellectual property or PII handled by the embedding backend. Organizations using affected versions of Odysseus are at risk of data leakage and service disruption. The severity is marked as high (CVSS 8.8) given the ease of exploitation for any authenticated user.\n\n## Recommendation\n\n* Immediately upgrade Odysseus to commit bf325f6 or higher to resolve the authorization logic flaw.\n* Audit application access logs for any unauthorized POST or DELETE requests targeting endpoint configuration management routes initiated by non-administrative service or user accounts.\n* Review current embedding backend configurations to ensure no unexpected or unauthorized URLs have been persisted in the application environment or configuration files.\n",
-      "published": "2026-08-05T00:03:00.000Z",
-      "labels": [
-        "authentication-bypass",
-        "privilege-escalation",
-        "vulnerability"
-      ],
-      "object_refs": [
-        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "software--7fca4879-5230-585e-81a0-01145bc6882a",
-        "vulnerability--9200626e-dc21-5b1d-bb7a-676a773db0b6"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-04-odysseus-auth-bypass",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-odysseus-auth-bypass/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70619"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-04-odysseus-auth-bypass",
-      "x_craftedsignal_event_id": "brief-2026-08-04-odysseus-auth-bypass",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-odysseus-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-08-05T00:03:00.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "advisory",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
-      "x_craftedsignal_cvss_max": 8.8,
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -102511,13 +102443,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--7fca4879-5230-585e-81a0-01145bc6882a",
-      "name": "Odysseus",
-      "vendor": "Odysseus"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--7fdcd568-2815-51a8-ab01-4c0b57415610",
       "name": "ArcadeDB",
       "vendor": "ArcadeData"
@@ -117945,22 +117870,6 @@
           "source_name": "cve",
           "external_id": "CVE-2025-21079",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-21079"
-        }
-      ]
-    },
-    {
-      "type": "vulnerability",
-      "spec_version": "2.1",
-      "id": "vulnerability--9200626e-dc21-5b1d-bb7a-676a773db0b6",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "CVE-2026-70619",
-      "external_references": [
-        {
-          "source_name": "cve",
-          "external_id": "CVE-2026-70619",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70619"
         }
       ]
     },

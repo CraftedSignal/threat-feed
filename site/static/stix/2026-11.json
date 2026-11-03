@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d7bd00b6-7ed6-5236-8596-ec15010905a0",
+  "id": "bundle--477ab62b-69f8-51bc-a6b9-b1f040ddb39c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -5638,6 +5638,49 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3e8aed8d-6149-5b91-9728-92681ec87502",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T00:59:18.000Z",
+      "modified": "2026-11-03T00:59:18.000Z",
+      "name": "s2Member: Vulnerability in PayPal IPN/proxy verification (CVE-2026-86596)",
+      "description": "CVE-2026-86596 is a remote code execution vulnerability in the s2Member WordPress plugin. The vulnerability is triggered via forged PayPal IPN or proxy verification. A functional Python-based proof-of-concept (PoC) is available on Sploitus, which is designed to verify the vulnerability in laboratory environments. The vulnerability has a CVSS 3.1 base score of 9.8.\n",
+      "published": "2026-11-03T00:59:18.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--35cc37c8-c3b7-5abc-a0e3-7d0c15779d43"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-cve-2026-86596-s2member",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-86596-s2member/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=542904C7-8719-518E-A322-2277C57CA148"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=542904C7-8719-518E-A322-2277C57CA148\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-cve-2026-86596-s2member",
+      "x_craftedsignal_event_id": "brief-2026-11-03-cve-2026-86596-s2member",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-cve-2026-86596-s2member/",
+      "x_craftedsignal_activity_at": "2026-11-03T00:59:18.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -11442,6 +11485,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-91909",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91909"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--35cc37c8-c3b7-5abc-a0e3-7d0c15779d43",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-86596",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-86596",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86596"
         }
       ]
     },
