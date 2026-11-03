@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f6809f05-35a9-5f4d-86c4-368a4f071854",
+  "id": "bundle--e39aa6c3-2ffa-5494-acaf-2eaf0738ef11",
   "objects": [
     {
       "type": "attack-pattern",
@@ -56014,6 +56014,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--9ece1d66-46bb-5e46-9bcc-816e062791bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--964fd48d-96d2-5d05-b7f6-5aa2dbf3b801",
+      "target_ref": "vulnerability--f04a031b-6242-5a8b-b544-cc595735fc32"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--9eded282-b8b0-51cb-8a79-c3c8b258cc8f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -106605,12 +106616,13 @@
       "id": "report--2ff7260c-39a6-5a48-bdb7-3380c1426c9f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-31T09:54:08.000Z",
-      "modified": "2026-10-31T09:54:08.000Z",
+      "modified": "2026-11-03T14:11:15.000Z",
       "name": "The Project Manager WordPress Plugin: Unauthenticated Remote Code Execution (CVE-2026-116512)",
       "description": "The vulnerability exists in the 'id' parameter, where unsanitized input is concatenated into a pipe-delimited validation rule string. This string is split and each token is invoked as a dynamic PHP function without an allowlist. Because the validation occurs via the WordPress REST API before the permission check, unauthenticated attackers can execute arbitrary code on the server.\n",
       "published": "2026-10-31T09:54:08.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--964fd48d-96d2-5d05-b7f6-5aa2dbf3b801",
         "vulnerability--f04a031b-6242-5a8b-b544-cc595735fc32"
       ],
       "external_references": [
@@ -106622,20 +106634,25 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116512"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=015868AD-B5AF-5B19-8F72-0485181E44AE\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-10-31-the-project-manager-rce",
       "x_craftedsignal_event_id": "brief-2026-10-31-the-project-manager-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-10-the-project-manager-rce/",
-      "x_craftedsignal_activity_at": "2026-10-31T09:54:08.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T14:11:15.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 9.8,
+      "x_craftedsignal_epss_max": 0.00584,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -210392,6 +210409,13 @@
       "id": "software--95e070e5-956a-589c-a9b1-f78f4234f2d7",
       "name": "PDF Invoices \u0026 Packing Slips for WooCommerce (\u003c= 5.16.1)",
       "vendor": "WordPress"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--964fd48d-96d2-5d05-b7f6-5aa2dbf3b801",
+      "name": "Project Manager (\u003c= 4.1.1)",
+      "vendor": "weDevs"
     },
     {
       "type": "software",
