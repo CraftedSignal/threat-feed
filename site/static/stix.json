@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e6072c66-6c0f-5afa-85cf-b430a048444f",
+  "id": "bundle--1add8426-8639-564b-9bb0-fe51101ae836",
   "objects": [
     {
       "type": "attack-pattern",
@@ -4239,6 +4239,19 @@
     {
       "type": "indicator",
       "spec_version": "2.1",
+      "id": "indicator--52739863-6f2d-5946-b12f-ac12b42296ad",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "name": "ip: 85.215.73.250",
+      "description": "Malicious server used to host Linux botnet binaries and downloader scripts.",
+      "pattern": "[ipv4-addr:value = '85.215.73.250']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T07:07:48.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
       "id": "indicator--57e516ea-8b3c-58c9-87bb-c1eb6d521603",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-29T08:37:22.000Z",
@@ -4365,6 +4378,19 @@
       "pattern": "[domain-name:value = 'litellm.dev']",
       "pattern_type": "stix",
       "valid_from": "2026-10-21T14:21:38.000Z"
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--6d7ed014-4b2f-5233-bf23-b62b5a89d98b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "name": "ip: 45.194.90.57",
+      "description": "Malicious server used to host .sys_update payload.",
+      "pattern": "[ipv4-addr:value = '45.194.90.57']",
+      "pattern_type": "stix",
+      "valid_from": "2026-11-03T07:07:48.000Z"
     },
     {
       "type": "indicator",
@@ -12551,6 +12577,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--152b42ee-f97e-50a5-946e-7399775c338e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
+      "target_ref": "indicator--6d7ed014-4b2f-5233-bf23-b62b5a89d98b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--1534f233-7739-5df1-93e1-d63dad2eb91a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-20T17:43:38.000Z",
@@ -13218,6 +13255,17 @@
       "relationship_type": "uses",
       "source_ref": "report--8221f2a8-bd8a-5ba3-9099-c9807cc4a588",
       "target_ref": "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--174029a0-8ec0-5e04-81a1-2f648992546a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -43494,6 +43542,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7a04cc47-1dc9-59b0-bdc2-f1939dda7667",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7a06f3f2-2051-5db6-a502-38aed9355d1b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-21T14:21:38.000Z",
@@ -47747,6 +47806,17 @@
       "relationship_type": "uses",
       "source_ref": "report--c6319ca3-f77e-5337-ba01-ab65a88e9cd4",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--873ee7af-c0dc-5258-baa2-a92ab3d708b3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
     },
     {
       "type": "relationship",
@@ -60280,6 +60350,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b00e2482-a1a0-5a97-b994-f1b9dbbd2fcb",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
+      "target_ref": "indicator--52739863-6f2d-5946-b12f-ac12b42296ad"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b0114e6e-950b-5786-8081-8c6a964d6eb8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -61519,6 +61600,17 @@
       "relationship_type": "uses",
       "source_ref": "report--5b1be7c8-adad-5e4d-8e5a-0c9c89baf25c",
       "target_ref": "attack-pattern--5e3a72eb-f0e9-5488-ab37-c8d5de0a07a0"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3acf993-88ee-5a81-bdbd-bb1c283a75db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
+      "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
     },
     {
       "type": "relationship",
@@ -74774,6 +74866,17 @@
       "relationship_type": "has",
       "source_ref": "software--c7bd4a52-db28-5ce4-98c0-c0d9b35e3b44",
       "target_ref": "vulnerability--8a074ec0-4f70-5245-85d4-e703a60ad433"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--debb3e59-6ff9-53be-b544-03a80abecd1d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--0e6b0ea8-057b-5010-aee3-d0487cbbc799",
+      "target_ref": "vulnerability--5620f7b0-3864-57b7-a408-0ef32a149488"
     },
     {
       "type": "relationship",
@@ -134758,6 +134861,60 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--76e8f444-8f31-54a3-aec6-0a04c6843304",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T07:07:48.000Z",
+      "modified": "2026-11-03T07:07:48.000Z",
+      "name": "Siemens SIMATIC IoT2050 Advanced: Missing authentication remote code execution (CVE-2026-58115)",
+      "description": "## Overview\n\nSiemens SIMATIC IoT2050 Advanced devices running Industrial OS with Node-RED installed are vulnerable to a missing authentication flaw (CVE-2026-58115) within the Node-RED HTTP interface. This vulnerability allows an unauthenticated remote attacker to create malicious flows, execute arbitrary code, and establish persistent backdoors with maximum privileges. The issue was remediated in version 4.3.4.1. Active exploitation attempts have been observed, involving the deployment of secondary botnet binaries and shell scripts.\n\n## Attack Chain\n\n1. Attacker sends a crafted, unauthenticated HTTP request to the Node-RED interface of the targeted SIMATIC IoT2050 device.\n2. The malicious request deploys a Node-RED flow to the target.\n3. The flow is automatically triggered upon deployment.\n4. The flow executes a shell command wrapper using the internal 'exec' node.\n5. The shell wrapper utilizes 'wget' or 'curl' to retrieve a secondary payload from an attacker-controlled server (e.g., 85.215.73.250).\n6. The retrieved binary or script is saved to a directory such as '/dev/shm/' or '/tmp/'.\n7. The payload is executed to establish the botnet presence or expose an arbitrary command-execution endpoint (e.g., /cmd).\n\n## Recommendation\n\n- Upgrade SIMATIC IoT2050 Advanced firmware to version 4.3.4.1 or later immediately.\n- If upgrading is not possible, uninstall Node-RED from the device.\n- If Node-RED is required, harden the interface by enabling HTTPS and enforcing credential-based authentication for the editor, Admin API, HTTP nodes, and Dashboard.\n- Block communication to identified malicious IPs (85.215.73.250 and 45.194.90.57) at the network perimeter.\n- Audit Node-RED instances for unexpected HTTP endpoints or active \"exec\" nodes in configured flows.\n",
+      "published": "2026-11-03T07:07:48.000Z",
+      "labels": [
+        "botnet",
+        "industrial-security",
+        "iot",
+        "remote-code-execution",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "indicator--52739863-6f2d-5946-b12f-ac12b42296ad",
+        "indicator--6d7ed014-4b2f-5233-bf23-b62b5a89d98b",
+        "software--0e6b0ea8-057b-5010-aee3-d0487cbbc799",
+        "vulnerability--5620f7b0-3864-57b7-a408-0ef32a149488"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-siemens-iot2050-exploit",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-siemens-iot2050-exploit/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-siemens-iot2050-exploit",
+      "x_craftedsignal_event_id": "brief-2026-11-03-siemens-iot2050-exploit",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-siemens-iot2050-exploit/",
+      "x_craftedsignal_activity_at": "2026-11-03T07:07:48.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 10,
+      "x_craftedsignal_epss_max": 0.00953,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -195083,6 +195240,13 @@
       "id": "software--0e5e8c43-b777-5a64-8776-d646d999d8ba",
       "name": "Plano (\u003c= 0.4.37)",
       "vendor": "Katanemo"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--0e6b0ea8-057b-5010-aee3-d0487cbbc799",
+      "name": "SIMATIC IoT2050 Advanced (\u003c 4.3.4.1)",
+      "vendor": "Siemens"
     },
     {
       "type": "software",
