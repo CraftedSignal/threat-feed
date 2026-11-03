@@ -1,12 +1,28 @@
 ---
 brief_id: brief-2026-11-03-x-cpe-botnet
 event_id: brief-2026-11-03-x-cpe-botnet
-revision: 1
-activity_at: "2026-11-03T18:17:29Z"
+revision: 2
+activity_at: "2026-11-03T20:43:09Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-03T20:43:09Z"
+    checksum: sha256:2b47a2e288763d2bce17e05e994cd6ea6fa3bf7ea45ba3e369eb4e102f2e5765
+    summary: added coverage for Android TV set-top boxes +3 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - tags
+      - ttps
+      - updates
+    source_urls:
+      - https://therecord.media/google-dismantles-botnet-hidden-android-tv-boxes
 title: Videostrong Technology x.cpe Botnet
 slug: 2026-11-x-cpe-botnet
 description: The x.cpe botnet, operated by Videostrong Technology, utilized a pre-installed backdoor on over 1.3 million Android TV devices to deploy modular malware, disable security protections, and conduct unauthorized proxying, ad fraud, and network reconnaissance.
 date: "2026-11-03T18:17:29Z"
+lastmod: "2026-11-03T20:42:36Z"
 type: threat
 types:
   - threat
@@ -28,10 +44,16 @@ tags:
   - botnet
   - android
   - supply-chain
+  - supply-chain-attack
+  - iot
 vendors:
   - Videostrong Technology
 products:
   - Android TV boxes (including MECOOL brand)
+  - Android TV set-top boxes
+  - Telehealth devices
+  - Karaoke machines
+  - Digital signage devices
 affected_os:
   - Android
 mitre_ttps:
@@ -56,9 +78,22 @@ mitre_ttps:
     subtechnique_name: Web Protocols
     evidence: After devices appeared online, a stub application called x.cpe or com.oemservice would phone home.
     confidence_band: high
+  - tactic_id: TA0003
+    tactic_name: Persistence
+    technique_id: T1543
+    technique_name: Create or Modify System Process
+    evidence: But they noted that even if a user tried to uninstall the malware, it would automatically reinstall, according to cybersecurity researchers.
+    confidence_band: high
+  - tactic_id: TA0011
+    tactic_name: Command and Control
+    technique_id: T1090.002
+    technique_name: External Proxy
+    evidence: The botnet generated revenue from the devices by reselling bandwidth, data exfiltration, delivering video content, ad fraud, loading additional backdoors and installing apps for payment.
+    confidence_band: high
 references:
   - https://arstechnica.com/google/2026/11/google-dismantles-botnet-secretly-running-on-1-3-million-android-tv-boxes/
   - https://cloud.google.com/blog/topics/threat-intelligence/shutting-the-door-on-the-xcpe-botnet/
+  - https://therecord.media/google-dismantles-botnet-hidden-android-tv-boxes
 action_plan:
   priority: elevated
   owners:
@@ -69,6 +104,10 @@ action_plan:
       owner: SOC
       due: 24h
       evidence: Google says it has taken legal action to shut down the domains and servers Videostrong used to operate and install its malware.
+    - action: Isolate or replace devices known to be manufactured by Videostrong Technology from enterprise and sensitive internal networks.
+      owner: IT Operations
+      due: 48h
+      evidence: Google has cut ties with Videostrong and banned them from making devices with preloaded Google apps.
   hunt_leads:
     - lead: Identify Android TV devices in the environment and baseline their network traffic for large volume proxy activity or unexpected connections to unknown C2 infrastructure.
       technique_id: T1071.001
@@ -78,12 +117,28 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Google found most of the boxes were running residential proxies for routing large volumes of nefarious traffic.
+    - lead: Identify and investigate IoT devices in the environment exhibiting persistent outbound traffic to unknown or non-standard external domains, especially those acting as residential proxies.
+      technique_id: T1090.002
+      data_needed:
+        - Firewall or Proxy logs showing high-volume connections from IoT device IP addresses
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The botnet generated revenue from the devices by reselling bandwidth.
   mitigation_plan:
     - priority: immediate
       action: Isolate MECOOL-branded and known Videostrong-manufactured Android TV boxes from the internal corporate network.
       owner: IT Operations
       addresses: Supply chain compromise via Videostrong hardware
       evidence: Google has cut ties with the company behind the botnet campaign.
+updates:
+  - at: "2026-11-03T20:42:36Z"
+    level: L1
+    summary: added coverage for Android TV set-top boxes +3 products
+    sources:
+      - therecord
+    source_urls:
+      - https://therecord.media/google-dismantles-botnet-hidden-android-tv-boxes
 ---
 
 Google’s Threat Intelligence Group identified and disrupted a large-scale botnet known as x.cpe, affecting more than 1.3 million Google-certified Android TV devices. The operation was attributed to Shenzhen-based manufacturer Videostrong Technology, which leveraged a pre-installed backdoor to remotely push malicious modules after device deployment. The malware transformed infected hardware into nodes for residential proxy networks, ad fraud schemes, and local network reconnaissance tools.

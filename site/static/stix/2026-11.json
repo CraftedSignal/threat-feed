@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--96c0058b-803c-5453-be99-ea5e75bf30f4",
+  "id": "bundle--21faf092-644f-5b73-83c7-f99f9e65327c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -421,6 +421,22 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Create or Modify System Process",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1543",
+          "url": "https://attack.mitre.org/techniques/T1543"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--67193ec2-dec7-586e-a385-cc0f1baa8526",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -479,6 +495,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1059.004",
           "url": "https://attack.mitre.org/techniques/T1059/004"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--709cfb98-04d9-5549-83e3-552dcbb5b499",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "External Proxy",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1090.002",
+          "url": "https://attack.mitre.org/techniques/T1090/002"
         }
       ]
     },
@@ -1220,6 +1252,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--03e13a5f-9ca7-5f3d-8f7b-46f2e5dd9de0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T20:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
+      "target_ref": "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--041ea649-1152-54a1-ac15-2a777b9c2325",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:08:50.000Z",
@@ -1784,7 +1827,7 @@
       "id": "relationship--26a3d013-6500-5d7e-8348-5409c12faad8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:17:29.000Z",
-      "modified": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T20:43:09.000Z",
       "relationship_type": "uses",
       "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "target_ref": "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527"
@@ -2191,7 +2234,7 @@
       "id": "relationship--3889335b-4f9e-5353-94b1-d596ba58541d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:17:29.000Z",
-      "modified": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T20:43:09.000Z",
       "relationship_type": "attributed-to",
       "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "target_ref": "threat-actor--714e1189-585c-5852-ac33-09f1494806a9"
@@ -3841,7 +3884,7 @@
       "id": "relationship--8eb8cd3c-c1fe-5e7c-a311-604ad9d2838f",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:17:29.000Z",
-      "modified": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T20:43:09.000Z",
       "relationship_type": "uses",
       "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "target_ref": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b"
@@ -4314,7 +4357,7 @@
       "id": "relationship--a5a40f56-44d3-50f3-884c-1effac1c59e4",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:17:29.000Z",
-      "modified": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T20:43:09.000Z",
       "relationship_type": "uses",
       "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
@@ -5418,6 +5461,17 @@
       "relationship_type": "has",
       "source_ref": "software--1baac6fe-dea0-51dd-9087-05fd6b862663",
       "target_ref": "vulnerability--c6c4e173-271f-5e6d-af77-7a5249e29460"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--d9327080-da2a-5802-902f-dc2310e2987e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T20:43:09.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
+      "target_ref": "attack-pattern--709cfb98-04d9-5549-83e3-552dcbb5b499"
     },
     {
       "type": "relationship",
@@ -10326,21 +10380,29 @@
       "id": "report--61febc62-354d-5766-bfbf-6d407cb7ba39",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T18:17:29.000Z",
-      "modified": "2026-11-03T18:17:29.000Z",
+      "modified": "2026-11-03T20:43:09.000Z",
       "name": "Videostrong Technology x.cpe Botnet",
       "description": "## Overview\n\nGoogle’s Threat Intelligence Group identified and disrupted a large-scale botnet known as x.cpe, affecting more than 1.3 million Google-certified Android TV devices. The operation was attributed to Shenzhen-based manufacturer Videostrong Technology, which leveraged a pre-installed backdoor to remotely push malicious modules after device deployment. The malware transformed infected hardware into nodes for residential proxy networks, ad fraud schemes, and local network reconnaissance tools.\n\n## Attack Chain\n\n1. Supply Chain Compromise: Videostrong Technology pre-installs a stub application (com.oemservice) on Android TV hardware during manufacturing.\n2. Initial Provisioning: The device is sold and set up by the end-user, connecting to the internet.\n3. C2 Beaconing: The stub application initiates contact with attacker-controlled command-and-control servers.\n4. Defense Evasion: The stub application disables Google Play Protect to prevent the detection of subsequent malicious payload installation.\n5. Payload Deployment: The operator remotely installs modular malware payloads via system-level permissions granted to the stub application.\n6. Malicious Execution: Modules execute unauthorized tasks including residential proxy traffic routing, ad fraud, and lateral network probing.\n\n## Impact\n\nOver 1.4 million devices were confirmed to be infected, with significant concentrations in Brazil, Malaysia, Iraq, Mexico, and Taiwan, and thousands of affected devices across the US, UK, Germany, Australia, and Canada. The botnet allowed operators to capture device screens, execute terminal commands, and probe local network infrastructure.\n\n## Recommendation\n\n* Inventory all Android TV devices within the corporate network, specifically identifying MECOOL-branded and white-label hardware manufactured by Videostrong Technology.\n* Monitor network traffic for anomalies originating from Android TV devices, particularly high volumes of outbound traffic characteristic of residential proxy activity.\n* Restrict internal network access for IoT and media streaming devices by isolating them in a dedicated VLAN with strictly enforced egress filtering.\n* Implement device management policies that prohibit the use of unmanaged, consumer-grade Android TV hardware for accessing sensitive corporate resources.\n",
       "published": "2026-11-03T18:17:29.000Z",
       "labels": [
         "android",
         "botnet",
-        "supply-chain"
+        "iot",
+        "supply-chain",
+        "supply-chain-attack"
       ],
       "object_refs": [
         "attack-pattern--3fc83c04-d94a-5ca3-9a9d-a73dbc36e527",
+        "attack-pattern--6587be55-e832-5b06-9b3b-4af4604cd32b",
         "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
+        "attack-pattern--709cfb98-04d9-5549-83e3-552dcbb5b499",
         "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--3b4dfa24-9e04-5e3f-ae61-58b46c5f0f6d",
+        "software--56e3a747-5d0e-552a-a483-ed29234cc77e",
+        "software--66e05483-b71a-5d77-86f5-bbdb52c2830f",
         "software--d5680af3-4214-5267-a10e-3af353b8ed28",
+        "software--f05f0f63-ab04-55c9-a9ac-efb91571f918",
         "threat-actor--714e1189-585c-5852-ac33-09f1494806a9"
       ],
       "external_references": [
@@ -10356,14 +10418,18 @@
         {
           "source_name": "reference",
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/shutting-the-door-on-the-xcpe-botnet/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://therecord.media/google-dismantles-botnet-hidden-android-tv-boxes"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-x-cpe-botnet",
       "x_craftedsignal_event_id": "brief-2026-11-03-x-cpe-botnet",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-x-cpe-botnet/",
-      "x_craftedsignal_activity_at": "2026-11-03T18:17:29.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T20:43:09.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "threat",
       "x_craftedsignal_exploitation_evidence": {
@@ -16770,6 +16836,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--3b4dfa24-9e04-5e3f-ae61-58b46c5f0f6d",
+      "name": "Telehealth devices",
+      "vendor": "Videostrong Technology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--3b563201-1fc8-5b68-beea-991e491fe3b0",
       "name": "Control Web Panel (\u003c 1.30)",
       "vendor": "Control Web Panel"
@@ -17040,6 +17113,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--56e3a747-5d0e-552a-a483-ed29234cc77e",
+      "name": "Digital signage devices",
+      "vendor": "Videostrong Technology"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--579335bd-eb93-55cf-b6e4-aba8e6137f99",
       "name": "Azure"
     },
@@ -17192,6 +17272,13 @@
       "id": "software--66cb8b38-8606-57ad-b0e5-c174a1757d6c",
       "name": "SUSE Linux Enterprise Micro (5.3, 5.4, 5.5)",
       "vendor": "SUSE"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--66e05483-b71a-5d77-86f5-bbdb52c2830f",
+      "name": "Android TV set-top boxes",
+      "vendor": "Videostrong Technology"
     },
     {
       "type": "software",
@@ -17977,6 +18064,13 @@
       "id": "software--e9ffedb1-cc6e-5064-9bba-1e8ef9e2d0c6",
       "name": "Apache HTTP Server (2.4.35-2.4.62)",
       "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--f05f0f63-ab04-55c9-a9ac-efb91571f918",
+      "name": "Karaoke machines",
+      "vendor": "Videostrong Technology"
     },
     {
       "type": "software",
