@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5278506c-4389-5d68-9818-b80bdd0683fb",
+  "id": "bundle--9d346aea-4f20-5f1f-b6b0-06613be0b366",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1769,6 +1769,17 @@
       "relationship_type": "uses",
       "source_ref": "report--619926b7-e9bb-55d9-a275-7bebcffb8e6f",
       "target_ref": "attack-pattern--faa0a925-1a18-5fd7-80d2-07a581817590"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2ef00b50-cc42-566b-955f-82cafcc80fce",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T16:03:51.000Z",
+      "modified": "2026-11-03T16:03:51.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--ef378dab-1b76-5c17-a27a-0ab44be2c998",
+      "target_ref": "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563"
     },
     {
       "type": "relationship",
@@ -4079,6 +4090,17 @@
       "relationship_type": "has",
       "source_ref": "software--78bed589-c3cb-56f9-8127-33ed3d10cb2e",
       "target_ref": "vulnerability--4f7b497c-3c03-5619-b37b-7bb815106a45"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bb1175c4-af83-5eef-a16f-1c87b1f92e12",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--c8e87cec-07b4-5cf9-980f-9da1014f8510",
+      "target_ref": "vulnerability--fb482136-a774-5448-85b8-2465b342a823"
     },
     {
       "type": "relationship",
@@ -7516,6 +7538,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--34eeac1b-50d8-5d89-922f-90fb8b6e28dd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T16:03:57.000Z",
+      "modified": "2026-11-03T16:03:57.000Z",
+      "name": "µD3TN: SPP Parser off-by-one heap overflow (CVE-2026-121513)",
+      "description": "A vulnerability (CVE-2026-121513) in the µD3TN v0.15.1 SPP Parser is identified as an off-by-one heap overflow. This vulnerability allows an unauthenticated remote attacker to reliably cause a denial-of-service (DoS).\n",
+      "published": "2026-11-03T16:03:57.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--e2695d1c-87a0-56fc-8ca5-5fb15476152d"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-ud3tn-heap-overflow",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ud3tn-heap-overflow/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121513"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-ud3tn-heap-overflow",
+      "x_craftedsignal_event_id": "brief-2026-11-03-ud3tn-heap-overflow",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ud3tn-heap-overflow/",
+      "x_craftedsignal_activity_at": "2026-11-03T16:03:57.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--35f7d37d-2260-5ebb-81dd-1a8774ceecab",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T11:58:17.000Z",
@@ -8303,6 +8364,45 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--5142515e-a87f-5160-81e0-af6793478dc7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T16:03:44.000Z",
+      "modified": "2026-11-03T16:03:44.000Z",
+      "name": "µD3TN: Heap out-of-bounds read in BPv6/BPv7 fragmenter (CVE-2026-121511)",
+      "description": "A heap out-of-bounds read vulnerability (CVE-2026-121511) has been identified in the µD3TN BPv6/BPv7 fragmenter. This vulnerability allows a local attacker to read memory and reliably cause a denial-of-service (DoS). The vulnerability has a CVSS v3.1 base score of 7.1.\n",
+      "published": "2026-11-03T16:03:44.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--6b8bba59-c7ff-55f2-be31-9df8b11e8905"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-ud3tn-heap-read",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ud3tn-heap-read/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121511"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-ud3tn-heap-read",
+      "x_craftedsignal_event_id": "brief-2026-11-03-ud3tn-heap-read",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ud3tn-heap-read/",
+      "x_craftedsignal_activity_at": "2026-11-03T16:03:44.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.1,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -13392,6 +13492,47 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--ef378dab-1b76-5c17-a27a-0ab44be2c998",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T16:03:51.000Z",
+      "modified": "2026-11-03T16:03:51.000Z",
+      "name": "µD3TN: Memory leak and amplification denial-of-service (CVE-2026-121512)",
+      "description": "## Overview\n\nCVE-2026-121512 describes a vulnerability within the BPv6 (Bundle Protocol version 6) EID (Endpoint Identifier) reference handling of the µD3TN software. An unauthenticated remote attacker can trigger a memory leak amplified by the application's processing logic, ultimately leading to a denial-of-service (DoS) condition. No remediation or fixed version information is provided in the current disclosure.\n\n## Impact\n\nSuccessful exploitation results in a denial-of-service condition due to memory exhaustion. The vulnerability allows an unauthenticated attacker to trigger this state remotely.\n\n## Recommendation\n\nIdentify and inventory all systems running µD3TN. Monitor host memory utilization for anomalous spikes or sustained growth that correlates with incoming BPv6 traffic. As this is a zero-day advisory without a patch, isolate affected instances from untrusted network segments until the vendor provides a security update.\n",
+      "published": "2026-11-03T16:03:51.000Z",
+      "object_refs": [
+        "attack-pattern--15983b63-d99e-55d9-9324-bf68f3de5563",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--c8e87cec-07b4-5cf9-980f-9da1014f8510",
+        "vulnerability--fb482136-a774-5448-85b8-2465b342a823"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-ud3tn-memory-leak",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-ud3tn-memory-leak/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121512"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-ud3tn-memory-leak",
+      "x_craftedsignal_event_id": "brief-2026-11-03-ud3tn-memory-leak",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-ud3tn-memory-leak/",
+      "x_craftedsignal_activity_at": "2026-11-03T16:03:51.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.5,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f2ac64ca-a451-50f4-a55f-83ef00ae7de8",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:40.000Z",
@@ -15015,6 +15156,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c8e87cec-07b4-5cf9-980f-9da1014f8510",
+      "name": "µD3TN",
+      "vendor": "µD3TN"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--cca4d689-8ff3-5dc5-a4f9-0c533675c11b",
       "name": "Rancher Fleet (0.16.0-0.16.3)",
       "vendor": "SUSE"
@@ -16569,6 +16717,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--6b8bba59-c7ff-55f2-be31-9df8b11e8905",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121511",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121511",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121511"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--6f8bbc9a-e35e-5714-8a5d-279e9588ca01",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17721,6 +17885,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--e2695d1c-87a0-56fc-8ca5-5fb15476152d",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121513",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121513",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121513"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--e2baea40-6f8c-5b17-84ab-748f27a3a175",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -17987,6 +18167,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120439",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120439"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--fb482136-a774-5448-85b8-2465b342a823",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-121512",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-121512",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121512"
         }
       ]
     },
