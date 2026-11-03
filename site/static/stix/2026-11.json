@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--f16cfa5f-c62f-5ff8-b00c-5b6ddb9abd03",
+  "id": "bundle--d86dac50-4c2a-5890-8230-aec844e447e2",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3927,6 +3927,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--7c674001-042d-5ad7-a120-e574fda6dd2c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:15:25.000Z",
+      "modified": "2026-11-03T22:15:25.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--11efb167-9db4-5c03-8a1c-385762c1e26f",
+      "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--7d61d2d5-de18-5866-ab58-d5f200743d37",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4363,6 +4374,17 @@
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--957b627b-9a7b-5509-8a03-ab9fbc39b87c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--8c86d882-09d8-563e-a413-022f45dcbc8f",
+      "target_ref": "vulnerability--5eaedf3e-d0b1-5b5b-98c7-8f9a4e5bbcfd"
     },
     {
       "type": "relationship",
@@ -5045,6 +5067,17 @@
       "relationship_type": "has",
       "source_ref": "software--78bed589-c3cb-56f9-8127-33ed3d10cb2e",
       "target_ref": "vulnerability--02240df5-2f41-5b31-8518-f710a07beb1e"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3506d45-44ec-50e5-88a0-ff9a1f6c010e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--96541c0a-daea-5ef1-b007-4ff8055f3867",
+      "target_ref": "vulnerability--33cacfca-30e0-5aeb-acf7-782428348a88"
     },
     {
       "type": "relationship",
@@ -6002,6 +6035,17 @@
       "relationship_type": "uses",
       "source_ref": "report--464bcf48-9953-5db0-8c95-bec372c860d0",
       "target_ref": "attack-pattern--ce3c5638-3c72-5d94-90c1-f10b5cbd69da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--de17a0d5-974d-5228-a8fd-11277b9f33f3",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--072b900c-0fa4-5aff-879b-0736eddc26a7",
+      "target_ref": "vulnerability--33cacfca-30e0-5aeb-acf7-782428348a88"
     },
     {
       "type": "relationship",
@@ -7390,6 +7434,52 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--11efb167-9db4-5c03-8a1c-385762c1e26f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:15:25.000Z",
+      "modified": "2026-11-03T22:15:25.000Z",
+      "name": "Apache ActiveMQ: LDAPAuthorizationMap authorization bypass (CVE-2026-108500)",
+      "description": "## Overview\n\nApache ActiveMQ is vulnerable to an authorization bypass issue (CVE-2026-108500) within the LDAPAuthorizationMapPlugin. An authenticated attacker can exploit this by creating or addressing a message destination using a name containing specific LDAP Distinguished Name (DN) special characters, such as commas, plus signs, equals signs, or backslashes. This allows the attacker to circumvent established authorization policies, potentially accessing or creating destinations they are not permitted to manage.\n\n## Impact\n\nSuccessful exploitation allows an authenticated attacker to bypass authorization constraints within the broker, leading to unauthorized message destination creation or access.\n\n## Recommendation\n\n* Identify and inventory all Apache ActiveMQ instances running affected versions (6.3.0 through 6.3.2, or 5.19.0 through 5.19.11).\n* Upgrade Apache ActiveMQ 6.3.x instances to version 6.3.3 or later.\n* Upgrade Apache ActiveMQ 5.19.x instances to version 5.19.12 or later.\n* Review ActiveMQ audit logs for unexpected creation or interaction with destinations containing LDAP special characters (e.g., symbols like '+' or ',').\n",
+      "published": "2026-11-03T22:15:25.000Z",
+      "labels": [
+        "activemq",
+        "ldap",
+        "vulnerability"
+      ],
+      "object_refs": [
+        "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--072b900c-0fa4-5aff-879b-0736eddc26a7",
+        "software--96541c0a-daea-5ef1-b007-4ff8055f3867",
+        "vulnerability--33cacfca-30e0-5aeb-acf7-782428348a88"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-apache-activemq-ldap-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-apache-activemq-ldap-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://seclists.org/oss-sec/2026/q4/491"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-apache-activemq-ldap-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-03-apache-activemq-ldap-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-apache-activemq-ldap-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-03T22:15:25.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1226981a-4f33-5482-914a-c67bf70cddc0",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-01T02:07:23.000Z",
@@ -7831,6 +7921,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--1bbd96a3-b7eb-5bfe-88ab-4b3d9ff758bd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T22:15:37.000Z",
+      "modified": "2026-11-03T22:15:37.000Z",
+      "name": "Stanza: RCE via pickle deserialization in lemmatizer (CVE-2026-115878)",
+      "description": "## Overview\n\nStanza version 1.14.0 contains a vulnerability where the lemmatizer component processes an embedded pickle stream without restriction. While the initial model load uses `torch.load(weights_only=True)`, the internal `dicts` field (a gzip-compressed pickle) is extracted and passed to an unrestricted `pickle.loads()` function. An attacker supplying a crafted lemma checkpoint can execute arbitrary code with the privileges of the process loading the pipeline. This vulnerability is triggered during `stanza.Pipeline` construction.\n\n## Attack Mechanism\n\n1. Stanza's `Trainer.load` performs `torch.load(weights_only=True)`. The outer `weights_only` check passes because the payload is hidden as `bytes` in the `dicts` field.\n2. `Trainer.load` invokes `_unpack_pos_dict` with the `dicts` bytes.\n3. `_unpack_pos_dict` decompresses the gzip stream and executes `pickle.loads()`.\n4. Execution is confirmed end-to-end where a crafted checkpoint returning `os.system` via `__reduce__` successfully executes the command at load time.\n\n## Impact\n\nSuccessful exploitation allows for arbitrary code execution on the system running the Stanza pipeline. This occurs at initialization time before any processing or inference is performed.\n\n## Recommendation\n\nPatch Stanza by replacing the `pickle.loads()` call in `stanza/models/lemma/trainer.py` with a restricted unpickler that only allows primitive types.\n",
+      "published": "2026-11-03T22:15:37.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--8c86d882-09d8-563e-a413-022f45dcbc8f",
+        "vulnerability--5eaedf3e-d0b1-5b5b-98c7-8f9a4e5bbcfd"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-stanza-rce-deserialization",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-stanza-rce-deserialization/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/advisories/GHSA-gh9r-c94j-cmp5"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-stanza-rce-deserialization",
+      "x_craftedsignal_event_id": "brief-2026-11-03-stanza-rce-deserialization",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-stanza-rce-deserialization/",
+      "x_craftedsignal_activity_at": "2026-11-03T22:15:37.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -17618,6 +17748,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--072b900c-0fa4-5aff-879b-0736eddc26a7",
+      "name": "ActiveMQ (6.3.0 - 6.3.2)",
+      "vendor": "Apache"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--08214a66-970f-5e09-a981-a1534a66acc9",
       "name": "Modem"
     },
@@ -18752,6 +18889,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--8c86d882-09d8-563e-a413-022f45dcbc8f",
+      "name": "Stanza 1.14.0 (\u003c 1.15.0)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--8eb73f86-0153-5125-b7b3-47ab89ac8a3d",
       "name": "Elastic Stack (\u003e= 9.4.0)",
       "vendor": "Elastic"
@@ -18795,6 +18938,13 @@
       "spec_version": "2.1",
       "id": "software--94c8f785-186a-5cd4-9c30-d717f1672360",
       "name": "Beta9 worker (prior to 0.1.756)"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--96541c0a-daea-5ef1-b007-4ff8055f3867",
+      "name": "ActiveMQ (5.19.0 - 5.19.11)",
+      "vendor": "Apache"
     },
     {
       "type": "software",
@@ -20343,6 +20493,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--33cacfca-30e0-5aeb-acf7-782428348a88",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-108500",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-108500",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108500"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--35cc37c8-c3b7-5abc-a0e3-7d0c15779d43",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -20961,6 +21127,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-121386",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121386"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--5eaedf3e-d0b1-5b5b-98c7-8f9a4e5bbcfd",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-115878",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-115878",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115878"
         }
       ]
     },
