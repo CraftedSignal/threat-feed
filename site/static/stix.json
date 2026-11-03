@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--d659bf9c-8b1e-582b-bbe8-8a1e72596267",
+  "id": "bundle--34cd6e87-2b14-5992-b676-9f40ced1f3b0",
   "objects": [
     {
       "type": "attack-pattern",
@@ -49089,6 +49089,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--887b2544-8fce-5c57-b41b-714a062fd61f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--489c86a5-bff6-5c8c-9b49-ef1c510b5cb1",
+      "target_ref": "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--887f989f-e1d6-5c3c-84d7-edc512638808",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -55806,6 +55817,17 @@
       "relationship_type": "uses",
       "source_ref": "report--44ff15f0-bdc0-5c99-b64f-4df4e748c609",
       "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--9e7cf830-69b6-5e92-b700-f9c6b0e5acf5",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:15:44.000Z",
+      "modified": "2026-11-03T20:15:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
     },
     {
       "type": "relationship",
@@ -79390,6 +79412,17 @@
       "relationship_type": "has",
       "source_ref": "software--bab6cf17-a255-5d3b-b360-1163fa07e169",
       "target_ref": "vulnerability--59f15f29-f22d-5696-ba00-ee78e7a22b17"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e7d40b3c-8226-560e-9294-1b772918bf20",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:15:44.000Z",
+      "modified": "2026-11-03T20:15:44.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
+      "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
     },
     {
       "type": "relationship",
@@ -138022,7 +138055,7 @@
       "id": "report--776398fc-6920-588d-bd9a-2985f7f07693",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T20:02:10.000Z",
-      "modified": "2026-11-03T20:02:10.000Z",
+      "modified": "2026-11-03T20:16:22.000Z",
       "name": "Elo: Ruby backend arbitrary code execution (CVE-2026-44266)",
       "description": "Elo, a functional expression language, contains a vulnerability in its Ruby backend (src/compilers/ruby.ts). Attacker-controlled text is embedded into Ruby double-quoted strings without escaping '#', allowing Ruby interpolation to become executable. A failing labelled subtype constraint or an ordinary string literal can lead to Ruby code and shell command execution via backticks. Affected entry points include the /try playground (Ruby target), bin/eloc -t ruby -x, and defaultFormats.elo.parse() followed by Ruby emission. This issue is fixed in version 1.0.1.\n",
       "published": "2026-11-03T20:02:10.000Z",
@@ -138039,14 +138072,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44266"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-44266\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 95,
       "x_craftedsignal_brief_id": "brief-2026-11-03-elo-ruby-code-injection",
       "x_craftedsignal_event_id": "brief-2026-11-03-elo-ruby-code-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-elo-ruby-code-injection/",
-      "x_craftedsignal_activity_at": "2026-11-03T20:02:10.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T20:16:22.000Z",
       "x_craftedsignal_severity": "critical",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -175094,6 +175131,56 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--c9814e5d-659d-54f7-b46f-ca2b155495c8",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T20:15:44.000Z",
+      "modified": "2026-11-03T20:15:44.000Z",
+      "name": "SonicWall GMS: Unauthenticated internal file read (CVE-2026-109593)",
+      "description": "## Overview\nSonicWall has disclosed an unauthenticated file read vulnerability (CVE-2026-109593) affecting SonicWall GMS version 9.5.2 and earlier. An attacker with network access to the GMS instance can read internal files, potentially leading to unauthorized information disclosure. Public proof-of-concept exploit code has been identified. Organizations should identify GMS instances and prepare for remediation.\n\n## Impact\nThe vulnerability allows an unauthenticated, network-adjacent attacker to read internal files. This exposure can provide attackers with sensitive information, such as configuration details, credentials, or other system data, which may be leveraged to compromise the GMS instance further or pivot into the managed environment.\n\n## Recommendation\n- Identify all instances of SonicWall GMS 9.5.2 or earlier within the environment.\n- Apply security patches provided by SonicWall as documented in SNWLID-2026-0019.\n- Restrict network access to GMS management interfaces to trusted IP ranges only.\n- Review web server and application access logs for abnormal file access patterns or high volumes of requests targeting internal paths on the GMS appliance.\n",
+      "published": "2026-11-03T20:15:44.000Z",
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--489c86a5-bff6-5c8c-9b49-ef1c510b5cb1",
+        "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-sonicwall-gms-file-read",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-gms-file-read/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://psirt.global.sonicwall.com/vuln-detail/SNWLID-2026-0019"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-109593"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-109593\u0026utm_source=rss\u0026utm_medium=rss"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-sonicwall-gms-file-read",
+      "x_craftedsignal_event_id": "brief-2026-11-03-sonicwall-gms-file-read",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-sonicwall-gms-file-read/",
+      "x_craftedsignal_activity_at": "2026-11-03T20:15:44.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.1,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--ca3b0e8d-56ab-58b3-895e-e2193400bbf6",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-30T15:31:38.000Z",
@@ -204400,6 +204487,13 @@
       "id": "software--489b32fd-0ebc-546f-914f-a668036b199b",
       "name": "Ivanti Connect Secure (\u003c= 25.1.1.1, \u003c= 25.1.2.2, \u003c= 22.8R2.4)",
       "vendor": "Ivanti"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--489c86a5-bff6-5c8c-9b49-ef1c510b5cb1",
+      "name": "GMS (\u003c= 9.5.2)",
+      "vendor": "SonicWall"
     },
     {
       "type": "software",
@@ -237921,6 +238015,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-98385",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98385"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--7f5c2087-3058-5536-b9a0-899bb704c122",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-109593",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-109593",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109593"
         }
       ]
     },
