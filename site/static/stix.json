@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--34f1c3aa-f46b-5133-a4de-c649c728589e",
+  "id": "bundle--f1bba2a8-67e8-59fd-8ce4-7dc87fd4f204",
   "objects": [
     {
       "type": "attack-pattern",
@@ -51308,6 +51308,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--930f7c9e-d0b7-566a-9b9b-8744334afc44",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--71e131d9-0683-5a2f-8695-c9fb70d1d9b8",
+      "target_ref": "vulnerability--394e6d90-9e5a-5a34-9a73-7e6cf6140226"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--93171842-41a5-508e-ab2d-a60e00870481",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -60537,6 +60548,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b09917c9-9d56-5516-a686-526e80849055",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--e1d33a28-d43d-5e3c-8f2f-4d492b496f56",
+      "target_ref": "vulnerability--d7ff4cbf-e224-5b45-bb27-0675d11d1b68"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b09d416b-b119-593f-86da-75b4f4504f0a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -64504,6 +64526,17 @@
       "relationship_type": "has",
       "source_ref": "software--9a580d9f-6c35-58cd-bd8b-ee399017232a",
       "target_ref": "vulnerability--31eb4441-5cfe-5b46-b96a-d64e7769d457"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--bd7edf4b-68f5-5b5a-bfd0-7b928ed27a74",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--08a75f15-478e-5db0-bb7c-a0e507d254cc",
+      "target_ref": "vulnerability--394e6d90-9e5a-5a34-9a73-7e6cf6140226"
     },
     {
       "type": "relationship",
@@ -98070,6 +98103,45 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--1fb57fc6-280e-5fb8-b164-eb4143b1c22e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T09:56:54.000Z",
+      "modified": "2026-11-03T09:56:54.000Z",
+      "name": "ZeroTier: Command injection via improper input validation (CVE-2026-105979)",
+      "description": "Improper input validation in the ZeroTier VPN function may allow a remote attacker with high privileges to inject system commands and execute them with root privileges. The CVSS v3.1 Base Score for this vulnerability is 7.2.\n",
+      "published": "2026-11-03T09:56:54.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "vulnerability--552b2292-4f77-5a6c-989c-4c23737cc06f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-zerotier-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zerotier-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105979"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-zerotier-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-03-zerotier-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zerotier-rce/",
+      "x_craftedsignal_activity_at": "2026-11-03T09:56:54.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--1fca312f-38df-5612-b994-658442f63474",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-10-07T16:41:36.000Z",
@@ -100826,6 +100898,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--26d8ab9b-0b06-5d08-a43b-f7666f871e60",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T09:57:01.000Z",
+      "modified": "2026-11-03T09:57:01.000Z",
+      "name": "WireGuard: Improper input validation leads to remote command execution (CVE-2026-105980)",
+      "description": "## Overview\nCVE-2026-105980 identifies an improper input validation vulnerability within the WireGuard VPN function. The flaw allows a remote attacker with high privileges to inject system commands and execute them with root privileges.\n",
+      "published": "2026-11-03T09:57:01.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e1d33a28-d43d-5e3c-8f2f-4d492b496f56",
+        "vulnerability--d7ff4cbf-e224-5b45-bb27-0675d11d1b68"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-wireguard-rce",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wireguard-rce/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105980"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-wireguard-rce",
+      "x_craftedsignal_event_id": "brief-2026-11-03-wireguard-rce",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wireguard-rce/",
+      "x_craftedsignal_activity_at": "2026-11-03T09:57:01.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 7.2,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -104696,6 +104808,47 @@
       },
       "x_craftedsignal_cvss_max": 9.9,
       "x_craftedsignal_epss_max": 0.01687,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--31732847-d8b2-5549-9234-78ca86c2018a",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T09:57:40.000Z",
+      "modified": "2026-11-03T09:57:40.000Z",
+      "name": "WSO2 Identity Server and API Manager: Unauthorized System REST API access (CVE-2026-4052)",
+      "description": "CVE-2026-4052 impacts WSO2 Identity Server deployments specifically configured as a Resident Key Manager with database sharing. In these environments, a self-registered user may gain access to the System REST APIs of WSO2 API Manager by obtaining a token from the WSO2 Identity Server token endpoint.\n",
+      "published": "2026-11-03T09:57:40.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--08a75f15-478e-5db0-bb7c-a0e507d254cc",
+        "software--71e131d9-0683-5a2f-8695-c9fb70d1d9b8",
+        "vulnerability--394e6d90-9e5a-5a34-9a73-7e6cf6140226"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-wso2-identity-server-cve-2026-4052",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-wso2-identity-server-cve-2026-4052/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4052"
+        }
+      ],
+      "confidence": 95,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-wso2-identity-server-cve-2026-4052",
+      "x_craftedsignal_event_id": "brief-2026-11-03-wso2-identity-server-cve-2026-4052",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-wso2-identity-server-cve-2026-4052/",
+      "x_craftedsignal_activity_at": "2026-11-03T09:57:40.000Z",
+      "x_craftedsignal_severity": "critical",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_kev_status": "false"
     },
     {
@@ -194583,6 +194736,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--08a75f15-478e-5db0-bb7c-a0e507d254cc",
+      "name": "Identity Server (Resident Key Manager configuration)",
+      "vendor": "WSO2"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--08ba9e47-cbf4-5af3-9161-5824bd95dff6",
       "name": "GeoDirectory – WP Business Directory Plugin and Classified Listings Directory (\u003c= 2.8.187)",
       "vendor": "Ayecode"
@@ -211280,6 +211440,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--e1d33a28-d43d-5e3c-8f2f-4d492b496f56",
+      "name": "WireGuard"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--e1ee4ca0-fb98-5104-8648-fc6da3fd131f",
       "name": "NetScaler ADC (\u003c 13.1-37.272, 13.1-63.18, 14.1-72.61, 14.1-66.68)",
       "vendor": "Citrix"
@@ -222248,6 +222414,22 @@
     {
       "type": "vulnerability",
       "spec_version": "2.1",
+      "id": "vulnerability--394e6d90-9e5a-5a34-9a73-7e6cf6140226",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-4052",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-4052",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4052"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
       "id": "vulnerability--3977c8c5-2575-5653-ab86-d0812e9d325a",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -226370,6 +226552,22 @@
           "source_name": "cve",
           "external_id": "CVE-2023-4863",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-4863"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--552b2292-4f77-5a6c-989c-4c23737cc06f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105979",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105979",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105979"
         }
       ]
     },
@@ -245010,6 +245208,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-92374",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92374"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--d7ff4cbf-e224-5b45-bb27-0675d11d1b68",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-105980",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-105980",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105980"
         }
       ]
     },
