@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--38d1a816-14db-5626-b776-a6f2cfb522fa",
+  "id": "bundle--9e980a53-69b1-5092-9e7e-b20a1894978b",
   "objects": [
     {
       "type": "attack-pattern",
@@ -335,6 +335,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1078",
           "url": "https://attack.mitre.org/techniques/T1078"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Escape to Host",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1611",
+          "url": "https://attack.mitre.org/techniques/T1611"
         }
       ]
     },
@@ -751,6 +767,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1531",
           "url": "https://attack.mitre.org/techniques/T1531"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Container and Resource Discovery",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1613",
+          "url": "https://attack.mitre.org/techniques/T1613"
         }
       ]
     },
@@ -1696,6 +1728,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1495069c-3730-544e-aa84-cd0ee0fc1599",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:19.000Z",
+      "modified": "2026-11-03T21:48:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
+      "target_ref": "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--14e07ba4-1241-549b-a377-136e7209482b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2433,6 +2476,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--393a30a0-2594-5cfb-874c-17d18e02f395",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:23.000Z",
+      "modified": "2026-11-03T21:48:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3954f38d-d5b1-5c5d-ab2f-d8ad33960267",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--39822e7b-4a45-572e-8600-f2730eb8dadb",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2961,6 +3015,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--551ea69d-9a6c-5196-93ae-a10c48ddb256",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:23.000Z",
+      "modified": "2026-11-03T21:48:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3954f38d-d5b1-5c5d-ab2f-d8ad33960267",
+      "target_ref": "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--5643e99c-6e59-535e-917d-9493a27bdfb5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3397,6 +3462,17 @@
       "relationship_type": "uses",
       "source_ref": "report--747ad44c-78a9-5b0e-bf0e-6226d1be5ad7",
       "target_ref": "attack-pattern--f0d59d2a-1a46-508a-afde-4e90b0f822b3"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--696d4697-a410-5433-9476-4c66e88178b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:19.000Z",
+      "modified": "2026-11-03T21:48:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
+      "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
     },
     {
       "type": "relationship",
@@ -4974,6 +5050,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--b4ba5540-dd0c-519a-890f-e8c6e2743f80",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:19.000Z",
+      "modified": "2026-11-03T21:48:19.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
+      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--b4f8c50f-55fc-544d-a347-63c1e07c4e72",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -5311,6 +5398,17 @@
       "relationship_type": "uses",
       "source_ref": "report--a01d123a-14b3-5162-ba3b-0ccb48934e84",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--c16b1cdf-8dca-5517-a883-10456d1d28f9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:49:12.000Z",
+      "modified": "2026-11-03T21:49:12.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--b66758d7-51b9-59e2-ab9d-f7772cc3a361",
+      "target_ref": "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79"
     },
     {
       "type": "relationship",
@@ -6103,6 +6201,17 @@
       "relationship_type": "uses",
       "source_ref": "report--26023dcb-0281-5823-9039-b28456603b46",
       "target_ref": "attack-pattern--6321d9e8-1495-5cee-9dc7-66574584ff1b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e9377bc3-276b-584d-8564-0d06db708505",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:23.000Z",
+      "modified": "2026-11-03T21:48:23.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--3954f38d-d5b1-5c5d-ab2f-d8ad33960267",
+      "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
     },
     {
       "type": "relationship",
@@ -9517,6 +9626,66 @@
       },
       "x_craftedsignal_cvss_max": 7.5,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--3954f38d-d5b1-5c5d-ab2f-d8ad33960267",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:23.000Z",
+      "modified": "2026-11-03T21:48:23.000Z",
+      "name": "Kubernetes: Potential unauthorized Kubelet API access from containers",
+      "description": "## Overview\n\nAdversaries may attempt to interact with the Kubelet API from within a container to gain visibility into the node, enumerate pods, or execute commands on the host. This behavior is typically observed when command-line utilities such as curl or wget are invoked from an interactive container shell to reach the Kubelet API port. Unauthorized access to the Kubelet API facilitates lateral movement and potential privilege escalation within a Kubernetes cluster.\n\n## Attack Chain\n\n1. Initial access to a container via exploitation or misconfiguration.\n2. Execution of an interactive shell within the container.\n3. Reconnaissance of the local node or cluster network to identify Kubelet API endpoints.\n4. Execution of HTTP/WSS requests directed at the node Kubelet API (port 10250 or 10255).\n5. Enumeration of cluster resources, pod logs, or execution of commands via API endpoints such as /exec, /run, or /containerLogs.\n6. Escalation of privileges or lateral movement to other cluster resources.\n\n## Impact\n\nSuccessful unauthorized access to the Kubelet API can lead to full cluster compromise, unauthorized pod execution, and exposure of sensitive container logs or environment variables.\n\n## Recommendation\n\n- Deploy the provided detection rule to monitor for process executions involving Kubelet port access from containers.\n- Implement network policies to block egress traffic from container namespaces to node-local Kubelet ports (10250/10255).\n- Harden Kubelet configurations by disabling anonymous access and requiring authenticated, authorized webhook requests.\n- Remove administrative tooling (e.g., curl, wget, shell access) from production container images.\n- Rotate sensitive credentials, including service account tokens and client certificates, if unauthorized Kubelet API requests are detected.\n",
+      "published": "2026-11-03T21:48:23.000Z",
+      "labels": [
+        "container",
+        "discovery",
+        "execution",
+        "kubernetes",
+        "lateral-movement"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
+        "attack-pattern--e26451c2-381a-5681-88b3-9fe88c4d5e5a",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--e7ffe770-39a2-5c23-a205-9d6ca86f6a4c"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-kubelet-access",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-kubelet-access/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/execution_potential_direct_kubelet_access_via_process_args.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://heilancoos.github.io/research/2025/12/16/kubernetes.html#kubelet-api"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.aquasec.com/blog/kubernetes-exposed-exploiting-the-kubelet-api/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.cyberark.com/resources/threat-research-blog/using-kubelet-client-to-attack-the-kubernetes-cluster"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-kubelet-access",
+      "x_craftedsignal_event_id": "brief-2026-11-03-kubelet-access",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-kubelet-access/",
+      "x_craftedsignal_activity_at": "2026-11-03T21:48:23.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -14725,6 +14894,53 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--b66758d7-51b9-59e2-ab9d-f7772cc3a361",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:49:12.000Z",
+      "modified": "2026-11-03T21:49:12.000Z",
+      "name": "Linux Container: Potential Container Escape via Chroot Execution",
+      "description": "## Overview\n\nThe detection rule identifies the use of the chroot utility within Linux containers, a technique commonly associated with container escape attempts. By executing chroot and targeting mounted host filesystem paths, an attacker can break container isolation, access host binaries, and retrieve sensitive host credentials or configuration files. This rule is designed for the Elastic Defend for Containers integration and monitors for both direct chroot execution and shell-based invocation.\n\n## Impact\n\nSuccessful exploitation may allow an attacker to escape container isolation and gain unauthorized access to the underlying host system, including access to host credentials, system binaries, and runtime sockets.\n\n## Recommendation\n\n- Deploy the provided EQL rule to identify anomalous chroot execution within container environments.\n- Prioritize triage for containers that are running in privileged mode, have host namespaces exposed, or possess mount points targeting /proc/1/root or /host.\n- Review container images and deployment manifests to ensure that administrative utilities like chroot are not included or permitted in production container runtimes.\n- Harden container configurations by enforcing non-root execution, dropping unnecessary Linux capabilities, and applying security profiles such as AppArmor, SELinux, or seccomp.\n",
+      "published": "2026-11-03T21:49:12.000Z",
+      "labels": [
+        "container-escape",
+        "linux",
+        "privilege-escalation"
+      ],
+      "object_refs": [
+        "attack-pattern--59f348cb-9ef6-5341-9b2e-325eadda7b79",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-chroot-container-escape",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-chroot-container-escape/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/privilege_escalation_chroot_execution_detected_inside_container.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://some-natalie.dev/container-escapes-chroot/"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-chroot-container-escape",
+      "x_craftedsignal_event_id": "brief-2026-11-03-chroot-container-escape",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-chroot-container-escape/",
+      "x_craftedsignal_activity_at": "2026-11-03T21:49:12.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--b6ecab81-905c-53e0-9c69-cc9ffeb70386",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T12:50:26.000Z",
@@ -14829,6 +15045,56 @@
       "x_craftedsignal_cvss_max": 9.8,
       "x_craftedsignal_epss_max": 0.99921,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--bd82dc7b-ae9a-5bce-bb38-20046e8cd72e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T21:48:19.000Z",
+      "modified": "2026-11-03T21:48:19.000Z",
+      "name": "Container Environment: Suspicious Fileless Payload Execution via Shell Piping",
+      "description": "## Overview\n\nThis alert identifies potentially malicious fileless execution in Linux containers. Attackers often leverage the pattern of piping network-downloaded content directly into a shell (e.g., `curl \u0026lt;url\u003e | sh`) to achieve code execution without writing artifacts to the container filesystem. This technique is primarily used during initial foothold or lateral movement to evade forensic analysis and disk-based security controls.\n\n## Attack Chain\n\n1. Initial access or lateral movement phase within a container.\n2. Execution of a downloader utility (curl or wget).\n3. Fetching of an external payload from a remote malicious server.\n4. Piping of the remote payload output directly into a local shell or script interpreter (e.g., bash, sh, python, or perl).\n5. Execution of the code in memory, bypassing persistent file scanning.\n6. Potential follow-on activities, such as reverse shell spawning, crypto-miner installation, or container runtime socket access.\n\n## Recommendation\n\n- Implement runtime monitoring to detect the chaining of downloader processes (`curl`/`wget`) and scripting interpreters.\n- Restrict interactive container access (exec sessions) via RBAC and just-in-time privilege requests.\n- Apply egress network policies to limit container communication to known-good internal or external endpoints.\n- Harden container images to remove unnecessary utilities like `curl` and `wget` where possible.\n- Review and deploy the provided Elastic Defend for Containers rule logic to monitor for ephemeral pipe execution patterns.\n",
+      "published": "2026-11-03T21:48:19.000Z",
+      "labels": [
+        "container-security",
+        "detection-engineering",
+        "fileless-execution",
+        "linux"
+      ],
+      "object_refs": [
+        "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef",
+        "attack-pattern--942c509a-a6cb-5ec1-bdbc-488dbadf021d",
+        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-container-shell-pipe",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-container-shell-pipe/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://flare.io/learn/resources/blog/teampcp-cloud-native-ransomware"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/cloud_defend/execution_payload_downloaded_and_piped_to_shell.toml"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-container-shell-pipe",
+      "x_craftedsignal_event_id": "brief-2026-11-03-container-shell-pipe",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-container-shell-pipe/",
+      "x_craftedsignal_activity_at": "2026-11-03T21:48:19.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -19005,6 +19271,13 @@
       "id": "software--e69e5337-1766-5e97-a6c0-7cffa2024d2d",
       "name": "WL-WN579A3-A (2026-03-10-94f93d4)",
       "vendor": "WAVLINK"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--e7ffe770-39a2-5c23-a205-9d6ca86f6a4c",
+      "name": "Kubelet",
+      "vendor": "Kubernetes"
     },
     {
       "type": "software",
