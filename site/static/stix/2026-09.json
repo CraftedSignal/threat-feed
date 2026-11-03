@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--fe337b89-55c1-5b85-8c0c-063b350540d8",
+  "id": "bundle--e370f738-02b3-5404-9cf2-847e400979a6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -24956,7 +24956,7 @@
       "id": "relationship--69751f70-dc36-5b87-a884-1e506ce873f2",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:13:32.000Z",
-      "modified": "2026-09-18T19:13:32.000Z",
+      "modified": "2026-11-03T21:41:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7c15d3c5-e135-5e28-bc5c-67b609720549",
       "target_ref": "attack-pattern--9784d16a-c518-5b29-909d-468e2fd57dad"
@@ -34174,7 +34174,7 @@
       "id": "relationship--9cf8bf55-3207-5c6e-9d29-c58087b1da50",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:13:32.000Z",
-      "modified": "2026-09-18T19:13:32.000Z",
+      "modified": "2026-11-03T21:41:02.000Z",
       "relationship_type": "uses",
       "source_ref": "report--7c15d3c5-e135-5e28-bc5c-67b609720549",
       "target_ref": "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b"
@@ -89140,7 +89140,7 @@
       "id": "report--7c15d3c5-e135-5e28-bc5c-67b609720549",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-09-18T19:13:32.000Z",
-      "modified": "2026-09-18T19:13:32.000Z",
+      "modified": "2026-11-03T21:41:02.000Z",
       "name": "Kubernetes Permission Discovery via Kubectl",
       "description": "## Overview\n\nThe command 'kubectl auth can-i' is a native Kubernetes utility designed to allow administrators and developers to verify their access rights against the Kubernetes API. While legitimate, this command is frequently leveraged by threat actors to perform reconnaissance once an initial foothold within a container or cluster-connected host is achieved. By systematically probing the API, an attacker can determine the extent of their current privileges, identify over-privileged service accounts, and pinpoint paths for lateral movement or privilege escalation. This activity is critical for detection engineering teams to monitor, as it often precedes more destructive actions in the cluster environment. The risk associated with this activity is particularly high in environments where RBAC is overly permissive or where service accounts are exposed to unauthorized actors.\n\n## Impact\n\nSuccessful reconnaissance of cluster permissions allows attackers to map the attack surface of the Kubernetes API, leading to potential unauthorized data access, persistence within the cluster, and full cluster compromise. This behavior is commonly observed during the discovery phase of container-focused campaigns, where attackers aim to move beyond an initial compromised pod.\n\n## Recommendation\n\nPrioritize the implementation of process-level monitoring for kubectl command-line arguments to distinguish between routine administrative tasks and potential reconnaissance.\n\n- Deploy the Sigma rule below to detect 'kubectl auth can-i' usage on Linux and macOS nodes.\n- Review RBAC configurations to ensure that service accounts are strictly limited to the permissions required for their specific function (Least Privilege).\n- Implement time-based exceptions for automated CI/CD pipelines or scheduled audit scripts that legitimately use permission verification tools.\n- Audit logs from the Kubernetes API server for high-frequency or anomalous 'subjectaccessreviews' requests, which correspond to the 'auth can-i' command.\n",
       "published": "2026-09-18T19:13:32.000Z",
@@ -89154,7 +89154,8 @@
       "object_refs": [
         "attack-pattern--9784d16a-c518-5b29-909d-468e2fd57dad",
         "attack-pattern--ba052b64-f78a-580e-9d7f-b25f5806ac6b",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bfb18d1f-a24a-519a-b867-d77150f8e043"
       ],
       "external_references": [
         {
@@ -89174,9 +89175,9 @@
       "confidence": 60,
       "x_craftedsignal_brief_id": "brief-2026-09-kubectl-permission-discovery",
       "x_craftedsignal_event_id": "brief-2026-09-kubectl-permission-discovery",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-09-kubectl-permission-discovery/",
-      "x_craftedsignal_activity_at": "2026-09-18T19:13:32.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T21:41:02.000Z",
       "x_craftedsignal_severity": "medium",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {

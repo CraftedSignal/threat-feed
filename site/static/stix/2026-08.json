@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--5aaa0ac9-139f-5d36-bd1d-da3993be3460",
+  "id": "bundle--96ef4646-54fc-5ad2-a120-04bafc90129c",
   "objects": [
     {
       "type": "attack-pattern",
@@ -2690,19 +2690,6 @@
       "pattern": "[domain-name:value = 'systemsupportoperations.onmicrosoft.com']",
       "pattern_type": "stix",
       "valid_from": "2026-08-31T11:54:52.000Z"
-    },
-    {
-      "type": "indicator",
-      "spec_version": "2.1",
-      "id": "indicator--8b0c3554-74aa-51f8-80ad-24aacc4a449c",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:29:20.000Z",
-      "modified": "2026-08-05T21:29:20.000Z",
-      "name": "url: https://webhook.site/0df4ac02-0b20-4ffc-bbda-287da8bc8a0a",
-      "description": "Attacker-controlled domain used for credential exfiltration in the published PoC.",
-      "pattern": "[url:value = 'https://webhook.site/0df4ac02-0b20-4ffc-bbda-287da8bc8a0a']",
-      "pattern_type": "stix",
-      "valid_from": "2026-08-05T21:29:20.000Z"
     },
     {
       "type": "indicator",
@@ -22005,17 +21992,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--8402d968-68d9-52ba-a920-97f994765ebb",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:29:20.000Z",
-      "modified": "2026-08-05T21:29:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--732be530-1467-5b91-99b2-8bf9d16343c2",
-      "target_ref": "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--84097647-ab87-53e2-9e88-9d3df3cd0648",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-08-27T05:30:26.000Z",
@@ -28836,17 +28812,6 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
-      "id": "relationship--b3d18a22-a0c3-5990-87d4-f557025a9436",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:29:20.000Z",
-      "modified": "2026-08-05T21:29:20.000Z",
-      "relationship_type": "attributed-to",
-      "source_ref": "report--732be530-1467-5b91-99b2-8bf9d16343c2",
-      "target_ref": "threat-actor--6ac6c718-9689-58a3-8619-ee86938451f5"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
       "id": "relationship--b3f1a56a-9372-596d-85fe-5c44f8a02729",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -31637,17 +31602,6 @@
       "relationship_type": "uses",
       "source_ref": "report--a0c9b477-f966-5192-acc1-1b87c799d19b",
       "target_ref": "attack-pattern--745c9492-77e4-5572-9132-308959464536"
-    },
-    {
-      "type": "relationship",
-      "spec_version": "2.1",
-      "id": "relationship--c8e273ed-4911-529c-82d3-4be0ebe7c838",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:29:20.000Z",
-      "modified": "2026-08-05T21:29:20.000Z",
-      "relationship_type": "uses",
-      "source_ref": "report--732be530-1467-5b91-99b2-8bf9d16343c2",
-      "target_ref": "indicator--8b0c3554-74aa-51f8-80ad-24aacc4a449c"
     },
     {
       "type": "relationship",
@@ -63632,58 +63586,6 @@
         "status": "unknown"
       },
       "x_craftedsignal_cvss_max": 7.1,
-      "x_craftedsignal_kev_status": "unknown"
-    },
-    {
-      "type": "report",
-      "spec_version": "2.1",
-      "id": "report--732be530-1467-5b91-99b2-8bf9d16343c2",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2026-08-05T21:29:20.000Z",
-      "modified": "2026-08-05T21:29:20.000Z",
-      "name": "Taipy Class Pollution Vulnerability Leading to RCE",
-      "description": "## Overview\n\nA severe class pollution vulnerability, identified as CVE-2025-30374, exists in Taipy v4.0.3. The vulnerability stems from an insecure recursive state update mechanism in `taipy/gui/utils/_attributes.py`, where client-provided input is used to dynamically update object attributes without validation. Attackers can leverage this to inject malicious attribute paths (analogous to prototype pollution), effectively overwriting internal application state, module attributes, or class methods at runtime.\n\nThe impact is significant, as attackers can achieve Remote Code Execution (RCE) by manipulating the `Gui.__SELF_VAR` attribute used within internal `eval()` calls. Furthermore, the vulnerability enables credential exfiltration, such as OpenAI API tokens, by redirecting outbound application traffic, as well as enabling Reflected XSS and Denial of Service (DoS) by crashing the application or injecting malicious content into rendered responses. This flaw represents a critical security risk for any Taipy deployment exposing application state management to client-side input.\n\n## Attack Chain\n\n1. Attacker establishes a WebSocket connection to the targeted Taipy application.\n2. Attacker crafts a malicious message payload containing an attribute path injection string (e.g., `_TpN_tpec_TpExPr...`).\n3. The message is sent to the Taipy server, where it is processed by `_manage_message`.\n4. The `_setscopeattr_drill` function is triggered, passing the attacker's input to the recursive `_attrsetter` function.\n5. The `_attrsetter` function uses `setattr` and `getattr` to traverse and modify server-side object attributes based on the attacker's path.\n6. Attacker targets specific internal attributes such as `Gui.__SELF_VAR` or method attributes on `_TaipyBase`.\n7. Upon subsequent application logic execution, the modified attributes are accessed or evaluated (e.g., via `eval()`).\n8. Final objective achieved: RCE, credential exfiltration, XSS injection, or application crash.\n\n## Impact\n\nThe vulnerability affects Taipy v4.0.3 users. Successful exploitation allows for complete server compromise through RCE, theft of sensitive configuration secrets like OpenAI tokens, disruption of services via DoS, and potential account takeover via XSS. Given the availability of public proof-of-concept exploits, the risk to unpatched infrastructure is high.\n\n## Recommendation\n\nPrioritize the following actions to detect and mitigate CVE-2025-30374:\n\n- Update Taipy to a patched version immediately upon vendor release.\n- Implement strict server-side validation for all input parameters received via WebSocket messages in `_manage_message`.\n- Block or inspect WebSocket traffic containing deeply nested attribute paths or sequences targeting internal application classes.\n- Audit infrastructure logs for unauthorized WebSocket messages containing `__class__`, `__base__`, or `__SELF_VAR` patterns.\n",
-      "published": "2026-08-05T21:29:20.000Z",
-      "labels": [
-        "class-pollution",
-        "cve-2025-30374",
-        "python",
-        "rce",
-        "taipy"
-      ],
-      "object_refs": [
-        "attack-pattern--e6e63efe-42b5-57bd-b4b7-a8415ab979eb",
-        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-        "indicator--8b0c3554-74aa-51f8-80ad-24aacc4a449c",
-        "software--ca5e6241-b528-5672-805b-cbae05de8c07",
-        "threat-actor--6ac6c718-9689-58a3-8619-ee86938451f5"
-      ],
-      "external_references": [
-        {
-          "source_name": "craftedsignal",
-          "external_id": "brief-2026-08-taipy-class-pollution",
-          "url": "https://feed.craftedsignal.io/briefs/2026-08-taipy-class-pollution/"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://cwe.mitre.org/data/definitions/915.html"
-        },
-        {
-          "source_name": "reference",
-          "url": "https://sploitus.com/exploit?id=45087582-17AC-54B4-A395-D4B3F42789BA"
-        }
-      ],
-      "confidence": 80,
-      "x_craftedsignal_brief_id": "brief-2026-08-taipy-class-pollution",
-      "x_craftedsignal_event_id": "brief-2026-08-taipy-class-pollution",
-      "x_craftedsignal_revision": 1,
-      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-08-taipy-class-pollution/",
-      "x_craftedsignal_activity_at": "2026-08-05T21:29:20.000Z",
-      "x_craftedsignal_severity": "high",
-      "x_craftedsignal_type": "threat",
-      "x_craftedsignal_exploitation_evidence": {
-        "status": "unknown"
-      },
       "x_craftedsignal_kev_status": "unknown"
     },
     {
@@ -101382,13 +101284,6 @@
     {
       "type": "software",
       "spec_version": "2.1",
-      "id": "software--ca5e6241-b528-5672-805b-cbae05de8c07",
-      "name": "Taipy (4.0.3)",
-      "vendor": "Avaiga"
-    },
-    {
-      "type": "software",
-      "spec_version": "2.1",
       "id": "software--ca7b898a-9bb1-5190-8008-eb7e6622af67",
       "name": "langchain_community",
       "vendor": "LangChain"
@@ -103456,15 +103351,6 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "NVIDIA"
-    },
-    {
-      "type": "threat-actor",
-      "spec_version": "2.1",
-      "id": "threat-actor--6ac6c718-9689-58a3-8619-ee86938451f5",
-      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
-      "created": "2025-01-01T00:00:00.000Z",
-      "modified": "2025-01-01T00:00:00.000Z",
-      "name": "jackfromeast"
     },
     {
       "type": "threat-actor",
