@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--e60cee60-e542-587b-9cec-627f249c5835",
+  "id": "bundle--a615f63d-4f29-5512-bdcf-c3acc795a570",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1123,6 +1123,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--11a4c122-9504-5d50-80ff-fcda533300c7",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T08:06:20.000Z",
+      "modified": "2026-11-03T08:06:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f40d4cc3-ccd4-5dda-ab00-11fc34ee8f87",
+      "target_ref": "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--11c74cf0-5554-5490-bd81-ac8205ffbdac",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T21:33:57.000Z",
@@ -1405,6 +1416,17 @@
       "relationship_type": "has",
       "source_ref": "software--776c62c4-23e4-5b18-96d5-4e4d7edcc228",
       "target_ref": "vulnerability--e00938e1-920f-5120-b80d-2ffeda9751d1"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2e9d046a-c846-5d8a-abb5-2253ba4d8e6e",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T08:06:20.000Z",
+      "modified": "2026-11-03T08:06:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--f40d4cc3-ccd4-5dda-ab00-11fc34ee8f87",
+      "target_ref": "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd"
     },
     {
       "type": "relationship",
@@ -10927,6 +10949,54 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--f40d4cc3-ccd4-5dda-ab00-11fc34ee8f87",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T08:06:20.000Z",
+      "modified": "2026-11-03T08:06:20.000Z",
+      "name": "Industrial Refrigeration Controller Unauthorized Access and Temperature Tampering",
+      "description": "## Overview\nMultiple European supermarket chains in Belgium, Sweden, Ireland, the Netherlands, Finland, Italy, Portugal, and Estonia have reported targeted attacks on industrial refrigeration controllers. Attackers are gaining unauthorized access to internet-reachable management interfaces of Danfoss and Copeland/Dixell devices, forcing evaporators into defrost mode, which results in significant temperature increases and food loss. Experts confirm many targeted units are legacy, end-of-life devices lacking vendor patches. Initial findings indicate usage of publicly documented factory-default credentials to gain entry.\n\n## Attack Chain\n1. Reconnaissance: Attackers identify internet-exposed refrigeration management interfaces (e.g., Danfoss StoreView).\n2. Initial Access: Attackers authenticate to the management interface using known factory-default credentials.\n3. Execution: Attackers modify controller settings to force the refrigeration unit into an active defrost cycle.\n4. Impact: The cooling mechanism is overridden, causing internal unit temperatures to rise (up to 50°C), resulting in spoiled food and potential fire hazards.\n\n## Impact\nOver 100 stores across Europe have been affected, including major retailers like Delhaize, Carrefour, and Spar. Reported impacts include massive food spoilage, financial losses for small and large grocers, and operational disruption to the regional food supply chain.\n\n## Recommendation\n- Identify and inventory all internet-facing refrigeration management systems (specifically Danfoss AK-SM, AK-SC series, and Copeland/Dixell XWEB systems).\n- Immediately remove industrial refrigeration controllers from the public internet.\n- Implement strict network segmentation and place controllers behind a secure VPN or firewall requiring multi-factor authentication for access.\n- Audit all management interfaces for the use of default factory credentials and replace them with unique, strong passwords.\n- For end-of-life units that cannot be patched, apply physical isolation or replace the controller with modern, supported hardware.\n",
+      "published": "2026-11-03T08:06:20.000Z",
+      "labels": [
+        "authentication-bypass",
+        "industrial-control-systems",
+        "internet-exposed-device",
+        "supply-chain"
+      ],
+      "object_refs": [
+        "attack-pattern--2e4d9280-53f9-5f98-9c79-9970f1080b3d",
+        "attack-pattern--5817493e-ef12-5a84-adbd-e6ff66112ecd",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--7e607f35-ddf7-5eb6-94c2-a2ec73adc89b",
+        "software--c032e511-048b-5d7e-95f8-5ede114b14e1",
+        "software--c0ebe7d3-9290-50e7-9f64-66cabcc34642"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-supermarket-fridge-attacks",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-supermarket-fridge-attacks/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-supermarket-fridge-attacks",
+      "x_craftedsignal_event_id": "brief-2026-11-03-supermarket-fridge-attacks",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-supermarket-fridge-attacks/",
+      "x_craftedsignal_activity_at": "2026-11-03T08:06:20.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--f5d4a22d-431a-576e-ad33-9e63d0bdb1cc",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T05:54:24.000Z",
@@ -11892,6 +11962,12 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--7e607f35-ddf7-5eb6-94c2-a2ec73adc89b",
+      "name": "AK-SM series controllers"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--7fe0b31f-346c-5720-97f3-d3f7418bd61e",
       "name": "Control Web Panel (\u003c 1.16)"
     },
@@ -12170,9 +12246,21 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--c032e511-048b-5d7e-95f8-5ede114b14e1",
+      "name": "AK-SC series controllers"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--c07ec93a-b3a9-5fb8-ba4a-fce522de9824",
       "name": "Netpbm (\u003c 10.86.51, \u003c 11.02.30, \u003c 11.15.08)",
       "vendor": "Netpbm"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--c0ebe7d3-9290-50e7-9f64-66cabcc34642",
+      "name": "XWEB systems"
     },
     {
       "type": "software",
