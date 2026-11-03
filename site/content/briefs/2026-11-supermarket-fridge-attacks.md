@@ -1,12 +1,27 @@
 ---
 brief_id: brief-2026-11-03-supermarket-fridge-attacks
 event_id: brief-2026-11-03-supermarket-fridge-attacks
-revision: 1
-activity_at: "2026-11-03T08:06:20Z"
+revision: 2
+activity_at: "2026-11-03T18:40:49Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-03T18:40:49Z"
+    checksum: sha256:ceaf5528e415c84d13fac2dcb67f77b7a215eac5e1d0fae3ec0608c6301d83d5
+    summary: added coverage for XWEB supervisory controllers (<= 1.12.1)
+    changed_fields:
+      - action_plan
+      - affected_products
+      - lastmod
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks
 title: Industrial Refrigeration Controller Unauthorized Access and Temperature Tampering
 slug: 2026-11-supermarket-fridge-attacks
 description: Attackers are exploiting internet-exposed industrial refrigeration controllers using factory-default credentials to force units into defrost mode, causing temperature spikes and food spoilage across European retail chains.
 date: "2026-11-03T08:06:20Z"
+lastmod: "2026-11-03T18:40:14Z"
 type: advisory
 types:
   - advisory
@@ -27,6 +42,7 @@ tags:
   - internet-exposed-device
   - authentication-bypass
   - supply-chain
+  - vulnerability
 vendors:
   - Danfoss
   - Copeland
@@ -35,6 +51,7 @@ products:
   - AK-SM series controllers
   - AK-SC series controllers
   - XWEB systems
+  - XWEB supervisory controllers (<= 1.12.1)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -50,16 +67,22 @@ mitre_ttps:
     confidence_band: high
 references:
   - https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/
+  - https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks
 action_plan:
   priority: immediate_escalation
   owners:
     - SOC
     - IT Operations
+    - Security Operations
   immediate_actions:
     - action: Identify all public-facing management interfaces for refrigeration hardware.
       owner: IT Operations
       due: 24h
       evidence: Exposed interfaces are the primary vector for unauthorized access.
+    - action: Inventory and isolate all internet-facing Copeland XWEB controllers
+      owner: IT Operations
+      due: 24h
+      evidence: Source states businesses were attacked through vulnerable internet-exposed controllers.
   hunt_leads:
     - lead: Identify unauthorized access attempts to refrigeration management interfaces from external IP addresses.
       technique_id: T1078
@@ -69,12 +92,34 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Most login attempts relied on factory-default credentials.
+    - lead: Search for unauthorized connections to XWEB controller management interfaces
+      technique_id: T1190
+      data_needed:
+        - Firewall or proxy logs showing access to XWEB management ports
+        - Web server access logs from the controller interface
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: Attackers identified via remote parameter changes during live sessions.
   mitigation_plan:
     - priority: immediate
       action: Isolate refrigeration controllers from the public internet and enforce MFA for remote access.
       owner: IT Operations
       addresses: Danfoss, Copeland, and Dixell controllers
       evidence: Danfoss recommended cutting internet connections and using secure networks only.
+    - priority: immediate
+      action: Upgrade Copeland XWEB firmware to version 1.12.2 or later
+      owner: IT Operations
+      addresses: Copeland XWEB (<= 1.12.1)
+      evidence: Firmware update available since August 2026 to fix authentication bypass.
+updates:
+  - at: "2026-11-03T18:40:14Z"
+    level: L1
+    summary: added coverage for XWEB supervisory controllers (<= 1.12.1)
+    sources:
+      - therecord
+    source_urls:
+      - https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks
 ---
 
 Multiple European supermarket chains in Belgium, Sweden, Ireland, the Netherlands, Finland, Italy, Portugal, and Estonia have reported targeted attacks on industrial refrigeration controllers. Attackers are gaining unauthorized access to internet-reachable management interfaces of Danfoss and Copeland/Dixell devices, forcing evaporators into defrost mode, which results in significant temperature increases and food loss. Experts confirm many targeted units are legacy, end-of-life devices lacking vendor patches. Initial findings indicate usage of publicly documented factory-default credentials to gain entry.
