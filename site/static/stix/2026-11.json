@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--c670fd36-7305-5d41-b22f-fe8d5cf109de",
+  "id": "bundle--bb8e68d8-e790-51ad-b4c2-de6d85bbecb6",
   "objects": [
     {
       "type": "attack-pattern",
@@ -725,6 +725,38 @@
     {
       "type": "attack-pattern",
       "spec_version": "2.1",
+      "id": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Impair Defenses",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1562",
+          "url": "https://attack.mitre.org/techniques/T1562"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ce3c5638-3c72-5d94-90c1-f10b5cbd69da",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Multi-Factor Authentication",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1556.006",
+          "url": "https://attack.mitre.org/techniques/T1556/006"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
       "id": "attack-pattern--d14a8d82-ce61-5344-abe4-5d71bb25404b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -831,6 +863,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1552.005",
           "url": "https://attack.mitre.org/techniques/T1552/005"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Local Account",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1136.001",
+          "url": "https://attack.mitre.org/techniques/T1136/001"
         }
       ]
     },
@@ -1296,6 +1344,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--1511dabf-a208-5ef1-ada9-2bb6c28c4c5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:00.000Z",
+      "modified": "2026-11-03T15:31:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--464bcf48-9953-5db0-8c95-bec372c860d0",
+      "target_ref": "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--152b42ee-f97e-50a5-946e-7399775c338e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T07:07:48.000Z",
@@ -1545,6 +1604,17 @@
       "relationship_type": "uses",
       "source_ref": "report--89ed36ac-63bd-5f4b-a1a2-885c1d147f61",
       "target_ref": "attack-pattern--da9f21b3-a4eb-5207-a56d-5c817f7f9765"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2b91a2ff-8162-555b-aa0b-3a4e0590fd5f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-03T15:32:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3"
     },
     {
       "type": "relationship",
@@ -1948,7 +2018,7 @@
       "id": "relationship--42bdaaae-88de-5ad4-bf4e-ce765ed94e76",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-03T15:32:00.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653"
@@ -2381,6 +2451,17 @@
       "relationship_type": "has",
       "source_ref": "software--4d6ede8b-dd81-50d3-b324-489d91f8b5fb",
       "target_ref": "vulnerability--01007701-198b-57a1-a7ee-67cd98bd320a"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--5eb0d530-5b67-5633-b826-af16d03479ba",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-03T15:32:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac"
     },
     {
       "type": "relationship",
@@ -3081,7 +3162,7 @@
       "id": "relationship--8ccfaa7b-d1a7-52a9-8e64-bd20e730aa9b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-03T15:32:00.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0"
@@ -3184,6 +3265,17 @@
       "relationship_type": "has",
       "source_ref": "software--c1471b83-0251-5db9-be04-5836b17a024c",
       "target_ref": "vulnerability--918d8ebb-adc0-5f70-8560-bf8b4d080733"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--94a48a54-6c1e-5165-8928-f5b47671aaf9",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-02T15:09:08.000Z",
+      "modified": "2026-11-03T15:32:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
+      "target_ref": "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238"
     },
     {
       "type": "relationship",
@@ -3712,6 +3804,17 @@
       "relationship_type": "has",
       "source_ref": "software--4d6ede8b-dd81-50d3-b324-489d91f8b5fb",
       "target_ref": "vulnerability--d3d1098c-72a8-57be-8bc7-9fce4b29a2b7"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--b3ea973a-f9a3-583b-893b-e9122c964c98",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-03T15:31:26.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "target_ref": "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06"
     },
     {
       "type": "relationship",
@@ -4354,6 +4457,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--ddf5f952-1f90-5d4b-907c-4008997d1b6f",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:00.000Z",
+      "modified": "2026-11-03T15:31:00.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--464bcf48-9953-5db0-8c95-bec372c860d0",
+      "target_ref": "attack-pattern--ce3c5638-3c72-5d94-90c1-f10b5cbd69da"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--debb3e59-6ff9-53be-b544-03a80abecd1d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -4379,7 +4493,7 @@
       "id": "relationship--e01b3f5a-f075-5624-9cea-7fdc6489e7a3",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-03T15:32:00.000Z",
       "relationship_type": "uses",
       "source_ref": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "target_ref": "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b"
@@ -7387,6 +7501,61 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--464bcf48-9953-5db0-8c95-bec372c860d0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:00.000Z",
+      "modified": "2026-11-03T15:31:00.000Z",
+      "name": "GitHub: Unauthorized Disabling of Mandatory Two-Factor Authentication",
+      "description": "## Overview\nGitHub audit logs provide visibility into identity-control changes that impact organization and enterprise security. Specifically, the actions 'business.disable_two_factor_requirement' and 'org.disable_two_factor_requirement' indicate that the enforced 2FA requirement has been removed. This change downgrades all members within the affected scope to password-only authentication and allows the invitation of new accounts without 2FA, significantly increasing the risk of unauthorized access, persistence, and data exfiltration. This activity is often a precursor to further malicious operations following an initial account takeover of an owner or enterprise-admin account.\n\n## Impact\nRemoving the mandatory 2FA requirement immediately degrades the security posture of an entire GitHub organization or enterprise. Attackers may leverage this control change to maintain password-based persistence, facilitate the addition of attacker-controlled accounts with reduced friction, and bypass identity verification for subsequent high-impact modifications such as token generation, SSH key additions, or repository modifications.\n\n## Recommendation\n- Immediately audit current GitHub organization and enterprise security settings to confirm that 'Require 2FA' is enabled for all members.\n- Establish automated alerting for any occurrence of the 'business.disable_two_factor_requirement' or 'org.disable_two_factor_requirement' audit events.\n- Conduct an immediate review of audit logs for any identity-related changes (e.g., new owner/member additions, PAT or OAuth app grants, SSH key updates) occurring immediately following a 2FA disablement event.\n- Implement a break-glass policy for emergency access that requires documented change-management tickets for any temporary security control bypasses.\n- Force a sign-out of all active sessions and require mandatory re-enrollment in 2FA for all organization members if a disablement event is identified as unauthorized.\n",
+      "published": "2026-11-03T15:31:00.000Z",
+      "labels": [
+        "cloud",
+        "defense-evasion",
+        "github",
+        "identity-security",
+        "saas"
+      ],
+      "object_refs": [
+        "attack-pattern--c70a2e65-c065-55f2-9e9e-0ff6d591826b",
+        "attack-pattern--ce3c5638-3c72-5d94-90c1-f10b5cbd69da",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--d4c6dd16-8174-5e91-8f28-9b5d7dbac4fb"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-github-mfa-disabled",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-github-mfa-disabled/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_mfa_requirement_disabled.toml"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-github-mfa-disabled",
+      "x_craftedsignal_event_id": "brief-2026-11-03-github-mfa-disabled",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-mfa-disabled/",
+      "x_craftedsignal_activity_at": "2026-11-03T15:31:00.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--49185db1-b929-5e2b-a215-fc5688e235fa",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T05:05:00.000Z",
@@ -7696,19 +7865,23 @@
       "id": "report--524c5618-13e6-5a5b-a983-ade3378928da",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:09:08.000Z",
-      "modified": "2026-11-02T21:10:58.000Z",
+      "modified": "2026-11-03T15:32:00.000Z",
       "name": "GitHub Enterprise and Organization SSO Recovery Code Activity",
       "description": "## Overview\nGitHub provides recovery codes for enterprise and organization SSO as a contingency for IdP access loss. Because these codes bypass external identity providers and MFA, they represent high-value targets for adversaries seeking to establish persistence or perform account takeover. Organizations should audit all actions related to these credentials, including generation, downloading, viewing, and usage, to identify anomalous administrative behavior.\n\n## Impact\nUnauthorized access to recovery codes allows an attacker to bypass federated authentication and MFA, enabling persistent, unauthenticated access to the GitHub enterprise or organization environment.\n\n## Recommendation\n- Implement monitoring for GitHub audit logs specifically filtering for recovery code lifecycle events (download, generate, print, view, use, and failure).\n- Enforce dual-control procedures for the management of recovery codes, ensuring that any lifecycle event is tied to an authorized disaster recovery process.\n- Rotate recovery codes immediately if an unauthorized generation or viewing event is identified.\n- Review SSO configuration and force re-authentication of enterprise owners following any confirmed compromise of recovery credentials.\n",
       "published": "2026-11-02T15:09:08.000Z",
       "labels": [
         "cloud",
         "credential-access",
+        "defense-evasion",
         "github",
         "persistence",
         "saas"
       ],
       "object_refs": [
+        "attack-pattern--118409a1-50c6-53b4-8358-4e00d9675cac",
         "attack-pattern--47044959-e903-5b1e-a6ac-e8d0892312a0",
+        "attack-pattern--5ee3ab13-ad3c-534b-b2c1-7213321a2238",
+        "attack-pattern--6f935ba9-beb8-5ca0-8098-c7c045ce2de3",
         "attack-pattern--c4489928-de90-5790-a03c-dc56a4c9d32b",
         "attack-pattern--dc5e4f03-1094-5965-8de6-b9af854b1653",
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
@@ -7731,19 +7904,31 @@
         },
         {
           "source_name": "reference",
+          "url": "https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.blog/security/application-security/introducing-fine-grained-personal-access-tokens-for-github/"
+        },
+        {
+          "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/credential_access_github_recovery_codes_activity.toml"
         },
         {
           "source_name": "reference",
           "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/credential_access_github_secret_scanning_alert_created.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/github/defense_evasion_github_pat_access_restriction_disabled.toml"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
       "x_craftedsignal_event_id": "brief-2026-11-02-github-sso-recovery-code-monitoring",
-      "x_craftedsignal_revision": 2,
+      "x_craftedsignal_revision": 3,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-github-sso-recovery-code-monitoring/",
-      "x_craftedsignal_activity_at": "2026-11-02T21:10:58.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T15:32:00.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -10594,6 +10779,62 @@
       },
       "x_craftedsignal_cvss_max": 9.1,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--a96df22b-af21-5e13-bc13-551888b2bde0",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T15:31:26.000Z",
+      "modified": "2026-11-03T15:31:26.000Z",
+      "name": "VMware ESXi: Unauthorized local account creation detection",
+      "description": "## Overview\nLocal account creation on VMware ESXi hosts serves as a persistence mechanism that survives session termination. Unauthorized accounts, often created via the Host Client or `esxcli` system commands, are a known precursor to hypervisor-level control, particularly in ransomware campaigns. Organizations should audit account creation events against expected administrative activity.\n\n## Impact\nUnauthorized local accounts provide persistent access to the ESXi hypervisor, enabling potential lateral movement, data exfiltration, or deployment of ransomware by threat actors who have gained initial management access.\n\n## Recommendation\n- Deploy log collection for VMware ESXi using the Elastic vSphere integration to ensure visibility into `hostd` and shell execution logs.\n- Establish a baseline of authorized administrative accounts for all ESXi hosts.\n- Monitor for the creation of local accounts (`esxcli system account add`) or logs indicating an account was created on a host.\n- Investigate any account creation not tied to documented onboarding or break-glass procedures by identifying the user who performed the action and checking for subsequent assignment of administrative roles.\n",
+      "published": "2026-11-03T15:31:26.000Z",
+      "labels": [
+        "persistence",
+        "ransomware",
+        "vmware"
+      ],
+      "object_refs": [
+        "attack-pattern--ed297fb1-fb56-59cb-bbe0-dabc9e9cea06",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--a4e435a2-21e4-5a0c-87a3-22bdb661eaa1"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-esxi-account-persistence",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-esxi-account-persistence/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://blogs.vmware.com/security/2022/10/esxi-targeting-ransomware-tactics-and-techniques-part-2.html"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://detect.fyi/vmware-esxi-logging-detection-opportunities-4fb56411ec21"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/elastic/detection-rules/blob/main/rules/integrations/vsphere/persistence_esxi_account_created.toml"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://lolesxi-project.github.io/LOLESXi/#"
+        }
+      ],
+      "confidence": 60,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-esxi-account-persistence",
+      "x_craftedsignal_event_id": "brief-2026-11-03-esxi-account-persistence",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-esxi-account-persistence/",
+      "x_craftedsignal_activity_at": "2026-11-03T15:31:26.000Z",
+      "x_craftedsignal_severity": "medium",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
@@ -13567,6 +13808,13 @@
       "id": "software--a429af6e-3059-559f-8fd0-6bf2d74fa8f1",
       "name": "CLion",
       "vendor": "JetBrains"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--a4e435a2-21e4-5a0c-87a3-22bdb661eaa1",
+      "name": "ESXi",
+      "vendor": "VMware"
     },
     {
       "type": "software",
