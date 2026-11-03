@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--a615f63d-4f29-5512-bdcf-c3acc795a570",
+  "id": "bundle--36d9b9d8-e648-5c51-8915-18f26664e309",
   "objects": [
     {
       "type": "attack-pattern",
@@ -543,6 +543,22 @@
           "source_name": "mitre-attack",
           "external_id": "T1047",
           "url": "https://attack.mitre.org/techniques/T1047"
+        }
+      ]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--abc33c38-86c8-5fbc-8644-480ee3045f9b",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "Local Groups",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1069.001",
+          "url": "https://attack.mitre.org/techniques/T1069/001"
         }
       ]
     },
@@ -1350,6 +1366,17 @@
       "relationship_type": "has",
       "source_ref": "software--0a64869a-e419-5728-8452-6c5c0d76330b",
       "target_ref": "vulnerability--9933b623-6685-5d3c-8236-70331ef0c7ce"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--2a904187-2ee1-518f-8c29-a9980f08bbdc",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T08:44:20.000Z",
+      "modified": "2026-11-03T08:44:20.000Z",
+      "relationship_type": "uses",
+      "source_ref": "report--78d6be17-e8f4-5269-bca6-56735dbea76c",
+      "target_ref": "attack-pattern--abc33c38-86c8-5fbc-8644-480ee3045f9b"
     },
     {
       "type": "relationship",
@@ -8047,6 +8074,49 @@
       },
       "x_craftedsignal_cvss_max": 7.3,
       "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--78d6be17-e8f4-5269-bca6-56735dbea76c",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T08:44:20.000Z",
+      "modified": "2026-11-03T08:44:20.000Z",
+      "name": "Linux Local Group Enumeration via Standard Utilities",
+      "description": "## Overview\n\nAdversaries often perform local group enumeration to identify target accounts for privilege escalation or lateral movement. Threat actors use common Linux system utilities, such as 'getent', 'groups', and various file readers, to query '/etc/group' or '/etc/gshadow' files to gain visibility into system account permissions and administrative group membership.\n\n## Impact\n\nThe impact of group enumeration is primarily reconnaissance. Successful discovery allows an attacker to identify high-privilege users or security groups, facilitating subsequent phases of an attack such as credential harvesting or privilege escalation.\n\n## Recommendation\n\nDeploy the provided Sigma detection rule to monitor process executions involving sensitive group files or enumeration tools. Because these utilities are heavily used for legitimate system administration, focus analysis on deviations from established administrative baselines or account behavior.\n",
+      "published": "2026-11-03T08:44:20.000Z",
+      "labels": [
+        "discovery",
+        "linux",
+        "reconnaissance"
+      ],
+      "object_refs": [
+        "attack-pattern--abc33c38-86c8-5fbc-8644-480ee3045f9b",
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-linux-group-discovery",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-linux-group-discovery/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://github.com/SigmaHQ/sigma/blob/main/rules/linux/process_creation/proc_creation_lnx_local_groups.yml"
+        }
+      ],
+      "confidence": 40,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-linux-group-discovery",
+      "x_craftedsignal_event_id": "brief-2026-11-03-linux-group-discovery",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-linux-group-discovery/",
+      "x_craftedsignal_activity_at": "2026-11-03T08:44:20.000Z",
+      "x_craftedsignal_severity": "low",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
     },
     {
       "type": "report",
