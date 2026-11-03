@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--db7fe1ac-4f75-57d0-9205-6aa5f9023daa",
+  "id": "bundle--dbd54c1c-36e8-5df2-9a5d-4472232b9ed8",
   "objects": [
     {
       "type": "attack-pattern",
@@ -3464,6 +3464,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--d3dda920-b5ac-5ca3-abd6-e9b442fb3a71",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--bc6070ca-d642-551c-ba71-6e46e656df7e",
+      "target_ref": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--d3e71bc9-0fa4-513a-acc2-2f6af61c3740",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -3614,6 +3625,17 @@
       "relationship_type": "has",
       "source_ref": "software--34560feb-0990-5c5b-93b5-967251cb529f",
       "target_ref": "vulnerability--246627fb-95a4-5012-b175-8b72bb5ab1b8"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--e4055067-6288-59d1-b387-10bad9c3b1db",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--b4fa61ef-6a06-5069-b625-4eafb248c102",
+      "target_ref": "vulnerability--28c45b06-7ffa-5fce-adb9-ab4d6b240f16"
     },
     {
       "type": "relationship",
@@ -6630,6 +6652,46 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--5e90d7e8-ebff-50db-acee-5cdbddd67421",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:50:31.000Z",
+      "modified": "2026-11-03T03:50:31.000Z",
+      "name": "TÜBİTAK BİLGEM eta-register: Missing authorization privilege escalation (CVE-2026-92886)",
+      "description": "CVE-2026-92886 identifies a Missing Authorization vulnerability in TÜBİTAK BİLGEM Software Technologies Research Institute eta-register. This vulnerability allows Privilege Escalation. This issue affects eta-register: from 2.0.8 before 2.0.9.\n",
+      "published": "2026-11-03T03:50:31.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--b4fa61ef-6a06-5069-b625-4eafb248c102",
+        "vulnerability--28c45b06-7ffa-5fce-adb9-ab4d6b240f16"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-eta-register-auth-bypass",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-eta-register-auth-bypass/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92886"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-eta-register-auth-bypass",
+      "x_craftedsignal_event_id": "brief-2026-11-03-eta-register-auth-bypass",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-eta-register-auth-bypass/",
+      "x_craftedsignal_activity_at": "2026-11-03T03:50:31.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 7.8,
+      "x_craftedsignal_kev_status": "false"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--5f12b581-c539-5b6c-b7ba-93284b9420be",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T09:09:12.000Z",
@@ -8808,6 +8870,46 @@
         "status": "unknown"
       },
       "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
+      "id": "report--af2dcc55-1faa-56fe-a969-08104814eacf",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T03:50:17.000Z",
+      "modified": "2026-11-03T03:50:17.000Z",
+      "name": "Zyxel GS1900-24E: Out-of-bounds write vulnerability (CVE-2026-107441)",
+      "description": "An out-of-bounds write vulnerability exists in the CGI program of Zyxel GS1900-24E firmware versions through 2.90(AAHK.2)C0. This flaw may allow an unauthenticated adjacent attacker to potentially execute OS commands via a crafted HTTP request. The vulnerability is identified as CVE-2026-107441 with a CVSS v3.1 base score of 8.8.\n",
+      "published": "2026-11-03T03:50:17.000Z",
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--bc6070ca-d642-551c-ba71-6e46e656df7e",
+        "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-zyxel-gs1900-24e-oob-write",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-gs1900-24e-oob-write/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107441"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-zyxel-gs1900-24e-oob-write",
+      "x_craftedsignal_event_id": "brief-2026-11-03-zyxel-gs1900-24e-oob-write",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-zyxel-gs1900-24e-oob-write/",
+      "x_craftedsignal_activity_at": "2026-11-03T03:50:17.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "advisory",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "not_observed"
+      },
+      "x_craftedsignal_cvss_max": 8.8,
+      "x_craftedsignal_kev_status": "false"
     },
     {
       "type": "report",
@@ -11009,6 +11111,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--b4fa61ef-6a06-5069-b625-4eafb248c102",
+      "name": "eta-register (\u003c 2.0.9)",
+      "vendor": "TÜBİTAK BİLGEM Software Technologies Research Institute"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--b72f4168-3e9c-53dc-87d8-40da53064d01",
       "name": "GPU pdma"
     },
@@ -11038,6 +11147,13 @@
       "id": "software--bc24f899-0a89-5ddf-9f03-cff548236344",
       "name": "FortiWeb (\u003c 7.6.4)",
       "vendor": "Fortinet"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
+      "id": "software--bc6070ca-d642-551c-ba71-6e46e656df7e",
+      "name": "GS1900-24E (through firmware 2.90(AAHK.2)C0)",
+      "vendor": "Zyxel"
     },
     {
       "type": "software",
@@ -11677,6 +11793,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120445",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120445"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--28c45b06-7ffa-5fce-adb9-ab4d6b240f16",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-92886",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-92886",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92886"
         }
       ]
     },
@@ -12749,6 +12881,22 @@
           "source_name": "cve",
           "external_id": "CVE-2026-120833",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120833"
+        }
+      ]
+    },
+    {
+      "type": "vulnerability",
+      "spec_version": "2.1",
+      "id": "vulnerability--a43ad61c-e0cc-5015-b75b-b8f0de1c87b2",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "CVE-2026-107441",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2026-107441",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107441"
         }
       ]
     },
