@@ -1,6 +1,6 @@
 {
   "type": "bundle",
-  "id": "bundle--9d346aea-4f20-5f1f-b6b0-06613be0b366",
+  "id": "bundle--1712ba14-6efc-5b20-a676-129b1d71d715",
   "objects": [
     {
       "type": "attack-pattern",
@@ -1523,7 +1523,7 @@
       "id": "relationship--23d3ffb1-2e6d-535e-9c62-351abee6643c",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:54.000Z",
-      "modified": "2026-11-03T16:00:08.000Z",
+      "modified": "2026-11-03T16:15:50.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9e3d04cd-3b53-5162-bfe6-fc2f2a678e0b",
       "target_ref": "attack-pattern--03c83a54-7fcd-5e1a-99d5-88d0bbd8fb19"
@@ -2015,6 +2015,17 @@
     {
       "type": "relationship",
       "spec_version": "2.1",
+      "id": "relationship--3de97d14-ebc9-557e-ac7e-cda72489b614",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T16:15:15.000Z",
+      "modified": "2026-11-03T16:15:15.000Z",
+      "relationship_type": "attributed-to",
+      "source_ref": "report--8427a776-b321-5bb1-a32d-0f9ef14cd2be",
+      "target_ref": "threat-actor--695da9ec-19b8-5089-b51c-ae27d6b504b4"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
       "id": "relationship--3e554e89-1a2b-54df-9f63-8fbbc6d89c21",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2025-01-01T00:00:00.000Z",
@@ -2209,6 +2220,17 @@
       "relationship_type": "has",
       "source_ref": "software--13b2c977-aaac-58a8-b99a-ddd1c3560b3c",
       "target_ref": "vulnerability--1e5b71e8-6c1d-56f1-9fb6-dadfe6773269"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--49bbd1ca-3484-5fd4-b8d7-0bc8349f0e23",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "relationship_type": "has",
+      "source_ref": "software--45f94eba-282d-5afb-b8af-824b8de0b61e",
+      "target_ref": "vulnerability--ebd5f447-6b01-5bad-a672-375d2ae023b2"
     },
     {
       "type": "relationship",
@@ -4427,7 +4449,7 @@
       "id": "relationship--c9d3bfba-cd80-5cca-b563-8a9ca46d2243",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:54.000Z",
-      "modified": "2026-11-03T16:00:08.000Z",
+      "modified": "2026-11-03T16:15:50.000Z",
       "relationship_type": "uses",
       "source_ref": "report--9e3d04cd-3b53-5162-bfe6-fc2f2a678e0b",
       "target_ref": "attack-pattern--7013871c-d448-55a4-81ed-cffcce61c4ef"
@@ -7705,7 +7727,7 @@
       "id": "report--3ae5c151-9bbb-514a-8ba7-4ecbace10190",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:48.000Z",
-      "modified": "2026-11-03T15:59:48.000Z",
+      "modified": "2026-11-03T16:15:50.000Z",
       "name": "SurrealDB: Improper MCP authentication vulnerability (CVE-2026-121419)",
       "description": "SurrealDB from 3.1.0 before 3.3.0 contains an improper authentication vulnerability where the MCP BoundSubject fingerprint uses the access method name instead of per-user identity for JWT/Bearer access. Attackers with a valid low-privilege token for the same access method and a victim's mcp-session-id can hijack the session and execute MCP tools with the victim's roles and permissions.\n",
       "published": "2026-11-03T15:59:48.000Z",
@@ -7723,14 +7745,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121419"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-121419\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-surrealdb-auth-bypass",
       "x_craftedsignal_event_id": "brief-2026-11-03-surrealdb-auth-bypass",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-surrealdb-auth-bypass/",
-      "x_craftedsignal_activity_at": "2026-11-03T15:59:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T16:15:50.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -10167,6 +10193,50 @@
     {
       "type": "report",
       "spec_version": "2.1",
+      "id": "report--8427a776-b321-5bb1-a32d-0f9ef14cd2be",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2026-11-03T16:15:15.000Z",
+      "modified": "2026-11-03T16:15:15.000Z",
+      "name": "LLMJacking: Cybercriminal Resale of Stolen Cloud LLM Access",
+      "description": "## Overview\nThreat actors are increasingly monetizing compromised cloud infrastructure through a practice termed LLMJacking. Attackers gain initial access to organizations, specifically targeting LLM endpoints and associated API keys. Once access is established, the stolen resources are aggregated and resold through underground \"LLM Mixer\" services. This model allows attackers to profit by routing customer requests through the victim’s environment, often resulting in significant, rapid financial losses for the victim due to cloud resource consumption billing.\n\n## Attack Chain\n1. Initial Access: Attackers obtain cloud identity tokens, service account keys, or GitHub Personal Access Tokens (PATs) via phishing, session hijacking, or exploitation of web vulnerabilities in containerized environments.\n2. Credential Validation: Attackers perform minimal API requests, often sending a single output token, to verify the validity of stolen credentials while remaining under detection thresholds.\n3. Persistence Establishment: Attackers use compromised federation tokens to programmatically generate new, long-lived access keys, bypassing existing MFA controls.\n4. Infrastructure Integration: Compromised credentials are integrated into underground \"LLM Mixer\" services, which act as middlemen to resell enterprise LLM capacity.\n5. Resource Abuse: The mixer service routes external customer requests through the victim’s cloud environment, causing rapid spikes in computing resource consumption.\n6. Monetization: The threat actor collects subscription fees from the reseller network while the victim organization absorbs the high costs of the unauthorized LLM inference requests.\n\n## Impact\nObserved impacts include rapid spikes in cloud resource consumption. Incidents have resulted in fraudulent charges exceeding $100,000 USD in a single day, with cumulative costs for some organizations reaching $1 million USD before access was revoked.\n\n## Recommendation\n- Implement centralized secrets management to rotate and restrict service account keys and API credentials.\n- Enforce the principle of least privilege for all cloud service accounts and API access tokens.\n- Deploy automated secret scanning tools across internal code repositories (e.g., GitHub, GitLab) to prevent accidental exposure of tokens.\n- Establish automated billing and resource consumption alerts to identify unauthorized usage spikes in real-time.\n- Implement rate limiting and network allow-listing for all public-facing LLM endpoints.\n",
+      "published": "2026-11-03T16:15:15.000Z",
+      "labels": [
+        "ai-security",
+        "cloud-security",
+        "financial-fraud",
+        "identity-theft"
+      ],
+      "object_refs": [
+        "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "threat-actor--695da9ec-19b8-5089-b51c-ae27d6b504b4"
+      ],
+      "external_references": [
+        {
+          "source_name": "craftedsignal",
+          "external_id": "brief-2026-11-03-llmjacking-enterprise",
+          "url": "https://feed.craftedsignal.io/briefs/2026-11-llmjacking-enterprise/"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://www.darkreading.com/cloud-security/llmjacking-thriving-cybercriminal-enterprise"
+        }
+      ],
+      "confidence": 80,
+      "x_craftedsignal_brief_id": "brief-2026-11-03-llmjacking-enterprise",
+      "x_craftedsignal_event_id": "brief-2026-11-03-llmjacking-enterprise",
+      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-llmjacking-enterprise/",
+      "x_craftedsignal_activity_at": "2026-11-03T16:15:15.000Z",
+      "x_craftedsignal_severity": "high",
+      "x_craftedsignal_type": "threat",
+      "x_craftedsignal_exploitation_evidence": {
+        "status": "unknown"
+      },
+      "x_craftedsignal_kev_status": "unknown"
+    },
+    {
+      "type": "report",
+      "spec_version": "2.1",
       "id": "report--872790a6-7cc9-5c79-ace0-e124841693c5",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-02T15:51:08.000Z",
@@ -10755,7 +10825,7 @@
       "id": "report--9bc7620e-83ea-578a-8c5c-68e2960a8e3d",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T13:57:14.000Z",
-      "modified": "2026-11-03T13:57:14.000Z",
+      "modified": "2026-11-03T16:15:50.000Z",
       "name": "BuddyBoss App: Arbitrary File Upload in send_feedback function (CVE-2026-76124)",
       "description": "The BuddyBoss App plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to and including 3.2.1 via the send_feedback function. The vulnerability arises from insufficient file type validation that relies on the client-supplied Content-Type header. Authenticated users with subscriber-level access and above can upload executable files. While files are intended to be deleted after transmission, a race condition during SMTP execution or a failure of the wp_mail() function can allow files to persist on the server.\n",
       "published": "2026-11-03T13:57:14.000Z",
@@ -10777,14 +10847,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76124"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-76124\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-buddyboss-upload",
       "x_craftedsignal_event_id": "brief-2026-11-03-buddyboss-upload",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-buddyboss-upload/",
-      "x_craftedsignal_activity_at": "2026-11-03T13:57:14.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T16:15:50.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -10845,7 +10919,7 @@
       "id": "report--9c332ea3-8043-558d-8e88-3ba4529fbb6e",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:00:00.000Z",
-      "modified": "2026-11-03T16:00:00.000Z",
+      "modified": "2026-11-03T16:15:50.000Z",
       "name": "AzuraCast: Remote code execution via station timezone injection (CVE-2026-121428)",
       "description": "AzuraCast through 0.23.8 contains a remote code execution vulnerability that allows authenticated station managers to inject Supervisor configuration through the station timezone field. Attackers can submit a timezone containing newlines to the profile edit API, defining a new Supervisor program that executes OS commands as root when configuration regenerates.\n",
       "published": "2026-11-03T16:00:00.000Z",
@@ -10863,14 +10937,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121428"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-121428\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-azuracast-rce",
       "x_craftedsignal_event_id": "brief-2026-11-03-azuracast-rce",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azuracast-rce/",
-      "x_craftedsignal_activity_at": "2026-11-03T16:00:00.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T16:15:50.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -11008,7 +11086,7 @@
       "id": "report--9e3d04cd-3b53-5162-bfe6-fc2f2a678e0b",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T15:59:54.000Z",
-      "modified": "2026-11-03T16:00:08.000Z",
+      "modified": "2026-11-03T16:15:50.000Z",
       "name": "AzuraCast: Configuration injection and privilege escalation (CVE-2026-121427)",
       "description": "## Overview\nAzuraCast versions 0.23.8 and earlier are vulnerable to a configuration injection attack via the /station/{id}/profile/edit endpoint. The application fails to properly validate permissions or sanitize input for the frontend_config.custom_config field. Authenticated users with the Manage station profile permission can inject arbitrary directives into the Shoutcast sc_serv.conf file, enabling them to override critical security settings such as adminpassword and portbase.\n\n## Impact\nAn attacker can hijack the Shoutcast frontend service by overriding authentication credentials and service configuration parameters, leading to a complete compromise of the station broadcasting service.\n\n## Recommendation\n- Upgrade AzuraCast to a version later than 0.23.8 once a patch is available.\n- Review existing permissions for all users assigned the Manage station profile role to identify unauthorized configuration changes.\n- Monitor logs for HTTP PUT requests to /station/*/profile/edit that include unusual JSON structures in the custom_config field.\n",
       "published": "2026-11-03T15:59:54.000Z",
@@ -11037,14 +11115,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121429"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-121429\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-azuracast-config-injection",
       "x_craftedsignal_event_id": "brief-2026-11-03-azuracast-config-injection",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-azuracast-config-injection/",
-      "x_craftedsignal_activity_at": "2026-11-03T16:00:08.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T16:15:50.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -13026,12 +13108,13 @@
       "id": "report--d990f0d4-cf83-5d7a-b3a4-1a210838f994",
       "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
       "created": "2026-11-03T16:00:48.000Z",
-      "modified": "2026-11-03T16:00:48.000Z",
+      "modified": "2026-11-03T16:15:50.000Z",
       "name": "MongoDB Node.js Driver: Connection Management Data Disclosure (CVE-2026-119179)",
       "description": "A flaw in the connection management layer of the MongoDB Node.js driver can leave a pooled network connection in the pool for reuse while data from an earlier operation is still outstanding. In applications that enable an optional client-side operation timeout, an unauthenticated party can cause database replies to be paired with the wrong requests. This may result in the unintended disclosure of other users' records, incorrect operation results, or failures of legitimate requests.\n",
       "published": "2026-11-03T16:00:48.000Z",
       "object_refs": [
         "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+        "software--45f94eba-282d-5afb-b8af-824b8de0b61e",
         "vulnerability--ebd5f447-6b01-5bad-a672-375d2ae023b2"
       ],
       "external_references": [
@@ -13043,14 +13126,18 @@
         {
           "source_name": "reference",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119179"
+        },
+        {
+          "source_name": "reference",
+          "url": "https://sploitus.com/exploit?id=CVE-2026-119179\u0026utm_source=rss\u0026utm_medium=rss"
         }
       ],
       "confidence": 80,
       "x_craftedsignal_brief_id": "brief-2026-11-03-mongodb-nodejs-driver-vulnerability",
       "x_craftedsignal_event_id": "brief-2026-11-03-mongodb-nodejs-driver-vulnerability",
-      "x_craftedsignal_revision": 1,
+      "x_craftedsignal_revision": 2,
       "x_craftedsignal_canonical_url": "https://feed.craftedsignal.io/briefs/2026-11-mongodb-nodejs-driver-vulnerability/",
-      "x_craftedsignal_activity_at": "2026-11-03T16:00:48.000Z",
+      "x_craftedsignal_activity_at": "2026-11-03T16:15:50.000Z",
       "x_craftedsignal_severity": "high",
       "x_craftedsignal_type": "advisory",
       "x_craftedsignal_exploitation_evidence": {
@@ -14370,6 +14457,13 @@
     {
       "type": "software",
       "spec_version": "2.1",
+      "id": "software--45f94eba-282d-5afb-b8af-824b8de0b61e",
+      "name": "MongoDB Node.js driver",
+      "vendor": "MongoDB"
+    },
+    {
+      "type": "software",
+      "spec_version": "2.1",
       "id": "software--46b17ee8-c5e3-5fb4-aa3c-8f2e1b8ebb91",
       "name": "Windows 10 China Government Edition",
       "vendor": "Microsoft"
@@ -15365,6 +15459,15 @@
       "created": "2025-01-01T00:00:00.000Z",
       "modified": "2025-01-01T00:00:00.000Z",
       "name": "STORM-0940"
+    },
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--695da9ec-19b8-5089-b51c-ae27d6b504b4",
+      "created_by_ref": "identity--08adab07-f58c-527d-9c31-5fab939b0d7f",
+      "created": "2025-01-01T00:00:00.000Z",
+      "modified": "2025-01-01T00:00:00.000Z",
+      "name": "UNC6993"
     },
     {
       "type": "threat-actor",

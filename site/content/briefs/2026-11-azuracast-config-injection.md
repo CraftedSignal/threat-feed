@@ -1,14 +1,29 @@
 ---
 brief_id: brief-2026-11-03-azuracast-config-injection
 event_id: brief-2026-11-03-azuracast-config-injection
-revision: 1
-activity_at: "2026-11-03T15:59:54Z"
+revision: 2
+activity_at: "2026-11-03T16:15:50Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-03T16:15:50Z"
+    checksum: sha256:430909225310092556061ba9ee44388fee30ecad550aecda65405e940c37a500
+    summary: poc_available
+    changed_fields:
+      - claim_state
+      - has_poc
+      - lastmod
+      - poc_references
+      - references
+      - updates
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121429&utm_source=rss&utm_medium=rss
 title: 'AzuraCast: Configuration injection and privilege escalation (CVE-2026-121427)'
 slug: 2026-11-azuracast-config-injection
 description: AzuraCast versions 0.23.8 and earlier contain an authorization bypass vulnerability allowing users with limited permissions to inject arbitrary directives into the Shoutcast configuration file.
 date: "2026-11-03T15:59:54Z"
-lastmod: "2026-11-03T16:00:08Z"
+lastmod: "2026-11-03T16:14:47Z"
 type: advisory
+claim_state: <nil>
 types:
   - advisory
 severities:
@@ -25,6 +40,9 @@ qa_status:
   validation_status: Source-verified vulnerability details
 cpes:
   - cpe:2.3:a:azuracast:azuracast:*:*:*:*:*:*:*:*
+has_poc: true
+poc_references:
+  - https://sploitus.com/exploit?id=CVE-2026-121429&utm_source=rss&utm_medium=rss
 tags:
   - privilege-escalation
   - web-vulnerability
@@ -57,6 +75,7 @@ cves:
 references:
   - https://nvd.nist.gov/vuln/detail/CVE-2026-121427
   - https://nvd.nist.gov/vuln/detail/CVE-2026-121429
+  - https://sploitus.com/exploit?id=CVE-2026-121429&utm_source=rss&utm_medium=rss
 action_plan:
   priority: elevated
   owners:
@@ -103,6 +122,13 @@ updates:
       - nvd
     source_urls:
       - https://nvd.nist.gov/vuln/detail/CVE-2026-121429
+  - at: "2026-11-03T16:14:47Z"
+    level: L2
+    summary: poc_available
+    sources:
+      - sploitus
+    source_urls:
+      - https://sploitus.com/exploit?id=CVE-2026-121429&utm_source=rss&utm_medium=rss
 ---
 
 AzuraCast versions 0.23.8 and earlier are vulnerable to a configuration injection attack via the /station/{id}/profile/edit endpoint. The application fails to properly validate permissions or sanitize input for the frontend_config.custom_config field. Authenticated users with the Manage station profile permission can inject arbitrary directives into the Shoutcast sc_serv.conf file, enabling them to override critical security settings such as adminpassword and portbase.
