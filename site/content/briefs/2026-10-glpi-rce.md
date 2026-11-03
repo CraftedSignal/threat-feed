@@ -1,12 +1,30 @@
 ---
 brief_id: brief-2026-10-29-glpi-rce
 event_id: brief-2026-10-29-glpi-rce
-revision: 1
-activity_at: "2026-10-29T14:37:42Z"
+revision: 2
+activity_at: "2026-11-03T18:03:38Z"
+revision_history:
+  - revision: 2
+    at: "2026-11-03T18:03:38Z"
+    checksum: sha256:1b6e93a7f69773876cf4ffb514ad434e16bc50f5cb8322eac2ed11d1bc7e577b
+    summary: added coverage for GLPI (< 10.0.28) +1 products
+    changed_fields:
+      - action_plan
+      - affected_products
+      - affected_vendors
+      - cves
+      - lastmod
+      - priority_signals
+      - references
+      - tags
+      - updates
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-121559
 title: 'GLPI: Remote Code Execution via Local File Inclusion (CVE-2025-24801)'
 slug: 2026-10-glpi-rce
 description: GLPI versions before 10.0.18 are vulnerable to remote code execution through Local File Inclusion, where authenticated users can modify file extension allowlists to execute arbitrary PHP payloads.
 date: "2026-10-29T14:37:42Z"
+lastmod: "2026-11-03T18:01:23Z"
 type: advisory
 types:
   - advisory
@@ -23,10 +41,17 @@ qa_status:
   verdict: pass
 cpes:
   - cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*
+tags:
+  - privilege-escalation
+  - web-application
+  - glpi
 vendors:
   - Glpi-project
+  - GLPI Project
 products:
   - GLPI (< 10.0.18)
+  - GLPI (< 10.0.28)
+  - GLPI (< 11.0.10)
 mitre_ttps:
   - tactic_id: TA0001
     tactic_name: Initial Access
@@ -45,9 +70,13 @@ cves:
     cvss: 8.5
     epss: 0.21148
     kev_status: "false"
+  - id: CVE-2026-121559
+    cvss: 7.2
+    kev_status: "false"
 references:
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-R1BEIRIN-EXPLOIT-CVE-2025-24801
   - https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-R1BEIRIN-EXPLOIT-CVE-2025-24801&utm_source=rss&utm_medium=rss
+  - https://nvd.nist.gov/vuln/detail/CVE-2026-121559
 rules:
   - title: Detect Potential CVE-2025-24801 Exploitation
     description: Detects exploitation attempts of CVE-2025-24801 by monitoring POST requests to the documenttype configuration form that contain common PHP-related file extensions in the parameter body.
@@ -71,6 +100,10 @@ action_plan:
       owner: IT Operations
       due: 48h
       evidence: Affected GLPI versions are < 10.0.18.
+    - action: Patch GLPI instances to version 10.0.28 or 11.0.10
+      owner: IT Operations
+      due: 48h
+      evidence: Source advises that versions before these releases are vulnerable to CVE-2026-121559.
   hunt_leads:
     - lead: Search web logs for suspicious access to newly uploaded files in directories associated with GLPI document storage.
       technique_id: T1190
@@ -80,12 +113,33 @@ action_plan:
       confidence: high
       disposition: hunt_now
       evidence: Exploit achieves RCE by accessing the uploaded PHP file via the web path.
+    - lead: Identify abnormal creation of Super-Admin accounts or cloning activity
+      technique_id: T1068
+      data_needed:
+        - GLPI application logs (specifically user management and cloning actions)
+      priority: high
+      confidence: high
+      disposition: hunt_now
+      evidence: The source describes the vulnerability as cloning an account to gain administrative privileges via the User::getCloneRelations function.
   mitigation_plan:
     - priority: immediate
       action: Patch GLPI to 10.0.18.
       owner: IT Operations
       addresses: CVE-2025-24801
       evidence: Vendor release fixes the LFI vulnerability.
+    - priority: immediate
+      action: Disable the account cloning feature for non-administrative roles
+      owner: IT Operations
+      addresses: CVE-2026-121559
+      evidence: The vulnerability allows a Technician to clone Super-Admin accounts.
+updates:
+  - at: "2026-11-03T18:01:23Z"
+    level: L2
+    summary: added coverage for GLPI (< 10.0.28) +1 products
+    sources:
+      - nvd
+    source_urls:
+      - https://nvd.nist.gov/vuln/detail/CVE-2026-121559
 ---
 
 GLPI versions prior to 10.0.18 contain a vulnerability (CVE-2025-24801) allowing Remote Code Execution (RCE) via Local File Inclusion. An authenticated user can interact with the `front/documenttype.form.php` endpoint and manipulate the `ext` parameter to permit the upload of unauthorized file types, such as PHP scripts. Successful exploitation results in arbitrary command execution on the host server.
